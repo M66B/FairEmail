@@ -10,7 +10,7 @@
     <string name="shortcut_compose">Eposta Oluştur</string>
     <string name="shortcut_setup">Kurulum</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">%1$d Hesap senkronize ediliyor</item>
+        <item quantity="one">%1$d Hesap eşzamanlanıyor</item>
         <item quantity="other">%1$d Hesap senkronize ediliyor</item>
     </plurals>
     <plurals name="title_notification_operations">
@@ -30,8 +30,8 @@
         <item quantity="other">%1$d yeni</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="one">%1$d mesajı %2$s konumuna taşı?</item>
-        <item quantity="other">%1$d mesajları %2$s konumuna taşı?</item>
+        <item quantity="one">%1$d iletiyi %2$s konumuna taşı?</item>
+        <item quantity="other">%1$d iletiyi %2$s konumuna taşı?</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' başarısız oldu</string>
     <string name="menu_setup">Kurulum</string>
@@ -71,6 +71,7 @@
     <string name="title_setup_setting_gmail">\"Daha az güvenli\" uygulamalara erişimi etkinleştir</string>
     <string name="title_setup_no_settings">%1$s için ayar bulunamadı</string>
     <string name="title_setup_quick_success">Bir hesap ve bir kimlik eklendi. \'Yönet\' düğmelerini kullanarak aşağıdaki ayrıntıları inceleyebilirsiniz.</string>
+    <string name="title_setup_quick_failed">Bir hesap ve kimlik yapılandırmayı aşağıdan da deneyebilirsiniz</string>
     <string name="title_setup_account">Hesapları Yönet</string>
     <string name="title_setup_account_remark">E-posta almak için</string>
     <string name="title_setup_identity">Kimlikleri Yönet</string>
@@ -110,6 +111,7 @@
     <string name="title_advanced_actionbar">İletişim etkinlik çubuğu</string>
     <string name="title_advanced_autoclose">İletişimleri otomatik olarak kapat</string>
     <string name="title_advanced_autoread">İleti taşındığında otomatik olarak okundu diye işaretle</string>
+    <string name="title_advanced_collapse">Konuşmalardaki mesajları \'geri\' seçeneğinde daralt</string>
     <string name="title_advanced_automove">İletileri taşımayı onaylayın</string>
     <string name="title_advanced_confirm">Gizliliği duyarlı bilgileri sızdırabilecek eylemleri onaylayın</string>
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
@@ -231,7 +233,7 @@
     <string name="title_more">Daha fazla</string>
     <string name="title_spam">İstenmeyen posta</string>
     <string name="title_move">Taşı</string>
-    <string name="title_snooze">Ertele</string>
+    <string name="title_snooze">Kısa uyku &#8230;</string>
     <string name="title_archive">Arşivle</string>
     <string name="title_reply">Yanıtla</string>
     <string name="title_moving">%1$s\'e taşınıyor</string>
@@ -249,8 +251,8 @@
     <string name="title_ask_delete">İleti kalıcı olarak silinsin mi?</string>
     <string name="title_ask_delete_selected">Seçilen iletiler kalıcı olarak silinsin mi?</string>
     <string name="title_ask_delete_answer">Yanıt kalıbı kalıcı olarak silinsin mi?</string>
-    <string name="title_ask_discard">Taslağı silinsin mi?</string>
-    <string name="title_ask_save">Değişiklikleri kaydedilsin mi?</string>
+    <string name="title_ask_discard">Taslak silinsin mi?</string>
+    <string name="title_ask_save">Değişiklikler kaydedilsin mi?</string>
     <string name="title_ask_spam">İstenmeyen posta olarak bildirilsin mi?</string>
     <string name="title_ask_show_html">Özgün iletiyi göstermek gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_show_image">Resimlerin gösterilmesi gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
@@ -270,6 +272,8 @@
     <string name="title_save">Kaydet</string>
     <string name="title_send">Gönder</string>
     <string name="title_view">Görünüm</string>
+    <string name="title_send_after">&#8230; sonra gönder</string>
+    <string name="title_ask_resize">Ekranlarda görüntülenmesi için %1$s\'in boyutu küçültülsün mü?</string>
     <string name="title_no_selection">Seçili hiçbir şey yok</string>
     <string name="title_style_bold">Kalın</string>
     <string name="title_style_italic">Eğik</string>
@@ -280,6 +284,7 @@
     <string name="title_show_addresses">CC/BCC göster</string>
     <string name="title_from_missing">Gönderici Eksik</string>
     <string name="title_to_missing">Alıcı eksik</string>
+    <string name="title_attachments_missing">Tüm ekler indirilmedi</string>
     <string name="title_draft_deleted">Taslak silindi</string>
     <string name="title_draft_saved">Taslak kaydedildi</string>
     <string name="title_ask_send">%1$s\'e ileti gönderilsin mi?</string>

@@ -38,6 +38,7 @@
     <string name="menu_invite">Invitér</string>
     <string name="menu_rate">Bedøm denne app</string>
     <string name="menu_other">Andre apps</string>
+    <string name="title_welcome">Velkommen</string>
     <string name="title_eula">Slutbrugerlicensaftale</string>
     <string name="title_agree">Jeg accepterer</string>
     <string name="title_disagree">Jeg accepterer ikke</string>
@@ -53,6 +54,7 @@
     <string name="title_setup_password">Adgangskode</string>
     <string name="title_setup_password_repeat">Gentag adgangskode</string>
     <string name="title_setup_password_missing">Adgangskode mangler</string>
+    <string name="title_setup_password_invalid">Password ugyldig</string>
     <string name="title_setup_account">Administrer konti</string>
     <string name="title_setup_account_remark">Til at modtage email</string>
     <string name="title_setup_identity">Håndter identiteter</string>
@@ -75,6 +77,7 @@
     <string name="title_account_linked">Forbundet konto</string>
     <string name="title_account_name">Kontonavn</string>
     <string name="title_account_name_hint">Bruges til at differentiere mapper</string>
+    <string name="title_account_signature">Signaturtekst</string>
     <string name="title_account_color">Farve</string>
     <string name="title_account_notify">Adskilte meddelelser</string>
     <string name="title_domain">Domænenavn</string>
@@ -125,6 +128,8 @@
     <string name="title_forward">Videresend</string>
     <string name="title_reply_all">Svar alle</string>
     <string name="title_manage_keywords">Håndter nøgleord</string>
+    <string name="title_download_all">Download alle</string>
+    <string name="title_save_all">Gem alt</string>
     <string name="title_show_html">Vis original</string>
     <string name="title_trash">Papirkurv</string>
     <string name="title_delete">Slet</string>
@@ -136,6 +141,7 @@
     <string name="title_moving">Flytter til %1$s</string>
     <string name="title_open_with">Åbn med</string>
     <string name="title_no_viewer">Ingen viewer app til rådighed for %1$s</string>
+    <string name="title_no_internet">Ingen internetforbindelse</string>
     <string name="title_attachment_saved">Vedhæftet fil gemt</string>
     <string name="title_ask_delete">Slet meddelelsen permanent?</string>
     <string name="title_ask_discard">Kassér udkast?</string>
@@ -155,6 +161,7 @@
     <string name="title_save">Gem</string>
     <string name="title_send">Send</string>
     <string name="title_view">Vis</string>
+    <string name="title_send_after">Send efter &#8230;</string>
     <string name="title_no_selection">Intet valgt</string>
     <string name="title_style_bold">Fed</string>
     <string name="title_style_italic">Kursiv</string>
@@ -169,9 +176,13 @@
     <string name="title_encrypt">Kryptér</string>
     <string name="title_decrypt">Dekryptér</string>
     <string name="title_search">Søg</string>
+    <string name="title_search_hint">Søg på server</string>
     <string name="title_searching">Søger \'%1$s \'</string>
     <string name="title_sort_on_time">Tid</string>
     <string name="title_sort_on_unread">Ulæst</string>
+    <string name="title_zoom">Tekststørrelse</string>
+    <string name="title_address_sent">Sendt:</string>
+    <string name="title_address_invalid">Ugyldig:</string>
     <string name="title_previous">Forrige</string>
     <string name="title_next">Næste</string>
     <string name="title_action_seen">Markér som læst</string>
@@ -194,12 +205,16 @@
     <string name="title_legend_closing">Lukker</string>
     <string name="title_hint_folder_actions">Langt tryk for flere muligheder</string>
     <string name="title_open_link">Åben link</string>
+    <string name="title_select_app">Vælg app</string>
     <string name="title_issue">Har du et spørgsmål eller et problem?</string>
     <string name="title_yes">Ja</string>
     <string name="title_no">Nej</string>
     <string name="title_undo">Fortryd</string>
     <string name="title_add">Tilføj</string>
+    <string name="title_hours">Timer</string>
+    <string name="title_days">Dage</string>
     <string name="title_report">Rapportér</string>
+    <string name="title_no_ask_again">Vis ikke igen</string>
     <string name="title_pro_feature">Dette er en pro funktion</string>
     <string name="title_pro_list">Liste over pro funktioner</string>
     <string name="title_pro_purchase">Køb</string>

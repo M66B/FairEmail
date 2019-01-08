@@ -233,7 +233,7 @@
     <string name="title_more">Plus</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Déplacer</string>
-    <string name="title_snooze">Différer</string>
+    <string name="title_snooze">Différer &#8230;</string>
     <string name="title_archive">Archiver</string>
     <string name="title_reply">Répondre</string>
     <string name="title_moving">Déplacement vers %1$s</string>

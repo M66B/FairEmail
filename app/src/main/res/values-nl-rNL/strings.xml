@@ -233,7 +233,7 @@
     <string name="title_more">Meer</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Verplaatsen</string>
-    <string name="title_snooze">Sluimeren</string>
+    <string name="title_snooze">Sluimeren &#8230;</string>
     <string name="title_archive">Archiveren</string>
     <string name="title_reply">Beantwoorden</string>
     <string name="title_moving">Verplaatsen naar %1$s</string>
