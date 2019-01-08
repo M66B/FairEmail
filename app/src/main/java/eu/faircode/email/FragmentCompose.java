@@ -99,6 +99,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -706,12 +707,30 @@ public class FragmentCompose extends FragmentEx {
         final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_duration, null);
         final NumberPicker npHours = dview.findViewById(R.id.npHours);
         final NumberPicker npDays = dview.findViewById(R.id.npDays);
+        final TextView tvTime = dview.findViewById(R.id.tvTime);
+        final long HOUR_MS = 3600L * 1000L;
 
         npHours.setMinValue(0);
         npHours.setMaxValue(24);
 
         npDays.setMinValue(0);
         npDays.setMaxValue(90);
+
+        NumberPicker.OnValueChangeListener valueChanged = new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                int hours = npHours.getValue();
+                int days = npDays.getValue();
+                long duration = (hours + days * 24) * HOUR_MS;
+                long time = new Date().getTime() / HOUR_MS * HOUR_MS + duration;
+                tvTime.setText(SimpleDateFormat.getDateTimeInstance().format(time));
+                tvTime.setVisibility(duration == 0 ? View.INVISIBLE : View.VISIBLE);
+            }
+        };
+
+        npHours.setOnValueChangedListener(valueChanged);
+        npDays.setOnValueChangedListener(valueChanged);
+        valueChanged.onValueChange(null, 0, 0);
 
         new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                 .setTitle(R.string.title_send_after)
@@ -722,11 +741,12 @@ public class FragmentCompose extends FragmentEx {
                         try {
                             int hours = npHours.getValue();
                             int days = npDays.getValue();
-                            long duration = (hours + days * 24) * 3600L * 1000L;
+                            long duration = (hours + days * 24) * HOUR_MS;
+                            long time = new Date().getTime() / HOUR_MS * HOUR_MS + duration;
 
                             Bundle args = new Bundle();
                             args.putLong("id", working);
-                            args.putLong("wakeup", new Date().getTime() + duration);
+                            args.putLong("wakeup", time);
 
                             new SimpleTask<Void>() {
                                 @Override
