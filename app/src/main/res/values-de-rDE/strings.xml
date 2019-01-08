@@ -236,6 +236,7 @@
     <string name="title_more">Mehr</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Verschieben</string>
+    <string name="title_snooze">Später lesen</string>
     <string name="title_archive">Archivieren</string>
     <string name="title_reply">Antworten</string>
     <string name="title_moving">Verschiebe nach %1$s</string>
@@ -284,6 +285,7 @@
     <string name="title_show_addresses">CC/BCC anzeigen</string>
     <string name="title_from_missing">Absender fehlt</string>
     <string name="title_to_missing">Empfänger fehlt</string>
+    <string name="title_attachments_missing">Nicht alle Dateianhänge wurden heruntergeladen</string>
     <string name="title_draft_deleted">Entwurf gelöscht</string>
     <string name="title_draft_saved">Entwurf gespeichert</string>
     <string name="title_ask_send">Nachricht an %1$s senden?</string>
@@ -364,6 +366,8 @@
     <string name="title_undo">Rückgängig</string>
     <string name="title_add">Hinzufügen</string>
     <string name="title_browse">Browser</string>
+    <string name="title_hours">Stunden</string>
+    <string name="title_days">Tage</string>
     <string name="title_report">Bericht</string>
     <string name="title_no_ask_again">Dies nicht mehr anzeigen</string>
     <string name="title_try">Testen Sie FairEmail, eine opensource und datenschutzfreundliche E-Mail-App für Android</string>

@@ -242,6 +242,7 @@
     <string name="title_more">Mai mult</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Mută</string>
+    <string name="title_snooze">Amână</string>
     <string name="title_archive">Arhivă</string>
     <string name="title_reply">Răspunde</string>
     <string name="title_moving">Mutare în %1$s</string>
@@ -280,6 +281,7 @@
     <string name="title_save">Salvează</string>
     <string name="title_send">Trimite</string>
     <string name="title_view">Afisare</string>
+    <string name="title_send_after">Trimite după &#8230;</string>
     <string name="title_no_selection">Nimic selectat</string>
     <string name="title_style_bold">Îngroșat</string>
     <string name="title_style_italic">Cursiv</string>
@@ -290,6 +292,7 @@
     <string name="title_show_addresses">Arată CC/BCC</string>
     <string name="title_from_missing">Expeditor lipsă</string>
     <string name="title_to_missing">Destinatar lipsă</string>
+    <string name="title_attachments_missing">Nu toate ataşamentele se descarcă</string>
     <string name="title_draft_deleted">S-a renunțat la ciornă</string>
     <string name="title_draft_saved">Ciornă salvată</string>
     <string name="title_ask_send">Trimite un mesaj către %1$s?</string>
@@ -310,6 +313,7 @@
     <string name="title_address_sent">Trimis:</string>
     <string name="title_address_unsent">Netrimis:</string>
     <string name="title_address_invalid">Invalid:</string>
+    <string name="title_snoozed">Amânată</string>
     <string name="title_move_sent">Mută la mesaje trimise</string>
     <string name="title_previous">Precedent</string>
     <string name="title_next">Următor</string>
@@ -331,6 +335,7 @@
     <string name="title_legend_thread">Conversație</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Atașament</string>
+    <string name="title_legend_snoozed">Amânată</string>
     <string name="title_legend_draft">Ciornă/editare</string>
     <string name="title_legend_answered">S-a răspuns</string>
     <string name="title_legend_contacts">Contacte</string>
@@ -370,6 +375,8 @@
     <string name="title_undo">Anulează</string>
     <string name="title_add">Adaugă</string>
     <string name="title_browse">Răsfoire</string>
+    <string name="title_hours">Ore</string>
+    <string name="title_days">Zile</string>
     <string name="title_report">Raportează</string>
     <string name="title_no_ask_again">Nu mai întreba din nou</string>
     <string name="title_try">Încearcă FairEmail, o aplicație de e-mail pentru Android cu sursă deschisă, ce protejează intimitatea și confidențialitatea</string>

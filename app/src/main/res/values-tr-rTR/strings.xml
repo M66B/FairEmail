@@ -105,6 +105,7 @@
     <string name="title_advanced_preview">İleti önizlemesini göster</string>
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
+    <string name="title_advanced_pull_refresh">Yenilemek için aşağıya çekin</string>
     <string name="title_advanced_swipe">Kaydırma eylemleri</string>
     <string name="title_advanced_actionbar">İletişim etkinlik çubuğu</string>
     <string name="title_advanced_autoclose">İletişimleri otomatik olarak kapat</string>
@@ -112,6 +113,7 @@
     <string name="title_advanced_automove">İletileri taşımayı onaylayın</string>
     <string name="title_advanced_confirm">Gizliliği duyarlı bilgileri sızdırabilecek eylemleri onaylayın</string>
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
+    <string name="title_advanced_autosend">İleti göndermeyi onayla</string>
     <string name="title_advanced_updates">Güncellemelere bak</string>
     <string name="title_advanced_debug">Hata ayıklama</string>
     <string name="title_advanced_enabled_hint">İletileri alma ve göndermeyi toptan devre dışı bırakın veya etkinleştirin</string>
@@ -173,6 +175,7 @@
     <string name="title_identity_delete">Bu kimlik kalıcı olarak silinsin mi?</string>
     <string name="title_pop">POP desteklenmiyor</string>
     <string name="title_identity_sent_hint">Gönderilen iletiler, çoğu durumda zaten gönderilenler klasöründe otomatik olarak saklanır</string>
+    <string name="title_edit_html">HTML olarak düzenle</string>
     <string name="title_synchronize_now">Şimdi senkronize et</string>
     <string name="title_delete_local">Yerel mesajları sil</string>
     <string name="title_empty_trash">Çöpü boşalt</string>
@@ -219,15 +222,19 @@
     <string name="title_forward">İlet</string>
     <string name="title_forward_raw">İşlenmemiş olarak ilet</string>
     <string name="title_reply_all">Tümünü yanıtla</string>
+    <string name="title_share">Paylaş</string>
     <string name="title_show_headers">Başlıkları Göster</string>
     <string name="title_manage_keywords">Anahtar sözcükleri yönet</string>
     <string name="title_add_keyword">Anahtar sözcük ekle</string>
+    <string name="title_download_all">Tümünü indir</string>
+    <string name="title_save_all">Tümünü kaydet</string>
     <string name="title_show_html">Orjinali göster</string>
     <string name="title_trash">Çöp Kutusu</string>
     <string name="title_delete">Sil</string>
     <string name="title_more">Daha fazla</string>
     <string name="title_spam">İstenmeyen posta</string>
     <string name="title_move">Taşı</string>
+    <string name="title_snooze">Ertele</string>
     <string name="title_archive">Arşivle</string>
     <string name="title_reply">Yanıtla</string>
     <string name="title_moving">%1$s\'e taşınıyor</string>
@@ -239,6 +246,7 @@
     <string name="title_no_contacts">Kişi seçici mevcut değil</string>
     <string name="title_no_internet">İnternet bağlantısı yok</string>
     <string name="title_attachment_saved">Ek kaydedildi</string>
+    <string name="title_attachments_saved">Ekler kaydedildi</string>
     <string name="title_attachment_unavailable">Bazı eklentiler indirilmedi ve eklenmeyecek. Devam edilsin mi?</string>
     <string name="title_image_unavailable">Bazı resimler indirilmemiş ve eklenmeyecek, devam edilsin mi?</string>
     <string name="title_ask_delete">İleti kalıcı olarak silinsin mi?</string>
@@ -277,6 +285,7 @@
     <string name="title_to_missing">Alıcı eksik</string>
     <string name="title_draft_deleted">Taslak silindi</string>
     <string name="title_draft_saved">Taslak kaydedildi</string>
+    <string name="title_ask_send">%1$s\'e ileti gönderilsin mi?</string>
     <string name="title_queued">İleti gönderiliyor</string>
     <string name="title_encrypt">Şifrele</string>
     <string name="title_decrypt">Şifreyi çöz</string>
@@ -294,6 +303,7 @@
     <string name="title_address_sent">Gönderilen:</string>
     <string name="title_address_unsent">Gönderilmemiş:</string>
     <string name="title_address_invalid">Geçersiz:</string>
+    <string name="title_snoozed">Ertelendi</string>
     <string name="title_move_sent">Gönderilenlere taşı</string>
     <string name="title_previous">Önceki</string>
     <string name="title_next">Sonraki</string>
@@ -315,6 +325,7 @@
     <string name="title_legend_thread">Sohbet</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Ek</string>
+    <string name="title_legend_snoozed">Ertelendi</string>
     <string name="title_legend_draft">Taslak/düzenle</string>
     <string name="title_legend_answered">Yanıtlanmış</string>
     <string name="title_legend_contacts">Kişiler</string>
@@ -323,6 +334,8 @@
     <string name="title_legend_external_image">Harici resim vekili</string>
     <string name="title_legend_embedded_image">İliştirilmiş resim vekili</string>
     <string name="title_legend_broken_image">Bozuk görüntü</string>
+    <string name="title_legend_download_off">İleti içeriğini istendiğinde indir</string>
+    <string name="title_legend_download_on">İleti içeriğini otomatik olarak indir</string>
     <string name="title_legend_synchronize_on">Eşzamanlama açık</string>
     <string name="title_legend_synchronize_off">Eşzamanlama kapalı</string>
     <string name="title_legend_primary">Öncelik/yıldızlı</string>
@@ -352,7 +365,10 @@
     <string name="title_undo">Geri Al</string>
     <string name="title_add">Ekle</string>
     <string name="title_browse">Göz at</string>
+    <string name="title_hours">Saatler</string>
+    <string name="title_days">Günler</string>
     <string name="title_report">Rapor Et</string>
+    <string name="title_no_ask_again">Bunu bir daha sorma</string>
     <string name="title_try">Android için açık kaynaklı, gizlilik dostu bir e-posta uygulaması olan FairEmail\'i deneyin</string>
     <string name="title_pro_feature">Bu Pro özelliğidir</string>
     <string name="title_pro_list">Pro özelliklerin listesi</string>

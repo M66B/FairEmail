@@ -275,6 +275,7 @@
     <string name="title_save">Bewaren</string>
     <string name="title_send">Verzenden</string>
     <string name="title_view">Weergeven</string>
+    <string name="title_send_after">Verzenden na &#8230;</string>
     <string name="title_no_selection">Niets geselecteerd</string>
     <string name="title_style_bold">Vet</string>
     <string name="title_style_italic">Cursief</string>
