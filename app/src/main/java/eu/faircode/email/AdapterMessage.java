@@ -71,6 +71,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.xml.sax.XMLReader;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.Collator;
@@ -699,12 +700,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         bnvActions.setTag(data);
 
                         bnvActions.getMenu().findItem(R.id.action_more).setVisible(!inOutbox);
+
                         bnvActions.getMenu().findItem(R.id.action_delete).setVisible(
                                 (inTrash && message.msgid != null) ||
                                         (!inTrash && hasTrash && message.uid != null) ||
-                                        (inOutbox && (message.ui_snoozed != null || !TextUtils.isEmpty(message.error))));
+                                        (inOutbox && !TextUtils.isEmpty(message.error)));
                         bnvActions.getMenu().findItem(R.id.action_delete).setTitle(inTrash ? R.string.title_delete : R.string.title_trash);
-                        bnvActions.getMenu().findItem(R.id.action_move).setVisible(message.uid != null);
+
+                        bnvActions.getMenu().findItem(R.id.action_move).setVisible(
+                                message.uid != null || (inOutbox && message.ui_snoozed != null));
+                        bnvActions.getMenu().findItem(R.id.action_move).setTitle(
+                                inOutbox && message.ui_snoozed != null ? R.string.title_folder_drafts : R.string.title_move);
+
                         bnvActions.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
                         bnvActions.getMenu().findItem(R.id.action_reply).setEnabled(message.content);
                         bnvActions.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
@@ -1769,7 +1776,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 protected List<EntityFolder> onExecute(Context context, Bundle args) {
                     EntityMessage message;
-                    List<EntityFolder> folders = new ArrayList<>();
+                    List<EntityFolder> folders = null;
 
                     DB db = DB.getInstance(context);
                     try {
@@ -1777,14 +1784,41 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         message = db.message().getMessage(args.getLong("id"));
                         if (message == null)
-                            return folders;
+                            return null;
 
-                        folders = db.folder().getFolders(message.account);
+                        EntityFolder folder = db.folder().getFolder(message.folder);
+                        if (EntityFolder.OUTBOX.equals(folder.type)) {
+                            long id = message.id;
+
+                            // Insert into drafts
+                            EntityFolder drafts = db.folder().getFolderByType(message.account, EntityFolder.DRAFTS);
+                            message.id = null;
+                            message.folder = drafts.id;
+                            message.ui_snoozed = null;
+                            message.id = db.message().insertMessage(message);
+
+                            File source = EntityMessage.getFile(context, id);
+                            File target = EntityMessage.getFile(context, message.id);
+                            source.renameTo(target);
+
+                            List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                            for (EntityAttachment attachment : attachments)
+                                db.attachment().setMessage(attachment.id, message.id);
+
+                            EntityOperation.queue(context, db, message, EntityOperation.ADD);
+
+                            // Delete from outbox
+                            db.message().deleteMessage(id);
+                        } else
+                            folders = db.folder().getFolders(message.account);
 
                         db.setTransactionSuccessful();
                     } finally {
                         db.endTransaction();
                     }
+
+                    if (folders == null)
+                        return null;
 
                     List<EntityFolder> targets = new ArrayList<>();
                     for (EntityFolder folder : folders)
@@ -1802,6 +1836,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onExecuted(final Bundle args, List<EntityFolder> folders) {
+                    if (folders == null)
+                        return;
+
                     View anchor = bnvActions.findViewById(R.id.action_move);
                     PopupMenu popupMenu = new PopupMenu(context, anchor);
 

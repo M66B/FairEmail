@@ -59,6 +59,11 @@ public interface DaoAttachment {
     EntityAttachment getAttachment(long message, String cid);
 
     @Query("UPDATE attachment" +
+            " SET message = :message" +
+            " WHERE id = :id")
+    void setMessage(long id, long message);
+
+    @Query("UPDATE attachment" +
             " SET progress = :progress, available = 0" +
             " WHERE id = :id")
     void setProgress(long id, Integer progress);
