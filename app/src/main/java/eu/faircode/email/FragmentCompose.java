@@ -99,6 +99,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -735,7 +736,8 @@ public class FragmentCompose extends FragmentEx {
                 int days = npDays.getValue();
                 long duration = (hours + days * 24) * HOUR_MS;
                 long time = new Date().getTime() / HOUR_MS * HOUR_MS + duration;
-                tvTime.setText(SimpleDateFormat.getDateTimeInstance().format(time));
+                DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
+                tvTime.setText(df.format(time));
                 tvTime.setVisibility(duration == 0 ? View.INVISIBLE : View.VISIBLE);
             }
         };

@@ -52,6 +52,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.Serializable;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -1220,7 +1221,8 @@ public class FragmentMessages extends FragmentEx {
                         int days = npDays.getValue();
                         long duration = (hours + days * 24) * HOUR_MS;
                         long time = new Date().getTime() / HOUR_MS * HOUR_MS + duration;
-                        tvTime.setText(SimpleDateFormat.getDateTimeInstance().format(time));
+                        DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
+                        tvTime.setText(df.format(time));
                         tvTime.setVisibility(duration == 0 ? View.INVISIBLE : View.VISIBLE);
                     }
                 };
