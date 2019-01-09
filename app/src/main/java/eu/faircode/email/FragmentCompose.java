@@ -1629,21 +1629,14 @@ public class FragmentCompose extends FragmentEx {
                         for (EntityAttachment attachment : attachments)
                             if (attachment.available &&
                                     ("forward".equals(action) || attachment.isInline())) {
-                                EntityAttachment copy = new EntityAttachment();
-                                copy.message = result.draft.id;
-                                copy.sequence = ++sequence;
-                                copy.name = attachment.name;
-                                copy.type = attachment.type;
-                                copy.disposition = attachment.disposition;
-                                copy.cid = attachment.cid;
-                                copy.encryption = attachment.encryption;
-                                copy.size = attachment.size;
-                                copy.progress = attachment.progress;
-                                copy.available = attachment.available;
-                                copy.id = db.attachment().insertAttachment(copy);
+                                long orig = attachment.id;
+                                attachment.id = null;
+                                attachment.message = result.draft.id;
+                                attachment.sequence = ++sequence;
+                                attachment.id = db.attachment().insertAttachment(attachment);
 
-                                File source = EntityAttachment.getFile(context, attachment.id);
-                                File target = EntityAttachment.getFile(context, copy.id);
+                                File source = EntityAttachment.getFile(context, orig);
+                                File target = EntityAttachment.getFile(context, attachment.id);
                                 Helper.copy(source, target);
                             }
 
