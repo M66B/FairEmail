@@ -596,7 +596,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 Spanned body = properties.getBody(message.id);
                 tvBody.setText(body);
-                tvBody.setMovementMethod(new UrlHandler());
+                tvBody.setMovementMethod(null);
                 if (internet || message.content)
                     pbBody.setVisibility(View.VISIBLE);
                 else
@@ -1070,6 +1070,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvBody.setMovementMethod(new UrlHandler());
                 pbBody.setVisibility(View.GONE);
                 properties.setBody(message.id, body);
+
             }
 
             @Override
