@@ -124,6 +124,7 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * [(61) Why are some messages shown dimmed?](#user-content-faq61)
 * [(62) Which authentication methods are supported?](#user-content-faq62)
 * [(63) How are images resized for displaying on screens?](#user-content-faq63)
+* [(64) Can you add custom actions for swipe left/right?](#user-content-faq64)
 
 [I have another question.](#support)
 
@@ -985,6 +986,15 @@ because [JavaMail for Android](https://javaee.github.io/javamail/Android) does n
 After adding an inline image or an image attachment you might be asked if you want to reduce the image size for displaying on a screens.
 If you answer "yes", the image will be resized to a maximum width and height of about 1920 pixels and saved with a compression ratio of 90 out of 100.
 Images are scaled down using whole number factors to reduce memory usage and to retain image quality.
+
+<br />
+
+<a name="faq64"></a>
+**(64) Can you add custom actions for swipe left/right?**
+
+The most natural thing to do when swiping a list entry left or right is to remove the entry from the list.
+The most natural action in the context of FairEmail is to either archive or trash the message.
+Other actions, like adding stars to messages, reporting messages as spam and move messages are available via multiple selection.
 
 <br />
 
