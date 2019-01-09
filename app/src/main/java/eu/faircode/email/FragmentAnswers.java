@@ -63,7 +63,7 @@ public class FragmentAnswers extends FragmentEx {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvAnswer.setLayoutManager(llm);
 
-        adapter = new AdapterAnswer(getContext());
+        adapter = new AdapterAnswer(getContext(), getViewLifecycleOwner());
         rvAnswer.setAdapter(adapter);
 
         fab.setOnClickListener(new View.OnClickListener() {

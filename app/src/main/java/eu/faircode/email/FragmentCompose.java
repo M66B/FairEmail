@@ -1520,6 +1520,13 @@ public class FragmentCompose extends FragmentEx {
                         result.draft.subject = args.getString("subject", "");
                         body = args.getString("body", "");
                         body = body.replaceAll("\\r?\\n", "<br />");
+
+                        if (answer > 0) {
+                            String text = db.answer().getAnswer(answer).text;
+                            text = text.replace("$name$", "");
+                            text = text.replace("$email$", "");
+                            body = text + body;
+                        }
                     } else {
                         result.draft.thread = ref.thread;
 

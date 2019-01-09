@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,7 @@ import java.util.List;
 import java.util.Locale;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
@@ -41,12 +43,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder> {
     private Context context;
+    private LifecycleOwner owner;
     private LayoutInflater inflater;
 
     private List<EntityAnswer> all = new ArrayList<>();
     private List<EntityAnswer> filtered = new ArrayList<>();
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    private EntityAccount primary = null;
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         View itemView;
         TextView tvName;
 
@@ -59,10 +64,12 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
 
         private void wire() {
             itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
         }
 
         private void unwire() {
             itemView.setOnClickListener(null);
+            itemView.setOnLongClickListener(null);
         }
 
         private void bindTo(EntityAnswer answer) {
@@ -82,12 +89,48 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
                     new Intent(ActivityView.ACTION_EDIT_ANSWER)
                             .putExtra("id", answer.id));
         }
+
+        @Override
+        public boolean onLongClick(View v) {
+            if (primary == null)
+                return false;
+
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return false;
+
+            EntityAnswer answer = filtered.get(pos);
+
+            context.startActivity(new Intent(context, ActivityCompose.class)
+                    .putExtra("action", "new")
+                    .putExtra("answer", answer.id));
+
+            return false;
+        }
     }
 
-    AdapterAnswer(Context context) {
+    AdapterAnswer(Context context, LifecycleOwner owner) {
         this.context = context;
+        this.owner = owner;
         this.inflater = LayoutInflater.from(context);
         setHasStableIds(true);
+
+        new SimpleTask<EntityAccount>() {
+            @Override
+            protected EntityAccount onExecute(Context context, Bundle args) {
+                return DB.getInstance(context).account().getPrimaryAccount();
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, EntityAccount account) {
+                primary = account;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(AdapterAnswer.this.context, AdapterAnswer.this.owner, ex);
+            }
+        }.execute(context, owner, new Bundle(), "answer:account:primary");
     }
 
     public void set(@NonNull List<EntityAnswer> answers) {
