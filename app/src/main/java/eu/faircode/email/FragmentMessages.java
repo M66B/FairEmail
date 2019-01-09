@@ -1237,7 +1237,7 @@ public class FragmentMessages extends FragmentEx {
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                try {
+                                if (Helper.isPro(getContext())) {
                                     int hours = npHours.getValue();
                                     int days = npDays.getValue();
                                     long duration = (hours + days * 24) * HOUR_MS;
@@ -1276,8 +1276,10 @@ public class FragmentMessages extends FragmentEx {
                                             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                                         }
                                     }.execute(FragmentMessages.this, args, "messages:snooze");
-                                } catch (Throwable ex) {
-                                    Log.e(ex);
+                                } else {
+                                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                                    fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                                    fragmentTransaction.commit();
                                 }
                             }
                         })
