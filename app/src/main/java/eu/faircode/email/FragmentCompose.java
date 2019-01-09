@@ -223,9 +223,9 @@ public class FragmentCompose extends FragmentEx {
                 int at = (identity == null ? -1 : identity.email.indexOf('@'));
                 tvExtraPrefix.setText(at < 0 ? null : identity.email.substring(0, at));
                 tvExtraSuffix.setText(at < 0 ? null : identity.email.substring(at));
+                Spanned signature = null;
                 if (pro) {
-                    Spanned signature = null;
-                    if (identity != null && identity.signature != null)
+                    if (identity != null && !TextUtils.isEmpty(identity.signature))
                         signature = Html.fromHtml(identity.signature, new Html.ImageGetter() {
                             @Override
                             public Drawable getDrawable(String source) {
@@ -236,9 +236,9 @@ public class FragmentCompose extends FragmentEx {
                                 return d;
                             }
                         }, null);
-                    tvSignature.setText(signature);
-                    grpSignature.setVisibility(signature == null ? View.GONE : View.VISIBLE);
                 }
+                tvSignature.setText(signature);
+                grpSignature.setVisibility(signature == null ? View.GONE : View.VISIBLE);
             }
 
             @Override

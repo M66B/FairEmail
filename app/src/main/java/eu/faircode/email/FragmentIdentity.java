@@ -704,7 +704,8 @@ public class FragmentIdentity extends FragmentEx {
                     etEmail.setText(identity == null ? null : identity.email);
 
                     etDisplay.setText(identity == null ? null : identity.display);
-                    etSignature.setText(identity == null || identity.signature == null ? null : Html.fromHtml(identity.signature));
+                    etSignature.setText(identity == null ||
+                            TextUtils.isEmpty(identity.signature) ? null : Html.fromHtml(identity.signature));
 
                     etHost.setText(identity == null ? null : identity.host);
                     cbStartTls.setChecked(identity == null ? false : identity.starttls);
