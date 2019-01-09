@@ -52,9 +52,9 @@ Since FairEmail is meant to be privacy friendly, the following will not be added
 
 * Open links without confirmation
 * Show original message without confirmation
-* Direct file/folder access: for security/privacy reasons (other) apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider)
+* Direct file/folder access: for security/privacy reasons (other) apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider), see also [this FAQ](#user-content-faq49)
 
-Confirmation or hiding the addresses section is just one tap, which is just a small price for better privacy.
+Confirmation is just one tap, which is just a small price for better privacy.
 Note that your contacts could unknowingly send malicious messages if they got infected with malware.
 
 
@@ -458,7 +458,7 @@ See [here](https://support.google.com/mail/answer/7126229) for details.
 
 Browse messages on the server will fetch messages from the email server in real time
 when you reach the end of the list of synchronized messages, even when the folder is set to not synchronize.
-You can disable this feature under *Setup* > *Advanced options* > *Browse messages on the server*.
+You can disable this feature in the advanced account settings.
 
 <br />
 
