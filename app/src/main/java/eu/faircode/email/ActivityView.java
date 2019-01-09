@@ -232,6 +232,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     case R.string.menu_setup:
                         onReload();
                         break;
+                    case R.string.menu_operations:
+                        onShowLog();
+                        break;
                     case R.string.menu_faq:
                         onDebugInfo();
                         break;
@@ -239,7 +242,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         onCleanup();
                         break;
                     case R.string.menu_about:
-                        onShowLog();
+                        if (Helper.isPlayStoreInstall(ActivityView.this))
+                            return false;
+                        checkUpdate(true);
                         break;
                     default:
                         return false;
@@ -350,7 +355,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         checkFirst();
         checkCrash();
         if (!Helper.isPlayStoreInstall(this))
-            checkUpdate();
+            checkUpdate(false);
 
         pgpService = new OpenPgpServiceConnection(this, "org.sufficientlysecure.keychain");
         pgpService.bindToService();
@@ -606,12 +611,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         String html_url;
     }
 
-    private void checkUpdate() {
+    private void checkUpdate(boolean always) {
         long now = new Date().getTime();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (!prefs.getBoolean("updates", true))
+        if (!always && !prefs.getBoolean("updates", true))
             return;
-        if (prefs.getLong("last_update_check", 0) + UPDATE_INTERVAL > now)
+        if (!always && prefs.getLong("last_update_check", 0) + UPDATE_INTERVAL > now)
             return;
         prefs.edit().putLong("last_update_check", now).apply();
 
