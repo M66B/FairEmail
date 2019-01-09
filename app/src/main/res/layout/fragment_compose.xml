@@ -196,7 +196,7 @@
                 android:gravity="top"
                 android:hint="@string/title_body_hint"
                 android:inputType="textCapSentences|textMultiLine"
-                android:minHeight="90dp"
+                android:minHeight="120dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vSeparator" />
