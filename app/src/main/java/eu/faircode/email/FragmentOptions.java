@@ -64,6 +64,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
     private SwitchCompat swAvatars;
     private SwitchCompat swIdenticons;
     private SwitchCompat swPreview;
+    private SwitchCompat swAddresses;
 
     private SwitchCompat swPull;
     private SwitchCompat swSwipe;
@@ -104,6 +105,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
         swAvatars = view.findViewById(R.id.swAvatars);
         swIdenticons = view.findViewById(R.id.swIdenticons);
         swPreview = view.findViewById(R.id.swPreview);
+        swAddresses = view.findViewById(R.id.swAddresses);
 
         swPull = view.findViewById(R.id.swPull);
         swSwipe = view.findViewById(R.id.swSwipe);
@@ -251,6 +253,14 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
                             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                         }
                     }.execute(FragmentOptions.this, null);
+            }
+        });
+
+        swAddresses.setChecked(prefs.getBoolean("addresses", true));
+        swAddresses.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("addresses", checked).apply();
             }
         });
 

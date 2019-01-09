@@ -117,6 +117,7 @@ public class FragmentMessages extends FragmentEx {
     private boolean pull;
     private boolean actionbar;
     private boolean autoclose;
+    private boolean addresses;
 
     private long primary = -1;
     private boolean outbox = false;
@@ -178,7 +179,7 @@ public class FragmentMessages extends FragmentEx {
         threading = prefs.getBoolean("threading", true);
         actionbar = prefs.getBoolean("actionbar", true);
         autoclose = prefs.getBoolean("autoclose", true);
-
+        addresses = prefs.getBoolean("addresses", true);
     }
 
     @Override
@@ -350,6 +351,8 @@ public class FragmentMessages extends FragmentEx {
                     public boolean getValue(String name, long id) {
                         if (values.containsKey(name))
                             return values.get(name).contains(id);
+                        else if ("addresses".equals(name))
+                            return !addresses;
                         return false;
                     }
 

@@ -266,6 +266,18 @@
             app:layout_constraintTop_toBottomOf="@id/swIdenticons"
             app:switchPadding="12dp" />
 
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swAddresses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:text="@string/title_advanced_addresses"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swPreview"
+            app:switchPadding="12dp" />
+
         <TextView
             android:id="@+id/tvSectionBehavior"
             android:layout_width="wrap_content"
@@ -275,7 +287,7 @@
             android:text="@string/title_advanced_section_behavior"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swPreview" />
+            app:layout_constraintTop_toBottomOf="@id/swAddresses" />
 
         <View
             android:id="@+id/vSeparator4"

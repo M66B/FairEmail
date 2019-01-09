@@ -128,6 +128,7 @@
     <string name="title_advanced_avatars">Show contact photos</string>
     <string name="title_advanced_identicons">Show identicons</string>
     <string name="title_advanced_preview">Show message preview</string>
+    <string name="title_advanced_addresses">Show address details by default</string>
 
     <string name="title_advanced_light">Use notification light</string>
     <string name="title_advanced_sound">Select notification sound</string>

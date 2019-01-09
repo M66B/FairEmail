@@ -52,7 +52,6 @@ Since FairEmail is meant to be privacy friendly, the following will not be added
 
 * Open links without confirmation
 * Show original message without confirmation
-* Hide addresses by default: addresses play an important role in determining if a message is authentic
 * Direct file/folder access: for security/privacy reasons (other) apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider)
 
 Confirmation or hiding the addresses section is just one tap, which is just a small price for better privacy.
@@ -200,7 +199,7 @@ you'll need to enable insecure connections in the account and/or identity settin
 <a name="faq5"></a>
 **(5) How can I customize the message view?**
 
-In the advanced settings you can enable or disable:
+In the display section of the advanced settings you can enable or disable:
 
 * *unified inbox*: to disable the unified inbox and to list the folders selected for the unified inbox instead
 * *conversation threading*: to disable conversation threading and to show individual messages instead
@@ -208,6 +207,7 @@ In the advanced settings you can enable or disable:
 * *show contact photos*: to hide contact photos
 * *show identicons*: to show generated contact avatars
 * *show message preview*: to show two lines of the message text
+* *Show address details by default*: to collapse the addresses section by default
 
 If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
 

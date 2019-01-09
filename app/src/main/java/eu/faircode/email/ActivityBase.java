@@ -41,7 +41,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     private boolean contacts;
 
     private static String[] restart = new String[]{
-            "unified", "threading", "compact", "avatars", "identicons", "preview",
+            "unified", "threading", "compact", "avatars", "identicons", "preview", "addresses",
             "pull", "actionbar", "autoclose", "confirm", "debug"
     };
 
