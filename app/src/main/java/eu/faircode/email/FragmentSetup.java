@@ -1164,6 +1164,10 @@ public class FragmentSetup extends FragmentEx {
                             account.id = db.account().insertAccount(account);
                             Log.i("Imported account=" + account.name);
 
+                            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
+                                if (account.notify)
+                                    account.createNotificationChannel(context);
+
                             JSONArray jidentities = (JSONArray) jaccount.get("identities");
                             for (int i = 0; i < jidentities.length(); i++) {
                                 JSONObject jidentity = (JSONObject) jidentities.get(i);
