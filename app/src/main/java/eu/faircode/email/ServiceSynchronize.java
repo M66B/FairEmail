@@ -2461,7 +2461,7 @@ public class ServiceSynchronize extends LifecycleService {
             message.ui_flagged = flagged;
             message.ui_hide = false;
             message.ui_found = false;
-            message.ui_ignored = false;
+            message.ui_ignored = seen;
             message.ui_browsed = browsed;
 
             message.id = db.message().insertMessage(message);
