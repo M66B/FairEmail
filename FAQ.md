@@ -124,6 +124,7 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * [(63) How are images resized for displaying on screens?](#user-content-faq63)
 * [(64) Can you add custom actions for swipe left/right?](#user-content-faq64)
 * [(65) Why are some attachments shown dimmed?](#user-content-faq65)
+* [(66) Is FairEmail available in the Google Play Family Library?](#user-content-faq66)
 
 [I have another question.](#support)
 
@@ -378,9 +379,9 @@ See also [this FAQ](#user-content-faq15).
 
 The right question is "*why are there so many taxes and fees?*":
 
-* VAT: 25% (depending on your country)
-* Google fee: 30%
-* Income tax: 50%
+* VAT: 25 % (depending on your country)
+* Google fee: 30 %
+* Income tax: 50 %
 
 So, what is left for the developer is just a fraction of what you pay.
 
@@ -972,6 +973,7 @@ The following authentication methods are supported and used in this order:
 
 * LOGIN
 * PLAIN
+* NTLM
 * XOAUTH2 (used when an account was selected)
 
 SASL authentication methods, like CRAM-MD5, are not supported
@@ -1009,6 +1011,13 @@ FairEmail shows all attachment types. To distinguish inline and regular attachme
 
 <br />
 
+<a name="faq66"></a>
+**(66) Is FairEmail available in the Google Play Family Library?**
+
+There are [too many fees and taxes](#user-content-faq19), Google alone already takes 30 %,
+to justify making FairEmail available in the [Google Play Family Library](https://support.google.com/googleone/answer/7007852).
+
+<br />
 
 ## Support
 
