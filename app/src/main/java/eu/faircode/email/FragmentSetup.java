@@ -462,6 +462,12 @@ public class FragmentSetup extends FragmentEx {
                         new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                                 .setMessage(R.string.title_setup_quick_success)
                                 .setPositiveButton(android.R.string.ok, null)
+                                .setNeutralButton(R.string.title_folder_inbox, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        finish();
+                                    }
+                                })
                                 .create()
                                 .show();
                     }
