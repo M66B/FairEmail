@@ -71,10 +71,11 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         View itemView;
         ImageView ivDelete;
         TextView tvName;
+        TextView tvType;
         TextView tvSize;
         ImageView ivStatus;
         ImageView ivSave;
-        TextView tvType;
+        TextView tvDebug;
         ProgressBar progressbar;
 
         ViewHolder(View itemView) {
@@ -83,10 +84,11 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             this.itemView = itemView;
             ivDelete = itemView.findViewById(R.id.ivDelete);
             tvName = itemView.findViewById(R.id.tvName);
+            tvType = itemView.findViewById(R.id.tvType);
             tvSize = itemView.findViewById(R.id.tvSize);
             ivStatus = itemView.findViewById(R.id.ivStatus);
             ivSave = itemView.findViewById(R.id.ivSave);
-            tvType = itemView.findViewById(R.id.tvType);
+            tvDebug = itemView.findViewById(R.id.tvDebug);
             progressbar = itemView.findViewById(R.id.progressbar);
         }
 
@@ -107,6 +109,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
             ivDelete.setVisibility(readonly ? View.GONE : attachment.isInline() ? View.INVISIBLE : View.VISIBLE);
             tvName.setText(attachment.name);
+            tvType.setText(attachment.type);
 
             if (attachment.size != null)
                 tvSize.setText(Helper.humanReadableByteCount(attachment.size, true));
@@ -130,8 +133,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             progressbar.setVisibility(
                     attachment.progress == null || attachment.available ? View.GONE : View.VISIBLE);
 
-            tvType.setText(attachment.type + " " + attachment.disposition + " " + attachment.cid + " " + attachment.encryption);
-            tvType.setVisibility(debug ? View.VISIBLE : View.GONE);
+            tvDebug.setText(attachment.type + " " + attachment.disposition + " " + attachment.cid + " " + attachment.encryption);
+            tvDebug.setVisibility(debug ? View.VISIBLE : View.GONE);
         }
 
         @Override

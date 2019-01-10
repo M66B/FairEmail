@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="6dp"
-    android:layout_marginTop="6dp">
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="6dp">
 
     <ImageView
         android:id="@+id/ivDelete"
@@ -25,7 +25,7 @@
 
     <TextView
         android:id="@+id/tvName"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:ellipsize="end"
@@ -33,8 +33,23 @@
         android:text="Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toBottomOf="@id/ivAttachments"
-        app:layout_constraintEnd_toStartOf="@+id/tvSize"
+        app:layout_constraintEnd_toStartOf="@+id/tvType"
         app:layout_constraintStart_toEndOf="@id/ivAttachments"
+        app:layout_constraintTop_toTopOf="@id/ivAttachments" />
+
+    <TextView
+        android:id="@+id/tvType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:ellipsize="start"
+        android:gravity="end"
+        android:singleLine="true"
+        android:text="text/plain"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintBottom_toBottomOf="@id/ivAttachments"
+        app:layout_constraintEnd_toStartOf="@id/tvSize"
+        app:layout_constraintStart_toEndOf="@id/tvName"
         app:layout_constraintTop_toTopOf="@id/ivAttachments" />
 
     <TextView
@@ -46,7 +61,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toBottomOf="@id/ivAttachments"
         app:layout_constraintEnd_toStartOf="@+id/ivStatus"
-        app:layout_constraintStart_toEndOf="@id/tvName"
+        app:layout_constraintStart_toEndOf="@id/tvType"
         app:layout_constraintTop_toTopOf="@id/ivAttachments" />
 
     <ImageView
@@ -70,12 +85,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvType"
+        android:id="@+id/tvDebug"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
-        android:text="text/plain"
+        android:text="debug"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="?attr/colorWarning"
         app:layout_constraintEnd_toEndOf="@id/ivStatus"
         app:layout_constraintStart_toEndOf="@id/ivAttachments"
         app:layout_constraintTop_toBottomOf="@id/ivAttachments" />
@@ -88,5 +104,5 @@
         android:progress="50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvType" />
+        app:layout_constraintTop_toBottomOf="@id/tvDebug" />
 </androidx.constraintlayout.widget.ConstraintLayout>
