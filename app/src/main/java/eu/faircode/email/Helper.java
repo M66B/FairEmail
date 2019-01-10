@@ -162,7 +162,7 @@ public class Helper {
 
     static Intent getIntentPrivacy() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://email.faircode.eu/privacy/"));
+        intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/PRIVACY.md#fairemail"));
         return intent;
     }
 

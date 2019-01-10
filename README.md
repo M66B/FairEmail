@@ -139,7 +139,7 @@ FairEmail uses:
 
 [GNU General Public License version 3](https://www.gnu.org/licenses/gpl.txt)
 
-Copyright (c) 2018-2019 Marcel Bokhorst. All rights reserved
+Copyright &copy; 2018-2019 Marcel Bokhorst. All rights reserved
 
 FairEmail is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
