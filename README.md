@@ -61,7 +61,7 @@ This app starts a foreground service with a low priority status bar notification
 * No advertisements
 * No analytics and no tracking
 * No [Google backup](https://developer.android.com/guide/topics/data/backup)
-* FairEmail is an original work, not a clone
+* FairEmail is an original work, not a fork or a clone
 
 ## Efficient
 
