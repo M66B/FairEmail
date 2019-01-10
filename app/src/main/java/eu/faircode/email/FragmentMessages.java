@@ -1264,7 +1264,7 @@ public class FragmentMessages extends FragmentEx {
                                                 EntityMessage message = db.message().getMessage(id);
                                                 if (message != null) {
                                                     List<EntityMessage> messages = db.message().getMessageByThread(
-                                                            message.account, message.thread, threading ? null : id, null);
+                                                            message.account, message.thread, threading ? null : id, message.folder);
                                                     for (EntityMessage threaded : messages) {
                                                         db.message().setMessageSnoozed(threaded.id, wakeup);
                                                         EntityMessage.snooze(context, threaded.id, wakeup);
