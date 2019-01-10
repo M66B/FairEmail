@@ -116,6 +116,7 @@
     <string name="title_advanced_avatars">Показать фотографии контакта</string>
     <string name="title_advanced_identicons">Показать идентификаторы</string>
     <string name="title_advanced_preview">Показать предварительный просмотр сообщения</string>
+    <string name="title_advanced_addresses">Показывать подробную информацию об адресах по умолчанию</string>
     <string name="title_advanced_light">Использовать индикатор уведомлений</string>
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
     <string name="title_advanced_pull_refresh">Потяните вниз, для обновления</string>

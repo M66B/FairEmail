@@ -104,6 +104,7 @@
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
     <string name="title_advanced_identicons">Toon identicons</string>
     <string name="title_advanced_preview">Bericht voorvertoning</string>
+    <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
     <string name="title_advanced_light">Gebruik meldingslicht</string>
     <string name="title_advanced_sound">Selecteer meldingsgeluid</string>
     <string name="title_advanced_pull_refresh">Omlaag schuiven om te verversen</string>

@@ -104,6 +104,7 @@
     <string name="title_advanced_avatars">Afficher les photos des contacts</string>
     <string name="title_advanced_identicons">Afficher les identicônes</string>
     <string name="title_advanced_preview">Afficher l\'aperçu du message</string>
+    <string name="title_advanced_addresses">Afficher par défaut les détails de l\'adresse</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
     <string name="title_advanced_pull_refresh">Tirer vers le bas pour actualiser</string>

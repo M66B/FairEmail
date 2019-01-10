@@ -104,8 +104,10 @@
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
     <string name="title_advanced_identicons">Visa identicons</string>
     <string name="title_advanced_preview">Förhandsvisning av meddelande</string>
+    <string name="title_advanced_addresses">Visa adressuppgifter som standard</string>
     <string name="title_advanced_light">Använda aviseringslampan</string>
     <string name="title_advanced_sound">Välj aviseringsljud</string>
+    <string name="title_advanced_pull_refresh">Dra ner för att uppdatera</string>
     <string name="title_advanced_swipe">Svepfunktioner</string>
     <string name="title_advanced_actionbar">Konversationens åtgärdsfält</string>
     <string name="title_advanced_autoclose">Stäng konversationer automatiskt</string>
@@ -114,6 +116,7 @@
     <string name="title_advanced_automove">Bekräfta flyttning av meddelanden</string>
     <string name="title_advanced_confirm">Bekräfta åtgärder som kan läcka känslig information</string>
     <string name="title_advanced_sender">Tillåt avsändaradress redigering</string>
+    <string name="title_advanced_autosend">Bekräfta sändning av meddelanden</string>
     <string name="title_advanced_updates">Sök efter uppdateringar</string>
     <string name="title_advanced_debug">Felsökningsläge</string>
     <string name="title_advanced_enabled_hint">Inaktivera eller aktivera mottagning och sändning av meddelanden globalt</string>
@@ -170,6 +173,7 @@
     <string name="title_identity_delete">Ta bort denna identitet permanent?</string>
     <string name="title_pop">POP stöds inte</string>
     <string name="title_identity_sent_hint">Skickade meddelanden sparas automatiskt i mappen skickade redan i de flesta fall</string>
+    <string name="title_edit_html">Redigera som HTML</string>
     <string name="title_synchronize_now">Synkronisera nu</string>
     <string name="title_delete_local">Ta bort lokala meddelanden</string>
     <string name="title_empty_trash">Töm papperskorgen</string>
@@ -215,14 +219,18 @@
     <string name="title_unflag">Ta bort stjärna</string>
     <string name="title_forward">Vidarebefordra</string>
     <string name="title_reply_all">Svara till alla</string>
+    <string name="title_share">Dela</string>
     <string name="title_manage_keywords">Hantera nyckelord</string>
     <string name="title_add_keyword">Lägg till nyckelord</string>
+    <string name="title_download_all">Hämta alla</string>
+    <string name="title_save_all">Spara alla</string>
     <string name="title_show_html">Visa originalet</string>
     <string name="title_trash">Papperskorg</string>
     <string name="title_delete">Ta bort</string>
     <string name="title_more">Mer</string>
     <string name="title_spam">Skräppost</string>
     <string name="title_move">Flytta</string>
+    <string name="title_snooze">Slumra &#8230;</string>
     <string name="title_archive">Arkivera</string>
     <string name="title_reply">Svara</string>
     <string name="title_moving">Flyttar till %1$s</string>
@@ -233,6 +241,7 @@
     <string name="title_no_contacts">Kontaktväljaren är inte tillgänglig</string>
     <string name="title_no_internet">Ingen internetanslutning</string>
     <string name="title_attachment_saved">Bilaga sparad</string>
+    <string name="title_attachments_saved">Bilagor sparade</string>
     <string name="title_attachment_unavailable">Vissa bilagor hämtas inte och kommer inte att läggas till, fortsätt?</string>
     <string name="title_image_unavailable">Vissa bilder hämtas inte och kommer inte att läggas till, fortsätta?</string>
     <string name="title_ask_delete">Ta bort meddelandet permanent?</string>
@@ -259,6 +268,8 @@
     <string name="title_save">Spara</string>
     <string name="title_send">Skicka</string>
     <string name="title_view">Visa</string>
+    <string name="title_send_after">Skicka efter &#8230;</string>
+    <string name="title_ask_resize">Minska storleken på %1$s för visning på skärmar?</string>
     <string name="title_no_selection">Inget valt</string>
     <string name="title_style_bold">Fetstil</string>
     <string name="title_style_italic">Kursiv</string>
@@ -269,8 +280,10 @@
     <string name="title_show_addresses">Visa kopia/dold kopia</string>
     <string name="title_from_missing">Avsändaren saknas</string>
     <string name="title_to_missing">Mottagare saknas</string>
+    <string name="title_attachments_missing">Inte alla bilagor har hämtats</string>
     <string name="title_draft_deleted">Utkastet slängdes</string>
     <string name="title_draft_saved">Utkast sparat</string>
+    <string name="title_ask_send">Skicka meddelande till %1$s?</string>
     <string name="title_queued">Skickar meddelande</string>
     <string name="title_encrypt">Kryptera</string>
     <string name="title_decrypt">Dekryptera</string>
@@ -288,6 +301,7 @@
     <string name="title_address_sent">Skickat:</string>
     <string name="title_address_unsent">Inte skickad:</string>
     <string name="title_address_invalid">Ogiltig:</string>
+    <string name="title_snoozed">Slumrade</string>
     <string name="title_move_sent">Flytta till skickat</string>
     <string name="title_previous">Föregående</string>
     <string name="title_next">Nästa</string>
@@ -308,6 +322,7 @@
     <string name="title_legend_thread">Konversation</string>
     <string name="title_legend_cc">Kopia/Dold kopia</string>
     <string name="title_legend_attachment">Bilaga</string>
+    <string name="title_legend_snoozed">Slumrade</string>
     <string name="title_legend_draft">Utkast/redigera</string>
     <string name="title_legend_answered">Besvarad</string>
     <string name="title_legend_contacts">Kontakter</string>
@@ -316,6 +331,8 @@
     <string name="title_legend_external_image">Extern bildplatshållare</string>
     <string name="title_legend_embedded_image">Inbäddad bildplatshållare</string>
     <string name="title_legend_broken_image">Trasig bild</string>
+    <string name="title_legend_download_off">Hämta meddelandeinnehåll på begäran </string>
+    <string name="title_legend_download_on">Hämta meddelandeinnehåll automatiskt</string>
     <string name="title_legend_synchronize_on">Synkronisera nu</string>
     <string name="title_legend_synchronize_off">Synkronisera av</string>
     <string name="title_legend_primary">Primär/stjärnmärkta</string>
@@ -344,7 +361,10 @@
     <string name="title_undo">Ångra</string>
     <string name="title_add">Lägg till</string>
     <string name="title_browse">Bläddra</string>
+    <string name="title_hours">Timmar</string>
+    <string name="title_days">Dagar</string>
     <string name="title_report">Rapportera</string>
+    <string name="title_no_ask_again">Fråga inte detta igen</string>
     <string name="title_try">Prova FairEmail, en e-postapp för Android med öppen källkod som respekterar din integritet</string>
     <string name="title_pro_feature">Detta är en pro-funktion</string>
     <string name="title_pro_list">Lista över pro-funktioner</string>

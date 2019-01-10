@@ -104,6 +104,7 @@
     <string name="title_advanced_avatars">Mostra foto del contatto</string>
     <string name="title_advanced_identicons">Visualizza identicon</string>
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
+    <string name="title_advanced_addresses">Mostra i dettagli dell\'indirizzo per impostazione predefinita</string>
     <string name="title_advanced_light">Usa il led di notifica</string>
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
     <string name="title_advanced_pull_refresh">Trascina in basso per aggiornare</string>
