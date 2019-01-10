@@ -519,7 +519,16 @@ public class MessageHelper {
     }
 
     private static String getHtml(Part part) throws MessagingException, IOException {
-        if (part.isMimeType("text/plain") || part.isMimeType("text/html")) {
+        String disposition;
+        try {
+            disposition = part.getDisposition();
+        } catch (MessagingException ex) {
+            Log.w(ex);
+            disposition = null;
+        }
+
+        if (!Part.ATTACHMENT.equalsIgnoreCase(disposition) &&
+                (part.isMimeType("text/plain") || part.isMimeType("text/html"))) {
             String s;
             try {
                 Object content = part.getContent();
