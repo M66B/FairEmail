@@ -722,6 +722,7 @@ public class FragmentCompose extends FragmentEx {
         final NumberPicker npDays = dview.findViewById(R.id.npDays);
         final TextView tvTime = dview.findViewById(R.id.tvTime);
         final long HOUR_MS = 3600L * 1000L;
+        final long now = new Date().getTime() / HOUR_MS * HOUR_MS;
 
         npHours.setMinValue(0);
         npHours.setMaxValue(24);
@@ -735,7 +736,7 @@ public class FragmentCompose extends FragmentEx {
                 int hours = npHours.getValue();
                 int days = npDays.getValue();
                 long duration = (hours + days * 24) * HOUR_MS;
-                long time = new Date().getTime() / HOUR_MS * HOUR_MS + duration;
+                long time = now + duration;
                 DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
                 tvTime.setText(df.format(time));
                 tvTime.setVisibility(duration == 0 ? View.INVISIBLE : View.VISIBLE);
@@ -756,7 +757,7 @@ public class FragmentCompose extends FragmentEx {
                             int hours = npHours.getValue();
                             int days = npDays.getValue();
                             long duration = (hours + days * 24) * HOUR_MS;
-                            long time = new Date().getTime() / HOUR_MS * HOUR_MS + duration;
+                            long time = now + duration;
 
                             Bundle args = new Bundle();
                             args.putLong("id", working);
