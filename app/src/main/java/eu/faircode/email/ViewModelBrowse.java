@@ -154,7 +154,7 @@ public class ViewModelBrowse extends ViewModel {
             EntityAccount account = db.account().getAccount(folder.account);
 
             try {
-                Properties props = MessageHelper.getSessionProperties(account.auth_type, account.insecure);
+                Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
                 Session isession = Session.getInstance(props, null);
 
                 Log.i("Boundary connecting account=" + account.name);

@@ -98,6 +98,7 @@ public class FragmentAccount extends FragmentEx {
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
+    private EditText etRealm;
 
     private EditText etName;
     private Button btnColor;
@@ -168,6 +169,7 @@ public class FragmentAccount extends FragmentEx {
         cbInsecure = view.findViewById(R.id.cbInsecure);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
+        etRealm = view.findViewById(R.id.etRealm);
 
         etName = view.findViewById(R.id.etName);
         btnColor = view.findViewById(R.id.btnColor);
@@ -233,6 +235,7 @@ public class FragmentAccount extends FragmentEx {
 
                 etUser.setText(null);
                 tilPassword.getEditText().setText(null);
+                etRealm.setText(null);
 
                 etName.setText(position > 1 ? provider.name : null);
                 etPrefix.setText(provider.prefix);
@@ -425,6 +428,7 @@ public class FragmentAccount extends FragmentEx {
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
+                args.putString("realm", etRealm.getText().toString());
                 args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
 
                 new SimpleTask<CheckResult>() {
@@ -457,6 +461,7 @@ public class FragmentAccount extends FragmentEx {
                         String port = args.getString("port");
                         String user = args.getString("user");
                         String password = args.getString("password");
+                        String realm = args.getString("realm");
                         int auth_type = args.getInt("auth_type");
 
                         if (TextUtils.isEmpty(host))
@@ -468,11 +473,14 @@ public class FragmentAccount extends FragmentEx {
                         if (TextUtils.isEmpty(password) && !insecure)
                             throw new IllegalArgumentException(context.getString(R.string.title_no_password));
 
+                        if (TextUtils.isEmpty(realm))
+                            realm = null;
+
                         CheckResult result = new CheckResult();
                         result.folders = new ArrayList<>();
 
                         // Check IMAP server / get folders
-                        Properties props = MessageHelper.getSessionProperties(auth_type, insecure);
+                        Properties props = MessageHelper.getSessionProperties(auth_type, realm, insecure);
                         Session isession = Session.getInstance(props, null);
                         isession.setDebug(true);
                         IMAPStore istore = null;
@@ -651,6 +659,7 @@ public class FragmentAccount extends FragmentEx {
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
+                args.putString("realm", etRealm.getText().toString());
 
                 args.putString("name", etName.getText().toString());
                 args.putInt("color", color);
@@ -699,6 +708,7 @@ public class FragmentAccount extends FragmentEx {
                         String port = args.getString("port");
                         String user = args.getString("user");
                         String password = args.getString("password");
+                        String realm = args.getString("realm");
 
                         String name = args.getString("name");
                         Integer color = args.getInt("color");
@@ -729,6 +739,9 @@ public class FragmentAccount extends FragmentEx {
                         if (synchronize && drafts == null)
                             throw new IllegalArgumentException(context.getString(R.string.title_no_drafts));
 
+                        if (TextUtils.isEmpty(realm))
+                            realm = null;
+
                         if (Color.TRANSPARENT == color)
                             color = null;
                         if (TextUtils.isEmpty(prefix))
@@ -742,7 +755,8 @@ public class FragmentAccount extends FragmentEx {
 
                         boolean check = (synchronize && (account == null ||
                                 !host.equals(account.host) || Integer.parseInt(port) != account.port ||
-                                !user.equals(account.user) || !password.equals(account.password)));
+                                !user.equals(account.user) || !password.equals(account.password) ||
+                                realm == null ? account.realm != null : !realm.equals(account.realm)));
                         boolean reload = (check || account == null ||
                                 (account.prefix == null ? prefix != null : !account.prefix.equals(prefix)) ||
                                 account.synchronize != synchronize ||
@@ -750,7 +764,7 @@ public class FragmentAccount extends FragmentEx {
 
                         // Check IMAP server
                         if (check) {
-                            Properties props = MessageHelper.getSessionProperties(auth_type, insecure);
+                            Properties props = MessageHelper.getSessionProperties(auth_type, realm, insecure);
                             Session isession = Session.getInstance(props, null);
                             isession.setDebug(true);
 
@@ -790,6 +804,7 @@ public class FragmentAccount extends FragmentEx {
                             account.port = Integer.parseInt(port);
                             account.user = user;
                             account.password = password;
+                            account.realm = realm;
 
                             account.name = name;
                             account.color = color;
@@ -1025,6 +1040,7 @@ public class FragmentAccount extends FragmentEx {
                     authorized = (account != null && account.auth_type != Helper.AUTH_TYPE_PASSWORD ? account.password : null);
                     etUser.setText(account == null ? null : account.user);
                     tilPassword.getEditText().setText(account == null ? null : account.password);
+                    etRealm.setText(account == null ? null : account.realm);
 
                     etName.setText(account == null ? null : account.name);
                     etPrefix.setText(account == null ? null : account.prefix);
@@ -1192,6 +1208,7 @@ public class FragmentAccount extends FragmentEx {
                         btnAuthorize.setEnabled(false);
                         etUser.setEnabled(false);
                         tilPassword.setEnabled(false);
+                        etRealm.setEnabled(false);
                         btnCheck.setEnabled(false);
                         btnSave.setEnabled(false);
                         final Snackbar snackbar = Snackbar.make(view, R.string.title_authorizing, Snackbar.LENGTH_SHORT);
@@ -1213,6 +1230,7 @@ public class FragmentAccount extends FragmentEx {
                                             authorized = token;
                                             etUser.setText(account.name);
                                             tilPassword.getEditText().setText(token);
+                                            etRealm.setText(null);
                                         } catch (Throwable ex) {
                                             Log.e(ex);
                                             if (ex instanceof OperationCanceledException ||
@@ -1225,6 +1243,7 @@ public class FragmentAccount extends FragmentEx {
                                             btnAuthorize.setEnabled(true);
                                             etUser.setEnabled(true);
                                             tilPassword.setEnabled(true);
+                                            etRealm.setEnabled(true);
                                             btnCheck.setEnabled(true);
                                             btnSave.setEnabled(true);
                                             new Handler().postDelayed(new Runnable() {

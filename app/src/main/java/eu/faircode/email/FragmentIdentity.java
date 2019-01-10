@@ -101,6 +101,7 @@ public class FragmentIdentity extends FragmentEx {
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
+    private EditText etRealm;
 
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
@@ -165,6 +166,7 @@ public class FragmentIdentity extends FragmentEx {
         etPort = view.findViewById(R.id.etPort);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
+        etRealm = view.findViewById(R.id.etRealm);
 
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
@@ -226,12 +228,11 @@ public class FragmentIdentity extends FragmentEx {
                         grpAdvanced.setVisibility(View.VISIBLE);
                 }
 
-                // Copy account user name
+                // Copy account credentials
                 etEmail.setText(account.user);
                 etUser.setText(account.user);
-
-                // Copy account password
                 tilPassword.getEditText().setText(account.password);
+                etRealm.setText(account.realm);
 
                 setFolders(account.id);
             }
@@ -467,6 +468,7 @@ public class FragmentIdentity extends FragmentEx {
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
+                args.putString("realm", etRealm.getText().toString());
                 args.putInt("color", color);
                 args.putString("signature", Html.toHtml(etSignature.getText()));
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
@@ -507,6 +509,7 @@ public class FragmentIdentity extends FragmentEx {
                         String port = args.getString("port");
                         String user = args.getString("user");
                         String password = args.getString("password");
+                        String realm = args.getString("realm");
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean primary = args.getBoolean("primary");
 
@@ -536,6 +539,9 @@ public class FragmentIdentity extends FragmentEx {
                         if (TextUtils.isEmpty(display))
                             display = null;
 
+                        if (TextUtils.isEmpty(realm))
+                            realm = null;
+
                         if (TextUtils.isEmpty(replyto))
                             replyto = null;
                         else
@@ -554,13 +560,14 @@ public class FragmentIdentity extends FragmentEx {
 
                         boolean check = (synchronize && (identity == null ||
                                 !host.equals(identity.host) || Integer.parseInt(port) != identity.port ||
-                                !user.equals(identity.user) || !password.equals(identity.password)));
+                                !user.equals(identity.user) || !password.equals(identity.password) ||
+                                realm == null ? identity.realm != null : !realm.equals(identity.realm)));
                         boolean reload = (identity == null || identity.synchronize != synchronize || check);
 
                         // Check SMTP server
                         if (check) {
                             String transportType = (starttls ? "smtp" : "smtps");
-                            Properties props = MessageHelper.getSessionProperties(auth_type, insecure);
+                            Properties props = MessageHelper.getSessionProperties(auth_type, realm, insecure);
                             Session isession = Session.getInstance(props, null);
                             isession.setDebug(true);
                             Transport itransport = isession.getTransport(transportType);
@@ -599,6 +606,7 @@ public class FragmentIdentity extends FragmentEx {
                             identity.port = Integer.parseInt(port);
                             identity.user = user;
                             identity.password = password;
+                            identity.realm = realm;
                             identity.synchronize = synchronize;
                             identity.primary = (identity.synchronize && primary);
 
@@ -713,6 +721,7 @@ public class FragmentIdentity extends FragmentEx {
                     etPort.setText(identity == null ? null : Long.toString(identity.port));
                     etUser.setText(identity == null ? null : identity.user);
                     tilPassword.getEditText().setText(identity == null ? null : identity.password);
+                    etRealm.setText(identity == null ? null : identity.realm);
                     cbSynchronize.setChecked(identity == null ? true : identity.synchronize);
                     cbPrimary.setChecked(identity == null ? true : identity.primary);
 

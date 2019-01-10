@@ -68,6 +68,7 @@ public class EntityIdentity {
     public String user;
     @NonNull
     public String password;
+    public String realm;
     @NonNull
     public Boolean synchronize;
     @NonNull

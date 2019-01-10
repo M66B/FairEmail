@@ -58,6 +58,7 @@ public class EntityAccount {
     public String user;
     @NonNull
     public String password;
+    public String realm;
 
     public String name;
     public String signature; // obsolete

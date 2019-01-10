@@ -900,7 +900,7 @@ public class FragmentCompose extends FragmentEx {
                         attachments.remove(attachment);
 
                 // Build message
-                Properties props = MessageHelper.getSessionProperties(Helper.AUTH_TYPE_PASSWORD, false);
+                Properties props = MessageHelper.getSessionProperties(Helper.AUTH_TYPE_PASSWORD, null, false);
                 Session isession = Session.getInstance(props, null);
                 MimeMessage imessage = new MimeMessage(isession);
                 MessageHelper.build(context, message, imessage);

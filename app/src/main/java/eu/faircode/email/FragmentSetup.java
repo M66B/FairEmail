@@ -309,7 +309,7 @@ public class FragmentSetup extends FragmentEx {
                         folders.add(inbox);
 
                         {
-                            Properties props = MessageHelper.getSessionProperties(auth_type, false);
+                            Properties props = MessageHelper.getSessionProperties(auth_type, null, false);
                             Session isession = Session.getInstance(props, null);
                             isession.setDebug(true);
                             IMAPStore istore = null;
@@ -364,7 +364,7 @@ public class FragmentSetup extends FragmentEx {
                         }
 
                         {
-                            Properties props = MessageHelper.getSessionProperties(auth_type, false);
+                            Properties props = MessageHelper.getSessionProperties(auth_type, null, false);
                             Session isession = Session.getInstance(props, null);
                             isession.setDebug(true);
                             Transport itransport = isession.getTransport(provider.smtp_starttls ? "smtp" : "smtps");

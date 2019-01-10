@@ -972,7 +972,6 @@ The following authentication methods are supported and used in this order:
 
 * LOGIN
 * PLAIN
-* DIGEST-MD5
 * XOAUTH2 (used when an account was selected)
 
 SASL authentication methods, like CRAM-MD5, are not supported

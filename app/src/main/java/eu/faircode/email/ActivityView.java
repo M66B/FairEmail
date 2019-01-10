@@ -1281,7 +1281,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                         } else {
                             // Decode message
-                            Properties props = MessageHelper.getSessionProperties(Helper.AUTH_TYPE_PASSWORD, false);
+                            Properties props = MessageHelper.getSessionProperties(Helper.AUTH_TYPE_PASSWORD, null, false);
                             Session isession = Session.getInstance(props, null);
                             ByteArrayInputStream is = new ByteArrayInputStream(decrypted.toByteArray());
                             MimeMessage imessage = new MimeMessage(isession, is);

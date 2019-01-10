@@ -841,7 +841,7 @@ public class ServiceSynchronize extends LifecycleService {
                 System.setProperty("mail.socket.debug", Boolean.toString(debug));
 
                 // Create session
-                Properties props = MessageHelper.getSessionProperties(account.auth_type, account.insecure);
+                Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
                 final Session isession = Session.getInstance(props, null);
                 isession.setDebug(debug);
                 // adb -t 1 logcat | grep "fairemail\|System.out"
@@ -1750,7 +1750,7 @@ public class ServiceSynchronize extends LifecycleService {
         String transportType = (ident.starttls ? "smtp" : "smtps");
 
         // Get properties
-        Properties props = MessageHelper.getSessionProperties(ident.auth_type, ident.insecure);
+        Properties props = MessageHelper.getSessionProperties(ident.auth_type, ident.realm, ident.insecure);
         props.put("mail.smtp.localhost", ident.host);
 
         // Create session

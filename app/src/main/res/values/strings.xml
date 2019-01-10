@@ -183,6 +183,7 @@
     <string name="title_port">Port number</string>
     <string name="title_user">User name</string>
     <string name="title_password">Password</string>
+    <string name="title_realm">Realm</string>
     <string name="title_authorize">Select account</string>
     <string name="title_authorizing">Authorizing account &#8230;</string>
     <string name="title_setup_advanced">Advanced</string>

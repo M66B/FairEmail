@@ -373,6 +373,26 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:id="@+id/tvRealm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_realm"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilPassword" />
+
+        <EditText
+            android:id="@+id/etRealm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/title_optional"
+            android:inputType="text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRealm" />
+
         <CheckBox
             android:id="@+id/cbSynchronize"
             android:layout_width="wrap_content"
@@ -380,7 +400,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_synchronize_identity"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tilPassword" />
+            app:layout_constraintTop_toBottomOf="@id/etRealm" />
 
         <CheckBox
             android:id="@+id/cbPrimary"
@@ -546,6 +566,6 @@
             android:id="@+id/grpAdvanced"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvReplyTo,etReplyTo,tvBcc,etBcc,cbDeliveryReceipt,cbReadReceipt,tvReceipt,tvProvider,spProvider,tvDomain,tvDomainHint,etDomain,btnAutoConfig,tvSmtp,tvHost,etHost,cbStartTls,cbInsecure,tvPort,etPort,tvUser,etUser,tvPassword,tilPassword,cbSynchronize,cbPrimary,tvSent,spSent,tvSentHint" />
+            app:constraint_referenced_ids="tvReplyTo,etReplyTo,tvBcc,etBcc,cbDeliveryReceipt,cbReadReceipt,tvReceipt,tvProvider,spProvider,tvDomain,tvDomainHint,etDomain,btnAutoConfig,tvSmtp,tvHost,etHost,cbStartTls,cbInsecure,tvPort,etPort,tvUser,etUser,tvPassword,tilPassword,tvRealm,etRealm,cbSynchronize,cbPrimary,tvSent,spSent,tvSentHint" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
