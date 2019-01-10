@@ -30,6 +30,7 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Base64;
+import android.view.View;
 
 import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingClientStateListener;
@@ -46,6 +47,7 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.List;
 
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
@@ -153,7 +155,16 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
                 prefs.edit().putBoolean("pro", true).apply();
                 Log.i("Response valid");
-                Snackbar.make(getVisibleView(), R.string.title_pro_valid, Snackbar.LENGTH_LONG).show();
+                Snackbar snackbar = Snackbar.make(getVisibleView(), R.string.title_pro_valid, Snackbar.LENGTH_LONG);
+                snackbar.setAction(R.string.title_check, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                        fragmentTransaction.commit();
+                    }
+                });
+                snackbar.show();
             } else {
                 Log.i("Response invalid");
                 Snackbar.make(getVisibleView(), R.string.title_pro_invalid, Snackbar.LENGTH_LONG).show();
