@@ -80,8 +80,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -137,6 +139,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     private SelectionTracker<Long> selectionTracker = null;
     private AsyncPagedListDiffer<TupleMessageEx> differ = new AsyncPagedListDiffer<>(this, DIFF_CALLBACK);
+    private Map<Long, List<EntityAttachment>> idAttachments = new HashMap<>();
 
     enum ViewType {UNIFIED, FOLDER, THREAD, SEARCH}
 
@@ -605,12 +608,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     bodyTask.execute(context, owner, args, "message:body");
                 }
 
+                if (idAttachments.containsKey(message.id))
+                    adapterAttachment.set(idAttachments.get(message.id));
+
                 // Observe attachments
                 observerAttachments = new Observer<List<EntityAttachment>>() {
                     @Override
                     public void onChanged(@Nullable List<EntityAttachment> attachments) {
                         if (attachments == null)
                             attachments = new ArrayList<>();
+                        idAttachments.put(message.id, attachments);
 
                         adapterAttachment.set(attachments);
 
