@@ -738,7 +738,7 @@ public class FragmentCompose extends FragmentEx {
                 long duration = (hours + days * 24) * HOUR_MS;
                 long time = now + duration;
                 DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
-                tvTime.setText(df.format(time));
+                tvTime.setText(new SimpleDateFormat("E").format(time) + " " + df.format(time));
                 tvTime.setVisibility(duration == 0 ? View.INVISIBLE : View.VISIBLE);
             }
         };
