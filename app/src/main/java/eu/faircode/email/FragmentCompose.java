@@ -1260,35 +1260,6 @@ public class FragmentCompose extends FragmentEx {
                     .show();
     }
 
-    private void onAction(int action) {
-        EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
-
-        Bundle args = new Bundle();
-        args.putLong("id", working);
-        args.putInt("action", action);
-        args.putLong("account", identity == null ? -1 : identity.account);
-        args.putLong("identity", identity == null ? -1 : identity.id);
-        args.putString("extra", etExtra.getText().toString());
-        args.putString("to", etTo.getText().toString());
-        args.putString("cc", etCc.getText().toString());
-        args.putString("bcc", etBcc.getText().toString());
-        args.putString("subject", etSubject.getText().toString());
-
-        Spannable spannable = etBody.getText();
-        UnderlineSpan[] uspans = spannable.getSpans(0, spannable.length(), UnderlineSpan.class);
-        for (UnderlineSpan uspan : uspans)
-            spannable.removeSpan(uspan);
-
-        args.putString("body", Html.toHtml(spannable));
-
-        args.putBoolean("empty", isEmpty());
-        args.putBoolean("dirty", dirty);
-        dirty = false;
-
-        Log.i("Run execute id=" + working);
-        actionLoader.execute(this, args, "compose:action:" + action);
-    }
-
     private boolean isEmpty() {
         if (!TextUtils.isEmpty(etExtra.getText().toString().trim()))
             return false;
@@ -1305,6 +1276,36 @@ public class FragmentCompose extends FragmentEx {
         if (rvAttachment.getAdapter().getItemCount() > 0)
             return false;
         return true;
+    }
+
+    private void onAction(int action) {
+        EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
+
+        Bundle args = new Bundle();
+        args.putLong("id", working);
+        args.putInt("action", action);
+        args.putLong("account", identity == null ? -1 : identity.account);
+        args.putLong("identity", identity == null ? -1 : identity.id);
+        args.putString("extra", etExtra.getText().toString().trim());
+        args.putString("to", etTo.getText().toString().trim());
+        args.putString("cc", etCc.getText().toString().trim());
+        args.putString("bcc", etBcc.getText().toString().trim());
+        args.putString("subject", etSubject.getText().toString().trim());
+        args.putInt("attachments", rvAttachment.getAdapter().getItemCount());
+
+        // Workaround underlines left by Android
+        Spannable spannable = etBody.getText();
+        UnderlineSpan[] uspans = spannable.getSpans(0, spannable.length(), UnderlineSpan.class);
+        for (UnderlineSpan uspan : uspans)
+            spannable.removeSpan(uspan);
+
+        args.putString("body", Html.toHtml(spannable));
+
+        args.putBoolean("dirty", dirty);
+        dirty = false;
+
+        Log.i("Run execute id=" + working);
+        actionLoader.execute(this, args, "compose:action:" + action);
     }
 
     private static EntityAttachment addAttachment(Context context, long id, Uri uri,
@@ -1973,10 +1974,17 @@ public class FragmentCompose extends FragmentEx {
             String cc = args.getString("cc");
             String bcc = args.getString("bcc");
             String subject = args.getString("subject");
+            int acount = args.getInt("attachments");
             String body = args.getString("body");
 
-            boolean empty = args.getBoolean("empty");
             boolean dirty = args.getBoolean("dirty");
+            boolean empty = TextUtils.isEmpty(extra) &&
+                    TextUtils.isEmpty(to) &&
+                    TextUtils.isEmpty(cc) &&
+                    TextUtils.isEmpty(bcc) &&
+                    TextUtils.isEmpty(subject) &&
+                    acount == 0 &&
+                    TextUtils.isEmpty(Jsoup.parse(body).text().trim());
 
             EntityMessage draft;
 
@@ -1994,99 +2002,103 @@ public class FragmentCompose extends FragmentEx {
 
                 Log.i("Load action id=" + draft.id + " action=" + action);
 
-                if (action != R.id.action_delete) {
-                    // Move draft to new account
-                    if (draft.account != aid && aid >= 0) {
-                        Long uid = draft.uid;
-                        String msgid = draft.msgid;
+                // Move draft to new account
+                if (draft.account != aid && aid >= 0) {
+                    Long uid = draft.uid;
+                    String msgid = draft.msgid;
 
-                        draft.uid = null;
-                        draft.msgid = null;
-                        db.message().updateMessage(draft);
+                    draft.uid = null;
+                    draft.msgid = null;
+                    db.message().updateMessage(draft);
 
-                        draft.id = null;
-                        draft.uid = uid;
-                        draft.msgid = msgid;
-                        draft.content = false;
-                        draft.ui_hide = true;
-                        draft.id = db.message().insertMessage(draft);
-                        EntityOperation.queue(context, db, draft, EntityOperation.DELETE);
+                    draft.id = null;
+                    draft.uid = uid;
+                    draft.msgid = msgid;
+                    draft.content = false;
+                    draft.ui_hide = true;
+                    draft.id = db.message().insertMessage(draft);
+                    EntityOperation.queue(context, db, draft, EntityOperation.DELETE);
 
-                        draft.id = id;
-                        draft.account = aid;
-                        draft.folder = db.folder().getFolderByType(aid, EntityFolder.DRAFTS).id;
-                        draft.content = true;
-                        draft.ui_hide = false;
-                        EntityOperation.queue(context, db, draft, EntityOperation.ADD);
+                    draft.id = id;
+                    draft.account = aid;
+                    draft.folder = db.folder().getFolderByType(aid, EntityFolder.DRAFTS).id;
+                    draft.content = true;
+                    draft.ui_hide = false;
+                    EntityOperation.queue(context, db, draft, EntityOperation.ADD);
+                }
+
+                // Get data
+                InternetAddress afrom[] = (identity == null ? null : new InternetAddress[]{new InternetAddress(identity.email, identity.name)});
+
+                InternetAddress ato[] = null;
+                InternetAddress acc[] = null;
+                InternetAddress abcc[] = null;
+
+                if (!TextUtils.isEmpty(to))
+                    try {
+                        ato = InternetAddress.parse(to);
+                    } catch (AddressException ignored) {
                     }
 
-                    // Get data
-                    InternetAddress afrom[] = (identity == null ? null : new InternetAddress[]{new InternetAddress(identity.email, identity.name)});
-
-                    InternetAddress ato[] = null;
-                    InternetAddress acc[] = null;
-                    InternetAddress abcc[] = null;
-
-                    if (!TextUtils.isEmpty(to))
-                        try {
-                            ato = InternetAddress.parse(to);
-                        } catch (AddressException ignored) {
-                        }
-
-                    if (!TextUtils.isEmpty(cc))
-                        try {
-                            acc = InternetAddress.parse(cc);
-                        } catch (AddressException ignored) {
-                        }
-
-                    if (!TextUtils.isEmpty(bcc))
-                        try {
-                            abcc = InternetAddress.parse(bcc);
-                        } catch (AddressException ignored) {
-                        }
-
-                    if (TextUtils.isEmpty(extra))
-                        extra = null;
-
-                    Long ident = (identity == null ? null : identity.id);
-                    dirty = dirty ||
-                            ((draft.identity == null ? ident != null : !draft.identity.equals(ident)) ||
-                                    (draft.extra == null ? extra != null : !draft.extra.equals(extra)) ||
-                                    !MessageHelper.equal(draft.from, afrom) ||
-                                    !MessageHelper.equal(draft.to, ato) ||
-                                    !MessageHelper.equal(draft.cc, acc) ||
-                                    !MessageHelper.equal(draft.bcc, abcc) ||
-                                    (draft.subject == null ? subject != null : !draft.subject.equals(subject)));
-
-                    // Update draft
-                    draft.identity = ident;
-                    draft.extra = extra;
-                    draft.sender = MessageHelper.getSortKey(afrom);
-                    draft.from = afrom;
-                    draft.to = ato;
-                    draft.cc = acc;
-                    draft.bcc = abcc;
-                    draft.subject = subject;
-                    draft.received = new Date().getTime();
-
-                    if (action == R.id.action_send)
-                        if (draft.replying != null || draft.forwarding != null)
-                            body += HtmlHelper.getQuote(context,
-                                    draft.replying == null ? draft.forwarding : draft.replying, false);
-
-                    dirty = (dirty || !body.equals(draft.read(context)));
-
-                    if (dirty) {
-                        db.message().updateMessage(draft);
-                        draft.write(context, body);
-                        db.message().setMessageContent(
-                                draft.id, true, HtmlHelper.getPreview(body));
+                if (!TextUtils.isEmpty(cc))
+                    try {
+                        acc = InternetAddress.parse(cc);
+                    } catch (AddressException ignored) {
                     }
+
+                if (!TextUtils.isEmpty(bcc))
+                    try {
+                        abcc = InternetAddress.parse(bcc);
+                    } catch (AddressException ignored) {
+                    }
+
+                if (TextUtils.isEmpty(extra))
+                    extra = null;
+
+                Long ident = (identity == null ? null : identity.id);
+                dirty = dirty ||
+                        ((draft.identity == null ? ident != null : !draft.identity.equals(ident)) ||
+                                (draft.extra == null ? extra != null : !draft.extra.equals(extra)) ||
+                                !MessageHelper.equal(draft.from, afrom) ||
+                                !MessageHelper.equal(draft.to, ato) ||
+                                !MessageHelper.equal(draft.cc, acc) ||
+                                !MessageHelper.equal(draft.bcc, abcc) ||
+                                (draft.subject == null ? subject != null : !draft.subject.equals(subject)));
+
+                // Update draft
+                draft.identity = ident;
+                draft.extra = extra;
+                draft.sender = MessageHelper.getSortKey(afrom);
+                draft.from = afrom;
+                draft.to = ato;
+                draft.cc = acc;
+                draft.bcc = abcc;
+                draft.subject = subject;
+                draft.received = new Date().getTime();
+
+                if (action == R.id.action_send)
+                    if (draft.replying != null || draft.forwarding != null)
+                        body += HtmlHelper.getQuote(context,
+                                draft.replying == null ? draft.forwarding : draft.replying, false);
+
+                dirty = (dirty || !body.equals(draft.read(context)));
+
+                if (dirty) {
+                    db.message().updateMessage(draft);
+                    draft.write(context, body);
+                    db.message().setMessageContent(
+                            draft.id, true, HtmlHelper.getPreview(body));
                 }
 
                 // Execute action
                 if (action == R.id.action_delete) {
-                    EntityOperation.queue(context, db, draft, EntityOperation.DELETE);
+                    EntityFolder trash = db.folder().getFolderByType(draft.account, EntityFolder.TRASH);
+                    if (empty || trash == null)
+                        EntityOperation.queue(context, db, draft, EntityOperation.DELETE);
+                    else {
+                        EntityOperation.queue(context, db, draft, EntityOperation.SEEN, true);
+                        EntityOperation.queue(context, db, draft, EntityOperation.MOVE, trash.id);
+                    }
 
                     if (!empty) {
                         Handler handler = new Handler(context.getMainLooper());
