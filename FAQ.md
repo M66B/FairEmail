@@ -973,11 +973,12 @@ The following authentication methods are supported and used in this order:
 * LOGIN
 * PLAIN
 * DIGEST-MD5
-* NTLM
 * XOAUTH2 (used when an account was selected)
 
 SASL authentication methods, like CRAM-MD5, are not supported
 because [JavaMail for Android](https://javaee.github.io/javamail/Android) does not support SASL authentication.
+
+If your provider requires an unsupported authentication method, you'll likely get the error message *authentication failed*.
 
 <br />
 
