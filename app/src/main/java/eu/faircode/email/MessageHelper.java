@@ -519,7 +519,7 @@ public class MessageHelper {
     }
 
     private static String getHtml(Part part) throws MessagingException, IOException {
-        if (part.isMimeType("text/*")) {
+        if (part.isMimeType("text/plain") || part.isMimeType("text/html")) {
             String s;
             try {
                 Object content = part.getContent();
@@ -654,7 +654,7 @@ public class MessageHelper {
             }
 
             if (Part.ATTACHMENT.equalsIgnoreCase(disposition) ||
-                    part.isMimeType("image/*") ||
+                    !(part.isMimeType("text/plain") || part.isMimeType("text/html")) ||
                     !TextUtils.isEmpty(filename)) {
                 ContentType ct = new ContentType(part.getContentType());
                 String[] cid = part.getHeader("Content-ID");
@@ -668,10 +668,12 @@ public class MessageHelper {
                 attachment.encryption = (pgp ? EntityAttachment.PGP_MESSAGE : null);
                 attachment.part = part;
 
+                if (TextUtils.isEmpty(attachment.name) && "text/calendar".equals(attachment.type))
+                    attachment.name = "invite.ics";
+
                 // Try to guess a better content type
                 // Sometimes PDF files are sent using the wrong type
-                if ("application/octet-stream".equals(attachment.type) ||
-                        "message/disposition-notification".equals(attachment.type)) {
+                if ("application/octet-stream".equals(attachment.type)) {
                     String extension = Helper.getExtension(attachment.name);
                     if (extension != null) {
                         String type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension.toLowerCase());
