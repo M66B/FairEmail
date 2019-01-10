@@ -734,6 +734,6 @@
             android:id="@+id/grpExpanded"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="vSeparatorAddress,ivExpanderAddress,tvBody" />
+            app:constraint_referenced_ids="vSeparatorAddress,ivExpanderAddress,bnvActions,tvBody" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

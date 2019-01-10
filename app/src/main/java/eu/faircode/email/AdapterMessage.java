@@ -342,7 +342,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnSaveAttachments.setVisibility(View.GONE);
             tvNoInternetAttachments.setVisibility(View.GONE);
 
-            bnvActions.setVisibility(View.GONE);
             btnHtml.setVisibility(View.GONE);
             ibQuotes.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
@@ -542,7 +541,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             grpHeaders.setVisibility(show_headers && show_expanded ? View.VISIBLE : View.GONE);
             grpAttachments.setVisibility(message.attachments > 0 && show_expanded ? View.VISIBLE : View.GONE);
-            bnvActions.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
             btnHtml.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
             ibQuotes.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
             ibImages.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
@@ -589,7 +587,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 for (int i = 0; i < bnvActions.getMenu().size(); i++)
                     bnvActions.getMenu().getItem(i).setVisible(false);
-                bnvActions.setVisibility(View.VISIBLE);
 
                 if (textSize != 0)
                     tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
