@@ -1003,7 +1003,7 @@ Other actions, like adding stars to messages, reporting messages as spam and mov
 **(65) Why are some attachments shown dimmed?**
 
 Inline (image) attachments are shown dimmed.
-Inline attachments are supposed to be downloaded and shown automatically,
+[Inline attachments](https://tools.ietf.org/html/rfc2183) are supposed to be downloaded and shown automatically,
 but since FairEmail doesn't always download attachments automatically, see also [this FAQ](#user-content-faq40),
 FairEmail shows all attachment types. To distinguish inline and regular attachments, inline attachments are shown dimmed.
 
