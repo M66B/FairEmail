@@ -110,6 +110,7 @@
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
     <string name="title_advanced_identicons">Arată iconițe generate</string>
     <string name="title_advanced_preview">Arată previzualizare mesaj</string>
+    <string name="title_advanced_addresses">Implicit arată detaliile adreselor</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
     <string name="title_advanced_sound">Selectare sunet de notificare</string>
     <string name="title_advanced_pull_refresh">Trageți în jos pentru a actualiza</string>

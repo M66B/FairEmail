@@ -151,6 +151,7 @@
     <string name="title_port">Numéro de port</string>
     <string name="title_user">Nom d\'utilisateur</string>
     <string name="title_password">Mot de passe</string>
+    <string name="title_realm">Domaine</string>
     <string name="title_authorize">Sélectionner un compte</string>
     <string name="title_authorizing">Autorisation du compte en cours &#8230;</string>
     <string name="title_setup_advanced">Avancé</string>
