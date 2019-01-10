@@ -45,19 +45,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etName" />
 
-        <TextView
-            android:id="@+id/tvAuthorizeRemark"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="12dp"
-            android:text="@string/title_optional"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintBottom_toBottomOf="@id/btnAuthorize"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/btnAuthorize"
-            app:layout_constraintTop_toTopOf="@id/btnAuthorize" />
-
         <EditText
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
