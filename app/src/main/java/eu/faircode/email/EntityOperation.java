@@ -129,11 +129,9 @@ public class EntityOperation {
     private static void queue(Context context, DB db, EntityMessage message, String name, JSONArray jargs) {
         try {
             if (SEEN.equals(name)) {
-                boolean seen = jargs.getBoolean(0);
                 for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid)) {
                     db.message().setMessageUiSeen(similar.id, jargs.getBoolean(0));
-                    if (seen)
-                        db.message().setMessageUiIgnored(similar.id, true);
+                    db.message().setMessageUiIgnored(similar.id, true);
                 }
 
             } else if (FLAG.equals(name))
