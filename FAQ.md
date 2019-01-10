@@ -123,6 +123,7 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * [(62) Which authentication methods are supported?](#user-content-faq62)
 * [(63) How are images resized for displaying on screens?](#user-content-faq63)
 * [(64) Can you add custom actions for swipe left/right?](#user-content-faq64)
+* [(65) Why are some attachments shown dimmed?](#user-content-faq65)
 
 [I have another question.](#support)
 
@@ -997,6 +998,17 @@ The most natural action in the context of FairEmail is to either archive or tras
 Other actions, like adding stars to messages, reporting messages as spam and move messages are available via multiple selection.
 
 <br />
+
+<a name="faq65"></a>
+**(65) Why are some attachments shown dimmed?**
+
+Inline (image) attachments are shown dimmed.
+Inline attachments are supposed to be downloaded and shown automatically,
+but since FairEmail doesn't always download attachments automatically, see also [this FAQ](#user-content-faq40),
+FairEmail shows all attachment types. To distinguish inline and regular attachments, inline attachments are shown dimmed.
+
+<br />
+
 
 ## Support
 
