@@ -169,7 +169,6 @@ public class FragmentCompose extends FragmentEx {
     private State state = State.NONE;
     private boolean autosave = false;
     private boolean busy = false;
-    private boolean dirty = false;
 
     private OpenPgpServiceConnection pgpService;
 
@@ -1113,11 +1112,6 @@ public class FragmentCompose extends FragmentEx {
 
         new SimpleTask<EntityAttachment>() {
             @Override
-            protected void onPostExecute(Bundle args) {
-                dirty = true;
-            }
-
-            @Override
             protected EntityAttachment onExecute(Context context, Bundle args) throws IOException {
                 Long id = args.getLong("id");
                 Uri uri = args.getParcelable("uri");
@@ -1263,13 +1257,13 @@ public class FragmentCompose extends FragmentEx {
     private boolean isEmpty() {
         if (!TextUtils.isEmpty(etExtra.getText().toString().trim()))
             return false;
-        if (!TextUtils.isEmpty(etTo.getText().toString().trim()))
+        if (!etTo.getText().toString().equals(etTo.getTag()))
             return false;
         if (!TextUtils.isEmpty(etCc.getText().toString().trim()))
             return false;
         if (!TextUtils.isEmpty(etBcc.getText().toString().trim()))
             return false;
-        if (!TextUtils.isEmpty(etSubject.getText().toString().trim()))
+        if (!etSubject.getText().toString().equals(etSubject.getTag()))
             return false;
         if (!TextUtils.isEmpty(Jsoup.parse(Html.toHtml(etBody.getText())).text().trim()))
             return false;
@@ -1281,6 +1275,12 @@ public class FragmentCompose extends FragmentEx {
     private void onAction(int action) {
         EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
 
+        // Workaround underlines left by Android
+        Spannable spannable = etBody.getText();
+        UnderlineSpan[] uspans = spannable.getSpans(0, spannable.length(), UnderlineSpan.class);
+        for (UnderlineSpan uspan : uspans)
+            spannable.removeSpan(uspan);
+
         Bundle args = new Bundle();
         args.putLong("id", working);
         args.putInt("action", action);
@@ -1291,18 +1291,8 @@ public class FragmentCompose extends FragmentEx {
         args.putString("cc", etCc.getText().toString().trim());
         args.putString("bcc", etBcc.getText().toString().trim());
         args.putString("subject", etSubject.getText().toString().trim());
-        args.putInt("attachments", rvAttachment.getAdapter().getItemCount());
-
-        // Workaround underlines left by Android
-        Spannable spannable = etBody.getText();
-        UnderlineSpan[] uspans = spannable.getSpans(0, spannable.length(), UnderlineSpan.class);
-        for (UnderlineSpan uspan : uspans)
-            spannable.removeSpan(uspan);
-
         args.putString("body", Html.toHtml(spannable));
-
-        args.putBoolean("dirty", dirty);
-        dirty = false;
+        args.putBoolean("empty", isEmpty());
 
         Log.i("Run execute id=" + working);
         actionLoader.execute(this, args, "compose:action:" + action);
@@ -1712,6 +1702,10 @@ public class FragmentCompose extends FragmentEx {
             etBcc.setText(MessageHelper.getFormattedAddresses(result.draft.bcc, true));
             etSubject.setText(result.draft.subject);
 
+            long reference = args.getLong("reference", -1);
+            etTo.setTag(reference < 0 ? "" : etTo.getText().toString());
+            etSubject.setTag(reference < 0 ? "" : etSubject.getText().toString());
+
             boolean sender = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("sender", false);
 
             grpHeader.setVisibility(View.VISIBLE);
@@ -1838,17 +1832,8 @@ public class FragmentCompose extends FragmentEx {
             String cc = args.getString("cc");
             String bcc = args.getString("bcc");
             String subject = args.getString("subject");
-            int acount = args.getInt("attachments");
             String body = args.getString("body");
-
-            boolean dirty = args.getBoolean("dirty");
-            boolean empty = TextUtils.isEmpty(extra) &&
-                    TextUtils.isEmpty(to) &&
-                    TextUtils.isEmpty(cc) &&
-                    TextUtils.isEmpty(bcc) &&
-                    TextUtils.isEmpty(subject) &&
-                    acount == 0 &&
-                    TextUtils.isEmpty(Jsoup.parse(body).text().trim());
+            boolean empty = args.getBoolean("empty");
 
             EntityMessage draft;
 
@@ -1920,38 +1905,36 @@ public class FragmentCompose extends FragmentEx {
                     extra = null;
 
                 Long ident = (identity == null ? null : identity.id);
-                dirty = dirty ||
-                        ((draft.identity == null ? ident != null : !draft.identity.equals(ident)) ||
-                                (draft.extra == null ? extra != null : !draft.extra.equals(extra)) ||
-                                !MessageHelper.equal(draft.from, afrom) ||
-                                !MessageHelper.equal(draft.to, ato) ||
-                                !MessageHelper.equal(draft.cc, acc) ||
-                                !MessageHelper.equal(draft.bcc, abcc) ||
-                                (draft.subject == null ? subject != null : !draft.subject.equals(subject)));
-
-                // Update draft
-                draft.identity = ident;
-                draft.extra = extra;
-                draft.sender = MessageHelper.getSortKey(afrom);
-                draft.from = afrom;
-                draft.to = ato;
-                draft.cc = acc;
-                draft.bcc = abcc;
-                draft.subject = subject;
-                draft.received = new Date().getTime();
+                boolean dirty = ((draft.identity == null ? ident != null : !draft.identity.equals(ident)) ||
+                        (draft.extra == null ? extra != null : !draft.extra.equals(extra)) ||
+                        !MessageHelper.equal(draft.from, afrom) ||
+                        !MessageHelper.equal(draft.to, ato) ||
+                        !MessageHelper.equal(draft.cc, acc) ||
+                        !MessageHelper.equal(draft.bcc, abcc) ||
+                        (draft.subject == null ? subject != null : !draft.subject.equals(subject)) ||
+                        !body.equals(draft.read(context)));
 
                 if (action == R.id.action_send)
-                    if (draft.replying != null || draft.forwarding != null)
+                    if (draft.replying != null || draft.forwarding != null) {
                         body += HtmlHelper.getQuote(context,
                                 draft.replying == null ? draft.forwarding : draft.replying, false);
-
-                dirty = (dirty || !body.equals(draft.read(context)));
+                        dirty = true;
+                    }
 
                 if (dirty) {
+                    // Update draft
+                    draft.identity = ident;
+                    draft.extra = extra;
+                    draft.sender = MessageHelper.getSortKey(afrom);
+                    draft.from = afrom;
+                    draft.to = ato;
+                    draft.cc = acc;
+                    draft.bcc = abcc;
+                    draft.subject = subject;
+                    draft.received = new Date().getTime();
                     db.message().updateMessage(draft);
                     draft.write(context, body);
-                    db.message().setMessageContent(
-                            draft.id, true, HtmlHelper.getPreview(body));
+                    db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body));
                 }
 
                 // Execute action
