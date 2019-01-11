@@ -35,7 +35,6 @@ None at this moment.
 ## Frequently requested features
 
 * Swipe left/right to go to previous/next message: besides that swiping left/right is already being used to move messages to archive/trash, swiping also selects message text, so this will not work reliably. You can use the bottom navigation bar instead.
-* Automatically go to the next message on deleting a message: since the 'next' message can either be an older or a newer message this would be confusing. You can disable auto closing in the advanced options and use the bottom navigation bar instead.
 * Rich text editor: besides that very few people would use this on a small mobile device, Android doesn't support a rich text editor and most rich text editor open source projects are abandoned.
 * Widget to read e-mail: widgets can have limited user interaction only, so a widget to read e-mail would not be very useful. Moreover, it would be not very useful to duplicate functions which are already available in the app.
 * Executing filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for this.

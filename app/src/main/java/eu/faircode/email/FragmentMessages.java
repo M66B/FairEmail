@@ -117,6 +117,7 @@ public class FragmentMessages extends FragmentEx {
     private boolean pull;
     private boolean actionbar;
     private boolean autoclose;
+    private boolean autonext;
     private boolean addresses;
 
     private long primary = -1;
@@ -179,6 +180,7 @@ public class FragmentMessages extends FragmentEx {
         threading = prefs.getBoolean("threading", true);
         actionbar = prefs.getBoolean("actionbar", true);
         autoclose = prefs.getBoolean("autoclose", true);
+        autonext = prefs.getBoolean("autonext", false);
         addresses = prefs.getBoolean("addresses", true);
     }
 
@@ -1860,8 +1862,9 @@ public class FragmentMessages extends FragmentEx {
             @Override
             public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
                 if (messages == null ||
-                        (viewType == AdapterMessage.ViewType.THREAD && messages.size() == 0 && autoclose)) {
-                    finish();
+                        (viewType == AdapterMessage.ViewType.THREAD && messages.size() == 0 &&
+                                (autoclose || autonext))) {
+                    autoCloseNext();
                     return;
                 }
 
@@ -1921,7 +1924,7 @@ public class FragmentMessages extends FragmentEx {
                             handleExpand(expand.id);
                         }
                     } else {
-                        if (autoCloseCount > 0 && autoclose) {
+                        if (autoCloseCount > 0 && (autoclose || autonext)) {
                             int count = 0;
                             for (int i = 0; i < messages.size(); i++) {
                                 TupleMessageEx message = messages.get(i);
@@ -1933,11 +1936,11 @@ public class FragmentMessages extends FragmentEx {
                             }
                             Log.i("Auto close=" + count);
 
-                            // Auto close when:
+                            // Auto close/next when:
                             // - no more non archived/trashed/sent messages
 
                             if (count == 0) {
-                                finish();
+                                autoCloseNext();
                                 return;
                             }
                         }
@@ -2023,6 +2026,25 @@ public class FragmentMessages extends FragmentEx {
                 }
             }
         });
+    }
+
+    private void autoCloseNext() {
+        if (autoclose)
+            finish();
+        else if (autonext) {
+            ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+            ViewModelMessages.Target[] pn = model.getPrevNext(thread);
+            if (pn[1] == null)
+                finish();
+            else {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_VIEW_THREAD)
+                                .putExtra("account", pn[1].account)
+                                .putExtra("thread", pn[1].thread)
+                                .putExtra("id", pn[1].id));
+            }
+        }
     }
 
     private void handleExpand(long id) {
