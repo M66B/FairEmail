@@ -22,6 +22,17 @@ public class FixedRecyclerView extends RecyclerView {
     }
 
     @Override
+    public boolean onTouchEvent(MotionEvent e) {
+        try {
+            return super.onTouchEvent(e);
+        } catch (IllegalStateException ex) {
+            // Range start point not set
+            Log.w(ex);
+            return false;
+        }
+    }
+
+    @Override
     public boolean onInterceptTouchEvent(MotionEvent e) {
         try {
             return super.onInterceptTouchEvent(e);
