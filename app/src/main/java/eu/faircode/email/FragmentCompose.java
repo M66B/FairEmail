@@ -1257,13 +1257,13 @@ public class FragmentCompose extends FragmentEx {
     private boolean isEmpty() {
         if (!TextUtils.isEmpty(etExtra.getText().toString().trim()))
             return false;
-        if (!etTo.getText().toString().equals(etTo.getTag()))
+        if (!etTo.getText().toString().trim().equals(etTo.getTag()))
             return false;
         if (!TextUtils.isEmpty(etCc.getText().toString().trim()))
             return false;
         if (!TextUtils.isEmpty(etBcc.getText().toString().trim()))
             return false;
-        if (!etSubject.getText().toString().equals(etSubject.getTag()))
+        if (!etSubject.getText().toString().trim().equals(etSubject.getTag()))
             return false;
         if (!TextUtils.isEmpty(Jsoup.parse(Html.toHtml(etBody.getText())).text().trim()))
             return false;
