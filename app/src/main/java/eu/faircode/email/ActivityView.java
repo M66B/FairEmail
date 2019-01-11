@@ -620,53 +620,65 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             return;
         prefs.edit().putLong("last_update_check", now).apply();
 
+        Bundle args = new Bundle();
+        args.putBoolean("always", always);
+
         new SimpleTask<UpdateInfo>() {
             @Override
             protected UpdateInfo onExecute(Context context, Bundle args) throws Throwable {
-                StringBuilder json = new StringBuilder();
+                StringBuilder response = new StringBuilder();
                 HttpsURLConnection urlConnection = null;
                 try {
                     URL latest = new URL(BuildConfig.GITHUB_LATEST_API);
                     urlConnection = (HttpsURLConnection) latest.openConnection();
-                    BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+                    urlConnection.setRequestMethod("GET");
+                    urlConnection.setDoOutput(false);
+                    urlConnection.connect();
+
+                    int status = urlConnection.getResponseCode();
+                    InputStream inputStream = (status == HttpsURLConnection.HTTP_OK
+                            ? urlConnection.getInputStream() : urlConnection.getErrorStream());
+
+                    BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
 
                     String line;
                     while ((line = br.readLine()) != null)
-                        json.append(line);
+                        response.append(line);
 
-                    JSONObject jroot = new JSONObject(json.toString());
+                    if (status != HttpsURLConnection.HTTP_OK)
+                        throw new IOException("HTTP " + status + ": " + response.toString());
 
-                    if (jroot.has("tag_name") &&
-                            jroot.has("html_url") &&
-                            jroot.has("assets")) {
-                        // Get update info
-                        UpdateInfo info = new UpdateInfo();
-                        info.tag_name = jroot.getString("tag_name");
-                        info.html_url = jroot.getString("html_url");
-                        if (TextUtils.isEmpty(info.html_url))
-                            return null;
+                    JSONObject jroot = new JSONObject(response.toString());
 
-                        // Check if new release
-                        JSONArray jassets = jroot.getJSONArray("assets");
-                        for (int i = 0; i < jassets.length(); i++) {
-                            JSONObject jasset = jassets.getJSONObject(i);
-                            if (jasset.has("name")) {
-                                String name = jasset.getString("name");
-                                if (name != null && name.endsWith(".apk")) {
-                                    if (TextUtils.isEmpty(info.tag_name))
-                                        info.tag_name = name;
+                    if (!jroot.has("tag_name"))
+                        throw new IOException("tag_name field missing");
+                    if (!jroot.has("html_url"))
+                        throw new IOException("html_url field missing");
+                    if (!jroot.has("assets"))
+                        throw new IOException("assets section missing");
 
-                                    Log.i("Latest version=" + info.tag_name);
-                                    if (BuildConfig.VERSION_NAME.equals(info.tag_name))
-                                        break;
-                                    else
-                                        return info;
-                                }
+                    // Get update info
+                    UpdateInfo info = new UpdateInfo();
+                    info.tag_name = jroot.getString("tag_name");
+                    info.html_url = jroot.getString("html_url");
+
+                    // Check if new release
+                    JSONArray jassets = jroot.getJSONArray("assets");
+                    for (int i = 0; i < jassets.length(); i++) {
+                        JSONObject jasset = jassets.getJSONObject(i);
+                        if (jasset.has("name")) {
+                            String name = jasset.getString("name");
+                            if (name != null && name.endsWith(".apk")) {
+                                Log.i("Latest version=" + info.tag_name);
+                                if (BuildConfig.VERSION_NAME.equals(info.tag_name))
+                                    return null;
+                                else
+                                    return info;
                             }
                         }
                     }
 
-                    return null;
+                    throw new IOException("Asset name field missing");
                 } finally {
                     if (urlConnection != null)
                         urlConnection.disconnect();
@@ -675,8 +687,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             protected void onExecuted(Bundle args, UpdateInfo info) {
-                if (info == null)
+                if (info == null) {
+                    if (args.getBoolean("always"))
+                        Toast.makeText(ActivityView.this, BuildConfig.VERSION_NAME, Toast.LENGTH_LONG).show();
                     return;
+                }
 
                 final Intent update = new Intent(Intent.ACTION_VIEW, Uri.parse(info.html_url));
                 if (update.resolveActivity(getPackageManager()) != null)
@@ -693,10 +708,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (BuildConfig.DEBUG)
+                if (args.getBoolean("always"))
                     Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
             }
-        }.execute(this, new Bundle(), "update:check");
+        }.execute(this, args, "update:check");
     }
 
     private void updateShortcuts() {
