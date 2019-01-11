@@ -616,9 +616,11 @@ public class FragmentCompose extends FragmentEx {
         menu.findItem(R.id.menu_addresses).setVisible(working >= 0);
         menu.findItem(R.id.menu_clear).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_encrypt).setVisible(state == State.LOADED);
+        menu.findItem(R.id.menu_send_after).setVisible(state == State.LOADED);
 
         menu.findItem(R.id.menu_clear).setEnabled(!busy);
         menu.findItem(R.id.menu_encrypt).setEnabled(!busy);
+        menu.findItem(R.id.menu_send_after).setEnabled(!busy);
     }
 
     @Override
