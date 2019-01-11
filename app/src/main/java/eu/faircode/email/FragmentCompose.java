@@ -172,7 +172,7 @@ public class FragmentCompose extends FragmentEx {
 
     private OpenPgpServiceConnection pgpService;
 
-    private static final int REDUCED_IMAGE_SIZE = 1920;
+    private static final int REDUCED_IMAGE_SIZE = 1280;
     private static final int REDUCED_IMAGE_QUALITY = 90;
 
     @Override
