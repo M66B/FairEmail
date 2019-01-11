@@ -1115,21 +1115,7 @@ public class FragmentCompose extends FragmentEx {
             protected EntityAttachment onExecute(Context context, Bundle args) throws IOException {
                 Long id = args.getLong("id");
                 Uri uri = args.getParcelable("uri");
-                EntityAttachment attachment = addAttachment(context, id, uri, image);
-
-                if ("image/jpeg".equals(attachment.type) || "image/png".equals(attachment.type)) {
-                    File file = EntityAttachment.getFile(context, attachment.id);
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                    options.inJustDecodeBounds = true;
-                    BitmapFactory.decodeFile(file.getAbsolutePath(), options);
-
-                    int scaleTo = REDUCED_IMAGE_SIZE;
-                    int factor = Math.min(options.outWidth / scaleTo, options.outWidth / scaleTo);
-                    if (factor > 0)
-                        args.putInt("factor", factor);
-                }
-
-                return attachment;
+                return addAttachment(context, id, uri, image);
             }
 
             @Override
@@ -1148,81 +1134,7 @@ public class FragmentCompose extends FragmentEx {
                     etBody.setText(Html.fromHtml(html, cidGetter, null));
                 }
 
-                final int factor = args.getInt("factor", 0);
-                if (factor > 0)
-                    new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                            .setMessage(getString(R.string.title_ask_resize, attachment.name))
-                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    Bundle args = new Bundle();
-                                    args.putLong("id", attachment.id);
-                                    args.putInt("factor", factor);
-                                    args.putInt("quality", REDUCED_IMAGE_QUALITY);
-
-                                    new SimpleTask<Void>() {
-                                        @Override
-                                        protected Void onExecute(Context context, Bundle args) throws Throwable {
-                                            long id = args.getLong("id");
-                                            int factor = args.getInt("factor");
-                                            int quality = args.getInt("quality");
-
-                                            DB.getInstance(context).attachment().setProgress(id, null);
-
-                                            BitmapFactory.Options options = new BitmapFactory.Options();
-                                            options.inSampleSize = factor;
-
-                                            File file = EntityAttachment.getFile(context, id);
-                                            Bitmap scaled = BitmapFactory.decodeFile(file.getAbsolutePath(), options);
-                                            if (scaled == null)
-                                                throw new IOException("Decode image failed");
-
-                                            Log.i("Image target size=" + scaled.getWidth() + "x" + scaled.getHeight());
-
-                                            FileOutputStream out = null;
-                                            try {
-                                                out = new FileOutputStream(file);
-                                                scaled.compress("image/jpeg".equals(attachment.type)
-                                                                ? Bitmap.CompressFormat.JPEG
-                                                                : Bitmap.CompressFormat.PNG,
-                                                        quality, out);
-                                            } finally {
-                                                if (out != null)
-                                                    out.close();
-                                                scaled.recycle();
-                                            }
-
-                                            DB.getInstance(context).attachment().setDownloaded(id, file.length());
-
-                                            return null;
-                                        }
-
-                                        @Override
-                                        protected void onExecuted(Bundle args, Void data) {
-                                            onAction(R.id.action_save);
-                                            etBody.requestLayout();
-                                        }
-
-                                        @Override
-                                        protected void onException(Bundle args, Throwable ex) {
-                                            if (ex instanceof IOException)
-                                                Snackbar.make(view, Helper.formatThrowable(ex), Snackbar.LENGTH_LONG).show();
-                                            else
-                                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                                        }
-                                    }.execute(FragmentCompose.this, args);
-                                }
-                            })
-                            .setOnCancelListener(new DialogInterface.OnCancelListener() {
-                                @Override
-                                public void onCancel(DialogInterface dialog) {
-                                    onAction(R.id.action_save);
-                                }
-                            })
-                            .create()
-                            .show();
-                else
-                    onAction(R.id.action_save);
+                onAction(R.id.action_save);
             }
 
             @Override
@@ -1364,6 +1276,7 @@ public class FragmentCompose extends FragmentEx {
             db.endTransaction();
         }
 
+        long size = 0;
         try {
             File file = EntityAttachment.getFile(context, attachment.id);
 
@@ -1373,7 +1286,6 @@ public class FragmentCompose extends FragmentEx {
                 is = context.getContentResolver().openInputStream(uri);
                 os = new BufferedOutputStream(new FileOutputStream(file));
 
-                long size = 0;
                 byte[] buffer = new byte[EntityAttachment.ATTACHMENT_BUFFER_SIZE];
                 for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
                     size += len;
@@ -1388,8 +1300,6 @@ public class FragmentCompose extends FragmentEx {
                     attachment.cid = "<" + BuildConfig.APPLICATION_ID + "." + attachment.id + ">";
                     db.attachment().setCid(attachment.id, attachment.cid);
                 }
-
-                db.attachment().setDownloaded(attachment.id, size);
             } finally {
                 try {
                     if (is != null)
@@ -1399,6 +1309,45 @@ public class FragmentCompose extends FragmentEx {
                         os.close();
                 }
             }
+
+            if (image &&
+                    ("image/jpeg".equals(attachment.type) || "image/png".equals(attachment.type))) {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inJustDecodeBounds = true;
+                BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+
+                int scaleTo = REDUCED_IMAGE_SIZE;
+                int factor = Math.min(options.outWidth / scaleTo, options.outWidth / scaleTo);
+                if (factor > 1) {
+                    options.inJustDecodeBounds = false;
+                    options.inSampleSize = factor;
+
+                    Bitmap scaled = BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+                    if (scaled != null) {
+
+                        Log.i("Image target size=" + scaled.getWidth() + "x" + scaled.getHeight());
+
+                        FileOutputStream out = null;
+                        try {
+                            out = new FileOutputStream(file);
+                            scaled.compress("image/jpeg".equals(attachment.type)
+                                            ? Bitmap.CompressFormat.JPEG
+                                            : Bitmap.CompressFormat.PNG,
+                                    REDUCED_IMAGE_QUALITY, out);
+                        } finally {
+                            if (out != null)
+                                out.close();
+                            scaled.recycle();
+                        }
+
+                        size = file.length();
+                    }
+                }
+            }
+
+            db.attachment().setDownloaded(attachment.id, size);
+
+
         } catch (IOException ex) {
             // Reset progress on failure
             db.attachment().setProgress(attachment.id, null);
