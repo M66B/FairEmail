@@ -1811,142 +1811,6 @@ public class FragmentCompose extends FragmentEx {
         }
     };
 
-    private void checkDraft(long id) {
-        Bundle args = new Bundle();
-        args.putLong("id", id);
-
-        new SimpleTask<EntityMessage>() {
-            @Override
-            protected EntityMessage onExecute(Context context, Bundle args) {
-                long id = args.getLong("id");
-
-                DB db = DB.getInstance(context);
-
-                EntityMessage draft = db.message().getMessage(id);
-                if (!draft.content)
-                    return null;
-
-                List<EntityAttachment> attachments = db.attachment().getAttachments(id);
-                for (EntityAttachment attachment : attachments)
-                    if (!attachment.available)
-                        return null;
-
-                return draft;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, EntityMessage draft) {
-                if (draft != null && state == State.NONE)
-                    showDraft(draft);
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-            }
-        }.execute(this, args, "compose:check");
-    }
-
-    private void showDraft(EntityMessage draft) {
-        Bundle args = new Bundle();
-        args.putLong("id", draft.id);
-        if (draft.replying != null)
-            args.putLong("reference", draft.replying);
-        else if (draft.forwarding != null)
-            args.putLong("reference", draft.forwarding);
-
-        new SimpleTask<Spanned[]>() {
-            @Override
-            protected void onPostExecute(Bundle args) {
-                state = State.LOADED;
-                autosave = true;
-
-                pbWait.setVisibility(View.GONE);
-                edit_bar.setVisibility(View.VISIBLE);
-                bottom_navigation.setVisibility(View.VISIBLE);
-                Helper.setViewsEnabled(view, true);
-
-                getActivity().invalidateOptionsMenu();
-            }
-
-            @Override
-            protected Spanned[] onExecute(final Context context, Bundle args) throws Throwable {
-                long id = args.getLong("id");
-                final long reference = args.getLong("reference", -1);
-
-                String body = EntityMessage.read(context, id);
-                Spanned spannedBody = Html.fromHtml(body, cidGetter, null);
-
-                String quote = (reference < 0 ? null : HtmlHelper.getQuote(context, reference, true));
-                Spanned spannedReference = null;
-                if (quote != null) {
-                    Spanned spannedQuote = Html.fromHtml(quote,
-                            new Html.ImageGetter() {
-                                @Override
-                                public Drawable getDrawable(String source) {
-                                    Drawable image = HtmlHelper.decodeImage(source, context, reference, true);
-
-                                    float width = context.getResources().getDisplayMetrics().widthPixels -
-                                            Helper.dp2pixels(context, 12); // margins;
-                                    if (image.getIntrinsicWidth() > width) {
-                                        float scale = width / image.getIntrinsicWidth();
-                                        image.setBounds(0, 0,
-                                                Math.round(image.getIntrinsicWidth() * scale),
-                                                Math.round(image.getIntrinsicHeight() * scale));
-                                    }
-
-                                    return image;
-                                }
-                            },
-                            null);
-
-                    int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
-                    SpannableStringBuilder builder = new SpannableStringBuilder(spannedQuote);
-                    QuoteSpan[] quoteSpans = builder.getSpans(0, builder.length(), QuoteSpan.class);
-                    for (QuoteSpan quoteSpan : quoteSpans) {
-                        builder.setSpan(
-                                new StyledQuoteSpan(colorPrimary),
-                                builder.getSpanStart(quoteSpan),
-                                builder.getSpanEnd(quoteSpan),
-                                builder.getSpanFlags(quoteSpan));
-                        builder.removeSpan(quote);
-                    }
-
-                    spannedReference = builder;
-                }
-
-                return new Spanned[]{spannedBody, spannedReference};
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Spanned[] texts) {
-                etBody.setText(texts[0]);
-                etBody.setSelection(0);
-                etBody.setVisibility(View.VISIBLE);
-
-                tvReference.setText(texts[1]);
-                grpReference.setVisibility(texts[1] == null ? View.GONE : View.VISIBLE);
-
-                new Handler().post(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (TextUtils.isEmpty(etTo.getText().toString().trim()))
-                            etTo.requestFocus();
-                        else if (TextUtils.isEmpty(etSubject.getText().toString()))
-                            etSubject.requestFocus();
-                        else
-                            etBody.requestFocus();
-                    }
-                });
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-            }
-        }.execute(FragmentCompose.this, args, "compose:show");
-    }
-
     private SimpleTask<EntityMessage> actionLoader = new SimpleTask<EntityMessage>() {
         @Override
         protected void onPreExecute(Bundle args) {
@@ -2210,6 +2074,142 @@ public class FragmentCompose extends FragmentEx {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
         }
     };
+
+    private void checkDraft(long id) {
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleTask<EntityMessage>() {
+            @Override
+            protected EntityMessage onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+
+                EntityMessage draft = db.message().getMessage(id);
+                if (!draft.content)
+                    return null;
+
+                List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                for (EntityAttachment attachment : attachments)
+                    if (!attachment.available)
+                        return null;
+
+                return draft;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, EntityMessage draft) {
+                if (draft != null && state == State.NONE)
+                    showDraft(draft);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(this, args, "compose:check");
+    }
+
+    private void showDraft(EntityMessage draft) {
+        Bundle args = new Bundle();
+        args.putLong("id", draft.id);
+        if (draft.replying != null)
+            args.putLong("reference", draft.replying);
+        else if (draft.forwarding != null)
+            args.putLong("reference", draft.forwarding);
+
+        new SimpleTask<Spanned[]>() {
+            @Override
+            protected void onPostExecute(Bundle args) {
+                state = State.LOADED;
+                autosave = true;
+
+                pbWait.setVisibility(View.GONE);
+                edit_bar.setVisibility(View.VISIBLE);
+                bottom_navigation.setVisibility(View.VISIBLE);
+                Helper.setViewsEnabled(view, true);
+
+                getActivity().invalidateOptionsMenu();
+            }
+
+            @Override
+            protected Spanned[] onExecute(final Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                final long reference = args.getLong("reference", -1);
+
+                String body = EntityMessage.read(context, id);
+                Spanned spannedBody = Html.fromHtml(body, cidGetter, null);
+
+                String quote = (reference < 0 ? null : HtmlHelper.getQuote(context, reference, true));
+                Spanned spannedReference = null;
+                if (quote != null) {
+                    Spanned spannedQuote = Html.fromHtml(quote,
+                            new Html.ImageGetter() {
+                                @Override
+                                public Drawable getDrawable(String source) {
+                                    Drawable image = HtmlHelper.decodeImage(source, context, reference, true);
+
+                                    float width = context.getResources().getDisplayMetrics().widthPixels -
+                                            Helper.dp2pixels(context, 12); // margins;
+                                    if (image.getIntrinsicWidth() > width) {
+                                        float scale = width / image.getIntrinsicWidth();
+                                        image.setBounds(0, 0,
+                                                Math.round(image.getIntrinsicWidth() * scale),
+                                                Math.round(image.getIntrinsicHeight() * scale));
+                                    }
+
+                                    return image;
+                                }
+                            },
+                            null);
+
+                    int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
+                    SpannableStringBuilder builder = new SpannableStringBuilder(spannedQuote);
+                    QuoteSpan[] quoteSpans = builder.getSpans(0, builder.length(), QuoteSpan.class);
+                    for (QuoteSpan quoteSpan : quoteSpans) {
+                        builder.setSpan(
+                                new StyledQuoteSpan(colorPrimary),
+                                builder.getSpanStart(quoteSpan),
+                                builder.getSpanEnd(quoteSpan),
+                                builder.getSpanFlags(quoteSpan));
+                        builder.removeSpan(quote);
+                    }
+
+                    spannedReference = builder;
+                }
+
+                return new Spanned[]{spannedBody, spannedReference};
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Spanned[] texts) {
+                etBody.setText(texts[0]);
+                etBody.setSelection(0);
+                etBody.setVisibility(View.VISIBLE);
+
+                tvReference.setText(texts[1]);
+                grpReference.setVisibility(texts[1] == null ? View.GONE : View.VISIBLE);
+
+                new Handler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (TextUtils.isEmpty(etTo.getText().toString().trim()))
+                            etTo.requestFocus();
+                        else if (TextUtils.isEmpty(etSubject.getText().toString()))
+                            etSubject.requestFocus();
+                        else
+                            etBody.requestFocus();
+                    }
+                });
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(FragmentCompose.this, args, "compose:show");
+    }
 
     private Html.ImageGetter cidGetter = new Html.ImageGetter() {
         @Override
