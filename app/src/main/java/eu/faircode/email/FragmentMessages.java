@@ -1203,8 +1203,6 @@ public class FragmentMessages extends FragmentEx {
             }
 
             private void onActionSnooze() {
-                final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
                 final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_duration, null);
                 final NumberPicker npHours = dview.findViewById(R.id.npHours);
                 final NumberPicker npDays = dview.findViewById(R.id.npDays);
