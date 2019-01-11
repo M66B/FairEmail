@@ -1956,7 +1956,7 @@ public class FragmentCompose extends FragmentEx {
                         });
                     }
                 } else if (action == R.id.action_save || action == R.id.menu_encrypt) {
-                    if (dirty) {
+                    if (!BuildConfig.DEBUG || dirty) {
                         EntityOperation.queue(context, db, draft, EntityOperation.ADD);
 
                         Handler handler = new Handler(context.getMainLooper());
