@@ -342,7 +342,13 @@ public class MessageHelper {
                 attachments.remove(attachment);
             }
 
-        if (attachments.size() == 0)
+        int available = 0;
+        for (EntityAttachment attachment : attachments)
+            if (attachment.available)
+                available++;
+        Log.i("Attachments available=" + available);
+
+        if (available == 0)
             imessage.setContent(alternativePart);
         else {
             Multipart mixedPart = new MimeMultipart("mixed");

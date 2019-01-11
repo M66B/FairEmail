@@ -1167,6 +1167,8 @@ public class FragmentCompose extends FragmentEx {
                                             int factor = args.getInt("factor");
                                             int quality = args.getInt("quality");
 
+                                            DB.getInstance(context).attachment().setProgress(id, null);
+
                                             BitmapFactory.Options options = new BitmapFactory.Options();
                                             options.inSampleSize = factor;
 
@@ -1197,6 +1199,7 @@ public class FragmentCompose extends FragmentEx {
 
                                         @Override
                                         protected void onExecuted(Bundle args, Void data) {
+                                            onAction(R.id.action_save);
                                             etBody.requestLayout();
                                         }
 
@@ -1210,8 +1213,16 @@ public class FragmentCompose extends FragmentEx {
                                     }.execute(FragmentCompose.this, args);
                                 }
                             })
+                            .setOnCancelListener(new DialogInterface.OnCancelListener() {
+                                @Override
+                                public void onCancel(DialogInterface dialog) {
+                                    onAction(R.id.action_save);
+                                }
+                            })
                             .create()
                             .show();
+                else
+                    onAction(R.id.action_save);
             }
 
             @Override
@@ -1757,6 +1768,8 @@ public class FragmentCompose extends FragmentEx {
 
             db.attachment().liveAttachments(result.draft.id).observe(getViewLifecycleOwner(),
                     new Observer<List<EntityAttachment>>() {
+                        private int last_available = 0;
+
                         @Override
                         public void onChanged(@Nullable List<EntityAttachment> attachments) {
                             if (attachments == null)
@@ -1765,12 +1778,22 @@ public class FragmentCompose extends FragmentEx {
                             adapter.set(attachments);
                             grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
 
+                            int available = 0;
                             boolean downloading = false;
-                            for (EntityAttachment attachment : attachments)
+                            for (EntityAttachment attachment : attachments) {
+                                if (attachment.available)
+                                    available++;
                                 if (attachment.progress != null) {
                                     downloading = true;
                                     break;
                                 }
+                            }
+
+                            // Attachment deleted
+                            if (available < last_available)
+                                onAction(R.id.action_save);
+
+                            last_available = available;
 
                             rvAttachment.setTag(downloading);
                             checkInternet();
@@ -1806,6 +1829,8 @@ public class FragmentCompose extends FragmentEx {
     };
 
     private SimpleTask<EntityMessage> actionLoader = new SimpleTask<EntityMessage>() {
+        int last_available = 0;
+
         @Override
         protected void onPreExecute(Bundle args) {
             busy = true;
@@ -1876,6 +1901,8 @@ public class FragmentCompose extends FragmentEx {
                     EntityOperation.queue(context, db, draft, EntityOperation.ADD);
                 }
 
+                List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
+
                 // Get data
                 InternetAddress afrom[] = (identity == null ? null : new InternetAddress[]{new InternetAddress(identity.email, identity.name)});
 
@@ -1904,6 +1931,11 @@ public class FragmentCompose extends FragmentEx {
                 if (TextUtils.isEmpty(extra))
                     extra = null;
 
+                int available = 0;
+                for (EntityAttachment attachment : attachments)
+                    if (attachment.available)
+                        available++;
+
                 Long ident = (identity == null ? null : identity.id);
                 boolean dirty = ((draft.identity == null ? ident != null : !draft.identity.equals(ident)) ||
                         (draft.extra == null ? extra != null : !draft.extra.equals(extra)) ||
@@ -1912,7 +1944,10 @@ public class FragmentCompose extends FragmentEx {
                         !MessageHelper.equal(draft.cc, acc) ||
                         !MessageHelper.equal(draft.bcc, abcc) ||
                         (draft.subject == null ? subject != null : !draft.subject.equals(subject)) ||
+                        last_available != available ||
                         !body.equals(draft.read(context)));
+
+                last_available = available;
 
                 if (action == R.id.action_send)
                     if (draft.replying != null || draft.forwarding != null) {
@@ -1976,7 +2011,6 @@ public class FragmentCompose extends FragmentEx {
                         throw new IllegalArgumentException(context.getString(R.string.title_to_missing));
 
                     // Save attachments
-                    List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
                     for (EntityAttachment attachment : attachments)
                         if (!attachment.available)
                             throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
