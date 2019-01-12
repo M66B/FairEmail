@@ -46,6 +46,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.FragmentActivity;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -440,11 +441,20 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
     };
 
     public void showConnectionType() {
-        Boolean metered = Helper.isMetered(getContext(), false);
+        FragmentActivity activity = getActivity();
+        if (activity == null)
+            return;
 
-        tvConnectionType.setVisibility(metered == null ? View.GONE : View.VISIBLE);
-        if (metered != null)
-            tvConnectionType.setText(metered ? R.string.title_legend_metered : R.string.title_legend_unmetered);
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Boolean metered = Helper.isMetered(getContext(), false);
+
+                tvConnectionType.setVisibility(metered == null ? View.GONE : View.VISIBLE);
+                if (metered != null)
+                    tvConnectionType.setText(metered ? R.string.title_legend_metered : R.string.title_legend_unmetered);
+            }
+        });
     }
 
     @Override
