@@ -111,11 +111,13 @@
     <string name="title_advanced_swipe">Gestes de balayage</string>
     <string name="title_advanced_actionbar">Barre d\'action de conversation</string>
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
+    <string name="title_advanced_autonext">Lors de la fermeture d\'une conversation, aller automatiquement sur la suivante</string>
     <string name="title_advanced_autoread">Marquer automatiquement le message comme lu lors de son déplacement</string>
     <string name="title_advanced_collapse">Replier les messages dans les conversations en appuyant sur \'Retour\'</string>
     <string name="title_advanced_automove">Confirmer le déplacement des messages</string>
     <string name="title_advanced_confirm">Confirmer les actions qui peuvent entraîner une fuite d\'informations sensibles privées</string>
     <string name="title_advanced_sender">Autoriser la modification de l\'adresse de l\'expéditeur</string>
+    <string name="title_advanced_autoresize">Redimensionner automatiquement les images pour l’affichage sur écrans</string>
     <string name="title_advanced_autosend">Confirmer l’envoi des messages</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
     <string name="title_advanced_debug">Débogage</string>
@@ -275,7 +277,6 @@
     <string name="title_send">Envoyer</string>
     <string name="title_view">Voir</string>
     <string name="title_send_after">Envoyer après &#8230;</string>
-    <string name="title_ask_resize">Réduire la taille de %1$s pour l’affichage sur les écrans ?</string>
     <string name="title_no_selection">Rien n\'est sélectionné</string>
     <string name="title_style_bold">Gras</string>
     <string name="title_style_italic">Italique</string>

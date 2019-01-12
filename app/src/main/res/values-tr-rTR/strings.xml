@@ -273,7 +273,6 @@
     <string name="title_send">Gönder</string>
     <string name="title_view">Görünüm</string>
     <string name="title_send_after">&#8230; sonra gönder</string>
-    <string name="title_ask_resize">Ekranlarda görüntülenmesi için %1$s\'in boyutu küçültülsün mü?</string>
     <string name="title_no_selection">Seçili hiçbir şey yok</string>
     <string name="title_style_bold">Kalın</string>
     <string name="title_style_italic">Eğik</string>

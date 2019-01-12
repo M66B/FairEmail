@@ -111,11 +111,13 @@
     <string name="title_advanced_swipe">Veegacties</string>
     <string name="title_advanced_actionbar">Actiebalk gesprek</string>
     <string name="title_advanced_autoclose">Gesprekken automatisch sluiten</string>
+    <string name="title_advanced_autonext">Automatisch naar het volgende gesprek gaan bij het sluiten van een gesprek</string>
     <string name="title_advanced_autoread">Markeer berichten automatisch als gelezen bij het verplaatsen van berichten</string>
     <string name="title_advanced_collapse">Berichten in gesprekken samenvouwen bij \'terug\'</string>
     <string name="title_advanced_automove">Bevestig het verplaatsen van berichten</string>
     <string name="title_advanced_confirm">Bevestigen van acties die privacy gevoelige informatie kunnen lekken</string>
     <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
+    <string name="title_advanced_autoresize">Wijzig afbeeldingen automatisch van formaat voor weergave op schermen</string>
     <string name="title_advanced_autosend">Bevestig het verzenden van berichten</string>
     <string name="title_advanced_updates">Controleren op updates</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
@@ -275,7 +277,6 @@
     <string name="title_send">Verzenden</string>
     <string name="title_view">Weergeven</string>
     <string name="title_send_after">Verzenden na &#8230;</string>
-    <string name="title_ask_resize">%1$s verkleinen voor weergave op schermen?</string>
     <string name="title_no_selection">Niets geselecteerd</string>
     <string name="title_style_bold">Vet</string>
     <string name="title_style_italic">Cursief</string>

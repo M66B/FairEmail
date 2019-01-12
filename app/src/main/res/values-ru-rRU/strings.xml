@@ -123,11 +123,13 @@
     <string name="title_advanced_swipe">Жесты</string>
     <string name="title_advanced_actionbar">Панель управления диалогами</string>
     <string name="title_advanced_autoclose">Автоматически закрывать диалоги</string>
+    <string name="title_advanced_autonext">При закрытии диалога, автоматически открыть следующий</string>
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
     <string name="title_advanced_collapse">Сворачивать сообщения в диалоге при нажатии кнопки \'назад\'</string>
     <string name="title_advanced_automove">Подтверждать перемещение сообщений</string>
     <string name="title_advanced_confirm">Подтвердить действия, которое может привести к утечке конфиденциальной информации</string>
     <string name="title_advanced_sender">Разрешить редактирование адреса отправителя</string>
+    <string name="title_advanced_autoresize">Автоматически масштабировать изображения к размеру экрана</string>
     <string name="title_advanced_autosend">Подтверждать отправку сообщений</string>
     <string name="title_advanced_updates">Проверить наличие обновлений</string>
     <string name="title_advanced_debug">Режим отладки</string>
@@ -163,6 +165,7 @@
     <string name="title_port">Номер порта</string>
     <string name="title_user">Имя пользователя</string>
     <string name="title_password">Пароль</string>
+    <string name="title_realm">Реалм</string>
     <string name="title_authorize">Выбрать учетную запись</string>
     <string name="title_authorizing">Авторизация учетной записи &#8230;</string>
     <string name="title_setup_advanced">Дополнительные опции</string>
@@ -286,7 +289,6 @@
     <string name="title_send">Отправить</string>
     <string name="title_view">Просмотреть</string>
     <string name="title_send_after">Отправить после &#8230;</string>
-    <string name="title_ask_resize">Уменьшить размер %1$s для отображения на экране?</string>
     <string name="title_no_selection">Ничего не выбрано</string>
     <string name="title_style_bold">Жирный</string>
     <string name="title_style_italic">Курсив</string>
