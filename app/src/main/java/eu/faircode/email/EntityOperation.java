@@ -158,7 +158,8 @@ public class EntityOperation {
 
                 // Create copy without uid in target folder
                 // Message with same msgid can be in archive and source folder
-                if (target.synchronize &&
+                if (message.uid != null &&
+                        target.synchronize &&
                         message.received > cal_keep.getTimeInMillis() &&
                         db.message().countMessageByMsgId(target.id, message.msgid) == 0) {
                     long id = message.id;
