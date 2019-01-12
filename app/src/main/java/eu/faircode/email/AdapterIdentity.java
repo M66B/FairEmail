@@ -110,7 +110,10 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             int pos = getAdapterPosition();
             if (pos == RecyclerView.NO_POSITION)
                 return;
+
             TupleIdentityEx identity = filtered.get(pos);
+            if (identity.tbd != null)
+                return;
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(

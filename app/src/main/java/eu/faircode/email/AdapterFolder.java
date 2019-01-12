@@ -206,6 +206,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 return;
 
             TupleFolderEx folder = filtered.get(pos);
+            if (folder.tbd != null)
+                return;
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
@@ -222,6 +224,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 return false;
 
             final TupleFolderEx folder = filtered.get(pos);
+            if (folder.tbd != null)
+                return false;
 
             PopupMenu popupMenu = new PopupMenu(context, itemView);
 
