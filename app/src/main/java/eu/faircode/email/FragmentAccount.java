@@ -303,7 +303,7 @@ public class FragmentAccount extends FragmentEx {
                         else
                             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.execute(FragmentAccount.this, args);
+                }.execute(FragmentAccount.this, args, "account:config");
             }
         });
 
@@ -623,7 +623,7 @@ public class FragmentAccount extends FragmentEx {
                             });
                         }
                     }
-                }.execute(FragmentAccount.this, args);
+                }.execute(FragmentAccount.this, args, "account:check");
             }
         });
 
@@ -937,7 +937,7 @@ public class FragmentAccount extends FragmentEx {
                             });
                         }
                     }
-                }.execute(FragmentAccount.this, args);
+                }.execute(FragmentAccount.this, args, "account:save");
             }
         });
 
@@ -1071,7 +1071,7 @@ public class FragmentAccount extends FragmentEx {
                         protected void onException(Bundle args, Throwable ex) {
                             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                         }
-                    }.execute(FragmentAccount.this, new Bundle());
+                    }.execute(FragmentAccount.this, new Bundle(), "account:primary");
                 } else {
                     int provider = savedInstanceState.getInt("provider");
                     spProvider.setTag(provider);
@@ -1111,14 +1111,14 @@ public class FragmentAccount extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.execute(FragmentAccount.this, args);
+                }.execute(FragmentAccount.this, args, "account:folders");
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(this, args);
+        }.execute(this, args, "account:get");
     }
 
     @Override
@@ -1181,7 +1181,7 @@ public class FragmentAccount extends FragmentEx {
                             protected void onException(Bundle args, Throwable ex) {
                                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
-                        }.execute(FragmentAccount.this, args);
+                        }.execute(FragmentAccount.this, args, "account:delete");
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)

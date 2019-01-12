@@ -127,7 +127,7 @@ public class FragmentAnswer extends FragmentEx {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(this, args);
+        }.execute(this, args, "answer:get");
     }
 
     private void onActionTrash() {
@@ -159,7 +159,7 @@ public class FragmentAnswer extends FragmentEx {
                                 Helper.setViewsEnabled(view, true);
                                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
-                        }.execute(FragmentAnswer.this, args);
+                        }.execute(FragmentAnswer.this, args, "answer:delete");
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
@@ -207,7 +207,7 @@ public class FragmentAnswer extends FragmentEx {
                 Helper.setViewsEnabled(view, true);
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(this, args);
+        }.execute(this, args, "answer:save");
     }
 
     private void handleExit() {

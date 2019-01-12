@@ -259,7 +259,7 @@ public class FragmentFolder extends FragmentEx {
                         else
                             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.execute(FragmentFolder.this, args);
+                }.execute(FragmentFolder.this, args, "folder:save");
             }
         });
 
@@ -342,7 +342,7 @@ public class FragmentFolder extends FragmentEx {
                                 else
                                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
-                        }.execute(FragmentFolder.this, args);
+                        }.execute(FragmentFolder.this, args, "folder:delete");
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
@@ -399,6 +399,6 @@ public class FragmentFolder extends FragmentEx {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(this, args);
+        }.execute(this, args, "folder:get");
     }
 }

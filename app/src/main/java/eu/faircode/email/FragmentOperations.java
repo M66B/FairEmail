@@ -154,7 +154,7 @@ public class FragmentOperations extends FragmentEx {
                             protected void onException(Bundle args, Throwable ex) {
                                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
-                        }.execute(FragmentOperations.this, new Bundle());
+                        }.execute(FragmentOperations.this, new Bundle(), "operation:delete");
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)

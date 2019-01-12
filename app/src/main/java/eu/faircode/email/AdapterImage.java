@@ -166,7 +166,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                         protected void onException(Bundle args, Throwable ex) {
                             Helper.unexpectedError(context, owner, ex);
                         }
-                    }.execute(context, owner, args);
+                    }.execute(context, owner, args, "image:fetch");
                 }
             }
         }

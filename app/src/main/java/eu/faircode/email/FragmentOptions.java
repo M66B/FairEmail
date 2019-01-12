@@ -256,7 +256,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
                         protected void onException(Bundle args, Throwable ex) {
                             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                         }
-                    }.execute(FragmentOptions.this, null);
+                    }.execute(FragmentOptions.this, new Bundle(), "options:preview");
             }
         });
 

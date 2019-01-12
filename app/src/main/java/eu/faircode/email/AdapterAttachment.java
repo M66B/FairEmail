@@ -160,7 +160,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(context, owner, ex);
                     }
-                }.execute(context, owner, args);
+                }.execute(context, owner, args, "attachment:delete");
 
             } else if (view.getId() == R.id.ivSave) {
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
@@ -270,7 +270,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                             protected void onException(Bundle args, Throwable ex) {
                                 Helper.unexpectedError(context, owner, ex);
                             }
-                        }.execute(context, owner, args);
+                        }.execute(context, owner, args, "attachment:fetch");
                     }
                 }
             }

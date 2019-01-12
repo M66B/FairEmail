@@ -421,7 +421,7 @@ public class FragmentIdentity extends FragmentEx {
                         else
                             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.execute(FragmentIdentity.this, args);
+                }.execute(FragmentIdentity.this, args, "identity:config");
             }
         });
 
@@ -659,7 +659,7 @@ public class FragmentIdentity extends FragmentEx {
                             });
                         }
                     }
-                }.execute(FragmentIdentity.this, args);
+                }.execute(FragmentIdentity.this, args, "identity:save");
             }
         });
 
@@ -752,7 +752,7 @@ public class FragmentIdentity extends FragmentEx {
                             protected void onException(Bundle args, Throwable ex) {
                                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
-                        }.execute(FragmentIdentity.this, new Bundle());
+                        }.execute(FragmentIdentity.this, new Bundle(), "identity:count");
                 } else {
                     tilPassword.getEditText().setText(savedInstanceState.getString("password"));
                     grpAdvanced.setVisibility(savedInstanceState.getInt("advanced"));
@@ -849,14 +849,14 @@ public class FragmentIdentity extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.execute(FragmentIdentity.this, args);
+                }.execute(FragmentIdentity.this, args, "identity:accounts:get");
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(this, args);
+        }.execute(this, args, "identity:get");
     }
 
     @Override
@@ -917,7 +917,7 @@ public class FragmentIdentity extends FragmentEx {
                             protected void onException(Bundle args, Throwable ex) {
                                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
-                        }.execute(FragmentIdentity.this, args);
+                        }.execute(FragmentIdentity.this, args, "identity:delete");
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
@@ -984,7 +984,7 @@ public class FragmentIdentity extends FragmentEx {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(this, args);
+        }.execute(this, args, "identity:folders:get");
     }
 
     class IdentityFolders {
