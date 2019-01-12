@@ -30,6 +30,7 @@ import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -55,6 +56,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.view.TouchDelegate;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -211,7 +213,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private LiveData<List<EntityAttachment>> liveAttachments = null;
         private Observer<List<EntityAttachment>> observerAttachments = null;
 
-        ViewHolder(View itemView) {
+        ViewHolder(final View itemView) {
             super(itemView);
 
             this.itemView = itemView.findViewById(R.id.clItem);
@@ -287,7 +289,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void wire() {
-            itemView.setOnClickListener(this);
+            if (viewType == ViewType.THREAD) {
+                ivExpander.setOnClickListener(this);
+                itemView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Rect rect = new Rect(
+                                itemView.getLeft(),
+                                ivExpander.getTop(),
+                                itemView.getRight(),
+                                ivExpander.getBottom());
+                        Log.i("Touch delegate=" + rect);
+                        itemView.setTouchDelegate(new TouchDelegate(rect, ivExpander));
+                    }
+                });
+            } else
+                itemView.setOnClickListener(this);
             ivSnoozed.setOnClickListener(this);
             ivFlagged.setOnClickListener(this);
             ivExpanderAddress.setOnClickListener(this);
@@ -302,7 +319,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void unwire() {
-            itemView.setOnClickListener(null);
+            if (viewType == ViewType.THREAD)
+                ivExpander.setOnClickListener(null);
+            else
+                itemView.setOnClickListener(null);
             ivSnoozed.setOnClickListener(null);
             ivFlagged.setOnClickListener(null);
             ivExpanderAddress.setOnClickListener(null);

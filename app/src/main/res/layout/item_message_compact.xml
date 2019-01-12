@@ -34,6 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_marginStart="6dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
             android:src="@drawable/baseline_expand_less_24"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
