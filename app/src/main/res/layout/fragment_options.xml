@@ -89,6 +89,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSectionConnection" />
 
+        <TextView
+            android:id="@+id/tvConnectionType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="60dp"
+            android:text="Connection is unmetered"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorConnection" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swMetered"
             android:layout_width="match_parent"
@@ -98,7 +112,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_metered"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorConnection"
+            app:layout_constraintTop_toBottomOf="@id/tvConnectionType"
             app:switchPadding="12dp" />
 
         <TextView

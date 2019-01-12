@@ -638,48 +638,6 @@
             app:layout_constraintStart_toEndOf="@id/ivClosing"
             app:layout_constraintTop_toTopOf="@id/ivClosing" />
 
-        <ImageView
-            android:id="@+id/ivMetered"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="24dp"
-            android:src="@drawable/baseline_attach_money_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvClosing" />
-
-        <TextView
-            android:id="@+id/tvMetered"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:text="@string/title_legend_metered"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="@id/ivMetered"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivMetered"
-            app:layout_constraintTop_toTopOf="@id/ivMetered" />
-
-        <ImageView
-            android:id="@+id/ivUnmetered"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="24dp"
-            android:src="@drawable/baseline_money_off_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvMetered" />
-
-        <TextView
-            android:id="@+id/tvUnmetered"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:text="@string/title_legend_unmetered"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="@id/ivUnmetered"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivUnmetered"
-            app:layout_constraintTop_toTopOf="@id/ivUnmetered" />
-
         <TextView
             android:id="@+id/tvDownloadFetch"
             android:layout_width="wrap_content"
@@ -690,7 +648,7 @@
             android:textAppearance="@android:style/TextAppearance.Small"
             app:layout_constraintBottom_toBottomOf="@+id/tvDownloadFetchLegend"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvUnmetered" />
+            app:layout_constraintTop_toBottomOf="@id/tvClosing" />
 
         <ImageView
             android:id="@+id/ivDownloadFetch"

@@ -32,15 +32,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.io.IOException;
 
@@ -55,6 +53,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
     private SwitchCompat swEnabled;
     private SwitchCompat swUpdates;
 
+    private TextView tvConnectionType;
     private SwitchCompat swMetered;
     private Spinner spDownload;
 
@@ -98,6 +97,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
         swEnabled = view.findViewById(R.id.swEnabled);
         swUpdates = view.findViewById(R.id.swUpdates);
 
+        tvConnectionType = view.findViewById(R.id.tvConnectionType);
         swMetered = view.findViewById(R.id.swMetered);
         spDownload = view.findViewById(R.id.spDownload);
 
@@ -411,8 +411,6 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
         ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkRequest.Builder builder = new NetworkRequest.Builder();
         builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
-        // Removed because of Android VPN service
-        // builder.addCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
         cm.registerNetworkCallback(builder.build(), networkCallback);
     }
 
@@ -427,39 +425,26 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
         @Override
         public void onAvailable(Network network) {
-            getActivity().invalidateOptionsMenu();
+            showConnectionType();
         }
 
         @Override
         public void onCapabilitiesChanged(Network network, NetworkCapabilities networkCapabilities) {
-            getActivity().invalidateOptionsMenu();
+            showConnectionType();
         }
 
         @Override
         public void onLost(Network network) {
-            getActivity().invalidateOptionsMenu();
+            showConnectionType();
         }
     };
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_options, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public void onPrepareOptionsMenu(Menu menu) {
+    public void showConnectionType() {
         Boolean metered = Helper.isMetered(getContext(), false);
 
-        MenuItem menuMetered = menu.findItem(R.id.menu_metered);
-        menuMetered.setVisible(metered != null);
-        if (metered != null) {
-            menuMetered.setIcon(
-                    metered ? R.drawable.baseline_attach_money_24 : R.drawable.baseline_money_off_24);
-            menuMetered.setTitle(
-                    metered ? R.string.title_legend_metered : R.string.title_legend_unmetered);
-        }
-        super.onPrepareOptionsMenu(menu);
+        tvConnectionType.setVisibility(metered == null ? View.GONE : View.VISIBLE);
+        if (metered != null)
+            tvConnectionType.setText(metered ? R.string.title_legend_metered : R.string.title_legend_unmetered);
     }
 
     @Override
