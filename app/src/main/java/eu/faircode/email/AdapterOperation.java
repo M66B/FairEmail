@@ -127,7 +127,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(context, owner, ex);
                     }
-                }.execute(context, owner, args);
+                }.execute(context, owner, args, "operation:open:folder");
             } else {
                 Bundle args = new Bundle();
                 args.putLong("id", operation.message);
@@ -153,7 +153,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(context, owner, ex);
                     }
-                }.execute(context, owner, args);
+                }.execute(context, owner, args, "operation:open:message");
             }
         }
     }

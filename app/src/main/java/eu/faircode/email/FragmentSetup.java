@@ -486,7 +486,7 @@ public class FragmentSetup extends FragmentEx {
                             grpQuickError.setVisibility(View.VISIBLE);
                         }
                     }
-                }.execute(FragmentSetup.this, args);
+                }.execute(FragmentSetup.this, args, "setup:quick");
             }
         });
 
@@ -665,7 +665,7 @@ public class FragmentSetup extends FragmentEx {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(this, new Bundle());
+        }.execute(this, new Bundle(), "outbox:create");
 
         return view;
     }
@@ -834,7 +834,7 @@ public class FragmentSetup extends FragmentEx {
                 protected void onException(Bundle args, Throwable ex) {
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                 }
-            }.execute(FragmentSetup.this, new Bundle());
+            }.execute(FragmentSetup.this, new Bundle(), "setup:sync");
     }
 
     @Override
@@ -1107,7 +1107,7 @@ public class FragmentSetup extends FragmentEx {
                 else
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(this, args);
+        }.execute(this, args, "setup:export");
     }
 
     private void handleImport(Intent data, String password) {
@@ -1253,7 +1253,7 @@ public class FragmentSetup extends FragmentEx {
                 else
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(this, args);
+        }.execute(this, args, "setup:import");
     }
 
     private void selectAccount() {
