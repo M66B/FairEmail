@@ -23,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
-            android:id="@+id/vSeparator1"
+            android:id="@+id/vSeparatorGeneral"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="?attr/colorSeparator"
@@ -41,7 +41,7 @@
             android:checked="true"
             android:text="@string/title_advanced_enabled"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparator1"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorGeneral"
             app:switchPadding="12dp" />
 
         <TextView
@@ -81,7 +81,7 @@
             app:layout_constraintTop_toBottomOf="@id/swUpdates" />
 
         <View
-            android:id="@+id/vSeparator2"
+            android:id="@+id/vSeparatorConnection"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="?attr/colorSeparator"
@@ -98,7 +98,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_metered"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparator2"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorConnection"
             app:switchPadding="12dp" />
 
         <TextView
@@ -160,7 +160,7 @@
             app:layout_constraintTop_toBottomOf="@id/barrier1" />
 
         <View
-            android:id="@+id/vSeparator3"
+            android:id="@+id/vSeparatorDisplay"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="?attr/colorSeparator"
@@ -177,7 +177,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_unified"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparator3"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorDisplay"
             app:switchPadding="12dp" />
 
         <TextView
@@ -290,7 +290,7 @@
             app:layout_constraintTop_toBottomOf="@id/swAddresses" />
 
         <View
-            android:id="@+id/vSeparator4"
+            android:id="@+id/vSeparatorBehavior"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="?attr/colorSeparator"
@@ -307,7 +307,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_pull_refresh"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparator4"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorBehavior"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
@@ -468,6 +468,26 @@
             app:layout_constraintTop_toBottomOf="@id/swAutoResize"
             app:switchPadding="12dp" />
 
+        <TextView
+            android:id="@+id/tvSectionMisc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/title_advanced_section_misc"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swAutoSend" />
+
+        <View
+            android:id="@+id/vSeparatorMisc"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSectionMisc" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swLight"
             android:layout_width="match_parent"
@@ -477,7 +497,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_light"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swAutoSend"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorMisc"
             app:switchPadding="12dp" />
 
         <Button
@@ -494,26 +514,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swLight" />
 
-        <TextView
-            android:id="@+id/tvSectionMisc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/title_advanced_section_misc"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnSound" />
-
-        <View
-            android:id="@+id/vSeparator5"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:background="?attr/colorSeparator"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSectionMisc" />
-
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swDebug"
             android:layout_width="match_parent"
@@ -524,7 +524,7 @@
             android:layout_marginBottom="12dp"
             android:text="@string/title_advanced_debug"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparator5"
+            app:layout_constraintTop_toBottomOf="@id/btnSound"
             app:switchPadding="12dp" />
 
         <androidx.constraintlayout.widget.Group
