@@ -985,9 +985,11 @@ If your provider requires an unsupported authentication method, you'll likely ge
 <a name="faq63"></a>
 **(63) How are images resized for displaying on screens?**
 
-After adding an inline image or an image attachment you might be asked if you want to reduce the image size for displaying on a screens.
-If you answer "yes", the image will be resized to a maximum width and height of about 1920 pixels and saved with a compression ratio of 90 out of 100.
+Large inline or attached images will automatically be resized for displaying on screens.
+This is because email messages are limited in size, depending on the provider mostly between 10 and 50 MB.
+Image will be resized to a maximum width and height of about 1280 pixels and saved with a compression ratio of 90 out of 100.
 Images are scaled down using whole number factors to reduce memory usage and to retain image quality.
+There is an advanced option to disable automatically resizing of image attachments.
 
 <br />
 

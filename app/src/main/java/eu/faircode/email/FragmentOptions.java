@@ -76,6 +76,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
     private SwitchCompat swAutoMove;
     private SwitchCompat swConfirm;
     private SwitchCompat swSender;
+    private SwitchCompat swAutoResize;
     private SwitchCompat swAutoSend;
 
     private SwitchCompat swLight;
@@ -118,6 +119,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
         swAutoMove = view.findViewById(R.id.swAutoMove);
         swConfirm = view.findViewById(R.id.swConfirm);
         swSender = view.findViewById(R.id.swSender);
+        swAutoResize = view.findViewById(R.id.swAutoResize);
         swAutoSend = view.findViewById(R.id.swAutoSend);
 
         swLight = view.findViewById(R.id.swLight);
@@ -345,6 +347,14 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("sender", checked).apply();
+            }
+        });
+
+        swAutoResize.setChecked(prefs.getBoolean("autoresize", true));
+        swAutoResize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("autoresize", checked).apply();
             }
         });
 

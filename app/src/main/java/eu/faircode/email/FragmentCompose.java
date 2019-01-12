@@ -1312,7 +1312,10 @@ public class FragmentCompose extends FragmentEx {
                 }
             }
 
-            if (image &&
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean autoresize = prefs.getBoolean("autoresize", true);
+
+            if ((image || autoresize) &&
                     ("image/jpeg".equals(attachment.type) || "image/png".equals(attachment.type))) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
