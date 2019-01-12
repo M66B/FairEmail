@@ -1933,6 +1933,7 @@ public class FragmentCompose extends FragmentEx {
                         EntityOperation.queue(context, db, draft, EntityOperation.DELETE);
                     else {
                         EntityOperation.queue(context, db, draft, EntityOperation.SEEN, true);
+                        draft.ui_seen = true;
                         EntityOperation.queue(context, db, draft, EntityOperation.MOVE, trash.id);
                     }
 

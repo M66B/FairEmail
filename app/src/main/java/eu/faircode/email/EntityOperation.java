@@ -157,8 +157,9 @@ public class EntityOperation {
                 cal_keep.set(Calendar.MILLISECOND, 0);
 
                 // Create copy without uid in target folder
-                // Message with same msgid can be in archive and source folder
+                // Message with same msgid can be in archive
                 if (message.uid != null &&
+                        message.ui_seen &&
                         target.synchronize &&
                         message.received > cal_keep.getTimeInMillis() &&
                         db.message().countMessageByMsgId(target.id, message.msgid) == 0) {
