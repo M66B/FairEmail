@@ -89,7 +89,7 @@ public class FragmentPro extends FragmentEx implements SharedPreferences.OnShare
         if ("pro".equals(key)) {
             boolean pro = prefs.getBoolean(key, false);
             tvActivated.setVisibility(pro ? View.VISIBLE : View.GONE);
-            btnPurchase.setEnabled(!pro);
+            btnPurchase.setEnabled(BuildConfig.DEBUG || !pro);
         }
     }
 }
