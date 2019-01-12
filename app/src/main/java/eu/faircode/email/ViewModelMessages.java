@@ -19,35 +19,76 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import java.util.HashMap;
+import java.util.Map;
+
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.lifecycle.ViewModel;
 import androidx.paging.PagedList;
 
 public class ViewModelMessages extends ViewModel {
-    private PagedList<TupleMessageEx> messages = null;
+    private Map<Boolean, LiveData<PagedList<TupleMessageEx>>> messages = new HashMap<>();
 
-    void setMessages(PagedList<TupleMessageEx> messages) {
-        this.messages = messages;
+    void setMessages(AdapterMessage.ViewType viewType, LiveData<PagedList<TupleMessageEx>> messages) {
+        boolean thread = (viewType == AdapterMessage.ViewType.THREAD);
+        this.messages.put(thread, messages);
+    }
+
+    void observe(AdapterMessage.ViewType viewType, LifecycleOwner owner, Observer<PagedList<TupleMessageEx>> observer) {
+        if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
+            final boolean thread = (viewType == AdapterMessage.ViewType.THREAD);
+            messages.get(thread).observe(owner, observer);
+
+            owner.getLifecycle().addObserver(new LifecycleObserver() {
+                @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+                public void onDestroyed() {
+                    Log.i("Removed model thread=" + thread);
+                    messages.remove(thread);
+                }
+            });
+        }
+    }
+
+    void removeObservers(AdapterMessage.ViewType viewType, LifecycleOwner owner) {
+        if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
+            boolean thread = (viewType == AdapterMessage.ViewType.THREAD);
+            LiveData<PagedList<TupleMessageEx>> list = messages.get(thread);
+            if (list != null)
+                list.removeObservers(owner);
+        }
+    }
+
+    boolean isEmpty(AdapterMessage.ViewType viewType) {
+        boolean thread = (viewType == AdapterMessage.ViewType.THREAD);
+        LiveData<PagedList<TupleMessageEx>> list = messages.get(thread);
+        return (list == null || list.getValue() == null || list.getValue().size() == 0);
     }
 
     @Override
     protected void onCleared() {
-        messages = null;
+        messages.clear();
     }
 
     Target[] getPrevNext(String thread) {
-        if (messages == null)
+        LiveData<PagedList<TupleMessageEx>> list = messages.get(false);
+        if (list == null || list.getValue() == null || list.getValue().size() == 0)
             return new Target[]{null, null};
 
         boolean found = false;
         TupleMessageEx prev = null;
         TupleMessageEx next = null;
-        for (int i = 0; i < messages.size(); i++) {
-            TupleMessageEx item = messages.get(i);
+        for (int i = 0; i < list.getValue().size(); i++) {
+            TupleMessageEx item = list.getValue().get(i);
             if (item == null)
                 continue;
             if (found) {
                 prev = item;
-                messages.loadAround(i);
+                list.getValue().loadAround(i);
                 break;
             }
             if (thread.equals(item.thread))

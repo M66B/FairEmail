@@ -69,7 +69,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LiveData;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -130,7 +130,6 @@ public class FragmentMessages extends FragmentEx {
 
     private AdapterMessage.ViewType viewType;
     private SelectionTracker<Long> selectionTracker = null;
-    private LiveData<PagedList<TupleMessageEx>> messages = null;
 
     private int autoCloseCount = 0;
     private boolean autoExpand = true;
@@ -449,17 +448,16 @@ public class FragmentMessages extends FragmentEx {
                 @Override
                 public void onSelectionChanged() {
                     try {
+                        ViewModelMessages modelMessages = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+                        LifecycleOwner owner = (viewType == AdapterMessage.ViewType.THREAD ? getViewLifecycleOwner() : getActivity());
                         if (selectionTracker.hasSelection()) {
                             swipeRefresh.setEnabled(false);
-                            if (getViewLifecycleOwner().getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                                if (messages != null)
-                                    messages.removeObservers(getViewLifecycleOwner());
+                            modelMessages.removeObservers(viewType, owner);
                             fabMore.show();
                         } else {
                             predicate.clearAccount();
                             fabMore.hide();
-                            if (getViewLifecycleOwner().getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                                loadMessages();
+                            modelMessages.observe(viewType, owner, observer);
                             swipeRefresh.setEnabled(pull);
                         }
                     } catch (IllegalStateException ex) {
@@ -625,8 +623,6 @@ public class FragmentMessages extends FragmentEx {
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                ViewModelMessages.Target[] pn = (ViewModelMessages.Target[]) bottom_navigation.getTag();
-
                 switch (menuItem.getItemId()) {
                     case R.id.action_delete:
                         onActionMove(EntityFolder.TRASH);
@@ -637,11 +633,11 @@ public class FragmentMessages extends FragmentEx {
                         return true;
 
                     case R.id.action_prev:
-                        onActionNavigate(pn[0]);
+                        navigate(false);
                         return true;
 
                     case R.id.action_next:
-                        onActionNavigate(pn[1]);
+                        navigate(true);
                         return true;
 
                     default:
@@ -703,15 +699,6 @@ public class FragmentMessages extends FragmentEx {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
                 }.execute(FragmentMessages.this, args, "messages:move");
-            }
-
-            private void onActionNavigate(ViewModelMessages.Target target) {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                lbm.sendBroadcast(
-                        new Intent(ActivityView.ACTION_VIEW_THREAD)
-                                .putExtra("account", target.account)
-                                .putExtra("thread", target.thread)
-                                .putExtra("id", target.id));
             }
         });
 
@@ -1755,10 +1742,8 @@ public class FragmentMessages extends FragmentEx {
     }
 
     private void loadMessages() {
-        final DB db = DB.getInstance(getContext());
-
-        ViewModelBrowse model = ViewModelProviders.of(getActivity()).get(ViewModelBrowse.class);
-        model.set(getContext(), folder, search, REMOTE_PAGE_SIZE);
+        ViewModelBrowse modelBrowse = ViewModelProviders.of(getActivity()).get(ViewModelBrowse.class);
+        modelBrowse.set(getContext(), folder, search, REMOTE_PAGE_SIZE);
 
         // Observe folder/messages/search
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -1768,9 +1753,11 @@ public class FragmentMessages extends FragmentEx {
         Log.i("Load messages type=" + viewType + " sort=" + sort + " debug=" + debug);
 
         // Sort changed
-        if (messages != null)
-            messages.removeObservers(getViewLifecycleOwner());
+        final ViewModelMessages modelMessages = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+        LifecycleOwner owner = (viewType == AdapterMessage.ViewType.THREAD ? getViewLifecycleOwner() : getActivity());
+        modelMessages.removeObservers(viewType, owner);
 
+        DB db = DB.getInstance(getContext());
         LivePagedListBuilder<Integer, TupleMessageEx> builder = null;
         switch (viewType) {
             case UNIFIED:
@@ -1780,7 +1767,7 @@ public class FragmentMessages extends FragmentEx {
 
             case FOLDER:
                 if (searchCallback == null)
-                    searchCallback = new BoundaryCallbackMessages(this, model,
+                    searchCallback = new BoundaryCallbackMessages(this, modelBrowse,
                             new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
                                 @Override
                                 public void onLoading() {
@@ -1819,7 +1806,7 @@ public class FragmentMessages extends FragmentEx {
 
             case SEARCH:
                 if (searchCallback == null)
-                    searchCallback = new BoundaryCallbackMessages(this, model,
+                    searchCallback = new BoundaryCallbackMessages(this, modelBrowse,
                             new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
                                 @Override
                                 public void onLoading() {
@@ -1830,8 +1817,7 @@ public class FragmentMessages extends FragmentEx {
                                 @Override
                                 public void onLoaded() {
                                     pbWait.setVisibility(View.GONE);
-                                    if (messages.getValue() == null || messages.getValue().size() == 0)
-                                        tvNoEmail.setVisibility(View.VISIBLE);
+                                    tvNoEmail.setVisibility(modelMessages.isEmpty(viewType) ? View.VISIBLE : View.GONE);
                                 }
 
                                 @Override
@@ -1857,195 +1843,171 @@ public class FragmentMessages extends FragmentEx {
 
         builder.setFetchExecutor(executor);
 
-        messages = builder.build();
-        messages.observe(getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
-            @Override
-            public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
-                if (messages == null ||
-                        (viewType == AdapterMessage.ViewType.THREAD && messages.size() == 0 &&
-                                (autoclose || autonext))) {
-                    autoCloseNext();
-                    return;
-                }
+        modelMessages.setMessages(viewType, builder.build());
+        modelMessages.observe(viewType, owner, observer);
+    }
 
-                if (viewType == AdapterMessage.ViewType.THREAD) {
-                    if (autoExpand) {
-                        autoExpand = false;
+    private Observer<PagedList<TupleMessageEx>> observer = new Observer<PagedList<TupleMessageEx>>() {
+        @Override
+        public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
+            if (messages == null ||
+                    (viewType == AdapterMessage.ViewType.THREAD && messages.size() == 0 &&
+                            (autoclose || autonext))) {
+                handleAutoClose();
+                return;
+            }
 
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                        long download = prefs.getInt("download", 32768);
-                        if (download == 0)
-                            download = Long.MAX_VALUE;
+            if (viewType == AdapterMessage.ViewType.THREAD) {
+                if (autoExpand) {
+                    autoExpand = false;
 
-                        Boolean isMetered = Helper.isMetered(getContext(), false);
-                        boolean metered = (isMetered == null || isMetered);
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                    long download = prefs.getInt("download", 32768);
+                    if (download == 0)
+                        download = Long.MAX_VALUE;
 
-                        int count = 0;
-                        int unseen = 0;
-                        TupleMessageEx single = null;
-                        TupleMessageEx see = null;
-                        for (TupleMessageEx message : messages) {
-                            if (!message.duplicate &&
-                                    !EntityFolder.DRAFTS.equals(message.folderType) &&
-                                    !EntityFolder.TRASH.equals(message.folderType)) {
-                                count++;
-                                single = message;
-                                if (!message.ui_seen) {
-                                    unseen++;
-                                    see = message;
-                                }
+                    Boolean isMetered = Helper.isMetered(getContext(), false);
+                    boolean metered = (isMetered == null || isMetered);
+
+                    int count = 0;
+                    int unseen = 0;
+                    TupleMessageEx single = null;
+                    TupleMessageEx see = null;
+                    for (TupleMessageEx message : messages) {
+                        if (!message.duplicate &&
+                                !EntityFolder.DRAFTS.equals(message.folderType) &&
+                                !EntityFolder.TRASH.equals(message.folderType)) {
+                            count++;
+                            single = message;
+                            if (!message.ui_seen) {
+                                unseen++;
+                                see = message;
                             }
+                        }
 
+                        if (!EntityFolder.ARCHIVE.equals(message.folderType) &&
+                                !EntityFolder.SENT.equals(message.folderType) &&
+                                !EntityFolder.TRASH.equals(message.folderType) &&
+                                !EntityFolder.JUNK.equals(message.folderType))
+                            autoCloseCount++;
+                    }
+
+                    // Auto expand when:
+                    // - single, non archived/trashed/sent message
+                    // - one unread, non archived/trashed/sent message in conversation
+                    // - sole message
+
+                    TupleMessageEx expand = null;
+                    if (count == 1)
+                        expand = single;
+                    else if (unseen == 1)
+                        expand = see;
+                    else if (messages.size() == 1)
+                        expand = messages.get(0);
+
+                    if (expand != null &&
+                            (expand.content || !metered || (expand.size != null && expand.size < download))) {
+                        if (!values.containsKey("expanded"))
+                            values.put("expanded", new ArrayList<Long>());
+                        values.get("expanded").add(expand.id);
+                        handleExpand(expand.id);
+                    }
+                } else {
+                    if (autoCloseCount > 0 && (autoclose || autonext)) {
+                        int count = 0;
+                        for (int i = 0; i < messages.size(); i++) {
+                            TupleMessageEx message = messages.get(i);
                             if (!EntityFolder.ARCHIVE.equals(message.folderType) &&
                                     !EntityFolder.SENT.equals(message.folderType) &&
                                     !EntityFolder.TRASH.equals(message.folderType) &&
                                     !EntityFolder.JUNK.equals(message.folderType))
-                                autoCloseCount++;
+                                count++;
                         }
+                        Log.i("Auto close=" + count);
 
-                        // Auto expand when:
-                        // - single, non archived/trashed/sent message
-                        // - one unread, non archived/trashed/sent message in conversation
-                        // - sole message
+                        // Auto close/next when:
+                        // - no more non archived/trashed/sent messages
 
-                        TupleMessageEx expand = null;
-                        if (count == 1)
-                            expand = single;
-                        else if (unseen == 1)
-                            expand = see;
-                        else if (messages.size() == 1)
-                            expand = messages.get(0);
-
-                        if (expand != null &&
-                                (expand.content || !metered || (expand.size != null && expand.size < download))) {
-                            if (!values.containsKey("expanded"))
-                                values.put("expanded", new ArrayList<Long>());
-                            values.get("expanded").add(expand.id);
-                            handleExpand(expand.id);
-                        }
-                    } else {
-                        if (autoCloseCount > 0 && (autoclose || autonext)) {
-                            int count = 0;
-                            for (int i = 0; i < messages.size(); i++) {
-                                TupleMessageEx message = messages.get(i);
-                                if (!EntityFolder.ARCHIVE.equals(message.folderType) &&
-                                        !EntityFolder.SENT.equals(message.folderType) &&
-                                        !EntityFolder.TRASH.equals(message.folderType) &&
-                                        !EntityFolder.JUNK.equals(message.folderType))
-                                    count++;
-                            }
-                            Log.i("Auto close=" + count);
-
-                            // Auto close/next when:
-                            // - no more non archived/trashed/sent messages
-
-                            if (count == 0) {
-                                autoCloseNext();
-                                return;
-                            }
+                        if (count == 0) {
+                            handleAutoClose();
+                            return;
                         }
                     }
-
-                    if (actionbar) {
-                        ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-                        ViewModelMessages.Target[] pn = model.getPrevNext(thread);
-                        bottom_navigation.setTag(pn);
-                        bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(pn[0] != null);
-                        bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(pn[1] != null);
-
-                        Bundle args = new Bundle();
-                        args.putLong("account", account);
-                        args.putString("thread", thread);
-                        args.putLong("id", id);
-
-                        new SimpleTask<Boolean[]>() {
-                            @Override
-                            protected Boolean[] onExecute(Context context, Bundle args) {
-                                long account = args.getLong("account");
-                                String thread = args.getString("thread");
-                                long id = args.getLong("id");
-
-                                List<EntityMessage> messages = db.message().getMessageByThread(
-                                        account, thread, threading ? null : id, null);
-
-                                boolean trashable = false;
-                                boolean archivable = false;
-                                for (EntityMessage message : messages)
-                                    if (message.uid != null) {
-                                        EntityFolder folder = db.folder().getFolder(message.folder);
-                                        if (!EntityFolder.DRAFTS.equals(folder.type) &&
-                                                !EntityFolder.OUTBOX.equals(folder.type) &&
-                                                // allow sent
-                                                !EntityFolder.TRASH.equals(folder.type) &&
-                                                !EntityFolder.JUNK.equals(folder.type))
-                                            trashable = true;
-                                        if (!EntityFolder.isOutgoing(folder.type) &&
-                                                !EntityFolder.TRASH.equals(folder.type) &&
-                                                !EntityFolder.JUNK.equals(folder.type) &&
-                                                !EntityFolder.ARCHIVE.equals(folder.type))
-                                            archivable = true;
-                                    }
-
-                                return new Boolean[]{trashable, archivable};
-                            }
-
-                            @Override
-                            protected void onExecuted(Bundle args, Boolean[] data) {
-                                bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(trashes.size() > 0 && data[0]);
-                                bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(archives.size() > 0 && data[1]);
-                                bottom_navigation.setVisibility(View.VISIBLE);
-                            }
-
-                            @Override
-                            protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                            }
-                        }.execute(FragmentMessages.this, args, "messages:navigation");
-                    }
-
-                } else {
-                    ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-                    model.setMessages(messages);
                 }
 
-                Log.i("Submit messages=" + messages.size());
-                adapter.submitList(messages);
+                if (actionbar) {
+                    Bundle args = new Bundle();
+                    args.putLong("account", account);
+                    args.putString("thread", thread);
+                    args.putLong("id", id);
 
-                boolean searching = (searchCallback != null && searchCallback.isSearching());
+                    new SimpleTask<Boolean[]>() {
+                        @Override
+                        protected Boolean[] onExecute(Context context, Bundle args) {
+                            long account = args.getLong("account");
+                            String thread = args.getString("thread");
+                            long id = args.getLong("id");
 
-                if (!searching)
-                    pbWait.setVisibility(View.GONE);
-                grpReady.setVisibility(View.VISIBLE);
+                            DB db = DB.getInstance(context);
 
-                if (messages.size() == 0) {
-                    tvNoEmail.setVisibility(searching ? View.GONE : View.VISIBLE);
-                    rvMessage.setVisibility(View.GONE);
-                } else {
-                    tvNoEmail.setVisibility(View.GONE);
-                    rvMessage.setVisibility(View.VISIBLE);
+                            List<EntityMessage> messages = db.message().getMessageByThread(
+                                    account, thread, threading ? null : id, null);
+
+                            boolean trashable = false;
+                            boolean archivable = false;
+                            for (EntityMessage message : messages)
+                                if (message.uid != null) {
+                                    EntityFolder folder = db.folder().getFolder(message.folder);
+                                    if (!EntityFolder.DRAFTS.equals(folder.type) &&
+                                            !EntityFolder.OUTBOX.equals(folder.type) &&
+                                            // allow sent
+                                            !EntityFolder.TRASH.equals(folder.type) &&
+                                            !EntityFolder.JUNK.equals(folder.type))
+                                        trashable = true;
+                                    if (!EntityFolder.isOutgoing(folder.type) &&
+                                            !EntityFolder.TRASH.equals(folder.type) &&
+                                            !EntityFolder.JUNK.equals(folder.type) &&
+                                            !EntityFolder.ARCHIVE.equals(folder.type))
+                                        archivable = true;
+                                }
+
+                            return new Boolean[]{trashable, archivable};
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, Boolean[] data) {
+                            bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(trashes.size() > 0 && data[0]);
+                            bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(archives.size() > 0 && data[1]);
+                            bottom_navigation.setVisibility(View.VISIBLE);
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                        }
+                    }.execute(FragmentMessages.this, args, "messages:navigation");
                 }
+
             }
-        });
-    }
 
-    private void autoCloseNext() {
-        if (autoclose)
-            finish();
-        else if (autonext) {
-            ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-            ViewModelMessages.Target[] pn = model.getPrevNext(thread);
-            if (pn[1] == null)
-                finish();
-            else {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                lbm.sendBroadcast(
-                        new Intent(ActivityView.ACTION_VIEW_THREAD)
-                                .putExtra("account", pn[1].account)
-                                .putExtra("thread", pn[1].thread)
-                                .putExtra("id", pn[1].id));
+            Log.i("Submit messages=" + messages.size());
+            adapter.submitList(messages);
+
+            boolean searching = (searchCallback != null && searchCallback.isSearching());
+
+            if (!searching)
+                pbWait.setVisibility(View.GONE);
+            grpReady.setVisibility(View.VISIBLE);
+
+            if (messages.size() == 0) {
+                tvNoEmail.setVisibility(searching ? View.GONE : View.VISIBLE);
+                rvMessage.setVisibility(View.GONE);
+            } else {
+                tvNoEmail.setVisibility(View.GONE);
+                rvMessage.setVisibility(View.VISIBLE);
             }
         }
-    }
+    };
 
     private void handleExpand(long id) {
         Bundle args = new Bundle();
@@ -2082,6 +2044,29 @@ public class FragmentMessages extends FragmentEx {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.execute(this, args, "messages:expand");
+    }
+
+    private void handleAutoClose() {
+        if (autoclose)
+            finish();
+        else if (autonext)
+            navigate(true);
+    }
+
+    private void navigate(boolean next) {
+        ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+        ViewModelMessages.Target target = model.getPrevNext(thread)[next ? 1 : 0];
+
+        if (target == null)
+            finish();
+        else {
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+            lbm.sendBroadcast(
+                    new Intent(ActivityView.ACTION_VIEW_THREAD)
+                            .putExtra("account", target.account)
+                            .putExtra("thread", target.thread)
+                            .putExtra("id", target.id));
+        }
     }
 
     private void moveAsk(final MessageTarget result) {

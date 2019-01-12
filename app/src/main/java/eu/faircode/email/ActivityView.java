@@ -100,7 +100,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class ActivityView extends ActivityBilling implements FragmentManager.OnBackStackChangedListener {
@@ -384,9 +383,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     onDebugInfo();
 
                 else if (action.startsWith("thread")) {
-                    ViewModelMessages model = ViewModelProviders.of(ActivityView.this).get(ViewModelMessages.class);
-                    model.setMessages(null);
-
                     intent.putExtra("thread", action.split(":", 2)[1]);
                     onViewThread(intent);
                 }
