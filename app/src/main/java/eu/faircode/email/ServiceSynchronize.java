@@ -2347,7 +2347,7 @@ public class ServiceSynchronize extends LifecycleService {
         if (message == null) {
             // Will fetch headers within database transaction
             String msgid = helper.getMessageID();
-            Log.i("Searching for " + msgid);
+            Log.i(folder.name + " searching for " + msgid);
             for (EntityMessage dup : db.message().getMessageByMsgId(folder.account, msgid)) {
                 EntityFolder dfolder = db.folder().getFolder(dup.folder);
                 Log.i(folder.name + " found as id=" + dup.id + "/" + dup.uid +
@@ -2362,20 +2362,23 @@ public class ServiceSynchronize extends LifecycleService {
                             " msgid=" + msgid + " thread=" + thread);
                     dup.folder = folder.id; // outbox to sent
 
-                    if (dup.uid == null)
+                    if (dup.uid == null) {
+                        Log.i(folder.name + " set uid=" + uid);
                         dup.uid = uid;
-                    else if (dup.uid != uid) {
+                    } else if (dup.uid != uid) {
                         if (EntityFolder.DRAFTS.equals(folder.type)) {
-                            Log.i("Deleting previous uid=" + dup.uid);
+                            Log.i(folder.name + " deleting previous uid=" + dup.uid);
                             Message iprev = ifolder.getMessageByUID(dup.uid);
                             if (iprev == null)
-                                Log.w("Previous not found uid=" + dup.uid);
+                                Log.w(folder.name + " previous not found uid=" + dup.uid);
                             else {
                                 iprev.setFlag(Flags.Flag.DELETED, true);
                                 ifolder.expunge();
                             }
+                            Log.i(folder.name + " set uid=" + uid);
                         } else // Draft in Gmail archive
-                            Log.e("Changed uid=" + dup.uid + "/" + uid);
+                            Log.e(folder.name + " changed uid=" + dup.uid + "/" + uid);
+
                         dup.uid = uid;
                     }
 
