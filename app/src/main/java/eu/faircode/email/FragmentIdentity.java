@@ -558,10 +558,12 @@ public class FragmentIdentity extends FragmentEx {
                         DB db = DB.getInstance(context);
                         EntityIdentity identity = db.identity().getIdentity(id);
 
+                        String identityRealm = (identity == null ? null : identity.realm);
+
                         boolean check = (synchronize && (identity == null ||
                                 !host.equals(identity.host) || Integer.parseInt(port) != identity.port ||
                                 !user.equals(identity.user) || !password.equals(identity.password) ||
-                                realm == null ? identity.realm != null : !realm.equals(identity.realm)));
+                                realm == null ? identityRealm != null : !realm.equals(identityRealm)));
                         boolean reload = (identity == null || identity.synchronize != synchronize || check);
 
                         // Check SMTP server
