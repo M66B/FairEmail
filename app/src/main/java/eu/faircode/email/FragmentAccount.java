@@ -753,10 +753,12 @@ public class FragmentAccount extends FragmentEx {
                         DB db = DB.getInstance(context);
                         EntityAccount account = db.account().getAccount(id);
 
+                        String accountRealm = (account == null ? null : account.realm);
+
                         boolean check = (synchronize && (account == null ||
                                 !host.equals(account.host) || Integer.parseInt(port) != account.port ||
                                 !user.equals(account.user) || !password.equals(account.password) ||
-                                realm == null ? account.realm != null : !realm.equals(account.realm)));
+                                (realm == null ? accountRealm != null : !realm.equals(accountRealm))));
                         boolean reload = (check || account == null ||
                                 (account.prefix == null ? prefix != null : !account.prefix.equals(prefix)) ||
                                 account.synchronize != synchronize ||
