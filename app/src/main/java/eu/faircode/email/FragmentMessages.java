@@ -67,6 +67,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
@@ -447,21 +448,24 @@ public class FragmentMessages extends FragmentEx {
             selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
                 @Override
                 public void onSelectionChanged() {
-                    try {
-                        ViewModelMessages modelMessages = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-                        LifecycleOwner owner = (viewType == AdapterMessage.ViewType.THREAD ? getViewLifecycleOwner() : getActivity());
-                        if (selectionTracker.hasSelection()) {
-                            swipeRefresh.setEnabled(false);
+                    // Workaround AndroidX bug
+                    FragmentActivity activity = getActivity();
+                    if (activity != null) {
+                        ViewModelMessages modelMessages = ViewModelProviders.of(activity).get(ViewModelMessages.class);
+                        LifecycleOwner owner = (viewType == AdapterMessage.ViewType.THREAD ? getViewLifecycleOwner() : activity);
+                        if (selectionTracker.hasSelection())
                             modelMessages.removeObservers(viewType, owner);
-                            fabMore.show();
-                        } else {
-                            predicate.clearAccount();
-                            fabMore.hide();
+                        else
                             modelMessages.observe(viewType, owner, observer);
-                            swipeRefresh.setEnabled(pull);
-                        }
-                    } catch (IllegalStateException ex) {
-                        Log.w(ex);
+                    }
+
+                    if (selectionTracker.hasSelection()) {
+                        swipeRefresh.setEnabled(false);
+                        fabMore.show();
+                    } else {
+                        predicate.clearAccount();
+                        fabMore.hide();
+                        swipeRefresh.setEnabled(pull);
                     }
                 }
             });
