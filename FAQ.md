@@ -39,11 +39,10 @@ None at this moment.
 * Widget to read e-mail: widgets can have limited user interaction only, so a widget to read e-mail would not be very useful. Moreover, it would be not very useful to duplicate functions which are already available in the app.
 * Executing filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for this.
 * Badge count: there is no standard Android API for this and third party solutions might stop working anytime. For example *ShortcutBadger* [has lots of problems](https://github.com/leolin310148/ShortcutBadger/issues). You can use the provided widget instead.
-* Switch language: although it is possible to change the language of an app, Android is not designed for this. Better fix the translation in your language if needed, see [this FAQ](#user-content-faq26) about how to.
+* Switch language: Android is not designed to change the language of an app and on recent Android versions it even causes problems. So, better fix the translation in your language if needed, see [this FAQ](#user-content-faq26) about how to.
 * Select identities to show in unified inbox: this would add complexity for something which would hardly be used.
 * Better design: please let me know what you have in mind [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
 * Hide archived messages: hiding archived messages which exists in other folders too would have a performance impact.
-* S/MIME encryption: only PGP encryption will be supported, see [this FAQ](#user-content-faq12) for more information.
 * ActiveSync: there are no maintained, open source libraries providing the ActiveSync protocol, so this cannot be added.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
@@ -55,6 +54,7 @@ Since FairEmail is meant to be privacy friendly, the following will not be added
 Confirmation is just one tap, which is just a small price for better privacy.
 Note that your contacts could unknowingly send malicious messages if they got infected with malware.
 
+Stripped and reformatted messages are often better readable than original messages because the margins are removed and font sizes are standardized.
 
 ## Frequently Asked Questions
 
@@ -977,7 +977,7 @@ The following authentication methods are supported and used in this order:
 
 * LOGIN
 * PLAIN
-* NTLM
+* NTLM (untested)
 * XOAUTH2 (used when an account was selected)
 
 SASL authentication methods, like CRAM-MD5, are not supported
