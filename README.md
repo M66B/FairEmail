@@ -70,7 +70,7 @@ This app starts a foreground service with a low priority status bar notification
 
 ## Screenshots
 
-Please [see here](https://email.faircode.eu/#screenshots).
+Please see [here](https://email.faircode.eu/#screenshots) for screenshots.
 
 ## Downloads
 
@@ -82,6 +82,10 @@ Certificate fingerprints:
 * MD5: 64:90:8E:2C:0D:25:29:B0:D0:26:2D:24:D8:BB:66:56
 * SHA1: 17:BA:15:C1:AF:55:D9:25:F9:8B:99:CE:A4:37:5D:4C:DF:4C:17:4B
 * SHA256: E0:20:67:24:9F:5A:35:0E:0E:C7:03:FE:9D:F4:DD:68:2E:02:91:A0:9F:0C:2E:04:10:50:BB:E7:C0:64:F5:C9
+
+## Privacy
+
+Please see [here](https://github.com/M66B/open-source-email/blob/master/PRIVACY.md) for the privacy policy.
 
 ## Compatibility
 
@@ -123,7 +127,7 @@ Please note that you agree to the license below by contributing, including the c
 
 FairEmail uses:
 
-* [JavaMail](https://javaee.github.io/javamail/). Copyright (c) 1997-2018 Oracle® and/or its affiliates. All rights reserved. [GPLv2+CE license](https://javaee.github.io/javamail/JavaMail-License).
+* [JavaMail](https://projects.eclipse.org/projects/ee4j.javamail). Copyright (c) 1997-2018 Oracle® and/or its affiliates. All rights reserved. [GPLv2+CE license](https://javaee.github.io/javamail/JavaMail-License).
 * [jsoup](https://jsoup.org/). Copyright © 2009 - 2017 Jonathan Hedley. [MIT license](https://jsoup.org/license).
 * [JCharset](http://www.freeutils.net/source/jcharset/). Copyright © 2005-2015 Amichai Rothman. [GNU General Public License](http://www.freeutils.net/source/jcharset/#license)
 * [Android Support Library](https://developer.android.com/tools/support-library/). Copyright (C) 2011 The Android Open Source Project. [Apache license](https://android.googlesource.com/platform/frameworks/support/+/master/LICENSE.txt).
