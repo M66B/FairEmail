@@ -321,6 +321,9 @@ See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-
 
 Unfortunately, Outlook doesn't properly support OAuth for IMAP/SMTP connections, so there is no other way.
 
+Technical background: [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-android) is supported for business accounts only
+and OAuth requires embedding a client secret in the app.
+
 <br />
 
 <a name="faq15"></a>
@@ -979,6 +982,7 @@ The following authentication methods are supported and used in this order:
 
 SASL authentication methods, like CRAM-MD5, are not supported
 because [JavaMail for Android](https://javaee.github.io/javamail/Android) does not support SASL authentication.
+If using secure connections, a must today, there is little value in using CRAM-MD5 anyway.
 
 If your provider requires an unsupported authentication method, you'll likely get the error message *authentication failed*.
 
