@@ -44,7 +44,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
-public class Provider {
+public class EmailProvider {
     public String name;
     public int order;
     public String link;
@@ -63,17 +63,17 @@ public class Provider {
 
     private static final int TIMEOUT = 20 * 1000; // milliseconds
 
-    private Provider() {
+    private EmailProvider() {
     }
 
-    Provider(String name) {
+    EmailProvider(String name) {
         this.name = name;
     }
 
-    static List<Provider> loadProfiles(Context context) {
-        List<Provider> result = null;
+    static List<EmailProvider> loadProfiles(Context context) {
+        List<EmailProvider> result = null;
         try {
-            Provider provider = null;
+            EmailProvider provider = null;
             XmlResourceParser xml = context.getResources().getXml(R.xml.providers);
             int eventType = xml.getEventType();
             while (eventType != XmlPullParser.END_DOCUMENT) {
@@ -82,7 +82,7 @@ public class Provider {
                     if ("providers".equals(name))
                         result = new ArrayList<>();
                     else if ("provider".equals(name)) {
-                        provider = new Provider();
+                        provider = new EmailProvider();
                         provider.name = xml.getAttributeValue(null, "name");
                         provider.order = xml.getAttributeIntValue(null, "order", Integer.MAX_VALUE);
                         provider.link = xml.getAttributeValue(null, "link");
@@ -113,9 +113,9 @@ public class Provider {
         final Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
 
-        Collections.sort(result, new Comparator<Provider>() {
+        Collections.sort(result, new Comparator<EmailProvider>() {
             @Override
-            public int compare(Provider p1, Provider p2) {
+            public int compare(EmailProvider p1, EmailProvider p2) {
                 int o = Integer.compare(p1.order, p2.order);
                 if (o == 0)
                     return collator.compare(p1.name, p2.name);
@@ -127,13 +127,13 @@ public class Provider {
         return result;
     }
 
-    static Provider fromDomain(Context context, String domain) throws IOException {
+    static EmailProvider fromDomain(Context context, String domain) throws IOException {
         try {
-            return Provider.fromISPDB(context, domain);
+            return EmailProvider.fromISPDB(context, domain);
         } catch (Throwable ex) {
             Log.w(ex);
             try {
-                return Provider.fromDNS(context, domain);
+                return EmailProvider.fromDNS(context, domain);
             } catch (UnknownHostException ex1) {
                 Log.w(ex1);
                 throw new UnknownHostException(context.getString(R.string.title_setup_no_settings, domain));
@@ -141,8 +141,8 @@ public class Provider {
         }
     }
 
-    private static Provider fromISPDB(Context context, String domain) throws IOException, XmlPullParserException {
-        Provider provider = new Provider(domain);
+    private static EmailProvider fromISPDB(Context context, String domain) throws IOException, XmlPullParserException {
+        EmailProvider provider = new EmailProvider(domain);
 
         // https://wiki.mozilla.org/Thunderbird:Autoconfiguration:ConfigFileFormat
         URL url = new URL("https://autoconfig.thunderbird.net/v1.1/" + domain);
@@ -319,12 +319,12 @@ public class Provider {
         return addSpecials(context, provider);
     }
 
-    private static Provider fromDNS(Context context, String domain) throws TextParseException, UnknownHostException {
+    private static EmailProvider fromDNS(Context context, String domain) throws TextParseException, UnknownHostException {
         // https://tools.ietf.org/html/rfc6186
         SRVRecord imap = lookup("_imaps._tcp." + domain);
         SRVRecord smtp = lookup("_submission._tcp." + domain);
 
-        Provider provider = new Provider(domain);
+        EmailProvider provider = new EmailProvider(domain);
         provider.imap_host = imap.getTarget().toString(true);
         provider.imap_port = imap.getPort();
         provider.imap_starttls = (provider.imap_port == 143);
@@ -336,7 +336,7 @@ public class Provider {
         return addSpecials(context, provider);
     }
 
-    private static void addDocumentation(Provider provider, String href, String title) {
+    private static void addDocumentation(EmailProvider provider, String href, String title) {
         if (provider.documentation == null)
             provider.documentation = new StringBuilder();
         else
@@ -345,8 +345,8 @@ public class Provider {
         provider.documentation.append("<a href=\"").append(href).append("\">").append(title).append("</a>");
     }
 
-    private static Provider addSpecials(Context context, Provider provider) {
-        for (Provider predefined : loadProfiles(context))
+    private static EmailProvider addSpecials(Context context, EmailProvider provider) {
+        for (EmailProvider predefined : loadProfiles(context))
             if (provider.imap_host.equals(predefined.imap_host)) {
                 provider.prefix = predefined.prefix;
                 break;

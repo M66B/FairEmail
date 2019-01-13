@@ -285,12 +285,12 @@ public class FragmentSetup extends FragmentEx {
                             throw new IllegalArgumentException(context.getString(R.string.title_email_invalid));
 
                         String[] dparts = email.split("@");
-                        Provider provider = Provider.fromDomain(context, dparts[1]);
+                        EmailProvider provider = EmailProvider.fromDomain(context, dparts[1]);
 
                         if (provider.documentation != null)
                             args.putString("documentation", provider.documentation.toString());
 
-                        String user = (provider.user == Provider.UserType.EMAIL ? email : dparts[0]);
+                        String user = (provider.user == EmailProvider.UserType.EMAIL ? email : dparts[0]);
 
                         Character separator;
                         long now = new Date().getTime();

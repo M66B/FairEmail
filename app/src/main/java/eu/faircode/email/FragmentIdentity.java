@@ -209,7 +209,7 @@ public class FragmentIdentity extends FragmentEx {
                 else {
                     boolean found = false;
                     for (int pos = 1; pos < spProvider.getAdapter().getCount(); pos++) {
-                        Provider provider = (Provider) spProvider.getItemAtPosition(pos);
+                        EmailProvider provider = (EmailProvider) spProvider.getItemAtPosition(pos);
                         if (provider.imap_host.equals(account.host) &&
                                 provider.imap_port == account.port) {
                             found = true;
@@ -351,7 +351,7 @@ public class FragmentIdentity extends FragmentEx {
                     return;
                 adapterView.setTag(position);
 
-                Provider provider = (Provider) adapterView.getSelectedItem();
+                EmailProvider provider = (EmailProvider) adapterView.getSelectedItem();
 
                 // Set associated host/port/starttls
                 etHost.setText(provider.smtp_host);
@@ -388,7 +388,7 @@ public class FragmentIdentity extends FragmentEx {
                 Bundle args = new Bundle();
                 args.putString("domain", etDomain.getText().toString());
 
-                new SimpleTask<Provider>() {
+                new SimpleTask<EmailProvider>() {
                     @Override
                     protected void onPreExecute(Bundle args) {
                         etDomain.setEnabled(false);
@@ -402,13 +402,13 @@ public class FragmentIdentity extends FragmentEx {
                     }
 
                     @Override
-                    protected Provider onExecute(Context context, Bundle args) throws Throwable {
+                    protected EmailProvider onExecute(Context context, Bundle args) throws Throwable {
                         String domain = args.getString("domain");
-                        return Provider.fromDomain(context, domain);
+                        return EmailProvider.fromDomain(context, domain);
                     }
 
                     @Override
-                    protected void onExecuted(Bundle args, Provider provider) {
+                    protected void onExecuted(Bundle args, EmailProvider provider) {
                         etHost.setText(provider.smtp_host);
                         etPort.setText(Integer.toString(provider.smtp_port));
                         cbStartTls.setChecked(provider.smtp_starttls);
@@ -801,10 +801,10 @@ public class FragmentIdentity extends FragmentEx {
                         spAccount.setAdapter(aaAccount);
 
                         // Get providers
-                        List<Provider> providers = Provider.loadProfiles(getContext());
-                        providers.add(0, new Provider(getString(R.string.title_custom)));
+                        List<EmailProvider> providers = EmailProvider.loadProfiles(getContext());
+                        providers.add(0, new EmailProvider(getString(R.string.title_custom)));
 
-                        ArrayAdapter<Provider> aaProfile =
+                        ArrayAdapter<EmailProvider> aaProfile =
                                 new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, providers);
                         aaProfile.setDropDownViewResource(R.layout.spinner_item1_dropdown);
                         spProvider.setAdapter(aaProfile);

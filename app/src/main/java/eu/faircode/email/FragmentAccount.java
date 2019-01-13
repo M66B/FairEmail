@@ -211,7 +211,7 @@ public class FragmentAccount extends FragmentEx {
         spProvider.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long itemid) {
-                Provider provider = (Provider) adapterView.getSelectedItem();
+                EmailProvider provider = (EmailProvider) adapterView.getSelectedItem();
                 grpServer.setVisibility(position == 1 ? View.VISIBLE : View.GONE);
                 grpAuthorize.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
 
@@ -270,7 +270,7 @@ public class FragmentAccount extends FragmentEx {
                 Bundle args = new Bundle();
                 args.putString("domain", etDomain.getText().toString());
 
-                new SimpleTask<Provider>() {
+                new SimpleTask<EmailProvider>() {
                     @Override
                     protected void onPreExecute(Bundle args) {
                         etDomain.setEnabled(false);
@@ -284,13 +284,13 @@ public class FragmentAccount extends FragmentEx {
                     }
 
                     @Override
-                    protected Provider onExecute(Context context, Bundle args) throws Throwable {
+                    protected EmailProvider onExecute(Context context, Bundle args) throws Throwable {
                         String domain = args.getString("domain");
-                        return Provider.fromDomain(context, domain);
+                        return EmailProvider.fromDomain(context, domain);
                     }
 
                     @Override
-                    protected void onExecuted(Bundle args, Provider provider) {
+                    protected void onExecuted(Bundle args, EmailProvider provider) {
                         etHost.setText(provider.imap_host);
                         etPort.setText(Integer.toString(provider.imap_port));
                         cbStartTls.setChecked(provider.imap_starttls);
@@ -364,7 +364,7 @@ public class FragmentAccount extends FragmentEx {
         btnAuthorize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Provider provider = (Provider) spProvider.getSelectedItem();
+                EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
                 Log.i("Authorize " + provider);
 
                 if ("com.google".equals(provider.type)) {
@@ -418,7 +418,7 @@ public class FragmentAccount extends FragmentEx {
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Provider provider = (Provider) spProvider.getSelectedItem();
+                EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
 
                 Bundle args = new Bundle();
                 args.putLong("id", id);
@@ -630,7 +630,7 @@ public class FragmentAccount extends FragmentEx {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Provider provider = (Provider) spProvider.getSelectedItem();
+                EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
 
                 EntityFolder drafts = (EntityFolder) spDrafts.getSelectedItem();
                 EntityFolder sent = (EntityFolder) spSent.getSelectedItem();
@@ -1006,11 +1006,11 @@ public class FragmentAccount extends FragmentEx {
             @Override
             protected void onExecuted(Bundle args, EntityAccount account) {
                 // Get providers
-                List<Provider> providers = Provider.loadProfiles(getContext());
-                providers.add(0, new Provider(getString(R.string.title_select)));
-                providers.add(1, new Provider(getString(R.string.title_custom)));
+                List<EmailProvider> providers = EmailProvider.loadProfiles(getContext());
+                providers.add(0, new EmailProvider(getString(R.string.title_select)));
+                providers.add(1, new EmailProvider(getString(R.string.title_custom)));
 
-                ArrayAdapter<Provider> aaProvider =
+                ArrayAdapter<EmailProvider> aaProvider =
                         new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, providers);
                 aaProvider.setDropDownViewResource(R.layout.spinner_item1_dropdown);
                 spProvider.setAdapter(aaProvider);
@@ -1019,7 +1019,7 @@ public class FragmentAccount extends FragmentEx {
                     if (account != null) {
                         boolean found = false;
                         for (int pos = 2; pos < providers.size(); pos++) {
-                            Provider provider = providers.get(pos);
+                            EmailProvider provider = providers.get(pos);
                             if (provider.imap_host.equals(account.host) &&
                                     provider.imap_port == account.port) {
                                 found = true;
@@ -1265,7 +1265,7 @@ public class FragmentAccount extends FragmentEx {
 
     private void selectAccount() {
         Log.i("Select account");
-        Provider provider = (Provider) spProvider.getSelectedItem();
+        EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
         if (provider.type != null)
             startActivityForResult(
                     Helper.getChooser(getContext(), newChooseAccountIntent(
