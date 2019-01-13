@@ -85,7 +85,7 @@ Certificate fingerprints:
 
 ## Privacy
 
-Please see [here](https://github.com/M66B/open-source-email/blob/master/PRIVACY.md) for the privacy policy.
+Please see [here](https://github.com/M66B/open-source-email/blob/master/PRIVACY.md#fairemail) for the privacy policy.
 
 ## Compatibility
 
