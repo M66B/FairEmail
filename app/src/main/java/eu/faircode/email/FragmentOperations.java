@@ -31,6 +31,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentOperations extends FragmentEx {
+    private TextView tvNoOperation;
     private RecyclerView rvOperation;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -58,6 +60,7 @@ public class FragmentOperations extends FragmentEx {
         View view = inflater.inflate(R.layout.fragment_operations, container, false);
 
         // Get controls
+        tvNoOperation = view.findViewById(R.id.tvNoOperation);
         rvOperation = view.findViewById(R.id.rvOperation);
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
@@ -72,6 +75,7 @@ public class FragmentOperations extends FragmentEx {
         rvOperation.setAdapter(adapter);
 
         // Initialize
+        tvNoOperation.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
@@ -89,6 +93,7 @@ public class FragmentOperations extends FragmentEx {
                 if (operations == null)
                     operations = new ArrayList<>();
 
+                tvNoOperation.setVisibility(operations.size() == 0 ? View.VISIBLE : View.GONE);
                 adapter.set(operations);
 
                 pbWait.setVisibility(View.GONE);
