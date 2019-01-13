@@ -160,6 +160,7 @@ public class FragmentCompose extends FragmentEx {
     private Group grpExtra;
     private Group grpAddresses;
     private Group grpAttachments;
+    private Group grpBody;
     private Group grpSignature;
     private Group grpReference;
 
@@ -215,6 +216,7 @@ public class FragmentCompose extends FragmentEx {
         grpExtra = view.findViewById(R.id.grpExtra);
         grpAddresses = view.findViewById(R.id.grpAddresses);
         grpAttachments = view.findViewById(R.id.grpAttachments);
+        grpBody = view.findViewById(R.id.grpBody);
         grpSignature = view.findViewById(R.id.grpSignature);
         grpReference = view.findViewById(R.id.grpReference);
 
@@ -421,13 +423,13 @@ public class FragmentCompose extends FragmentEx {
         setSubtitle(R.string.title_compose);
         tvExtraPrefix.setText(null);
         tvExtraSuffix.setText(null);
-        etBody.setVisibility(View.GONE);
 
         grpHeader.setVisibility(View.GONE);
         grpExtra.setVisibility(View.GONE);
         grpAddresses.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
         tvNoInternet.setVisibility(View.GONE);
+        grpBody.setVisibility(View.GONE);
         grpSignature.setVisibility(View.GONE);
         grpReference.setVisibility(View.GONE);
         ibImages.setVisibility(View.GONE);
@@ -2189,7 +2191,7 @@ public class FragmentCompose extends FragmentEx {
             protected void onExecuted(Bundle args, Spanned[] text) {
                 etBody.setText(text[0]);
                 etBody.setSelection(0);
-                etBody.setVisibility(View.VISIBLE);
+                grpBody.setVisibility(View.VISIBLE);
 
                 boolean has_images = (text[1] != null &&
                         text[1].getSpans(0, text[1].length(), ImageSpan.class).length > 0);

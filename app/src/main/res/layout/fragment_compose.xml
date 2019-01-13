@@ -290,6 +290,12 @@
                 app:constraint_referenced_ids="vSeparatorAttachments,rvAttachment" />
 
             <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpBody"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="vSeparatorBody,etBody" />
+
+            <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpSignature"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
