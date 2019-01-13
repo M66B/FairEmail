@@ -347,41 +347,7 @@ public class FragmentCompose extends FragmentEx {
                         break;
 
                     case R.id.action_send:
-                        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                        boolean autosend = prefs.getBoolean("autosend", false);
-                        if (autosend) {
-                            onAction(action);
-                            break;
-                        }
-
-                        try {
-                            String to = etTo.getText().toString();
-                            InternetAddress ato[] = (TextUtils.isEmpty(to) ? new InternetAddress[0] : InternetAddress.parse(to));
-                            if (ato.length == 0)
-                                throw new IllegalArgumentException(getString(R.string.title_to_missing));
-
-                            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
-                            final TextView tvMessage = dview.findViewById(R.id.tvMessage);
-                            final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
-
-                            tvMessage.setText(getString(R.string.title_ask_send,
-                                    MessageHelper.getFormattedAddresses(ato, false)));
-
-                            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                                    .setView(dview)
-                                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            if (cbNotAgain.isChecked())
-                                                prefs.edit().putBoolean("autosend", true).apply();
-                                            onAction(action);
-                                        }
-                                    })
-                                    .setNegativeButton(android.R.string.cancel, null)
-                                    .show();
-                        } catch (Throwable ex) {
-                            onAction(action);
-                        }
+                        onActionSend();
                         break;
 
                     default:
@@ -872,6 +838,44 @@ public class FragmentCompose extends FragmentEx {
                 })
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();
+    }
+
+    private void onActionSend() {
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean autosend = prefs.getBoolean("autosend", false);
+        if (autosend) {
+            onAction(R.id.action_send);
+            return;
+        }
+
+        try {
+            String to = etTo.getText().toString();
+            InternetAddress ato[] = (TextUtils.isEmpty(to) ? new InternetAddress[0] : InternetAddress.parse(to));
+            if (ato.length == 0)
+                throw new IllegalArgumentException(getString(R.string.title_to_missing));
+
+            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
+            final TextView tvMessage = dview.findViewById(R.id.tvMessage);
+            final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+
+            tvMessage.setText(getString(R.string.title_ask_send,
+                    MessageHelper.getFormattedAddresses(ato, false)));
+
+            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                    .setView(dview)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if (cbNotAgain.isChecked())
+                                prefs.edit().putBoolean("autosend", true).apply();
+                            onAction(R.id.action_send);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
+        } catch (Throwable ex) {
+            onAction(R.id.action_send);
+        }
     }
 
     private void onEncrypt() {
