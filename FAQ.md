@@ -124,6 +124,7 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * [(64) Can you add custom actions for swipe left/right?](#user-content-faq64)
 * [(65) Why are some attachments shown dimmed?](#user-content-faq65)
 * [(66) Is FairEmail available in the Google Play Family Library?](#user-content-faq66)
+* [(67) How can I snooze conversations?](#user-content-faq67)
 
 [I have another question.](#support)
 
@@ -353,6 +354,7 @@ Some Android versions,
 in particular of Huawei (see [here](https://www.forbes.com/sites/bensin/2016/07/04/push-notifications-not-coming-through-to-your-huawei-phone-heres-how-to-fix-it/) for a fix)
 or Xiaomi (see [here](https://www.forbes.com/sites/bensin/2016/11/17/how-to-fix-push-notifications-on-xiaomis-miui-8-for-real/) for a fix)
 stop apps and services too aggressively.
+See also [this dedicated website](https://dontkillmyapp.com/).
 
 <br />
 
@@ -985,7 +987,8 @@ If your provider requires an unsupported authentication method, you'll likely ge
 <a name="faq63"></a>
 **(63) How are images resized for displaying on screens?**
 
-Large inline or attached images will automatically be resized for displaying on screens.
+Large inline or attached [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) and [JPEG](https://en.wikipedia.org/wiki/JPEG) images
+will automatically be resized for displaying on screens.
 This is because email messages are limited in size, depending on the provider mostly between 10 and 50 MB.
 Image will be resized to a maximum width and height of about 1280 pixels and saved with a compression ratio of 90 out of 100.
 Images are scaled down using whole number factors to reduce memory usage and to retain image quality.
@@ -1017,6 +1020,22 @@ FairEmail shows all attachment types. To distinguish inline and regular attachme
 
 There are [too many fees and taxes](#user-content-faq19), Google alone already takes 30 %,
 to justify making FairEmail available in the [Google Play Family Library](https://support.google.com/googleone/answer/7007852).
+
+<br />
+
+<a name="faq67"></a>
+**(67) How can I snooze conversations?**
+
+Multiple select one of more conversations (long press to start multiple selecting), tap the three dot button and select *Snooze ...*.
+Select the time the conversation(s) should snooze and confirm by tapping OK.
+The conversations will be hidden for the selected time and shown again afterwards.
+You will receive a new message notification as reminder.
+
+You can show snoozed messages by using the *Snoozed* item in the three dot overflow menu.
+
+You can tap on the small snooze icon to see until when a conversation is snoozed.
+
+By selecting a zero snooze duration you can cancel snoozing.
 
 <br />
 
