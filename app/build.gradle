@@ -38,7 +38,7 @@ android {
         full {
             dimension "all"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
-            buildConfigField "String", "PRO_FEATURES", "\"https://email.faircode.eu/pro/\""
+            buildConfigField "String", "PRO_FEATURES", "\"https://email.faircode.eu/donate/\""
             buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/open-source-email/releases/latest\""
             buildConfigField "boolean", "BETA_RELEASE", "true"
         }
