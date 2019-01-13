@@ -158,7 +158,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvAttachment"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="10dp"
                 android:layout_marginStart="6dp"
                 android:layout_marginTop="3dp"
                 android:layout_marginEnd="6dp"
@@ -255,6 +255,15 @@
                 android:textIsSelectable="true"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vSeparatorSignature" />
+
+            <ImageButton
+                android:id="@+id/ibImages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:src="@drawable/baseline_image_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvReference" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpHeader"

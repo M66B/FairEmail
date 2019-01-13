@@ -74,6 +74,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FilterQueryProvider;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.NumberPicker;
@@ -151,6 +152,7 @@ public class FragmentCompose extends FragmentEx {
     private TextView tvNoInternet;
     private TextView tvSignature;
     private TextView tvReference;
+    private ImageButton ibImages;
     private BottomNavigationView edit_bar;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
@@ -167,6 +169,7 @@ public class FragmentCompose extends FragmentEx {
 
     private long working = -1;
     private State state = State.NONE;
+    private boolean show_images = false;
     private boolean autosave = false;
     private boolean busy = false;
 
@@ -204,6 +207,7 @@ public class FragmentCompose extends FragmentEx {
         tvNoInternet = view.findViewById(R.id.tvNoInternet);
         tvSignature = view.findViewById(R.id.tvSignature);
         tvReference = view.findViewById(R.id.tvReference);
+        ibImages = view.findViewById(R.id.ibImages);
         edit_bar = view.findViewById(R.id.edit_bar);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
@@ -278,6 +282,34 @@ public class FragmentCompose extends FragmentEx {
         ivToAdd.setOnClickListener(onPick);
         ivCcAdd.setOnClickListener(onPick);
         ivBccAdd.setOnClickListener(onPick);
+
+        ibImages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                show_images = true;
+
+                Bundle args = new Bundle();
+                args.putLong("id", working);
+
+                new SimpleTask<EntityMessage>() {
+                    @Override
+                    protected EntityMessage onExecute(Context context, Bundle args) {
+                        long id = args.getLong("id");
+                        return DB.getInstance(context).message().getMessage(id);
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, EntityMessage draft) {
+                        showDraft(draft);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                    }
+                }.execute(FragmentCompose.this, args, "compose:images:show");
+            }
+        });
 
         edit_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -398,6 +430,7 @@ public class FragmentCompose extends FragmentEx {
         tvNoInternet.setVisibility(View.GONE);
         grpSignature.setVisibility(View.GONE);
         grpReference.setVisibility(View.GONE);
+        ibImages.setVisibility(View.GONE);
         edit_bar.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
@@ -498,6 +531,7 @@ public class FragmentCompose extends FragmentEx {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putLong("working", working);
+        outState.putBoolean("show_images", show_images);
     }
 
     @Override
@@ -531,6 +565,8 @@ public class FragmentCompose extends FragmentEx {
             }
         } else {
             working = savedInstanceState.getLong("working");
+            show_images = savedInstanceState.getBoolean("show_images");
+
             Bundle args = new Bundle();
             args.putString("action", working < 0 ? "new" : "edit");
             args.putLong("id", working);
@@ -2083,6 +2119,7 @@ public class FragmentCompose extends FragmentEx {
             args.putLong("reference", draft.replying);
         else if (draft.forwarding != null)
             args.putLong("reference", draft.forwarding);
+        args.putBoolean("show_images", show_images);
 
         new SimpleTask<Spanned[]>() {
             @Override
@@ -2102,6 +2139,7 @@ public class FragmentCompose extends FragmentEx {
             protected Spanned[] onExecute(final Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
                 final long reference = args.getLong("reference", -1);
+                final boolean show_images = args.getBoolean("show_images", false);
 
                 String body = EntityMessage.read(context, id);
                 Spanned spannedBody = Html.fromHtml(body, cidGetter, null);
@@ -2113,7 +2151,7 @@ public class FragmentCompose extends FragmentEx {
                             new Html.ImageGetter() {
                                 @Override
                                 public Drawable getDrawable(String source) {
-                                    Drawable image = HtmlHelper.decodeImage(source, context, reference, true);
+                                    Drawable image = HtmlHelper.decodeImage(source, context, reference, show_images);
 
                                     float width = context.getResources().getDisplayMetrics().widthPixels -
                                             Helper.dp2pixels(context, 12); // margins;
@@ -2148,13 +2186,17 @@ public class FragmentCompose extends FragmentEx {
             }
 
             @Override
-            protected void onExecuted(Bundle args, Spanned[] texts) {
-                etBody.setText(texts[0]);
+            protected void onExecuted(Bundle args, Spanned[] text) {
+                etBody.setText(text[0]);
                 etBody.setSelection(0);
                 etBody.setVisibility(View.VISIBLE);
 
-                tvReference.setText(texts[1]);
-                grpReference.setVisibility(texts[1] == null ? View.GONE : View.VISIBLE);
+                boolean has_images = (text[1] != null &&
+                        text[1].getSpans(0, text[1].length(), ImageSpan.class).length > 0);
+
+                tvReference.setText(text[1]);
+                grpReference.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
+                ibImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
 
                 new Handler().post(new Runnable() {
                     @Override
