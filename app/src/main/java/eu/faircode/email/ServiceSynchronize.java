@@ -1812,6 +1812,13 @@ public class ServiceSynchronize extends LifecycleService {
             EntityLog.log(this, "Sent via " + ident.host + "/" + ident.user +
                     " to " + TextUtils.join(", ", to));
 
+            if (message.replying != null || message.forwarding != null) {
+                String html = message.read(ServiceSynchronize.this);
+                html += HtmlHelper.getQuote(ServiceSynchronize.this,
+                        message.replying == null ? message.forwarding : message.replying, false);
+                message.write(ServiceSynchronize.this, html);
+            }
+
             try {
                 db.beginTransaction();
 

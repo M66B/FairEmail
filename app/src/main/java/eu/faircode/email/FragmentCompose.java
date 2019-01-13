@@ -1903,13 +1903,6 @@ public class FragmentCompose extends FragmentEx {
 
                 last_available = available;
 
-                if (action == R.id.action_send)
-                    if (draft.replying != null || draft.forwarding != null) {
-                        body += HtmlHelper.getQuote(context,
-                                draft.replying == null ? draft.forwarding : draft.replying, false);
-                        dirty = true;
-                    }
-
                 if (dirty) {
                     // Update draft
                     draft.identity = ident;

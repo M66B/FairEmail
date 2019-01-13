@@ -295,6 +295,9 @@ public class MessageHelper {
         DB db = DB.getInstance(context);
 
         String html = message.read(context);
+        if (message.replying != null || message.forwarding != null)
+            html += HtmlHelper.getQuote(context,
+                    message.replying == null ? message.forwarding : message.replying, false);
 
         StringBuilder body = new StringBuilder();
         body.append(html);
