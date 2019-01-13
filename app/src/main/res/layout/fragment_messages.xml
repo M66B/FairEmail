@@ -270,5 +270,6 @@
         android:layout_margin="@dimen/fab_padding"
         android:src="@drawable/baseline_edit_24"
         android:tint="@color/colorActionForeground"
+        android:tooltipText="@string/title_compose"
         app:backgroundTint="?attr/colorAccent" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
