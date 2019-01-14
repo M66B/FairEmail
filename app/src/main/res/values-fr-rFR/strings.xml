@@ -71,6 +71,7 @@
     <string name="title_setup_quick_remark">La configuration rapide peut être utilisée pour la plupart des fournisseurs importants</string>
     <string name="title_setup_setting_gmail">Activer l\'accès pour les applications « moins sûres »</string>
     <string name="title_setup_no_settings">Aucun paramètre trouvé pour %1$s</string>
+    <string name="title_setup_quick_success">Un compte et une identité ont été ajoutés avec succès</string>
     <string name="title_setup_quick_failed">Vous pouvez essayer de configurer un compte et une identité ci-dessous</string>
     <string name="title_setup_account">Gérer les comptes</string>
     <string name="title_setup_account_remark">Recevoir des e-mails</string>
@@ -87,6 +88,7 @@
     <string name="title_setup_done">Fait</string>
     <string name="title_setup_light_theme">Thème clair</string>
     <string name="title_setup_dark_theme">Thème sombre</string>
+    <string name="title_setup_black_theme">Thème sombre</string>
     <string name="title_advanced">Options avancées</string>
     <string name="title_advanced_section_general">Général</string>
     <string name="title_advanced_section_connection">Connexion</string>

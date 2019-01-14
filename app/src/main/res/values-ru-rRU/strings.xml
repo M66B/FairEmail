@@ -68,6 +68,7 @@
     <string name="title_edit_identity">Изменить идентификацию</string>
     <string name="title_edit_folder">Редактировать папку</string>
     <string name="title_setup">Установка</string>
+    <string name="title_setup_help">Справка</string>
     <string name="title_setup_export">Экспорт настроек</string>
     <string name="title_setup_import">Импорт настроек</string>
     <string name="title_setup_import_do">Импортированные учётные записи будут добавлены, не перезаписаны</string>
@@ -82,6 +83,7 @@
     <string name="title_setup_quick_remark">Быстрые настройки могут быть использованы для большинства основных поставщиков</string>
     <string name="title_setup_setting_gmail">Разрешите доступ для «менее надежных» приложений</string>
     <string name="title_setup_no_settings">Не найдены параметры для \'%1$s\'</string>
+    <string name="title_setup_quick_success">Учётная запись и идентификатор добавлены успешно</string>
     <string name="title_setup_quick_failed">Вы также можете настроить учетную запись и идентификатор ниже</string>
     <string name="title_setup_account">Управление учётными записями</string>
     <string name="title_setup_account_remark">Подключить электронную почту</string>
@@ -98,6 +100,7 @@
     <string name="title_setup_done">Готово</string>
     <string name="title_setup_light_theme">Светлая тема</string>
     <string name="title_setup_dark_theme">Тёмная тема</string>
+    <string name="title_setup_black_theme">Чёрная тема</string>
     <string name="title_advanced">Дополнительные опции</string>
     <string name="title_advanced_section_general">Общее</string>
     <string name="title_advanced_section_connection">Соединение</string>
@@ -385,6 +388,7 @@
     <string name="title_days">Дней</string>
     <string name="title_report">Отчет</string>
     <string name="title_no_ask_again">Больше не спрашивать</string>
+    <string name="title_no_adobe">Adobe Acrobat Reader не открывает файлы безопасно, смотрите FAQ для более детального описания</string>
     <string name="title_try">Попробуйте FairEmail, приложение с открытым исходным кодом, срвместимое с электронной почтой для Android</string>
     <string name="title_pro_feature">Это функция версии Pro</string>
     <string name="title_pro_list">Список функций, Pro</string>

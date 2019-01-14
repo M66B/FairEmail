@@ -71,6 +71,7 @@
     <string name="title_setup_quick_remark">Schnellkonfiguration kann für die meisten größeren Anbieter genutzt werden</string>
     <string name="title_setup_setting_gmail">Zugriff für \"unsichere\" Apps aktivieren</string>
     <string name="title_setup_no_settings">Keine Einstellungen gefunden für \'%1$s\'</string>
+    <string name="title_setup_quick_success">Ein Konto und eine Identität wurden erfolgreich hinzugefügt</string>
     <string name="title_setup_quick_failed">Sie können unten versuchen, ein Konto und eine Identität zu konfigurieren</string>
     <string name="title_setup_account">Konten verwalten</string>
     <string name="title_setup_account_remark">Um E-Mails zu erhalten</string>
@@ -87,6 +88,7 @@
     <string name="title_setup_done">Erledigt</string>
     <string name="title_setup_light_theme">Helles Thema</string>
     <string name="title_setup_dark_theme">Dunkles Thema</string>
+    <string name="title_setup_black_theme">Schwarzes Design</string>
     <string name="title_advanced">Erweiterte Optionen</string>
     <string name="title_advanced_section_general">Allgemeines</string>
     <string name="title_advanced_section_connection">Verbindung</string>

@@ -14,8 +14,8 @@
         <item quantity="other">Synchroniseren: %1$d accounts</item>
     </plurals>
     <plurals name="title_notification_operations">
-        <item quantity="one">Één bewerking resterend</item>
-        <item quantity="other">%1$d bewerkingen resterend</item>
+        <item quantity="one">Één opstaande bewerking</item>
+        <item quantity="other">%1$d openstaande bewerkingen</item>
     </plurals>
     <plurals name="title_notification_unseen">
         <item quantity="one">Één nieuw bericht</item>
@@ -186,7 +186,7 @@
     <string name="title_edit_properties">Bewerk eigenschappen</string>
     <string name="title_empty_trash_ask">Alle weggegooide berichten permanent verwijderen?</string>
     <string name="title_delete_operation">Bewerkingen met een foutmelding verwijderen?</string>
-    <string name="title_no_operations">Geen resterende bewerkingen</string>
+    <string name="title_no_operations">Geen openstaande bewerkingen</string>
     <string name="title_folder_name">Mapnaam</string>
     <string name="title_display_name">Weergavenaam</string>
     <string name="title_hide_folders">Verberg verborgen mappen</string>
