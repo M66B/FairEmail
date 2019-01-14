@@ -691,22 +691,29 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         }.execute(this, args, "setup:import");
     }
 
+    private void onEditAccount(Intent intent) {
+        FragmentAccount fragment = new FragmentAccount();
+        fragment.setArguments(intent.getExtras());
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("account");
+        fragmentTransaction.commit();
+    }
+
+    private void onEditIdentity(Intent intent) {
+        FragmentIdentity fragment = new FragmentIdentity();
+        fragment.setArguments(intent.getExtras());
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("identity");
+        fragmentTransaction.commit();
+    }
+
     BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (ACTION_EDIT_ACCOUNT.equals(intent.getAction())) {
-                FragmentAccount fragment = new FragmentAccount();
-                fragment.setArguments(intent.getExtras());
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("account");
-                fragmentTransaction.commit();
-            } else if (ACTION_EDIT_IDENTITY.equals(intent.getAction())) {
-                FragmentIdentity fragment = new FragmentIdentity();
-                fragment.setArguments(intent.getExtras());
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("identity");
-                fragmentTransaction.commit();
-            }
+            if (ACTION_EDIT_ACCOUNT.equals(intent.getAction()))
+                onEditAccount(intent);
+            else if (ACTION_EDIT_IDENTITY.equals(intent.getAction()))
+                onEditIdentity(intent);
         }
     };
 }
