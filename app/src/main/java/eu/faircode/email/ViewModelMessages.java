@@ -34,23 +34,30 @@ import androidx.paging.PagedList;
 public class ViewModelMessages extends ViewModel {
     private Map<Boolean, LiveData<PagedList<TupleMessageEx>>> messages = new HashMap<>();
 
-    void setMessages(AdapterMessage.ViewType viewType, LiveData<PagedList<TupleMessageEx>> messages) {
-        boolean thread = (viewType == AdapterMessage.ViewType.THREAD);
+    void setMessages(AdapterMessage.ViewType viewType, LifecycleOwner owner, final LiveData<PagedList<TupleMessageEx>> messages) {
+        final boolean thread = (viewType == AdapterMessage.ViewType.THREAD);
         this.messages.put(thread, messages);
+
+        // Keep list up-to-date for previous/next navigation
+        messages.observe(owner, new Observer<PagedList<TupleMessageEx>>() {
+            @Override
+            public void onChanged(PagedList<TupleMessageEx> messages) {
+            }
+        });
+
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroyed() {
+                Log.i("Removed model thread=" + thread);
+                ViewModelMessages.this.messages.remove(thread);
+            }
+        });
     }
 
     void observe(AdapterMessage.ViewType viewType, LifecycleOwner owner, Observer<PagedList<TupleMessageEx>> observer) {
         if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
             final boolean thread = (viewType == AdapterMessage.ViewType.THREAD);
             messages.get(thread).observe(owner, observer);
-
-            owner.getLifecycle().addObserver(new LifecycleObserver() {
-                @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-                public void onDestroyed() {
-                    Log.i("Removed model thread=" + thread);
-                    messages.remove(thread);
-                }
-            });
         }
     }
 
