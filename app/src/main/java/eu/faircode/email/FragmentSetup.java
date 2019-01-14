@@ -34,6 +34,9 @@ import android.os.Bundle;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -72,6 +75,8 @@ public class FragmentSetup extends FragmentEx {
     private int colorWarning;
     private Drawable check;
 
+    private boolean inbox = false;
+
     private static final String[] permissions = new String[]{
             Manifest.permission.READ_CONTACTS
     };
@@ -80,6 +85,7 @@ public class FragmentSetup extends FragmentEx {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_setup);
+        setHasOptionsMenu(true);
 
         textColorPrimary = Helper.resolveColor(getContext(), android.R.attr.textColorPrimary);
         colorWarning = Helper.resolveColor(getContext(), R.attr.colorWarning);
@@ -251,6 +257,9 @@ public class FragmentSetup extends FragmentEx {
             public void onChanged(@Nullable List<EntityAccount> accounts) {
                 done = (accounts != null && accounts.size() > 0);
 
+                inbox = done;
+                getActivity().invalidateOptionsMenu();
+
                 btnIdentity.setEnabled(done);
                 tvAccountDone.setText(done ? R.string.title_setup_done : R.string.title_setup_to_do);
                 tvAccountDone.setTextColor(done ? textColorPrimary : colorWarning);
@@ -320,6 +329,29 @@ public class FragmentSetup extends FragmentEx {
             ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
             boolean saving = (cm.getRestrictBackgroundStatus() == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED);
             btnData.setVisibility(saving ? View.VISIBLE : View.GONE);
+        }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_setup, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.menu_inbox).setVisible(inbox);
+        super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_inbox:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
