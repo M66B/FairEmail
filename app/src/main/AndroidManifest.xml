@@ -63,8 +63,7 @@
             android:name=".ActivitySetup"
             android:exported="true"
             android:launchMode="singleInstance"
-            android:parentActivityName=".ActivityMain"
-            android:windowSoftInputMode="stateHidden">
+            android:parentActivityName=".ActivityMain">
             <intent-filter>
                 <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
                 <category android:name="android.intent.category.DEFAULT" />
