@@ -31,7 +31,6 @@
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:text="@string/title_authorize"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etName" />
 
@@ -69,7 +68,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/title_check"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tilPassword" />
 
@@ -84,7 +82,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
             android:textIsSelectable="true"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnCheck" />
 
@@ -96,7 +93,6 @@
             android:gravity="center_horizontal"
             android:text="provider instructions"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvError" />
     </androidx.constraintlayout.widget.ConstraintLayout>
