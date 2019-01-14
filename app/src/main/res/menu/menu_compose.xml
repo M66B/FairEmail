@@ -8,6 +8,12 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/menu_zoom"
+        android:icon="@drawable/baseline_format_size_24"
+        android:title="@string/title_zoom"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/menu_clear"
         android:icon="@drawable/baseline_format_clear_24"
         android:title="@string/title_style_clear"

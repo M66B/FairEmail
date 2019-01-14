@@ -61,6 +61,7 @@ import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -289,27 +290,7 @@ public class FragmentCompose extends FragmentEx {
             @Override
             public void onClick(View v) {
                 show_images = true;
-
-                Bundle args = new Bundle();
-                args.putLong("id", working);
-
-                new SimpleTask<EntityMessage>() {
-                    @Override
-                    protected EntityMessage onExecute(Context context, Bundle args) {
-                        long id = args.getLong("id");
-                        return DB.getInstance(context).message().getMessage(id);
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, EntityMessage draft) {
-                        showDraft(draft);
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                    }
-                }.execute(FragmentCompose.this, args, "compose:images:show");
+                showDraft(working);
             }
         });
 
@@ -618,10 +599,12 @@ public class FragmentCompose extends FragmentEx {
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
         menu.findItem(R.id.menu_addresses).setVisible(working >= 0);
+        menu.findItem(R.id.menu_zoom).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_clear).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_encrypt).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_send_after).setVisible(state == State.LOADED);
 
+        menu.findItem(R.id.menu_zoom).setEnabled(!busy);
         menu.findItem(R.id.menu_clear).setEnabled(!busy);
         menu.findItem(R.id.menu_encrypt).setEnabled(!busy);
         menu.findItem(R.id.menu_send_after).setEnabled(!busy);
@@ -636,6 +619,9 @@ public class FragmentCompose extends FragmentEx {
                 return true;
             case R.id.menu_addresses:
                 onMenuAddresses();
+                return true;
+            case R.id.menu_zoom:
+                onMenuZoom();
                 return true;
             case R.id.menu_clear:
                 onMenuStyle(item.getItemId());
@@ -798,6 +784,15 @@ public class FragmentCompose extends FragmentEx {
                     }
                 })
                 .show();
+    }
+
+    private void onMenuZoom() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean compact = prefs.getBoolean("compact", false);
+        int zoom = prefs.getInt("zoom", compact ? 0 : 1);
+        zoom = ++zoom % 3;
+        prefs.edit().putInt("zoom", zoom).apply();
+        showDraft(working);
     }
 
     private void onMenuImage() {
@@ -2118,6 +2113,29 @@ public class FragmentCompose extends FragmentEx {
         }.execute(this, args, "compose:check");
     }
 
+    private void showDraft(long id) {
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleTask<EntityMessage>() {
+            @Override
+            protected EntityMessage onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+                return DB.getInstance(context).message().getMessage(id);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, EntityMessage draft) {
+                showDraft(draft);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(FragmentCompose.this, args, "compose:show");
+    }
+
     private void showDraft(EntityMessage draft) {
         Bundle args = new Bundle();
         args.putLong("id", draft.id);
@@ -2193,6 +2211,15 @@ public class FragmentCompose extends FragmentEx {
 
             @Override
             protected void onExecuted(Bundle args, Spanned[] text) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                boolean compact = prefs.getBoolean("compact", false);
+                int zoom = prefs.getInt("zoom", compact ? 0 : 1);
+                float textSize = Helper.getTextSize(getContext(), zoom);
+                if (textSize != 0) {
+                    etBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+                    tvReference.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+                }
+
                 etBody.setText(text[0]);
                 etBody.setSelection(0);
                 grpBody.setVisibility(View.VISIBLE);
