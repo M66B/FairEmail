@@ -806,7 +806,7 @@ public class FragmentMessages extends FragmentEx {
                         if (result[4] && !result[6] && !result[9]) // has archive and not is archive
                             popupMenu.getMenu().add(Menu.NONE, action_archive, 5, R.string.title_archive);
 
-                        if (result[7] || result[9]) // is trash/drafts
+                        if (result[7]) // is trash
                             popupMenu.getMenu().add(Menu.NONE, action_delete, 6, R.string.title_delete);
                         else if (result[5]) // has trash
                             popupMenu.getMenu().add(Menu.NONE, action_trash, 6, R.string.title_trash);
