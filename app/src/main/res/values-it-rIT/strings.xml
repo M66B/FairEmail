@@ -56,6 +56,7 @@
     <string name="title_edit_identity">Modifica identità</string>
     <string name="title_edit_folder">Modifica cartella</string>
     <string name="title_setup">Configurazione</string>
+    <string name="title_setup_help">Aiuto</string>
     <string name="title_setup_export">Esporta impostazioni</string>
     <string name="title_setup_import">Importa impostazioni</string>
     <string name="title_setup_import_do">Gli account importati saranno aggiunti, non sovrascritti</string>
@@ -70,14 +71,11 @@
     <string name="title_setup_quick_remark">La configurazione rapida può essere utilizzata per la maggior parte dei principali provider</string>
     <string name="title_setup_setting_gmail">Abilitare l\'accesso per le applicazioni \"meno sicure\"</string>
     <string name="title_setup_no_settings">Nessuna impostazione trovata per \'%1$s\'</string>
+    <string name="title_setup_quick_success">Un account e un\'identità sono stati aggiunti con successo</string>
     <string name="title_setup_quick_failed">Puoi provare a configurare un account e un\'identità qui sotto</string>
-    <string name="title_setup_account">Gestisci account</string>
     <string name="title_setup_account_remark">Per ricevere email</string>
-    <string name="title_setup_identity">Gestione identità</string>
     <string name="title_setup_identity_remark">Per inviare email</string>
-    <string name="title_setup_permissions">Consenti autorizzazioni</string>
     <string name="title_setup_permissions_remark">Per accedere a informazioni di contatto (facoltativo)</string>
-    <string name="title_setup_doze">Disattiva ottimizzazioni batteria</string>
     <string name="title_setup_doze_remark">Per ricevere continuamente email (facoltativo)</string>
     <string name="title_setup_doze_instructions">Nella finestra successiva, seleziona \"Tutte le app\" in alto, scegli questa app, seleziona e conferma \"Non ottimizzare\"</string>
     <string name="title_setup_data">Disattiva risparmio dati</string>
@@ -86,6 +84,7 @@
     <string name="title_setup_done">Fine</string>
     <string name="title_setup_light_theme">Tema chiaro</string>
     <string name="title_setup_dark_theme">Tema scuro</string>
+    <string name="title_setup_black_theme">Tema nero</string>
     <string name="title_advanced">Opzioni avanzate</string>
     <string name="title_advanced_section_general">Generale</string>
     <string name="title_advanced_section_connection">Connessione</string>
@@ -373,6 +372,7 @@
     <string name="title_days">Giorni</string>
     <string name="title_report">Report</string>
     <string name="title_no_ask_again">Non chiedere di nuovo</string>
+    <string name="title_no_adobe">Adobe Acrobat Reader non può aprire file condivisi in modo sicuro, consultare le domande frequenti per ulteriori informazioni</string>
     <string name="title_try">Prova FairEmail, un\'app email per Android open source e rispettosa della privacy</string>
     <string name="title_pro_feature">Questa è una funzionalità a pagamento</string>
     <string name="title_pro_list">Elenco delle funzionalità a pagamento</string>

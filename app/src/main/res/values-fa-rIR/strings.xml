@@ -24,6 +24,5 @@
     <string name="title_setup">تنظیمات</string>
     <string name="title_setup_export">ذخیره تنظیمات</string>
     <string name="title_setup_import">وارد کردن تنظیمات</string>
-    <string name="title_setup_identity">مدیریت هویت ها</string>
     <string name="title_setup_done">انجام شد</string>
 </resources>

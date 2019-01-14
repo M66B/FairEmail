@@ -63,13 +63,9 @@
     <string name="title_setup_exported">Configurações exportadas</string>
     <string name="title_setup_imported">Configurações importadas</string>
     <string name="title_setup_quick">Configuração rápida</string>
-    <string name="title_setup_account">Gerenciar contas</string>
     <string name="title_setup_account_remark">Receber e-mail</string>
-    <string name="title_setup_identity">Gerenciar identidades</string>
     <string name="title_setup_identity_remark">Para enviar e-mail</string>
-    <string name="title_setup_permissions">Garantir permissões</string>
     <string name="title_setup_permissions_remark">Para acessar informações de contato (opcional)</string>
-    <string name="title_setup_doze">Desativar otimizações de bateria</string>
     <string name="title_setup_data">Desativar a economia de dados</string>
     <string name="title_setup_notifications">Gerenciar notificações</string>
     <string name="title_setup_to_do">Para fazer</string>

@@ -71,13 +71,9 @@
     <string name="title_setup_setting_gmail">Aktivera åtkomst för ”mindre säkra” appar</string>
     <string name="title_setup_no_settings">Inga inställningar hittades för \"%1$s\"</string>
     <string name="title_setup_quick_failed">Du kan prova att konfigurera ett konto och en identitet nedan också</string>
-    <string name="title_setup_account">Hantera konton</string>
     <string name="title_setup_account_remark">Ta emot e-post</string>
-    <string name="title_setup_identity">Hantera identiteter</string>
     <string name="title_setup_identity_remark">Skicka e-post</string>
-    <string name="title_setup_permissions">Bevilja behörigheter</string>
     <string name="title_setup_permissions_remark">Få tillgång till kontaktinformation (frivillig)</string>
-    <string name="title_setup_doze">Inaktivera batterioptimering</string>
     <string name="title_setup_doze_remark">Kontinuerligt ta emot e-post (valfritt)</string>
     <string name="title_setup_doze_instructions">I nästa dialogruta, Välj ”alla program” högst upp, Välj denna app och välj och bekräfta ”Optimera inte”</string>
     <string name="title_setup_data">Inaktivera datasparande</string>

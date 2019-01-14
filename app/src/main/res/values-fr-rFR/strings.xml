@@ -73,13 +73,9 @@
     <string name="title_setup_no_settings">Aucun paramètre trouvé pour %1$s</string>
     <string name="title_setup_quick_success">Un compte et une identité ont été ajoutés avec succès</string>
     <string name="title_setup_quick_failed">Vous pouvez essayer de configurer un compte et une identité ci-dessous</string>
-    <string name="title_setup_account">Gérer les comptes</string>
     <string name="title_setup_account_remark">Recevoir des e-mails</string>
-    <string name="title_setup_identity">Gérer les identités</string>
     <string name="title_setup_identity_remark">Envoyer des e-mails</string>
-    <string name="title_setup_permissions">Accorder les autorisations</string>
     <string name="title_setup_permissions_remark">Pour obtenir les informations du contact (facultatif)</string>
-    <string name="title_setup_doze">Désactiver les optimisations de la batterie</string>
     <string name="title_setup_doze_remark">Pour recevoir des e-mails en continu (facultatif)</string>
     <string name="title_setup_doze_instructions">Sur le prochain écran, sélectionnez \"Toutes les applis\" en haut, recherchez cette appli puis sélectionnez et validez \"Ne pas optimiser\"</string>
     <string name="title_setup_data">Désactiver l\'économie de données</string>

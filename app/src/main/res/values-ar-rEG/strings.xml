@@ -42,13 +42,9 @@
     <string name="title_setup_password_invalid">كلمة المرور غير صالحة</string>
     <string name="title_setup_exported">إعدادات تصدير</string>
     <string name="title_setup_imported">استيراد إعدادات</string>
-    <string name="title_setup_account">إدارة الحسابات</string>
     <string name="title_setup_account_remark">تلقي البريد الإلكتروني</string>
-    <string name="title_setup_identity">إدارة الهويات</string>
     <string name="title_setup_identity_remark">لإرسال البريد الإلكتروني</string>
-    <string name="title_setup_permissions">منح الأذونات</string>
     <string name="title_setup_permissions_remark">للحصول على معلومات جهة الاتصال (اختياري)</string>
-    <string name="title_setup_doze">هل تريد تجاهل تحسينات البطارية</string>
     <string name="title_setup_doze_remark">استمرار تلقي البريد الإلكتروني (اختياري)</string>
     <string name="title_setup_doze_instructions">في مربع الحوار التالي، حدد \"كافة تطبيقات\" في الجزء العلوي، حدد هذا التطبيق وتحديد وتأكيد \"لا الأمثل\"</string>
     <string name="title_setup_data">تعطيل حفظ البيانات</string>

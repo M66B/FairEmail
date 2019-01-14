@@ -64,13 +64,9 @@
     <string name="title_setup_quick_remark">快速配置可用于大多数主要提供商</string>
     <string name="title_setup_setting_gmail">启用对 \"安全性较低\" 的应用的访问</string>
     <string name="title_setup_no_settings">找不到 \"%1$s\" 的设置</string>
-    <string name="title_setup_account">管理账户</string>
     <string name="title_setup_account_remark">用于接收电子邮件</string>
-    <string name="title_setup_identity">管理身份</string>
     <string name="title_setup_identity_remark">用于发送电子邮件</string>
-    <string name="title_setup_permissions">授予权限</string>
     <string name="title_setup_permissions_remark">获取联系人信息(可选)</string>
-    <string name="title_setup_doze">禁用电池优化</string>
     <string name="title_setup_doze_remark">持续接受邮件(可选)</string>
     <string name="title_setup_doze_instructions">在下个界面，选择最上面的\"所有应用\"，选择这个app如何选择并确定\"不优化\"</string>
     <string name="title_setup_data">禁用省流量</string>

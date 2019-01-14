@@ -71,13 +71,9 @@
     <string name="title_setup_setting_gmail">\"Daha az təhlükəsiz\" tətbiqlərə müraciəti fəallaşdır</string>
     <string name="title_setup_no_settings">\'%1$s\' üçün tənzimləmə tapılmadı</string>
     <string name="title_setup_quick_failed">Həmçinin bir hesab və bir kimliyi də konfiqurasiya etməyə cəhd edə bilərsiniz</string>
-    <string name="title_setup_account">Hesabları idarә et</string>
     <string name="title_setup_account_remark">E-poçt alma</string>
-    <string name="title_setup_identity">Kimlikləri idarə et</string>
     <string name="title_setup_identity_remark">E-poçt göndərmə</string>
-    <string name="title_setup_permissions">İcazə ver</string>
     <string name="title_setup_permissions_remark">Şəxs məlumatlarına müraciət (məcburi deyil)</string>
-    <string name="title_setup_doze">Batereya optimizasiyalarını ləğv et</string>
     <string name="title_setup_doze_remark">Davamlı olaraq e-poçt alma (istənilən)</string>
     <string name="title_setup_doze_instructions">Növbəti pəncərədə, Yuxarıdakı \"Bütün tətbiqlər\"i seçin, bu tətbiqi seçib \"Optimallaşdırmayın\"ı seçin</string>
     <string name="title_setup_data">Verilənlərə qənaət-i ləğv et</string>
