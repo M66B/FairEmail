@@ -298,10 +298,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_reply_24, R.string.menu_answers));
                 drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_list_24, R.string.menu_operations));
 
-                Intent pro = getIntentPro();
-                if (pro == null || pro.resolveActivity(getPackageManager()) != null)
-                    drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_monetization_on_24, R.string.menu_pro));
-
                 drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_settings_applications_24, R.string.menu_setup));
 
                 drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
@@ -316,12 +312,16 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_info_24, R.string.menu_about));
 
+                boolean pro = (getIntentPro() == null || getIntentPro().resolveActivity(getPackageManager()) != null);
                 boolean invite = (getIntentInvite().resolveActivity(getPackageManager()) != null);
                 boolean rate = (getIntentRate().resolveActivity(getPackageManager()) != null);
                 boolean other = (getIntentOtherApps().resolveActivity(getPackageManager()) != null);
 
-                if (invite || rate || other)
+                if (pro || invite || rate || other)
                     drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
+
+                if (pro)
+                    drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_monetization_on_24, R.string.menu_pro));
 
                 if (invite)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_people_24, R.string.menu_invite));
@@ -872,12 +872,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragmentTransaction.commit();
     }
 
-    private void onMenuPro() {
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-        fragmentTransaction.commit();
-    }
-
     private void onMenuSetup() {
         startActivity(new Intent(ActivityView.this, ActivitySetup.class));
     }
@@ -923,6 +917,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     })
                     .show();
         }
+    }
+
+    private void onMenuPro() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+        fragmentTransaction.commit();
     }
 
     private void onMenuInvite() {
