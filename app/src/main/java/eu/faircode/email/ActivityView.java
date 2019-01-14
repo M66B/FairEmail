@@ -176,23 +176,23 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     case -1:
                         onMenuFolders((long) item.getData());
                         break;
-                    case R.string.menu_setup:
-                        onMenuSetup();
-                        break;
                     case R.string.menu_answers:
                         onMenuAnswers();
                         break;
                     case R.string.menu_operations:
                         onMenuOperations();
                         break;
+                    case R.string.menu_pro:
+                        onMenuPro();
+                        break;
+                    case R.string.menu_setup:
+                        onMenuSetup();
+                        break;
                     case R.string.menu_legend:
                         onMenuLegend();
                         break;
                     case R.string.menu_faq:
                         onMenuFAQ();
-                        break;
-                    case R.string.menu_pro:
-                        onMenuPro();
                         break;
                     case R.string.menu_privacy:
                         onMenuPrivacy();
@@ -222,11 +222,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     case -1:
                         onMenuInbox((long) item.getData());
                         break;
-                    case R.string.menu_setup:
-                        onReload();
-                        break;
                     case R.string.menu_operations:
                         onShowLog();
+                        break;
+                    case R.string.menu_setup:
+                        onReload();
                         break;
                     case R.string.menu_faq:
                         onDebugInfo();
@@ -295,20 +295,21 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
 
-                drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_settings_applications_24, R.string.menu_setup));
                 drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_reply_24, R.string.menu_answers));
-
-                drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
-
                 drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_list_24, R.string.menu_operations));
-                drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_help_24, R.string.menu_legend));
-
-                if (Helper.getIntentFAQ().resolveActivity(getPackageManager()) != null)
-                    drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_question_answer_24, R.string.menu_faq));
 
                 Intent pro = getIntentPro();
                 if (pro == null || pro.resolveActivity(getPackageManager()) != null)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_monetization_on_24, R.string.menu_pro));
+
+                drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_settings_applications_24, R.string.menu_setup));
+
+                drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
+
+                drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_help_24, R.string.menu_legend));
+
+                if (Helper.getIntentFAQ().resolveActivity(getPackageManager()) != null)
+                    drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_question_answer_24, R.string.menu_faq));
 
                 if (Helper.getIntentPrivacy().resolveActivity(getPackageManager()) != null)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_account_box_24, R.string.menu_privacy));
@@ -854,10 +855,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }.execute(this, args, "menu:inbox");
     }
 
-    private void onMenuSetup() {
-        startActivity(new Intent(ActivityView.this, ActivitySetup.class));
-    }
-
     private void onMenuAnswers() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentAnswers()).addToBackStack("answers");
@@ -870,6 +867,16 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragmentTransaction.commit();
     }
 
+    private void onMenuPro() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+        fragmentTransaction.commit();
+    }
+
+    private void onMenuSetup() {
+        startActivity(new Intent(ActivityView.this, ActivitySetup.class));
+    }
+
     private void onMenuLegend() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentLegend()).addToBackStack("legend");
@@ -878,12 +885,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private void onMenuFAQ() {
         Helper.view(this, this, Helper.getIntentFAQ());
-    }
-
-    private void onMenuPro() {
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-        fragmentTransaction.commit();
     }
 
     private void onMenuPrivacy() {

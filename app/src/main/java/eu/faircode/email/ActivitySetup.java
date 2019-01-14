@@ -132,9 +132,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     case R.string.title_setup_help:
                         onMenuHelp();
                         break;
-                    case R.string.title_setup_notifications:
-                        onManageNotifications();
-                        break;
                     case R.string.title_setup_export:
                         onMenuExport();
                         break;
@@ -145,6 +142,9 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     case R.string.title_setup_dark_theme:
                     case R.string.title_setup_black_theme:
                         onMenuTheme(item.getId());
+                        break;
+                    case R.string.title_setup_notifications:
+                        onManageNotifications();
                         break;
                     case R.string.title_setup_advanced:
                         onMenuOptions();
@@ -175,9 +175,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
         drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
 
-        if (getIntentNotifications(this).resolveActivity(pm) != null)
-            drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_notifications_24, R.string.title_setup_notifications));
-
         if (getIntentExport().resolveActivity(pm) != null)
             drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_archive_24, R.string.title_setup_export));
         if (getIntentImport().resolveActivity(pm) != null)
@@ -191,6 +188,9 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
             drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_palette_24, R.string.title_setup_light_theme));
         else
             drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_palette_24, R.string.title_setup_dark_theme));
+
+        if (getIntentNotifications(this).resolveActivity(pm) != null)
+            drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_notifications_24, R.string.title_setup_notifications));
 
         drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_settings_applications_24, R.string.title_setup_advanced));
 
