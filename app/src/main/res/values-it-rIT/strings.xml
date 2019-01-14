@@ -111,11 +111,13 @@
     <string name="title_advanced_swipe">Azioni swipe</string>
     <string name="title_advanced_actionbar">Barra di azione di conversazione</string>
     <string name="title_advanced_autoclose">Chiudi automaticamente le conversazioni</string>
+    <string name="title_advanced_autonext">Passa automaticamente alla conversazione successiva nella conversazione stretta</string>
     <string name="title_advanced_autoread">Contrassegna automaticamente il messaggio come letto sul messaggio in movimento</string>
     <string name="title_advanced_collapse">Raggruppa i messaggi in conversazioni premendo \'indietro\'</string>
     <string name="title_advanced_automove">Conferma i messaggi in movimento</string>
     <string name="title_advanced_confirm">Conferma le azioni che potrebbero rivelare informazioni personali sensibili</string>
     <string name="title_advanced_sender">Consenti la modifica dell\'indirizzo mittente</string>
+    <string name="title_advanced_autoresize">Ridimensiona automaticamente le immagini per la visualizzazione su schermi</string>
     <string name="title_advanced_autosend">Confermare l\'invio dei messaggi</string>
     <string name="title_advanced_updates">Controlla aggiornamenti</string>
     <string name="title_advanced_debug">Debug</string>
@@ -183,6 +185,7 @@
     <string name="title_edit_properties">Modifica le proprietà</string>
     <string name="title_empty_trash_ask">Eliminare definitivamente tutti i messaggi cestinati?</string>
     <string name="title_delete_operation">Eliminare le operazioni con un messaggio di errore?</string>
+    <string name="title_no_operations">Nessuna operazione in sospeso</string>
     <string name="title_folder_name">Nome cartella</string>
     <string name="title_display_name">Nome visualizzato</string>
     <string name="title_hide_folders">Non mostrare cartelle nascoste</string>

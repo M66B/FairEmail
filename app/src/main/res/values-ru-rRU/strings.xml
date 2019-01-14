@@ -197,6 +197,7 @@
     <string name="title_edit_properties">Изменить свойства</string>
     <string name="title_empty_trash_ask">Удалить все сообщения корзины навсегда?</string>
     <string name="title_delete_operation">Удалить операции с сообщением об ошибке?</string>
+    <string name="title_no_operations">Нет операций в очереди</string>
     <string name="title_folder_name">Название папки</string>
     <string name="title_display_name">Отображаемое имя</string>
     <string name="title_hide_folders">Скрыть скрытые папки</string>

@@ -104,6 +104,7 @@
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
     <string name="title_advanced_identicons">Kimliklerini göster</string>
     <string name="title_advanced_preview">İleti önizlemesini göster</string>
+    <string name="title_advanced_addresses">Öntanımlı olarak adres ayrıntılarını göster</string>
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
     <string name="title_advanced_pull_refresh">Yenilemek için aşağıya çekin</string>
@@ -115,6 +116,7 @@
     <string name="title_advanced_automove">İletileri taşımayı onaylayın</string>
     <string name="title_advanced_confirm">Gizliliği duyarlı bilgileri sızdırabilecek eylemleri onaylayın</string>
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
+    <string name="title_advanced_autoresize">Ekranda görüntülemek için görselleri otomatik olarak yeniden boyutlandır</string>
     <string name="title_advanced_autosend">İleti göndermeyi onayla</string>
     <string name="title_advanced_updates">Güncellemelere bak</string>
     <string name="title_advanced_debug">Hata ayıklama</string>
@@ -150,6 +152,7 @@
     <string name="title_port">Port numarası</string>
     <string name="title_user">Kullanıcı adı</string>
     <string name="title_password">Parola</string>
+    <string name="title_realm">Bölge</string>
     <string name="title_authorize">Hesap seç</string>
     <string name="title_authorizing">Hesap yetkilendiriliyor &#8230;</string>
     <string name="title_setup_advanced">Gelişmiş</string>
@@ -181,6 +184,7 @@
     <string name="title_edit_properties">Özellikleri düzenle</string>
     <string name="title_empty_trash_ask">Çöpe atılmış tüm iletiler kalıcı olarak silinsin mi?</string>
     <string name="title_delete_operation">Hata iletisi olan işlemler silinsin mi?</string>
+    <string name="title_no_operations">Bekleyen işlem yok</string>
     <string name="title_folder_name">Klasör adı</string>
     <string name="title_display_name">Ekran adı</string>
     <string name="title_hide_folders">Gizli klasörleri gizle</string>
