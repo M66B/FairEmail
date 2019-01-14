@@ -56,6 +56,7 @@
     <string name="title_edit_identity">Editar identidad</string>
     <string name="title_edit_folder">Editar carpeta</string>
     <string name="title_setup">Configuración</string>
+    <string name="title_setup_help">Ayuda</string>
     <string name="title_setup_export">Exportar ajustes</string>
     <string name="title_setup_import">Importar ajustes</string>
     <string name="title_setup_import_do">Las cuentas importadas se añadirán, no se sobrescribirán</string>
@@ -70,7 +71,6 @@
     <string name="title_setup_quick_remark">La configuración rápida puede ser usada para la mayoría de los principales proveedores</string>
     <string name="title_setup_setting_gmail">Habilitar acceso para aplicaciones \"menos seguras\"</string>
     <string name="title_setup_no_settings">No se encontraron ajustes para \'%1$s\'</string>
-    <string name="title_setup_quick_success">Una cuenta y una identidad fueron agregadas. Puede revisar los detalles abajo usando los botones \'Gestionar\'.</string>
     <string name="title_setup_quick_failed">Puede intentar configurar una cuenta y una identidad a continuación también</string>
     <string name="title_setup_account">Gestionar cuentas</string>
     <string name="title_setup_account_remark">Para recibir correo electrónico</string>
@@ -87,7 +87,6 @@
     <string name="title_setup_done">Hecho</string>
     <string name="title_setup_light_theme">Tema claro</string>
     <string name="title_setup_dark_theme">Tema oscuro</string>
-    <string name="title_setup_black_background">Fondo negro</string>
     <string name="title_advanced">Opciones avanzadas</string>
     <string name="title_advanced_section_general">General</string>
     <string name="title_advanced_section_connection">Conexión</string>
@@ -375,6 +374,7 @@
     <string name="title_days">Días</string>
     <string name="title_report">Reportar</string>
     <string name="title_no_ask_again">No volver a preguntar</string>
+    <string name="title_no_adobe">Adobe Acrobat Reader no puede abrir archivos compartidos en forma segura, vea las Preguntas Frecuentes para más información</string>
     <string name="title_try">Pruebe FairEmail, un cliente de correo electrónico para Android de código abierto y enfocado en la privacidad</string>
     <string name="title_pro_feature">Esta es una característica Pro</string>
     <string name="title_pro_list">Lista de características Pro</string>

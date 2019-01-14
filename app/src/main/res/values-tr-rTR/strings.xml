@@ -70,7 +70,6 @@
     <string name="title_setup_quick_remark">Hızlı yapılandırma büyük sağlayıcıların çoğunda kullanılabilir</string>
     <string name="title_setup_setting_gmail">\"Daha az güvenli\" uygulamalara erişimi etkinleştir</string>
     <string name="title_setup_no_settings">%1$s için ayar bulunamadı</string>
-    <string name="title_setup_quick_success">Bir hesap ve bir kimlik eklendi. \'Yönet\' düğmelerini kullanarak aşağıdaki ayrıntıları inceleyebilirsiniz.</string>
     <string name="title_setup_quick_failed">Bir hesap ve kimlik yapılandırmayı aşağıdan da deneyebilirsiniz</string>
     <string name="title_setup_account">Hesapları Yönet</string>
     <string name="title_setup_account_remark">E-posta almak için</string>
@@ -87,7 +86,6 @@
     <string name="title_setup_done">Bitti</string>
     <string name="title_setup_light_theme">Aydınlık tema</string>
     <string name="title_setup_dark_theme">Koyu Tema</string>
-    <string name="title_setup_black_background">Siyah arkaplan</string>
     <string name="title_advanced">Gelişmiş seçenekler</string>
     <string name="title_advanced_section_general">Genel</string>
     <string name="title_advanced_section_connection">Bağlantı</string>

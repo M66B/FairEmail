@@ -56,6 +56,7 @@
     <string name="title_edit_identity">Identiteit bewerken</string>
     <string name="title_edit_folder">Map bewerken</string>
     <string name="title_setup">Installatie</string>
+    <string name="title_setup_help">Help</string>
     <string name="title_setup_export">Exporteer instellingen</string>
     <string name="title_setup_import">Importeer instellingen</string>
     <string name="title_setup_import_do">Geïmporteerde accounts zullen worden toegevoegd, niet overschreven</string>
@@ -70,7 +71,7 @@
     <string name="title_setup_quick_remark">Snelle config kan gebruikt worden voor de meeste grote providers</string>
     <string name="title_setup_setting_gmail">Toegang voor \"minder veilige\" apps inschakelen</string>
     <string name="title_setup_no_settings">Geen instellingen gevonden voor \'%1$s \'</string>
-    <string name="title_setup_quick_success">Een account en een identiteit zijn toegevoegd. U kunt de details hieronder bekijken met de \'beheer\' knoppen.</string>
+    <string name="title_setup_quick_success">Een account en een identiteit zijn succesvol toegevoegd</string>
     <string name="title_setup_quick_failed">U kunt ook proberen om hieronder een account en een identiteit te configureren</string>
     <string name="title_setup_account">Beheer accounts</string>
     <string name="title_setup_account_remark">Om e-mail te ontvangen</string>
@@ -87,7 +88,7 @@
     <string name="title_setup_done">Gedaan</string>
     <string name="title_setup_light_theme">Licht thema</string>
     <string name="title_setup_dark_theme">Donker thema</string>
-    <string name="title_setup_black_background">Zwarte achtergrond</string>
+    <string name="title_setup_black_theme">Zwart thema</string>
     <string name="title_advanced">Geavanceerde opties</string>
     <string name="title_advanced_section_general">Algemeen</string>
     <string name="title_advanced_section_connection">Verbinding</string>
@@ -375,6 +376,7 @@
     <string name="title_days">Dagen</string>
     <string name="title_report">Rapporteer</string>
     <string name="title_no_ask_again">Dit niet meer vragen</string>
+    <string name="title_no_adobe">Adobe Acrobat reader kan veilig gedeelde bestanden niet openen, zie de FAQ voor meer informatie</string>
     <string name="title_try">Probeer FairEmail, een open source, privacy vriendelijke e-mail app voor Android</string>
     <string name="title_pro_feature">Dit is een pro-functie</string>
     <string name="title_pro_list">Lijst van pro-functies</string>

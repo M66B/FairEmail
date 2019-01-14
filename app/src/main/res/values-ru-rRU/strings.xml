@@ -82,7 +82,6 @@
     <string name="title_setup_quick_remark">Быстрые настройки могут быть использованы для большинства основных поставщиков</string>
     <string name="title_setup_setting_gmail">Разрешите доступ для «менее надежных» приложений</string>
     <string name="title_setup_no_settings">Не найдены параметры для \'%1$s\'</string>
-    <string name="title_setup_quick_success">Учетная запись и идентификатор добавлены. Вы можете проверить детали ниже с помощью кнопок \'Управление...\'.</string>
     <string name="title_setup_quick_failed">Вы также можете настроить учетную запись и идентификатор ниже</string>
     <string name="title_setup_account">Управление учётными записями</string>
     <string name="title_setup_account_remark">Подключить электронную почту</string>
@@ -99,7 +98,6 @@
     <string name="title_setup_done">Готово</string>
     <string name="title_setup_light_theme">Светлая тема</string>
     <string name="title_setup_dark_theme">Тёмная тема</string>
-    <string name="title_setup_black_background">Черный фон</string>
     <string name="title_advanced">Дополнительные опции</string>
     <string name="title_advanced_section_general">Общее</string>
     <string name="title_advanced_section_connection">Соединение</string>

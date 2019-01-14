@@ -56,6 +56,7 @@
     <string name="title_edit_identity">Identität bearbeiten</string>
     <string name="title_edit_folder">Ordner bearbeiten</string>
     <string name="title_setup">Einstellungen</string>
+    <string name="title_setup_help">Hilfe</string>
     <string name="title_setup_export">Einstellungen exportieren</string>
     <string name="title_setup_import">Einstellungen importieren</string>
     <string name="title_setup_import_do">Importierte Konten werden hinzugefügt, nicht überschrieben</string>
@@ -70,7 +71,6 @@
     <string name="title_setup_quick_remark">Schnellkonfiguration kann für die meisten größeren Anbieter genutzt werden</string>
     <string name="title_setup_setting_gmail">Zugriff für \"unsichere\" Apps aktivieren</string>
     <string name="title_setup_no_settings">Keine Einstellungen gefunden für \'%1$s\'</string>
-    <string name="title_setup_quick_success">Ein Konto und eine Identität wurden hinzugefügt. Sie können die Details unter Verwendung den \"verwalten\"-Schaltflächen überprüfen.</string>
     <string name="title_setup_quick_failed">Sie können unten versuchen, ein Konto und eine Identität zu konfigurieren</string>
     <string name="title_setup_account">Konten verwalten</string>
     <string name="title_setup_account_remark">Um E-Mails zu erhalten</string>
@@ -87,7 +87,6 @@
     <string name="title_setup_done">Erledigt</string>
     <string name="title_setup_light_theme">Helles Thema</string>
     <string name="title_setup_dark_theme">Dunkles Thema</string>
-    <string name="title_setup_black_background">Schwarzer Hintergrund</string>
     <string name="title_advanced">Erweiterte Optionen</string>
     <string name="title_advanced_section_general">Allgemeines</string>
     <string name="title_advanced_section_connection">Verbindung</string>
@@ -375,6 +374,7 @@
     <string name="title_days">Tage</string>
     <string name="title_report">Bericht</string>
     <string name="title_no_ask_again">Dies nicht mehr anzeigen</string>
+    <string name="title_no_adobe">Adobe Acrobat Reader kann freigegebene Dateien nicht sicher öffnen, schauen Sie bitte in die FAQ für weitere Informationen</string>
     <string name="title_try">Testen Sie FairEmail, eine opensource und datenschutzfreundliche E-Mail-App für Android</string>
     <string name="title_pro_feature">Dies ist eine Pro-Funktion</string>
     <string name="title_pro_list">Liste der Pro-Funktionen</string>

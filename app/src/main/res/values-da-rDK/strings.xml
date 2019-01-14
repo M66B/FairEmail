@@ -65,7 +65,6 @@
     <string name="title_setup_done">Udført</string>
     <string name="title_setup_light_theme">Lyst tema</string>
     <string name="title_setup_dark_theme">Mørkt tema</string>
-    <string name="title_setup_black_background">Sort baggrund</string>
     <string name="title_advanced">Avancerede indstillinger</string>
     <string name="title_advanced_enabled">Synkronisér</string>
     <string name="title_advanced_debug">Debug</string>

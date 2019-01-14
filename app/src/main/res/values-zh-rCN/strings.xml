@@ -79,7 +79,6 @@
     <string name="title_setup_done">完成</string>
     <string name="title_setup_light_theme">亮色主题</string>
     <string name="title_setup_dark_theme">暗色主题</string>
-    <string name="title_setup_black_background">黑色背景</string>
     <string name="title_advanced">高级选项</string>
     <string name="title_advanced_section_general">常规​​​​​</string>
     <string name="title_advanced_section_connection">连接</string>

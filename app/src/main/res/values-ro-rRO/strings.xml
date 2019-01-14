@@ -62,6 +62,7 @@
     <string name="title_edit_identity">Editare identitate</string>
     <string name="title_edit_folder">Editare dosar</string>
     <string name="title_setup">Setări</string>
+    <string name="title_setup_help">Ajutor</string>
     <string name="title_setup_export">Exportă setări</string>
     <string name="title_setup_import">Importă setări</string>
     <string name="title_setup_import_do">Conturile importate vor fi adăugate, nu suprascrise</string>
@@ -76,7 +77,6 @@
     <string name="title_setup_quick_remark">Configurarea rapidă poate fi utilizată pentru furnizorii cunoscuți</string>
     <string name="title_setup_setting_gmail">Permite accesul pentru applicații \"mai puţin sigure\"</string>
     <string name="title_setup_no_settings">Nu s-au gasit setări pentru \'%1$s\'</string>
-    <string name="title_setup_quick_success">Un cont şi o identitate au fost adăugate. Puteți vedea detaliile mai jos utilizând butoanele \'gestionare\'.</string>
     <string name="title_setup_quick_failed">Puteţi încerca de asemenea să configurați un cont şi o identitate mai jos</string>
     <string name="title_setup_account">Gestionarea conturilor</string>
     <string name="title_setup_account_remark">Pentru a primi e-mail</string>
@@ -93,7 +93,6 @@
     <string name="title_setup_done">Gata</string>
     <string name="title_setup_light_theme">Temă luminoasă</string>
     <string name="title_setup_dark_theme">Temă întunecată</string>
-    <string name="title_setup_black_background">Fundal negru</string>
     <string name="title_advanced">Opțiuni avansate</string>
     <string name="title_advanced_section_general">Generale</string>
     <string name="title_advanced_section_connection">Conexiune</string>
@@ -381,6 +380,7 @@
     <string name="title_days">Zile</string>
     <string name="title_report">Raportează</string>
     <string name="title_no_ask_again">Nu mai întreba din nou</string>
+    <string name="title_no_adobe">Aplicația Adobe Acrobat reader nu poate deschide în siguranță fișierele, aflați mai multe în secțiunea de întrebări și răspunsuri</string>
     <string name="title_try">Încearcă FairEmail, o aplicație de e-mail pentru Android cu sursă deschisă, ce protejează intimitatea și confidențialitatea</string>
     <string name="title_pro_feature">Aceasta este o caracteristică Pro</string>
     <string name="title_pro_list">Lista de caracteristici Pro</string>

@@ -56,6 +56,7 @@
     <string name="title_edit_identity">Modifier l’identité</string>
     <string name="title_edit_folder">Modifier le dossier</string>
     <string name="title_setup">Configuration</string>
+    <string name="title_setup_help">Aide</string>
     <string name="title_setup_export">Exporter les paramètres</string>
     <string name="title_setup_import">Importer les paramètres</string>
     <string name="title_setup_import_do">Les comptes importés seront ajoutés, pas remplacés</string>
@@ -70,7 +71,6 @@
     <string name="title_setup_quick_remark">La configuration rapide peut être utilisée pour la plupart des fournisseurs importants</string>
     <string name="title_setup_setting_gmail">Activer l\'accès pour les applications « moins sûres »</string>
     <string name="title_setup_no_settings">Aucun paramètre trouvé pour %1$s</string>
-    <string name="title_setup_quick_success">Un compte et une identité ont été ajoutés. Vous pouvez consulter les détails ci-dessous en utilisant les boutons « Gérer ».</string>
     <string name="title_setup_quick_failed">Vous pouvez essayer de configurer un compte et une identité ci-dessous</string>
     <string name="title_setup_account">Gérer les comptes</string>
     <string name="title_setup_account_remark">Recevoir des e-mails</string>
@@ -87,7 +87,6 @@
     <string name="title_setup_done">Fait</string>
     <string name="title_setup_light_theme">Thème clair</string>
     <string name="title_setup_dark_theme">Thème sombre</string>
-    <string name="title_setup_black_background">Fond d\'écran noir</string>
     <string name="title_advanced">Options avancées</string>
     <string name="title_advanced_section_general">Général</string>
     <string name="title_advanced_section_connection">Connexion</string>
@@ -375,6 +374,7 @@
     <string name="title_days">Jours</string>
     <string name="title_report">Rapport</string>
     <string name="title_no_ask_again">Ne plus me le demander</string>
+    <string name="title_no_adobe">Adobe Acrobat reader ne peut pas ouvrir les fichiers partagés de façon sécurisée, voir la FAQ plus d\'information</string>
     <string name="title_try">Essayez FairEmail, une application de messagerie pour Android, open source, respectant la vie privée</string>
     <string name="title_pro_feature">Il s\'agit d\'une fonctionnalité Pro</string>
     <string name="title_pro_list">Liste des fonctionnalités Pro</string>
