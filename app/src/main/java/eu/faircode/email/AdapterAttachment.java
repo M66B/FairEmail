@@ -193,6 +193,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     List<NameResolveInfo> targets = new ArrayList<>();
                     List<ResolveInfo> ris = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
                     for (ResolveInfo ri : ris) {
+                        if ("com.adobe.reader".equals(ri.activityInfo.packageName))
+                            Toast.makeText(context, R.string.title_no_adobe, Toast.LENGTH_LONG).show();
                         Log.i("Target=" + ri);
                         context.grantUriPermission(ri.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
                         targets.add(new NameResolveInfo(

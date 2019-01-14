@@ -49,7 +49,7 @@ Since FairEmail is meant to be privacy friendly, the following will not be added
 
 * Open links without confirmation
 * Show original message without confirmation
-* Direct file/folder access: for security/privacy reasons (other) apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider), see also [this FAQ](#user-content-faq49)
+* Direct file/folder access: for security/privacy reasons (other) apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider), see also [this FAQ](#user-content-faq49) and [this FAQ](#user-content-faq68)
 
 Confirmation is just one tap, which is just a small price for better privacy.
 Note that your contacts could unknowingly send malicious messages if they got infected with malware.
@@ -125,6 +125,7 @@ Stripped and reformatted messages are often better readable than original messag
 * [(65) Why are some attachments shown dimmed?](#user-content-faq65)
 * [(66) Is FairEmail available in the Google Play Family Library?](#user-content-faq66)
 * [(67) How can I snooze conversations?](#user-content-faq67)
+* [(68) Why can Adobe Acrobat reader not open PDF attachments?](#user-content-faq68)
 
 [I have another question.](#support)
 
@@ -1040,6 +1041,19 @@ You can show snoozed messages by using the *Snoozed* item in the three dot overf
 You can tap on the small snooze icon to see until when a conversation is snoozed.
 
 By selecting a zero snooze duration you can cancel snoozing.
+
+<br />
+
+<a name="faq68"></a>
+**(68) Why can Adobe Acrobat reader not open PDF attachments?**
+
+Adobe Acrobat reader still expects full access to all stored files,
+while apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) since Android KitKat (2013)
+to have access to actively shared files only. This is for privacy and security reasons.
+
+You can workaround this by saving the attachment and opening it from the Adobe Acrobat reader,
+but you are advised to install an up-to-date and preferably open source PDF reader,
+for example one listed [here](https://github.com/offa/android-foss#-document--pdf-viewer).
 
 <br />
 
