@@ -12,83 +12,44 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btnQuick"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_setup_quick"
-            app:layout_constraintEnd_toEndOf="parent"
+        <ImageView
+            android:id="@+id/fast"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/baseline_fast_forward_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvQuickRemark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
+            android:layout_marginStart="6dp"
+            android:text="@string/title_setup_quick"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/fast"
+            app:layout_constraintStart_toEndOf="@id/fast" />
+
+        <TextView
+            android:id="@+id/tvQuick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
             android:text="@string/title_setup_quick_remark"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnQuick" />
-
-        <View
-            android:id="@+id/vSeparatorQuick"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="12dp"
-            android:background="?attr/colorSeparator"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvQuickRemark" />
-
-        <!-- account -->
+            app:layout_constraintTop_toBottomOf="@id/fast" />
 
         <Button
-            android:id="@+id/btnAccount"
+            android:id="@+id/btnQuick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/title_setup_account"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/title_setup_go"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorQuick" />
+            app:layout_constraintTop_toBottomOf="@id/tvQuick" />
 
-        <TextView
-            android:id="@+id/tvAccount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/title_setup_account_remark"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnAccount" />
-
-        <TextView
-            android:id="@+id/tvAccountDone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/baseline_check_24"
-            android:gravity="center_horizontal"
-            android:text="@string/title_setup_done"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="?android:attr/textColorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAccount" />
-
-        <TextView
-            android:id="@+id/tvNoPrimaryDrafts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/title_no_primary_drafts"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?attr/colorWarning"
-            android:textIsSelectable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAccountDone" />
+        <!-- account -->
 
         <View
             android:id="@+id/vSeparatorAccount"
@@ -97,43 +58,71 @@
             android:layout_marginTop="12dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvNoPrimaryDrafts" />
+            app:layout_constraintTop_toBottomOf="@id/btnQuick" />
 
-        <!-- identity -->
-
-        <Button
-            android:id="@+id/btnIdentity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/one"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginTop="12dp"
-            android:text="@string/title_setup_identity"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/baseline_looks_one_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorAccount" />
 
         <TextView
-            android:id="@+id/tvIdentity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/title_setup_identity_remark"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnIdentity" />
+            android:layout_marginStart="6dp"
+            android:text="@string/title_setup_account"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/one"
+            app:layout_constraintStart_toEndOf="@id/one" />
 
         <TextView
-            android:id="@+id/tvIdentityDone"
+            android:id="@+id/tvAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_setup_account_remark"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/one" />
+
+        <TextView
+            android:id="@+id/tvAccountDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:drawableStart="@drawable/baseline_check_24"
-            android:gravity="center_horizontal"
             android:text="@string/title_setup_done"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvIdentity" />
+            app:layout_constraintTop_toBottomOf="@id/tvAccount" />
+
+        <Button
+            android:id="@+id/btnAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_manage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAccountDone" />
+
+        <TextView
+            android:id="@+id/tvNoPrimaryDrafts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_no_primary_drafts"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            android:textIsSelectable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnAccount" />
+
+        <!-- identity -->
 
         <View
             android:id="@+id/vSeparatorIdentity"
@@ -142,44 +131,59 @@
             android:layout_marginTop="12dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvIdentityDone" />
+            app:layout_constraintTop_toBottomOf="@id/tvNoPrimaryDrafts" />
 
-        <!-- permissions -->
-
-        <Button
-            android:id="@+id/btnPermissions"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/two"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginTop="12dp"
-            android:enabled="false"
-            android:text="@string/title_setup_permissions"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/baseline_looks_two_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorIdentity" />
 
         <TextView
-            android:id="@+id/tvPermissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/title_setup_permissions_remark"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnPermissions" />
+            android:layout_marginStart="6dp"
+            android:text="@string/title_setup_identity"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/two"
+            app:layout_constraintStart_toEndOf="@id/two" />
 
         <TextView
-            android:id="@+id/tvPermissionsDone"
+            android:id="@+id/tvIdentity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_setup_identity_remark"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/two" />
+
+        <TextView
+            android:id="@+id/tvIdentityDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:drawableStart="@drawable/baseline_check_24"
-            android:gravity="center_horizontal"
             android:text="@string/title_setup_done"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPermissions" />
+            app:layout_constraintTop_toBottomOf="@id/tvIdentity" />
+
+        <Button
+            android:id="@+id/btnIdentity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_manage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvIdentityDone" />
+
+        <!-- permissions -->
 
         <View
             android:id="@+id/vSeparatorPermissions"
@@ -188,43 +192,119 @@
             android:layout_marginTop="12dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnIdentity" />
+
+        <ImageView
+            android:id="@+id/three"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_looks_3_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorPermissions" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@string/title_setup_permissions"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/three"
+            app:layout_constraintStart_toEndOf="@id/three" />
+
+        <TextView
+            android:id="@+id/tvPermissions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_setup_permissions_remark"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/three" />
+
+        <TextView
+            android:id="@+id/tvPermissionsDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableStart="@drawable/baseline_check_24"
+            android:text="@string/title_setup_done"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPermissions" />
+
+        <Button
+            android:id="@+id/btnPermissions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_manage"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPermissionsDone" />
 
         <!-- doze -->
+
+        <View
+            android:id="@+id/vSeparatorDoze"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnPermissions" />
+
+        <ImageView
+            android:id="@+id/four"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_looks_4_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorDoze" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_doze"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/four"
+            app:layout_constraintStart_toEndOf="@id/four" />
+
+        <TextView
+            android:id="@+id/tvDoze"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_setup_doze_remark"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/four" />
+
+        <TextView
+            android:id="@+id/tvDozeDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableStart="@drawable/baseline_check_24"
+            android:text="@string/title_setup_done"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDoze" />
 
         <Button
             android:id="@+id/btnDoze"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/title_setup_doze"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/title_setup_manage"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorPermissions" />
-
-        <TextView
-            android:id="@+id/tvDoze"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/title_setup_doze_remark"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnDoze" />
-
-        <TextView
-            android:id="@+id/tvDozeDone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/baseline_check_24"
-            android:gravity="center_horizontal"
-            android:text="@string/title_setup_done"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="?android:attr/textColorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDoze" />
+            app:layout_constraintTop_toBottomOf="@id/tvDozeDone" />
 
         <!-- data saver -->
 
@@ -237,8 +317,7 @@
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:text="@string/title_setup_data"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDozeDone" />
+            app:layout_constraintTop_toBottomOf="@id/btnDoze" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
