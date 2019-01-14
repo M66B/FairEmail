@@ -68,6 +68,8 @@ public class FragmentSetup extends FragmentEx {
 
     private Button btnData;
 
+    private int textColorPrimary;
+    private int colorWarning;
     private Drawable check;
 
     private static final String[] permissions = new String[]{
@@ -79,6 +81,8 @@ public class FragmentSetup extends FragmentEx {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_setup);
 
+        textColorPrimary = Helper.resolveColor(getContext(), android.R.attr.textColorPrimary);
+        colorWarning = Helper.resolveColor(getContext(), R.attr.colorWarning);
         check = getResources().getDrawable(R.drawable.baseline_check_24, getContext().getTheme());
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_setup, container, false);
@@ -249,6 +253,7 @@ public class FragmentSetup extends FragmentEx {
 
                 btnIdentity.setEnabled(done);
                 tvAccountDone.setText(done ? R.string.title_setup_done : R.string.title_setup_to_do);
+                tvAccountDone.setTextColor(done ? textColorPrimary : colorWarning);
                 tvAccountDone.setCompoundDrawablesWithIntrinsicBounds(done ? check : null, null, null, null);
 
                 if (livePrimaryDrafts == null)
@@ -288,6 +293,7 @@ public class FragmentSetup extends FragmentEx {
             public void onChanged(@Nullable List<EntityIdentity> identities) {
                 boolean done = (identities != null && identities.size() > 0);
                 tvIdentityDone.setText(done ? R.string.title_setup_done : R.string.title_setup_to_do);
+                tvIdentityDone.setTextColor(done ? textColorPrimary : colorWarning);
                 tvIdentityDone.setCompoundDrawablesWithIntrinsicBounds(done ? check : null, null, null, null);
             }
         });
@@ -307,6 +313,7 @@ public class FragmentSetup extends FragmentEx {
         }
         btnDoze.setEnabled(!ignoring);
         tvDozeDone.setText(ignoring ? R.string.title_setup_done : R.string.title_setup_to_do);
+        tvDozeDone.setTextColor(ignoring ? textColorPrimary : colorWarning);
         tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(ignoring ? check : null, null, null, null);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -332,6 +339,7 @@ public class FragmentSetup extends FragmentEx {
 
         btnPermissions.setEnabled(!has);
         tvPermissionsDone.setText(has ? R.string.title_setup_done : R.string.title_setup_to_do);
+        tvPermissionsDone.setTextColor(has ? textColorPrimary : colorWarning);
         tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds(has ? check : null, null, null, null);
 
         if (has && !init)
