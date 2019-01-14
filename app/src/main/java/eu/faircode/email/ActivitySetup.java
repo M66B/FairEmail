@@ -270,11 +270,11 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
     }
 
     @Override
-    public void onActivityResult(final int requestCode, int resultCode, final Intent data) {
-        if (requestCode == ActivitySetup.REQUEST_EXPORT || requestCode == ActivitySetup.REQUEST_IMPORT) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ActivitySetup.REQUEST_EXPORT || requestCode == ActivitySetup.REQUEST_IMPORT)
             if (resultCode == RESULT_OK && data != null)
                 fileSelected(requestCode == ActivitySetup.REQUEST_EXPORT, data);
-        }
     }
 
     private void fileSelected(final boolean export, final Intent data) {
