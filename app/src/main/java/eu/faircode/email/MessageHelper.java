@@ -477,11 +477,12 @@ public class MessageHelper {
 
     String getSubject() throws MessagingException, UnsupportedEncodingException {
         String subject = imessage.getSubject();
-        if (subject != null && subject.indexOf("=?") >= 0) {
+        if (subject != null && subject.contains("=?")) {
             String prev;
             do {
                 prev = subject;
                 subject = MimeUtility.decodeText(subject);
+                Log.i("Mime decode " + prev + " -> " + subject);
             }
             while (!subject.equals(prev));
         }
