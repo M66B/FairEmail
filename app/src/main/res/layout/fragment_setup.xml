@@ -6,19 +6,11 @@
     android:layout_height="match_parent"
     android:layout_margin="6dp"
     android:orientation="vertical"
-    tools:context=".ActivityView">
+    tools:context=".ActivitySetup">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <ImageButton
-            android:id="@+id/ibHelp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/baseline_help_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/etName"
@@ -31,7 +23,7 @@
             android:inputType="textPersonName"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ibHelp" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btnAuthorize"

@@ -148,7 +148,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         setContentView(view);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         drawerLayout.setScrimColor(Helper.resolveColor(this, R.attr.colorDrawerScrim));
@@ -304,7 +303,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_list_24, R.string.menu_operations));
                 drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_help_24, R.string.menu_legend));
 
-                if (getIntentFAQ().resolveActivity(getPackageManager()) != null)
+                if (Helper.getIntentFAQ().resolveActivity(getPackageManager()) != null)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_question_answer_24, R.string.menu_faq));
 
                 Intent pro = getIntentPro();
@@ -786,12 +785,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         sm.setDynamicShortcuts(shortcuts);
     }
 
-    private Intent getIntentFAQ() {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/FAQ.md"));
-        return intent;
-    }
-
     private Intent getIntentRate() {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + BuildConfig.APPLICATION_ID));
         if (intent.resolveActivity(getPackageManager()) == null)
@@ -884,7 +877,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuFAQ() {
-        Helper.view(this, this, getIntentFAQ());
+        Helper.view(this, this, Helper.getIntentFAQ());
     }
 
     private void onMenuPro() {
@@ -904,7 +897,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuRate() {
-        Intent faq = getIntentFAQ();
+        Intent faq = Helper.getIntentFAQ();
         if (faq.resolveActivity(getPackageManager()) == null)
             Helper.view(this, this, getIntentRate());
         else {
@@ -913,7 +906,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Helper.view(ActivityView.this, ActivityView.this, getIntentFAQ());
+                            Helper.view(ActivityView.this, ActivityView.this, Helper.getIntentFAQ());
                         }
                     })
                     .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {

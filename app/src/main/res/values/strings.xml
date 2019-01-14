@@ -75,6 +75,7 @@
     <string name="title_edit_folder">Edit folder</string>
 
     <string name="title_setup">Setup</string>
+    <string name="title_setup_help">Help</string>
     <string name="title_setup_export">Export settings</string>
     <string name="title_setup_import">Import settings</string>
     <string name="title_setup_import_do">Imported accounts will be added, not overwritten</string>

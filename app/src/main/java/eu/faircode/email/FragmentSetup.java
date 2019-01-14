@@ -28,13 +28,11 @@ import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.annotation.TargetApi;
 import android.content.ComponentName;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.res.AssetFileDescriptor;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.Uri;
@@ -51,16 +49,12 @@ import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.util.Patterns;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -69,30 +63,12 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.security.SecureRandom;
-import java.security.spec.KeySpec;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.CipherInputStream;
-import javax.crypto.CipherOutputStream;
-import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.PBEKeySpec;
 import javax.mail.Folder;
 import javax.mail.Session;
 import javax.mail.Transport;
@@ -110,8 +86,6 @@ import static android.app.Activity.RESULT_OK;
 
 public class FragmentSetup extends FragmentEx {
     private ViewGroup view;
-
-    private ImageButton ibHelp;
 
     private EditText etName;
     private EditText etEmail;
@@ -148,9 +122,6 @@ public class FragmentSetup extends FragmentEx {
 
     private int auth_type = Helper.AUTH_TYPE_PASSWORD;
 
-    private static final int KEY_ITERATIONS = 65536;
-    private static final int KEY_LENGTH = 256;
-
     private static final String[] permissions = new String[]{
             Manifest.permission.READ_CONTACTS
     };
@@ -159,15 +130,12 @@ public class FragmentSetup extends FragmentEx {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_setup);
-        setHasOptionsMenu(true);
 
         check = getResources().getDrawable(R.drawable.baseline_check_24, getContext().getTheme());
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_setup, container, false);
 
         // Get controls
-        ibHelp = view.findViewById(R.id.ibHelp);
-
         etName = view.findViewById(R.id.etName);
         btnAuthorize = view.findViewById(R.id.btnAuthorize);
         etEmail = view.findViewById(R.id.etEmail);
@@ -199,13 +167,6 @@ public class FragmentSetup extends FragmentEx {
         btnOptions = view.findViewById(R.id.btnOptions);
 
         // Wire controls
-
-        ibHelp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(getIntentHelp());
-            }
-        });
 
         btnAuthorize.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -605,7 +566,6 @@ public class FragmentSetup extends FragmentEx {
         });
 
         // Initialize
-        ibHelp.setVisibility(View.GONE);
         grpQuickError.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
         tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
@@ -673,9 +633,6 @@ public class FragmentSetup extends FragmentEx {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        PackageManager pm = getContext().getPackageManager();
-        ibHelp.setVisibility(getIntentHelp().resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
 
         final DB db = DB.getInstance(getContext());
 
@@ -758,48 +715,6 @@ public class FragmentSetup extends FragmentEx {
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_setup, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        PackageManager pm = getContext().getPackageManager();
-        menu.findItem(R.id.menu_export).setEnabled(getIntentExport().resolveActivity(pm) != null);
-        menu.findItem(R.id.menu_import).setEnabled(getIntentImport().resolveActivity(pm) != null);
-        super.onPrepareOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_legend:
-                onMenuLegend();
-                return true;
-
-            case R.id.menu_export:
-                onMenuExport();
-                return true;
-
-            case R.id.menu_import:
-                onMenuImport();
-                return true;
-
-            case R.id.menu_privacy:
-                onMenuPrivacy();
-                return true;
-
-            case R.id.menu_about:
-                onMenuAbout();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == ActivitySetup.REQUEST_PERMISSION)
             checkPermissions(permissions, grantResults, false);
@@ -839,43 +754,10 @@ public class FragmentSetup extends FragmentEx {
 
     @Override
     public void onActivityResult(final int requestCode, int resultCode, final Intent data) {
-        if (requestCode == ActivitySetup.REQUEST_EXPORT || requestCode == ActivitySetup.REQUEST_IMPORT) {
-            if (resultCode == RESULT_OK && data != null)
-                fileSelected(requestCode == ActivitySetup.REQUEST_EXPORT, data);
-        } else if (requestCode == ActivitySetup.REQUEST_CHOOSE_ACCOUNT) {
+        if (requestCode == ActivitySetup.REQUEST_CHOOSE_ACCOUNT) {
             if (resultCode == RESULT_OK && data != null)
                 accountSelected(data);
         }
-    }
-
-    private void fileSelected(final boolean export, final Intent data) {
-        View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_password, null);
-        final TextInputLayout etPassword1 = dview.findViewById(R.id.tilPassword1);
-        final TextInputLayout etPassword2 = dview.findViewById(R.id.tilPassword2);
-
-        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setView(dview)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        String password1 = etPassword1.getEditText().getText().toString();
-                        String password2 = etPassword2.getEditText().getText().toString();
-
-                        if (TextUtils.isEmpty(password1))
-                            Snackbar.make(view, R.string.title_setup_password_missing, Snackbar.LENGTH_LONG).show();
-                        else {
-                            if (password1.equals(password2)) {
-                                if (export)
-                                    handleExport(data, password1);
-                                else
-                                    handleImport(data, password1);
-                            } else
-                                Snackbar.make(view, R.string.title_setup_password_different, Snackbar.LENGTH_LONG).show();
-                        }
-                    }
-                })
-                .show();
     }
 
     private void accountSelected(Intent data) {
@@ -937,323 +819,11 @@ public class FragmentSetup extends FragmentEx {
             }
     }
 
-    private void onMenuPrivacy() {
-        Helper.view(getContext(), getViewLifecycleOwner(), Helper.getIntentPrivacy());
-    }
-
-    private void onMenuLegend() {
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new FragmentLegend()).addToBackStack("legend");
-        fragmentTransaction.commit();
-    }
-
-    private void onMenuExport() {
-        if (Helper.isPro(getContext()))
-            try {
-                startActivityForResult(Helper.getChooser(getContext(), getIntentExport()), ActivitySetup.REQUEST_EXPORT);
-            } catch (Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-            }
-        else {
-            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-            fragmentTransaction.commit();
-        }
-    }
-
-    private void onMenuImport() {
-        try {
-            startActivityForResult(Helper.getChooser(getContext(), getIntentImport()), ActivitySetup.REQUEST_IMPORT);
-        } catch (Throwable ex) {
-            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-        }
-    }
-
-    private void onMenuAbout() {
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new FragmentAbout()).addToBackStack("about");
-        fragmentTransaction.commit();
-    }
-
-    private Intent getIntentHelp() {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/SETUP.md#setup-help"));
-        return intent;
-    }
-
-    private static Intent getIntentExport() {
-        Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("*/*");
-        intent.putExtra(Intent.EXTRA_TITLE, "fairemail_backup_" +
-                new SimpleDateFormat("yyyyMMdd").format(new Date().getTime()) + ".json");
-        return intent;
-    }
-
-    private static Intent getIntentImport() {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("*/*");
-        return intent;
-    }
-
     private static Intent getIntentNotifications(Context context) {
         return new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
                 .putExtra("app_package", context.getPackageName())
                 .putExtra("app_uid", context.getApplicationInfo().uid)
                 .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName());
-    }
-
-    private void handleExport(Intent data, String password) {
-        Bundle args = new Bundle();
-        args.putParcelable("uri", data.getData());
-        args.putString("password", password);
-
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
-                Uri uri = args.getParcelable("uri");
-                String password = args.getString("password");
-
-                if ("file".equals(uri.getScheme())) {
-                    Log.w("Export uri=" + uri);
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
-                }
-
-                OutputStream out = null;
-                try {
-                    Log.i("Writing URI=" + uri);
-
-                    byte[] salt = new byte[16];
-                    SecureRandom random = new SecureRandom();
-                    random.nextBytes(salt);
-
-                    // https://docs.oracle.com/javase/7/docs/technotes/guides/security/StandardNames.html#Cipher
-                    SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-                    KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, KEY_ITERATIONS, KEY_LENGTH);
-                    SecretKey secret = keyFactory.generateSecret(keySpec);
-                    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                    cipher.init(Cipher.ENCRYPT_MODE, secret);
-
-                    OutputStream raw = getContext().getContentResolver().openOutputStream(uri);
-                    raw.write(salt);
-                    raw.write(cipher.getIV());
-                    out = new CipherOutputStream(raw, cipher);
-
-                    DB db = DB.getInstance(context);
-
-                    // Accounts
-                    JSONArray jaccounts = new JSONArray();
-                    for (EntityAccount account : db.account().getAccounts()) {
-                        // Account
-                        JSONObject jaccount = account.toJSON();
-
-                        // Identities
-                        JSONArray jidentities = new JSONArray();
-                        for (EntityIdentity identity : db.identity().getIdentities(account.id))
-                            jidentities.put(identity.toJSON());
-                        jaccount.put("identities", jidentities);
-
-                        // Folders
-                        JSONArray jfolders = new JSONArray();
-                        for (EntityFolder folder : db.folder().getFolders(account.id))
-                            jfolders.put(folder.toJSON());
-                        jaccount.put("folders", jfolders);
-
-                        jaccounts.put(jaccount);
-                    }
-
-                    // Answers
-                    JSONArray janswers = new JSONArray();
-                    for (EntityAnswer answer : db.answer().getAnswers())
-                        janswers.put(answer.toJSON());
-
-                    // Settings
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    JSONArray jsettings = new JSONArray();
-                    for (String key : prefs.getAll().keySet())
-                        if (!"pro".equals(key)) {
-                            JSONObject jsetting = new JSONObject();
-                            jsetting.put("key", key);
-                            jsetting.put("value", prefs.getAll().get(key));
-                            jsettings.put(jsetting);
-                        }
-
-                    JSONObject jexport = new JSONObject();
-                    jexport.put("accounts", jaccounts);
-                    jexport.put("answers", janswers);
-                    jexport.put("settings", jsettings);
-
-                    out.write(jexport.toString(2).getBytes());
-
-                    Log.i("Exported data");
-                } finally {
-                    if (out != null)
-                        out.close();
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Void data) {
-                Snackbar.make(view, R.string.title_setup_exported, Snackbar.LENGTH_LONG).show();
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                else
-                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-            }
-        }.execute(this, args, "setup:export");
-    }
-
-    private void handleImport(Intent data, String password) {
-        Bundle args = new Bundle();
-        args.putParcelable("uri", data.getData());
-        args.putString("password", password);
-
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
-                Uri uri = args.getParcelable("uri");
-                String password = args.getString("password");
-
-                if ("file".equals(uri.getScheme())) {
-                    Log.w("Import uri=" + uri);
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
-                }
-
-                InputStream in = null;
-                try {
-                    Log.i("Reading URI=" + uri);
-                    ContentResolver resolver = getContext().getContentResolver();
-                    AssetFileDescriptor descriptor = resolver.openTypedAssetFileDescriptor(uri, "*/*", null);
-                    InputStream raw = descriptor.createInputStream();
-
-                    byte[] salt = new byte[16];
-                    byte[] prefix = new byte[16];
-                    if (raw.read(salt) != salt.length)
-                        throw new IOException("length");
-                    if (raw.read(prefix) != prefix.length)
-                        throw new IOException("length");
-
-                    SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-                    KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, KEY_ITERATIONS, KEY_LENGTH);
-                    SecretKey secret = keyFactory.generateSecret(keySpec);
-                    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                    IvParameterSpec iv = new IvParameterSpec(prefix);
-                    cipher.init(Cipher.DECRYPT_MODE, secret, iv);
-
-                    in = new CipherInputStream(raw, cipher);
-
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-                    StringBuilder response = new StringBuilder();
-                    String line;
-                    while ((line = reader.readLine()) != null)
-                        response.append(line);
-                    Log.i("Importing " + resolver.toString());
-
-                    JSONObject jimport = new JSONObject(response.toString());
-
-                    DB db = DB.getInstance(context);
-                    try {
-                        db.beginTransaction();
-
-                        JSONArray jaccounts = jimport.getJSONArray("accounts");
-                        for (int a = 0; a < jaccounts.length(); a++) {
-                            JSONObject jaccount = (JSONObject) jaccounts.get(a);
-                            EntityAccount account = EntityAccount.fromJSON(jaccount);
-                            account.created = new Date().getTime();
-                            account.id = db.account().insertAccount(account);
-                            Log.i("Imported account=" + account.name);
-
-                            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
-                                if (account.notify)
-                                    account.createNotificationChannel(context);
-
-                            JSONArray jidentities = (JSONArray) jaccount.get("identities");
-                            for (int i = 0; i < jidentities.length(); i++) {
-                                JSONObject jidentity = (JSONObject) jidentities.get(i);
-                                EntityIdentity identity = EntityIdentity.fromJSON(jidentity);
-                                identity.account = account.id;
-                                identity.id = db.identity().insertIdentity(identity);
-                                Log.i("Imported identity=" + identity.email);
-                            }
-
-                            JSONArray jfolders = (JSONArray) jaccount.get("folders");
-                            for (int f = 0; f < jfolders.length(); f++) {
-                                JSONObject jfolder = (JSONObject) jfolders.get(f);
-                                EntityFolder folder = EntityFolder.fromJSON(jfolder);
-                                folder.account = account.id;
-                                folder.id = db.folder().insertFolder(folder);
-                                Log.i("Imported folder=" + folder.name);
-                            }
-                        }
-
-                        JSONArray janswers = jimport.getJSONArray("answers");
-                        for (int a = 0; a < janswers.length(); a++) {
-                            JSONObject janswer = (JSONObject) janswers.get(a);
-                            EntityAnswer answer = EntityAnswer.fromJSON(janswer);
-                            answer.id = db.answer().insertAnswer(answer);
-                            Log.i("Imported answer=" + answer.name);
-                        }
-
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                        SharedPreferences.Editor editor = prefs.edit();
-                        JSONArray jsettings = jimport.getJSONArray("settings");
-                        for (int s = 0; s < jsettings.length(); s++) {
-                            JSONObject jsetting = (JSONObject) jsettings.get(s);
-                            String key = jsetting.getString("key");
-                            if (!"pro".equals(key)) {
-                                Object value = jsetting.get("value");
-                                if (value instanceof Boolean)
-                                    editor.putBoolean(key, (Boolean) value);
-                                else if (value instanceof Integer)
-                                    editor.putInt(key, (Integer) value);
-                                else if (value instanceof Long)
-                                    editor.putLong(key, (Long) value);
-                                else if (value instanceof String)
-                                    editor.putString(key, (String) value);
-                                else
-                                    throw new IllegalArgumentException("Unknown settings type key=" + key);
-                                Log.i("Imported setting=" + key);
-                            }
-                        }
-                        editor.apply();
-
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
-                    }
-
-                    Log.i("Imported data");
-                    ServiceSynchronize.reload(context, "import");
-                } finally {
-                    if (in != null)
-                        in.close();
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Void data) {
-                Snackbar.make(view, R.string.title_setup_imported, Snackbar.LENGTH_LONG).show();
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                if (ex.getCause() instanceof BadPaddingException)
-                    Snackbar.make(view, R.string.title_setup_password_invalid, Snackbar.LENGTH_LONG).show();
-                else if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                else
-                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-            }
-        }.execute(this, args, "setup:import");
     }
 
     private void selectAccount() {
