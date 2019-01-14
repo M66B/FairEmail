@@ -170,10 +170,10 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         PackageManager pm = getPackageManager();
         DrawerAdapter drawerArray = new DrawerAdapter(this);
 
-        if (getIntentHelp().resolveActivity(pm) != null)
+        if (getIntentHelp().resolveActivity(pm) != null) {
             drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_live_help_24, R.string.title_setup_help));
-
-        drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
+            drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
+        }
 
         if (getIntentExport().resolveActivity(pm) != null)
             drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_archive_24, R.string.title_setup_export));

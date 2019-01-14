@@ -316,15 +316,20 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_info_24, R.string.menu_about));
 
-                drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
+                boolean invite = (getIntentInvite().resolveActivity(getPackageManager()) != null);
+                boolean rate = (getIntentRate().resolveActivity(getPackageManager()) != null);
+                boolean other = (getIntentOtherApps().resolveActivity(getPackageManager()) != null);
 
-                if (getIntentInvite().resolveActivity(getPackageManager()) != null)
+                if (invite || rate || other)
+                    drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
+
+                if (invite)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_people_24, R.string.menu_invite));
 
-                if (getIntentRate().resolveActivity(getPackageManager()) != null)
+                if (rate)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_star_24, R.string.menu_rate));
 
-                if (getIntentOtherApps().resolveActivity(getPackageManager()) != null)
+                if (other)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_get_app_24, R.string.menu_other));
 
                 drawerList.setAdapter(drawerArray);
