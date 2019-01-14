@@ -47,12 +47,8 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -88,7 +84,6 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.net.ssl.HttpsURLConnection;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.constraintlayout.widget.Group;
@@ -278,7 +273,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     return;
                 last = accounts;
 
-                ArrayAdapterDrawer drawerArray = new ArrayAdapterDrawer(ActivityView.this);
+                DrawerAdapter drawerArray = new DrawerAdapter(ActivityView.this);
 
                 final Collator collator = Collator.getInstance(Locale.getDefault());
                 collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
@@ -990,82 +985,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentLogs()).addToBackStack("logs");
         fragmentTransaction.commit();
-    }
-
-    private class DrawerItem {
-        private int layout;
-        private int id;
-        private int icon;
-        private Integer color;
-        private String title;
-        private boolean highlight;
-        private Object data;
-
-        DrawerItem(int layout) {
-            this.id = 0;
-            this.layout = layout;
-        }
-
-        DrawerItem(Context context, int layout, int icon, int title) {
-            this.layout = layout;
-            this.id = title;
-            this.icon = icon;
-            this.title = context.getString(title);
-        }
-
-        DrawerItem(int layout, int id, int icon, Integer color, String title, boolean highlight, Object data) {
-            this.layout = layout;
-            this.id = id;
-            this.icon = icon;
-            this.color = color;
-            this.title = title;
-            this.highlight = highlight;
-            this.data = data;
-        }
-
-        public int getId() {
-            return this.id;
-        }
-
-        public Object getData() {
-            return this.data;
-        }
-    }
-
-    private static class ArrayAdapterDrawer extends ArrayAdapter<DrawerItem> {
-        ArrayAdapterDrawer(@NonNull Context context) {
-            super(context, -1);
-        }
-
-        @NonNull
-        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-            DrawerItem item = getItem(position);
-            View row = LayoutInflater.from(getContext()).inflate(item.layout, null);
-
-            ImageView iv = row.findViewById(R.id.ivItem);
-            TextView tv = row.findViewById(R.id.tvItem);
-
-            if (iv != null) {
-                iv.setImageResource(item.icon);
-                if (item.color != null)
-                    iv.setColorFilter(item.color);
-            }
-
-            if (tv != null) {
-                tv.setText(item.title);
-
-                tv.setTextColor(Helper.resolveColor(getContext(), item.highlight ? R.attr.colorUnread : android.R.attr.textColorSecondary
-                ));
-            }
-
-            return row;
-        }
-
-        @Override
-        public boolean isEnabled(int position) {
-            DrawerItem item = getItem(position);
-            return (item != null && item.id != 0);
-        }
     }
 
     BroadcastReceiver receiver = new BroadcastReceiver() {
