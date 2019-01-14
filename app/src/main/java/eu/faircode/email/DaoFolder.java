@@ -39,7 +39,9 @@ public interface DaoFolder {
             " ORDER BY CASE WHEN folder.type = '" + EntityFolder.USER + "' THEN 1 ELSE 0 END")
     List<EntityFolder> getFolders(long account, boolean synchronize);
 
-    @Query("SELECT * FROM folder WHERE synchronize")
+    @Query("SELECT folder.* FROM folder" +
+            " JOIN account ON account.id = folder.account" +
+            " WHERE account.synchronize AND folder.synchronize")
     List<EntityFolder> getFoldersSynchronizing();
 
     @Query("SELECT folder.* FROM folder" +
