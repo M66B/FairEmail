@@ -755,7 +755,7 @@ public class ServiceSynchronize extends LifecycleService {
             builder = new Notification.Builder(this);
 
         builder
-                .setSmallIcon(android.R.drawable.stat_notify_error)
+                .setSmallIcon(R.drawable.baseline_warning_white_24)
                 .setContentTitle(getString(R.string.title_notification_failed, title))
                 .setContentText(text)
                 .setContentIntent(pi)
