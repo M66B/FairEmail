@@ -32,6 +32,7 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -131,11 +132,22 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     case R.string.title_setup_help:
                         onMenuHelp();
                         break;
+                    case R.string.title_setup_notifications:
+                        onManageNotifications();
+                        break;
                     case R.string.title_setup_export:
                         onMenuExport();
                         break;
                     case R.string.title_setup_import:
                         onMenuImport();
+                        break;
+                    case R.string.title_setup_light_theme:
+                    case R.string.title_setup_dark_theme:
+                    case R.string.title_setup_black_theme:
+                        onMenuTheme(item.getId());
+                        break;
+                    case R.string.title_setup_advanced:
+                        onMenuOptions();
                         break;
                     case R.string.menu_legend:
                         onMenuLegend();
@@ -159,14 +171,28 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         DrawerAdapter drawerArray = new DrawerAdapter(this);
 
         if (getIntentHelp().resolveActivity(pm) != null)
-            drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_settings_applications_24, R.string.title_setup_help));
+            drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_live_help_24, R.string.title_setup_help));
 
         drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
+
+        if (getIntentNotifications(this).resolveActivity(pm) != null)
+            drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_notifications_24, R.string.title_setup_notifications));
 
         if (getIntentExport().resolveActivity(pm) != null)
             drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_archive_24, R.string.title_setup_export));
         if (getIntentImport().resolveActivity(pm) != null)
             drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_unarchive_24, R.string.title_setup_import));
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String theme = prefs.getString("theme", "light");
+        if ("dark".equals(theme))
+            drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_palette_24, R.string.title_setup_black_theme));
+        else if ("black".equals(theme))
+            drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_palette_24, R.string.title_setup_light_theme));
+        else
+            drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_palette_24, R.string.title_setup_dark_theme));
+
+        drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_settings_applications_24, R.string.title_setup_advanced));
 
         drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
 
@@ -311,6 +337,10 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         startActivity(getIntentHelp());
     }
 
+    private void onManageNotifications() {
+        startActivity(getIntentNotifications(this));
+    }
+
     private void onMenuExport() {
         if (Helper.isPro(this))
             try {
@@ -331,6 +361,33 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         } catch (Throwable ex) {
             Helper.unexpectedError(this, this, ex);
         }
+    }
+
+    private void onMenuTheme(int id) {
+        if (Helper.isPro(this)) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            switch (id) {
+                case R.string.title_setup_light_theme:
+                    prefs.edit().putString("theme", "light").apply();
+                    break;
+                case R.string.title_setup_dark_theme:
+                    prefs.edit().putString("theme", "dark").apply();
+                    break;
+                case R.string.title_setup_black_theme:
+                    prefs.edit().putString("theme", "black").apply();
+                    break;
+            }
+        } else {
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+            fragmentTransaction.commit();
+        }
+    }
+
+    private void onMenuOptions() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentOptions()).addToBackStack("options");
+        fragmentTransaction.commit();
     }
 
     private void onMenuLegend() {
@@ -357,6 +414,13 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/SETUP.md#setup-help"));
         return intent;
+    }
+
+    private static Intent getIntentNotifications(Context context) {
+        return new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                .putExtra("app_package", context.getPackageName())
+                .putExtra("app_uid", context.getApplicationInfo().uid)
+                .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName());
     }
 
     private static Intent getIntentExport() {
@@ -578,7 +642,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                         for (int s = 0; s < jsettings.length(); s++) {
                             JSONObject jsetting = (JSONObject) jsettings.get(s);
                             String key = jsetting.getString("key");
-                            if (!"pro".equals(key)) {
+                            if (!"pro".equals(key) && !"theme".equals(key)) {
                                 Object value = jsetting.get("value");
                                 if (value instanceof Boolean)
                                     editor.putBoolean(key, (Boolean) value);

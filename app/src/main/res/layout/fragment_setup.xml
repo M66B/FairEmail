@@ -241,58 +241,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDozeDone" />
-
-        <View
-            android:id="@+id/vSeparatorDoze"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="12dp"
-            android:background="?attr/colorSeparator"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnData" />
-
-        <Button
-            android:id="@+id/btnNotifications"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_setup_notifications"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorDoze" />
-
-        <ToggleButton
-            android:id="@+id/tbDarkTheme"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:textOff="@string/title_setup_dark_theme"
-            android:textOn="@string/title_setup_light_theme"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnNotifications" />
-
-        <CheckBox
-            android:id="@+id/cbBlackTheme"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/title_setup_black_background"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tbDarkTheme" />
-
-        <Button
-            android:id="@+id/btnOptions"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:text="@string/title_advanced"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbBlackTheme" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -25,7 +25,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
@@ -33,16 +32,12 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
-import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
 import java.util.List;
 
@@ -72,13 +67,6 @@ public class FragmentSetup extends FragmentEx {
     private TextView tvDozeDone;
 
     private Button btnData;
-
-    private Button btnNotifications;
-
-    private ToggleButton tbDarkTheme;
-    private CheckBox cbBlackTheme;
-
-    private Button btnOptions;
 
     private Drawable check;
 
@@ -111,13 +99,7 @@ public class FragmentSetup extends FragmentEx {
         btnDoze = view.findViewById(R.id.btnDoze);
         tvDozeDone = view.findViewById(R.id.tvDozeDone);
 
-        btnNotifications = view.findViewById(R.id.btnNotifications);
-
         btnData = view.findViewById(R.id.btnData);
-
-        tbDarkTheme = view.findViewById(R.id.tbDarkTheme);
-        cbBlackTheme = view.findViewById(R.id.cbBlackTheme);
-        btnOptions = view.findViewById(R.id.btnOptions);
 
         // Wire controls
 
@@ -186,61 +168,6 @@ public class FragmentSetup extends FragmentEx {
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
-            }
-        });
-
-        PackageManager pm = getContext().getPackageManager();
-        btnNotifications.setVisibility(getIntentNotifications(getContext()).resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
-        btnNotifications.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(getIntentNotifications(getContext()));
-            }
-        });
-
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        String theme = prefs.getString("theme", "light");
-        boolean light = "light".equals(theme);
-        tbDarkTheme.setTag(!light);
-        tbDarkTheme.setChecked(!light);
-        tbDarkTheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton button, boolean checked) {
-                if (Helper.isPro(getContext())) {
-                    if (checked != (Boolean) button.getTag()) {
-                        button.setTag(checked);
-                        tbDarkTheme.setChecked(checked);
-                        prefs.edit().putString("theme", checked ? "dark" : "light").apply();
-                    }
-                } else {
-                    prefs.edit().remove("theme").apply();
-                    if (checked) {
-                        tbDarkTheme.setChecked(false);
-                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-                        fragmentTransaction.commit();
-                    }
-                }
-                cbBlackTheme.setVisibility(tbDarkTheme.isChecked() ? View.VISIBLE : View.GONE);
-            }
-        });
-
-        cbBlackTheme.setChecked("black".equals(theme));
-        cbBlackTheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
-                prefs.edit().putString("theme", checked ? "black" : "dark").apply();
-            }
-        });
-        cbBlackTheme.setVisibility(tbDarkTheme.isChecked() ? View.VISIBLE : View.GONE);
-
-        btnOptions.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, new FragmentOptions()).addToBackStack("options");
-                fragmentTransaction.commit();
             }
         });
 
@@ -422,12 +349,5 @@ public class FragmentSetup extends FragmentEx {
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                 }
             }.execute(FragmentSetup.this, new Bundle(), "setup:sync");
-    }
-
-    private static Intent getIntentNotifications(Context context) {
-        return new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
-                .putExtra("app_package", context.getPackageName())
-                .putExtra("app_uid", context.getApplicationInfo().uid)
-                .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName());
     }
 }
