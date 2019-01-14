@@ -21,13 +21,16 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
+            android:ellipsize="end"
+            android:singleLine="true"
             android:text="@string/title_setup_quick"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/fast"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/fast" />
 
         <TextView
@@ -70,13 +73,16 @@
             app:layout_constraintTop_toBottomOf="@id/vSeparatorAccount" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
+            android:ellipsize="end"
+            android:singleLine="true"
             android:text="@string/title_setup_account"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/one"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/one" />
 
         <TextView
@@ -143,13 +149,16 @@
             app:layout_constraintTop_toBottomOf="@id/vSeparatorIdentity" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
+            android:ellipsize="end"
+            android:singleLine="true"
             android:text="@string/title_setup_identity"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/two"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/two" />
 
         <TextView
@@ -204,13 +213,16 @@
             app:layout_constraintTop_toBottomOf="@id/vSeparatorPermissions" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
+            android:ellipsize="end"
+            android:singleLine="true"
             android:text="@string/title_setup_permissions"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/three"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/three" />
 
         <TextView
@@ -265,14 +277,17 @@
             app:layout_constraintTop_toBottomOf="@id/vSeparatorDoze" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:layout_marginTop="12dp"
+            android:ellipsize="end"
+            android:singleLine="true"
             android:text="@string/title_setup_doze"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/four"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/four" />
 
         <TextView
