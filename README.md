@@ -28,6 +28,7 @@ This app starts a foreground service with a low priority status bar notification
 * Offline storage and operations
 * Battery friendly
 * Low data usage
+* Small (~4 MB)
 * Material design
 
 ## Pro features
