@@ -206,11 +206,15 @@ you'll need to enable insecure connections in the account and/or identity settin
 <a name="faq5"></a>
 **(5) How can I customize the message view?**
 
+In the three dot overflow menu you can enable or disable or select:
+
+* *text size*: for three different font sizes
+* *compact view*: for more condensed message items and a smaller message text font
+
 In the display section of the advanced settings you can enable or disable:
 
 * *unified inbox*: to disable the unified inbox and to list the folders selected for the unified inbox instead
 * *conversation threading*: to disable conversation threading and to show individual messages instead
-* *compact message view*: for more condensed message items and a smaller message text font
 * *show contact photos*: to hide contact photos
 * *show identicons*: to show generated contact avatars
 * *show message preview*: to show two lines of the message text
