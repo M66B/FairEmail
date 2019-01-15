@@ -735,14 +735,14 @@ public class FragmentMessages extends FragmentEx {
         fabMore.setOnClickListener(new View.OnClickListener() {
             private final int action_seen = 1;
             private final int action_unseen = 2;
-            private final int action_flag = 3;
-            private final int action_unflag = 4;
-            private final int action_archive = 5;
-            private final int action_trash = 6;
-            private final int action_delete = 7;
-            private final int action_junk = 8;
-            private final int action_move = 9;
-            private final int action_snooze = 10;
+            private final int action_snooze = 3;
+            private final int action_flag = 4;
+            private final int action_unflag = 5;
+            private final int action_archive = 6;
+            private final int action_trash = 7;
+            private final int action_delete = 8;
+            private final int action_junk = 9;
+            private final int action_move = 10;
 
             @Override
             public void onClick(View v) {
@@ -798,26 +798,26 @@ public class FragmentMessages extends FragmentEx {
                         if (result[1] && !result[9])
                             popupMenu.getMenu().add(Menu.NONE, action_unseen, 2, R.string.title_unseen);
 
+                        popupMenu.getMenu().add(Menu.NONE, action_snooze, 3, R.string.title_snooze);
+
                         if (result[2])
-                            popupMenu.getMenu().add(Menu.NONE, action_flag, 3, R.string.title_flag);
+                            popupMenu.getMenu().add(Menu.NONE, action_flag, 4, R.string.title_flag);
                         if (result[3])
-                            popupMenu.getMenu().add(Menu.NONE, action_unflag, 4, R.string.title_unflag);
+                            popupMenu.getMenu().add(Menu.NONE, action_unflag, 5, R.string.title_unflag);
 
                         if (result[4] && !result[6] && !result[9]) // has archive and not is archive
-                            popupMenu.getMenu().add(Menu.NONE, action_archive, 5, R.string.title_archive);
+                            popupMenu.getMenu().add(Menu.NONE, action_archive, 6, R.string.title_archive);
 
                         if (result[7]) // is trash
-                            popupMenu.getMenu().add(Menu.NONE, action_delete, 6, R.string.title_delete);
+                            popupMenu.getMenu().add(Menu.NONE, action_delete, 7, R.string.title_delete);
                         else if (result[5]) // has trash
-                            popupMenu.getMenu().add(Menu.NONE, action_trash, 6, R.string.title_trash);
+                            popupMenu.getMenu().add(Menu.NONE, action_trash, 8, R.string.title_trash);
 
                         if (!result[8] && !result[9])
-                            popupMenu.getMenu().add(Menu.NONE, action_junk, 7, R.string.title_spam);
+                            popupMenu.getMenu().add(Menu.NONE, action_junk, 9, R.string.title_spam);
 
                         if (!result[9])
-                            popupMenu.getMenu().add(Menu.NONE, action_move, 8, R.string.title_move);
-
-                        popupMenu.getMenu().add(Menu.NONE, action_snooze, 9, R.string.title_snooze);
+                            popupMenu.getMenu().add(Menu.NONE, action_move, 10, R.string.title_move);
 
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                             @Override
@@ -828,6 +828,9 @@ public class FragmentMessages extends FragmentEx {
                                         return true;
                                     case action_unseen:
                                         onActionSeen(false);
+                                        return true;
+                                    case action_snooze:
+                                        onActionSnooze();
                                         return true;
                                     case action_flag:
                                         onActionFlag(true);
@@ -849,9 +852,6 @@ public class FragmentMessages extends FragmentEx {
                                         return true;
                                     case action_move:
                                         onActionMove();
-                                        return true;
-                                    case action_snooze:
-                                        onActionSnooze();
                                         return true;
                                     default:
                                         return false;
@@ -920,6 +920,59 @@ public class FragmentMessages extends FragmentEx {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
                 }.execute(FragmentMessages.this, args, "messages:seen");
+            }
+
+            private void onActionSnooze() {
+                DialogDuration.show(getContext(), getViewLifecycleOwner(), R.string.title_snooze,
+                        new DialogDuration.IDialogDuration() {
+                            @Override
+                            public void onDurationSelected(long duration, long time) {
+                                if (Helper.isPro(getContext())) {
+                                    Bundle args = new Bundle();
+                                    args.putLongArray("ids", getSelection());
+                                    args.putLong("wakeup", duration == 0 ? -1 : time);
+
+                                    new SimpleTask<Void>() {
+                                        @Override
+                                        protected Void onExecute(Context context, Bundle args) {
+                                            long[] ids = args.getLongArray("ids");
+                                            Long wakeup = args.getLong("wakeup");
+                                            if (wakeup < 0)
+                                                wakeup = null;
+
+                                            DB db = DB.getInstance(context);
+                                            for (long id : ids) {
+                                                EntityMessage message = db.message().getMessage(id);
+                                                if (message != null) {
+                                                    List<EntityMessage> messages = db.message().getMessageByThread(
+                                                            message.account, message.thread, threading ? null : id, message.folder);
+                                                    for (EntityMessage threaded : messages) {
+                                                        db.message().setMessageSnoozed(threaded.id, wakeup);
+                                                        EntityMessage.snooze(context, threaded.id, wakeup);
+                                                    }
+                                                }
+                                            }
+
+                                            return null;
+                                        }
+
+                                        @Override
+                                        protected void onException(Bundle args, Throwable ex) {
+                                            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                                        }
+                                    }.execute(FragmentMessages.this, args, "messages:snooze");
+                                } else {
+                                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                                    fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                                    fragmentTransaction.commit();
+                                }
+                            }
+
+                            @Override
+                            public void onDismiss() {
+                                selectionTracker.clearSelection();
+                            }
+                        });
             }
 
             private void onActionFlag(boolean flagged) {
@@ -1191,59 +1244,6 @@ public class FragmentMessages extends FragmentEx {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
                 }.execute(FragmentMessages.this, args, "messages:move");
-            }
-
-            private void onActionSnooze() {
-                DialogDuration.show(getContext(), getViewLifecycleOwner(), R.string.title_snooze,
-                        new DialogDuration.IDialogDuration() {
-                            @Override
-                            public void onDurationSelected(long duration, long time) {
-                                if (Helper.isPro(getContext())) {
-                                    Bundle args = new Bundle();
-                                    args.putLongArray("ids", getSelection());
-                                    args.putLong("wakeup", duration == 0 ? -1 : time);
-
-                                    new SimpleTask<Void>() {
-                                        @Override
-                                        protected Void onExecute(Context context, Bundle args) {
-                                            long[] ids = args.getLongArray("ids");
-                                            Long wakeup = args.getLong("wakeup");
-                                            if (wakeup < 0)
-                                                wakeup = null;
-
-                                            DB db = DB.getInstance(context);
-                                            for (long id : ids) {
-                                                EntityMessage message = db.message().getMessage(id);
-                                                if (message != null) {
-                                                    List<EntityMessage> messages = db.message().getMessageByThread(
-                                                            message.account, message.thread, threading ? null : id, message.folder);
-                                                    for (EntityMessage threaded : messages) {
-                                                        db.message().setMessageSnoozed(threaded.id, wakeup);
-                                                        EntityMessage.snooze(context, threaded.id, wakeup);
-                                                    }
-                                                }
-                                            }
-
-                                            return null;
-                                        }
-
-                                        @Override
-                                        protected void onException(Bundle args, Throwable ex) {
-                                            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                                        }
-                                    }.execute(FragmentMessages.this, args, "messages:snooze");
-                                } else {
-                                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                                    fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-                                    fragmentTransaction.commit();
-                                }
-                            }
-
-                            @Override
-                            public void onDismiss() {
-                                selectionTracker.clearSelection();
-                            }
-                        });
             }
         });
 
