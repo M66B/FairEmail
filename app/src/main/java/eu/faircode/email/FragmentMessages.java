@@ -79,7 +79,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-public class FragmentMessages extends FragmentEx {
+public class FragmentMessages extends FragmentBase {
     private ViewGroup view;
     private SwipeRefreshLayout swipeRefresh;
     private View popupAnchor;

@@ -68,7 +68,7 @@ import androidx.core.content.ContextCompat;
 import static android.accounts.AccountManager.newChooseAccountIntent;
 import static android.app.Activity.RESULT_OK;
 
-public class FragmentQuickSetup extends FragmentEx {
+public class FragmentQuickSetup extends FragmentBase {
     private ViewGroup view;
 
     private EditText etName;

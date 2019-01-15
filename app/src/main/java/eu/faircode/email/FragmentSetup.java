@@ -40,7 +40,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.List;
@@ -52,7 +51,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 
-public class FragmentSetup extends FragmentEx {
+public class FragmentSetup extends FragmentBase {
     private ViewGroup view;
 
     private Button btnQuick;

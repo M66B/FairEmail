@@ -338,7 +338,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         if (getSupportFragmentManager().getFragments().size() == 0 &&
                 !getIntent().hasExtra(Intent.EXTRA_PROCESS_TEXT)) {
-            FragmentEx fragment = (unified ? new FragmentMessages() : new FragmentFolders());
+            FragmentBase fragment = (unified ? new FragmentMessages() : new FragmentFolders());
             fragment.setArguments(new Bundle());
 
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

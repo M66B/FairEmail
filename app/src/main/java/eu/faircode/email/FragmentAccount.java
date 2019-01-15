@@ -83,7 +83,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import static android.accounts.AccountManager.newChooseAccountIntent;
 
-public class FragmentAccount extends FragmentEx {
+public class FragmentAccount extends FragmentBase {
     private ViewGroup view;
 
     private Spinner spProvider;

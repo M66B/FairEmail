@@ -43,7 +43,7 @@ import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class FragmentOperations extends FragmentEx {
+public class FragmentOperations extends FragmentBase {
     private TextView tvNoOperation;
     private RecyclerView rvOperation;
     private ContentLoadingProgressBar pbWait;

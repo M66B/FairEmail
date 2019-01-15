@@ -41,7 +41,7 @@ import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class FragmentFolders extends FragmentEx {
+public class FragmentFolders extends FragmentBase {
     private ImageButton ibHintActions;
     private ImageButton ibHintSync;
     private ToggleButton tbShowHidden;

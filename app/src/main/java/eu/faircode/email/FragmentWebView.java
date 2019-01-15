@@ -54,7 +54,7 @@ import androidx.annotation.Nullable;
 
 // https://developer.android.com/reference/android/webkit/WebView
 
-public class FragmentWebView extends FragmentEx {
+public class FragmentWebView extends FragmentBase {
     private ProgressBar progressBar;
     private WebView webview;
 

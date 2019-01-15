@@ -32,7 +32,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 
-public class FragmentEx extends Fragment {
+public class FragmentBase extends Fragment {
     private String subtitle = " ";
     private boolean finish = false;
 

@@ -53,7 +53,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import static android.app.Activity.RESULT_OK;
 
-public class FragmentOptions extends FragmentEx implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class FragmentOptions extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swEnabled;
     private SwitchCompat swUpdates;
 

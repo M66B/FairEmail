@@ -39,7 +39,7 @@ import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class FragmentAccounts extends FragmentEx {
+public class FragmentAccounts extends FragmentBase {
     private RecyclerView rvAccount;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;

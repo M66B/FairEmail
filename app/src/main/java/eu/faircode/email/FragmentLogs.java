@@ -38,7 +38,7 @@ import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class FragmentLogs extends FragmentEx {
+public class FragmentLogs extends FragmentBase {
     private RecyclerView rvLog;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;

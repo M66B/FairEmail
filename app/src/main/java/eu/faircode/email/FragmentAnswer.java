@@ -36,7 +36,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
 
-public class FragmentAnswer extends FragmentEx {
+public class FragmentAnswer extends FragmentBase {
     private ViewGroup view;
     private EditText etName;
     private EditText etText;

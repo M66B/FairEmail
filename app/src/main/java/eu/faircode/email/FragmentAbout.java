@@ -28,7 +28,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class FragmentAbout extends FragmentEx {
+public class FragmentAbout extends FragmentBase {
     private TextView tvVersion;
 
     @Override

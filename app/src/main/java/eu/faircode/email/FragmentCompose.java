@@ -129,7 +129,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import static android.app.Activity.RESULT_OK;
 
-public class FragmentCompose extends FragmentEx {
+public class FragmentCompose extends FragmentBase {
     private enum State {NONE, LOADING, LOADED}
 
     private ViewGroup view;

@@ -42,7 +42,7 @@ import java.util.Calendar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class FragmentFolder extends FragmentEx {
+public class FragmentFolder extends FragmentBase {
     private ViewGroup view;
     private EditText etName;
     private EditText etDisplay;

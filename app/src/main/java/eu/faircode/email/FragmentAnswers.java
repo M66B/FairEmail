@@ -36,7 +36,7 @@ import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class FragmentAnswers extends FragmentEx {
+public class FragmentAnswers extends FragmentBase {
     private RecyclerView rvAnswer;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;

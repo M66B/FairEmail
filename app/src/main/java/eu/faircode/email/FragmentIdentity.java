@@ -75,7 +75,7 @@ import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 
-public class FragmentIdentity extends FragmentEx {
+public class FragmentIdentity extends FragmentBase {
     private ViewGroup view;
 
     private EditText etName;

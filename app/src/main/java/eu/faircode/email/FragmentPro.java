@@ -35,7 +35,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-public class FragmentPro extends FragmentEx implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class FragmentPro extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private TextView tvActivated;
     private TextView tvList;
     private Button btnPurchase;
