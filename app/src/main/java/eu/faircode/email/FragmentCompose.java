@@ -78,7 +78,6 @@ import android.widget.FilterQueryProvider;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.MultiAutoCompleteTextView;
-import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -101,8 +100,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -708,82 +705,43 @@ public class FragmentCompose extends FragmentEx {
     }
 
     private void onMenuSendAfter() {
-        final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_duration, null);
-        final NumberPicker npHours = dview.findViewById(R.id.npHours);
-        final NumberPicker npDays = dview.findViewById(R.id.npDays);
-        final TextView tvTime = dview.findViewById(R.id.tvTime);
-        final long HOUR_MS = 3600L * 1000L;
-        final long now = new Date().getTime() / HOUR_MS * HOUR_MS;
-
-        npHours.setMinValue(0);
-        npHours.setMaxValue(24);
-
-        npDays.setMinValue(0);
-        npDays.setMaxValue(90);
-
-        NumberPicker.OnValueChangeListener valueChanged = new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                int hours = npHours.getValue();
-                int days = npDays.getValue();
-                long duration = (hours + days * 24) * HOUR_MS;
-                long time = now + duration;
-                DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
-                tvTime.setText(new SimpleDateFormat("E").format(time) + " " + df.format(time));
-                tvTime.setVisibility(duration == 0 ? View.INVISIBLE : View.VISIBLE);
-            }
-        };
-
-        npHours.setOnValueChangedListener(valueChanged);
-        npDays.setOnValueChangedListener(valueChanged);
-        valueChanged.onValueChange(null, 0, 0);
-
-        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setTitle(R.string.title_send_after)
-                .setView(dview)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+        DialogDuration.show(getContext(), getViewLifecycleOwner(), R.string.title_send_after,
+                new DialogDuration.IDialogDuration() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        if (Helper.isPro(getContext())) {
-                            int hours = npHours.getValue();
-                            int days = npDays.getValue();
-                            long duration = (hours + days * 24) * HOUR_MS;
-                            long time = now + duration;
+                    public void onDurationSelected(long duration, long time) {
+                        Bundle args = new Bundle();
+                        args.putLong("id", working);
+                        args.putLong("wakeup", time);
 
-                            Bundle args = new Bundle();
-                            args.putLong("id", working);
-                            args.putLong("wakeup", time);
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onExecute(Context context, Bundle args) {
+                                long id = args.getLong("id");
+                                Long wakeup = args.getLong("wakeup");
 
-                            new SimpleTask<Void>() {
-                                @Override
-                                protected Void onExecute(Context context, Bundle args) {
-                                    long id = args.getLong("id");
-                                    Long wakeup = args.getLong("wakeup");
+                                DB db = DB.getInstance(context);
+                                db.message().setMessageSnoozed(id, wakeup);
 
-                                    DB db = DB.getInstance(context);
-                                    db.message().setMessageSnoozed(id, wakeup);
+                                return null;
+                            }
 
-                                    return null;
-                                }
+                            @Override
+                            protected void onExecuted(Bundle args, Void data) {
+                                onAction(R.id.action_send);
+                            }
 
-                                @Override
-                                protected void onExecuted(Bundle args, Void data) {
-                                    onAction(R.id.action_send);
-                                }
-
-                                @Override
-                                protected void onException(Bundle args, Throwable ex) {
-                                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                                }
-                            }.execute(FragmentCompose.this, args, "compose:send:after");
-                        } else {
-                            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-                            fragmentTransaction.commit();
-                        }
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                            }
+                        }.execute(FragmentCompose.this, args, "compose:send:after");
                     }
-                })
-                .show();
+
+                    @Override
+                    public void onDismiss() {
+
+                    }
+                });
     }
 
     private void onMenuZoom() {

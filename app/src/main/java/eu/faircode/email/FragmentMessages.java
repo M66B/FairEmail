@@ -44,7 +44,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
-import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -52,10 +51,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -1198,58 +1194,21 @@ public class FragmentMessages extends FragmentEx {
             }
 
             private void onActionSnooze() {
-                final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_duration, null);
-                final NumberPicker npHours = dview.findViewById(R.id.npHours);
-                final NumberPicker npDays = dview.findViewById(R.id.npDays);
-                final TextView tvTime = dview.findViewById(R.id.tvTime);
-                final long HOUR_MS = 3600L * 1000L;
-                final long now = new Date().getTime() / HOUR_MS * HOUR_MS;
-
-                npHours.setMinValue(0);
-                npHours.setMaxValue(24);
-
-                npDays.setMinValue(0);
-                npDays.setMaxValue(90);
-
-                NumberPicker.OnValueChangeListener valueChanged = new NumberPicker.OnValueChangeListener() {
-                    @Override
-                    public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                        int hours = npHours.getValue();
-                        int days = npDays.getValue();
-                        long duration = (hours + days * 24) * HOUR_MS;
-                        long time = now + duration;
-                        DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
-                        tvTime.setText(new SimpleDateFormat("E").format(time) + " " + df.format(time));
-                        tvTime.setVisibility(duration == 0 ? View.INVISIBLE : View.VISIBLE);
-                    }
-                };
-
-                npHours.setOnValueChangedListener(valueChanged);
-                npDays.setOnValueChangedListener(valueChanged);
-                valueChanged.onValueChange(null, 0, 0);
-
-                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                        .setTitle(R.string.title_snooze)
-                        .setView(dview)
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                DialogDuration.show(getContext(), getViewLifecycleOwner(), R.string.title_snooze,
+                        new DialogDuration.IDialogDuration() {
                             @Override
-                            public void onClick(DialogInterface dialog, int which) {
+                            public void onDurationSelected(long duration, long time) {
                                 if (Helper.isPro(getContext())) {
-                                    int hours = npHours.getValue();
-                                    int days = npDays.getValue();
-                                    long duration = (hours + days * 24) * HOUR_MS;
-                                    long time = now + duration;
-
                                     Bundle args = new Bundle();
                                     args.putLongArray("ids", getSelection());
-                                    args.putLong("wakeup", duration == 0 ? 0 : time);
+                                    args.putLong("wakeup", duration == 0 ? -1 : time);
 
                                     new SimpleTask<Void>() {
                                         @Override
                                         protected Void onExecute(Context context, Bundle args) {
                                             long[] ids = args.getLongArray("ids");
                                             Long wakeup = args.getLong("wakeup");
-                                            if (wakeup == 0)
+                                            if (wakeup < 0)
                                                 wakeup = null;
 
                                             DB db = DB.getInstance(context);
@@ -1279,14 +1238,12 @@ public class FragmentMessages extends FragmentEx {
                                     fragmentTransaction.commit();
                                 }
                             }
-                        })
-                        .setOnDismissListener(new DialogInterface.OnDismissListener() {
+
                             @Override
-                            public void onDismiss(DialogInterface dialog) {
+                            public void onDismiss() {
                                 selectionTracker.clearSelection();
                             }
-                        })
-                        .show();
+                        });
             }
         });
 
@@ -1992,7 +1949,6 @@ public class FragmentMessages extends FragmentEx {
                         }
                     }.execute(FragmentMessages.this, args, "messages:navigation");
                 }
-
             }
 
             Log.i("Submit messages=" + messages.size());

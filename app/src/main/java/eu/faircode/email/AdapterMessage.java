@@ -807,11 +807,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowSnoozed(TupleMessageEx message) {
-            if (message.ui_snoozed != null) {
-                DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
-                String display = new SimpleDateFormat("E").format(message.ui_snoozed) + " " + df.format(message.ui_snoozed);
-                Toast.makeText(context, display, Toast.LENGTH_LONG).show();
-            }
+            if (message.ui_snoozed != null)
+                Toast.makeText(context, DialogDuration.formatTime(message.ui_snoozed), Toast.LENGTH_LONG).show();
         }
 
         private void onToggleFlag(TupleMessageEx message) {
