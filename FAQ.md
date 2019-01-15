@@ -56,6 +56,8 @@ Note that your contacts could unknowingly send malicious messages if they got in
 
 Stripped and reformatted messages are often better readable than original messages because the margins are removed and font sizes are standardized.
 
+FairEmail does not allow other apps access to your messages and attachments without your approval.
+
 ## Frequently Asked Questions
 
 * [(1) Which permissions are needed and why?](#user-content-faq1)
@@ -126,6 +128,7 @@ Stripped and reformatted messages are often better readable than original messag
 * [(66) Is FairEmail available in the Google Play Family Library?](#user-content-faq66)
 * [(67) How can I snooze conversations?](#user-content-faq67)
 * [(68) Why can Adobe Acrobat reader not open PDF attachments?](#user-content-faq68)
+* [(69) Can you add auto scroll up on new message?](#user-content-faq69)
 
 [I have another question.](#support)
 
@@ -1058,6 +1061,14 @@ to have access to actively shared files only. This is for privacy and security r
 You can workaround this by saving the attachment and opening it from the Adobe Acrobat reader,
 but you are advised to install an up-to-date and preferably open source PDF reader,
 for example one listed [here](https://github.com/offa/android-foss#-document--pdf-viewer).
+
+<br />
+
+<a name="faq69"></a>
+**(69) Can you add auto scroll up on new message?**
+
+The message list is automatically scrolled up when navigating from a new message notification.
+Always automatically scrolling up on arrival of new messages would interfere with your own navigation and scrolling.
 
 <br />
 
