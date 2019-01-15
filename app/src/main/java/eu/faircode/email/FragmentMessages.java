@@ -449,13 +449,17 @@ public class FragmentMessages extends FragmentEx {
                 public void onSelectionChanged() {
                     // Workaround AndroidX bug
                     FragmentActivity activity = getActivity();
-                    if (activity != null) {
-                        ViewModelMessages modelMessages = ViewModelProviders.of(activity).get(ViewModelMessages.class);
-                        if (selectionTracker.hasSelection())
-                            modelMessages.removeObservers(viewType, getViewLifecycleOwner());
-                        else
-                            modelMessages.observe(viewType, getViewLifecycleOwner(), observer);
-                    }
+                    if (activity != null)
+                        try {
+                            ViewModelMessages modelMessages = ViewModelProviders.of(activity).get(ViewModelMessages.class);
+                            if (selectionTracker.hasSelection())
+                                modelMessages.removeObservers(viewType, getViewLifecycleOwner());
+                            else
+                                modelMessages.observe(viewType, getViewLifecycleOwner(), observer);
+                        } catch (IllegalStateException ex) {
+                            // getViewLifecycleOwner
+                            Log.w(ex);
+                        }
 
                     if (selectionTracker.hasSelection()) {
                         swipeRefresh.setEnabled(false);
