@@ -66,8 +66,6 @@
     <string name="title_setup_password_invalid">Parola geçersiz</string>
     <string name="title_setup_exported">Ayarlar dışa aktarıldı</string>
     <string name="title_setup_imported">Ayarlar içe aktarıldı</string>
-    <string name="title_setup_quick">Hızlı yapılandırma</string>
-    <string name="title_setup_quick_remark">Hızlı yapılandırma büyük sağlayıcıların çoğunda kullanılabilir</string>
     <string name="title_setup_setting_gmail">\"Daha az güvenli\" uygulamalara erişimi etkinleştir</string>
     <string name="title_setup_no_settings">%1$s için ayar bulunamadı</string>
     <string name="title_setup_quick_failed">Bir hesap ve kimlik yapılandırmayı aşağıdan da deneyebilirsiniz</string>

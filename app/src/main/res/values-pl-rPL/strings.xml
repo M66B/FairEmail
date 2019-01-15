@@ -56,6 +56,7 @@
     <string name="title_edit_identity">Edytcja tożsamość</string>
     <string name="title_edit_folder">Edytuj folder</string>
     <string name="title_setup">Ustawienia</string>
+    <string name="title_setup_help">Pomoc</string>
     <string name="title_setup_export">Eksport ustawień</string>
     <string name="title_setup_import">Import ustawień</string>
     <string name="title_setup_import_do">Zaimportowane konta zostaną dodane, nie nadpisane</string>
@@ -66,12 +67,14 @@
     <string name="title_setup_password_invalid">Nieprawidłowe hasło</string>
     <string name="title_setup_exported">Ustawienia wyeksportowane</string>
     <string name="title_setup_imported">Ustawienia zaimportowane</string>
-    <string name="title_setup_quick">Szybka konfiguracja</string>
-    <string name="title_setup_quick_remark">Szybka konfiguracja może być użyta dla większości głównych dostawców</string>
     <string name="title_setup_no_settings">Nie znaleziono ustawień dla \'%1$s\'</string>
+    <string name="title_setup_manage">Zarządzaj</string>
+    <string name="title_setup_account">Skonfiguruj konta</string>
     <string name="title_setup_account_remark">Do odebrania poczty</string>
+    <string name="title_setup_identity">Skonfiguruj tożsamości</string>
     <string name="title_setup_identity_remark">Do wysłania poczty</string>
     <string name="title_setup_permissions_remark">Do dostępu do informacji kontaktowych (opcjonalnie)</string>
+    <string name="title_setup_doze">Skonfiguruj optymalizacje baterii</string>
     <string name="title_setup_doze_remark">Do ciągłego sprawdzania e-mail (opcjonalnie)</string>
     <string name="title_setup_doze_instructions">W następnym oknie dialogowym, na górze wybierz \"Wszystkie aplikacje\", odszukaj i dotknij FairEmail, wybierz \"Nie optymalizuj\"</string>
     <string name="title_setup_data">Wyłącz oszczędzanie danych</string>
@@ -80,6 +83,7 @@
     <string name="title_setup_done">Gotowe</string>
     <string name="title_setup_light_theme">Jasny motyw</string>
     <string name="title_setup_dark_theme">Ciemny motyw</string>
+    <string name="title_setup_black_theme">Czarny motyw</string>
     <string name="title_advanced">Opcje zaawansowane</string>
     <string name="title_advanced_section_general">Ogólne</string>
     <string name="title_advanced_section_connection">Połączenie</string>
@@ -95,8 +99,10 @@
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
     <string name="title_advanced_identicons">Pokazuje ikony kontaktów</string>
     <string name="title_advanced_preview">Pokaż podgląd wiadomości</string>
+    <string name="title_advanced_addresses">Domyślnie pokazuj szczegóły adresu</string>
     <string name="title_advanced_light">Użyj diody powiadomień</string>
     <string name="title_advanced_sound">Wybierz dźwięk powiadomienia</string>
+    <string name="title_advanced_pull_refresh">Pociągnij w dół, aby odświeżyć</string>
     <string name="title_advanced_swipe">Gesty przesuwania</string>
     <string name="title_advanced_autoclose">Automatycznie zamykaj konwersacje</string>
     <string name="title_advanced_confirm">Potwierdź działania, które mogą spowodować wyciek wrażliwych informacji</string>
@@ -154,12 +160,14 @@
     <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
     <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
     <string name="title_pop">POP nie jest wspierane</string>
+    <string name="title_edit_html">Edytuj jako HTML</string>
     <string name="title_synchronize_now">Synchronizuj teraz</string>
     <string name="title_delete_local">Usuń wiadomości lokalne</string>
     <string name="title_empty_trash">Opróżnij kosz</string>
     <string name="title_edit_properties">Edytuj właściwości</string>
     <string name="title_empty_trash_ask">Trwale usunąć wszystkie wiadomości z kosza?</string>
     <string name="title_delete_operation">Usunąć działania z informacją o błędzie?</string>
+    <string name="title_no_operations">Nie ma oczekujących operacji</string>
     <string name="title_folder_name">Nazwa folderu</string>
     <string name="title_display_name">Nazwa wyświetlana</string>
     <string name="title_hide_folders">Nie pokazuj ukrytych folderów</string>
@@ -198,9 +206,12 @@
     <string name="title_unflag">Usuń gwiazdkę</string>
     <string name="title_forward">Prześlij dalej</string>
     <string name="title_reply_all">Odpowiedz wszystkim</string>
+    <string name="title_share">Udostępnij</string>
     <string name="title_show_headers">Pokaż nagłówki</string>
     <string name="title_manage_keywords">Zarządzaj słowami kluczowymi</string>
     <string name="title_add_keyword">Dodaj słowo kluczowe</string>
+    <string name="title_download_all">Pobierz wszystkie</string>
+    <string name="title_save_all">Zapisz wszystkie</string>
     <string name="title_show_html">Pokaż oryginał</string>
     <string name="title_trash">Kosz</string>
     <string name="title_delete">Usuń</string>
@@ -216,6 +227,7 @@
     <string name="title_no_saf">Brak dostępu do plików</string>
     <string name="title_no_internet">Brak połączenia internetowego</string>
     <string name="title_attachment_saved">Załącznik zapisany</string>
+    <string name="title_attachments_saved">Załączniki zapisane</string>
     <string name="title_attachment_unavailable">Niektóre załączniki nie są pobrane i nie zostaną dodane, kontynuować?</string>
     <string name="title_image_unavailable">Niektóre obrazki nie są pobrane i nie zostaną dodane, kontynuować?</string>
     <string name="title_ask_delete">Usunąć wiadomość bezpowrotnie?</string>
@@ -252,6 +264,7 @@
     <string name="title_show_addresses">Pokaż DW/UDW</string>
     <string name="title_from_missing">Brak nadawcy</string>
     <string name="title_to_missing">Brak adresata</string>
+    <string name="title_attachments_missing">Nie wszystkie załączniki są pobrane</string>
     <string name="title_draft_deleted">Szkic odrzucony</string>
     <string name="title_draft_saved">Szkic zapisany</string>
     <string name="title_queued">Wysyłanie wiadomości</string>
@@ -327,6 +340,7 @@
     <string name="title_add">Dodaj</string>
     <string name="title_browse">Przeglądaj</string>
     <string name="title_report">Raport</string>
+    <string name="title_no_ask_again">Nie pytaj ponownie</string>
     <string name="title_try">Wypróbuj FairEmail, przyjazna prywatności aplikacja pocztowa dla Android o otwartym kodzie</string>
     <string name="title_pro_feature">Jest to funkcja pro</string>
     <string name="title_pro_list">Lista funkcji pro</string>

@@ -62,7 +62,6 @@
     <string name="title_setup_password_invalid">Senha inválida</string>
     <string name="title_setup_exported">Configurações exportadas</string>
     <string name="title_setup_imported">Configurações importadas</string>
-    <string name="title_setup_quick">Configuração rápida</string>
     <string name="title_setup_account_remark">Receber e-mail</string>
     <string name="title_setup_identity_remark">Para enviar e-mail</string>
     <string name="title_setup_permissions_remark">Para acessar informações de contato (opcional)</string>

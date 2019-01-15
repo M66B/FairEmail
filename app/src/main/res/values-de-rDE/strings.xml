@@ -67,8 +67,6 @@
     <string name="title_setup_password_invalid">Passwort ungültig</string>
     <string name="title_setup_exported">Einstellungen exportiert</string>
     <string name="title_setup_imported">Einstellungen importiert</string>
-    <string name="title_setup_quick">Schnellkonfiguration</string>
-    <string name="title_setup_quick_remark">Schnellkonfiguration kann für die meisten größeren Anbieter genutzt werden</string>
     <string name="title_setup_go">Los</string>
     <string name="title_setup_setting_gmail">Zugriff für \"unsichere\" Apps aktivieren</string>
     <string name="title_setup_no_settings">Keine Einstellungen gefunden für \'%1$s\'</string>
@@ -79,7 +77,6 @@
     <string name="title_setup_account_remark">Um E-Mails zu erhalten</string>
     <string name="title_setup_identity">Identitäten einrichten</string>
     <string name="title_setup_identity_remark">Um E-Mails zu senden</string>
-    <string name="title_setup_permissions">Berechtigungen erteilen</string>
     <string name="title_setup_permissions_remark">Um Kontaktinformationen zu erhalten (optional)</string>
     <string name="title_setup_doze">Akku-Optimierung einrichten</string>
     <string name="title_setup_doze_remark">Um kontinuierlich E-Mails zu empfangen (optional)</string>
@@ -91,6 +88,7 @@
     <string name="title_setup_light_theme">Helles Thema</string>
     <string name="title_setup_dark_theme">Dunkles Thema</string>
     <string name="title_setup_black_theme">Schwarzes Design</string>
+    <string name="title_setup_defaults">Auf Standard zurücksetzen</string>
     <string name="title_advanced">Erweiterte Optionen</string>
     <string name="title_advanced_section_general">Allgemeines</string>
     <string name="title_advanced_section_connection">Verbindung</string>

@@ -60,8 +60,6 @@
     <string name="title_setup_password_invalid">密码无效</string>
     <string name="title_setup_exported">设置已导出！</string>
     <string name="title_setup_imported">设置已导入！</string>
-    <string name="title_setup_quick">快速配置</string>
-    <string name="title_setup_quick_remark">快速配置可用于大多数主要提供商</string>
     <string name="title_setup_setting_gmail">启用对 \"安全性较低\" 的应用的访问</string>
     <string name="title_setup_no_settings">找不到 \"%1$s\" 的设置</string>
     <string name="title_setup_account_remark">用于接收电子邮件</string>
