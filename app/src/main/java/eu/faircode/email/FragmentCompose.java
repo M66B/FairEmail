@@ -750,6 +750,7 @@ public class FragmentCompose extends FragmentBase {
         int zoom = prefs.getInt("zoom", compact ? 0 : 1);
         zoom = ++zoom % 3;
         prefs.edit().putInt("zoom", zoom).apply();
+        onAction(R.id.action_save);
         showDraft(working);
     }
 
