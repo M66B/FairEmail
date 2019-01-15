@@ -41,7 +41,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     private boolean contacts;
 
     private static String[] SETTINGS_RESTART = new String[]{
-            "unified", "threading", "avatars", "identicons", "preview",
+            "unified", "threading", "avatars", "identicons", "preview", "addresses",
             "pull", "actionbar", "autoclose", "autonext", "confirm", "debug"
     };
 

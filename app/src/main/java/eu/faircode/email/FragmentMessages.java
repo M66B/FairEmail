@@ -111,6 +111,7 @@ public class FragmentMessages extends FragmentBase {
     private boolean actionbar;
     private boolean autoclose;
     private boolean autonext;
+    private boolean addresses;
 
     private long primary = -1;
     private boolean outbox = false;
@@ -171,6 +172,7 @@ public class FragmentMessages extends FragmentBase {
         actionbar = prefs.getBoolean("actionbar", true);
         autoclose = prefs.getBoolean("autoclose", true);
         autonext = prefs.getBoolean("autonext", false);
+        addresses = prefs.getBoolean("addresses", true);
     }
 
     @Override
@@ -334,7 +336,7 @@ public class FragmentMessages extends FragmentBase {
                         if (values.containsKey(name))
                             return values.get(name).contains(id);
                         else if ("addresses".equals(name))
-                            return !prefs.getBoolean("addresses", true);
+                            return !addresses;
                         return false;
                     }
 
