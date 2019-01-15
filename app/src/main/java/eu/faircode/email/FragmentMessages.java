@@ -87,7 +87,6 @@ public class FragmentMessages extends FragmentEx {
     private ImageButton ibHintSupport;
     private ImageButton ibHintSwipe;
     private ImageButton ibHintSelect;
-    private ImageButton ibHintCompact;
     private TextView tvNoEmail;
     private FixedRecyclerView rvMessage;
     private BottomNavigationView bottom_navigation;
@@ -96,7 +95,6 @@ public class FragmentMessages extends FragmentEx {
     private Group grpHintSupport;
     private Group grpHintSwipe;
     private Group grpHintSelect;
-    private Group grpHintCompact;
     private Group grpReady;
     private FloatingActionButton fab;
     private FloatingActionButton fabMore;
@@ -108,7 +106,6 @@ public class FragmentMessages extends FragmentEx {
     private long id;
     private String search;
 
-    private boolean compact;
     private boolean threading;
     private boolean pull;
     private boolean actionbar;
@@ -165,7 +162,6 @@ public class FragmentMessages extends FragmentEx {
             viewType = AdapterMessage.ViewType.SEARCH;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        compact = prefs.getBoolean("compact", false);
 
         if (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER)
             pull = prefs.getBoolean("pull", true);
@@ -193,7 +189,6 @@ public class FragmentMessages extends FragmentEx {
         ibHintSupport = view.findViewById(R.id.ibHintSupport);
         ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
         ibHintSelect = view.findViewById(R.id.ibHintSelect);
-        ibHintCompact = view.findViewById(R.id.ibHintCompact);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
         rvMessage = view.findViewById(R.id.rvMessage);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
@@ -202,7 +197,6 @@ public class FragmentMessages extends FragmentEx {
         grpHintSupport = view.findViewById(R.id.grpHintSupport);
         grpHintSwipe = view.findViewById(R.id.grpHintSwipe);
         grpHintSelect = view.findViewById(R.id.grpHintSelect);
-        grpHintCompact = view.findViewById(R.id.grpHintCompact);
         grpReady = view.findViewById(R.id.grpReady);
         fab = view.findViewById(R.id.fab);
         fabMore = view.findViewById(R.id.fabMore);
@@ -312,25 +306,18 @@ public class FragmentMessages extends FragmentEx {
             }
         });
 
-        ibHintCompact.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                prefs.edit().putBoolean("message_compact", true).apply();
-                grpHintCompact.setVisibility(View.GONE);
-            }
-        });
-
         rvMessage.setHasFixedSize(false);
         //rvMessage.setItemViewCacheSize(10);
         //rvMessage.getRecycledViewPool().setMaxRecycledViews(0, 10);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvMessage.setLayoutManager(llm);
 
+        boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("zoom", compact ? 0 : 1);
         adapter = new AdapterMessage(
                 getContext(), getViewLifecycleOwner(), getFragmentManager(),
                 viewType, outgoing,
-                zoom,
+                compact, zoom,
                 new AdapterMessage.IProperties() {
                     @Override
                     public void setValue(String name, long id, boolean enabled) {
@@ -1306,7 +1293,6 @@ public class FragmentMessages extends FragmentEx {
         grpHintSupport.setVisibility(prefs.getBoolean("app_support", false) || !hints ? View.GONE : View.VISIBLE);
         grpHintSwipe.setVisibility(prefs.getBoolean("message_swipe", false) || !hints ? View.GONE : View.VISIBLE);
         grpHintSelect.setVisibility(prefs.getBoolean("message_select", false) || !hints ? View.GONE : View.VISIBLE);
-        grpHintCompact.setVisibility(prefs.getBoolean("message_compact", false) || !hints ? View.GONE : View.VISIBLE);
 
         final DB db = DB.getInstance(getContext());
 
@@ -1435,7 +1421,9 @@ public class FragmentMessages extends FragmentEx {
         cm.registerNetworkCallback(builder.build(), networkCallback);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("zoom", compact ? 0 : 1);
+        adapter.setCompact(compact);
         adapter.setZoom(zoom);
     }
 
@@ -1557,6 +1545,9 @@ public class FragmentMessages extends FragmentEx {
         menu.findItem(R.id.menu_search).setVisible(
                 folder >= 0 && viewType != AdapterMessage.ViewType.SEARCH);
 
+        menu.findItem(R.id.menu_folders).setVisible(primary >= 0);
+        menu.findItem(R.id.menu_folders).setIcon(connected ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24);
+
         menu.findItem(R.id.menu_sort_on).setVisible(
                 viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
 
@@ -1570,8 +1561,7 @@ public class FragmentMessages extends FragmentEx {
         else if ("sender".equals(sort))
             menu.findItem(R.id.menu_sort_on_sender).setChecked(true);
 
-        menu.findItem(R.id.menu_folders).setVisible(primary >= 0);
-        menu.findItem(R.id.menu_folders).setIcon(connected ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24);
+        menu.findItem(R.id.menu_compact).setChecked(prefs.getBoolean("compact", false));
 
         menu.findItem(R.id.menu_snoozed).setVisible(!outbox &&
                 (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER));
@@ -1585,6 +1575,11 @@ public class FragmentMessages extends FragmentEx {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_folders:
+                onMenuFolders();
+                loadMessages();
+                return true;
+
             case R.id.menu_sort_on_time:
                 item.setChecked(true);
                 onMenuSort("time");
@@ -1605,17 +1600,16 @@ public class FragmentMessages extends FragmentEx {
                 onMenuSort("sender");
                 return true;
 
-            case R.id.menu_snoozed:
-                onMenuSnoozed();
-                return true;
-
             case R.id.menu_zoom:
                 onMenuZoom();
                 return true;
 
-            case R.id.menu_folders:
-                onMenuFolders();
-                loadMessages();
+            case R.id.menu_compact:
+                onMenuCompact();
+                return true;
+
+            case R.id.menu_snoozed:
+                onMenuSnoozed();
                 return true;
 
             case R.id.menu_move_sent:
@@ -1625,27 +1619,6 @@ public class FragmentMessages extends FragmentEx {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    private void onMenuSort(String sort) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        prefs.edit().putString("sort", sort).apply();
-        loadMessages();
-    }
-
-    private void onMenuSnoozed() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean snoozed = prefs.getBoolean("snoozed", false);
-        prefs.edit().putBoolean("snoozed", !snoozed).apply();
-        loadMessages();
-    }
-
-    private void onMenuZoom() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        int zoom = prefs.getInt("zoom", compact ? 0 : 1);
-        zoom = ++zoom % 3;
-        prefs.edit().putInt("zoom", zoom).apply();
-        adapter.setZoom(zoom);
     }
 
     private void onMenuFolders() {
@@ -1661,6 +1634,36 @@ public class FragmentMessages extends FragmentEx {
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("folders");
         fragmentTransaction.commit();
+    }
+
+    private void onMenuSort(String sort) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putString("sort", sort).apply();
+        loadMessages();
+    }
+
+    private void onMenuZoom() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean compact = prefs.getBoolean("compact", false);
+        int zoom = prefs.getInt("zoom", compact ? 0 : 1);
+        zoom = ++zoom % 3;
+        prefs.edit().putInt("zoom", zoom).apply();
+        adapter.setZoom(zoom);
+    }
+
+    private void onMenuCompact() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean compact = !prefs.getBoolean("compact", false);
+        prefs.edit().putBoolean("compact", compact).apply();
+        adapter.setCompact(compact);
+        getActivity().invalidateOptionsMenu();
+    }
+
+    private void onMenuSnoozed() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean snoozed = prefs.getBoolean("snoozed", false);
+        prefs.edit().putBoolean("snoozed", !snoozed).apply();
+        loadMessages();
     }
 
     private void onMenuMoveSent() {

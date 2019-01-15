@@ -130,7 +130,6 @@
 
     <string name="title_advanced_unified">Unified inbox</string>
     <string name="title_advanced_threading">Conversation threading</string>
-    <string name="title_advanced_compact">Compact message view</string>
     <string name="title_advanced_avatars">Show contact photos</string>
     <string name="title_advanced_identicons">Show identicons</string>
     <string name="title_advanced_preview">Show message preview</string>
@@ -360,6 +359,7 @@
     <string name="title_sort_on_starred">Starred</string>
     <string name="title_sort_on_sender">Sender</string>
 
+    <string name="title_compact">Compact view</string>
     <string name="title_zoom">Text size</string>
 
     <string name="title_address_sent">Sent:</string>
@@ -421,7 +421,6 @@
     <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>
     <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available)</string>
     <string name="title_hint_message_selection">Long press a message to start selecting multiple messages</string>
-    <string name="title_hint_message_compact">You can select a more compact message view in the advanced options</string>
     <string name="title_hint_sync">Downloading messages can take some time, depending on the speed of the provider, internet connection and device and on the number of messages. While downloading messages the app might respond slower.</string>
 
     <string name="title_open_link">Open link</string>

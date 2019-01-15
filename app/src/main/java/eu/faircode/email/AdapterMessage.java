@@ -117,12 +117,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private FragmentManager fragmentManager;
     private ViewType viewType;
     private boolean outgoing;
+    private boolean compact;
     private int zoom;
     private boolean internet;
     private IProperties properties;
 
     private boolean threading;
-    private boolean compact;
     private boolean contacts;
     private boolean avatars;
     private boolean identicons;
@@ -1955,13 +1955,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     AdapterMessage(Context context, LifecycleOwner owner, FragmentManager fragmentManager,
-                   ViewType viewType, boolean outgoing, int zoom, IProperties properties) {
+                   ViewType viewType, boolean outgoing, boolean compact, int zoom, IProperties properties) {
         this.context = context;
         this.owner = owner;
         this.inflater = LayoutInflater.from(context);
         this.fragmentManager = fragmentManager;
         this.viewType = viewType;
         this.outgoing = outgoing;
+        this.compact = compact;
         this.zoom = zoom;
         this.internet = (Helper.isMetered(context, false) != null);
         this.properties = properties;
@@ -1969,7 +1970,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         this.threading = prefs.getBoolean("threading", true);
-        this.compact = prefs.getBoolean("compact", false);
         this.contacts = (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
                 == PackageManager.PERMISSION_GRANTED);
         this.avatars = (prefs.getBoolean("avatars", true) && this.contacts);
@@ -1998,6 +1998,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         return differ.getCurrentList();
     }
 
+    void setCompact(boolean compact) {
+        if (this.compact != compact) {
+            this.compact = compact;
+            notifyDataSetChanged();
+        }
+    }
+
     void setZoom(int zoom) {
         if (this.zoom != zoom) {
             this.zoom = zoom;
@@ -2012,6 +2019,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             this.internet = internet;
             notifyDataSetChanged();
         }
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return (compact ? R.layout.item_message_compact : R.layout.item_message_normal);
     }
 
     @Override
@@ -2042,10 +2054,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(inflater.inflate(
-                compact ? R.layout.item_message_compact : R.layout.item_message_normal,
-                parent,
-                false));
+        return new ViewHolder(inflater.inflate(viewType, parent, false));
     }
 
     @Override

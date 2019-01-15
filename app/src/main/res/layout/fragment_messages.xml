@@ -137,37 +137,6 @@
                 app:layout_constraintTop_toBottomOf="@id/ibHintSelect" />
 
             <TextView
-                android:id="@+id/tvHintCompact"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:minHeight="33dp"
-                android:padding="6dp"
-                android:text="@string/title_hint_message_compact"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="?android:attr/textColorPrimary"
-                app:layout_constraintEnd_toStartOf="@+id/ibHintCompact"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSelect" />
-
-            <ImageButton
-                android:id="@+id/ibHintCompact"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/baseline_close_24"
-                app:layout_constraintBottom_toBottomOf="@id/tvHintCompact"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvHintCompact" />
-
-            <View
-                android:id="@+id/vSeparatorHintCompact"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?attr/colorSeparator"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ibHintCompact" />
-
-            <TextView
                 android:id="@+id/tvNoEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -176,7 +145,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintCompact" />
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSelect" />
 
             <eu.faircode.email.FixedRecyclerView
                 android:id="@+id/rvMessage"
@@ -187,7 +156,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintCompact" />
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSelect" />
 
             <eu.faircode.email.ContentLoadingProgressBar
                 android:id="@+id/pbWait"
@@ -236,12 +205,6 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="tvHintSelect,ibHintSelect,vSeparatorHintSelect" />
-
-            <androidx.constraintlayout.widget.Group
-                android:id="@+id/grpHintCompact"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:constraint_referenced_ids="tvHintCompact,ibHintCompact,vSeparatorHintCompact" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpReady"

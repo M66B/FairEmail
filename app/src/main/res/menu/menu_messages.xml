@@ -10,6 +10,12 @@
         app:showAsAction="collapseActionView|always" />
 
     <item
+        android:id="@+id/menu_folders"
+        android:icon="@drawable/baseline_folder_open_24"
+        android:title="@string/title_folder_primary"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/menu_sort_on"
         android:icon="@drawable/baseline_sort_24"
         android:title="@string/title_sort_on"
@@ -39,10 +45,10 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/menu_folders"
-        android:icon="@drawable/baseline_folder_open_24"
-        android:title="@string/title_folder_primary"
-        app:showAsAction="always" />
+        android:id="@+id/menu_compact"
+        android:checkable="true"
+        android:title="@string/title_compact"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/menu_snoozed"

@@ -63,7 +63,6 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
 
     private SwitchCompat swUnified;
     private SwitchCompat swThreading;
-    private SwitchCompat swCompact;
     private SwitchCompat swAvatars;
     private SwitchCompat swIdenticons;
     private SwitchCompat swPreview;
@@ -92,12 +91,12 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
     private final static String[] ADVANCED_OPTIONS = new String[]{
             "enabled", "updates",
             "metered", "download",
-            "unified", "threading", "compact", "avatars", "identicons", "preview", "addresses",
+            "unified", "threading", "avatars", "identicons", "preview", "addresses",
             "pull", "swipe", "actionbar", "autoclose", "autonext",
             "autoread", "collapse", "automove", "confirm", "sender", "autoresize", "autosend",
             "light", "sound", "debug",
             "first", "why", "last_update_check",
-            "app_support", "message_swipe", "message_select", "message_compact",
+            "app_support", "message_swipe", "message_select",
             "folder_actions", "folder_sync",
     };
 
@@ -119,7 +118,6 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
 
         swUnified = view.findViewById(R.id.swUnified);
         swThreading = view.findViewById(R.id.swThreading);
-        swCompact = view.findViewById(R.id.swCompact);
         swAvatars = view.findViewById(R.id.swAvatars);
         swIdenticons = view.findViewById(R.id.swIdenticons);
         swPreview = view.findViewById(R.id.swPreview);
@@ -196,14 +194,6 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("threading", checked).apply();
-            }
-        });
-
-        swCompact.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("compact", checked).apply();
-                prefs.edit().remove("zoom").apply();
             }
         });
 
@@ -458,7 +448,6 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
 
         swUnified.setChecked(prefs.getBoolean("unified", true));
         swThreading.setChecked(prefs.getBoolean("threading", true));
-        swCompact.setChecked(prefs.getBoolean("compact", false));
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
         swIdenticons.setChecked(prefs.getBoolean("identicons", false));
         swPreview.setChecked(prefs.getBoolean("preview", false));
