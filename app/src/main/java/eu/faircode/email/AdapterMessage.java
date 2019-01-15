@@ -290,17 +290,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void wire() {
             if (viewType == ViewType.THREAD) {
-                ivExpander.setOnClickListener(this);
+                final View touch = (threading ? ivExpander : vwColor);
+                touch.setOnClickListener(this);
                 itemView.post(new Runnable() {
                     @Override
                     public void run() {
                         Rect rect = new Rect(
                                 itemView.getLeft(),
-                                ivExpander.getTop(),
+                                touch.getTop(),
                                 itemView.getRight(),
-                                ivExpander.getBottom());
+                                touch.getBottom());
                         Log.i("Touch delegate=" + rect);
-                        itemView.setTouchDelegate(new TouchDelegate(rect, ivExpander));
+                        itemView.setTouchDelegate(new TouchDelegate(rect, touch));
                     }
                 });
             } else
@@ -319,9 +320,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void unwire() {
-            if (viewType == ViewType.THREAD)
+            if (viewType == ViewType.THREAD) {
+                vwColor.setOnClickListener(null);
                 ivExpander.setOnClickListener(null);
-            else
+            } else
                 itemView.setOnClickListener(null);
             ivSnoozed.setOnClickListener(null);
             ivFlagged.setOnClickListener(null);
