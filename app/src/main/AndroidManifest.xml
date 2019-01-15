@@ -95,6 +95,7 @@
 
         <activity
             android:name=".ActivityCompose"
+            android:documentLaunchMode="always"
             android:exported="true"
             android:launchMode="standard"
             android:parentActivityName=".ActivityView">

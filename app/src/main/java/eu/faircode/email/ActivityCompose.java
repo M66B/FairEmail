@@ -152,7 +152,7 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
     @Override
     public void onBackStackChanged() {
         if (getSupportFragmentManager().getBackStackEntryCount() == 0)
-            finish();
+            finishAndRemoveTask();
     }
 
     @Override
