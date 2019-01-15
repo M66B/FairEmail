@@ -16,3 +16,4 @@
 /app/play_release
 /tools/config.sh
 crowdin.properties
+keystore.properties
