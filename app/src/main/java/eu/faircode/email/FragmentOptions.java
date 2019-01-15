@@ -50,7 +50,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentTransaction;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -96,7 +95,10 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
             "unified", "threading", "compact", "avatars", "identicons", "preview", "addresses",
             "pull", "swipe", "actionbar", "autoclose", "autonext",
             "autoread", "collapse", "automove", "confirm", "sender", "autoresize", "autosend",
-            "light", "sound", "debug"
+            "light", "sound", "debug",
+            "first", "why", "last_update_check",
+            "app_support", "message_swipe", "message_select", "message_compact",
+            "folder_actions", "folder_sync",
     };
 
     @Override
