@@ -40,6 +40,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.List;
@@ -56,26 +57,26 @@ public class FragmentSetup extends FragmentEx {
 
     private Button btnQuick;
 
-    private Button btnAccount;
     private TextView tvAccountDone;
+    private Button btnAccount;
     private TextView tvNoPrimaryDrafts;
 
-    private Button btnIdentity;
     private TextView tvIdentityDone;
+    private Button btnIdentity;
 
-    private Button btnPermissions;
     private TextView tvPermissionsDone;
+    private Button btnPermissions;
 
-    private Button btnDoze;
     private TextView tvDozeDone;
+    private Button btnDoze;
 
     private Button btnData;
+
+    private Button btnInbox;
 
     private int textColorPrimary;
     private int colorWarning;
     private Drawable check;
-
-    private boolean inbox = false;
 
     private static final String[] permissions = new String[]{
             Manifest.permission.READ_CONTACTS
@@ -96,20 +97,22 @@ public class FragmentSetup extends FragmentEx {
         // Get controls
         btnQuick = view.findViewById(R.id.btnQuick);
 
-        btnAccount = view.findViewById(R.id.btnAccount);
         tvAccountDone = view.findViewById(R.id.tvAccountDone);
+        btnAccount = view.findViewById(R.id.btnAccount);
         tvNoPrimaryDrafts = view.findViewById(R.id.tvNoPrimaryDrafts);
 
-        btnIdentity = view.findViewById(R.id.btnIdentity);
         tvIdentityDone = view.findViewById(R.id.tvIdentityDone);
+        btnIdentity = view.findViewById(R.id.btnIdentity);
 
-        btnPermissions = view.findViewById(R.id.btnPermissions);
         tvPermissionsDone = view.findViewById(R.id.tvPermissionsDone);
+        btnPermissions = view.findViewById(R.id.btnPermissions);
 
-        btnDoze = view.findViewById(R.id.btnDoze);
         tvDozeDone = view.findViewById(R.id.tvDozeDone);
+        btnDoze = view.findViewById(R.id.btnDoze);
 
         btnData = view.findViewById(R.id.btnData);
+
+        btnInbox = view.findViewById(R.id.btnInbox);
 
         // Wire controls
 
@@ -181,23 +184,32 @@ public class FragmentSetup extends FragmentEx {
             }
         });
 
+        btnInbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         // Initialize
         tvAccountDone.setText(null);
         tvAccountDone.setCompoundDrawables(null, null, null, null);
         tvNoPrimaryDrafts.setVisibility(View.GONE);
 
-        btnIdentity.setEnabled(false);
         tvIdentityDone.setText(null);
         tvIdentityDone.setCompoundDrawables(null, null, null, null);
+        btnIdentity.setEnabled(false);
 
         tvPermissionsDone.setText(null);
         tvPermissionsDone.setCompoundDrawables(null, null, null, null);
 
-        btnDoze.setEnabled(false);
         tvDozeDone.setText(null);
         tvDozeDone.setCompoundDrawables(null, null, null, null);
+        btnDoze.setEnabled(false);
 
         btnData.setVisibility(View.GONE);
+
+        btnInbox.setEnabled(false);
 
         int[] grantResults = new int[permissions.length];
         for (int i = 0; i < permissions.length; i++)
@@ -257,13 +269,14 @@ public class FragmentSetup extends FragmentEx {
             public void onChanged(@Nullable List<EntityAccount> accounts) {
                 done = (accounts != null && accounts.size() > 0);
 
-                inbox = done;
                 getActivity().invalidateOptionsMenu();
 
-                btnIdentity.setEnabled(done);
                 tvAccountDone.setText(done ? R.string.title_setup_done : R.string.title_setup_to_do);
                 tvAccountDone.setTextColor(done ? textColorPrimary : colorWarning);
                 tvAccountDone.setCompoundDrawablesWithIntrinsicBounds(done ? check : null, null, null, null);
+
+                btnIdentity.setEnabled(done);
+                btnInbox.setEnabled(done);
 
                 if (livePrimaryDrafts == null)
                     livePrimaryDrafts = db.folder().livePrimaryDrafts();
@@ -340,19 +353,30 @@ public class FragmentSetup extends FragmentEx {
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.menu_inbox).setVisible(inbox);
+        PackageManager pm = getContext().getPackageManager();
+        menu.findItem(R.id.menu_help).setVisible(getIntentHelp().resolveActivity(pm) != null);
         super.onPrepareOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_inbox:
-                finish();
+            case R.id.menu_help:
+                onMenuHelp();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void onMenuHelp() {
+        startActivity(getIntentHelp());
+    }
+
+    private Intent getIntentHelp() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/SETUP.md#setup-help"));
+        return intent;
     }
 
     @Override
@@ -369,10 +393,10 @@ public class FragmentSetup extends FragmentEx {
                 break;
             }
 
-        btnPermissions.setEnabled(!has);
         tvPermissionsDone.setText(has ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvPermissionsDone.setTextColor(has ? textColorPrimary : colorWarning);
         tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds(has ? check : null, null, null, null);
+        btnPermissions.setEnabled(!has);
 
         if (has && !init)
             new SimpleTask<Void>() {

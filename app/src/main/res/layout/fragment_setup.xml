@@ -101,6 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:drawableStart="@drawable/baseline_check_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_setup_done"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
@@ -177,6 +178,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:drawableStart="@drawable/baseline_check_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_setup_done"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
@@ -241,6 +243,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:drawableStart="@drawable/baseline_check_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_setup_done"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
@@ -252,7 +255,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/title_setup_manage"
+            android:text="@string/title_setup_grant"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPermissionsDone" />
 
@@ -306,6 +309,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:drawableStart="@drawable/baseline_check_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_setup_done"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
@@ -334,5 +338,48 @@
             android:text="@string/title_setup_data"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnDoze" />
+
+        <!-- inbox -->
+
+        <View
+            android:id="@+id/vSeparatorInbox"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnData" />
+
+        <ImageView
+            android:id="@+id/five"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_looks_5_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorInbox" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="12dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@string/title_setup_inbox"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/five"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/five" />
+
+        <Button
+            android:id="@+id/btnInbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_go"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/five" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

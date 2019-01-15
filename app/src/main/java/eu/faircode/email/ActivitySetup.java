@@ -129,9 +129,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 DrawerItem item = (DrawerItem) parent.getAdapter().getItem(position);
                 switch (item.getId()) {
-                    case R.string.title_setup_help:
-                        onMenuHelp();
-                        break;
                     case R.string.title_setup_export:
                         onMenuExport();
                         break;
@@ -169,11 +166,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
         PackageManager pm = getPackageManager();
         DrawerAdapter drawerArray = new DrawerAdapter(this);
-
-        if (getIntentHelp().resolveActivity(pm) != null) {
-            drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_live_help_24, R.string.title_setup_help));
-            drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
-        }
 
         if (getIntentExport().resolveActivity(pm) != null)
             drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_archive_24, R.string.title_setup_export));
@@ -333,10 +325,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 .show();
     }
 
-    private void onMenuHelp() {
-        startActivity(getIntentHelp());
-    }
-
     private void onManageNotifications() {
         startActivity(getIntentNotifications(this));
     }
@@ -408,12 +396,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentAbout()).addToBackStack("about");
         fragmentTransaction.commit();
-    }
-
-    private Intent getIntentHelp() {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/SETUP.md#setup-help"));
-        return intent;
     }
 
     private static Intent getIntentNotifications(Context context) {
