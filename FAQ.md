@@ -8,8 +8,9 @@ At the bottom you can find how to ask other questions, request features and repo
 
 For support on authorizing an account you should consult the documentation of your provider.
 Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
-To setup an account you need the IMAP and SMTP server addresses and port numbers,
-whether STARTTLS should be used and your username and password.
+To setup an account (to receive email) and an identity (to send email)
+you need the IMAP and SMTP server addresses and port numbers, whether STARTTLS should be used
+and your username (mostly, but not always, your email address) and your password.
 In some cases you'll need to enable external access to your account and/or to use a special (app) password,
 for instance when two factor authentication is enabled.
 
@@ -20,16 +21,16 @@ For authorizing:
 * Microsoft Exchange: see [question 8](#user-content-faq8)
 
 
+## Known problems
+
+None at this moment.
+
+
 ## Planned features
 
 None at this moment.
 
 Anything on this list is in random order and *might* be added in the near future.
-
-
-## Known problems
-
-None at this moment.
 
 
 ## Frequently requested features
@@ -57,6 +58,7 @@ Note that your contacts could unknowingly send malicious messages if they got in
 Stripped and reformatted messages are often better readable than original messages because the margins are removed and font sizes are standardized.
 
 FairEmail does not allow other apps access to your messages and attachments without your approval.
+
 
 ## Frequently Asked Questions
 
@@ -1071,6 +1073,7 @@ The message list is automatically scrolled up when navigating from a new message
 Always automatically scrolling up on arrival of new messages would interfere with your own navigation and scrolling.
 
 <br />
+
 
 ## Support
 
