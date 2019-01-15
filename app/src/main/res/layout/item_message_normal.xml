@@ -278,6 +278,7 @@
             android:layout_height="24dp"
             android:layout_marginStart="6dp"
             android:layout_marginEnd="6dp"
+            android:background="?android:attr/selectableItemBackground"
             android:src="@drawable/baseline_expand_less_24"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"

@@ -306,12 +306,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 });
             } else
                 itemView.setOnClickListener(this);
+
             ivSnoozed.setOnClickListener(this);
             ivFlagged.setOnClickListener(this);
+
             ivExpanderAddress.setOnClickListener(this);
             ivAddContact.setOnClickListener(this);
+
             btnDownloadAttachments.setOnClickListener(this);
             btnSaveAttachments.setOnClickListener(this);
+
             btnHtml.setOnClickListener(this);
             ibQuotes.setOnClickListener(this);
             ibImages.setOnClickListener(this);
