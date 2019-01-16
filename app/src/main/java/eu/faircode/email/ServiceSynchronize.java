@@ -66,8 +66,12 @@ import com.sun.mail.util.MailConnectException;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
@@ -1905,7 +1909,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void doHeaders(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, DB db) throws MessagingException {
+    private void doHeaders(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, DB db) throws MessagingException, IOException {
         Message imessage = ifolder.getMessageByUID(message.uid);
         if (imessage == null)
             throw new MessageRemovedException();
@@ -1919,6 +1923,30 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         db.message().setMessageHeaders(message.id, sb.toString());
+
+        if (imessage instanceof MimeMessage) {
+            MimeMessage mmessage = (MimeMessage) imessage;
+            EntityAttachment attachment = new EntityAttachment();
+            attachment.message = message.id;
+            attachment.sequence = db.attachment().getAttachmentSequence(message.id) + 1;
+            attachment.name = "email.eml";
+            attachment.type = "message/rfc822";
+            attachment.available = false;
+            attachment.id = db.attachment().insertAttachment(attachment);
+
+            File file = EntityAttachment.getFile(this, attachment.id);
+
+            OutputStream os = null;
+            try {
+                os = new BufferedOutputStream(new FileOutputStream(file));
+                mmessage.writeTo(os);
+            } finally {
+                if (os != null)
+                    os.close();
+            }
+
+            db.attachment().setDownloaded(attachment.id, file.length());
+        }
     }
 
     private void doBody(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, DB db) throws MessagingException, IOException {
