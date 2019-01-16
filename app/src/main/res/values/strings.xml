@@ -269,10 +269,11 @@
     <string name="title_flag">Add star</string>
     <string name="title_unflag">Remove star</string>
     <string name="title_forward">Forward</string>
-    <string name="title_forward_raw">Forward raw</string>
     <string name="title_reply_all">Reply to all</string>
     <string name="title_share">Share</string>
     <string name="title_show_headers">Show headers</string>
+    <string name="title_raw_download">Download raw message</string>
+    <string name="title_raw_save">Save raw message</string>
     <string name="title_manage_keywords">Manage keywords</string>
     <string name="title_add_keyword">Add keyword</string>
     <string name="title_download_all">Download all</string>
@@ -296,6 +297,7 @@
     <string name="title_no_stream">An outdated app sent a file path instead of a file stream</string>
     <string name="title_no_contacts">Contact picker not available</string>
     <string name="title_no_internet">No internet connection</string>
+    <string name="title_raw_saved">Raw message saved</string>
     <string name="title_attachment_saved">Attachment saved</string>
     <string name="title_attachments_saved">Attachments saved</string>
     <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be added, continue?</string>

@@ -1272,7 +1272,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .show();
         }
 
-        private void onMenuForward(final ActionData data, final boolean raw) {
+        private void onMenuForward(final ActionData data) {
             Bundle args = new Bundle();
             args.putLong("id", data.message.id);
 
@@ -1291,8 +1291,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected void onExecuted(Bundle args, Boolean available) {
                     final Intent forward = new Intent(context, ActivityCompose.class)
                             .putExtra("action", "forward")
-                            .putExtra("reference", data.message.id)
-                            .putExtra("raw", raw);
+                            .putExtra("reference", data.message.id);
                     if (available)
                         context.startActivity(forward);
                     else
@@ -1515,6 +1514,48 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 notifyDataSetChanged();
         }
 
+        private void onMenuRaw(ActionData data) {
+            if (data.message.raw == null) {
+                Bundle args = new Bundle();
+                args.putLong("id", data.message.id);
+
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onExecute(Context context, Bundle args) {
+                        Long id = args.getLong("id");
+
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
+
+                            EntityMessage message = db.message().getMessage(id);
+                            if (message == null)
+                                return null;
+
+                            EntityOperation.queue(context, db, message, EntityOperation.RAW);
+
+                            db.message().setMessageRaw(message.id, false);
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+                        return null;
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(context, owner, ex);
+                    }
+                }.execute(context, owner, args, "message:raw");
+            } else {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_STORE_RAW)
+                                .putExtra("id", data.message.id));
+            }
+        }
+
         private void onMenuManageKeywords(ActionData data) {
             if (!Helper.isPro(context)) {
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
@@ -1663,7 +1704,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_junk).setVisible(data.hasJunk);
 
             popupMenu.getMenu().findItem(R.id.menu_forward).setEnabled(data.message.content);
-            popupMenu.getMenu().findItem(R.id.menu_forward_raw).setVisible(data.message.content && data.message.headers != null);
 
             popupMenu.getMenu().findItem(R.id.menu_reply_all).setEnabled(data.message.content);
             popupMenu.getMenu().findItem(R.id.menu_answer).setEnabled(data.message.content);
@@ -1676,6 +1716,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setChecked(show_headers);
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(data.message.uid != null);
+
+            popupMenu.getMenu().findItem(R.id.menu_raw).setVisible(show_headers);
+            popupMenu.getMenu().findItem(R.id.menu_raw).setEnabled(
+                    data.message.uid != null && (data.message.raw == null || data.message.raw));
+            popupMenu.getMenu().findItem(R.id.menu_raw).setTitle(
+                    data.message.raw == null || !data.message.raw ? R.string.title_raw_download : R.string.title_raw_save);
 
             popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setEnabled(data.message.uid != null);
 
@@ -1690,10 +1736,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             onMenuJunk(data);
                             return true;
                         case R.id.menu_forward:
-                            onMenuForward(data, false);
-                            return true;
-                        case R.id.menu_forward_raw:
-                            onMenuForward(data, true);
+                            onMenuForward(data);
                             return true;
                         case R.id.menu_reply_all:
                             onActionReply(data, true);
@@ -1709,6 +1752,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_show_headers:
                             onMenuShowHeaders(data);
+                            return true;
+                        case R.id.menu_raw:
+                            onMenuRaw(data);
                             return true;
                         case R.id.menu_manage_keywords:
                             onMenuManageKeywords(data);

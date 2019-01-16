@@ -115,6 +115,7 @@ public class EntityMessage implements Serializable {
     public Address[] bcc;
     public Address[] reply;
     public String headers;
+    public Boolean raw;
     public String subject;
     public Integer size;
     @NonNull
@@ -202,6 +203,13 @@ public class EntityMessage implements Serializable {
             if (in != null)
                 in.close();
         }
+    }
+
+    static File getRawFile(Context context, Long id) {
+        File dir = new File(context.getFilesDir(), "raw");
+        if (!dir.exists())
+            dir.mkdir();
+        return new File(dir, Long.toString(id));
     }
 
     private class ContactInfo {
@@ -318,6 +326,7 @@ public class EntityMessage implements Serializable {
                     MessageHelper.equal(this.bcc, other.bcc) &&
                     MessageHelper.equal(this.reply, other.reply) &&
                     (this.headers == null ? other.headers == null : this.headers.equals(other.headers)) &&
+                    (this.raw == null ? other.raw == null : this.raw.equals(other.raw)) &&
                     (this.subject == null ? other.subject == null : this.subject.equals(other.subject)) &&
                     (this.size == null ? other.size == null : this.size.equals(other.size)) &&
                     this.content == other.content &&
@@ -364,6 +373,7 @@ public class EntityMessage implements Serializable {
                     MessageHelper.equal(this.bcc, other.bcc) &&
                     MessageHelper.equal(this.reply, other.reply) &&
                     (this.headers == null ? other.headers == null : this.headers.equals(other.headers)) &&
+                    (this.raw == null ? other.raw == null : this.raw.equals(other.raw)) &&
                     (this.subject == null ? other.subject == null : this.subject.equals(other.subject)) &&
                     (this.size == null ? other.size == null : this.size.equals(other.size)) &&
                     this.content == other.content &&

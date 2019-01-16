@@ -1517,6 +1517,9 @@ public class ServiceSynchronize extends LifecycleService {
                         else if (EntityOperation.HEADERS.equals(op.name))
                             doHeaders(folder, ifolder, message, db);
 
+                        else if (EntityOperation.RAW.equals(op.name))
+                            doRaw(folder, ifolder, message, db);
+
                         else if (EntityOperation.BODY.equals(op.name))
                             doBody(folder, ifolder, message, db);
 
@@ -1923,18 +1926,17 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         db.message().setMessageHeaders(message.id, sb.toString());
+    }
+
+    private void doRaw(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, DB db) throws MessagingException, IOException {
+        Message imessage = ifolder.getMessageByUID(message.uid);
+        if (imessage == null)
+            throw new MessageRemovedException();
 
         if (imessage instanceof MimeMessage) {
             MimeMessage mmessage = (MimeMessage) imessage;
-            EntityAttachment attachment = new EntityAttachment();
-            attachment.message = message.id;
-            attachment.sequence = db.attachment().getAttachmentSequence(message.id) + 1;
-            attachment.name = "email.eml";
-            attachment.type = "message/rfc822";
-            attachment.available = false;
-            attachment.id = db.attachment().insertAttachment(attachment);
 
-            File file = EntityAttachment.getFile(this, attachment.id);
+            File file = EntityMessage.getRawFile(this, message.id);
 
             OutputStream os = null;
             try {
@@ -1945,7 +1947,7 @@ public class ServiceSynchronize extends LifecycleService {
                     os.close();
             }
 
-            db.attachment().setDownloaded(attachment.id, file.length());
+            db.message().setMessageRaw(message.id, true);
         }
     }
 

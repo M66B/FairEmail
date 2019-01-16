@@ -137,6 +137,20 @@ public class JobDaily extends JobService {
                             Log.w("Error deleting " + file);
                     }
 
+            // Cleanup attachment files
+            Log.i("Cleanup raw files");
+            File[] raw = new File(context.getFilesDir(), "raw").listFiles();
+            if (raw != null)
+                for (File file : raw)
+                    if (file.isFile()) {
+                        long id = Long.parseLong(file.getName());
+                        if (db.message().countMessage(id) == 0) {
+                            Log.i("Cleanup raw id=" + id);
+                            if (!file.delete())
+                                Log.w("Error deleting " + file);
+                        }
+                    }
+
             Log.i("Cleanup log");
             long before = now - KEEP_LOG_DURATION;
             int logs = db.log().deleteLogs(before);

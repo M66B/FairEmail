@@ -73,6 +73,7 @@ public class EntityOperation {
     static final String FLAG = "flag";
     static final String KEYWORD = "keyword";
     static final String HEADERS = "headers";
+    static final String RAW = "raw";
     static final String BODY = "body";
     static final String ATTACHMENT = "attachment";
     static final String SYNC = "sync";

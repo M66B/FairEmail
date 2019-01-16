@@ -1364,7 +1364,6 @@ public class FragmentCompose extends FragmentBase {
             String action = args.getString("action");
             long id = args.getLong("id", -1);
             long reference = args.getLong("reference", -1);
-            boolean raw = args.getBoolean("raw", false);
             long answer = args.getLong("answer", -1);
 
             Log.i("Load draft action=" + action + " id=" + id + " reference=" + reference);
@@ -1598,30 +1597,6 @@ public class FragmentCompose extends FragmentBase {
                                 File target = EntityAttachment.getFile(context, attachment.id);
                                 Helper.copy(source, target);
                             }
-
-                        if (raw) {
-                            EntityAttachment headers = new EntityAttachment();
-                            headers.message = result.draft.id;
-                            headers.sequence = ++sequence;
-                            headers.name = "headers.txt";
-                            headers.type = "text/plan";
-                            headers.available = true;
-                            headers.id = db.attachment().insertAttachment(headers);
-
-                            headers.write(context, ref.headers);
-
-                            EntityAttachment content = new EntityAttachment();
-                            content.message = result.draft.id;
-                            content.sequence = ++sequence;
-                            content.name = "content.html";
-                            content.type = "text/html";
-                            content.available = true;
-                            content.id = db.attachment().insertAttachment(content);
-
-                            File csource = EntityMessage.getFile(context, ref.id);
-                            File ctarget = EntityAttachment.getFile(context, content.id);
-                            Helper.copy(csource, ctarget);
-                        }
                     }
 
                     EntityOperation.queue(context, db, result.draft, EntityOperation.ADD);
