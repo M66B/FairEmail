@@ -37,11 +37,14 @@ import org.jsoup.safety.Whitelist;
 import org.jsoup.select.NodeTraversor;
 import org.jsoup.select.NodeVisitor;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.Date;
@@ -182,7 +185,7 @@ public class HtmlHelper {
                 dir.mkdir();
 
             InputStream is = null;
-            FileOutputStream os = null;
+            OutputStream os = null;
             try {
                 // Create unique file name
                 File file = new File(dir, id + "_" + source.hashCode());
@@ -190,7 +193,7 @@ public class HtmlHelper {
                 // Get input stream
                 if (file.exists()) {
                     Log.i("Using cached " + file);
-                    is = new FileInputStream(file);
+                    is = new BufferedInputStream(new FileInputStream(file));
                 } else {
                     Log.i("Downloading " + source);
                     is = new URL(source).openStream();
@@ -203,7 +206,7 @@ public class HtmlHelper {
 
                 // Cache bitmap
                 if (!file.exists()) {
-                    os = new FileOutputStream(file);
+                    os = new BufferedOutputStream(new FileOutputStream(file));
                     bm.compress(Bitmap.CompressFormat.PNG, 100, os);
                 }
 

@@ -45,9 +45,11 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -143,13 +145,13 @@ public class FragmentWebView extends FragmentBase {
                                     String cid = "<" + cids[1] + ">";
                                     EntityAttachment attachment = DB.getInstance(context).attachment().getAttachment(id, cid);
                                     if (attachment != null && attachment.available) {
-                                        FileInputStream fis = null;
+                                        InputStream is = null;
                                         try {
                                             File file = EntityAttachment.getFile(context, attachment.id);
 
-                                            fis = new FileInputStream(file);
+                                            is = new BufferedInputStream(new FileInputStream(file));
                                             byte[] bytes = new byte[(int) file.length()];
-                                            if (fis.read(bytes) != bytes.length)
+                                            if (is.read(bytes) != bytes.length)
                                                 throw new IOException("length");
 
                                             StringBuilder sb = new StringBuilder();
@@ -160,8 +162,8 @@ public class FragmentWebView extends FragmentBase {
 
                                             img.attr("src", sb.toString());
                                         } finally {
-                                            if (fis != null)
-                                                fis.close();
+                                            if (is != null)
+                                                is.close();
                                         }
                                     }
                                 }

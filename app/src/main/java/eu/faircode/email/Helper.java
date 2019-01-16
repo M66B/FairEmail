@@ -54,6 +54,7 @@ import com.android.billingclient.api.BillingClient;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.sun.mail.imap.IMAPStore;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
@@ -588,9 +589,9 @@ public class Helper {
     }
 
     static void copy(File src, File dst) throws IOException {
-        InputStream in = new FileInputStream(src);
+        InputStream in = new BufferedInputStream(new FileInputStream(src));
         try {
-            OutputStream out = new FileOutputStream(dst);
+            OutputStream out = new BufferedOutputStream(new FileOutputStream(dst));
             try {
                 byte[] buf = new byte[4096];
                 int len;

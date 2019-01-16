@@ -59,6 +59,8 @@ import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -69,6 +71,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.URL;
 import java.text.Collator;
 import java.util.ArrayList;
@@ -1156,7 +1159,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         if (!attachment.available)
                             throw new IllegalArgumentException(getString(R.string.title_attachments_missing));
 
-                        encrypted = new FileInputStream(EntityAttachment.getFile(context, attachment.id));
+                        File file = EntityAttachment.getFile(context, attachment.id);
+                        encrypted = new BufferedInputStream(new FileInputStream(file));
                         break;
                     }
 
@@ -1319,17 +1323,17 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 File file = EntityAttachment.getFile(context, id);
 
                 ParcelFileDescriptor pfd = null;
-                FileOutputStream fos = null;
-                FileInputStream fis = null;
+                OutputStream os = null;
+                InputStream is = null;
                 try {
                     pfd = context.getContentResolver().openFileDescriptor(uri, "w");
-                    fos = new FileOutputStream(pfd.getFileDescriptor());
-                    fis = new FileInputStream(file);
+                    os = new BufferedOutputStream(new FileOutputStream(pfd.getFileDescriptor()));
+                    is = new BufferedInputStream(new FileInputStream(file));
 
                     byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
                     int read;
-                    while ((read = fis.read(buffer)) != -1)
-                        fos.write(buffer, 0, read);
+                    while ((read = is.read(buffer)) != -1)
+                        os.write(buffer, 0, read);
                 } finally {
                     try {
                         if (pfd != null)
@@ -1338,14 +1342,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         Log.w(ex);
                     }
                     try {
-                        if (fos != null)
-                            fos.close();
+                        if (os != null)
+                            os.close();
                     } catch (Throwable ex) {
                         Log.w(ex);
                     }
                     try {
-                        if (fis != null)
-                            fis.close();
+                        if (is != null)
+                            is.close();
                     } catch (Throwable ex) {
                         Log.w(ex);
                     }
@@ -1391,17 +1395,17 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     DocumentFile document = tree.createFile(attachment.type, name);
 
                     ParcelFileDescriptor pfd = null;
-                    FileOutputStream fos = null;
-                    FileInputStream fis = null;
+                    OutputStream os = null;
+                    InputStream is = null;
                     try {
                         pfd = context.getContentResolver().openFileDescriptor(document.getUri(), "w");
-                        fos = new FileOutputStream(pfd.getFileDescriptor());
-                        fis = new FileInputStream(file);
+                        os = new BufferedOutputStream(new FileOutputStream(pfd.getFileDescriptor()));
+                        is = new BufferedInputStream(new FileInputStream(file));
 
                         byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
                         int read;
-                        while ((read = fis.read(buffer)) != -1)
-                            fos.write(buffer, 0, read);
+                        while ((read = is.read(buffer)) != -1)
+                            os.write(buffer, 0, read);
                     } finally {
                         try {
                             if (pfd != null)
@@ -1410,14 +1414,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             Log.w(ex);
                         }
                         try {
-                            if (fos != null)
-                                fos.close();
+                            if (os != null)
+                                os.close();
                         } catch (Throwable ex) {
                             Log.w(ex);
                         }
                         try {
-                            if (fis != null)
-                                fis.close();
+                            if (is != null)
+                                is.close();
                         } catch (Throwable ex) {
                             Log.w(ex);
                         }

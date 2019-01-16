@@ -1328,9 +1328,9 @@ public class FragmentCompose extends FragmentBase {
 
                         Log.i("Image target size=" + scaled.getWidth() + "x" + scaled.getHeight());
 
-                        FileOutputStream out = null;
+                        OutputStream out = null;
                         try {
-                            out = new FileOutputStream(file);
+                            out = new BufferedOutputStream(new FileOutputStream(file));
                             scaled.compress("image/jpeg".equals(attachment.type)
                                             ? Bitmap.CompressFormat.JPEG
                                             : Bitmap.CompressFormat.PNG,
