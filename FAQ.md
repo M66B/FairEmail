@@ -131,6 +131,7 @@ FairEmail does not allow other apps access to your messages and attachments with
 * [(67) How can I snooze conversations?](#user-content-faq67)
 * [(68) Why can Adobe Acrobat reader not open PDF attachments?](#user-content-faq68)
 * [(69) Can you add auto scroll up on new message?](#user-content-faq69)
+* [(70) When will messages be auto expanded?](#user-content-faq70)
 
 [I have another question.](#support)
 
@@ -1075,6 +1076,21 @@ for example one listed [here](https://github.com/offa/android-foss#-document--pd
 
 The message list is automatically scrolled up when navigating from a new message notification.
 Always automatically scrolling up on arrival of new messages would interfere with your own navigation and scrolling.
+
+<br />
+
+<a name="faq70"></a>
+**(70) When will messages be auto expanded?**
+
+When navigation to a conversation one message will be expanded if:
+
+* There is just one message in the conversation
+* There is exactly one unread message in the conversation
+
+There is one exception: the message body text was not downloaded yet
+and the message body text is too large to download automatically on a metered connection.
+
+Duplicate (archived) messages, trashed messages and draft messages are not counted.
 
 <br />
 
