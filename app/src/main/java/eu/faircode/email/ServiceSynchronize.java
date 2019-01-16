@@ -1932,7 +1932,8 @@ public class ServiceSynchronize extends LifecycleService {
             throw new MessageRemovedException();
 
         MessageHelper helper = new MessageHelper((MimeMessage) imessage);
-        String body = helper.getHtml();
+        MessageHelper.MessageParts parts = helper.getMessageParts();
+        String body = parts.getHtml();
         String preview = HtmlHelper.getPreview(body);
         message.write(this, body);
         db.message().setMessageContent(message.id, true, preview);
@@ -1954,14 +1955,8 @@ public class ServiceSynchronize extends LifecycleService {
 
         // Download attachment
         MessageHelper helper = new MessageHelper((MimeMessage) imessage);
-        List<EntityAttachment> attachments = helper.getAttachments();
-        if (sequence - 1 < attachments.size()) {
-            attachment.part = attachments.get(sequence - 1).part;
-            attachment.download(this, db);
-        } else {
-            db.attachment().setProgress(attachment.id, null);
-            throw new IllegalArgumentException("Attachment not found seq=" + sequence + " size=" + attachments.size());
-        }
+        MessageHelper.MessageParts parts = helper.getMessageParts();
+        parts.downloadAttachment(this, db, attachment.id, sequence);
     }
 
     private void synchronizeFolders(EntityAccount account, IMAPStore istore, ServiceState state) throws MessagingException {
@@ -2480,15 +2475,11 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(folder.name + " added id=" + message.id + " uid=" + message.uid);
 
             int sequence = 1;
-            for (EntityAttachment attachment : helper.getAttachments()) {
+            MessageHelper.MessageParts parts = helper.getMessageParts();
+            for (EntityAttachment attachment : parts.getAttachments()) {
                 Log.i(folder.name + " attachment seq=" + sequence +
                         " name=" + attachment.name + " type=" + attachment.type +
                         " cid=" + attachment.cid + " pgp=" + attachment.encryption);
-                if (!TextUtils.isEmpty(attachment.cid) &&
-                        db.attachment().getAttachment(message.id, attachment.cid) != null) {
-                    Log.i("Skipping duplicated CID");
-                    continue;
-                }
                 attachment.message = message.id;
                 attachment.sequence = sequence++;
                 attachment.id = db.attachment().insertAttachment(attachment);
@@ -2600,29 +2591,21 @@ public class ServiceSynchronize extends LifecycleService {
                 ifolder.fetch(new Message[]{imessage}, fp);
             }
 
+            MessageHelper.MessageParts parts = helper.getMessageParts();
+
             if (!message.content)
                 if (!metered || (message.size != null && message.size < maxSize)) {
-                    String body = helper.getHtml();
+                    String body = parts.getHtml();
                     message.write(context, body);
-                    db.message().setMessageContent(
-                            message.id, true, HtmlHelper.getPreview(body));
+                    db.message().setMessageContent(message.id, true, HtmlHelper.getPreview(body));
                     Log.i(folder.name + " downloaded message id=" + message.id + " size=" + message.size);
                 }
 
-            List<EntityAttachment> iattachments = null;
             for (int i = 0; i < attachments.size(); i++) {
                 EntityAttachment attachment = attachments.get(i);
                 if (!attachment.available)
-                    if (!metered || (attachment.size != null && attachment.size < maxSize)) {
-                        if (iattachments == null)
-                            iattachments = helper.getAttachments();
-                        // Attachments of drafts might not have been uploaded yet
-                        if (i < iattachments.size()) {
-                            attachment.part = iattachments.get(i).part;
-                            attachment.download(context, db);
-                            Log.i(folder.name + " downloaded message id=" + message.id + " attachment=" + attachment.name + " size=" + message.size);
-                        }
-                    }
+                    if (!metered || (attachment.size != null && attachment.size < maxSize))
+                        parts.downloadAttachment(context, db, attachment.id, attachment.sequence);
             }
         }
     }

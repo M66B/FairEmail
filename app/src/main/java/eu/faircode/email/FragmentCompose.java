@@ -1284,7 +1284,7 @@ public class FragmentCompose extends FragmentBase {
                 is = context.getContentResolver().openInputStream(uri);
                 os = new BufferedOutputStream(new FileOutputStream(file));
 
-                byte[] buffer = new byte[EntityAttachment.ATTACHMENT_BUFFER_SIZE];
+                byte[] buffer = new byte[MessageHelper.ATTACHMENT_BUFFER_SIZE];
                 for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
                     size += len;
                     os.write(buffer, 0, len);
@@ -1575,8 +1575,7 @@ public class FragmentCompose extends FragmentBase {
                     result.draft.id = db.message().insertMessage(result.draft);
                     result.draft.write(context, body == null ? "" : body);
 
-                    db.message().setMessageContent(
-                            result.draft.id, true, HtmlHelper.getPreview(body));
+                    db.message().setMessageContent(result.draft.id, true, HtmlHelper.getPreview(body));
 
                     if ("new".equals(action)) {
                         ArrayList<Uri> uris = args.getParcelableArrayList("attachments");

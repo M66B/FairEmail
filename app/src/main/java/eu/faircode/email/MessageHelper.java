@@ -26,12 +26,15 @@ import android.webkit.MimeTypeMap;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -64,6 +67,8 @@ public class MessageHelper {
     private final static int NETWORK_TIMEOUT = 60 * 1000; // milliseconds
     private final static int FETCH_SIZE = 1024 * 1024; // bytes, default 16K
     private final static int POOL_TIMEOUT = 3 * 60 * 1000; // milliseconds, default 45 sec
+
+    static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
     static Properties getSessionProperties(int auth_type, String realm, boolean insecure) {
         Properties props = new Properties();
@@ -526,145 +531,172 @@ public class MessageHelper {
         return address.getAddress();
     }
 
-    String getHtml() throws MessagingException, IOException {
-        return getHtml(imessage);
-    }
+    class MessageParts {
+        private Part plain = null;
+        private Part html = null;
+        private List<AttachmentPart> attachments = new ArrayList<>();
 
-    private static String readStream(InputStream is, String charset) throws IOException {
-        ByteArrayOutputStream os = new ByteArrayOutputStream();
-        byte[] buffer = new byte[4096];
-        for (int len = is.read(buffer); len != -1; len = is.read(buffer))
-            os.write(buffer, 0, len);
-        return new String(os.toByteArray(), charset);
-    }
+        String getHtml() throws MessagingException {
+            if (plain == null && html == null)
+                return null;
 
-    private static String getHtml(Part part) throws MessagingException, IOException {
-        String disposition;
-        try {
-            disposition = part.getDisposition();
-        } catch (MessagingException ex) {
-            Log.w(ex);
-            disposition = null;
-        }
+            String result;
+            boolean text = false;
+            Part part = (html == null ? plain : html);
 
-        if (!Part.ATTACHMENT.equalsIgnoreCase(disposition) &&
-                (part.isMimeType("text/plain") || part.isMimeType("text/html"))) {
-            String s;
             try {
                 Object content = part.getContent();
-                try {
-                    if (content instanceof String)
-                        s = (String) content;
-                    else if (content instanceof InputStream)
-                        // Typically com.sun.mail.util.QPDecoderStream
-                        s = readStream((InputStream) content, "UTF-8");
-                    else
-                        s = content.toString();
-                } catch (UnsupportedEncodingException ex) {
-                    // x-binaryenc
-                    // https://javaee.github.io/javamail/FAQ#unsupen
-                    Log.w("Unsupported encoding: " + part.getContentType());
-                    return readStream(part.getInputStream(), "US-ASCII");
+                if (content instanceof String)
+                    result = (String) content;
+                else if (content instanceof InputStream)
+                    // Typically com.sun.mail.util.QPDecoderStream
+                    result = readStream((InputStream) content, "UTF-8");
+                else
+                    result = content.toString();
+            } catch (Throwable ex) {
+                Log.w(ex);
+                text = true;
+                result = ex + "\n" + android.util.Log.getStackTraceString(ex);
+            }
+
+            if (part.isMimeType("text/plain") || text)
+                result = "<pre>" + result.replaceAll("\\r?\\n", "<br />") + "</pre>";
+
+            if (part.isMimeType("text/plain")) {
+                Log.i("Plain text");
+                return result;
+            } else {
+                Log.i("HTML text");
+                return result;
+            }
+        }
+
+        List<EntityAttachment> getAttachments() throws MessagingException {
+            List<EntityAttachment> result = new ArrayList<>();
+
+            for (AttachmentPart apart : attachments) {
+                ContentType ct = new ContentType(apart.part.getContentType());
+                String[] cid = apart.part.getHeader("Content-ID");
+
+                EntityAttachment attachment = new EntityAttachment();
+                attachment.name = apart.filename;
+                attachment.type = ct.getBaseType().toLowerCase();
+                attachment.disposition = apart.disposition;
+                attachment.size = (long) apart.part.getSize();
+                attachment.cid = (cid == null || cid.length == 0 ? null : cid[0]);
+                attachment.encryption = (apart.pgp ? EntityAttachment.PGP_MESSAGE : null);
+
+                if ("text/calendar".equalsIgnoreCase(attachment.type) && TextUtils.isEmpty(attachment.name))
+                    attachment.name = "invite.ics";
+
+                // Try to guess a better content type
+                // Sometimes PDF files are sent using the wrong type
+                if ("application/octet-stream".equalsIgnoreCase(attachment.type)) {
+                    String extension = Helper.getExtension(attachment.name);
+                    if (extension != null) {
+                        String type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension.toLowerCase());
+                        if (type != null) {
+                            Log.w("Guessing file=" + attachment.name + " type=" + type);
+                            attachment.type = type;
+                        }
+                    }
                 }
+
+                if (attachment.size < 0)
+                    attachment.size = null;
+
+                result.add(attachment);
+            }
+
+            // Fix duplicate CIDs
+            for (int i = 0; i < result.size(); i++) {
+                String cid = result.get(i).cid;
+                if (cid != null)
+                    for (int j = i + 1; j < result.size(); j++) {
+                        EntityAttachment a = result.get(j);
+                        if (cid.equals(a.cid))
+                            a.cid = null;
+                    }
+            }
+
+            return result;
+        }
+
+        void downloadAttachment(Context context, DB db, long id, int sequence) throws MessagingException, IOException {
+            // Attachments of drafts might not have been uploaded yet
+            if (sequence > attachments.size()) {
+                Log.w("Attachment unavailable sequence=" + sequence + " size=" + attachments.size());
+                return;
+            }
+
+            // Get data
+            AttachmentPart apart = attachments.get(sequence - 1);
+            long total = apart.part.getSize();
+            File file = EntityAttachment.getFile(context, id);
+
+            // Download attachment
+            OutputStream os = null;
+            try {
+                db.attachment().setProgress(id, null);
+
+                InputStream is = apart.part.getInputStream();
+                os = new BufferedOutputStream(new FileOutputStream(file));
+
+                long size = 0;
+                byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
+                for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
+                    size += len;
+                    os.write(buffer, 0, len);
+
+                    // Update progress
+                    if (total > 0)
+                        db.attachment().setProgress(id, (int) (size * 100 / total));
+                }
+
+                // Store attachment data
+                db.attachment().setDownloaded(id, size);
+
+                Log.i("Downloaded attachment size=" + size);
             } catch (IOException ex) {
-                // IOException; Unknown encoding: none
-                Log.w(ex);
-                return "<pre>" + ex + "<br />" + android.util.Log.getStackTraceString(ex) + "</pre>";
+                // Reset progress on failure
+                db.attachment().setProgress(id, null);
+                throw ex;
+            } finally {
+                if (os != null)
+                    os.close();
             }
-
-            if (part.isMimeType("text/plain"))
-                s = "<pre>" + s.replaceAll("\\r?\\n", "<br />") + "</pre>";
-
-            return s;
         }
-
-        if (part.isMimeType("multipart/alternative")) {
-            String text = null;
-            try {
-                Multipart mp = (Multipart) part.getContent();
-                for (int i = 0; i < mp.getCount(); i++) {
-                    Part bp = mp.getBodyPart(i);
-                    if (bp.isMimeType("text/plain")) {
-                        if (text == null)
-                            text = getHtml(bp);
-                    } else if (bp.isMimeType("text/html")) {
-                        String s = getHtml(bp);
-                        if (s != null)
-                            return s;
-                    } else
-                        return getHtml(bp);
-                }
-            } catch (ParseException ex) {
-                // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
-                Log.w(ex);
-                text = "<pre>" + ex + "<br />" + android.util.Log.getStackTraceString(ex) + "</pre>";
-            }
-            return text;
-        }
-
-        if (part.isMimeType("multipart/*"))
-            try {
-                Multipart mp = (Multipart) part.getContent();
-                for (int i = 0; i < mp.getCount(); i++) {
-                    String s = getHtml(mp.getBodyPart(i));
-                    if (s != null)
-                        return s;
-                }
-            } catch (ParseException ex) {
-                Log.w(ex);
-                return "<pre>" + ex + "<br />" + android.util.Log.getStackTraceString(ex) + "</pre>";
-            }
-
-        return null;
     }
 
-    public List<EntityAttachment> getAttachments() throws IOException, MessagingException {
-        List<EntityAttachment> result = new ArrayList<>();
+    private class AttachmentPart {
+        String disposition;
+        String filename;
+        boolean pgp;
+        Part part;
+    }
 
-        try {
-            Object content = imessage.getContent();
-            if (content instanceof String)
-                return result;
+    MessageParts getMessageParts() throws IOException, MessagingException {
+        MessageParts parts = new MessageParts();
+        getMessageParts(imessage, parts, false); // Can throw ParseException
+        return parts;
+    }
 
-            if (content instanceof Multipart) {
-                boolean pgp = false;
-                Multipart multipart = (Multipart) content;
-                for (int i = 0; i < multipart.getCount(); i++) {
-                    BodyPart part = multipart.getBodyPart(i);
-                    result.addAll(getAttachments(part, pgp));
-                    ContentType ct = new ContentType(part.getContentType());
+    private void getMessageParts(Part part, MessageParts parts, boolean pgp) throws MessagingException, IOException {
+        if (part.isMimeType("multipart/*")) {
+            Multipart multipart = (Multipart) part.getContent();
+            for (int i = 0; i < multipart.getCount(); i++)
+                try {
+                    Part cpart = multipart.getBodyPart(i);
+                    getMessageParts(cpart, parts, pgp);
+                    ContentType ct = new ContentType(cpart.getContentType());
                     if ("application/pgp-encrypted".equals(ct.getBaseType().toLowerCase()))
                         pgp = true;
+                } catch (ParseException ex) {
+                    // Nested body: try to continue
+                    // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
+                    Log.w(ex);
                 }
-            }
-        } catch (IOException ex) {
-            if (ex.getCause() instanceof MessagingException)
-                Log.w(ex);
-            else
-                throw ex;
-        } catch (ParseException ex) {
-            Log.w(ex);
-        }
-
-        return result;
-    }
-
-    private static List<EntityAttachment> getAttachments(BodyPart part, boolean pgp) throws
-            IOException, MessagingException {
-        List<EntityAttachment> result = new ArrayList<>();
-
-        Object content;
-        try {
-            content = part.getContent();
-        } catch (UnsupportedEncodingException ex) {
-            Log.w("attachment content type=" + part.getContentType());
-            content = part.getInputStream();
-        } catch (ParseException ex) {
-            Log.w(ex);
-            content = null;
-        }
-
-        if (content instanceof InputStream || content instanceof String) {
+        } else {
             // https://www.iana.org/assignments/cont-disp/cont-disp.xhtml
             String disposition;
             try {
@@ -682,54 +714,35 @@ public class MessageHelper {
                 filename = null;
             }
 
-            if (Part.ATTACHMENT.equalsIgnoreCase(disposition) ||
-                    !(part.isMimeType("text/plain") || part.isMimeType("text/html")) ||
-                    !TextUtils.isEmpty(filename)) {
-                ContentType ct = new ContentType(part.getContentType());
-                String[] cid = part.getHeader("Content-ID");
+            Log.i("Part" +
+                    " disposition=" + disposition +
+                    " filename=" + filename +
+                    " content type=" + part.getContentType());
 
-                EntityAttachment attachment = new EntityAttachment();
-                attachment.name = filename;
-                attachment.type = ct.getBaseType().toLowerCase();
-                attachment.disposition = disposition;
-                attachment.size = (long) part.getSize();
-                attachment.cid = (cid == null || cid.length == 0 ? null : cid[0]);
-                attachment.encryption = (pgp ? EntityAttachment.PGP_MESSAGE : null);
-                attachment.part = part;
-
-                if (TextUtils.isEmpty(attachment.name) && "text/calendar".equals(attachment.type))
-                    attachment.name = "invite.ics";
-
-                // Try to guess a better content type
-                // Sometimes PDF files are sent using the wrong type
-                if ("application/octet-stream".equals(attachment.type)) {
-                    String extension = Helper.getExtension(attachment.name);
-                    if (extension != null) {
-                        String type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension.toLowerCase());
-                        if (type != null) {
-                            Log.w("Guessing file=" + attachment.name + " type=" + type);
-                            attachment.type = type;
-                        }
-                    }
-                }
-
-                if (attachment.size < 0)
-                    attachment.size = null;
-
-                result.add(attachment);
-            }
-        } else if (content instanceof Multipart) {
-            Multipart multipart = (Multipart) content;
-            for (int i = 0; i < multipart.getCount(); i++) {
-                BodyPart cpart = multipart.getBodyPart(i);
-                result.addAll(getAttachments(cpart, pgp));
-                ContentType ct = new ContentType(cpart.getContentType());
-                if ("application/pgp-encrypted".equals(ct.getBaseType().toLowerCase()))
-                    pgp = true;
+            if (!Part.ATTACHMENT.equalsIgnoreCase(disposition) &&
+                    ((parts.plain == null && part.isMimeType("text/plain")) ||
+                            (parts.html == null && part.isMimeType("text/html")))) {
+                if (part.isMimeType("text/plain"))
+                    parts.plain = part;
+                else
+                    parts.html = part;
+            } else {
+                AttachmentPart apart = new AttachmentPart();
+                apart.disposition = disposition;
+                apart.filename = filename;
+                apart.pgp = pgp;
+                apart.part = part;
+                parts.attachments.add(apart);
             }
         }
+    }
 
-        return result;
+    private static String readStream(InputStream is, String charset) throws IOException {
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        byte[] buffer = new byte[4096];
+        for (int len = is.read(buffer); len != -1; len = is.read(buffer))
+            os.write(buffer, 0, len);
+        return new String(os.toByteArray(), charset);
     }
 
     static boolean equal(Address[] a1, Address[] a2) {

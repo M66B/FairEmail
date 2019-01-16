@@ -158,7 +158,7 @@ dependencies {
     implementation "org.jsoup:jsoup:$jsoup_version"
 
     // http://www.freeutils.net/source/jcharset/
-    implementation "net.freeutils:jcharset:$jcharset_version"
+    //implementation "net.freeutils:jcharset:$jcharset_version"
 
     // http://www.xbill.org/dnsjava/
     implementation "dnsjava:dnsjava:$dnsjava_version"

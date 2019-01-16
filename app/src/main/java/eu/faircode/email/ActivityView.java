@@ -1215,13 +1215,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             ByteArrayInputStream is = new ByteArrayInputStream(decrypted.toByteArray());
                             MimeMessage imessage = new MimeMessage(isession, is);
                             MessageHelper helper = new MessageHelper(imessage);
+                            MessageHelper.MessageParts parts = helper.getMessageParts();
 
                             try {
                                 db.beginTransaction();
 
                                 // Write decrypted body
                                 EntityMessage m = db.message().getMessage(id);
-                                m.write(context, helper.getHtml());
+                                m.write(context, parts.getHtml());
 
                                 // Remove previously decrypted attachments
                                 for (EntityAttachment a : attachments)
@@ -1230,7 +1231,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                                 // Add decrypted attachments
                                 int sequence = db.attachment().getAttachmentSequence(id);
-                                for (EntityAttachment a : helper.getAttachments()) {
+                                for (EntityAttachment a : parts.getAttachments()) {
                                     a.message = id;
                                     a.sequence = ++sequence;
                                     a.id = db.attachment().insertAttachment(a);

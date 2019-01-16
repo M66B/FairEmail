@@ -21,23 +21,16 @@ package eu.faircode.email;
 
 import android.content.Context;
 
-import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 
-import javax.mail.BodyPart;
-import javax.mail.MessagingException;
 import javax.mail.Part;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
-import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
@@ -56,7 +49,6 @@ import static androidx.room.ForeignKey.CASCADE;
 )
 public class EntityAttachment {
     static final String TABLE_NAME = "attachment";
-    static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
     static final Integer PGP_MESSAGE = 1;
     static final Integer PGP_SIGNATURE = 2;
@@ -77,9 +69,6 @@ public class EntityAttachment {
     public Integer progress;
     @NonNull
     public Boolean available = false;
-
-    @Ignore
-    BodyPart part;
 
     boolean isInline() {
         return (disposition != null && disposition.equalsIgnoreCase(Part.INLINE));
@@ -104,49 +93,6 @@ public class EntityAttachment {
         }
     }
 
-    void download(Context context, DB db) throws MessagingException, IOException {
-        // Build filename
-        File file = EntityAttachment.getFile(context, this.id);
-
-        // Download attachment
-        InputStream is = null;
-        OutputStream os = null;
-        try {
-            db.attachment().setProgress(this.id, null);
-
-            is = this.part.getInputStream();
-            os = new BufferedOutputStream(new FileOutputStream(file));
-
-            long size = 0;
-            byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
-            for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
-                size += len;
-                os.write(buffer, 0, len);
-
-                // Update progress
-                if (this.size != null)
-                    db.attachment().setProgress(this.id, (int)(size * 100 / this.size));
-            }
-
-            // Store attachment data
-            db.attachment().setDownloaded(this.id, size);
-
-            Log.i("Downloaded attachment size=" + this.size);
-        } catch (IOException ex) {
-            // Reset progress on failure
-            db.attachment().setProgress(this.id, null);
-            throw ex;
-        } finally {
-            try {
-                if (is != null)
-                    is.close();
-            } finally {
-                if (os != null)
-                    os.close();
-            }
-        }
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof EntityAttachment) {
@@ -164,5 +110,4 @@ public class EntityAttachment {
         } else
             return false;
     }
-
 }
