@@ -64,14 +64,19 @@ public interface DaoAttachment {
     void setMessage(long id, long message);
 
     @Query("UPDATE attachment" +
-            " SET progress = :progress, available = 0" +
+            " SET error = NULL, progress = :progress, available = 0" +
             " WHERE id = :id")
     void setProgress(long id, Integer progress);
 
     @Query("UPDATE attachment" +
-            " SET size = :size, progress = NULL, available = 1" +
+            " SET size = :size, error = NULL, progress = NULL, available = 1" +
             " WHERE id = :id")
     void setDownloaded(long id, Long size);
+
+    @Query("UPDATE attachment" +
+            " SET error = :error, progress = NULL, available = 0" +
+            " WHERE id = :id")
+    void setError(long id, String error);
 
     @Query("UPDATE attachment" +
             " SET cid = :cid" +

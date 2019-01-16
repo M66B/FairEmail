@@ -633,7 +633,7 @@ public class MessageHelper {
             return result;
         }
 
-        void downloadAttachment(Context context, DB db, long id, int sequence) throws MessagingException, IOException {
+        void downloadAttachment(Context context, DB db, long id, int sequence) throws IOException {
             // Attachments of drafts might not have been uploaded yet
             if (sequence > attachments.size()) {
                 Log.w("Attachment unavailable sequence=" + sequence + " size=" + attachments.size());
@@ -642,7 +642,6 @@ public class MessageHelper {
 
             // Get data
             AttachmentPart apart = attachments.get(sequence - 1);
-            long total = apart.part.getSize();
             File file = EntityAttachment.getFile(context, id);
 
             // Download attachment
@@ -654,6 +653,7 @@ public class MessageHelper {
                 os = new BufferedOutputStream(new FileOutputStream(file));
 
                 long size = 0;
+                long total = apart.part.getSize();
                 byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
                 for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
                     size += len;
@@ -668,10 +668,10 @@ public class MessageHelper {
                 db.attachment().setDownloaded(id, size);
 
                 Log.i("Downloaded attachment size=" + size);
-            } catch (IOException ex) {
+            } catch (Throwable ex) {
+                Log.w(ex);
                 // Reset progress on failure
-                db.attachment().setProgress(id, null);
-                throw ex;
+                db.attachment().setError(id, Helper.formatThrowable(ex));
             } finally {
                 if (os != null)
                     os.close();

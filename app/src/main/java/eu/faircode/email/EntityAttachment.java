@@ -69,6 +69,7 @@ public class EntityAttachment {
     public Integer progress;
     @NonNull
     public Boolean available = false;
+    public String error;
 
     boolean isInline() {
         return (disposition != null && disposition.equalsIgnoreCase(Part.INLINE));
