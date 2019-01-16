@@ -59,6 +59,7 @@ Stripped and reformatted messages are often better readable than original messag
 
 FairEmail does not allow other apps access to your messages and attachments without your approval.
 
+FairEmail follows all the best practices for an email client as decribed in [this EFF article](https://www.eff.org/deeplinks/2019/01/stop-tracking-my-emails).
 
 ## Frequently Asked Questions
 
