@@ -229,7 +229,6 @@
     <string name="title_flag">Marquer comme suivi</string>
     <string name="title_unflag">Marquer comme non suivi</string>
     <string name="title_forward">Transférer</string>
-    <string name="title_forward_raw">Transférer en mode brut</string>
     <string name="title_reply_all">Répondre à tous</string>
     <string name="title_share">Partager</string>
     <string name="title_show_headers">Afficher les en-têtes</string>

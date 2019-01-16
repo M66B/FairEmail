@@ -229,7 +229,6 @@
     <string name="title_flag">Aggiungi stella</string>
     <string name="title_unflag">Rimuovi stella</string>
     <string name="title_forward">Inoltra</string>
-    <string name="title_forward_raw">Inoltra formato raw</string>
     <string name="title_reply_all">Rispondi a tutti</string>
     <string name="title_share">Condividi</string>
     <string name="title_show_headers">Visualizza header</string>

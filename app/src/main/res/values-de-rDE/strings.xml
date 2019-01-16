@@ -229,7 +229,6 @@
     <string name="title_flag">Als Favorit markieren</string>
     <string name="title_unflag">Von Favoriten entfernen</string>
     <string name="title_forward">Weiterleiten</string>
-    <string name="title_forward_raw">Weiterleiten in Rohform</string>
     <string name="title_reply_all">Antworten an alle</string>
     <string name="title_share">Teilen</string>
     <string name="title_show_headers">Kopfzeile anzeigen</string>

@@ -229,10 +229,11 @@
     <string name="title_flag">Ster toevoegen</string>
     <string name="title_unflag">Ster verwijderen</string>
     <string name="title_forward">Doorsturen</string>
-    <string name="title_forward_raw">Ruw doorsturen</string>
     <string name="title_reply_all">Allen beantwoorden</string>
     <string name="title_share">Delen</string>
     <string name="title_show_headers">Toon koppen</string>
+    <string name="title_raw_download">Ruw bericht downloaden</string>
+    <string name="title_raw_save">Ruw bericht opslaan</string>
     <string name="title_manage_keywords">Trefwoorden beheren</string>
     <string name="title_add_keyword">Trefwoord toevoegen</string>
     <string name="title_download_all">Alles downloaden</string>
@@ -254,6 +255,7 @@
     <string name="title_no_stream">Een verouderde app verzond een bestandsnaam in plaats van een bestandsstroom</string>
     <string name="title_no_contacts">Contact kiezer niet beschikbaar</string>
     <string name="title_no_internet">Geen internet verbinding</string>
+    <string name="title_raw_saved">Ruw bericht opgeslagen</string>
     <string name="title_attachment_saved">Bijlage opgeslagen</string>
     <string name="title_attachments_saved">Bijlagen opgeslagen</string>
     <string name="title_attachment_unavailable">Sommige bijlagen zijn niet gedownload en zullen niet toegevoegd worden, doorgaan?</string>

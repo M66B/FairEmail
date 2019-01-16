@@ -214,7 +214,6 @@
     <string name="title_flag">Yıldız Ekle</string>
     <string name="title_unflag">Yıldızı Kaldır</string>
     <string name="title_forward">İlet</string>
-    <string name="title_forward_raw">İşlenmemiş olarak ilet</string>
     <string name="title_reply_all">Tümünü yanıtla</string>
     <string name="title_share">Paylaş</string>
     <string name="title_show_headers">Başlıkları Göster</string>
