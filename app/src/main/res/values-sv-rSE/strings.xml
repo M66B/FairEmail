@@ -92,7 +92,6 @@
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
     <string name="title_advanced_unified">Samlad inkorg</string>
     <string name="title_advanced_threading">Konversationstrådar</string>
-    <string name="title_advanced_compact">Kompakt meddelandevisning</string>
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
     <string name="title_advanced_identicons">Visa identicons</string>
     <string name="title_advanced_preview">Förhandsvisning av meddelande</string>
@@ -341,7 +340,6 @@
     <string name="title_hint_support">Om du har en fråga eller ett problem, vänligen använd supportmenyn för att få hjälp</string>
     <string name="title_hint_message_actions">Svep åt vänster för att slänga; svep åt höger för att arkivera (om tillgängligt)</string>
     <string name="title_hint_message_selection">Tryck länge på ett meddelande för att börja välja flera meddelanden</string>
-    <string name="title_hint_message_compact">Du kan välja en mer kompakt meddelandevy i avancerade alternativ</string>
     <string name="title_hint_sync">Hämtning av meddelanden kan ta lite tid, beroende på leverantörens hastighet, internetanslutning och enhet och på antalet meddelanden. När du hämtar meddelanden kan appen svara långsammare.</string>
     <string name="title_open_link">Öppna länken</string>
     <string name="title_select_app">Välj app</string>

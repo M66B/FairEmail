@@ -72,7 +72,7 @@
     <string name="title_setup_go">Ir</string>
     <string name="title_setup_setting_gmail">Habilitar acceso para aplicaciones \"menos seguras\"</string>
     <string name="title_setup_no_settings">No se encontraron ajustes para \'%1$s\'</string>
-    <string name="title_setup_quick_success">Una cuenta y una identidad fueron agregadas exitosamente</string>
+    <string name="title_setup_quick_success">Una cuenta y una identidad han sido añadidas con éxito</string>
     <string name="title_setup_quick_failed">Puede intentar configurar una cuenta y una identidad a continuación también</string>
     <string name="title_setup_manage">Administrar</string>
     <string name="title_setup_grant">Conceder</string>
@@ -106,7 +106,6 @@
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
     <string name="title_advanced_unified">Bandeja de entrada unificada</string>
     <string name="title_advanced_threading">Hilos de conversación</string>
-    <string name="title_advanced_compact">Vista de mensajes compacta</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_preview">Mostrar vista previa de mensajes</string>
@@ -311,6 +310,7 @@
     <string name="title_sort_on_unread">No leído</string>
     <string name="title_sort_on_starred">Destacado</string>
     <string name="title_sort_on_sender">Remitente</string>
+    <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Tamaño del texto</string>
     <string name="title_address_sent">Enviado/s:</string>
     <string name="title_address_unsent">No enviado/s:</string>
@@ -366,7 +366,6 @@
     <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de soporte para obtener ayuda</string>
     <string name="title_hint_message_actions">Deslice a la izquierda para eliminar; deslice a la derecha para archivar (si está disponible)</string>
     <string name="title_hint_message_selection">Mantenga presionado un mensaje para empezar a seleccionar múltiples mensajes</string>
-    <string name="title_hint_message_compact">Puede seleccionar una vista de mensajes más compacta en las opciones avanzadas</string>
     <string name="title_hint_sync">Descargar mensajes puede llevar algún tiempo, dependiendo de la velocidad del proveedor, la conexión a internet, dispositivo y el número de mensajes. Mientras se descargan mensajes, la aplicación puede responder más lentamente.</string>
     <string name="title_open_link">Abrir enlace</string>
     <string name="title_select_app">Seleccionar aplicación</string>
@@ -381,7 +380,7 @@
     <string name="title_days">Días</string>
     <string name="title_report">Reportar</string>
     <string name="title_no_ask_again">No volver a preguntar</string>
-    <string name="title_no_adobe">Adobe Acrobat Reader no puede abrir archivos compartidos en forma segura, vea las Preguntas Frecuentes para más información</string>
+    <string name="title_no_adobe">Adobe Acrobat Reader no puede abrir archivos compartidos de forma segura, consulte las Preguntas Frecuentes para más información</string>
     <string name="title_try">Pruebe FairEmail, un cliente de correo electrónico para Android de código abierto y enfocado en la privacidad</string>
     <string name="title_pro_feature">Esta es una característica Pro</string>
     <string name="title_pro_list">Lista de características Pro</string>

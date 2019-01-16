@@ -92,7 +92,6 @@
     <string name="title_advanced_browse">Serverdəki mesajlara nəzər yetir</string>
     <string name="title_advanced_unified">Birləşmiş gələn qutusu</string>
     <string name="title_advanced_threading">Danışıq sırası</string>
-    <string name="title_advanced_compact">Yığcam mesaj görünüşü</string>
     <string name="title_advanced_avatars">Şəxs fotolarını göstər</string>
     <string name="title_advanced_identicons">İdentikon-ları göstər</string>
     <string name="title_advanced_preview">Mesaj ilkin baxışını göstər</string>
@@ -339,7 +338,6 @@
     <string name="title_hint_support">Sualınız və ya probleminiz varsa, zəhmət olmasa kömək almaq üçün dəstək menyusundan faydalanın</string>
     <string name="title_hint_message_actions">Tullantı üçün sola; arxiv üçün sağa sürüşdür (əgər varsa)</string>
     <string name="title_hint_message_selection">Bir neçə mesajı seçməyə başlamaq üçün bir mesaja uzun basın</string>
-    <string name="title_hint_message_compact">Qabaqcıl seçimlərdən daha yığcam mesajı görünüşünü seçə bilərsiniz</string>
     <string name="title_hint_sync">Mesajların endirilməsi təchizatçınızın sürətindən, internet bağlantınızdan və mesaj sayından asılı olaraq biraz vaxt apara bilər. Mesajları endirərkən tətbiq yavaş cavab verə bilər.</string>
     <string name="title_open_link">Bağlantını aç</string>
     <string name="title_select_app">Tətbiq seç</string>

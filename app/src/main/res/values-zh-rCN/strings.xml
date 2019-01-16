@@ -85,7 +85,6 @@
     <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_unified">聚合收件箱</string>
     <string name="title_advanced_threading">会话线程</string>
-    <string name="title_advanced_compact">简洁信息视图</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
     <string name="title_advanced_preview">显示邮件预览</string>
@@ -333,7 +332,6 @@
     <string name="title_hint_support">如果您要提问或有问题，请使用支持选项获取帮助</string>
     <string name="title_hint_message_actions">向左滑至垃圾箱；向右滑归档(如果可用)</string>
     <string name="title_hint_message_selection">长按一则邮件以开始选择多则邮件</string>
-    <string name="title_hint_message_compact">你可以在高级选项中选择更紧凑的邮件视图</string>
     <string name="title_hint_sync">下载邮件可能需要一些时间, 具体取决于提供商的速度、网络连接、设备以及邮件数量。在下载邮件时, 应用的响应速度可能会变慢。</string>
     <string name="title_open_link">打开链接</string>
     <string name="title_select_app">选择应用</string>

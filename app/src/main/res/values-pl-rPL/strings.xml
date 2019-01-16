@@ -95,7 +95,6 @@
     <string name="title_advanced_browse">Przeglądaj wiadomości na serwerze</string>
     <string name="title_advanced_unified">Wspólna skrzynka odbiorcza</string>
     <string name="title_advanced_threading">Konwersacje w wątkach</string>
-    <string name="title_advanced_compact">Widok kompaktowy</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
     <string name="title_advanced_identicons">Pokazuje ikony kontaktów</string>
     <string name="title_advanced_preview">Pokaż podgląd wiadomości</string>

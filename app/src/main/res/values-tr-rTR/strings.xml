@@ -92,7 +92,6 @@
     <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
     <string name="title_advanced_unified">Birleştirilmiş gelen kutusu</string>
     <string name="title_advanced_threading">İletişim iş parçacığı</string>
-    <string name="title_advanced_compact">Kompakt ileti görünümü</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
     <string name="title_advanced_identicons">Kimliklerini göster</string>
     <string name="title_advanced_preview">İleti önizlemesini göster</string>
@@ -351,7 +350,6 @@
     <string name="title_hint_support">Bir soru ya da bir probleminiz varsa, lütfen yardım almak için destek menüsünü kullanın</string>
     <string name="title_hint_message_actions">Çöp kutusu için sola kaydırın; arşivlemek için sağa kaydırın (eğer varsa)</string>
     <string name="title_hint_message_selection">Çoklu ileti seçmeye başlamak için bir mesaja uzun basın</string>
-    <string name="title_hint_message_compact">Gelişmiş seçeneklerden daha kompakt bir ileti görünümü seçebilirsiniz</string>
     <string name="title_hint_sync">Mesajların indirilmesi, sağlayıcının hızına, internet bağlantısına ve cihazın hızına ve mesaj sayısına bağlı olarak biraz zaman alabilir. Mesajları indirirken uygulama daha yavaş yanıt verebilir.</string>
     <string name="title_open_link">Bağlantıyı aç</string>
     <string name="title_select_app">Uygulama seçin</string>
