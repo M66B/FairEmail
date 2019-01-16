@@ -2628,6 +2628,9 @@ public class ServiceSynchronize extends LifecycleService {
                     String body = parts.getHtml();
                     message.write(context, body);
                     db.message().setMessageContent(message.id, true, HtmlHelper.getPreview(body));
+                    String warnings = parts.getWarnings();
+                    if (warnings != null)
+                        db.message().setMessageError(message.id, warnings);
                     Log.i(folder.name + " downloaded message id=" + message.id + " size=" + message.size);
                 }
 

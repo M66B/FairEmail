@@ -535,6 +535,7 @@ public class MessageHelper {
         private Part plain = null;
         private Part html = null;
         private List<AttachmentPart> attachments = new ArrayList<>();
+        private List<String> warnings = new ArrayList<>();
 
         String getHtml() throws MessagingException {
             if (plain == null && html == null)
@@ -557,6 +558,16 @@ public class MessageHelper {
                 Log.w(ex);
                 text = true;
                 result = ex + "\n" + android.util.Log.getStackTraceString(ex);
+            }
+
+            ContentType ct = new ContentType(part.getContentType());
+            String charset = ct.getParameter("charset");
+            if (TextUtils.isEmpty(charset))
+                warnings.add("Missing charset");
+            else {
+                if ("US-ASCII".equals(Charset.forName(charset).name()) &&
+                        !"US-ASCII".equals(charset.toUpperCase()))
+                    warnings.add("Unknown charset " + charset);
             }
 
             if (part.isMimeType("text/plain") || text)
@@ -665,6 +676,13 @@ public class MessageHelper {
                 if (os != null)
                     os.close();
             }
+        }
+
+        String getWarnings() {
+            if (warnings.size() == 0)
+                return null;
+            else
+                return TextUtils.join(", ", warnings);
         }
     }
 
