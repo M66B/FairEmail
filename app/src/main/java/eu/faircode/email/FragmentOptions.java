@@ -145,6 +145,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
+        setOptions();
+
         swEnabled.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -336,8 +338,6 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
                 ServiceSynchronize.reload(getContext(), "debug=" + checked);
             }
         });
-
-        setOptions();
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
