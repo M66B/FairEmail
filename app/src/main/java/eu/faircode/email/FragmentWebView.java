@@ -122,6 +122,14 @@ public class FragmentWebView extends FragmentBase {
 
         registerForContextMenu(webview);
 
+        onLoad();
+
+        ((ActivityBase) getActivity()).addBackPressedListener(onBackPressedListener);
+
+        return view;
+    }
+
+    private void onLoad() {
         Bundle args = getArguments();
         if (args.containsKey("url")) {
             String url = args.getString("url");
@@ -188,10 +196,6 @@ public class FragmentWebView extends FragmentBase {
                 }
             }.execute(this, args, "webview:format");
         }
-
-        ((ActivityBase) getActivity()).addBackPressedListener(onBackPressedListener);
-
-        return view;
     }
 
     @Override

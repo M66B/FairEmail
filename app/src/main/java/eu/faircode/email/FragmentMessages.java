@@ -133,6 +133,17 @@ public class FragmentMessages extends FragmentBase {
 
     private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
+    private final int action_seen = 1;
+    private final int action_unseen = 2;
+    private final int action_snooze = 3;
+    private final int action_flag = 4;
+    private final int action_unflag = 5;
+    private final int action_archive = 6;
+    private final int action_trash = 7;
+    private final int action_delete = 8;
+    private final int action_junk = 9;
+    private final int action_move = 10;
+
     private static final int LOCAL_PAGE_SIZE = 100;
     private static final int REMOTE_PAGE_SIZE = 10;
     private static final int UNDO_TIMEOUT = 5000; // milliseconds
@@ -211,65 +222,7 @@ public class FragmentMessages extends FragmentBase {
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Bundle args = new Bundle();
-                args.putLong("folder", folder);
-
-                new SimpleTask<Boolean>() {
-                    @Override
-                    protected Boolean onExecute(Context context, Bundle args) {
-                        long fid = args.getLong("folder");
-
-                        boolean connected = false;
-
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            List<EntityFolder> folders = new ArrayList<>();
-                            if (fid < 0) {
-                                List<EntityFolder> unified = db.folder().getFoldersSynchronizingUnified();
-                                if (unified != null)
-                                    folders.addAll(unified);
-                            } else {
-                                EntityFolder folder = db.folder().getFolder(fid);
-                                if (folder != null)
-                                    folders.add(folder);
-                            }
-
-                            for (EntityFolder folder : folders) {
-                                EntityOperation.sync(db, folder.id);
-
-                                if (folder.account == null) { // outbox
-                                    if ("connected".equals(folder.state))
-                                        connected = true;
-                                } else {
-                                    EntityAccount account = db.account().getAccount(folder.account);
-                                    if ("connected".equals(account.state))
-                                        connected = true;
-                                }
-                            }
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        return connected;
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, Boolean connected) {
-                        if (!connected) {
-                            swipeRefresh.setRefreshing(false);
-                            Snackbar.make(view, R.string.title_sync_queued, Snackbar.LENGTH_LONG).show();
-                        }
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                    }
-                }.execute(FragmentMessages.this, args, "messages:refresh");
+                onSwipeRefresh();
             }
         });
 
@@ -316,101 +269,7 @@ public class FragmentMessages extends FragmentBase {
         int zoom = prefs.getInt("zoom", compact ? 0 : 1);
         adapter = new AdapterMessage(
                 getContext(), getViewLifecycleOwner(), getFragmentManager(),
-                viewType, outgoing,
-                compact, zoom,
-                new AdapterMessage.IProperties() {
-                    @Override
-                    public void setValue(String name, long id, boolean enabled) {
-                        if (!values.containsKey(name))
-                            values.put(name, new ArrayList<Long>());
-                        if (enabled) {
-                            values.get(name).add(id);
-                            if ("expanded".equals(name))
-                                handleExpand(id);
-                        } else
-                            values.get(name).remove(id);
-                    }
-
-                    @Override
-                    public boolean getValue(String name, long id) {
-                        if (values.containsKey(name))
-                            return values.get(name).contains(id);
-                        else if ("addresses".equals(name))
-                            return !addresses;
-                        return false;
-                    }
-
-                    @Override
-                    public void setBody(long id, Spanned body) {
-                        if (body == null)
-                            bodies.remove(id);
-                        else
-                            bodies.put(id, body);
-                    }
-
-                    @Override
-                    public Spanned getBody(long id) {
-                        return bodies.get(id);
-                    }
-
-                    @Override
-                    public void scrollTo(final int pos, final int dy) {
-                        new Handler().post(new Runnable() {
-                            @Override
-                            public void run() {
-                                rvMessage.scrollToPosition(pos);
-                                rvMessage.scrollBy(0, dy);
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void move(long id, String name, boolean type) {
-                        Bundle args = new Bundle();
-                        args.putLong("id", id);
-                        args.putString("name", name);
-                        args.putBoolean("type", type);
-
-                        new SimpleTask<MessageTarget>() {
-                            @Override
-                            protected MessageTarget onExecute(Context context, Bundle args) {
-                                long id = args.getLong("id");
-                                String name = args.getString("name");
-                                boolean type = args.getBoolean("type");
-
-                                MessageTarget result = new MessageTarget();
-
-                                DB db = DB.getInstance(context);
-                                try {
-                                    db.beginTransaction();
-
-                                    EntityMessage message = db.message().getMessage(id);
-                                    if (type)
-                                        result.target = db.folder().getFolderByType(message.account, name);
-                                    else
-                                        result.target = db.folder().getFolderByName(message.account, name);
-                                    result.ids.add(message.id);
-
-                                    db.setTransactionSuccessful();
-                                } finally {
-                                    db.endTransaction();
-                                }
-
-                                return result;
-                            }
-
-                            @Override
-                            protected void onExecuted(Bundle args, MessageTarget result) {
-                                moveAsk(result);
-                            }
-
-                            @Override
-                            protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                            }
-                        }.execute(FragmentMessages.this, args, "messages:move");
-                    }
-                });
+                viewType, outgoing, compact, zoom, iProperties);
 
         rvMessage.setAdapter(adapter);
 
@@ -456,158 +315,7 @@ public class FragmentMessages extends FragmentBase {
             });
         }
 
-        new ItemTouchHelper(new ItemTouchHelper.Callback() {
-            @Override
-            public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
-                if (!prefs.getBoolean("swipe", true))
-                    return 0;
-
-                if (selectionTracker != null && selectionTracker.hasSelection())
-                    return 0;
-
-                int pos = viewHolder.getAdapterPosition();
-                if (pos == RecyclerView.NO_POSITION)
-                    return 0;
-
-                TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
-                if (message == null || message.uid == null ||
-                        (values.containsKey("expanded") && values.get("expanded").contains(message.id)) ||
-                        EntityFolder.DRAFTS.equals(message.folderType) ||
-                        EntityFolder.OUTBOX.equals(message.folderType))
-                    return 0;
-
-                int flags = 0;
-                if (archives.contains(message.account))
-                    flags |= ItemTouchHelper.RIGHT;
-                if (trashes.contains(message.account))
-                    flags |= ItemTouchHelper.LEFT;
-
-                return makeMovementFlags(0, flags);
-            }
-
-            @Override
-            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-                return false;
-            }
-
-            @Override
-            public void onChildDraw(Canvas canvas, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
-                int pos = viewHolder.getAdapterPosition();
-                if (pos == RecyclerView.NO_POSITION)
-                    return;
-
-                TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
-                if (message == null)
-                    return;
-
-                boolean inbox = (EntityFolder.ARCHIVE.equals(message.folderType) || EntityFolder.TRASH.equals(message.folderType));
-
-                View itemView = viewHolder.itemView;
-                int margin = Helper.dp2pixels(getContext(), 12);
-
-                if (dX > margin) {
-                    // Right swipe
-                    Drawable d = getResources().getDrawable(
-                            inbox ? R.drawable.baseline_move_to_inbox_24 : R.drawable.baseline_archive_24,
-                            getContext().getTheme());
-                    int padding = (itemView.getHeight() - d.getIntrinsicHeight());
-                    d.setBounds(
-                            itemView.getLeft() + margin,
-                            itemView.getTop() + padding / 2,
-                            itemView.getLeft() + margin + d.getIntrinsicWidth(),
-                            itemView.getTop() + padding / 2 + d.getIntrinsicHeight());
-                    d.draw(canvas);
-                } else if (dX < -margin) {
-                    // Left swipe
-                    Drawable d = getResources().getDrawable(inbox ? R.drawable.baseline_move_to_inbox_24 : R.drawable.baseline_delete_24, getContext().getTheme());
-                    int padding = (itemView.getHeight() - d.getIntrinsicHeight());
-                    d.setBounds(
-                            itemView.getLeft() + itemView.getWidth() - d.getIntrinsicWidth() - margin,
-                            itemView.getTop() + padding / 2,
-                            itemView.getLeft() + itemView.getWidth() - margin,
-                            itemView.getTop() + padding / 2 + d.getIntrinsicHeight());
-                    d.draw(canvas);
-                }
-
-                super.onChildDraw(canvas, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
-            }
-
-            @Override
-            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                int pos = viewHolder.getAdapterPosition();
-                if (pos == RecyclerView.NO_POSITION)
-                    return;
-
-                TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
-                if (message == null)
-                    return;
-                Log.i("Swiped dir=" + direction + " message=" + message.id);
-
-                Bundle args = new Bundle();
-                args.putLong("id", message.id);
-                args.putBoolean("thread", viewType != AdapterMessage.ViewType.THREAD);
-                args.putInt("direction", direction);
-
-                new SimpleTask<MessageTarget>() {
-                    @Override
-                    protected MessageTarget onExecute(Context context, Bundle args) {
-                        long id = args.getLong("id");
-                        boolean thread = args.getBoolean("thread");
-                        int direction = args.getInt("direction");
-
-                        MessageTarget result = new MessageTarget();
-                        EntityFolder target = null;
-
-                        // Get target folder and hide message
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            EntityMessage message = db.message().getMessage(id);
-
-                            EntityFolder folder = db.folder().getFolder(message.folder);
-                            if (EntityFolder.ARCHIVE.equals(folder.type) || EntityFolder.TRASH.equals(folder.type))
-                                target = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
-                            else {
-                                if (direction == ItemTouchHelper.RIGHT)
-                                    target = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
-                                if (direction == ItemTouchHelper.LEFT || target == null)
-                                    target = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-                                if (target == null)
-                                    target = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
-                            }
-
-                            result.target = target;
-
-                            List<EntityMessage> messages = db.message().getMessageByThread(
-                                    message.account, message.thread, threading && thread ? null : id, message.folder);
-                            for (EntityMessage threaded : messages) {
-                                result.ids.add(threaded.id);
-                                db.message().setMessageUiHide(threaded.id, true);
-                                // Prevent new message notification on undo
-                                db.message().setMessageUiIgnored(threaded.id, true);
-                            }
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        return result;
-                    }
-
-                    @Override
-                    protected void onExecuted(final Bundle args, final MessageTarget result) {
-                        moveUndo(result);
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                    }
-                }.execute(FragmentMessages.this, args, "messages:swipe");
-            }
-        }).attachToRecyclerView(rvMessage);
+        new ItemTouchHelper(touchHelper).attachToRecyclerView(rvMessage);
 
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -632,62 +340,6 @@ public class FragmentMessages extends FragmentBase {
                     default:
                         return false;
                 }
-            }
-
-            private void onActionMove(String folderType) {
-                Bundle args = new Bundle();
-                args.putLong("account", account);
-                args.putString("thread", thread);
-                args.putLong("id", id);
-                args.putString("folderType", folderType);
-
-                new SimpleTask<MessageTarget>() {
-                    @Override
-                    protected MessageTarget onExecute(Context context, Bundle args) {
-                        long account = args.getLong("account");
-                        String thread = args.getString("thread");
-                        long id = args.getLong("id");
-                        String folderType = args.getString("folderType");
-
-                        MessageTarget result = new MessageTarget();
-
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            result.target = db.folder().getFolderByType(account, folderType);
-
-                            List<EntityMessage> messages = db.message().getMessageByThread(
-                                    account, thread, threading ? null : id, null);
-                            for (EntityMessage threaded : messages) {
-                                EntityFolder folder = db.folder().getFolder(threaded.folder);
-                                if (!result.target.id.equals(threaded.folder) &&
-                                        !EntityFolder.DRAFTS.equals(folder.type) &&
-                                        !EntityFolder.OUTBOX.equals(folder.type) &&
-                                        (!EntityFolder.SENT.equals(folder.type) || EntityFolder.TRASH.equals(result.target.type)) &&
-                                        !EntityFolder.TRASH.equals(folder.type) &&
-                                        !EntityFolder.JUNK.equals(folder.type))
-                                    result.ids.add(threaded.id);
-                            }
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        return result;
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, MessageTarget result) {
-                        moveAsk(result);
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                    }
-                }.execute(FragmentMessages.this, args, "messages:move");
             }
         });
 
@@ -720,517 +372,9 @@ public class FragmentMessages extends FragmentBase {
         });
 
         fabMore.setOnClickListener(new View.OnClickListener() {
-            private final int action_seen = 1;
-            private final int action_unseen = 2;
-            private final int action_snooze = 3;
-            private final int action_flag = 4;
-            private final int action_unflag = 5;
-            private final int action_archive = 6;
-            private final int action_trash = 7;
-            private final int action_delete = 8;
-            private final int action_junk = 9;
-            private final int action_move = 10;
-
             @Override
             public void onClick(View v) {
-                Bundle args = new Bundle();
-                args.putLong("folder", folder);
-                args.putLongArray("ids", getSelection());
-
-                new SimpleTask<Boolean[]>() {
-                    @Override
-                    protected Boolean[] onExecute(Context context, Bundle args) {
-                        long fid = args.getLong("folder");
-                        long[] ids = args.getLongArray("ids");
-
-                        Boolean[] result = new Boolean[10];
-                        for (int i = 0; i < result.length; i++)
-                            result[i] = false;
-
-                        DB db = DB.getInstance(context);
-
-                        long account = -1;
-                        for (long id : ids) {
-                            EntityMessage message = db.message().getMessage(id);
-                            if (message != null) {
-                                account = message.account;
-                                result[message.ui_seen ? 1 : 0] = true;
-                                result[message.flagged ? 3 : 2] = true;
-                            }
-                        }
-
-                        EntityFolder archive = db.folder().getFolderByType(account, EntityFolder.ARCHIVE);
-                        EntityFolder trash = db.folder().getFolderByType(account, EntityFolder.TRASH);
-
-                        result[4] = (archive != null);
-                        result[5] = (trash != null);
-
-                        EntityFolder folder = db.folder().getFolder(fid);
-                        if (folder != null) {
-                            result[6] = EntityFolder.ARCHIVE.equals(folder.type);
-                            result[7] = EntityFolder.TRASH.equals(folder.type);
-                            result[8] = EntityFolder.JUNK.equals(folder.type);
-                            result[9] = EntityFolder.DRAFTS.equals(folder.type);
-                        }
-
-                        return result;
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, final Boolean[] result) {
-                        PopupMenu popupMenu = new PopupMenu(getContext(), fabMore);
-
-                        if (result[0] && !result[9])
-                            popupMenu.getMenu().add(Menu.NONE, action_seen, 1, R.string.title_seen);
-                        if (result[1] && !result[9])
-                            popupMenu.getMenu().add(Menu.NONE, action_unseen, 2, R.string.title_unseen);
-
-                        popupMenu.getMenu().add(Menu.NONE, action_snooze, 3, R.string.title_snooze);
-
-                        if (result[2])
-                            popupMenu.getMenu().add(Menu.NONE, action_flag, 4, R.string.title_flag);
-                        if (result[3])
-                            popupMenu.getMenu().add(Menu.NONE, action_unflag, 5, R.string.title_unflag);
-
-                        if (result[4] && !result[6] && !result[9]) // has archive and not is archive
-                            popupMenu.getMenu().add(Menu.NONE, action_archive, 6, R.string.title_archive);
-
-                        if (result[7]) // is trash
-                            popupMenu.getMenu().add(Menu.NONE, action_delete, 7, R.string.title_delete);
-                        else if (result[5]) // has trash
-                            popupMenu.getMenu().add(Menu.NONE, action_trash, 8, R.string.title_trash);
-
-                        if (!result[8] && !result[9])
-                            popupMenu.getMenu().add(Menu.NONE, action_junk, 9, R.string.title_spam);
-
-                        if (!result[9])
-                            popupMenu.getMenu().add(Menu.NONE, action_move, 10, R.string.title_move);
-
-                        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                            @Override
-                            public boolean onMenuItemClick(MenuItem target) {
-                                switch (target.getItemId()) {
-                                    case action_seen:
-                                        onActionSeen(true);
-                                        return true;
-                                    case action_unseen:
-                                        onActionSeen(false);
-                                        return true;
-                                    case action_snooze:
-                                        onActionSnooze();
-                                        return true;
-                                    case action_flag:
-                                        onActionFlag(true);
-                                        return true;
-                                    case action_unflag:
-                                        onActionFlag(false);
-                                        return true;
-                                    case action_archive:
-                                        onActionMove(EntityFolder.ARCHIVE);
-                                        return true;
-                                    case action_trash:
-                                        onActionMove(EntityFolder.TRASH);
-                                        return true;
-                                    case action_delete:
-                                        onActionDelete();
-                                        return true;
-                                    case action_junk:
-                                        onActionJunk();
-                                        return true;
-                                    case action_move:
-                                        onActionMove();
-                                        return true;
-                                    default:
-                                        return false;
-                                }
-                            }
-                        });
-
-                        popupMenu.show();
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                    }
-                }.execute(FragmentMessages.this, args, "messages:more");
-            }
-
-            private long[] getSelection() {
-                Selection<Long> selection = selectionTracker.getSelection();
-
-                long[] ids = new long[selection.size()];
-                int i = 0;
-                for (Long id : selection)
-                    ids[i++] = id;
-
-                return ids;
-            }
-
-            private void onActionSeen(boolean seen) {
-                Bundle args = new Bundle();
-                args.putLongArray("ids", getSelection());
-                args.putBoolean("seen", seen);
-
-                selectionTracker.clearSelection();
-
-                new SimpleTask<Void>() {
-                    @Override
-                    protected Void onExecute(Context context, Bundle args) {
-                        long[] ids = args.getLongArray("ids");
-                        boolean seen = args.getBoolean("seen");
-
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            for (long id : ids) {
-                                EntityMessage message = db.message().getMessage(id);
-                                if (message != null && message.ui_seen != seen) {
-                                    List<EntityMessage> messages = db.message().getMessageByThread(
-                                            message.account, message.thread, threading ? null : id, message.folder);
-                                    for (EntityMessage threaded : messages)
-                                        EntityOperation.queue(context, db, threaded, EntityOperation.SEEN, seen);
-                                }
-                            }
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        return null;
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                    }
-                }.execute(FragmentMessages.this, args, "messages:seen");
-            }
-
-            private void onActionSnooze() {
-                DialogDuration.show(getContext(), getViewLifecycleOwner(), R.string.title_snooze,
-                        new DialogDuration.IDialogDuration() {
-                            @Override
-                            public void onDurationSelected(long duration, long time) {
-                                if (Helper.isPro(getContext())) {
-                                    Bundle args = new Bundle();
-                                    args.putLongArray("ids", getSelection());
-                                    args.putLong("wakeup", duration == 0 ? -1 : time);
-
-                                    new SimpleTask<Void>() {
-                                        @Override
-                                        protected Void onExecute(Context context, Bundle args) {
-                                            long[] ids = args.getLongArray("ids");
-                                            Long wakeup = args.getLong("wakeup");
-                                            if (wakeup < 0)
-                                                wakeup = null;
-
-                                            DB db = DB.getInstance(context);
-                                            for (long id : ids) {
-                                                EntityMessage message = db.message().getMessage(id);
-                                                if (message != null) {
-                                                    List<EntityMessage> messages = db.message().getMessageByThread(
-                                                            message.account, message.thread, threading ? null : id, message.folder);
-                                                    for (EntityMessage threaded : messages) {
-                                                        db.message().setMessageSnoozed(threaded.id, wakeup);
-                                                        EntityMessage.snooze(context, threaded.id, wakeup);
-                                                    }
-                                                }
-                                            }
-
-                                            return null;
-                                        }
-
-                                        @Override
-                                        protected void onException(Bundle args, Throwable ex) {
-                                            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                                        }
-                                    }.execute(FragmentMessages.this, args, "messages:snooze");
-                                } else {
-                                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                                    fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-                                    fragmentTransaction.commit();
-                                }
-                            }
-
-                            @Override
-                            public void onDismiss() {
-                                selectionTracker.clearSelection();
-                            }
-                        });
-            }
-
-            private void onActionFlag(boolean flagged) {
-                Bundle args = new Bundle();
-                args.putLongArray("ids", getSelection());
-                args.putBoolean("flagged", flagged);
-
-                selectionTracker.clearSelection();
-
-                new SimpleTask<Void>() {
-                    @Override
-                    protected Void onExecute(Context context, Bundle args) {
-                        long[] ids = args.getLongArray("ids");
-                        boolean flagged = args.getBoolean("flagged");
-
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            for (long id : ids) {
-                                EntityMessage message = db.message().getMessage(id);
-                                if (message != null && message.ui_flagged != flagged) {
-                                    List<EntityMessage> messages = db.message().getMessageByThread(
-                                            message.account, message.thread, threading ? null : id, message.folder);
-                                    for (EntityMessage threaded : messages)
-                                        EntityOperation.queue(context, db, threaded, EntityOperation.FLAG, flagged);
-                                }
-                            }
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        return null;
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                    }
-                }.execute(FragmentMessages.this, args, "messages:flag");
-            }
-
-            private void onActionJunk() {
-                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                        .setMessage(R.string.title_ask_spam)
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                onActionMove(EntityFolder.JUNK);
-                            }
-                        })
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show();
-            }
-
-            private void onActionDelete() {
-                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                        .setMessage(R.string.title_ask_delete_selected)
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Bundle args = new Bundle();
-                                args.putLongArray("ids", getSelection());
-
-                                selectionTracker.clearSelection();
-
-                                new SimpleTask<Void>() {
-                                    @Override
-                                    protected Void onExecute(Context context, Bundle args) {
-                                        long[] ids = args.getLongArray("ids");
-
-                                        DB db = DB.getInstance(context);
-                                        try {
-                                            db.beginTransaction();
-
-                                            for (long id : ids) {
-                                                EntityMessage message = db.message().getMessage(id);
-                                                if (message != null) {
-                                                    List<EntityMessage> messages = db.message().getMessageByThread(
-                                                            message.account, message.thread, threading ? null : id, message.folder);
-                                                    for (EntityMessage threaded : messages)
-                                                        if (threaded.uid != null)
-                                                            EntityOperation.queue(context, db, threaded, EntityOperation.DELETE);
-                                                }
-                                            }
-
-                                            db.setTransactionSuccessful();
-                                        } finally {
-                                            db.endTransaction();
-                                        }
-
-                                        return null;
-                                    }
-
-                                    @Override
-                                    protected void onException(Bundle args, Throwable ex) {
-                                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                                    }
-                                }.execute(FragmentMessages.this, args, "messages:delete");
-                            }
-                        })
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show();
-            }
-
-            private void onActionMove(String type) {
-                Bundle args = new Bundle();
-                args.putString("type", type);
-                args.putLongArray("ids", getSelection());
-
-                selectionTracker.clearSelection();
-
-                new SimpleTask<MessageTarget>() {
-                    @Override
-                    protected MessageTarget onExecute(Context context, Bundle args) {
-                        String type = args.getString("type");
-                        long[] ids = args.getLongArray("ids");
-
-                        MessageTarget result = new MessageTarget();
-
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            long account = -1;
-                            for (long id : ids) {
-                                EntityMessage message = db.message().getMessage(id);
-                                if (message != null) {
-                                    account = message.account;
-                                    List<EntityMessage> messages = db.message().getMessageByThread(
-                                            message.account, message.thread, threading ? null : id, message.folder);
-                                    for (EntityMessage threaded : messages)
-                                        result.ids.add(threaded.id);
-                                }
-                            }
-
-                            result.target = db.folder().getFolderByType(account, type);
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        return result;
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, MessageTarget result) {
-                        if (EntityFolder.JUNK.equals(result.target.type))
-                            moveAskConfirmed(result);
-                        else
-                            moveAsk(result);
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                    }
-                }.execute(FragmentMessages.this, args, "messages:move");
-            }
-
-            private void onActionMove() {
-                Bundle args = new Bundle();
-                args.putLong("folder", folder);
-                args.putLongArray("ids", getSelection());
-
-                new SimpleTask<List<EntityFolder>>() {
-                    @Override
-                    protected List<EntityFolder> onExecute(Context context, Bundle args) {
-                        long fid = args.getLong("folder");
-                        long[] ids = args.getLongArray("ids");
-
-                        DB db = DB.getInstance(context);
-
-                        long account = -1;
-                        for (long id : ids) {
-                            EntityMessage message = db.message().getMessage(id);
-                            if (message != null) {
-                                account = message.account;
-                                break;
-                            }
-                        }
-
-                        List<EntityFolder> folders = db.folder().getFolders(account);
-
-                        List<EntityFolder> targets = new ArrayList<>();
-                        for (EntityFolder folder : folders)
-                            if (!folder.hide &&
-                                    !EntityFolder.ARCHIVE.equals(folder.type) &&
-                                    !EntityFolder.TRASH.equals(folder.type) &&
-                                    !EntityFolder.JUNK.equals(folder.type) &&
-                                    (fid < 0 ? !folder.unified : !folder.id.equals(fid)))
-                                targets.add(folder);
-
-                        EntityFolder.sort(context, targets);
-
-                        return targets;
-                    }
-
-                    @Override
-                    protected void onExecuted(final Bundle args, List<EntityFolder> folders) {
-                        PopupMenu popupMenu = new PopupMenu(getContext(), popupAnchor);
-
-                        int order = 0;
-                        for (EntityFolder folder : folders)
-                            popupMenu.getMenu().add(Menu.NONE, folder.id.intValue(), order++, folder.getDisplayName(getContext()));
-
-                        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                            @Override
-                            public boolean onMenuItemClick(final MenuItem target) {
-                                args.putLong("target", target.getItemId());
-
-                                selectionTracker.clearSelection();
-
-                                new SimpleTask<MessageTarget>() {
-                                    @Override
-                                    protected MessageTarget onExecute(Context context, Bundle args) {
-                                        long[] ids = args.getLongArray("ids");
-                                        long target = args.getLong("target");
-
-                                        MessageTarget result = new MessageTarget();
-
-                                        DB db = DB.getInstance(context);
-                                        try {
-                                            db.beginTransaction();
-
-                                            result.target = db.folder().getFolder(target);
-
-                                            for (long id : ids) {
-                                                EntityMessage message = db.message().getMessage(id);
-                                                if (message != null) {
-                                                    List<EntityMessage> messages = db.message().getMessageByThread(
-                                                            message.account, message.thread, threading ? null : id, message.folder);
-                                                    for (EntityMessage threaded : messages)
-                                                        result.ids.add(threaded.id);
-                                                }
-                                            }
-
-                                            db.setTransactionSuccessful();
-                                        } finally {
-                                            db.endTransaction();
-                                        }
-
-                                        return result;
-                                    }
-
-                                    @Override
-                                    protected void onExecuted(Bundle args, MessageTarget result) {
-                                        moveAsk(result);
-                                    }
-
-                                    @Override
-                                    protected void onException(Bundle args, Throwable ex) {
-                                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                                    }
-                                }.execute(FragmentMessages.this, args, "messages:move");
-
-                                return true;
-                            }
-                        });
-
-                        popupMenu.show();
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                    }
-                }.execute(FragmentMessages.this, args, "messages:move");
+                onMore();
             }
         });
 
@@ -1247,6 +391,873 @@ public class FragmentMessages extends FragmentBase {
         fabMore.hide();
 
         return view;
+    }
+
+    private void onSwipeRefresh() {
+        Bundle args = new Bundle();
+        args.putLong("folder", folder);
+
+        new SimpleTask<Boolean>() {
+            @Override
+            protected Boolean onExecute(Context context, Bundle args) {
+                long fid = args.getLong("folder");
+
+                boolean connected = false;
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    List<EntityFolder> folders = new ArrayList<>();
+                    if (fid < 0) {
+                        List<EntityFolder> unified = db.folder().getFoldersSynchronizingUnified();
+                        if (unified != null)
+                            folders.addAll(unified);
+                    } else {
+                        EntityFolder folder = db.folder().getFolder(fid);
+                        if (folder != null)
+                            folders.add(folder);
+                    }
+
+                    for (EntityFolder folder : folders) {
+                        EntityOperation.sync(db, folder.id);
+
+                        if (folder.account == null) { // outbox
+                            if ("connected".equals(folder.state))
+                                connected = true;
+                        } else {
+                            EntityAccount account = db.account().getAccount(folder.account);
+                            if ("connected".equals(account.state))
+                                connected = true;
+                        }
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return connected;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Boolean connected) {
+                if (!connected) {
+                    swipeRefresh.setRefreshing(false);
+                    Snackbar.make(view, R.string.title_sync_queued, Snackbar.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(FragmentMessages.this, args, "messages:refresh");
+    }
+
+    private AdapterMessage.IProperties iProperties = new AdapterMessage.IProperties() {
+        @Override
+        public void setValue(String name, long id, boolean enabled) {
+            if (!values.containsKey(name))
+                values.put(name, new ArrayList<Long>());
+            if (enabled) {
+                values.get(name).add(id);
+                if ("expanded".equals(name))
+                    handleExpand(id);
+            } else
+                values.get(name).remove(id);
+        }
+
+        @Override
+        public boolean getValue(String name, long id) {
+            if (values.containsKey(name))
+                return values.get(name).contains(id);
+            else if ("addresses".equals(name))
+                return !addresses;
+            return false;
+        }
+
+        @Override
+        public void setBody(long id, Spanned body) {
+            if (body == null)
+                bodies.remove(id);
+            else
+                bodies.put(id, body);
+        }
+
+        @Override
+        public Spanned getBody(long id) {
+            return bodies.get(id);
+        }
+
+        @Override
+        public void scrollTo(final int pos, final int dy) {
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    rvMessage.scrollToPosition(pos);
+                    rvMessage.scrollBy(0, dy);
+                }
+            });
+        }
+
+        @Override
+        public void move(long id, String name, boolean type) {
+            Bundle args = new Bundle();
+            args.putLong("id", id);
+            args.putString("name", name);
+            args.putBoolean("type", type);
+
+            new SimpleTask<MessageTarget>() {
+                @Override
+                protected MessageTarget onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+                    String name = args.getString("name");
+                    boolean type = args.getBoolean("type");
+
+                    MessageTarget result = new MessageTarget();
+
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
+                        EntityMessage message = db.message().getMessage(id);
+                        if (type)
+                            result.target = db.folder().getFolderByType(message.account, name);
+                        else
+                            result.target = db.folder().getFolderByName(message.account, name);
+                        result.ids.add(message.id);
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    return result;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, MessageTarget result) {
+                    moveAsk(result);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                }
+            }.execute(FragmentMessages.this, args, "messages:move");
+        }
+    };
+
+    private ItemTouchHelper.Callback touchHelper = new ItemTouchHelper.Callback() {
+        @Override
+        public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            if (!prefs.getBoolean("swipe", true))
+                return 0;
+
+            if (selectionTracker != null && selectionTracker.hasSelection())
+                return 0;
+
+            int pos = viewHolder.getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return 0;
+
+            TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
+            if (message == null || message.uid == null ||
+                    (values.containsKey("expanded") && values.get("expanded").contains(message.id)) ||
+                    EntityFolder.DRAFTS.equals(message.folderType) ||
+                    EntityFolder.OUTBOX.equals(message.folderType))
+                return 0;
+
+            int flags = 0;
+            if (archives.contains(message.account))
+                flags |= ItemTouchHelper.RIGHT;
+            if (trashes.contains(message.account))
+                flags |= ItemTouchHelper.LEFT;
+
+            return makeMovementFlags(0, flags);
+        }
+
+        @Override
+        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onChildDraw(Canvas canvas, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+            int pos = viewHolder.getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return;
+
+            TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
+            if (message == null)
+                return;
+
+            boolean inbox = (EntityFolder.ARCHIVE.equals(message.folderType) || EntityFolder.TRASH.equals(message.folderType));
+
+            View itemView = viewHolder.itemView;
+            int margin = Helper.dp2pixels(getContext(), 12);
+
+            if (dX > margin) {
+                // Right swipe
+                Drawable d = getResources().getDrawable(
+                        inbox ? R.drawable.baseline_move_to_inbox_24 : R.drawable.baseline_archive_24,
+                        getContext().getTheme());
+                int padding = (itemView.getHeight() - d.getIntrinsicHeight());
+                d.setBounds(
+                        itemView.getLeft() + margin,
+                        itemView.getTop() + padding / 2,
+                        itemView.getLeft() + margin + d.getIntrinsicWidth(),
+                        itemView.getTop() + padding / 2 + d.getIntrinsicHeight());
+                d.draw(canvas);
+            } else if (dX < -margin) {
+                // Left swipe
+                Drawable d = getResources().getDrawable(inbox ? R.drawable.baseline_move_to_inbox_24 : R.drawable.baseline_delete_24, getContext().getTheme());
+                int padding = (itemView.getHeight() - d.getIntrinsicHeight());
+                d.setBounds(
+                        itemView.getLeft() + itemView.getWidth() - d.getIntrinsicWidth() - margin,
+                        itemView.getTop() + padding / 2,
+                        itemView.getLeft() + itemView.getWidth() - margin,
+                        itemView.getTop() + padding / 2 + d.getIntrinsicHeight());
+                d.draw(canvas);
+            }
+
+            super.onChildDraw(canvas, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+        }
+
+        @Override
+        public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+            int pos = viewHolder.getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return;
+
+            TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
+            if (message == null)
+                return;
+            Log.i("Swiped dir=" + direction + " message=" + message.id);
+
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+            args.putBoolean("thread", viewType != AdapterMessage.ViewType.THREAD);
+            args.putInt("direction", direction);
+
+            new SimpleTask<MessageTarget>() {
+                @Override
+                protected MessageTarget onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+                    boolean thread = args.getBoolean("thread");
+                    int direction = args.getInt("direction");
+
+                    MessageTarget result = new MessageTarget();
+                    EntityFolder target = null;
+
+                    // Get target folder and hide message
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
+                        EntityMessage message = db.message().getMessage(id);
+
+                        EntityFolder folder = db.folder().getFolder(message.folder);
+                        if (EntityFolder.ARCHIVE.equals(folder.type) || EntityFolder.TRASH.equals(folder.type))
+                            target = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
+                        else {
+                            if (direction == ItemTouchHelper.RIGHT)
+                                target = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
+                            if (direction == ItemTouchHelper.LEFT || target == null)
+                                target = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
+                            if (target == null)
+                                target = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
+                        }
+
+                        result.target = target;
+
+                        List<EntityMessage> messages = db.message().getMessageByThread(
+                                message.account, message.thread, threading && thread ? null : id, message.folder);
+                        for (EntityMessage threaded : messages) {
+                            result.ids.add(threaded.id);
+                            db.message().setMessageUiHide(threaded.id, true);
+                            // Prevent new message notification on undo
+                            db.message().setMessageUiIgnored(threaded.id, true);
+                        }
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    return result;
+                }
+
+                @Override
+                protected void onExecuted(final Bundle args, final MessageTarget result) {
+                    moveUndo(result);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                }
+            }.execute(FragmentMessages.this, args, "messages:swipe");
+        }
+    };
+
+    private void onActionMove(String folderType) {
+        Bundle args = new Bundle();
+        args.putLong("account", account);
+        args.putString("thread", thread);
+        args.putLong("id", id);
+        args.putString("folderType", folderType);
+
+        new SimpleTask<MessageTarget>() {
+            @Override
+            protected MessageTarget onExecute(Context context, Bundle args) {
+                long account = args.getLong("account");
+                String thread = args.getString("thread");
+                long id = args.getLong("id");
+                String folderType = args.getString("folderType");
+
+                MessageTarget result = new MessageTarget();
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    result.target = db.folder().getFolderByType(account, folderType);
+
+                    List<EntityMessage> messages = db.message().getMessageByThread(
+                            account, thread, threading ? null : id, null);
+                    for (EntityMessage threaded : messages) {
+                        EntityFolder folder = db.folder().getFolder(threaded.folder);
+                        if (!result.target.id.equals(threaded.folder) &&
+                                !EntityFolder.DRAFTS.equals(folder.type) &&
+                                !EntityFolder.OUTBOX.equals(folder.type) &&
+                                (!EntityFolder.SENT.equals(folder.type) || EntityFolder.TRASH.equals(result.target.type)) &&
+                                !EntityFolder.TRASH.equals(folder.type) &&
+                                !EntityFolder.JUNK.equals(folder.type))
+                            result.ids.add(threaded.id);
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return result;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, MessageTarget result) {
+                moveAsk(result);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(FragmentMessages.this, args, "messages:move");
+    }
+
+    private void onMore() {
+        Bundle args = new Bundle();
+        args.putLong("folder", folder);
+        args.putLongArray("ids", getSelection());
+
+        new SimpleTask<Boolean[]>() {
+            @Override
+            protected Boolean[] onExecute(Context context, Bundle args) {
+                long fid = args.getLong("folder");
+                long[] ids = args.getLongArray("ids");
+
+                Boolean[] result = new Boolean[10];
+                for (int i = 0; i < result.length; i++)
+                    result[i] = false;
+
+                DB db = DB.getInstance(context);
+
+                long account = -1;
+                for (long id : ids) {
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message != null) {
+                        account = message.account;
+                        result[message.ui_seen ? 1 : 0] = true;
+                        result[message.flagged ? 3 : 2] = true;
+                    }
+                }
+
+                EntityFolder archive = db.folder().getFolderByType(account, EntityFolder.ARCHIVE);
+                EntityFolder trash = db.folder().getFolderByType(account, EntityFolder.TRASH);
+
+                result[4] = (archive != null);
+                result[5] = (trash != null);
+
+                EntityFolder folder = db.folder().getFolder(fid);
+                if (folder != null) {
+                    result[6] = EntityFolder.ARCHIVE.equals(folder.type);
+                    result[7] = EntityFolder.TRASH.equals(folder.type);
+                    result[8] = EntityFolder.JUNK.equals(folder.type);
+                    result[9] = EntityFolder.DRAFTS.equals(folder.type);
+                }
+
+                return result;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, final Boolean[] result) {
+                PopupMenu popupMenu = new PopupMenu(getContext(), fabMore);
+
+                if (result[0] && !result[9])
+                    popupMenu.getMenu().add(Menu.NONE, action_seen, 1, R.string.title_seen);
+                if (result[1] && !result[9])
+                    popupMenu.getMenu().add(Menu.NONE, action_unseen, 2, R.string.title_unseen);
+
+                popupMenu.getMenu().add(Menu.NONE, action_snooze, 3, R.string.title_snooze);
+
+                if (result[2])
+                    popupMenu.getMenu().add(Menu.NONE, action_flag, 4, R.string.title_flag);
+                if (result[3])
+                    popupMenu.getMenu().add(Menu.NONE, action_unflag, 5, R.string.title_unflag);
+
+                if (result[4] && !result[6] && !result[9]) // has archive and not is archive
+                    popupMenu.getMenu().add(Menu.NONE, action_archive, 6, R.string.title_archive);
+
+                if (result[7]) // is trash
+                    popupMenu.getMenu().add(Menu.NONE, action_delete, 7, R.string.title_delete);
+                else if (result[5]) // has trash
+                    popupMenu.getMenu().add(Menu.NONE, action_trash, 8, R.string.title_trash);
+
+                if (!result[8] && !result[9])
+                    popupMenu.getMenu().add(Menu.NONE, action_junk, 9, R.string.title_spam);
+
+                if (!result[9])
+                    popupMenu.getMenu().add(Menu.NONE, action_move, 10, R.string.title_move);
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem target) {
+                        switch (target.getItemId()) {
+                            case action_seen:
+                                onActionSeenSelection(true);
+                                return true;
+                            case action_unseen:
+                                onActionSeenSelection(false);
+                                return true;
+                            case action_snooze:
+                                onActionSnoozeSelection();
+                                return true;
+                            case action_flag:
+                                onActionFlagSelection(true);
+                                return true;
+                            case action_unflag:
+                                onActionFlagSelection(false);
+                                return true;
+                            case action_archive:
+                                onActionMoveSelection(EntityFolder.ARCHIVE);
+                                return true;
+                            case action_trash:
+                                onActionMoveSelection(EntityFolder.TRASH);
+                                return true;
+                            case action_delete:
+                                onActionDeleteSelection();
+                                return true;
+                            case action_junk:
+                                onActionJunkSelection();
+                                return true;
+                            case action_move:
+                                onActionMoveSelection();
+                                return true;
+                            default:
+                                return false;
+                        }
+                    }
+                });
+
+                popupMenu.show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(FragmentMessages.this, args, "messages:more");
+    }
+
+    private long[] getSelection() {
+        Selection<Long> selection = selectionTracker.getSelection();
+
+        long[] ids = new long[selection.size()];
+        int i = 0;
+        for (Long id : selection)
+            ids[i++] = id;
+
+        return ids;
+    }
+
+    private void onActionSeenSelection(boolean seen) {
+        Bundle args = new Bundle();
+        args.putLongArray("ids", getSelection());
+        args.putBoolean("seen", seen);
+
+        selectionTracker.clearSelection();
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long[] ids = args.getLongArray("ids");
+                boolean seen = args.getBoolean("seen");
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    for (long id : ids) {
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message != null && message.ui_seen != seen) {
+                            List<EntityMessage> messages = db.message().getMessageByThread(
+                                    message.account, message.thread, threading ? null : id, message.folder);
+                            for (EntityMessage threaded : messages)
+                                EntityOperation.queue(context, db, threaded, EntityOperation.SEEN, seen);
+                        }
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(FragmentMessages.this, args, "messages:seen");
+    }
+
+    private void onActionSnoozeSelection() {
+        DialogDuration.show(getContext(), getViewLifecycleOwner(), R.string.title_snooze,
+                new DialogDuration.IDialogDuration() {
+                    @Override
+                    public void onDurationSelected(long duration, long time) {
+                        if (Helper.isPro(getContext())) {
+                            Bundle args = new Bundle();
+                            args.putLongArray("ids", getSelection());
+                            args.putLong("wakeup", duration == 0 ? -1 : time);
+
+                            new SimpleTask<Void>() {
+                                @Override
+                                protected Void onExecute(Context context, Bundle args) {
+                                    long[] ids = args.getLongArray("ids");
+                                    Long wakeup = args.getLong("wakeup");
+                                    if (wakeup < 0)
+                                        wakeup = null;
+
+                                    DB db = DB.getInstance(context);
+                                    for (long id : ids) {
+                                        EntityMessage message = db.message().getMessage(id);
+                                        if (message != null) {
+                                            List<EntityMessage> messages = db.message().getMessageByThread(
+                                                    message.account, message.thread, threading ? null : id, message.folder);
+                                            for (EntityMessage threaded : messages) {
+                                                db.message().setMessageSnoozed(threaded.id, wakeup);
+                                                EntityMessage.snooze(context, threaded.id, wakeup);
+                                            }
+                                        }
+                                    }
+
+                                    return null;
+                                }
+
+                                @Override
+                                protected void onException(Bundle args, Throwable ex) {
+                                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                                }
+                            }.execute(FragmentMessages.this, args, "messages:snooze");
+                        } else {
+                            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                            fragmentTransaction.commit();
+                        }
+                    }
+
+                    @Override
+                    public void onDismiss() {
+                        selectionTracker.clearSelection();
+                    }
+                });
+    }
+
+    private void onActionFlagSelection(boolean flagged) {
+        Bundle args = new Bundle();
+        args.putLongArray("ids", getSelection());
+        args.putBoolean("flagged", flagged);
+
+        selectionTracker.clearSelection();
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long[] ids = args.getLongArray("ids");
+                boolean flagged = args.getBoolean("flagged");
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    for (long id : ids) {
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message != null && message.ui_flagged != flagged) {
+                            List<EntityMessage> messages = db.message().getMessageByThread(
+                                    message.account, message.thread, threading ? null : id, message.folder);
+                            for (EntityMessage threaded : messages)
+                                EntityOperation.queue(context, db, threaded, EntityOperation.FLAG, flagged);
+                        }
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(FragmentMessages.this, args, "messages:flag");
+    }
+
+    private void onActionDeleteSelection() {
+        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                .setMessage(R.string.title_ask_delete_selected)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Bundle args = new Bundle();
+                        args.putLongArray("ids", getSelection());
+
+                        selectionTracker.clearSelection();
+
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onExecute(Context context, Bundle args) {
+                                long[] ids = args.getLongArray("ids");
+
+                                DB db = DB.getInstance(context);
+                                try {
+                                    db.beginTransaction();
+
+                                    for (long id : ids) {
+                                        EntityMessage message = db.message().getMessage(id);
+                                        if (message != null) {
+                                            List<EntityMessage> messages = db.message().getMessageByThread(
+                                                    message.account, message.thread, threading ? null : id, message.folder);
+                                            for (EntityMessage threaded : messages)
+                                                if (threaded.uid != null)
+                                                    EntityOperation.queue(context, db, threaded, EntityOperation.DELETE);
+                                        }
+                                    }
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
+                                }
+
+                                return null;
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                            }
+                        }.execute(FragmentMessages.this, args, "messages:delete");
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
+    }
+
+    private void onActionJunkSelection() {
+        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                .setMessage(R.string.title_ask_spam)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        onActionMoveSelection(EntityFolder.JUNK);
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
+    }
+
+    private void onActionMoveSelection(String type) {
+        Bundle args = new Bundle();
+        args.putString("type", type);
+        args.putLongArray("ids", getSelection());
+
+        selectionTracker.clearSelection();
+
+        new SimpleTask<MessageTarget>() {
+            @Override
+            protected MessageTarget onExecute(Context context, Bundle args) {
+                String type = args.getString("type");
+                long[] ids = args.getLongArray("ids");
+
+                MessageTarget result = new MessageTarget();
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    long account = -1;
+                    for (long id : ids) {
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message != null) {
+                            account = message.account;
+                            List<EntityMessage> messages = db.message().getMessageByThread(
+                                    message.account, message.thread, threading ? null : id, message.folder);
+                            for (EntityMessage threaded : messages)
+                                result.ids.add(threaded.id);
+                        }
+                    }
+
+                    result.target = db.folder().getFolderByType(account, type);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return result;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, MessageTarget result) {
+                if (EntityFolder.JUNK.equals(result.target.type))
+                    moveAskConfirmed(result);
+                else
+                    moveAsk(result);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(FragmentMessages.this, args, "messages:move");
+    }
+
+    private void onActionMoveSelection() {
+        Bundle args = new Bundle();
+        args.putLong("folder", folder);
+        args.putLongArray("ids", getSelection());
+
+        new SimpleTask<List<EntityFolder>>() {
+            @Override
+            protected List<EntityFolder> onExecute(Context context, Bundle args) {
+                long fid = args.getLong("folder");
+                long[] ids = args.getLongArray("ids");
+
+                DB db = DB.getInstance(context);
+
+                long account = -1;
+                for (long id : ids) {
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message != null) {
+                        account = message.account;
+                        break;
+                    }
+                }
+
+                List<EntityFolder> folders = db.folder().getFolders(account);
+
+                List<EntityFolder> targets = new ArrayList<>();
+                for (EntityFolder folder : folders)
+                    if (!folder.hide &&
+                            !EntityFolder.ARCHIVE.equals(folder.type) &&
+                            !EntityFolder.TRASH.equals(folder.type) &&
+                            !EntityFolder.JUNK.equals(folder.type) &&
+                            (fid < 0 ? !folder.unified : !folder.id.equals(fid)))
+                        targets.add(folder);
+
+                EntityFolder.sort(context, targets);
+
+                return targets;
+            }
+
+            @Override
+            protected void onExecuted(final Bundle args, List<EntityFolder> folders) {
+                PopupMenu popupMenu = new PopupMenu(getContext(), popupAnchor);
+
+                int order = 0;
+                for (EntityFolder folder : folders)
+                    popupMenu.getMenu().add(Menu.NONE, folder.id.intValue(), order++, folder.getDisplayName(getContext()));
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(final MenuItem target) {
+                        args.putLong("target", target.getItemId());
+
+                        selectionTracker.clearSelection();
+
+                        new SimpleTask<MessageTarget>() {
+                            @Override
+                            protected MessageTarget onExecute(Context context, Bundle args) {
+                                long[] ids = args.getLongArray("ids");
+                                long target = args.getLong("target");
+
+                                MessageTarget result = new MessageTarget();
+
+                                DB db = DB.getInstance(context);
+                                try {
+                                    db.beginTransaction();
+
+                                    result.target = db.folder().getFolder(target);
+
+                                    for (long id : ids) {
+                                        EntityMessage message = db.message().getMessage(id);
+                                        if (message != null) {
+                                            List<EntityMessage> messages = db.message().getMessageByThread(
+                                                    message.account, message.thread, threading ? null : id, message.folder);
+                                            for (EntityMessage threaded : messages)
+                                                result.ids.add(threaded.id);
+                                        }
+                                    }
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
+                                }
+
+                                return result;
+                            }
+
+                            @Override
+                            protected void onExecuted(Bundle args, MessageTarget result) {
+                                moveAsk(result);
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                            }
+                        }.execute(FragmentMessages.this, args, "messages:move");
+
+                        return true;
+                    }
+                });
+
+                popupMenu.show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(FragmentMessages.this, args, "messages:move");
     }
 
     @Override

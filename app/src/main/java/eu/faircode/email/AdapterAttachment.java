@@ -150,138 +150,151 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 return;
             final EntityAttachment attachment = filtered.get(pos);
 
-            if (view.getId() == R.id.ivDelete) {
-                Bundle args = new Bundle();
-                args.putLong("id", attachment.id);
-
-                new SimpleTask<Void>() {
-                    @Override
-                    protected Void onExecute(Context context, Bundle args) {
-                        DB.getInstance(context).attachment().deleteAttachment(attachment.id);
-                        EntityAttachment.getFile(context, attachment.id).delete();
-                        return null;
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(context, owner, ex);
-                    }
-                }.execute(context, owner, args, "attachment:delete");
-
-            } else if (view.getId() == R.id.ivSave) {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                lbm.sendBroadcast(
-                        new Intent(ActivityView.ACTION_STORE_ATTACHMENT)
-                                .putExtra("id", attachment.id)
-                                .putExtra("name", attachment.name)
-                                .putExtra("type", attachment.type));
-
-            } else {
-                if (attachment.available) {
-                    // Build file name
-                    File file = EntityAttachment.getFile(context, attachment.id);
-
-                    // https://developer.android.com/reference/android/support/v4/content/FileProvider
-                    final Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
-                    Log.i("uri=" + uri);
-
-                    // Build intent
-                    final Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setDataAndType(uri, attachment.type);
-                    intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                    if (!TextUtils.isEmpty(attachment.name))
-                        intent.putExtra(Intent.EXTRA_TITLE, attachment.name);
-                    Log.i("Sharing " + file + " type=" + attachment.type);
-                    Log.i("Intent=" + intent);
-
-                    // Get targets
-                    PackageManager pm = context.getPackageManager();
-                    List<NameResolveInfo> targets = new ArrayList<>();
-                    List<ResolveInfo> ris = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-                    for (ResolveInfo ri : ris) {
-                        if ("com.adobe.reader".equals(ri.activityInfo.packageName))
-                            Toast.makeText(context, R.string.title_no_adobe, Toast.LENGTH_LONG).show();
-                        Log.i("Target=" + ri);
-                        context.grantUriPermission(ri.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                        targets.add(new NameResolveInfo(
-                                pm.getApplicationIcon(ri.activityInfo.applicationInfo),
-                                pm.getApplicationLabel(ri.activityInfo.applicationInfo).toString(),
-                                ri));
-                    }
-
-                    // Check if viewer available
-                    if (ris.size() == 0) {
-                        Toast.makeText(context, context.getString(R.string.title_no_viewer, attachment.type), Toast.LENGTH_LONG).show();
-                        return;
-                    }
-
-                    if (confirm) {
-                        View dview = LayoutInflater.from(context).inflate(R.layout.dialog_attachment, null);
-                        final AlertDialog dialog = new DialogBuilderLifecycle(context, owner)
-                                .setView(dview)
-                                .setNegativeButton(android.R.string.cancel, null)
-                                .create();
-
-                        TextView tvName = dview.findViewById(R.id.tvName);
-                        TextView tvType = dview.findViewById(R.id.tvType);
-                        ListView lvApp = dview.findViewById(R.id.lvApp);
-
-                        tvName.setText(attachment.name);
-                        tvType.setText(attachment.type);
-
-                        lvApp.setAdapter(new TargetAdapter(context, R.layout.item_target, targets));
-                        lvApp.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                NameResolveInfo selected = (NameResolveInfo) parent.getItemAtPosition(position);
-                                intent.setPackage(selected.info.activityInfo.packageName);
-                                context.startActivity(intent);
-                                dialog.dismiss();
-                            }
-                        });
-
-                        dialog.show();
-                    } else
-                        context.startActivity(intent);
-                } else {
-                    if (attachment.progress == null) {
-                        Bundle args = new Bundle();
-                        args.putLong("id", attachment.id);
-                        args.putLong("message", attachment.message);
-                        args.putInt("sequence", attachment.sequence);
-
-                        new SimpleTask<Void>() {
-                            @Override
-                            protected Void onExecute(Context context, Bundle args) {
-                                long id = args.getLong("id");
-                                long message = args.getLong("message");
-                                long sequence = args.getInt("sequence");
-
-                                DB db = DB.getInstance(context);
-                                try {
-                                    db.beginTransaction();
-
-                                    db.attachment().setProgress(id, 0);
-
-                                    EntityMessage msg = db.message().getMessage(message);
-                                    EntityOperation.queue(context, db, msg, EntityOperation.ATTACHMENT, sequence);
-
-                                    db.setTransactionSuccessful();
-                                } finally {
-                                    db.endTransaction();
-                                }
-
-                                return null;
-                            }
-
-                            @Override
-                            protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(context, owner, ex);
-                            }
-                        }.execute(context, owner, args, "attachment:fetch");
-                    }
+            if (view.getId() == R.id.ivDelete)
+                onDelete(attachment);
+            else if (view.getId() == R.id.ivSave)
+                onSave(attachment);
+            else {
+                if (attachment.available)
+                    onShare(attachment);
+                else {
+                    if (attachment.progress == null)
+                        onDownload(attachment);
                 }
             }
+        }
+
+        private void onDelete(final EntityAttachment attachment) {
+            Bundle args = new Bundle();
+            args.putLong("id", attachment.id);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    DB.getInstance(context).attachment().deleteAttachment(attachment.id);
+                    EntityAttachment.getFile(context, attachment.id).delete();
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, owner, ex);
+                }
+            }.execute(context, owner, args, "attachment:delete");
+        }
+
+        private void onSave(EntityAttachment attachment) {
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            lbm.sendBroadcast(
+                    new Intent(ActivityView.ACTION_STORE_ATTACHMENT)
+                            .putExtra("id", attachment.id)
+                            .putExtra("name", attachment.name)
+                            .putExtra("type", attachment.type));
+        }
+
+        private void onShare(EntityAttachment attachment) {
+            // Build file name
+            File file = EntityAttachment.getFile(context, attachment.id);
+
+            // https://developer.android.com/reference/android/support/v4/content/FileProvider
+            final Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+            Log.i("uri=" + uri);
+
+            // Build intent
+            final Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setDataAndType(uri, attachment.type);
+            intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            if (!TextUtils.isEmpty(attachment.name))
+                intent.putExtra(Intent.EXTRA_TITLE, attachment.name);
+            Log.i("Sharing " + file + " type=" + attachment.type);
+            Log.i("Intent=" + intent);
+
+            // Get targets
+            PackageManager pm = context.getPackageManager();
+            List<NameResolveInfo> targets = new ArrayList<>();
+            List<ResolveInfo> ris = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+            for (ResolveInfo ri : ris) {
+                if ("com.adobe.reader".equals(ri.activityInfo.packageName))
+                    Toast.makeText(context, R.string.title_no_adobe, Toast.LENGTH_LONG).show();
+                Log.i("Target=" + ri);
+                context.grantUriPermission(ri.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                targets.add(new NameResolveInfo(
+                        pm.getApplicationIcon(ri.activityInfo.applicationInfo),
+                        pm.getApplicationLabel(ri.activityInfo.applicationInfo).toString(),
+                        ri));
+            }
+
+            // Check if viewer available
+            if (ris.size() == 0) {
+                Toast.makeText(context, context.getString(R.string.title_no_viewer, attachment.type), Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            if (confirm) {
+                View dview = LayoutInflater.from(context).inflate(R.layout.dialog_attachment, null);
+                final AlertDialog dialog = new DialogBuilderLifecycle(context, owner)
+                        .setView(dview)
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .create();
+
+                TextView tvName = dview.findViewById(R.id.tvName);
+                TextView tvType = dview.findViewById(R.id.tvType);
+                ListView lvApp = dview.findViewById(R.id.lvApp);
+
+                tvName.setText(attachment.name);
+                tvType.setText(attachment.type);
+
+                lvApp.setAdapter(new TargetAdapter(context, R.layout.item_target, targets));
+                lvApp.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        NameResolveInfo selected = (NameResolveInfo) parent.getItemAtPosition(position);
+                        intent.setPackage(selected.info.activityInfo.packageName);
+                        context.startActivity(intent);
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog.show();
+            } else
+                context.startActivity(intent);
+        }
+
+        private void onDownload(EntityAttachment attachment) {
+            Bundle args = new Bundle();
+            args.putLong("id", attachment.id);
+            args.putLong("message", attachment.message);
+            args.putInt("sequence", attachment.sequence);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+                    long message = args.getLong("message");
+                    long sequence = args.getInt("sequence");
+
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
+                        db.attachment().setProgress(id, 0);
+
+                        EntityMessage msg = db.message().getMessage(message);
+                        EntityOperation.queue(context, db, msg, EntityOperation.ATTACHMENT, sequence);
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, owner, ex);
+                }
+            }.execute(context, owner, args, "attachment:fetch");
         }
 
         private class NameResolveInfo {

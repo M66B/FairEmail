@@ -382,46 +382,7 @@ public class FragmentIdentity extends FragmentBase {
         btnAutoConfig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                etDomain.setEnabled(false);
-                btnAutoConfig.setEnabled(false);
-
-                Bundle args = new Bundle();
-                args.putString("domain", etDomain.getText().toString());
-
-                new SimpleTask<EmailProvider>() {
-                    @Override
-                    protected void onPreExecute(Bundle args) {
-                        etDomain.setEnabled(false);
-                        btnAutoConfig.setEnabled(false);
-                    }
-
-                    @Override
-                    protected void onPostExecute(Bundle args) {
-                        etDomain.setEnabled(true);
-                        btnAutoConfig.setEnabled(true);
-                    }
-
-                    @Override
-                    protected EmailProvider onExecute(Context context, Bundle args) throws Throwable {
-                        String domain = args.getString("domain");
-                        return EmailProvider.fromDomain(context, domain);
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, EmailProvider provider) {
-                        etHost.setText(provider.smtp_host);
-                        etPort.setText(Integer.toString(provider.smtp_port));
-                        cbStartTls.setChecked(provider.smtp_starttls);
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException)
-                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                        else
-                            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                    }
-                }.execute(FragmentIdentity.this, args, "identity:config");
+                onAutoConfig();
             }
         });
 
@@ -442,224 +403,7 @@ public class FragmentIdentity extends FragmentBase {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
-
-                String name = etName.getText().toString();
-                if (TextUtils.isEmpty(name)) {
-                    CharSequence hint = etName.getHint();
-                    if (!TextUtils.isEmpty(hint))
-                        name = hint.toString();
-                }
-
-                Bundle args = new Bundle();
-                args.putLong("id", id);
-                args.putString("name", name);
-                args.putString("email", etEmail.getText().toString().trim());
-                args.putString("display", etDisplay.getText().toString());
-                args.putString("replyto", etReplyTo.getText().toString().trim());
-                args.putString("bcc", etBcc.getText().toString().trim());
-                args.putBoolean("delivery_receipt", cbDeliveryReceipt.isChecked());
-                args.putBoolean("read_receipt", cbReadReceipt.isChecked());
-                args.putLong("account", account == null ? -1 : account.id);
-                args.putInt("auth_type", account == null || account.auth_type == null ? Helper.AUTH_TYPE_PASSWORD : account.auth_type);
-                args.putString("host", etHost.getText().toString());
-                args.putBoolean("starttls", cbStartTls.isChecked());
-                args.putBoolean("insecure", cbInsecure.isChecked());
-                args.putString("port", etPort.getText().toString());
-                args.putString("user", etUser.getText().toString());
-                args.putString("password", tilPassword.getEditText().getText().toString());
-                args.putString("realm", etRealm.getText().toString());
-                args.putInt("color", color);
-                args.putString("signature", Html.toHtml(etSignature.getText()));
-                args.putBoolean("synchronize", cbSynchronize.isChecked());
-                args.putBoolean("primary", cbPrimary.isChecked());
-                args.putSerializable("sent", (EntityFolder) spSent.getSelectedItem());
-
-                new SimpleTask<Void>() {
-                    @Override
-                    protected void onPreExecute(Bundle args) {
-                        Helper.setViewsEnabled(view, false);
-                        btnSave.setEnabled(false);
-                        pbSave.setVisibility(View.VISIBLE);
-                        tvError.setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    protected void onPostExecute(Bundle args) {
-                        Helper.setViewsEnabled(view, true);
-                        btnSave.setEnabled(true);
-                        pbSave.setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    protected Void onExecute(Context context, Bundle args) throws Throwable {
-                        long id = args.getLong("id");
-                        String name = args.getString("name");
-                        String email = args.getString("email");
-                        long account = args.getLong("account");
-
-                        String display = args.getString("display");
-                        Integer color = args.getInt("color");
-                        String signature = args.getString("signature");
-
-                        int auth_type = args.getInt("auth_type");
-                        String host = args.getString("host");
-                        boolean starttls = args.getBoolean("starttls");
-                        boolean insecure = args.getBoolean("insecure");
-                        String port = args.getString("port");
-                        String user = args.getString("user");
-                        String password = args.getString("password");
-                        String realm = args.getString("realm");
-                        boolean synchronize = args.getBoolean("synchronize");
-                        boolean primary = args.getBoolean("primary");
-
-                        String replyto = args.getString("replyto");
-                        String bcc = args.getString("bcc");
-                        boolean delivery_receipt = args.getBoolean("delivery_receipt");
-                        boolean read_receipt = args.getBoolean("read_receipt");
-                        EntityFolder sent = (EntityFolder) args.getSerializable("sent");
-
-                        if (TextUtils.isEmpty(name))
-                            throw new IllegalArgumentException(context.getString(R.string.title_no_name));
-                        if (TextUtils.isEmpty(email))
-                            throw new IllegalArgumentException(context.getString(R.string.title_no_email));
-                        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
-                            throw new IllegalArgumentException(context.getString(R.string.title_email_invalid));
-                        if (TextUtils.isEmpty(host))
-                            throw new IllegalArgumentException(context.getString(R.string.title_no_host));
-                        if (TextUtils.isEmpty(port))
-                            port = (starttls ? "587" : "465");
-                        if (TextUtils.isEmpty(user))
-                            throw new IllegalArgumentException(context.getString(R.string.title_no_user));
-                        if (synchronize && TextUtils.isEmpty(password) && !insecure)
-                            throw new IllegalArgumentException(context.getString(R.string.title_no_password));
-
-                        email = email.toLowerCase();
-
-                        if (TextUtils.isEmpty(display))
-                            display = null;
-
-                        if (TextUtils.isEmpty(realm))
-                            realm = null;
-
-                        if (TextUtils.isEmpty(replyto))
-                            replyto = null;
-                        else
-                            replyto = replyto.toLowerCase();
-
-                        if (TextUtils.isEmpty(bcc))
-                            bcc = null;
-                        else
-                            bcc = bcc.toLowerCase();
-
-                        if (Color.TRANSPARENT == color)
-                            color = null;
-
-                        DB db = DB.getInstance(context);
-                        EntityIdentity identity = db.identity().getIdentity(id);
-
-                        String identityRealm = (identity == null ? null : identity.realm);
-
-                        boolean check = (synchronize && (identity == null ||
-                                !host.equals(identity.host) || Integer.parseInt(port) != identity.port ||
-                                !user.equals(identity.user) || !password.equals(identity.password) ||
-                                realm == null ? identityRealm != null : !realm.equals(identityRealm)));
-                        boolean reload = (identity == null || identity.synchronize != synchronize || check);
-
-                        // Check SMTP server
-                        if (check) {
-                            String transportType = (starttls ? "smtp" : "smtps");
-                            Properties props = MessageHelper.getSessionProperties(auth_type, realm, insecure);
-                            Session isession = Session.getInstance(props, null);
-                            isession.setDebug(true);
-                            Transport itransport = isession.getTransport(transportType);
-                            try {
-                                try {
-                                    itransport.connect(host, Integer.parseInt(port), user, password);
-                                } catch (AuthenticationFailedException ex) {
-                                    if (auth_type == Helper.AUTH_TYPE_GMAIL) {
-                                        password = Helper.refreshToken(context, "com.google", user, password);
-                                        itransport.connect(host, Integer.parseInt(port), user, password);
-                                    } else
-                                        throw ex;
-                                }
-                            } finally {
-                                itransport.close();
-                            }
-                        }
-
-                        try {
-                            db.beginTransaction();
-
-                            boolean update = (identity != null);
-                            if (identity == null)
-                                identity = new EntityIdentity();
-                            identity.name = name;
-                            identity.email = email;
-                            identity.account = account;
-                            identity.display = display;
-                            identity.color = color;
-                            identity.signature = signature;
-
-                            identity.auth_type = auth_type;
-                            identity.host = host;
-                            identity.starttls = starttls;
-                            identity.insecure = insecure;
-                            identity.port = Integer.parseInt(port);
-                            identity.user = user;
-                            identity.password = password;
-                            identity.realm = realm;
-                            identity.synchronize = synchronize;
-                            identity.primary = (identity.synchronize && primary);
-
-                            identity.replyto = replyto;
-                            identity.bcc = bcc;
-                            identity.delivery_receipt = delivery_receipt;
-                            identity.read_receipt = read_receipt;
-                            identity.store_sent = false;
-                            identity.sent_folder = (sent == null ? null : sent.id);
-                            identity.error = null;
-
-                            if (identity.primary)
-                                db.identity().resetPrimary(account);
-
-                            if (update)
-                                db.identity().updateIdentity(identity);
-                            else
-                                identity.id = db.identity().insertIdentity(identity);
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        if (reload)
-                            ServiceSynchronize.reload(context, "save identity");
-
-                        return null;
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, Void data) {
-                        getFragmentManager().popBackStack();
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        if (ex instanceof IllegalArgumentException)
-                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                        else {
-                            tvError.setText(Helper.formatThrowable(ex));
-                            tvError.setVisibility(View.VISIBLE);
-                            new Handler().post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    ((ScrollView) view).smoothScrollTo(0, tvError.getBottom());
-                                }
-                            });
-                        }
-                    }
-                }.execute(FragmentIdentity.this, args, "identity:save");
+                onSave();
             }
         });
 
@@ -681,6 +425,270 @@ public class FragmentIdentity extends FragmentBase {
         grpAdvanced.setVisibility(View.GONE);
 
         return view;
+    }
+
+    private void onAutoConfig() {
+        etDomain.setEnabled(false);
+        btnAutoConfig.setEnabled(false);
+
+        Bundle args = new Bundle();
+        args.putString("domain", etDomain.getText().toString());
+
+        new SimpleTask<EmailProvider>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                etDomain.setEnabled(false);
+                btnAutoConfig.setEnabled(false);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                etDomain.setEnabled(true);
+                btnAutoConfig.setEnabled(true);
+            }
+
+            @Override
+            protected EmailProvider onExecute(Context context, Bundle args) throws Throwable {
+                String domain = args.getString("domain");
+                return EmailProvider.fromDomain(context, domain);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, EmailProvider provider) {
+                etHost.setText(provider.smtp_host);
+                etPort.setText(Integer.toString(provider.smtp_port));
+                cbStartTls.setChecked(provider.smtp_starttls);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(FragmentIdentity.this, args, "identity:config");
+    }
+
+    private void onSave() {
+        EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
+
+        String name = etName.getText().toString();
+        if (TextUtils.isEmpty(name)) {
+            CharSequence hint = etName.getHint();
+            if (!TextUtils.isEmpty(hint))
+                name = hint.toString();
+        }
+
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+        args.putString("name", name);
+        args.putString("email", etEmail.getText().toString().trim());
+        args.putString("display", etDisplay.getText().toString());
+        args.putString("replyto", etReplyTo.getText().toString().trim());
+        args.putString("bcc", etBcc.getText().toString().trim());
+        args.putBoolean("delivery_receipt", cbDeliveryReceipt.isChecked());
+        args.putBoolean("read_receipt", cbReadReceipt.isChecked());
+        args.putLong("account", account == null ? -1 : account.id);
+        args.putInt("auth_type", account == null || account.auth_type == null ? Helper.AUTH_TYPE_PASSWORD : account.auth_type);
+        args.putString("host", etHost.getText().toString());
+        args.putBoolean("starttls", cbStartTls.isChecked());
+        args.putBoolean("insecure", cbInsecure.isChecked());
+        args.putString("port", etPort.getText().toString());
+        args.putString("user", etUser.getText().toString());
+        args.putString("password", tilPassword.getEditText().getText().toString());
+        args.putString("realm", etRealm.getText().toString());
+        args.putInt("color", color);
+        args.putString("signature", Html.toHtml(etSignature.getText()));
+        args.putBoolean("synchronize", cbSynchronize.isChecked());
+        args.putBoolean("primary", cbPrimary.isChecked());
+        args.putSerializable("sent", (EntityFolder) spSent.getSelectedItem());
+
+        new SimpleTask<Void>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                Helper.setViewsEnabled(view, false);
+                btnSave.setEnabled(false);
+                pbSave.setVisibility(View.VISIBLE);
+                tvError.setVisibility(View.GONE);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                Helper.setViewsEnabled(view, true);
+                btnSave.setEnabled(true);
+                pbSave.setVisibility(View.GONE);
+            }
+
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                String name = args.getString("name");
+                String email = args.getString("email");
+                long account = args.getLong("account");
+
+                String display = args.getString("display");
+                Integer color = args.getInt("color");
+                String signature = args.getString("signature");
+
+                int auth_type = args.getInt("auth_type");
+                String host = args.getString("host");
+                boolean starttls = args.getBoolean("starttls");
+                boolean insecure = args.getBoolean("insecure");
+                String port = args.getString("port");
+                String user = args.getString("user");
+                String password = args.getString("password");
+                String realm = args.getString("realm");
+                boolean synchronize = args.getBoolean("synchronize");
+                boolean primary = args.getBoolean("primary");
+
+                String replyto = args.getString("replyto");
+                String bcc = args.getString("bcc");
+                boolean delivery_receipt = args.getBoolean("delivery_receipt");
+                boolean read_receipt = args.getBoolean("read_receipt");
+                EntityFolder sent = (EntityFolder) args.getSerializable("sent");
+
+                if (TextUtils.isEmpty(name))
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_name));
+                if (TextUtils.isEmpty(email))
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_email));
+                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+                    throw new IllegalArgumentException(context.getString(R.string.title_email_invalid));
+                if (TextUtils.isEmpty(host))
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_host));
+                if (TextUtils.isEmpty(port))
+                    port = (starttls ? "587" : "465");
+                if (TextUtils.isEmpty(user))
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_user));
+                if (synchronize && TextUtils.isEmpty(password) && !insecure)
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_password));
+
+                email = email.toLowerCase();
+
+                if (TextUtils.isEmpty(display))
+                    display = null;
+
+                if (TextUtils.isEmpty(realm))
+                    realm = null;
+
+                if (TextUtils.isEmpty(replyto))
+                    replyto = null;
+                else
+                    replyto = replyto.toLowerCase();
+
+                if (TextUtils.isEmpty(bcc))
+                    bcc = null;
+                else
+                    bcc = bcc.toLowerCase();
+
+                if (Color.TRANSPARENT == color)
+                    color = null;
+
+                DB db = DB.getInstance(context);
+                EntityIdentity identity = db.identity().getIdentity(id);
+
+                String identityRealm = (identity == null ? null : identity.realm);
+
+                boolean check = (synchronize && (identity == null ||
+                        !host.equals(identity.host) || Integer.parseInt(port) != identity.port ||
+                        !user.equals(identity.user) || !password.equals(identity.password) ||
+                        realm == null ? identityRealm != null : !realm.equals(identityRealm)));
+                boolean reload = (identity == null || identity.synchronize != synchronize || check);
+
+                // Check SMTP server
+                if (check) {
+                    String transportType = (starttls ? "smtp" : "smtps");
+                    Properties props = MessageHelper.getSessionProperties(auth_type, realm, insecure);
+                    Session isession = Session.getInstance(props, null);
+                    isession.setDebug(true);
+                    Transport itransport = isession.getTransport(transportType);
+                    try {
+                        try {
+                            itransport.connect(host, Integer.parseInt(port), user, password);
+                        } catch (AuthenticationFailedException ex) {
+                            if (auth_type == Helper.AUTH_TYPE_GMAIL) {
+                                password = Helper.refreshToken(context, "com.google", user, password);
+                                itransport.connect(host, Integer.parseInt(port), user, password);
+                            } else
+                                throw ex;
+                        }
+                    } finally {
+                        itransport.close();
+                    }
+                }
+
+                try {
+                    db.beginTransaction();
+
+                    boolean update = (identity != null);
+                    if (identity == null)
+                        identity = new EntityIdentity();
+                    identity.name = name;
+                    identity.email = email;
+                    identity.account = account;
+                    identity.display = display;
+                    identity.color = color;
+                    identity.signature = signature;
+
+                    identity.auth_type = auth_type;
+                    identity.host = host;
+                    identity.starttls = starttls;
+                    identity.insecure = insecure;
+                    identity.port = Integer.parseInt(port);
+                    identity.user = user;
+                    identity.password = password;
+                    identity.realm = realm;
+                    identity.synchronize = synchronize;
+                    identity.primary = (identity.synchronize && primary);
+
+                    identity.replyto = replyto;
+                    identity.bcc = bcc;
+                    identity.delivery_receipt = delivery_receipt;
+                    identity.read_receipt = read_receipt;
+                    identity.store_sent = false;
+                    identity.sent_folder = (sent == null ? null : sent.id);
+                    identity.error = null;
+
+                    if (identity.primary)
+                        db.identity().resetPrimary(account);
+
+                    if (update)
+                        db.identity().updateIdentity(identity);
+                    else
+                        identity.id = db.identity().insertIdentity(identity);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                if (reload)
+                    ServiceSynchronize.reload(context, "save identity");
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                getFragmentManager().popBackStack();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else {
+                    tvError.setText(Helper.formatThrowable(ex));
+                    tvError.setVisibility(View.VISIBLE);
+                    new Handler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            ((ScrollView) view).smoothScrollTo(0, tvError.getBottom());
+                        }
+                    });
+                }
+            }
+        }.execute(FragmentIdentity.this, args, "identity:save");
     }
 
     @Override

@@ -126,140 +126,7 @@ public class FragmentFolder extends FragmentBase {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle args = new Bundle();
-                args.putLong("id", id);
-                args.putLong("account", account);
-                args.putString("name", etName.getText().toString());
-                args.putString("display", etDisplay.getText().toString());
-                args.putBoolean("hide", cbHide.isChecked());
-                args.putBoolean("unified", cbUnified.isChecked());
-                args.putBoolean("notify", cbNotify.getVisibility() == View.VISIBLE && cbNotify.isChecked());
-                args.putBoolean("synchronize", cbSynchronize.isChecked());
-                args.putBoolean("poll", cbPoll.isChecked());
-                args.putBoolean("download", cbDownload.isChecked());
-                args.putString("sync", etSyncDays.getText().toString());
-                args.putString("keep", cbKeepAll.isChecked()
-                        ? Integer.toString(Integer.MAX_VALUE)
-                        : etKeepDays.getText().toString());
-
-                new SimpleTask<Void>() {
-                    @Override
-                    protected void onPreExecute(Bundle args) {
-                        Helper.setViewsEnabled(view, false);
-                        btnSave.setEnabled(false);
-                        pbSave.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    protected void onPostExecute(Bundle args) {
-                        Helper.setViewsEnabled(view, true);
-                        btnSave.setEnabled(true);
-                        pbSave.setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    protected Void onExecute(Context context, Bundle args) {
-                        long id = args.getLong("id");
-                        long aid = args.getLong("account");
-                        String name = args.getString("name");
-                        String display = args.getString("display");
-                        boolean hide = args.getBoolean("hide");
-                        boolean unified = args.getBoolean("unified");
-                        boolean notify = args.getBoolean("notify");
-                        boolean synchronize = args.getBoolean("synchronize");
-                        boolean poll = args.getBoolean("poll");
-                        boolean download = args.getBoolean("download");
-                        String sync = args.getString("sync");
-                        String keep = args.getString("keep");
-
-                        if (TextUtils.isEmpty(display) || display.equals(name))
-                            display = null;
-                        int sync_days = (TextUtils.isEmpty(sync) ? EntityFolder.DEFAULT_SYNC : Integer.parseInt(sync));
-                        int keep_days = (TextUtils.isEmpty(keep) ? EntityFolder.DEFAULT_KEEP : Integer.parseInt(keep));
-                        if (keep_days < sync_days)
-                            keep_days = sync_days;
-
-                        boolean reload;
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            EntityFolder folder = db.folder().getFolder(id);
-
-                            if (folder == null) {
-                                reload = true;
-                                Log.i("Creating folder=" + name);
-
-                                if (TextUtils.isEmpty(name))
-                                    throw new IllegalArgumentException(getString(R.string.title_folder_name_missing));
-
-                                EntityFolder create = new EntityFolder();
-                                create.account = aid;
-                                create.name = name;
-                                create.level = 0;
-                                create.display = display;
-                                create.hide = hide;
-                                create.type = EntityFolder.USER;
-                                create.unified = unified;
-                                create.notify = notify;
-                                create.synchronize = synchronize;
-                                create.poll = poll;
-                                create.download = download;
-                                create.sync_days = sync_days;
-                                create.keep_days = keep_days;
-                                create.tbc = true;
-                                db.folder().insertFolder(create);
-                            } else {
-                                reload = (!folder.synchronize.equals(synchronize) ||
-                                        !folder.poll.equals(poll));
-
-                                Calendar cal_keep = Calendar.getInstance();
-                                cal_keep.add(Calendar.DAY_OF_MONTH, -keep_days);
-                                cal_keep.set(Calendar.HOUR_OF_DAY, 12);
-                                cal_keep.set(Calendar.MINUTE, 0);
-                                cal_keep.set(Calendar.SECOND, 0);
-                                cal_keep.set(Calendar.MILLISECOND, 0);
-
-                                long keep_time = cal_keep.getTimeInMillis();
-                                if (keep_time < 0)
-                                    keep_time = 0;
-
-                                Log.i("Updating folder=" + name);
-                                db.folder().setFolderProperties(id,
-                                        display, unified, notify, hide,
-                                        synchronize, poll, download,
-                                        sync_days, keep_days);
-                                db.folder().setFolderError(id, null);
-
-                                db.message().deleteMessagesBefore(id, keep_time, true);
-
-                                EntityOperation.sync(db, folder.id);
-                            }
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        if (reload)
-                            ServiceSynchronize.reload(context, "save folder");
-
-                        return null;
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, Void data) {
-                        getFragmentManager().popBackStack();
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        if (ex instanceof IllegalArgumentException)
-                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                        else
-                            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                    }
-                }.execute(FragmentFolder.this, args, "folder:save");
+                onSave();
             }
         });
 
@@ -270,6 +137,143 @@ public class FragmentFolder extends FragmentBase {
         pbWait.setVisibility(View.VISIBLE);
 
         return view;
+    }
+
+    private void onSave() {
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+        args.putLong("account", account);
+        args.putString("name", etName.getText().toString());
+        args.putString("display", etDisplay.getText().toString());
+        args.putBoolean("hide", cbHide.isChecked());
+        args.putBoolean("unified", cbUnified.isChecked());
+        args.putBoolean("notify", cbNotify.getVisibility() == View.VISIBLE && cbNotify.isChecked());
+        args.putBoolean("synchronize", cbSynchronize.isChecked());
+        args.putBoolean("poll", cbPoll.isChecked());
+        args.putBoolean("download", cbDownload.isChecked());
+        args.putString("sync", etSyncDays.getText().toString());
+        args.putString("keep", cbKeepAll.isChecked()
+                ? Integer.toString(Integer.MAX_VALUE)
+                : etKeepDays.getText().toString());
+
+        new SimpleTask<Void>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                Helper.setViewsEnabled(view, false);
+                btnSave.setEnabled(false);
+                pbSave.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                Helper.setViewsEnabled(view, true);
+                btnSave.setEnabled(true);
+                pbSave.setVisibility(View.GONE);
+            }
+
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+                long aid = args.getLong("account");
+                String name = args.getString("name");
+                String display = args.getString("display");
+                boolean hide = args.getBoolean("hide");
+                boolean unified = args.getBoolean("unified");
+                boolean notify = args.getBoolean("notify");
+                boolean synchronize = args.getBoolean("synchronize");
+                boolean poll = args.getBoolean("poll");
+                boolean download = args.getBoolean("download");
+                String sync = args.getString("sync");
+                String keep = args.getString("keep");
+
+                if (TextUtils.isEmpty(display) || display.equals(name))
+                    display = null;
+                int sync_days = (TextUtils.isEmpty(sync) ? EntityFolder.DEFAULT_SYNC : Integer.parseInt(sync));
+                int keep_days = (TextUtils.isEmpty(keep) ? EntityFolder.DEFAULT_KEEP : Integer.parseInt(keep));
+                if (keep_days < sync_days)
+                    keep_days = sync_days;
+
+                boolean reload;
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    EntityFolder folder = db.folder().getFolder(id);
+
+                    if (folder == null) {
+                        reload = true;
+                        Log.i("Creating folder=" + name);
+
+                        if (TextUtils.isEmpty(name))
+                            throw new IllegalArgumentException(getString(R.string.title_folder_name_missing));
+
+                        EntityFolder create = new EntityFolder();
+                        create.account = aid;
+                        create.name = name;
+                        create.level = 0;
+                        create.display = display;
+                        create.hide = hide;
+                        create.type = EntityFolder.USER;
+                        create.unified = unified;
+                        create.notify = notify;
+                        create.synchronize = synchronize;
+                        create.poll = poll;
+                        create.download = download;
+                        create.sync_days = sync_days;
+                        create.keep_days = keep_days;
+                        create.tbc = true;
+                        db.folder().insertFolder(create);
+                    } else {
+                        reload = (!folder.synchronize.equals(synchronize) ||
+                                !folder.poll.equals(poll));
+
+                        Calendar cal_keep = Calendar.getInstance();
+                        cal_keep.add(Calendar.DAY_OF_MONTH, -keep_days);
+                        cal_keep.set(Calendar.HOUR_OF_DAY, 12);
+                        cal_keep.set(Calendar.MINUTE, 0);
+                        cal_keep.set(Calendar.SECOND, 0);
+                        cal_keep.set(Calendar.MILLISECOND, 0);
+
+                        long keep_time = cal_keep.getTimeInMillis();
+                        if (keep_time < 0)
+                            keep_time = 0;
+
+                        Log.i("Updating folder=" + name);
+                        db.folder().setFolderProperties(id,
+                                display, unified, notify, hide,
+                                synchronize, poll, download,
+                                sync_days, keep_days);
+                        db.folder().setFolderError(id, null);
+
+                        db.message().deleteMessagesBefore(id, keep_time, true);
+
+                        EntityOperation.sync(db, folder.id);
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                if (reload)
+                    ServiceSynchronize.reload(context, "save folder");
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                getFragmentManager().popBackStack();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(FragmentFolder.this, args, "folder:save");
     }
 
     @Override

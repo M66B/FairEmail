@@ -267,43 +267,7 @@ public class FragmentAccount extends FragmentBase {
         btnAutoConfig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle args = new Bundle();
-                args.putString("domain", etDomain.getText().toString());
-
-                new SimpleTask<EmailProvider>() {
-                    @Override
-                    protected void onPreExecute(Bundle args) {
-                        etDomain.setEnabled(false);
-                        btnAutoConfig.setEnabled(false);
-                    }
-
-                    @Override
-                    protected void onPostExecute(Bundle args) {
-                        etDomain.setEnabled(true);
-                        btnAutoConfig.setEnabled(true);
-                    }
-
-                    @Override
-                    protected EmailProvider onExecute(Context context, Bundle args) throws Throwable {
-                        String domain = args.getString("domain");
-                        return EmailProvider.fromDomain(context, domain);
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, EmailProvider provider) {
-                        etHost.setText(provider.imap_host);
-                        etPort.setText(Integer.toString(provider.imap_port));
-                        cbStartTls.setChecked(provider.imap_starttls);
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException)
-                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                        else
-                            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                    }
-                }.execute(FragmentAccount.this, args, "account:config");
+                onAutoConfig();
             }
         });
 
@@ -418,526 +382,14 @@ public class FragmentAccount extends FragmentBase {
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
-
-                Bundle args = new Bundle();
-                args.putLong("id", id);
-                args.putString("host", etHost.getText().toString());
-                args.putBoolean("starttls", cbStartTls.isChecked());
-                args.putBoolean("insecure", cbInsecure.isChecked());
-                args.putString("port", etPort.getText().toString());
-                args.putString("user", etUser.getText().toString());
-                args.putString("password", tilPassword.getEditText().getText().toString());
-                args.putString("realm", etRealm.getText().toString());
-                args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
-
-                new SimpleTask<CheckResult>() {
-                    @Override
-                    protected void onPreExecute(Bundle args) {
-                        Helper.setViewsEnabled(view, false);
-                        btnAuthorize.setEnabled(false);
-                        btnCheck.setEnabled(false);
-                        pbCheck.setVisibility(View.VISIBLE);
-                        tvIdle.setVisibility(View.GONE);
-                        grpFolders.setVisibility(View.GONE);
-                        btnSave.setVisibility(View.GONE);
-                        tvError.setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    protected void onPostExecute(Bundle args) {
-                        Helper.setViewsEnabled(view, true);
-                        btnAuthorize.setEnabled(true);
-                        btnCheck.setEnabled(true);
-                        pbCheck.setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    protected CheckResult onExecute(Context context, Bundle args) throws Throwable {
-                        long id = args.getLong("id");
-                        String host = args.getString("host");
-                        boolean starttls = args.getBoolean("starttls");
-                        boolean insecure = args.getBoolean("insecure");
-                        String port = args.getString("port");
-                        String user = args.getString("user");
-                        String password = args.getString("password");
-                        String realm = args.getString("realm");
-                        int auth_type = args.getInt("auth_type");
-
-                        if (TextUtils.isEmpty(host))
-                            throw new IllegalArgumentException(context.getString(R.string.title_no_host));
-                        if (TextUtils.isEmpty(port))
-                            port = (starttls ? "143" : "993");
-                        if (TextUtils.isEmpty(user))
-                            throw new IllegalArgumentException(context.getString(R.string.title_no_user));
-                        if (TextUtils.isEmpty(password) && !insecure)
-                            throw new IllegalArgumentException(context.getString(R.string.title_no_password));
-
-                        if (TextUtils.isEmpty(realm))
-                            realm = null;
-
-                        CheckResult result = new CheckResult();
-                        result.folders = new ArrayList<>();
-
-                        // Check IMAP server / get folders
-                        Properties props = MessageHelper.getSessionProperties(auth_type, realm, insecure);
-                        Session isession = Session.getInstance(props, null);
-                        isession.setDebug(true);
-                        IMAPStore istore = null;
-                        try {
-                            istore = (IMAPStore) isession.getStore(starttls ? "imap" : "imaps");
-                            try {
-                                istore.connect(host, Integer.parseInt(port), user, password);
-                            } catch (AuthenticationFailedException ex) {
-                                if (auth_type == Helper.AUTH_TYPE_GMAIL) {
-                                    password = Helper.refreshToken(context, "com.google", user, password);
-                                    istore.connect(host, Integer.parseInt(port), user, password);
-                                } else
-                                    throw ex;
-                            }
-
-                            result.idle = istore.hasCapability("IDLE");
-
-                            boolean archive = false;
-                            boolean drafts = false;
-                            boolean trash = false;
-                            boolean sent = false;
-                            boolean junk = false;
-                            EntityFolder altArchive = null;
-                            EntityFolder altDrafts = null;
-                            EntityFolder altTrash = null;
-                            EntityFolder altSent = null;
-                            EntityFolder altJunk = null;
-
-                            for (Folder ifolder : istore.getDefaultFolder().list("*")) {
-                                // Check folder attributes
-                                String type = null;
-                                boolean selectable = true;
-                                String[] attrs = ((IMAPFolder) ifolder).getAttributes();
-                                Log.i(ifolder.getFullName() + " attrs=" + TextUtils.join(" ", attrs));
-                                for (String attr : attrs) {
-                                    if ("\\Noselect".equals(attr) || "\\NonExistent".equals(attr))
-                                        selectable = false;
-                                    if (attr.startsWith("\\")) {
-                                        int index = EntityFolder.SYSTEM_FOLDER_ATTR.indexOf(attr.substring(1));
-                                        if (index >= 0) {
-                                            type = EntityFolder.SYSTEM_FOLDER_TYPE.get(index);
-                                            break;
-                                        }
-                                    }
-                                }
-
-                                if (selectable) {
-                                    // Create entry
-                                    DB db = DB.getInstance(context);
-                                    EntityFolder folder = db.folder().getFolderByName(id, ifolder.getFullName());
-                                    if (folder == null) {
-                                        int sync = EntityFolder.SYSTEM_FOLDER_SYNC.indexOf(type);
-                                        folder = new EntityFolder();
-                                        folder.name = ifolder.getFullName();
-                                        folder.type = (type == null ? EntityFolder.USER : type);
-                                        folder.synchronize = (sync >= 0);
-                                        folder.download = (sync < 0 ? true : EntityFolder.SYSTEM_FOLDER_DOWNLOAD.get(sync));
-                                        folder.sync_days = EntityFolder.DEFAULT_SYNC;
-                                        folder.keep_days = EntityFolder.DEFAULT_KEEP;
-                                    }
-                                    result.folders.add(folder);
-
-                                    if (type == null) {
-                                        if (folder.name.toLowerCase().contains("archive"))
-                                            altArchive = folder;
-                                        if (folder.name.toLowerCase().contains("draft"))
-                                            altDrafts = folder;
-                                        if (folder.name.toLowerCase().contains("trash"))
-                                            altTrash = folder;
-                                        if (folder.name.toLowerCase().contains("sent"))
-                                            altSent = folder;
-                                        if (folder.name.toLowerCase().contains("junk"))
-                                            altJunk = folder;
-                                    } else {
-                                        if (EntityFolder.ARCHIVE.equals(type))
-                                            archive = true;
-                                        else if (EntityFolder.DRAFTS.equals(type))
-                                            drafts = true;
-                                        else if (EntityFolder.TRASH.equals(type))
-                                            trash = true;
-                                        else if (EntityFolder.SENT.equals(type))
-                                            sent = true;
-                                        else if (EntityFolder.JUNK.equals(type))
-                                            junk = true;
-                                    }
-
-                                    Log.i(folder.name + " id=" + folder.id +
-                                            " type=" + folder.type + " attr=" + TextUtils.join(",", attrs));
-                                }
-                            }
-
-                            if (!archive && altArchive != null)
-                                altArchive.type = EntityFolder.ARCHIVE;
-                            if (!drafts && altDrafts != null)
-                                altDrafts.type = EntityFolder.DRAFTS;
-                            if (!trash && altTrash != null)
-                                altTrash.type = EntityFolder.TRASH;
-                            if (!sent && altSent != null)
-                                altSent.type = EntityFolder.SENT;
-                            if (!junk && altJunk != null)
-                                altJunk.type = EntityFolder.JUNK;
-
-                        } finally {
-                            if (istore != null)
-                                istore.close();
-                        }
-
-                        return result;
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, CheckResult result) {
-                        tvIdle.setVisibility(result.idle ? View.GONE : View.VISIBLE);
-
-                        setFolders(result.folders);
-
-                        new Handler().post(new Runnable() {
-                            @Override
-                            public void run() {
-                                ((ScrollView) view).smoothScrollTo(0, btnSave.getBottom());
-                            }
-                        });
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        grpFolders.setVisibility(View.GONE);
-                        btnSave.setVisibility(View.GONE);
-
-                        if (ex instanceof IllegalArgumentException)
-                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                        else {
-                            tvError.setText(Helper.formatThrowable(ex));
-                            tvError.setVisibility(View.VISIBLE);
-                            new Handler().post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    ((ScrollView) view).smoothScrollTo(0, tvError.getBottom());
-                                }
-                            });
-                        }
-                    }
-                }.execute(FragmentAccount.this, args, "account:check");
+                onCheck();
             }
         });
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
-
-                EntityFolder drafts = (EntityFolder) spDrafts.getSelectedItem();
-                EntityFolder sent = (EntityFolder) spSent.getSelectedItem();
-                EntityFolder all = (EntityFolder) spAll.getSelectedItem();
-                EntityFolder trash = (EntityFolder) spTrash.getSelectedItem();
-                EntityFolder junk = (EntityFolder) spJunk.getSelectedItem();
-
-                if (drafts != null && drafts.type == null)
-                    drafts = null;
-                if (sent != null && sent.type == null)
-                    sent = null;
-                if (all != null && all.type == null)
-                    all = null;
-                if (trash != null && trash.type == null)
-                    trash = null;
-                if (junk != null && junk.type == null)
-                    junk = null;
-
-                Bundle args = new Bundle();
-                args.putLong("id", id);
-
-                args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
-                args.putString("host", etHost.getText().toString());
-                args.putBoolean("starttls", cbStartTls.isChecked());
-                args.putBoolean("insecure", cbInsecure.isChecked());
-                args.putString("port", etPort.getText().toString());
-                args.putString("user", etUser.getText().toString());
-                args.putString("password", tilPassword.getEditText().getText().toString());
-                args.putString("realm", etRealm.getText().toString());
-
-                args.putString("name", etName.getText().toString());
-                args.putInt("color", color);
-
-                args.putBoolean("synchronize", cbSynchronize.isChecked());
-                args.putBoolean("primary", cbPrimary.isChecked());
-                args.putBoolean("notify", cbNotify.isChecked());
-                args.putBoolean("browse", cbBrowse.isChecked());
-                args.putString("interval", etInterval.getText().toString());
-                args.putString("prefix", etPrefix.getText().toString());
-
-                args.putSerializable("drafts", drafts);
-                args.putSerializable("sent", sent);
-                args.putSerializable("all", all);
-                args.putSerializable("trash", trash);
-                args.putSerializable("junk", junk);
-
-                new SimpleTask<Void>() {
-                    @Override
-                    protected void onPreExecute(Bundle args) {
-                        Helper.setViewsEnabled(view, false);
-                        btnAuthorize.setEnabled(false);
-                        btnCheck.setEnabled(false);
-                        btnSave.setEnabled(false);
-                        pbSave.setVisibility(View.VISIBLE);
-                        tvError.setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    protected void onPostExecute(Bundle args) {
-                        Helper.setViewsEnabled(view, true);
-                        btnAuthorize.setEnabled(true);
-                        btnCheck.setEnabled(true);
-                        btnSave.setEnabled(true);
-                        pbSave.setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    protected Void onExecute(Context context, Bundle args) throws Throwable {
-                        long id = args.getLong("id");
-
-                        int auth_type = args.getInt("auth_type");
-                        String host = args.getString("host");
-                        boolean starttls = args.getBoolean("starttls");
-                        boolean insecure = args.getBoolean("insecure");
-                        String port = args.getString("port");
-                        String user = args.getString("user");
-                        String password = args.getString("password");
-                        String realm = args.getString("realm");
-
-                        String name = args.getString("name");
-                        Integer color = args.getInt("color");
-
-                        boolean synchronize = args.getBoolean("synchronize");
-                        boolean primary = args.getBoolean("primary");
-                        boolean notify = args.getBoolean("notify");
-                        boolean browse = args.getBoolean("browse");
-                        String interval = args.getString("interval");
-                        String prefix = args.getString("prefix");
-
-                        EntityFolder drafts = (EntityFolder) args.getSerializable("drafts");
-                        EntityFolder sent = (EntityFolder) args.getSerializable("sent");
-                        EntityFolder all = (EntityFolder) args.getSerializable("all");
-                        EntityFolder trash = (EntityFolder) args.getSerializable("trash");
-                        EntityFolder junk = (EntityFolder) args.getSerializable("junk");
-
-                        if (TextUtils.isEmpty(host))
-                            throw new IllegalArgumentException(context.getString(R.string.title_no_host));
-                        if (TextUtils.isEmpty(port))
-                            port = (starttls ? "143" : "993");
-                        if (TextUtils.isEmpty(user))
-                            throw new IllegalArgumentException(context.getString(R.string.title_no_user));
-                        if (synchronize && TextUtils.isEmpty(password) && !insecure)
-                            throw new IllegalArgumentException(context.getString(R.string.title_no_password));
-                        if (TextUtils.isEmpty(interval))
-                            interval = "19";
-                        if (synchronize && drafts == null)
-                            throw new IllegalArgumentException(context.getString(R.string.title_no_drafts));
-
-                        if (TextUtils.isEmpty(realm))
-                            realm = null;
-
-                        if (Color.TRANSPARENT == color)
-                            color = null;
-                        if (TextUtils.isEmpty(prefix))
-                            prefix = null;
-
-                        Character separator = null;
-                        long now = new Date().getTime();
-
-                        DB db = DB.getInstance(context);
-                        EntityAccount account = db.account().getAccount(id);
-
-                        String accountRealm = (account == null ? null : account.realm);
-
-                        boolean check = (synchronize && (account == null ||
-                                !host.equals(account.host) || Integer.parseInt(port) != account.port ||
-                                !user.equals(account.user) || !password.equals(account.password) ||
-                                (realm == null ? accountRealm != null : !realm.equals(accountRealm))));
-                        boolean reload = (check || account == null ||
-                                (account.prefix == null ? prefix != null : !account.prefix.equals(prefix)) ||
-                                account.synchronize != synchronize ||
-                                !account.poll_interval.equals(Integer.parseInt(interval)));
-
-                        // Check IMAP server
-                        if (check) {
-                            Properties props = MessageHelper.getSessionProperties(auth_type, realm, insecure);
-                            Session isession = Session.getInstance(props, null);
-                            isession.setDebug(true);
-
-                            IMAPStore istore = null;
-                            try {
-                                istore = (IMAPStore) isession.getStore(starttls ? "imap" : "imaps");
-                                try {
-                                    istore.connect(host, Integer.parseInt(port), user, password);
-                                } catch (AuthenticationFailedException ex) {
-                                    if (auth_type == Helper.AUTH_TYPE_GMAIL) {
-                                        password = Helper.refreshToken(context, "com.google", user, password);
-                                        istore.connect(host, Integer.parseInt(port), user, password);
-                                    } else
-                                        throw ex;
-                                }
-                                separator = istore.getDefaultFolder().getSeparator();
-                            } finally {
-                                if (istore != null)
-                                    istore.close();
-                            }
-                        }
-
-                        if (TextUtils.isEmpty(name))
-                            name = user;
-
-                        try {
-                            db.beginTransaction();
-
-                            boolean update = (account != null);
-                            if (account == null)
-                                account = new EntityAccount();
-
-                            account.auth_type = auth_type;
-                            account.host = host;
-                            account.starttls = starttls;
-                            account.insecure = insecure;
-                            account.port = Integer.parseInt(port);
-                            account.user = user;
-                            account.password = password;
-                            account.realm = realm;
-
-                            account.name = name;
-                            account.color = color;
-
-                            account.synchronize = synchronize;
-                            account.primary = (account.synchronize && primary);
-                            account.notify = notify;
-                            account.browse = browse;
-                            account.poll_interval = Integer.parseInt(interval);
-                            account.prefix = prefix;
-
-                            if (!update)
-                                account.created = now;
-
-                            account.error = null;
-
-                            if (synchronize)
-                                account.last_connected = now;
-
-                            if (account.primary)
-                                db.account().resetPrimary();
-
-                            if (!Helper.isPro(context)) {
-                                account.color = null;
-                                account.notify = false;
-                            }
-
-                            if (update)
-                                db.account().updateAccount(account);
-                            else
-                                account.id = db.account().insertAccount(account);
-
-                            // Make sure the channel exists on commit
-                            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
-                                if (account.notify) {
-                                    // Add or update notification channel
-                                    account.deleteNotificationChannel(context);
-                                    account.createNotificationChannel(context);
-                                } else if (!account.synchronize)
-                                    account.deleteNotificationChannel(context);
-
-                            List<EntityFolder> folders = new ArrayList<>();
-
-                            EntityFolder inbox = new EntityFolder();
-                            inbox.name = "INBOX";
-                            inbox.type = EntityFolder.INBOX;
-                            inbox.synchronize = true;
-                            inbox.unified = true;
-                            inbox.notify = true;
-                            inbox.sync_days = EntityFolder.DEFAULT_SYNC;
-                            inbox.keep_days = EntityFolder.DEFAULT_KEEP;
-
-                            folders.add(inbox);
-
-                            if (drafts != null) {
-                                drafts.type = EntityFolder.DRAFTS;
-                                folders.add(drafts);
-                            }
-
-                            if (sent != null) {
-                                sent.type = EntityFolder.SENT;
-                                folders.add(sent);
-                            }
-                            if (all != null) {
-                                all.type = EntityFolder.ARCHIVE;
-                                folders.add(all);
-                            }
-                            if (trash != null) {
-                                trash.type = EntityFolder.TRASH;
-                                folders.add(trash);
-                            }
-                            if (junk != null) {
-                                junk.type = EntityFolder.JUNK;
-                                folders.add(junk);
-                            }
-
-                            db.folder().setFoldersUser(account.id);
-
-                            for (EntityFolder folder : folders) {
-                                folder.level = EntityFolder.getLevel(separator, folder.name);
-                                if (account.prefix != null && folder.name.startsWith(account.prefix + separator))
-                                    folder.display = folder.name.substring(account.prefix.length() + 1);
-
-                                EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
-                                if (existing == null) {
-                                    folder.account = account.id;
-                                    Log.i("Creating folder=" + folder.name + " (" + folder.type + ")");
-                                    folder.id = db.folder().insertFolder(folder);
-                                } else {
-                                    db.folder().setFolderType(existing.id, folder.type);
-                                    db.folder().setFolderLevel(existing.id, folder.level);
-                                }
-                            }
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        if (reload)
-                            ServiceSynchronize.reload(context, "save account");
-
-                        if (!synchronize) {
-                            NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                            nm.cancel("receive", account.id.intValue());
-                        }
-
-                        return null;
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, Void data) {
-                        getFragmentManager().popBackStack();
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        if (ex instanceof IllegalArgumentException)
-                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                        else {
-                            tvError.setText(Helper.formatThrowable(ex));
-                            tvError.setVisibility(View.VISIBLE);
-                            new Handler().post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    ((ScrollView) view).smoothScrollTo(0, tvError.getBottom());
-                                }
-                            });
-                        }
-                    }
-                }.execute(FragmentAccount.this, args, "account:save");
+                onSave();
             }
         });
 
@@ -977,6 +429,566 @@ public class FragmentAccount extends FragmentBase {
         grpFolders.setVisibility(View.GONE);
 
         return view;
+    }
+
+    private void onAutoConfig() {
+        Bundle args = new Bundle();
+        args.putString("domain", etDomain.getText().toString());
+
+        new SimpleTask<EmailProvider>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                etDomain.setEnabled(false);
+                btnAutoConfig.setEnabled(false);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                etDomain.setEnabled(true);
+                btnAutoConfig.setEnabled(true);
+            }
+
+            @Override
+            protected EmailProvider onExecute(Context context, Bundle args) throws Throwable {
+                String domain = args.getString("domain");
+                return EmailProvider.fromDomain(context, domain);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, EmailProvider provider) {
+                etHost.setText(provider.imap_host);
+                etPort.setText(Integer.toString(provider.imap_port));
+                cbStartTls.setChecked(provider.imap_starttls);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(FragmentAccount.this, args, "account:config");
+    }
+
+    private void onCheck() {
+        EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
+
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+        args.putString("host", etHost.getText().toString());
+        args.putBoolean("starttls", cbStartTls.isChecked());
+        args.putBoolean("insecure", cbInsecure.isChecked());
+        args.putString("port", etPort.getText().toString());
+        args.putString("user", etUser.getText().toString());
+        args.putString("password", tilPassword.getEditText().getText().toString());
+        args.putString("realm", etRealm.getText().toString());
+        args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
+
+        new SimpleTask<CheckResult>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                Helper.setViewsEnabled(view, false);
+                btnAuthorize.setEnabled(false);
+                btnCheck.setEnabled(false);
+                pbCheck.setVisibility(View.VISIBLE);
+                tvIdle.setVisibility(View.GONE);
+                grpFolders.setVisibility(View.GONE);
+                btnSave.setVisibility(View.GONE);
+                tvError.setVisibility(View.GONE);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                Helper.setViewsEnabled(view, true);
+                btnAuthorize.setEnabled(true);
+                btnCheck.setEnabled(true);
+                pbCheck.setVisibility(View.GONE);
+            }
+
+            @Override
+            protected CheckResult onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                String host = args.getString("host");
+                boolean starttls = args.getBoolean("starttls");
+                boolean insecure = args.getBoolean("insecure");
+                String port = args.getString("port");
+                String user = args.getString("user");
+                String password = args.getString("password");
+                String realm = args.getString("realm");
+                int auth_type = args.getInt("auth_type");
+
+                if (TextUtils.isEmpty(host))
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_host));
+                if (TextUtils.isEmpty(port))
+                    port = (starttls ? "143" : "993");
+                if (TextUtils.isEmpty(user))
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_user));
+                if (TextUtils.isEmpty(password) && !insecure)
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_password));
+
+                if (TextUtils.isEmpty(realm))
+                    realm = null;
+
+                CheckResult result = new CheckResult();
+                result.folders = new ArrayList<>();
+
+                // Check IMAP server / get folders
+                Properties props = MessageHelper.getSessionProperties(auth_type, realm, insecure);
+                Session isession = Session.getInstance(props, null);
+                isession.setDebug(true);
+                IMAPStore istore = null;
+                try {
+                    istore = (IMAPStore) isession.getStore(starttls ? "imap" : "imaps");
+                    try {
+                        istore.connect(host, Integer.parseInt(port), user, password);
+                    } catch (AuthenticationFailedException ex) {
+                        if (auth_type == Helper.AUTH_TYPE_GMAIL) {
+                            password = Helper.refreshToken(context, "com.google", user, password);
+                            istore.connect(host, Integer.parseInt(port), user, password);
+                        } else
+                            throw ex;
+                    }
+
+                    result.idle = istore.hasCapability("IDLE");
+
+                    boolean archive = false;
+                    boolean drafts = false;
+                    boolean trash = false;
+                    boolean sent = false;
+                    boolean junk = false;
+                    EntityFolder altArchive = null;
+                    EntityFolder altDrafts = null;
+                    EntityFolder altTrash = null;
+                    EntityFolder altSent = null;
+                    EntityFolder altJunk = null;
+
+                    for (Folder ifolder : istore.getDefaultFolder().list("*")) {
+                        // Check folder attributes
+                        String type = null;
+                        boolean selectable = true;
+                        String[] attrs = ((IMAPFolder) ifolder).getAttributes();
+                        Log.i(ifolder.getFullName() + " attrs=" + TextUtils.join(" ", attrs));
+                        for (String attr : attrs) {
+                            if ("\\Noselect".equals(attr) || "\\NonExistent".equals(attr))
+                                selectable = false;
+                            if (attr.startsWith("\\")) {
+                                int index = EntityFolder.SYSTEM_FOLDER_ATTR.indexOf(attr.substring(1));
+                                if (index >= 0) {
+                                    type = EntityFolder.SYSTEM_FOLDER_TYPE.get(index);
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (selectable) {
+                            // Create entry
+                            DB db = DB.getInstance(context);
+                            EntityFolder folder = db.folder().getFolderByName(id, ifolder.getFullName());
+                            if (folder == null) {
+                                int sync = EntityFolder.SYSTEM_FOLDER_SYNC.indexOf(type);
+                                folder = new EntityFolder();
+                                folder.name = ifolder.getFullName();
+                                folder.type = (type == null ? EntityFolder.USER : type);
+                                folder.synchronize = (sync >= 0);
+                                folder.download = (sync < 0 ? true : EntityFolder.SYSTEM_FOLDER_DOWNLOAD.get(sync));
+                                folder.sync_days = EntityFolder.DEFAULT_SYNC;
+                                folder.keep_days = EntityFolder.DEFAULT_KEEP;
+                            }
+                            result.folders.add(folder);
+
+                            if (type == null) {
+                                if (folder.name.toLowerCase().contains("archive"))
+                                    altArchive = folder;
+                                if (folder.name.toLowerCase().contains("draft"))
+                                    altDrafts = folder;
+                                if (folder.name.toLowerCase().contains("trash"))
+                                    altTrash = folder;
+                                if (folder.name.toLowerCase().contains("sent"))
+                                    altSent = folder;
+                                if (folder.name.toLowerCase().contains("junk"))
+                                    altJunk = folder;
+                            } else {
+                                if (EntityFolder.ARCHIVE.equals(type))
+                                    archive = true;
+                                else if (EntityFolder.DRAFTS.equals(type))
+                                    drafts = true;
+                                else if (EntityFolder.TRASH.equals(type))
+                                    trash = true;
+                                else if (EntityFolder.SENT.equals(type))
+                                    sent = true;
+                                else if (EntityFolder.JUNK.equals(type))
+                                    junk = true;
+                            }
+
+                            Log.i(folder.name + " id=" + folder.id +
+                                    " type=" + folder.type + " attr=" + TextUtils.join(",", attrs));
+                        }
+                    }
+
+                    if (!archive && altArchive != null)
+                        altArchive.type = EntityFolder.ARCHIVE;
+                    if (!drafts && altDrafts != null)
+                        altDrafts.type = EntityFolder.DRAFTS;
+                    if (!trash && altTrash != null)
+                        altTrash.type = EntityFolder.TRASH;
+                    if (!sent && altSent != null)
+                        altSent.type = EntityFolder.SENT;
+                    if (!junk && altJunk != null)
+                        altJunk.type = EntityFolder.JUNK;
+
+                } finally {
+                    if (istore != null)
+                        istore.close();
+                }
+
+                return result;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, CheckResult result) {
+                tvIdle.setVisibility(result.idle ? View.GONE : View.VISIBLE);
+
+                setFolders(result.folders);
+
+                new Handler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        ((ScrollView) view).smoothScrollTo(0, btnSave.getBottom());
+                    }
+                });
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                grpFolders.setVisibility(View.GONE);
+                btnSave.setVisibility(View.GONE);
+
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else {
+                    tvError.setText(Helper.formatThrowable(ex));
+                    tvError.setVisibility(View.VISIBLE);
+                    new Handler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            ((ScrollView) view).smoothScrollTo(0, tvError.getBottom());
+                        }
+                    });
+                }
+            }
+        }.execute(FragmentAccount.this, args, "account:check");
+    }
+
+    private void onSave() {
+        EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
+
+        EntityFolder drafts = (EntityFolder) spDrafts.getSelectedItem();
+        EntityFolder sent = (EntityFolder) spSent.getSelectedItem();
+        EntityFolder all = (EntityFolder) spAll.getSelectedItem();
+        EntityFolder trash = (EntityFolder) spTrash.getSelectedItem();
+        EntityFolder junk = (EntityFolder) spJunk.getSelectedItem();
+
+        if (drafts != null && drafts.type == null)
+            drafts = null;
+        if (sent != null && sent.type == null)
+            sent = null;
+        if (all != null && all.type == null)
+            all = null;
+        if (trash != null && trash.type == null)
+            trash = null;
+        if (junk != null && junk.type == null)
+            junk = null;
+
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
+        args.putString("host", etHost.getText().toString());
+        args.putBoolean("starttls", cbStartTls.isChecked());
+        args.putBoolean("insecure", cbInsecure.isChecked());
+        args.putString("port", etPort.getText().toString());
+        args.putString("user", etUser.getText().toString());
+        args.putString("password", tilPassword.getEditText().getText().toString());
+        args.putString("realm", etRealm.getText().toString());
+
+        args.putString("name", etName.getText().toString());
+        args.putInt("color", color);
+
+        args.putBoolean("synchronize", cbSynchronize.isChecked());
+        args.putBoolean("primary", cbPrimary.isChecked());
+        args.putBoolean("notify", cbNotify.isChecked());
+        args.putBoolean("browse", cbBrowse.isChecked());
+        args.putString("interval", etInterval.getText().toString());
+        args.putString("prefix", etPrefix.getText().toString());
+
+        args.putSerializable("drafts", drafts);
+        args.putSerializable("sent", sent);
+        args.putSerializable("all", all);
+        args.putSerializable("trash", trash);
+        args.putSerializable("junk", junk);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                Helper.setViewsEnabled(view, false);
+                btnAuthorize.setEnabled(false);
+                btnCheck.setEnabled(false);
+                btnSave.setEnabled(false);
+                pbSave.setVisibility(View.VISIBLE);
+                tvError.setVisibility(View.GONE);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                Helper.setViewsEnabled(view, true);
+                btnAuthorize.setEnabled(true);
+                btnCheck.setEnabled(true);
+                btnSave.setEnabled(true);
+                pbSave.setVisibility(View.GONE);
+            }
+
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+
+                int auth_type = args.getInt("auth_type");
+                String host = args.getString("host");
+                boolean starttls = args.getBoolean("starttls");
+                boolean insecure = args.getBoolean("insecure");
+                String port = args.getString("port");
+                String user = args.getString("user");
+                String password = args.getString("password");
+                String realm = args.getString("realm");
+
+                String name = args.getString("name");
+                Integer color = args.getInt("color");
+
+                boolean synchronize = args.getBoolean("synchronize");
+                boolean primary = args.getBoolean("primary");
+                boolean notify = args.getBoolean("notify");
+                boolean browse = args.getBoolean("browse");
+                String interval = args.getString("interval");
+                String prefix = args.getString("prefix");
+
+                EntityFolder drafts = (EntityFolder) args.getSerializable("drafts");
+                EntityFolder sent = (EntityFolder) args.getSerializable("sent");
+                EntityFolder all = (EntityFolder) args.getSerializable("all");
+                EntityFolder trash = (EntityFolder) args.getSerializable("trash");
+                EntityFolder junk = (EntityFolder) args.getSerializable("junk");
+
+                if (TextUtils.isEmpty(host))
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_host));
+                if (TextUtils.isEmpty(port))
+                    port = (starttls ? "143" : "993");
+                if (TextUtils.isEmpty(user))
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_user));
+                if (synchronize && TextUtils.isEmpty(password) && !insecure)
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_password));
+                if (TextUtils.isEmpty(interval))
+                    interval = "19";
+                if (synchronize && drafts == null)
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_drafts));
+
+                if (TextUtils.isEmpty(realm))
+                    realm = null;
+
+                if (Color.TRANSPARENT == color)
+                    color = null;
+                if (TextUtils.isEmpty(prefix))
+                    prefix = null;
+
+                Character separator = null;
+                long now = new Date().getTime();
+
+                DB db = DB.getInstance(context);
+                EntityAccount account = db.account().getAccount(id);
+
+                String accountRealm = (account == null ? null : account.realm);
+
+                boolean check = (synchronize && (account == null ||
+                        !host.equals(account.host) || Integer.parseInt(port) != account.port ||
+                        !user.equals(account.user) || !password.equals(account.password) ||
+                        (realm == null ? accountRealm != null : !realm.equals(accountRealm))));
+                boolean reload = (check || account == null ||
+                        (account.prefix == null ? prefix != null : !account.prefix.equals(prefix)) ||
+                        account.synchronize != synchronize ||
+                        !account.poll_interval.equals(Integer.parseInt(interval)));
+
+                // Check IMAP server
+                if (check) {
+                    Properties props = MessageHelper.getSessionProperties(auth_type, realm, insecure);
+                    Session isession = Session.getInstance(props, null);
+                    isession.setDebug(true);
+
+                    IMAPStore istore = null;
+                    try {
+                        istore = (IMAPStore) isession.getStore(starttls ? "imap" : "imaps");
+                        try {
+                            istore.connect(host, Integer.parseInt(port), user, password);
+                        } catch (AuthenticationFailedException ex) {
+                            if (auth_type == Helper.AUTH_TYPE_GMAIL) {
+                                password = Helper.refreshToken(context, "com.google", user, password);
+                                istore.connect(host, Integer.parseInt(port), user, password);
+                            } else
+                                throw ex;
+                        }
+                        separator = istore.getDefaultFolder().getSeparator();
+                    } finally {
+                        if (istore != null)
+                            istore.close();
+                    }
+                }
+
+                if (TextUtils.isEmpty(name))
+                    name = user;
+
+                try {
+                    db.beginTransaction();
+
+                    boolean update = (account != null);
+                    if (account == null)
+                        account = new EntityAccount();
+
+                    account.auth_type = auth_type;
+                    account.host = host;
+                    account.starttls = starttls;
+                    account.insecure = insecure;
+                    account.port = Integer.parseInt(port);
+                    account.user = user;
+                    account.password = password;
+                    account.realm = realm;
+
+                    account.name = name;
+                    account.color = color;
+
+                    account.synchronize = synchronize;
+                    account.primary = (account.synchronize && primary);
+                    account.notify = notify;
+                    account.browse = browse;
+                    account.poll_interval = Integer.parseInt(interval);
+                    account.prefix = prefix;
+
+                    if (!update)
+                        account.created = now;
+
+                    account.error = null;
+
+                    if (synchronize)
+                        account.last_connected = now;
+
+                    if (account.primary)
+                        db.account().resetPrimary();
+
+                    if (!Helper.isPro(context)) {
+                        account.color = null;
+                        account.notify = false;
+                    }
+
+                    if (update)
+                        db.account().updateAccount(account);
+                    else
+                        account.id = db.account().insertAccount(account);
+
+                    // Make sure the channel exists on commit
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                        if (account.notify) {
+                            // Add or update notification channel
+                            account.deleteNotificationChannel(context);
+                            account.createNotificationChannel(context);
+                        } else if (!account.synchronize)
+                            account.deleteNotificationChannel(context);
+
+                    List<EntityFolder> folders = new ArrayList<>();
+
+                    EntityFolder inbox = new EntityFolder();
+                    inbox.name = "INBOX";
+                    inbox.type = EntityFolder.INBOX;
+                    inbox.synchronize = true;
+                    inbox.unified = true;
+                    inbox.notify = true;
+                    inbox.sync_days = EntityFolder.DEFAULT_SYNC;
+                    inbox.keep_days = EntityFolder.DEFAULT_KEEP;
+
+                    folders.add(inbox);
+
+                    if (drafts != null) {
+                        drafts.type = EntityFolder.DRAFTS;
+                        folders.add(drafts);
+                    }
+
+                    if (sent != null) {
+                        sent.type = EntityFolder.SENT;
+                        folders.add(sent);
+                    }
+                    if (all != null) {
+                        all.type = EntityFolder.ARCHIVE;
+                        folders.add(all);
+                    }
+                    if (trash != null) {
+                        trash.type = EntityFolder.TRASH;
+                        folders.add(trash);
+                    }
+                    if (junk != null) {
+                        junk.type = EntityFolder.JUNK;
+                        folders.add(junk);
+                    }
+
+                    db.folder().setFoldersUser(account.id);
+
+                    for (EntityFolder folder : folders) {
+                        folder.level = EntityFolder.getLevel(separator, folder.name);
+                        if (account.prefix != null && folder.name.startsWith(account.prefix + separator))
+                            folder.display = folder.name.substring(account.prefix.length() + 1);
+
+                        EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
+                        if (existing == null) {
+                            folder.account = account.id;
+                            Log.i("Creating folder=" + folder.name + " (" + folder.type + ")");
+                            folder.id = db.folder().insertFolder(folder);
+                        } else {
+                            db.folder().setFolderType(existing.id, folder.type);
+                            db.folder().setFolderLevel(existing.id, folder.level);
+                        }
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                if (reload)
+                    ServiceSynchronize.reload(context, "save account");
+
+                if (!synchronize) {
+                    NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                    nm.cancel("receive", account.id.intValue());
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                getFragmentManager().popBackStack();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else {
+                    tvError.setText(Helper.formatThrowable(ex));
+                    tvError.setVisibility(View.VISIBLE);
+                    new Handler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            ((ScrollView) view).smoothScrollTo(0, tvError.getBottom());
+                        }
+                    });
+                }
+            }
+        }.execute(FragmentAccount.this, args, "account:save");
     }
 
     @Override
