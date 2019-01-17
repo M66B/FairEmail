@@ -627,11 +627,11 @@ public class MessageHelper {
             return result;
         }
 
-        void downloadAttachment(Context context, DB db, long id, int sequence) throws IOException {
+        boolean downloadAttachment(Context context, DB db, long id, int sequence) throws IOException {
             // Attachments of drafts might not have been uploaded yet
             if (sequence > attachments.size()) {
                 Log.w("Attachment unavailable sequence=" + sequence + " size=" + attachments.size());
-                return;
+                return false;
             }
 
             // Get data
@@ -662,10 +662,12 @@ public class MessageHelper {
                 db.attachment().setDownloaded(id, size);
 
                 Log.i("Downloaded attachment size=" + size);
+                return true;
             } catch (Throwable ex) {
                 Log.w(ex);
                 // Reset progress on failure
                 db.attachment().setError(id, Helper.formatThrowable(ex));
+                return false;
             } finally {
                 if (os != null)
                     os.close();

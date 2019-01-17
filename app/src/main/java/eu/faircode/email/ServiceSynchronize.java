@@ -2638,7 +2638,8 @@ public class ServiceSynchronize extends LifecycleService {
                 EntityAttachment attachment = attachments.get(i);
                 if (!attachment.available)
                     if (!metered || (attachment.size != null && attachment.size < maxSize))
-                        parts.downloadAttachment(context, db, attachment.id, attachment.sequence);
+                        if (!parts.downloadAttachment(context, db, attachment.id, attachment.sequence))
+                            break;
             }
         }
     }
