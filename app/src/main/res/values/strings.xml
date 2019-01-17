@@ -50,6 +50,7 @@
 
     <string name="menu_setup">Setup</string>
     <string name="menu_answers">Templates</string>
+    <string name="menu_rules">Rules</string>
     <string name="menu_operations">Operations</string>
     <string name="menu_legend">Legend</string>
     <string name="menu_faq">Support</string>
@@ -305,6 +306,7 @@
     <string name="title_ask_delete">Delete message permanently?</string>
     <string name="title_ask_delete_selected">Delete selected messages permanently?</string>
     <string name="title_ask_delete_answer">Delete reply template permanently?</string>
+    <string name="title_ask_delete_rule">Delete rule permanently?</string>
     <string name="title_ask_discard">Discard draft?</string>
     <string name="title_ask_save">Save changes?</string>
     <string name="title_ask_spam">Report as spam?</string>
@@ -378,6 +380,19 @@
     <string name="title_answer_text">Template text</string>
     <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
     <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
+
+    <string name="title_rule_name">Name</string>
+    <string name="title_rule_account">Account</string>
+    <string name="title_rule_folder">Folder</string>
+    <string name="title_rule_folder_remark">The texts of messages in the selected folder will always be downloaded</string>
+    <string name="title_rule_order">Order</string>
+    <string name="title_rule_sender">Sender</string>
+    <string name="title_rule_subject">Subject</string>
+    <string name="title_rule_text">Text</string>
+    <string name="title_rule_action">Action</string>
+    <string name="title_rule_target">Target</string>
+    <string name="title_rule_seen">Mark as read</string>
+    <string name="title_rule_name_missing">Rule name missing</string>
 
     <string name="title_action_seen">Mark read</string>
     <string name="title_action_archive">Archive</string>

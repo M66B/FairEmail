@@ -130,6 +130,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_EDIT_FOLDER = BuildConfig.APPLICATION_ID + ".EDIT_FOLDER";
     static final String ACTION_EDIT_ANSWER = BuildConfig.APPLICATION_ID + ".EDIT_ANSWER";
+    static final String ACTION_EDIT_RULE = BuildConfig.APPLICATION_ID + ".EDIT_RULE";
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
     static final String ACTION_STORE_ATTACHMENTS = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENTS";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
@@ -182,6 +183,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         break;
                     case R.string.menu_answers:
                         onMenuAnswers();
+                        break;
+                    case R.string.menu_rules:
+                        onMenuRules();
                         break;
                     case R.string.menu_operations:
                         onMenuOperations();
@@ -300,6 +304,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
 
                 drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_reply_24, R.string.menu_answers));
+                drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_filter_list_24, R.string.menu_rules));
                 drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_list_24, R.string.menu_operations));
 
                 drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_settings_applications_24, R.string.menu_setup));
@@ -474,6 +479,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_STORE_RAW);
         iff.addAction(ACTION_EDIT_FOLDER);
         iff.addAction(ACTION_EDIT_ANSWER);
+        iff.addAction(ACTION_EDIT_RULE);
         iff.addAction(ACTION_STORE_ATTACHMENT);
         iff.addAction(ACTION_STORE_ATTACHMENTS);
         iff.addAction(ACTION_DECRYPT);
@@ -871,6 +877,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragmentTransaction.commit();
     }
 
+    private void onMenuRules() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentRules()).addToBackStack("rules");
+        fragmentTransaction.commit();
+    }
+
     private void onMenuOperations() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentOperations()).addToBackStack("operations");
@@ -1009,6 +1021,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     onEditFolder(intent);
                 else if (ACTION_EDIT_ANSWER.equals(action))
                     onEditAnswer(intent);
+                else if (ACTION_EDIT_RULE.equals(action))
+                    onEditRule(intent);
                 else if (ACTION_STORE_ATTACHMENT.equals(action))
                     onStoreAttachment(intent);
                 else if (ACTION_STORE_ATTACHMENTS.equals(action))
@@ -1098,6 +1112,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragment.setArguments(intent.getExtras());
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("answer");
+        fragmentTransaction.commit();
+    }
+
+    private void onEditRule(Intent intent) {
+        FragmentRule fragment = new FragmentRule();
+        fragment.setArguments(intent.getExtras());
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("rule");
         fragmentTransaction.commit();
     }
 

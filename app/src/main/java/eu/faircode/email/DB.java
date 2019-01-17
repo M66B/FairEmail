@@ -49,7 +49,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 36,
+        version = 37,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -58,6 +58,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
                 EntityAttachment.class,
                 EntityOperation.class,
                 EntityAnswer.class,
+                EntityRule.class,
                 EntityLog.class
         }
 )
@@ -77,6 +78,8 @@ public abstract class DB extends RoomDatabase {
     public abstract DaoOperation operation();
 
     public abstract DaoAnswer answer();
+
+    public abstract DaoRule rule();
 
     public abstract DaoLog log();
 
@@ -431,6 +434,23 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `warning` TEXT");
+                    }
+                })
+                .addMigrations(new Migration(36, 37) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("CREATE TABLE `rule`" +
+                                " (`id` INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                " `folder` INTEGER NOT NULL," +
+                                " `name` TEXT NOT NULL," +
+                                " `order` INTEGER NOT NULL," +
+                                " `condition` TEXT NOT NULL," +
+                                " `action` TEXT NOT NULL," +
+                                " `enabled` INTEGER NOT NULL," +
+                                " FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE)");
+                        db.execSQL("CREATE  INDEX `index_rule_folder` ON `rule` (`folder`)");
+                        db.execSQL("CREATE  INDEX `index_rule_order` ON `rule` (`order`)");
                     }
                 })
                 .build();
