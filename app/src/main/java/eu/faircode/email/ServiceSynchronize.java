@@ -1037,7 +1037,9 @@ public class ServiceSynchronize extends LifecycleService {
                                                     db.beginTransaction();
                                                     downloadMessage(ServiceSynchronize.this,
                                                             folder, ifolder, (IMAPMessage) imessage,
-                                                            message.id, db.folder().getFolderDownload(folder.id));
+                                                            message.id,
+                                                            db.folder().getFolderDownload(folder.id),
+                                                            db.rule().getEnabledRules(folder.id));
                                                     db.setTransactionSuccessful();
                                                 } finally {
                                                     db.endTransaction();
@@ -1124,7 +1126,9 @@ public class ServiceSynchronize extends LifecycleService {
                                                 db.beginTransaction();
                                                 downloadMessage(ServiceSynchronize.this,
                                                         folder, ifolder, (IMAPMessage) e.getMessage(),
-                                                        message.id, db.folder().getFolderDownload(folder.id));
+                                                        message.id,
+                                                        db.folder().getFolderDownload(folder.id),
+                                                        db.rule().getEnabledRules(folder.id));
                                                 db.setTransactionSuccessful();
                                             } finally {
                                                 db.endTransaction();
@@ -2300,6 +2304,8 @@ public class ServiceSynchronize extends LifecycleService {
 
             db.folder().setFolderSyncState(folder.id, "downloading");
 
+            List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
+
             //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
 
             // Download messages/attachments
@@ -2317,7 +2323,7 @@ public class ServiceSynchronize extends LifecycleService {
                             downloadMessage(
                                     this,
                                     folder, ifolder, (IMAPMessage) isub[j],
-                                    ids[from + j], download);
+                                    ids[from + j], download, rules);
                         db.setTransactionSuccessful();
                     } catch (FolderClosedException ex) {
                         throw ex;
@@ -2575,7 +2581,7 @@ public class ServiceSynchronize extends LifecycleService {
     static void downloadMessage(
             Context context,
             EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage,
-            long id, boolean download) throws MessagingException, IOException {
+            long id, boolean download, List<EntityRule> rules) throws MessagingException, IOException {
         DB db = DB.getInstance(context);
         EntityMessage message = db.message().getMessage(id);
         if (message == null)
@@ -2584,7 +2590,7 @@ public class ServiceSynchronize extends LifecycleService {
         if (message.setContactInfo(context))
             db.message().updateMessage(message);
 
-        if (download) {
+        if (download || rules.size() > 0) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             long maxSize = prefs.getInt("download", 32768);
             if (maxSize == 0)
@@ -2624,7 +2630,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             MessageHelper.MessageParts parts = helper.getMessageParts();
 
-            if (!message.content)
+            if (!message.content) {
                 if (!metered || (message.size != null && message.size < maxSize)) {
                     String body = parts.getHtml(context);
                     message.write(context, body);
@@ -2632,6 +2638,11 @@ public class ServiceSynchronize extends LifecycleService {
                     db.message().setMessageWarning(message.id, parts.getWarnings());
                     Log.i(folder.name + " downloaded message id=" + message.id + " size=" + message.size);
                 }
+
+                for (EntityRule rule : rules)
+                    if (rule.matches(context, message))
+                        rule.execute(context, db, message);
+            }
 
             for (int i = 0; i < attachments.size(); i++) {
                 EntityAttachment attachment = attachments.get(i);

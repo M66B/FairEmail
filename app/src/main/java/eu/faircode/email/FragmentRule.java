@@ -58,8 +58,7 @@ public class FragmentRule extends FragmentBase {
     private EditText etSubject;
     private EditText etText;
     private Spinner spAction;
-    private Spinner spMove;
-    private CheckBox cbMoveSeen;
+    private Spinner spTarget;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -68,6 +67,7 @@ public class FragmentRule extends FragmentBase {
     private ArrayAdapter<EntityAccount> adapterAccount;
     private ArrayAdapter<EntityFolder> adapterFolder;
     private ArrayAdapter<Action> adapterAction;
+    private ArrayAdapter<EntityFolder> adapterTarget;
 
     private long id = -1;
 
@@ -95,8 +95,7 @@ public class FragmentRule extends FragmentBase {
         etSubject = view.findViewById(R.id.etSubject);
         etText = view.findViewById(R.id.etText);
         spAction = view.findViewById(R.id.spAction);
-        spMove = view.findViewById(R.id.spMove);
-        cbMoveSeen = view.findViewById(R.id.cbMoveSeen);
+        spTarget = view.findViewById(R.id.spTarget);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
@@ -114,10 +113,14 @@ public class FragmentRule extends FragmentBase {
         adapterAction.setDropDownViewResource(R.layout.spinner_item1_dropdown);
         spAction.setAdapter(adapterAction);
 
+        adapterTarget = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityFolder>());
+        adapterTarget.setDropDownViewResource(R.layout.spinner_item1_dropdown);
+        spTarget.setAdapter(adapterTarget);
+
         List<Action> actions = new ArrayList<>();
         actions.add(new Action(EntityRule.TYPE_SEEN, getString(R.string.title_seen)));
         actions.add(new Action(EntityRule.TYPE_UNSEEN, getString(R.string.title_unseen)));
-        //actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_move)));
+        actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_move)));
         adapterAction.addAll(actions);
 
         spAccount.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -130,6 +133,23 @@ public class FragmentRule extends FragmentBase {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 onAccountSelected(-1);
+            }
+        });
+
+        spAction.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                Action action = (Action) adapterView.getAdapter().getItem(position);
+                onActionSelected(action.type);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                onActionSelected(-1);
+            }
+
+            private void onActionSelected(int type) {
+                grpMove.setVisibility(type == EntityRule.TYPE_MOVE ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -223,6 +243,9 @@ public class FragmentRule extends FragmentBase {
                                 spAccount.setTag(rule.account);
                                 spFolder.setTag(rule.folder);
 
+                                if (type == EntityRule.TYPE_MOVE)
+                                    spTarget.setTag(jaction.getLong("target"));
+
                                 for (int pos = 0; pos < adapterAccount.getCount(); pos++)
                                     if (adapterAccount.getItem(pos).id.equals(rule.account)) {
                                         spAccount.setSelection(pos);
@@ -265,6 +288,9 @@ public class FragmentRule extends FragmentBase {
                 adapterFolder.clear();
                 adapterFolder.addAll(folders);
 
+                adapterTarget.clear();
+                adapterTarget.addAll(folders);
+
                 long account = args.getLong("account");
                 if (account == (Long) spAccount.getTag()) {
                     Long folder = (Long) spFolder.getTag();
@@ -273,8 +299,17 @@ public class FragmentRule extends FragmentBase {
                             spFolder.setSelection(pos);
                             break;
                         }
-                } else
+
+                    Long target = (Long) spTarget.getTag();
+                    for (int pos = 0; pos < folders.size(); pos++)
+                        if (folders.get(pos).id.equals(target)) {
+                            spTarget.setSelection(pos);
+                            break;
+                        }
+                } else {
                     spFolder.setSelection(0);
+                    spTarget.setSelection(0);
+                }
 
                 grpReady.setVisibility(View.VISIBLE);
                 bottom_navigation.setVisibility(View.VISIBLE);
@@ -352,8 +387,13 @@ public class FragmentRule extends FragmentBase {
             Action action = (Action) spAction.getSelectedItem();
 
             JSONObject jaction = new JSONObject();
-            if (action != null)
+            if (action != null) {
                 jaction.put("type", action.type);
+                if (action.type == EntityRule.TYPE_MOVE) {
+                    EntityFolder target = (EntityFolder) spTarget.getSelectedItem();
+                    jaction.put("target", target.id);
+                }
+            }
 
             Bundle args = new Bundle();
             args.putLong("id", id);

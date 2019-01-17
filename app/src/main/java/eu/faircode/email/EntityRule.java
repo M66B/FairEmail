@@ -67,28 +67,32 @@ public class EntityRule {
     static final int TYPE_UNSEEN = 2;
     static final int TYPE_MOVE = 3;
 
-    boolean matches(Context context, EntityMessage message) throws JSONException, IOException {
-        JSONObject jcondition = new JSONObject(condition);
-        String sender = jcondition.getString("sender");
-        String subject = jcondition.getString("subject");
-        String text = jcondition.getString("text");
-        boolean regex = jcondition.getBoolean("regex");
+    boolean matches(Context context, EntityMessage message) throws IOException {
+        try {
+            JSONObject jcondition = new JSONObject(condition);
+            String sender = jcondition.optString("sender", null);
+            String subject = jcondition.optString("subject", null);
+            String text = jcondition.optString("text", null);
+            boolean regex = jcondition.optBoolean("regex", false);
 
-        if (sender != null && message.from != null) {
-            if (matches(sender, MessageHelper.getFormattedAddresses(message.from, true), regex))
-                return true;
-        }
+            if (sender != null && message.from != null) {
+                if (matches(sender, MessageHelper.getFormattedAddresses(message.from, true), regex))
+                    return true;
+            }
 
-        if (subject != null && message.subject != null) {
-            if (matches(subject, message.subject, regex))
-                return true;
-        }
+            if (subject != null && message.subject != null) {
+                if (matches(subject, message.subject, regex))
+                    return true;
+            }
 
-        if (text != null && message.content) {
-            String body = message.read(context);
-            String santized = HtmlHelper.sanitize(body, true);
-            if (matches(text, santized, regex))
-                return true;
+            if (text != null && message.content) {
+                String body = message.read(context);
+                String santized = HtmlHelper.sanitize(body, true);
+                if (matches(text, santized, regex))
+                    return true;
+            }
+        } catch (JSONException ex) {
+            Log.e(ex);
         }
 
         return false;
@@ -102,30 +106,35 @@ public class EntityRule {
             return haystack.contains(needle);
     }
 
-    void execute(Context context, DB db, EntityMessage message) throws JSONException {
-        JSONObject jargs = new JSONObject(action);
-        switch (jargs.getInt("type")) {
-            case TYPE_SEEN:
-                onActionSeen(context, db, message, true);
-                break;
-            case TYPE_UNSEEN:
-                onActionSeen(context, db, message, false);
-                break;
-            case TYPE_MOVE:
-                onActionMove(context, db, message, jargs);
-                break;
+    void execute(Context context, DB db, EntityMessage message) {
+        try {
+            JSONObject jargs = new JSONObject(action);
+            int type = jargs.getInt("type");
+            Log.i("Executing rule=" + type + " message=" + message.id);
+
+            switch (type) {
+                case TYPE_SEEN:
+                    onActionSeen(context, db, message, true);
+                    break;
+                case TYPE_UNSEEN:
+                    onActionSeen(context, db, message, false);
+                    break;
+                case TYPE_MOVE:
+                    onActionMove(context, db, message, jargs);
+                    break;
+            }
+        } catch (JSONException ex) {
+            Log.e(ex);
         }
     }
 
     private void onActionSeen(Context context, DB db, EntityMessage message, boolean seen) {
         EntityOperation.queue(context, db, message, EntityOperation.SEEN, seen);
+        message.seen = seen;
     }
 
     private void onActionMove(Context context, DB db, EntityMessage message, JSONObject jargs) throws JSONException {
         long target = jargs.getLong("target");
-        boolean seen = jargs.getBoolean("seen");
-        if (seen)
-            EntityOperation.queue(context, db, message, EntityOperation.SEEN, true);
         EntityOperation.queue(context, db, message, EntityOperation.MOVE, target);
     }
 

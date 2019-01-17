@@ -26,6 +26,7 @@ import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
@@ -230,7 +231,8 @@ public class ViewModelBrowse extends ViewModel {
                             message = ServiceSynchronize.synchronizeMessage(state.context,
                                     folder, state.ifolder, (IMAPMessage) isub[j], true);
                             ServiceSynchronize.downloadMessage(state.context,
-                                    folder, state.ifolder, (IMAPMessage) isub[j], message.id, false);
+                                    folder, state.ifolder, (IMAPMessage) isub[j], message.id,
+                                    false, new ArrayList<EntityRule>());
                             count++;
                         }
                         db.message().setMessageFound(message.account, message.thread);

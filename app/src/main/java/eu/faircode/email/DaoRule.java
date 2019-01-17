@@ -31,16 +31,20 @@ import androidx.room.Update;
 public interface DaoRule {
     @Query("SELECT * FROM rule" +
             " WHERE folder = :folder" +
+            " AND enabled" +
             " ORDER BY `order`")
-    List<EntityRule> getRules(long folder);
+    List<EntityRule> getEnabledRules(long folder);
 
-    @Query("SELECT rule.*, folder.account FROM rule" +
+    @Query("SELECT rule.*, folder.account, folder.name AS folderName, account.name AS accountName FROM rule" +
             " JOIN folder ON folder.id = rule.folder" +
+            " JOIN account ON account.id = folder.account" +
             " WHERE rule.id = :id")
     TupleRuleEx getRule(long id);
 
-    @Query("SELECT * FROM rule ORDER BY `order`")
-    LiveData<List<EntityRule>> liveRules();
+    @Query("SELECT rule.*, folder.account, folder.name AS folderName, account.name AS accountName FROM rule" +
+            " JOIN folder ON folder.id = rule.folder" +
+            " JOIN account ON account.id = folder.account")
+    LiveData<List<TupleRuleEx>> liveRules();
 
     @Insert
     long insertRule(EntityRule rule);

@@ -21,13 +21,17 @@ package eu.faircode.email;
 
 public class TupleRuleEx extends EntityRule {
     public long account;
+    public String folderName;
+    public String accountName;
 
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof TupleRuleEx) {
             TupleRuleEx other = (TupleRuleEx) obj;
             return (super.equals(obj) &&
-                    this.account == other.account);
+                    this.account == other.account &&
+                    (this.folderName == null ? other.folderName == null : this.folderName.equals(other.folderName)) &&
+                    (this.accountName == null ? other.accountName == null : this.accountName.equals(other.accountName)));
         } else
             return false;
     }

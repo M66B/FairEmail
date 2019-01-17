@@ -45,18 +45,20 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
     private LifecycleOwner owner;
     private LayoutInflater inflater;
 
-    private List<EntityRule> all = new ArrayList<>();
-    private List<EntityRule> filtered = new ArrayList<>();
+    private List<TupleRuleEx> all = new ArrayList<>();
+    private List<TupleRuleEx> filtered = new ArrayList<>();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private View itemView;
         private TextView tvName;
+        private TextView tvFolder;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             this.itemView = itemView.findViewById(R.id.clItem);
             tvName = itemView.findViewById(R.id.tvName);
+            tvFolder = itemView.findViewById(R.id.tvFolder);
         }
 
         private void wire() {
@@ -67,9 +69,10 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             itemView.setOnClickListener(null);
         }
 
-        private void bindTo(EntityRule rule) {
+        private void bindTo(TupleRuleEx rule) {
             itemView.setActivated(!rule.enabled);
             tvName.setText(rule.name);
+            tvFolder.setText(rule.folderName + "/" + rule.accountName);
         }
 
         @Override
@@ -78,7 +81,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             if (pos == RecyclerView.NO_POSITION)
                 return;
 
-            EntityRule rule = filtered.get(pos);
+            TupleRuleEx rule = filtered.get(pos);
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
@@ -94,15 +97,24 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         setHasStableIds(true);
     }
 
-    public void set(@NonNull List<EntityRule> rules) {
+    public void set(@NonNull List<TupleRuleEx> rules) {
         Log.i("Set rules=" + rules.size());
 
         final Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
 
-        Collections.sort(rules, new Comparator<EntityRule>() {
+        Collections.sort(rules, new Comparator<TupleRuleEx>() {
             @Override
-            public int compare(EntityRule r1, EntityRule r2) {
+            public int compare(TupleRuleEx r1, TupleRuleEx r2) {
+                int a = collator.compare(r1.accountName, r2.accountName);
+                if (a != 0)
+                    return a;
+                int f = collator.compare(r1.folderName, r2.folderName);
+                if (f != 0)
+                    return f;
+                int o = ((Integer) r1.order).compareTo(r2.order);
+                if (o != 0)
+                    return 0;
                 return collator.compare(r1.name, r2.name);
             }
         });
@@ -139,10 +151,10 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
     }
 
     private class MessageDiffCallback extends DiffUtil.Callback {
-        private List<EntityRule> prev;
-        private List<EntityRule> next;
+        private List<TupleRuleEx> prev;
+        private List<TupleRuleEx> next;
 
-        MessageDiffCallback(List<EntityRule> prev, List<EntityRule> next) {
+        MessageDiffCallback(List<TupleRuleEx> prev, List<TupleRuleEx> next) {
             this.prev = prev;
             this.next = next;
         }
@@ -159,15 +171,15 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
         @Override
         public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-            EntityRule r1 = prev.get(oldItemPosition);
-            EntityRule r2 = next.get(newItemPosition);
+            TupleRuleEx r1 = prev.get(oldItemPosition);
+            TupleRuleEx r2 = next.get(newItemPosition);
             return r1.id.equals(r2.id);
         }
 
         @Override
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
-            EntityRule r1 = prev.get(oldItemPosition);
-            EntityRule r2 = next.get(newItemPosition);
+            TupleRuleEx r1 = prev.get(oldItemPosition);
+            TupleRuleEx r2 = next.get(newItemPosition);
             return r1.equals(r2);
         }
     }
@@ -191,7 +203,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
-        EntityRule rule = filtered.get(position);
+        TupleRuleEx rule = filtered.get(position);
         holder.bindTo(rule);
         holder.wire();
     }

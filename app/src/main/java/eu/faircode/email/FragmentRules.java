@@ -88,9 +88,9 @@ public class FragmentRules extends FragmentBase {
         super.onActivityCreated(savedInstanceState);
 
         DB db = DB.getInstance(getContext());
-        db.rule().liveRules().observe(getViewLifecycleOwner(), new Observer<List<EntityRule>>() {
+        db.rule().liveRules().observe(getViewLifecycleOwner(), new Observer<List<TupleRuleEx>>() {
             @Override
-            public void onChanged(List<EntityRule> rules) {
+            public void onChanged(List<TupleRuleEx> rules) {
                 if (rules == null)
                     rules = new ArrayList<>();
 
