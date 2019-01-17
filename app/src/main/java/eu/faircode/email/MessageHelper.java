@@ -538,8 +538,10 @@ public class MessageHelper {
         private List<String> warnings = new ArrayList<>();
 
         String getHtml(Context context) throws MessagingException {
-            if (plain == null && html == null)
+            if (plain == null && html == null) {
+                warnings.add(context.getString(R.string.title_no_body));
                 return null;
+            }
 
             String result;
             boolean text = false;
