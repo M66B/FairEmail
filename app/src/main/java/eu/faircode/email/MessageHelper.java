@@ -728,10 +728,10 @@ public class MessageHelper {
                 filename = null;
             }
 
-            Log.i("Part" +
-                    " disposition=" + disposition +
-                    " filename=" + filename +
-                    " content type=" + part.getContentType());
+            //Log.i("Part" +
+            //        " disposition=" + disposition +
+            //        " filename=" + filename +
+            //        " content type=" + part.getContentType());
 
             if (!Part.ATTACHMENT.equalsIgnoreCase(disposition) &&
                     ((parts.plain == null && part.isMimeType("text/plain")) ||
