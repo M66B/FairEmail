@@ -456,6 +456,7 @@
     <string name="title_no_adobe">Adobe Acrobat reader cannot open safely shared files, see the FAQ for more information</string>
     <string name="title_no_body">No message text found</string>
     <string name="title_no_charset">Unsupported encoding: %1$s</string>
+    <string name="title_guessed_charset">Guessed encoding: %1$s</string>
 
     <string name="title_try">Try FairEmail, an open source, privacy friendly email app for Android</string>
 

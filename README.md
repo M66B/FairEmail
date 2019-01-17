@@ -137,6 +137,7 @@ FairEmail uses:
 * [JavaMail](https://projects.eclipse.org/projects/ee4j.javamail). Copyright (c) 1997-2018 Oracle® and/or its affiliates. All rights reserved. [GPLv2+CE license](https://javaee.github.io/javamail/JavaMail-License).
 * [jsoup](https://jsoup.org/). Copyright © 2009 - 2017 Jonathan Hedley. [MIT license](https://jsoup.org/license).
 * ~~[JCharset](http://www.freeutils.net/source/jcharset/). Copyright © 2005-2015 Amichai Rothman. [GNU General Public License](http://www.freeutils.net/source/jcharset/#license)~~
+* [ICU4J](http://site.icu-project.org). Copyright © 1991-2019 Unicode, Inc. All rights reserved. [UNICODE, INC. LICENSE AGREEMENT](http://www.unicode.org/copyright.html#License)
 * [Android Support Library](https://developer.android.com/tools/support-library/). Copyright (C) 2011 The Android Open Source Project. [Apache license](https://android.googlesource.com/platform/frameworks/support/+/master/LICENSE.txt).
 * [Android Architecture Components](https://developer.android.com/topic/libraries/architecture/). Copyright 2018 The Android Open Source Project, Inc. [Apache license](https://github.com/googlesamples/android-architecture-components/blob/master/LICENSE).
 * [colorpicker](https://android.googlesource.com/platform/frameworks/opt/colorpicker). Copyright (C) 2013 The Android Open Source Project. [Apache license](https://android.googlesource.com/platform/frameworks/opt/colorpicker/+/master/src/com/android/colorpicker/ColorPickerDialog.java).
