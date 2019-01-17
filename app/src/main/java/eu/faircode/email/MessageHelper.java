@@ -573,13 +573,7 @@ public class MessageHelper {
             if (part.isMimeType("text/plain") || text)
                 result = "<pre>" + result.replaceAll("\\r?\\n", "<br />") + "</pre>";
 
-            if (part.isMimeType("text/plain")) {
-                Log.i("Plain text");
-                return result;
-            } else {
-                Log.i("HTML text");
-                return result;
-            }
+            return result;
         }
 
         List<EntityAttachment> getAttachments() throws MessagingException {
