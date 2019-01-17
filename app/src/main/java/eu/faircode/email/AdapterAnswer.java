@@ -52,8 +52,8 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
     private EntityAccount primary = null;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        View itemView;
-        TextView tvName;
+        private View itemView;
+        private TextView tvName;
 
         ViewHolder(View itemView) {
             super(itemView);

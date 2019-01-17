@@ -26,6 +26,7 @@ import android.view.ViewGroup;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -90,7 +91,11 @@ public class FragmentAnswers extends FragmentBase {
         db.answer().liveAnswers().observe(getViewLifecycleOwner(), new Observer<List<EntityAnswer>>() {
             @Override
             public void onChanged(List<EntityAnswer> answers) {
+                if (answers == null)
+                    answers = new ArrayList<>();
+
                 adapter.set(answers);
+
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
             }

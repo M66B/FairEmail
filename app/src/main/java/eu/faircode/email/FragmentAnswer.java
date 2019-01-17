@@ -73,7 +73,7 @@ public class FragmentAnswer extends FragmentBase {
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.action_delete:
-                        onActionTrash();
+                        onActionDelete();
                         return true;
                     case R.id.action_save:
                         onActionSave();
@@ -108,7 +108,7 @@ public class FragmentAnswer extends FragmentBase {
 
         new SimpleTask<EntityAnswer>() {
             @Override
-            protected EntityAnswer onExecute(Context context, Bundle args) throws Throwable {
+            protected EntityAnswer onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
                 return DB.getInstance(context).answer().getAnswer(id);
             }
@@ -130,7 +130,7 @@ public class FragmentAnswer extends FragmentBase {
         }.execute(this, args, "answer:get");
     }
 
-    private void onActionTrash() {
+    private void onActionDelete() {
         new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                 .setMessage(R.string.title_ask_delete_answer)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
