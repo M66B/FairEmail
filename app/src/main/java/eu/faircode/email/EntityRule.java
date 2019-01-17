@@ -57,11 +57,11 @@ public class EntityRule {
     @NonNull
     public int order;
     @NonNull
+    public boolean enabled;
+    @NonNull
     public String condition;
     @NonNull
     public String action;
-    @NonNull
-    public boolean enabled;
 
     static final int TYPE_SEEN = 1;
     static final int TYPE_UNSEEN = 2;
@@ -135,9 +135,10 @@ public class EntityRule {
             EntityRule other = (EntityRule) obj;
             return this.folder.equals(other.folder) &&
                     this.name.equals(other.name) &&
+                    this.order == other.order &&
+                    this.enabled == other.enabled &&
                     this.condition.equals(other.condition) &&
-                    this.action.equals(other.action) &&
-                    this.enabled == other.enabled;
+                    this.action.equals(other.action);
         } else
             return false;
     }

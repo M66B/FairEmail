@@ -55,7 +55,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         ViewHolder(View itemView) {
             super(itemView);
 
-            this.itemView = itemView;
+            this.itemView = itemView.findViewById(R.id.clItem);
             tvName = itemView.findViewById(R.id.tvName);
         }
 
@@ -68,6 +68,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         }
 
         private void bindTo(EntityRule rule) {
+            itemView.setActivated(!rule.enabled);
             tvName.setText(rule.name);
         }
 

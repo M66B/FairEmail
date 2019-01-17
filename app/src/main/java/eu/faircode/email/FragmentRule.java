@@ -50,9 +50,10 @@ import androidx.lifecycle.Lifecycle;
 public class FragmentRule extends FragmentBase {
     private ViewGroup view;
     private EditText etName;
+    private EditText etOrder;
+    private CheckBox cbEnabled;
     private Spinner spAccount;
     private Spinner spFolder;
-    private EditText etOrder;
     private EditText etSender;
     private EditText etSubject;
     private EditText etText;
@@ -86,9 +87,10 @@ public class FragmentRule extends FragmentBase {
 
         // Get controls
         etName = view.findViewById(R.id.etName);
+        etOrder = view.findViewById(R.id.etOrder);
+        cbEnabled = view.findViewById(R.id.cbEnabled);
         spAccount = view.findViewById(R.id.spAccount);
         spFolder = view.findViewById(R.id.spFolder);
-        etOrder = view.findViewById(R.id.etOrder);
         etSender = view.findViewById(R.id.etSender);
         etSubject = view.findViewById(R.id.etSubject);
         etText = view.findViewById(R.id.etText);
@@ -199,6 +201,7 @@ public class FragmentRule extends FragmentBase {
 
                             etName.setText(rule == null ? null : rule.name);
                             etOrder.setText(rule == null ? null : Integer.toString(rule.order));
+                            cbEnabled.setChecked(rule == null ? true : rule.enabled);
                             etSender.setText(jcondition.optString("sender"));
                             etSubject.setText(jcondition.optString("subject"));
                             etText.setText(jcondition.optString("text"));
@@ -357,6 +360,7 @@ public class FragmentRule extends FragmentBase {
             args.putLong("folder", folder == null ? -1 : folder.id);
             args.putString("name", etName.getText().toString());
             args.putString("order", etOrder.getText().toString());
+            args.putBoolean("enabled", cbEnabled.isChecked());
             args.putString("condition", jcondition.toString());
             args.putString("action", jaction.toString());
 
@@ -377,6 +381,7 @@ public class FragmentRule extends FragmentBase {
                     long folder = args.getLong("folder");
                     String name = args.getString("name");
                     String order = args.getString("order");
+                    boolean enabled = args.getBoolean("enabled");
                     String condition = args.getString("condition");
                     String action = args.getString("action");
 
@@ -392,6 +397,7 @@ public class FragmentRule extends FragmentBase {
                         rule.folder = folder;
                         rule.name = name;
                         rule.order = Integer.parseInt(order);
+                        rule.enabled = enabled;
                         rule.condition = condition;
                         rule.action = action;
                         rule.id = db.rule().insertRule(rule);
@@ -400,6 +406,7 @@ public class FragmentRule extends FragmentBase {
                         rule.folder = folder;
                         rule.name = name;
                         rule.order = Integer.parseInt(order);
+                        rule.enabled = enabled;
                         rule.condition = condition;
                         rule.action = action;
                         db.rule().updateRule(rule);

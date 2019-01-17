@@ -386,6 +386,7 @@
     <string name="title_rule_folder">Folder</string>
     <string name="title_rule_folder_remark">The texts of messages in the selected folder will always be downloaded</string>
     <string name="title_rule_order">Order</string>
+    <string name="title_rule_enabled">Enabled</string>
     <string name="title_rule_sender">Sender</string>
     <string name="title_rule_subject">Subject</string>
     <string name="title_rule_text">Text</string>

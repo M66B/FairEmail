@@ -445,9 +445,9 @@ public abstract class DB extends RoomDatabase {
                                 " `folder` INTEGER NOT NULL," +
                                 " `name` TEXT NOT NULL," +
                                 " `order` INTEGER NOT NULL," +
+                                " `enabled` INTEGER NOT NULL," +
                                 " `condition` TEXT NOT NULL," +
                                 " `action` TEXT NOT NULL," +
-                                " `enabled` INTEGER NOT NULL," +
                                 " FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE)");
                         db.execSQL("CREATE  INDEX `index_rule_folder` ON `rule` (`folder`)");
                         db.execSQL("CREATE  INDEX `index_rule_order` ON `rule` (`order`)");

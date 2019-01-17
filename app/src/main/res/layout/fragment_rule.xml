@@ -37,6 +37,36 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvName" />
 
+            <TextView
+                android:id="@+id/tvOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/title_rule_order"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etName" />
+
+            <EditText
+                android:id="@+id/etOrder"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="1"
+                android:inputType="number"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvOrder" />
+
+            <CheckBox
+                android:id="@+id/cbEnabled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/title_rule_enabled"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etOrder" />
+
             <!-- account -->
 
             <TextView
@@ -47,7 +77,7 @@
                 android:text="@string/title_rule_account"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/etName" />
+                app:layout_constraintTop_toBottomOf="@id/cbEnabled" />
 
             <Spinner
                 android:id="@+id/spAccount"
@@ -87,27 +117,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/spFolder" />
 
-            <TextView
-                android:id="@+id/tvOrder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_rule_order"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvFolderRemark" />
-
-            <EditText
-                android:id="@+id/etOrder"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="1"
-                android:inputType="number"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvOrder" />
-
             <!-- condition -->
 
             <TextView
@@ -118,7 +127,7 @@
                 android:text="@string/title_rule_sender"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/etOrder" />
+                app:layout_constraintTop_toBottomOf="@id/tvFolderRemark" />
 
             <EditText
                 android:id="@+id/etSender"

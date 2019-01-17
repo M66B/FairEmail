@@ -29,7 +29,9 @@ import androidx.room.Update;
 
 @Dao
 public interface DaoRule {
-    @Query("SELECT * FROM rule WHERE folder = :folder")
+    @Query("SELECT * FROM rule" +
+            " WHERE folder = :folder" +
+            " ORDER BY `order`")
     List<EntityRule> getRules(long folder);
 
     @Query("SELECT rule.*, folder.account FROM rule" +
@@ -37,7 +39,7 @@ public interface DaoRule {
             " WHERE rule.id = :id")
     TupleRuleEx getRule(long id);
 
-    @Query("SELECT * FROM rule")
+    @Query("SELECT * FROM rule ORDER BY `order`")
     LiveData<List<EntityRule>> liveRules();
 
     @Insert
