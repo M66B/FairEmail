@@ -95,6 +95,8 @@ public class Helper {
     static final int AUTH_TYPE_PASSWORD = 1;
     static final int AUTH_TYPE_GMAIL = 2;
 
+    static final float LOW_LIGHT = 0.6f;
+
     static ThreadFactory backgroundThreadFactory = new ThreadFactory() {
         @Override
         public Thread newThread(@NonNull Runnable runnable) {
