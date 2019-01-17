@@ -537,7 +537,7 @@ public class MessageHelper {
         private List<AttachmentPart> attachments = new ArrayList<>();
         private List<String> warnings = new ArrayList<>();
 
-        String getHtml() throws MessagingException {
+        String getHtml(Context context) throws MessagingException {
             if (plain == null && html == null)
                 return null;
 
@@ -562,12 +562,10 @@ public class MessageHelper {
 
             ContentType ct = new ContentType(part.getContentType());
             String charset = ct.getParameter("charset");
-            if (TextUtils.isEmpty(charset))
-                warnings.add("Missing charset");
-            else {
+            if (!TextUtils.isEmpty(charset)) {
                 if ("US-ASCII".equals(Charset.forName(charset).name()) &&
                         !"US-ASCII".equals(charset.toUpperCase()))
-                    warnings.add("Unknown charset " + charset);
+                    warnings.add(context.getString(R.string.title_no_charset, charset));
             }
 
             if (part.isMimeType("text/plain") || text)

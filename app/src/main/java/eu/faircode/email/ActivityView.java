@@ -1242,7 +1242,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                                 // Write decrypted body
                                 EntityMessage m = db.message().getMessage(id);
-                                m.write(context, parts.getHtml());
+                                m.write(context, parts.getHtml(context));
 
                                 // Remove previously decrypted attachments
                                 for (EntityAttachment a : attachments)
