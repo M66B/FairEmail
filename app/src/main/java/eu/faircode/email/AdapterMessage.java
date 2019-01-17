@@ -517,8 +517,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ivThread.setVisibility(View.VISIBLE);
             }
 
+            String error = message.error;
+            if (message.warning != null)
+                if (error == null)
+                    error = message.warning;
+                else
+                    error += " " + message.warning;
+
             if (debug) {
-                String text = "error=" + message.error +
+                String text = "error=" + error +
                         "\nuid=" + message.uid + " id=" + message.id + " " + df.format(new Date(message.received)) +
                         "\n" + (message.ui_hide ? "HIDDEN " : "") +
                         "seen=" + message.seen + "/" + message.ui_seen +
@@ -532,8 +539,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvError.setText(text);
                 tvError.setVisibility(View.VISIBLE);
             } else {
-                tvError.setText(message.error);
-                tvError.setVisibility(message.error == null ? View.GONE : View.VISIBLE);
+                tvError.setText(error);
+                tvError.setVisibility(error == null ? View.GONE : View.VISIBLE);
             }
 
             // Unseen

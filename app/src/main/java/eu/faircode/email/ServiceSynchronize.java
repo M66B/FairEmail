@@ -1967,6 +1967,7 @@ public class ServiceSynchronize extends LifecycleService {
         String preview = HtmlHelper.getPreview(body);
         message.write(this, body);
         db.message().setMessageContent(message.id, true, preview);
+        db.message().setMessageWarning(message.id, parts.getWarnings());
     }
 
     private void doAttachment(EntityFolder folder, EntityOperation op, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws JSONException, MessagingException, IOException {
@@ -2628,9 +2629,7 @@ public class ServiceSynchronize extends LifecycleService {
                     String body = parts.getHtml(context);
                     message.write(context, body);
                     db.message().setMessageContent(message.id, true, HtmlHelper.getPreview(body));
-                    String warnings = parts.getWarnings();
-                    if (warnings != null)
-                        db.message().setMessageError(message.id, warnings);
+                    db.message().setMessageWarning(message.id, parts.getWarnings());
                     Log.i(folder.name + " downloaded message id=" + message.id + " size=" + message.size);
                 }
 
