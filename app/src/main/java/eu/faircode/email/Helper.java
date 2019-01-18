@@ -309,9 +309,20 @@ public class Helper {
             if (drafts == null)
                 throw new IllegalArgumentException(context.getString(R.string.title_no_primary_drafts));
 
+            List<EntityIdentity> identities = db.identity().getIdentities(drafts.account);
+            EntityIdentity primary = null;
+            for (EntityIdentity identity : identities) {
+                if (identity.primary) {
+                    primary = identity;
+                    break;
+                } else if (primary == null)
+                    primary = identity;
+            }
+
             draft = new EntityMessage();
             draft.account = drafts.account;
             draft.folder = drafts.id;
+            draft.identity = (primary == null ? null : primary.id);
             draft.msgid = EntityMessage.generateMessageId();
             draft.to = new Address[]{Helper.myAddress()};
             draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " debug info";
