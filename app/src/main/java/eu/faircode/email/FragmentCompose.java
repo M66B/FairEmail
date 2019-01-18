@@ -437,7 +437,7 @@ public class FragmentCompose extends FragmentBase {
                     if (name == null)
                         sb.append(email);
                     else {
-                        sb.append(name.replace(",", "")).append(" ");
+                        sb.append("\"").append(name).append("\" ");
                         sb.append("<").append(email).append(">");
                     }
                     return sb.toString();
@@ -812,8 +812,7 @@ public class FragmentCompose extends FragmentBase {
             final TextView tvMessage = dview.findViewById(R.id.tvMessage);
             final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
-            tvMessage.setText(getString(R.string.title_ask_send,
-                    MessageHelper.getFormattedAddresses(ato, false)));
+            tvMessage.setText(getString(R.string.title_ask_send, MessageHelper.formatAddressesShort(ato)));
 
             new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                     .setView(dview)
@@ -1083,9 +1082,8 @@ public class FragmentCompose extends FragmentBase {
                 else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
                     text = etBcc.getText().toString();
 
-                InternetAddress address = new InternetAddress(email, name);
                 StringBuilder sb = new StringBuilder(text);
-                sb.append(address.toString().replace(",", "")).append(", ");
+                sb.append("\"").append(name).append("\" <").append(email).append(">, ");
 
                 if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
                     etTo.setText(sb.toString());
@@ -1417,7 +1415,7 @@ public class FragmentCompose extends FragmentBase {
 
                         if (ref.from != null && ref.from.length > 0) {
                             String from = Helper.canonicalAddress(((InternetAddress) ref.from[0]).getAddress());
-                            Log.i("From=" + from + " to=" + MessageHelper.getFormattedAddresses(ref.to, false));
+                            Log.i("From=" + from + " to=" + MessageHelper.formatAddressesShort(ref.to));
                             for (EntityIdentity identity : identities) {
                                 String email = Helper.canonicalAddress(identity.email);
                                 if (from.equals(email)) {
@@ -1632,9 +1630,9 @@ public class FragmentCompose extends FragmentBase {
             Log.i("Loaded draft id=" + result.draft.id + " action=" + action);
 
             etExtra.setText(result.draft.extra);
-            etTo.setText(MessageHelper.getFormattedAddresses(result.draft.to, true));
-            etCc.setText(MessageHelper.getFormattedAddresses(result.draft.cc, true));
-            etBcc.setText(MessageHelper.getFormattedAddresses(result.draft.bcc, true));
+            etTo.setText(MessageHelper.formatAddressesCompose(result.draft.to));
+            etCc.setText(MessageHelper.formatAddressesCompose(result.draft.cc));
+            etBcc.setText(MessageHelper.formatAddressesCompose(result.draft.bcc));
             etSubject.setText(result.draft.subject);
 
             long reference = args.getLong("reference", -1);
@@ -1835,22 +1833,13 @@ public class FragmentCompose extends FragmentBase {
                 InternetAddress abcc[] = null;
 
                 if (!TextUtils.isEmpty(to))
-                    try {
-                        ato = InternetAddress.parse(to);
-                    } catch (AddressException ignored) {
-                    }
+                    ato = InternetAddress.parse(to);
 
                 if (!TextUtils.isEmpty(cc))
-                    try {
-                        acc = InternetAddress.parse(cc);
-                    } catch (AddressException ignored) {
-                    }
+                    acc = InternetAddress.parse(cc);
 
                 if (!TextUtils.isEmpty(bcc))
-                    try {
-                        abcc = InternetAddress.parse(bcc);
-                    } catch (AddressException ignored) {
-                    }
+                    abcc = InternetAddress.parse(bcc);
 
                 if (TextUtils.isEmpty(extra))
                     extra = null;
@@ -1979,9 +1968,9 @@ public class FragmentCompose extends FragmentBase {
             int action = args.getInt("action");
             Log.i("Loaded action id=" + (draft == null ? null : draft.id) + " action=" + action);
 
-            etTo.setText(MessageHelper.getFormattedAddresses(draft.to, true));
-            etCc.setText(MessageHelper.getFormattedAddresses(draft.cc, true));
-            etBcc.setText(MessageHelper.getFormattedAddresses(draft.bcc, true));
+            etTo.setText(MessageHelper.formatAddressesCompose(draft.to));
+            etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));
+            etBcc.setText(MessageHelper.formatAddressesCompose(draft.bcc));
 
             if (action == R.id.action_delete) {
                 autosave = false;
@@ -2003,7 +1992,7 @@ public class FragmentCompose extends FragmentBase {
         protected void onException(Bundle args, Throwable ex) {
             if (ex instanceof MessageRemovedException)
                 finish();
-            else if (ex instanceof IllegalArgumentException)
+            else if (ex instanceof IllegalArgumentException || ex instanceof AddressException)
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
             else
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);

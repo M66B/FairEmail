@@ -480,7 +480,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? colorAccent : textColorSecondary));
             ivFlagged.setVisibility(message.uid == null ? View.INVISIBLE : View.VISIBLE);
 
-            tvFrom.setText(MessageHelper.getFormattedAddresses(outgoing ? message.to : message.from, false));
+            tvFrom.setText(MessageHelper.formatAddressesShort(outgoing ? message.to : message.from));
             tvSize.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
             tvSize.setVisibility(message.size == null || message.content ? View.GONE : View.VISIBLE);
             tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
@@ -585,11 +585,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (show_expanded) {
                 ivExpanderAddress.setImageResource(show_addresses ? R.drawable.baseline_expand_less_24 : R.drawable.baseline_expand_more_24);
 
-                tvFromEx.setText(MessageHelper.getFormattedAddresses(message.from, true));
-                tvTo.setText(MessageHelper.getFormattedAddresses(message.to, true));
-                tvReplyTo.setText(MessageHelper.getFormattedAddresses(message.reply, true));
-                tvCc.setText(MessageHelper.getFormattedAddresses(message.cc, true));
-                tvBcc.setText(MessageHelper.getFormattedAddresses(message.bcc, true));
+                tvFromEx.setText(MessageHelper.formatAddresses(message.from));
+                tvTo.setText(MessageHelper.formatAddresses(message.to));
+                tvReplyTo.setText(MessageHelper.formatAddresses(message.reply));
+                tvCc.setText(MessageHelper.formatAddresses(message.cc));
+                tvBcc.setText(MessageHelper.formatAddresses(message.bcc));
 
                 tvTimeEx.setText(df.format(message.received));
 
@@ -998,7 +998,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             lbm.sendBroadcast(
                     new Intent(ActivityView.ACTION_VIEW_FULL)
                             .putExtra("id", message.id)
-                            .putExtra("from", MessageHelper.getFormattedAddresses(message.from, true)));
+                            .putExtra("from", MessageHelper.formatAddresses(message.from)));
         }
 
         private void onShowQuotes(final TupleMessageEx message) {

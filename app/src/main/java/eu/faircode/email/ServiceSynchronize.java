@@ -569,7 +569,7 @@ public class ServiceSynchronize extends LifecycleService {
             DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
             StringBuilder sb = new StringBuilder();
             for (EntityMessage message : messages) {
-                sb.append("<strong>").append(MessageHelper.getFormattedAddresses(message.from, false)).append("</strong>");
+                sb.append("<strong>").append(MessageHelper.formatAddressesShort(message.from)).append("</strong>");
                 if (!TextUtils.isEmpty(message.subject))
                     sb.append(": ").append(message.subject);
                 sb.append(" ").append(df.format(message.received));
@@ -640,7 +640,7 @@ public class ServiceSynchronize extends LifecycleService {
             mbuilder
                     .addExtras(args)
                     .setSmallIcon(R.drawable.baseline_email_white_24)
-                    .setContentTitle(MessageHelper.getFormattedAddresses(message.from, true))
+                    .setContentTitle(MessageHelper.formatAddresses(message.from))
                     .setSubText(message.accountName + " · " + folderName)
                     .setContentIntent(piContent)
                     .setWhen(message.received)
@@ -1882,13 +1882,13 @@ public class ServiceSynchronize extends LifecycleService {
                 sb.append(sfe.getMessage());
 
                 sb.append(' ').append(getString(R.string.title_address_sent));
-                sb.append(' ').append(MessageHelper.getFormattedAddresses(sfe.getValidSentAddresses(), true));
+                sb.append(' ').append(MessageHelper.formatAddresses(sfe.getValidSentAddresses()));
 
                 sb.append(' ').append(getString(R.string.title_address_unsent));
-                sb.append(' ').append(MessageHelper.getFormattedAddresses(sfe.getValidUnsentAddresses(), true));
+                sb.append(' ').append(MessageHelper.formatAddresses(sfe.getValidUnsentAddresses()));
 
                 sb.append(' ').append(getString(R.string.title_address_invalid));
-                sb.append(' ').append(MessageHelper.getFormattedAddresses(sfe.getInvalidAddresses(), true));
+                sb.append(' ').append(MessageHelper.formatAddresses(sfe.getInvalidAddresses()));
 
                 ex = new SendFailedException(
                         sb.toString(),

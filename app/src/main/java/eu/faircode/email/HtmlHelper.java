@@ -253,7 +253,7 @@ public class HtmlHelper {
         String html = EntityMessage.read(context, id);
         return String.format("<p>%s %s:</p>\n<blockquote>%s</blockquote>",
                 Html.escapeHtml(new Date(message.received).toString()),
-                Html.escapeHtml(MessageHelper.getFormattedAddresses(message.from, true)),
+                Html.escapeHtml(MessageHelper.formatAddresses(message.from)),
                 sanitize ? sanitize(html, true) : getBody(html));
     }
 

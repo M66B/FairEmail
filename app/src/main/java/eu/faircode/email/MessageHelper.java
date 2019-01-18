@@ -499,7 +499,22 @@ public class MessageHelper {
         return (size < 0 ? null : size);
     }
 
-    static String getFormattedAddresses(Address[] addresses, boolean full) {
+    static String formatAddresses(Address[] addresses) {
+        return formatAddresses(addresses, true, false);
+    }
+
+    static String formatAddressesShort(Address[] addresses) {
+        return formatAddresses(addresses, false, false);
+    }
+
+    static String formatAddressesCompose(Address[] addresses) {
+        String result = formatAddresses(addresses, true, true);
+        if (!TextUtils.isEmpty(result))
+            result += ", ";
+        return result;
+    }
+
+    private static String formatAddresses(Address[] addresses, boolean full, boolean compose) {
         if (addresses == null || addresses.length == 0)
             return "";
 
@@ -511,7 +526,17 @@ public class MessageHelper {
                 if (TextUtils.isEmpty(personal))
                     formatted.add(address.toString());
                 else {
-                    personal = personal.replaceAll("[\\,\\<\\>]", "");
+                    if (compose) {
+                        boolean quote = false;
+                        for (int i = 0; i < personal.length(); i++)
+                            if ("()<>,;:\\\"[]@".indexOf(personal.charAt(i)) >= 0) {
+                                quote = true;
+                                break;
+                            }
+                        if (quote)
+                            personal = "\"" + personal + "\"";
+                    }
+
                     if (full)
                         formatted.add(personal + " <" + a.getAddress() + ">");
                     else
