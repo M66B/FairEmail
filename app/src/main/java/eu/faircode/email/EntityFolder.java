@@ -215,7 +215,7 @@ public class EntityFolder implements Serializable {
 
     @Override
     public String toString() {
-        return name;
+        return (display == null ? name : display);
     }
 
     public JSONObject toJSON() throws JSONException {

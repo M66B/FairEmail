@@ -637,6 +637,10 @@ public class FragmentAccount extends FragmentBase {
                     if (!junk && altJunk != null)
                         altJunk.type = EntityFolder.JUNK;
 
+                    for (EntityFolder folder : result.folders)
+                        folder.display = folder.getDisplayName(getContext());
+                    EntityFolder.sort(getContext(), result.folders);
+
                 } finally {
                     if (istore != null)
                         istore.close();
@@ -1109,7 +1113,17 @@ public class FragmentAccount extends FragmentBase {
                     @Override
                     protected List<EntityFolder> onExecute(Context context, Bundle args) {
                         long account = args.getLong("account");
-                        return DB.getInstance(context).folder().getFolders(account);
+
+                        DB db = DB.getInstance(context);
+                        List<EntityFolder> folders = db.folder().getFolders(account);
+
+                        if (folders != null) {
+                            for (EntityFolder folder : folders)
+                                folder.display = folder.getDisplayName(getContext());
+                            EntityFolder.sort(getContext(), folders);
+                        }
+
+                        return folders;
                     }
 
                     @Override
@@ -1302,8 +1316,6 @@ public class FragmentAccount extends FragmentBase {
     }
 
     private void setFolders(List<EntityFolder> folders) {
-        EntityFolder.sort(getContext(), folders);
-
         EntityFolder none = new EntityFolder();
         none.name = "-";
         folders.add(0, none);

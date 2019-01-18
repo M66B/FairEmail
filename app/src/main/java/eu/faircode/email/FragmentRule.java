@@ -178,7 +178,17 @@ public class FragmentRule extends FragmentBase {
             @Override
             protected List<EntityFolder> onExecute(Context context, Bundle args) {
                 long account = args.getLong("account");
-                return DB.getInstance(context).folder().getFolders(account);
+
+                DB db = DB.getInstance(context);
+                List<EntityFolder> folders = db.folder().getFolders(account);
+
+                if (folders != null) {
+                    for (EntityFolder folder : folders)
+                        folder.display = folder.getDisplayName(context);
+                    EntityFolder.sort(context, folders);
+                }
+
+                return folders;
             }
 
             @Override

@@ -957,7 +957,11 @@ public class FragmentIdentity extends FragmentBase {
                 result.identity = db.identity().getIdentity(iid);
                 result.folders = db.folder().getFolders(aid);
 
-                EntityFolder.sort(context, result.folders);
+                if (result.folders != null) {
+                    for (EntityFolder folder : result.folders)
+                        folder.display = folder.getDisplayName(context);
+                    EntityFolder.sort(context, result.folders);
+                }
 
                 return result;
             }
