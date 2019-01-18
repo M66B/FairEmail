@@ -200,6 +200,7 @@
     <string name="title_delete_local">Удалить локальные сообщения</string>
     <string name="title_empty_trash">Очистить корзину</string>
     <string name="title_edit_properties">Изменить свойства</string>
+    <string name="title_edit_rules">Редактировать правила</string>
     <string name="title_empty_trash_ask">Удалить все сообщения корзины навсегда?</string>
     <string name="title_delete_operation">Удалить операции с сообщением об ошибке?</string>
     <string name="title_no_operations">Нет операций в очереди</string>
@@ -275,6 +276,7 @@
     <string name="title_ask_delete">Удалить сообщение навсегда?</string>
     <string name="title_ask_delete_selected">Удалить выбранные сообщения навсегда?</string>
     <string name="title_ask_delete_answer">Удалить шаблон ответа навсегда?</string>
+    <string name="title_ask_delete_rule">Удалить правило навсегда?</string>
     <string name="title_ask_discard">Удалить черновик?</string>
     <string name="title_ask_save">Сохранить изменения?</string>
     <string name="title_ask_spam">Сообщать о спаме?</string>
@@ -338,6 +340,20 @@
     <string name="title_answer_text">Текст шаблона</string>
     <string name="title_answer_template_name">$name$ будет заменен на полное имя отправителя</string>
     <string name="title_answer_template_email">$email$ будет заменен на адрес электронной почты отправителя</string>
+    <string name="title_rule_name">Название</string>
+    <string name="title_rule_order">Порядок</string>
+    <string name="title_rule_enabled">Включено</string>
+    <string name="title_rule_stop">Остановить обработку</string>
+    <string name="title_rule_sender">\"Отправитель\" содержит</string>
+    <string name="title_rule_subject">\"Тема\" содержит</string>
+    <string name="title_rule_header">Заголовок содержит</string>
+    <string name="title_rule_regex">Регулярное выражение</string>
+    <string name="title_rule_and">И</string>
+    <string name="title_rule_action">Действие</string>
+    <string name="title_rule_target">Кому</string>
+    <string name="title_rule_seen">Пометить прочитанным</string>
+    <string name="title_rule_name_missing">Отсутствует имя правила</string>
+    <string name="title_rule_condition_missing">Условие отсутствует</string>
     <string name="title_action_seen">Отметить как прочитанное</string>
     <string name="title_action_archive">Архив</string>
     <string name="title_action_trash">Корзина</string>
@@ -395,6 +411,8 @@
     <string name="title_report">Отчет</string>
     <string name="title_no_ask_again">Больше не спрашивать</string>
     <string name="title_no_adobe">Adobe Acrobat Reader не открывает файлы безопасно, смотрите FAQ для более детального описания</string>
+    <string name="title_no_body">В сообщении нет текста</string>
+    <string name="title_no_charset">Кодировка не поддерживается: %1$s</string>
     <string name="title_try">Попробуйте FairEmail, приложение с открытым исходным кодом, срвместимое с электронной почтой для Android</string>
     <string name="title_pro_feature">Это функция версии Pro</string>
     <string name="title_pro_list">Список функций, Pro</string>

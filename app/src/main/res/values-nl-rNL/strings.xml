@@ -188,6 +188,7 @@
     <string name="title_delete_local">Verwijder lokale berichten</string>
     <string name="title_empty_trash">Prullenbak leegmaken</string>
     <string name="title_edit_properties">Bewerk eigenschappen</string>
+    <string name="title_edit_rules">Regel bewerken</string>
     <string name="title_empty_trash_ask">Alle weggegooide berichten permanent verwijderen?</string>
     <string name="title_delete_operation">Bewerkingen met een foutmelding verwijderen?</string>
     <string name="title_no_operations">Geen openstaande bewerkingen</string>
@@ -263,6 +264,7 @@
     <string name="title_ask_delete">Verwijder bericht permanent?</string>
     <string name="title_ask_delete_selected">Verwijder geselecteerde berichten permanent?</string>
     <string name="title_ask_delete_answer">Verwijder antwoordsjabloon permanent?</string>
+    <string name="title_ask_delete_rule">Verwijder regel permanent?</string>
     <string name="title_ask_discard">Concept weggooien?</string>
     <string name="title_ask_save">Wijzigingen opslaan?</string>
     <string name="title_ask_spam">Als spam melden?</string>
@@ -326,6 +328,20 @@
     <string name="title_answer_text">Sjabloontekst</string>
     <string name="title_answer_template_name">$name$ zal worden vervangen door de volledige naam van de afzender</string>
     <string name="title_answer_template_email">$email$ zal worden vervangen door het e-mail adres van de afzender</string>
+    <string name="title_rule_name">Naam</string>
+    <string name="title_rule_order">Volgorde</string>
+    <string name="title_rule_enabled">Ingeschakeld</string>
+    <string name="title_rule_stop">Stop met verwerken</string>
+    <string name="title_rule_sender">Afzender bevat</string>
+    <string name="title_rule_subject">Onderwerp bevat</string>
+    <string name="title_rule_header">De kop bevat</string>
+    <string name="title_rule_regex">Regex</string>
+    <string name="title_rule_and">EN</string>
+    <string name="title_rule_action">Actie</string>
+    <string name="title_rule_target">Naar</string>
+    <string name="title_rule_seen">Markeer als gelezen</string>
+    <string name="title_rule_name_missing">Regelnaam ontbreekt</string>
+    <string name="title_rule_condition_missing">Voorwaarde ontbreekt</string>
     <string name="title_action_seen">Gelezen</string>
     <string name="title_action_archive">Archiveren</string>
     <string name="title_action_trash">Weggooien</string>
@@ -383,6 +399,8 @@
     <string name="title_report">Rapporteer</string>
     <string name="title_no_ask_again">Dit niet meer vragen</string>
     <string name="title_no_adobe">Adobe Acrobat reader kan veilig gedeelde bestanden niet openen, zie de FAQ voor meer informatie</string>
+    <string name="title_no_body">Geen berichttekst gevonden</string>
+    <string name="title_no_charset">Codering niet ondersteund: %1$s</string>
     <string name="title_try">Probeer FairEmail, een open source, privacy vriendelijke e-mail app voor Android</string>
     <string name="title_pro_feature">Dit is een pro-functie</string>
     <string name="title_pro_list">Lijst van pro-functies</string>

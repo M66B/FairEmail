@@ -188,6 +188,7 @@
     <string name="title_delete_local">Supprimer les messages locaux</string>
     <string name="title_empty_trash">Vider la corbeille</string>
     <string name="title_edit_properties">Éditer les propriétés</string>
+    <string name="title_edit_rules">Modifier les règles</string>
     <string name="title_empty_trash_ask">Supprimer définitivement tous les messages de la corbeille ?</string>
     <string name="title_delete_operation">Supprimer les opérations avec un message d\'erreur ?</string>
     <string name="title_no_operations">Aucune opération en attente</string>
@@ -232,6 +233,8 @@
     <string name="title_reply_all">Répondre à tous</string>
     <string name="title_share">Partager</string>
     <string name="title_show_headers">Afficher les en-têtes</string>
+    <string name="title_raw_download">Télécharger le message brut</string>
+    <string name="title_raw_save">Sauvegarder le message brut</string>
     <string name="title_manage_keywords">Gérer les mots-clés</string>
     <string name="title_add_keyword">Ajouter un mot-clé</string>
     <string name="title_download_all">Télécharger tout</string>
@@ -253,6 +256,7 @@
     <string name="title_no_stream">Une application obsolète a envoyé un chemin d\'accès au lieu d\'un flux de fichier</string>
     <string name="title_no_contacts">Sélecteur de contact non disponible</string>
     <string name="title_no_internet">Pas de connexion Internet</string>
+    <string name="title_raw_saved">Message brut enregistré</string>
     <string name="title_attachment_saved">Pièce jointe enregistrée</string>
     <string name="title_attachments_saved">Pièces jointes enregistrées</string>
     <string name="title_attachment_unavailable">Certaines pièces jointes ne sont pas téléchargées et ne seront pas ajoutées, continuer ?</string>
@@ -260,6 +264,7 @@
     <string name="title_ask_delete">Supprimer ce message définitivement ?</string>
     <string name="title_ask_delete_selected">Supprimer définitivement les messages sélectionnés ?</string>
     <string name="title_ask_delete_answer">Supprimer définitivement le modèle de réponse ?</string>
+    <string name="title_ask_delete_rule">Supprimer définitivement la règle ?</string>
     <string name="title_ask_discard">Supprimer le brouillon ?</string>
     <string name="title_ask_save">Enregistrer les modifications ?</string>
     <string name="title_ask_spam">Signaler comme spam ?</string>
@@ -323,6 +328,20 @@
     <string name="title_answer_text">Texte du modèle</string>
     <string name="title_answer_template_name">$name$ sera remplacé par le nom complet de l\'expéditeur</string>
     <string name="title_answer_template_email">$email$ sera remplacé par l\'adresse e-mail de l\'expéditeur</string>
+    <string name="title_rule_name">Nom</string>
+    <string name="title_rule_order">Ordre</string>
+    <string name="title_rule_enabled">Activé</string>
+    <string name="title_rule_stop">Arrêter le traitement</string>
+    <string name="title_rule_sender">L\'expéditeur contient</string>
+    <string name="title_rule_subject">L’objet contient</string>
+    <string name="title_rule_header">L’en-tête contient</string>
+    <string name="title_rule_regex">Expression régulière</string>
+    <string name="title_rule_and">ET</string>
+    <string name="title_rule_action">Action</string>
+    <string name="title_rule_target">À</string>
+    <string name="title_rule_seen">Marquer comme lu</string>
+    <string name="title_rule_name_missing">Nom de règle manquant</string>
+    <string name="title_rule_condition_missing">Condition manquante</string>
     <string name="title_action_seen">Marquer comme lu</string>
     <string name="title_action_archive">Archiver</string>
     <string name="title_action_trash">Supprimer</string>
@@ -380,6 +399,8 @@
     <string name="title_report">Rapport</string>
     <string name="title_no_ask_again">Ne plus me le demander</string>
     <string name="title_no_adobe">Adobe Acrobat reader ne peut pas ouvrir les fichiers partagés de façon sécurisée, voir la FAQ plus d\'information</string>
+    <string name="title_no_body">Aucun texte de message trouvé</string>
+    <string name="title_no_charset">Format d\'encodage non pris en charge : %1$s</string>
     <string name="title_try">Essayez FairEmail, une application de messagerie pour Android, open source, respectant la vie privée</string>
     <string name="title_pro_feature">Il s\'agit d\'une fonctionnalité Pro</string>
     <string name="title_pro_list">Liste des fonctionnalités Pro</string>

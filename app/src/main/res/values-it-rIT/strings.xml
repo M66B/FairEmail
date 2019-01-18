@@ -188,6 +188,7 @@
     <string name="title_delete_local">Elimina i messaggi locali</string>
     <string name="title_empty_trash">Svuota cestino</string>
     <string name="title_edit_properties">Modifica le proprietà</string>
+    <string name="title_edit_rules">Modifica regole</string>
     <string name="title_empty_trash_ask">Eliminare definitivamente tutti i messaggi cestinati?</string>
     <string name="title_delete_operation">Eliminare le operazioni con un messaggio di errore?</string>
     <string name="title_no_operations">Nessuna operazione in sospeso</string>
@@ -232,6 +233,8 @@
     <string name="title_reply_all">Rispondi a tutti</string>
     <string name="title_share">Condividi</string>
     <string name="title_show_headers">Visualizza header</string>
+    <string name="title_raw_download">Scarica messaggio non elaborato</string>
+    <string name="title_raw_save">Salva messaggio non elaborato</string>
     <string name="title_manage_keywords">Gestione parole chiave</string>
     <string name="title_add_keyword">Aggiungi parola chiave</string>
     <string name="title_download_all">Scarica tutti</string>
@@ -253,6 +256,7 @@
     <string name="title_no_stream">Un\'app obsoleta ha inviato un percorso file invece di un flusso di file</string>
     <string name="title_no_contacts">Selettore di contatti non disponibile</string>
     <string name="title_no_internet">Nessuna connessione Internet</string>
+    <string name="title_raw_saved">Messaggio non elaborato salvato</string>
     <string name="title_attachment_saved">Allegato salvato</string>
     <string name="title_attachments_saved">Allegati salvati</string>
     <string name="title_attachment_unavailable">Alcuni allegati non vengono scaricati e non verranno aggiunti, continuare?</string>
@@ -260,6 +264,7 @@
     <string name="title_ask_delete">Eliminare il messaggio permanentemente?</string>
     <string name="title_ask_delete_selected">Eliminare definitivamente i messaggi selezionati?</string>
     <string name="title_ask_delete_answer">Elimina definitivamente il modello di risposta?</string>
+    <string name="title_ask_delete_rule">Eliminare la regola permanentemente?</string>
     <string name="title_ask_discard">Eliminare la bozza?</string>
     <string name="title_ask_save">Salvare le modifiche?</string>
     <string name="title_ask_spam">Segnalare come spam?</string>
@@ -323,6 +328,20 @@
     <string name="title_answer_text">Testo del modello</string>
     <string name="title_answer_template_name">$name$ verrà sostituito con il nome completo del mittente</string>
     <string name="title_answer_template_email">$email$ verrà sostituito con l\'indirizzo email del mittente</string>
+    <string name="title_rule_name">Nome</string>
+    <string name="title_rule_order">Ordine</string>
+    <string name="title_rule_enabled">Abilitato</string>
+    <string name="title_rule_stop">Interrompere l\'elaborazione</string>
+    <string name="title_rule_sender">Il mittente contiene</string>
+    <string name="title_rule_subject">L\'oggetto contiene</string>
+    <string name="title_rule_header">L\'intestazione contiene</string>
+    <string name="title_rule_regex">Regex</string>
+    <string name="title_rule_and">E</string>
+    <string name="title_rule_action">Azione</string>
+    <string name="title_rule_target">A</string>
+    <string name="title_rule_seen">Segna come letto</string>
+    <string name="title_rule_name_missing">Nome Regola mancante</string>
+    <string name="title_rule_condition_missing">Condizione mancante</string>
     <string name="title_action_seen">Segna come letto</string>
     <string name="title_action_archive">Archivia</string>
     <string name="title_action_trash">Cestina</string>
@@ -380,6 +399,8 @@
     <string name="title_report">Report</string>
     <string name="title_no_ask_again">Non chiedere di nuovo</string>
     <string name="title_no_adobe">Adobe Acrobat Reader non può aprire file condivisi in modo sicuro, consultare le domande frequenti per ulteriori informazioni</string>
+    <string name="title_no_body">Nessun messaggio di testo trovato</string>
+    <string name="title_no_charset">Codifica non supportata: %1$s</string>
     <string name="title_try">Prova FairEmail, un\'app email per Android open source e rispettosa della privacy</string>
     <string name="title_pro_feature">Questa è una funzionalità a pagamento</string>
     <string name="title_pro_list">Elenco delle funzionalità a pagamento</string>
