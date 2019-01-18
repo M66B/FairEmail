@@ -52,11 +52,8 @@ public class FragmentRule extends FragmentBase {
     private EditText etName;
     private EditText etOrder;
     private CheckBox cbEnabled;
-    private Spinner spAccount;
-    private Spinner spFolder;
     private EditText etSender;
     private EditText etSubject;
-    private EditText etText;
     private Spinner spAction;
     private Spinner spTarget;
     private BottomNavigationView bottom_navigation;
@@ -64,12 +61,12 @@ public class FragmentRule extends FragmentBase {
     private Group grpReady;
     private Group grpMove;
 
-    private ArrayAdapter<EntityAccount> adapterAccount;
-    private ArrayAdapter<EntityFolder> adapterFolder;
     private ArrayAdapter<Action> adapterAction;
     private ArrayAdapter<EntityFolder> adapterTarget;
 
     private long id = -1;
+    private long account = -1;
+    private long folder = -1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,7 +74,9 @@ public class FragmentRule extends FragmentBase {
 
         // Get arguments
         Bundle args = getArguments();
-        id = (args == null ? -1 : args.getLong("id", -1));
+        id = args.getLong("id", -1);
+        account = args.getLong("account", -1);
+        folder = args.getLong("folder", -1);
     }
 
     @Override
@@ -89,25 +88,14 @@ public class FragmentRule extends FragmentBase {
         etName = view.findViewById(R.id.etName);
         etOrder = view.findViewById(R.id.etOrder);
         cbEnabled = view.findViewById(R.id.cbEnabled);
-        spAccount = view.findViewById(R.id.spAccount);
-        spFolder = view.findViewById(R.id.spFolder);
         etSender = view.findViewById(R.id.etSender);
         etSubject = view.findViewById(R.id.etSubject);
-        etText = view.findViewById(R.id.etText);
         spAction = view.findViewById(R.id.spAction);
         spTarget = view.findViewById(R.id.spTarget);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
         grpMove = view.findViewById(R.id.grpMove);
-
-        adapterAccount = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityAccount>());
-        adapterAccount.setDropDownViewResource(R.layout.spinner_item1_dropdown);
-        spAccount.setAdapter(adapterAccount);
-
-        adapterFolder = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityFolder>());
-        adapterFolder.setDropDownViewResource(R.layout.spinner_item1_dropdown);
-        spFolder.setAdapter(adapterFolder);
 
         adapterAction = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<Action>());
         adapterAction.setDropDownViewResource(R.layout.spinner_item1_dropdown);
@@ -122,19 +110,6 @@ public class FragmentRule extends FragmentBase {
         actions.add(new Action(EntityRule.TYPE_UNSEEN, getString(R.string.title_unseen)));
         actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_move)));
         adapterAction.addAll(actions);
-
-        spAccount.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                EntityAccount account = (EntityAccount) adapterView.getAdapter().getItem(position);
-                onAccountSelected(account.id);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                onAccountSelected(-1);
-            }
-        });
 
         spAction.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -190,18 +165,23 @@ public class FragmentRule extends FragmentBase {
     public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        new SimpleTask<List<EntityAccount>>() {
+        Bundle args = new Bundle();
+        args.putLong("account", account);
+
+        new SimpleTask<List<EntityFolder>>() {
             @Override
-            protected List<EntityAccount> onExecute(Context context, Bundle args) {
-                return DB.getInstance(context).account().getAccounts(true);
+            protected List<EntityFolder> onExecute(Context context, Bundle args) {
+                long account = args.getLong("account");
+                return DB.getInstance(context).folder().getFolders(account);
             }
 
             @Override
-            protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
-                if (accounts == null)
-                    accounts = new ArrayList<>();
+            protected void onExecuted(Bundle args, List<EntityFolder> folders) {
+                if (folders == null)
+                    folders = new ArrayList<>();
 
-                adapterAccount.addAll(accounts);
+                adapterTarget.clear();
+                adapterTarget.addAll(folders);
 
                 Bundle rargs = new Bundle();
                 rargs.putLong("id", id);
@@ -224,7 +204,6 @@ public class FragmentRule extends FragmentBase {
                             cbEnabled.setChecked(rule == null ? true : rule.enabled);
                             etSender.setText(jcondition.optString("sender"));
                             etSubject.setText(jcondition.optString("subject"));
-                            etText.setText(jcondition.optString("text"));
 
                             int type = jaction.optInt("type", -1);
                             for (int pos = 0; pos < adapterAction.getCount(); pos++)
@@ -233,26 +212,26 @@ public class FragmentRule extends FragmentBase {
                                     break;
                                 }
 
-                            bottom_navigation.findViewById(R.id.action_delete).setVisibility(rule == null ? View.GONE : View.VISIBLE);
-
                             if (rule == null) {
                                 grpReady.setVisibility(View.VISIBLE);
                                 bottom_navigation.setVisibility(View.VISIBLE);
                                 pbWait.setVisibility(View.GONE);
                             } else {
-                                spAccount.setTag(rule.account);
-                                spFolder.setTag(rule.folder);
-
-                                if (type == EntityRule.TYPE_MOVE)
-                                    spTarget.setTag(jaction.getLong("target"));
-
-                                for (int pos = 0; pos < adapterAccount.getCount(); pos++)
-                                    if (adapterAccount.getItem(pos).id.equals(rule.account)) {
-                                        spAccount.setSelection(pos);
-                                        onAccountSelected(rule.account);
-                                        break;
-                                    }
+                                if (type == EntityRule.TYPE_MOVE) {
+                                    long target = jaction.optLong("target", -1);
+                                    for (int pos = 0; pos < adapterTarget.getCount(); pos++)
+                                        if (adapterTarget.getItem(pos).id.equals(target)) {
+                                            spTarget.setSelection(pos);
+                                            break;
+                                        }
+                                    grpMove.setVisibility(View.VISIBLE);
+                                }
                             }
+
+                            grpReady.setVisibility(View.VISIBLE);
+                            bottom_navigation.findViewById(R.id.action_delete).setVisibility(rule == null ? View.GONE : View.VISIBLE);
+                            bottom_navigation.setVisibility(View.VISIBLE);
+                            pbWait.setVisibility(View.GONE);
                         } catch (JSONException ex) {
                             Log.e(ex);
                         }
@@ -269,58 +248,7 @@ public class FragmentRule extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(this, null, "rule:accounts");
-    }
-
-    private void onAccountSelected(long account) {
-        Bundle args = new Bundle();
-        args.putLong("account", account);
-
-        new SimpleTask<List<EntityFolder>>() {
-            @Override
-            protected List<EntityFolder> onExecute(Context context, Bundle args) {
-                long account = args.getLong("account");
-                return DB.getInstance(context).folder().getFolders(account);
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, List<EntityFolder> folders) {
-                adapterFolder.clear();
-                adapterFolder.addAll(folders);
-
-                adapterTarget.clear();
-                adapterTarget.addAll(folders);
-
-                long account = args.getLong("account");
-                if (account == (Long) spAccount.getTag()) {
-                    Long folder = (Long) spFolder.getTag();
-                    for (int pos = 0; pos < folders.size(); pos++)
-                        if (folders.get(pos).id.equals(folder)) {
-                            spFolder.setSelection(pos);
-                            break;
-                        }
-
-                    Long target = (Long) spTarget.getTag();
-                    for (int pos = 0; pos < folders.size(); pos++)
-                        if (folders.get(pos).id.equals(target)) {
-                            spTarget.setSelection(pos);
-                            break;
-                        }
-                } else {
-                    spFolder.setSelection(0);
-                    spTarget.setSelection(0);
-                }
-
-                grpReady.setVisibility(View.VISIBLE);
-                bottom_navigation.setVisibility(View.VISIBLE);
-                pbWait.setVisibility(View.GONE);
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-            }
-        }.execute(FragmentRule.this, args, "rule:folders");
+        }.execute(this, args, "rule:accounts");
     }
 
     private void onActionTrash() {
@@ -370,19 +298,14 @@ public class FragmentRule extends FragmentBase {
         try {
             Helper.setViewsEnabled(view, false);
 
-            EntityFolder folder = (EntityFolder) spFolder.getSelectedItem();
-
             String sender = etSender.getText().toString();
             String subject = etSubject.getText().toString();
-            String text = etText.getText().toString();
 
             JSONObject jcondition = new JSONObject();
             if (!TextUtils.isEmpty(sender))
                 jcondition.put("sender", sender);
             if (!TextUtils.isEmpty(subject))
                 jcondition.put("subject", subject);
-            if (!TextUtils.isEmpty(text))
-                jcondition.put("text", text);
 
             Action action = (Action) spAction.getSelectedItem();
 
@@ -397,7 +320,7 @@ public class FragmentRule extends FragmentBase {
 
             Bundle args = new Bundle();
             args.putLong("id", id);
-            args.putLong("folder", folder == null ? -1 : folder.id);
+            args.putLong("folder", folder);
             args.putString("name", etName.getText().toString());
             args.putString("order", etOrder.getText().toString());
             args.putBoolean("enabled", cbEnabled.isChecked());

@@ -45,10 +45,23 @@ public class FragmentRules extends FragmentBase {
 
     private AdapterRule adapter;
 
+    private long account;
+    private long folder;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Get arguments
+        Bundle args = getArguments();
+        account = args.getLong("account", -1);
+        folder = args.getLong("folder", -1);
+    }
+
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        setSubtitle(R.string.menu_rules);
+        setSubtitle(R.string.title_edit_rules);
 
         View view = inflater.inflate(R.layout.fragment_rules, container, false);
 
@@ -70,8 +83,15 @@ public class FragmentRules extends FragmentBase {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = new Bundle();
+                args.putLong("account", account);
+                args.putLong("folder", folder);
+
+                FragmentRule fragment = new FragmentRule();
+                fragment.setArguments(args);
+
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, new FragmentRule()).addToBackStack("rule");
+                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("rule");
                 fragmentTransaction.commit();
             }
         });
@@ -88,7 +108,7 @@ public class FragmentRules extends FragmentBase {
         super.onActivityCreated(savedInstanceState);
 
         DB db = DB.getInstance(getContext());
-        db.rule().liveRules().observe(getViewLifecycleOwner(), new Observer<List<TupleRuleEx>>() {
+        db.rule().liveRules(folder).observe(getViewLifecycleOwner(), new Observer<List<TupleRuleEx>>() {
             @Override
             public void onChanged(List<TupleRuleEx> rules) {
                 if (rules == null)

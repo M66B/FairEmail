@@ -72,7 +72,6 @@ public class EntityRule {
             JSONObject jcondition = new JSONObject(condition);
             String sender = jcondition.optString("sender", null);
             String subject = jcondition.optString("subject", null);
-            String text = jcondition.optString("text", null);
             boolean regex = jcondition.optBoolean("regex", false);
 
             if (sender != null && message.from != null) {
@@ -82,13 +81,6 @@ public class EntityRule {
 
             if (subject != null && message.subject != null) {
                 if (matches(subject, message.subject, regex))
-                    return true;
-            }
-
-            if (text != null && message.content) {
-                String body = message.read(context);
-                String santized = HtmlHelper.sanitize(body, true);
-                if (matches(text, santized, regex))
                     return true;
             }
         } catch (JSONException ex) {

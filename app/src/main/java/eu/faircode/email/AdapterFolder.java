@@ -84,6 +84,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private final static int action_delete_local = 2;
         private final static int action_empty_trash = 3;
         private final static int action_edit_properties = 4;
+        private final static int action_edit_rules = 5;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -236,8 +237,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (EntityFolder.TRASH.equals(folder.type))
                 popupMenu.getMenu().add(Menu.NONE, action_empty_trash, 3, R.string.title_empty_trash);
 
-            if (folder.account != null)
+            if (folder.account != null) {
                 popupMenu.getMenu().add(Menu.NONE, action_edit_properties, 4, R.string.title_edit_properties);
+                popupMenu.getMenu().add(Menu.NONE, action_edit_rules, 5, R.string.title_edit_rules);
+            }
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -257,6 +260,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                         case action_edit_properties:
                             onActionEditProperties();
+                            return true;
+
+                        case action_edit_rules:
+                            onActionEditRules();
                             return true;
 
                         default:
@@ -370,6 +377,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     lbm.sendBroadcast(
                             new Intent(ActivityView.ACTION_EDIT_FOLDER)
                                     .putExtra("id", folder.id));
+                }
+
+                private void onActionEditRules() {
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                    lbm.sendBroadcast(
+                            new Intent(ActivityView.ACTION_EDIT_RULES)
+                                    .putExtra("account", folder.account)
+                                    .putExtra("folder", folder.id));
                 }
             });
 

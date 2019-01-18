@@ -51,14 +51,14 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private View itemView;
         private TextView tvName;
-        private TextView tvFolder;
+        private TextView tvOrder;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             this.itemView = itemView.findViewById(R.id.clItem);
             tvName = itemView.findViewById(R.id.tvName);
-            tvFolder = itemView.findViewById(R.id.tvFolder);
+            tvOrder = itemView.findViewById(R.id.tvOrder);
         }
 
         private void wire() {
@@ -72,7 +72,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         private void bindTo(TupleRuleEx rule) {
             itemView.setActivated(!rule.enabled);
             tvName.setText(rule.name);
-            tvFolder.setText(rule.folderName + "/" + rule.accountName);
+            tvOrder.setText(Integer.toString(rule.order));
         }
 
         @Override
@@ -86,7 +86,9 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
                     new Intent(ActivityView.ACTION_EDIT_RULE)
-                            .putExtra("id", rule.id));
+                            .putExtra("id", rule.id)
+                            .putExtra("account", rule.account)
+                            .putExtra("folder", rule.folder));
         }
     }
 

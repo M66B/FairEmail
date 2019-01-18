@@ -43,8 +43,9 @@ public interface DaoRule {
 
     @Query("SELECT rule.*, folder.account, folder.name AS folderName, account.name AS accountName FROM rule" +
             " JOIN folder ON folder.id = rule.folder" +
-            " JOIN account ON account.id = folder.account")
-    LiveData<List<TupleRuleEx>> liveRules();
+            " JOIN account ON account.id = folder.account" +
+            " WHERE rule.folder = :folder")
+    LiveData<List<TupleRuleEx>> liveRules(long folder);
 
     @Insert
     long insertRule(EntityRule rule);
