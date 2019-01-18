@@ -198,4 +198,26 @@ public class EntityRule {
         } else
             return false;
     }
+
+    public JSONObject toJSON() throws JSONException {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("order", order);
+        json.put("enabled", enabled);
+        json.put("stop", stop);
+        json.put("condition", condition);
+        json.put("action", action);
+        return json;
+    }
+
+    public static EntityRule fromJSON(JSONObject json) throws JSONException {
+        EntityRule rule = new EntityRule();
+        rule.name = json.getString("name");
+        rule.order = json.getInt("order");
+        rule.enabled = json.getBoolean("enabled");
+        rule.stop = json.getBoolean("stop");
+        rule.condition = json.getString("condition");
+        rule.action = json.getString("action");
+        return rule;
+    }
 }

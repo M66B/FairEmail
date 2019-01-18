@@ -473,8 +473,14 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
                         // Folders
                         JSONArray jfolders = new JSONArray();
-                        for (EntityFolder folder : db.folder().getFolders(account.id))
-                            jfolders.put(folder.toJSON());
+                        for (EntityFolder folder : db.folder().getFolders(account.id)) {
+                            JSONObject jfolder = folder.toJSON();
+                            JSONArray jrules = new JSONArray();
+                            for (EntityRule rule : db.rule().getRules(folder.id))
+                                jrules.put(rule.toJSON());
+                            jfolder.put("rules", jrules);
+                            jfolders.put(jfolder);
+                        }
                         jaccount.put("folders", jfolders);
 
                         jaccounts.put(jaccount);
@@ -606,6 +612,15 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                                 EntityFolder folder = EntityFolder.fromJSON(jfolder);
                                 folder.account = account.id;
                                 folder.id = db.folder().insertFolder(folder);
+                                if (jfolder.has("rules")) {
+                                    JSONArray jrules = jfolder.getJSONArray("rules");
+                                    for (int r = 0; r < jrules.length(); r++) {
+                                        JSONObject jrule = (JSONObject) jrules.get(r);
+                                        EntityRule rule = EntityRule.fromJSON(jrule);
+                                        rule.folder = folder.id;
+                                        db.rule().insertRule(rule);
+                                    }
+                                }
                                 Log.i("Imported folder=" + folder.name);
                             }
                         }

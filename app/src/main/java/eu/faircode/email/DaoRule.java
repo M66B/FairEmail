@@ -31,6 +31,11 @@ import androidx.room.Update;
 public interface DaoRule {
     @Query("SELECT * FROM rule" +
             " WHERE folder = :folder" +
+            " ORDER BY `order`")
+    List<EntityRule> getRules(long folder);
+
+    @Query("SELECT * FROM rule" +
+            " WHERE folder = :folder" +
             " AND enabled" +
             " ORDER BY `order`")
     List<EntityRule> getEnabledRules(long folder);
