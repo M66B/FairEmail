@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.Collator;
@@ -52,6 +53,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         private View itemView;
         private TextView tvName;
         private TextView tvOrder;
+        private ImageView ivStop;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -59,6 +61,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             this.itemView = itemView.findViewById(R.id.clItem);
             tvName = itemView.findViewById(R.id.tvName);
             tvOrder = itemView.findViewById(R.id.tvOrder);
+            ivStop = itemView.findViewById(R.id.ivStop);
         }
 
         private void wire() {
@@ -73,6 +76,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             itemView.setActivated(!rule.enabled);
             tvName.setText(rule.name);
             tvOrder.setText(Integer.toString(rule.order));
+            ivStop.setVisibility(rule.stop ? View.VISIBLE : View.INVISIBLE);
         }
 
         @Override

@@ -134,7 +134,7 @@ public class EntityRule {
         try {
             JSONObject jargs = new JSONObject(action);
             int type = jargs.getInt("type");
-            Log.i("Executing rule=" + type + " message=" + message.id);
+            Log.i("Executing rule=" + type + ":" + name + " message=" + message.id);
 
             switch (type) {
                 case TYPE_SEEN:

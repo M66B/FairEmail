@@ -45,7 +45,6 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
-import androidx.lifecycle.Lifecycle;
 
 public class FragmentRule extends FragmentBase {
     private ViewGroup view;
@@ -136,7 +135,7 @@ public class FragmentRule extends FragmentBase {
 
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.action_delete:
                         onActionTrash();
@@ -150,8 +149,6 @@ public class FragmentRule extends FragmentBase {
             }
         });
 
-        ((ActivityBase) getActivity()).addBackPressedListener(onBackPressedListener);
-
         // Initialize
         bottom_navigation.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
@@ -159,12 +156,6 @@ public class FragmentRule extends FragmentBase {
         pbWait.setVisibility(View.VISIBLE);
 
         return view;
-    }
-
-    @Override
-    public void onDestroyView() {
-        ((ActivityBase) getActivity()).removeBackPressedListener(onBackPressedListener);
-        super.onDestroyView();
     }
 
     @Override
@@ -388,8 +379,7 @@ public class FragmentRule extends FragmentBase {
                     JSONObject jsender = jcondition.optJSONObject("sender");
                     JSONObject jsubject = jcondition.optJSONObject("subject");
 
-                    if (TextUtils.isEmpty(jsender.optString("value")) &&
-                            TextUtils.isEmpty(jsubject.optString("value")))
+                    if (jsender == null && jsubject == null)
                         throw new IllegalArgumentException(context.getString(R.string.title_rule_condition_missing));
 
                     if (TextUtils.isEmpty(order))
@@ -438,33 +428,6 @@ public class FragmentRule extends FragmentBase {
             Log.e(ex);
         }
     }
-
-    private void handleExit() {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                    .setMessage(R.string.title_ask_save)
-                    .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            onActionSave();
-                        }
-                    })
-                    .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                        }
-                    })
-                    .show();
-    }
-
-    ActivityBase.IBackPressedListener onBackPressedListener = new ActivityBase.IBackPressedListener() {
-        @Override
-        public boolean onBackPressed() {
-            handleExit();
-            return true;
-        }
-    };
 
     private class Action {
         int type;

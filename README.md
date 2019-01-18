@@ -41,6 +41,7 @@ This app starts a foreground service with a low priority status bar notification
 * Snooze messages
 * Send messages after selected time
 * Reply templates
+* Filter rules
 * Search on server
 * Keyword management
 * Encryption/decryption ([OpenPGP](https://www.openpgp.org/))
