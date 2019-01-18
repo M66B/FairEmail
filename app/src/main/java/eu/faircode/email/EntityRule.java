@@ -127,7 +127,7 @@ public class EntityRule {
 
     private void onActionMove(Context context, DB db, EntityMessage message, JSONObject jargs) throws JSONException {
         long target = jargs.getLong("target");
-        EntityOperation.queue(context, db, message, EntityOperation.MOVE, target);
+        EntityOperation.queue(context, db, message, EntityOperation.MOVE, target, false);
     }
 
     @Override

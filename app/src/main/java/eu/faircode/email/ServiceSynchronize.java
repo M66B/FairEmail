@@ -1713,9 +1713,11 @@ public class ServiceSynchronize extends LifecycleService {
         if (imessage == null)
             throw new MessageRemovedException();
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (prefs.getBoolean("autoread", false) && !imessage.isSet(Flags.Flag.SEEN))
-            imessage.setFlag(Flags.Flag.SEEN, true);
+        if (jargs.length() == 1 || jargs.getBoolean(1)) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            if (prefs.getBoolean("autoread", false) && !imessage.isSet(Flags.Flag.SEEN))
+                imessage.setFlag(Flags.Flag.SEEN, true);
+        }
 
         if (istore.hasCapability("MOVE") && !EntityFolder.DRAFTS.equals(folder.type)) {
             Folder itarget = istore.getFolder(target.name);
