@@ -104,6 +104,7 @@
                 android:id="@+id/etSender"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:hint="@string/title_optional"
                 android:inputType="textEmailAddress"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -148,11 +149,57 @@
                 android:id="@+id/etSubject"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
+                android:hint="@string/title_optional"
+                android:inputType="text"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cbSubject" />
+
+            <TextView
+                android:id="@+id/tvAndSubject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/title_rule_and"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="?android:attr/textColorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etSubject" />
+
+            <TextView
+                android:id="@+id/tvHeader"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/title_rule_header"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintBottom_toBottomOf="@+id/cbHeader"
+                app:layout_constraintEnd_toStartOf="@+id/cbHeader"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/cbHeader" />
+
+            <CheckBox
+                android:id="@+id/cbHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/title_rule_regex"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAndSubject" />
+
+            <EditText
+                android:id="@+id/etHeader"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/title_optional"
+                android:inputType="text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cbHeader" />
 
             <TextView
                 android:id="@+id/tvAction"
@@ -162,7 +209,7 @@
                 android:text="@string/title_rule_action"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etSubject" />
+                app:layout_constraintTop_toBottomOf="@+id/etHeader" />
 
             <Spinner
                 android:id="@+id/spAction"
@@ -172,35 +219,26 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvAction" />
 
-            <TextView
-                android:id="@+id/tvTarget"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_rule_target"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/spAction" />
-
             <Spinner
                 android:id="@+id/spTarget"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvTarget" />
+                app:layout_constraintTop_toBottomOf="@id/spAction" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpReady"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:constraint_referenced_ids="tvName,etName,tvOrder,etOrder,cbEnabled,cbStop,tvSender,etSender,cbSender,tvAndSender,tvSubject,etSubject,cbSubject,tvAction,spAction,tvTarget,spTarget" />
+                app:constraint_referenced_ids="tvName,etName,tvOrder,etOrder,cbEnabled,cbStop,tvSender,cbSender,etSender,tvAndSender,tvSubject,cbSubject,etSubject,tvAction,spAction" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpMove"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:constraint_referenced_ids="tvTarget,spTarget" />
+                app:constraint_referenced_ids="spTarget" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

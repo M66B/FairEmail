@@ -24,10 +24,13 @@ import android.content.Context;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
+import java.util.Enumeration;
 import java.util.regex.Pattern;
 
 import javax.mail.Address;
+import javax.mail.Header;
+import javax.mail.Message;
+import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 
 import androidx.annotation.NonNull;
@@ -72,13 +75,13 @@ public class EntityRule {
     static final int TYPE_UNSEEN = 2;
     static final int TYPE_MOVE = 3;
 
-    boolean matches(Context context, EntityMessage message) throws IOException {
+    boolean matches(Context context, EntityMessage message, Message imessage) throws MessagingException {
         try {
             JSONObject jcondition = new JSONObject(condition);
 
             JSONObject jsender = jcondition.optJSONObject("sender");
             if (jsender != null) {
-                String sender = jsender.getString("value");
+                String value = jsender.getString("value");
                 boolean regex = jsender.getBoolean("regex");
 
                 boolean matches = false;
@@ -87,7 +90,7 @@ public class EntityRule {
                         InternetAddress ia = (InternetAddress) from;
                         String personal = ia.getPersonal();
                         String formatted = ((personal == null ? "" : personal + " ") + "<" + ia.getAddress() + ">");
-                        if (matches(sender, formatted, regex)) {
+                        if (matches(value, formatted, regex)) {
                             matches = true;
                             break;
                         }
@@ -99,15 +102,34 @@ public class EntityRule {
 
             JSONObject jsubject = jcondition.optJSONObject("subject");
             if (jsubject != null) {
-                String subject = jsubject.getString("value");
+                String value = jsubject.getString("value");
                 boolean regex = jsubject.getBoolean("regex");
 
-                if (!matches(subject, message.subject, regex))
+                if (!matches(value, message.subject, regex))
+                    return false;
+            }
+
+            JSONObject jheader = jcondition.optJSONObject("header");
+            if (jheader != null) {
+                String value = jheader.getString("value");
+                boolean regex = jheader.getBoolean("regex");
+
+                boolean matches = false;
+                Enumeration<Header> headers = imessage.getAllHeaders();
+                while (headers.hasMoreElements()) {
+                    Header header = headers.nextElement();
+                    String formatted = header.getName() + ": " + header.getValue();
+                    if (matches(value, formatted, regex)) {
+                        matches = true;
+                        break;
+                    }
+                }
+                if (!matches)
                     return false;
             }
 
             // Safeguard
-            if (jsender == null && jsubject == null)
+            if (jsender == null && jsubject == null && jheader == null)
                 return false;
         } catch (JSONException ex) {
             Log.e(ex);
@@ -127,7 +149,7 @@ public class EntityRule {
             Pattern pattern = Pattern.compile(needle);
             return pattern.matcher(haystack).matches();
         } else
-            return haystack.contains(needle);
+            return haystack.toLowerCase().contains(needle.toLowerCase());
     }
 
     void execute(Context context, DB db, EntityMessage message) {

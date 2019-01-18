@@ -390,8 +390,6 @@
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">AND</string>
     <string name="title_rule_action">Action</string>
-    <string name="title_rule_target">To</string>
-    <string name="title_rule_seen">Mark as read</string>
     <string name="title_rule_name_missing">Rule name missing</string>
     <string name="title_rule_condition_missing">Condition missing</string>
 

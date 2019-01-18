@@ -56,6 +56,8 @@ public class FragmentRule extends FragmentBase {
     private CheckBox cbSender;
     private EditText etSubject;
     private CheckBox cbSubject;
+    private EditText etHeader;
+    private CheckBox cbHeader;
     private Spinner spAction;
     private Spinner spTarget;
     private BottomNavigationView bottom_navigation;
@@ -95,6 +97,8 @@ public class FragmentRule extends FragmentBase {
         cbSender = view.findViewById(R.id.cbSender);
         etSubject = view.findViewById(R.id.etSubject);
         cbSubject = view.findViewById(R.id.cbSubject);
+        etHeader = view.findViewById(R.id.etHeader);
+        cbHeader = view.findViewById(R.id.cbHeader);
         spAction = view.findViewById(R.id.spAction);
         spTarget = view.findViewById(R.id.spTarget);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
@@ -208,6 +212,7 @@ public class FragmentRule extends FragmentBase {
 
                             JSONObject jsender = jcondition.optJSONObject("sender");
                             JSONObject jsubject = jcondition.optJSONObject("subject");
+                            JSONObject jheader = jcondition.optJSONObject("header");
 
                             etName.setText(rule == null ? null : rule.name);
                             etOrder.setText(rule == null ? null : Integer.toString(rule.order));
@@ -217,6 +222,8 @@ public class FragmentRule extends FragmentBase {
                             cbSender.setChecked(jsender != null && jsender.optBoolean("regex", false));
                             etSubject.setText(jsubject == null ? null : jsubject.optString("value"));
                             cbSubject.setChecked(jsubject != null && jsubject.optBoolean("regex", false));
+                            etHeader.setText(jheader == null ? null : jheader.optString("value"));
+                            cbHeader.setChecked(jheader != null && jheader.optBoolean("regex", false));
 
                             int type = jaction.optInt("type", -1);
                             for (int pos = 0; pos < adapterAction.getCount(); pos++)
@@ -329,6 +336,14 @@ public class FragmentRule extends FragmentBase {
                 jcondition.put("subject", jsubject);
             }
 
+            String header = etHeader.getText().toString();
+            if (!TextUtils.isEmpty(header)) {
+                JSONObject jheader = new JSONObject();
+                jheader.put("value", header);
+                jheader.put("regex", cbHeader.isChecked());
+                jcondition.put("header", jheader);
+            }
+
             JSONObject jaction = new JSONObject();
 
             Action action = (Action) spAction.getSelectedItem();
@@ -378,8 +393,9 @@ public class FragmentRule extends FragmentBase {
                     JSONObject jcondition = new JSONObject(condition);
                     JSONObject jsender = jcondition.optJSONObject("sender");
                     JSONObject jsubject = jcondition.optJSONObject("subject");
+                    JSONObject jheader = jcondition.optJSONObject("header");
 
-                    if (jsender == null && jsubject == null)
+                    if (jsender == null && jsubject == null && jheader == null)
                         throw new IllegalArgumentException(context.getString(R.string.title_rule_condition_missing));
 
                     if (TextUtils.isEmpty(order))
