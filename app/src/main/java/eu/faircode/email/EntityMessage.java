@@ -50,7 +50,6 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
-import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
@@ -152,8 +151,8 @@ public class EntityMessage implements Serializable {
     public String error; // volatile
     public Long last_attempt; // send
 
-    @Ignore
     private static final Map<String, ContactInfo> emailContactInfo = new HashMap<>();
+    private static final long MAX_CACHED_CONTACTINFO_AGE = 20 * 60 * 1000L; // milliseconds
 
     static String generateMessageId() {
         StringBuilder sb = new StringBuilder();
@@ -216,10 +215,17 @@ public class EntityMessage implements Serializable {
     private class ContactInfo {
         Uri lookupUri;
         String displayName;
+        long time;
 
         ContactInfo(Uri lookupUri, String displayName) {
             this.lookupUri = lookupUri;
             this.displayName = displayName;
+            this.time = new Date().getTime();
+        }
+
+        boolean isValid() {
+            long age = new Date().getTime() - this.time;
+            return age < MAX_CACHED_CONTACTINFO_AGE;
         }
     }
 
@@ -235,8 +241,8 @@ public class EntityMessage implements Serializable {
                         String email = address.getAddress();
 
                         synchronized (emailContactInfo) {
-                            if (emailContactInfo.containsKey(email)) {
-                                ContactInfo info = emailContactInfo.get(email);
+                            ContactInfo info = emailContactInfo.get(email);
+                            if (info != null && info.isValid()) {
                                 this.avatar = info.lookupUri.toString();
                                 if (!TextUtils.isEmpty(info.displayName))
                                     address.setPersonal(info.displayName);
