@@ -1427,7 +1427,8 @@ public class FragmentMessages extends FragmentBase {
     @Override
     public void onResume() {
         super.onResume();
-        grpSupport.setVisibility(Helper.isPro(getContext()) ? View.GONE : View.VISIBLE);
+        grpSupport.setVisibility(viewType == AdapterMessage.ViewType.THREAD ||
+                Helper.isPro(getContext()) ? View.GONE : View.VISIBLE);
 
         ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkRequest.Builder builder = new NetworkRequest.Builder();
