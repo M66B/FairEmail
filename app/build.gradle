@@ -162,7 +162,7 @@ dependencies {
     //implementation "net.freeutils:jcharset:$jcharset_version"
 
     // https://mvnrepository.com/artifact/com.ibm.icu/icu4j
-    implementation "com.ibm.icu:icu4j:$icu4j_version"
+    //implementation "com.ibm.icu:icu4j:$icu4j_version"
 
     // http://www.xbill.org/dnsjava/
     implementation "dnsjava:dnsjava:$dnsjava_version"

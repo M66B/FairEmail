@@ -23,9 +23,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 
-import com.ibm.icu.text.CharsetDetector;
-import com.ibm.icu.text.CharsetMatch;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 
@@ -568,16 +565,15 @@ public class MessageHelper {
             ContentType ct = new ContentType(part.getContentType());
             String charset = ct.getParameter("charset");
             if (TextUtils.isEmpty(charset)) {
-                try {
-                    CharsetDetector detector = new CharsetDetector();
-                    String defset = (part.isMimeType("text/plain") ? "US-ASCII" : "ISO-8859-1");
-                    detector.setText(result.getBytes(defset));
-                    CharsetMatch match = detector.detect();
-                    result = new String(result.getBytes(match.getName()));
-                    warnings.add(context.getString(R.string.title_guessed_charset, match.getName()));
-                } catch (UnsupportedEncodingException ex) {
-                    warnings.add(Helper.formatThrowable(ex));
-                }
+                if (BuildConfig.DEBUG)
+                    warnings.add(context.getString(R.string.title_no_charset, ct.toString()));
+                if (part.isMimeType("text/plain"))
+                    try {
+                        // The first 127 characters are the same as in US-ASCII
+                        result = new String(result.getBytes("ISO-8859-1"));
+                    } catch (UnsupportedEncodingException ex) {
+                        warnings.add(Helper.formatThrowable(ex));
+                    }
             } else {
                 if ("US-ASCII".equals(Charset.forName(charset).name()) &&
                         !"US-ASCII".equals(charset.toUpperCase()))
