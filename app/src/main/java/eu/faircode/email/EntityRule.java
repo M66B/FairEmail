@@ -27,6 +27,9 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.regex.Pattern;
 
+import javax.mail.Address;
+import javax.mail.internet.InternetAddress;
+
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -59,6 +62,8 @@ public class EntityRule {
     @NonNull
     public boolean enabled;
     @NonNull
+    public boolean stop;
+    @NonNull
     public String condition;
     @NonNull
     public String action;
@@ -70,27 +75,54 @@ public class EntityRule {
     boolean matches(Context context, EntityMessage message) throws IOException {
         try {
             JSONObject jcondition = new JSONObject(condition);
-            String sender = jcondition.optString("sender", null);
-            String subject = jcondition.optString("subject", null);
-            boolean regex = jcondition.optBoolean("regex", false);
 
-            if (sender != null && message.from != null) {
-                if (matches(sender, MessageHelper.getFormattedAddresses(message.from, true), regex))
-                    return true;
+            JSONObject jsender = jcondition.optJSONObject("sender");
+            if (jsender != null) {
+                String sender = jsender.getString("value");
+                boolean regex = jsender.getBoolean("regex");
+
+                boolean matches = false;
+                if (message.from != null) {
+                    for (Address from : message.from) {
+                        InternetAddress ia = (InternetAddress) from;
+                        String personal = ia.getPersonal();
+                        String formatted = ((personal == null ? "" : personal + " ") + "<" + ia.getAddress() + ">");
+                        if (matches(sender, formatted, regex)) {
+                            matches = true;
+                            break;
+                        }
+                    }
+                }
+                if (!matches)
+                    return false;
             }
 
-            if (subject != null && message.subject != null) {
-                if (matches(subject, message.subject, regex))
-                    return true;
+            JSONObject jsubject = jcondition.optJSONObject("subject");
+            if (jsubject != null) {
+                String subject = jsubject.getString("value");
+                boolean regex = jsubject.getBoolean("regex");
+
+                if (!matches(subject, message.subject, regex))
+                    return false;
             }
+
+            // Safeguard
+            if (jsender == null && jsubject == null)
+                return false;
         } catch (JSONException ex) {
             Log.e(ex);
+            return false;
         }
 
-        return false;
+        return true;
     }
 
     private boolean matches(String needle, String haystack, boolean regex) {
+        Log.i("Matches needle=" + needle + " haystack=" + haystack + " regex=" + regex);
+
+        if (needle == null || haystack == null)
+            return false;
+
         if (regex) {
             Pattern pattern = Pattern.compile(needle);
             return pattern.matcher(haystack).matches();
@@ -138,6 +170,7 @@ public class EntityRule {
                     this.name.equals(other.name) &&
                     this.order == other.order &&
                     this.enabled == other.enabled &&
+                    this.stop == other.stop &&
                     this.condition.equals(other.condition) &&
                     this.action.equals(other.action);
         } else

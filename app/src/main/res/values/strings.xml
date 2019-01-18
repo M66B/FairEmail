@@ -384,13 +384,17 @@
     <string name="title_rule_name">Name</string>
     <string name="title_rule_order">Order</string>
     <string name="title_rule_enabled">Enabled</string>
-    <string name="title_rule_sender">Sender</string>
-    <string name="title_rule_subject">Subject</string>
+    <string name="title_rule_stop">Stop processing</string>
+    <string name="title_rule_sender">Sender contains</string>
+    <string name="title_rule_subject">Subject contains</string>
+    <string name="title_rule_header">Header contains</string>
+    <string name="title_rule_regex">Regex</string>
+    <string name="title_rule_and">AND</string>
     <string name="title_rule_action">Action</string>
-    <string name="title_rule_target">Target</string>
+    <string name="title_rule_target">To</string>
     <string name="title_rule_seen">Mark as read</string>
-    <string name="title_rule_folder">Folder</string>
     <string name="title_rule_name_missing">Rule name missing</string>
+    <string name="title_rule_condition_missing">Condition missing</string>
 
     <string name="title_action_seen">Mark read</string>
     <string name="title_action_archive">Archive</string>

@@ -2589,8 +2589,11 @@ public class ServiceSynchronize extends LifecycleService {
 
         if (filter)
             for (EntityRule rule : rules)
-                if (rule.matches(context, message))
+                if (rule.matches(context, message)) {
                     rule.execute(context, db, message);
+                    if (rule.stop)
+                        break;
+                }
 
         return message;
     }

@@ -52,8 +52,11 @@ public class FragmentRule extends FragmentBase {
     private EditText etName;
     private EditText etOrder;
     private CheckBox cbEnabled;
+    private CheckBox cbStop;
     private EditText etSender;
+    private CheckBox cbSender;
     private EditText etSubject;
+    private CheckBox cbSubject;
     private Spinner spAction;
     private Spinner spTarget;
     private BottomNavigationView bottom_navigation;
@@ -88,8 +91,11 @@ public class FragmentRule extends FragmentBase {
         etName = view.findViewById(R.id.etName);
         etOrder = view.findViewById(R.id.etOrder);
         cbEnabled = view.findViewById(R.id.cbEnabled);
+        cbStop = view.findViewById(R.id.cbStop);
         etSender = view.findViewById(R.id.etSender);
+        cbSender = view.findViewById(R.id.cbSender);
         etSubject = view.findViewById(R.id.etSubject);
+        cbSubject = view.findViewById(R.id.cbSubject);
         spAction = view.findViewById(R.id.spAction);
         spTarget = view.findViewById(R.id.spTarget);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
@@ -199,11 +205,17 @@ public class FragmentRule extends FragmentBase {
                             JSONObject jcondition = (rule == null ? new JSONObject() : new JSONObject(rule.condition));
                             JSONObject jaction = (rule == null ? new JSONObject() : new JSONObject(rule.action));
 
+                            JSONObject jsender = jcondition.optJSONObject("sender");
+                            JSONObject jsubject = jcondition.optJSONObject("subject");
+
                             etName.setText(rule == null ? null : rule.name);
                             etOrder.setText(rule == null ? null : Integer.toString(rule.order));
-                            cbEnabled.setChecked(rule == null ? true : rule.enabled);
-                            etSender.setText(jcondition.optString("sender"));
-                            etSubject.setText(jcondition.optString("subject"));
+                            cbEnabled.setChecked(rule == null || rule.enabled);
+                            cbStop.setChecked(rule != null && rule.stop);
+                            etSender.setText(jsender == null ? null : jsender.optString("value"));
+                            cbSender.setChecked(jsender != null && jsender.optBoolean("regex", false));
+                            etSubject.setText(jsubject == null ? null : jsubject.optString("value"));
+                            cbSubject.setChecked(jsubject != null && jsubject.optBoolean("regex", false));
 
                             int type = jaction.optInt("type", -1);
                             for (int pos = 0; pos < adapterAction.getCount(); pos++)
@@ -298,18 +310,27 @@ public class FragmentRule extends FragmentBase {
         try {
             Helper.setViewsEnabled(view, false);
 
-            String sender = etSender.getText().toString();
-            String subject = etSubject.getText().toString();
-
             JSONObject jcondition = new JSONObject();
-            if (!TextUtils.isEmpty(sender))
-                jcondition.put("sender", sender);
-            if (!TextUtils.isEmpty(subject))
-                jcondition.put("subject", subject);
 
-            Action action = (Action) spAction.getSelectedItem();
+            String sender = etSender.getText().toString();
+            if (!TextUtils.isEmpty(sender)) {
+                JSONObject jsender = new JSONObject();
+                jsender.put("value", sender);
+                jsender.put("regex", cbSender.isChecked());
+                jcondition.put("sender", jsender);
+            }
+
+            String subject = etSubject.getText().toString();
+            if (!TextUtils.isEmpty(subject)) {
+                JSONObject jsubject = new JSONObject();
+                jsubject.put("value", subject);
+                jsubject.put("regex", cbSubject.isChecked());
+                jcondition.put("subject", jsubject);
+            }
 
             JSONObject jaction = new JSONObject();
+
+            Action action = (Action) spAction.getSelectedItem();
             if (action != null) {
                 jaction.put("type", action.type);
                 if (action.type == EntityRule.TYPE_MOVE) {
@@ -324,6 +345,7 @@ public class FragmentRule extends FragmentBase {
             args.putString("name", etName.getText().toString());
             args.putString("order", etOrder.getText().toString());
             args.putBoolean("enabled", cbEnabled.isChecked());
+            args.putBoolean("stop", cbStop.isChecked());
             args.putString("condition", jcondition.toString());
             args.putString("action", jaction.toString());
 
@@ -339,17 +361,26 @@ public class FragmentRule extends FragmentBase {
                 }
 
                 @Override
-                protected Void onExecute(Context context, Bundle args) {
+                protected Void onExecute(Context context, Bundle args) throws JSONException {
                     long id = args.getLong("id");
                     long folder = args.getLong("folder");
                     String name = args.getString("name");
                     String order = args.getString("order");
                     boolean enabled = args.getBoolean("enabled");
+                    boolean stop = args.getBoolean("stop");
                     String condition = args.getString("condition");
                     String action = args.getString("action");
 
                     if (TextUtils.isEmpty(name))
-                        throw new IllegalArgumentException(getString(R.string.title_rule_name_missing));
+                        throw new IllegalArgumentException(context.getString(R.string.title_rule_name_missing));
+
+                    JSONObject jcondition = new JSONObject(condition);
+                    JSONObject jsender = jcondition.optJSONObject("sender");
+                    JSONObject jsubject = jcondition.optJSONObject("subject");
+
+                    if (TextUtils.isEmpty(jsender.optString("value")) &&
+                            TextUtils.isEmpty(jsubject.optString("value")))
+                        throw new IllegalArgumentException(context.getString(R.string.title_rule_condition_missing));
 
                     if (TextUtils.isEmpty(order))
                         order = "1";
@@ -361,6 +392,7 @@ public class FragmentRule extends FragmentBase {
                         rule.name = name;
                         rule.order = Integer.parseInt(order);
                         rule.enabled = enabled;
+                        rule.stop = stop;
                         rule.condition = condition;
                         rule.action = action;
                         rule.id = db.rule().insertRule(rule);
@@ -370,6 +402,7 @@ public class FragmentRule extends FragmentBase {
                         rule.name = name;
                         rule.order = Integer.parseInt(order);
                         rule.enabled = enabled;
+                        rule.stop = stop;
                         rule.condition = condition;
                         rule.action = action;
                         db.rule().updateRule(rule);
