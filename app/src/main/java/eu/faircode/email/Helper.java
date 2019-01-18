@@ -315,11 +315,11 @@ public class Helper {
             draft.msgid = EntityMessage.generateMessageId();
             draft.to = new Address[]{Helper.myAddress()};
             draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " debug info";
-            draft.content = true;
             draft.received = new Date().getTime();
             draft.setContactInfo(context);
             draft.id = db.message().insertMessage(draft);
             draft.write(context, body);
+            db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body));
 
             attachSettings(context, draft.id, 1);
             attachNetworkInfo(context, draft.id, 2);
