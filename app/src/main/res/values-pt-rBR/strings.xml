@@ -167,7 +167,6 @@
     <string name="title_no_internet">Sem conexão com a internet</string>
     <string name="title_attachment_saved">Anexo salvo</string>
     <string name="title_ask_delete">Deletar mensagem permanentemente?</string>
-    <string name="title_ask_save">Salvar alterações?</string>
     <string name="title_ask_spam">Reportar como spam?</string>
     <string name="title_compose">Escrever</string>
     <string name="title_from">De:</string>

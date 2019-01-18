@@ -266,7 +266,6 @@
     <string name="title_ask_delete_answer">Elimina definitivamente il modello di risposta?</string>
     <string name="title_ask_delete_rule">Eliminare la regola permanentemente?</string>
     <string name="title_ask_discard">Eliminare la bozza?</string>
-    <string name="title_ask_save">Salvare le modifiche?</string>
     <string name="title_ask_spam">Segnalare come spam?</string>
     <string name="title_ask_show_html">Mostrare il messaggio originale rende possibile una fuga di informazioni personali sensibili</string>
     <string name="title_ask_show_image">Mostrare le immagini rende possibile una fuga di informazioni personali sensibili</string>
@@ -338,8 +337,6 @@
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">E</string>
     <string name="title_rule_action">Azione</string>
-    <string name="title_rule_target">A</string>
-    <string name="title_rule_seen">Segna come letto</string>
     <string name="title_rule_name_missing">Nome Regola mancante</string>
     <string name="title_rule_condition_missing">Condizione mancante</string>
     <string name="title_action_seen">Segna come letto</string>

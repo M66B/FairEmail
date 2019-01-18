@@ -262,7 +262,6 @@
     <string name="title_ask_delete_answer">Antwortvorlage unwiderruflich löschen?</string>
     <string name="title_ask_delete_rule">Regel unwiderruflich löschen?</string>
     <string name="title_ask_discard">Entwurf löschen?</string>
-    <string name="title_ask_save">Änderungen speichern?</string>
     <string name="title_ask_spam">Als Spam melden?</string>
     <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
@@ -328,7 +327,6 @@
     <string name="title_rule_order">Reihenfolge</string>
     <string name="title_rule_enabled">Aktiviert</string>
     <string name="title_rule_action">Aktion</string>
-    <string name="title_rule_seen">Als gelesen markieren</string>
     <string name="title_rule_name_missing">Regelname fehlt</string>
     <string name="title_action_seen">Gelesen</string>
     <string name="title_action_archive">Archivieren</string>

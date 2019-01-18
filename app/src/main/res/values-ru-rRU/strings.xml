@@ -278,7 +278,6 @@
     <string name="title_ask_delete_answer">Удалить шаблон ответа навсегда?</string>
     <string name="title_ask_delete_rule">Удалить правило навсегда?</string>
     <string name="title_ask_discard">Удалить черновик?</string>
-    <string name="title_ask_save">Сохранить изменения?</string>
     <string name="title_ask_spam">Сообщать о спаме?</string>
     <string name="title_ask_show_html">Отображение исходного сообщения может привести к утечке конфиденциальной информации</string>
     <string name="title_ask_show_image">Отображение изображений может привести к утечке конфиденциальной информации</string>
@@ -350,8 +349,6 @@
     <string name="title_rule_regex">Регулярное выражение</string>
     <string name="title_rule_and">И</string>
     <string name="title_rule_action">Действие</string>
-    <string name="title_rule_target">Кому</string>
-    <string name="title_rule_seen">Пометить прочитанным</string>
     <string name="title_rule_name_missing">Отсутствует имя правила</string>
     <string name="title_rule_condition_missing">Условие отсутствует</string>
     <string name="title_action_seen">Отметить как прочитанное</string>

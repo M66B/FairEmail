@@ -266,7 +266,6 @@
     <string name="title_ask_delete_answer">Verwijder antwoordsjabloon permanent?</string>
     <string name="title_ask_delete_rule">Verwijder regel permanent?</string>
     <string name="title_ask_discard">Concept weggooien?</string>
-    <string name="title_ask_save">Wijzigingen opslaan?</string>
     <string name="title_ask_spam">Als spam melden?</string>
     <string name="title_ask_show_html">Het originele bericht tonen kan privacy gevoelige informatie lekken</string>
     <string name="title_ask_show_image">Afbeeldingen tonen kan privacy gevoelige informatie lekken</string>
@@ -338,8 +337,6 @@
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">EN</string>
     <string name="title_rule_action">Actie</string>
-    <string name="title_rule_target">Naar</string>
-    <string name="title_rule_seen">Markeer als gelezen</string>
     <string name="title_rule_name_missing">Regelnaam ontbreekt</string>
     <string name="title_rule_condition_missing">Voorwaarde ontbreekt</string>
     <string name="title_action_seen">Gelezen</string>

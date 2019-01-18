@@ -240,7 +240,6 @@
     <string name="title_ask_delete_selected">Seçilmiş mesajlar birdəfəlik silinsin?</string>
     <string name="title_ask_delete_answer">Cavab şablonu birdəfəlik silinsin?</string>
     <string name="title_ask_discard">Qaralama silinsin?</string>
-    <string name="title_ask_save">Dəyişikliklər saxlanılsın?</string>
     <string name="title_ask_spam">Spam kimi bildirilsin?</string>
     <string name="title_ask_show_html">Orijinal mesajın göstərilməsi, gizlilik həssaslı məlumatları sızdıra bilər</string>
     <string name="title_ask_show_image">Təsvirlərin göstərilməsi, gizlilik həssaslı məlumatların sızdıra bilər</string>

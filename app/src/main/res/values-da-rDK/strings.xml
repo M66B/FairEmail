@@ -141,7 +141,6 @@
     <string name="title_attachment_saved">Vedhæftet fil gemt</string>
     <string name="title_ask_delete">Slet meddelelsen permanent?</string>
     <string name="title_ask_discard">Kassér udkast?</string>
-    <string name="title_ask_save">Gem ændringer?</string>
     <string name="title_ask_spam">Rapporter som spam?</string>
     <string name="title_fix">Ret</string>
     <string name="title_from">Fra:</string>
