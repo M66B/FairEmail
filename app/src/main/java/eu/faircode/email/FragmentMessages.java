@@ -1675,7 +1675,12 @@ public class FragmentMessages extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean compact = !prefs.getBoolean("compact", false);
         prefs.edit().putBoolean("compact", compact).apply();
+
+        int zoom = (compact ? 0 : 1);
+        prefs.edit().putInt("zoom", zoom).apply();
+
         adapter.setCompact(compact);
+        adapter.setZoom(zoom);
         getActivity().invalidateOptionsMenu();
     }
 
