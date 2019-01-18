@@ -132,6 +132,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(68) Why can Adobe Acrobat reader not open PDF attachments?](#user-content-faq68)
 * [(69) Can you add auto scroll up on new message?](#user-content-faq69)
 * [(70) When will messages be auto expanded?](#user-content-faq70)
+* [(71) How do I use filter rules?](#user-content-faq71)
 
 [I have another question.](#support)
 
@@ -1092,6 +1093,22 @@ There is one exception: the message body text was not downloaded yet
 and the message body text is too large to download automatically on a metered connection.
 
 Duplicate (archived) messages, trashed messages and draft messages are not counted.
+
+<br />
+
+<a name="faq71"></a>
+**(71) How do I use filter rules?**
+
+You can edit filter rules by long pressing a folder in the folder list.
+
+You'll need to give a rule a name and you'll need to define the order in which a rule should be executed relative to other rules.
+
+You can disable a rule and you can stop processing other rules after a rule has been executed.
+
+All the conditions of a rule need to be true for a filter rule to be executed.
+Conditions are optional, but there needs to be at least one condition.
+
+Using filter rules is a pro feature.
 
 <br />
 
