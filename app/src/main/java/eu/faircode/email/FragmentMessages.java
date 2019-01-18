@@ -291,7 +291,7 @@ public class FragmentMessages extends FragmentBase {
                 public void onSelectionChanged() {
                     // Workaround AndroidX bug
                     FragmentActivity activity = getActivity();
-                    if (activity != null)
+                    if (activity != null) {
                         try {
                             ViewModelMessages modelMessages = ViewModelProviders.of(activity).get(ViewModelMessages.class);
                             if (selectionTracker.hasSelection())
@@ -302,6 +302,9 @@ public class FragmentMessages extends FragmentBase {
                             // getViewLifecycleOwner
                             Log.w(ex);
                         }
+
+                        activity.invalidateOptionsMenu();
+                    }
 
                     if (selectionTracker.hasSelection()) {
                         swipeRefresh.setEnabled(false);
@@ -1553,14 +1556,16 @@ public class FragmentMessages extends FragmentBase {
     public void onPrepareOptionsMenu(Menu menu) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
+        boolean selection = (selectionTracker != null && selectionTracker.hasSelection());
+
         menu.findItem(R.id.menu_search).setVisible(
                 folder >= 0 && viewType != AdapterMessage.ViewType.SEARCH);
 
         menu.findItem(R.id.menu_folders).setVisible(primary >= 0);
         menu.findItem(R.id.menu_folders).setIcon(connected ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24);
 
-        menu.findItem(R.id.menu_sort_on).setVisible(
-                viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
+        menu.findItem(R.id.menu_sort_on).setVisible(!selection &&
+                (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER));
 
         String sort = prefs.getString("sort", "time");
         if ("time".equals(sort))
@@ -1572,13 +1577,16 @@ public class FragmentMessages extends FragmentBase {
         else if ("sender".equals(sort))
             menu.findItem(R.id.menu_sort_on_sender).setChecked(true);
 
+        menu.findItem(R.id.menu_zoom).setVisible(!selection);
+
+        menu.findItem(R.id.menu_compact).setVisible(!selection);
         menu.findItem(R.id.menu_compact).setChecked(prefs.getBoolean("compact", false));
 
-        menu.findItem(R.id.menu_snoozed).setVisible(!outbox &&
+        menu.findItem(R.id.menu_snoozed).setVisible(!selection && !outbox &&
                 (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER));
         menu.findItem(R.id.menu_snoozed).setChecked(prefs.getBoolean("snoozed", false));
 
-        menu.findItem(R.id.menu_move_sent).setVisible(outbox);
+        menu.findItem(R.id.menu_move_sent).setVisible(!selection && outbox);
 
         super.onPrepareOptionsMenu(menu);
     }
