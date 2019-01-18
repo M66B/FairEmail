@@ -129,6 +129,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_VIEW_FULL = BuildConfig.APPLICATION_ID + ".VIEW_FULL";
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_EDIT_FOLDER = BuildConfig.APPLICATION_ID + ".EDIT_FOLDER";
+    static final String ACTION_EDIT_ANSWERS = BuildConfig.APPLICATION_ID + ".EDIT_ANSWERS";
     static final String ACTION_EDIT_ANSWER = BuildConfig.APPLICATION_ID + ".EDIT_ANSWER";
     static final String ACTION_EDIT_RULES = BuildConfig.APPLICATION_ID + ".EDIT_RULES";
     static final String ACTION_EDIT_RULE = BuildConfig.APPLICATION_ID + ".EDIT_RULE";
@@ -475,6 +476,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_VIEW_FULL);
         iff.addAction(ACTION_STORE_RAW);
         iff.addAction(ACTION_EDIT_FOLDER);
+        iff.addAction(ACTION_EDIT_ANSWERS);
         iff.addAction(ACTION_EDIT_ANSWER);
         iff.addAction(ACTION_EDIT_RULES);
         iff.addAction(ACTION_EDIT_RULE);
@@ -1011,6 +1013,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     onStoreRaw(intent);
                 else if (ACTION_EDIT_FOLDER.equals(action))
                     onEditFolder(intent);
+                else if (ACTION_EDIT_ANSWERS.equals(action))
+                    onEditAnswers(intent);
                 else if (ACTION_EDIT_ANSWER.equals(action))
                     onEditAnswer(intent);
                 else if (ACTION_EDIT_RULES.equals(action))
@@ -1098,6 +1102,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragment.setArguments(intent.getExtras());
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("folder");
+        fragmentTransaction.commit();
+    }
+
+    private void onEditAnswers(Intent intent) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentAnswers()).addToBackStack("answers");
         fragmentTransaction.commit();
     }
 

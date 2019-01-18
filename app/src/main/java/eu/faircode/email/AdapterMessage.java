@@ -95,8 +95,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
@@ -114,7 +112,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private Context context;
     private LayoutInflater inflater;
     private LifecycleOwner owner;
-    private FragmentManager fragmentManager;
     private ViewType viewType;
     private boolean outgoing;
     private boolean compact;
@@ -1337,9 +1334,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                                fragmentTransaction.replace(R.id.content_frame, new FragmentAnswers()).addToBackStack("answers");
-                                fragmentTransaction.commit();
+                                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                                lbm.sendBroadcast(new Intent(ActivityView.ACTION_EDIT_ANSWERS));
                             }
                         });
                         snackbar.show();
@@ -2006,12 +2002,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
     }
 
-    AdapterMessage(Context context, LifecycleOwner owner, FragmentManager fragmentManager,
+    AdapterMessage(Context context, LifecycleOwner owner,
                    ViewType viewType, boolean outgoing, boolean compact, int zoom, IProperties properties) {
         this.context = context;
         this.owner = owner;
         this.inflater = LayoutInflater.from(context);
-        this.fragmentManager = fragmentManager;
         this.viewType = viewType;
         this.outgoing = outgoing;
         this.compact = compact;

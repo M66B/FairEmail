@@ -268,7 +268,7 @@ public class FragmentMessages extends FragmentBase {
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("zoom", compact ? 0 : 1);
         adapter = new AdapterMessage(
-                getContext(), getViewLifecycleOwner(), getFragmentManager(),
+                getContext(), getViewLifecycleOwner(),
                 viewType, outgoing, compact, zoom, iProperties);
 
         rvMessage.setAdapter(adapter);
