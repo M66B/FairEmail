@@ -198,4 +198,10 @@ public class EntityIdentity {
     String getDisplayName() {
         return (display == null ? name : display);
     }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return getDisplayName() + (primary ? " ★" : "");
+    }
 }

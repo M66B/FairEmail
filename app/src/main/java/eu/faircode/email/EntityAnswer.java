@@ -24,6 +24,9 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 
+import javax.mail.Address;
+import javax.mail.internet.InternetAddress;
+
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -46,6 +49,25 @@ public class EntityAnswer implements Serializable {
     public String name;
     @NonNull
     public String text;
+
+    static String getAnswerText(DB db, long id, Address[] from) {
+        EntityAnswer answer = db.answer().getAnswer(id);
+        if (answer == null)
+            return null;
+
+        String name = null;
+        String email = null;
+        if (from != null && from.length > 0) {
+            name = ((InternetAddress) from[0]).getPersonal();
+            email = ((InternetAddress) from[0]).getAddress();
+        }
+
+        String text = answer.text;
+        text = text.replace("$name$", name == null ? "" : name);
+        text = text.replace("$email$", email == null ? "" : email);
+
+        return text;
+    }
 
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
@@ -70,5 +92,11 @@ public class EntityAnswer implements Serializable {
             );
         }
         return false;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return name;
     }
 }

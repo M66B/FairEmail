@@ -65,13 +65,18 @@ public class FragmentRule extends FragmentBase {
     private CheckBox cbHeader;
     private Spinner spAction;
     private Spinner spTarget;
+    private Spinner spIdent;
+    private Spinner spAnswer;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
     private Group grpMove;
+    private Group grpAnswer;
 
     private ArrayAdapter<Action> adapterAction;
     private ArrayAdapter<EntityFolder> adapterTarget;
+    private ArrayAdapter<EntityIdentity> adapterIdentity;
+    private ArrayAdapter<EntityAnswer> adapterAnswer;
 
     private long id = -1;
     private long account = -1;
@@ -108,10 +113,13 @@ public class FragmentRule extends FragmentBase {
         cbHeader = view.findViewById(R.id.cbHeader);
         spAction = view.findViewById(R.id.spAction);
         spTarget = view.findViewById(R.id.spTarget);
+        spIdent = view.findViewById(R.id.spIdent);
+        spAnswer = view.findViewById(R.id.spAnswer);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
         grpMove = view.findViewById(R.id.grpMove);
+        grpAnswer = view.findViewById(R.id.grpAnswer);
 
         adapterAction = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<Action>());
         adapterAction.setDropDownViewResource(R.layout.spinner_item1_dropdown);
@@ -121,10 +129,19 @@ public class FragmentRule extends FragmentBase {
         adapterTarget.setDropDownViewResource(R.layout.spinner_item1_dropdown);
         spTarget.setAdapter(adapterTarget);
 
+        adapterIdentity = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityIdentity>());
+        adapterIdentity.setDropDownViewResource(R.layout.spinner_item1_dropdown);
+        spIdent.setAdapter(adapterIdentity);
+
+        adapterAnswer = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityAnswer>());
+        adapterAnswer.setDropDownViewResource(R.layout.spinner_item1_dropdown);
+        spAnswer.setAdapter(adapterAnswer);
+
         List<Action> actions = new ArrayList<>();
         actions.add(new Action(EntityRule.TYPE_SEEN, getString(R.string.title_seen)));
         actions.add(new Action(EntityRule.TYPE_UNSEEN, getString(R.string.title_unseen)));
         actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_move)));
+        actions.add(new Action(EntityRule.TYPE_ANSWER, getString(R.string.menu_answers)));
         adapterAction.addAll(actions);
 
         spAction.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -141,6 +158,7 @@ public class FragmentRule extends FragmentBase {
 
             private void onActionSelected(int type) {
                 grpMove.setVisibility(type == EntityRule.TYPE_MOVE ? View.VISIBLE : View.GONE);
+                grpAnswer.setVisibility(type == EntityRule.TYPE_ANSWER ? View.VISIBLE : View.GONE);
 
                 new Handler().post(new Runnable() {
                     @Override
@@ -171,6 +189,7 @@ public class FragmentRule extends FragmentBase {
         bottom_navigation.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         grpMove.setVisibility(View.GONE);
+        grpAnswer.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
         return view;
@@ -183,30 +202,39 @@ public class FragmentRule extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("account", account);
 
-        new SimpleTask<List<EntityFolder>>() {
+        new SimpleTask<RefData>() {
             @Override
-            protected List<EntityFolder> onExecute(Context context, Bundle args) {
+            protected RefData onExecute(Context context, Bundle args) {
                 long account = args.getLong("account");
 
+                RefData data = new RefData();
+
                 DB db = DB.getInstance(context);
-                List<EntityFolder> folders = db.folder().getFolders(account);
+                data.folders = db.folder().getFolders(account);
 
-                if (folders != null) {
-                    for (EntityFolder folder : folders)
-                        folder.display = folder.getDisplayName(context);
-                    EntityFolder.sort(context, folders);
-                }
+                if (data.folders == null)
+                    data.folders = new ArrayList<>();
 
-                return folders;
+                for (EntityFolder folder : data.folders)
+                    folder.display = folder.getDisplayName(context);
+                EntityFolder.sort(context, data.folders);
+
+                data.identities = db.identity().getIdentities(account);
+                data.answers = db.answer().getAnswers();
+
+                return data;
             }
 
             @Override
-            protected void onExecuted(Bundle args, List<EntityFolder> folders) {
-                if (folders == null)
-                    folders = new ArrayList<>();
-
+            protected void onExecuted(Bundle args, RefData data) {
                 adapterTarget.clear();
-                adapterTarget.addAll(folders);
+                adapterTarget.addAll(data.folders);
+
+                adapterIdentity.clear();
+                adapterIdentity.addAll(data.identities);
+
+                adapterAnswer.clear();
+                adapterAnswer.addAll(data.answers);
 
                 Bundle rargs = new Bundle();
                 rargs.putLong("id", id);
@@ -232,33 +260,47 @@ public class FragmentRule extends FragmentBase {
                             etOrder.setText(rule == null ? null : Integer.toString(rule.order));
                             cbEnabled.setChecked(rule == null || rule.enabled);
                             cbStop.setChecked(rule != null && rule.stop);
-                            etSender.setText(jsender == null ? null : jsender.optString("value"));
-                            cbSender.setChecked(jsender != null && jsender.optBoolean("regex", false));
-                            etSubject.setText(jsubject == null ? null : jsubject.optString("value"));
-                            cbSubject.setChecked(jsubject != null && jsubject.optBoolean("regex", false));
-                            etHeader.setText(jheader == null ? null : jheader.optString("value"));
-                            cbHeader.setChecked(jheader != null && jheader.optBoolean("regex", false));
+                            etSender.setText(jsender == null ? null : jsender.getString("value"));
+                            cbSender.setChecked(jsender != null && jsender.getBoolean("regex"));
+                            etSubject.setText(jsubject == null ? null : jsubject.getString("value"));
+                            cbSubject.setChecked(jsubject != null && jsubject.getBoolean("regex"));
+                            etHeader.setText(jheader == null ? null : jheader.getString("value"));
+                            cbHeader.setChecked(jheader != null && jheader.getBoolean("regex"));
 
-                            int type = jaction.optInt("type", -1);
-                            for (int pos = 0; pos < adapterAction.getCount(); pos++)
-                                if (adapterAction.getItem(pos).type == type) {
-                                    spAction.setSelection(pos);
-                                    break;
+                            if (rule != null) {
+                                int type = jaction.getInt("type");
+                                switch (type) {
+                                    case EntityRule.TYPE_MOVE:
+                                        long target = jaction.getLong("target");
+                                        for (int pos = 0; pos < adapterTarget.getCount(); pos++)
+                                            if (adapterTarget.getItem(pos).id.equals(target)) {
+                                                spTarget.setSelection(pos);
+                                                break;
+                                            }
+                                        break;
+
+                                    case EntityRule.TYPE_ANSWER:
+                                        long identity = jaction.getLong("identity");
+                                        for (int pos = 0; pos < adapterIdentity.getCount(); pos++)
+                                            if (adapterIdentity.getItem(pos).id.equals(identity)) {
+                                                spIdent.setSelection(pos);
+                                                break;
+                                            }
+
+                                        long answer = jaction.getLong("answer");
+                                        for (int pos = 0; pos < adapterAnswer.getCount(); pos++)
+                                            if (adapterAnswer.getItem(pos).id.equals(answer)) {
+                                                spAnswer.setSelection(pos);
+                                                break;
+                                            }
+                                        break;
                                 }
 
-                            if (rule == null) {
-                                grpReady.setVisibility(View.VISIBLE);
-                                bottom_navigation.setVisibility(View.VISIBLE);
-                                pbWait.setVisibility(View.GONE);
-                            } else {
-                                if (type == EntityRule.TYPE_MOVE) {
-                                    long target = jaction.optLong("target", -1);
-                                    for (int pos = 0; pos < adapterTarget.getCount(); pos++)
-                                        if (adapterTarget.getItem(pos).id.equals(target)) {
-                                            spTarget.setSelection(pos);
-                                            break;
-                                        }
-                                }
+                                for (int pos = 0; pos < adapterAction.getCount(); pos++)
+                                    if (adapterAction.getItem(pos).type == type) {
+                                        spAction.setSelection(pos);
+                                        break;
+                                    }
                             }
 
                             grpReady.setVisibility(View.VISIBLE);
@@ -362,9 +404,18 @@ public class FragmentRule extends FragmentBase {
             Action action = (Action) spAction.getSelectedItem();
             if (action != null) {
                 jaction.put("type", action.type);
-                if (action.type == EntityRule.TYPE_MOVE) {
-                    EntityFolder target = (EntityFolder) spTarget.getSelectedItem();
-                    jaction.put("target", target.id);
+                switch (action.type) {
+                    case EntityRule.TYPE_MOVE:
+                        EntityFolder target = (EntityFolder) spTarget.getSelectedItem();
+                        jaction.put("target", target.id);
+                        break;
+
+                    case EntityRule.TYPE_ANSWER:
+                        EntityIdentity identity = (EntityIdentity) spIdent.getSelectedItem();
+                        EntityAnswer answer = (EntityAnswer) spAnswer.getSelectedItem();
+                        jaction.put("identity", identity.id);
+                        jaction.put("answer", answer.id);
+                        break;
                 }
             }
 
@@ -456,6 +507,12 @@ public class FragmentRule extends FragmentBase {
         } catch (JSONException ex) {
             Log.e(ex);
         }
+    }
+
+    private class RefData {
+        List<EntityFolder> folders;
+        List<EntityIdentity> identities;
+        List<EntityAnswer> answers;
     }
 
     private class Action {

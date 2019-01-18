@@ -24,6 +24,8 @@ import android.content.Context;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.regex.Pattern;
 
@@ -74,6 +76,7 @@ public class EntityRule {
     static final int TYPE_SEEN = 1;
     static final int TYPE_UNSEEN = 2;
     static final int TYPE_MOVE = 3;
+    static final int TYPE_ANSWER = 4;
 
     boolean matches(Context context, EntityMessage message, Message imessage) throws MessagingException {
         try {
@@ -152,7 +155,7 @@ public class EntityRule {
             return haystack.toLowerCase().contains(needle.toLowerCase());
     }
 
-    void execute(Context context, DB db, EntityMessage message) {
+    void execute(Context context, DB db, EntityMessage message) throws IOException {
         try {
             JSONObject jargs = new JSONObject(action);
             int type = jargs.getInt("type");
@@ -168,6 +171,9 @@ public class EntityRule {
                 case TYPE_MOVE:
                     onActionMove(context, db, message, jargs);
                     break;
+                case TYPE_ANSWER:
+                    onActionAnswer(context, db, message, jargs);
+                    break;
             }
         } catch (JSONException ex) {
             Log.e(ex);
@@ -182,6 +188,38 @@ public class EntityRule {
     private void onActionMove(Context context, DB db, EntityMessage message, JSONObject jargs) throws JSONException {
         long target = jargs.getLong("target");
         EntityOperation.queue(context, db, message, EntityOperation.MOVE, target, false);
+    }
+
+    private void onActionAnswer(Context context, DB db, EntityMessage message, JSONObject jargs) throws JSONException, IOException {
+        long iid = jargs.getLong("identity");
+        long aid = jargs.getLong("answer");
+
+        EntityIdentity identity = db.identity().getIdentity(iid);
+        if (identity == null)
+            throw new IllegalArgumentException("Rule identity not found");
+
+        String body = EntityAnswer.getAnswerText(db, aid, message.from);
+        if (body == null)
+            throw new IllegalArgumentException("Rule answer not found");
+
+        EntityMessage reply = new EntityMessage();
+        reply.account = message.account;
+        reply.folder = db.folder().getOutbox().id;
+        reply.identity = identity.id;
+        reply.msgid = EntityMessage.generateMessageId();
+        reply.thread = message.thread;
+        reply.replying = message.id;
+        reply.to = (message.reply == null || message.reply.length == 0 ? message.from : message.reply);
+        reply.from = new InternetAddress[]{new InternetAddress(identity.email, identity.name)};
+        reply.subject = context.getString(R.string.title_subject_reply, message.subject == null ? "" : message.subject);
+        reply.sender = MessageHelper.getSortKey(reply.from);
+        reply.received = new Date().getTime();
+        reply.setContactInfo(context);
+        reply.id = db.message().insertMessage(reply);
+        reply.write(context, body);
+        db.message().setMessageContent(reply.id, true, HtmlHelper.getPreview(body));
+
+        EntityOperation.queue(context, db, reply, EntityOperation.SEND);
     }
 
     @Override

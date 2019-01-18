@@ -12,6 +12,7 @@
         android:layout_height="0dp"
         android:layout_margin="12dp"
         android:orientation="vertical"
+        android:scrollbarStyle="outsideOverlay"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -221,14 +222,49 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvAction" />
 
+            <TextView
+                android:id="@+id/tvTargetArguments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/title_rule_arguments"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spAction" />
+
             <Spinner
                 android:id="@+id/spTarget"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/spAction" />
+                app:layout_constraintTop_toBottomOf="@id/tvTargetArguments" />
+
+            <TextView
+                android:id="@+id/tvAnswerArguments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/title_rule_arguments"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spTarget" />
+
+            <Spinner
+                android:id="@+id/spIdent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAnswerArguments" />
+
+            <Spinner
+                android:id="@+id/spAnswer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spIdent" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpReady"
@@ -240,7 +276,13 @@
                 android:id="@+id/grpMove"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:constraint_referenced_ids="spTarget" />
+                app:constraint_referenced_ids="tvTargetArguments,spTarget" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpAnswer"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="tvAnswerArguments,spIdent,spAnswer" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

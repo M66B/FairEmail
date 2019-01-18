@@ -1471,12 +1471,8 @@ public class FragmentCompose extends FragmentBase {
                         body = args.getString("body", "");
                         body = body.replaceAll("\\r?\\n", "<br />");
 
-                        if (answer > 0) {
-                            String text = db.answer().getAnswer(answer).text;
-                            text = text.replace("$name$", "");
-                            text = text.replace("$email$", "");
-                            body = text + body;
-                        }
+                        if (answer > 0)
+                            body = EntityAnswer.getAnswerText(db, answer, null) + body;
                     } else {
                         result.draft.thread = ref.thread;
 
@@ -1514,20 +1510,8 @@ public class FragmentCompose extends FragmentBase {
                             result.draft.subject = context.getString(R.string.title_subject_forward,
                                     ref.subject == null ? "" : ref.subject);
 
-                        if (answer > 0 && ("reply".equals(action) || "reply_all".equals(action))) {
-                            String text = db.answer().getAnswer(answer).text;
-
-                            String name = null;
-                            String email = null;
-                            if (result.draft.to != null && result.draft.to.length > 0) {
-                                name = ((InternetAddress) result.draft.to[0]).getPersonal();
-                                email = ((InternetAddress) result.draft.to[0]).getAddress();
-                            }
-                            text = text.replace("$name$", name == null ? "" : name);
-                            text = text.replace("$email$", email == null ? "" : email);
-
-                            body = text + body;
-                        }
+                        if (answer > 0 && ("reply".equals(action) || "reply_all".equals(action)))
+                            body = EntityAnswer.getAnswerText(db, answer, result.draft.to) + body;
                     }
 
                     // Select identity matching from address
