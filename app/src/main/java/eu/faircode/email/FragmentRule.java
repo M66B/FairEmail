@@ -147,8 +147,12 @@ public class FragmentRule extends FragmentBase {
         spAction.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                Action action = (Action) adapterView.getAdapter().getItem(position);
-                onActionSelected(action.type);
+                Integer prev = (Integer) adapterView.getTag();
+                if (prev != null && !prev.equals(position)) {
+                    Action action = (Action) adapterView.getAdapter().getItem(position);
+                    onActionSelected(action.type);
+                }
+                adapterView.setTag(position);
             }
 
             @Override
@@ -298,6 +302,7 @@ public class FragmentRule extends FragmentBase {
 
                                 for (int pos = 0; pos < adapterAction.getCount(); pos++)
                                     if (adapterAction.getItem(pos).type == type) {
+                                        spAction.setTag(pos);
                                         spAction.setSelection(pos);
                                         break;
                                     }
