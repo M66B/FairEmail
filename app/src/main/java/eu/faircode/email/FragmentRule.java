@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -31,6 +32,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -44,10 +46,13 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 
 public class FragmentRule extends FragmentBase {
     private ViewGroup view;
+    private ScrollView scroll;
+    private ConstraintLayout content;
     private EditText etName;
     private EditText etOrder;
     private CheckBox cbEnabled;
@@ -89,6 +94,8 @@ public class FragmentRule extends FragmentBase {
         view = (ViewGroup) inflater.inflate(R.layout.fragment_rule, container, false);
 
         // Get controls
+        scroll = view.findViewById(R.id.scroll);
+        content = view.findViewById(R.id.content);
         etName = view.findViewById(R.id.etName);
         etOrder = view.findViewById(R.id.etOrder);
         cbEnabled = view.findViewById(R.id.cbEnabled);
@@ -134,6 +141,13 @@ public class FragmentRule extends FragmentBase {
 
             private void onActionSelected(int type) {
                 grpMove.setVisibility(type == EntityRule.TYPE_MOVE ? View.VISIBLE : View.GONE);
+
+                new Handler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        scroll.smoothScrollTo(0, content.getBottom());
+                    }
+                });
             }
         });
 
@@ -244,7 +258,6 @@ public class FragmentRule extends FragmentBase {
                                             spTarget.setSelection(pos);
                                             break;
                                         }
-                                    grpMove.setVisibility(View.VISIBLE);
                                 }
                             }
 
