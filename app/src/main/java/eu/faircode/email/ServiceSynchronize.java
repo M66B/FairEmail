@@ -483,6 +483,10 @@ public class ServiceSynchronize extends LifecycleService {
             return notifications;
 
         boolean pro = Helper.isPro(this);
+        boolean contacts =
+                (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
+                        == PackageManager.PERMISSION_GRANTED);
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         // https://developer.android.com/training/notify-user/group
@@ -490,6 +494,30 @@ public class ServiceSynchronize extends LifecycleService {
 
         String summary = getResources().getQuantityString(
                 R.plurals.title_notification_unseen, messages.size(), messages.size());
+
+        Map<TupleMessageEx, String> messageFrom = new HashMap<>();
+        for (TupleMessageEx message : messages) {
+            String from = null;
+            if (!TextUtils.isEmpty(message.avatar) && contacts) {
+                Cursor cursor = null;
+                try {
+                    cursor = getContentResolver().query(
+                            Uri.parse(message.avatar),
+                            new String[]{ContactsContract.Contacts.DISPLAY_NAME},
+                            null, null, null);
+                    if (cursor != null && cursor.moveToNext())
+                        from = cursor.getString(0);
+                } finally {
+                    if (cursor != null)
+                        cursor.close();
+                }
+            }
+
+            if (from == null)
+                from = MessageHelper.formatAddressesShort(message.from);
+
+            messageFrom.put(message, from);
+        }
 
         // Build pending intent
         Intent view = new Intent(this, ActivityView.class);
@@ -532,7 +560,6 @@ public class ServiceSynchronize extends LifecycleService {
         else
             builder = new Notification.Builder(this, channelName);
 
-
         builder
                 .setSmallIcon(R.drawable.baseline_email_white_24)
                 .setContentTitle(getResources().getQuantityString(R.plurals.title_notification_unseen, messages.size(), messages.size()))
@@ -569,7 +596,7 @@ public class ServiceSynchronize extends LifecycleService {
             DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
             StringBuilder sb = new StringBuilder();
             for (EntityMessage message : messages) {
-                sb.append("<strong>").append(MessageHelper.formatAddressesShort(message.from)).append("</strong>");
+                sb.append("<strong>").append(messageFrom.get(message)).append("</strong>");
                 if (!TextUtils.isEmpty(message.subject))
                     sb.append(": ").append(message.subject);
                 sb.append(" ").append(df.format(message.received));
@@ -640,7 +667,7 @@ public class ServiceSynchronize extends LifecycleService {
             mbuilder
                     .addExtras(args)
                     .setSmallIcon(R.drawable.baseline_email_white_24)
-                    .setContentTitle(MessageHelper.formatAddresses(message.from))
+                    .setContentTitle(messageFrom.get(message))
                     .setSubText(message.accountName + " · " + folderName)
                     .setContentIntent(piContent)
                     .setWhen(message.received)
@@ -676,8 +703,7 @@ public class ServiceSynchronize extends LifecycleService {
                     }
 
                 if (!TextUtils.isEmpty(message.avatar)) {
-                    if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
-                            == PackageManager.PERMISSION_GRANTED) {
+                    if (contacts) {
                         Cursor cursor = null;
                         try {
                             cursor = getContentResolver().query(
