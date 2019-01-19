@@ -161,8 +161,7 @@ public class FragmentRule extends FragmentBase {
             }
 
             private void onActionSelected(int type) {
-                grpMove.setVisibility(type == EntityRule.TYPE_MOVE ? View.VISIBLE : View.GONE);
-                grpAnswer.setVisibility(type == EntityRule.TYPE_ANSWER ? View.VISIBLE : View.GONE);
+                showActionParameters(type);
 
                 new Handler().post(new Runnable() {
                     @Override
@@ -306,6 +305,8 @@ public class FragmentRule extends FragmentBase {
                                         spAction.setSelection(pos);
                                         break;
                                     }
+
+                                showActionParameters(type);
                             }
 
                             grpReady.setVisibility(View.VISIBLE);
@@ -512,6 +513,11 @@ public class FragmentRule extends FragmentBase {
         } catch (JSONException ex) {
             Log.e(ex);
         }
+    }
+
+    private void showActionParameters(int type) {
+        grpMove.setVisibility(type == EntityRule.TYPE_MOVE ? View.VISIBLE : View.GONE);
+        grpAnswer.setVisibility(type == EntityRule.TYPE_ANSWER ? View.VISIBLE : View.GONE);
     }
 
     private class RefData {
