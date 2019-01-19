@@ -162,7 +162,6 @@
     <string name="title_authorize">Seleccionar una cuenta</string>
     <string name="title_authorizing">Autorizando cuenta &#8230;</string>
     <string name="title_setup_advanced">Avanzado</string>
-    <string name="title_store_copy">Guardar una copia de mensajes enviados en:</string>
     <string name="title_synchronize_account">Sincronizar (recibir mensajes)</string>
     <string name="title_synchronize_identity">Sincronizar (enviar mensajes)</string>
     <string name="title_primary_account">Primaria (cuenta predeterminada)</string>
@@ -182,7 +181,6 @@
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
     <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
     <string name="title_pop">POP no está soportado</string>
-    <string name="title_identity_sent_hint">Los mensajes enviados serán guardados automáticamente en la carpeta de enviados en la mayoría de los casos</string>
     <string name="title_edit_html">Editar como HTML</string>
     <string name="title_synchronize_now">Sincronizar ahora</string>
     <string name="title_delete_local">Eliminar mensajes locales</string>
@@ -319,7 +317,6 @@
     <string name="title_address_unsent">No enviado/s:</string>
     <string name="title_address_invalid">Inválido/s:</string>
     <string name="title_snoozed">Pospuesto</string>
-    <string name="title_move_sent">Mover a enviados</string>
     <string name="title_previous">Anterior</string>
     <string name="title_next">Siguiente</string>
     <string name="title_answer_reply">Plantilla de respuesta</string>
@@ -337,6 +334,9 @@
     <string name="title_rule_regex">Expresión regular</string>
     <string name="title_rule_and">Y</string>
     <string name="title_rule_action">Acción</string>
+    <string name="title_rule_folder">Carpeta</string>
+    <string name="title_rule_identity">Identidad</string>
+    <string name="title_rule_answer">Plantilla de respuesta</string>
     <string name="title_rule_name_missing">Falta nombre de regla</string>
     <string name="title_rule_condition_missing">Falta condición</string>
     <string name="title_action_seen">Marcar como leído</string>
@@ -352,8 +352,9 @@
     <string name="title_legend_thread">Conversación</string>
     <string name="title_legend_cc">CC/CCO</string>
     <string name="title_legend_attachment">Adjunto</string>
-    <string name="title_legend_snoozed">Pospuesto</string>
     <string name="title_legend_draft">Borrador/editar</string>
+    <string name="title_legend_snoozed">Pospuesto</string>
+    <string name="title_legend_browsed">Explorados o buscados</string>
     <string name="title_legend_answered">Respondido</string>
     <string name="title_legend_contacts">Contactos</string>
     <string name="title_legend_view">Ver contenido</string>
@@ -372,6 +373,7 @@
     <string name="title_legend_synchronizing">Sincronizando</string>
     <string name="title_legend_downloading">Descargando</string>
     <string name="title_legend_closing">Cerrando</string>
+    <string name="title_legend_stop">Detener el procesamiento de las reglas</string>
     <string name="title_legend_metered">Conexión medida</string>
     <string name="title_legend_unmetered">Conexión no medida</string>
     <string name="title_legend_sync_keep">Número de días para sincronizar / mantener mensajes</string>

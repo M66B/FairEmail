@@ -159,7 +159,6 @@
     <string name="title_authorize">Hesap seç</string>
     <string name="title_authorizing">Hesap yetkilendiriliyor &#8230;</string>
     <string name="title_setup_advanced">Gelişmiş</string>
-    <string name="title_store_copy">Gönderilen iletilerin bir kopyasını aşağıdaki konumda saklayın:</string>
     <string name="title_synchronize_account">Eşzamanlama (iletileri al)</string>
     <string name="title_synchronize_identity">Eşzamanlama (iletileri gönder)</string>
     <string name="title_primary_account">Birincil (varsayılan hesap)</string>
@@ -179,7 +178,6 @@
     <string name="title_account_delete">Bu hesap kalıcı olarak silinsin mi?</string>
     <string name="title_identity_delete">Bu kimlik kalıcı olarak silinsin mi?</string>
     <string name="title_pop">POP desteklenmiyor</string>
-    <string name="title_identity_sent_hint">Gönderilen iletiler, çoğu durumda zaten gönderilenler klasöründe otomatik olarak saklanır</string>
     <string name="title_edit_html">HTML olarak düzenle</string>
     <string name="title_synchronize_now">Şimdi senkronize et</string>
     <string name="title_delete_local">Yerel mesajları sil</string>
@@ -316,7 +314,6 @@
     <string name="title_address_unsent">Gönderilmemiş:</string>
     <string name="title_address_invalid">Geçersiz:</string>
     <string name="title_snoozed">Ertelendi</string>
-    <string name="title_move_sent">Gönderilenlere taşı</string>
     <string name="title_previous">Önceki</string>
     <string name="title_next">Sonraki</string>
     <string name="title_answer_reply">Yanıt kalıbı</string>
@@ -348,8 +345,8 @@
     <string name="title_legend_thread">Sohbet</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Ek</string>
-    <string name="title_legend_snoozed">Ertelendi</string>
     <string name="title_legend_draft">Taslak/düzenle</string>
+    <string name="title_legend_snoozed">Ertelendi</string>
     <string name="title_legend_answered">Yanıtlanmış</string>
     <string name="title_legend_contacts">Kişiler</string>
     <string name="title_legend_view">İçeriği görüntüle</string>

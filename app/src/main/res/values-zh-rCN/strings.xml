@@ -137,7 +137,6 @@
     <string name="title_authorize">选择账户</string>
     <string name="title_authorizing">授权帐户 &#8230;</string>
     <string name="title_setup_advanced">高级选项</string>
-    <string name="title_store_copy">将已发送邮件的副本保存在:</string>
     <string name="title_synchronize_account">同步（接收）</string>
     <string name="title_synchronize_identity">同步（发送）</string>
     <string name="title_primary_account">默认账户</string>
@@ -157,7 +156,6 @@
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
     <string name="title_pop">不支持POP</string>
-    <string name="title_identity_sent_hint">在大多数情况下, 已发送的邮件将已经自动保存在已发送的文件夹中</string>
     <string name="title_edit_html">以 html 格式编辑</string>
     <string name="title_synchronize_now">现在同步</string>
     <string name="title_delete_local">删除本地消息</string>
@@ -283,7 +281,6 @@
     <string name="title_address_sent">发送：</string>
     <string name="title_address_unsent">未发送:</string>
     <string name="title_address_invalid">无效：</string>
-    <string name="title_move_sent">移动到已发送</string>
     <string name="title_previous">上一则</string>
     <string name="title_next">下一则</string>
     <string name="title_answer_reply">回复模板</string>

@@ -140,6 +140,8 @@
     <string name="title_identity_read_receipt">Demander une confirmation de lecture</string>
     <string name="title_identity_delivery_receipt">Demander un accusé de réception</string>
     <string name="title_identity_receipt_remark">La plupart des fournisseurs ignorent les demandes d\'accusé de réception</string>
+    <string name="title_identity_store_sent">Enregistrer les messages envoyés</string>
+    <string name="title_identity_store_sent_remark">Activer ceci seulement si votre fournisseur n\'enregistre pas automatiquement les messages envoyés</string>
     <string name="title_optional">Facultatif</string>
     <string name="title_account_linked">Compte associé</string>
     <string name="title_account_name">Nom du compte</string>
@@ -162,7 +164,6 @@
     <string name="title_authorize">Sélectionner un compte</string>
     <string name="title_authorizing">Autorisation du compte en cours &#8230;</string>
     <string name="title_setup_advanced">Avancé</string>
-    <string name="title_store_copy">Stocker une copie des messages envoyés dans :</string>
     <string name="title_synchronize_account">Synchroniser (recevoir des messages)</string>
     <string name="title_synchronize_identity">Synchroniser (envoyer des messages)</string>
     <string name="title_primary_account">Principal (compte par défaut)</string>
@@ -182,7 +183,6 @@
     <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
     <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
     <string name="title_pop">POP n\'est pas supporté</string>
-    <string name="title_identity_sent_hint">Les messages envoyés seront automatiquement stockés dans le dossier Envoyés déjà dans la plupart des cas</string>
     <string name="title_edit_html">Modifier en HTML</string>
     <string name="title_synchronize_now">Synchroniser maintenant</string>
     <string name="title_delete_local">Supprimer les messages locaux</string>
@@ -319,7 +319,6 @@
     <string name="title_address_unsent">Non envoyé :</string>
     <string name="title_address_invalid">Invalide :</string>
     <string name="title_snoozed">Différé</string>
-    <string name="title_move_sent">Déplacer dans Envoyés</string>
     <string name="title_previous">Précédent</string>
     <string name="title_next">Suivant</string>
     <string name="title_answer_reply">Modèle de réponse</string>
@@ -355,8 +354,9 @@
     <string name="title_legend_thread">Fil de discussion</string>
     <string name="title_legend_cc">Cc/Cci</string>
     <string name="title_legend_attachment">Pièce jointe</string>
-    <string name="title_legend_snoozed">Différé</string>
     <string name="title_legend_draft">Brouillon/modifier</string>
+    <string name="title_legend_snoozed">Différé</string>
+    <string name="title_legend_browsed">Parcouru ou recherché</string>
     <string name="title_legend_answered">Répondu</string>
     <string name="title_legend_contacts">Contacts</string>
     <string name="title_legend_view">Voir le contenu</string>

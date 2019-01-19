@@ -162,7 +162,6 @@
     <string name="title_authorize">Konto wählen</string>
     <string name="title_authorizing">Konto autorisieren &#8230;</string>
     <string name="title_setup_advanced">Erweitert</string>
-    <string name="title_store_copy">Kopien der gesendeten E-Mails aufbewahren in:</string>
     <string name="title_synchronize_account">Synchronisieren (E-Mails empfangen)</string>
     <string name="title_synchronize_identity">Synchronisieren (E-Mails versenden)</string>
     <string name="title_primary_account">Primäres Konto</string>
@@ -182,7 +181,6 @@
     <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
     <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
     <string name="title_pop">POP wird nicht unterstützt</string>
-    <string name="title_identity_sent_hint">Versendete E-Mails werden in den meisten Fällen automatisch im Gesendet-Ordner gespeichert</string>
     <string name="title_edit_html">Als HTML bearbeiten</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
     <string name="title_delete_local">Lösche lokale Nachrichten</string>
@@ -316,7 +314,6 @@
     <string name="title_address_unsent">Nicht gesendet:</string>
     <string name="title_address_invalid">Ungültig:</string>
     <string name="title_snoozed">Zurückgestellt</string>
-    <string name="title_move_sent">In den Gesendet-Ordner verschieben</string>
     <string name="title_previous">Vorherige</string>
     <string name="title_next">Nächste</string>
     <string name="title_answer_reply">Antwortvorlage</string>
@@ -334,6 +331,9 @@
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">UND</string>
     <string name="title_rule_action">Aktion</string>
+    <string name="title_rule_folder">Ordner</string>
+    <string name="title_rule_identity">Identität</string>
+    <string name="title_rule_answer">Antwortvorlage</string>
     <string name="title_rule_name_missing">Regelname fehlt</string>
     <string name="title_rule_condition_missing">Voraussetzung fehlt</string>
     <string name="title_action_seen">Gelesen</string>
@@ -349,8 +349,8 @@
     <string name="title_legend_thread">Konversation</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Anhang</string>
-    <string name="title_legend_snoozed">Zurückgestellt</string>
     <string name="title_legend_draft">Entwurf/bearbeiten</string>
+    <string name="title_legend_snoozed">Zurückgestellt</string>
     <string name="title_legend_answered">Beantwortet</string>
     <string name="title_legend_contacts">Kontakte</string>
     <string name="title_legend_view">Inhalt anzeigen</string>

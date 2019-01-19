@@ -205,7 +205,6 @@
     <string name="title_address_sent">Enviado:</string>
     <string name="title_address_unsent">Não enviado:</string>
     <string name="title_address_invalid">Inválido:</string>
-    <string name="title_move_sent">Mover para enviado</string>
     <string name="title_previous">Voltar</string>
     <string name="title_next">Avançar</string>
     <string name="title_action_seen">Marcar como lida</string>

@@ -162,7 +162,6 @@
     <string name="title_authorize">Seleziona account</string>
     <string name="title_authorizing">Autorizzazione account &#8230;</string>
     <string name="title_setup_advanced">Avanzate</string>
-    <string name="title_store_copy">Salva una copia dei messaggi inviati in:</string>
     <string name="title_synchronize_account">Sincronizza (ricevi messaggi)</string>
     <string name="title_synchronize_identity">Sincronizza (invia messaggi)</string>
     <string name="title_primary_account">Principale (account predefinito)</string>
@@ -182,7 +181,6 @@
     <string name="title_account_delete">Eliminare questo account permanentemente?</string>
     <string name="title_identity_delete">Eliminare questa identità permanentemente?</string>
     <string name="title_pop">POP non è supportato</string>
-    <string name="title_identity_sent_hint">I messaggi inviati verranno già automaticamente salvati nella cartella Inviati nella maggior parte dei casi</string>
     <string name="title_edit_html">Modifica come HTML</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
     <string name="title_delete_local">Elimina i messaggi locali</string>
@@ -319,7 +317,6 @@
     <string name="title_address_unsent">Non inviati:</string>
     <string name="title_address_invalid">Non validi:</string>
     <string name="title_snoozed">Posticipato</string>
-    <string name="title_move_sent">Sposta in posta inviata</string>
     <string name="title_previous">Precedente</string>
     <string name="title_next">Successivo</string>
     <string name="title_answer_reply">Modello di risposta</string>
@@ -337,6 +334,9 @@
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">E</string>
     <string name="title_rule_action">Azione</string>
+    <string name="title_rule_folder">Cartella</string>
+    <string name="title_rule_identity">Identità</string>
+    <string name="title_rule_answer">Modello di risposta</string>
     <string name="title_rule_name_missing">Nome Regola mancante</string>
     <string name="title_rule_condition_missing">Condizione mancante</string>
     <string name="title_action_seen">Segna come letto</string>
@@ -352,8 +352,8 @@
     <string name="title_legend_thread">Conversazione</string>
     <string name="title_legend_cc">CC/CCN</string>
     <string name="title_legend_attachment">Allegato</string>
-    <string name="title_legend_snoozed">Posticipato</string>
     <string name="title_legend_draft">Bozza/modifica</string>
+    <string name="title_legend_snoozed">Posticipato</string>
     <string name="title_legend_answered">Risposto</string>
     <string name="title_legend_contacts">Contatti</string>
     <string name="title_legend_view">Mostra il contenuto</string>
@@ -372,6 +372,7 @@
     <string name="title_legend_synchronizing">Sincronizzazione</string>
     <string name="title_legend_downloading">Scaricamento</string>
     <string name="title_legend_closing">Chiusura</string>
+    <string name="title_legend_stop">Interrompi le regole di elaborazione</string>
     <string name="title_legend_metered">La connessione è a consumo</string>
     <string name="title_legend_unmetered">La connessione non è a consumo</string>
     <string name="title_legend_sync_keep">Numero di giorni da sincronizzare / di cui mantenere i messaggi</string>

@@ -168,7 +168,6 @@
     <string name="title_authorize">Selectare cont</string>
     <string name="title_authorizing">Autorizare cont &#8230;</string>
     <string name="title_setup_advanced">Setări avansate</string>
-    <string name="title_store_copy">Păstrează o copie a mesajelor trimise în:</string>
     <string name="title_synchronize_account">Sincronizare (primire mesaje)</string>
     <string name="title_synchronize_identity">Sincronizare (trimitere mesaje)</string>
     <string name="title_primary_account">Primară (identitatea implicită)</string>
@@ -188,7 +187,6 @@
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
     <string name="title_pop">POP nu este acceptat</string>
-    <string name="title_identity_sent_hint">În cele mai multe cazuri mesajele trimise se stochează automat în dosarul corespunzător</string>
     <string name="title_edit_html">Editează ca HTML</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
     <string name="title_delete_local">Șterge mesajul local</string>
@@ -325,7 +323,6 @@
     <string name="title_address_unsent">Netrimis:</string>
     <string name="title_address_invalid">Invalid:</string>
     <string name="title_snoozed">Amânată</string>
-    <string name="title_move_sent">Mută la mesaje trimise</string>
     <string name="title_previous">Precedent</string>
     <string name="title_next">Următor</string>
     <string name="title_answer_reply">Șablon răspuns</string>
@@ -361,8 +358,8 @@
     <string name="title_legend_thread">Conversație</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Atașament</string>
-    <string name="title_legend_snoozed">Amânată</string>
     <string name="title_legend_draft">Ciornă/editare</string>
+    <string name="title_legend_snoozed">Amânată</string>
     <string name="title_legend_answered">S-a răspuns</string>
     <string name="title_legend_contacts">Contacte</string>
     <string name="title_legend_view">Afișează conținutul</string>

@@ -174,7 +174,6 @@
     <string name="title_authorize">Выбрать учетную запись</string>
     <string name="title_authorizing">Авторизация учетной записи &#8230;</string>
     <string name="title_setup_advanced">Дополнительные опции</string>
-    <string name="title_store_copy">Сохранять копии отправленных сообщений в:</string>
     <string name="title_synchronize_account">Синхронизировать (получить сообщения)</string>
     <string name="title_synchronize_identity">Синхронизация (отправленных сообщений)</string>
     <string name="title_primary_account">Основная (учетная запись по умолчанию)</string>
@@ -194,7 +193,6 @@
     <string name="title_account_delete">Удалить эту учетную запись навсегда?</string>
     <string name="title_identity_delete">Удалить эту учетную запись навсегда?</string>
     <string name="title_pop">POP не поддерживается</string>
-    <string name="title_identity_sent_hint">В большинстве случаев, отправленные сообщения автоматически сохраняются в папке \"Отправленные\"</string>
     <string name="title_edit_html">Редактировать как HTML</string>
     <string name="title_synchronize_now">Синхронизировать сейчас</string>
     <string name="title_delete_local">Удалить локальные сообщения</string>
@@ -331,7 +329,6 @@
     <string name="title_address_unsent">Не отправлено:</string>
     <string name="title_address_invalid">Недопустимо:</string>
     <string name="title_snoozed">Отложенные</string>
-    <string name="title_move_sent">Переместить в отправленные</string>
     <string name="title_previous">Предыдущий шаг</string>
     <string name="title_next">Следующий</string>
     <string name="title_answer_reply">Шаблон ответа</string>
@@ -367,8 +364,8 @@
     <string name="title_legend_thread">Диалог</string>
     <string name="title_legend_cc">Копия/Скрытая</string>
     <string name="title_legend_attachment">Вложение</string>
-    <string name="title_legend_snoozed">Отложенные</string>
     <string name="title_legend_draft">Черновик/Правка</string>
+    <string name="title_legend_snoozed">Отложенные</string>
     <string name="title_legend_answered">Отвечено</string>
     <string name="title_legend_contacts">Контакты</string>
     <string name="title_legend_view">Просмотр содержимого</string>

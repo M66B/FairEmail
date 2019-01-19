@@ -144,7 +144,6 @@
     <string name="title_authorize">Välj konto</string>
     <string name="title_authorizing">Auktoriserar konto &#8230;</string>
     <string name="title_setup_advanced">Avancerat</string>
-    <string name="title_store_copy">Lagra en kopia av skickade meddelanden i:</string>
     <string name="title_synchronize_account">Synkronisera (hämta meddelanden)</string>
     <string name="title_synchronize_identity">Synkronisera (skicka meddelanden)</string>
     <string name="title_primary_account">Primär (standardkonto)</string>
@@ -163,7 +162,6 @@
     <string name="title_account_delete">Ta bort detta konto permanent?</string>
     <string name="title_identity_delete">Ta bort denna identitet permanent?</string>
     <string name="title_pop">POP stöds inte</string>
-    <string name="title_identity_sent_hint">Skickade meddelanden sparas automatiskt i mappen skickade redan i de flesta fall</string>
     <string name="title_edit_html">Redigera som HTML</string>
     <string name="title_synchronize_now">Synkronisera nu</string>
     <string name="title_delete_local">Ta bort lokala meddelanden</string>
@@ -291,7 +289,6 @@
     <string name="title_address_unsent">Inte skickad:</string>
     <string name="title_address_invalid">Ogiltig:</string>
     <string name="title_snoozed">Slumrade</string>
-    <string name="title_move_sent">Flytta till skickat</string>
     <string name="title_previous">Föregående</string>
     <string name="title_next">Nästa</string>
     <string name="title_answer_reply">Svarsmall</string>
@@ -311,8 +308,8 @@
     <string name="title_legend_thread">Konversation</string>
     <string name="title_legend_cc">Kopia/Dold kopia</string>
     <string name="title_legend_attachment">Bilaga</string>
-    <string name="title_legend_snoozed">Slumrade</string>
     <string name="title_legend_draft">Utkast/redigera</string>
+    <string name="title_legend_snoozed">Slumrade</string>
     <string name="title_legend_answered">Besvarad</string>
     <string name="title_legend_contacts">Kontakter</string>
     <string name="title_legend_view">Visa innehåll</string>

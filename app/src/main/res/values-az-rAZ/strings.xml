@@ -144,7 +144,6 @@
     <string name="title_authorize">Hesab seç</string>
     <string name="title_authorizing">Hesaba səlahiyyət verilir &#8230;</string>
     <string name="title_setup_advanced">Qabaqcıl</string>
-    <string name="title_store_copy">Göndərilmiş mesajların bir nüsxəsini saxlayacaq yer seçin:</string>
     <string name="title_synchronize_account">Eyniləşdir (mesajları al)</string>
     <string name="title_synchronize_identity">Eyniləşdir (mesajları göndər)</string>
     <string name="title_primary_account">Üstünlük verilən (ilkin hesab)</string>
@@ -163,7 +162,6 @@
     <string name="title_account_delete">Bu hesab birdəfəlik silinsin?</string>
     <string name="title_identity_delete">Bu kimlik birdəfəlik silinsin?</string>
     <string name="title_pop">POP dəstəklənmir</string>
-    <string name="title_identity_sent_hint">Göndərilən mesajlar, əksər hallarda göndərilənlər qovluğunda avtomatik olaraq saxlanılır</string>
     <string name="title_edit_html">HTML kimi düzəliş et</string>
     <string name="title_synchronize_now">İndi eyniləşdir</string>
     <string name="title_delete_local">Yerli mesajları sil</string>
@@ -289,7 +287,6 @@
     <string name="title_address_sent">Göndərildi:</string>
     <string name="title_address_unsent">Göndərilmədi:</string>
     <string name="title_address_invalid">Etibarsız:</string>
-    <string name="title_move_sent">Göndərilənlərə köçürt</string>
     <string name="title_previous">Əvvəlki</string>
     <string name="title_next">Növbəti</string>
     <string name="title_answer_reply">Cavab şablonu</string>

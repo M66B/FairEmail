@@ -140,6 +140,8 @@
     <string name="title_identity_read_receipt">Vraag leesbevestiging</string>
     <string name="title_identity_delivery_receipt">Vraag ontvangstbevestiging</string>
     <string name="title_identity_receipt_remark">De meeste providers negeren bevestigingsverzoeken</string>
+    <string name="title_identity_store_sent">Sla verzonden berichten op</string>
+    <string name="title_identity_store_sent_remark">Dit alleen inschakelen als uw provider niet automatisch verzonden berichten opslaat</string>
     <string name="title_optional">Optioneel</string>
     <string name="title_account_linked">Gekoppeld account</string>
     <string name="title_account_name">Accountnaam</string>
@@ -162,7 +164,6 @@
     <string name="title_authorize">Selecteer account</string>
     <string name="title_authorizing">Account autoriseren &#8230;</string>
     <string name="title_setup_advanced">Geavanceerd</string>
-    <string name="title_store_copy">Sla een kopie van verzonden berichten op in:</string>
     <string name="title_synchronize_account">Synchroniseren (ontvang berichten)</string>
     <string name="title_synchronize_identity">Synchroniseren (stuur berichten)</string>
     <string name="title_primary_account">Primair account (standaard account)</string>
@@ -182,7 +183,6 @@
     <string name="title_account_delete">Verwijder dit account permanent?</string>
     <string name="title_identity_delete">Verwijder deze identiteit permanent?</string>
     <string name="title_pop">POP wordt niet ondersteund</string>
-    <string name="title_identity_sent_hint">Verzonden berichten worden meestal al automatisch opgeslagen in de verzonden map</string>
     <string name="title_edit_html">Als HTML bewerken</string>
     <string name="title_synchronize_now">Nu synchroniseren</string>
     <string name="title_delete_local">Verwijder lokale berichten</string>
@@ -319,7 +319,6 @@
     <string name="title_address_unsent">Niet verzonden:</string>
     <string name="title_address_invalid">Ongeldig:</string>
     <string name="title_snoozed">Gesluimerd</string>
-    <string name="title_move_sent">Verplaats naar verzonden</string>
     <string name="title_previous">Vorige</string>
     <string name="title_next">Volgende</string>
     <string name="title_answer_reply">Antwoord sjabloon</string>
@@ -355,8 +354,9 @@
     <string name="title_legend_thread">Gesprek</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Bijlage</string>
-    <string name="title_legend_snoozed">Gesluimerd</string>
     <string name="title_legend_draft">Concept/bewerken</string>
+    <string name="title_legend_snoozed">Gesluimerd</string>
+    <string name="title_legend_browsed">Gebladerd of gezocht</string>
     <string name="title_legend_answered">Beantwoord</string>
     <string name="title_legend_contacts">Contacten</string>
     <string name="title_legend_view">Inhoud weergeven</string>
@@ -402,6 +402,7 @@
     <string name="title_no_adobe">Adobe Acrobat reader kan veilig gedeelde bestanden niet openen, zie de FAQ voor meer informatie</string>
     <string name="title_no_body">Geen berichttekst gevonden</string>
     <string name="title_no_charset">Codering niet ondersteund: %1$s</string>
+    <string name="title_via">Via: %1$s</string>
     <string name="title_try">Probeer FairEmail, een open source, privacy vriendelijke e-mail app voor Android</string>
     <string name="title_pro_feature">Dit is een pro-functie</string>
     <string name="title_pro_list">Lijst van pro-functies</string>
