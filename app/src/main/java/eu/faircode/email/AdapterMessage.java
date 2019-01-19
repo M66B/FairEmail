@@ -410,10 +410,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             boolean outgoing = (viewType != ViewType.THREAD && EntityFolder.isOutgoing(message.folderType));
 
-            if (!outgoing && (avatars || identicons)) {
+            if (avatars || identicons) {
                 Bundle aargs = new Bundle();
                 aargs.putLong("id", message.id);
-                aargs.putSerializable("addresses", message.from);
+                aargs.putSerializable("addresses", outgoing ? message.to : message.from);
 
                 new SimpleTask<ContactInfo>() {
                     @Override
