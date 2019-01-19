@@ -1969,7 +1969,7 @@ public class ServiceSynchronize extends LifecycleService {
         String preview = HtmlHelper.getPreview(body);
         message.write(this, body);
         db.message().setMessageContent(message.id, true, preview);
-        db.message().setMessageWarning(message.id, parts.getWarnings());
+        db.message().setMessageWarning(message.id, parts.getWarnings(message.warning));
     }
 
     private void doAttachment(EntityFolder folder, EntityOperation op, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws JSONException, MessagingException, IOException {
@@ -2515,6 +2515,17 @@ public class ServiceSynchronize extends LifecycleService {
             message.ui_ignored = seen;
             message.ui_browsed = browsed;
 
+            // Check sender
+            Address sender = helper.getSender();
+            if (sender != null && senders.length > 0) {
+                String[] f = ((InternetAddress) senders[0]).getAddress().split("@");
+                String[] s = ((InternetAddress) sender).getAddress().split("@");
+                if (f.length > 1 && s.length > 1) {
+                    if (!f[1].equals(s[1]))
+                        message.warning = context.getString(R.string.title_via, s[1]);
+                }
+            }
+
             message.id = db.message().insertMessage(message);
 
             Log.i(folder.name + " added id=" + message.id + " uid=" + message.uid);
@@ -2658,7 +2669,7 @@ public class ServiceSynchronize extends LifecycleService {
                 String body = parts.getHtml(context);
                 message.write(context, body);
                 db.message().setMessageContent(message.id, true, HtmlHelper.getPreview(body));
-                db.message().setMessageWarning(message.id, parts.getWarnings());
+                db.message().setMessageWarning(message.id, parts.getWarnings(message.warning));
                 Log.i(folder.name + " downloaded message id=" + message.id + " size=" + message.size);
             }
         }

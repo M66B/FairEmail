@@ -53,6 +53,7 @@ import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.Part;
 import javax.mail.Session;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.ContentType;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
@@ -456,6 +457,24 @@ public class MessageHelper {
         return (TextUtils.isEmpty(msgid) ? Long.toString(uid) : msgid);
     }
 
+    Address getSender() throws MessagingException {
+        String sender = imessage.getHeader("Sender", null);
+        if (sender == null)
+            return null;
+
+        InternetAddress[] address = null;
+        try {
+            address = InternetAddress.parse(sender);
+        } catch (AddressException ex) {
+            Log.w(ex);
+        }
+
+        if (address == null || address.length == 0)
+            return null;
+
+        return address[0];
+    }
+
     Address[] getFrom() throws MessagingException {
         return imessage.getFrom();
     }
@@ -560,7 +579,7 @@ public class MessageHelper {
         private Part plain = null;
         private Part html = null;
         private List<AttachmentPart> attachments = new ArrayList<>();
-        private List<String> warnings = new ArrayList<>();
+        private ArrayList<String> warnings = new ArrayList<>();
 
         String getHtml(Context context) throws MessagingException {
             if (plain == null && html == null) {
@@ -709,7 +728,9 @@ public class MessageHelper {
             }
         }
 
-        String getWarnings() {
+        String getWarnings(String existing) {
+            if (existing != null)
+                warnings.add(0, existing);
             if (warnings.size() == 0)
                 return null;
             else
