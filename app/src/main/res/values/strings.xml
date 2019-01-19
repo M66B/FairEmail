@@ -390,7 +390,9 @@
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">AND</string>
     <string name="title_rule_action">Action</string>
-    <string name="title_rule_arguments">Parameters</string>
+    <string name="title_rule_folder">Folder</string>
+    <string name="title_rule_identity">Identity</string>
+    <string name="title_rule_answer">Reply template</string>
     <string name="title_rule_name_missing">Rule name missing</string>
     <string name="title_rule_condition_missing">Condition missing</string>
 
@@ -428,6 +430,7 @@
     <string name="title_legend_synchronizing">Synchronizing</string>
     <string name="title_legend_downloading">Downloading</string>
     <string name="title_legend_closing">Closing</string>
+    <string name="title_legend_stop">Stop processing rules</string>
     <string name="title_legend_metered">Connection is metered</string>
     <string name="title_legend_unmetered">Connection is unmetered</string>
     <string name="title_legend_sync_keep">Number of days to synchronize / to keep messages</string>

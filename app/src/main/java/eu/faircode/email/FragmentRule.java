@@ -141,7 +141,7 @@ public class FragmentRule extends FragmentBase {
         actions.add(new Action(EntityRule.TYPE_SEEN, getString(R.string.title_seen)));
         actions.add(new Action(EntityRule.TYPE_UNSEEN, getString(R.string.title_unseen)));
         actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_move)));
-        actions.add(new Action(EntityRule.TYPE_ANSWER, getString(R.string.menu_answers)));
+        actions.add(new Action(EntityRule.TYPE_ANSWER, getString(R.string.title_answer_reply)));
         adapterAction.addAll(actions);
 
         spAction.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

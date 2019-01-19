@@ -638,6 +638,27 @@
             app:layout_constraintStart_toEndOf="@id/ivClosing"
             app:layout_constraintTop_toTopOf="@id/ivClosing" />
 
+        <ImageView
+            android:id="@+id/ivStop"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/baseline_stop_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvClosing" />
+
+        <TextView
+            android:id="@+id/tvStop"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_stop"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivStop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivStop"
+            app:layout_constraintTop_toTopOf="@id/ivStop" />
+
         <TextView
             android:id="@+id/tvDownloadFetch"
             android:layout_width="wrap_content"
@@ -648,7 +669,7 @@
             android:textAppearance="@android:style/TextAppearance.Small"
             app:layout_constraintBottom_toBottomOf="@+id/tvDownloadFetchLegend"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvClosing" />
+            app:layout_constraintTop_toBottomOf="@id/tvStop" />
 
         <ImageView
             android:id="@+id/ivDownloadFetch"
