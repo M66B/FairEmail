@@ -2614,12 +2614,17 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         if (filter)
-            for (EntityRule rule : rules)
-                if (rule.matches(context, message, imessage)) {
-                    rule.execute(context, db, message);
-                    if (rule.stop)
-                        break;
-                }
+            try {
+                for (EntityRule rule : rules)
+                    if (rule.matches(context, message, imessage)) {
+                        rule.execute(context, db, message);
+                        if (rule.stop)
+                            break;
+                    }
+            } catch (Throwable ex) {
+                Log.e(ex);
+                db.message().setMessageError(message.id, Helper.formatThrowable(ex));
+            }
 
         return message;
     }
