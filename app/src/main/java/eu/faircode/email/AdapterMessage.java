@@ -73,7 +73,6 @@ import org.xml.sax.XMLReader;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.text.Collator;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -414,9 +413,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (!outgoing && (avatars || identicons)) {
                 Bundle aargs = new Bundle();
                 aargs.putLong("id", message.id);
-                aargs.putString("uri", message.avatar);
-                if (message.from != null && message.from.length > 0)
-                    aargs.putString("from", message.from[0].toString());
+                aargs.putSerializable("addresses", message.from);
 
                 new SimpleTask<ContactInfo>() {
                     @Override
@@ -428,39 +425,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     @Override
                     protected ContactInfo onExecute(Context context, Bundle args) {
-                        String uri = args.getString("uri");
+                        Address[] addresses = (Address[]) args.getSerializable("addresses");
 
-                        ContactInfo info = new ContactInfo();
-                        ContentResolver resolver = context.getContentResolver();
+                        ContactInfo info = ContactInfo.get(context, addresses);
 
-                        if (contacts && avatars && uri != null)
-                            try {
-                                InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, Uri.parse(uri));
-                                if (is != null)
-                                    info.avatar = Drawable.createFromStream(is, "avatar");
-                            } catch (SecurityException ex) {
-                                Log.e(ex);
-                            }
-
-                        String from = args.getString("from");
-                        if (info.avatar == null && identicons && from != null)
-                            info.avatar = new BitmapDrawable(
+                        if ((info == null || !info.hasPhoto()) && identicons) {
+                            Drawable ident = new BitmapDrawable(
                                     context.getResources(),
-                                    Identicon.generate(from, dp24, 5, "light".equals(theme)));
-
-                        if (contacts && uri != null) {
-                            Cursor cursor = null;
-                            try {
-                                cursor = resolver.query(
-                                        Uri.parse(uri),
-                                        new String[]{ContactsContract.Contacts.DISPLAY_NAME},
-                                        null, null, null);
-                                if (cursor != null && cursor.moveToNext())
-                                    info.displayName = cursor.getString(0);
-                            } finally {
-                                if (cursor != null)
-                                    cursor.close();
-                            }
+                                    Identicon.generate(addresses[0].toString(),
+                                            dp24, 5, "light".equals(theme)));
+                            info = new ContactInfo(ident, (info == null ? null : info.getDisplayName()));
                         }
 
                         return info;
@@ -471,19 +445,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         long id = args.getLong("id");
 
                         if ((long) ivAvatar.getTag() == id) {
-                            if (info.avatar == null)
+                            if (info == null || !info.hasPhoto())
                                 ivAvatar.setImageResource(R.drawable.baseline_person_24);
                             else
-                                ivAvatar.setImageDrawable(info.avatar);
+                                ivAvatar.setImageDrawable(info.getPhotoDrawable());
                             ivAvatar.setVisibility(View.VISIBLE);
-                        } else
-                            Log.i("Skipping avatar");
+                        }
 
                         if ((long) tvFrom.getTag() == id) {
-                            if (info.displayName != null) {
-                                Log.i("Using contact name=" + info.displayName);
-                                tvFrom.setText(info.displayName);
-                            }
+                            if (info != null && info.hasDisplayName())
+                                tvFrom.setText(info.getDisplayName());
                         }
                     }
 
@@ -2047,7 +2018,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.threading = prefs.getBoolean("threading", true);
         this.contacts = (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
                 == PackageManager.PERMISSION_GRANTED);
-        this.avatars = (prefs.getBoolean("avatars", true) && this.contacts);
+        this.avatars = prefs.getBoolean("avatars", true);
         this.identicons = prefs.getBoolean("identicons", false);
         this.preview = prefs.getBoolean("preview", false);
         this.confirm = prefs.getBoolean("confirm", false);
@@ -2201,11 +2172,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         Long key = (message == null ? null : message.id);
         Log.i("Key=" + key + " @Position=" + pos);
         return key;
-    }
-
-    private class ContactInfo {
-        Drawable avatar;
-        String displayName;
     }
 
     interface IProperties {

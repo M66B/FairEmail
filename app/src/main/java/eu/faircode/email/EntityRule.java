@@ -214,7 +214,6 @@ public class EntityRule {
         reply.subject = context.getString(R.string.title_subject_reply, message.subject == null ? "" : message.subject);
         reply.sender = MessageHelper.getSortKey(reply.from);
         reply.received = new Date().getTime();
-        reply.avatar = EntityMessage.getLookupUri(context, reply.from);
         reply.id = db.message().insertMessage(reply);
         reply.write(context, body);
         db.message().setMessageContent(reply.id, true, HtmlHelper.getPreview(body));

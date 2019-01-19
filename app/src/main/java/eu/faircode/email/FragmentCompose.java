@@ -1551,7 +1551,6 @@ public class FragmentCompose extends FragmentBase {
                     result.draft.sender = MessageHelper.getSortKey(result.draft.from);
 
                     result.draft.received = new Date().getTime();
-                    result.draft.avatar = EntityMessage.getLookupUri(context, result.draft.from);
 
                     result.draft.id = db.message().insertMessage(result.draft);
                     result.draft.write(context, body == null ? "" : body);

@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.Manifest;
 import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -31,10 +30,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.drawable.Icon;
 import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -47,7 +43,6 @@ import android.os.Handler;
 import android.os.PowerManager;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
-import android.provider.ContactsContract;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.LongSparseArray;
@@ -70,7 +65,6 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
@@ -483,10 +477,6 @@ public class ServiceSynchronize extends LifecycleService {
             return notifications;
 
         boolean pro = Helper.isPro(this);
-        boolean contacts =
-                (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
-                        == PackageManager.PERMISSION_GRANTED);
-
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         // https://developer.android.com/training/notify-user/group
@@ -495,28 +485,13 @@ public class ServiceSynchronize extends LifecycleService {
         String summary = getResources().getQuantityString(
                 R.plurals.title_notification_unseen, messages.size(), messages.size());
 
-        Map<TupleMessageEx, String> messageFrom = new HashMap<>();
+        // Get contact info
+        Map<TupleMessageEx, ContactInfo> messageContact = new HashMap<>();
         for (TupleMessageEx message : messages) {
-            String from = null;
-            if (!TextUtils.isEmpty(message.avatar) && contacts) {
-                Cursor cursor = null;
-                try {
-                    cursor = getContentResolver().query(
-                            Uri.parse(message.avatar),
-                            new String[]{ContactsContract.Contacts.DISPLAY_NAME},
-                            null, null, null);
-                    if (cursor != null && cursor.moveToNext())
-                        from = cursor.getString(0);
-                } finally {
-                    if (cursor != null)
-                        cursor.close();
-                }
-            }
-
-            if (from == null)
-                from = MessageHelper.formatAddressesShort(message.from);
-
-            messageFrom.put(message, from);
+            ContactInfo info = ContactInfo.get(this, message.from);
+            if (info == null)
+                info = new ContactInfo(MessageHelper.formatAddressesShort(message.from));
+            messageContact.put(message, info);
         }
 
         // Build pending intent
@@ -596,7 +571,7 @@ public class ServiceSynchronize extends LifecycleService {
             DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
             StringBuilder sb = new StringBuilder();
             for (EntityMessage message : messages) {
-                sb.append("<strong>").append(messageFrom.get(message)).append("</strong>");
+                sb.append("<strong>").append(messageContact.get(message).getDisplayName()).append("</strong>");
                 if (!TextUtils.isEmpty(message.subject))
                     sb.append(": ").append(message.subject);
                 sb.append(" ").append(df.format(message.received));
@@ -611,6 +586,8 @@ public class ServiceSynchronize extends LifecycleService {
         notifications.add(builder.build());
 
         for (TupleMessageEx message : messages) {
+            ContactInfo info = messageContact.get(message);
+
             Bundle args = new Bundle();
             args.putLong("id", message.content ? message.id : -message.id);
 
@@ -667,7 +644,7 @@ public class ServiceSynchronize extends LifecycleService {
             mbuilder
                     .addExtras(args)
                     .setSmallIcon(R.drawable.baseline_email_white_24)
-                    .setContentTitle(messageFrom.get(message))
+                    .setContentTitle(info.getDisplayName())
                     .setSubText(message.accountName + " · " + folderName)
                     .setContentIntent(piContent)
                     .setWhen(message.received)
@@ -702,47 +679,16 @@ public class ServiceSynchronize extends LifecycleService {
                         mbuilder.setStyle(new Notification.BigTextStyle().bigText(ex.toString()));
                     }
 
-                if (!TextUtils.isEmpty(message.avatar)) {
-                    if (contacts) {
-                        Cursor cursor = null;
-                        try {
-                            cursor = getContentResolver().query(
-                                    Uri.parse(message.avatar),
-                                    new String[]{
-                                            ContactsContract.Contacts._ID,
-                                            ContactsContract.Contacts.LOOKUP_KEY
-                                    },
-                                    null, null, null);
-                            if (cursor != null && cursor.moveToNext()) {
-                                if (true || Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-                                    Uri uri = ContactsContract.Contacts.getLookupUri(
-                                            cursor.getLong(cursor.getColumnIndex(ContactsContract.Contacts._ID)),
-                                            cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY)));
-                                    InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
-                                            getContentResolver(), uri);
-                                    mbuilder.setLargeIcon(BitmapFactory.decodeStream(is));
-                                } else {
-                                    Uri photo = Uri.withAppendedPath(
-                                            ContactsContract.Contacts.CONTENT_URI,
-                                            cursor.getLong(0) + "/photo");
-                                    mbuilder.setLargeIcon(Icon.createWithContentUri(photo));
-                                }
-                            }
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                        } finally {
-                            if (cursor != null)
-                                cursor.close();
-                        }
-                    }
+                if (info.hasPhoto())
+                    mbuilder.setLargeIcon(info.getPhotoBitmap());
 
+                if (info.hasLookupUri())
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
                         mbuilder.addPerson(new Person.Builder()
-                                .setUri(message.avatar)
+                                .setUri(info.getLookupUri().toString())
                                 .build());
                     else
-                        mbuilder.addPerson(message.avatar);
-                }
+                        mbuilder.addPerson(info.getLookupUri().toString());
 
                 if (message.accountColor != null) {
                     mbuilder.setColor(message.accountColor);
@@ -2637,12 +2583,6 @@ public class ServiceSynchronize extends LifecycleService {
         EntityMessage message = db.message().getMessage(id);
         if (message == null)
             return;
-
-        if (message.avatar == null && !folder.isOutgoing()) {
-            message.avatar = EntityMessage.getLookupUri(context, message.from);
-            if (message.avatar != null)
-                db.message().updateMessage(message);
-        }
 
         if (download) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);

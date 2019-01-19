@@ -19,16 +19,11 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.Manifest;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.net.Uri;
-import android.provider.ContactsContract;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -43,10 +38,8 @@ import java.util.Map;
 import java.util.Random;
 
 import javax.mail.Address;
-import javax.mail.internet.InternetAddress;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
@@ -105,7 +98,7 @@ public class EntityMessage implements Serializable {
     public String deliveredto;
     public String inreplyto;
     public String thread; // compose = null
-    public String avatar; // Contact lookup URI
+    public String avatar; // obsolete
     public String sender; // sort key
     public Address[] from;
     public Address[] to;
@@ -210,60 +203,6 @@ public class EntityMessage implements Serializable {
         return new File(dir, Long.toString(id));
     }
 
-    static String getLookupUri(Context context, Address[] froms) {
-        if (froms == null)
-            return null;
-
-        if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
-                != PackageManager.PERMISSION_GRANTED)
-            return null;
-
-        try {
-            for (Address from : froms) {
-                String email = ((InternetAddress) from).getAddress();
-
-                synchronized (emailLookupUri) {
-                    Uri lookupUri = emailLookupUri.get(email);
-                    if (lookupUri != null)
-                        return lookupUri.toString();
-                }
-
-                Cursor cursor = null;
-                try {
-                    ContentResolver resolver = context.getContentResolver();
-                    cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                            new String[]{
-                                    ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
-                                    ContactsContract.Contacts.LOOKUP_KEY
-                            },
-                            ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
-                            new String[]{email}, null);
-                    if (cursor != null && cursor.moveToNext()) {
-                        int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
-                        int colLookupKey = cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY);
-
-                        long contactId = cursor.getLong(colContactId);
-                        String lookupKey = cursor.getString(colLookupKey);
-                        Uri lookupUri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
-
-                        synchronized (emailLookupUri) {
-                            emailLookupUri.put(email, lookupUri);
-                        }
-
-                        return lookupUri.toString();
-                    }
-                } finally {
-                    if (cursor != null)
-                        cursor.close();
-                }
-            }
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
-
-        return null;
-    }
-
     static void snooze(Context context, long id, Long wakeup) {
         Intent snoozed = new Intent(context, ServiceSynchronize.class);
         snoozed.setAction("snooze:" + id);
@@ -294,7 +233,6 @@ public class EntityMessage implements Serializable {
                     //(this.deliveredto == null ? other.deliveredto == null : this.deliveredto.equals(other.deliveredto)) &&
                     //(this.inreplyto == null ? other.inreplyto == null : this.inreplyto.equals(other.inreplyto)) &&
                     (this.thread == null ? other.thread == null : this.thread.equals(other.thread)) &&
-                    (this.avatar == null ? other.avatar == null : this.avatar.equals(other.avatar)) &&
                     MessageHelper.equal(this.from, other.from) &&
                     MessageHelper.equal(this.to, other.to) &&
                     MessageHelper.equal(this.cc, other.cc) &&
@@ -342,7 +280,6 @@ public class EntityMessage implements Serializable {
                     (this.deliveredto == null ? other.deliveredto == null : this.deliveredto.equals(other.deliveredto)) &&
                     (this.inreplyto == null ? other.inreplyto == null : this.inreplyto.equals(other.inreplyto)) &&
                     (this.thread == null ? other.thread == null : this.thread.equals(other.thread)) &&
-                    (this.avatar == null ? other.avatar == null : this.avatar.equals(other.avatar)) &&
                     MessageHelper.equal(this.from, other.from) &&
                     MessageHelper.equal(this.to, other.to) &&
                     MessageHelper.equal(this.cc, other.cc) &&
