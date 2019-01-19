@@ -76,9 +76,9 @@ public class EntityIdentity {
     public String replyto;
     public String bcc;
     @NonNull
-    public Boolean delivery_receipt;
+    public Boolean delivery_receipt = false;
     @NonNull
-    public Boolean read_receipt;
+    public Boolean read_receipt = false;
     @NonNull
     public Boolean store_sent = false; // obsolete
     public Long sent_folder; // obsolete
@@ -109,6 +109,7 @@ public class EntityIdentity {
         json.put("bcc", bcc);
         json.put("delivery_receipt", delivery_receipt);
         json.put("read_receipt", read_receipt);
+        json.put("store_sent", store_sent);
         // not state
         // not error
         return json;
@@ -146,13 +147,12 @@ public class EntityIdentity {
 
         if (json.has("delivery_receipt"))
             identity.delivery_receipt = json.getBoolean("delivery_receipt");
-        else
-            identity.delivery_receipt = false;
 
         if (json.has("read_receipt"))
             identity.read_receipt = json.getBoolean("read_receipt");
-        else
-            identity.read_receipt = false;
+
+        if (json.has("store_sent"))
+            identity.store_sent = json.getBoolean("store_sent");
 
         return identity;
     }

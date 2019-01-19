@@ -477,12 +477,30 @@
             android:id="@+id/tvReceipt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:text="@string/title_identity_receipt_remark"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbReadReceipt" />
+
+        <CheckBox
+            android:id="@+id/cbStoreSent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_identity_store_sent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvReceipt" />
+
+        <TextView
+            android:id="@+id/tvStoreSent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_identity_store_sent_remark"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbStoreSent" />
 
         <Button
             android:id="@+id/btnSave"
@@ -491,7 +509,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_save"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvReceipt" />
+            app:layout_constraintTop_toBottomOf="@id/tvStoreSent" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbSave"
@@ -532,12 +550,25 @@
             android:id="@+id/grpAuthorize"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvName,etName,tvEmail,etEmail,tvDisplay,etDisplay,btnColor,vwColor,ibColorDefault,tvSignature,etSignature,ibPro,btnHtml,btnAdvanced,btnSave" />
+            app:constraint_referenced_ids="
+            tvName,etName,tvEmail,etEmail,tvDisplay,etDisplay,
+            btnColor,vwColor,ibColorDefault,
+            tvSignature,etSignature,ibPro,btnHtml,
+            btnAdvanced,btnSave" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpAdvanced"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvReplyTo,etReplyTo,tvBcc,etBcc,cbDeliveryReceipt,cbReadReceipt,tvReceipt,tvProvider,spProvider,tvDomain,tvDomainHint,etDomain,btnAutoConfig,tvSmtp,tvHost,etHost,cbStartTls,cbInsecure,tvPort,etPort,tvUser,etUser,tvPassword,tilPassword,tvRealm,etRealm,cbSynchronize,cbPrimary,tvSent,spSent,tvSentHint" />
+            app:constraint_referenced_ids="
+            tvProvider,spProvider,
+            tvDomain,tvDomainHint,etDomain,btnAutoConfig,
+            tvSmtp,tvHost,etHost,cbStartTls,cbInsecure,tvPort,etPort,
+            tvUser,etUser,tvPassword,tilPassword,
+            tvRealm,etRealm,
+            cbSynchronize,cbPrimary,
+            tvReplyTo,etReplyTo,tvBcc,etBcc,
+            cbDeliveryReceipt,cbReadReceipt,tvReceipt,
+            cbStoreSent,tvStoreSent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

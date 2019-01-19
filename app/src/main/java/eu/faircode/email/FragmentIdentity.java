@@ -111,6 +111,8 @@ public class FragmentIdentity extends FragmentBase {
     private CheckBox cbDeliveryReceipt;
     private CheckBox cbReadReceipt;
 
+    private CheckBox cbStoreSent;
+
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
     private TextView tvError;
@@ -173,6 +175,8 @@ public class FragmentIdentity extends FragmentBase {
         etBcc = view.findViewById(R.id.etBcc);
         cbDeliveryReceipt = view.findViewById(R.id.cbDeliveryReceipt);
         cbReadReceipt = view.findViewById(R.id.cbReadReceipt);
+
+        cbStoreSent = view.findViewById(R.id.cbStoreSent);
 
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
@@ -479,6 +483,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("bcc", etBcc.getText().toString().trim());
         args.putBoolean("delivery_receipt", cbDeliveryReceipt.isChecked());
         args.putBoolean("read_receipt", cbReadReceipt.isChecked());
+        args.putBoolean("store_sent", cbStoreSent.isChecked());
         args.putLong("account", account == null ? -1 : account.id);
         args.putInt("auth_type", account == null || account.auth_type == null ? Helper.AUTH_TYPE_PASSWORD : account.auth_type);
         args.putString("host", etHost.getText().toString());
@@ -535,6 +540,8 @@ public class FragmentIdentity extends FragmentBase {
                 String bcc = args.getString("bcc");
                 boolean delivery_receipt = args.getBoolean("delivery_receipt");
                 boolean read_receipt = args.getBoolean("read_receipt");
+                boolean store_sent = args.getBoolean("store_sent");
+
 
                 if (TextUtils.isEmpty(name))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_name));
@@ -633,7 +640,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.bcc = bcc;
                     identity.delivery_receipt = delivery_receipt;
                     identity.read_receipt = read_receipt;
-                    identity.store_sent = false;
+                    identity.store_sent = store_sent;
                     identity.sent_folder = null;
                     identity.error = null;
 
@@ -727,6 +734,7 @@ public class FragmentIdentity extends FragmentBase {
                     etBcc.setText(identity == null ? null : identity.bcc);
                     cbDeliveryReceipt.setChecked(identity == null ? false : identity.delivery_receipt);
                     cbReadReceipt.setChecked(identity == null ? false : identity.read_receipt);
+                    cbStoreSent.setChecked(identity == null ? false : identity.store_sent);
 
                     color = (identity == null || identity.color == null ? Color.TRANSPARENT : identity.color);
 

@@ -1840,6 +1840,12 @@ public class ServiceSynchronize extends LifecycleService {
                         db.message().setMessageSent(sid, imessage.getSentDate().getTime());
                         db.message().setMessageUiHide(sid, false);
                         db.message().deleteMessage(message.id);
+
+                        if (ident.store_sent) {
+                            message.id = sid;
+                            message.folder = sent.id;
+                            EntityOperation.queue(this, db, message, EntityOperation.ADD);
+                        }
                     }
 
                     db.setTransactionSuccessful();
@@ -2558,6 +2564,12 @@ public class ServiceSynchronize extends LifecycleService {
                 update = true;
                 message.ui_hide = false;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " unhide");
+            }
+
+            if (message.ui_browsed) {
+                update = true;
+                message.ui_browsed = false;
+                Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " unbrowse");
             }
 
             if (update)

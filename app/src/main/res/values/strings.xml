@@ -169,6 +169,8 @@
     <string name="title_identity_read_receipt">Request read receipt</string>
     <string name="title_identity_delivery_receipt">Request delivery receipt</string>
     <string name="title_identity_receipt_remark">Most providers ignore receipt requests</string>
+    <string name="title_identity_store_sent">Store sent messages</string>
+    <string name="title_identity_store_sent_remark">Enable this only if your provider does not automatically stores sent messages</string>
     <string name="title_optional">Optional</string>
     <string name="title_account_linked">Linked account</string>
     <string name="title_account_name">Account name</string>
@@ -367,7 +369,6 @@
     <string name="title_address_unsent">Unsent:</string>
     <string name="title_address_invalid">Invalid:</string>
     <string name="title_snoozed">Snoozed</string>
-    <string name="title_move_sent">Move to sent</string>
 
     <string name="title_previous">Previous</string>
     <string name="title_next">Next</string>

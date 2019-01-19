@@ -166,13 +166,17 @@ public class EntityOperation {
                         db.message().countMessageByMsgId(target.id, message.msgid) == 0) {
                     long id = message.id;
                     long uid = message.uid;
+                    boolean browsed = message.ui_browsed;
                     message.id = null;
                     message.uid = null;
                     message.folder = target.id;
+                    message.ui_browsed = true;
                     long newid = db.message().insertMessage(message);
                     message.id = id;
                     message.uid = uid;
                     message.folder = source.id;
+                    message.ui_browsed = browsed;
+
                     if (message.content)
                         try {
                             Helper.copy(
