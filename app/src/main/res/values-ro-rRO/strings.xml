@@ -194,6 +194,7 @@
     <string name="title_delete_local">Șterge mesajul local</string>
     <string name="title_empty_trash">Golire coș de gunoi</string>
     <string name="title_edit_properties">Editare proprietăți</string>
+    <string name="title_edit_rules">Editare reguli</string>
     <string name="title_empty_trash_ask">Şterge permanent toate mesajele din coșul de gunoi?</string>
     <string name="title_delete_operation">Se șterg operațiunile cu mesaj de eroare?</string>
     <string name="title_no_operations">Nici o operațiune în așteptare</string>
@@ -238,6 +239,8 @@
     <string name="title_reply_all">Răspunde tuturor</string>
     <string name="title_share">Partajează</string>
     <string name="title_show_headers">Arată antetul</string>
+    <string name="title_raw_download">Descarcă mesaj original</string>
+    <string name="title_raw_save">Salvează mesaj original</string>
     <string name="title_manage_keywords">Gestionare cuvinte cheie</string>
     <string name="title_add_keyword">Adăugă cuvânt cheie</string>
     <string name="title_download_all">Descarcă tot</string>
@@ -259,6 +262,7 @@
     <string name="title_no_stream">O aplicație invechită a trimis calea fișierului în locul unui flux de date</string>
     <string name="title_no_contacts">Selectorul de contacte nu este disponibil</string>
     <string name="title_no_internet">Nu există conexiune la internet</string>
+    <string name="title_raw_saved">Mesaj original salvat</string>
     <string name="title_attachment_saved">Atașament salvat</string>
     <string name="title_attachments_saved">Atașamente salvate</string>
     <string name="title_attachment_unavailable">Unele fișiere atașate nu sunt descărcate și nu vor fi adăugate, continuați?</string>
@@ -266,6 +270,7 @@
     <string name="title_ask_delete">Ștergeți definitiv mesajul?</string>
     <string name="title_ask_delete_selected">Se șterg permanent toate mesajele selectate?</string>
     <string name="title_ask_delete_answer">Se șterge permanent șablonul de răspuns?</string>
+    <string name="title_ask_delete_rule">Ștergeți regula definitiv?</string>
     <string name="title_ask_discard">Renunțați la ciornă?</string>
     <string name="title_ask_spam">Raportează ca spam?</string>
     <string name="title_ask_show_html">Vizualizarea mesajului original poate duce la divulgarea de informații confidențiale</string>
@@ -328,6 +333,21 @@
     <string name="title_answer_text">Text șablon</string>
     <string name="title_answer_template_name">$name$ va fi înlocuit cu numele expeditorului</string>
     <string name="title_answer_template_email">$email$ va fi înlocuit cu adresa de e-mail a expeditorului</string>
+    <string name="title_rule_name">Nume</string>
+    <string name="title_rule_order">Ordine</string>
+    <string name="title_rule_enabled">Activată</string>
+    <string name="title_rule_stop">Oprire procesare</string>
+    <string name="title_rule_sender">Expeditorul conține</string>
+    <string name="title_rule_subject">Subiectul conține</string>
+    <string name="title_rule_header">Antetul conține</string>
+    <string name="title_rule_regex">Expresie regulată (regex)</string>
+    <string name="title_rule_and">ȘI</string>
+    <string name="title_rule_action">Acțiune</string>
+    <string name="title_rule_folder">Dosar</string>
+    <string name="title_rule_identity">Identitate</string>
+    <string name="title_rule_answer">Șablon răspuns</string>
+    <string name="title_rule_name_missing">Lipsește numele regulii</string>
+    <string name="title_rule_condition_missing">Lipsește condiția</string>
     <string name="title_action_seen">Marcare ca citit</string>
     <string name="title_action_archive">Arhivare</string>
     <string name="title_action_trash">Gunoi</string>
@@ -361,6 +381,7 @@
     <string name="title_legend_synchronizing">Sincronizare</string>
     <string name="title_legend_downloading">Descărcare</string>
     <string name="title_legend_closing">Închidere</string>
+    <string name="title_legend_stop">Oprește procesarea regulilor</string>
     <string name="title_legend_metered">Conexiunea este contorizată</string>
     <string name="title_legend_unmetered">Conexiunea este necontorizată</string>
     <string name="title_legend_sync_keep">Numărul de zile de sincronizat / păstrat mesaje</string>
@@ -385,6 +406,8 @@
     <string name="title_report">Raportează</string>
     <string name="title_no_ask_again">Nu mai întreba din nou</string>
     <string name="title_no_adobe">Aplicația Adobe Acrobat reader nu poate deschide în siguranță fișierele, aflați mai multe în secțiunea de întrebări și răspunsuri</string>
+    <string name="title_no_body">Nu a fost găsit textul mesajului</string>
+    <string name="title_no_charset">Codare nesuportată: %1$s</string>
     <string name="title_try">Încearcă FairEmail, o aplicație de e-mail pentru Android cu sursă deschisă, ce protejează intimitatea și confidențialitatea</string>
     <string name="title_pro_feature">Aceasta este o caracteristică Pro</string>
     <string name="title_pro_list">Lista de caracteristici Pro</string>

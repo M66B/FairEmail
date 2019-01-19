@@ -256,7 +256,7 @@
     <string name="title_delete">Удалить</string>
     <string name="title_more">Еще</string>
     <string name="title_spam">Спам</string>
-    <string name="title_move">Перемещение</string>
+    <string name="title_move">Переместить</string>
     <string name="title_snooze">Отложить &#8230;</string>
     <string name="title_archive">Архив</string>
     <string name="title_reply">Ответить</string>
@@ -349,6 +349,9 @@
     <string name="title_rule_regex">Регулярное выражение</string>
     <string name="title_rule_and">И</string>
     <string name="title_rule_action">Действие</string>
+    <string name="title_rule_folder">Папка</string>
+    <string name="title_rule_identity">Идентификатор</string>
+    <string name="title_rule_answer">Шаблон ответа</string>
     <string name="title_rule_name_missing">Отсутствует имя правила</string>
     <string name="title_rule_condition_missing">Условие отсутствует</string>
     <string name="title_action_seen">Отметить как прочитанное</string>
@@ -384,6 +387,7 @@
     <string name="title_legend_synchronizing">Синхронизация</string>
     <string name="title_legend_downloading">Загрузка</string>
     <string name="title_legend_closing">Закрытие</string>
+    <string name="title_legend_stop">Остановить обработку правил</string>
     <string name="title_legend_metered">Подключение лимитировано</string>
     <string name="title_legend_unmetered">Подключение безлимитное</string>
     <string name="title_legend_sync_keep">Количество дней для синхронизации / хранения сообщений</string>

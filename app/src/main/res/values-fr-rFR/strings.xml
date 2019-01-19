@@ -337,6 +337,9 @@
     <string name="title_rule_regex">Expression régulière</string>
     <string name="title_rule_and">ET</string>
     <string name="title_rule_action">Action</string>
+    <string name="title_rule_folder">Dossier</string>
+    <string name="title_rule_identity">Identité</string>
+    <string name="title_rule_answer">Modèle de réponse</string>
     <string name="title_rule_name_missing">Nom de règle manquant</string>
     <string name="title_rule_condition_missing">Condition manquante</string>
     <string name="title_action_seen">Marquer comme lu</string>
@@ -372,6 +375,7 @@
     <string name="title_legend_synchronizing">Synchronisation en cours</string>
     <string name="title_legend_downloading">Téléchargement en cours</string>
     <string name="title_legend_closing">Fermeture en cours</string>
+    <string name="title_legend_stop">Arrêter le traitement des règles</string>
     <string name="title_legend_metered">La connexion est limitée</string>
     <string name="title_legend_unmetered">La connexion est illimitée</string>
     <string name="title_legend_sync_keep">Nombre de jours à synchroniser / pour conserver les messages</string>

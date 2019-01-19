@@ -188,7 +188,7 @@
     <string name="title_delete_local">Verwijder lokale berichten</string>
     <string name="title_empty_trash">Prullenbak leegmaken</string>
     <string name="title_edit_properties">Bewerk eigenschappen</string>
-    <string name="title_edit_rules">Regel bewerken</string>
+    <string name="title_edit_rules">Bewerk regels</string>
     <string name="title_empty_trash_ask">Alle weggegooide berichten permanent verwijderen?</string>
     <string name="title_delete_operation">Bewerkingen met een foutmelding verwijderen?</string>
     <string name="title_no_operations">Geen openstaande bewerkingen</string>
@@ -337,6 +337,9 @@
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">EN</string>
     <string name="title_rule_action">Actie</string>
+    <string name="title_rule_folder">Map</string>
+    <string name="title_rule_identity">Identiteit</string>
+    <string name="title_rule_answer">Antwoord sjabloon</string>
     <string name="title_rule_name_missing">Regelnaam ontbreekt</string>
     <string name="title_rule_condition_missing">Voorwaarde ontbreekt</string>
     <string name="title_action_seen">Gelezen</string>
@@ -372,6 +375,7 @@
     <string name="title_legend_synchronizing">Synchroniseren</string>
     <string name="title_legend_downloading">Downloaden</string>
     <string name="title_legend_closing">Sluiten</string>
+    <string name="title_legend_stop">Stop met het verwerken van regels</string>
     <string name="title_legend_metered">Verbinding is gemeten</string>
     <string name="title_legend_unmetered">Verbinding is ongemeten</string>
     <string name="title_legend_sync_keep">Aantal dagen om te synchroniseren / om berichten te houden</string>
