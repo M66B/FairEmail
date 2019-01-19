@@ -257,7 +257,8 @@ public interface DaoMessage {
     @Query("SELECT uid FROM message" +
             " WHERE folder = :folder" +
             " AND (:received IS NULL OR received >= :received)" +
-            " AND NOT uid IS NULL")
+            " AND NOT uid IS NULL" +
+            " AND NOT ui_browsed")
     List<Long> getUids(long folder, Long received);
 
     @Query("SELECT * FROM message WHERE NOT ui_snoozed IS NULL")
@@ -352,7 +353,8 @@ public interface DaoMessage {
 
     @Query("DELETE FROM message" +
             " WHERE folder = :folder" +
-            " AND uid IS NULL")
+            " AND uid IS NULL" +
+            " AND NOT ui_browsed")
     int deleteOrphans(long folder);
 
     @Query("DELETE FROM message" +

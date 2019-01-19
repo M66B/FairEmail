@@ -1840,7 +1840,6 @@ public class ServiceSynchronize extends LifecycleService {
                         db.message().setMessageSent(sid, imessage.getSentDate().getTime());
                         db.message().setMessageUiHide(sid, false);
                         db.message().deleteMessage(message.id);
-                        //EntityOperation.queue(this, db, message, EntityOperation.ADD);
                     }
 
                     db.setTransactionSuccessful();
