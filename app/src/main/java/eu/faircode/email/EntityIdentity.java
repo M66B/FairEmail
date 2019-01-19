@@ -81,7 +81,7 @@ public class EntityIdentity {
     public Boolean read_receipt;
     @NonNull
     public Boolean store_sent = false; // obsolete
-    public Long sent_folder;
+    public Long sent_folder; // obsolete
     public Boolean tbd;
     public String state;
     public String error;
@@ -109,9 +109,6 @@ public class EntityIdentity {
         json.put("bcc", bcc);
         json.put("delivery_receipt", delivery_receipt);
         json.put("read_receipt", read_receipt);
-        json.put("store_sent", store_sent);
-        if (sent_folder != null)
-            json.put("sent_folder", sent_folder);
         // not state
         // not error
         return json;
@@ -157,12 +154,6 @@ public class EntityIdentity {
         else
             identity.read_receipt = false;
 
-        if (json.has("store_sent"))
-            identity.store_sent = json.getBoolean("store_sent");
-
-        if (json.has("sent_folder"))
-            identity.sent_folder = json.getLong("sent_folder");
-
         return identity;
     }
 
@@ -187,7 +178,6 @@ public class EntityIdentity {
                     (this.replyto == null ? other.replyto == null : this.replyto.equals(other.replyto)) &&
                     this.delivery_receipt.equals(other.delivery_receipt) &&
                     this.read_receipt.equals(other.read_receipt) &&
-                    (this.sent_folder == null ? other.sent_folder == null : this.sent_folder.equals(other.sent_folder)) &&
                     (this.tbd == null ? other.tbd == null : this.tbd.equals(other.tbd)) &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&
                     (this.error == null ? other.error == null : this.error.equals(other.error)));

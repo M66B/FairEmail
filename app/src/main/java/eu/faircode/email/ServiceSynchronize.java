@@ -1790,51 +1790,62 @@ public class ServiceSynchronize extends LifecycleService {
             db.identity().setIdentityState(ident.id, "connected");
 
             // Send message
-            Address[] to = imessage.getAllRecipients();
-            itransport.sendMessage(imessage, to);
-            EntityLog.log(this, "Sent via " + ident.host + "/" + ident.user +
-                    " to " + TextUtils.join(", ", to));
-
-            db.identity().setIdentityError(ident.id, null);
-
-            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            nm.cancel("send", message.identity.intValue());
-
-            // Append replied/forwarded text
-            if (message.replying != null || message.forwarding != null) {
-                String html = message.read(this);
-                html += HtmlHelper.getQuote(this,
-                        message.replying == null ? message.forwarding : message.replying, false);
-                message.write(this, html);
-            }
-
+            Long sid = null;
             try {
-                db.beginTransaction();
+                // Append replied/forwarded text
+                String body = message.read(this);
+                if (message.replying != null || message.forwarding != null)
+                    body += HtmlHelper.getQuote(this,
+                            message.replying == null ? message.forwarding : message.replying, false);
 
-                // Message could be moved
-                message = db.message().getMessage(message.id);
+                EntityFolder sent = db.folder().getFolderByType(ident.account, EntityFolder.SENT);
+                if (sent != null) {
+                    long id = message.id;
+                    long folder = message.folder;
 
-                // Mark message as sent
-                // - will be moved to sent folder by synchronize message later
-                message.sent = imessage.getSentDate().getTime();
-                message.seen = true;
-                message.ui_seen = true;
-                message.error = null;
-                db.message().updateMessage(message);
+                    message.id = null;
+                    message.folder = sent.id;
+                    message.seen = true;
+                    message.ui_seen = true;
+                    message.ui_hide = true;
+                    message.ui_browsed = true; // prevent deleting on sync
+                    message.error = null;
+                    message.id = db.message().insertMessage(message);
+                    message.write(this, body);
 
-                if (ident.store_sent || ident.sent_folder != null) {
-                    EntityFolder sent;
-                    if (ident.store_sent)
-                        sent = db.folder().getFolderByType(ident.account, EntityFolder.SENT);
-                    else
-                        sent = db.folder().getFolder(ident.sent_folder);
-                    if (sent != null) {
-                        message.folder = sent.id;
-                        message.uid = null;
-                        db.message().updateMessage(message);
-                        Log.i("Appending sent msgid=" + message.msgid);
-                        EntityOperation.queue(this, db, message, EntityOperation.ADD); // Could already exist
+                    sid = message.id;
+                    message.id = id;
+                    message.folder = folder;
+                    message.seen = false;
+                    message.ui_seen = false;
+                    message.ui_browsed = false;
+                    message.ui_hide = false;
+                }
+
+                Address[] to = imessage.getAllRecipients();
+                itransport.sendMessage(imessage, to);
+                EntityLog.log(this, "Sent via " + ident.host + "/" + ident.user +
+                        " to " + TextUtils.join(", ", to));
+
+                try {
+                    db.beginTransaction();
+
+                    if (sid == null) {
+                        db.message().setMessageSent(message.id, imessage.getSentDate().getTime());
+                        db.message().setMessageSeen(message.id, true);
+                        db.message().setMessageUiSeen(message.id, true);
+                        db.message().setMessageError(message.id, null);
+                        message.write(this, body);
+                    } else {
+                        db.message().setMessageSent(sid, imessage.getSentDate().getTime());
+                        db.message().setMessageUiHide(sid, false);
+                        db.message().deleteMessage(message.id);
+                        //EntityOperation.queue(this, db, message, EntityOperation.ADD);
                     }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
                 }
 
                 if (message.replying != null) {
@@ -1842,9 +1853,14 @@ public class ServiceSynchronize extends LifecycleService {
                     EntityOperation.queue(this, db, replying, EntityOperation.ANSWERED, true);
                 }
 
-                db.setTransactionSuccessful();
-            } finally {
-                db.endTransaction();
+                db.identity().setIdentityError(ident.id, null);
+
+                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                nm.cancel("send", message.identity.intValue());
+            } catch (Throwable ex) {
+                if (sid != null)
+                    db.message().deleteMessage(sid);
+                throw ex;
             }
         } catch (MessagingException ex) {
             if (ex instanceof SendFailedException) {
