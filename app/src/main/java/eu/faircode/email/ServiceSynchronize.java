@@ -1788,16 +1788,17 @@ public class ServiceSynchronize extends LifecycleService {
             }
 
             db.identity().setIdentityState(ident.id, "connected");
-            db.identity().setIdentityError(ident.id, null);
-
-            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            nm.cancel("send", message.identity.intValue());
 
             // Send message
             Address[] to = imessage.getAllRecipients();
             itransport.sendMessage(imessage, to);
             EntityLog.log(this, "Sent via " + ident.host + "/" + ident.user +
                     " to " + TextUtils.join(", ", to));
+
+            db.identity().setIdentityError(ident.id, null);
+
+            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            nm.cancel("send", message.identity.intValue());
 
             // Append replied/forwarded text
             if (message.replying != null || message.forwarding != null) {
