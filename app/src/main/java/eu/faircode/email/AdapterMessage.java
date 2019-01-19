@@ -154,6 +154,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvTime;
         private ImageView ivDraft;
         private ImageView ivSnoozed;
+        private ImageView ivBrowsed;
         private ImageView ivAnswered;
         private ImageView ivAttachments;
         private TextView tvSubject;
@@ -219,6 +220,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvTime = itemView.findViewById(R.id.tvTime);
             ivDraft = itemView.findViewById(R.id.ivDraft);
             ivSnoozed = itemView.findViewById(R.id.ivSnoozed);
+            ivBrowsed = itemView.findViewById(R.id.ivBrowsed);
             ivAnswered = itemView.findViewById(R.id.ivAnswered);
             ivAttachments = itemView.findViewById(R.id.ivAttachments);
             tvSubject = itemView.findViewById(R.id.tvSubject);
@@ -345,6 +347,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvTime.setText(null);
             ivDraft.setVisibility(View.GONE);
             ivSnoozed.setVisibility(View.GONE);
+            ivBrowsed.setVisibility(View.GONE);
             ivAnswered.setVisibility(View.GONE);
             ivAttachments.setVisibility(View.GONE);
             tvSubject.setText(null);
@@ -398,6 +401,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvTime.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
                 ivDraft.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
                 ivSnoozed.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
+                ivBrowsed.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
                 ivAnswered.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
                 ivAttachments.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
                 tvSubject.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
@@ -488,6 +492,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ivDraft.setVisibility(message.drafts > 0 ? View.VISIBLE : View.GONE);
             ivSnoozed.setVisibility(message.ui_snoozed == null ? View.GONE : View.VISIBLE);
+            ivBrowsed.setVisibility(message.ui_browsed ? View.VISIBLE : View.GONE);
             ivAnswered.setVisibility(message.ui_answered ? View.VISIBLE : View.GONE);
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
             btnDownloadAttachments.setVisibility(View.GONE);

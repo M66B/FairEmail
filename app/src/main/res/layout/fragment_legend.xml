@@ -198,34 +198,13 @@
             app:layout_constraintTop_toTopOf="@id/ivCC" />
 
         <ImageView
-            android:id="@+id/ivSnoozed"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="24dp"
-            android:src="@drawable/baseline_timelapse_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivCC" />
-
-        <TextView
-            android:id="@+id/tvSnoozed"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:text="@string/title_legend_snoozed"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="@id/ivSnoozed"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivSnoozed"
-            app:layout_constraintTop_toTopOf="@id/ivSnoozed" />
-
-        <ImageView
             android:id="@+id/ivDraft"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="24dp"
             android:src="@drawable/baseline_edit_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivSnoozed" />
+            app:layout_constraintTop_toBottomOf="@id/ivCC" />
 
         <TextView
             android:id="@+id/tvDraft"
@@ -240,13 +219,56 @@
             app:layout_constraintTop_toTopOf="@id/ivDraft" />
 
         <ImageView
+            android:id="@+id/ivSnoozed"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/baseline_timelapse_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivDraft" />
+
+        <TextView
+            android:id="@+id/tvSnoozed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_snoozed"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivSnoozed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivSnoozed"
+            app:layout_constraintTop_toTopOf="@id/ivSnoozed" />
+
+
+        <ImageView
+            android:id="@+id/ivBrowsed"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/baseline_playlist_add_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivSnoozed" />
+
+        <TextView
+            android:id="@+id/tvBrowsed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_browsed"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivBrowsed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivBrowsed"
+            app:layout_constraintTop_toTopOf="@id/ivBrowsed" />
+
+        <ImageView
             android:id="@+id/ivAnswered"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="24dp"
             android:src="@drawable/baseline_reply_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivDraft" />
+            app:layout_constraintTop_toBottomOf="@id/ivBrowsed" />
 
         <TextView
             android:id="@+id/tvAnswered"

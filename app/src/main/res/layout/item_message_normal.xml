@@ -147,13 +147,23 @@
             app:layout_constraintTop_toTopOf="@+id/tvFolder" />
 
         <ImageView
+            android:id="@+id/ivBrowsed"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="6dp"
+            android:src="@drawable/baseline_playlist_add_24"
+            app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
+            app:layout_constraintStart_toEndOf="@id/ivSnoozed"
+            app:layout_constraintTop_toTopOf="@+id/tvFolder" />
+
+        <ImageView
             android:id="@+id/ivAnswered"
             android:layout_width="21dp"
             android:layout_height="21dp"
             android:layout_marginStart="6dp"
             android:src="@drawable/baseline_reply_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
-            app:layout_constraintStart_toEndOf="@id/ivSnoozed"
+            app:layout_constraintStart_toEndOf="@id/ivBrowsed"
             app:layout_constraintTop_toTopOf="@+id/tvFolder" />
 
         <ImageView
