@@ -233,8 +233,8 @@ public class ViewModelBrowse extends ViewModel {
                                     true,
                                     new ArrayList<EntityRule>());
                             ServiceSynchronize.downloadMessage(state.context,
-                                    folder, state.ifolder, (IMAPMessage) isub[j], message.id,
-                                    false);
+                                    folder, state.ifolder,
+                                    (IMAPMessage) isub[j], message.id);
                             count++;
                         }
                         db.message().setMessageFound(message.account, message.thread);
