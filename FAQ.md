@@ -1108,6 +1108,10 @@ You can disable a rule and you can stop processing other rules after a rule has 
 All the conditions of a rule need to be true for a filter rule to be executed.
 Conditions are optional, but there needs to be at least one condition.
 
+Filter rules are applied direct after the message header has been fetched, before the message text has been downloaded,
+so it is not possible to apply filter rules to the message text.
+Note that large message texts are downloaded on demand on a metered connection to save data.
+
 Using filter rules is a pro feature.
 
 <br />
