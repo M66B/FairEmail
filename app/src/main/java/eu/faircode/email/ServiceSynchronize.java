@@ -2607,8 +2607,11 @@ public class ServiceSynchronize extends LifecycleService {
         if (message == null)
             return;
 
-        if (message.setContactInfo(context))
-            db.message().updateMessage(message);
+        if (message.avatar == null && !folder.isOutgoing()) {
+            message.avatar = EntityMessage.getLookupUri(context, message.from);
+            if (message.avatar != null)
+                db.message().updateMessage(message);
+        }
 
         if (download) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);

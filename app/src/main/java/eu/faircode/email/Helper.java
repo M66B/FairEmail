@@ -327,7 +327,6 @@ public class Helper {
             draft.to = new Address[]{Helper.myAddress()};
             draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " debug info";
             draft.received = new Date().getTime();
-            draft.setContactInfo(context);
             draft.id = db.message().insertMessage(draft);
             draft.write(context, body);
             db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body));

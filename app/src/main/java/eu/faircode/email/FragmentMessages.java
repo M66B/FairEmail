@@ -101,7 +101,6 @@ public class FragmentMessages extends FragmentBase {
 
     private long account;
     private long folder;
-    private boolean outgoing;
     private String thread;
     private long id;
     private String search;
@@ -156,7 +155,6 @@ public class FragmentMessages extends FragmentBase {
         Bundle args = getArguments();
         account = args.getLong("account", -1);
         folder = args.getLong("folder", -1);
-        outgoing = args.getBoolean("outgoing", false);
         thread = args.getString("thread");
         id = args.getLong("id", -1);
         search = args.getString("search");
@@ -269,7 +267,7 @@ public class FragmentMessages extends FragmentBase {
         int zoom = prefs.getInt("zoom", compact ? 0 : 1);
         adapter = new AdapterMessage(
                 getContext(), getViewLifecycleOwner(),
-                viewType, outgoing, compact, zoom, iProperties);
+                viewType, compact, zoom, iProperties);
 
         rvMessage.setAdapter(adapter);
 
@@ -367,8 +365,7 @@ public class FragmentMessages extends FragmentBase {
                 lbm.sendBroadcast(
                         new Intent(ActivityView.ACTION_VIEW_MESSAGES)
                                 .putExtra("account", drafts.account)
-                                .putExtra("folder", drafts.id)
-                                .putExtra("outgoing", drafts.isOutgoing()));
+                                .putExtra("folder", drafts.id));
 
                 return true;
             }

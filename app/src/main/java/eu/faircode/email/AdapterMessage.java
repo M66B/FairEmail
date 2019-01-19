@@ -113,7 +113,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private LayoutInflater inflater;
     private LifecycleOwner owner;
     private ViewType viewType;
-    private boolean outgoing;
     private boolean compact;
     private int zoom;
     private boolean internet;
@@ -410,6 +409,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvError.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
             }
 
+            boolean outgoing = (viewType != ViewType.THREAD && EntityFolder.isOutgoing(message.folderType));
+
             if (!outgoing && (avatars || identicons)) {
                 Bundle aargs = new Bundle();
                 aargs.putLong("id", message.id);
@@ -417,45 +418,73 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (message.from != null && message.from.length > 0)
                     aargs.putString("from", message.from[0].toString());
 
-                new SimpleTask<Drawable>() {
+                new SimpleTask<ContactInfo>() {
                     @Override
                     protected void onPreExecute(Bundle args) {
                         ivAvatar.setTag(message.id);
                         ivAvatar.setVisibility(View.INVISIBLE);
+                        tvFrom.setTag(message.id);
                     }
 
                     @Override
-                    protected Drawable onExecute(Context context, Bundle args) {
+                    protected ContactInfo onExecute(Context context, Bundle args) {
                         String uri = args.getString("uri");
-                        if (avatars && uri != null)
+
+                        ContactInfo info = new ContactInfo();
+                        ContentResolver resolver = context.getContentResolver();
+
+                        if (contacts && avatars && uri != null)
                             try {
-                                ContentResolver resolver = context.getContentResolver();
                                 InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, Uri.parse(uri));
                                 if (is != null)
-                                    return Drawable.createFromStream(is, "avatar");
+                                    info.avatar = Drawable.createFromStream(is, "avatar");
                             } catch (SecurityException ex) {
                                 Log.e(ex);
                             }
 
                         String from = args.getString("from");
-                        if (identicons && from != null)
-                            return new BitmapDrawable(
+                        if (info.avatar == null && identicons && from != null)
+                            info.avatar = new BitmapDrawable(
                                     context.getResources(),
                                     Identicon.generate(from, dp24, 5, "light".equals(theme)));
 
-                        return null;
+                        if (contacts && uri != null) {
+                            Cursor cursor = null;
+                            try {
+                                cursor = resolver.query(
+                                        Uri.parse(uri),
+                                        new String[]{ContactsContract.Contacts.DISPLAY_NAME},
+                                        null, null, null);
+                                if (cursor != null && cursor.moveToNext())
+                                    info.displayName = cursor.getString(0);
+                            } finally {
+                                if (cursor != null)
+                                    cursor.close();
+                            }
+                        }
+
+                        return info;
                     }
 
                     @Override
-                    protected void onExecuted(Bundle args, Drawable avatar) {
-                        if ((long) ivAvatar.getTag() == args.getLong("id")) {
-                            if (avatar == null)
+                    protected void onExecuted(Bundle args, ContactInfo info) {
+                        long id = args.getLong("id");
+
+                        if ((long) ivAvatar.getTag() == id) {
+                            if (info.avatar == null)
                                 ivAvatar.setImageResource(R.drawable.baseline_person_24);
                             else
-                                ivAvatar.setImageDrawable(avatar);
+                                ivAvatar.setImageDrawable(info.avatar);
                             ivAvatar.setVisibility(View.VISIBLE);
                         } else
                             Log.i("Skipping avatar");
+
+                        if ((long) tvFrom.getTag() == id) {
+                            if (info.displayName != null) {
+                                Log.i("Using contact name=" + info.displayName);
+                                tvFrom.setText(info.displayName);
+                            }
+                        }
                     }
 
                     @Override
@@ -2003,12 +2032,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     AdapterMessage(Context context, LifecycleOwner owner,
-                   ViewType viewType, boolean outgoing, boolean compact, int zoom, IProperties properties) {
+                   ViewType viewType, boolean compact, int zoom, IProperties properties) {
         this.context = context;
         this.owner = owner;
         this.inflater = LayoutInflater.from(context);
         this.viewType = viewType;
-        this.outgoing = outgoing;
         this.compact = compact;
         this.zoom = zoom;
         this.internet = (Helper.isMetered(context, false) != null);
@@ -2173,6 +2201,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         Long key = (message == null ? null : message.id);
         Log.i("Key=" + key + " @Position=" + pos);
         return key;
+    }
+
+    private class ContactInfo {
+        Drawable avatar;
+        String displayName;
     }
 
     interface IProperties {

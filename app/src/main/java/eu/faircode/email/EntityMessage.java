@@ -29,7 +29,6 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
-import android.text.TextUtils;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -151,8 +150,7 @@ public class EntityMessage implements Serializable {
     public String error; // volatile
     public Long last_attempt; // send
 
-    private static final Map<String, ContactInfo> emailContactInfo = new HashMap<>();
-    private static final long MAX_CACHED_CONTACTINFO_AGE = 20 * 60 * 1000L; // milliseconds
+    private static final Map<String, Uri> emailLookupUri = new HashMap<>();
 
     static String generateMessageId() {
         StringBuilder sb = new StringBuilder();
@@ -212,88 +210,58 @@ public class EntityMessage implements Serializable {
         return new File(dir, Long.toString(id));
     }
 
-    private class ContactInfo {
-        Uri lookupUri;
-        String displayName;
-        long time;
+    static String getLookupUri(Context context, Address[] froms) {
+        if (froms == null)
+            return null;
 
-        ContactInfo(Uri lookupUri, String displayName) {
-            this.lookupUri = lookupUri;
-            this.displayName = displayName;
-            this.time = new Date().getTime();
-        }
-
-        boolean isValid() {
-            long age = new Date().getTime() - this.time;
-            return age < MAX_CACHED_CONTACTINFO_AGE;
-        }
-    }
-
-    boolean setContactInfo(Context context) {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
-                == PackageManager.PERMISSION_GRANTED) {
-            this.avatar = null;
+                != PackageManager.PERMISSION_GRANTED)
+            return null;
 
-            try {
-                if (this.from != null)
-                    for (Address from : this.from) {
-                        InternetAddress address = ((InternetAddress) from);
-                        String email = address.getAddress();
+        try {
+            for (Address from : froms) {
+                String email = ((InternetAddress) from).getAddress();
 
-                        synchronized (emailContactInfo) {
-                            ContactInfo info = emailContactInfo.get(email);
-                            if (info != null && info.isValid()) {
-                                this.avatar = info.lookupUri.toString();
-                                if (!TextUtils.isEmpty(info.displayName))
-                                    address.setPersonal(info.displayName);
-                                return true;
-                            }
+                synchronized (emailLookupUri) {
+                    Uri lookupUri = emailLookupUri.get(email);
+                    if (lookupUri != null)
+                        return lookupUri.toString();
+                }
+
+                Cursor cursor = null;
+                try {
+                    ContentResolver resolver = context.getContentResolver();
+                    cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                            new String[]{
+                                    ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
+                                    ContactsContract.Contacts.LOOKUP_KEY
+                            },
+                            ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
+                            new String[]{email}, null);
+                    if (cursor != null && cursor.moveToNext()) {
+                        int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
+                        int colLookupKey = cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY);
+
+                        long contactId = cursor.getLong(colContactId);
+                        String lookupKey = cursor.getString(colLookupKey);
+                        Uri lookupUri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
+
+                        synchronized (emailLookupUri) {
+                            emailLookupUri.put(email, lookupUri);
                         }
 
-
-                        Cursor cursor = null;
-                        try {
-                            ContentResolver resolver = context.getContentResolver();
-                            cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                                    new String[]{
-                                            ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
-                                            ContactsContract.Contacts.LOOKUP_KEY,
-                                            ContactsContract.Contacts.DISPLAY_NAME
-                                    },
-                                    ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
-                                    new String[]{email}, null);
-                            if (cursor != null && cursor.moveToNext()) {
-                                int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
-                                int colLookupKey = cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY);
-                                int colDisplayName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
-
-                                long contactId = cursor.getLong(colContactId);
-                                String lookupKey = cursor.getString(colLookupKey);
-                                String displayName = cursor.getString(colDisplayName);
-                                Uri lookupUri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
-
-                                this.avatar = lookupUri.toString();
-
-                                if (!TextUtils.isEmpty(displayName))
-                                    address.setPersonal(displayName);
-
-                                synchronized (emailContactInfo) {
-                                    emailContactInfo.put(email, new ContactInfo(lookupUri, displayName));
-                                }
-
-                                return true;
-                            }
-                        } finally {
-                            if (cursor != null)
-                                cursor.close();
-                        }
+                        return lookupUri.toString();
                     }
-            } catch (Throwable ex) {
-                Log.e(ex);
+                } finally {
+                    if (cursor != null)
+                        cursor.close();
+                }
             }
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
 
-        return false;
+        return null;
     }
 
     static void snooze(Context context, long id, Long wakeup) {

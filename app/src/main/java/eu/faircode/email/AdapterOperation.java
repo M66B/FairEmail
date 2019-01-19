@@ -119,8 +119,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                         lbm.sendBroadcast(
                                 new Intent(ActivityView.ACTION_VIEW_MESSAGES)
                                         .putExtra("account", folder.account)
-                                        .putExtra("folder", folder.id)
-                                        .putExtra("outgoing", folder.isOutgoing()));
+                                        .putExtra("folder", folder.id));
                     }
 
                     @Override

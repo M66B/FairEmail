@@ -1040,7 +1040,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         Bundle args = new Bundle();
         args.putLong("account", intent.getLongExtra("account", -1));
         args.putLong("folder", intent.getLongExtra("folder", -1));
-        args.putBoolean("outgoing", intent.getBooleanExtra("outgoing", false));
 
         FragmentMessages fragment = new FragmentMessages();
         fragment.setArguments(args);
