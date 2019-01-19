@@ -429,7 +429,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         ContactInfo info = ContactInfo.get(context, addresses);
 
-                        if ((info == null || !info.hasPhoto()) && identicons) {
+                        if ((info == null || !info.hasPhoto()) &&
+                                identicons && addresses != null && addresses.length > 0) {
                             Drawable ident = new BitmapDrawable(
                                     context.getResources(),
                                     Identicon.generate(addresses[0].toString(),
