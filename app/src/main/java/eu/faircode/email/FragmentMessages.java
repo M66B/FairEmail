@@ -26,6 +26,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -117,8 +118,8 @@ public class FragmentMessages extends FragmentBase {
     private boolean connected = false;
     private boolean searching = false;
     private AdapterMessage adapter;
-    private List<Long> archives = new ArrayList<>();
-    private List<Long> trashes = new ArrayList<>();
+
+    private Map<Long, TupleAccountSwipes> accountSwipes = new HashMap<>();
 
     private AdapterMessage.ViewType viewType;
     private SelectionTracker<Long> selectionTracker = null;
@@ -551,29 +552,19 @@ public class FragmentMessages extends FragmentBase {
     private ItemTouchHelper.Callback touchHelper = new ItemTouchHelper.Callback() {
         @Override
         public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            if (!prefs.getBoolean("swipe", true))
+            TupleMessageEx message = getMessage(viewHolder);
+            if (message == null)
                 return 0;
 
-            if (selectionTracker != null && selectionTracker.hasSelection())
-                return 0;
-
-            int pos = viewHolder.getAdapterPosition();
-            if (pos == RecyclerView.NO_POSITION)
-                return 0;
-
-            TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
-            if (message == null || message.uid == null ||
-                    (values.containsKey("expanded") && values.get("expanded").contains(message.id)) ||
-                    EntityFolder.DRAFTS.equals(message.folderType) ||
-                    EntityFolder.OUTBOX.equals(message.folderType))
+            TupleAccountSwipes swipes = accountSwipes.get(message.account);
+            if (swipes == null)
                 return 0;
 
             int flags = 0;
-            if (archives.contains(message.account))
-                flags |= ItemTouchHelper.RIGHT;
-            if (trashes.contains(message.account))
+            if (swipes.swipe_left != null && !swipes.swipe_left.equals(message.folder))
                 flags |= ItemTouchHelper.LEFT;
+            if (swipes.swipe_right != null && !swipes.swipe_right.equals(message.folder))
+                flags |= ItemTouchHelper.RIGHT;
 
             return makeMovementFlags(0, flags);
         }
@@ -585,40 +576,36 @@ public class FragmentMessages extends FragmentBase {
 
         @Override
         public void onChildDraw(Canvas canvas, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
-            int pos = viewHolder.getAdapterPosition();
-            if (pos == RecyclerView.NO_POSITION)
-                return;
-
-            TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
+            TupleMessageEx message = getMessage(viewHolder);
             if (message == null)
                 return;
 
-            boolean inbox = (EntityFolder.ARCHIVE.equals(message.folderType) || EntityFolder.TRASH.equals(message.folderType));
+            TupleAccountSwipes swipes = accountSwipes.get(message.account);
+            if (swipes == null)
+                return;
 
-            View itemView = viewHolder.itemView;
+            Rect rect = ((AdapterMessage.ViewHolder) viewHolder).getItemRect();
             int margin = Helper.dp2pixels(getContext(), 12);
 
             if (dX > margin) {
                 // Right swipe
-                Drawable d = getResources().getDrawable(
-                        inbox ? R.drawable.baseline_move_to_inbox_24 : R.drawable.baseline_archive_24,
-                        getContext().getTheme());
-                int padding = (itemView.getHeight() - d.getIntrinsicHeight());
+                Drawable d = getResources().getDrawable(getIcon(swipes.right_type), getContext().getTheme());
+                int padding = (rect.height() - d.getIntrinsicHeight());
                 d.setBounds(
-                        itemView.getLeft() + margin,
-                        itemView.getTop() + padding / 2,
-                        itemView.getLeft() + margin + d.getIntrinsicWidth(),
-                        itemView.getTop() + padding / 2 + d.getIntrinsicHeight());
+                        rect.left + margin,
+                        rect.top + padding / 2,
+                        rect.left + margin + d.getIntrinsicWidth(),
+                        rect.top + padding / 2 + d.getIntrinsicHeight());
                 d.draw(canvas);
             } else if (dX < -margin) {
                 // Left swipe
-                Drawable d = getResources().getDrawable(inbox ? R.drawable.baseline_move_to_inbox_24 : R.drawable.baseline_delete_24, getContext().getTheme());
-                int padding = (itemView.getHeight() - d.getIntrinsicHeight());
+                Drawable d = getResources().getDrawable(getIcon(swipes.left_type), getContext().getTheme());
+                int padding = (rect.height() - d.getIntrinsicHeight());
                 d.setBounds(
-                        itemView.getLeft() + itemView.getWidth() - d.getIntrinsicWidth() - margin,
-                        itemView.getTop() + padding / 2,
-                        itemView.getLeft() + itemView.getWidth() - margin,
-                        itemView.getTop() + padding / 2 + d.getIntrinsicHeight());
+                        rect.left + rect.width() - d.getIntrinsicWidth() - margin,
+                        rect.top + padding / 2,
+                        rect.left + rect.width() - margin,
+                        rect.top + padding / 2 + d.getIntrinsicHeight());
                 d.draw(canvas);
             }
 
@@ -627,51 +614,38 @@ public class FragmentMessages extends FragmentBase {
 
         @Override
         public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-            int pos = viewHolder.getAdapterPosition();
-            if (pos == RecyclerView.NO_POSITION)
-                return;
-
-            TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
+            TupleMessageEx message = getMessage(viewHolder);
             if (message == null)
                 return;
+
+            TupleAccountSwipes swipes = accountSwipes.get(message.account);
+            if (swipes == null)
+                return;
+
             Log.i("Swiped dir=" + direction + " message=" + message.id);
 
             Bundle args = new Bundle();
             args.putLong("id", message.id);
             args.putBoolean("thread", viewType != AdapterMessage.ViewType.THREAD);
-            args.putInt("direction", direction);
+            args.putLong("target", direction == ItemTouchHelper.LEFT ? swipes.swipe_left : swipes.swipe_right);
 
             new SimpleTask<MessageTarget>() {
                 @Override
                 protected MessageTarget onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
                     boolean thread = args.getBoolean("thread");
-                    int direction = args.getInt("direction");
+                    long target = args.getLong("target");
 
                     MessageTarget result = new MessageTarget();
-                    EntityFolder target = null;
 
                     // Get target folder and hide message
                     DB db = DB.getInstance(context);
                     try {
                         db.beginTransaction();
 
+                        result.target = db.folder().getFolder(target);
+
                         EntityMessage message = db.message().getMessage(id);
-
-                        EntityFolder folder = db.folder().getFolder(message.folder);
-                        if (EntityFolder.ARCHIVE.equals(folder.type) || EntityFolder.TRASH.equals(folder.type))
-                            target = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
-                        else {
-                            if (direction == ItemTouchHelper.RIGHT)
-                                target = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
-                            if (direction == ItemTouchHelper.LEFT || target == null)
-                                target = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-                            if (target == null)
-                                target = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
-                        }
-
-                        result.target = target;
-
                         List<EntityMessage> messages = db.message().getMessageByThread(
                                 message.account, message.thread, threading && thread ? null : id, message.folder);
                         for (EntityMessage threaded : messages) {
@@ -699,6 +673,39 @@ public class FragmentMessages extends FragmentBase {
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                 }
             }.execute(FragmentMessages.this, args, "messages:swipe");
+        }
+
+        private TupleMessageEx getMessage(RecyclerView.ViewHolder viewHolder) {
+            if (selectionTracker != null && selectionTracker.hasSelection())
+                return null;
+
+            int pos = viewHolder.getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return null;
+
+            TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
+            if (message == null || message.uid == null)
+                return null;
+
+            if (values.containsKey("expanded") && values.get("expanded").contains(message.id))
+                return null;
+
+            if (EntityFolder.DRAFTS.equals(message.folderType) || EntityFolder.OUTBOX.equals(message.folderType))
+                return null;
+
+            return message;
+        }
+
+        int getIcon(String type) {
+            if (EntityFolder.INBOX.equals(type))
+                return R.drawable.baseline_move_to_inbox_24;
+            if (EntityFolder.ARCHIVE.equals(type))
+                return R.drawable.baseline_archive_24;
+            if (EntityFolder.TRASH.equals(type))
+                return R.drawable.baseline_delete_24;
+            if (EntityFolder.JUNK.equals(type))
+                return R.drawable.baseline_flag_24;
+            return R.drawable.baseline_folder_24;
         }
     };
 
@@ -1334,6 +1341,20 @@ public class FragmentMessages extends FragmentBase {
             }
         });
 
+        db.account().liveAccountSwipes().observe(getViewLifecycleOwner(), new Observer<List<TupleAccountSwipes>>() {
+            @Override
+            public void onChanged(List<TupleAccountSwipes> swipes) {
+                if (swipes == null)
+                    swipes = new ArrayList<>();
+
+                Log.i("Swipes=" + swipes.size());
+
+                accountSwipes.clear();
+                for (TupleAccountSwipes swipe : swipes)
+                    accountSwipes.put(swipe.id, swipe);
+            }
+        });
+
         // Folder
         switch (viewType) {
             case UNIFIED:
@@ -1401,25 +1422,7 @@ public class FragmentMessages extends FragmentBase {
                 break;
         }
 
-        // Folders and messages
-        db.folder().liveSystemFolders(account).observe(getViewLifecycleOwner(), new Observer<List<EntityFolder>>() {
-            @Override
-            public void onChanged(List<EntityFolder> folders) {
-                if (folders == null)
-                    folders = new ArrayList<>();
-
-                archives.clear();
-                trashes.clear();
-
-                for (EntityFolder folder : folders)
-                    if (EntityFolder.ARCHIVE.equals(folder.type))
-                        archives.add(folder.account);
-                    else if (EntityFolder.TRASH.equals(folder.type))
-                        trashes.add(folder.account);
-
-                loadMessages();
-            }
-        });
+        loadMessages();
 
         if (selectionTracker != null && selectionTracker.hasSelection())
             fabMore.show();
@@ -1931,13 +1934,19 @@ public class FragmentMessages extends FragmentBase {
                                         archivable = true;
                                 }
 
+                            EntityFolder trash = db.folder().getFolderByType(account, EntityFolder.TRASH);
+                            EntityFolder archive = db.folder().getFolderByType(account, EntityFolder.ARCHIVE);
+
+                            trashable = (trashable && trash != null);
+                            archivable = (archivable && archive != null);
+
                             return new Boolean[]{trashable, archivable};
                         }
 
                         @Override
                         protected void onExecuted(Bundle args, Boolean[] data) {
-                            bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(trashes.size() > 0 && data[0]);
-                            bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(archives.size() > 0 && data[1]);
+                            bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(data[0]);
+                            bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(data[1]);
                             bottom_navigation.setVisibility(View.VISIBLE);
                         }
 

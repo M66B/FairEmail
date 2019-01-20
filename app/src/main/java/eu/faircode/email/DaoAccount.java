@@ -83,6 +83,12 @@ public interface DaoAccount {
             "    WHERE operation.name = '" + EntityOperation.SEND + "') AS unsent")
     LiveData<TupleAccountStats> liveStats();
 
+    @Query("SELECT account.id, swipe_left, l.type AS left_type, swipe_right, r.type AS right_type" +
+            " FROM account" +
+            " LEFT JOIN folder l ON l.id = account.swipe_left" +
+            " LEFT JOIN folder r ON r.id = account.swipe_right")
+    LiveData<List<TupleAccountSwipes>> liveAccountSwipes();
+
     @Insert
     long insertAccount(EntityAccount account);
 

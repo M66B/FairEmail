@@ -499,13 +499,33 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/spJunk" />
 
+        <TextView
+            android:id="@+id/tvLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_account_left"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@+id/spLeft"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/spLeft" />
+
+        <TextView
+            android:id="@+id/tvRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_account_right"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@+id/spRight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/spRight" />
+
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier_folders"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             app:barrierDirection="end"
-            app:constraint_referenced_ids="tvDrafts,tvSent,tvAll,tvTrash,tvJunk" />
+            app:constraint_referenced_ids="tvDrafts,tvSent,tvAll,tvTrash,tvJunk,tvLeft,tvRight" />
 
         <Spinner
             android:id="@+id/spDrafts"
@@ -557,6 +577,25 @@
             app:layout_constraintStart_toEndOf="@id/barrier_folders"
             app:layout_constraintTop_toBottomOf="@id/spTrash" />
 
+        <Spinner
+            android:id="@+id/spLeft"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/barrier_folders"
+            app:layout_constraintTop_toBottomOf="@id/spJunk" />
+
+        <Spinner
+            android:id="@+id/spRight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/barrier_folders"
+            app:layout_constraintTop_toBottomOf="@id/spLeft" />
 
         <!-- save -->
 
@@ -567,7 +606,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_save"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spJunk" />
+            app:layout_constraintTop_toBottomOf="@id/spRight" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbSave"
@@ -626,6 +665,6 @@
             android:id="@+id/grpFolders"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvDrafts,spDrafts,tvSent,spSent,tvAll,spAll,tvTrash,spTrash,tvJunk,spJunk" />
+            app:constraint_referenced_ids="tvDrafts,spDrafts,tvSent,spSent,tvAll,spAll,tvTrash,spTrash,tvJunk,spJunk,tvLeft,spLeft,tvRight,spRight" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

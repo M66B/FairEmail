@@ -55,14 +55,14 @@ public class ViewModelMessages extends ViewModel {
     }
 
     void observe(AdapterMessage.ViewType viewType, LifecycleOwner owner, Observer<PagedList<TupleMessageEx>> observer) {
-        if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
+        if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.INITIALIZED)) {
             final boolean thread = (viewType == AdapterMessage.ViewType.THREAD);
             messages.get(thread).observe(owner, observer);
         }
     }
 
     void removeObservers(AdapterMessage.ViewType viewType, LifecycleOwner owner) {
-        if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
+        if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.INITIALIZED)) {
             boolean thread = (viewType == AdapterMessage.ViewType.THREAD);
             LiveData<PagedList<TupleMessageEx>> list = messages.get(thread);
             if (list != null)

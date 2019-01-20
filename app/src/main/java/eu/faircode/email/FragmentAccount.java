@@ -123,6 +123,8 @@ public class FragmentAccount extends FragmentBase {
     private Spinner spAll;
     private Spinner spTrash;
     private Spinner spJunk;
+    private Spinner spLeft;
+    private Spinner spRight;
 
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
@@ -194,6 +196,8 @@ public class FragmentAccount extends FragmentBase {
         spAll = view.findViewById(R.id.spAll);
         spTrash = view.findViewById(R.id.spTrash);
         spJunk = view.findViewById(R.id.spJunk);
+        spLeft = view.findViewById(R.id.spLeft);
+        spRight = view.findViewById(R.id.spRight);
 
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
@@ -401,6 +405,8 @@ public class FragmentAccount extends FragmentBase {
         spAll.setAdapter(adapter);
         spTrash.setAdapter(adapter);
         spJunk.setAdapter(adapter);
+        spLeft.setAdapter(adapter);
+        spRight.setAdapter(adapter);
 
         // Initialize
         Helper.setViewsEnabled(view, false);
@@ -530,7 +536,10 @@ public class FragmentAccount extends FragmentBase {
                 if (TextUtils.isEmpty(realm))
                     realm = null;
 
+                DB db = DB.getInstance(context);
+
                 CheckResult result = new CheckResult();
+                result.account = db.account().getAccount(id);
                 result.folders = new ArrayList<>();
 
                 // Check IMAP server / get folders
@@ -583,7 +592,6 @@ public class FragmentAccount extends FragmentBase {
 
                         if (selectable) {
                             // Create entry
-                            DB db = DB.getInstance(context);
                             EntityFolder folder = db.folder().getFolderByName(id, ifolder.getFullName());
                             if (folder == null) {
                                 int sync = EntityFolder.SYSTEM_FOLDER_SYNC.indexOf(type);
@@ -653,7 +661,7 @@ public class FragmentAccount extends FragmentBase {
             protected void onExecuted(Bundle args, CheckResult result) {
                 tvIdle.setVisibility(result.idle ? View.GONE : View.VISIBLE);
 
-                setFolders(result.folders);
+                setFolders(result.folders, result.account);
 
                 new Handler().post(new Runnable() {
                     @Override
@@ -692,17 +700,23 @@ public class FragmentAccount extends FragmentBase {
         EntityFolder all = (EntityFolder) spAll.getSelectedItem();
         EntityFolder trash = (EntityFolder) spTrash.getSelectedItem();
         EntityFolder junk = (EntityFolder) spJunk.getSelectedItem();
+        EntityFolder left = (EntityFolder) spLeft.getSelectedItem();
+        EntityFolder right = (EntityFolder) spRight.getSelectedItem();
 
-        if (drafts != null && drafts.type == null)
+        if (drafts != null && drafts.id < 0)
             drafts = null;
-        if (sent != null && sent.type == null)
+        if (sent != null && sent.id < 0)
             sent = null;
-        if (all != null && all.type == null)
+        if (all != null && all.id < 0)
             all = null;
-        if (trash != null && trash.type == null)
+        if (trash != null && trash.id < 0)
             trash = null;
-        if (junk != null && junk.type == null)
+        if (junk != null && junk.id < 0)
             junk = null;
+        if (left != null && left.id < 0)
+            left = null;
+        if (right != null && right.id < 0)
+            right = null;
 
         Bundle args = new Bundle();
         args.putLong("id", id);
@@ -731,6 +745,8 @@ public class FragmentAccount extends FragmentBase {
         args.putSerializable("all", all);
         args.putSerializable("trash", trash);
         args.putSerializable("junk", junk);
+        args.putLong("left", left == null ? -1 : left.id);
+        args.putLong("right", right == null ? -1 : right.id);
 
         new SimpleTask<Void>() {
             @Override
@@ -780,6 +796,8 @@ public class FragmentAccount extends FragmentBase {
                 EntityFolder all = (EntityFolder) args.getSerializable("all");
                 EntityFolder trash = (EntityFolder) args.getSerializable("trash");
                 EntityFolder junk = (EntityFolder) args.getSerializable("junk");
+                Long left = args.getLong("left");
+                Long right = args.getLong("right");
 
                 if (TextUtils.isEmpty(host))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
@@ -801,6 +819,11 @@ public class FragmentAccount extends FragmentBase {
                     color = null;
                 if (TextUtils.isEmpty(prefix))
                     prefix = null;
+
+                if (left < 0)
+                    left = null;
+                if (right < 0)
+                    right = null;
 
                 Character separator = null;
                 long now = new Date().getTime();
@@ -870,6 +893,8 @@ public class FragmentAccount extends FragmentBase {
                     account.primary = (account.synchronize && primary);
                     account.notify = notify;
                     account.browse = browse;
+                    account.swipe_left = left;
+                    account.swipe_right = right;
                     account.poll_interval = Integer.parseInt(interval);
                     account.prefix = prefix;
 
@@ -1020,7 +1045,7 @@ public class FragmentAccount extends FragmentBase {
             }
 
             @Override
-            protected void onExecuted(Bundle args, EntityAccount account) {
+            protected void onExecuted(Bundle args, final EntityAccount account) {
                 // Get providers
                 List<EmailProvider> providers = EmailProvider.loadProfiles(getContext());
                 providers.add(0, new EmailProvider(getString(R.string.title_select)));
@@ -1130,7 +1155,7 @@ public class FragmentAccount extends FragmentBase {
                     protected void onExecuted(Bundle args, List<EntityFolder> folders) {
                         if (folders == null)
                             folders = new ArrayList<>();
-                        setFolders(folders);
+                        setFolders(folders, account);
                     }
 
                     @Override
@@ -1315,25 +1340,37 @@ public class FragmentAccount extends FragmentBase {
         vwColor.setBackground(border);
     }
 
-    private void setFolders(List<EntityFolder> folders) {
+    private void setFolders(List<EntityFolder> folders, EntityAccount account) {
         EntityFolder none = new EntityFolder();
+        none.id = -1L;
         none.name = "-";
         folders.add(0, none);
 
         adapter.clear();
         adapter.addAll(folders);
 
+        Long left = (account == null ? null : account.swipe_left);
+        Long right = (account == null ? null : account.swipe_right);
+
         for (int pos = 0; pos < folders.size(); pos++) {
-            if (EntityFolder.DRAFTS.equals(folders.get(pos).type))
+            EntityFolder folder = folders.get(pos);
+
+            if (EntityFolder.DRAFTS.equals(folder.type))
                 spDrafts.setSelection(pos);
-            else if (EntityFolder.SENT.equals(folders.get(pos).type))
+            else if (EntityFolder.SENT.equals(folder.type))
                 spSent.setSelection(pos);
-            else if (EntityFolder.ARCHIVE.equals(folders.get(pos).type))
+            else if (EntityFolder.ARCHIVE.equals(folder.type))
                 spAll.setSelection(pos);
-            else if (EntityFolder.TRASH.equals(folders.get(pos).type))
+            else if (EntityFolder.TRASH.equals(folder.type))
                 spTrash.setSelection(pos);
-            else if (EntityFolder.JUNK.equals(folders.get(pos).type))
+            else if (EntityFolder.JUNK.equals(folder.type))
                 spJunk.setSelection(pos);
+
+            if (left == null ? (account == null && EntityFolder.TRASH.equals(folder.type)) : left.equals(folder.id))
+                spLeft.setSelection(pos);
+
+            if (right == null ? (account == null && EntityFolder.ARCHIVE.equals(folder.type)) : right.equals(folder.id))
+                spRight.setSelection(pos);
         }
 
         grpFolders.setVisibility(folders.size() > 1 ? View.VISIBLE : View.GONE);
@@ -1341,6 +1378,7 @@ public class FragmentAccount extends FragmentBase {
     }
 
     private class CheckResult {
+        EntityAccount account;
         List<EntityFolder> folders;
         boolean idle;
     }

@@ -71,7 +71,9 @@ public class EntityAccount {
     @NonNull
     public Boolean notify;
     @NonNull
-    public Boolean browse;
+    public Boolean browse = true;
+    public Long swipe_left;
+    public Long swipe_right;
     @NonNull
     public Integer poll_interval; // keep-alive interval
     public String prefix; // namespace
@@ -116,6 +118,8 @@ public class EntityAccount {
         json.put("synchronize", synchronize);
         json.put("primary", primary);
         json.put("browse", browse);
+        json.put("swipe_left", swipe_left);
+        json.put("swipe_right", swipe_right);
         if (color != null)
             json.put("color", color);
         json.put("notify", notify);
@@ -142,14 +146,22 @@ public class EntityAccount {
         account.auth_type = json.getInt("auth_type");
         account.synchronize = json.getBoolean("synchronize");
         account.primary = json.getBoolean("primary");
+
         if (json.has("browse"))
             account.browse = json.getBoolean("browse");
-        else
-            account.browse = true;
+
+        if (json.has("swipe_left"))
+            account.swipe_left = json.getLong("swipe_left");
+
+        if (json.has("swipe_right"))
+            account.swipe_right = json.getLong("swipe_right");
+
         if (json.has("color"))
             account.color = json.getInt("color");
+
         if (json.has("notify"))
             account.notify = json.getBoolean("notify");
+
         account.poll_interval = json.getInt("poll_interval");
         return account;
     }

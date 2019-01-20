@@ -292,6 +292,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpExpanded = itemView.findViewById(R.id.grpExpanded);
         }
 
+        Rect getItemRect() {
+            return new Rect(
+                    super.itemView.getLeft(),
+                    super.itemView.getBottom() - vwColor.getHeight(),
+                    super.itemView.getRight(),
+                    super.itemView.getBottom());
+        }
+
         private void wire() {
             final View touch = (viewType == ViewType.THREAD && threading ? ivExpander : vwColor);
             touch.setOnClickListener(this);

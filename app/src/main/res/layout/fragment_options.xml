@@ -326,18 +326,6 @@
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swSwipe"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="12dp"
-            android:text="@string/title_advanced_swipe"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swPull"
-            app:switchPadding="12dp" />
-
-        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swActionbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -346,7 +334,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_actionbar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swSwipe"
+            app:layout_constraintTop_toBottomOf="@id/swPull"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
