@@ -403,27 +403,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvSubject.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
             }
 
-            boolean day;
-            TupleMessageEx prev = (position == 0 ? null : differ.getItem(position - 1));
-            if (prev == null)
-                day = true;
-            else {
-                Calendar cal0 = Calendar.getInstance();
-                Calendar cal1 = Calendar.getInstance();
-                cal0.setTimeInMillis(prev.received);
-                cal1.setTimeInMillis(message.received);
-                int day0 = cal0.get(Calendar.DAY_OF_YEAR);
-                int day1 = cal1.get(Calendar.DAY_OF_YEAR);
-                day = (day0 != day1);
-            }
-            if (day)
+            TupleMessageEx prev = null;
+            if (position > 0)
+                prev = differ.getItem(position - 1);
+            message.day = getDay(prev, message);
+            if (message.day)
                 tvDay.setText(
                         DateUtils.getRelativeTimeSpanString(
                                 message.received,
                                 new Date().getTime(),
                                 DAY_IN_MILLIS, 0));
-            grpDay.setVisibility(day ? View.VISIBLE : View.GONE);
-
+            grpDay.setVisibility(message.day ? View.VISIBLE : View.GONE);
 
             itemView.setAlpha(message.uid == null && !EntityFolder.OUTBOX.equals(message.folderType)
                     ? Helper.LOW_LIGHT : 1.0f);
@@ -2083,7 +2073,27 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     void submitList(PagedList<TupleMessageEx> pagedList) {
+        TupleMessageEx prev = null;
+        for (TupleMessageEx message : pagedList) {
+            if (message != null)
+                message.day = getDay(prev, message);
+            prev = message;
+        }
+
         differ.submitList(pagedList);
+    }
+
+    boolean getDay(TupleMessageEx prev, TupleMessageEx cur) {
+        if (prev == null)
+            return true;
+
+        Calendar cal0 = Calendar.getInstance();
+        Calendar cal1 = Calendar.getInstance();
+        cal0.setTimeInMillis(prev.received);
+        cal1.setTimeInMillis(cur.received);
+        int day0 = cal0.get(Calendar.DAY_OF_YEAR);
+        int day1 = cal1.get(Calendar.DAY_OF_YEAR);
+        return (day0 != day1);
     }
 
     PagedList<TupleMessageEx> getCurrentList() {

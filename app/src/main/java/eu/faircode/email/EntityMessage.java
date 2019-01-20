@@ -23,7 +23,6 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -33,8 +32,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 import javax.mail.Address;
@@ -42,6 +39,7 @@ import javax.mail.Address;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
@@ -143,7 +141,8 @@ public class EntityMessage implements Serializable {
     public String error; // volatile
     public Long last_attempt; // send
 
-    private static final Map<String, Uri> emailLookupUri = new HashMap<>();
+    @Ignore
+    public boolean day = false;
 
     static String generateMessageId() {
         StringBuilder sb = new StringBuilder();
@@ -260,7 +259,8 @@ public class EntityMessage implements Serializable {
                     this.ui_browsed.equals(other.ui_browsed) &&
                     (this.ui_snoozed == null ? other.ui_snoozed == null : this.ui_snoozed.equals(other.ui_snoozed)) &&
                     (this.warning == null ? other.warning == null : this.warning.equals(other.warning)) &&
-                    (this.error == null ? other.error == null : this.error.equals(other.error)));
+                    (this.error == null ? other.error == null : this.error.equals(other.error)) &&
+                    this.day == other.day);
         }
         return false;
     }
