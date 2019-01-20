@@ -318,6 +318,18 @@ public class FragmentQuickSetup extends FragmentBase {
                         folder.id = db.folder().insertFolder(folder);
                     }
 
+                    // Set swipe left/right folder
+                    for (EntityFolder folder : folders)
+                        if (EntityFolder.TRASH.equals(folder.type))
+                            account.swipe_left = folder.id;
+                        else if (EntityFolder.ARCHIVE.equals(folder.type))
+                            account.swipe_right = folder.id;
+
+                    if (account.swipe_right == null && account.swipe_left != null)
+                        account.swipe_right = account.swipe_left;
+
+                    db.account().updateAccount(account);
+
                     // Create identity
                     EntityIdentity identity = new EntityIdentity();
                     identity.name = name;
