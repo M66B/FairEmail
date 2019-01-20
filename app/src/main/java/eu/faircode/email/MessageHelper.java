@@ -533,7 +533,7 @@ public class MessageHelper {
         return result;
     }
 
-    private static String formatAddresses(Address[] addresses, boolean full, boolean compose) {
+    static String formatAddresses(Address[] addresses, boolean full, boolean compose) {
         if (addresses == null || addresses.length == 0)
             return "";
 

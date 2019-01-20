@@ -73,6 +73,7 @@ import org.xml.sax.XMLReader;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.text.Collator;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -459,7 +460,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         if ((long) tvFrom.getTag() == id) {
                             if (info != null && info.hasDisplayName())
-                                tvFrom.setText(info.getDisplayName());
+                                try {
+                                    Address[] addresses = (Address[]) args.getSerializable("addresses");
+                                    InternetAddress ia = (InternetAddress) addresses[0];
+                                    ia.setPersonal(info.getDisplayName());
+                                    tvFrom.setText(MessageHelper.formatAddresses(new Address[]{ia}, !compact, false));
+                                } catch (UnsupportedEncodingException ex) {
+                                    Log.w(ex);
+                                }
                         }
                     }
 
@@ -485,7 +493,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? colorAccent : textColorSecondary));
             ivFlagged.setVisibility(message.uid == null ? View.INVISIBLE : View.VISIBLE);
 
-            tvFrom.setText(MessageHelper.formatAddressesShort(outgoing ? message.to : message.from));
+            tvFrom.setText(MessageHelper.formatAddresses(outgoing ? message.to : message.from, !compact, false));
             tvSize.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
             tvSize.setVisibility(message.size == null || message.content ? View.GONE : View.VISIBLE);
             tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
@@ -500,12 +508,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvNoInternetAttachments.setVisibility(View.GONE);
             tvSubject.setText(message.subject);
 
-            if (viewType == ViewType.THREAD || viewType == ViewType.SEARCH)
-                tvFolder.setText(message.folderDisplay == null
+            if (viewType == ViewType.FOLDER)
+                tvFolder.setText(message.accountName);
+            else {
+                String folderName = (message.folderDisplay == null
                         ? Helper.localizeFolderName(context, message.folderName)
                         : message.folderDisplay);
-            else
-                tvFolder.setText(message.accountName);
+                tvFolder.setText((compact ? "" : message.accountName + "/") + folderName);
+            }
             tvFolder.setVisibility(viewType == ViewType.FOLDER && compact ? View.GONE : View.VISIBLE);
 
             tvPreview.setText(message.preview);
