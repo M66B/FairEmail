@@ -48,6 +48,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.Lifecycle;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -454,11 +455,13 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Boolean metered = Helper.isMetered(getContext(), false);
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
+                    Boolean metered = Helper.isMetered(getContext(), false);
 
-                tvConnectionType.setVisibility(metered == null ? View.GONE : View.VISIBLE);
-                if (metered != null)
-                    tvConnectionType.setText(metered ? R.string.title_legend_metered : R.string.title_legend_unmetered);
+                    tvConnectionType.setVisibility(metered == null ? View.GONE : View.VISIBLE);
+                    if (metered != null)
+                        tvConnectionType.setText(metered ? R.string.title_legend_metered : R.string.title_legend_unmetered);
+                }
             }
         });
     }
