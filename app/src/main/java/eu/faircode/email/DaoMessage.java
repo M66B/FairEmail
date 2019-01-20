@@ -261,6 +261,12 @@ public interface DaoMessage {
             " AND NOT ui_browsed")
     List<Long> getUids(long folder, Long received);
 
+    @Query("SELECT * FROM message" +
+            " WHERE folder = :folder" +
+            " AND uid IS NULL" +
+            " AND ui_browsed")
+    List<EntityMessage> getSentOrphans(long folder);
+
     @Query("SELECT * FROM message WHERE NOT ui_snoozed IS NULL")
     List<EntityMessage> getSnoozed();
 
@@ -293,6 +299,9 @@ public interface DaoMessage {
 
     @Query("UPDATE message SET ui_hide = :ui_hide WHERE id = :id")
     int setMessageUiHide(long id, boolean ui_hide);
+
+    @Query("UPDATE message SET ui_browsed = :ui_browsed WHERE id = :id")
+    int setMessageUiBrowsed(long id, boolean ui_browsed);
 
     @Query("UPDATE message SET ui_ignored = :ui_ignored WHERE id = :id")
     int setMessageUiIgnored(long id, boolean ui_ignored);

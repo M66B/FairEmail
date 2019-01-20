@@ -257,7 +257,7 @@ public class EntityMessage implements Serializable {
                     this.ui_hide.equals(other.ui_hide) &&
                     this.ui_found.equals(other.ui_found) &&
                     this.ui_ignored.equals(other.ui_ignored) &&
-                    //this.ui_browsed.equals(other.ui_browsed) &&
+                    this.ui_browsed.equals(other.ui_browsed) &&
                     (this.ui_snoozed == null ? other.ui_snoozed == null : this.ui_snoozed.equals(other.ui_snoozed)) &&
                     (this.warning == null ? other.warning == null : this.warning.equals(other.warning)) &&
                     (this.error == null ? other.error == null : this.error.equals(other.error)));
