@@ -785,9 +785,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         bnvActions.getMenu().findItem(R.id.action_delete).setTitle(inTrash ? R.string.title_delete : R.string.title_trash);
 
                         bnvActions.getMenu().findItem(R.id.action_move).setVisible(
-                                message.uid != null || (inOutbox && message.ui_snoozed != null));
+                                message.uid != null || (inOutbox && (message.ui_snoozed != null || message.error != null)));
                         bnvActions.getMenu().findItem(R.id.action_move).setTitle(
-                                inOutbox && message.ui_snoozed != null ? R.string.title_folder_drafts : R.string.title_move);
+                                inOutbox && (message.ui_snoozed != null || message.error != null)
+                                        ? R.string.title_folder_drafts : R.string.title_move);
 
                         bnvActions.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
                         bnvActions.getMenu().findItem(R.id.action_reply).setEnabled(message.content);
