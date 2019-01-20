@@ -2409,8 +2409,7 @@ public class ServiceSynchronize extends LifecycleService {
                         " folder=" + dfolder.type + ":" + dup.folder + "/" + folder.type + ":" + folder.id +
                         " msgid=" + dup.msgid + " thread=" + dup.thread);
 
-                if (dup.folder.equals(folder.id) ||
-                        (EntityFolder.OUTBOX.equals(dfolder.type) && EntityFolder.SENT.equals(folder.type))) {
+                if (dup.folder.equals(folder.id)) {
                     String thread = helper.getThreadId(uid);
                     Log.i(folder.name + " found as id=" + dup.id + "/" +
                             " uid=" + dup.uid + "/" + uid +
