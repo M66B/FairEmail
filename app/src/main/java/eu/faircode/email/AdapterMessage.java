@@ -79,6 +79,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -107,6 +108,8 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
+import static android.text.format.DateUtils.DAY_IN_MILLIS;
 
 public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHolder> {
     private Context context;
@@ -141,11 +144,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     enum ViewType {UNIFIED, FOLDER, THREAD, SEARCH}
 
+    private static DateFormat tf = SimpleDateFormat.getTimeInstance(SimpleDateFormat.SHORT);
     private static DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
             View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
         private View itemView;
+        private TextView tvDay;
         private View vwColor;
         private ImageView ivExpander;
         private ImageView ivFlagged;
@@ -198,6 +203,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private RecyclerView rvImage;
 
+        private Group grpDay;
         private Group grpAddress;
         private Group grpHeaders;
         private Group grpAttachments;
@@ -212,6 +218,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             super(itemView);
 
             this.itemView = itemView.findViewById(R.id.clItem);
+            tvDay = itemView.findViewById(R.id.tvDay);
             vwColor = itemView.findViewById(R.id.vwColor);
             ivExpander = itemView.findViewById(R.id.ivExpander);
             ivFlagged = itemView.findViewById(R.id.ivFlagged);
@@ -278,6 +285,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             adapterImage = new AdapterImage(context, owner);
             rvImage.setAdapter(adapterImage);
 
+            grpDay = itemView.findViewById(R.id.grpDay);
             grpAddress = itemView.findViewById(R.id.grpAddress);
             grpHeaders = itemView.findViewById(R.id.grpHeaders);
             grpAttachments = itemView.findViewById(R.id.grpAttachments);
@@ -285,23 +293,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void wire() {
-            if (viewType == ViewType.THREAD) {
-                final View touch = (threading ? ivExpander : vwColor);
-                touch.setOnClickListener(this);
-                itemView.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        Rect rect = new Rect(
-                                itemView.getLeft(),
-                                touch.getTop(),
-                                itemView.getRight(),
-                                touch.getBottom());
-                        Log.i("Touch delegate=" + rect);
-                        itemView.setTouchDelegate(new TouchDelegate(rect, touch));
-                    }
-                });
-            } else
-                itemView.setOnClickListener(this);
+            final View touch = (viewType == ViewType.THREAD && threading ? ivExpander : vwColor);
+            touch.setOnClickListener(this);
+            itemView.post(new Runnable() {
+                @Override
+                public void run() {
+                    Rect rect = new Rect(
+                            itemView.getLeft(),
+                            touch.getTop(),
+                            itemView.getRight(),
+                            touch.getBottom());
+                    Log.i("Touch delegate=" + rect);
+                    itemView.setTouchDelegate(new TouchDelegate(rect, touch));
+                }
+            });
 
             ivSnoozed.setOnClickListener(this);
             ivFlagged.setOnClickListener(this);
@@ -376,6 +381,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             rvImage.setVisibility(View.GONE);
 
+            grpDay.setVisibility(View.GONE);
             grpAddress.setVisibility(View.GONE);
             ivAddContact.setVisibility(View.GONE);
             grpHeaders.setVisibility(View.GONE);
@@ -390,6 +396,34 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean show_headers = properties.getValue("headers", message.id);
 
             pbLoading.setVisibility(View.GONE);
+
+            if (textSize != 0) {
+                tvDay.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+                tvFrom.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+                tvSubject.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+            }
+
+            boolean day;
+            TupleMessageEx prev = (position == 0 ? null : differ.getItem(position - 1));
+            if (prev == null)
+                day = true;
+            else {
+                Calendar cal0 = Calendar.getInstance();
+                Calendar cal1 = Calendar.getInstance();
+                cal0.setTimeInMillis(prev.received);
+                cal1.setTimeInMillis(message.received);
+                int day0 = cal0.get(Calendar.DAY_OF_YEAR);
+                int day1 = cal1.get(Calendar.DAY_OF_YEAR);
+                day = (day0 != day1);
+            }
+            if (day)
+                tvDay.setText(
+                        DateUtils.getRelativeTimeSpanString(
+                                message.received,
+                                new Date().getTime(),
+                                DAY_IN_MILLIS, 0));
+            grpDay.setVisibility(day ? View.VISIBLE : View.GONE);
+
 
             itemView.setAlpha(message.uid == null && !EntityFolder.OUTBOX.equals(message.folderType)
                     ? Helper.LOW_LIGHT : 1.0f);
@@ -496,7 +530,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvFrom.setText(MessageHelper.formatAddresses(outgoing ? message.to : message.from, !compact, false));
             tvSize.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
             tvSize.setVisibility(message.size == null || message.content ? View.GONE : View.VISIBLE);
-            tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
+            tvTime.setText(tf.format(message.received));
 
             ivDraft.setVisibility(message.drafts > 0 ? View.VISIBLE : View.GONE);
             ivSnoozed.setVisibility(message.ui_snoozed == null ? View.GONE : View.VISIBLE);
@@ -562,11 +596,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvTime.setTypeface(null, typeface);
             tvSubject.setTypeface(null, typeface);
             tvCount.setTypeface(null, typeface);
-
-            if (textSize != 0) {
-                tvFrom.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
-                tvSubject.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
-            }
 
             int colorUnseen = (message.unseen > 0 ? colorUnread : textColorSecondary);
             tvFrom.setTextColor(colorUnseen);

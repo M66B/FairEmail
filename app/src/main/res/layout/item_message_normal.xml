@@ -10,6 +10,28 @@
         android:layout_height="wrap_content"
         android:background="?attr/drawableItemBackground">
 
+        <TextView
+            android:id="@+id/tvDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:text="Today"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/vSeparatorDay"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDay" />
+
         <View
             android:id="@+id/vwColor"
             android:layout_width="6dp"
@@ -17,7 +39,7 @@
             android:background="@color/colorAccent"
             app:layout_constraintBottom_toTopOf="@+id/vSeparatorAddress"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorDay" />
 
         <View
             android:id="@+id/paddingTop"
@@ -25,7 +47,7 @@
             android:layout_height="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorDay" />
 
         <ImageView
             android:id="@+id/ivExpander"
@@ -719,6 +741,12 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="tvFromExTitle,tvFromEx,tvToTitle,tvTo,tvReplyToTitle,tvReplyTo,tvCcTitle,tvCc,tvBccTitle,tvBcc,tvTimeExTitle,tvTimeEx,tvSizeExTitle,tvSizeEx,tvSubjectEx" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpDay"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tvDay,vSeparatorDay" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpHeaders"
