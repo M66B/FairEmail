@@ -12,10 +12,12 @@
 
         <TextView
             android:id="@+id/tvDay"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Today"
+            android:background="?android:attr/windowBackground"
+            android:gravity="center_horizontal"
             android:padding="6dp"
+            android:text="Today"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorPrimary"
             android:textStyle="bold"
