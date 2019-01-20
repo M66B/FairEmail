@@ -114,13 +114,34 @@
             app:layout_constraintTop_toTopOf="@id/ivTrash" />
 
         <ImageView
+            android:id="@+id/ivJunk"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/baseline_flag_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivTrash" />
+
+        <TextView
+            android:id="@+id/tvJunk"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_junk"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivJunk"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivJunk"
+            app:layout_constraintTop_toTopOf="@id/ivJunk" />
+
+        <ImageView
             android:id="@+id/ivPrimaryDisconnected"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="24dp"
             android:src="@drawable/baseline_folder_open_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivTrash" />
+            app:layout_constraintTop_toBottomOf="@id/ivJunk" />
 
         <TextView
             android:id="@+id/tvPrimaryDisconnected"
