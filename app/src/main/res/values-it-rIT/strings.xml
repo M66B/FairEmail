@@ -113,7 +113,6 @@
     <string name="title_advanced_light">Usa il led di notifica</string>
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
     <string name="title_advanced_pull_refresh">Trascina in basso per aggiornare</string>
-    <string name="title_advanced_swipe">Azioni swipe</string>
     <string name="title_advanced_actionbar">Barra di azione di conversazione</string>
     <string name="title_advanced_autoclose">Chiudi automaticamente le conversazioni</string>
     <string name="title_advanced_autonext">Passa automaticamente alla conversazione successiva nella conversazione stretta</string>
@@ -128,7 +127,6 @@
     <string name="title_advanced_debug">Debug</string>
     <string name="title_advanced_enabled_hint">Attiva o disattiva a livello globale la ricezione e l\'invio dei messaggi</string>
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>
-    <string name="title_advanced_browse_hint">Scarica ulteriori messaggi scorrendo in basso</string>
     <string name="title_advanced_unified_hint">Mostra cartelle in arrivo unificate o messaggi in arrivo unificati</string>
     <string name="title_advanced_threading_hint">Messaggi di gruppo relazionati a vicenda</string>
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni raggruppate quando tutti i messaggi sono archiviati, inviati o cestinati</string>
@@ -140,6 +138,8 @@
     <string name="title_identity_read_receipt">Richiedi conferma di lettura</string>
     <string name="title_identity_delivery_receipt">Richiedi ricevuta di consegna</string>
     <string name="title_identity_receipt_remark">La maggior parte dei fornitori ignora le richieste di conferma</string>
+    <string name="title_identity_store_sent">Memorizza messaggi inviati</string>
+    <string name="title_identity_store_sent_remark">Abilitalo solo se il tuo provider non memorizza automaticamente i messaggi inviati</string>
     <string name="title_optional">Facoltativo</string>
     <string name="title_account_linked">Account collegato</string>
     <string name="title_account_name">Nome account</string>
@@ -354,6 +354,7 @@
     <string name="title_legend_attachment">Allegato</string>
     <string name="title_legend_draft">Bozza/modifica</string>
     <string name="title_legend_snoozed">Posticipato</string>
+    <string name="title_legend_browsed">Sfogliato o cercato</string>
     <string name="title_legend_answered">Risposto</string>
     <string name="title_legend_contacts">Contatti</string>
     <string name="title_legend_view">Mostra il contenuto</string>
@@ -399,6 +400,7 @@
     <string name="title_no_adobe">Adobe Acrobat Reader non può aprire file condivisi in modo sicuro, consultare le domande frequenti per ulteriori informazioni</string>
     <string name="title_no_body">Nessun messaggio di testo trovato</string>
     <string name="title_no_charset">Codifica non supportata: %1$s</string>
+    <string name="title_via">Tramite: %1$s</string>
     <string name="title_try">Prova FairEmail, un\'app email per Android open source e rispettosa della privacy</string>
     <string name="title_pro_feature">Questa è una funzionalità a pagamento</string>
     <string name="title_pro_list">Elenco delle funzionalità a pagamento</string>

@@ -58,7 +58,6 @@
     <string name="title_advanced_browse">Busca missatges en el servidor remot</string>
     <string name="title_advanced_avatars">Mostra les fotos dels contactes</string>
     <string name="title_advanced_light">Utilitza el led de notificacions</string>
-    <string name="title_advanced_swipe">Accions per lliscar</string>
     <string name="title_advanced_debug">Mode de depuració</string>
     <string name="title_select">Selecciona &#8230;</string>
     <string name="title_identity_name">El teu nom</string>

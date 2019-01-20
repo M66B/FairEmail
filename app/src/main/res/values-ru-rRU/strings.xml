@@ -125,7 +125,6 @@
     <string name="title_advanced_light">Использовать индикатор уведомлений</string>
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
     <string name="title_advanced_pull_refresh">Потяните вниз, для обновления</string>
-    <string name="title_advanced_swipe">Жесты</string>
     <string name="title_advanced_actionbar">Панель управления диалогами</string>
     <string name="title_advanced_autoclose">Автоматически закрывать диалоги</string>
     <string name="title_advanced_autonext">При закрытии диалога, автоматически открыть следующий</string>
@@ -140,9 +139,10 @@
     <string name="title_advanced_debug">Режим отладки</string>
     <string name="title_advanced_enabled_hint">Глобальное отключение или включение полученых и отправленных сообщений</string>
     <string name="title_advanced_metered_hint">Лимитированные подключения - это обычно мобильные сети или платные Wi-Fi</string>
-    <string name="title_advanced_browse_hint">Загрузить больше сообщений при прокрутке вниз</string>
+    <string name="title_advanced_browse_hint">Получите больше сообщений при прокрутке вниз</string>
     <string name="title_advanced_unified_hint">Показать отдельные папки \"Входящие\" или сообщения в единой папке</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
+    <string name="title_advanced_preview_hint">Доступно только когда был загружен текст сообщения</string>
     <string name="title_advanced_autoclose_hint">Автоматически закрывать диалог, если все сообщения удалены, отправлены или помещены в архив</string>
     <string name="title_advanced_sender_hint">Большинство провайдеров не разрешают изменять адреса отправителей</string>
     <string name="title_select">Выбор &#8230;</string>
@@ -152,6 +152,8 @@
     <string name="title_identity_read_receipt">Запросить уведомления о прочтении</string>
     <string name="title_identity_delivery_receipt">Запросить уведомление о доставке</string>
     <string name="title_identity_receipt_remark">Большинство провайдеров игнорируют запросы на получение</string>
+    <string name="title_identity_store_sent">Сохранять отправленные сообщения</string>
+    <string name="title_identity_store_sent_remark">Включите это, только если ваш провайдер не сохраняет отправленные сообщения автоматически</string>
     <string name="title_optional">Необязательно</string>
     <string name="title_account_linked">Связанная учётная запись</string>
     <string name="title_account_name">Название учётной записи</string>
@@ -161,6 +163,8 @@
     <string name="title_account_signature">Текст подписи</string>
     <string name="title_account_color">Цвет</string>
     <string name="title_account_notify">Раздельные уведомления</string>
+    <string name="title_account_left">Свайп влево</string>
+    <string name="title_account_right">Свайп вправо</string>
     <string name="title_domain">Имя домена</string>
     <string name="title_autoconfig">Получить параметры</string>
     <string name="title_provider">Провайдер</string>
@@ -266,6 +270,7 @@
     <string name="title_no_stream">Устаревшее приложение послало путь к файлу вместо файлового потока</string>
     <string name="title_no_contacts">Выбор контакта недоступен</string>
     <string name="title_no_internet">Отсутствует подключение к Интернету</string>
+    <string name="title_no_cross_account">Перемещение в другую учётную запись не поддерживается</string>
     <string name="title_raw_saved">Оригинал сообщения сохранён</string>
     <string name="title_attachment_saved">Файл сохранен</string>
     <string name="title_attachments_saved">Вложения сохранены</string>
@@ -366,6 +371,7 @@
     <string name="title_legend_attachment">Вложение</string>
     <string name="title_legend_draft">Черновик/Правка</string>
     <string name="title_legend_snoozed">Отложенные</string>
+    <string name="title_legend_browsed">Сообщение на сервере</string>
     <string name="title_legend_answered">Отвечено</string>
     <string name="title_legend_contacts">Контакты</string>
     <string name="title_legend_view">Просмотр содержимого</string>
@@ -377,7 +383,7 @@
     <string name="title_legend_download_on">Автоматически загружать содержимое сообщения</string>
     <string name="title_legend_synchronize_on">Синхронизация вкл</string>
     <string name="title_legend_synchronize_off">Синхронизация выкл</string>
-    <string name="title_legend_primary">Начальная/отмеченная</string>
+    <string name="title_legend_primary">Основной/Избранный</string>
     <string name="title_legend_disconnected">Разъединено</string>
     <string name="title_legend_connecting">Подключение</string>
     <string name="title_legend_connected">Подключено</string>
@@ -411,6 +417,7 @@
     <string name="title_no_adobe">Adobe Acrobat Reader не открывает файлы безопасно, смотрите FAQ для более детального описания</string>
     <string name="title_no_body">В сообщении нет текста</string>
     <string name="title_no_charset">Кодировка не поддерживается: %1$s</string>
+    <string name="title_via">Через: %1$s</string>
     <string name="title_try">Попробуйте FairEmail, приложение с открытым исходным кодом, срвместимое с электронной почтой для Android</string>
     <string name="title_pro_feature">Это функция версии Pro</string>
     <string name="title_pro_list">Список функций, Pro</string>

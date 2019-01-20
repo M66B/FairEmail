@@ -113,7 +113,6 @@
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
     <string name="title_advanced_sound">Benachrichtigungston auswählen</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
-    <string name="title_advanced_swipe">Wischgesten</string>
     <string name="title_advanced_actionbar">Navigationsleiste in Konversationen</string>
     <string name="title_advanced_autoclose">Konversationen automatisch schließen</string>
     <string name="title_advanced_autonext">Automatisch beim Schließen einer Konversation zur nächsten Konversation wechseln</string>
@@ -128,9 +127,10 @@
     <string name="title_advanced_debug">Debugmodus</string>
     <string name="title_advanced_enabled_hint">Vollständiges de-/aktivieren der Empfangs- und Versandfunktion von E-Mails</string>
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte Wi-Fi Hotspots</string>
-    <string name="title_advanced_browse_hint">Beim Herunterscrollen weitere E-Mails laden</string>
+    <string name="title_advanced_browse_hint">Durch herunterscrollen weitere E-Mails laden</string>
     <string name="title_advanced_unified_hint">Zeige die Ordner oder die E-Mails des Sammeleingangs an</string>
     <string name="title_advanced_threading_hint">E-Mails gruppieren, die miteinander verwandt sind</string>
+    <string name="title_advanced_preview_hint">Nur verfügbar, wenn der E-Mail-Text heruntergeladen wurde</string>
     <string name="title_advanced_autoclose_hint">Automatisches Schließen des Unterhaltungsthreads, wenn alle E-Mails archiviert, gesendet oder gelöscht wurden</string>
     <string name="title_advanced_sender_hint">Die meisten Anbieter erlauben keine veränderten Absenderadressen</string>
     <string name="title_select">Wählen Sie &#8230;</string>
@@ -140,6 +140,8 @@
     <string name="title_identity_read_receipt">Lesebestätigung anfordern</string>
     <string name="title_identity_delivery_receipt">Übermittlungsbestätigung anfordern</string>
     <string name="title_identity_receipt_remark">Die meisten Anbieter ignorieren Lesebestätigungsanfragen</string>
+    <string name="title_identity_store_sent">Gesendete E-Mails speichern</string>
+    <string name="title_identity_store_sent_remark">Aktivieren Sie diese Option nur, wenn Ihr Provider gesendete E-Mails nicht automatisch speichert</string>
     <string name="title_optional">Optional</string>
     <string name="title_account_linked">Verknüpftes Konto</string>
     <string name="title_account_name">Kontobezeichnung</string>
@@ -252,6 +254,7 @@
     <string name="title_no_stream">Eine veraltete App verschickte den Dateinamen anstelle des Datenstroms</string>
     <string name="title_no_contacts">Kontaktauswahl nicht verfügbar</string>
     <string name="title_no_internet">Keine Internetverbindung</string>
+    <string name="title_no_cross_account">Auf ein anderes Konto verschieben wird nicht unterstützt</string>
     <string name="title_attachment_saved">Anhang gespeichert</string>
     <string name="title_attachments_saved">Anhang gespeichert</string>
     <string name="title_attachment_unavailable">Einige Anlagen wurden nicht heruntergeladen und werden nicht hinzugefügt, fortsetzen?</string>
@@ -369,6 +372,7 @@
     <string name="title_legend_synchronizing">Synchronisiere</string>
     <string name="title_legend_downloading">Lade herunter</string>
     <string name="title_legend_closing">Schließen</string>
+    <string name="title_legend_stop">Regelverarbeitung stoppen</string>
     <string name="title_legend_metered">Verbindung ist getaktet</string>
     <string name="title_legend_unmetered">Verbindung ist ungetaktet</string>
     <string name="title_legend_sync_keep">Anzahl der zu synchronisierenden Tage / aufzubewahrenden E-Mails</string>
@@ -395,6 +399,7 @@
     <string name="title_no_adobe">Adobe Acrobat Reader kann freigegebene Dateien nicht sicher öffnen, schauen Sie bitte in die FAQ für weitere Informationen</string>
     <string name="title_no_body">Kein Nachrichtentext gefunden</string>
     <string name="title_no_charset">Nicht unterstützte Codierung: %1$s</string>
+    <string name="title_via">über %1$s</string>
     <string name="title_try">Testen Sie FairEmail, eine opensource und datenschutzfreundliche E-Mail-App für Android</string>
     <string name="title_pro_feature">Dies ist eine Pro-Funktion</string>
     <string name="title_pro_list">Liste der Pro-Funktionen</string>

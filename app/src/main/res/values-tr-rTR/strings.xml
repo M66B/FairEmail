@@ -111,7 +111,6 @@
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
     <string name="title_advanced_pull_refresh">Yenilemek için aşağıya çekin</string>
-    <string name="title_advanced_swipe">Kaydırma eylemleri</string>
     <string name="title_advanced_actionbar">İletişim etkinlik çubuğu</string>
     <string name="title_advanced_autoclose">İletişimleri otomatik olarak kapat</string>
     <string name="title_advanced_autoread">İleti taşındığında otomatik olarak okundu diye işaretle</string>
@@ -125,9 +124,10 @@
     <string name="title_advanced_debug">Hata ayıklama</string>
     <string name="title_advanced_enabled_hint">İletileri alma ve göndermeyi toptan devre dışı bırakın veya etkinleştirin</string>
     <string name="title_advanced_metered_hint">Ölçülü bağlantılar genellikle mobil bağlantılar veya ücretli Wi-Fi noktalarıdır</string>
-    <string name="title_advanced_browse_hint">Aşağı doğru kaydırarak daha çok ileti indirin</string>
+    <string name="title_advanced_browse_hint">Aşağı doğru kaydırdığında daha çok ileti getirir</string>
     <string name="title_advanced_unified_hint">Birleşik gelen kutusu klasörlerini veya birleşik gelen kutusu iletilerini göster</string>
     <string name="title_advanced_threading_hint">Birbirlerine bağlı grup iletileri</string>
+    <string name="title_advanced_preview_hint">Yalnızca ileti metni indirildiğinde kullanılabilir</string>
     <string name="title_advanced_autoclose_hint">Tüm iletiler arşivlendiğinde veya çöpe gittiğinde bu iletişim kutusunu otomatik olarak kapat</string>
     <string name="title_advanced_sender_hint">Çoğu sağlayıcı değiştirilmiş gönderici adreslerine izin vermiyor</string>
     <string name="title_select">Seçin &#8230;</string>
@@ -137,6 +137,7 @@
     <string name="title_identity_read_receipt">Okundu bilgisi iste</string>
     <string name="title_identity_delivery_receipt">Alındı belgesi iste</string>
     <string name="title_identity_receipt_remark">Çoğu sağlayıcı alındı isteklerini yok sayıyor</string>
+    <string name="title_identity_store_sent">Gönderilen iletileri depola</string>
     <string name="title_optional">İsteğe bağlı</string>
     <string name="title_account_linked">Bağlı hesap</string>
     <string name="title_account_name">Hesap adı</string>
@@ -251,6 +252,7 @@
     <string name="title_no_stream">Eski bir uygulama bir dosya akışı yerine dosya yolu gönderdi</string>
     <string name="title_no_contacts">Kişi seçici mevcut değil</string>
     <string name="title_no_internet">İnternet bağlantısı yok</string>
+    <string name="title_no_cross_account">Başka bir hesaba taşıma desteklenmiyor</string>
     <string name="title_raw_saved">Ham ileti kaydedildi</string>
     <string name="title_attachment_saved">Ek kaydedildi</string>
     <string name="title_attachments_saved">Ekler kaydedildi</string>
@@ -322,6 +324,7 @@
     <string name="title_answer_template_name">$name$ gönderenin tam adı ile değiştirilecek</string>
     <string name="title_answer_template_email">$email$ gönderenin e-posta adresi ile değiştirilecek</string>
     <string name="title_rule_name">Ad</string>
+    <string name="title_rule_order">Sıralama</string>
     <string name="title_rule_enabled">Etkin</string>
     <string name="title_rule_stop">İşlemi durdur</string>
     <string name="title_rule_sender">Gönderen içeriyor</string>
@@ -330,6 +333,9 @@
     <string name="title_rule_regex">Düzenli ifade</string>
     <string name="title_rule_and">VE</string>
     <string name="title_rule_action">Eylem</string>
+    <string name="title_rule_folder">Klasör</string>
+    <string name="title_rule_identity">Kimlik</string>
+    <string name="title_rule_answer">Yanıt kalıbı</string>
     <string name="title_rule_name_missing">Kural adı eksik</string>
     <string name="title_rule_condition_missing">Koşul kayıp</string>
     <string name="title_action_seen">Okundu işareti</string>
@@ -365,6 +371,7 @@
     <string name="title_legend_synchronizing">Eşzamanlama yapılıyor</string>
     <string name="title_legend_downloading">İndiriliyor</string>
     <string name="title_legend_closing">Kapatılıyor</string>
+    <string name="title_legend_stop">İşlem kurallarının durdur</string>
     <string name="title_legend_metered">Bağlantı ölçülü</string>
     <string name="title_legend_unmetered">Bağlantı ölçüsüz</string>
     <string name="title_legend_sync_keep">İletilerin eşzamanlanacağı / saklanacağı gün sayısı</string>

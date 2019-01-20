@@ -91,7 +91,6 @@
     <string name="title_advanced_light">使用指示灯</string>
     <string name="title_advanced_sound">选择通知提示音</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
-    <string name="title_advanced_swipe">滑动操作</string>
     <string name="title_advanced_actionbar">对话操作栏</string>
     <string name="title_advanced_autoclose">自动关闭对话</string>
     <string name="title_advanced_autoread">将移动的邮件自动标记为已读</string>
@@ -104,7 +103,6 @@
     <string name="title_advanced_debug">调试模式</string>
     <string name="title_advanced_enabled_hint">全局禁用或启用邮件的接收和发送</string>
     <string name="title_advanced_metered_hint">计量连接通常是指移动连接或付费WiFi热点</string>
-    <string name="title_advanced_browse_hint">向下滚动时下载更多邮件</string>
     <string name="title_advanced_unified_hint">显示统一收件箱文件夹或统一收件箱邮件</string>
     <string name="title_advanced_threading_hint">对相互关联的邮件进行分组</string>
     <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>
