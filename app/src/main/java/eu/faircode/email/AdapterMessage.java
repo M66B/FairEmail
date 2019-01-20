@@ -300,6 +300,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     super.itemView.getBottom());
         }
 
+        void setDisplacement(float dx) {
+            ViewGroup group = (ViewGroup) itemView;
+            for (int i = 0; i < group.getChildCount(); i++) {
+                View child = group.getChildAt(i);
+                if (child.getId() != R.id.tvDay && child.getId() != R.id.vSeparatorDay)
+                    child.setTranslationX(dx);
+            }
+        }
+
         private void wire() {
             final View touch = (viewType == ViewType.THREAD && threading ? ivExpander : vwColor);
             touch.setOnClickListener(this);

@@ -575,7 +575,12 @@ public class FragmentMessages extends FragmentBase {
         }
 
         @Override
-        public void onChildDraw(Canvas canvas, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+        public void onChildDraw(
+                Canvas canvas, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,
+                float dX, float dY, int actionState, boolean isCurrentlyActive) {
+            AdapterMessage.ViewHolder holder = ((AdapterMessage.ViewHolder) viewHolder);
+            holder.setDisplacement(dX);
+
             TupleMessageEx message = getMessage(viewHolder);
             if (message == null)
                 return;
@@ -584,32 +589,31 @@ public class FragmentMessages extends FragmentBase {
             if (swipes == null)
                 return;
 
-            Rect rect = ((AdapterMessage.ViewHolder) viewHolder).getItemRect();
+            Rect rect = holder.getItemRect();
             int margin = Helper.dp2pixels(getContext(), 12);
+            int size = Helper.dp2pixels(getContext(), 24);
 
             if (dX > margin) {
                 // Right swipe
                 Drawable d = getResources().getDrawable(getIcon(swipes.right_type), getContext().getTheme());
-                int padding = (rect.height() - d.getIntrinsicHeight());
+                int padding = (rect.height() - size);
                 d.setBounds(
                         rect.left + margin,
                         rect.top + padding / 2,
-                        rect.left + margin + d.getIntrinsicWidth(),
-                        rect.top + padding / 2 + d.getIntrinsicHeight());
+                        rect.left + margin + size,
+                        rect.top + padding / 2 + size);
                 d.draw(canvas);
             } else if (dX < -margin) {
                 // Left swipe
                 Drawable d = getResources().getDrawable(getIcon(swipes.left_type), getContext().getTheme());
-                int padding = (rect.height() - d.getIntrinsicHeight());
+                int padding = (rect.height() - size);
                 d.setBounds(
-                        rect.left + rect.width() - d.getIntrinsicWidth() - margin,
+                        rect.left + rect.width() - size - margin,
                         rect.top + padding / 2,
                         rect.left + rect.width() - margin,
-                        rect.top + padding / 2 + d.getIntrinsicHeight());
+                        rect.top + padding / 2 + size);
                 d.draw(canvas);
             }
-
-            super.onChildDraw(canvas, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
         }
 
         @Override
