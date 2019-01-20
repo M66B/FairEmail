@@ -25,14 +25,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class SelectionPredicateMessage extends SelectionTracker.SelectionPredicate<Long> {
     private RecyclerView recyclerView;
-    private long account = -1;
 
     SelectionPredicateMessage(RecyclerView recyclerView) {
         this.recyclerView = recyclerView;
-    }
-
-    void clearAccount() {
-        account = -1;
     }
 
     @Override
@@ -40,10 +35,8 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
         AdapterMessage adapter = (AdapterMessage) recyclerView.getAdapter();
         TupleMessageEx message = adapter.getItemForKey(key);
 
-        if (message != null && message.uid != null && (account < 0 || account == message.account)) {
-            account = message.account;
+        if (message != null && message.uid != null)
             return true;
-        }
 
         return false;
     }
@@ -53,10 +46,8 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
         AdapterMessage adapter = (AdapterMessage) recyclerView.getAdapter();
         TupleMessageEx message = adapter.getItemAtPosition(position);
 
-        if (message != null && message.uid != null && (account < 0 || account == message.account)) {
-            account = message.account;
+        if (message != null && message.uid != null)
             return true;
-        }
 
         return false;
     }

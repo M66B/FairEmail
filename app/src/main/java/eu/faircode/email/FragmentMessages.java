@@ -308,7 +308,6 @@ public class FragmentMessages extends FragmentBase {
                         swipeRefresh.setEnabled(false);
                         fabMore.show();
                     } else {
-                        predicate.clearAccount();
                         fabMore.hide();
                         swipeRefresh.setEnabled(pull);
                     }
@@ -770,35 +769,45 @@ public class FragmentMessages extends FragmentBase {
                 long fid = args.getLong("folder");
                 long[] ids = args.getLongArray("ids");
 
-                Boolean[] result = new Boolean[10];
+                Boolean[] result = new Boolean[12];
                 for (int i = 0; i < result.length; i++)
                     result[i] = false;
 
                 DB db = DB.getInstance(context);
 
-                long account = -1;
+                List<Long> accounts = new ArrayList<>();
                 for (long id : ids) {
                     EntityMessage message = db.message().getMessage(id);
                     if (message != null) {
-                        account = message.account;
+                        if (!accounts.contains(message.account))
+                            accounts.add(message.account);
                         result[message.ui_seen ? 1 : 0] = true;
                         result[message.flagged ? 3 : 2] = true;
                     }
                 }
 
-                EntityFolder archive = db.folder().getFolderByType(account, EntityFolder.ARCHIVE);
-                EntityFolder trash = db.folder().getFolderByType(account, EntityFolder.TRASH);
+                EntityFolder archive = null;
+                EntityFolder trash = null;
+                EntityFolder junk = null;
+                if (accounts.size() == 1) {
+                    archive = db.folder().getFolderByType(accounts.get(0), EntityFolder.ARCHIVE);
+                    trash = db.folder().getFolderByType(accounts.get(0), EntityFolder.TRASH);
+                    junk = db.folder().getFolderByType(accounts.get(0), EntityFolder.JUNK);
+                }
 
                 result[4] = (archive != null);
                 result[5] = (trash != null);
+                result[6] = (junk != null);
 
                 EntityFolder folder = db.folder().getFolder(fid);
                 if (folder != null) {
-                    result[6] = EntityFolder.ARCHIVE.equals(folder.type);
-                    result[7] = EntityFolder.TRASH.equals(folder.type);
-                    result[8] = EntityFolder.JUNK.equals(folder.type);
-                    result[9] = EntityFolder.DRAFTS.equals(folder.type);
+                    result[7] = EntityFolder.ARCHIVE.equals(folder.type);
+                    result[8] = EntityFolder.TRASH.equals(folder.type);
+                    result[9] = EntityFolder.JUNK.equals(folder.type);
+                    result[10] = EntityFolder.DRAFTS.equals(folder.type);
                 }
+
+                result[11] = (accounts.size() == 1);
 
                 return result;
             }
@@ -807,9 +816,9 @@ public class FragmentMessages extends FragmentBase {
             protected void onExecuted(Bundle args, final Boolean[] result) {
                 PopupMenu popupMenu = new PopupMenu(getContext(), fabMore);
 
-                if (result[0] && !result[9])
+                if (result[0] && !result[10]) // Unseen, not draft
                     popupMenu.getMenu().add(Menu.NONE, action_seen, 1, R.string.title_seen);
-                if (result[1] && !result[9])
+                if (result[1] && !result[10]) // Seen, not draft
                     popupMenu.getMenu().add(Menu.NONE, action_unseen, 2, R.string.title_unseen);
 
                 popupMenu.getMenu().add(Menu.NONE, action_snooze, 3, R.string.title_snooze);
@@ -819,18 +828,19 @@ public class FragmentMessages extends FragmentBase {
                 if (result[3])
                     popupMenu.getMenu().add(Menu.NONE, action_unflag, 5, R.string.title_unflag);
 
-                if (result[4] && !result[6] && !result[9]) // has archive and not is archive
+                if (result[4] && !result[7] && !result[10]) // has archive and not is archive/drafts
                     popupMenu.getMenu().add(Menu.NONE, action_archive, 6, R.string.title_archive);
 
-                if (result[7]) // is trash
+                if (result[8]) // is trash
                     popupMenu.getMenu().add(Menu.NONE, action_delete, 7, R.string.title_delete);
-                else if (result[5]) // has trash
+
+                if (!result[8] && result[5]) // not trash and has trash
                     popupMenu.getMenu().add(Menu.NONE, action_trash, 8, R.string.title_trash);
 
-                if (!result[8] && !result[9])
+                if (result[6] && !result[9] && !result[10]) // has junk and not junk/drafts
                     popupMenu.getMenu().add(Menu.NONE, action_junk, 9, R.string.title_spam);
 
-                if (!result[9])
+                if (!result[10])
                     popupMenu.getMenu().add(Menu.NONE, action_move, 10, R.string.title_move);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -865,7 +875,10 @@ public class FragmentMessages extends FragmentBase {
                                 onActionJunkSelection();
                                 return true;
                             case action_move:
-                                onActionMoveSelection();
+                                if (result[11]) // single account
+                                    onActionMoveSelection();
+                                else
+                                    Snackbar.make(view, R.string.title_no_cross_account, Snackbar.LENGTH_LONG).show();
                                 return true;
                             default:
                                 return false;
