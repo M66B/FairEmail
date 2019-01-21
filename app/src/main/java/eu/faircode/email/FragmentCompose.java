@@ -2086,7 +2086,7 @@ public class FragmentCompose extends FragmentBase {
                 Spanned spannedReference = null;
                 File refFile = EntityMessage.getRefFile(context, id);
                 if (refFile.exists()) {
-                    String quote = Helper.readText(refFile);
+                    String quote = HtmlHelper.sanitize(Helper.readText(refFile), true);
                     Spanned spannedQuote = Html.fromHtml(quote,
                             new Html.ImageGetter() {
                                 @Override
