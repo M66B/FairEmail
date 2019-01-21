@@ -160,6 +160,18 @@ public class EntityFolder implements Serializable {
     public EntityFolder() {
     }
 
+    static int getIcon(String type) {
+        if (EntityFolder.INBOX.equals(type))
+            return R.drawable.baseline_move_to_inbox_24;
+        if (EntityFolder.ARCHIVE.equals(type))
+            return R.drawable.baseline_archive_24;
+        if (EntityFolder.TRASH.equals(type))
+            return R.drawable.baseline_delete_24;
+        if (EntityFolder.JUNK.equals(type))
+            return R.drawable.baseline_flag_24;
+        return R.drawable.baseline_folder_24;
+    }
+
     String getDisplayName(Context context) {
         return (display == null ? Helper.localizeFolderName(context, name) : display);
     }
