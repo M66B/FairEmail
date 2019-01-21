@@ -24,12 +24,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Random;
@@ -88,8 +83,8 @@ public class EntityMessage implements Serializable {
     public Long folder;
     public Long identity;
     public String extra; // plus
-    public Long replying;
-    public Long forwarding;
+    public Long replying; // obsolete
+    public Long forwarding; // obsolete
     public Long uid; // compose/moved = null
     public String msgid;
     public String references;
@@ -161,38 +156,11 @@ public class EntityMessage implements Serializable {
         return new File(dir, id.toString());
     }
 
-    void write(Context context, String body) throws IOException {
-        File file = getFile(context, id);
-        BufferedWriter out = null;
-        try {
-            out = new BufferedWriter(new FileWriter(file));
-            out.write(body == null ? "" : body);
-        } finally {
-            if (out != null)
-                out.close();
-        }
-    }
-
-    String read(Context context) throws IOException {
-        return read(context, this.id);
-    }
-
-    static String read(Context context, Long id) throws IOException {
-        File file = getFile(context, id);
-        BufferedReader in = null;
-        try {
-            in = new BufferedReader(new FileReader(file));
-            StringBuilder body = new StringBuilder();
-            String line;
-            while ((line = in.readLine()) != null) {
-                body.append(line);
-                body.append('\n');
-            }
-            return body.toString();
-        } finally {
-            if (in != null)
-                in.close();
-        }
+    static File getRefFile(Context context, Long id) {
+        File dir = new File(context.getFilesDir(), "references");
+        if (!dir.exists())
+            dir.mkdir();
+        return new File(dir, id.toString());
     }
 
     static File getRawFile(Context context, Long id) {
@@ -272,8 +240,6 @@ public class EntityMessage implements Serializable {
             return ((this.account == null ? other.account == null : this.account.equals(other.account)) &&
                     this.folder.equals(other.folder) &&
                     (this.identity == null ? other.identity == null : this.identity.equals(other.identity)) &&
-                    (this.replying == null ? other.replying == null : this.replying.equals(other.replying)) &&
-                    (this.forwarding == null ? other.forwarding == null : this.forwarding.equals(other.forwarding)) &&
                     (this.uid == null ? other.uid == null : this.uid.equals(other.uid)) &&
                     (this.msgid == null ? other.msgid == null : this.msgid.equals(other.msgid)) &&
                     (this.references == null ? other.references == null : this.references.equals(other.references)) &&

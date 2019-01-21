@@ -36,7 +36,6 @@ public class JobDaily extends JobService {
     private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     private static final long CLEANUP_INTERVAL = 4 * 3600 * 1000L; // milliseconds
-    private static final long FILE_DELETE_THRESHOLD = 30 * 60 * 1000L; // milliseconds
     private static final long CACHE_IMAGE_DURATION = 3 * 24 * 3600 * 1000L; // milliseconds
     private static final long KEEP_LOG_DURATION = 24 * 3600 * 1000L; // milliseconds
 
@@ -102,29 +101,40 @@ public class JobDaily extends JobService {
             Log.i("Cleanup message files");
             File[] messages = new File(context.getFilesDir(), "messages").listFiles();
             if (messages != null)
-                for (File file : messages)
-                    if (file.isFile() && (now - file.lastModified()) > FILE_DELETE_THRESHOLD) {
-                        long id = Long.parseLong(file.getName());
-                        if (db.message().countMessage(id) == 0) {
-                            Log.i("Cleanup message id=" + id);
-                            if (!file.delete())
-                                Log.w("Error deleting " + file);
-                        }
+                for (File file : messages) {
+                    long id = Long.parseLong(file.getName());
+                    if (db.message().countMessage(id) == 0) {
+                        Log.i("Cleanup message id=" + id);
+                        if (!file.delete())
+                            Log.w("Error deleting " + file);
                     }
+                }
+
+            // Cleanup message files
+            Log.i("Cleanup reference files");
+            File[] references = new File(context.getFilesDir(), "references").listFiles();
+            if (references != null)
+                for (File file : references) {
+                    long id = Long.parseLong(file.getName());
+                    if (db.message().countMessage(id) == 0) {
+                        Log.i("Cleanup message id=" + id);
+                        if (!file.delete())
+                            Log.w("Error deleting " + file);
+                    }
+                }
 
             // Cleanup attachment files
             Log.i("Cleanup attachment files");
             File[] attachments = new File(context.getFilesDir(), "attachments").listFiles();
             if (attachments != null)
-                for (File file : attachments)
-                    if (file.isFile() && (now - file.lastModified()) > FILE_DELETE_THRESHOLD) {
-                        long id = Long.parseLong(file.getName());
-                        if (db.attachment().countAttachment(id) == 0) {
-                            Log.i("Cleanup attachment id=" + id);
-                            if (!file.delete())
-                                Log.w("Error deleting " + file);
-                        }
+                for (File file : attachments) {
+                    long id = Long.parseLong(file.getName());
+                    if (db.attachment().countAttachment(id) == 0) {
+                        Log.i("Cleanup attachment id=" + id);
+                        if (!file.delete())
+                            Log.w("Error deleting " + file);
                     }
+                }
 
             // Cleanup cached images
             Log.i("Cleanup cached image files");

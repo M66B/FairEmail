@@ -668,7 +668,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                 if (message.content)
                     try {
-                        String body = message.read(this);
+                        String body = Helper.readText(EntityMessage.getFile(this, message.id));
                         StringBuilder sb = new StringBuilder();
                         if (!TextUtils.isEmpty(message.subject))
                             sb.append(message.subject).append("<br>");
@@ -1793,10 +1793,10 @@ public class ServiceSynchronize extends LifecycleService {
             Long sid = null;
             try {
                 // Append replied/forwarded text
-                String body = message.read(this);
-                if (message.replying != null || message.forwarding != null)
-                    body += HtmlHelper.getQuote(this,
-                            message.replying == null ? message.forwarding : message.replying, false);
+                String body = Helper.readText(EntityMessage.getFile(this, message.id));
+                File refFile = EntityMessage.getRefFile(this, message.id);
+                if (refFile.exists())
+                    body += Helper.readText(refFile);
 
                 EntityFolder sent = db.folder().getFolderByType(ident.account, EntityFolder.SENT);
                 if (sent != null) {
@@ -1811,7 +1811,7 @@ public class ServiceSynchronize extends LifecycleService {
                     message.ui_browsed = true; // prevent deleting on sync
                     message.error = null;
                     message.id = db.message().insertMessage(message);
-                    message.write(this, body);
+                    Helper.writeText(EntityMessage.getFile(this, message.id), body);
 
                     sid = message.id;
                     message.id = id;
@@ -1835,7 +1835,7 @@ public class ServiceSynchronize extends LifecycleService {
                         db.message().setMessageSeen(message.id, true);
                         db.message().setMessageUiSeen(message.id, true);
                         db.message().setMessageError(message.id, null);
-                        message.write(this, body);
+                        Helper.writeText(EntityMessage.getFile(this, message.id), body);
                     } else {
                         db.message().setMessageSent(sid, imessage.getSentDate().getTime());
                         db.message().setMessageUiHide(sid, false);
@@ -1853,9 +1853,14 @@ public class ServiceSynchronize extends LifecycleService {
                     db.endTransaction();
                 }
 
-                if (message.replying != null) {
-                    EntityMessage replying = db.message().getMessage(message.replying);
-                    EntityOperation.queue(this, db, replying, EntityOperation.ANSWERED, true);
+                if (refFile.exists())
+                    refFile.delete();
+
+                if (message.inreplyto != null) {
+                    List<EntityMessage> replieds = db.message().getMessageByMsgId(message.account, message.inreplyto);
+                    for (EntityMessage replied : replieds)
+                        if (replied.uid != null)
+                            EntityOperation.queue(this, db, replied, EntityOperation.ANSWERED, true);
                 }
 
                 db.identity().setIdentityError(ident.id, null);
@@ -1967,7 +1972,7 @@ public class ServiceSynchronize extends LifecycleService {
         MessageHelper.MessageParts parts = helper.getMessageParts();
         String body = parts.getHtml(this);
         String preview = HtmlHelper.getPreview(body);
-        message.write(this, body);
+        Helper.writeText(EntityMessage.getFile(this, message.id), body);
         db.message().setMessageContent(message.id, true, preview);
         db.message().setMessageWarning(message.id, parts.getWarnings(message.warning));
     }
@@ -2677,7 +2682,7 @@ public class ServiceSynchronize extends LifecycleService {
         if (!message.content) {
             if (!metered || (message.size != null && message.size < maxSize)) {
                 String body = parts.getHtml(context);
-                message.write(context, body);
+                Helper.writeText(EntityMessage.getFile(context, message.id), body);
                 db.message().setMessageContent(message.id, true, HtmlHelper.getPreview(body));
                 db.message().setMessageWarning(message.id, parts.getWarnings(message.warning));
                 Log.i(folder.name + " downloaded message id=" + message.id + " size=" + message.size);

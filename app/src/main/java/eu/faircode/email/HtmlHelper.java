@@ -24,7 +24,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.text.Html;
 import android.text.TextUtils;
 import android.util.Base64;
 
@@ -47,7 +46,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -244,17 +242,6 @@ public class HtmlHelper {
             d.setBounds(0, 0, px, px);
             return d;
         }
-    }
-
-    static String getQuote(Context context, long id, boolean sanitize) throws IOException {
-        EntityMessage message = DB.getInstance(context).message().getMessage(id);
-        if (message == null)
-            return null;
-        String html = EntityMessage.read(context, id);
-        return String.format("<p>%s %s:</p>\n<blockquote>%s</blockquote>",
-                Html.escapeHtml(new Date(message.received).toString()),
-                Html.escapeHtml(MessageHelper.formatAddresses(message.from)),
-                sanitize ? sanitize(html, true) : getBody(html));
     }
 
     static String getPreview(String body) {

@@ -174,10 +174,6 @@ public class EntityOperation {
                     message.uid = uid;
                     message.folder = source.id;
 
-                    // Track reference
-                    db.message().updateMessageReplying(id, newid);
-                    db.message().updateMessageForwarding(id, newid);
-
                     if (message.content)
                         try {
                             Helper.copy(

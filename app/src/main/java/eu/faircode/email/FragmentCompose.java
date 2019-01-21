@@ -1474,10 +1474,10 @@ public class FragmentCompose extends FragmentBase {
                         if (answer > 0)
                             body = EntityAnswer.getAnswerText(db, answer, null) + body;
                     } else {
-                        result.draft.thread = ref.thread;
-
                         if ("reply".equals(action) || "reply_all".equals(action)) {
-                            result.draft.replying = ref.id;
+                            result.draft.references = (ref.references == null ? "" : ref.references + " ") + ref.msgid;
+                            result.draft.inreplyto = ref.msgid;
+                            result.draft.thread = ref.thread;
                             result.draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
                             result.draft.from = ref.to;
 
@@ -1499,7 +1499,7 @@ public class FragmentCompose extends FragmentBase {
                             }
 
                         } else if ("forward".equals(action)) {
-                            result.draft.forwarding = ref.id;
+                            result.draft.thread = result.draft.msgid; // new thread
                             result.draft.from = ref.to;
                         }
 
@@ -1553,9 +1553,18 @@ public class FragmentCompose extends FragmentBase {
                     result.draft.received = new Date().getTime();
 
                     result.draft.id = db.message().insertMessage(result.draft);
-                    result.draft.write(context, body == null ? "" : body);
+                    Helper.writeText(EntityMessage.getFile(context, result.draft.id), body);
 
                     db.message().setMessageContent(result.draft.id, true, HtmlHelper.getPreview(body));
+
+                    // Write reference text
+                    if (ref != null && ref.content) {
+                        String refBody = String.format("<p>%s %s:</p>\n<blockquote>%s</blockquote>",
+                                Html.escapeHtml(new Date(ref.received).toString()),
+                                Html.escapeHtml(MessageHelper.formatAddresses(ref.from)),
+                                Helper.readText(EntityMessage.getFile(context, ref.id)));
+                        Helper.writeText(EntityMessage.getRefFile(context, result.draft.id), refBody);
+                    }
 
                     if ("new".equals(action)) {
                         ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
@@ -1841,7 +1850,7 @@ public class FragmentCompose extends FragmentBase {
                         !MessageHelper.equal(draft.bcc, abcc) ||
                         (draft.subject == null ? subject != null : !draft.subject.equals(subject)) ||
                         last_available != available ||
-                        !body.equals(draft.read(context)));
+                        !body.equals(Helper.readText(EntityMessage.getFile(context, draft.id))));
 
                 last_available = available;
 
@@ -1857,7 +1866,7 @@ public class FragmentCompose extends FragmentBase {
                     draft.subject = subject;
                     draft.received = new Date().getTime();
                     db.message().updateMessage(draft);
-                    draft.write(context, body);
+                    Helper.writeText(EntityMessage.getFile(context, draft.id), body);
                     db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body));
                 }
 
@@ -1908,13 +1917,19 @@ public class FragmentCompose extends FragmentBase {
                     // Delete draft (cannot move to outbox)
                     EntityOperation.queue(context, db, draft, EntityOperation.DELETE);
 
+                    File refDraftFile = EntityMessage.getRefFile(context, draft.id);
+
                     // Copy message to outbox
                     draft.id = null;
                     draft.folder = db.folder().getOutbox().id;
                     draft.uid = null;
                     draft.ui_hide = false;
                     draft.id = db.message().insertMessage(draft);
-                    draft.write(getContext(), body);
+                    Helper.writeText(EntityMessage.getFile(context, draft.id), body);
+                    if (refDraftFile.exists()) {
+                        File refFile = EntityMessage.getRefFile(context, draft.id);
+                        refDraftFile.renameTo(refFile);
+                    }
 
                     // Move attachments
                     for (EntityAttachment attachment : attachments)
@@ -2044,10 +2059,6 @@ public class FragmentCompose extends FragmentBase {
     private void showDraft(EntityMessage draft) {
         Bundle args = new Bundle();
         args.putLong("id", draft.id);
-        if (draft.replying != null)
-            args.putLong("reference", draft.replying);
-        else if (draft.forwarding != null)
-            args.putLong("reference", draft.forwarding);
         args.putBoolean("show_images", show_images);
 
         new SimpleTask<Spanned[]>() {
@@ -2066,21 +2077,21 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected Spanned[] onExecute(final Context context, Bundle args) throws Throwable {
-                long id = args.getLong("id");
-                final long reference = args.getLong("reference", -1);
+                final long id = args.getLong("id");
                 final boolean show_images = args.getBoolean("show_images", false);
 
-                String body = EntityMessage.read(context, id);
+                String body = Helper.readText(EntityMessage.getFile(context, id));
                 Spanned spannedBody = Html.fromHtml(body, cidGetter, null);
 
-                String quote = (reference < 0 ? null : HtmlHelper.getQuote(context, reference, true));
                 Spanned spannedReference = null;
-                if (quote != null) {
+                File refFile = EntityMessage.getRefFile(context, id);
+                if (refFile.exists()) {
+                    String quote = Helper.readText(refFile);
                     Spanned spannedQuote = Html.fromHtml(quote,
                             new Html.ImageGetter() {
                                 @Override
                                 public Drawable getDrawable(String source) {
-                                    Drawable image = HtmlHelper.decodeImage(source, context, reference, show_images);
+                                    Drawable image = HtmlHelper.decodeImage(source, context, id, show_images);
 
                                     float width = context.getResources().getDisplayMetrics().widthPixels -
                                             Helper.dp2pixels(context, 12); // margins;

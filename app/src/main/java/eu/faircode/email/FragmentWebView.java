@@ -141,7 +141,7 @@ public class FragmentWebView extends FragmentBase {
                 protected String onExecute(Context context, Bundle args) throws Throwable {
                     long id = args.getLong("id");
 
-                    String html = EntityMessage.read(context, id);
+                    String html = Helper.readText(EntityMessage.getFile(context, id));
 
                     Document doc = Jsoup.parse(html);
                     for (Element img : doc.select("img"))

@@ -207,15 +207,16 @@ public class EntityRule {
         reply.folder = db.folder().getOutbox().id;
         reply.identity = identity.id;
         reply.msgid = EntityMessage.generateMessageId();
+        reply.references = (message.references == null ? "" : message.references + " ") + message.msgid;
+        reply.inreplyto = message.msgid;
         reply.thread = message.thread;
-        reply.replying = message.id;
         reply.to = (message.reply == null || message.reply.length == 0 ? message.from : message.reply);
         reply.from = new InternetAddress[]{new InternetAddress(identity.email, identity.name)};
         reply.subject = context.getString(R.string.title_subject_reply, message.subject == null ? "" : message.subject);
         reply.sender = MessageHelper.getSortKey(reply.from);
         reply.received = new Date().getTime();
         reply.id = db.message().insertMessage(reply);
-        reply.write(context, body);
+        Helper.writeText(EntityMessage.getFile(context, reply.id), body);
         db.message().setMessageContent(reply.id, true, HtmlHelper.getPreview(body));
 
         EntityOperation.queue(context, db, reply, EntityOperation.SEND);

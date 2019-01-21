@@ -1215,7 +1215,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 if (encrypted == null) {
                     EntityMessage message = db.message().getMessage(id);
-                    String body = message.read(context);
+                    String body = Helper.readText(EntityMessage.getFile(context, message.id));
 
                     // https://tools.ietf.org/html/rfc4880#section-6.2
                     int begin = body.indexOf(PGP_BEGIN_MESSAGE);
@@ -1252,7 +1252,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                                 // Write decrypted body
                                 EntityMessage m = db.message().getMessage(id);
-                                m.write(context, decrypted.toString());
+                                Helper.writeText(EntityMessage.getFile(context, m.id), decrypted.toString());
 
                                 db.message().setMessageStored(id, new Date().getTime());
 
@@ -1275,7 +1275,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                                 // Write decrypted body
                                 EntityMessage m = db.message().getMessage(id);
-                                m.write(context, parts.getHtml(context));
+                                Helper.writeText(EntityMessage.getFile(context, m.id), parts.getHtml(context));
 
                                 // Remove previously decrypted attachments
                                 for (EntityAttachment a : attachments)

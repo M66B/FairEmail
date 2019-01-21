@@ -196,14 +196,10 @@ public class MessageHelper {
         DB db = DB.getInstance(context);
         MimeMessageEx imessage = new MimeMessageEx(isession, message.msgid);
 
-        EntityMessage replying = null;
-        if (message.replying != null)
-            replying = db.message().getMessage(message.replying);
-
-        if (replying != null) {
-            imessage.addHeader("In-Reply-To", replying.msgid);
-            imessage.addHeader("References", (replying.references == null ? "" : replying.references + " ") + replying.msgid);
-        }
+        if (message.references != null)
+            imessage.addHeader("References", message.references);
+        if (message.inreplyto != null)
+            imessage.addHeader("In-Reply-To", message.inreplyto);
 
         imessage.addHeader("X-FairEmail-ID", message.msgid);
         imessage.addHeader("X-FairEmail-Thread", message.thread);
@@ -300,19 +296,18 @@ public class MessageHelper {
     static void build(Context context, EntityMessage message, MimeMessage imessage) throws IOException, MessagingException {
         DB db = DB.getInstance(context);
 
-        String html = message.read(context);
-        if (message.replying != null || message.forwarding != null)
-            html += HtmlHelper.getQuote(context,
-                    message.replying == null ? message.forwarding : message.replying, false);
-
         StringBuilder body = new StringBuilder();
-        body.append(html);
+        body.append(Helper.readText(EntityMessage.getFile(context, message.id)));
 
         if (Helper.isPro(context) && message.identity != null) {
             EntityIdentity identity = db.identity().getIdentity(message.identity);
             if (!TextUtils.isEmpty(identity.signature))
                 body.append(identity.signature);
         }
+
+        File refFile = EntityMessage.getRefFile(context, message.id);
+        if (refFile.exists())
+            body.append(Helper.readText(refFile));
 
         String plainContent = HtmlHelper.getText(body.toString());
 
@@ -338,7 +333,7 @@ public class MessageHelper {
         alternativePart.addBodyPart(htmlPart);
 
         List<String> cids = new ArrayList<>();
-        for (Element element : Jsoup.parse(html).select("img")) {
+        for (Element element : Jsoup.parse(body.toString()).select("img")) {
             String src = element.attr("src");
             if (src.startsWith("cid:"))
                 cids.add("<" + src.substring(4) + ">");

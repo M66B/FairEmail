@@ -57,9 +57,12 @@ import com.sun.mail.imap.IMAPStore;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -328,7 +331,7 @@ public class Helper {
             draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " debug info";
             draft.received = new Date().getTime();
             draft.id = db.message().insertMessage(draft);
-            draft.write(context, body);
+            writeText(EntityMessage.getFile(context, draft.id), body);
             db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body));
 
             attachSettings(context, draft.id, 1);
@@ -598,6 +601,34 @@ public class Helper {
                 a[0] = extra[0];
         }
         return TextUtils.join("@", a);
+    }
+
+    static void writeText(File file, String content) throws IOException {
+        BufferedWriter out = null;
+        try {
+            out = new BufferedWriter(new FileWriter(file));
+            out.write(content == null ? "" : content);
+        } finally {
+            if (out != null)
+                out.close();
+        }
+    }
+
+    static String readText(File file) throws IOException {
+        BufferedReader in = null;
+        try {
+            in = new BufferedReader(new FileReader(file));
+            StringBuilder body = new StringBuilder();
+            String line;
+            while ((line = in.readLine()) != null) {
+                body.append(line);
+                body.append('\n');
+            }
+            return body.toString();
+        } finally {
+            if (in != null)
+                in.close();
+        }
     }
 
     static void copy(File src, File dst) throws IOException {

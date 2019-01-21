@@ -117,7 +117,7 @@ public class ViewModelBrowse extends ViewModel {
                     String body = null;
                     if (message.content)
                         try {
-                            body = message.read(state.context);
+                            body = Helper.readText(EntityMessage.getFile(state.context, message.id));
                         } catch (IOException ex) {
                             Log.e(ex);
                         }
