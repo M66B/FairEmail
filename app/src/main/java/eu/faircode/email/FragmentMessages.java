@@ -266,9 +266,11 @@ public class FragmentMessages extends FragmentBase {
 
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("zoom", compact ? 0 : 1);
+        String sort = prefs.getString("sort", "time");
+
         adapter = new AdapterMessage(
                 getContext(), getViewLifecycleOwner(),
-                viewType, compact, zoom, iProperties);
+                viewType, compact, zoom, sort, iProperties);
 
         rvMessage.setAdapter(adapter);
 
@@ -1677,6 +1679,7 @@ public class FragmentMessages extends FragmentBase {
     private void onMenuSort(String sort) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putString("sort", sort).apply();
+        adapter.setSort(sort);
         loadMessages();
     }
 

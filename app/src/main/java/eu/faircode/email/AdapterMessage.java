@@ -118,9 +118,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private ViewType viewType;
     private boolean compact;
     private int zoom;
+    private String sort;
     private boolean internet;
     private IProperties properties;
 
+    private boolean date;
     private boolean threading;
     private boolean contacts;
     private boolean avatars;
@@ -2056,18 +2058,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     AdapterMessage(Context context, LifecycleOwner owner,
-                   ViewType viewType, boolean compact, int zoom, IProperties properties) {
+                   ViewType viewType, boolean compact, int zoom, String sort, IProperties properties) {
         this.context = context;
         this.owner = owner;
         this.inflater = LayoutInflater.from(context);
         this.viewType = viewType;
         this.compact = compact;
         this.zoom = zoom;
+        this.sort = sort;
         this.internet = (Helper.isMetered(context, false) != null);
         this.properties = properties;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
+        this.date = prefs.getBoolean("date", true);
         this.threading = prefs.getBoolean("threading", true);
         this.contacts = (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
                 == PackageManager.PERMISSION_GRANTED);
@@ -2101,6 +2105,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     boolean getDay(TupleMessageEx prev, TupleMessageEx cur) {
+        if (!"time".equals(sort) || !date)
+            return false;
+
         if (prev == null)
             return true;
 
@@ -2129,6 +2136,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             this.zoom = zoom;
             textSize = Helper.getTextSize(context, zoom);
             notifyDataSetChanged();
+        }
+    }
+
+    void setSort(String sort) {
+        if (!sort.equals(this.sort)) {
+            this.sort = sort;
+            // loadMessages will be called
         }
     }
 

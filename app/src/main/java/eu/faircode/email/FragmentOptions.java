@@ -61,6 +61,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private Spinner spDownload;
 
     private SwitchCompat swUnified;
+    private SwitchCompat swDate;
     private SwitchCompat swThreading;
     private SwitchCompat swAvatars;
     private SwitchCompat swIdenticons;
@@ -86,10 +87,15 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
 
     private Group grpNotification;
 
+    static String[] OPTIONS_RESTART = new String[]{
+            "unified", "date", "threading", "avatars", "identicons", "preview", "addresses",
+            "pull", "actionbar", "autoclose", "autonext", "confirm", "debug"
+    };
+
     private final static String[] ADVANCED_OPTIONS = new String[]{
             "enabled", "updates",
             "metered", "download",
-            "unified", "threading", "avatars", "identicons", "preview", "addresses",
+            "unified", "date", "threading", "avatars", "identicons", "preview", "addresses",
             "pull", "actionbar", "autoclose", "autonext",
             "autoread", "collapse", "automove", "confirm", "sender", "autoresize", "autosend",
             "light", "sound", "debug",
@@ -115,6 +121,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         spDownload = view.findViewById(R.id.spDownload);
 
         swUnified = view.findViewById(R.id.swUnified);
+        swDate = view.findViewById(R.id.swDate);
         swThreading = view.findViewById(R.id.swThreading);
         swAvatars = view.findViewById(R.id.swAvatars);
         swIdenticons = view.findViewById(R.id.swIdenticons);
@@ -186,6 +193,13 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("unified", checked).apply();
+            }
+        });
+
+        swDate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("date", checked).apply();
             }
         });
 
@@ -405,6 +419,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             }
 
         swUnified.setChecked(prefs.getBoolean("unified", true));
+        swDate.setChecked(prefs.getBoolean("date", true));
         swThreading.setChecked(prefs.getBoolean("threading", true));
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
         swIdenticons.setChecked(prefs.getBoolean("identicons", false));

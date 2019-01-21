@@ -40,11 +40,6 @@ import androidx.fragment.app.Fragment;
 abstract class ActivityBase extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     private boolean contacts;
 
-    private static String[] SETTINGS_RESTART = new String[]{
-            "unified", "threading", "avatars", "identicons", "preview", "addresses",
-            "pull", "actionbar", "autoclose", "autonext", "confirm", "debug"
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.i("Create " + this.getClass().getName() + " version=" + BuildConfig.VERSION_NAME);
@@ -115,7 +110,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             finish();
             if (this.getClass().equals(ActivitySetup.class))
                 startActivity(getIntent());
-        } else if (!this.getClass().equals(ActivitySetup.class) && Arrays.asList(SETTINGS_RESTART).contains(key))
+        } else if (!this.getClass().equals(ActivitySetup.class) &&
+                Arrays.asList(FragmentOptions.OPTIONS_RESTART).contains(key))
             finish();
     }
 

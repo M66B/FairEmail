@@ -216,11 +216,12 @@ In the three dot overflow menu you can enable or disable or select:
 
 In the display section of the advanced settings you can enable or disable:
 
-* *unified inbox*: to disable the unified inbox and to list the folders selected for the unified inbox instead
-* *conversation threading*: to disable conversation threading and to show individual messages instead
-* *show contact photos*: to hide contact photos
-* *show identicons*: to show generated contact avatars
-* *show message preview*: to show two lines of the message text
+* *Unified inbox*: to disable the unified inbox and to list the folders selected for the unified inbox instead
+* *Group by date*: show date header above messages with the same date
+* *Conversation threading*: to disable conversation threading and to show individual messages instead
+* *Show contact photos*: to hide contact photos
+* *Show identicons*: to show generated contact avatars
+* *Show message preview*: to show two lines of the message text
 * *Show address details by default*: to collapse the addresses section by default
 
 If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.

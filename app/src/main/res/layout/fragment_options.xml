@@ -208,6 +208,18 @@
             app:layout_constraintTop_toBottomOf="@id/swUnified" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:text="@string/title_advanced_date_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvUnifiedHint"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swThreading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -216,7 +228,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_threading"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvUnifiedHint"
+            app:layout_constraintTop_toBottomOf="@id/swDate"
             app:switchPadding="12dp" />
 
         <TextView
