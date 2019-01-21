@@ -740,65 +740,70 @@ public class MessageHelper {
         Part part;
     }
 
-    MessageParts getMessageParts() throws IOException, MessagingException {
+    MessageParts getMessageParts() throws IOException {
         MessageParts parts = new MessageParts();
         getMessageParts(imessage, parts, false); // Can throw ParseException
         return parts;
     }
 
-    private void getMessageParts(Part part, MessageParts parts, boolean pgp) throws MessagingException, IOException {
-        if (part.isMimeType("multipart/*")) {
-            Multipart multipart = (Multipart) part.getContent();
-            for (int i = 0; i < multipart.getCount(); i++)
-                try {
-                    Part cpart = multipart.getBodyPart(i);
-                    getMessageParts(cpart, parts, pgp);
-                    ContentType ct = new ContentType(cpart.getContentType());
-                    if ("application/pgp-encrypted".equals(ct.getBaseType().toLowerCase()))
-                        pgp = true;
-                } catch (ParseException ex) {
-                    // Nested body: try to continue
-                    // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
-                    Log.w(ex);
-                }
-        } else {
-            // https://www.iana.org/assignments/cont-disp/cont-disp.xhtml
-            String disposition;
-            try {
-                disposition = part.getDisposition();
-            } catch (MessagingException ex) {
-                Log.w(ex);
-                disposition = null;
-            }
-
-            String filename;
-            try {
-                filename = part.getFileName();
-            } catch (MessagingException ex) {
-                Log.w(ex);
-                filename = null;
-            }
-
-            //Log.i("Part" +
-            //        " disposition=" + disposition +
-            //        " filename=" + filename +
-            //        " content type=" + part.getContentType());
-
-            if (!Part.ATTACHMENT.equalsIgnoreCase(disposition) &&
-                    ((parts.plain == null && part.isMimeType("text/plain")) ||
-                            (parts.html == null && part.isMimeType("text/html")))) {
-                if (part.isMimeType("text/plain"))
-                    parts.plain = part;
-                else
-                    parts.html = part;
+    private void getMessageParts(Part part, MessageParts parts, boolean pgp) throws IOException {
+        try {
+            if (part.isMimeType("multipart/*")) {
+                Multipart multipart = (Multipart) part.getContent();
+                for (int i = 0; i < multipart.getCount(); i++)
+                    try {
+                        Part cpart = multipart.getBodyPart(i);
+                        getMessageParts(cpart, parts, pgp);
+                        ContentType ct = new ContentType(cpart.getContentType());
+                        if ("application/pgp-encrypted".equals(ct.getBaseType().toLowerCase()))
+                            pgp = true;
+                    } catch (ParseException ex) {
+                        // Nested body: try to continue
+                        // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
+                        Log.w(ex);
+                    }
             } else {
-                AttachmentPart apart = new AttachmentPart();
-                apart.disposition = disposition;
-                apart.filename = filename;
-                apart.pgp = pgp;
-                apart.part = part;
-                parts.attachments.add(apart);
+                // https://www.iana.org/assignments/cont-disp/cont-disp.xhtml
+                String disposition;
+                try {
+                    disposition = part.getDisposition();
+                } catch (MessagingException ex) {
+                    Log.w(ex);
+                    disposition = null;
+                }
+
+                String filename;
+                try {
+                    filename = part.getFileName();
+                } catch (MessagingException ex) {
+                    Log.w(ex);
+                    filename = null;
+                }
+
+                //Log.i("Part" +
+                //        " disposition=" + disposition +
+                //        " filename=" + filename +
+                //        " content type=" + part.getContentType());
+
+                if (!Part.ATTACHMENT.equalsIgnoreCase(disposition) &&
+                        ((parts.plain == null && part.isMimeType("text/plain")) ||
+                                (parts.html == null && part.isMimeType("text/html")))) {
+                    if (part.isMimeType("text/plain"))
+                        parts.plain = part;
+                    else
+                        parts.html = part;
+                } else {
+                    AttachmentPart apart = new AttachmentPart();
+                    apart.disposition = disposition;
+                    apart.filename = filename;
+                    apart.pgp = pgp;
+                    apart.part = part;
+                    parts.attachments.add(apart);
+                }
             }
+        } catch (MessagingException ex) {
+            Log.w(ex);
+            parts.warnings.add(Helper.formatThrowable(ex));
         }
     }
 
