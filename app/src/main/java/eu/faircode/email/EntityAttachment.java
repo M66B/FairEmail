@@ -21,10 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 import javax.mail.Part;
 
@@ -80,18 +77,6 @@ public class EntityAttachment {
         if (!dir.exists())
             dir.mkdir();
         return new File(dir, Long.toString(id));
-    }
-
-    void write(Context context, String body) throws IOException {
-        File file = getFile(context, id);
-        BufferedWriter out = null;
-        try {
-            out = new BufferedWriter(new FileWriter(file));
-            out.write(body == null ? "" : body);
-        } finally {
-            if (out != null)
-                out.close();
-        }
     }
 
     @Override
