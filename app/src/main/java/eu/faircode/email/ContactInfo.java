@@ -71,7 +71,7 @@ public class ContactInfo {
     }
 
     static ContactInfo get(Context context, Address[] addresses) {
-        if (addresses == null)
+        if (addresses == null || addresses.length == 0)
             return null;
 
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
@@ -79,40 +79,38 @@ public class ContactInfo {
             return null;
 
         try {
-            for (Address address : addresses) {
-                Cursor cursor = null;
-                try {
-                    ContentResolver resolver = context.getContentResolver();
-                    cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                            new String[]{
-                                    ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
-                                    ContactsContract.Contacts.LOOKUP_KEY,
-                                    ContactsContract.Contacts.DISPLAY_NAME
-                            },
-                            ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
-                            new String[]{
-                                    ((InternetAddress) address).getAddress()
-                            }, null);
+            Cursor cursor = null;
+            try {
+                ContentResolver resolver = context.getContentResolver();
+                cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                        new String[]{
+                                ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
+                                ContactsContract.Contacts.LOOKUP_KEY,
+                                ContactsContract.Contacts.DISPLAY_NAME
+                        },
+                        ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
+                        new String[]{
+                                ((InternetAddress) addresses[0]).getAddress()
+                        }, null);
 
-                    if (cursor != null && cursor.moveToNext()) {
-                        int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
-                        int colLookupKey = cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY);
-                        int colDisplayName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
+                if (cursor != null && cursor.moveToNext()) {
+                    int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
+                    int colLookupKey = cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY);
+                    int colDisplayName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
 
-                        long contactId = cursor.getLong(colContactId);
-                        String lookupKey = cursor.getString(colLookupKey);
-                        Uri lookupUri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
+                    long contactId = cursor.getLong(colContactId);
+                    String lookupKey = cursor.getString(colLookupKey);
+                    Uri lookupUri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
 
-                        ContactInfo info = new ContactInfo();
-                        info.is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, lookupUri);
-                        info.displayName = cursor.getString(colDisplayName);
-                        info.lookupUri = lookupUri;
-                        return info;
-                    }
-                } finally {
-                    if (cursor != null)
-                        cursor.close();
+                    ContactInfo info = new ContactInfo();
+                    info.is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, lookupUri);
+                    info.displayName = cursor.getString(colDisplayName);
+                    info.lookupUri = lookupUri;
+                    return info;
                 }
+            } finally {
+                if (cursor != null)
+                    cursor.close();
             }
         } catch (Throwable ex) {
             Log.e(ex);

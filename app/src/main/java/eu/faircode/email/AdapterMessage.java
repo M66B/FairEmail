@@ -469,6 +469,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         ivAvatar.setTag(message.id);
                         ivAvatar.setVisibility(View.INVISIBLE);
                         tvFrom.setTag(message.id);
+                        Address[] addresses = (Address[]) args.getSerializable("addresses");
+                        tvFrom.setText(MessageHelper.formatAddresses(addresses, !compact, false));
                     }
 
                     @Override
@@ -505,9 +507,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (info != null && info.hasDisplayName())
                                 try {
                                     Address[] addresses = (Address[]) args.getSerializable("addresses");
-                                    InternetAddress ia = (InternetAddress) addresses[0];
-                                    ia.setPersonal(info.getDisplayName());
-                                    tvFrom.setText(MessageHelper.formatAddresses(new Address[]{ia}, !compact, false));
+                                    ((InternetAddress) addresses[0]).setPersonal(info.getDisplayName());
+                                    tvFrom.setText(MessageHelper.formatAddresses(addresses, !compact, false));
                                 } catch (UnsupportedEncodingException ex) {
                                     Log.w(ex);
                                 }
@@ -536,7 +537,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? colorAccent : textColorSecondary));
             ivFlagged.setVisibility(message.uid == null ? View.INVISIBLE : View.VISIBLE);
 
-            tvFrom.setText(MessageHelper.formatAddresses(outgoing ? message.to : message.from, !compact, false));
             tvSize.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
             tvSize.setVisibility(message.size == null || message.content ? View.GONE : View.VISIBLE);
             tvTime.setText(tf.format(message.received));
