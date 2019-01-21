@@ -539,7 +539,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvSize.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
             tvSize.setVisibility(message.size == null || message.content ? View.GONE : View.VISIBLE);
-            tvTime.setText(tf.format(message.received));
+            tvTime.setText(date && "time".equals(sort)
+                    ? tf.format(message.received)
+                    : DateUtils.getRelativeTimeSpanString(context, message.received));
 
             ivDraft.setVisibility(message.drafts > 0 ? View.VISIBLE : View.GONE);
             ivSnoozed.setVisibility(message.ui_snoozed == null ? View.GONE : View.VISIBLE);
@@ -2105,7 +2107,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     boolean getDay(TupleMessageEx prev, TupleMessageEx cur) {
-        if (!"time".equals(sort) || !date)
+        if (!(date && "time".equals(sort)))
             return false;
 
         if (prev == null)
