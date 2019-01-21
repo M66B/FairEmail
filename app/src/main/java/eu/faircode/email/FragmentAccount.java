@@ -703,19 +703,19 @@ public class FragmentAccount extends FragmentBase {
         EntityFolder left = (EntityFolder) spLeft.getSelectedItem();
         EntityFolder right = (EntityFolder) spRight.getSelectedItem();
 
-        if (drafts != null && drafts.id < 0)
+        if (drafts != null && drafts.type == null)
             drafts = null;
-        if (sent != null && sent.id < 0)
+        if (sent != null && sent.type == null)
             sent = null;
-        if (all != null && all.id < 0)
+        if (all != null && all.type == null)
             all = null;
-        if (trash != null && trash.id < 0)
+        if (trash != null && trash.type == null)
             trash = null;
-        if (junk != null && junk.id < 0)
+        if (junk != null && junk.type == null)
             junk = null;
-        if (left != null && left.id < 0)
+        if (left != null && left.type == null)
             left = null;
-        if (right != null && right.id < 0)
+        if (right != null && right.type == null)
             right = null;
 
         Bundle args = new Bundle();
@@ -745,8 +745,8 @@ public class FragmentAccount extends FragmentBase {
         args.putSerializable("all", all);
         args.putSerializable("trash", trash);
         args.putSerializable("junk", junk);
-        args.putLong("left", left == null ? -1 : left.id);
-        args.putLong("right", right == null ? -1 : right.id);
+        args.putSerializable("left", left);
+        args.putSerializable("right", right);
 
         new SimpleTask<Void>() {
             @Override
@@ -796,8 +796,8 @@ public class FragmentAccount extends FragmentBase {
                 EntityFolder all = (EntityFolder) args.getSerializable("all");
                 EntityFolder trash = (EntityFolder) args.getSerializable("trash");
                 EntityFolder junk = (EntityFolder) args.getSerializable("junk");
-                Long left = args.getLong("left");
-                Long right = args.getLong("right");
+                EntityFolder left = (EntityFolder) args.getSerializable("left");
+                EntityFolder right = (EntityFolder) args.getSerializable("right");
 
                 if (TextUtils.isEmpty(host))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
@@ -819,11 +819,6 @@ public class FragmentAccount extends FragmentBase {
                     color = null;
                 if (TextUtils.isEmpty(prefix))
                     prefix = null;
-
-                if (left < 0)
-                    left = null;
-                if (right < 0)
-                    right = null;
 
                 Character separator = null;
                 long now = new Date().getTime();
@@ -893,8 +888,6 @@ public class FragmentAccount extends FragmentBase {
                     account.primary = (account.synchronize && primary);
                     account.notify = notify;
                     account.browse = browse;
-                    account.swipe_left = left;
-                    account.swipe_right = right;
                     account.poll_interval = Integer.parseInt(interval);
                     account.prefix = prefix;
 
@@ -963,6 +956,32 @@ public class FragmentAccount extends FragmentBase {
                         folders.add(junk);
                     }
 
+                    if (left != null) {
+                        boolean found = false;
+                        for (EntityFolder folder : folders)
+                            if (left.name.equals(folder.name)) {
+                                found = true;
+                                break;
+                            }
+                        if (!found) {
+                            left.type = EntityFolder.USER;
+                            folders.add(left);
+                        }
+                    }
+
+                    if (right != null) {
+                        boolean found = false;
+                        for (EntityFolder folder : folders)
+                            if (right.name.equals(folder.name)) {
+                                found = true;
+                                break;
+                            }
+                        if (!found) {
+                            right.type = EntityFolder.USER;
+                            folders.add(right);
+                        }
+                    }
+
                     db.folder().setFoldersUser(account.id);
 
                     for (EntityFolder folder : folders) {
@@ -980,6 +999,10 @@ public class FragmentAccount extends FragmentBase {
                             db.folder().setFolderLevel(existing.id, folder.level);
                         }
                     }
+
+                    account.swipe_left = (left == null ? null : left.id);
+                    account.swipe_right = (right == null ? null : right.id);
+                    db.account().updateAccount(account);
 
                     db.setTransactionSuccessful();
                 } finally {
