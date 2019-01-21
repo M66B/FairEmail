@@ -48,6 +48,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.FragmentTransaction;
 
 public class FragmentRule extends FragmentBase {
     private ViewGroup view;
@@ -270,7 +271,13 @@ public class FragmentRule extends FragmentBase {
                             etHeader.setText(jheader == null ? null : jheader.getString("value"));
                             cbHeader.setChecked(jheader != null && jheader.getBoolean("regex"));
 
-                            if (rule != null) {
+                            if (rule == null) {
+                                for (int pos = 0; pos < adapterIdentity.getCount(); pos++)
+                                    if (adapterIdentity.getItem(pos).primary) {
+                                        spIdent.setSelection(pos);
+                                        break;
+                                    }
+                            } else {
                                 int type = jaction.getInt("type");
                                 switch (type) {
                                     case EntityRule.TYPE_MOVE:
@@ -376,6 +383,13 @@ public class FragmentRule extends FragmentBase {
     }
 
     private void onActionSave() {
+        if (!Helper.isPro(getContext())) {
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+            fragmentTransaction.commit();
+            return;
+        }
+
         try {
             Helper.setViewsEnabled(view, false);
 

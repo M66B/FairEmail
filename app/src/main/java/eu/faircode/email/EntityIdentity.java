@@ -192,6 +192,6 @@ public class EntityIdentity {
     @NonNull
     @Override
     public String toString() {
-        return getDisplayName() + (primary ? " ★" : "");
+        return getDisplayName() + " <" + email + ">" + (primary ? " ★" : "");
     }
 }

@@ -2615,7 +2615,7 @@ public class ServiceSynchronize extends LifecycleService {
             db.folder().setFolderKeywords(folder.id, DB.Converters.fromStringArray(fkeywords.toArray(new String[0])));
         }
 
-        if (filter)
+        if (filter && Helper.isPro(context))
             try {
                 for (EntityRule rule : rules)
                     if (rule.matches(context, message, imessage)) {
