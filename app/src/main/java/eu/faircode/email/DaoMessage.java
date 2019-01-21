@@ -347,6 +347,12 @@ public interface DaoMessage {
             " WHERE id = :id")
     int setMessageSnoozed(long id, Long wakeup);
 
+    @Query("UPDATE message SET replying = :newid WHERE replying = :oldid")
+    int updateMessageReplying(long oldid, long newid);
+
+    @Query("UPDATE message SET forwarding = :newid WHERE forwarding = :oldid")
+    int updateMessageForwarding(long oldid, long newid);
+
     @Query("DELETE FROM message WHERE id = :id")
     int deleteMessage(long id);
 
