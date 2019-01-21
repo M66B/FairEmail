@@ -159,7 +159,7 @@
     <string name="title_account_name">Название учётной записи</string>
     <string name="title_account_name_hint">Используется для разграничения папок</string>
     <string name="title_account_prefix">Префикс пространства имен</string>
-    <string name="title_account_prefix_hint">Используется для сокращения имена папок</string>
+    <string name="title_account_prefix_hint">Используется для сокращения имён папок</string>
     <string name="title_account_signature">Текст подписи</string>
     <string name="title_account_color">Цвет</string>
     <string name="title_account_notify">Раздельные уведомления</string>
@@ -178,8 +178,8 @@
     <string name="title_authorize">Выбрать учетную запись</string>
     <string name="title_authorizing">Авторизация учетной записи &#8230;</string>
     <string name="title_setup_advanced">Дополнительные опции</string>
-    <string name="title_synchronize_account">Синхронизировать (получить сообщения)</string>
-    <string name="title_synchronize_identity">Синхронизация (отправленных сообщений)</string>
+    <string name="title_synchronize_account">Синхронизировать (получать сообщения)</string>
+    <string name="title_synchronize_identity">Синхронизировать (отправлять сообщения)</string>
     <string name="title_primary_account">Основная (учетная запись по умолчанию)</string>
     <string name="title_primary_identity">Основной (идентификатор по умолчанию)</string>
     <string name="title_keep_alive_interval">Интервал поддержания активности / опроса (минуты)</string>
@@ -212,7 +212,7 @@
     <string name="title_show_folders">Показать скрытые папки</string>
     <string name="title_hide_folder">Скрыть из списка</string>
     <string name="title_unified_folder">Показать в единой папке Входящие</string>
-    <string name="title_synchronize_folder">Синхронизировать (полученные сообщения)</string>
+    <string name="title_synchronize_folder">Синхронизировать (получать сообщения)</string>
     <string name="title_poll_folder">Периодическая проверка вместо непрерывной синхронизации</string>
     <string name="title_download_folder">Автоматически загружать текст сообщений и вложения</string>
     <string name="title_notify_folder">Уведомлять о новых сообщениях</string>
@@ -364,6 +364,7 @@
     <string name="title_legend_unified">Единый почтовый ящик</string>
     <string name="title_legend_archive">Архив</string>
     <string name="title_legend_trash">Корзина</string>
+    <string name="title_legend_junk">Спам</string>
     <string name="title_legend_primary_disconnected">Учетная запись отключена</string>
     <string name="title_legend_primary_connected">Учетная запись подключена</string>
     <string name="title_legend_thread">Диалог</string>
@@ -379,7 +380,7 @@
     <string name="title_legend_external_image">Внешнее изображение</string>
     <string name="title_legend_embedded_image">Встроенное изображение</string>
     <string name="title_legend_broken_image">Повреждённое изображение</string>
-    <string name="title_legend_download_off">Загрузить содержание сообщения по требованию </string>
+    <string name="title_legend_download_off">Загружать содержимое сообщения по требованию </string>
     <string name="title_legend_download_on">Автоматически загружать содержимое сообщения</string>
     <string name="title_legend_synchronize_on">Синхронизация вкл</string>
     <string name="title_legend_synchronize_off">Синхронизация выкл</string>

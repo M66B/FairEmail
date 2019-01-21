@@ -127,8 +127,10 @@
     <string name="title_advanced_debug">Debug</string>
     <string name="title_advanced_enabled_hint">Attiva o disattiva a livello globale la ricezione e l\'invio dei messaggi</string>
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>
+    <string name="title_advanced_browse_hint">Scarica più messaggi quando scorri verso il basso</string>
     <string name="title_advanced_unified_hint">Mostra cartelle in arrivo unificate o messaggi in arrivo unificati</string>
     <string name="title_advanced_threading_hint">Messaggi di gruppo relazionati a vicenda</string>
+    <string name="title_advanced_preview_hint">Disponibile solo quando è stato scaricato il testo del messaggio</string>
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni raggruppate quando tutti i messaggi sono archiviati, inviati o cestinati</string>
     <string name="title_advanced_sender_hint">La maggior parte dei fornitori non consente indirizzi mittente modificati</string>
     <string name="title_select">Seleziona &#8230;</string>
@@ -149,6 +151,8 @@
     <string name="title_account_signature">Testo della firma</string>
     <string name="title_account_color">Colore</string>
     <string name="title_account_notify">Notifiche separate</string>
+    <string name="title_account_left">Scorri a sinistra</string>
+    <string name="title_account_right">Scorri a destra</string>
     <string name="title_domain">Nome dominio</string>
     <string name="title_autoconfig">Ottieni impostazioni</string>
     <string name="title_provider">Fornitore</string>
@@ -254,6 +258,7 @@
     <string name="title_no_stream">Un\'app obsoleta ha inviato un percorso file invece di un flusso di file</string>
     <string name="title_no_contacts">Selettore di contatti non disponibile</string>
     <string name="title_no_internet">Nessuna connessione Internet</string>
+    <string name="title_no_cross_account">Il passaggio a un altro account non è supportato</string>
     <string name="title_raw_saved">Messaggio non elaborato salvato</string>
     <string name="title_attachment_saved">Allegato salvato</string>
     <string name="title_attachments_saved">Allegati salvati</string>
@@ -347,6 +352,7 @@
     <string name="title_legend_unified">Posta in arrivo unificata</string>
     <string name="title_legend_archive">Archivio</string>
     <string name="title_legend_trash">Cestino</string>
+    <string name="title_legend_junk">Posta indesiderata</string>
     <string name="title_legend_primary_disconnected">Account disconnesso</string>
     <string name="title_legend_primary_connected">Account connesso</string>
     <string name="title_legend_thread">Conversazione</string>

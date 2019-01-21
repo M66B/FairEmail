@@ -151,6 +151,8 @@
     <string name="title_account_signature">Signaturtext</string>
     <string name="title_account_color">Farbe</string>
     <string name="title_account_notify">Separate Benachrichtigungen</string>
+    <string name="title_account_left">Nach links wischen</string>
+    <string name="title_account_right">Nach rechts wischen</string>
     <string name="title_domain">Domainname</string>
     <string name="title_autoconfig">Einstellungen abrufen</string>
     <string name="title_provider">Anbieter</string>
@@ -347,6 +349,7 @@
     <string name="title_legend_unified">Sammeleingang</string>
     <string name="title_legend_archive">Archiv</string>
     <string name="title_legend_trash">Papierkorb</string>
+    <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary_disconnected">Konto getrennt</string>
     <string name="title_legend_primary_connected">Konto verbunden</string>
     <string name="title_legend_thread">Konversation</string>

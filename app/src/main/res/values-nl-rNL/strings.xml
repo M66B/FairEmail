@@ -352,6 +352,7 @@
     <string name="title_legend_unified">Gecombineerd postvak in</string>
     <string name="title_legend_archive">Archief</string>
     <string name="title_legend_trash">Prullenbak</string>
+    <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary_disconnected">Account niet verbonden</string>
     <string name="title_legend_primary_connected">Account verbonden</string>
     <string name="title_legend_thread">Gesprek</string>

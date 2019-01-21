@@ -127,8 +127,10 @@
     <string name="title_advanced_debug">Débogage</string>
     <string name="title_advanced_enabled_hint">Désactiver ou activer globalement la réception et l\'envoi de messages</string>
     <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>
+    <string name="title_advanced_browse_hint">Télécharger plus de messages en faisant défiler vers le bas</string>
     <string name="title_advanced_unified_hint">Afficher les dossiers de la boîte de réception unifiée ou les messages de la boîte de réception unifiée</string>
     <string name="title_advanced_threading_hint">Groupe de messages liés les uns aux autres</string>
+    <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
     <string name="title_advanced_autoclose_hint">Fermer automatiquement les fils de conversation quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n\'autorisent pas les adresses d\'expéditeur modifiées</string>
     <string name="title_select">Sélectionner &#8230;</string>
@@ -149,6 +151,8 @@
     <string name="title_account_signature">Texte de la signature</string>
     <string name="title_account_color">Couleur</string>
     <string name="title_account_notify">Notifications séparées</string>
+    <string name="title_account_left">Balayer vers la gauche</string>
+    <string name="title_account_right">Balayer vers la droite</string>
     <string name="title_domain">Nom de domaine</string>
     <string name="title_autoconfig">Obtenir les paramètres</string>
     <string name="title_provider">Fournisseur</string>
@@ -254,6 +258,7 @@
     <string name="title_no_stream">Une application obsolète a envoyé un chemin d\'accès au lieu d\'un flux de fichier</string>
     <string name="title_no_contacts">Sélecteur de contact non disponible</string>
     <string name="title_no_internet">Pas de connexion Internet</string>
+    <string name="title_no_cross_account">Le déplacement vers un autre compte n’est pas pris en charge</string>
     <string name="title_raw_saved">Message brut enregistré</string>
     <string name="title_attachment_saved">Pièce jointe enregistrée</string>
     <string name="title_attachments_saved">Pièces jointes enregistrées</string>
@@ -347,6 +352,7 @@
     <string name="title_legend_unified">Boite de réception unifiée</string>
     <string name="title_legend_archive">Archives</string>
     <string name="title_legend_trash">Corbeille</string>
+    <string name="title_legend_junk">Courrier indésirable</string>
     <string name="title_legend_primary_disconnected">Compte déconnecté</string>
     <string name="title_legend_primary_connected">Compte connecté</string>
     <string name="title_legend_thread">Fil de discussion</string>

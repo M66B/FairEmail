@@ -127,8 +127,10 @@
     <string name="title_advanced_debug">Modo de depuración</string>
     <string name="title_advanced_enabled_hint">Desactivar o activar globalmente la recepción y envío de mensajes</string>
     <string name="title_advanced_metered_hint">Las conexiones medidas son generalmente conexiones móviles o puntos de acceso Wi-Fi de pago</string>
+    <string name="title_advanced_browse_hint">Buscar más mensajes al desplazarse hacia abajo</string>
     <string name="title_advanced_unified_hint">Mostrar carpetas de bandeja de entrada unificada o mensajes de bandeja de entrada unificada</string>
     <string name="title_advanced_threading_hint">Agrupar mensajes relacionados entre sí</string>
+    <string name="title_advanced_preview_hint">Sólo disponible cuando el texto del mensaje fue descargado</string>
     <string name="title_advanced_autoclose_hint">Cerrar automáticamente hilos de conversación cuando todos los mensajes son archivados, enviados o eliminados</string>
     <string name="title_advanced_sender_hint">La mayoría de los proveedores no permiten direcciones de remitente modificadas</string>
     <string name="title_select">Seleccione &#8230;</string>
@@ -149,6 +151,8 @@
     <string name="title_account_signature">Texto de la firma</string>
     <string name="title_account_color">Color</string>
     <string name="title_account_notify">Notificaciones separadas</string>
+    <string name="title_account_left">Deslizar a la izquierda</string>
+    <string name="title_account_right">Deslizar hacia la derecha</string>
     <string name="title_domain">Nombre de dominio</string>
     <string name="title_autoconfig">Obtener ajustes</string>
     <string name="title_provider">Proveedor</string>
@@ -254,6 +258,7 @@
     <string name="title_no_stream">Una app obsoleta ha enviado la ruta a un archivo en lugar de una secuencia de archivos</string>
     <string name="title_no_contacts">Selector de contactos no disponible</string>
     <string name="title_no_internet">No hay conexión a internet</string>
+    <string name="title_no_cross_account">Mover a otra cuenta no está soportado</string>
     <string name="title_raw_saved">Mensaje raw guardado</string>
     <string name="title_attachment_saved">Adjunto guardado</string>
     <string name="title_attachments_saved">Adjuntos guardados</string>
@@ -347,6 +352,7 @@
     <string name="title_legend_unified">Bandeja de entrada unificada</string>
     <string name="title_legend_archive">Archivo</string>
     <string name="title_legend_trash">Papelera</string>
+    <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary_disconnected">Cuenta desconectada</string>
     <string name="title_legend_primary_connected">Cuenta conectada</string>
     <string name="title_legend_thread">Conversación</string>
