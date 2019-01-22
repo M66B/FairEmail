@@ -589,6 +589,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
 
+        <CheckBox
+            android:id="@+id/cbInline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="@string/title_show_inline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvAttachment" />
+
         <Button
             android:id="@+id/btnDownloadAttachments"
             style="?android:attr/buttonStyleSmall"
@@ -598,7 +607,7 @@
             android:minHeight="0dp"
             android:text="@string/title_download_all"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rvAttachment" />
+            app:layout_constraintTop_toBottomOf="@id/cbInline" />
 
         <Button
             android:id="@+id/btnSaveAttachments"
@@ -609,7 +618,7 @@
             android:minHeight="0dp"
             android:text="@string/title_save_all"
             app:layout_constraintEnd_toEndOf="@id/rvAttachment"
-            app:layout_constraintTop_toBottomOf="@id/rvAttachment" />
+            app:layout_constraintTop_toBottomOf="@id/cbInline" />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier_internet"

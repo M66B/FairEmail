@@ -60,6 +60,8 @@ import android.view.TouchDelegate;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -190,6 +192,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvNoInternetHeaders;
 
         private RecyclerView rvAttachment;
+        private CheckBox cbInline;
         private Button btnDownloadAttachments;
         private Button btnSaveAttachments;
         private TextView tvNoInternetAttachments;
@@ -266,6 +269,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             adapterAttachment = new AdapterAttachment(context, owner, true);
             rvAttachment.setAdapter(adapterAttachment);
 
+            cbInline = itemView.findViewById(R.id.cbInline);
             btnDownloadAttachments = itemView.findViewById(R.id.btnDownloadAttachments);
             btnSaveAttachments = itemView.findViewById(R.id.btnSaveAttachments);
             tvNoInternetAttachments = itemView.findViewById(R.id.tvNoInternetAttachments);
@@ -388,6 +392,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbHeaders.setVisibility(View.GONE);
             tvNoInternetHeaders.setVisibility(View.GONE);
 
+            cbInline.setVisibility(View.GONE);
             btnDownloadAttachments.setVisibility(View.GONE);
             btnSaveAttachments.setVisibility(View.GONE);
             tvNoInternetAttachments.setVisibility(View.GONE);
@@ -548,6 +553,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivBrowsed.setVisibility(message.ui_browsed ? View.VISIBLE : View.GONE);
             ivAnswered.setVisibility(message.ui_answered ? View.VISIBLE : View.GONE);
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
+            cbInline.setVisibility(View.GONE);
             btnDownloadAttachments.setVisibility(View.GONE);
             btnSaveAttachments.setVisibility(View.GONE);
             tvNoInternetAttachments.setVisibility(View.GONE);
@@ -705,23 +711,43 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             attachments = new ArrayList<>();
                         idAttachments.put(message.id, attachments);
 
-                        adapterAttachment.set(attachments);
+                        boolean show_inline = properties.getValue("inline", message.id);
+                        Log.i("Show inline=" + show_inline);
 
+                        boolean inline = false;
                         boolean download = false;
                         boolean save = (attachments.size() > 1);
                         boolean downloading = false;
+                        List<EntityAttachment> a = new ArrayList<>();
                         for (EntityAttachment attachment : attachments) {
+                            if (attachment.isInline())
+                                inline = true;
                             if (attachment.progress == null && !attachment.available)
                                 download = true;
                             if (!attachment.available)
                                 save = false;
                             if (attachment.progress != null)
                                 downloading = true;
+                            if (show_inline || !attachment.isInline())
+                                a.add(attachment);
                         }
+                        adapterAttachment.set(a);
 
+                        cbInline.setOnCheckedChangeListener(null);
+                        cbInline.setChecked(show_inline);
+                        cbInline.setVisibility(inline ? View.VISIBLE : View.GONE);
                         btnDownloadAttachments.setVisibility(download && internet ? View.VISIBLE : View.GONE);
                         btnSaveAttachments.setVisibility(save ? View.VISIBLE : View.GONE);
                         tvNoInternetAttachments.setVisibility(downloading && !internet ? View.VISIBLE : View.GONE);
+
+                        cbInline.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                            @Override
+                            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                properties.setValue("inline", message.id, isChecked);
+                                liveAttachments.removeObserver(observerAttachments);
+                                liveAttachments.observe(owner, observerAttachments);
+                            }
+                        });
 
                         List<EntityAttachment> images = new ArrayList<>();
                         for (EntityAttachment attachment : attachments)
