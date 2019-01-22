@@ -33,7 +33,6 @@ This app starts a foreground service with a low priority status bar notification
 
 ## Pro features
 
-* Signatures
 * Account/identity colors
 * Notifications per account
 * Notifications with message preview (requires Android 7 Nougat or later)

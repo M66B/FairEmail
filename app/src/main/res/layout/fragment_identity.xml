@@ -147,19 +147,9 @@
             android:hint="@string/title_optional"
             android:inputType="textCapSentences|textMultiLine"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintEnd_toStartOf="@+id/ibPro"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSignature" />
-
-        <ImageButton
-            android:id="@+id/ibPro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:src="@drawable/baseline_info_24"
-            app:layout_constraintBottom_toBottomOf="@id/etSignature"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/etSignature" />
 
         <Button
             android:id="@+id/btnHtml"

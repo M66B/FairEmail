@@ -49,7 +49,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -88,7 +87,6 @@ public class FragmentIdentity extends FragmentBase {
     private View vwColor;
     private ImageView ibColorDefault;
     private EditText etSignature;
-    private ImageButton ibPro;
     private Button btnHtml;
 
     private Button btnAdvanced;
@@ -151,7 +149,6 @@ public class FragmentIdentity extends FragmentBase {
         vwColor = view.findViewById(R.id.vwColor);
         ibColorDefault = view.findViewById(R.id.ibColorDefault);
         etSignature = view.findViewById(R.id.etSignature);
-        ibPro = view.findViewById(R.id.ibPro);
         btnHtml = view.findViewById(R.id.btnHtml);
 
         btnAdvanced = view.findViewById(R.id.btnAdvanced);
@@ -293,16 +290,6 @@ public class FragmentIdentity extends FragmentBase {
             @Override
             public void onClick(View v) {
                 setColor(Color.TRANSPARENT);
-            }
-        });
-
-        ibPro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.hide(FragmentIdentity.this);
-                fragmentTransaction.add(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-                fragmentTransaction.commit();
             }
         });
 
@@ -766,17 +753,6 @@ public class FragmentIdentity extends FragmentBase {
                 Helper.setViewsEnabled(view, true);
 
                 setColor(color);
-
-                boolean pro = Helper.isPro(getContext());
-                etSignature.setHint(pro ? R.string.title_optional : R.string.title_pro_feature);
-                etSignature.setEnabled(pro);
-                if (pro) {
-                    ViewGroup.LayoutParams lp = ibPro.getLayoutParams();
-                    lp.height = 0;
-                    lp.width = 0;
-                    ibPro.setLayoutParams(lp);
-                }
-                btnHtml.setEnabled(pro);
 
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
 
