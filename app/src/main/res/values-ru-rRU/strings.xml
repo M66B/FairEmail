@@ -324,6 +324,7 @@
     <string name="title_not_encrypted">Сообщение не зашифровано</string>
     <string name="title_search">Поиск</string>
     <string name="title_search_hint">Поиск на сервере</string>
+    <string name="title_search_device">Поиск на устройстве</string>
     <string name="title_searching">Поиск \'%1$s\'</string>
     <string name="title_sort_on">Сортировать по</string>
     <string name="title_sort_on_time">Время</string>

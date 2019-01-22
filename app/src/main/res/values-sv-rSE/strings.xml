@@ -105,6 +105,7 @@
     <string name="title_advanced_download">Automatiskt hämta meddelanden och bilagor på en uppmätt anslutning upp till</string>
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
     <string name="title_advanced_unified">Samlad inkorg</string>
+    <string name="title_advanced_date_header">Gruppera efter datum</string>
     <string name="title_advanced_threading">Konversationstrådar</string>
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
     <string name="title_advanced_identicons">Visa identicons</string>
@@ -301,6 +302,7 @@
     <string name="title_not_encrypted">Meddelandet är inte krypterat</string>
     <string name="title_search">Sök</string>
     <string name="title_search_hint">Sök på server</string>
+    <string name="title_search_device">Sök på enhet</string>
     <string name="title_searching">Söker \'%1$s\'</string>
     <string name="title_sort_on">Sortera på</string>
     <string name="title_sort_on_time">Tid</string>
@@ -330,6 +332,8 @@
     <string name="title_rule_folder">Mapp</string>
     <string name="title_rule_identity">Identitet</string>
     <string name="title_rule_answer">Svarsmall</string>
+    <string name="title_rule_name_missing">Regelnamn saknas</string>
+    <string name="title_rule_condition_missing">Tillstånd saknas</string>
     <string name="title_action_seen">Märk som läst</string>
     <string name="title_action_trash">Papperskorg</string>
     <string name="title_legend_inbox">Inkorg</string>
@@ -345,6 +349,7 @@
     <string name="title_legend_attachment">Bilaga</string>
     <string name="title_legend_draft">Utkast/redigera</string>
     <string name="title_legend_snoozed">Slumrade</string>
+    <string name="title_legend_browsed">Bläddrad eller sökt</string>
     <string name="title_legend_answered">Besvarad</string>
     <string name="title_legend_contacts">Kontakter</string>
     <string name="title_legend_view">Visa innehåll</string>
@@ -356,7 +361,7 @@
     <string name="title_legend_download_on">Hämta meddelandeinnehåll automatiskt</string>
     <string name="title_legend_synchronize_on">Synkronisera nu</string>
     <string name="title_legend_synchronize_off">Synkronisera av</string>
-    <string name="title_legend_primary">Primär/stjärnmärkta</string>
+    <string name="title_legend_primary">Primär/stjärnmärkt</string>
     <string name="title_legend_disconnected">Frånkopplad</string>
     <string name="title_legend_connecting">Ansluter</string>
     <string name="title_legend_connected">Ansluten</string>
@@ -387,6 +392,7 @@
     <string name="title_report">Rapportera</string>
     <string name="title_no_ask_again">Fråga inte detta igen</string>
     <string name="title_no_adobe">Adobe Acrobat reader kan inte säkert öppna delade filer, se FAQ för mer information</string>
+    <string name="title_no_body">Ingen meddelandetext hittades</string>
     <string name="title_no_charset">Kodningen stöds inte: %1$s</string>
     <string name="title_try">Prova FairEmail, en e-postapp för Android med öppen källkod som respekterar din integritet</string>
     <string name="title_pro_feature">Detta är en pro-funktion</string>
