@@ -29,6 +29,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -58,6 +59,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private long account;
     private boolean debug;
     private int dp12;
+    private float textSize;
     private int colorUnread;
     private int textColorSecondary;
 
@@ -118,6 +120,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private void bindTo(TupleFolderEx folder) {
             itemView.setActivated(folder.tbd != null);
             itemView.setAlpha(folder.hide ? 0.5f : 1.0f);
+
+            if (textSize != 0)
+                tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
 
             vwColor.setBackgroundColor(folder.accountColor == null ? Color.TRANSPARENT : folder.accountColor);
             vwColor.setVisibility(account < 0 ? View.VISIBLE : View.GONE);
@@ -400,9 +405,15 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         this.owner = owner;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean compact = prefs.getBoolean("compact", false);
+        int zoom = prefs.getInt("zoom", compact ? 0 : 1);
+        if (zoom == 0)
+            zoom = 1;
+
         this.debug = prefs.getBoolean("debug", false);
 
         this.dp12 = Helper.dp2pixels(context, 12);
+        this.textSize = Helper.getTextSize(context, zoom);
         this.colorUnread = Helper.resolveColor(context, R.attr.colorUnread);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
 
