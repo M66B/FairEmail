@@ -53,6 +53,7 @@ import java.io.InputStream;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.Lifecycle;
 
 // https://developer.android.com/reference/android/webkit/WebView
 
@@ -86,11 +87,13 @@ public class FragmentWebView extends FragmentBase {
                 if (prefs.getBoolean("webview", false)) {
                     view.loadUrl(url);
                     setSubtitle(url);
-                    return false;
                 } else {
-                    Helper.view(getContext(), getViewLifecycleOwner(), Uri.parse(url), true);
-                    return true;
+                    if (getViewLifecycleOwner().getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
+                        Helper.view(getContext(), getViewLifecycleOwner(), Uri.parse(url), true);
+                        return true;
+                    }
                 }
+                return false;
             }
         });
 
