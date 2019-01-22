@@ -108,6 +108,7 @@
             android:minHeight="24dp"
             android:text="type"
             android:textAppearance="@android:style/TextAppearance.Small"
+            android:textStyle="italic"
             app:layout_constraintEnd_toStartOf="@+id/tvAfter"
             app:layout_constraintStart_toEndOf="@id/vwLevel"
             app:layout_constraintTop_toBottomOf="@id/tvName" />
