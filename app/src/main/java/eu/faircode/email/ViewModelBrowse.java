@@ -94,24 +94,22 @@ public class ViewModelBrowse extends ViewModel {
             return;
 
         DB db = DB.getInstance(state.context);
-        final EntityFolder folder = db.folder().getFolder(state.fid);
-        if (folder == null) // unified inbox
+        final List<EntityFolder> folders = db.folder().getFolders(
+                state.fid < 0 ? null : state.fid, state.search == null);
+        Log.i("Search fid=" + (state.fid < 0 ? null : state.fid) + " browse=" + (state.search == null) + " count=" + folders.size());
+        if (folders.size() == 0)
             return;
-        if (folder.account == null) // outbox
-            return;
-
-        if (state.search == null) {
-            EntityAccount account = db.account().getAccount(folder.account);
-            if (!account.browse)
-                return;
-        }
 
         if (state.search != null)
             try {
                 db.beginTransaction();
 
-                if (state.messages == null)
-                    state.messages = db.message().getMessageByFolder(state.fid);
+                if (state.messages == null) {
+                    state.messages = new ArrayList<>();
+                    for (EntityFolder folder : folders)
+                        state.messages.addAll(db.message().getMessageByFolder(folder.id));
+                    Log.i("Messages=" + state.messages.size());
+                }
 
                 int matched = 0;
                 for (int i = state.local; i < state.messages.size() && matched < state.pageSize; i++) {
@@ -154,10 +152,11 @@ public class ViewModelBrowse extends ViewModel {
                 db.endTransaction();
             }
 
-        if (state.imessages == null) {
-            if (folder.account == null) // outbox
-                return;
+        if (folders.size() > 1)
+            return;
 
+        final EntityFolder folder = folders.get(0);
+        if (state.imessages == null) {
             EntityAccount account = db.account().getAccount(folder.account);
 
             try {
@@ -292,7 +291,7 @@ public class ViewModelBrowse extends ViewModel {
                     try {
                         long uid = state.ifolder.getUID(isub[j]);
                         Log.i("Boundary sync uid=" + uid);
-                        EntityMessage message = db.message().getMessageByUid(state.fid, uid);
+                        EntityMessage message = db.message().getMessageByUid(folder.id, uid);
                         if (message == null) {
                             message = ServiceSynchronize.synchronizeMessage(state.context,
                                     folder, state.ifolder, (IMAPMessage) isub[j],

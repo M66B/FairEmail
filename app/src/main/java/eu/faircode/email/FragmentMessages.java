@@ -1515,7 +1515,7 @@ public class FragmentMessages extends FragmentBase {
             menuSearch.expandActionView();
 
         final SearchView searchView = (SearchView) menuSearch.getActionView();
-        searchView.setQueryHint(getString(R.string.title_search_hint));
+        searchView.setQueryHint(getString(folder < 0 ? R.string.title_search_device : R.string.title_search_hint));
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -1573,8 +1573,7 @@ public class FragmentMessages extends FragmentBase {
 
         boolean selection = (selectionTracker != null && selectionTracker.hasSelection());
 
-        menu.findItem(R.id.menu_search).setVisible(
-                folder >= 0 && viewType != AdapterMessage.ViewType.SEARCH);
+        menu.findItem(R.id.menu_search).setVisible(viewType != AdapterMessage.ViewType.SEARCH);
 
         menu.findItem(R.id.menu_folders).setVisible(primary >= 0);
         menu.findItem(R.id.menu_folders).setIcon(connected ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24);
@@ -1720,7 +1719,7 @@ public class FragmentMessages extends FragmentBase {
         switch (viewType) {
             case UNIFIED:
                 builder = new LivePagedListBuilder<>(
-                        db.message().pagedUnifiedInbox(threading, sort, snoozed, debug), LOCAL_PAGE_SIZE);
+                        db.message().pagedUnifiedInbox(threading, sort, snoozed, false, debug), LOCAL_PAGE_SIZE);
                 break;
 
             case FOLDER:
@@ -1793,8 +1792,12 @@ public class FragmentMessages extends FragmentBase {
                         .setPageSize(LOCAL_PAGE_SIZE)
                         .setPrefetchDistance(REMOTE_PAGE_SIZE)
                         .build();
-                builder = new LivePagedListBuilder<>(
-                        db.message().pagedFolder(folder, threading, "time", snoozed, true, false), configSearch);
+                if (folder < 0)
+                    builder = new LivePagedListBuilder<>(
+                            db.message().pagedUnifiedInbox(threading, "time", snoozed, true, debug), configSearch);
+                else
+                    builder = new LivePagedListBuilder<>(
+                            db.message().pagedFolder(folder, threading, "time", snoozed, true, debug), configSearch);
                 builder.setBoundaryCallback(searchCallback);
                 break;
         }

@@ -63,7 +63,8 @@ public interface DaoMessage {
             " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
             " AND (NOT message.ui_hide OR :debug)" +
-            " AND (:snoozed OR ui_snoozed IS NULL)" +
+            " AND (:snoozed OR :found OR ui_snoozed IS NULL)" +
+            " AND (NOT :found OR ui_found = :found)" +
             " GROUP BY account.id, CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING SUM(unified) > 0" +
             " ORDER BY" +
@@ -74,7 +75,7 @@ public interface DaoMessage {
             "  ELSE 0" +
             " END DESC, message.received DESC")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
-    DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(boolean threading, String sort, boolean snoozed, boolean debug);
+    DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(boolean threading, String sort, boolean snoozed, boolean found, boolean debug);
 
     String unseen_folder = "SUM(CASE WHEN message.ui_seen" +
             "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.ARCHIVE + "')" +

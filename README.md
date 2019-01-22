@@ -42,7 +42,7 @@ This app starts a foreground service with a low priority status bar notification
 * Send messages after selected time
 * Reply templates
 * Filter rules
-* Search on server
+* Search on device or server
 * Keyword management
 * Encryption/decryption ([OpenPGP](https://www.openpgp.org/))
 * Export settings

@@ -359,6 +359,7 @@
 
     <string name="title_search">Search</string>
     <string name="title_search_hint">Search on server</string>
+    <string name="title_search_device">Search on device</string>
     <string name="title_searching">Searching \'%1$s\'</string>
 
     <string name="title_sort_on">Sort on</string>

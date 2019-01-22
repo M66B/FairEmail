@@ -49,6 +49,14 @@ public interface DaoFolder {
             " WHERE account.synchronize AND folder.synchronize AND unified")
     List<EntityFolder> getFoldersSynchronizingUnified();
 
+    @Query("SELECT folder.* FROM folder" +
+            " JOIN account ON account.id = folder.account" +
+            " WHERE ((:folder IS NULL AND unified) OR (NOT :folder is NULL AND folder.id = :folder))" +
+            " AND folder.synchronize" +
+            " AND account.synchronize" +
+            " AND (NOT :browse OR account.browse)")
+    List<EntityFolder> getFolders(Long folder, boolean browse);
+
     @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
