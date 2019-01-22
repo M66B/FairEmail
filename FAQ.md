@@ -225,6 +225,10 @@ In the display section of the advanced settings you can enable or disable:
 * *Show message preview*: to show two lines of the message text
 * *Show address details by default*: to collapse the addresses section by default
 
+Note that messages can be previewed only when the message text was downloaded.
+Larger message texts are not downloaded by default on metered (generally mobile) networks.
+You can change this in the advanced options.
+
 If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
 
 Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
