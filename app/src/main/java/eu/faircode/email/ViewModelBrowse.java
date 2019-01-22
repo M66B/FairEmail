@@ -21,12 +21,15 @@ package eu.faircode.email;
 
 import android.content.Context;
 
+import com.sun.mail.iap.Argument;
+import com.sun.mail.iap.Response;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
+import com.sun.mail.imap.protocol.IMAPProtocol;
+import com.sun.mail.imap.protocol.IMAPResponse;
 
 import java.io.IOException;
-import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -91,7 +94,7 @@ public class ViewModelBrowse extends ViewModel {
             return;
 
         DB db = DB.getInstance(state.context);
-        EntityFolder folder = db.folder().getFolder(state.fid);
+        final EntityFolder folder = db.folder().getFolder(state.fid);
         if (folder == null) // unified inbox
             return;
         if (folder.account == null) // outbox
@@ -175,14 +178,80 @@ public class ViewModelBrowse extends ViewModel {
                     state.imessages = state.ifolder.getMessages();
                 else {
                     try {
-                        state.imessages = state.ifolder.search(
-                                getSearchTerm(state.search, folder.keywords.length > 0));
-                    } catch (MessagingException ex) {
-                        String search = Normalizer
-                                .normalize(state.search, Normalizer.Form.NFD)
-                                .replaceAll("[^\\p{ASCII}]", "");
-                        state.imessages = state.ifolder.search(
-                                getSearchTerm(search, folder.keywords.length > 0));
+                        SearchTerm term = new OrTerm(
+                                new OrTerm(
+                                        new FromStringTerm(state.search),
+                                        new RecipientStringTerm(Message.RecipientType.TO, state.search)
+                                ),
+                                new OrTerm(
+                                        new SubjectTerm(state.search),
+                                        new BodyTerm(state.search)
+                                )
+                        );
+
+                        if (folder.keywords.length > 0)
+                            term = new OrTerm(term, new FlagTerm(
+                                    new Flags(Helper.sanitizeKeyword(state.search)), true));
+
+                        state.imessages = state.ifolder.search(term);
+                    } catch (final MessagingException ex) {
+                        Object result = state.ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
+                            @Override
+                            public Object doCommand(IMAPProtocol protocol) {
+                                try {
+                                    if (!protocol.supportsUtf8())
+                                        throw ex;
+
+                                    // SEARCH OR OR FROM "x" TO "x" OR SUBJECT "x" BODY "x" ALL
+                                    // SEARCH OR OR OR FROM "x" TO "x" OR SUBJECT "x" BODY "x" (KEYWORD x) ALL
+                                    Argument a = new Argument();
+                                    a.writeAtom("OR");
+                                    a.writeAtom("OR");
+                                    a.writeAtom("FROM");
+                                    a.writeBytes(state.search.getBytes());
+                                    a.writeAtom("TO");
+                                    a.writeBytes(state.search.getBytes());
+                                    a.writeAtom("OR");
+                                    a.writeAtom("SUBJECT");
+                                    a.writeBytes(state.search.getBytes());
+                                    a.writeAtom("BODY");
+                                    a.writeBytes(state.search.getBytes());
+                                    a.writeAtom("ALL");
+                                    Response[] responses = protocol.command("SEARCH", a);
+
+                                    int msgnum;
+                                    List<Integer> msgnums = new ArrayList<>();
+                                    for (int i = 0; i < responses.length; i++) {
+                                        if (responses[i] instanceof IMAPResponse) {
+                                            IMAPResponse ir = (IMAPResponse) responses[i];
+                                            if (ir.keyEquals("SEARCH")) {
+                                                while ((msgnum = ir.readNumber()) != -1)
+                                                    msgnums.add(msgnum);
+                                            }
+                                        } else {
+                                            if (responses[i].isOK())
+                                                Log.i(folder.name + " response=" + responses[i]);
+                                            else
+                                                throw new MessagingException(responses[i].toString());
+                                        }
+                                    }
+
+                                    Message[] imessages = new Message[msgnums.size()];
+                                    for (int i = 0; i < msgnums.size(); i++)
+                                        imessages[i] = state.ifolder.getMessage(msgnums.get(i));
+
+                                    return imessages;
+                                } catch (MessagingException ex) {
+                                    Log.e(ex);
+                                    return ex;
+                                }
+                            }
+                        });
+
+                        if (result instanceof Throwable)
+                            throw (MessagingException) result;
+
+                        state.imessages = (Message[]) result;
                     }
                 }
                 Log.i("Boundary found messages=" + state.imessages.length);
@@ -257,25 +326,6 @@ public class ViewModelBrowse extends ViewModel {
         }
 
         Log.i("Boundary done");
-    }
-
-    private SearchTerm getSearchTerm(String search, boolean keywords) {
-        SearchTerm term = new OrTerm(
-                new OrTerm(
-                        new FromStringTerm(search),
-                        new RecipientStringTerm(Message.RecipientType.TO, search)
-                ),
-                new OrTerm(
-                        new SubjectTerm(search),
-                        new BodyTerm(search)
-                )
-        );
-
-        if (keywords)
-            term = new OrTerm(term, new FlagTerm(
-                    new Flags(Helper.sanitizeKeyword(search)), true));
-
-        return term;
     }
 
     void clear() {
