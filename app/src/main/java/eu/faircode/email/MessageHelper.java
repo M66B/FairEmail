@@ -152,6 +152,7 @@ public class MessageHelper {
         props.put("mail.smtp.writetimeout", Integer.toString(NETWORK_TIMEOUT)); // one thread overhead
         props.put("mail.smtp.timeout", Integer.toString(NETWORK_TIMEOUT));
 
+        props.put("mail.mime.allowutf8", "true");
         props.put("mail.mime.address.strict", "false");
         props.put("mail.mime.decodetext.strict", "false");
 
