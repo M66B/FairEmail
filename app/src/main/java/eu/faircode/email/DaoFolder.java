@@ -52,10 +52,11 @@ public interface DaoFolder {
     @Query("SELECT folder.* FROM folder" +
             " JOIN account ON account.id = folder.account" +
             " WHERE ((:folder IS NULL AND unified) OR (NOT :folder is NULL AND folder.id = :folder))" +
-            " AND folder.synchronize" +
+            " AND :search" +
+            " OR (folder.synchronize" +
             " AND account.synchronize" +
-            " AND (NOT :browse OR account.browse)")
-    List<EntityFolder> getFolders(Long folder, boolean browse);
+            " AND account.browse)")
+    List<EntityFolder> getFolders(Long folder, boolean search);
 
     @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
