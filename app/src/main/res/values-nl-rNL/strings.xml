@@ -105,6 +105,7 @@
     <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
     <string name="title_advanced_browse">Blader door berichten op de server</string>
     <string name="title_advanced_unified">Gecombineerd postvak in</string>
+    <string name="title_advanced_date_header">Op datum groeperen</string>
     <string name="title_advanced_threading">Gesprekken groeperen</string>
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
     <string name="title_advanced_identicons">Toon identicons</string>
@@ -239,6 +240,7 @@
     <string name="title_raw_save">Ruw bericht opslaan</string>
     <string name="title_manage_keywords">Trefwoorden beheren</string>
     <string name="title_add_keyword">Trefwoord toevoegen</string>
+    <string name="title_show_inline">Toon inline bijlagen</string>
     <string name="title_download_all">Alles downloaden</string>
     <string name="title_save_all">Alles opslaan</string>
     <string name="title_show_html">Toon origineel</string>

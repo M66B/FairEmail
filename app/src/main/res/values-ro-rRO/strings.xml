@@ -157,6 +157,8 @@
     <string name="title_account_signature">Text semnătură</string>
     <string name="title_account_color">Culoare</string>
     <string name="title_account_notify">Separă notificările</string>
+    <string name="title_account_left">Glisare spre stânga</string>
+    <string name="title_account_right">Glisare spre dreapta</string>
     <string name="title_domain">Nume domeniu</string>
     <string name="title_autoconfig">Obține setări</string>
     <string name="title_provider">Furnizor</string>
@@ -356,6 +358,7 @@
     <string name="title_legend_unified">Căsuță poștală comună</string>
     <string name="title_legend_archive">Arhivă</string>
     <string name="title_legend_trash">Gunoi</string>
+    <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary_disconnected">Cont deconectat</string>
     <string name="title_legend_primary_connected">Cont conectat</string>
     <string name="title_legend_thread">Conversație</string>

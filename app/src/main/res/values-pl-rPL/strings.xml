@@ -67,12 +67,14 @@
     <string name="title_setup_password_invalid">Nieprawidłowe hasło</string>
     <string name="title_setup_exported">Ustawienia wyeksportowane</string>
     <string name="title_setup_imported">Ustawienia zaimportowane</string>
+    <string name="title_setup_quick">Szybkie ustawienia</string>
     <string name="title_setup_no_settings">Nie znaleziono ustawień dla \'%1$s\'</string>
     <string name="title_setup_manage">Zarządzaj</string>
     <string name="title_setup_account">Skonfiguruj konta</string>
     <string name="title_setup_account_remark">Do odebrania poczty</string>
     <string name="title_setup_identity">Skonfiguruj tożsamości</string>
     <string name="title_setup_identity_remark">Do wysłania poczty</string>
+    <string name="title_setup_permissions">Przyznaj uprawnienia</string>
     <string name="title_setup_permissions_remark">Do dostępu do informacji kontaktowych (opcjonalnie)</string>
     <string name="title_setup_doze">Skonfiguruj optymalizacje baterii</string>
     <string name="title_setup_doze_remark">Do ciągłego sprawdzania e-mail (opcjonalnie)</string>
@@ -84,6 +86,7 @@
     <string name="title_setup_light_theme">Jasny motyw</string>
     <string name="title_setup_dark_theme">Ciemny motyw</string>
     <string name="title_setup_black_theme">Czarny motyw</string>
+    <string name="title_setup_defaults">Przywróć domyślne</string>
     <string name="title_advanced">Opcje zaawansowane</string>
     <string name="title_advanced_section_general">Ogólne</string>
     <string name="title_advanced_section_connection">Połączenie</string>
@@ -125,6 +128,8 @@
     <string name="title_account_signature">Tekst podpisu</string>
     <string name="title_account_color">Kolor</string>
     <string name="title_account_notify">Oddzielne powiadomienia</string>
+    <string name="title_account_left">Przesuń w lewo</string>
+    <string name="title_account_right">Przesuń w prawo</string>
     <string name="title_domain">Nazwa domeny</string>
     <string name="title_autoconfig">Pobierz ustawienia</string>
     <string name="title_provider">Dostawca</string>
@@ -161,6 +166,7 @@
     <string name="title_delete_local">Usuń wiadomości lokalne</string>
     <string name="title_empty_trash">Opróżnij kosz</string>
     <string name="title_edit_properties">Edytuj właściwości</string>
+    <string name="title_edit_rules">Edytuj reguły</string>
     <string name="title_empty_trash_ask">Trwale usunąć wszystkie wiadomości z kosza?</string>
     <string name="title_delete_operation">Usunąć działania z informacją o błędzie?</string>
     <string name="title_no_operations">Nie ma oczekujących operacji</string>
@@ -275,6 +281,7 @@
     <string name="title_sort_on_unread">Nieprzeczytane</string>
     <string name="title_sort_on_starred">Oznaczone</string>
     <string name="title_sort_on_sender">Nadawca</string>
+    <string name="title_compact">Widok kompaktowy</string>
     <string name="title_zoom">Rozmiar tekstu</string>
     <string name="title_address_sent">Wysłane:</string>
     <string name="title_address_unsent">Niewysłane:</string>
@@ -286,6 +293,8 @@
     <string name="title_answer_text">Tekst szablonu</string>
     <string name="title_answer_template_name">$name$ zostanie zastąpiony przez pełną nazwę nadawcy</string>
     <string name="title_answer_template_email">$email$ zostanie zastąpiony przez adres nadawcy wiadomości</string>
+    <string name="title_rule_name">Nazwa</string>
+    <string name="title_rule_enabled">Włączone</string>
     <string name="title_action_seen">Oznacz przeczytane</string>
     <string name="title_action_archive">Archiwum</string>
     <string name="title_action_trash">Kosz</string>
@@ -294,6 +303,7 @@
     <string name="title_legend_unified">Wspólna skrzynka odbiorcza</string>
     <string name="title_legend_archive">Archiwum</string>
     <string name="title_legend_trash">Kosz</string>
+    <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary_disconnected">Konto rozłączone</string>
     <string name="title_legend_primary_connected">Konto połączone</string>
     <string name="title_legend_thread">Konwersacja</string>
@@ -335,6 +345,7 @@
     <string name="title_browse">Przeglądaj</string>
     <string name="title_report">Raport</string>
     <string name="title_no_ask_again">Nie pytaj ponownie</string>
+    <string name="title_via">Przez: %1$s</string>
     <string name="title_try">Wypróbuj FairEmail, przyjazna prywatności aplikacja pocztowa dla Android o otwartym kodzie</string>
     <string name="title_pro_feature">Jest to funkcja pro</string>
     <string name="title_pro_list">Lista funkcji pro</string>
