@@ -22,6 +22,8 @@ package eu.faircode.email;
 import android.content.Context;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.List;
 
 import javax.mail.Part;
 
@@ -77,6 +79,26 @@ public class EntityAttachment {
         if (!dir.exists())
             dir.mkdir();
         return new File(dir, Long.toString(id));
+    }
+
+    static void copy(Context context, DB db, long oldid, long newid) {
+        List<EntityAttachment> attachments = db.attachment().getAttachments(oldid);
+        for (EntityAttachment attachment : attachments) {
+            long aid = attachment.id;
+            attachment.id = null;
+            attachment.message = newid;
+            attachment.progress = null;
+            attachment.id = db.attachment().insertAttachment(attachment);
+            if (attachment.available)
+                try {
+                    Helper.copy(
+                            EntityAttachment.getFile(context, aid),
+                            EntityAttachment.getFile(context, attachment.id));
+                } catch (IOException ex) {
+                    Log.e(ex);
+                    db.attachment().setProgress(attachment.id, null);
+                }
+        }
     }
 
     @Override

@@ -1822,6 +1822,8 @@ public class ServiceSynchronize extends LifecycleService {
                     message.ui_seen = false;
                     message.ui_browsed = false;
                     message.ui_hide = false;
+
+                    EntityAttachment.copy(this, db, message.id, sid);
                 }
 
                 Address[] to = imessage.getAllRecipients();

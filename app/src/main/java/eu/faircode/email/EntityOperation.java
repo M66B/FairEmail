@@ -27,7 +27,6 @@ import org.json.JSONException;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
@@ -184,23 +183,7 @@ public class EntityOperation {
                             db.message().setMessageContent(newid, false, null);
                         }
 
-                    List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-                    for (EntityAttachment attachment : attachments) {
-                        long aid = attachment.id;
-                        attachment.id = null;
-                        attachment.message = newid;
-                        attachment.progress = null;
-                        attachment.id = db.attachment().insertAttachment(attachment);
-                        if (attachment.available)
-                            try {
-                                Helper.copy(
-                                        EntityAttachment.getFile(context, aid),
-                                        EntityAttachment.getFile(context, attachment.id));
-                            } catch (IOException ex) {
-                                Log.e(ex);
-                                db.attachment().setProgress(attachment.id, null);
-                            }
-                    }
+                    EntityAttachment.copy(context, db, message.id, newid);
                 }
 
             } else if (DELETE.equals(name))
