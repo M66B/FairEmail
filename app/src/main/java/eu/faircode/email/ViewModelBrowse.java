@@ -176,47 +176,33 @@ public class ViewModelBrowse extends ViewModel {
                 if (state.search == null)
                     state.imessages = state.ifolder.getMessages();
                 else {
-                    try {
-                        SearchTerm term = new OrTerm(
-                                new OrTerm(
-                                        new FromStringTerm(state.search),
-                                        new RecipientStringTerm(Message.RecipientType.TO, state.search)
-                                ),
-                                new OrTerm(
-                                        new SubjectTerm(state.search),
-                                        new BodyTerm(state.search)
-                                )
-                        );
-
-                        if (folder.keywords.length > 0)
-                            term = new OrTerm(term, new FlagTerm(
-                                    new Flags(Helper.sanitizeKeyword(state.search)), true));
-
-                        state.imessages = state.ifolder.search(term);
-                    } catch (final MessagingException ex) {
-                        Object result = state.ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
-                            @Override
-                            public Object doCommand(IMAPProtocol protocol) {
-                                try {
-                                    if (!protocol.supportsUtf8())
-                                        throw ex;
-
+                    Object result = state.ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
+                        @Override
+                        public Object doCommand(IMAPProtocol protocol) {
+                            try {
+                                if (protocol.supportsUtf8()) {
                                     // SEARCH OR OR FROM "x" TO "x" OR SUBJECT "x" BODY "x" ALL
                                     // SEARCH OR OR OR FROM "x" TO "x" OR SUBJECT "x" BODY "x" (KEYWORD x) ALL
-                                    Argument a = new Argument();
-                                    a.writeAtom("OR");
-                                    a.writeAtom("OR");
-                                    a.writeAtom("FROM");
-                                    a.writeBytes(state.search.getBytes());
-                                    a.writeAtom("TO");
-                                    a.writeBytes(state.search.getBytes());
-                                    a.writeAtom("OR");
-                                    a.writeAtom("SUBJECT");
-                                    a.writeBytes(state.search.getBytes());
-                                    a.writeAtom("BODY");
-                                    a.writeBytes(state.search.getBytes());
-                                    a.writeAtom("ALL");
-                                    Response[] responses = protocol.command("SEARCH", a);
+                                    Argument arg = new Argument();
+                                    if (folder.keywords.length > 0)
+                                        arg.writeAtom("OR");
+                                    arg.writeAtom("OR");
+                                    arg.writeAtom("OR");
+                                    arg.writeAtom("FROM");
+                                    arg.writeBytes(state.search.getBytes());
+                                    arg.writeAtom("TO");
+                                    arg.writeBytes(state.search.getBytes());
+                                    arg.writeAtom("OR");
+                                    arg.writeAtom("SUBJECT");
+                                    arg.writeBytes(state.search.getBytes());
+                                    arg.writeAtom("BODY");
+                                    arg.writeBytes(state.search.getBytes());
+                                    if (folder.keywords.length > 0) {
+                                        arg.writeAtom("KEYWORD");
+                                        arg.writeBytes(state.search.getBytes());
+                                    }
+                                    arg.writeAtom("ALL");
+                                    Response[] responses = protocol.command("SEARCH", arg);
 
                                     int msgnum;
                                     List<Integer> msgnums = new ArrayList<>();
@@ -240,18 +226,35 @@ public class ViewModelBrowse extends ViewModel {
                                         imessages[i] = state.ifolder.getMessage(msgnums.get(i));
 
                                     return imessages;
-                                } catch (MessagingException ex) {
-                                    Log.e(ex);
-                                    return ex;
+                                } else {
+                                    SearchTerm term = new OrTerm(
+                                            new OrTerm(
+                                                    new FromStringTerm(state.search),
+                                                    new RecipientStringTerm(Message.RecipientType.TO, state.search)
+                                            ),
+                                            new OrTerm(
+                                                    new SubjectTerm(state.search),
+                                                    new BodyTerm(state.search)
+                                            )
+                                    );
+
+                                    if (folder.keywords.length > 0)
+                                        term = new OrTerm(term, new FlagTerm(
+                                                new Flags(Helper.sanitizeKeyword(state.search)), true));
+
+                                    return state.ifolder.search(term);
                                 }
+                            } catch (MessagingException ex) {
+                                Log.e(ex);
+                                return ex;
                             }
-                        });
+                        }
+                    });
 
-                        if (result instanceof Throwable)
-                            throw (MessagingException) result;
+                    if (result instanceof MessagingException)
+                        throw (MessagingException) result;
 
-                        state.imessages = (Message[]) result;
-                    }
+                    state.imessages = (Message[]) result;
                 }
                 Log.i("Boundary found messages=" + state.imessages.length);
 
