@@ -82,37 +82,39 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     }
 
     private void load() {
-        if (model != null)
-            executor.submit(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        searching = model.isSearching();
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                intf.onLoading();
-                            }
-                        });
-                        model.load();
-                    } catch (final Throwable ex) {
-                        Log.e("Boundary", ex);
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                intf.onError(ex);
-                            }
-                        });
-                    } finally {
-                        searching = false;
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                intf.onLoaded();
-                            }
-                        });
-                    }
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                if (model == null)
+                    return;
+
+                try {
+                    searching = model.isSearching();
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            intf.onLoading();
+                        }
+                    });
+                    model.load();
+                } catch (final Throwable ex) {
+                    Log.e("Boundary", ex);
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            intf.onError(ex);
+                        }
+                    });
+                } finally {
+                    searching = false;
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            intf.onLoaded();
+                        }
+                    });
                 }
-            });
+            }
+        });
     }
 }
