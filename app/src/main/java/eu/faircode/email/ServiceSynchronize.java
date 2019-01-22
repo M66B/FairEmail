@@ -1232,7 +1232,9 @@ public class ServiceSynchronize extends LifecycleService {
                                                     } catch (Throwable ex) {
                                                         Log.e(folder.name, ex);
                                                         reportError(account, folder, ex);
-                                                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                                        // IllegalStateException: sync when store disconnected
+                                                        if (!(ex instanceof IllegalStateException))
+                                                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                                         state.error();
                                                     } finally {
                                                         if (shouldClose) {
