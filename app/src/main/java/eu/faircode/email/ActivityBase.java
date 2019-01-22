@@ -48,13 +48,11 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 == PackageManager.PERMISSION_GRANTED);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (Helper.isPro(this)) {
-            String theme = prefs.getString("theme", null);
-            if ("dark".equals(theme))
-                setTheme(R.style.AppThemeDark);
-            else if ("black".equals(theme))
-                setTheme(R.style.AppThemeBlack);
-        }
+        String theme = prefs.getString("theme", null);
+        if ("dark".equals(theme))
+            setTheme(R.style.AppThemeDark);
+        else if ("black".equals(theme))
+            setTheme(R.style.AppThemeBlack);
 
         prefs.registerOnSharedPreferenceChangeListener(this);
 

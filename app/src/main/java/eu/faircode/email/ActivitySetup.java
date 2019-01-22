@@ -352,23 +352,17 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
     }
 
     private void onMenuTheme(int id) {
-        if (Helper.isPro(this)) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-            switch (id) {
-                case R.string.title_setup_light_theme:
-                    prefs.edit().putString("theme", "light").apply();
-                    break;
-                case R.string.title_setup_dark_theme:
-                    prefs.edit().putString("theme", "dark").apply();
-                    break;
-                case R.string.title_setup_black_theme:
-                    prefs.edit().putString("theme", "black").apply();
-                    break;
-            }
-        } else {
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-            fragmentTransaction.commit();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        switch (id) {
+            case R.string.title_setup_light_theme:
+                prefs.edit().putString("theme", "light").apply();
+                break;
+            case R.string.title_setup_dark_theme:
+                prefs.edit().putString("theme", "dark").apply();
+                break;
+            case R.string.title_setup_black_theme:
+                prefs.edit().putString("theme", "black").apply();
+                break;
         }
     }
 
@@ -639,7 +633,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                         for (int s = 0; s < jsettings.length(); s++) {
                             JSONObject jsetting = (JSONObject) jsettings.get(s);
                             String key = jsetting.getString("key");
-                            if (!"pro".equals(key) && !"theme".equals(key)) {
+                            if (!"pro".equals(key)) {
                                 Object value = jsetting.get("value");
                                 if (value instanceof Boolean)
                                     editor.putBoolean(key, (Boolean) value);
