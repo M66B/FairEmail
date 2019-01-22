@@ -105,6 +105,7 @@
     <string name="title_advanced_download">Scarica automaticamente i messaggi e gli allegati con una connessione a consumo fino a</string>
     <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
     <string name="title_advanced_unified">Posta in arrivo unificata</string>
+    <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_threading">Thread di conversazione</string>
     <string name="title_advanced_avatars">Mostra foto del contatto</string>
     <string name="title_advanced_identicons">Visualizza identicon</string>
@@ -239,6 +240,7 @@
     <string name="title_raw_save">Salva messaggio non elaborato</string>
     <string name="title_manage_keywords">Gestione parole chiave</string>
     <string name="title_add_keyword">Aggiungi parola chiave</string>
+    <string name="title_show_inline">Mostra gli allegati inline</string>
     <string name="title_download_all">Scarica tutti</string>
     <string name="title_save_all">Salva tutto</string>
     <string name="title_show_html">Visualizza originale</string>
@@ -310,6 +312,7 @@
     <string name="title_not_encrypted">Il messaggio non è cifrato</string>
     <string name="title_search">Cerca</string>
     <string name="title_search_hint">Cerca sul server</string>
+    <string name="title_search_device">Cerca nel dispositivo</string>
     <string name="title_searching">Ricerca di \'%1$s\'</string>
     <string name="title_sort_on">Ordina per</string>
     <string name="title_sort_on_time">Ora</string>

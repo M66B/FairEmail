@@ -92,7 +92,7 @@
     <string name="title_setup_done">Fait</string>
     <string name="title_setup_light_theme">Thème clair</string>
     <string name="title_setup_dark_theme">Thème sombre</string>
-    <string name="title_setup_black_theme">Thème sombre</string>
+    <string name="title_setup_black_theme">Thème noir</string>
     <string name="title_setup_defaults">Rétablir les paramètres par défaut</string>
     <string name="title_advanced">Options avancées</string>
     <string name="title_advanced_section_general">Général</string>
@@ -240,6 +240,7 @@
     <string name="title_raw_save">Sauvegarder le message brut</string>
     <string name="title_manage_keywords">Gérer les mots-clés</string>
     <string name="title_add_keyword">Ajouter un mot-clé</string>
+    <string name="title_show_inline">Afficher les pièces jointes dans le message</string>
     <string name="title_download_all">Télécharger tout</string>
     <string name="title_save_all">Enregistrer tout</string>
     <string name="title_show_html">Afficher l\'original</string>

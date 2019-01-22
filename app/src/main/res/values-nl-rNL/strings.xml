@@ -312,6 +312,7 @@
     <string name="title_not_encrypted">Bericht is niet versleuteld</string>
     <string name="title_search">Zoek</string>
     <string name="title_search_hint">Zoek op server</string>
+    <string name="title_search_device">Zoeken op apparaat</string>
     <string name="title_searching">Zoeken naar \'%1$s\'</string>
     <string name="title_sort_on">Sorteer op</string>
     <string name="title_sort_on_time">Tijd</string>

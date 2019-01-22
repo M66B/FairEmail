@@ -236,8 +236,11 @@
     <string name="title_reply_all">Antworten an alle</string>
     <string name="title_share">Teilen</string>
     <string name="title_show_headers">Kopfzeile anzeigen</string>
+    <string name="title_raw_download">Rohdaten runterladen</string>
+    <string name="title_raw_save">Rohdaten speichern</string>
     <string name="title_manage_keywords">Schlagwörter verwalten</string>
     <string name="title_add_keyword">Schlagwort hinzufügen</string>
+    <string name="title_show_inline">In line-Anhänger anzeigen</string>
     <string name="title_download_all">Alle herunterladen</string>
     <string name="title_save_all">Alles speichern</string>
     <string name="title_show_html">Original anzeigen</string>
@@ -258,6 +261,7 @@
     <string name="title_no_contacts">Kontaktauswahl nicht verfügbar</string>
     <string name="title_no_internet">Keine Internetverbindung</string>
     <string name="title_no_cross_account">Auf ein anderes Konto verschieben wird nicht unterstützt</string>
+    <string name="title_raw_saved">Rohdaten gespeichert</string>
     <string name="title_attachment_saved">Anhang gespeichert</string>
     <string name="title_attachments_saved">Anhang gespeichert</string>
     <string name="title_attachment_unavailable">Einige Anlagen wurden nicht heruntergeladen und werden nicht hinzugefügt, fortsetzen?</string>
@@ -358,6 +362,7 @@
     <string name="title_legend_attachment">Anhang</string>
     <string name="title_legend_draft">Entwurf/bearbeiten</string>
     <string name="title_legend_snoozed">Zurückgestellt</string>
+    <string name="title_legend_browsed">Gesehen oder gesucht</string>
     <string name="title_legend_answered">Beantwortet</string>
     <string name="title_legend_contacts">Kontakte</string>
     <string name="title_legend_view">Inhalt anzeigen</string>

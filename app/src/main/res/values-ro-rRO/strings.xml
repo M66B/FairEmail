@@ -111,6 +111,7 @@
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
     <string name="title_advanced_unified">Căsuță poștală comună</string>
+    <string name="title_advanced_date_header">Grupare după dată</string>
     <string name="title_advanced_threading">Aranjare mesaje în conversație</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
     <string name="title_advanced_identicons">Arată iconițe generate</string>
@@ -245,6 +246,7 @@
     <string name="title_raw_save">Salvează mesaj original</string>
     <string name="title_manage_keywords">Gestionare cuvinte cheie</string>
     <string name="title_add_keyword">Adăugă cuvânt cheie</string>
+    <string name="title_show_inline">Arată atașamentele integrate</string>
     <string name="title_download_all">Descarcă tot</string>
     <string name="title_save_all">Salvează tot</string>
     <string name="title_show_html">Arată originalul</string>

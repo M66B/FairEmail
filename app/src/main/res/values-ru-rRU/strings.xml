@@ -252,6 +252,7 @@
     <string name="title_raw_save">Сохранить оригинал сообщения</string>
     <string name="title_manage_keywords">Управление ключами (словами)</string>
     <string name="title_add_keyword">Добавить ключ (слово)</string>
+    <string name="title_show_inline">Показывать встроенные вложения</string>
     <string name="title_download_all">Загрузить все</string>
     <string name="title_save_all">Сохранить все</string>
     <string name="title_show_html">Показать оригинал</string>
