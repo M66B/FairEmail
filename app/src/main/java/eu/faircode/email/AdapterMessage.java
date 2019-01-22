@@ -310,7 +310,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ViewGroup group = (ViewGroup) itemView;
             for (int i = 0; i < group.getChildCount(); i++) {
                 View child = group.getChildAt(i);
-                if (child.getId() != R.id.tvDay && child.getId() != R.id.vSeparatorDay)
+                int id = child.getId();
+                if (id != R.id.tvDay && id != R.id.vSeparatorDay && id != R.id.vSeparator)
                     child.setTranslationX(dx);
             }
         }
