@@ -26,6 +26,7 @@ import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
 
 import java.io.IOException;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -173,25 +174,16 @@ public class ViewModelBrowse extends ViewModel {
                 if (state.search == null)
                     state.imessages = state.ifolder.getMessages();
                 else {
-                    SearchTerm term = new OrTerm(
-                            new OrTerm(
-                                    new FromStringTerm(state.search),
-                                    new RecipientStringTerm(Message.RecipientType.TO, state.search)
-                            ),
-                            new OrTerm(
-                                    new SubjectTerm(state.search),
-                                    new BodyTerm(state.search)
-                            )
-                    );
-
-                    if (folder.keywords.length > 0) {
-                        Log.i("Boundary search for keywords");
-                        term = new OrTerm(term, new FlagTerm(
-                                new Flags(Helper.sanitizeKeyword(state.search)), true));
+                    try {
+                        state.imessages = state.ifolder.search(
+                                getSearchTerm(state.search, folder.keywords.length > 0));
+                    } catch (MessagingException ex) {
+                        String search = Normalizer
+                                .normalize(state.search, Normalizer.Form.NFD)
+                                .replaceAll("[^\\p{ASCII}]", "");
+                        state.imessages = state.ifolder.search(
+                                getSearchTerm(search, folder.keywords.length > 0));
                     }
-
-                    state.imessages = state.ifolder.search(term);
-
                 }
                 Log.i("Boundary found messages=" + state.imessages.length);
 
@@ -265,6 +257,25 @@ public class ViewModelBrowse extends ViewModel {
         }
 
         Log.i("Boundary done");
+    }
+
+    private SearchTerm getSearchTerm(String search, boolean keywords) {
+        SearchTerm term = new OrTerm(
+                new OrTerm(
+                        new FromStringTerm(search),
+                        new RecipientStringTerm(Message.RecipientType.TO, search)
+                ),
+                new OrTerm(
+                        new SubjectTerm(search),
+                        new BodyTerm(search)
+                )
+        );
+
+        if (keywords)
+            term = new OrTerm(term, new FlagTerm(
+                    new Flags(Helper.sanitizeKeyword(search)), true));
+
+        return term;
     }
 
     void clear() {
