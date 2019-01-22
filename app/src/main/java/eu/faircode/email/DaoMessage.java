@@ -128,7 +128,7 @@ public interface DaoMessage {
             ", CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END AS drafts" +
             ", 1 AS visible" +
 
-            ", ((folder.type = '" + EntityFolder.ARCHIVE + "' OR folder.type = '" + EntityFolder.SENT + "')" +
+            ", (folder.type = '" + EntityFolder.ARCHIVE + "'" +
             " AND EXISTS (" +
             "    SELECT * FROM message m1" +
             "    JOIN folder f1 ON f1.id = m1.folder" +
