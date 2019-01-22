@@ -525,8 +525,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Helper.unexpectedError(context, owner, ex);
                     }
                 }.execute(context, owner, aargs, "message:avatar");
-            } else
+            } else {
                 ivAvatar.setVisibility(View.GONE);
+                tvFrom.setText(MessageHelper.formatAddresses(outgoing ? message.to : message.from, !compact, false));
+            }
 
             vwColor.setBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
             vwColor.setVisibility(View.VISIBLE);
