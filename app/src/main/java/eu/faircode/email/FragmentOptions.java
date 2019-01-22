@@ -43,6 +43,8 @@ import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.List;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
@@ -178,9 +180,33 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
 
         spDownload.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                int[] values = getResources().getIntArray(R.array.downloadValues);
-                prefs.edit().putInt("download", values[position]).apply();
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                Integer prev = (Integer) adapterView.getTag();
+                if (prev == null || !prev.equals(position)) {
+                    adapterView.setTag(position);
+
+                    int[] values = getResources().getIntArray(R.array.downloadValues);
+                    prefs.edit().putInt("download", values[position]).apply();
+
+                    Boolean metered = Helper.isMetered(getContext(), true);
+                    if (metered != null && metered)
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onExecute(Context context, Bundle args) {
+                                DB db = DB.getInstance(context);
+                                List<EntityFolder> folders = db.folder().getFoldersSynchronizing();
+                                for (EntityFolder folder : folders)
+                                    EntityOperation.sync(db, folder.id);
+                                return null;
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+
+                            }
+                        }.execute(FragmentOptions.this, new Bundle(), "download:sync");
+                }
             }
 
             @Override
@@ -412,9 +438,10 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
 
         int download = prefs.getInt("download", 32768);
         int[] values = getResources().getIntArray(R.array.downloadValues);
-        for (int i = 0; i < values.length; i++)
-            if (values[i] == download) {
-                spDownload.setSelection(i);
+        for (int pos = 0; pos < values.length; pos++)
+            if (values[pos] == download) {
+                spDownload.setTag(pos);
+                spDownload.setSelection(pos);
                 break;
             }
 
