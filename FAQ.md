@@ -133,6 +133,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(69) Can you add auto scroll up on new message?](#user-content-faq69)
 * [(70) When will messages be auto expanded?](#user-content-faq70)
 * [(71) How do I use filter rules?](#user-content-faq71)
+* [(72) Is moving messages between accounts supported?](#user-content-faq72)
 
 [I have another question.](#support)
 
@@ -1127,6 +1128,14 @@ so it is not possible to apply filter rules to the message text.
 Note that large message texts are downloaded on demand on a metered connection to save data.
 
 Using filter rules is a pro feature.
+
+<br />
+
+<a name="faq72"></a>
+**(72) Is moving messages between accounts supported?**
+
+Moving messages between accounts is not supported because this can result in lost or duplicate messages.
+A message structure or message content supported by one provider might not be supported by another provider.
 
 <br />
 
