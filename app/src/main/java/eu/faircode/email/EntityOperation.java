@@ -159,6 +159,7 @@ public class EntityOperation {
 
                 // Create copy without uid in target folder
                 // Message with same msgid can be in archive
+                Long newid = null;
                 if (message.uid != null &&
                         message.ui_seen &&
                         target.synchronize &&
@@ -170,7 +171,7 @@ public class EntityOperation {
                     message.account = target.account;
                     message.folder = target.id;
                     message.uid = null;
-                    long newid = db.message().insertMessage(message);
+                    newid = db.message().insertMessage(message);
                     message.id = id;
                     message.account = source.account;
                     message.folder = source.id;
@@ -187,13 +188,18 @@ public class EntityOperation {
                         }
 
                     EntityAttachment.copy(context, db, message.id, newid);
+
+                    // Store new id for when source message was deleted
+                    jargs.put(1, newid);
                 }
 
                 // Cross account move
                 if (!source.account.equals(target.account)) {
                     name = ADD;
                     folder = target.id;
-                    jargs.remove(0);
+                    jargs = new JSONArray();
+                    if (newid != null)
+                        jargs.put(0, newid);
                 }
 
             } else if (DELETE.equals(name))

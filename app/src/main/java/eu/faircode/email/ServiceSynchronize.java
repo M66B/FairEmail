@@ -1451,6 +1451,8 @@ public class ServiceSynchronize extends LifecycleService {
                     if (op.message != null)
                         message = db.message().getMessage(op.message);
 
+                    JSONArray jargs = new JSONArray(op.args);
+
                     try {
                         if (message == null && !EntityOperation.SYNC.equals(op.name))
                             throw new MessageRemovedException();
@@ -1465,8 +1467,6 @@ public class ServiceSynchronize extends LifecycleService {
                                         EntityOperation.SEND.equals(op.name) ||
                                         EntityOperation.SYNC.equals(op.name)))
                             throw new IllegalArgumentException(op.name + " without uid " + op.args);
-
-                        JSONArray jargs = new JSONArray(op.args);
 
                         // Operations should use database transaction when needed
 
@@ -1538,9 +1538,18 @@ public class ServiceSynchronize extends LifecycleService {
                             // There is no use in repeating
                             db.operation().deleteOperation(op.id);
 
-                            if (message != null &&
-                                    ex instanceof MessageRemovedException)
-                                db.message().deleteMessage(message.id);
+                            // Cleanup
+                            if (message != null)
+                                if (ex instanceof MessageRemovedException) {
+                                    db.message().deleteMessage(message.id);
+
+                                    // Delete temporary copy in target folder
+                                    if (EntityOperation.MOVE.equals(op.name) && jargs.length() > 1)
+                                        db.message().deleteMessage(jargs.getInt(1));
+                                    if (EntityOperation.ADD.equals(op.name) && jargs.length() > 0)
+                                        db.message().deleteMessage(jargs.getInt(0));
+                                } else
+                                    db.message().setMessageUiHide(message.id, false);
 
                             continue;
                         } else if (ex instanceof MessagingException) {
