@@ -105,9 +105,10 @@ public class ViewModelBrowse extends ViewModel {
                 db.beginTransaction();
 
                 if (state.messages == null) {
-                    state.messages = new ArrayList<>();
+                    List<Long> fids = new ArrayList<>();
                     for (EntityFolder folder : folders)
-                        state.messages.addAll(db.message().getMessageByFolder(folder.id));
+                        fids.add(folder.id);
+                    state.messages = db.message().getMessageByFolders(fids);
                     Log.i("Messages=" + state.messages.size());
                 }
 

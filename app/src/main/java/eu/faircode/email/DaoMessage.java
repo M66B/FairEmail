@@ -173,6 +173,13 @@ public interface DaoMessage {
             " ORDER BY message.received DESC")
     List<Long> getMessageByFolder(long folder);
 
+    @Query("SELECT id" +
+            " FROM message" +
+            " WHERE folder IN (:folders)" +
+            " AND NOT ui_hide" +
+            " ORDER BY message.received DESC")
+    List<Long> getMessageByFolders(List<Long> folders);
+
     @Query("SELECT *" +
             " FROM message" +
             " WHERE account = :account" +
