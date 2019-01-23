@@ -4,6 +4,7 @@
     <string name="app_welcome">FairEmail est une application de messagerie open source axée sur la confidentialité et la sécurité. C\'est pourquoi certaines fonctionnalités peuvent fonctionner différemment de ce à quoi vous êtes habitué.</string>
     <string name="channel_service">Service</string>
     <string name="channel_notification">Notifications</string>
+    <string name="channel_warning">Avertissements</string>
     <string name="channel_error">Erreurs</string>
     <string name="tile_synchronize">Synchroniser</string>
     <string name="tile_unseen">Nouveaux messages</string>
@@ -183,6 +184,7 @@
     <string name="title_no_drafts">Aucun dossier Brouillons sélectionné</string>
     <string name="title_no_primary_drafts">Pas de compte principal ou pas de dossier Brouillons</string>
     <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Cela va retarder la réception de nouveaux messages et augmenter l\'utilisation de la batterie.</string>
+    <string name="title_no_sync">Erreurs de synchronisation depuis %1$s</string>
     <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
     <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
     <string name="title_pop">POP n\'est pas supporté</string>
@@ -312,6 +314,7 @@
     <string name="title_not_encrypted">Le message n\'est pas chiffré</string>
     <string name="title_search">Rechercher</string>
     <string name="title_search_hint">Rechercher sur le serveur</string>
+    <string name="title_search_device">Rechercher sur l\'appareil</string>
     <string name="title_searching">Recherche de \'%1$s\'</string>
     <string name="title_sort_on">Trier par</string>
     <string name="title_sort_on_time">Date</string>

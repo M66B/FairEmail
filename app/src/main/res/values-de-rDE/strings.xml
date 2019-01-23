@@ -312,6 +312,7 @@
     <string name="title_not_encrypted">E-Mail ist nicht verschlüsselt</string>
     <string name="title_search">Suche</string>
     <string name="title_search_hint">Auf Server suchen</string>
+    <string name="title_search_device">Auf dem Gerät suchen</string>
     <string name="title_searching">Suche „%1$s“</string>
     <string name="title_sort_on">Sortieren nach</string>
     <string name="title_sort_on_time">Uhrzeit</string>
