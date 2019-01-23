@@ -80,7 +80,7 @@ public class EntityIdentity {
     @NonNull
     public Boolean read_receipt = false;
     @NonNull
-    public Boolean store_sent = false; // obsolete
+    public Boolean store_sent = false;
     public Long sent_folder; // obsolete
     public Boolean tbd;
     public String state;
@@ -167,17 +167,21 @@ public class EntityIdentity {
                     (this.display == null ? other.display == null : this.display.equals(other.display)) &&
                     (this.color == null ? other.color == null : this.color.equals(other.color)) &&
                     (this.signature == null ? other.signature == null : this.signature.equals(other.signature)) &&
+                    this.auth_type.equals(other.auth_type) &&
                     this.host.equals(other.host) &&
                     this.starttls.equals(other.starttls) &&
                     this.insecure.equals(other.insecure) &&
                     this.port.equals(other.port) &&
                     this.user.equals(other.user) &&
                     this.password.equals(other.password) &&
+                    (this.realm == null ? other.realm == null : this.realm.equals(other.realm)) &&
                     this.synchronize.equals(other.synchronize) &&
                     this.primary.equals(other.primary) &&
                     (this.replyto == null ? other.replyto == null : this.replyto.equals(other.replyto)) &&
+                    (this.bcc == null ? other.bcc == null : this.bcc.equals(other.bcc)) &&
                     this.delivery_receipt.equals(other.delivery_receipt) &&
                     this.read_receipt.equals(other.read_receipt) &&
+                    this.store_sent.equals(other.store_sent) &&
                     (this.tbd == null ? other.tbd == null : this.tbd.equals(other.tbd)) &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&
                     (this.error == null ? other.error == null : this.error.equals(other.error)));

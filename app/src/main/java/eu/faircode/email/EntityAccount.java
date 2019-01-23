@@ -170,25 +170,29 @@ public class EntityAccount {
     public boolean equals(Object obj) {
         if (obj instanceof EntityAccount) {
             EntityAccount other = (EntityAccount) obj;
-            return ((this.name == null ? other.name == null : this.name.equals(other.name)) &&
-                    (this.prefix == null ? other.prefix == null : this.prefix.equals(other.prefix)) &&
+            return (this.auth_type.equals(other.auth_type) &&
                     this.host.equals(other.host) &&
                     this.starttls == other.starttls &&
                     this.insecure == other.insecure &&
                     this.port.equals(other.port) &&
                     this.user.equals(other.user) &&
                     this.password.equals(other.password) &&
-                    this.auth_type.equals(other.auth_type) &&
+                    (this.realm == null ? other.realm == null : this.realm.equals(other.realm)) &&
+                    (this.name == null ? other.name == null : this.name.equals(other.name)) &&
+                    (this.color == null ? other.color == null : this.color.equals(other.color)) &&
                     this.synchronize.equals(other.synchronize) &&
                     this.primary.equals(other.primary) &&
-                    this.browse.equals(other.browse) &&
-                    (this.color == null ? other.color == null : this.color.equals(other.color)) &&
                     this.notify.equals(other.notify) &&
+                    this.browse.equals(other.browse) &&
+                    (this.swipe_left == null ? other.swipe_left == null : this.swipe_left.equals(other.swipe_left)) &&
+                    (this.swipe_right == null ? other.swipe_right == null : this.swipe_right.equals(other.swipe_right)) &&
                     this.poll_interval.equals(other.poll_interval) &&
+                    (this.prefix == null ? other.prefix == null : this.prefix.equals(other.prefix)) &&
                     (this.created == null ? other.created == null : this.created.equals(other.created)) &&
                     (this.tbd == null ? other.tbd == null : this.tbd.equals(other.tbd)) &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&
-                    (this.error == null ? other.error == null : this.error.equals(other.error)));
+                    (this.error == null ? other.error == null : this.error.equals(other.error)) ||
+                    (this.last_connected == null ? other.last_connected == null : this.last_connected.equals(other.last_connected)));
         } else
             return false;
     }

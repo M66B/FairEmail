@@ -21,9 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,10 +29,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.Collator;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -47,10 +46,11 @@ import androidx.recyclerview.widget.RecyclerView;
 public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHolder> {
     private Context context;
     private LayoutInflater inflater;
-    private boolean debug;
 
     private List<EntityAccount> all = new ArrayList<>();
     private List<EntityAccount> filtered = new ArrayList<>();
+
+    private static final DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         View itemView;
@@ -106,8 +106,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 ivState.setImageResource(R.drawable.baseline_cloud_off_24);
             ivState.setVisibility(account.synchronize ? View.VISIBLE : View.INVISIBLE);
 
-            tvLast.setText(account.last_connected == null ? null : new Date(account.last_connected).toString());
-            tvLast.setVisibility(debug ? View.VISIBLE : View.GONE);
+            tvLast.setText(context.getString(R.string.title_last_connected,
+                    account.last_connected == null ? "" : df.format(account.last_connected)));
 
             tvError.setText(account.error);
             tvError.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
@@ -133,9 +133,6 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     AdapterAccount(Context context) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        this.debug = prefs.getBoolean("debug", false);
 
         setHasStableIds(true);
     }
