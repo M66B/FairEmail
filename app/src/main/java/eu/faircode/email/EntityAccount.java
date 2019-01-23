@@ -191,7 +191,7 @@ public class EntityAccount {
                     (this.created == null ? other.created == null : this.created.equals(other.created)) &&
                     (this.tbd == null ? other.tbd == null : this.tbd.equals(other.tbd)) &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&
-                    (this.error == null ? other.error == null : this.error.equals(other.error)) ||
+                    (this.error == null ? other.error == null : this.error.equals(other.error)) &&
                     (this.last_connected == null ? other.last_connected == null : this.last_connected.equals(other.last_connected)));
         } else
             return false;
