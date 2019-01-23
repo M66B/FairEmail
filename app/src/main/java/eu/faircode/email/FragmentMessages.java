@@ -44,6 +44,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -57,6 +58,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -88,7 +90,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 public class FragmentMessages extends FragmentBase {
     private ViewGroup view;
     private SwipeRefreshLayout swipeRefresh;
-    private View popupAnchor;
     private TextView tvSupport;
     private ImageButton ibHintSupport;
     private ImageButton ibHintSwipe;
@@ -199,7 +200,6 @@ public class FragmentMessages extends FragmentBase {
 
         // Get controls
         swipeRefresh = view.findViewById(R.id.swipeRefresh);
-        popupAnchor = view.findViewById(R.id.popupAnchor);
         tvSupport = view.findViewById(R.id.tvSupport);
         ibHintSupport = view.findViewById(R.id.ibHintSupport);
         ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
@@ -530,15 +530,17 @@ public class FragmentMessages extends FragmentBase {
 
                         EntityMessage message = db.message().getMessage(id);
 
-                        EntityFolder folder = null;
+                        EntityFolder target = null;
                         if (message != null)
                             if (type)
-                                folder = db.folder().getFolderByType(message.account, name);
+                                target = db.folder().getFolderByType(message.account, name);
                             else
-                                folder = db.folder().getFolderByName(message.account, name);
+                                target = db.folder().getFolderByName(message.account, name);
 
-                        if (folder != null)
-                            result.add(new MessageTarget(id, folder));
+                        if (target != null) {
+                            EntityAccount account = db.account().getAccount(target.account);
+                            result.add(new MessageTarget(id, account, target));
+                        }
 
                         db.setTransactionSuccessful();
                     } finally {
@@ -650,7 +652,7 @@ public class FragmentMessages extends FragmentBase {
                 protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
                     boolean thread = args.getBoolean("thread");
-                    long target = args.getLong("target");
+                    long tid = args.getLong("target");
 
                     ArrayList<MessageTarget> result = new ArrayList<>();
 
@@ -659,14 +661,15 @@ public class FragmentMessages extends FragmentBase {
                     try {
                         db.beginTransaction();
 
-                        EntityFolder folder = db.folder().getFolder(target);
-                        if (folder != null) {
+                        EntityFolder target = db.folder().getFolder(tid);
+                        if (target != null) {
+                            EntityAccount account = db.account().getAccount(target.account);
                             EntityMessage message = db.message().getMessage(id);
                             if (message != null) {
                                 List<EntityMessage> messages = db.message().getMessageByThread(
                                         message.account, message.thread, threading && thread ? null : id, message.folder);
                                 for (EntityMessage threaded : messages) {
-                                    result.add(new MessageTarget(threaded.id, folder));
+                                    result.add(new MessageTarget(threaded.id, account, target));
                                     db.message().setMessageUiHide(threaded.id, true);
                                     // Prevent new message notification on undo
                                     db.message().setMessageUiIgnored(threaded.id, true);
@@ -721,15 +724,15 @@ public class FragmentMessages extends FragmentBase {
         args.putLong("account", account);
         args.putString("thread", thread);
         args.putLong("id", id);
-        args.putString("folderType", folderType);
+        args.putString("type", folderType);
 
         new SimpleTask<ArrayList<MessageTarget>>() {
             @Override
             protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
-                long account = args.getLong("account");
+                long aid = args.getLong("account");
                 String thread = args.getString("thread");
                 long id = args.getLong("id");
-                String folderType = args.getString("folderType");
+                String type = args.getString("type");
 
                 ArrayList<MessageTarget> result = new ArrayList<>();
 
@@ -737,10 +740,11 @@ public class FragmentMessages extends FragmentBase {
                 try {
                     db.beginTransaction();
 
-                    EntityFolder target = db.folder().getFolderByType(account, folderType);
+                    EntityFolder target = db.folder().getFolderByType(aid, type);
                     if (target != null) {
+                        EntityAccount account = db.account().getAccount(target.account);
                         List<EntityMessage> messages = db.message().getMessageByThread(
-                                account, thread, threading ? null : id, null);
+                                aid, thread, threading ? null : id, null);
                         for (EntityMessage threaded : messages) {
                             EntityFolder folder = db.folder().getFolder(threaded.folder);
                             if (!target.id.equals(threaded.folder) &&
@@ -749,7 +753,7 @@ public class FragmentMessages extends FragmentBase {
                                     (!EntityFolder.SENT.equals(folder.type) || EntityFolder.TRASH.equals(target.type)) &&
                                     !EntityFolder.TRASH.equals(folder.type) &&
                                     !EntityFolder.JUNK.equals(folder.type))
-                                result.add(new MessageTarget(threaded.id, target));
+                                result.add(new MessageTarget(threaded.id, account, target));
                         }
                     }
 
@@ -778,79 +782,118 @@ public class FragmentMessages extends FragmentBase {
         args.putLong("folder", folder);
         args.putLongArray("ids", getSelection());
 
-        new SimpleTask<Boolean[]>() {
+        new SimpleTask<MoreResult>() {
+
             @Override
-            protected Boolean[] onExecute(Context context, Bundle args) {
+            protected MoreResult onExecute(Context context, Bundle args) {
                 long fid = args.getLong("folder");
                 long[] ids = args.getLongArray("ids");
 
-                Boolean[] result = new Boolean[12];
-                for (int i = 0; i < result.length; i++)
-                    result[i] = false;
+                MoreResult result = new MoreResult();
 
                 DB db = DB.getInstance(context);
 
-                List<Long> accounts = new ArrayList<>();
                 for (long id : ids) {
                     EntityMessage message = db.message().getMessage(id);
                     if (message != null) {
-                        if (!accounts.contains(message.account))
-                            accounts.add(message.account);
-                        result[message.ui_seen ? 1 : 0] = true;
-                        result[message.flagged ? 3 : 2] = true;
+                        if (message.ui_seen)
+                            result.seen = true;
+                        else
+                            result.unseen = true;
 
-                        if (db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE) != null)
-                            result[4] = true;
-                        if (db.folder().getFolderByType(message.account, EntityFolder.TRASH) != null)
-                            result[5] = true;
-                        if (db.folder().getFolderByType(message.account, EntityFolder.JUNK) != null)
-                            result[6] = true;
+                        if (message.ui_flagged)
+                            result.flagged = true;
+                        else
+                            result.unflagged = true;
+
+                        result.hasArchive = (result.hasArchive &&
+                                db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE) != null);
+                        result.hasTrash = (result.hasTrash &&
+                                db.folder().getFolderByType(message.account, EntityFolder.TRASH) != null);
+                        result.hasJunk = (result.hasJunk &&
+                                db.folder().getFolderByType(message.account, EntityFolder.JUNK) != null);
                     }
                 }
 
                 EntityFolder folder = db.folder().getFolder(fid);
                 if (folder != null) {
-                    result[7] = EntityFolder.ARCHIVE.equals(folder.type);
-                    result[8] = EntityFolder.TRASH.equals(folder.type);
-                    result[9] = EntityFolder.JUNK.equals(folder.type);
-                    result[10] = EntityFolder.DRAFTS.equals(folder.type);
+                    result.isArchive = EntityFolder.ARCHIVE.equals(folder.type);
+                    result.isTrash = EntityFolder.TRASH.equals(folder.type);
+                    result.isJunk = EntityFolder.JUNK.equals(folder.type);
+                    result.isDrafts = EntityFolder.DRAFTS.equals(folder.type);
                 }
 
-                result[11] = (accounts.size() == 1);
+                result.accounts = db.account().getAccounts(true);
+
+                final Collator collator = Collator.getInstance(Locale.getDefault());
+                collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+                Collections.sort(result.accounts, new Comparator<EntityAccount>() {
+                    @Override
+                    public int compare(EntityAccount a1, EntityAccount a2) {
+                        int p = -a1.primary.compareTo(a2.primary);
+                        if (p != 0)
+                            return p;
+                        return collator.compare(a1.name, a2.name);
+                    }
+                });
+
+                for (EntityAccount account : result.accounts) {
+                    List<EntityFolder> targets = new ArrayList<>();
+                    List<EntityFolder> folders = db.folder().getFolders(account.id);
+                    for (EntityFolder target : folders)
+                        if (!target.hide &&
+                                !EntityFolder.ARCHIVE.equals(target.type) &&
+                                !EntityFolder.TRASH.equals(target.type) &&
+                                !EntityFolder.JUNK.equals(target.type) &&
+                                !target.id.equals(fid))
+                            targets.add(target);
+                    EntityFolder.sort(context, targets);
+                    result.targets.put(account, targets);
+                }
 
                 return result;
             }
 
             @Override
-            protected void onExecuted(Bundle args, final Boolean[] result) {
+            protected void onExecuted(Bundle args, final MoreResult result) {
                 PopupMenu popupMenu = new PopupMenu(getContext(), fabMore);
 
-                if (result[0] && !result[10]) // Unseen, not draft
+                if (result.unseen && !result.isDrafts) // Unseen, not draft
                     popupMenu.getMenu().add(Menu.NONE, action_seen, 1, R.string.title_seen);
-                if (result[1] && !result[10]) // Seen, not draft
+                if (result.seen && !result.isDrafts) // Seen, not draft
                     popupMenu.getMenu().add(Menu.NONE, action_unseen, 2, R.string.title_unseen);
 
                 popupMenu.getMenu().add(Menu.NONE, action_snooze, 3, R.string.title_snooze);
 
-                if (result[2])
+                if (result.unflagged)
                     popupMenu.getMenu().add(Menu.NONE, action_flag, 4, R.string.title_flag);
-                if (result[3])
+                if (result.flagged)
                     popupMenu.getMenu().add(Menu.NONE, action_unflag, 5, R.string.title_unflag);
 
-                if (result[4] && !result[7] && !result[10]) // has archive and not is archive/drafts
+                if (result.hasArchive && !result.isArchive && !result.isDrafts) // has archive and not is archive/drafts
                     popupMenu.getMenu().add(Menu.NONE, action_archive, 6, R.string.title_archive);
 
-                if (result[8]) // is trash
+                if (result.isTrash) // is trash
                     popupMenu.getMenu().add(Menu.NONE, action_delete, 7, R.string.title_delete);
 
-                if (!result[8] && result[5]) // not trash and has trash
+                if (!result.isTrash && result.hasTrash) // not trash and has trash
                     popupMenu.getMenu().add(Menu.NONE, action_trash, 8, R.string.title_trash);
 
-                if (result[6] && !result[9] && !result[10]) // has junk and not junk/drafts
+                if (result.hasJunk && !result.isJunk && !result.isDrafts) // has junk and not junk/drafts
                     popupMenu.getMenu().add(Menu.NONE, action_junk, 9, R.string.title_spam);
 
-                if (!result[10]) // not drafts
-                    popupMenu.getMenu().add(Menu.NONE, action_move, 10, R.string.title_move);
+                if (!result.isDrafts) { // not drafts
+                    int order = 11;
+                    for (EntityAccount account : result.accounts) {
+                        SubMenu smenu = popupMenu.getMenu()
+                                .addSubMenu(Menu.NONE, 0, order++, getString(R.string.title_move_to, account.name));
+                        int sorder = 1;
+                        for (EntityFolder target : result.targets.get(account)) {
+                            MenuItem item = smenu.add(Menu.NONE, action_move, sorder++, target.getDisplayName(getContext()));
+                            item.setIntent(new Intent().putExtra("target", target.id));
+                        }
+                    }
+                }
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
@@ -884,10 +927,7 @@ public class FragmentMessages extends FragmentBase {
                                 onActionJunkSelection();
                                 return true;
                             case action_move:
-                                if (result[11]) // single account
-                                    onActionMoveSelection();
-                                else
-                                    Snackbar.make(view, R.string.title_no_cross_account, Snackbar.LENGTH_LONG).show();
+                                onActionMoveSelection(target.getIntent().getLongExtra("target", -1));
                                 return true;
                             default:
                                 return false;
@@ -1142,8 +1182,8 @@ public class FragmentMessages extends FragmentBase {
                                     message.account, message.thread, threading ? null : id, message.folder);
                             for (EntityMessage threaded : messages) {
                                 EntityFolder target = db.folder().getFolderByType(message.account, type);
-                                if (target != null)
-                                    result.add(new MessageTarget(threaded.id, target));
+                                EntityAccount account = db.account().getAccount(target.account);
+                                result.add(new MessageTarget(threaded.id, account, target));
                             }
                         }
                     }
@@ -1168,107 +1208,50 @@ public class FragmentMessages extends FragmentBase {
         }.execute(FragmentMessages.this, args, "messages:move");
     }
 
-    private void onActionMoveSelection() {
+    private void onActionMoveSelection(long target) {
         Bundle args = new Bundle();
-        args.putLong("folder", folder);
         args.putLongArray("ids", getSelection());
+        args.putLong("target", target);
 
-        new SimpleTask<List<EntityFolder>>() {
+        selectionTracker.clearSelection();
+
+        new SimpleTask<ArrayList<MessageTarget>>() {
             @Override
-            protected List<EntityFolder> onExecute(Context context, Bundle args) {
-                long fid = args.getLong("folder");
+            protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
                 long[] ids = args.getLongArray("ids");
+                long tid = args.getLong("target");
+
+                ArrayList<MessageTarget> result = new ArrayList<>();
 
                 DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
 
-                long account = -1;
-                for (long id : ids) {
-                    EntityMessage message = db.message().getMessage(id);
-                    if (message != null) {
-                        account = message.account;
-                        break;
+                    EntityFolder target = db.folder().getFolder(tid);
+                    if (target != null) {
+                        EntityAccount account = db.account().getAccount(target.account);
+                        for (long id : ids) {
+                            EntityMessage message = db.message().getMessage(id);
+                            if (message != null) {
+                                List<EntityMessage> messages = db.message().getMessageByThread(
+                                        message.account, message.thread, threading ? null : id, message.folder);
+                                for (EntityMessage threaded : messages)
+                                    result.add(new MessageTarget(threaded.id, account, target));
+                            }
+                        }
                     }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
                 }
 
-                List<EntityFolder> folders = db.folder().getFolders(account);
-
-                List<EntityFolder> targets = new ArrayList<>();
-                for (EntityFolder folder : folders)
-                    if (!folder.hide &&
-                            !EntityFolder.ARCHIVE.equals(folder.type) &&
-                            !EntityFolder.TRASH.equals(folder.type) &&
-                            !EntityFolder.JUNK.equals(folder.type) &&
-                            (fid < 0 ? !folder.unified : !folder.id.equals(fid)))
-                        targets.add(folder);
-
-                EntityFolder.sort(context, targets);
-
-                return targets;
+                return result;
             }
 
             @Override
-            protected void onExecuted(final Bundle args, List<EntityFolder> folders) {
-                PopupMenu popupMenu = new PopupMenu(getContext(), popupAnchor);
-
-                int order = 0;
-                for (EntityFolder folder : folders)
-                    popupMenu.getMenu().add(Menu.NONE, folder.id.intValue(), order++, folder.getDisplayName(getContext()));
-
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(final MenuItem target) {
-                        args.putLong("target", target.getItemId());
-
-                        selectionTracker.clearSelection();
-
-                        new SimpleTask<ArrayList<MessageTarget>>() {
-                            @Override
-                            protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
-                                long[] ids = args.getLongArray("ids");
-                                long target = args.getLong("target");
-
-                                ArrayList<MessageTarget> result = new ArrayList<>();
-
-                                DB db = DB.getInstance(context);
-                                try {
-                                    db.beginTransaction();
-
-                                    EntityFolder folder = db.folder().getFolder(target);
-                                    if (folder != null)
-                                        for (long id : ids) {
-                                            EntityMessage message = db.message().getMessage(id);
-                                            if (message != null) {
-                                                List<EntityMessage> messages = db.message().getMessageByThread(
-                                                        message.account, message.thread, threading ? null : id, message.folder);
-                                                for (EntityMessage threaded : messages)
-                                                    result.add(new MessageTarget(threaded.id, folder));
-                                            }
-                                        }
-
-                                    db.setTransactionSuccessful();
-                                } finally {
-                                    db.endTransaction();
-                                }
-
-                                return result;
-                            }
-
-                            @Override
-                            protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
-                                moveAsk(result);
-                            }
-
-                            @Override
-                            protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                            }
-                        }.execute(FragmentMessages.this, args, "messages:move");
-
-                        return true;
-                    }
-                });
-
-                popupMenu.show();
+            protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
+                moveAsk(result);
             }
 
             @Override
@@ -2180,14 +2163,12 @@ public class FragmentMessages extends FragmentBase {
     }
 
     private String getDisplay(ArrayList<MessageTarget> result) {
-        List<EntityFolder> folders = new ArrayList<>();
-        for (MessageTarget target : result)
-            if (!folders.contains(target.folder))
-                folders.add(target.folder);
-
         List<String> displays = new ArrayList<>();
-        for (EntityFolder folder : folders)
-            displays.add(folder.getDisplayName(getContext()));
+        for (MessageTarget target : result) {
+            String display = target.account.name + "/" + target.folder.getDisplayName(getContext());
+            if (!displays.contains(display))
+                displays.add(display);
+        }
 
         Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
@@ -2216,23 +2197,43 @@ public class FragmentMessages extends FragmentBase {
         }
     };
 
-    static class MessageTarget implements Parcelable {
+    private class MoreResult {
+        boolean seen;
+        boolean unseen;
+        boolean flagged;
+        boolean unflagged;
+        boolean hasArchive = true;
+        boolean hasTrash = true;
+        boolean hasJunk = true;
+        boolean isArchive;
+        boolean isTrash;
+        boolean isJunk;
+        boolean isDrafts;
+        List<EntityAccount> accounts;
+        Map<EntityAccount, List<EntityFolder>> targets = new HashMap<>();
+    }
+
+    private static class MessageTarget implements Parcelable {
         long id;
+        EntityAccount account;
         EntityFolder folder;
 
-        MessageTarget(long id, EntityFolder folder) {
+        MessageTarget(long id, EntityAccount account, EntityFolder folder) {
             this.id = id;
+            this.account = account;
             this.folder = folder;
         }
 
         protected MessageTarget(Parcel in) {
             id = in.readLong();
+            account = (EntityAccount) in.readSerializable();
             folder = (EntityFolder) in.readSerializable();
         }
 
         @Override
         public void writeToParcel(Parcel dest, int flags) {
             dest.writeLong(id);
+            dest.writeSerializable(account);
             dest.writeSerializable(folder);
         }
 

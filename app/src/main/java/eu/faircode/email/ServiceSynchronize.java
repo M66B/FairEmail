@@ -1483,7 +1483,7 @@ public class ServiceSynchronize extends LifecycleService {
                             doKeyword(folder, ifolder, message, jargs, db);
 
                         else if (EntityOperation.ADD.equals(op.name))
-                            doAdd(folder, isession, istore, ifolder, message, jargs, db);
+                            doAdd(folder, isession, ifolder, message, jargs, db);
 
                         else if (EntityOperation.MOVE.equals(op.name))
                             doMove(folder, isession, istore, ifolder, message, jargs, db);
@@ -1663,7 +1663,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void doAdd(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException, IOException {
+    private void doAdd(EntityFolder folder, Session isession, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException, IOException {
         // Append message
         MimeMessage imessage = MessageHelper.from(this, message, isession);
 
@@ -1673,6 +1673,10 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         ifolder.appendMessages(new Message[]{imessage});
+
+        // Cross account move
+        if (!folder.id.equals(message.folder))
+            EntityOperation.queue(this, db, message, EntityOperation.DELETE);
     }
 
     private void doMove(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws JSONException, MessagingException, IOException {

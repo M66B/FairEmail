@@ -28,6 +28,8 @@ import android.os.Build;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.room.Entity;
@@ -38,7 +40,7 @@ import androidx.room.PrimaryKey;
         indices = {
         }
 )
-public class EntityAccount {
+public class EntityAccount implements Serializable {
     static final String TABLE_NAME = "account";
 
     @PrimaryKey(autoGenerate = true)

@@ -127,6 +127,7 @@ public class EntityOperation {
     }
 
     private static void queue(Context context, DB db, EntityMessage message, String name, JSONArray jargs) {
+        long folder = message.folder;
         try {
             if (SEEN.equals(name)) {
                 for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid)) {
@@ -166,12 +167,14 @@ public class EntityOperation {
                     long id = message.id;
                     long uid = message.uid;
                     message.id = null;
-                    message.uid = null;
+                    message.account = target.account;
                     message.folder = target.id;
+                    message.uid = null;
                     long newid = db.message().insertMessage(message);
                     message.id = id;
-                    message.uid = uid;
+                    message.account = source.account;
                     message.folder = source.id;
+                    message.uid = uid;
 
                     if (message.content)
                         try {
@@ -186,6 +189,13 @@ public class EntityOperation {
                     EntityAttachment.copy(context, db, message.id, newid);
                 }
 
+                // Cross account move
+                if (!source.account.equals(target.account)) {
+                    name = ADD;
+                    folder = target.id;
+                    jargs.remove(0);
+                }
+
             } else if (DELETE.equals(name))
                 db.message().setMessageUiHide(message.id, true);
         } catch (JSONException ex) {
@@ -193,7 +203,7 @@ public class EntityOperation {
         }
 
         EntityOperation operation = new EntityOperation();
-        operation.folder = message.folder;
+        operation.folder = folder;
         operation.message = message.id;
         operation.name = name;
         operation.args = jargs.toString();
