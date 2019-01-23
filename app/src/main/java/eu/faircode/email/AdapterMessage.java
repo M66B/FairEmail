@@ -424,6 +424,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             pbLoading.setVisibility(View.GONE);
 
+            setDisplacement(0);
+
             if (textSize != 0) {
                 tvDay.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
                 tvFrom.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
