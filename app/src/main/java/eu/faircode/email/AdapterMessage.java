@@ -112,6 +112,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import static android.text.format.DateUtils.DAY_IN_MILLIS;
+import static android.text.format.DateUtils.FORMAT_SHOW_DATE;
+import static android.text.format.DateUtils.FORMAT_SHOW_WEEKDAY;
 
 public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHolder> {
     private Context context;
@@ -149,7 +151,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     enum ViewType {UNIFIED, FOLDER, THREAD, SEARCH}
 
     private static DateFormat tf = SimpleDateFormat.getTimeInstance(SimpleDateFormat.SHORT);
-    private static DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
+    private static DateFormat dtf = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
             View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
@@ -432,12 +434,28 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (position > 0)
                 prev = differ.getItem(position - 1);
             message.day = getDay(prev, message);
-            if (message.day)
-                tvDay.setText(
-                        DateUtils.getRelativeTimeSpanString(
-                                message.received,
-                                new Date().getTime(),
-                                DAY_IN_MILLIS, 0));
+            if (message.day) {
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(new Date());
+                cal.set(Calendar.HOUR_OF_DAY, 0);
+                cal.set(Calendar.MINUTE, 0);
+                cal.set(Calendar.SECOND, 0);
+                cal.set(Calendar.MILLISECOND, 0);
+                cal.add(Calendar.DAY_OF_MONTH, -2);
+                if (message.received <= cal.getTimeInMillis())
+                    tvDay.setText(
+                            DateUtils.formatDateRange(
+                                    context,
+                                    message.received,
+                                    message.received,
+                                    FORMAT_SHOW_WEEKDAY | FORMAT_SHOW_DATE));
+                else
+                    tvDay.setText(
+                            DateUtils.getRelativeTimeSpanString(
+                                    message.received,
+                                    new Date().getTime(),
+                                    DAY_IN_MILLIS, 0));
+            }
             grpDay.setVisibility(message.day ? View.VISIBLE : View.GONE);
 
             itemView.setAlpha(message.uid == null && !EntityFolder.OUTBOX.equals(message.folderType)
@@ -592,7 +610,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (debug) {
                 String text = "error=" + error +
-                        "\nuid=" + message.uid + " id=" + message.id + " " + df.format(new Date(message.received)) +
+                        "\nuid=" + message.uid + " id=" + message.id + " " + dtf.format(new Date(message.received)) +
                         "\n" + (message.ui_hide ? "HIDDEN " : "") +
                         "seen=" + message.seen + "/" + message.ui_seen +
                         " unseen=" + message.unseen +
@@ -656,7 +674,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvCc.setText(MessageHelper.formatAddresses(message.cc));
                 tvBcc.setText(MessageHelper.formatAddresses(message.bcc));
 
-                tvTimeEx.setText(df.format(message.received));
+                tvTimeEx.setText(dtf.format(message.received));
 
                 tvSizeEx.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
                 if (!message.duplicate)
@@ -2146,9 +2164,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         Calendar cal1 = Calendar.getInstance();
         cal0.setTimeInMillis(prev.received);
         cal1.setTimeInMillis(cur.received);
+        int year0 = cal0.get(Calendar.YEAR);
+        int year1 = cal1.get(Calendar.YEAR);
         int day0 = cal0.get(Calendar.DAY_OF_YEAR);
         int day1 = cal1.get(Calendar.DAY_OF_YEAR);
-        return (day0 != day1);
+        return (year0 != year1 || day0 != day1);
     }
 
     PagedList<TupleMessageEx> getCurrentList() {
