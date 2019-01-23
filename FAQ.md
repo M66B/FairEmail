@@ -74,7 +74,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(11) Why is POP not supported?](#user-content-faq11)
 * [~~(10) What does 'UIDPLUS not supported' mean?~~](#user-content-faq10)
 * [(12) How does encryption/decryption work?](#user-content-faq12)
-* [(13) How does search on server work?](#user-content-faq13)
+* [(13) How does search on device/server work?](#user-content-faq13)
 * [(14) How can I setup Outlook with 2FA?](#user-content-faq14)
 * [(15) Why does the message text keep loading?](#user-content-faq15)
 * [(16) Why are messages not being synchronized?](#user-content-faq16)
@@ -325,13 +325,14 @@ If you want, you can verify a signature by opening the *signature.asc* attachmen
 <br />
 
 <a name="faq13"></a>
-**(13) How does search on server work?**
+**(13) How does search on device/server work?**
 
-You can start searching for messages on sender, recipient, subject, keyword or message text by using the magnify glass in the action bar of a folder (not in the unified inbox because it could be a collection of folders).
-First local messages will be searched and after that the server will execute the search.
+You can start searching for messages on sender, recipient, subject, keyword or message text by using the magnify glass in the action bar of a folder.
+First on device messages will be searched and after that the search will be executed on the server,
+except if the unified inbox is a collection of more than one folder.
 Searching local messages is case insensitive and on partial text.
 The message text of local messages will not be searched if the message text was not downloaded yet.
-Searching by the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
+Searching on the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
 Searching messages is a pro feature.
 
 <br />
