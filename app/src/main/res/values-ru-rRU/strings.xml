@@ -275,7 +275,6 @@
     <string name="title_no_stream">Устаревшее приложение послало путь к файлу вместо файлового потока</string>
     <string name="title_no_contacts">Выбор контакта недоступен</string>
     <string name="title_no_internet">Отсутствует подключение к Интернету</string>
-    <string name="title_no_cross_account">Перемещение между учётными записями не поддерживается</string>
     <string name="title_raw_saved">Оригинал сообщения сохранён</string>
     <string name="title_attachment_saved">Файл сохранен</string>
     <string name="title_attachments_saved">Вложения сохранены</string>

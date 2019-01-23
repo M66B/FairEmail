@@ -4,6 +4,7 @@
     <string name="app_welcome">FairEmail es una aplicación de correo electrónico de código abierto centrada en la privacidad y la seguridad. Por esta razón, algunas funciones pueden funcionar de manera diferente a lo que está acostumbrado.</string>
     <string name="channel_service">Servicio</string>
     <string name="channel_notification">Notificaciones</string>
+    <string name="channel_warning">Alertas</string>
     <string name="channel_error">Errores</string>
     <string name="tile_synchronize">Sincronizar</string>
     <string name="tile_unseen">Nuevos mensajes</string>
@@ -183,10 +184,12 @@
     <string name="title_no_drafts">No se seleccionó la carpeta de borradores</string>
     <string name="title_no_primary_drafts">No hay cuenta primaria o no hay carpeta de borradores</string>
     <string name="title_no_idle">Este proveedor no soporta mensajes PUSH. Esto retrasará la recepción de nuevos mensajes y aumentará el uso de batería.</string>
+    <string name="title_no_sync">Errores de sincronización desde %1$s</string>
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
     <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
     <string name="title_pop">POP no está soportado</string>
     <string name="title_edit_html">Editar como HTML</string>
+    <string name="title_last_connected">Última conexión: %1$s</string>
     <string name="title_synchronize_now">Sincronizar ahora</string>
     <string name="title_delete_local">Eliminar mensajes locales</string>
     <string name="title_empty_trash">Vaciar papelera</string>
@@ -240,6 +243,7 @@
     <string name="title_raw_save">Guardar mensaje raw</string>
     <string name="title_manage_keywords">Administrar palabras clave</string>
     <string name="title_add_keyword">Añadir palabra clave</string>
+    <string name="title_show_inline">Mostrar adjuntos incrustados</string>
     <string name="title_download_all">Descargar todo</string>
     <string name="title_save_all">Guardar todo</string>
     <string name="title_show_html">Mostrar original</string>
@@ -310,6 +314,7 @@
     <string name="title_not_encrypted">El mensaje no está cifrado</string>
     <string name="title_search">Buscar</string>
     <string name="title_search_hint">Buscar en el servidor</string>
+    <string name="title_search_device">Buscar en dispositivo</string>
     <string name="title_searching">Buscando \'%1$s\'</string>
     <string name="title_sort_on">Ordenar por</string>
     <string name="title_sort_on_time">Tiempo</string>

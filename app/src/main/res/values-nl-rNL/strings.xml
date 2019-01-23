@@ -252,6 +252,7 @@
     <string name="title_more">Meer</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Verplaatsen</string>
+    <string name="title_move_to">Verplaats naar %1$s</string>
     <string name="title_snooze">Sluimeren &#8230;</string>
     <string name="title_archive">Archiveren</string>
     <string name="title_reply">Beantwoorden</string>
@@ -263,7 +264,6 @@
     <string name="title_no_stream">Een verouderde app verzond een bestandsnaam in plaats van een bestandsstroom</string>
     <string name="title_no_contacts">Contact kiezer niet beschikbaar</string>
     <string name="title_no_internet">Geen internet verbinding</string>
-    <string name="title_no_cross_account">Verplaatsen tussen accounts wordt niet ondersteund</string>
     <string name="title_raw_saved">Ruw bericht opgeslagen</string>
     <string name="title_attachment_saved">Bijlage opgeslagen</string>
     <string name="title_attachments_saved">Bijlagen opgeslagen</string>

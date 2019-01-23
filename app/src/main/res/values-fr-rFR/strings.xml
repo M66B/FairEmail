@@ -263,7 +263,6 @@
     <string name="title_no_stream">Une application obsolète a envoyé un chemin d\'accès au lieu d\'un flux de fichier</string>
     <string name="title_no_contacts">Sélecteur de contact non disponible</string>
     <string name="title_no_internet">Pas de connexion Internet</string>
-    <string name="title_no_cross_account">Le déplacement entre comptes n’est pas pris en charge</string>
     <string name="title_raw_saved">Message brut enregistré</string>
     <string name="title_attachment_saved">Pièce jointe enregistrée</string>
     <string name="title_attachments_saved">Pièces jointes enregistrées</string>
