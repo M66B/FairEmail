@@ -387,8 +387,6 @@
     <string name="title_undo">Ångra</string>
     <string name="title_add">Lägg till</string>
     <string name="title_browse">Bläddra</string>
-    <string name="title_hours">Timmar</string>
-    <string name="title_days">Dagar</string>
     <string name="title_report">Rapportera</string>
     <string name="title_no_ask_again">Fråga inte detta igen</string>
     <string name="title_no_adobe">Adobe Acrobat reader kan inte säkert öppna delade filer, se FAQ för mer information</string>

@@ -256,7 +256,6 @@
     <string name="title_no_stream">Eski bir uygulama bir dosya akışı yerine dosya yolu gönderdi</string>
     <string name="title_no_contacts">Kişi seçici mevcut değil</string>
     <string name="title_no_internet">İnternet bağlantısı yok</string>
-    <string name="title_no_cross_account">Başka bir hesaba taşıma desteklenmiyor</string>
     <string name="title_raw_saved">Ham ileti kaydedildi</string>
     <string name="title_attachment_saved">Ek kaydedildi</string>
     <string name="title_attachments_saved">Ekler kaydedildi</string>
@@ -397,8 +396,6 @@
     <string name="title_undo">Geri Al</string>
     <string name="title_add">Ekle</string>
     <string name="title_browse">Göz at</string>
-    <string name="title_hours">Saatler</string>
-    <string name="title_days">Günler</string>
     <string name="title_report">Rapor Et</string>
     <string name="title_no_ask_again">Bunu bir daha sorma</string>
     <string name="title_no_adobe">Adobe Acrobat Reader güvenli bir biçimde paylaşılan dosyaları açamıyor, daha fazla bilgi için SSS bölümüne bakın</string>

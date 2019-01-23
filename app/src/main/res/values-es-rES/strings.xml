@@ -259,7 +259,6 @@
     <string name="title_no_stream">Una app obsoleta ha enviado la ruta a un archivo en lugar de una secuencia de archivos</string>
     <string name="title_no_contacts">Selector de contactos no disponible</string>
     <string name="title_no_internet">No hay conexión a internet</string>
-    <string name="title_no_cross_account">Mover a otra cuenta no está soportado</string>
     <string name="title_raw_saved">Mensaje raw guardado</string>
     <string name="title_attachment_saved">Adjunto guardado</string>
     <string name="title_attachments_saved">Adjuntos guardados</string>
@@ -400,8 +399,6 @@
     <string name="title_undo">Deshacer</string>
     <string name="title_add">Agregar</string>
     <string name="title_browse">Explorar</string>
-    <string name="title_hours">Horas</string>
-    <string name="title_days">Días</string>
     <string name="title_report">Reportar</string>
     <string name="title_no_ask_again">No volver a preguntar</string>
     <string name="title_no_adobe">Adobe Acrobat Reader no puede abrir archivos compartidos de forma segura, consulte las Preguntas Frecuentes para más información</string>

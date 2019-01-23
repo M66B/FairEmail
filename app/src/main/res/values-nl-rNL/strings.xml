@@ -263,7 +263,7 @@
     <string name="title_no_stream">Een verouderde app verzond een bestandsnaam in plaats van een bestandsstroom</string>
     <string name="title_no_contacts">Contact kiezer niet beschikbaar</string>
     <string name="title_no_internet">Geen internet verbinding</string>
-    <string name="title_no_cross_account">Verplaatsen naar een ander account wordt niet ondersteund</string>
+    <string name="title_no_cross_account">Verplaatsen tussen accounts wordt niet ondersteund</string>
     <string name="title_raw_saved">Ruw bericht opgeslagen</string>
     <string name="title_attachment_saved">Bijlage opgeslagen</string>
     <string name="title_attachments_saved">Bijlagen opgeslagen</string>
@@ -405,8 +405,6 @@
     <string name="title_undo">Ongedaan maken</string>
     <string name="title_add">Toevoegen</string>
     <string name="title_browse">Bladeren</string>
-    <string name="title_hours">Uren</string>
-    <string name="title_days">Dagen</string>
     <string name="title_report">Rapporteer</string>
     <string name="title_no_ask_again">Dit niet meer vragen</string>
     <string name="title_no_adobe">Adobe Acrobat reader kan veilig gedeelde bestanden niet openen, zie de FAQ voor meer informatie</string>

@@ -4,6 +4,7 @@
     <string name="app_welcome">FairEmail este o aplicație pentru e-mail, cu sursă deschisă, ce se concentrează pe confidențialitate și securitate. Din acest motiv se poate ca unele caracteristici să funcționeze diferit de cum erați obișnuiți.</string>
     <string name="channel_service">Serviciu</string>
     <string name="channel_notification">Notificări</string>
+    <string name="channel_warning">Atenționări</string>
     <string name="channel_error">Erori</string>
     <string name="tile_synchronize">Sincronizare</string>
     <string name="tile_unseen">Mesaje noi</string>
@@ -189,10 +190,12 @@
     <string name="title_no_drafts">Nici un folder selectat pentru ciorne</string>
     <string name="title_no_primary_drafts">Nici un cont principal sau nici un dosar pentru ciorne</string>
     <string name="title_no_idle">Acest furnizor de servicii e-mail nu suporta mesaje push. Acest fapt va duce la întârzierea recepției mesajelor și un consum mai mare al bateriei.</string>
+    <string name="title_no_sync">Erori de sincronizare începând cu %1$s</string>
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
     <string name="title_pop">POP nu este acceptat</string>
     <string name="title_edit_html">Editează ca HTML</string>
+    <string name="title_last_connected">Ultima conectare: %1$s</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
     <string name="title_delete_local">Șterge mesajul local</string>
     <string name="title_empty_trash">Golire coș de gunoi</string>
@@ -318,6 +321,7 @@
     <string name="title_not_encrypted">Mesajul nu este criptat</string>
     <string name="title_search">Caută</string>
     <string name="title_search_hint">Căutare pe server</string>
+    <string name="title_search_device">Căutare pe dispozitiv</string>
     <string name="title_searching">Se caută \'%1$s\'</string>
     <string name="title_sort_on">Sortare</string>
     <string name="title_sort_on_time">Dată</string>
@@ -407,8 +411,6 @@
     <string name="title_undo">Anulează</string>
     <string name="title_add">Adaugă</string>
     <string name="title_browse">Răsfoire</string>
-    <string name="title_hours">Ore</string>
-    <string name="title_days">Zile</string>
     <string name="title_report">Raportează</string>
     <string name="title_no_ask_again">Nu mai întreba din nou</string>
     <string name="title_no_adobe">Aplicația Adobe Acrobat reader nu poate deschide în siguranță fișierele, aflați mai multe în secțiunea de întrebări și răspunsuri</string>

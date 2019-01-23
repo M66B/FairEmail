@@ -263,7 +263,7 @@
     <string name="title_no_stream">Une application obsolète a envoyé un chemin d\'accès au lieu d\'un flux de fichier</string>
     <string name="title_no_contacts">Sélecteur de contact non disponible</string>
     <string name="title_no_internet">Pas de connexion Internet</string>
-    <string name="title_no_cross_account">Le déplacement vers un autre compte n’est pas pris en charge</string>
+    <string name="title_no_cross_account">Le déplacement entre comptes n’est pas pris en charge</string>
     <string name="title_raw_saved">Message brut enregistré</string>
     <string name="title_attachment_saved">Pièce jointe enregistrée</string>
     <string name="title_attachments_saved">Pièces jointes enregistrées</string>
@@ -405,8 +405,6 @@
     <string name="title_undo">Annuler</string>
     <string name="title_add">Ajouter</string>
     <string name="title_browse">Parcourir</string>
-    <string name="title_hours">Heures</string>
-    <string name="title_days">Jours</string>
     <string name="title_report">Rapport</string>
     <string name="title_no_ask_again">Ne plus me le demander</string>
     <string name="title_no_adobe">Adobe Acrobat reader ne peut pas ouvrir les fichiers partagés de façon sécurisée, voir la FAQ plus d\'information</string>

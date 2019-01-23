@@ -275,7 +275,7 @@
     <string name="title_no_stream">Устаревшее приложение послало путь к файлу вместо файлового потока</string>
     <string name="title_no_contacts">Выбор контакта недоступен</string>
     <string name="title_no_internet">Отсутствует подключение к Интернету</string>
-    <string name="title_no_cross_account">Перемещение в другую учётную запись не поддерживается</string>
+    <string name="title_no_cross_account">Перемещение между учётными записями не поддерживается</string>
     <string name="title_raw_saved">Оригинал сообщения сохранён</string>
     <string name="title_attachment_saved">Файл сохранен</string>
     <string name="title_attachments_saved">Вложения сохранены</string>
@@ -417,8 +417,6 @@
     <string name="title_undo">Отменить</string>
     <string name="title_add">Добавить</string>
     <string name="title_browse">Обзор</string>
-    <string name="title_hours">Часов</string>
-    <string name="title_days">Дней</string>
     <string name="title_report">Отчет</string>
     <string name="title_no_ask_again">Больше не спрашивать</string>
     <string name="title_no_adobe">Adobe Acrobat Reader не открывает файлы безопасно, смотрите FAQ для более детального описания</string>

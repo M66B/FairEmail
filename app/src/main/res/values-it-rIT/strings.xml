@@ -263,7 +263,6 @@
     <string name="title_no_stream">Un\'app obsoleta ha inviato un percorso file invece di un flusso di file</string>
     <string name="title_no_contacts">Selettore di contatti non disponibile</string>
     <string name="title_no_internet">Nessuna connessione Internet</string>
-    <string name="title_no_cross_account">Il passaggio a un altro account non è supportato</string>
     <string name="title_raw_saved">Messaggio non elaborato salvato</string>
     <string name="title_attachment_saved">Allegato salvato</string>
     <string name="title_attachments_saved">Allegati salvati</string>
@@ -405,8 +404,6 @@
     <string name="title_undo">Annulla</string>
     <string name="title_add">Aggiungi</string>
     <string name="title_browse">Esplora</string>
-    <string name="title_hours">Ore</string>
-    <string name="title_days">Giorni</string>
     <string name="title_report">Report</string>
     <string name="title_no_ask_again">Non chiedere di nuovo</string>
     <string name="title_no_adobe">Adobe Acrobat Reader non può aprire file condivisi in modo sicuro, consultare le domande frequenti per ulteriori informazioni</string>
