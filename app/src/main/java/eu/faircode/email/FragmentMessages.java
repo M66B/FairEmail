@@ -34,6 +34,8 @@ import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -51,10 +53,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.io.Serializable;
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -510,25 +514,30 @@ public class FragmentMessages extends FragmentBase {
             args.putString("name", name);
             args.putBoolean("type", type);
 
-            new SimpleTask<MessageTarget>() {
+            new SimpleTask<ArrayList<MessageTarget>>() {
                 @Override
-                protected MessageTarget onExecute(Context context, Bundle args) {
+                protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
                     String name = args.getString("name");
                     boolean type = args.getBoolean("type");
 
-                    MessageTarget result = new MessageTarget();
+                    ArrayList<MessageTarget> result = new ArrayList<>();
 
                     DB db = DB.getInstance(context);
                     try {
                         db.beginTransaction();
 
                         EntityMessage message = db.message().getMessage(id);
-                        if (type)
-                            result.target = db.folder().getFolderByType(message.account, name);
-                        else
-                            result.target = db.folder().getFolderByName(message.account, name);
-                        result.ids.add(message.id);
+
+                        EntityFolder folder = null;
+                        if (message != null)
+                            if (type)
+                                folder = db.folder().getFolderByType(message.account, name);
+                            else
+                                folder = db.folder().getFolderByName(message.account, name);
+
+                        if (folder != null)
+                            result.add(new MessageTarget(id, folder));
 
                         db.setTransactionSuccessful();
                     } finally {
@@ -539,7 +548,7 @@ public class FragmentMessages extends FragmentBase {
                 }
 
                 @Override
-                protected void onExecuted(Bundle args, MessageTarget result) {
+                protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
                     moveAsk(result);
                 }
 
@@ -635,30 +644,33 @@ public class FragmentMessages extends FragmentBase {
             args.putBoolean("thread", viewType != AdapterMessage.ViewType.THREAD);
             args.putLong("target", direction == ItemTouchHelper.LEFT ? swipes.swipe_left : swipes.swipe_right);
 
-            new SimpleTask<MessageTarget>() {
+            new SimpleTask<ArrayList<MessageTarget>>() {
                 @Override
-                protected MessageTarget onExecute(Context context, Bundle args) {
+                protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
                     boolean thread = args.getBoolean("thread");
                     long target = args.getLong("target");
 
-                    MessageTarget result = new MessageTarget();
+                    ArrayList<MessageTarget> result = new ArrayList<>();
 
                     // Get target folder and hide message
                     DB db = DB.getInstance(context);
                     try {
                         db.beginTransaction();
 
-                        result.target = db.folder().getFolder(target);
-
-                        EntityMessage message = db.message().getMessage(id);
-                        List<EntityMessage> messages = db.message().getMessageByThread(
-                                message.account, message.thread, threading && thread ? null : id, message.folder);
-                        for (EntityMessage threaded : messages) {
-                            result.ids.add(threaded.id);
-                            db.message().setMessageUiHide(threaded.id, true);
-                            // Prevent new message notification on undo
-                            db.message().setMessageUiIgnored(threaded.id, true);
+                        EntityFolder folder = db.folder().getFolder(target);
+                        if (folder != null) {
+                            EntityMessage message = db.message().getMessage(id);
+                            if (message != null) {
+                                List<EntityMessage> messages = db.message().getMessageByThread(
+                                        message.account, message.thread, threading && thread ? null : id, message.folder);
+                                for (EntityMessage threaded : messages) {
+                                    result.add(new MessageTarget(threaded.id, folder));
+                                    db.message().setMessageUiHide(threaded.id, true);
+                                    // Prevent new message notification on undo
+                                    db.message().setMessageUiIgnored(threaded.id, true);
+                                }
+                            }
                         }
 
                         db.setTransactionSuccessful();
@@ -670,7 +682,7 @@ public class FragmentMessages extends FragmentBase {
                 }
 
                 @Override
-                protected void onExecuted(final Bundle args, final MessageTarget result) {
+                protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
                     moveUndo(result);
                 }
 
@@ -710,33 +722,34 @@ public class FragmentMessages extends FragmentBase {
         args.putLong("id", id);
         args.putString("folderType", folderType);
 
-        new SimpleTask<MessageTarget>() {
+        new SimpleTask<ArrayList<MessageTarget>>() {
             @Override
-            protected MessageTarget onExecute(Context context, Bundle args) {
+            protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
                 long account = args.getLong("account");
                 String thread = args.getString("thread");
                 long id = args.getLong("id");
                 String folderType = args.getString("folderType");
 
-                MessageTarget result = new MessageTarget();
+                ArrayList<MessageTarget> result = new ArrayList<>();
 
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
 
-                    result.target = db.folder().getFolderByType(account, folderType);
-
-                    List<EntityMessage> messages = db.message().getMessageByThread(
-                            account, thread, threading ? null : id, null);
-                    for (EntityMessage threaded : messages) {
-                        EntityFolder folder = db.folder().getFolder(threaded.folder);
-                        if (!result.target.id.equals(threaded.folder) &&
-                                !EntityFolder.DRAFTS.equals(folder.type) &&
-                                !EntityFolder.OUTBOX.equals(folder.type) &&
-                                (!EntityFolder.SENT.equals(folder.type) || EntityFolder.TRASH.equals(result.target.type)) &&
-                                !EntityFolder.TRASH.equals(folder.type) &&
-                                !EntityFolder.JUNK.equals(folder.type))
-                            result.ids.add(threaded.id);
+                    EntityFolder target = db.folder().getFolderByType(account, folderType);
+                    if (target != null) {
+                        List<EntityMessage> messages = db.message().getMessageByThread(
+                                account, thread, threading ? null : id, null);
+                        for (EntityMessage threaded : messages) {
+                            EntityFolder folder = db.folder().getFolder(threaded.folder);
+                            if (!target.id.equals(threaded.folder) &&
+                                    !EntityFolder.DRAFTS.equals(folder.type) &&
+                                    !EntityFolder.OUTBOX.equals(folder.type) &&
+                                    (!EntityFolder.SENT.equals(folder.type) || EntityFolder.TRASH.equals(target.type)) &&
+                                    !EntityFolder.TRASH.equals(folder.type) &&
+                                    !EntityFolder.JUNK.equals(folder.type))
+                                result.add(new MessageTarget(threaded.id, target));
+                        }
                     }
 
                     db.setTransactionSuccessful();
@@ -748,7 +761,7 @@ public class FragmentMessages extends FragmentBase {
             }
 
             @Override
-            protected void onExecuted(Bundle args, MessageTarget result) {
+            protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
                 moveAsk(result);
             }
 
@@ -784,21 +797,15 @@ public class FragmentMessages extends FragmentBase {
                             accounts.add(message.account);
                         result[message.ui_seen ? 1 : 0] = true;
                         result[message.flagged ? 3 : 2] = true;
+
+                        if (db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE) != null)
+                            result[4] = true;
+                        if (db.folder().getFolderByType(message.account, EntityFolder.TRASH) != null)
+                            result[5] = true;
+                        if (db.folder().getFolderByType(message.account, EntityFolder.JUNK) != null)
+                            result[6] = true;
                     }
                 }
-
-                EntityFolder archive = null;
-                EntityFolder trash = null;
-                EntityFolder junk = null;
-                if (accounts.size() == 1) {
-                    archive = db.folder().getFolderByType(accounts.get(0), EntityFolder.ARCHIVE);
-                    trash = db.folder().getFolderByType(accounts.get(0), EntityFolder.TRASH);
-                    junk = db.folder().getFolderByType(accounts.get(0), EntityFolder.JUNK);
-                }
-
-                result[4] = (archive != null);
-                result[5] = (trash != null);
-                result[6] = (junk != null);
 
                 EntityFolder folder = db.folder().getFolder(fid);
                 if (folder != null) {
@@ -841,7 +848,7 @@ public class FragmentMessages extends FragmentBase {
                 if (result[6] && !result[9] && !result[10]) // has junk and not junk/drafts
                     popupMenu.getMenu().add(Menu.NONE, action_junk, 9, R.string.title_spam);
 
-                if (!result[10])
+                if (!result[10]) // not drafts
                     popupMenu.getMenu().add(Menu.NONE, action_move, 10, R.string.title_move);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -1115,31 +1122,30 @@ public class FragmentMessages extends FragmentBase {
 
         selectionTracker.clearSelection();
 
-        new SimpleTask<MessageTarget>() {
+        new SimpleTask<ArrayList<MessageTarget>>() {
             @Override
-            protected MessageTarget onExecute(Context context, Bundle args) {
+            protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
                 String type = args.getString("type");
                 long[] ids = args.getLongArray("ids");
 
-                MessageTarget result = new MessageTarget();
+                ArrayList<MessageTarget> result = new ArrayList<>();
 
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
 
-                    long account = -1;
                     for (long id : ids) {
                         EntityMessage message = db.message().getMessage(id);
                         if (message != null) {
-                            account = message.account;
                             List<EntityMessage> messages = db.message().getMessageByThread(
                                     message.account, message.thread, threading ? null : id, message.folder);
-                            for (EntityMessage threaded : messages)
-                                result.ids.add(threaded.id);
+                            for (EntityMessage threaded : messages) {
+                                EntityFolder target = db.folder().getFolderByType(message.account, type);
+                                if (target != null)
+                                    result.add(new MessageTarget(threaded.id, target));
+                            }
                         }
                     }
-
-                    result.target = db.folder().getFolderByType(account, type);
 
                     db.setTransactionSuccessful();
                 } finally {
@@ -1150,11 +1156,8 @@ public class FragmentMessages extends FragmentBase {
             }
 
             @Override
-            protected void onExecuted(Bundle args, MessageTarget result) {
-                if (EntityFolder.JUNK.equals(result.target.type))
-                    moveAskConfirmed(result);
-                else
-                    moveAsk(result);
+            protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
+                moveAsk(result);
             }
 
             @Override
@@ -1217,29 +1220,29 @@ public class FragmentMessages extends FragmentBase {
 
                         selectionTracker.clearSelection();
 
-                        new SimpleTask<MessageTarget>() {
+                        new SimpleTask<ArrayList<MessageTarget>>() {
                             @Override
-                            protected MessageTarget onExecute(Context context, Bundle args) {
+                            protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
                                 long[] ids = args.getLongArray("ids");
                                 long target = args.getLong("target");
 
-                                MessageTarget result = new MessageTarget();
+                                ArrayList<MessageTarget> result = new ArrayList<MessageTarget>();
 
                                 DB db = DB.getInstance(context);
                                 try {
                                     db.beginTransaction();
 
-                                    result.target = db.folder().getFolder(target);
-
-                                    for (long id : ids) {
-                                        EntityMessage message = db.message().getMessage(id);
-                                        if (message != null) {
-                                            List<EntityMessage> messages = db.message().getMessageByThread(
-                                                    message.account, message.thread, threading ? null : id, message.folder);
-                                            for (EntityMessage threaded : messages)
-                                                result.ids.add(threaded.id);
+                                    EntityFolder folder = db.folder().getFolder(target);
+                                    if (folder != null)
+                                        for (long id : ids) {
+                                            EntityMessage message = db.message().getMessage(id);
+                                            if (message != null) {
+                                                List<EntityMessage> messages = db.message().getMessageByThread(
+                                                        message.account, message.thread, threading ? null : id, message.folder);
+                                                for (EntityMessage threaded : messages)
+                                                    result.add(new MessageTarget(threaded.id, folder));
+                                            }
                                         }
-                                    }
 
                                     db.setTransactionSuccessful();
                                 } finally {
@@ -1250,7 +1253,7 @@ public class FragmentMessages extends FragmentBase {
                             }
 
                             @Override
-                            protected void onExecuted(Bundle args, MessageTarget result) {
+                            protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
                                 moveAsk(result);
                             }
 
@@ -2035,8 +2038,8 @@ public class FragmentMessages extends FragmentBase {
         }
     }
 
-    private void moveAsk(final MessageTarget result) {
-        if (result.target == null)
+    private void moveAsk(final ArrayList<MessageTarget> result) {
+        if (result.size() == 0)
             return;
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -2049,10 +2052,8 @@ public class FragmentMessages extends FragmentBase {
         final TextView tvMessage = dview.findViewById(R.id.tvMessage);
         final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
-        tvMessage.setText(getResources().getQuantityString(
-                R.plurals.title_moving_messages,
-                result.ids.size(), result.ids.size(),
-                result.target.getDisplayName(getContext())));
+        tvMessage.setText(getResources().getQuantityString(R.plurals.title_moving_messages,
+                result.size(), result.size(), getDisplay(result)));
 
         new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                 .setView(dview)
@@ -2068,9 +2069,9 @@ public class FragmentMessages extends FragmentBase {
                 .show();
     }
 
-    private void moveAskConfirmed(MessageTarget result) {
+    private void moveAskConfirmed(ArrayList<MessageTarget> result) {
         Bundle args = new Bundle();
-        args.putSerializable("result", result);
+        args.putParcelableArrayList("result", result);
 
         // Move messages
         new SimpleTask<Void>() {
@@ -2078,16 +2079,15 @@ public class FragmentMessages extends FragmentBase {
             protected Void onExecute(Context context, Bundle args) {
                 DB db = DB.getInstance(context);
                 try {
-                    MessageTarget result = (MessageTarget) args.getSerializable("result");
+                    List<MessageTarget> result = args.getParcelableArrayList("result");
 
                     db.beginTransaction();
 
-                    for (long id : result.ids) {
-                        EntityMessage message = db.message().getMessage(id);
+                    for (MessageTarget target : result) {
+                        EntityMessage message = db.message().getMessage(target.id);
                         if (message != null) {
-                            Log.i("Move id=" + id + " target=" + result.target.name);
-                            EntityFolder folder = db.folder().getFolderByName(message.account, result.target.name);
-                            EntityOperation.queue(context, db, message, EntityOperation.MOVE, folder.id);
+                            Log.i("Move id=" + target.id + " target=" + target.folder.name);
+                            EntityOperation.queue(context, db, message, EntityOperation.MOVE, target.folder.id);
                         }
                     }
 
@@ -2105,14 +2105,11 @@ public class FragmentMessages extends FragmentBase {
         }.execute(FragmentMessages.this, args, "messages:move");
     }
 
-    private void moveUndo(final MessageTarget result) {
-        if (result.target == null)
-            return;
-
+    private void moveUndo(final ArrayList<MessageTarget> result) {
         // Show undo snackbar
         final Snackbar snackbar = Snackbar.make(
                 view,
-                getString(R.string.title_moving, result.target.getDisplayName(getContext())),
+                getString(R.string.title_moving, getDisplay(result)),
                 Snackbar.LENGTH_INDEFINITE);
         snackbar.setAction(R.string.title_undo, new View.OnClickListener() {
             @Override
@@ -2120,17 +2117,17 @@ public class FragmentMessages extends FragmentBase {
                 snackbar.dismiss();
 
                 Bundle args = new Bundle();
-                args.putSerializable("result", result);
+                args.putParcelableArrayList("result", result);
 
                 // Show message again
                 new SimpleTask<Void>() {
                     @Override
                     protected Void onExecute(Context context, Bundle args) {
                         DB db = DB.getInstance(context);
-                        MessageTarget result = (MessageTarget) args.getSerializable("result");
-                        for (long id : result.ids) {
-                            Log.i("Move undo id=" + id);
-                            db.message().setMessageUiHide(id, false);
+                        ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
+                        for (MessageTarget target : result) {
+                            Log.i("Move undo id=" + target.id);
+                            db.message().setMessageUiHide(target.id, false);
                         }
                         return null;
                     }
@@ -2163,12 +2160,11 @@ public class FragmentMessages extends FragmentBase {
                         try {
                             db.beginTransaction();
 
-                            for (long id : result.ids) {
+                            for (MessageTarget target : result) {
                                 EntityMessage message = db.message().getMessage(id);
                                 if (message != null && message.ui_hide) {
-                                    Log.i("Move id=" + id + " target=" + result.target.name);
-                                    EntityFolder folder = db.folder().getFolderByName(message.account, result.target.name);
-                                    EntityOperation.queue(context, db, message, EntityOperation.MOVE, folder.id);
+                                    Log.i("Move id=" + id + " target=" + target.folder.name);
+                                    EntityOperation.queue(context, db, message, EntityOperation.MOVE, target.folder.id);
                                 }
                             }
 
@@ -2180,6 +2176,23 @@ public class FragmentMessages extends FragmentBase {
                 }).start();
             }
         }, UNDO_TIMEOUT);
+    }
+
+    private String getDisplay(ArrayList<MessageTarget> result) {
+        List<EntityFolder> folders = new ArrayList<>();
+        for (MessageTarget target : result)
+            if (!folders.contains(target.folder))
+                folders.add(target.folder);
+
+        List<String> displays = new ArrayList<>();
+        for (EntityFolder folder : folders)
+            displays.add(folder.getDisplayName(getContext()));
+
+        Collator collator = Collator.getInstance(Locale.getDefault());
+        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+        Collections.sort(displays, collator);
+
+        return TextUtils.join(", ", displays);
     }
 
     private ActivityBase.IBackPressedListener onBackPressedListener = new ActivityBase.IBackPressedListener() {
@@ -2202,8 +2215,41 @@ public class FragmentMessages extends FragmentBase {
         }
     };
 
-    class MessageTarget implements Serializable {
-        List<Long> ids = new ArrayList<>();
-        EntityFolder target;
+    static class MessageTarget implements Parcelable {
+        long id;
+        EntityFolder folder;
+
+        MessageTarget(long id, EntityFolder folder) {
+            this.id = id;
+            this.folder = folder;
+        }
+
+        protected MessageTarget(Parcel in) {
+            id = in.readLong();
+            folder = (EntityFolder) in.readSerializable();
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeLong(id);
+            dest.writeSerializable(folder);
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        public static final Creator<MessageTarget> CREATOR = new Creator<MessageTarget>() {
+            @Override
+            public MessageTarget createFromParcel(Parcel in) {
+                return new MessageTarget(in);
+            }
+
+            @Override
+            public MessageTarget[] newArray(int size) {
+                return new MessageTarget[size];
+            }
+        };
     }
 }
