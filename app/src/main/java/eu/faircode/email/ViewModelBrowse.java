@@ -94,7 +94,7 @@ public class ViewModelBrowse extends ViewModel {
             return;
 
         DB db = DB.getInstance(state.context);
-        final List<EntityFolder> folders = db.folder().getFolders(
+        final List<EntityFolder> folders = db.folder().getBrowsableFolders(
                 state.fid < 0 ? null : state.fid, state.search != null);
         Log.i("Search fid=" + (state.fid < 0 ? null : state.fid) + " search=" + (state.search == null) + " count=" + folders.size());
         if (folders.size() == 0)
