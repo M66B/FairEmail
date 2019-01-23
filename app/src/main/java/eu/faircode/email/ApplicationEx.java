@@ -84,11 +84,18 @@ public class ApplicationEx extends Application {
             notification.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
             nm.createNotificationChannel(notification);
 
+            NotificationChannel warning = new NotificationChannel(
+                    "warning",
+                    getString(R.string.channel_warning),
+                    NotificationManager.IMPORTANCE_HIGH);
+            warning.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+            nm.createNotificationChannel(warning);
+
             NotificationChannel error = new NotificationChannel(
                     "error",
                     getString(R.string.channel_error),
                     NotificationManager.IMPORTANCE_HIGH);
-            error.setLockscreenVisibility(Notification.VISIBILITY_SECRET);
+            error.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
             nm.createNotificationChannel(error);
         }
     }

@@ -242,12 +242,16 @@ public class Helper {
     }
 
     static String formatThrowable(Throwable ex) {
+        return formatThrowable(ex, " ");
+    }
+
+    static String formatThrowable(Throwable ex, String separator) {
         StringBuilder sb = new StringBuilder();
         sb.append(ex.getMessage() == null ? ex.getClass().getName() : ex.getMessage());
 
         Throwable cause = ex.getCause();
         while (cause != null) {
-            sb.append(" ").append(cause.getMessage() == null ? cause.getClass().getName() : cause.getMessage());
+            sb.append(separator).append(cause.getMessage() == null ? cause.getClass().getName() : cause.getMessage());
             cause = cause.getCause();
         }
 

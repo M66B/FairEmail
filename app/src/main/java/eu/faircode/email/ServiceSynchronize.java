@@ -144,7 +144,7 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
-    private static final int ACCOUNT_ERROR_AFTER = 90; // minutes
+    private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int IDENTITY_ERROR_AFTER = 30; // minutes
     private static final long STOP_DELAY = 5000L; // milliseconds
     private static final long YIELD_DURATION = 200L; // milliseconds
@@ -707,10 +707,10 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private Notification.Builder getNotificationError(String title, Throwable ex) {
-        return getNotificationError(title, new Date().getTime(), ex, true);
+        return getNotificationError("error", title, ex, true);
     }
 
-    private Notification.Builder getNotificationError(String title, long when, Throwable ex, boolean debug) {
+    private Notification.Builder getNotificationError(String channel, String title, Throwable ex, boolean debug) {
         // Build pending intent
         Intent intent = new Intent(this, ActivitySetup.class);
         if (debug)
@@ -719,31 +719,27 @@ public class ServiceSynchronize extends LifecycleService {
         PendingIntent pi = PendingIntent.getActivity(
                 this, ActivitySetup.REQUEST_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        String text = ex.getMessage();
-        if (TextUtils.isEmpty(text))
-            text = ex.getClass().getName();
-
         // Build notification
         Notification.Builder builder;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            builder = new Notification.Builder(this, "error");
+            builder = new Notification.Builder(this, channel);
         else
             builder = new Notification.Builder(this);
 
         builder
                 .setSmallIcon(R.drawable.baseline_warning_white_24)
                 .setContentTitle(getString(R.string.title_notification_failed, title))
-                .setContentText(text)
+                .setContentText(Helper.formatThrowable(ex))
                 .setContentIntent(pi)
                 .setAutoCancel(false)
-                .setWhen(when)
                 .setShowWhen(true)
                 .setPriority(Notification.PRIORITY_MAX)
                 .setOnlyAlertOnce(true)
                 .setCategory(Notification.CATEGORY_ERROR)
                 .setVisibility(Notification.VISIBILITY_SECRET);
 
-        builder.setStyle(new Notification.BigTextStyle().bigText(ex.toString()));
+        builder.setStyle(new Notification.BigTextStyle()
+                .bigText(Helper.formatThrowable(ex, "\n")));
 
         return builder;
     }
@@ -924,9 +920,13 @@ public class ServiceSynchronize extends LifecycleService {
                             long delayed = now - account.last_connected;
                             if (delayed > ACCOUNT_ERROR_AFTER * 60 * 1000L) {
                                 Log.i("Reporting sync error after=" + delayed);
+                                Throwable warning = new Throwable(
+                                        getString(R.string.title_no_sync,
+                                                SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT)
+                                                        .format((account.last_connected))), ex);
                                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                 nm.notify("receive", account.id.intValue(),
-                                        getNotificationError(account.name, account.last_connected, ex, false).build());
+                                        getNotificationError("warning", account.name, warning, false).build());
                             }
                         }
 
