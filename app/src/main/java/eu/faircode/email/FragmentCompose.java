@@ -287,6 +287,7 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public void onClick(View v) {
                 show_images = true;
+                onAction(R.id.action_save);
                 showDraft(working);
             }
         });
