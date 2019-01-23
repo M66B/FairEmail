@@ -543,7 +543,7 @@
             app:constraint_referenced_ids="
             tvName,etName,tvEmail,etEmail,tvDisplay,etDisplay,
             btnColor,vwColor,ibColorDefault,
-            tvSignature,etSignature,ibPro,btnHtml,
+            tvSignature,etSignature,btnHtml,
             btnAdvanced,btnSave" />
 
         <androidx.constraintlayout.widget.Group
