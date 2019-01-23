@@ -4,6 +4,7 @@
     <string name="app_welcome">FairEmail - это почтовое приложение с открытым исходным кодом, ориентированное на конфиденциальность и безопасность. По этой причине некоторые функции могут работать не так, как вы привыкли.</string>
     <string name="channel_service">Сервис</string>
     <string name="channel_notification">Уведомления</string>
+    <string name="channel_warning">Предупреждения</string>
     <string name="channel_error">Ошибки</string>
     <string name="tile_synchronize">Синхронизация</string>
     <string name="tile_unseen">Новые сообщения</string>
@@ -195,10 +196,12 @@
     <string name="title_no_drafts">Папка черновиков не выбрана</string>
     <string name="title_no_primary_drafts">Нет основной учетной записи или папки с черновиками</string>
     <string name="title_no_idle">Этот провайдер не поддерживает push-сообщения. Это задержит прием новых сообщений и увеличит расход батареи.</string>
+    <string name="title_no_sync">Ошибки синхронизации после %1$s</string>
     <string name="title_account_delete">Удалить эту учетную запись навсегда?</string>
     <string name="title_identity_delete">Удалить эту учетную запись навсегда?</string>
     <string name="title_pop">POP не поддерживается</string>
     <string name="title_edit_html">Редактировать как HTML</string>
+    <string name="title_last_connected">Последнее подключение: %1$s</string>
     <string name="title_synchronize_now">Синхронизировать сейчас</string>
     <string name="title_delete_local">Удалить локальные сообщения</string>
     <string name="title_empty_trash">Очистить корзину</string>

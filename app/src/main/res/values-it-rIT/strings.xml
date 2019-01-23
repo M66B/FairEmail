@@ -4,6 +4,7 @@
     <string name="app_welcome">FairEmail è un\'app opensource di posta focalizzata su privacy e sicurezza. Per questo motivo alcune caratteristiche potrebbero funzionare in modo diverso da quello a cui si è abituati.</string>
     <string name="channel_service">Servizio</string>
     <string name="channel_notification">Notifiche</string>
+    <string name="channel_warning">Avvertenze</string>
     <string name="channel_error">Errori</string>
     <string name="tile_synchronize">Sincronizza</string>
     <string name="tile_unseen">Nuovi messaggi</string>
@@ -183,10 +184,12 @@
     <string name="title_no_drafts">Nessuna cartella bozze selezionata</string>
     <string name="title_no_primary_drafts">Nessun account principale o nessuna cartella bozze</string>
     <string name="title_no_idle">Questo fornitore non supporta i messaggi push. Ciò ritarderà la ricezione di nuovi messaggi e aumenterà l\'utilizzo della batteria.</string>
+    <string name="title_no_sync">Errori di sincronizzazione da %1$s</string>
     <string name="title_account_delete">Eliminare questo account permanentemente?</string>
     <string name="title_identity_delete">Eliminare questa identità permanentemente?</string>
     <string name="title_pop">POP non è supportato</string>
     <string name="title_edit_html">Modifica come HTML</string>
+    <string name="title_last_connected">Ultima connessione:%1$s</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
     <string name="title_delete_local">Elimina i messaggi locali</string>
     <string name="title_empty_trash">Svuota cestino</string>
