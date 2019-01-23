@@ -39,6 +39,7 @@ import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.util.LongSparseArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -131,7 +132,7 @@ public class FragmentMessages extends FragmentBase {
     private int autoCloseCount = 0;
     private boolean autoExpand = true;
     private Map<String, List<Long>> values = new HashMap<>();
-    private Map<Long, Spanned> bodies = new HashMap<>();
+    private LongSparseArray<Spanned> bodies = new LongSparseArray<>();
 
     private BoundaryCallbackMessages searchCallback = null;
 
@@ -562,7 +563,7 @@ public class FragmentMessages extends FragmentBase {
 
     private ItemTouchHelper.Callback touchHelper = new ItemTouchHelper.Callback() {
         @Override
-        public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+        public int getMovementFlags(@NonNull RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
             TupleMessageEx message = getMessage(viewHolder);
             if (message == null)
                 return 0;
@@ -628,7 +629,7 @@ public class FragmentMessages extends FragmentBase {
         }
 
         @Override
-        public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
             TupleMessageEx message = getMessage(viewHolder);
             if (message == null)
                 return;
@@ -1226,7 +1227,7 @@ public class FragmentMessages extends FragmentBase {
                                 long[] ids = args.getLongArray("ids");
                                 long target = args.getLong("target");
 
-                                ArrayList<MessageTarget> result = new ArrayList<MessageTarget>();
+                                ArrayList<MessageTarget> result = new ArrayList<>();
 
                                 DB db = DB.getInstance(context);
                                 try {
@@ -1467,7 +1468,7 @@ public class FragmentMessages extends FragmentBase {
         cm.unregisterNetworkCallback(networkCallback);
     }
 
-    ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
+    private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
         @Override
         public void onAvailable(Network network) {
             check();
