@@ -1014,7 +1014,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         cursor.close();
                 }
 
-                context.startActivity(edit);
+                PackageManager pm = context.getPackageManager();
+                if (edit.resolveActivity(pm) == null)
+                    Toast.makeText(context, R.string.title_no_contacts, Toast.LENGTH_LONG).show();
+                else
+                    context.startActivity(edit);
             }
         }
 
