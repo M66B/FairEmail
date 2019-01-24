@@ -198,7 +198,6 @@
     <string name="title_folder_system">System</string>
     <string name="title_folder_user">Użytkownik</string>
     <string name="title_folder_primary">Podstawowe konto folderów</string>
-    <string name="title_folder_thread">Konwersacja</string>
     <string name="title_no_messages">Brak wiadomości</string>
     <string name="title_subject_reply">Odp: %1$s</string>
     <string name="title_subject_forward">Pd: %1$s</string>

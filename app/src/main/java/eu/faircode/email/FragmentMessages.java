@@ -1401,7 +1401,12 @@ public class FragmentMessages extends FragmentBase {
                 break;
 
             case THREAD:
-                setSubtitle(R.string.title_folder_thread);
+                db.account().liveAccount(account).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
+                    @Override
+                    public void onChanged(EntityAccount account) {
+                        setSubtitle(getString(R.string.title_folder_thread, account == null ? "" : account.name));
+                    }
+                });
                 break;
 
             case SEARCH:

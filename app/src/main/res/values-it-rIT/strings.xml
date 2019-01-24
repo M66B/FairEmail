@@ -226,7 +226,6 @@
     <string name="title_folder_system">Sistema</string>
     <string name="title_folder_user">Utente</string>
     <string name="title_folder_primary">Cartelle account principale</string>
-    <string name="title_folder_thread">Conversazione</string>
     <string name="title_folders_unified">Cartella posta in arrivo unificata</string>
     <string name="title_no_messages">Nessun messaggio</string>
     <string name="title_subject_reply">Re: %1$s</string>
@@ -252,6 +251,7 @@
     <string name="title_more">Altro</string>
     <string name="title_spam">Posta indesiderata</string>
     <string name="title_move">Sposta</string>
+    <string name="title_move_to">Sposta in %1$s</string>
     <string name="title_snooze">Posticipa &#8230;</string>
     <string name="title_archive">Archivo</string>
     <string name="title_reply">Rispondi</string>
@@ -292,7 +292,6 @@
     <string name="title_save">Salva</string>
     <string name="title_send">Invia</string>
     <string name="title_view">Visualizza</string>
-    <string name="title_send_after">Invia dopo &#8230;</string>
     <string name="title_no_selection">Nessuna selezione</string>
     <string name="title_style_bold">Grassetto</string>
     <string name="title_style_italic">Corsivo</string>

@@ -113,7 +113,6 @@
     <string name="title_folder_system">System</string>
     <string name="title_folder_user">Bruger</string>
     <string name="title_folder_primary">Mapper primærkonto</string>
-    <string name="title_folder_thread">Samtale</string>
     <string name="title_no_messages">Ingen beskeder</string>
     <string name="title_subject_reply">Sv: %1$s</string>
     <string name="title_subject_forward">Videresend: %1$s</string>
@@ -156,7 +155,6 @@
     <string name="title_save">Gem</string>
     <string name="title_send">Send</string>
     <string name="title_view">Vis</string>
-    <string name="title_send_after">Send efter &#8230;</string>
     <string name="title_no_selection">Intet valgt</string>
     <string name="title_style_bold">Fed</string>
     <string name="title_style_italic">Kursiv</string>

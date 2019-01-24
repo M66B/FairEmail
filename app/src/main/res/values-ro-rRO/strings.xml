@@ -232,7 +232,6 @@
     <string name="title_folder_system">Sistem</string>
     <string name="title_folder_user">Utilizator</string>
     <string name="title_folder_primary">Dosare cont primar</string>
-    <string name="title_folder_thread">Conversație</string>
     <string name="title_folders_unified">Director unificat de mesaje primite</string>
     <string name="title_no_messages">Nici un mesaj</string>
     <string name="title_subject_reply">Răsp: %1$s</string>
@@ -299,7 +298,6 @@
     <string name="title_save">Salvează</string>
     <string name="title_send">Trimite</string>
     <string name="title_view">Afisare</string>
-    <string name="title_send_after">Trimite după &#8230;</string>
     <string name="title_no_selection">Nimic selectat</string>
     <string name="title_style_bold">Îngroșat</string>
     <string name="title_style_italic">Cursiv</string>

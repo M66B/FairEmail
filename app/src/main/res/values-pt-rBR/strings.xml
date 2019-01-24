@@ -141,7 +141,6 @@
     <string name="title_folder_sent">Enviado</string>
     <string name="title_folder_system">Sistema</string>
     <string name="title_folder_user">Usuário</string>
-    <string name="title_folder_thread">Conversação</string>
     <string name="title_no_messages">Sem mensagens</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Enc: %1$s</string>

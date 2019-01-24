@@ -116,7 +116,6 @@
     <string name="title_folder_system">Sistema</string>
     <string name="title_folder_user">Usuari</string>
     <string name="title_folder_primary">Carpetes del compte primari</string>
-    <string name="title_folder_thread">Conversació</string>
     <string name="title_no_messages">No hi ha missatges</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Rv: %1$s</string>

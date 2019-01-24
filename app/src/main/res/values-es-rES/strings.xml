@@ -143,7 +143,7 @@
     <string name="title_identity_delivery_receipt">Solicitar confirmación de entrega</string>
     <string name="title_identity_receipt_remark">La mayoría de los proveedores ignoran las solicitudes de confirmación</string>
     <string name="title_identity_store_sent">Almacenar mensajes guardados</string>
-    <string name="title_identity_store_sent_remark">Active esto sólo si su proveedor no almacena mensajes enviados automáticamente</string>
+    <string name="title_identity_store_sent_remark">Active esto solo si su proveedor no almacena automáticamente los mensajes enviados</string>
     <string name="title_optional">Opcional</string>
     <string name="title_account_linked">Cuenta vinculada</string>
     <string name="title_account_name">Nombre de cuenta</string>
@@ -226,7 +226,6 @@
     <string name="title_folder_system">Sistema</string>
     <string name="title_folder_user">Usuario</string>
     <string name="title_folder_primary">Cuenta primaria de carpetas</string>
-    <string name="title_folder_thread">Conversación</string>
     <string name="title_folders_unified">Carpetas de bandeja de entrada unificada</string>
     <string name="title_no_messages">Sin mensajes</string>
     <string name="title_subject_reply">Re: %1$s</string>
@@ -293,7 +292,7 @@
     <string name="title_save">Guardar</string>
     <string name="title_send">Enviar</string>
     <string name="title_view">Ver</string>
-    <string name="title_send_after">Enviar después de &#8230;</string>
+    <string name="title_send_at">Enviar a &#8230;</string>
     <string name="title_no_selection">Nada seleccionado</string>
     <string name="title_style_bold">Negrita</string>
     <string name="title_style_italic">Cursiva</string>
@@ -385,7 +384,7 @@
     <string name="title_legend_synchronizing">Sincronizando</string>
     <string name="title_legend_downloading">Descargando</string>
     <string name="title_legend_closing">Cerrando</string>
-    <string name="title_legend_stop">Detener el procesamiento de las reglas</string>
+    <string name="title_legend_stop">Detener procesamiento de reglas</string>
     <string name="title_legend_metered">Conexión medida</string>
     <string name="title_legend_unmetered">Conexión no medida</string>
     <string name="title_legend_sync_keep">Número de días para sincronizar / mantener mensajes</string>

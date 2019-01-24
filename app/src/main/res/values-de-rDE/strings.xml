@@ -226,7 +226,6 @@
     <string name="title_folder_system">System</string>
     <string name="title_folder_user">Benutzer</string>
     <string name="title_folder_primary">Ordner primäres Konto</string>
-    <string name="title_folder_thread">Konversation</string>
     <string name="title_folders_unified">Sammeleingangsordner</string>
     <string name="title_no_messages">Keine E-Mails</string>
     <string name="title_subject_reply">Re: %1$s</string>
@@ -293,7 +292,7 @@
     <string name="title_save">Speichern</string>
     <string name="title_send">Senden</string>
     <string name="title_view">Zeigen</string>
-    <string name="title_send_after">Sende nach &#8230;</string>
+    <string name="title_send_at">An &#8230; senden</string>
     <string name="title_no_selection">Nichts ausgewählt</string>
     <string name="title_style_bold">Fett</string>
     <string name="title_style_italic">Kursiv</string>

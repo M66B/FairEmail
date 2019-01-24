@@ -195,7 +195,6 @@
     <string name="title_folder_system">Sistem</string>
     <string name="title_folder_user">İstifadəçi</string>
     <string name="title_folder_primary">Qovluqlarda üstünlük verilən hesab</string>
-    <string name="title_folder_thread">Söhbət</string>
     <string name="title_folders_unified">Birləşmiş gələn qutusu qovluqları</string>
     <string name="title_no_messages">Mesaj yoxdur</string>
     <string name="title_subject_reply">Cvb: %1$s</string>

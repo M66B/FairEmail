@@ -226,7 +226,7 @@
     <string name="title_folder_system">Systeem</string>
     <string name="title_folder_user">Gebruiker</string>
     <string name="title_folder_primary">Mappen primaire account</string>
-    <string name="title_folder_thread">Gesprek</string>
+    <string name="title_folder_thread">Gesprek %1$s</string>
     <string name="title_folders_unified">Gecombineerde postvak in mappen</string>
     <string name="title_no_messages">Geen berichten</string>
     <string name="title_subject_reply">Re: %1$s</string>
@@ -293,7 +293,7 @@
     <string name="title_save">Bewaren</string>
     <string name="title_send">Verzenden</string>
     <string name="title_view">Weergeven</string>
-    <string name="title_send_after">Verzenden na &#8230;</string>
+    <string name="title_send_at">Verzenden om &#8230;</string>
     <string name="title_no_selection">Niets geselecteerd</string>
     <string name="title_style_bold">Vet</string>
     <string name="title_style_italic">Cursief</string>

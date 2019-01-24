@@ -4,6 +4,7 @@
     <string name="app_welcome">FairEmail gizlilik ve güvenlik odaklı açık kaynaklı bir e-posta uygulamasıdır. Bu nedenle, bazı özellikler alışkın olduğunuzdan farklı şekilde çalışabilir.</string>
     <string name="channel_service">Hizmet</string>
     <string name="channel_notification">Bildirimler</string>
+    <string name="channel_warning">Uyarılar</string>
     <string name="channel_error">Hatalar</string>
     <string name="tile_synchronize">Eşzamanlama</string>
     <string name="tile_unseen">Yeni iletiler</string>
@@ -68,6 +69,7 @@
     <string name="title_setup_exported">Ayarlar dışa aktarıldı</string>
     <string name="title_setup_imported">Ayarlar içe aktarıldı</string>
     <string name="title_setup_quick">Hızlı Kurulum</string>
+    <string name="title_setup_quick_remark">Çoğu büyük sağlayıcı için bir hesap kimlik hızlı kurulumu</string>
     <string name="title_setup_go">Git</string>
     <string name="title_setup_setting_gmail">\"Daha az güvenli\" uygulamalara erişimi etkinleştir</string>
     <string name="title_setup_no_settings">%1$s için ayar bulunamadı</string>
@@ -180,10 +182,12 @@
     <string name="title_no_drafts">Taslaklar klasörü seçilmedi</string>
     <string name="title_no_primary_drafts">Birincil hesap veya taslak klasörü yok</string>
     <string name="title_no_idle">Bu sağlayıcı anlık mesajları desteklemiyor. Bu, yeni mesajların alınmasını geciktirecek ve pil kullanımını artıracaktır.</string>
+    <string name="title_no_sync">%1$s\'den beri eşzamanlama hataları</string>
     <string name="title_account_delete">Bu hesap kalıcı olarak silinsin mi?</string>
     <string name="title_identity_delete">Bu kimlik kalıcı olarak silinsin mi?</string>
     <string name="title_pop">POP desteklenmiyor</string>
     <string name="title_edit_html">HTML olarak düzenle</string>
+    <string name="title_last_connected">Son bağlantı: %1$s</string>
     <string name="title_synchronize_now">Şimdi senkronize et</string>
     <string name="title_delete_local">Yerel mesajları sil</string>
     <string name="title_empty_trash">Çöpü boşalt</string>
@@ -220,7 +224,6 @@
     <string name="title_folder_system">Sistem</string>
     <string name="title_folder_user">Kullanıcı</string>
     <string name="title_folder_primary">Klasörler birincil hesap</string>
-    <string name="title_folder_thread">Sohbet</string>
     <string name="title_folders_unified">Birleşik gelen kutusu klasörleri</string>
     <string name="title_no_messages">İleti yok</string>
     <string name="title_subject_reply">Ynt: %1$s</string>
@@ -245,6 +248,7 @@
     <string name="title_more">Daha fazla</string>
     <string name="title_spam">İstenmeyen posta</string>
     <string name="title_move">Taşı</string>
+    <string name="title_move_to">%1$s\'e taşı</string>
     <string name="title_snooze">Kısa uyku &#8230;</string>
     <string name="title_archive">Arşivle</string>
     <string name="title_reply">Yanıtla</string>
@@ -285,7 +289,6 @@
     <string name="title_save">Kaydet</string>
     <string name="title_send">Gönder</string>
     <string name="title_view">Görünüm</string>
-    <string name="title_send_after">&#8230; sonra gönder</string>
     <string name="title_no_selection">Seçili hiçbir şey yok</string>
     <string name="title_style_bold">Kalın</string>
     <string name="title_style_italic">Eğik</string>
@@ -307,6 +310,7 @@
     <string name="title_not_encrypted">İleti şifreli değil</string>
     <string name="title_search">Ara</string>
     <string name="title_search_hint">Sunucuda ara</string>
+    <string name="title_search_device">Aygıtda ara</string>
     <string name="title_searching">\'%1$s\' aranıyor</string>
     <string name="title_sort_on">Sırala</string>
     <string name="title_sort_on_time">Zaman</string>
