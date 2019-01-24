@@ -173,7 +173,6 @@ public class EntityOperation {
                 // Message with same msgid can be in archive
                 Long newid = null;
                 if (message.uid != null &&
-                        message.ui_seen &&
                         target.synchronize &&
                         message.received > cal_keep.getTimeInMillis() &&
                         db.message().countMessageByMsgId(target.id, message.msgid) == 0) {
@@ -210,10 +209,8 @@ public class EntityOperation {
                     name = ADD;
                     folder = target.id;
                     jargs = new JSONArray();
-                    if (newid != null) {
-                        jargs.put(0, newid);
-                        jargs.put(1, autoread);
-                    }
+                    jargs.put(0, newid); // Can be null
+                    jargs.put(1, autoread);
                 }
 
             } else if (DELETE.equals(name))

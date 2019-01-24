@@ -1976,13 +1976,12 @@ public class FragmentMessages extends FragmentBase {
                     db.beginTransaction();
 
                     EntityMessage message = db.message().getMessage(id);
-                    EntityFolder folder = db.folder().getFolder(message.folder);
-
-                    if (!message.content)
-                        EntityOperation.queue(context, db, message, EntityOperation.BODY);
-
-                    if (!message.ui_seen && !EntityFolder.OUTBOX.equals(folder.type))
-                        EntityOperation.queue(context, db, message, EntityOperation.SEEN, true);
+                    if (message.uid != null) {
+                        if (!message.content)
+                            EntityOperation.queue(context, db, message, EntityOperation.BODY);
+                        if (!message.ui_seen)
+                            EntityOperation.queue(context, db, message, EntityOperation.SEEN, true);
+                    }
 
                     db.setTransactionSuccessful();
                 } finally {
