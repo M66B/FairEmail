@@ -400,6 +400,12 @@ public class FragmentMessages extends FragmentBase {
         return view;
     }
 
+    @Override
+    public void onDestroy() {
+        selectionTracker = null;
+        super.onDestroy();
+    }
+
     private void onSwipeRefresh() {
         Bundle args = new Bundle();
         args.putLong("folder", folder);
