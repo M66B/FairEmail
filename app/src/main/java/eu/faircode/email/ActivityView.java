@@ -685,7 +685,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         }
                     }
 
-                    throw new IOException("Asset name field missing");
+                    return null;
                 } finally {
                     if (urlConnection != null)
                         urlConnection.disconnect();
