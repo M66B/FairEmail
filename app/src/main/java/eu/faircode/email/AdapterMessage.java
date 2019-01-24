@@ -326,9 +326,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 public void run() {
                     Rect rect = new Rect(
                             itemView.getLeft(),
-                            touch.getTop(),
+                            vwColor.getTop(),
                             itemView.getRight(),
-                            touch.getBottom());
+                            vwColor.getBottom());
                     Log.i("Touch delegate=" + rect);
                     itemView.setTouchDelegate(new TouchDelegate(rect, touch));
                 }
