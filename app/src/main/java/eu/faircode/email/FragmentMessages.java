@@ -858,9 +858,9 @@ public class FragmentMessages extends FragmentBase {
             protected void onExecuted(Bundle args, final MoreResult result) {
                 PopupMenu popupMenu = new PopupMenu(getContext(), fabMore);
 
-                if (result.unseen && !result.isDrafts) // Unseen, not draft
+                if (result.unseen) // Unseen, not draft
                     popupMenu.getMenu().add(Menu.NONE, action_seen, 1, R.string.title_seen);
-                if (result.seen && !result.isDrafts) // Seen, not draft
+                if (result.seen) // Seen, not draft
                     popupMenu.getMenu().add(Menu.NONE, action_unseen, 2, R.string.title_unseen);
 
                 popupMenu.getMenu().add(Menu.NONE, action_snooze, 3, R.string.title_snooze);
