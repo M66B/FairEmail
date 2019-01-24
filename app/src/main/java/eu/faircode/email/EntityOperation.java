@@ -20,6 +20,8 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -144,6 +146,16 @@ public class EntityOperation {
                     db.message().setMessageUiAnswered(similar.id, jargs.getBoolean(0));
 
             else if (MOVE.equals(name)) {
+                // Parameters:
+                // 0: target folder id
+                // 1: allow auto read
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean autoread = prefs.getBoolean("autoread", false);
+                if (jargs.length() > 1)
+                    autoread = (autoread && jargs.getBoolean(1));
+                jargs.put(1, autoread);
+
                 EntityFolder source = db.folder().getFolder(message.folder);
                 EntityFolder target = db.folder().getFolder(jargs.getLong(0));
 
@@ -190,7 +202,7 @@ public class EntityOperation {
                     EntityAttachment.copy(context, db, message.id, newid);
 
                     // Store new id for when source message was deleted
-                    jargs.put(1, newid);
+                    jargs.put(2, newid);
                 }
 
                 // Cross account move
@@ -198,8 +210,10 @@ public class EntityOperation {
                     name = ADD;
                     folder = target.id;
                     jargs = new JSONArray();
-                    if (newid != null)
+                    if (newid != null) {
                         jargs.put(0, newid);
+                        jargs.put(1, autoread);
+                    }
                 }
 
             } else if (DELETE.equals(name))
