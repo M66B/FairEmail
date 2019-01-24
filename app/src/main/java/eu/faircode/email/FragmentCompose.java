@@ -706,7 +706,7 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onMenuSendAfter() {
-        DialogDuration.show(getContext(), getViewLifecycleOwner(), R.string.title_send_after,
+        DialogDuration.show(getContext(), getViewLifecycleOwner(), R.string.title_send_at,
                 new DialogDuration.IDialogDuration() {
                     @Override
                     public void onDurationSelected(long duration, long time) {
