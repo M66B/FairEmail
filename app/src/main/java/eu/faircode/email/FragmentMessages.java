@@ -2145,7 +2145,7 @@ public class FragmentMessages extends FragmentBase {
                             db.beginTransaction();
 
                             for (MessageTarget target : result) {
-                                EntityMessage message = db.message().getMessage(id);
+                                EntityMessage message = db.message().getMessage(target.id);
                                 if (message != null && message.ui_hide) {
                                     Log.i("Move id=" + id + " target=" + target.folder.name);
                                     EntityOperation.queue(context, db, message, EntityOperation.MOVE, target.folder.id);
