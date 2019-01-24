@@ -206,6 +206,8 @@ public class MessageHelper {
         imessage.addHeader("X-FairEmail-Thread", message.thread);
 
         imessage.setFlag(Flags.Flag.SEEN, message.seen);
+        imessage.setFlag(Flags.Flag.FLAGGED, message.flagged);
+        imessage.setFlag(Flags.Flag.ANSWERED, message.answered);
 
         if (message.from != null && message.from.length > 0) {
             String email = ((InternetAddress) message.from[0]).getAddress();
