@@ -117,7 +117,7 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
                 if (intent.hasExtra(Intent.EXTRA_HTML_TEXT)) {
                     String html = intent.getStringExtra(Intent.EXTRA_HTML_TEXT);
                     if (html != null)
-                        args.putString("body", HtmlHelper.getText(html));
+                        args.putString("body", html);
                 } else if (intent.hasExtra(Intent.EXTRA_TEXT)) {
                     String body = intent.getStringExtra(Intent.EXTRA_TEXT);
                     if (body != null)
