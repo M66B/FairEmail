@@ -264,6 +264,7 @@
     <string name="title_more">Еще</string>
     <string name="title_spam">Спам</string>
     <string name="title_move">Переместить</string>
+    <string name="title_move_to">Переместить в %1$s</string>
     <string name="title_snooze">Отложить &#8230;</string>
     <string name="title_archive">Архив</string>
     <string name="title_reply">Ответить</string>

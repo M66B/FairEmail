@@ -4,6 +4,7 @@
     <string name="app_welcome">FairEmail ist eine Opensource E-Mail-App mit dem Fokus auf Privatsphäre und Sicherheit. Aus diesem Grund können einige Funktionen, anders als Sie es gewohnt sind, funktionieren.</string>
     <string name="channel_service">Dienst</string>
     <string name="channel_notification">Benachrichtigungen</string>
+    <string name="channel_warning">Warnungen</string>
     <string name="channel_error">Fehler</string>
     <string name="tile_synchronize">Synchronisieren</string>
     <string name="tile_unseen">Neue Nachrichten</string>
@@ -183,10 +184,12 @@
     <string name="title_no_drafts">Kein Entwürfe-Ordner ausgewählt</string>
     <string name="title_no_primary_drafts">Kein Hauptkonto oder kein Entwürfe-Ordner</string>
     <string name="title_no_idle">Dieser Anbieter unterstützt keine Pushnachrichten. Dies verzögert den Empfang neuer E-Mails und erhöht den Akkuverbrauch.</string>
+    <string name="title_no_sync">Synchronisationsfehler seit %1$s</string>
     <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
     <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
     <string name="title_pop">POP wird nicht unterstützt</string>
     <string name="title_edit_html">Als HTML bearbeiten</string>
+    <string name="title_last_connected">Zuletzt verbunden: %1$s</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
     <string name="title_delete_local">Lösche lokale Nachrichten</string>
     <string name="title_empty_trash">Papierkorb leeren</string>
@@ -249,6 +252,7 @@
     <string name="title_more">Mehr</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Verschieben</string>
+    <string name="title_move_to">Nach %1$s verschieben</string>
     <string name="title_snooze">Später lesen &#8230;</string>
     <string name="title_archive">Archivieren</string>
     <string name="title_reply">Antworten</string>
@@ -289,7 +293,7 @@
     <string name="title_save">Speichern</string>
     <string name="title_send">Senden</string>
     <string name="title_view">Zeigen</string>
-    <string name="title_send_after">Sende später &#8230;</string>
+    <string name="title_send_after">Sende nach &#8230;</string>
     <string name="title_no_selection">Nichts ausgewählt</string>
     <string name="title_style_bold">Fett</string>
     <string name="title_style_italic">Kursiv</string>
