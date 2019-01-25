@@ -12,6 +12,9 @@ import android.net.Uri;
 import android.provider.ContactsContract;
 
 import java.io.InputStream;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -23,6 +26,11 @@ public class ContactInfo {
     private Drawable photo;
     private String displayName;
     private Uri lookupUri;
+    private long time;
+
+    private static Map<String, ContactInfo> emailContactInfo = new HashMap<>();
+
+    private static final long CACHE_DURATION = 60 * 1000L;
 
     ContactInfo() {
     }
@@ -70,12 +78,26 @@ public class ContactInfo {
         return (lookupUri != null);
     }
 
-    static ContactInfo get(Context context, Address[] addresses) {
+    private boolean isExpired() {
+        return (new Date().getTime() - time > CACHE_DURATION);
+    }
+
+    static ContactInfo get(Context context, Address[] addresses, boolean cached) {
         if (addresses == null || addresses.length == 0)
             return null;
 
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
                 != PackageManager.PERMISSION_GRANTED)
+            return null;
+
+        String email = ((InternetAddress) addresses[0]).getAddress();
+
+        synchronized (emailContactInfo) {
+            ContactInfo info = emailContactInfo.get(email);
+            if (info != null && !info.isExpired())
+                return info;
+        }
+        if (cached)
             return null;
 
         try {
@@ -90,7 +112,7 @@ public class ContactInfo {
                         },
                         ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
                         new String[]{
-                                ((InternetAddress) addresses[0]).getAddress()
+                                email
                         }, null);
 
                 if (cursor != null && cursor.moveToNext()) {
@@ -106,6 +128,12 @@ public class ContactInfo {
                     info.is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, lookupUri);
                     info.displayName = cursor.getString(colDisplayName);
                     info.lookupUri = lookupUri;
+                    info.time = new Date().getTime();
+
+                    synchronized (emailContactInfo) {
+                        emailContactInfo.put(email, info);
+                    }
+
                     return info;
                 }
             } finally {

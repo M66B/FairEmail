@@ -495,15 +495,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         ivAvatar.setTag(message.id);
                         ivAvatar.setVisibility(View.INVISIBLE);
                         tvFrom.setTag(message.id);
+
                         Address[] addresses = (Address[]) args.getSerializable("addresses");
-                        tvFrom.setText(MessageHelper.formatAddresses(addresses, !compact, false));
+                        ContactInfo info = ContactInfo.get(context, addresses, true);
+                        if (info != null && info.hasDisplayName())
+                            setFrom(info, addresses);
+                        else
+                            tvFrom.setText(MessageHelper.formatAddresses(addresses, !compact, false));
                     }
 
                     @Override
                     protected ContactInfo onExecute(Context context, Bundle args) {
                         Address[] addresses = (Address[]) args.getSerializable("addresses");
 
-                        ContactInfo info = ContactInfo.get(context, addresses);
+                        ContactInfo info = ContactInfo.get(context, addresses, false);
 
                         if ((info == null || !info.hasPhoto()) &&
                                 identicons && addresses != null && addresses.length > 0) {
@@ -530,20 +535,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
 
                         if ((long) tvFrom.getTag() == id) {
-                            if (info != null && info.hasDisplayName())
-                                try {
-                                    Address[] addresses = (Address[]) args.getSerializable("addresses");
-                                    ((InternetAddress) addresses[0]).setPersonal(info.getDisplayName());
-                                    tvFrom.setText(MessageHelper.formatAddresses(addresses, !compact, false));
-                                } catch (UnsupportedEncodingException ex) {
-                                    Log.w(ex);
-                                }
+                            if (info != null && info.hasDisplayName()) {
+                                Address[] addresses = (Address[]) args.getSerializable("addresses");
+                                setFrom(info, addresses);
+                            }
                         }
                     }
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(context, owner, ex);
+                    }
+
+
+                    private void setFrom(ContactInfo info, Address[] addresses) {
+                        try {
+                            ((InternetAddress) addresses[0]).setPersonal(info.getDisplayName());
+                            tvFrom.setText(MessageHelper.formatAddresses(addresses, !compact, false));
+                        } catch (UnsupportedEncodingException ex) {
+                            Log.w(ex);
+                        }
                     }
                 }.execute(context, owner, aargs, "message:avatar");
             } else {

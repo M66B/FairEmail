@@ -489,7 +489,9 @@ public class ServiceSynchronize extends LifecycleService {
         // Get contact info
         Map<TupleMessageEx, ContactInfo> messageContact = new HashMap<>();
         for (TupleMessageEx message : messages) {
-            ContactInfo info = ContactInfo.get(this, message.from);
+            ContactInfo info = ContactInfo.get(this, message.from, true);
+            if (info == null)
+                info = ContactInfo.get(this, message.from, false);
             if (info == null)
                 info = new ContactInfo(MessageHelper.formatAddressesShort(message.from));
             messageContact.put(message, info);
