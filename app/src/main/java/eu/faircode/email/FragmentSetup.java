@@ -309,9 +309,9 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
-        db.identity().liveIdentities(null, true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
+        db.identity().liveIdentities(true).observe(getViewLifecycleOwner(), new Observer<List<TupleIdentityEx>>() {
             @Override
-            public void onChanged(@Nullable List<EntityIdentity> identities) {
+            public void onChanged(@Nullable List<TupleIdentityEx> identities) {
                 boolean done = (identities != null && identities.size() > 0);
                 tvIdentityDone.setText(done ? R.string.title_setup_done : R.string.title_setup_to_do);
                 tvIdentityDone.setTextColor(done ? textColorPrimary : colorWarning);

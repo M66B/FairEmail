@@ -1379,7 +1379,7 @@ public class FragmentCompose extends FragmentBase {
                     if ("edit".equals(action))
                         throw new IllegalStateException("Draft not found hide=" + (result.draft != null));
 
-                    List<EntityIdentity> identities = db.identity().getIdentities();
+                    List<TupleIdentityEx> identities = db.identity().getIdentities(true);
 
                     EntityMessage ref = db.message().getMessage(reference);
                     if (ref == null) {
@@ -1640,15 +1640,13 @@ public class FragmentCompose extends FragmentBase {
 
             getActivity().invalidateOptionsMenu();
 
-            DB db = DB.getInstance(getContext());
-
-            db.identity().liveIdentities().observe(getViewLifecycleOwner(), new Observer<List<TupleIdentityEx>>() {
+            new SimpleTask<List<TupleIdentityEx>>() {
                 @Override
-                public void onChanged(List<TupleIdentityEx> identities) {
+                protected List<TupleIdentityEx> onExecute(Context context, Bundle args) {
+                    DB db = DB.getInstance(context);
+                    List<TupleIdentityEx> identities = db.identity().getIdentities(true);
                     if (identities == null)
                         identities = new ArrayList<>();
-
-                    Log.i("Set identities=" + identities.size());
 
                     // Sort identities
                     Collections.sort(identities, new Comparator<TupleIdentityEx>() {
@@ -1664,6 +1662,13 @@ public class FragmentCompose extends FragmentBase {
                         }
                     });
 
+                    return identities;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, List<TupleIdentityEx> identities) {
+                    Log.i("Set identities=" + identities.size());
+
                     // Show identities
                     IdentityAdapter adapter = new IdentityAdapter(getContext(), identities);
                     adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
@@ -1677,9 +1682,15 @@ public class FragmentCompose extends FragmentBase {
                                 break;
                             }
                         }
-
                 }
-            });
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                }
+            }.execute(FragmentCompose.this, new Bundle(), "compose:identities");
+
+            DB db = DB.getInstance(getContext());
 
             db.attachment().liveAttachments(result.draft.id).observe(getViewLifecycleOwner(),
                     new Observer<List<EntityAttachment>>() {

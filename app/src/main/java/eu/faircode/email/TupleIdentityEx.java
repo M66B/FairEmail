@@ -21,4 +21,14 @@ package eu.faircode.email;
 
 public class TupleIdentityEx extends EntityIdentity {
     public String accountName;
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof TupleIdentityEx) {
+            TupleIdentityEx other = (TupleIdentityEx) obj;
+            return (super.equals(obj) &&
+                    (this.accountName == null ? other.accountName == null : accountName.equals(other.accountName)));
+        } else
+            return false;
+    }
 }
