@@ -577,6 +577,10 @@ public class FragmentIdentity extends FragmentBase {
                         realm == null ? identityRealm != null : !realm.equals(identityRealm)));
                 boolean reload = (identity == null || identity.synchronize != synchronize || check);
 
+                Long last_connected = null;
+                if (identity != null && synchronize == identity.synchronize)
+                    last_connected = identity.last_connected;
+
                 // Check SMTP server
                 if (check) {
                     String transportType = (starttls ? "smtp" : "smtps");
@@ -630,6 +634,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.store_sent = store_sent;
                     identity.sent_folder = null;
                     identity.error = null;
+                    identity.last_connected = last_connected;
 
                     if (identity.primary)
                         db.identity().resetPrimary(account);
