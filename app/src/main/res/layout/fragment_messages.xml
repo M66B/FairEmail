@@ -216,7 +216,7 @@
         android:layout_margin="@dimen/fab_padding"
         android:src="@drawable/baseline_more_vert_24"
         android:tint="@color/colorActionForeground"
-        app:backgroundTint="?attr/colorSeparator" />
+        app:backgroundTint="?attr/colorAccent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
