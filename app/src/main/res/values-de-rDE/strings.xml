@@ -264,8 +264,7 @@
     <string name="title_no_stream">Eine veraltete App verschickte den Dateinamen anstelle des Datenstroms</string>
     <string name="title_no_contacts">Kontaktauswahl nicht verfügbar</string>
     <string name="title_no_internet">Keine Internetverbindung</string>
-    <string name="title_no_accross">Eine Bewegung über Account-Grenzen hinweg erfordert den kompletten Download der Mails</string>
-    <string name="title_accross_remark">Die Mails, die über Account-Grenzen hinweg verschoben werden, sind danach nicht mehr identisch</string>
+    <string name="title_accross_remark">Wenn Mails über Account-Grenzen hinweg verschoben werden, müssen sie erneut komplett downgeloaded werden, was zu erhöhtem Datenverbrauch führt</string>
     <string name="title_raw_saved">Rohdaten gespeichert</string>
     <string name="title_attachment_saved">Anhang gespeichert</string>
     <string name="title_attachments_saved">Anhang gespeichert</string>
@@ -295,7 +294,7 @@
     <string name="title_save">Speichern</string>
     <string name="title_send">Senden</string>
     <string name="title_view">Zeigen</string>
-    <string name="title_send_at">An &#8230; senden</string>
+    <string name="title_send_at">Später senden &#8230;</string>
     <string name="title_no_selection">Nichts ausgewählt</string>
     <string name="title_style_bold">Fett</string>
     <string name="title_style_italic">Kursiv</string>

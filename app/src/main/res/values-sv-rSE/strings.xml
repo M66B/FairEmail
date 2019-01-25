@@ -4,6 +4,7 @@
     <string name="app_welcome">FairEmail är en e-postapp med öppen källkod som är fokuserad på integritet och säkerhet. Av denna anledning kan vissa funktioner fungera annorlunda än vad du är van vid.</string>
     <string name="channel_service">Tjänst</string>
     <string name="channel_notification">Aviseringar</string>
+    <string name="channel_warning">Varningar</string>
     <string name="channel_error">Fel</string>
     <string name="tile_synchronize">Synkronisera</string>
     <string name="tile_unseen">Nya meddelanden</string>
@@ -180,10 +181,12 @@
     <string name="title_no_drafts">Ingen utkastmapp vald</string>
     <string name="title_no_primary_drafts">Inget primärt konto eller ingen utkastmapp</string>
     <string name="title_no_idle">Leverantören stöder inte push-meddelanden. Detta kommer att fördröja mottagning av nya meddelanden och öka batterianvändningen.</string>
+    <string name="title_no_sync">Synkroniseringsfel sedan %1$s</string>
     <string name="title_account_delete">Ta bort detta konto permanent?</string>
     <string name="title_identity_delete">Ta bort denna identitet permanent?</string>
     <string name="title_pop">POP stöds inte</string>
     <string name="title_edit_html">Redigera som HTML</string>
+    <string name="title_last_connected">Senast ansluten: %1$s</string>
     <string name="title_synchronize_now">Synkronisera nu</string>
     <string name="title_delete_local">Ta bort lokala meddelanden</string>
     <string name="title_empty_trash">Töm papperskorgen</string>
@@ -220,6 +223,7 @@
     <string name="title_folder_system">System</string>
     <string name="title_folder_user">Användare</string>
     <string name="title_folder_primary">Mappar primärt konto</string>
+    <string name="title_folder_thread">Konversation %1$s</string>
     <string name="title_folders_unified">Samlad inkorg mappar</string>
     <string name="title_no_messages">Inga meddelanden</string>
     <string name="title_subject_reply">Sv: %1$s</string>
@@ -241,6 +245,7 @@
     <string name="title_more">Mer</string>
     <string name="title_spam">Skräppost</string>
     <string name="title_move">Flytta</string>
+    <string name="title_move_to">Flytta till %1$s</string>
     <string name="title_snooze">Slumra &#8230;</string>
     <string name="title_archive">Arkivera</string>
     <string name="title_reply">Svara</string>
