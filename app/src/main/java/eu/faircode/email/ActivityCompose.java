@@ -22,6 +22,8 @@ package eu.faircode.email;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.view.MenuItem;
 
@@ -62,6 +64,8 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
                     Intent.ACTION_SENDTO.equals(action) ||
                     Intent.ACTION_SEND.equals(action) ||
                     Intent.ACTION_SEND_MULTIPLE.equals(action)) {
+                Log.logExtras(intent);
+
                 args = new Bundle();
                 args.putString("action", "new");
                 args.putLong("account", -1);
@@ -122,9 +126,13 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
                     if (html != null)
                         args.putString("body", Jsoup.clean(html, Whitelist.relaxed()));
                 } else if (intent.hasExtra(Intent.EXTRA_TEXT)) {
-                    String body = intent.getStringExtra(Intent.EXTRA_TEXT);
+                    CharSequence body = intent.getCharSequenceExtra(Intent.EXTRA_TEXT);
                     if (body != null)
-                        args.putString("body", body);
+                        if (body instanceof Spanned)
+                            args.putString("body",
+                                    Jsoup.clean(Html.toHtml((Spanned) body), Whitelist.relaxed()));
+                        else
+                            args.putString("body", body.toString()); // TODO: clean?
                 }
 
                 if (intent.hasExtra(Intent.EXTRA_STREAM))

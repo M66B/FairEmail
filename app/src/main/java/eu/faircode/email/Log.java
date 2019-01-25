@@ -19,6 +19,12 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+
+import java.util.Set;
+
 public class Log {
     static final String TAG = "fairemail";
 
@@ -51,5 +57,28 @@ public class Log {
 
     public static int e(String prefix, Throwable ex) {
         return android.util.Log.e(TAG, prefix + " " + ex + "\n" + android.util.Log.getStackTraceString(ex));
+    }
+
+    public static void logExtras(Intent intent) {
+        if (intent != null)
+            logBundle(intent.getExtras());
+    }
+
+    public static void logBundle(Bundle data) {
+        if (data != null) {
+            Set<String> keys = data.keySet();
+            StringBuilder stringBuilder = new StringBuilder();
+            for (String key : keys) {
+                Object value = data.get(key);
+                if (value instanceof String[])
+                    value = TextUtils.join(", ", (String[]) value);
+                stringBuilder.append(key)
+                        .append("=")
+                        .append(value)
+                        .append(value == null ? "" : " (" + value.getClass().getSimpleName() + ")")
+                        .append("\r\n");
+            }
+            i(stringBuilder.toString());
+        }
     }
 }
