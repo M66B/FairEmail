@@ -107,7 +107,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             ivState.setVisibility(account.synchronize ? View.VISIBLE : View.INVISIBLE);
 
             tvLast.setText(context.getString(R.string.title_last_connected,
-                    account.last_connected == null ? "" : df.format(account.last_connected)));
+                    account.last_connected == null ? "-" : df.format(account.last_connected)));
 
             tvError.setText(account.error);
             tvError.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
