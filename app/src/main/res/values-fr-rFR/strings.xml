@@ -226,6 +226,7 @@
     <string name="title_folder_system">Système</string>
     <string name="title_folder_user">Utilisateur</string>
     <string name="title_folder_primary">Dossiers du compte principal</string>
+    <string name="title_folder_thread">Fil de discussion %1$s</string>
     <string name="title_folders_unified">Dossiers de boîte de réception unifiée</string>
     <string name="title_no_messages">Aucun message</string>
     <string name="title_subject_reply">Re : %1$s</string>
@@ -263,6 +264,8 @@
     <string name="title_no_stream">Une application obsolète a envoyé un chemin d\'accès au lieu d\'un flux de fichier</string>
     <string name="title_no_contacts">Sélecteur de contact non disponible</string>
     <string name="title_no_internet">Pas de connexion Internet</string>
+    <string name="title_no_accross">Le déplacement entre comptes exige que tout le contenu du message soit téléchargé</string>
+    <string name="title_accross_remark">Les messages déplacés entre comptes ne seront pas identiques après le déplacement</string>
     <string name="title_raw_saved">Message brut enregistré</string>
     <string name="title_attachment_saved">Pièce jointe enregistrée</string>
     <string name="title_attachments_saved">Pièces jointes enregistrées</string>

@@ -226,6 +226,7 @@
     <string name="title_folder_system">System</string>
     <string name="title_folder_user">Benutzer</string>
     <string name="title_folder_primary">Ordner primäres Konto</string>
+    <string name="title_folder_thread">Thema %1$s</string>
     <string name="title_folders_unified">Sammeleingangsordner</string>
     <string name="title_no_messages">Keine E-Mails</string>
     <string name="title_subject_reply">Re: %1$s</string>
@@ -263,6 +264,8 @@
     <string name="title_no_stream">Eine veraltete App verschickte den Dateinamen anstelle des Datenstroms</string>
     <string name="title_no_contacts">Kontaktauswahl nicht verfügbar</string>
     <string name="title_no_internet">Keine Internetverbindung</string>
+    <string name="title_no_accross">Eine Bewegung über Account-Grenzen hinweg erfordert den kompletten Download der Mails</string>
+    <string name="title_accross_remark">Die Mails, die über Account-Grenzen hinweg verschoben werden, sind danach nicht mehr identisch</string>
     <string name="title_raw_saved">Rohdaten gespeichert</string>
     <string name="title_attachment_saved">Anhang gespeichert</string>
     <string name="title_attachments_saved">Anhang gespeichert</string>

@@ -238,6 +238,7 @@
     <string name="title_folder_system">Система</string>
     <string name="title_folder_user">Пользователь</string>
     <string name="title_folder_primary">Папки основной учетной записи</string>
+    <string name="title_folder_thread">Диалог %1$s</string>
     <string name="title_folders_unified">Унифицированные папки входящих</string>
     <string name="title_no_messages">Нет сообщений</string>
     <string name="title_subject_reply">Re: %1$s</string>
@@ -275,6 +276,8 @@
     <string name="title_no_stream">Устаревшее приложение послало путь к файлу вместо файлового потока</string>
     <string name="title_no_contacts">Выбор контакта недоступен</string>
     <string name="title_no_internet">Отсутствует подключение к Интернету</string>
+    <string name="title_no_accross">Перемещение между учётными записями требует загрузки сообщения целиком</string>
+    <string name="title_accross_remark">Сообщения, перемещаемые между учётными записями, не будут идентичны после перемещения</string>
     <string name="title_raw_saved">Оригинал сообщения сохранён</string>
     <string name="title_attachment_saved">Файл сохранен</string>
     <string name="title_attachments_saved">Вложения сохранены</string>

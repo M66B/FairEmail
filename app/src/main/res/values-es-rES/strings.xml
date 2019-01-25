@@ -226,6 +226,7 @@
     <string name="title_folder_system">Sistema</string>
     <string name="title_folder_user">Usuario</string>
     <string name="title_folder_primary">Cuenta primaria de carpetas</string>
+    <string name="title_folder_thread">Conversación %1$s</string>
     <string name="title_folders_unified">Carpetas de bandeja de entrada unificada</string>
     <string name="title_no_messages">Sin mensajes</string>
     <string name="title_subject_reply">Re: %1$s</string>

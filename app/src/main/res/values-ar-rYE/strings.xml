@@ -4,6 +4,7 @@
     <string name="app_welcome">FairEmail تطبيق مفتوح المصدر للبريد الإلكتروني يُركّز على الخصوصية والأمان. ولهذا السبب قد تعمل بعض الميزات بشكل مختلف مما كنت مُعتادًا عليه.</string>
     <string name="channel_service">الخدمة</string>
     <string name="channel_notification">الاشعارات</string>
+    <string name="channel_warning">التحذيرات</string>
     <string name="channel_error">الأخطاء</string>
     <string name="tile_synchronize">المزامنة</string>
     <string name="tile_unseen">رسائل جديدة</string>
@@ -32,6 +33,7 @@
     <string name="title_edit_identity">تعديل الهوية</string>
     <string name="title_edit_folder">تعديل المجلد</string>
     <string name="title_setup">الإعداد</string>
+    <string name="title_setup_help">المساعدة</string>
     <string name="title_setup_export">تصدير الإعدادات</string>
     <string name="title_setup_import">استيراد الإعدادات</string>
     <string name="title_setup_import_do">سيتم إضافة حسابات المستوردة، لا تتم الكتابة فوق</string>
@@ -42,6 +44,8 @@
     <string name="title_setup_password_invalid">كلمة المرور غير صالحة</string>
     <string name="title_setup_exported">إعدادات تصدير</string>
     <string name="title_setup_imported">استيراد إعدادات</string>
+    <string name="title_setup_quick">الإعداد السريع</string>
+    <string name="title_setup_manage">إدارة</string>
     <string name="title_setup_account_remark">لتلقي البريد الإلكتروني</string>
     <string name="title_setup_identity_remark">لإرسال البريد الإلكتروني</string>
     <string name="title_setup_permissions_remark">للحصول على معلومات جهة الاتصال (اختياري)</string>
@@ -53,6 +57,8 @@
     <string name="title_setup_done">تمّ</string>
     <string name="title_setup_light_theme">سمة فاتحة</string>
     <string name="title_setup_dark_theme">سمة داكنة</string>
+    <string name="title_setup_black_theme">سمة سوداء</string>
+    <string name="title_setup_defaults">استعادة الأوضاع الافتراضية</string>
     <string name="title_advanced">الخيارات المتقدمة</string>
     <string name="title_advanced_section_general">العام</string>
     <string name="title_advanced_section_connection">اتصال</string>
@@ -61,14 +67,17 @@
     <string name="title_advanced_section_misc">خيارات متنوعة</string>
     <string name="title_advanced_enabled">المزامنة</string>
     <string name="title_advanced_metered">استخدام اتصالات أجهزة الاستنشاق</string>
-    <string name="title_advanced_unified">علبة وارد موحدة</string>
+    <string name="title_advanced_unified">علبة البريد الوارد الموحدة</string>
     <string name="title_advanced_threading">مؤشر ترابط المحادثة</string>
     <string name="title_advanced_avatars">إظهار صور جهات الاتصال</string>
-    <string name="title_advanced_light">ضوء الإشعارات</string>
+    <string name="title_advanced_light">استخدم الإشعار الضوئي</string>
     <string name="title_identity_name">إسمك</string>
     <string name="title_identity_email">البريد الإلكتروني</string>
     <string name="title_identity_reply_to">الرد على العنوان</string>
     <string name="title_identity_read_receipt">طلب إيصال بالقراءة</string>
+    <string name="title_account_color">اللون</string>
+    <string name="title_user">اسم المستخدم</string>
+    <string name="title_password">الكلمة السرية</string>
     <string name="title_keep_alive_interval">تبقى على قيد الحياة/استطلاع الفاصل الزمني (بالدقائق)</string>
     <string name="title_check">تحقق</string>
     <string name="title_no_name">الاسم مفقود</string>
@@ -79,6 +88,11 @@
     <string name="title_no_password">كلمة المرور مفقودة</string>
     <string name="title_no_drafts">لا يوجد مجلد المسودات مختارة</string>
     <string name="title_no_primary_drafts">لا يوجد حساب أساسي أو لا مجلد المسودات</string>
+    <string name="title_edit_rules">تعديل القواعد</string>
+    <string name="title_folder_name">إسم المجلد</string>
+    <string name="title_display_name">الاسم المعروض</string>
+    <string name="title_hide_folders">اخفاء المجلدات المخفية</string>
+    <string name="title_show_folders">اظهار المجلدات المخفية</string>
     <string name="title_unified_folder">وتظهر في علبة موحد</string>
     <string name="title_folder_exists">يوجد مجلد %1$s</string>
     <string name="title_folder_unified">علبة وارد موحدة</string>
@@ -92,6 +106,7 @@
     <string name="title_folder_system">النظام</string>
     <string name="title_folder_user">المستخدم</string>
     <string name="title_folder_primary">تعيين كحساب رئيسي</string>
+    <string name="title_folder_thread">المحادثة %1$s</string>
     <string name="title_no_messages">لا توجد رسائل</string>
     <string name="title_subject_forward">إعادة توجيه: %1$s</string>
     <string name="title_seen">علامة كـ مقروء</string>
@@ -109,6 +124,7 @@
     <string name="title_archive">أرشيف</string>
     <string name="title_reply">رد</string>
     <string name="title_no_viewer">لا يوجد عارض التطبيق متاح ل %1$s</string>
+    <string name="title_no_accross">الانتقال عبر الحسابات يتطلب تحميل كافة محتوى الرسائل</string>
     <string name="title_attachment_saved">حفظ المرفقات</string>
     <string name="title_ask_delete">هل تريد حذف الرسالة بشكل دائم؟</string>
     <string name="title_from">من:</string>
@@ -124,7 +140,16 @@
     <string name="title_view">عرض</string>
     <string name="title_style_bold">غليظ</string>
     <string name="title_style_italic">مائل</string>
+    <string name="title_style_image">إرفاق صورة</string>
+    <string name="title_add_attachment">إضافة مرفق</string>
+    <string name="title_encrypt">تعمية</string>
+    <string name="title_decrypt">فك التعمية</string>
     <string name="title_search">بحث</string>
+    <string name="title_previous">السابق</string>
+    <string name="title_next">التالي</string>
+    <string name="title_action_trash">سلة المهملات</string>
+    <string name="title_legend_inbox">صندوق البريد الوارد</string>
+    <string name="title_legend_trash">سلة المهملات</string>
     <string name="title_yes">نعم</string>
     <string name="title_no">لا</string>
     <string name="title_undo">التراجع عن</string>
@@ -132,4 +157,5 @@
     <string name="title_pro_feature">هذه ميزة احترافية</string>
     <string name="title_pro_list">قائمة الميزات الاحترافية</string>
     <string name="title_pro_purchase">شراء</string>
+    <string name="title_log">السجل</string>
 </resources>

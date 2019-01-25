@@ -264,6 +264,8 @@
     <string name="title_no_stream">Een verouderde app verzond een bestandsnaam in plaats van een bestandsstroom</string>
     <string name="title_no_contacts">Contact kiezer niet beschikbaar</string>
     <string name="title_no_internet">Geen internet verbinding</string>
+    <string name="title_no_accross">Voor het verplaatsen tussen accounts moet alle berichtinhoud gedownload zijn</string>
+    <string name="title_accross_remark">Berichten verplaatst tussen accounts zijn niet identiek na het verplaatsen</string>
     <string name="title_raw_saved">Ruw bericht opgeslagen</string>
     <string name="title_attachment_saved">Bijlage opgeslagen</string>
     <string name="title_attachments_saved">Bijlagen opgeslagen</string>
