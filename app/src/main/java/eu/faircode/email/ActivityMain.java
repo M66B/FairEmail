@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -26,11 +27,9 @@ import android.preference.PreferenceManager;
 
 import java.util.List;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
 
 public class ActivityMain extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener, SharedPreferences.OnSharedPreferenceChangeListener {
     @Override
@@ -47,9 +46,14 @@ public class ActivityMain extends AppCompatActivity implements FragmentManager.O
 
         if (prefs.getBoolean("eula", false)) {
             super.onCreate(savedInstanceState);
-            DB.getInstance(this).account().liveAccounts(true).observe(this, new Observer<List<EntityAccount>>() {
+            new SimpleTask<List<EntityAccount>>() {
                 @Override
-                public void onChanged(@Nullable List<EntityAccount> accounts) {
+                protected List<EntityAccount> onExecute(Context context, Bundle args) {
+                    return DB.getInstance(context).account().getAccounts(true);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
                     if (accounts == null || accounts.size() == 0)
                         startActivity(new Intent(ActivityMain.this, ActivitySetup.class));
                     else {
@@ -58,7 +62,12 @@ public class ActivityMain extends AppCompatActivity implements FragmentManager.O
                     }
                     finish();
                 }
-            });
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(ActivityMain.this, ActivityMain.this, ex);
+                }
+            }.execute(this, new Bundle(), "main:accounts");
         } else {
             setTheme(R.style.AppThemeLight);
             super.onCreate(savedInstanceState);
