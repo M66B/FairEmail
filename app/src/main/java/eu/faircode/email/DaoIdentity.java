@@ -36,8 +36,9 @@ public interface DaoIdentity {
 
     @Query("SELECT identity.*, account.name AS accountName FROM identity" +
             " JOIN account ON account.id = identity.account" +
+            " JOIN folder ON folder.account = identity.account AND folder.type = '" + EntityFolder.DRAFTS + "'" +
             " WHERE NOT :synchronize OR account.synchronize")
-    List<TupleIdentityEx> getIdentities(boolean synchronize);
+    List<TupleIdentityEx> getComposableIdentities(boolean synchronize);
 
     @Query("SELECT * FROM identity WHERE account = :account")
     List<EntityIdentity> getIdentities(long account);
