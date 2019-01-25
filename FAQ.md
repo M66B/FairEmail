@@ -133,6 +133,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(69) Can you add auto scroll up on new message?](#user-content-faq69)
 * [(70) When will messages be auto expanded?](#user-content-faq70)
 * [(71) How do I use filter rules?](#user-content-faq71)
+* [(72) What are primary accounts/identities?](#user-content-faq72)
 
 [I have another question.](#support)
 
@@ -1135,6 +1136,16 @@ Using filter rules is a pro feature.
 
 <br />
 
+<a name="faq72"></a>
+**(72) What are primary accounts/identities?**
+
+The primary account is used when the account is ambiguous, for example when starting a new draft from the unified inbox.
+
+Similarly, the primary identity of an account is used when the identity is ambiguous.
+
+There can be just one primary account and there can be just one primary identity per account.
+
+<br />
 
 ## Support
 
