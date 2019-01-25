@@ -39,6 +39,7 @@ import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
 
@@ -48,6 +49,7 @@ import javax.activation.FileTypeMap;
 import javax.mail.Address;
 import javax.mail.BodyPart;
 import javax.mail.Flags;
+import javax.mail.Header;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
@@ -520,6 +522,16 @@ public class MessageHelper {
     Integer getSize() throws MessagingException {
         int size = imessage.getSize();
         return (size < 0 ? null : size);
+    }
+
+    String getHeaders() throws MessagingException {
+        StringBuilder sb = new StringBuilder();
+        Enumeration<Header> headers = imessage.getAllHeaders();
+        while (headers.hasMoreElements()) {
+            Header header = headers.nextElement();
+            sb.append(header.getName()).append(": ").append(header.getValue()).append("\n");
+        }
+        return sb.toString();
     }
 
     static String formatAddresses(Address[] addresses) {

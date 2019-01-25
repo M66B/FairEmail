@@ -76,7 +76,6 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -93,7 +92,6 @@ import javax.mail.Flags;
 import javax.mail.Folder;
 import javax.mail.FolderClosedException;
 import javax.mail.FolderNotFoundException;
-import javax.mail.Header;
 import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
@@ -1956,22 +1954,21 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private void doHeaders(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, DB db) throws MessagingException, IOException {
-        Message imessage = ifolder.getMessageByUID(message.uid);
+        if (message.headers != null)
+            return;
+
+        IMAPMessage imessage = (IMAPMessage) ifolder.getMessageByUID(message.uid);
         if (imessage == null)
             throw new MessageRemovedException();
 
-        StringBuilder sb = new StringBuilder();
-
-        Enumeration<Header> headers = imessage.getAllHeaders();
-        while (headers.hasMoreElements()) {
-            Header header = headers.nextElement();
-            sb.append(header.getName()).append(": ").append(header.getValue()).append("\n");
-        }
-
-        db.message().setMessageHeaders(message.id, sb.toString());
+        MessageHelper helper = new MessageHelper(imessage);
+        db.message().setMessageHeaders(message.id, helper.getHeaders());
     }
 
     private void doRaw(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, DB db) throws MessagingException, IOException {
+        if (message.raw)
+            return;
+
         Message imessage = ifolder.getMessageByUID(message.uid);
         if (imessage == null)
             throw new MessageRemovedException();
