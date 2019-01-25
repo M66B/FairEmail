@@ -59,8 +59,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         TextView tvName;
         ImageView ivSync;
         TextView tvUser;
-        TextView tvHost;
         ImageView ivState;
+        TextView tvHost;
         TextView tvLast;
         TextView tvError;
 
@@ -73,8 +73,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             tvName = itemView.findViewById(R.id.tvName);
             ivSync = itemView.findViewById(R.id.ivSync);
             tvUser = itemView.findViewById(R.id.tvUser);
-            tvHost = itemView.findViewById(R.id.tvHost);
             ivState = itemView.findViewById(R.id.ivState);
+            tvHost = itemView.findViewById(R.id.tvHost);
             tvLast = itemView.findViewById(R.id.tvLast);
             tvError = itemView.findViewById(R.id.tvError);
         }
@@ -94,7 +94,6 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             tvName.setText(account.name);
             ivSync.setImageResource(account.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
             tvUser.setText(account.user);
-            tvHost.setText(String.format("%s:%d", account.host, account.port));
 
             if ("connected".equals(account.state))
                 ivState.setImageResource(R.drawable.baseline_cloud_24);
@@ -106,6 +105,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 ivState.setImageResource(R.drawable.baseline_cloud_off_24);
             ivState.setVisibility(account.synchronize ? View.VISIBLE : View.INVISIBLE);
 
+            tvHost.setText(String.format("%s:%d", account.host, account.port));
             tvLast.setText(context.getString(R.string.title_last_connected,
                     account.last_connected == null ? "-" : df.format(account.last_connected)));
 
