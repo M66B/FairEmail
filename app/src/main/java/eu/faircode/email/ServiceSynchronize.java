@@ -1937,6 +1937,7 @@ public class ServiceSynchronize extends LifecycleService {
                             EntityOperation.queue(this, db, replied, EntityOperation.ANSWERED, true);
                 }
 
+                db.identity().setIdentityConnected(ident.id, new Date().getTime());
                 db.identity().setIdentityError(ident.id, null);
 
                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);

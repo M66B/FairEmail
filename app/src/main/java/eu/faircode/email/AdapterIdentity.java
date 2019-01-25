@@ -29,6 +29,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.Collator;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -48,6 +50,8 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
     private List<TupleIdentityEx> all = new ArrayList<>();
     private List<TupleIdentityEx> filtered = new ArrayList<>();
 
+    private static final DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
+
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         View itemView;
         View vwColor;
@@ -58,6 +62,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         TextView tvHost;
         ImageView ivState;
         TextView tvAccount;
+        TextView tvLast;
         TextView tvError;
 
         ViewHolder(View itemView) {
@@ -72,6 +77,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             tvHost = itemView.findViewById(R.id.tvHost);
             ivState = itemView.findViewById(R.id.ivState);
             tvAccount = itemView.findViewById(R.id.tvAccount);
+            tvLast = itemView.findViewById(R.id.tvLast);
             tvError = itemView.findViewById(R.id.tvError);
         }
 
@@ -90,8 +96,6 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             tvName.setText(identity.getDisplayName());
             ivSync.setImageResource(identity.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
             tvUser.setText(identity.email);
-            tvHost.setText(String.format("%s:%d", identity.host, identity.port));
-            tvAccount.setText(identity.accountName);
 
             if ("connected".equals(identity.state))
                 ivState.setImageResource(R.drawable.baseline_cloud_24);
@@ -100,6 +104,11 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             else
                 ivState.setImageDrawable(null);
             ivState.setVisibility(identity.synchronize ? View.VISIBLE : View.INVISIBLE);
+
+            tvHost.setText(String.format("%s:%d", identity.host, identity.port));
+            tvAccount.setText(identity.accountName);
+            tvLast.setText(context.getString(R.string.title_last_connected,
+                    identity.last_connected == null ? "-" : df.format(identity.last_connected)));
 
             tvError.setText(identity.error);
             tvError.setVisibility(identity.error == null ? View.GONE : View.VISIBLE);

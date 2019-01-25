@@ -85,6 +85,7 @@ public class EntityIdentity {
     public Boolean tbd;
     public String state;
     public String error;
+    public Long last_connected;
 
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
@@ -184,7 +185,8 @@ public class EntityIdentity {
                     this.store_sent.equals(other.store_sent) &&
                     (this.tbd == null ? other.tbd == null : this.tbd.equals(other.tbd)) &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&
-                    (this.error == null ? other.error == null : this.error.equals(other.error)));
+                    (this.error == null ? other.error == null : this.error.equals(other.error)) &&
+                    (this.last_connected == null ? other.last_connected == null : this.last_connected.equals(other.last_connected)));
         } else
             return false;
     }
