@@ -2202,9 +2202,15 @@ public class FragmentMessages extends FragmentBase {
     }
 
     private String getDisplay(ArrayList<MessageTarget> result) {
+        boolean across = false;
+        for (MessageTarget target : result)
+            if (target.across)
+                across = true;
+
         List<String> displays = new ArrayList<>();
         for (MessageTarget target : result) {
-            String display = target.account.name + "/" + target.folder.getDisplayName(getContext());
+            String display = (across ? target.account.name + "/" : "") +
+                    target.folder.getDisplayName(getContext());
             if (!displays.contains(display))
                 displays.add(display);
         }
