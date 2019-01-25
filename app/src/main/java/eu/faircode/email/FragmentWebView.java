@@ -28,6 +28,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Base64;
 import android.view.ContextMenu;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -64,7 +65,15 @@ public class FragmentWebView extends FragmentBase {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_webview, container, false);
+        View view = null;
+        try {
+            view = inflater.inflate(R.layout.fragment_webview, container, false);
+        } catch (InflateException ex) {
+            Toast.makeText(getContext(),
+                    getString(R.string.title_no_viewer, Helper.formatThrowable(ex)),
+                    Toast.LENGTH_LONG).show();
+            return null;
+        }
 
         progressBar = view.findViewById(R.id.progressbar);
         webview = view.findViewById(R.id.webview);
