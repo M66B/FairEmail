@@ -27,8 +27,11 @@ import android.content.ComponentName;
 import android.content.Context;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -76,7 +79,7 @@ public class JobDaily extends JobService {
             Log.i("Start daily job");
 
             // Cleanup folders
-            Log.i("Cleanup folders");
+            Log.i("Cleanup kept messages");
             for (EntityFolder folder : db.folder().getFolders()) {
                 Calendar cal_keep = Calendar.getInstance();
                 cal_keep.add(Calendar.DAY_OF_MONTH, -folder.keep_days);
@@ -97,31 +100,28 @@ public class JobDaily extends JobService {
 
             long now = new Date().getTime();
 
-            // Cleanup message files
-            Log.i("Cleanup message files");
+            List<File> files = new ArrayList<>();
             File[] messages = new File(context.getFilesDir(), "messages").listFiles();
+            File[] references = new File(context.getFilesDir(), "references").listFiles();
+            File[] raws = new File(context.getFilesDir(), "raw").listFiles();
+
             if (messages != null)
-                for (File file : messages) {
-                    long id = Long.parseLong(file.getName());
-                    if (db.message().countMessage(id) == 0) {
-                        Log.i("Cleanup message id=" + id);
-                        if (!file.delete())
-                            Log.w("Error deleting " + file);
-                    }
-                }
+                files.addAll(Arrays.asList(messages));
+            if (references != null)
+                files.addAll(Arrays.asList(references));
+            if (raws != null)
+                files.addAll(Arrays.asList(raws));
 
             // Cleanup message files
-            Log.i("Cleanup reference files");
-            File[] references = new File(context.getFilesDir(), "references").listFiles();
-            if (references != null)
-                for (File file : references) {
-                    long id = Long.parseLong(file.getName());
-                    if (db.message().countMessage(id) == 0) {
-                        Log.i("Cleanup message id=" + id);
-                        if (!file.delete())
-                            Log.w("Error deleting " + file);
-                    }
+            Log.i("Cleanup message files");
+            for (File file : files) {
+                long id = Long.parseLong(file.getName());
+                if (db.message().countMessage(id) == 0) {
+                    Log.i("Deleting " + file);
+                    if (!file.delete())
+                        Log.w("Error deleting " + file);
                 }
+            }
 
             // Cleanup attachment files
             Log.i("Cleanup attachment files");
@@ -130,7 +130,7 @@ public class JobDaily extends JobService {
                 for (File file : attachments) {
                     long id = Long.parseLong(file.getName());
                     if (db.attachment().countAttachment(id) == 0) {
-                        Log.i("Cleanup attachment id=" + id);
+                        Log.i("Deleting " + file);
                         if (!file.delete())
                             Log.w("Error deleting " + file);
                     }
@@ -142,23 +142,9 @@ public class JobDaily extends JobService {
             if (images != null)
                 for (File file : images)
                     if (file.isFile() && (now - file.lastModified()) > CACHE_IMAGE_DURATION) {
-                        Log.i("Deleting cached image=" + file.getName());
+                        Log.i("Deleting " + file);
                         if (!file.delete())
                             Log.w("Error deleting " + file);
-                    }
-
-            // Cleanup attachment files
-            Log.i("Cleanup raw files");
-            File[] raw = new File(context.getFilesDir(), "raw").listFiles();
-            if (raw != null)
-                for (File file : raw)
-                    if (file.isFile()) {
-                        long id = Long.parseLong(file.getName());
-                        if (db.message().countMessage(id) == 0) {
-                            Log.i("Cleanup raw id=" + id);
-                            if (!file.delete())
-                                Log.w("Error deleting " + file);
-                        }
                     }
 
             Log.i("Cleanup log");
