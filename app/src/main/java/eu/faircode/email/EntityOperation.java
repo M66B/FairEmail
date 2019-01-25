@@ -178,15 +178,23 @@ public class EntityOperation {
                         db.message().countMessageByMsgId(target.id, message.msgid) == 0) {
                     long id = message.id;
                     long uid = message.uid;
+                    boolean seen = message.seen;
+                    boolean ui_seen = message.ui_seen;
                     message.id = null;
                     message.account = target.account;
                     message.folder = target.id;
                     message.uid = null;
+                    if (autoread) {
+                        message.seen = true;
+                        message.ui_seen = true;
+                    }
                     newid = db.message().insertMessage(message);
                     message.id = id;
                     message.account = source.account;
                     message.folder = source.id;
                     message.uid = uid;
+                    message.seen = seen;
+                    message.ui_seen = ui_seen;
 
                     if (message.content)
                         try {
@@ -205,13 +213,20 @@ public class EntityOperation {
                 }
 
                 // Cross account move
-                if (!source.account.equals(target.account)) {
-                    name = ADD;
-                    folder = target.id;
-                    jargs = new JSONArray();
-                    jargs.put(0, newid); // Can be null
-                    jargs.put(1, autoread);
-                }
+                if (!source.account.equals(target.account))
+                    if (message.raw != null && message.raw) {
+                        name = ADD;
+                        folder = target.id;
+                        jargs = new JSONArray();
+                        jargs.put(0, newid); // Can be null
+                        jargs.put(1, autoread);
+                    } else {
+                        name = RAW;
+                        jargs = new JSONArray();
+                        jargs.put(0, newid); // Can be null
+                        jargs.put(1, autoread);
+                        jargs.put(2, target.id);
+                    }
 
             } else if (DELETE.equals(name))
                 db.message().setMessageUiHide(message.id, true);

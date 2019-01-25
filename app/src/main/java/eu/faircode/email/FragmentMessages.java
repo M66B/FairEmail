@@ -2107,18 +2107,6 @@ public class FragmentMessages extends FragmentBase {
                         EntityMessage message = db.message().getMessage(target.id);
                         if (message != null) {
                             Log.i("Move id=" + target.id + " target=" + target.folder.name);
-
-                            // Cross account move: check if message downloaded
-                            if (!target.folder.account.equals(message.account)) {
-                                if (!message.content)
-                                    throw new IllegalArgumentException(getString(R.string.title_no_accross));
-
-                                List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-                                for (EntityAttachment attachment : attachments)
-                                    if (!attachment.available)
-                                        throw new IllegalArgumentException(getString(R.string.title_no_accross));
-                            }
-
                             EntityOperation.queue(context, db, message, EntityOperation.MOVE, target.folder.id);
                         }
                     }
