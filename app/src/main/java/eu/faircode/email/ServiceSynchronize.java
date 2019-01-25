@@ -1675,6 +1675,14 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private void doAdd(EntityFolder folder, Session isession, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException, IOException {
+        if (!message.content)
+            throw new IllegalArgumentException("Message body missing");
+
+        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+        for (EntityAttachment attachment : attachments)
+            if (!attachment.available)
+                throw new IllegalArgumentException("Attachment missing");
+
         // Append message
         MimeMessage imessage = MessageHelper.from(this, message, isession);
 
