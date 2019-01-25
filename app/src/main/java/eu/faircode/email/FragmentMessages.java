@@ -788,48 +788,48 @@ public class FragmentMessages extends FragmentBase {
 
     private void onMore() {
         Bundle args = new Bundle();
-        args.putLong("folder", folder);
         args.putLongArray("ids", getSelection());
 
         new SimpleTask<MoreResult>() {
-
             @Override
             protected MoreResult onExecute(Context context, Bundle args) {
-                long fid = args.getLong("folder");
                 long[] ids = args.getLongArray("ids");
 
                 MoreResult result = new MoreResult();
 
                 DB db = DB.getInstance(context);
 
+                List<Long> fids = new ArrayList<>();
                 for (long id : ids) {
                     EntityMessage message = db.message().getMessage(id);
-                    if (message != null) {
-                        if (message.ui_seen)
-                            result.seen = true;
-                        else
-                            result.unseen = true;
+                    if (message == null)
+                        continue;
 
-                        if (message.ui_flagged)
-                            result.flagged = true;
-                        else
-                            result.unflagged = true;
+                    if (!fids.contains(message.folder))
+                        fids.add(message.folder);
 
-                        result.hasArchive = (result.hasArchive &&
-                                db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE) != null);
-                        result.hasTrash = (result.hasTrash &&
-                                db.folder().getFolderByType(message.account, EntityFolder.TRASH) != null);
-                        result.hasJunk = (result.hasJunk &&
-                                db.folder().getFolderByType(message.account, EntityFolder.JUNK) != null);
-                    }
-                }
-
-                EntityFolder folder = db.folder().getFolder(fid);
-                if (folder != null) {
+                    EntityFolder folder = db.folder().getFolder(message.folder);
                     result.isArchive = EntityFolder.ARCHIVE.equals(folder.type);
                     result.isTrash = EntityFolder.TRASH.equals(folder.type);
                     result.isJunk = EntityFolder.JUNK.equals(folder.type);
                     result.isDrafts = EntityFolder.DRAFTS.equals(folder.type);
+
+                    if (message.ui_seen)
+                        result.seen = true;
+                    else
+                        result.unseen = true;
+
+                    if (message.ui_flagged)
+                        result.flagged = true;
+                    else
+                        result.unflagged = true;
+
+                    result.hasArchive = (result.hasArchive &&
+                            db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE) != null);
+                    result.hasTrash = (result.hasTrash &&
+                            db.folder().getFolderByType(message.account, EntityFolder.TRASH) != null);
+                    result.hasJunk = (result.hasJunk &&
+                            db.folder().getFolderByType(message.account, EntityFolder.JUNK) != null);
                 }
 
                 result.accounts = db.account().getAccounts(true);
@@ -854,7 +854,7 @@ public class FragmentMessages extends FragmentBase {
                                 !EntityFolder.ARCHIVE.equals(target.type) &&
                                 !EntityFolder.TRASH.equals(target.type) &&
                                 !EntityFolder.JUNK.equals(target.type) &&
-                                !target.id.equals(fid))
+                                (fids.size() != 1 || !fids.contains(target.id)))
                             targets.add(target);
                     EntityFolder.sort(context, targets);
                     result.targets.put(account, targets);
