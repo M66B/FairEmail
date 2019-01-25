@@ -837,6 +837,10 @@ public class FragmentAccount extends FragmentBase {
                         account.synchronize != synchronize ||
                         !account.poll_interval.equals(Integer.parseInt(interval)));
 
+                Long last_connected = null;
+                if (account != null && synchronize == account.synchronize)
+                    last_connected = account.last_connected;
+
                 // Check IMAP server
                 if (check) {
                     Properties props = MessageHelper.getSessionProperties(auth_type, realm, insecure);
@@ -895,9 +899,7 @@ public class FragmentAccount extends FragmentBase {
                         account.created = now;
 
                     account.error = null;
-
-                    if (synchronize)
-                        account.last_connected = now;
+                    account.last_connected = last_connected;
 
                     if (account.primary)
                         db.account().resetPrimary();
