@@ -1812,24 +1812,28 @@ public class FragmentCompose extends FragmentBase {
                     Long uid = draft.uid;
                     String msgid = draft.msgid;
 
+                    // To prevent violating constraints
                     draft.uid = null;
                     draft.msgid = null;
                     db.message().updateMessage(draft);
 
+                    // Create copy to delete
                     draft.id = null;
                     draft.uid = uid;
                     draft.msgid = msgid;
                     draft.content = false;
                     draft.ui_hide = true;
                     draft.id = db.message().insertMessage(draft);
-                    EntityOperation.queue(context, db, draft, EntityOperation.DELETE);
+                    EntityOperation.queue(context, db, draft, EntityOperation.DELETE); // by msgid
 
+                    // Restore original with new account, no uid and new msgid
                     draft.id = id;
                     draft.account = aid;
                     draft.folder = db.folder().getFolderByType(aid, EntityFolder.DRAFTS).id;
+                    draft.uid = null;
+                    draft.msgid = EntityMessage.generateMessageId();
                     draft.content = true;
                     draft.ui_hide = false;
-                    EntityOperation.queue(context, db, draft, EntityOperation.ADD);
                 }
 
                 List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
