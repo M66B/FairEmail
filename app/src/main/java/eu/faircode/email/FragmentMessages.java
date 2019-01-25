@@ -548,7 +548,7 @@ public class FragmentMessages extends FragmentBase {
 
                         if (target != null) {
                             EntityAccount account = db.account().getAccount(target.account);
-                            result.add(new MessageTarget(id, account, target));
+                            result.add(new MessageTarget(message, account, target));
                         }
 
                         db.setTransactionSuccessful();
@@ -678,7 +678,7 @@ public class FragmentMessages extends FragmentBase {
                                 List<EntityMessage> messages = db.message().getMessageByThread(
                                         message.account, message.thread, threading && thread ? null : id, message.folder);
                                 for (EntityMessage threaded : messages) {
-                                    result.add(new MessageTarget(threaded.id, account, target));
+                                    result.add(new MessageTarget(threaded, account, target));
                                     db.message().setMessageUiHide(threaded.id, true);
                                     // Prevent new message notification on undo
                                     db.message().setMessageUiIgnored(threaded.id, true);
@@ -762,7 +762,7 @@ public class FragmentMessages extends FragmentBase {
                                     (!EntityFolder.SENT.equals(folder.type) || EntityFolder.TRASH.equals(target.type)) &&
                                     !EntityFolder.TRASH.equals(folder.type) &&
                                     !EntityFolder.JUNK.equals(folder.type))
-                                result.add(new MessageTarget(threaded.id, account, target));
+                                result.add(new MessageTarget(threaded, account, target));
                         }
                     }
 
@@ -1192,7 +1192,7 @@ public class FragmentMessages extends FragmentBase {
                             for (EntityMessage threaded : messages) {
                                 EntityFolder target = db.folder().getFolderByType(message.account, type);
                                 EntityAccount account = db.account().getAccount(target.account);
-                                result.add(new MessageTarget(threaded.id, account, target));
+                                result.add(new MessageTarget(threaded, account, target));
                             }
                         }
                     }
@@ -1245,7 +1245,7 @@ public class FragmentMessages extends FragmentBase {
                                 List<EntityMessage> messages = db.message().getMessageByThread(
                                         message.account, message.thread, threading ? null : id, message.folder);
                                 for (EntityMessage threaded : messages)
-                                    result.add(new MessageTarget(threaded.id, account, target));
+                                    result.add(new MessageTarget(threaded, account, target));
                             }
                         }
                     }
@@ -2041,7 +2041,7 @@ public class FragmentMessages extends FragmentBase {
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         if (prefs.getBoolean("automove", false)) {
-            moveAskConfirmed(result);
+            moveAskAcross(result);
             return;
         }
 
@@ -2059,11 +2059,34 @@ public class FragmentMessages extends FragmentBase {
                     public void onClick(DialogInterface dialog, int which) {
                         if (cbNotAgain.isChecked())
                             prefs.edit().putBoolean("automove", true).apply();
-                        moveAskConfirmed(result);
+                        moveAskAcross(result);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();
+    }
+
+    private void moveAskAcross(final ArrayList<MessageTarget> result) {
+        boolean across = false;
+        for (MessageTarget target : result)
+            if (target.across) {
+                across = true;
+                break;
+            }
+
+        if (across)
+            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                    .setMessage(R.string.title_accross_remark)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            moveAskConfirmed(result);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
+        else
+            moveAskConfirmed(result);
     }
 
     private void moveAskConfirmed(ArrayList<MessageTarget> result) {
@@ -2243,17 +2266,20 @@ public class FragmentMessages extends FragmentBase {
 
     private static class MessageTarget implements Parcelable {
         long id;
+        boolean across;
         EntityAccount account;
         EntityFolder folder;
 
-        MessageTarget(long id, EntityAccount account, EntityFolder folder) {
-            this.id = id;
+        MessageTarget(EntityMessage message, EntityAccount account, EntityFolder folder) {
+            this.id = message.id;
+            this.across = !folder.account.equals(message.account);
             this.account = account;
             this.folder = folder;
         }
 
         protected MessageTarget(Parcel in) {
             id = in.readLong();
+            across = (in.readInt() != 0);
             account = (EntityAccount) in.readSerializable();
             folder = (EntityFolder) in.readSerializable();
         }
@@ -2261,6 +2287,7 @@ public class FragmentMessages extends FragmentBase {
         @Override
         public void writeToParcel(Parcel dest, int flags) {
             dest.writeLong(id);
+            dest.writeInt(across ? 1 : 0);
             dest.writeSerializable(account);
             dest.writeSerializable(folder);
         }

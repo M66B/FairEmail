@@ -307,6 +307,7 @@
     <string name="title_no_contacts">Contact picker not available</string>
     <string name="title_no_internet">No internet connection</string>
     <string name="title_no_accross">Moving across accounts requires all message content to be downloaded</string>
+    <string name="title_accross_remark">Messages moved across accounts will not be identical after moving</string>
     <string name="title_raw_saved">Raw message saved</string>
     <string name="title_attachment_saved">Attachment saved</string>
     <string name="title_attachments_saved">Attachments saved</string>
