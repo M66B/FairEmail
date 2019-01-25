@@ -295,12 +295,15 @@ public class FragmentMessages extends FragmentBase {
             selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
                 @Override
                 public void onSelectionChanged() {
-                    // Workaround AndroidX bug
+                    SelectionTracker tracker = selectionTracker;
+                    if (tracker == null)
+                        return;
+
                     FragmentActivity activity = getActivity();
                     if (activity != null) {
                         try {
                             ViewModelMessages modelMessages = ViewModelProviders.of(activity).get(ViewModelMessages.class);
-                            if (selectionTracker.hasSelection())
+                            if (tracker.hasSelection())
                                 modelMessages.removeObservers(viewType, getViewLifecycleOwner());
                             else
                                 modelMessages.observe(viewType, getViewLifecycleOwner(), observer);
@@ -312,7 +315,7 @@ public class FragmentMessages extends FragmentBase {
                         activity.invalidateOptionsMenu();
                     }
 
-                    if (selectionTracker.hasSelection()) {
+                    if (tracker.hasSelection()) {
                         swipeRefresh.setEnabled(false);
                         fabMore.show();
                     } else {
