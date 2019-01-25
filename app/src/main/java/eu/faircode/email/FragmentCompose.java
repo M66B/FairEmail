@@ -804,6 +804,10 @@ public class FragmentCompose extends FragmentBase {
         }
 
         try {
+            EntityIdentity ident = (EntityIdentity) spIdentity.getSelectedItem();
+            if (ident == null)
+                throw new IllegalArgumentException(getString(R.string.title_from_missing));
+
             String to = etTo.getText().toString();
             InternetAddress ato[] = (TextUtils.isEmpty(to) ? new InternetAddress[0] : InternetAddress.parse(to));
             if (ato.length == 0)
@@ -813,7 +817,8 @@ public class FragmentCompose extends FragmentBase {
             final TextView tvMessage = dview.findViewById(R.id.tvMessage);
             final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
-            tvMessage.setText(getString(R.string.title_ask_send, MessageHelper.formatAddressesShort(ato)));
+            tvMessage.setText(getString(R.string.title_ask_send_via,
+                    MessageHelper.formatAddressesShort(ato), ident.email));
 
             new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                     .setView(dview)
