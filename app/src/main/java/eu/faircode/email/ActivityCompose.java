@@ -25,6 +25,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MenuItem;
 
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
+
 import java.util.ArrayList;
 
 import javax.mail.internet.AddressException;
@@ -117,7 +120,7 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
                 if (intent.hasExtra(Intent.EXTRA_HTML_TEXT)) {
                     String html = intent.getStringExtra(Intent.EXTRA_HTML_TEXT);
                     if (html != null)
-                        args.putString("body", html);
+                        args.putString("body", Jsoup.clean(html, Whitelist.relaxed()));
                 } else if (intent.hasExtra(Intent.EXTRA_TEXT)) {
                     String body = intent.getStringExtra(Intent.EXTRA_TEXT);
                     if (body != null)
