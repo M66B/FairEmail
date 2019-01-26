@@ -488,14 +488,9 @@ public class ServiceSynchronize extends LifecycleService {
 
         // Get contact info
         Map<TupleMessageEx, ContactInfo> messageContact = new HashMap<>();
-        for (TupleMessageEx message : messages) {
-            ContactInfo info = ContactInfo.get(this, message.from, true);
-            if (info == null)
-                info = ContactInfo.get(this, message.from, false);
-            if (info == null)
-                info = new ContactInfo(MessageHelper.formatAddressesShort(message.from));
-            messageContact.put(message, info);
-        }
+        for (TupleMessageEx message : messages)
+            messageContact.put(message,
+                    ContactInfo.get(this, message.from, false));
 
         // Build pending intent
         Intent view = new Intent(this, ActivityView.class);
@@ -574,7 +569,7 @@ public class ServiceSynchronize extends LifecycleService {
             DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
             StringBuilder sb = new StringBuilder();
             for (EntityMessage message : messages) {
-                sb.append("<strong>").append(messageContact.get(message).getDisplayName()).append("</strong>");
+                sb.append("<strong>").append(messageContact.get(message).getDisplayName(true)).append("</strong>");
                 if (!TextUtils.isEmpty(message.subject))
                     sb.append(": ").append(message.subject);
                 sb.append(" ").append(df.format(message.received));
@@ -647,7 +642,7 @@ public class ServiceSynchronize extends LifecycleService {
             mbuilder
                     .addExtras(args)
                     .setSmallIcon(R.drawable.baseline_email_white_24)
-                    .setContentTitle(info.getDisplayName())
+                    .setContentTitle(info.getDisplayName(true))
                     .setSubText(message.accountName + " · " + folderName)
                     .setContentIntent(piContent)
                     .setWhen(message.received)

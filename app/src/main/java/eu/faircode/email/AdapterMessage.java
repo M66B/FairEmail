@@ -32,7 +32,6 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -75,7 +74,6 @@ import org.xml.sax.XMLReader;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.text.Collator;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -130,18 +128,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean threading;
     private boolean contacts;
     private boolean avatars;
-    private boolean identicons;
     private boolean preview;
     private boolean confirm;
     private boolean debug;
 
-    private int dp24;
     private float textSize;
     private int colorPrimary;
     private int colorAccent;
     private int textColorSecondary;
     private int colorUnread;
-    private String theme;
     private boolean hasWebView;
 
     private SelectionTracker<Long> selectionTracker = null;
@@ -484,82 +479,58 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             boolean outgoing = (viewType != ViewType.THREAD && EntityFolder.isOutgoing(message.folderType));
 
-            if (avatars || identicons) {
+            final Address[] addresses = (outgoing ? message.to : message.from);
+
+            ContactInfo info = ContactInfo.get(context, addresses, true);
+            if (info == null) {
                 Bundle aargs = new Bundle();
                 aargs.putLong("id", message.id);
-                aargs.putSerializable("addresses", outgoing ? message.to : message.from);
+                aargs.putSerializable("addresses", addresses);
 
                 new SimpleTask<ContactInfo>() {
                     @Override
                     protected void onPreExecute(Bundle args) {
                         ivAvatar.setTag(message.id);
-                        ivAvatar.setVisibility(View.INVISIBLE);
                         tvFrom.setTag(message.id);
 
-                        Address[] addresses = (Address[]) args.getSerializable("addresses");
-                        ContactInfo info = ContactInfo.get(context, addresses, true);
-                        if (info != null && info.hasDisplayName())
-                            setFrom(info, addresses);
-                        else
-                            tvFrom.setText(MessageHelper.formatAddresses(addresses, !compact, false));
+                        ivAvatar.setVisibility(avatars ? View.INVISIBLE : View.GONE);
+                        tvFrom.setText(MessageHelper.formatAddresses(addresses, !compact, false));
                     }
 
                     @Override
                     protected ContactInfo onExecute(Context context, Bundle args) {
                         Address[] addresses = (Address[]) args.getSerializable("addresses");
-
-                        ContactInfo info = ContactInfo.get(context, addresses, false);
-
-                        if ((info == null || !info.hasPhoto()) &&
-                                identicons && addresses != null && addresses.length > 0) {
-                            Drawable ident = new BitmapDrawable(
-                                    context.getResources(),
-                                    Identicon.generate(addresses[0].toString(),
-                                            dp24, 5, "light".equals(theme)));
-                            info = new ContactInfo(ident, (info == null ? null : info.getDisplayName()));
-                        }
-
-                        return info;
+                        return ContactInfo.get(context, addresses, false);
                     }
 
                     @Override
                     protected void onExecuted(Bundle args, ContactInfo info) {
-                        long id = args.getLong("id");
+                        Long id = args.getLong("id");
 
-                        if ((long) ivAvatar.getTag() == id) {
-                            if (info == null || !info.hasPhoto())
-                                ivAvatar.setImageResource(R.drawable.baseline_person_24);
+                        if (id.equals(ivAvatar.getTag())) {
+                            if (info.hasPhoto())
+                                ivAvatar.setImageBitmap(info.getPhotoBitmap());
                             else
-                                ivAvatar.setImageDrawable(info.getPhotoDrawable());
-                            ivAvatar.setVisibility(View.VISIBLE);
+                                ivAvatar.setImageResource(R.drawable.baseline_person_24);
+                            ivAvatar.setVisibility(avatars ? View.VISIBLE : View.GONE);
                         }
 
-                        if ((long) tvFrom.getTag() == id) {
-                            if (info != null && info.hasDisplayName()) {
-                                Address[] addresses = (Address[]) args.getSerializable("addresses");
-                                setFrom(info, addresses);
-                            }
-                        }
+                        if (id.equals(tvFrom.getTag()))
+                            tvFrom.setText(info.getDisplayName(compact));
                     }
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(context, owner, ex);
                     }
-
-
-                    private void setFrom(ContactInfo info, Address[] addresses) {
-                        try {
-                            ((InternetAddress) addresses[0]).setPersonal(info.getDisplayName());
-                            tvFrom.setText(MessageHelper.formatAddresses(addresses, !compact, false));
-                        } catch (UnsupportedEncodingException ex) {
-                            Log.w(ex);
-                        }
-                    }
                 }.execute(context, owner, aargs, "message:avatar");
             } else {
-                ivAvatar.setVisibility(View.GONE);
-                tvFrom.setText(MessageHelper.formatAddresses(outgoing ? message.to : message.from, !compact, false));
+                if (info.hasPhoto())
+                    ivAvatar.setImageBitmap(info.getPhotoBitmap());
+                else
+                    ivAvatar.setImageResource(R.drawable.baseline_person_24);
+                ivAvatar.setVisibility(avatars ? View.VISIBLE : View.GONE);
+                tvFrom.setText(info.getDisplayName(compact));
             }
 
             vwColor.setBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
@@ -2174,19 +2145,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.threading = prefs.getBoolean("threading", true);
         this.contacts = (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
                 == PackageManager.PERMISSION_GRANTED);
-        this.avatars = prefs.getBoolean("avatars", true);
-        this.identicons = prefs.getBoolean("identicons", false);
+        this.avatars = (prefs.getBoolean("avatars", true) ||
+                prefs.getBoolean("identicons", false));
         this.preview = prefs.getBoolean("preview", false);
         this.confirm = prefs.getBoolean("confirm", false);
         this.debug = prefs.getBoolean("debug", false);
 
-        this.dp24 = Helper.dp2pixels(context, 24);
         this.textSize = Helper.getTextSize(context, zoom);
         this.colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
         this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
         this.colorUnread = Helper.resolveColor(context, R.attr.colorUnread);
-        this.theme = prefs.getString("theme", "light");
 
         PackageManager pm = context.getPackageManager();
         this.hasWebView = pm.hasSystemFeature("android.software.webview");

@@ -240,6 +240,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("avatars", checked).apply();
+                ContactInfo.clearCache();
             }
         });
 
@@ -247,6 +248,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("identicons", checked).apply();
+                ContactInfo.clearCache();
             }
         });
 
