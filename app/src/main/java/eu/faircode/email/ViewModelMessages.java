@@ -81,47 +81,49 @@ public class ViewModelMessages extends ViewModel {
         messages.clear();
     }
 
-    Target[] getPrevNext(String thread) {
+    void observePrevNext(LifecycleOwner owner, final String thread, final IPrevNext intf) {
         LiveData<PagedList<TupleMessageEx>> list = messages.get(false);
-        if (list == null || list.getValue() == null || list.getValue().size() == 0)
-            return new Target[]{null, null};
+        if (list == null)
+            return;
 
-        boolean found = false;
-        TupleMessageEx prev = null;
-        TupleMessageEx next = null;
-        for (int i = 0; i < list.getValue().size(); i++) {
-            TupleMessageEx item = list.getValue().get(i);
-            if (item == null)
-                continue;
-            if (found) {
-                prev = item;
-                break;
+        list.observe(owner, new Observer<PagedList<TupleMessageEx>>() {
+            @Override
+            public void onChanged(PagedList<TupleMessageEx> list) {
+                boolean load = false;
+                for (int pos = 0; pos < list.size(); pos++) {
+                    TupleMessageEx item = list.get(pos);
+                    if (item != null && thread.equals(item.thread)) {
+                        if (pos - 1 >= 0) {
+                            TupleMessageEx next = list.get(pos - 1);
+                            if (next == null)
+                                load = true;
+                            else
+                                intf.onNext(next.id);
+                        } else
+                            intf.onNext(null);
+
+                        if (pos + 1 <= list.size()) {
+                            TupleMessageEx prev = list.get(pos + 1);
+                            if (prev == null)
+                                load = true;
+                            else
+                                intf.onPrevious(prev.id);
+                        } else
+                            intf.onPrevious(null);
+
+                        if (load)
+                            list.loadAround(pos);
+
+                        break;
+                    }
+                }
             }
-            if (thread.equals(item.thread)) {
-                found = true;
-                list.getValue().loadAround(i);
-            } else
-                next = item;
-        }
-        if (!found)
-            return new Target[]{null, null};
-
-        return new Target[]{
-                prev == null ? null : new Target(prev.account, prev.thread, prev.id, prev.ui_found),
-                next == null ? null : new Target(next.account, next.thread, next.id, next.ui_found)};
+        });
     }
 
-    class Target {
-        long account;
-        String thread;
-        long id;
-        boolean found;
+    interface IPrevNext {
+        void onPrevious(Long id);
 
-        Target(long account, String thread, long id, boolean found) {
-            this.account = account;
-            this.thread = thread;
-            this.id = id;
-            this.found = found;
-        }
+        void onNext(Long id);
     }
 }

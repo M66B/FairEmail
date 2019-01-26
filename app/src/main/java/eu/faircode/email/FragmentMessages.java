@@ -279,7 +279,22 @@ public class FragmentMessages extends FragmentBase {
 
         rvMessage.setAdapter(adapter);
 
-        if (viewType != AdapterMessage.ViewType.THREAD) {
+        if (viewType == AdapterMessage.ViewType.THREAD) {
+            ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+            model.observePrevNext(getViewLifecycleOwner(), thread, new ViewModelMessages.IPrevNext() {
+                @Override
+                public void onPrevious(Long id) {
+                    bottom_navigation.getMenu().findItem(R.id.action_prev).setIntent(new Intent().putExtra("id", id));
+                    bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(id != null);
+                }
+
+                @Override
+                public void onNext(Long id) {
+                    bottom_navigation.getMenu().findItem(R.id.action_next).setIntent(new Intent().putExtra("id", id));
+                    bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(id != null);
+                }
+            });
+        } else {
             final SelectionPredicateMessage predicate = new SelectionPredicateMessage(rvMessage);
 
             selectionTracker = new SelectionTracker.Builder<>(
@@ -341,11 +356,11 @@ public class FragmentMessages extends FragmentBase {
                         return true;
 
                     case R.id.action_prev:
-                        navigate(false);
+                        navigate(menuItem.getIntent().getLongExtra("id", -1));
                         return true;
 
                     case R.id.action_next:
-                        navigate(true);
+                        navigate(menuItem.getIntent().getLongExtra("id", -1));
                         return true;
 
                     default:
@@ -393,6 +408,8 @@ public class FragmentMessages extends FragmentBase {
         // Initialize
         swipeRefresh.setEnabled(pull);
         tvNoEmail.setVisibility(View.GONE);
+        bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(false);
+        bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(false);
         bottom_navigation.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
@@ -2015,24 +2032,41 @@ public class FragmentMessages extends FragmentBase {
     private void handleAutoClose() {
         if (autoclose)
             finish();
-        else if (autonext)
-            navigate(true);
+        else if (autonext) {
+            Intent intent = bottom_navigation.getMenu().findItem(R.id.action_next).getIntent();
+            Long id = (intent == null ? null : intent.getLongExtra("id", -1));
+            if (id == null || id < 0)
+                finish();
+            else
+                navigate(id);
+        }
     }
 
-    private void navigate(boolean next) {
-        ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-        ViewModelMessages.Target target = model.getPrevNext(thread)[next ? 1 : 0];
+    private void navigate(long id) {
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+        new SimpleTask<EntityMessage>() {
+            @Override
+            protected EntityMessage onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+                return DB.getInstance(context).message().getMessage(id);
+            }
 
-        if (target == null)
-            finish();
-        else {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-            lbm.sendBroadcast(
-                    new Intent(ActivityView.ACTION_VIEW_THREAD)
-                            .putExtra("account", target.account)
-                            .putExtra("thread", target.thread)
-                            .putExtra("id", target.id));
-        }
+            @Override
+            protected void onExecuted(Bundle args, EntityMessage message) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_VIEW_THREAD)
+                                .putExtra("account", message.account)
+                                .putExtra("thread", message.thread)
+                                .putExtra("id", message.id));
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(this, args, "messages:navigate");
     }
 
     private void moveAsk(final ArrayList<MessageTarget> result) {
