@@ -33,14 +33,13 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private ViewModelBrowse model;
     private Handler handler;
     private IBoundaryCallbackMessages intf;
-    private boolean searching = false;
 
     private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     interface IBoundaryCallbackMessages {
         void onLoading();
 
-        void onLoaded();
+        void onLoaded(boolean empty);
 
         void onError(Throwable ex);
     }
@@ -65,10 +64,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         });
     }
 
-    boolean isSearching() {
-        return searching;
-    }
-
     @Override
     public void onZeroItemsLoaded() {
         Log.i("onZeroItemsLoaded");
@@ -89,7 +84,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     return;
 
                 try {
-                    searching = model.isSearching();
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
@@ -106,11 +100,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         }
                     });
                 } finally {
-                    searching = false;
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            intf.onLoaded();
+                            intf.onLoaded(model == null || model.isEmpty());
                         }
                     });
                 }

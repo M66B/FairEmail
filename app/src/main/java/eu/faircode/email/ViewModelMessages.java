@@ -70,12 +70,6 @@ public class ViewModelMessages extends ViewModel {
         }
     }
 
-    boolean isEmpty(AdapterMessage.ViewType viewType) {
-        boolean thread = (viewType == AdapterMessage.ViewType.THREAD);
-        LiveData<PagedList<TupleMessageEx>> list = messages.get(thread);
-        return (list == null || list.getValue() == null || list.getValue().size() == 0);
-    }
-
     @Override
     protected void onCleared() {
         messages.clear();

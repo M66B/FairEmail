@@ -134,7 +134,7 @@ public class FragmentMessages extends FragmentBase {
     private LongSparseArray<Spanned> bodies = new LongSparseArray<>();
     private LongSparseArray<TupleAccountSwipes> accountSwipes = new LongSparseArray<>();
 
-    private BoundaryCallbackMessages searchCallback = null;
+    private BoundaryCallbackMessages boundaryCallback = null;
 
     private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
@@ -1723,6 +1723,32 @@ public class FragmentMessages extends FragmentBase {
         ViewModelBrowse modelBrowse = ViewModelProviders.of(getActivity()).get(ViewModelBrowse.class);
         modelBrowse.set(getContext(), folder, search, REMOTE_PAGE_SIZE);
 
+        if (viewType == AdapterMessage.ViewType.FOLDER || viewType == AdapterMessage.ViewType.SEARCH)
+            if (boundaryCallback == null)
+                boundaryCallback = new BoundaryCallbackMessages(this, modelBrowse,
+                        new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
+                            @Override
+                            public void onLoading() {
+                                pbWait.setVisibility(View.VISIBLE);
+                            }
+
+                            @Override
+                            public void onLoaded(boolean empty) {
+                                pbWait.setVisibility(View.GONE);
+                                tvNoEmail.setVisibility(empty ? View.VISIBLE : View.GONE);
+                            }
+
+                            @Override
+                            public void onError(Throwable ex) {
+                                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                                    new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                                            .setMessage(Helper.formatThrowable(ex))
+                                            .setPositiveButton(android.R.string.cancel, null)
+                                            .create()
+                                            .show();
+                            }
+                        });
+
         // Observe folder/messages/search
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         String sort = prefs.getString("sort", "time");
@@ -1743,37 +1769,13 @@ public class FragmentMessages extends FragmentBase {
                 break;
 
             case FOLDER:
-                if (searchCallback == null)
-                    searchCallback = new BoundaryCallbackMessages(this, modelBrowse,
-                            new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
-                                @Override
-                                public void onLoading() {
-                                    pbWait.setVisibility(View.VISIBLE);
-                                }
-
-                                @Override
-                                public void onLoaded() {
-                                    pbWait.setVisibility(View.GONE);
-                                }
-
-                                @Override
-                                public void onError(Throwable ex) {
-                                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                                        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                                                .setMessage(Helper.formatThrowable(ex))
-                                                .setPositiveButton(android.R.string.cancel, null)
-                                                .create()
-                                                .show();
-                                }
-                            });
-
                 PagedList.Config configFolder = new PagedList.Config.Builder()
                         .setPageSize(LOCAL_PAGE_SIZE)
                         .setPrefetchDistance(REMOTE_PAGE_SIZE)
                         .build();
                 builder = new LivePagedListBuilder<>(
                         db.message().pagedFolder(folder, threading, sort, snoozed, false, debug), configFolder);
-                builder.setBoundaryCallback(searchCallback);
+                builder.setBoundaryCallback(boundaryCallback);
                 break;
 
             case THREAD:
@@ -1782,32 +1784,6 @@ public class FragmentMessages extends FragmentBase {
                 break;
 
             case SEARCH:
-                if (searchCallback == null)
-                    searchCallback = new BoundaryCallbackMessages(this, modelBrowse,
-                            new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
-                                @Override
-                                public void onLoading() {
-                                    tvNoEmail.setVisibility(View.GONE);
-                                    pbWait.setVisibility(View.VISIBLE);
-                                }
-
-                                @Override
-                                public void onLoaded() {
-                                    pbWait.setVisibility(View.GONE);
-                                    tvNoEmail.setVisibility(modelMessages.isEmpty(viewType) ? View.VISIBLE : View.GONE);
-                                }
-
-                                @Override
-                                public void onError(Throwable ex) {
-                                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                                        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                                                .setMessage(Helper.formatThrowable(ex))
-                                                .setPositiveButton(android.R.string.cancel, null)
-                                                .create()
-                                                .show();
-                                }
-                            });
-
                 PagedList.Config configSearch = new PagedList.Config.Builder()
                         .setPageSize(LOCAL_PAGE_SIZE)
                         .setPrefetchDistance(REMOTE_PAGE_SIZE)
@@ -1818,7 +1794,7 @@ public class FragmentMessages extends FragmentBase {
                 else
                     builder = new LivePagedListBuilder<>(
                             db.message().pagedFolder(folder, threading, "time", snoozed, true, debug), configSearch);
-                builder.setBoundaryCallback(searchCallback);
+                builder.setBoundaryCallback(boundaryCallback);
                 break;
         }
 
@@ -1979,18 +1955,11 @@ public class FragmentMessages extends FragmentBase {
             Log.i("Submit messages=" + messages.size());
             adapter.submitList(messages);
 
-            boolean searching = (searchCallback != null && searchCallback.isSearching());
-
-            if (!searching)
+            if (messages.size() > 0 ||
+                    !(viewType == AdapterMessage.ViewType.FOLDER || viewType == AdapterMessage.ViewType.SEARCH)) {
                 pbWait.setVisibility(View.GONE);
-            grpReady.setVisibility(View.VISIBLE);
-
-            if (messages.size() == 0) {
-                tvNoEmail.setVisibility(searching ? View.GONE : View.VISIBLE);
-                rvMessage.setVisibility(View.GONE);
-            } else {
-                tvNoEmail.setVisibility(View.GONE);
-                rvMessage.setVisibility(View.VISIBLE);
+                tvNoEmail.setVisibility(messages.size() == 0 ? View.VISIBLE : View.GONE);
+                grpReady.setVisibility(messages.size() > 0 ? View.VISIBLE : View.GONE);
             }
         }
     };

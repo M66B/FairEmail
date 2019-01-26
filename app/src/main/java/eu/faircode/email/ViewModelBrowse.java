@@ -64,6 +64,7 @@ public class ViewModelBrowse extends ViewModel {
         private int pageSize;
 
         int local = 0;
+        int matched = 0;
         List<Long> messages = null;
         IMAPStore istore = null;
         IMAPFolder ifolder = null;
@@ -83,9 +84,11 @@ public class ViewModelBrowse extends ViewModel {
         currentState.error = false;
     }
 
-    boolean isSearching() {
-        State state = currentState;
-        return (state != null && state.search != null);
+    boolean isEmpty() {
+        final State state = currentState;
+        if (state == null)
+            return true;
+        return (state.matched == 0 && (state.imessages == null || state.imessages.length == 0));
     }
 
     void load() throws MessagingException, IOException {
@@ -133,8 +136,10 @@ public class ViewModelBrowse extends ViewModel {
                     if (!match && message.content)
                         match = body.toLowerCase().contains(find);
 
-                    if (match)
+                    if (match) {
+                        state.matched++;
                         db.message().setMessageFound(message.account, message.thread);
+                    }
                 }
 
                 db.setTransactionSuccessful();
