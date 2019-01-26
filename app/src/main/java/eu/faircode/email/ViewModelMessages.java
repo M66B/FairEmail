@@ -96,7 +96,7 @@ public class ViewModelMessages extends ViewModel {
                         } else
                             intf.onNext(null);
 
-                        if (pos + 1 <= list.size()) {
+                        if (pos + 1 < list.size()) {
                             TupleMessageEx prev = list.get(pos + 1);
                             if (prev == null)
                                 load = true;
