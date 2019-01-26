@@ -590,7 +590,7 @@ public class FragmentMessages extends FragmentBase {
 
     private ItemTouchHelper.Callback touchHelper = new ItemTouchHelper.Callback() {
         @Override
-        public int getMovementFlags(@NonNull RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+        public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
             TupleMessageEx message = getMessage(viewHolder);
             if (message == null)
                 return 0;
@@ -609,13 +609,16 @@ public class FragmentMessages extends FragmentBase {
         }
 
         @Override
-        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+        public boolean onMove(
+                @NonNull RecyclerView recyclerView,
+                @NonNull RecyclerView.ViewHolder viewHolder,
+                @NonNull RecyclerView.ViewHolder target) {
             return false;
         }
 
         @Override
         public void onChildDraw(
-                Canvas canvas, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,
+                @NonNull Canvas canvas, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder,
                 float dX, float dY, int actionState, boolean isCurrentlyActive) {
             AdapterMessage.ViewHolder holder = ((AdapterMessage.ViewHolder) viewHolder);
             holder.setDisplacement(dX);
