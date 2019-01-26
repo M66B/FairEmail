@@ -1233,8 +1233,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }, new Html.TagHandler() {
                 @Override
                 public void handleTag(boolean opening, String tag, Editable output, XMLReader xmlReader) {
-                    if (BuildConfig.DEBUG)
-                        Log.i("HTML tag=" + tag + " opening=" + opening);
+                    //if (BuildConfig.DEBUG)
+                    //    Log.i("HTML tag=" + tag + " opening=" + opening);
                 }
             });
         }

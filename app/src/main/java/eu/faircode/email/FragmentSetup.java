@@ -340,7 +340,7 @@ public class FragmentSetup extends FragmentBase {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
             boolean saving = (cm.getRestrictBackgroundStatus() == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED);
-            btnData.setVisibility(saving ? View.VISIBLE : View.GONE);
+            btnData.setVisibility(saving || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         }
     }
 
