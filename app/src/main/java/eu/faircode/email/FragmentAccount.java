@@ -138,8 +138,8 @@ public class FragmentAccount extends FragmentBase {
     private Group grpFolders;
 
     private long id = -1;
+    private int auth_type = Helper.AUTH_TYPE_PASSWORD;
     private int color = Color.TRANSPARENT;
-    private String authorized = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -233,13 +233,18 @@ public class FragmentAccount extends FragmentBase {
                     return;
                 adapterView.setTag(position);
 
+                auth_type = Helper.AUTH_TYPE_PASSWORD;
+
                 etHost.setText(provider.imap_host);
                 etPort.setText(provider.imap_host == null ? null : Integer.toString(provider.imap_port));
                 cbStartTls.setChecked(provider.imap_starttls);
 
+                etUser.setTag(null);
                 etUser.setText(null);
                 tilPassword.getEditText().setText(null);
                 etRealm.setText(null);
+                tilPassword.setEnabled(true);
+                etRealm.setEnabled(true);
 
                 etName.setText(position > 1 ? provider.name : null);
                 etPrefix.setText(provider.prefix);
@@ -282,15 +287,20 @@ public class FragmentAccount extends FragmentBase {
             }
         });
 
-        tilPassword.getEditText().addTextChangedListener(new TextWatcher() {
+        etUser.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (authorized != null && !authorized.equals(s.toString()))
-                    authorized = null;
+                String user = etUser.getText().toString();
+                if (auth_type != Helper.AUTH_TYPE_PASSWORD && !user.equals(etUser.getTag())) {
+                    auth_type = Helper.AUTH_TYPE_PASSWORD;
+                    tilPassword.getEditText().setText(null);
+                    tilPassword.setEnabled(true);
+                    etRealm.setEnabled(true);
+                }
             }
 
             @Override
@@ -478,10 +488,9 @@ public class FragmentAccount extends FragmentBase {
     }
 
     private void onCheck() {
-        EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
-
         Bundle args = new Bundle();
         args.putLong("id", id);
+        args.putInt("auth_type", auth_type);
         args.putString("host", etHost.getText().toString());
         args.putBoolean("starttls", cbStartTls.isChecked());
         args.putBoolean("insecure", cbInsecure.isChecked());
@@ -489,7 +498,6 @@ public class FragmentAccount extends FragmentBase {
         args.putString("user", etUser.getText().toString());
         args.putString("password", tilPassword.getEditText().getText().toString());
         args.putString("realm", etRealm.getText().toString());
-        args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
 
         new SimpleTask<CheckResult>() {
             @Override
@@ -515,6 +523,7 @@ public class FragmentAccount extends FragmentBase {
             @Override
             protected CheckResult onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
+                int auth_type = args.getInt("auth_type");
                 String host = args.getString("host");
                 boolean starttls = args.getBoolean("starttls");
                 boolean insecure = args.getBoolean("insecure");
@@ -522,7 +531,6 @@ public class FragmentAccount extends FragmentBase {
                 String user = args.getString("user");
                 String password = args.getString("password");
                 String realm = args.getString("realm");
-                int auth_type = args.getInt("auth_type");
 
                 if (TextUtils.isEmpty(host))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
@@ -693,8 +701,6 @@ public class FragmentAccount extends FragmentBase {
     }
 
     private void onSave() {
-        EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
-
         EntityFolder drafts = (EntityFolder) spDrafts.getSelectedItem();
         EntityFolder sent = (EntityFolder) spSent.getSelectedItem();
         EntityFolder all = (EntityFolder) spAll.getSelectedItem();
@@ -721,7 +727,7 @@ public class FragmentAccount extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("id", id);
 
-        args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
+        args.putInt("auth_type", auth_type);
         args.putString("host", etHost.getText().toString());
         args.putBoolean("starttls", cbStartTls.isChecked());
         args.putBoolean("insecure", cbInsecure.isChecked());
@@ -1049,7 +1055,7 @@ public class FragmentAccount extends FragmentBase {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt("provider", spProvider.getSelectedItemPosition());
-        outState.putString("authorized", authorized);
+        outState.putInt("auth_type", auth_type);
         outState.putString("password", tilPassword.getEditText().getText().toString());
         outState.putInt("advanced", grpAdvanced.getVisibility());
         outState.putInt("color", color);
@@ -1082,6 +1088,8 @@ public class FragmentAccount extends FragmentBase {
                 spProvider.setAdapter(aaProvider);
 
                 if (savedInstanceState == null) {
+                    auth_type = (account == null ? Helper.AUTH_TYPE_PASSWORD : account.auth_type);
+
                     if (account != null) {
                         boolean found = false;
                         for (int pos = 2; pos < providers.size(); pos++) {
@@ -1105,7 +1113,7 @@ public class FragmentAccount extends FragmentBase {
                     cbStartTls.setChecked(account == null ? false : account.starttls);
                     cbInsecure.setChecked(account == null ? false : account.insecure);
 
-                    authorized = (account != null && account.auth_type != Helper.AUTH_TYPE_PASSWORD ? account.password : null);
+                    etUser.setTag(account == null || auth_type == Helper.AUTH_TYPE_PASSWORD ? null : account.user);
                     etUser.setText(account == null ? null : account.user);
                     tilPassword.getEditText().setText(account == null ? null : account.password);
                     etRealm.setText(account == null ? null : account.realm);
@@ -1143,13 +1151,16 @@ public class FragmentAccount extends FragmentBase {
                     spProvider.setTag(provider);
                     spProvider.setSelection(provider);
 
-                    authorized = savedInstanceState.getString("authorized");
+                    auth_type = savedInstanceState.getInt("auth_type");
                     tilPassword.getEditText().setText(savedInstanceState.getString("password"));
                     grpAdvanced.setVisibility(savedInstanceState.getInt("advanced"));
                     color = savedInstanceState.getInt("color");
                 }
 
                 Helper.setViewsEnabled(view, true);
+
+                tilPassword.setEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
+                etRealm.setEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
 
                 setColor(color);
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
@@ -1305,8 +1316,10 @@ public class FragmentAccount extends FragmentBase {
                                             String token = bundle.getString(AccountManager.KEY_AUTHTOKEN);
                                             Log.i("Got token");
 
-                                            authorized = token;
+                                            auth_type = Helper.AUTH_TYPE_GMAIL;
+                                            etUser.setTag(account.name);
                                             etUser.setText(account.name);
+                                            etUser.setTag(account.name);
                                             tilPassword.getEditText().setText(token);
                                             etRealm.setText(null);
                                         } catch (Throwable ex) {
@@ -1320,8 +1333,8 @@ public class FragmentAccount extends FragmentBase {
                                         } finally {
                                             btnAuthorize.setEnabled(true);
                                             etUser.setEnabled(true);
-                                            tilPassword.setEnabled(true);
-                                            etRealm.setEnabled(true);
+                                            tilPassword.setEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
+                                            etRealm.setEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
                                             btnCheck.setEnabled(true);
                                             btnSave.setEnabled(true);
                                             new Handler().postDelayed(new Runnable() {

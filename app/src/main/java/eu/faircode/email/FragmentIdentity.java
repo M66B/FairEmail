@@ -19,18 +19,12 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.ContactsContract;
 import android.text.Editable;
 import android.text.Html;
 import android.text.Spanned;
@@ -71,7 +65,6 @@ import javax.mail.Transport;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 public class FragmentIdentity extends FragmentBase {
@@ -121,6 +114,7 @@ public class FragmentIdentity extends FragmentBase {
     private Group grpAdvanced;
 
     private long id = -1;
+    private int auth_type = Helper.AUTH_TYPE_PASSWORD;
     private int color = Color.TRANSPARENT;
 
     @Override
@@ -200,6 +194,7 @@ public class FragmentIdentity extends FragmentBase {
                 adapterView.setTag(position);
 
                 EntityAccount account = (EntityAccount) adapterView.getAdapter().getItem(position);
+                auth_type = account.auth_type;
 
                 // Select associated provider
                 if (position == 0)
@@ -228,9 +223,12 @@ public class FragmentIdentity extends FragmentBase {
 
                 // Copy account credentials
                 etEmail.setText(account.user);
+                etUser.setTag(auth_type == Helper.AUTH_TYPE_PASSWORD ? null : account.user);
                 etUser.setText(account.user);
                 tilPassword.getEditText().setText(account.password);
                 etRealm.setText(account.realm);
+                tilPassword.setEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
+                etRealm.setEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
             }
 
             @Override
@@ -238,29 +236,26 @@ public class FragmentIdentity extends FragmentBase {
             }
         });
 
-        // READ_PROFILE was removed with SDK 23
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
-                ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_CONTACTS)
-                        == PackageManager.PERMISSION_GRANTED) {
-            Cursor cursor = null;
-            try {
-                cursor = getContext().getContentResolver().query(
-                        Uri.withAppendedPath(
-                                ContactsContract.Profile.CONTENT_URI,
-                                ContactsContract.Contacts.Data.CONTENT_DIRECTORY),
-                        new String[]{
-                                ContactsContract.Profile.DISPLAY_NAME
-                        },
-                        null, null, null);
-                if (cursor != null && cursor.moveToNext())
-                    etName.setHint(cursor.getString(0));
-            } catch (SecurityException ex) {
-                Log.w(ex);
-            } finally {
-                if (cursor != null)
-                    cursor.close();
+        etUser.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
-        }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String user = etUser.getText().toString();
+                if (auth_type != Helper.AUTH_TYPE_PASSWORD && !user.equals(etUser.getTag())) {
+                    auth_type = Helper.AUTH_TYPE_PASSWORD;
+                    tilPassword.getEditText().setText(null);
+                    tilPassword.setEnabled(true);
+                    etRealm.setEnabled(true);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
 
         vwColor.setBackgroundColor(color);
         btnColor.setOnClickListener(new View.OnClickListener() {
@@ -472,7 +467,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putBoolean("read_receipt", cbReadReceipt.isChecked());
         args.putBoolean("store_sent", cbStoreSent.isChecked());
         args.putLong("account", account == null ? -1 : account.id);
-        args.putInt("auth_type", account == null || account.auth_type == null ? Helper.AUTH_TYPE_PASSWORD : account.auth_type);
+        args.putInt("auth_type", auth_type);
         args.putString("host", etHost.getText().toString());
         args.putBoolean("starttls", cbStartTls.isChecked());
         args.putBoolean("insecure", cbInsecure.isChecked());
@@ -529,7 +524,6 @@ public class FragmentIdentity extends FragmentBase {
                 boolean read_receipt = args.getBoolean("read_receipt");
                 boolean store_sent = args.getBoolean("store_sent");
 
-
                 if (TextUtils.isEmpty(name))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_name));
                 if (TextUtils.isEmpty(email))
@@ -574,7 +568,7 @@ public class FragmentIdentity extends FragmentBase {
                 boolean check = (synchronize && (identity == null ||
                         !host.equals(identity.host) || Integer.parseInt(port) != identity.port ||
                         !user.equals(identity.user) || !password.equals(identity.password) ||
-                        realm == null ? identityRealm != null : !realm.equals(identityRealm)));
+                        (realm == null ? identityRealm != null : !realm.equals(identityRealm))));
                 boolean reload = (identity == null || identity.synchronize != synchronize || check);
 
                 Long last_connected = null;
@@ -683,6 +677,7 @@ public class FragmentIdentity extends FragmentBase {
         super.onSaveInstanceState(outState);
         outState.putInt("account", spAccount.getSelectedItemPosition());
         outState.putInt("provider", spProvider.getSelectedItemPosition());
+        outState.putInt("auth_type", auth_type);
         outState.putString("password", tilPassword.getEditText().getText().toString());
         outState.putInt("advanced", grpAdvanced.getVisibility());
         outState.putInt("color", color);
@@ -705,6 +700,8 @@ public class FragmentIdentity extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, final EntityIdentity identity) {
                 if (savedInstanceState == null) {
+                    auth_type = (identity == null ? Helper.AUTH_TYPE_PASSWORD : identity.auth_type);
+
                     etName.setText(identity == null ? null : identity.name);
                     etEmail.setText(identity == null ? null : identity.email);
 
@@ -716,6 +713,7 @@ public class FragmentIdentity extends FragmentBase {
                     cbStartTls.setChecked(identity == null ? false : identity.starttls);
                     cbInsecure.setChecked(identity == null ? false : identity.insecure);
                     etPort.setText(identity == null ? null : Long.toString(identity.port));
+                    etUser.setTag(identity == null || auth_type == Helper.AUTH_TYPE_PASSWORD ? null : identity.user);
                     etUser.setText(identity == null ? null : identity.user);
                     tilPassword.getEditText().setText(identity == null ? null : identity.password);
                     etRealm.setText(identity == null ? null : identity.realm);
@@ -750,12 +748,16 @@ public class FragmentIdentity extends FragmentBase {
                             }
                         }.execute(FragmentIdentity.this, new Bundle(), "identity:count");
                 } else {
+                    auth_type = savedInstanceState.getInt("auth_type");
                     tilPassword.getEditText().setText(savedInstanceState.getString("password"));
                     grpAdvanced.setVisibility(savedInstanceState.getInt("advanced"));
                     color = savedInstanceState.getInt("color");
                 }
 
                 Helper.setViewsEnabled(view, true);
+
+                tilPassword.setEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
+                etRealm.setEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
 
                 setColor(color);
 
@@ -776,6 +778,7 @@ public class FragmentIdentity extends FragmentBase {
 
                         EntityAccount unselected = new EntityAccount();
                         unselected.id = -1L;
+                        unselected.auth_type = Helper.AUTH_TYPE_PASSWORD;
                         unselected.name = getString(R.string.title_select);
                         unselected.primary = false;
                         accounts.add(0, unselected);
