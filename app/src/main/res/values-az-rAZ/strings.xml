@@ -266,7 +266,6 @@
     <string name="title_to_missing">Alıcı əskikdir</string>
     <string name="title_draft_deleted">Qaralama silindi</string>
     <string name="title_draft_saved">Qaralama saxlanıldı</string>
-    <string name="title_ask_send">%1$s mesaj göndərilsin?</string>
     <string name="title_queued">Mesaj göndərilir</string>
     <string name="title_encrypt">Şifrələ</string>
     <string name="title_decrypt">Şifrəni aç</string>

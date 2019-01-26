@@ -260,7 +260,6 @@
     <string name="title_to_missing">缺少收件人</string>
     <string name="title_draft_deleted">草稿已舍弃</string>
     <string name="title_draft_saved">草稿已保存</string>
-    <string name="title_ask_send">要把消息发送给 %1$s 吗？</string>
     <string name="title_queued">正在发送邮件</string>
     <string name="title_encrypt">加密</string>
     <string name="title_decrypt">解密</string>

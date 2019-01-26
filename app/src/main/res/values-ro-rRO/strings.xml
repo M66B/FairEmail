@@ -270,6 +270,7 @@
     <string name="title_no_stream">O aplicație invechită a trimis calea fișierului în locul unui flux de date</string>
     <string name="title_no_contacts">Selectorul de contacte nu este disponibil</string>
     <string name="title_no_internet">Nu există conexiune la internet</string>
+    <string name="title_accross_remark">Mesajele mutate între conturi vor fi descărcate din nou consumând date în plus</string>
     <string name="title_raw_saved">Mesaj original salvat</string>
     <string name="title_attachment_saved">Atașament salvat</string>
     <string name="title_attachments_saved">Atașamente salvate</string>
@@ -313,7 +314,7 @@
     <string name="title_attachments_missing">Nu toate ataşamentele se descarcă</string>
     <string name="title_draft_deleted">S-a renunțat la ciornă</string>
     <string name="title_draft_saved">Ciornă salvată</string>
-    <string name="title_ask_send">Trimite un mesaj către %1$s?</string>
+    <string name="title_ask_send_via">Trimite mesajul către %1$s via %2$s?</string>
     <string name="title_queued">Expediere mesaj</string>
     <string name="title_encrypt">Criptare</string>
     <string name="title_decrypt">Decriptare</string>

@@ -240,6 +240,7 @@
     <string name="title_raw_save">Ham iletiyi kaydet</string>
     <string name="title_manage_keywords">Anahtar sözcükleri yönet</string>
     <string name="title_add_keyword">Anahtar sözcük ekle</string>
+    <string name="title_show_inline">Ekleri göster</string>
     <string name="title_download_all">Tümünü indir</string>
     <string name="title_save_all">Tümünü kaydet</string>
     <string name="title_show_html">Orjinali göster</string>
@@ -302,7 +303,7 @@
     <string name="title_attachments_missing">Tüm ekler indirilmedi</string>
     <string name="title_draft_deleted">Taslak silindi</string>
     <string name="title_draft_saved">Taslak kaydedildi</string>
-    <string name="title_ask_send">%1$s\'e ileti gönderilsin mi?</string>
+    <string name="title_ask_send_via">%1$s\'e %2$s üzerinden ileti gönderilsin mi?</string>
     <string name="title_queued">İleti gönderiliyor</string>
     <string name="title_encrypt">Şifrele</string>
     <string name="title_decrypt">Şifreyi çöz</string>
