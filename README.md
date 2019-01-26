@@ -4,8 +4,9 @@
 
 This email app might be for you if your current email app:
 
-* takes long to receive or show messages
+* takes long to receive or to show messages
 * can manage only one email address
+* cannot handle a large number of messages
 * cannot show conversations
 * cannot work offline
 * looks outdated
