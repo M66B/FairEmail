@@ -59,7 +59,7 @@ public class ViewModelBrowse extends ViewModel {
 
     private class State {
         private Context context;
-        private long fid;
+        private Long fid;
         private String search;
         private int pageSize;
 
@@ -76,7 +76,7 @@ public class ViewModelBrowse extends ViewModel {
     void set(Context context, long folder, String search, int pageSize) {
         currentState = new State();
         currentState.context = context;
-        currentState.fid = folder;
+        currentState.fid = (folder < 0 ? null : folder);
         currentState.search = search;
         currentState.pageSize = pageSize;
         currentState.index = -1;
@@ -94,21 +94,13 @@ public class ViewModelBrowse extends ViewModel {
             return;
 
         DB db = DB.getInstance(state.context);
-        final List<EntityFolder> folders = db.folder().getBrowsableFolders(
-                state.fid < 0 ? null : state.fid, state.search != null);
-        Log.i("Search fid=" + (state.fid < 0 ? null : state.fid) + " search=" + (state.search == null) + " count=" + folders.size());
-        if (folders.size() == 0)
-            return;
 
         if (state.search != null)
             try {
                 db.beginTransaction();
 
                 if (state.messages == null) {
-                    List<Long> fids = new ArrayList<>();
-                    for (EntityFolder folder : folders)
-                        fids.add(folder.id);
-                    state.messages = db.message().getMessageByFolders(fids);
+                    state.messages = db.message().getMessageIdsByFolder(state.fid);
                     Log.i("Messages=" + state.messages.size());
                 }
 
@@ -153,10 +145,13 @@ public class ViewModelBrowse extends ViewModel {
                 db.endTransaction();
             }
 
-        if (folders.size() > 1)
+        if (state.fid == null)
             return;
 
-        final EntityFolder folder = folders.get(0);
+        final EntityFolder folder = db.folder().getBrowsableFolder(state.fid, state.search != null);
+        if (folder == null)
+            return;
+
         if (state.imessages == null) {
             EntityAccount account = db.account().getAccount(folder.account);
 
