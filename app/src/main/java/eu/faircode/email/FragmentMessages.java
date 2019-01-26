@@ -125,8 +125,6 @@ public class FragmentMessages extends FragmentBase {
     private boolean searching = false;
     private AdapterMessage adapter;
 
-    private Map<Long, TupleAccountSwipes> accountSwipes = new HashMap<>();
-
     private AdapterMessage.ViewType viewType;
     private SelectionTracker<Long> selectionTracker = null;
 
@@ -134,6 +132,7 @@ public class FragmentMessages extends FragmentBase {
     private boolean autoExpand = true;
     private Map<String, List<Long>> values = new HashMap<>();
     private LongSparseArray<Spanned> bodies = new LongSparseArray<>();
+    private LongSparseArray<TupleAccountSwipes> accountSwipes = new LongSparseArray<>();
 
     private BoundaryCallbackMessages searchCallback = null;
 
