@@ -95,14 +95,17 @@ public class ViewModelMessages extends ViewModel {
                 continue;
             if (found) {
                 prev = item;
-                list.getValue().loadAround(i);
                 break;
             }
-            if (thread.equals(item.thread))
+            if (thread.equals(item.thread)) {
                 found = true;
-            else
+                list.getValue().loadAround(i);
+            } else
                 next = item;
         }
+        if (!found)
+            return new Target[]{null, null};
+
         return new Target[]{
                 prev == null ? null : new Target(prev.account, prev.thread, prev.id, prev.ui_found),
                 next == null ? null : new Target(next.account, next.thread, next.id, next.ui_found)};
