@@ -862,6 +862,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 return;
 
             TupleMessageEx message = differ.getItem(pos);
+            if (message == null)
+                return;
 
             if (view.getId() == R.id.ivSnoozed)
                 onShowSnoozed(message);
