@@ -371,7 +371,11 @@ public interface DaoMessage {
     @Query("DELETE FROM message" +
             " WHERE folder = :folder" +
             " AND uid IS NULL" +
-            " AND NOT ui_browsed")
+            " AND NOT ui_browsed" +
+            " AND NOT EXISTS" +
+            "  (SELECT * FROM operation" +
+            "  WHERE operation.message = message.id" +
+            "  AND operation.name = '" + EntityOperation.ADD + "')")
     int deleteOrphans(long folder);
 
     @Query("DELETE FROM message" +
