@@ -225,6 +225,7 @@ In the display section of the advanced settings you can enable or disable:
 * *Show identicons*: to show generated contact avatars
 * *Show message preview*: to show two lines of the message text
 * *Show address details by default*: to collapse the addresses section by default
+* *Conversation action bar*: to disable the bottom navigation bar
 
 Note that messages can be previewed only when the message text was downloaded.
 Larger message texts are not downloaded by default on metered (generally mobile) networks.
