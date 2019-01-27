@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.NotificationManager;
+import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -128,6 +129,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean date;
     private boolean threading;
     private boolean contacts;
+    private boolean search;
     private boolean avatars;
     private boolean preview;
     private boolean confirm;
@@ -175,6 +177,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private ImageView ivExpanderAddress;
         private TextView tvFromEx;
+        private ImageView ivSearchContact;
         private ImageView ivAddContact;
         private TextView tvTo;
         private TextView tvReplyTo;
@@ -244,6 +247,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ivExpanderAddress = itemView.findViewById(R.id.ivExpanderAddress);
             tvFromEx = itemView.findViewById(R.id.tvFromEx);
+            ivSearchContact = itemView.findViewById(R.id.ivSearchContact);
             ivAddContact = itemView.findViewById(R.id.ivAddContact);
             tvTo = itemView.findViewById(R.id.tvTo);
             tvReplyTo = itemView.findViewById(R.id.tvReplyTo);
@@ -334,6 +338,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivFlagged.setOnClickListener(this);
 
             ivExpanderAddress.setOnClickListener(this);
+            ivSearchContact.setOnClickListener(this);
             ivAddContact.setOnClickListener(this);
 
             btnDownloadAttachments.setOnClickListener(this);
@@ -355,6 +360,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivSnoozed.setOnClickListener(null);
             ivFlagged.setOnClickListener(null);
             ivExpanderAddress.setOnClickListener(null);
+            ivSearchContact.setOnClickListener(null);
             ivAddContact.setOnClickListener(null);
             btnDownloadAttachments.setOnClickListener(null);
             btnSaveAttachments.setOnClickListener(null);
@@ -406,6 +412,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             grpDay.setVisibility(View.GONE);
             grpAddress.setVisibility(View.GONE);
+            ivSearchContact.setVisibility(View.GONE);
             ivAddContact.setVisibility(View.GONE);
             grpHeaders.setVisibility(View.GONE);
             grpAttachments.setVisibility(View.GONE);
@@ -629,7 +636,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpExpanded.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.VISIBLE : View.GONE);
             grpAddress.setVisibility(viewType == ViewType.THREAD && show_expanded && show_addresses ? View.VISIBLE : View.GONE);
             tvKeywords.setVisibility(View.GONE);
-            ivAddContact.setVisibility(viewType == ViewType.THREAD && show_expanded && show_addresses && contacts && message.from != null ? View.VISIBLE : View.GONE);
+            ivSearchContact.setVisibility(
+                    viewType == ViewType.THREAD && show_expanded && show_addresses &&
+                            search
+                            ? View.VISIBLE : View.GONE);
+            ivAddContact.setVisibility(
+                    viewType == ViewType.THREAD && show_expanded && show_addresses &&
+                            contacts && message.from != null && message.from.length > 0
+                            ? View.VISIBLE : View.GONE);
 
             if (show_headers && show_expanded && message.headers == null) {
                 pbHeaders.setVisibility(internet ? View.VISIBLE : View.GONE);
@@ -871,6 +885,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 onShowSnoozed(message);
             else if (view.getId() == R.id.ivFlagged)
                 onToggleFlag(message);
+            else if (view.getId() == R.id.ivSearchContact)
+                onSearchContact(message);
             else if (view.getId() == R.id.ivAddContact)
                 onAddContact(message);
             else if (viewType == ViewType.THREAD) {
@@ -955,6 +971,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Helper.unexpectedError(context, owner, ex);
                 }
             }.execute(context, owner, args, "message:flag");
+        }
+
+        private void onSearchContact(TupleMessageEx message) {
+            Address[] address = (EntityFolder.isOutgoing(message.folderType) ? message.to
+                    : (message.reply == null || message.reply.length == 0 ? message.to : message.reply));
+            if (address != null && address.length > 0) {
+                Intent search = new Intent(context, ActivityView.class);
+                search.putExtra(Intent.EXTRA_PROCESS_TEXT, ((InternetAddress) address[0]).getAddress());
+                context.startActivity(search);
+            }
         }
 
         private void onAddContact(TupleMessageEx message) {
@@ -2149,6 +2175,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.threading = prefs.getBoolean("threading", true);
         this.contacts = (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
                 == PackageManager.PERMISSION_GRANTED);
+        this.search = (context.getPackageManager().getComponentEnabledSetting(
+                new ComponentName(context, ActivitySearch.class)) ==
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED);
         this.avatars = (prefs.getBoolean("avatars", true) ||
                 prefs.getBoolean("identicons", false));
         this.preview = prefs.getBoolean("preview", false);
