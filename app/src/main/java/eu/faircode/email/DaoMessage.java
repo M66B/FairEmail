@@ -54,7 +54,6 @@ public interface DaoMessage {
             ", " + unflagged_unified + " AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", SUM(CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END) AS drafts" +
-            ", 0 AS duplicate" +
             ", COUNT(DISTINCT message.msgid) AS visible" +
             ", MAX(CASE WHEN :found OR folder.unified THEN message.received ELSE 0 END) AS dummy" +
             " FROM message" +
@@ -95,7 +94,6 @@ public interface DaoMessage {
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", SUM(CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END) AS drafts" +
             ", COUNT(DISTINCT message.msgid) AS visible" +
-            ", 0 AS duplicate" +
             ", MAX(CASE WHEN folder.id = :folder THEN message.received ELSE 0 END) AS dummy" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
@@ -127,17 +125,6 @@ public interface DaoMessage {
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END AS drafts" +
             ", 1 AS visible" +
-
-            ", (folder.type = '" + EntityFolder.ARCHIVE + "'" +
-            " AND EXISTS (" +
-            "    SELECT * FROM message m1" +
-            "    JOIN folder f1 ON f1.id = m1.folder" +
-            "    WHERE m1.id <> message.id" +
-            "    AND m1.msgid = message.msgid" +
-            "    AND f1.type <> folder.type" +
-            "    AND f1.type <> '" + EntityFolder.ARCHIVE + "'" +
-            "  )) AS duplicate" +
-
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
@@ -220,7 +207,6 @@ public interface DaoMessage {
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END AS drafts" +
             ", 1 AS visible" +
-            ", 0 AS duplicate" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
@@ -237,7 +223,6 @@ public interface DaoMessage {
             ", 0 AS attachments" +
             ", 0 AS drafts" +
             ", 1 AS visible" +
-            ", 0 AS duplicate" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +

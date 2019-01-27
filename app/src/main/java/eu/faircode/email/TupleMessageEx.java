@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import androidx.room.Ignore;
+
 public class TupleMessageEx extends EntityMessage {
     public String accountName;
     public Integer accountColor;
@@ -32,6 +34,7 @@ public class TupleMessageEx extends EntityMessage {
     public int attachments;
     public int drafts;
     public int visible;
+    @Ignore
     public boolean duplicate;
 
     @Override

@@ -57,6 +57,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -1839,6 +1840,42 @@ public class FragmentMessages extends FragmentBase {
             }
 
             if (viewType == AdapterMessage.ViewType.THREAD) {
+                // Mark duplicates
+                Map<String, List<TupleMessageEx>> duplicates = new HashMap<>();
+                for (TupleMessageEx message : messages)
+                    if (message != null && message.msgid != null) {
+                        if (!duplicates.containsKey(message.msgid))
+                            duplicates.put(message.msgid, new ArrayList<TupleMessageEx>());
+                        duplicates.get(message.msgid).add(message);
+                    }
+                for (String msgid : duplicates.keySet()) {
+                    List<TupleMessageEx> dups = duplicates.get(msgid);
+                    if (dups.size() > 1) {
+                        Collections.sort(dups, new Comparator<TupleMessageEx>() {
+                            final List<String> ORDER = Arrays.asList(
+                                    EntityFolder.INBOX,
+                                    EntityFolder.OUTBOX,
+                                    EntityFolder.DRAFTS,
+                                    EntityFolder.SENT,
+                                    EntityFolder.TRASH,
+                                    EntityFolder.JUNK,
+                                    EntityFolder.SYSTEM,
+                                    EntityFolder.USER,
+                                    EntityFolder.ARCHIVE
+                            );
+
+                            @Override
+                            public int compare(TupleMessageEx d1, TupleMessageEx d2) {
+                                int o1 = ORDER.indexOf(d1.folderType);
+                                int o2 = ORDER.indexOf(d2.folderType);
+                                return ((Integer) o1).compareTo(o2);
+                            }
+                        });
+                        for (int i = 1; i < dups.size(); i++)
+                            dups.get(i).duplicate = true;
+                    }
+                }
+
                 if (autoExpand) {
                     autoExpand = false;
 
@@ -1855,6 +1892,9 @@ public class FragmentMessages extends FragmentBase {
                     TupleMessageEx single = null;
                     TupleMessageEx see = null;
                     for (TupleMessageEx message : messages) {
+                        if (message == null)
+                            continue;
+
                         if (!message.duplicate &&
                                 !EntityFolder.DRAFTS.equals(message.folderType) &&
                                 !EntityFolder.TRASH.equals(message.folderType)) {
@@ -1898,7 +1938,8 @@ public class FragmentMessages extends FragmentBase {
                         int count = 0;
                         for (int i = 0; i < messages.size(); i++) {
                             TupleMessageEx message = messages.get(i);
-                            if (!EntityFolder.ARCHIVE.equals(message.folderType) &&
+                            if (message != null &&
+                                    !EntityFolder.ARCHIVE.equals(message.folderType) &&
                                     !EntityFolder.SENT.equals(message.folderType) &&
                                     !EntityFolder.TRASH.equals(message.folderType) &&
                                     !EntityFolder.JUNK.equals(message.folderType))
