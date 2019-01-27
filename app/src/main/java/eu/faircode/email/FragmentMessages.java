@@ -1748,6 +1748,8 @@ public class FragmentMessages extends FragmentBase {
                         new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
                             @Override
                             public void onLoading() {
+                                pbWait.setTag(true);
+                                tvNoEmail.setVisibility(View.GONE);
                                 pbWait.setVisibility(View.VISIBLE);
                             }
 
@@ -1757,6 +1759,7 @@ public class FragmentMessages extends FragmentBase {
                                 int items = (adapter == null ? 0 : adapter.getItemCount());
                                 tvNoEmail.setVisibility(items + fetched == 0 ? View.VISIBLE : View.GONE);
                                 pbWait.setVisibility(View.GONE);
+                                pbWait.setTag(null);
                             }
 
                             @Override
@@ -1976,10 +1979,10 @@ public class FragmentMessages extends FragmentBase {
             Log.i("Submit messages=" + messages.size());
             adapter.submitList(messages);
 
-            if (messages.size() > 0 ||
-                    !(viewType == AdapterMessage.ViewType.FOLDER || viewType == AdapterMessage.ViewType.SEARCH)) {
+            if (pbWait.getTag() == null) {
                 pbWait.setVisibility(View.GONE);
-                tvNoEmail.setVisibility(messages.size() == 0 ? View.VISIBLE : View.GONE);
+                if (!(viewType == AdapterMessage.ViewType.FOLDER || viewType == AdapterMessage.ViewType.SEARCH))
+                    tvNoEmail.setVisibility(messages.size() == 0 ? View.VISIBLE : View.GONE);
                 grpReady.setVisibility(messages.size() > 0 ? View.VISIBLE : View.GONE);
             }
         }
