@@ -28,14 +28,14 @@
         <item quantity="other">移动 %1$d 邮件到  %2$s 吗？</item>
     </plurals>
     <string name="title_notification_failed">“%1$s”失败</string>
-    <string name="menu_setup">设置</string>
     <string name="menu_answers">模板</string>
     <string name="menu_operations">操作</string>
+    <string name="menu_setup">设置</string>
     <string name="menu_legend">图例</string>
     <string name="menu_faq">支持</string>
-    <string name="menu_pro">专业版功能</string>
     <string name="menu_privacy">隐私</string>
     <string name="menu_about">关于</string>
+    <string name="menu_pro">专业版功能</string>
     <string name="menu_invite">邀请好友</string>
     <string name="menu_rate">给这个应用打分</string>
     <string name="menu_other">其他应用</string>

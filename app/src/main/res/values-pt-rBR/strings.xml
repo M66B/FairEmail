@@ -34,8 +34,8 @@
         <item quantity="other">Mover as mensagens de %1$d para %2$s?</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' falhou</string>
-    <string name="menu_setup">Configurar</string>
     <string name="menu_operations">Operações</string>
+    <string name="menu_setup">Configurar</string>
     <string name="menu_legend">Legenda</string>
     <string name="menu_faq">Suporte</string>
     <string name="menu_privacy">Privacidade</string>

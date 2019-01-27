@@ -53,14 +53,15 @@
         <item quantity="other">Сообщить о сообщениях %1$d как о спаме?</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' не удалось</string>
-    <string name="menu_setup">Настройки</string>
     <string name="menu_answers">Шаблоны</string>
     <string name="menu_operations">Операции</string>
+    <string name="menu_setup">Настройки</string>
     <string name="menu_legend">Легенда</string>
     <string name="menu_faq">Поддержка</string>
-    <string name="menu_pro">Возможности Pro-версии</string>
+    <string name="menu_issue">Сообщить о проблеме</string>
     <string name="menu_privacy">Конфиденциальность</string>
     <string name="menu_about">О приложении</string>
+    <string name="menu_pro">Возможности Pro-версии</string>
     <string name="menu_invite">Пригласить</string>
     <string name="menu_rate">Оцените это приложение</string>
     <string name="menu_other">Другие приложения</string>
@@ -130,6 +131,7 @@
     <string name="title_advanced_identicons">Показать идентификаторы</string>
     <string name="title_advanced_preview">Показать предварительный просмотр сообщения</string>
     <string name="title_advanced_addresses">Показывать подробную информацию об адресах по умолчанию</string>
+    <string name="title_advanced_images">Автоматически показывать изображения для известных контактов</string>
     <string name="title_advanced_actionbar">Панель управления диалогами</string>
     <string name="title_advanced_light">Использовать индикатор уведомлений</string>
     <string name="title_advanced_sound">Выбрать звук уведомления</string>

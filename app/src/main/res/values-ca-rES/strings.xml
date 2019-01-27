@@ -21,12 +21,12 @@
         <item quantity="other">%1$d missatges sense enviar</item>
     </plurals>
     <string name="title_notification_failed">%1$s ha fallat</string>
-    <string name="menu_setup">Configuració</string>
     <string name="menu_operations">Operacions</string>
+    <string name="menu_setup">Configuració</string>
     <string name="menu_legend">Llegenda</string>
-    <string name="menu_pro">Característiques Pro</string>
     <string name="menu_privacy">Privadesa</string>
     <string name="menu_about">Quant a</string>
+    <string name="menu_pro">Característiques Pro</string>
     <string name="menu_invite">Invitació</string>
     <string name="menu_rate">Puntua l\'aplicació</string>
     <string name="menu_other">Altres aplicacions</string>

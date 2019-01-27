@@ -4,11 +4,11 @@
     <string name="channel_service">سرویس</string>
     <string name="channel_notification">اعلان‌ها</string>
     <string name="channel_error">خطاها</string>
-    <string name="menu_setup">تنظیمات</string>
     <string name="menu_operations">عملیات ها</string>
-    <string name="menu_pro">ویژگی‌ نسخه‌ی حرفه‌ای</string>
+    <string name="menu_setup">تنظیمات</string>
     <string name="menu_privacy">حریم خصوصی</string>
     <string name="menu_about">درباره</string>
+    <string name="menu_pro">ویژگی‌ نسخه‌ی حرفه‌ای</string>
     <string name="menu_invite">دعوت کردن</string>
     <string name="menu_rate">به این برنامه امتیاز دهید</string>
     <string name="menu_other">دیگر برنامه‌ها</string>

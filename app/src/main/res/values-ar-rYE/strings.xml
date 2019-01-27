@@ -9,7 +9,7 @@
     <string name="tile_synchronize">المزامنة</string>
     <string name="tile_unseen">رسائل جديدة</string>
     <string name="shortcut_compose">تحرير</string>
-    <string name="shortcut_setup">إعداد</string>
+    <string name="shortcut_setup">الإعداد</string>
     <plurals name="title_notification_unseen">
         <item quantity="zero">%1$d رسائل جديدة</item>
         <item quantity="one">%1$d رسالة جديدة</item>
@@ -35,14 +35,15 @@
         <item quantity="other">%1$d جديدة</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' فشل</string>
-    <string name="menu_setup">إعداد</string>
     <string name="menu_answers">النماذج</string>
     <string name="menu_operations">الإجراءات</string>
+    <string name="menu_setup">الإعداد</string>
     <string name="menu_legend">أسطورة</string>
     <string name="menu_faq">الدعم</string>
-    <string name="menu_pro">ميزات النسخة الكاملة</string>
+    <string name="menu_issue">الإبلاغ عن خلل</string>
     <string name="menu_privacy">الخصوصية</string>
     <string name="menu_about">عن التطبيق</string>
+    <string name="menu_pro">ميزات النسخة الكاملة</string>
     <string name="menu_invite">دعوة</string>
     <string name="menu_rate">قيّم هذا التطبيق</string>
     <string name="menu_other">تطبيقات أخرى</string>
@@ -69,6 +70,7 @@
     <string name="title_setup_exported">إعدادات تصدير</string>
     <string name="title_setup_imported">استيراد إعدادات</string>
     <string name="title_setup_quick">الإعداد السريع</string>
+    <string name="title_setup_go">إبدأ</string>
     <string name="title_setup_manage">إدارة</string>
     <string name="title_setup_grant">السماح</string>
     <string name="title_setup_account">إعداد الحسابات</string>
@@ -101,6 +103,7 @@
     <string name="title_advanced_avatars">إظهار صور جهات الاتصال</string>
     <string name="title_advanced_identicons">إظهار أيقونات الهوية</string>
     <string name="title_advanced_preview">عرض معاينة الرسالة</string>
+    <string name="title_advanced_images">أظهر تلقائيا صور المُراسِلين المعروفين</string>
     <string name="title_advanced_actionbar">شريط إجراءات المحادثة</string>
     <string name="title_advanced_light">استخدم الإشعار الضوئي</string>
     <string name="title_advanced_sound">إختر نغمة التنبيه</string>
@@ -161,6 +164,7 @@
     <string name="title_hide_folder">اخفاء مِن القائمة</string>
     <string name="title_unified_folder">وتظهر في علبة موحد</string>
     <string name="title_notify_folder">أخبرني لدى ورود رسائل جديدة</string>
+    <string name="title_keep_days">مدة الاحتفاظ (بالأيام)</string>
     <string name="title_keep_all">الإبقاء على كافة الرسائل</string>
     <string name="title_folder_name_missing">اسم المجلد مفقود</string>
     <string name="title_folder_exists">يوجد مجلد %1$s</string>
@@ -215,13 +219,15 @@
     <string name="title_reply_to">الرد على:</string>
     <string name="title_cc">نسخة:</string>
     <string name="title_bcc">نسخة مخفية:</string>
+    <string name="title_received">تاريخ الاستلام:</string>
     <string name="title_size">الحجم:</string>
     <string name="title_subject">الموضوع:</string>
-    <string name="title_body_hint">الرسالة الخاصة بك</string>
+    <string name="title_body_hint">نص رسالتك</string>
     <string name="title_discard">تجاهل</string>
     <string name="title_save">حفظ</string>
     <string name="title_send">إرسال</string>
     <string name="title_view">عرض</string>
+    <string name="title_send_at">أرسِلها في &#8230;</string>
     <string name="title_style_bold">غليظ</string>
     <string name="title_style_italic">مائل</string>
     <string name="title_style_link">إدراج رابط</string>
@@ -250,6 +256,7 @@
     <string name="title_answer_name">اسم النموذج</string>
     <string name="title_answer_text">نص النموذج</string>
     <string name="title_rule_name">الإسم</string>
+    <string name="title_rule_order">الترتيب</string>
     <string name="title_rule_sender">المُرسِل يحتوي على</string>
     <string name="title_rule_subject">عنوان الرسالة يحتوي على</string>
     <string name="title_rule_header">الرأسية تحتوي على</string>

@@ -39,14 +39,15 @@
         <item quantity="other">Rapporteer %1$d berichten als spam?</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' is mislukt</string>
-    <string name="menu_setup">Instellingen</string>
     <string name="menu_answers">Sjablonen</string>
     <string name="menu_operations">Bewerkingen</string>
+    <string name="menu_setup">Instellingen</string>
     <string name="menu_legend">Legenda</string>
     <string name="menu_faq">Ondersteuning</string>
-    <string name="menu_pro">Pro functies</string>
+    <string name="menu_issue">Probleem melden</string>
     <string name="menu_privacy">Privacy</string>
     <string name="menu_about">Over</string>
+    <string name="menu_pro">Pro functies</string>
     <string name="menu_invite">Uitnodigen</string>
     <string name="menu_rate">Beoordeel deze app</string>
     <string name="menu_other">Andere apps</string>
@@ -116,6 +117,7 @@
     <string name="title_advanced_identicons">Toon identicons</string>
     <string name="title_advanced_preview">Bericht voorvertoning</string>
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
+    <string name="title_advanced_images">Automatisch afbeeldingen weergeven voor bekende contacten</string>
     <string name="title_advanced_actionbar">Actiebalk gesprek</string>
     <string name="title_advanced_light">Gebruik meldingslicht</string>
     <string name="title_advanced_sound">Selecteer meldingsgeluid</string>

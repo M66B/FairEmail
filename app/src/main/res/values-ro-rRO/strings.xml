@@ -40,15 +40,21 @@
         <item quantity="few">Se mută %1$d mesaje la %2$s ?</item>
         <item quantity="other">Se mută %1$d de mesaje la %2$s ?</item>
     </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="one">Raportați %1$d mesaj drept spam?</item>
+        <item quantity="few">Raportați %1$d mesaje drept spam?</item>
+        <item quantity="other">Raportați %1$d de mesaje drept spam?</item>
+    </plurals>
     <string name="title_notification_failed">\'%1$s\' a eșuat</string>
-    <string name="menu_setup">Setări</string>
     <string name="menu_answers">Șabloane</string>
     <string name="menu_operations">Operaţii</string>
+    <string name="menu_setup">Setări</string>
     <string name="menu_legend">Legendă</string>
     <string name="menu_faq">Suport tehnic</string>
-    <string name="menu_pro">Caracteristici versiune Pro</string>
+    <string name="menu_issue">Raportaţi o problemă</string>
     <string name="menu_privacy">Confidențialitate</string>
     <string name="menu_about">Despre</string>
+    <string name="menu_pro">Caracteristici versiune Pro</string>
     <string name="menu_invite">Invită</string>
     <string name="menu_rate">Evaluează această aplicație</string>
     <string name="menu_other">Alte aplicații</string>

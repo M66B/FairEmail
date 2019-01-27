@@ -34,14 +34,14 @@
         <item quantity="other">%1$d niewysłanych wiadomości</item>
     </plurals>
     <string name="title_notification_failed">%1$s nie powiodło się</string>
-    <string name="menu_setup">Ustawienia</string>
     <string name="menu_answers">Szablony</string>
     <string name="menu_operations">Operacje</string>
+    <string name="menu_setup">Ustawienia</string>
     <string name="menu_legend">Legenda</string>
     <string name="menu_faq">Wsparcie</string>
-    <string name="menu_pro">Funkcje pro</string>
     <string name="menu_privacy">Prywatność</string>
     <string name="menu_about">O programie</string>
+    <string name="menu_pro">Funkcje pro</string>
     <string name="menu_invite">Zaproś</string>
     <string name="menu_rate">Oceń aplikację</string>
     <string name="menu_other">Inne aplikacje</string>

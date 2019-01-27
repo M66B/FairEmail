@@ -21,12 +21,12 @@
         <item quantity="other">%1$d elküldetlen üzenet</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' sikertelen</string>
-    <string name="menu_setup">Beállítás</string>
     <string name="menu_operations">Műveletek</string>
+    <string name="menu_setup">Beállítás</string>
     <string name="menu_legend">Jelmagyarázat</string>
-    <string name="menu_pro">Pro funkciók</string>
     <string name="menu_privacy">Adatvédelem</string>
     <string name="menu_about">Névjegy</string>
+    <string name="menu_pro">Pro funkciók</string>
     <string name="menu_invite">Meghívás</string>
     <string name="menu_rate">Alkalmazás értékelése</string>
     <string name="menu_other">Egyéb alkalmazások</string>

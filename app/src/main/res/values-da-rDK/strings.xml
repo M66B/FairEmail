@@ -27,14 +27,14 @@
         <item quantity="other">%1$d ny</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' mislykkedes</string>
-    <string name="menu_setup">Opsætning</string>
     <string name="menu_answers">Skabeloner</string>
     <string name="menu_operations">Aktiviteter</string>
+    <string name="menu_setup">Opsætning</string>
     <string name="menu_legend">Forklaring</string>
     <string name="menu_faq">Support</string>
-    <string name="menu_pro">Pro funktioner</string>
     <string name="menu_privacy">Privatliv</string>
     <string name="menu_about">Om</string>
+    <string name="menu_pro">Pro funktioner</string>
     <string name="menu_invite">Invitér</string>
     <string name="menu_rate">Bedøm denne app</string>
     <string name="menu_other">Andre apps</string>

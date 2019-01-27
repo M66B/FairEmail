@@ -35,14 +35,15 @@
         <item quantity="other">Verschiebe %1$d E-Mails nach %2$s ?</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
-    <string name="menu_setup">Einstellungen</string>
     <string name="menu_answers">Vorlagen</string>
     <string name="menu_operations">Vorgänge</string>
+    <string name="menu_setup">Einstellungen</string>
     <string name="menu_legend">Legende</string>
     <string name="menu_faq">Hilfe</string>
-    <string name="menu_pro">Pro-Funktionen</string>
+    <string name="menu_issue">Problem melden</string>
     <string name="menu_privacy">Datenschutzerklärung</string>
     <string name="menu_about">Über</string>
+    <string name="menu_pro">Pro-Funktionen</string>
     <string name="menu_invite">Einladen</string>
     <string name="menu_rate">Bewerte die App</string>
     <string name="menu_other">Weitere Apps</string>
@@ -112,6 +113,7 @@
     <string name="title_advanced_identicons">Identicons als Kontaktbilder anzeigen</string>
     <string name="title_advanced_preview">Nachrichtenvorschau anzeigen</string>
     <string name="title_advanced_addresses">Adressdetails standardmäßig anzeigen</string>
+    <string name="title_advanced_images">Für bekannte Kontakte Bilder automatisch anzeigen</string>
     <string name="title_advanced_actionbar">Navigationsleiste in Konversationen</string>
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
     <string name="title_advanced_sound">Benachrichtigungston auswählen</string>

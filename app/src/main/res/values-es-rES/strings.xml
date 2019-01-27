@@ -34,15 +34,20 @@
         <item quantity="one">¿Mover %1$d mensaje a %2$s?</item>
         <item quantity="other">¿Mover %1$d mensajes a %2$s?</item>
     </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="one">¿Reportar %1$d mensaje como Spam?</item>
+        <item quantity="other">¿Reportar %1$d mensajes como Spam?</item>
+    </plurals>
     <string name="title_notification_failed">\'%1$s\' falló</string>
-    <string name="menu_setup">Configuración</string>
     <string name="menu_answers">Plantillas</string>
     <string name="menu_operations">Operaciones</string>
+    <string name="menu_setup">Configuración</string>
     <string name="menu_legend">Leyenda</string>
     <string name="menu_faq">Soporte</string>
-    <string name="menu_pro">Características Pro</string>
+    <string name="menu_issue">Informar problema</string>
     <string name="menu_privacy">Privacidad</string>
     <string name="menu_about">Acerca de</string>
+    <string name="menu_pro">Características Pro</string>
     <string name="menu_invite">Invitar</string>
     <string name="menu_rate">Calificar esta app</string>
     <string name="menu_other">Otras apps</string>

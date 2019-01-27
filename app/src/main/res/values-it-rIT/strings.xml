@@ -35,14 +35,14 @@
         <item quantity="other">Spostare %1$d messaggi in %2$s ?</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' fallito</string>
-    <string name="menu_setup">Configurazione</string>
     <string name="menu_answers">Modelli</string>
     <string name="menu_operations">Operazioni</string>
+    <string name="menu_setup">Configurazione</string>
     <string name="menu_legend">Legenda</string>
     <string name="menu_faq">Supporto</string>
-    <string name="menu_pro">Funzionalità a pagamento</string>
     <string name="menu_privacy">Privacy</string>
     <string name="menu_about">Al riguardo</string>
+    <string name="menu_pro">Funzionalità a pagamento</string>
     <string name="menu_invite">Invita</string>
     <string name="menu_rate">Valuta questa app</string>
     <string name="menu_other">Altre app</string>

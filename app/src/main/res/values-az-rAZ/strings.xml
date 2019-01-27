@@ -34,14 +34,14 @@
         <item quantity="other">%1$d mesaj %2$s qovluğuna köçürülsün?</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' uğursuz oldu</string>
-    <string name="menu_setup">Quraşdırma</string>
     <string name="menu_answers">Şablonlar</string>
     <string name="menu_operations">Əməliyyatlar</string>
+    <string name="menu_setup">Quraşdırma</string>
     <string name="menu_legend">Mənalar</string>
     <string name="menu_faq">Dəstək</string>
-    <string name="menu_pro">Pro xüsusiyyətlər</string>
     <string name="menu_privacy">Gizlilik</string>
     <string name="menu_about">Haqqında</string>
+    <string name="menu_pro">Pro xüsusiyyətlər</string>
     <string name="menu_invite">Dəvət et</string>
     <string name="menu_rate">Bu tətbiqi qiymətləndir</string>
     <string name="menu_other">Digər tətbiqlər</string>
