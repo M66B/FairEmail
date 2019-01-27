@@ -1748,10 +1748,10 @@ public class FragmentMessages extends FragmentBase {
                             }
 
                             @Override
-                            public void onLoaded() {
+                            public void onLoaded(int fetched) {
                                 RecyclerView.Adapter adapter = rvMessage.getAdapter();
                                 int items = (adapter == null ? 0 : adapter.getItemCount());
-                                tvNoEmail.setVisibility(items == 0 ? View.VISIBLE : View.GONE);
+                                tvNoEmail.setVisibility(items + fetched == 0 ? View.VISIBLE : View.GONE);
                                 pbWait.setVisibility(View.GONE);
                             }
 

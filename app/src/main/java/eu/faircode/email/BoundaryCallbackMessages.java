@@ -39,7 +39,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     interface IBoundaryCallbackMessages {
         void onLoading();
 
-        void onLoaded();
+        void onLoaded(int fetched);
 
         void onError(Throwable ex);
     }
@@ -78,19 +78,22 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
     private void load() {
         executor.submit(new Runnable() {
+            private int fetched;
+
             @Override
             public void run() {
                 if (model == null)
                     return;
 
                 try {
+                    fetched = 0;
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
                             intf.onLoading();
                         }
                     });
-                    model.load();
+                    fetched = model.load();
                 } catch (final Throwable ex) {
                     Log.e("Boundary", ex);
                     handler.post(new Runnable() {
@@ -103,7 +106,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            intf.onLoaded();
+                            intf.onLoaded(fetched);
                         }
                     });
                 }
