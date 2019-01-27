@@ -360,12 +360,21 @@ public class FragmentSetup extends FragmentBase {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_advanced:
+                onMenuAdvanced();
+                return true;
             case R.id.menu_help:
                 onMenuHelp();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void onMenuAdvanced() {
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentOptions()).addToBackStack("options");
+        fragmentTransaction.commit();
     }
 
     private void onMenuHelp() {
