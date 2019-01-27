@@ -844,9 +844,9 @@ public class FragmentMessages extends FragmentBase {
                     boolean isDrafts = EntityFolder.DRAFTS.equals(folder.type);
 
                     result.isArchive = (result.isArchive == null ? isArchive : result.isArchive && isArchive);
-                    result.isTrash = (result.isTrash == null ? isTrash : result.isTrash && isArchive);
-                    result.isJunk = (result.isJunk == null ? isJunk : result.isJunk && isArchive);
-                    result.isDrafts = (result.isDrafts == null ? isDrafts : result.isDrafts && isArchive);
+                    result.isTrash = (result.isTrash == null ? isTrash : result.isTrash && isTrash);
+                    result.isJunk = (result.isJunk == null ? isJunk : result.isJunk && isJunk);
+                    result.isDrafts = (result.isDrafts == null ? isDrafts : result.isDrafts && isDrafts);
 
                     boolean hasArchive = (db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE) != null);
                     boolean hasTrash = (db.folder().getFolderByType(message.account, EntityFolder.TRASH) != null);
