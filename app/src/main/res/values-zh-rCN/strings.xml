@@ -88,10 +88,10 @@
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
     <string name="title_advanced_preview">显示邮件预览</string>
+    <string name="title_advanced_actionbar">对话操作栏</string>
     <string name="title_advanced_light">使用指示灯</string>
     <string name="title_advanced_sound">选择通知提示音</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
-    <string name="title_advanced_actionbar">对话操作栏</string>
     <string name="title_advanced_autoclose">自动关闭对话</string>
     <string name="title_advanced_autoread">将移动的邮件自动标记为已读</string>
     <string name="title_advanced_collapse">按返回键折叠对话中的邮件</string>
@@ -229,7 +229,6 @@
     <string name="title_ask_delete_selected">是否永久性删除选定的邮件？</string>
     <string name="title_ask_delete_answer">是否永久性删除回复模板？</string>
     <string name="title_ask_discard">丢弃草稿？</string>
-    <string name="title_ask_spam">报告为垃圾邮件？</string>
     <string name="title_ask_show_html">显示原件可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
     <string name="title_sync_queued">同步将在下次账号连接时进行</string>

@@ -112,10 +112,10 @@
     <string name="title_advanced_identicons">Visa identicons</string>
     <string name="title_advanced_preview">Förhandsvisning av meddelande</string>
     <string name="title_advanced_addresses">Visa adressuppgifter som standard</string>
+    <string name="title_advanced_actionbar">Konversationens åtgärdsfält</string>
     <string name="title_advanced_light">Använda aviseringslampan</string>
     <string name="title_advanced_sound">Välj aviseringsljud</string>
     <string name="title_advanced_pull_refresh">Dra ner för att uppdatera</string>
-    <string name="title_advanced_actionbar">Konversationens åtgärdsfält</string>
     <string name="title_advanced_autoclose">Stäng konversationer automatiskt</string>
     <string name="title_advanced_autonext">Gå automatiskt till nästa konversation vid stängning av konversation</string>
     <string name="title_advanced_autoread">Märk automatiskt meddelanden som lästa vid flyttning av meddelanden</string>
@@ -254,6 +254,7 @@
     <string name="title_open_with">Öppna med</string>
     <string name="title_no_answers">Inga svarsmallar definierade</string>
     <string name="title_no_viewer">Ingen visarapp tillgänglig för %1$s</string>
+    <string name="title_no_saf">Ramverk för lagringstillträde är inte tillgängligt</string>
     <string name="title_no_stream">En föråldrad app skickade en sökväg istället för en filström</string>
     <string name="title_no_contacts">Kontaktväljaren är inte tillgänglig</string>
     <string name="title_no_internet">Ingen internetanslutning</string>
@@ -267,7 +268,6 @@
     <string name="title_ask_delete_answer">Ta bort svarsmall permanent?</string>
     <string name="title_ask_delete_rule">Ta bort regel permanent?</string>
     <string name="title_ask_discard">Släng utkastet?</string>
-    <string name="title_ask_spam">Rapportera som skräppost?</string>
     <string name="title_ask_show_html">Att visa det ursprungliga meddelandet kan läcka sekretesskänslig information</string>
     <string name="title_ask_show_image">Att visa bilder kan läcka sekretesskänslig information</string>
     <string name="title_sync_queued">Synkronisering kommer att äga rum vid nästa kontoanslutning</string>

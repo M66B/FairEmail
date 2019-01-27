@@ -95,10 +95,10 @@
     <string name="title_advanced_avatars">Şəxs fotolarını göstər</string>
     <string name="title_advanced_identicons">İdentikon-ları göstər</string>
     <string name="title_advanced_preview">Mesaj ilkin baxışını göstər</string>
+    <string name="title_advanced_actionbar">Söhbət hərəkət sətri</string>
     <string name="title_advanced_light">Bildiriş işığından istifadə et</string>
     <string name="title_advanced_sound">Bildiriş səsi seç</string>
     <string name="title_advanced_pull_refresh">Təzələmək üçün aşağı çəkin</string>
-    <string name="title_advanced_actionbar">Söhbət hərəkət sətri</string>
     <string name="title_advanced_autoclose">Söhbətləri avtomatik bağla</string>
     <string name="title_advanced_autoread">Hərəkətli mesajlarda oxunan mesajları avtomatik işarələ</string>
     <string name="title_advanced_collapse">\'Geri\' mövzusundakı danışıqda mesajları daralt</string>
@@ -235,7 +235,6 @@
     <string name="title_ask_delete_selected">Seçilmiş mesajlar birdəfəlik silinsin?</string>
     <string name="title_ask_delete_answer">Cavab şablonu birdəfəlik silinsin?</string>
     <string name="title_ask_discard">Qaralama silinsin?</string>
-    <string name="title_ask_spam">Spam kimi bildirilsin?</string>
     <string name="title_ask_show_html">Orijinal mesajın göstərilməsi, gizlilik həssaslı məlumatları sızdıra bilər</string>
     <string name="title_ask_show_image">Təsvirlərin göstərilməsi, gizlilik həssaslı məlumatların sızdıra bilər</string>
     <string name="title_sync_queued">Eyniləşdirmə növbəti hesab bağlantısında həyata keçiriləcək</string>

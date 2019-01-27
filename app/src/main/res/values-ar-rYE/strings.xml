@@ -202,7 +202,6 @@
     <string name="title_attachment_saved">حفظ المرفقات</string>
     <string name="title_ask_delete">هل تريد حذف الرسالة بشكل دائم؟</string>
     <string name="title_ask_discard">إلغاء المسودة؟</string>
-    <string name="title_ask_spam">الإبلاغ عنه كبريد مزعج؟</string>
     <string name="title_fix">تصليح</string>
     <string name="title_compose">تحرير</string>
     <string name="title_from">من:</string>

@@ -235,7 +235,6 @@
     <string name="title_ask_delete_selected">Trwale usunąć wybrane wiadomości?</string>
     <string name="title_ask_delete_answer">Trwale usunąć szablon odpowiedzi?</string>
     <string name="title_ask_discard">Odrzucić szkic?</string>
-    <string name="title_ask_spam">Zgłosić jako spam?</string>
     <string name="title_ask_show_html">Pokazywanie oryginalnej wiadomości może spowodować wyciek wrażliwych informacji</string>
     <string name="title_ask_show_image">Pokazywanie obrazów może spowodować wyciek wrażliwych informacji</string>
     <string name="title_sync_queued">Synchronizacja nastąpi podczas następnego połączenia z kontem</string>

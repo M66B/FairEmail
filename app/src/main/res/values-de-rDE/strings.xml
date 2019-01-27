@@ -112,10 +112,10 @@
     <string name="title_advanced_identicons">Identicons als Kontaktbilder anzeigen</string>
     <string name="title_advanced_preview">Nachrichtenvorschau anzeigen</string>
     <string name="title_advanced_addresses">Adressdetails standardmäßig anzeigen</string>
+    <string name="title_advanced_actionbar">Navigationsleiste in Konversationen</string>
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
     <string name="title_advanced_sound">Benachrichtigungston auswählen</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
-    <string name="title_advanced_actionbar">Navigationsleiste in Konversationen</string>
     <string name="title_advanced_autoclose">Konversationen automatisch schließen</string>
     <string name="title_advanced_autonext">Automatisch beim Schließen einer Konversation zur nächsten Konversation wechseln</string>
     <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen markieren</string>
@@ -275,7 +275,6 @@
     <string name="title_ask_delete_answer">Antwortvorlage unwiderruflich löschen?</string>
     <string name="title_ask_delete_rule">Regel unwiderruflich löschen?</string>
     <string name="title_ask_discard">Entwurf löschen?</string>
-    <string name="title_ask_spam">Als Spam melden?</string>
     <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_sync_queued">Synchronisierung wird bei der nächsten Kontoverbindung ausgeführt</string>

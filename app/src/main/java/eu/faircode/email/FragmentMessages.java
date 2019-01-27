@@ -1187,8 +1187,9 @@ public class FragmentMessages extends FragmentBase {
     }
 
     private void onActionJunkSelection() {
+        int count = selectionTracker.getSelection().size();
         new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setMessage(R.string.title_ask_spam)
+                .setMessage(getResources().getQuantityString(R.plurals.title_ask_spam, count, count))
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -1199,7 +1200,7 @@ public class FragmentMessages extends FragmentBase {
                 .show();
     }
 
-    private void onActionMoveSelection(String type) {
+    private void onActionMoveSelection(final String type) {
         Bundle args = new Bundle();
         args.putString("type", type);
         args.putLongArray("ids", getSelection());
@@ -1241,7 +1242,10 @@ public class FragmentMessages extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
-                moveAsk(result);
+                if (EntityFolder.JUNK.equals(type))
+                    moveAskConfirmed(result);
+                else
+                    moveAsk(result);
             }
 
             @Override

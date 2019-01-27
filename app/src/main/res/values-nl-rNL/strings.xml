@@ -34,6 +34,10 @@
         <item quantity="one">Één bericht verplaatsen naar %2$s ?</item>
         <item quantity="other">%1$d berichten verplaatsen naar %2$s?</item>
     </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="one">Rapporteer één bericht als spam?</item>
+        <item quantity="other">Rapporteer %1$d berichten als spam?</item>
+    </plurals>
     <string name="title_notification_failed">\'%1$s\' is mislukt</string>
     <string name="menu_setup">Instellingen</string>
     <string name="menu_answers">Sjablonen</string>
@@ -112,10 +116,10 @@
     <string name="title_advanced_identicons">Toon identicons</string>
     <string name="title_advanced_preview">Bericht voorvertoning</string>
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
+    <string name="title_advanced_actionbar">Actiebalk gesprek</string>
     <string name="title_advanced_light">Gebruik meldingslicht</string>
     <string name="title_advanced_sound">Selecteer meldingsgeluid</string>
     <string name="title_advanced_pull_refresh">Omlaag schuiven om te verversen</string>
-    <string name="title_advanced_actionbar">Actiebalk gesprek</string>
     <string name="title_advanced_autoclose">Gesprekken automatisch sluiten</string>
     <string name="title_advanced_autonext">Automatisch naar het volgende gesprek gaan bij het sluiten van een gesprek</string>
     <string name="title_advanced_autoread">Markeer berichten automatisch als gelezen bij het verplaatsen van berichten</string>
@@ -275,7 +279,6 @@
     <string name="title_ask_delete_answer">Verwijder antwoordsjabloon permanent?</string>
     <string name="title_ask_delete_rule">Verwijder regel permanent?</string>
     <string name="title_ask_discard">Concept weggooien?</string>
-    <string name="title_ask_spam">Als spam melden?</string>
     <string name="title_ask_show_html">Het originele bericht tonen kan privacy gevoelige informatie lekken</string>
     <string name="title_ask_show_image">Afbeeldingen tonen kan privacy gevoelige informatie lekken</string>
     <string name="title_sync_queued">Synchronisatie zal plaatsvinden bij de volgende accountverbinding</string>

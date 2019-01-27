@@ -112,10 +112,10 @@
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_preview">Mostrar vista previa de mensajes</string>
     <string name="title_advanced_addresses">Mostrar detalles de dirección por defecto</string>
+    <string name="title_advanced_actionbar">Barra de acciones de conversación</string>
     <string name="title_advanced_light">Usar luz de notificación</string>
     <string name="title_advanced_sound">Seleccionar sonido de notificación</string>
     <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
-    <string name="title_advanced_actionbar">Barra de acciones de conversación</string>
     <string name="title_advanced_autoclose">Cerrar conversaciones automáticamente</string>
     <string name="title_advanced_autonext">Al cerrar una conversación, ir automáticamente a la siguiente</string>
     <string name="title_advanced_autoread">Marcar mensaje como leído automáticamente al moverlo</string>
@@ -275,7 +275,6 @@
     <string name="title_ask_delete_answer">¿Eliminar plantilla de respuesta permanentemente?</string>
     <string name="title_ask_delete_rule">¿Eliminar regla permanentemente?</string>
     <string name="title_ask_discard">¿Descartar el borrador?</string>
-    <string name="title_ask_spam">¿Reportar como spam?</string>
     <string name="title_ask_show_html">Mostrar el mensaje original puede filtrar información privada sensible</string>
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
     <string name="title_sync_queued">La sincronización se realizará en la próxima conexión de la cuenta</string>
