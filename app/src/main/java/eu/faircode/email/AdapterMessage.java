@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.NotificationManager;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -411,6 +412,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpExpanded.setVisibility(View.GONE);
         }
 
+        @SuppressLint("WrongConstant")
         private void bindTo(int position, final TupleMessageEx message) {
             final DB db = DB.getInstance(context);
             final boolean show_expanded = properties.getValue("expanded", message.id);
