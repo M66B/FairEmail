@@ -44,6 +44,7 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -859,6 +860,19 @@ public class Helper {
             default:
                 return Integer.toString(responseCode);
         }
+    }
+
+    static boolean hasWebView(Context context) {
+        PackageManager pm = context.getPackageManager();
+        if (pm.hasSystemFeature("android.software.webview"))
+            try {
+                new WebView(context);
+                return true;
+            } catch (Throwable ex) {
+                return false;
+            }
+        else
+            return false;
     }
 
     public static String getFingerprint(Context context) {

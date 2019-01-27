@@ -2223,9 +2223,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
         this.colorUnread = Helper.resolveColor(context, R.attr.colorUnread);
-
-        PackageManager pm = context.getPackageManager();
-        this.hasWebView = pm.hasSystemFeature("android.software.webview");
+        this.hasWebView = Helper.hasWebView(context);
     }
 
     void submitList(PagedList<TupleMessageEx> pagedList) {
