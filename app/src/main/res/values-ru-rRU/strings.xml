@@ -46,6 +46,12 @@
         <item quantity="many">Перемещение сообщений %1$d к %2$s?</item>
         <item quantity="other">Перемещение сообщений %1$d к %2$s?</item>
     </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="one">Сообщить о сообщении %1$d как о спаме?</item>
+        <item quantity="few">Сообщить о сообщениях %1$d как о спаме?</item>
+        <item quantity="many">Сообщить о сообщениях %1$d как о спаме?</item>
+        <item quantity="other">Сообщить о сообщениях %1$d как о спаме?</item>
+    </plurals>
     <string name="title_notification_failed">\'%1$s\' не удалось</string>
     <string name="menu_setup">Настройки</string>
     <string name="menu_answers">Шаблоны</string>

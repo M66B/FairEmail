@@ -34,6 +34,10 @@
         <item quantity="one">Déplacer %1$d message vers %2$s ?</item>
         <item quantity="other">Déplacer %1$d messages vers %2$s ?</item>
     </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="one">Signaler %1$d message comme spam ?</item>
+        <item quantity="other">Signaler %1$d messages comme spam ?</item>
+    </plurals>
     <string name="title_notification_failed">\'%1$s\' a échoué</string>
     <string name="menu_setup">Configuration</string>
     <string name="menu_answers">Modèles</string>
