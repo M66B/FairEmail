@@ -129,7 +129,7 @@ public class Helper {
         } else {
             // https://developer.chrome.com/multidevice/android/customtabs
             CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-            builder.setToolbarColor(Helper.resolveColor(context, R.attr.colorPrimary));
+            builder.setToolbarColor(resolveColor(context, R.attr.colorPrimary));
 
             CustomTabsIntent customTabsIntent = builder.build();
             try {
@@ -138,7 +138,7 @@ public class Helper {
                 Toast.makeText(context, context.getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
             } catch (Throwable ex) {
                 Log.e(ex);
-                Helper.unexpectedError(context, owner, ex);
+                unexpectedError(context, owner, ex);
             }
         }
     }
@@ -299,7 +299,7 @@ public class Helper {
     static EntityMessage getDebugInfo(Context context, int title, Throwable ex, String log) throws IOException {
         StringBuilder sb = new StringBuilder();
         sb.append(context.getString(title)).append("\n\n\n\n");
-        sb.append(Helper.getAppInfo(context));
+        sb.append(getAppInfo(context));
         if (ex != null)
             sb.append(ex.toString()).append("\n").append(android.util.Log.getStackTraceString(ex));
         if (log != null)
@@ -331,7 +331,7 @@ public class Helper {
             draft.folder = drafts.id;
             draft.identity = (primary == null ? null : primary.id);
             draft.msgid = EntityMessage.generateMessageId();
-            draft.to = new Address[]{Helper.myAddress()};
+            draft.to = new Address[]{myAddress()};
             draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " debug info";
             draft.received = new Date().getTime();
             draft.id = db.message().insertMessage(draft);
@@ -363,8 +363,8 @@ public class Helper {
                 BuildConfig.APPLICATION_ID,
                 installer,
                 BuildConfig.VERSION_NAME,
-                Helper.hasValidFingerprint(context) ? "1" : "3",
-                Helper.isPro(context) ? "+" : ""));
+                hasValidFingerprint(context) ? "1" : "3",
+                isPro(context) ? "+" : ""));
         sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
         sb.append("\r\n");
 
@@ -593,7 +593,7 @@ public class Helper {
         return new DecimalFormat("@@").format(bytes / Math.pow(unit, exp)) + " " + pre + "B";
     }
 
-    static Address myAddress() throws UnsupportedEncodingException {
+    static InternetAddress myAddress() throws UnsupportedEncodingException {
         return new InternetAddress("marcel+fairemail@faircode.eu", "FairCode");
     }
 
@@ -752,8 +752,8 @@ public class Helper {
         try {
             istore.connect(account.host, account.port, account.user, account.password);
         } catch (AuthenticationFailedException ex) {
-            if (account.auth_type == Helper.AUTH_TYPE_GMAIL) {
-                account.password = Helper.refreshToken(context, "com.google", account.user, account.password);
+            if (account.auth_type == AUTH_TYPE_GMAIL) {
+                account.password = refreshToken(context, "com.google", account.user, account.password);
                 DB.getInstance(context).account().setAccountPassword(account.id, account.password);
                 istore.connect(account.host, account.port, account.user, account.password);
             } else
