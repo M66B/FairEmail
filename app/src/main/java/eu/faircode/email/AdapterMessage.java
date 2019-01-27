@@ -974,13 +974,49 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onSearchContact(TupleMessageEx message) {
-            Address[] address = (EntityFolder.isOutgoing(message.folderType) ? message.to
-                    : (message.reply == null || message.reply.length == 0 ? message.to : message.reply));
-            if (address != null && address.length > 0) {
-                Intent search = new Intent(context, ActivityView.class);
-                search.putExtra(Intent.EXTRA_PROCESS_TEXT, ((InternetAddress) address[0]).getAddress());
-                context.startActivity(search);
-            }
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            new SimpleTask<Address[]>() {
+                @Override
+                protected Address[] onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null)
+                        return null;
+
+                    EntityFolder folder = db.folder().getFolder(message.folder);
+
+                    boolean outgoing;
+                    if (message.identity == null || message.from == null || message.from.length == 0)
+                        outgoing = EntityFolder.isOutgoing(folder.type);
+                    else {
+                        String from = ((InternetAddress) message.from[0]).getAddress();
+                        EntityIdentity identity = db.identity().getIdentity(message.identity);
+                        outgoing = Helper.canonicalAddress(identity.email).equals(Helper.canonicalAddress(from));
+                    }
+
+                    return (outgoing
+                            ? message.to
+                            : (message.reply == null || message.reply.length == 0 ? message.from : message.reply));
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Address[] addresses) {
+                    if (addresses != null && addresses.length > 0) {
+                        Intent search = new Intent(context, ActivityView.class);
+                        search.putExtra(Intent.EXTRA_PROCESS_TEXT, ((InternetAddress) addresses[0]).getAddress());
+                        context.startActivity(search);
+                    }
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, owner, ex);
+                }
+            }.execute(context, owner, args, "message:search");
         }
 
         private void onAddContact(TupleMessageEx message) {
