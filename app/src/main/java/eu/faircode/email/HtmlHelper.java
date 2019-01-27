@@ -40,6 +40,7 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -196,6 +197,8 @@ public class HtmlHelper {
                     Log.i("Downloading " + source);
                     try {
                         is = new URL(source).openStream();
+                    } catch (FileNotFoundException ex) {
+                        throw ex;
                     } catch (IOException ex) {
                         Log.w(ex);
                         Drawable d = context.getResources().getDrawable(R.drawable.baseline_cloud_off_24, context.getTheme());
