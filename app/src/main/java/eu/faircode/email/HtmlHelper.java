@@ -119,7 +119,7 @@ public class HtmlHelper {
 
         if (TextUtils.isEmpty(source)) {
             Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
-            d.setBounds(0, 0, px / 2, px / 2);
+            d.setBounds(0, 0, px, px);
             return d;
         }
 
@@ -145,7 +145,7 @@ public class HtmlHelper {
                     Drawable d = Drawable.createFromPath(file.getAbsolutePath());
                     if (d == null) {
                         d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
-                        d.setBounds(0, 0, px / 2, px / 2);
+                        d.setBounds(0, 0, px, px);
                     } else
                         d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
                     return d;
@@ -173,7 +173,7 @@ public class HtmlHelper {
                 } catch (IllegalArgumentException ex) {
                     Log.w(ex);
                     Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
-                    d.setBounds(0, 0, px / 2, px / 2);
+                    d.setBounds(0, 0, px, px);
                     return d;
                 }
 
@@ -194,7 +194,14 @@ public class HtmlHelper {
                     is = new BufferedInputStream(new FileInputStream(file));
                 } else {
                     Log.i("Downloading " + source);
-                    is = new URL(source).openStream();
+                    try {
+                        is = new URL(source).openStream();
+                    } catch (IOException ex) {
+                        Log.w(ex);
+                        Drawable d = context.getResources().getDrawable(R.drawable.baseline_cloud_off_24, context.getTheme());
+                        d.setBounds(0, 0, px, px);
+                        return d;
+                    }
                 }
 
                 // Decode image from stream
@@ -216,7 +223,7 @@ public class HtmlHelper {
                 // Show warning icon
                 Log.e(ex);
                 Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
-                d.setBounds(0, 0, px / 2, px / 2);
+                d.setBounds(0, 0, px, px);
                 return d;
             } finally {
                 // Close streams
