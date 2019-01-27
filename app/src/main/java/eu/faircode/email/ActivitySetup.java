@@ -39,6 +39,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
@@ -46,6 +47,8 @@ import com.google.android.material.textfield.TextInputLayout;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -67,6 +70,7 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.documentfile.provider.DocumentFile;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -81,6 +85,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
     private ActionBarDrawerToggle drawerToggle;
 
     private boolean hasAccount;
+    private String password;
 
     private static final int KEY_ITERATIONS = 65536;
     private static final int KEY_LENGTH = 256;
@@ -290,39 +295,11 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ActivitySetup.REQUEST_EXPORT || requestCode == ActivitySetup.REQUEST_IMPORT)
-            if (resultCode == RESULT_OK && data != null)
-                fileSelected(requestCode == ActivitySetup.REQUEST_EXPORT, data);
-    }
-
-    private void fileSelected(final boolean export, final Intent data) {
-        View dview = LayoutInflater.from(this).inflate(R.layout.dialog_password, null);
-        final TextInputLayout etPassword1 = dview.findViewById(R.id.tilPassword1);
-        final TextInputLayout etPassword2 = dview.findViewById(R.id.tilPassword2);
-
-        new DialogBuilderLifecycle(this, this)
-                .setView(dview)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        String password1 = etPassword1.getEditText().getText().toString();
-                        String password2 = etPassword2.getEditText().getText().toString();
-
-                        if (TextUtils.isEmpty(password1))
-                            Snackbar.make(view, R.string.title_setup_password_missing, Snackbar.LENGTH_LONG).show();
-                        else {
-                            if (password1.equals(password2)) {
-                                if (export)
-                                    handleExport(data, password1);
-                                else
-                                    handleImport(data, password1);
-                            } else
-                                Snackbar.make(view, R.string.title_setup_password_different, Snackbar.LENGTH_LONG).show();
-                        }
-                    }
-                })
-                .show();
+        if (resultCode == RESULT_OK && data != null)
+            if (requestCode == REQUEST_EXPORT)
+                handleExport(data, this.password);
+            else if (requestCode == REQUEST_IMPORT)
+                handleImport(data, this.password);
     }
 
     private void onManageNotifications() {
@@ -332,7 +309,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
     private void onMenuExport() {
         if (Helper.isPro(this))
             try {
-                startActivityForResult(Helper.getChooser(this, getIntentExport()), ActivitySetup.REQUEST_EXPORT);
+                askPassword(true);
             } catch (Throwable ex) {
                 Helper.unexpectedError(this, this, ex);
             }
@@ -345,10 +322,45 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
     private void onMenuImport() {
         try {
-            startActivityForResult(Helper.getChooser(this, getIntentImport()), ActivitySetup.REQUEST_IMPORT);
+            askPassword(false);
         } catch (Throwable ex) {
             Helper.unexpectedError(this, this, ex);
         }
+    }
+
+    private void askPassword(final boolean export) {
+        View dview = LayoutInflater.from(this).inflate(R.layout.dialog_password, null);
+        final TextInputLayout etPassword1 = dview.findViewById(R.id.tilPassword1);
+        final TextInputLayout etPassword2 = dview.findViewById(R.id.tilPassword2);
+        TextView tvImportHint = dview.findViewById(R.id.tvImporthint);
+
+        etPassword2.setVisibility(export ? View.VISIBLE : View.GONE);
+        tvImportHint.setVisibility(export ? View.GONE : View.VISIBLE);
+
+        new DialogBuilderLifecycle(this, this)
+                .setView(dview)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String password1 = etPassword1.getEditText().getText().toString();
+                        String password2 = etPassword2.getEditText().getText().toString();
+
+                        if (!BuildConfig.DEBUG && TextUtils.isEmpty(password1))
+                            Snackbar.make(view, R.string.title_setup_password_missing, Snackbar.LENGTH_LONG).show();
+                        else {
+                            if (!export || password1.equals(password2)) {
+                                ActivitySetup.this.password = password1;
+                                startActivityForResult(
+                                        Helper.getChooser(
+                                                ActivitySetup.this,
+                                                export ? getIntentExport() : getIntentImport()),
+                                        export ? REQUEST_EXPORT : REQUEST_IMPORT);
+                            } else
+                                Snackbar.make(view, R.string.title_setup_password_different, Snackbar.LENGTH_LONG).show();
+                        }
+                    }
+                })
+                .show();
     }
 
     private void onMenuTheme(int id) {
@@ -403,8 +415,8 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
-        intent.putExtra(Intent.EXTRA_TITLE, "fairemail_backup_" +
-                new SimpleDateFormat("yyyyMMdd").format(new Date().getTime()) + ".json");
+        intent.putExtra(Intent.EXTRA_TITLE, "fairemail_" +
+                new SimpleDateFormat("yyyyMMdd").format(new Date().getTime()) + ".backup");
         return intent;
     }
 
@@ -431,82 +443,93 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
                 }
 
-                OutputStream out = null;
-                try {
-                    Log.i("Writing URI=" + uri);
+                Log.i("Collecting data");
+                DB db = DB.getInstance(context);
 
-                    byte[] salt = new byte[16];
-                    SecureRandom random = new SecureRandom();
-                    random.nextBytes(salt);
+                // Accounts
+                JSONArray jaccounts = new JSONArray();
+                for (EntityAccount account : db.account().getAccounts()) {
+                    // Account
+                    JSONObject jaccount = account.toJSON();
 
-                    // https://docs.oracle.com/javase/7/docs/technotes/guides/security/StandardNames.html#Cipher
-                    SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-                    KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, KEY_ITERATIONS, KEY_LENGTH);
-                    SecretKey secret = keyFactory.generateSecret(keySpec);
-                    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                    cipher.init(Cipher.ENCRYPT_MODE, secret);
+                    // Identities
+                    JSONArray jidentities = new JSONArray();
+                    for (EntityIdentity identity : db.identity().getIdentities(account.id))
+                        jidentities.put(identity.toJSON());
+                    jaccount.put("identities", jidentities);
 
-                    OutputStream raw = context.getContentResolver().openOutputStream(uri);
-                    raw.write(salt);
-                    raw.write(cipher.getIV());
-                    out = new CipherOutputStream(raw, cipher);
+                    // Folders
+                    JSONArray jfolders = new JSONArray();
+                    for (EntityFolder folder : db.folder().getFolders(account.id)) {
+                        JSONObject jfolder = folder.toJSON();
+                        JSONArray jrules = new JSONArray();
+                        for (EntityRule rule : db.rule().getRules(folder.id))
+                            jrules.put(rule.toJSON());
+                        jfolder.put("rules", jrules);
+                        jfolders.put(jfolder);
+                    }
+                    jaccount.put("folders", jfolders);
 
-                    DB db = DB.getInstance(context);
+                    jaccounts.put(jaccount);
+                }
 
-                    // Accounts
-                    JSONArray jaccounts = new JSONArray();
-                    for (EntityAccount account : db.account().getAccounts()) {
-                        // Account
-                        JSONObject jaccount = account.toJSON();
+                // Answers
+                JSONArray janswers = new JSONArray();
+                for (EntityAnswer answer : db.answer().getAnswers())
+                    janswers.put(answer.toJSON());
 
-                        // Identities
-                        JSONArray jidentities = new JSONArray();
-                        for (EntityIdentity identity : db.identity().getIdentities(account.id))
-                            jidentities.put(identity.toJSON());
-                        jaccount.put("identities", jidentities);
-
-                        // Folders
-                        JSONArray jfolders = new JSONArray();
-                        for (EntityFolder folder : db.folder().getFolders(account.id)) {
-                            JSONObject jfolder = folder.toJSON();
-                            JSONArray jrules = new JSONArray();
-                            for (EntityRule rule : db.rule().getRules(folder.id))
-                                jrules.put(rule.toJSON());
-                            jfolder.put("rules", jrules);
-                            jfolders.put(jfolder);
-                        }
-                        jaccount.put("folders", jfolders);
-
-                        jaccounts.put(jaccount);
+                // Settings
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                JSONArray jsettings = new JSONArray();
+                for (String key : prefs.getAll().keySet())
+                    if (!"pro".equals(key)) {
+                        JSONObject jsetting = new JSONObject();
+                        jsetting.put("key", key);
+                        jsetting.put("value", prefs.getAll().get(key));
+                        jsettings.put(jsetting);
                     }
 
-                    // Answers
-                    JSONArray janswers = new JSONArray();
-                    for (EntityAnswer answer : db.answer().getAnswers())
-                        janswers.put(answer.toJSON());
+                JSONObject jexport = new JSONObject();
+                jexport.put("accounts", jaccounts);
+                jexport.put("answers", janswers);
+                jexport.put("settings", jsettings);
 
-                    // Settings
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    JSONArray jsettings = new JSONArray();
-                    for (String key : prefs.getAll().keySet())
-                        if (!"pro".equals(key)) {
-                            JSONObject jsetting = new JSONObject();
-                            jsetting.put("key", key);
-                            jsetting.put("value", prefs.getAll().get(key));
-                            jsettings.put(jsetting);
-                        }
+                ContentResolver resolver = context.getContentResolver();
+                DocumentFile file = DocumentFile.fromSingleUri(context, uri);
+                OutputStream raw = null;
+                try {
+                    raw = new BufferedOutputStream(resolver.openOutputStream(uri));
+                    Log.i("Writing URI=" + uri + " name=" + file.getName() + " virtual=" + file.isVirtual());
 
-                    JSONObject jexport = new JSONObject();
-                    jexport.put("accounts", jaccounts);
-                    jexport.put("answers", janswers);
-                    jexport.put("settings", jsettings);
+                    if (TextUtils.isEmpty(password))
+                        raw.write(jexport.toString(2).getBytes());
+                    else {
+                        byte[] salt = new byte[16];
+                        SecureRandom random = new SecureRandom();
+                        random.nextBytes(salt);
 
-                    out.write(jexport.toString(2).getBytes());
+                        // https://docs.oracle.com/javase/7/docs/technotes/guides/security/StandardNames.html#Cipher
+                        SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+                        KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, KEY_ITERATIONS, KEY_LENGTH);
+                        SecretKey secret = keyFactory.generateSecret(keySpec);
+                        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                        cipher.init(Cipher.ENCRYPT_MODE, secret);
+
+                        raw.write(salt);
+                        raw.write(cipher.getIV());
+
+                        OutputStream cout = new CipherOutputStream(raw, cipher);
+                        cout.write(jexport.toString(2).getBytes());
+                        cout.flush();
+                        cout.close();
+                    }
+
+                    raw.flush();
 
                     Log.i("Exported data");
                 } finally {
-                    if (out != null)
-                        out.close();
+                    if (raw != null)
+                        raw.close();
                 }
 
                 return null;
@@ -543,124 +566,129 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
                 }
 
-                InputStream in = null;
+                InputStream raw = null;
+                StringBuilder data = new StringBuilder();
                 try {
                     Log.i("Reading URI=" + uri);
                     ContentResolver resolver = context.getContentResolver();
                     AssetFileDescriptor descriptor = resolver.openTypedAssetFileDescriptor(uri, "*/*", null);
-                    InputStream raw = descriptor.createInputStream();
+                    raw = new BufferedInputStream(descriptor.createInputStream());
 
-                    byte[] salt = new byte[16];
-                    byte[] prefix = new byte[16];
-                    if (raw.read(salt) != salt.length)
-                        throw new IOException("length");
-                    if (raw.read(prefix) != prefix.length)
-                        throw new IOException("length");
+                    InputStream in;
+                    if (TextUtils.isEmpty(password))
+                        in = raw;
+                    else {
+                        byte[] salt = new byte[16];
+                        byte[] prefix = new byte[16];
+                        if (raw.read(salt) != salt.length)
+                            throw new IOException("length");
+                        if (raw.read(prefix) != prefix.length)
+                            throw new IOException("length");
 
-                    SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-                    KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, KEY_ITERATIONS, KEY_LENGTH);
-                    SecretKey secret = keyFactory.generateSecret(keySpec);
-                    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                    IvParameterSpec iv = new IvParameterSpec(prefix);
-                    cipher.init(Cipher.DECRYPT_MODE, secret, iv);
+                        SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+                        KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, KEY_ITERATIONS, KEY_LENGTH);
+                        SecretKey secret = keyFactory.generateSecret(keySpec);
+                        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                        IvParameterSpec iv = new IvParameterSpec(prefix);
+                        cipher.init(Cipher.DECRYPT_MODE, secret, iv);
 
-                    in = new CipherInputStream(raw, cipher);
-
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-                    StringBuilder response = new StringBuilder();
-                    String line;
-                    while ((line = reader.readLine()) != null)
-                        response.append(line);
-                    Log.i("Importing " + resolver.toString());
-
-                    JSONObject jimport = new JSONObject(response.toString());
-
-                    DB db = DB.getInstance(context);
-                    try {
-                        db.beginTransaction();
-
-                        JSONArray jaccounts = jimport.getJSONArray("accounts");
-                        for (int a = 0; a < jaccounts.length(); a++) {
-                            JSONObject jaccount = (JSONObject) jaccounts.get(a);
-                            EntityAccount account = EntityAccount.fromJSON(jaccount);
-                            account.created = new Date().getTime();
-                            account.id = db.account().insertAccount(account);
-                            Log.i("Imported account=" + account.name);
-
-                            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
-                                if (account.notify)
-                                    account.createNotificationChannel(context);
-
-                            JSONArray jidentities = (JSONArray) jaccount.get("identities");
-                            for (int i = 0; i < jidentities.length(); i++) {
-                                JSONObject jidentity = (JSONObject) jidentities.get(i);
-                                EntityIdentity identity = EntityIdentity.fromJSON(jidentity);
-                                identity.account = account.id;
-                                identity.id = db.identity().insertIdentity(identity);
-                                Log.i("Imported identity=" + identity.email);
-                            }
-
-                            JSONArray jfolders = (JSONArray) jaccount.get("folders");
-                            for (int f = 0; f < jfolders.length(); f++) {
-                                JSONObject jfolder = (JSONObject) jfolders.get(f);
-                                EntityFolder folder = EntityFolder.fromJSON(jfolder);
-                                folder.account = account.id;
-                                folder.id = db.folder().insertFolder(folder);
-                                if (jfolder.has("rules")) {
-                                    JSONArray jrules = jfolder.getJSONArray("rules");
-                                    for (int r = 0; r < jrules.length(); r++) {
-                                        JSONObject jrule = (JSONObject) jrules.get(r);
-                                        EntityRule rule = EntityRule.fromJSON(jrule);
-                                        rule.folder = folder.id;
-                                        db.rule().insertRule(rule);
-                                    }
-                                }
-                                Log.i("Imported folder=" + folder.name);
-                            }
-                        }
-
-                        JSONArray janswers = jimport.getJSONArray("answers");
-                        for (int a = 0; a < janswers.length(); a++) {
-                            JSONObject janswer = (JSONObject) janswers.get(a);
-                            EntityAnswer answer = EntityAnswer.fromJSON(janswer);
-                            answer.id = db.answer().insertAnswer(answer);
-                            Log.i("Imported answer=" + answer.name);
-                        }
-
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                        SharedPreferences.Editor editor = prefs.edit();
-                        JSONArray jsettings = jimport.getJSONArray("settings");
-                        for (int s = 0; s < jsettings.length(); s++) {
-                            JSONObject jsetting = (JSONObject) jsettings.get(s);
-                            String key = jsetting.getString("key");
-                            if (!"pro".equals(key)) {
-                                Object value = jsetting.get("value");
-                                if (value instanceof Boolean)
-                                    editor.putBoolean(key, (Boolean) value);
-                                else if (value instanceof Integer)
-                                    editor.putInt(key, (Integer) value);
-                                else if (value instanceof Long)
-                                    editor.putLong(key, (Long) value);
-                                else if (value instanceof String)
-                                    editor.putString(key, (String) value);
-                                else
-                                    throw new IllegalArgumentException("Unknown settings type key=" + key);
-                                Log.i("Imported setting=" + key);
-                            }
-                        }
-                        editor.apply();
-
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
+                        in = new CipherInputStream(raw, cipher);
                     }
 
-                    Log.i("Imported data");
-                    ServiceSynchronize.reload(context, "import");
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                    String line;
+                    while ((line = reader.readLine()) != null)
+                        data.append(line);
                 } finally {
-                    if (in != null)
-                        in.close();
+                    if (raw != null)
+                        raw.close();
                 }
+
+                Log.i("Importing data");
+                JSONObject jimport = new JSONObject(data.toString());
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    JSONArray jaccounts = jimport.getJSONArray("accounts");
+                    for (int a = 0; a < jaccounts.length(); a++) {
+                        JSONObject jaccount = (JSONObject) jaccounts.get(a);
+                        EntityAccount account = EntityAccount.fromJSON(jaccount);
+                        account.created = new Date().getTime();
+                        account.id = db.account().insertAccount(account);
+                        Log.i("Imported account=" + account.name);
+
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
+                            if (account.notify)
+                                account.createNotificationChannel(context);
+
+                        JSONArray jidentities = (JSONArray) jaccount.get("identities");
+                        for (int i = 0; i < jidentities.length(); i++) {
+                            JSONObject jidentity = (JSONObject) jidentities.get(i);
+                            EntityIdentity identity = EntityIdentity.fromJSON(jidentity);
+                            identity.account = account.id;
+                            identity.id = db.identity().insertIdentity(identity);
+                            Log.i("Imported identity=" + identity.email);
+                        }
+
+                        JSONArray jfolders = (JSONArray) jaccount.get("folders");
+                        for (int f = 0; f < jfolders.length(); f++) {
+                            JSONObject jfolder = (JSONObject) jfolders.get(f);
+                            EntityFolder folder = EntityFolder.fromJSON(jfolder);
+                            folder.account = account.id;
+                            folder.id = db.folder().insertFolder(folder);
+                            if (jfolder.has("rules")) {
+                                JSONArray jrules = jfolder.getJSONArray("rules");
+                                for (int r = 0; r < jrules.length(); r++) {
+                                    JSONObject jrule = (JSONObject) jrules.get(r);
+                                    EntityRule rule = EntityRule.fromJSON(jrule);
+                                    rule.folder = folder.id;
+                                    db.rule().insertRule(rule);
+                                }
+                            }
+                            Log.i("Imported folder=" + folder.name);
+                        }
+                    }
+
+                    JSONArray janswers = jimport.getJSONArray("answers");
+                    for (int a = 0; a < janswers.length(); a++) {
+                        JSONObject janswer = (JSONObject) janswers.get(a);
+                        EntityAnswer answer = EntityAnswer.fromJSON(janswer);
+                        answer.id = db.answer().insertAnswer(answer);
+                        Log.i("Imported answer=" + answer.name);
+                    }
+
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    JSONArray jsettings = jimport.getJSONArray("settings");
+                    for (int s = 0; s < jsettings.length(); s++) {
+                        JSONObject jsetting = (JSONObject) jsettings.get(s);
+                        String key = jsetting.getString("key");
+                        if (!"pro".equals(key)) {
+                            Object value = jsetting.get("value");
+                            if (value instanceof Boolean)
+                                editor.putBoolean(key, (Boolean) value);
+                            else if (value instanceof Integer)
+                                editor.putInt(key, (Integer) value);
+                            else if (value instanceof Long)
+                                editor.putLong(key, (Long) value);
+                            else if (value instanceof String)
+                                editor.putString(key, (String) value);
+                            else
+                                throw new IllegalArgumentException("Unknown settings type key=" + key);
+                            Log.i("Imported setting=" + key);
+                        }
+                    }
+                    editor.apply();
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                Log.i("Imported data");
+                ServiceSynchronize.reload(context, "import");
 
                 return null;
             }
