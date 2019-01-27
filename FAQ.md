@@ -55,6 +55,7 @@ Confirmation is just one tap, which is just a small price for better privacy.
 Note that your contacts could unknowingly send malicious messages if they got infected with malware.
 
 Stripped and reformatted messages are often better readable than original messages because the margins are removed and font sizes are standardized.
+Moreover, original messages cannot be shown inline anyway because zooming in a scroll view does not work properly.
 
 FairEmail does not allow other apps access to your messages and attachments without your approval.
 
