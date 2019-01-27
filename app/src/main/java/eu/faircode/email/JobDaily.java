@@ -64,19 +64,19 @@ public class JobDaily extends JobService {
         executor.submit(new Runnable() {
             @Override
             public void run() {
-                cleanup(getApplicationContext());
+                cleanup(getApplicationContext(), false);
             }
         });
 
         return false;
     }
 
-    static void cleanup(Context context) {
+    static void cleanup(Context context, boolean manual) {
         DB db = DB.getInstance(context);
         try {
             db.beginTransaction();
 
-            Log.i("Start daily job");
+            Log.i("Start daily job manual=" + manual);
 
             // Cleanup folders
             Log.i("Cleanup kept messages");
@@ -141,11 +141,12 @@ public class JobDaily extends JobService {
             File[] images = new File(context.getCacheDir(), "images").listFiles();
             if (images != null)
                 for (File file : images)
-                    if (file.isFile() && (now - file.lastModified()) > CACHE_IMAGE_DURATION) {
-                        Log.i("Deleting " + file);
-                        if (!file.delete())
-                            Log.w("Error deleting " + file);
-                    }
+                    if (file.isFile())
+                        if (manual || now - file.lastModified() > CACHE_IMAGE_DURATION) {
+                            Log.i("Deleting " + file);
+                            if (!file.delete())
+                                Log.w("Error deleting " + file);
+                        }
 
             Log.i("Cleanup log");
             long before = now - KEEP_LOG_DURATION;

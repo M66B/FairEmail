@@ -977,7 +977,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         new SimpleTask<Void>() {
             @Override
             protected Void onExecute(Context context, Bundle args) {
-                JobDaily.cleanup(ActivityView.this);
+                JobDaily.cleanup(ActivityView.this, true);
                 return null;
             }
 
