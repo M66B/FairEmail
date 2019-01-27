@@ -226,6 +226,7 @@ In the display section of the advanced settings you can enable or disable:
 * *Show message preview*: to show two lines of the message text
 * *Show address details by default*: to collapse the addresses section by default
 * *Conversation action bar*: to disable the bottom navigation bar
+* *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
 
 Note that messages can be previewed only when the message text was downloaded.
 Larger message texts are not downloaded by default on metered (generally mobile) networks.
@@ -640,6 +641,8 @@ but will also leak your IP address.
 
 Opening attachments or viewing an original message might execute scripts,
 that might not only cause privacy sensitive information to leak, but can also be a security risk.
+
+Note that your contacts could unknowingly send malicious messages if they got infected with malware.
 
 <br />
 

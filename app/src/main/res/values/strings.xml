@@ -144,6 +144,7 @@
     <string name="title_advanced_identicons">Show identicons</string>
     <string name="title_advanced_preview">Show message preview</string>
     <string name="title_advanced_addresses">Show address details by default</string>
+    <string name="title_advanced_images">Automatically show images for known contacts</string>
     <string name="title_advanced_actionbar">Conversation action bar</string>
 
     <string name="title_advanced_light">Use notification light</string>

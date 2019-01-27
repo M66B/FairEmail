@@ -69,6 +69,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swIdenticons;
     private SwitchCompat swPreview;
     private SwitchCompat swAddresses;
+    private SwitchCompat swImages;
 
     private SwitchCompat swPull;
     private SwitchCompat swActionbar;
@@ -90,7 +91,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private Group grpNotification;
 
     static String[] OPTIONS_RESTART = new String[]{
-            "unified", "date", "threading", "avatars", "identicons", "preview", "addresses",
+            "unified", "date", "threading", "avatars", "identicons", "preview", "addresses", "autoimages",
             "pull", "actionbar", "autoclose", "autonext", "confirm", "debug"
     };
 
@@ -129,6 +130,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swIdenticons = view.findViewById(R.id.swIdenticons);
         swPreview = view.findViewById(R.id.swPreview);
         swAddresses = view.findViewById(R.id.swAddresses);
+        swImages = view.findViewById(R.id.swImages);
 
         swPull = view.findViewById(R.id.swPull);
         swActionbar = view.findViewById(R.id.swActionbar);
@@ -263,6 +265,13 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("addresses", checked).apply();
+            }
+        });
+
+        swImages.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("autoimages", checked).apply();
             }
         });
 
@@ -454,6 +463,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swIdenticons.setChecked(prefs.getBoolean("identicons", false));
         swPreview.setChecked(prefs.getBoolean("preview", false));
         swAddresses.setChecked(prefs.getBoolean("addresses", true));
+        swImages.setChecked(prefs.getBoolean("autoimages", false));
 
         swPull.setChecked(prefs.getBoolean("pull", true));
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
