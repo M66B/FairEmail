@@ -21,11 +21,9 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Base64;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -80,18 +78,11 @@ public class FragmentWebView extends FragmentBase {
         settings.setDisplayZoomControls(false);
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
         webview.setWebViewClient(new WebViewClient() {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                if (prefs.getBoolean("webview", false)) {
-                    view.loadUrl(url);
-                    setSubtitle(url);
-                } else {
-                    if (getViewLifecycleOwner().getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
-                        Helper.view(getContext(), getViewLifecycleOwner(), Uri.parse(url), true);
-                        return true;
-                    }
+                if (getViewLifecycleOwner().getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
+                    Helper.view(getContext(), getViewLifecycleOwner(), Uri.parse(url), true);
+                    return true;
                 }
                 return false;
             }
