@@ -71,6 +71,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.text.Collator;
 import java.util.ArrayList;
@@ -189,17 +190,18 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     case R.string.menu_operations:
                         onMenuOperations();
                         break;
-                    case R.string.menu_pro:
-                        onMenuPro();
-                        break;
                     case R.string.menu_setup:
                         onMenuSetup();
                         break;
+
                     case R.string.menu_legend:
                         onMenuLegend();
                         break;
                     case R.string.menu_faq:
                         onMenuFAQ();
+                        break;
+                    case R.string.menu_issue:
+                        onMenuIssue();
                         break;
                     case R.string.menu_privacy:
                         onMenuPrivacy();
@@ -207,11 +209,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     case R.string.menu_about:
                         onMenuAbout();
                         break;
-                    case R.string.menu_rate:
-                        onMenuRate();
+
+                    case R.string.menu_pro:
+                        onMenuPro();
                         break;
                     case R.string.menu_invite:
                         onMenuInvite();
+                        break;
+                    case R.string.menu_rate:
+                        onMenuRate();
                         break;
                     case R.string.menu_other:
                         onMenuOtherApps();
@@ -313,6 +319,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 if (Helper.getIntentFAQ().resolveActivity(getPackageManager()) != null)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_question_answer_24, R.string.menu_faq));
+
+                if (!BuildConfig.PLAY_STORE_RELEASE)
+                    drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_report_problem_24, R.string.menu_issue));
 
                 if (Helper.getIntentPrivacy().resolveActivity(getPackageManager()) != null)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_account_box_24, R.string.menu_privacy));
@@ -802,18 +811,18 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         sm.setDynamicShortcuts(shortcuts);
     }
 
-    private Intent getIntentRate() {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + BuildConfig.APPLICATION_ID));
-        if (intent.resolveActivity(getPackageManager()) == null)
-            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID));
-        return intent;
-    }
-
     private Intent getIntentInvite() {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
         intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.title_try) + "\n\nhttps://email.faircode.eu/\n\n");
+        return intent;
+    }
+
+    private Intent getIntentRate() {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + BuildConfig.APPLICATION_ID));
+        if (intent.resolveActivity(getPackageManager()) == null)
+            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID));
         return intent;
     }
 
@@ -897,6 +906,22 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         Helper.view(this, this, Helper.getIntentFAQ());
     }
 
+    private void onMenuIssue() {
+        try {
+            String version = BuildConfig.VERSION_NAME + "/" +
+                    (Helper.hasValidFingerprint(this) ? "1" : "3") +
+                    (Helper.isPro(this) ? "+" : "");
+            Intent issue = new Intent(Intent.ACTION_SEND);
+            issue.setPackage(BuildConfig.APPLICATION_ID);
+            issue.setType("text/plain");
+            issue.putExtra(Intent.EXTRA_EMAIL, new String[]{Helper.myAddress().getAddress()});
+            issue.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.title_issue_subject, version));
+            startActivity(issue);
+        } catch (UnsupportedEncodingException ex) {
+            Helper.unexpectedError(this, this, ex);
+        }
+    }
+
     private void onMenuPrivacy() {
         Helper.view(this, this, Helper.getIntentPrivacy());
     }
@@ -905,6 +930,16 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentAbout()).addToBackStack("about");
         fragmentTransaction.commit();
+    }
+
+    private void onMenuPro() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+        fragmentTransaction.commit();
+    }
+
+    private void onMenuInvite() {
+        startActivity(getIntentInvite());
     }
 
     private void onMenuRate() {
@@ -928,16 +963,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     })
                     .show();
         }
-    }
-
-    private void onMenuPro() {
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-        fragmentTransaction.commit();
-    }
-
-    private void onMenuInvite() {
-        startActivity(getIntentInvite());
     }
 
     private void onMenuOtherApps() {

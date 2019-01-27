@@ -54,14 +54,17 @@
 
     <string name="title_notification_failed">\'%1$s\' failed</string>
 
-    <string name="menu_setup">Setup</string>
     <string name="menu_answers">Templates</string>
     <string name="menu_operations">Operations</string>
+    <string name="menu_setup">Setup</string>
+
     <string name="menu_legend">Legend</string>
     <string name="menu_faq">Support</string>
-    <string name="menu_pro">Pro features</string>
+    <string name="menu_issue">Report issue</string>
     <string name="menu_privacy">Privacy</string>
     <string name="menu_about">About</string>
+
+    <string name="menu_pro">Pro features</string>
     <string name="menu_invite">Invite</string>
     <string name="menu_rate">Rate this app</string>
     <string name="menu_other">Other apps</string>
@@ -492,6 +495,7 @@
     <string name="title_debug_info">Debug info</string>
     <string name="title_debug_info_remark">Please describe the problem and indicate the time of the problem:</string>
     <string name="title_crash_info_remark">Please describe what you were doing when the app crashed:</string>
+    <string name="title_issue_subject" translatable="false">FairEmail %1$s issue</string>
 
     <string-array name="downloadNames">
         <item>16 KB</item>
