@@ -827,12 +827,6 @@ public class FragmentMessages extends FragmentBase {
                     if (!fids.contains(message.folder))
                         fids.add(message.folder);
 
-                    EntityFolder folder = db.folder().getFolder(message.folder);
-                    result.isArchive = EntityFolder.ARCHIVE.equals(folder.type);
-                    result.isTrash = EntityFolder.TRASH.equals(folder.type);
-                    result.isJunk = EntityFolder.JUNK.equals(folder.type);
-                    result.isDrafts = EntityFolder.DRAFTS.equals(folder.type);
-
                     if (message.ui_seen)
                         result.seen = true;
                     else
@@ -843,13 +837,34 @@ public class FragmentMessages extends FragmentBase {
                     else
                         result.unflagged = true;
 
-                    result.hasArchive = (result.hasArchive &&
-                            db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE) != null);
-                    result.hasTrash = (result.hasTrash &&
-                            db.folder().getFolderByType(message.account, EntityFolder.TRASH) != null);
-                    result.hasJunk = (result.hasJunk &&
-                            db.folder().getFolderByType(message.account, EntityFolder.JUNK) != null);
+                    EntityFolder folder = db.folder().getFolder(message.folder);
+                    boolean isArchive = EntityFolder.ARCHIVE.equals(folder.type);
+                    boolean isTrash = EntityFolder.TRASH.equals(folder.type);
+                    boolean isJunk = EntityFolder.JUNK.equals(folder.type);
+                    boolean isDrafts = EntityFolder.DRAFTS.equals(folder.type);
+
+                    result.isArchive = (result.isArchive == null ? isArchive : result.isArchive && isArchive);
+                    result.isTrash = (result.isTrash == null ? isTrash : result.isTrash && isArchive);
+                    result.isJunk = (result.isJunk == null ? isJunk : result.isJunk && isArchive);
+                    result.isDrafts = (result.isDrafts == null ? isDrafts : result.isDrafts && isArchive);
+
+                    boolean hasArchive = (db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE) != null);
+                    boolean hasTrash = (db.folder().getFolderByType(message.account, EntityFolder.TRASH) != null);
+                    boolean hasJunk = (db.folder().getFolderByType(message.account, EntityFolder.JUNK) != null);
+
+                    result.hasArchive = (result.hasArchive == null ? hasArchive : result.hasArchive && hasArchive);
+                    result.hasTrash = (result.hasTrash == null ? hasTrash : result.hasTrash && hasTrash);
+                    result.hasJunk = (result.hasJunk == null ? hasJunk : result.hasJunk && hasJunk);
                 }
+
+                if (result.isArchive == null) result.isArchive = false;
+                if (result.isTrash == null) result.isTrash = false;
+                if (result.isJunk == null) result.isJunk = false;
+                if (result.isDrafts == null) result.isDrafts = false;
+
+                if (result.hasArchive == null) result.hasArchive = false;
+                if (result.hasTrash == null) result.hasTrash = false;
+                if (result.hasJunk == null) result.hasJunk = false;
 
                 result.accounts = db.account().getAccounts(true);
 
@@ -2254,13 +2269,13 @@ public class FragmentMessages extends FragmentBase {
         boolean unseen;
         boolean flagged;
         boolean unflagged;
-        boolean hasArchive = true;
-        boolean hasTrash = true;
-        boolean hasJunk = true;
-        boolean isArchive;
-        boolean isTrash;
-        boolean isJunk;
-        boolean isDrafts;
+        Boolean hasArchive;
+        Boolean hasTrash;
+        Boolean hasJunk;
+        Boolean isArchive;
+        Boolean isTrash;
+        Boolean isJunk;
+        Boolean isDrafts;
         List<EntityAccount> accounts;
         Map<EntityAccount, List<EntityFolder>> targets = new HashMap<>();
     }
