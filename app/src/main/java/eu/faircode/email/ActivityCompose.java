@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
+import androidx.core.app.TaskStackBuilder;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
@@ -162,8 +163,20 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
 
     @Override
     public void onBackStackChanged() {
-        if (getSupportFragmentManager().getBackStackEntryCount() == 0)
+        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+            Intent parent = getParentActivityIntent();
+            if (parent != null)
+                if (shouldUpRecreateTask(parent))
+                    TaskStackBuilder.create(this)
+                            .addNextIntentWithParentStack(parent)
+                            .startActivities();
+                else {
+                    parent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(parent);
+                }
+
             finishAndRemoveTask();
+        }
     }
 
     @Override
