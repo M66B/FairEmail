@@ -64,6 +64,8 @@ import org.json.JSONException;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -122,6 +124,7 @@ import javax.mail.search.FlagTerm;
 import javax.mail.search.MessageIDTerm;
 import javax.mail.search.OrTerm;
 import javax.mail.search.ReceivedDateTerm;
+import javax.mail.search.SearchTerm;
 import javax.net.ssl.SSLException;
 
 import androidx.annotation.NonNull;
@@ -1716,17 +1719,18 @@ public class ServiceSynchronize extends LifecycleService {
         boolean autoread = false;
         if (jargs.length() > 1) {
             autoread = jargs.getBoolean(1);
-            if (autoread && !imessage.isSet(Flags.Flag.SEEN)) {
-                Log.i(folder.name + " autoread");
-                imessage.setFlag(Flags.Flag.SEEN, true);
+            if (ifolder.getPermanentFlags().contains(Flags.Flag.SEEN)) {
+                if (autoread && !imessage.isSet(Flags.Flag.SEEN)) {
+                    Log.i(folder.name + " autoread");
+                    imessage.setFlag(Flags.Flag.SEEN, true);
+                }
             }
         }
 
         // Handle draft
-        if (EntityFolder.DRAFTS.equals(folder.type)) {
+        if (EntityFolder.DRAFTS.equals(folder.type))
             if (ifolder.getPermanentFlags().contains(Flags.Flag.DRAFT))
                 imessage.setFlag(Flags.Flag.DRAFT, true);
-        }
 
         // Add message
         if (istore.hasCapability("UIDPLUS")) {
@@ -1741,17 +1745,7 @@ public class ServiceSynchronize extends LifecycleService {
             ifolder.appendMessages(new Message[]{imessage});
 
             Log.i(folder.name + " lookup id=" + message.id);
-            long uid = -1;
-            Message[] iappended = ifolder.search(new MessageIDTerm(message.msgid));
-            if (iappended != null)
-                for (Message m : iappended) {
-                    long auid = ifolder.getUID(m);
-                    Log.i(folder.name + " " + message.msgid + " uid=" + auid);
-                    if ((message.uid == null || auid != message.uid) && auid > uid)
-                        uid = auid;
-                }
-            if (uid < 0)
-                throw new MessageRemovedException("Message not found back");
+            long uid = getUid(folder, ifolder, message.msgid);
 
             Log.i(folder.name + " lookup id=" + message.id + " uid=" + uid);
             db.message().setMessageUid(message.id, uid);
@@ -1783,34 +1777,75 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doMove(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws JSONException, MessagingException, IOException {
         // Move message
-        long id = jargs.getLong(0);
-        EntityFolder target = db.folder().getFolder(id);
-        if (target == null)
-            throw new FolderNotFoundException();
-
-        // Get message
         Message imessage = ifolder.getMessageByUID(message.uid);
         if (imessage == null)
             throw new MessageRemovedException();
 
+        // Get parameters
         boolean autoread = jargs.getBoolean(1);
-        if (autoread && !imessage.isSet(Flags.Flag.SEEN))
-            imessage.setFlag(Flags.Flag.SEEN, true);
 
-        if (istore.hasCapability("MOVE") && !EntityFolder.DRAFTS.equals(folder.type)) {
-            Folder itarget = istore.getFolder(target.name);
+        // Get target folder
+        long id = jargs.getLong(0);
+        EntityFolder target = db.folder().getFolder(id);
+        if (target == null)
+            throw new FolderNotFoundException();
+        IMAPFolder itarget = (IMAPFolder) istore.getFolder(target.name);
+
+        if (istore.hasCapability("MOVE") &&
+                !EntityFolder.DRAFTS.equals(folder.type) &&
+                !EntityFolder.DRAFTS.equals(target.type)) {
+            // Autoread
+            if (ifolder.getPermanentFlags().contains(Flags.Flag.SEEN)) {
+                if (autoread && !imessage.isSet(Flags.Flag.SEEN))
+                    imessage.setFlag(Flags.Flag.SEEN, true);
+            }
+
+            // Move message to
             ifolder.moveMessages(new Message[]{imessage}, itarget);
         } else {
             Log.w(folder.name + " MOVE by DELETE/APPEND");
 
-            // Delete source
-            imessage.setFlag(Flags.Flag.DELETED, true);
-            ifolder.expunge();
+            // Serialize source message
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            imessage.writeTo(bos);
 
-            // Append target
-            MimeMessageEx icopy = MessageHelper.from(this, message, isession);
-            Folder itarget = istore.getFolder(target.name);
-            itarget.appendMessages(new Message[]{icopy});
+            // Deserialize target message
+            ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+            Message icopy = new MimeMessage(isession, bis);
+
+            try {
+                // Needed to read flags
+                itarget.open(Folder.READ_WRITE);
+
+                // Auto read
+                if (itarget.getPermanentFlags().contains(Flags.Flag.SEEN)) {
+                    if (autoread && !icopy.isSet(Flags.Flag.SEEN)) {
+                        Log.i("Copy autoread");
+                        icopy.setFlag(Flags.Flag.SEEN, true);
+                    }
+                }
+
+                // Move from drafts
+                if (EntityFolder.DRAFTS.equals(folder.type))
+                    if (itarget.getPermanentFlags().contains(Flags.Flag.DRAFT))
+                        icopy.setFlag(Flags.Flag.DRAFT, false);
+
+                // Move to drafts
+                if (EntityFolder.DRAFTS.equals(target.type))
+                    if (itarget.getPermanentFlags().contains(Flags.Flag.DRAFT))
+                        icopy.setFlag(Flags.Flag.DRAFT, true);
+
+                // Append target
+                itarget.appendMessages(new Message[]{icopy});
+
+                // Delete source
+                imessage.setFlag(Flags.Flag.DELETED, true);
+                ifolder.expunge();
+            } catch (Throwable ex) {
+                if (itarget.isOpen())
+                    itarget.close();
+                throw ex;
+            }
         }
     }
 
@@ -2113,6 +2148,24 @@ public class ServiceSynchronize extends LifecycleService {
         parts.downloadAttachment(this, db, attachment.id, sequence);
     }
 
+    private long getUid(EntityFolder folder, IMAPFolder ifolder, String msgid) throws MessagingException {
+        long uid = -1;
+        Message[] messages = ifolder.search(new MessageIDTerm(msgid));
+        if (messages != null)
+            for (Message message : messages) {
+                long muid = ifolder.getUID(message);
+                Log.i(folder.name + " " + msgid + " uid=" + muid);
+                // RFC3501: Unique identifiers are assigned in a strictly ascending fashion
+                if (muid > uid)
+                    uid = muid;
+            }
+
+        if (uid < 0)
+            throw new MessageRemovedException("uid not found");
+
+        return uid;
+    }
+
     private void synchronizeFolders(EntityAccount account, IMAPStore istore, ServiceState state) throws MessagingException {
         DB db = DB.getInstance(this);
         try {
@@ -2284,13 +2337,12 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(folder.name + " local count=" + uids.size());
 
             // Reduce list of local uids
+            SearchTerm searchTerm = new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time));
+            if (ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED))
+                searchTerm = new OrTerm(searchTerm, new FlagTerm(new Flags(Flags.Flag.FLAGGED), true));
+
             long search = SystemClock.elapsedRealtime();
-            Message[] imessages = ifolder.search(
-                    new OrTerm(
-                            new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time)),
-                            new FlagTerm(new Flags(Flags.Flag.FLAGGED), true)
-                    )
-            );
+            Message[] imessages = ifolder.search(searchTerm);
             Log.i(folder.name + " remote count=" + imessages.length +
                     " search=" + (SystemClock.elapsedRealtime() - search) + " ms");
 

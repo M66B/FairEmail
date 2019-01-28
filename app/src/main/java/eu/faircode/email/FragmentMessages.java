@@ -741,7 +741,7 @@ public class FragmentMessages extends FragmentBase {
             if (values.containsKey("expanded") && values.get("expanded").contains(message.id))
                 return null;
 
-            if (EntityFolder.DRAFTS.equals(message.folderType) || EntityFolder.OUTBOX.equals(message.folderType))
+            if (EntityFolder.OUTBOX.equals(message.folderType))
                 return null;
 
             return message;
@@ -914,7 +914,7 @@ public class FragmentMessages extends FragmentBase {
                 if (result.flagged)
                     popupMenu.getMenu().add(Menu.NONE, action_unflag, 5, R.string.title_unflag);
 
-                if (result.hasArchive && !result.isArchive && !result.isDrafts) // has archive and not is archive/drafts
+                if (result.hasArchive && !result.isArchive) // has archive and not is archive/drafts
                     popupMenu.getMenu().add(Menu.NONE, action_archive, 6, R.string.title_archive);
 
                 if (result.isTrash) // is trash
@@ -926,16 +926,14 @@ public class FragmentMessages extends FragmentBase {
                 if (result.hasJunk && !result.isJunk && !result.isDrafts) // has junk and not junk/drafts
                     popupMenu.getMenu().add(Menu.NONE, action_junk, 9, R.string.title_spam);
 
-                if (!result.isDrafts) { // not drafts
-                    int order = 11;
-                    for (EntityAccount account : result.accounts) {
-                        SubMenu smenu = popupMenu.getMenu()
-                                .addSubMenu(Menu.NONE, 0, order++, getString(R.string.title_move_to, account.name));
-                        int sorder = 1;
-                        for (EntityFolder target : result.targets.get(account)) {
-                            MenuItem item = smenu.add(Menu.NONE, action_move, sorder++, target.getDisplayName(getContext()));
-                            item.setIntent(new Intent().putExtra("target", target.id));
-                        }
+                int order = 11;
+                for (EntityAccount account : result.accounts) {
+                    SubMenu smenu = popupMenu.getMenu()
+                            .addSubMenu(Menu.NONE, 0, order++, getString(R.string.title_move_to, account.name));
+                    int sorder = 1;
+                    for (EntityFolder target : result.targets.get(account)) {
+                        MenuItem item = smenu.add(Menu.NONE, action_move, sorder++, target.getDisplayName(getContext()));
+                        item.setIntent(new Intent().putExtra("target", target.id));
                     }
                 }
 
