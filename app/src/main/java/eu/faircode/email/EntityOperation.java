@@ -158,6 +158,8 @@ public class EntityOperation {
 
                 EntityFolder source = db.folder().getFolder(message.folder);
                 EntityFolder target = db.folder().getFolder(jargs.getLong(0));
+                if (source.id.equals(target.id))
+                    return;
 
                 if (!EntityFolder.ARCHIVE.equals(source.type) || EntityFolder.TRASH.equals(target.type))
                     db.message().setMessageUiHide(message.id, true);

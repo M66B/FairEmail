@@ -1797,11 +1797,6 @@ public class ServiceSynchronize extends LifecycleService {
         if (autoread && !imessage.isSet(Flags.Flag.SEEN))
             imessage.setFlag(Flags.Flag.SEEN, true);
 
-        if (target.id.equals(folder.id)) {
-            Log.w(folder.name + " MOVE onto self");
-            return;
-        }
-
         if (istore.hasCapability("MOVE") && !EntityFolder.DRAFTS.equals(folder.type)) {
             Folder itarget = istore.getFolder(target.name);
             ifolder.moveMessages(new Message[]{imessage}, itarget);
