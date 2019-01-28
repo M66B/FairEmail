@@ -154,6 +154,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
             View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
+        private int position;
         private View itemView;
         private TextView tvDay;
         private View vwColor;
@@ -421,7 +422,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         @SuppressLint("WrongConstant")
-        private void bindTo(int position, final TupleMessageEx message) {
+        private void bindTo(int pos, final TupleMessageEx message) {
+            position = pos;
+
             final DB db = DB.getInstance(context);
             final boolean show_expanded = properties.getValue("expanded", message.id);
             boolean show_addresses = !properties.getValue("addresses", message.id);
@@ -496,11 +499,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Bundle aargs = new Bundle();
                 aargs.putLong("id", message.id);
                 aargs.putSerializable("addresses", addresses);
+                aargs.putInt("position", position);
 
                 new SimpleTask<ContactInfo>() {
                     @Override
                     protected void onPreExecute(Bundle args) {
-                        itemView.setTag(message.id);
                         ivAvatar.setVisibility(avatars ? View.INVISIBLE : View.GONE);
                         tvFrom.setText(MessageHelper.formatAddresses(addresses, !compact, false));
                     }
@@ -513,8 +516,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     @Override
                     protected void onExecuted(Bundle args, ContactInfo info) {
-                        Long id = args.getLong("id");
-                        if (id != null && id.equals(itemView.getTag()))
+                        if (args.getInt("position") == position)
                             showContactInfo(info, message);
                     }
 
