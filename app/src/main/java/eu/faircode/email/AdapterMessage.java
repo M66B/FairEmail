@@ -1892,7 +1892,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(data.message.uid != null);
 
             popupMenu.getMenu().findItem(R.id.menu_junk).setEnabled(data.message.uid != null);
-            popupMenu.getMenu().findItem(R.id.menu_junk).setVisible(data.hasJunk);
+            popupMenu.getMenu().findItem(R.id.menu_junk).setVisible(
+                    data.hasJunk && !EntityFolder.JUNK.equals(data.message.folderType));
 
             popupMenu.getMenu().findItem(R.id.menu_delete).setVisible(debug);
 
