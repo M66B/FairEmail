@@ -622,7 +622,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvKeywords.setVisibility(View.GONE);
             ivSearchContact.setVisibility(
                     viewType == ViewType.THREAD && show_expanded && show_addresses &&
-                            search
+                            search && BuildConfig.DEBUG
                             ? View.VISIBLE : View.GONE);
             ivAddContact.setVisibility(
                     viewType == ViewType.THREAD && show_expanded && show_addresses &&
