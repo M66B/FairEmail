@@ -269,6 +269,9 @@ public interface DaoMessage {
     @Update
     int updateMessage(EntityMessage message);
 
+    @Query("UPDATE message SET uid = :uid WHERE id = :id")
+    int setMessageUid(long id, long uid);
+
     @Query("UPDATE message SET seen = :seen WHERE id = :id")
     int setMessageSeen(long id, boolean seen);
 
