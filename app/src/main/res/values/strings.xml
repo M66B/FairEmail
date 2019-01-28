@@ -47,6 +47,11 @@
         <item quantity="other">Move %1$d messages to %2$s?</item>
     </plurals>
 
+    <plurals name="title_deleting_messages">
+        <item quantity="one">Delete %1$d message permanently?</item>
+        <item quantity="other">Delete %1$d messages permanently?</item>
+    </plurals>
+
     <plurals name="title_ask_spam">
         <item quantity="one">Report %1$d message as spam?</item>
         <item quantity="other">Report %1$d messages as spam?</item>
@@ -322,7 +327,6 @@
     <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be added, continue?</string>
     <string name="title_image_unavailable">Some images are not downloaded and will not be added, continue?</string>
     <string name="title_ask_delete">Delete message permanently?</string>
-    <string name="title_ask_delete_selected">Delete selected messages permanently?</string>
     <string name="title_ask_delete_answer">Delete reply template permanently?</string>
     <string name="title_ask_delete_rule">Delete rule permanently?</string>
     <string name="title_ask_discard">Discard draft?</string>

@@ -1138,8 +1138,9 @@ public class FragmentMessages extends FragmentBase {
     }
 
     private void onActionDeleteSelection() {
+        int count = selectionTracker.getSelection().size();
         new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setMessage(R.string.title_ask_delete_selected)
+                .setMessage(getResources().getQuantityString(R.plurals.title_deleting_messages, count, count))
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
