@@ -2831,26 +2831,24 @@ public class ServiceSynchronize extends LifecycleService {
             fp.add(FetchProfile.Item.SIZE);
             fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
             ifolder.fetch(new Message[]{imessage}, fp);
-        }
 
-        MessageHelper.MessageParts parts = helper.getMessageParts();
+            MessageHelper.MessageParts parts = helper.getMessageParts();
 
-        if (!message.content) {
-            if (!metered || (message.size != null && message.size < maxSize)) {
-                String body = parts.getHtml(context);
-                Helper.writeText(EntityMessage.getFile(context, message.id), body);
-                db.message().setMessageContent(message.id, true, HtmlHelper.getPreview(body));
-                db.message().setMessageWarning(message.id, parts.getWarnings(message.warning));
-                Log.i(folder.name + " downloaded message id=" + message.id + " size=" + message.size);
+            if (!message.content) {
+                if (!metered || (message.size != null && message.size < maxSize)) {
+                    String body = parts.getHtml(context);
+                    Helper.writeText(EntityMessage.getFile(context, message.id), body);
+                    db.message().setMessageContent(message.id, true, HtmlHelper.getPreview(body));
+                    db.message().setMessageWarning(message.id, parts.getWarnings(message.warning));
+                    Log.i(folder.name + " downloaded message id=" + message.id + " size=" + message.size);
+                }
             }
-        }
 
-        for (int i = 0; i < attachments.size(); i++) {
-            EntityAttachment attachment = attachments.get(i);
-            if (!attachment.available)
-                if (!metered || (attachment.size != null && attachment.size < maxSize))
-                    if (!parts.downloadAttachment(context, db, attachment.id, attachment.sequence))
-                        break;
+            for (EntityAttachment attachment : attachments)
+                if (!attachment.available)
+                    if (!metered || (attachment.size != null && attachment.size < maxSize))
+                        if (!parts.downloadAttachment(context, db, attachment.id, attachment.sequence))
+                            break;
         }
     }
 
