@@ -93,10 +93,14 @@ import org.openintents.openpgp.util.OpenPgpServiceConnection;
 import org.xml.sax.XMLReader;
 
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -150,7 +154,8 @@ public class FragmentCompose extends FragmentBase {
     private TextView tvNoInternet;
     private TextView tvSignature;
     private TextView tvReference;
-    private ImageButton ibImages;
+    private ImageButton ibReferenceEdit;
+    private ImageButton ibReferenceImages;
     private BottomNavigationView edit_bar;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
@@ -206,7 +211,8 @@ public class FragmentCompose extends FragmentBase {
         tvNoInternet = view.findViewById(R.id.tvNoInternet);
         tvSignature = view.findViewById(R.id.tvSignature);
         tvReference = view.findViewById(R.id.tvReference);
-        ibImages = view.findViewById(R.id.ibImages);
+        ibReferenceEdit = view.findViewById(R.id.ibReferenceEdit);
+        ibReferenceImages = view.findViewById(R.id.ibReferenceImages);
         edit_bar = view.findViewById(R.id.edit_bar);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
@@ -283,7 +289,68 @@ public class FragmentCompose extends FragmentBase {
         ivCcAdd.setOnClickListener(onPick);
         ivBccAdd.setOnClickListener(onPick);
 
-        ibImages.setOnClickListener(new View.OnClickListener() {
+        ibReferenceEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putLong("id", working);
+                args.putString("body", Html.toHtml(etBody.getText()));
+
+                new SimpleTask<Void>() {
+                    @Override
+                    protected void onPreExecute(Bundle args) {
+                        ibReferenceEdit.setEnabled(false);
+                    }
+
+                    @Override
+                    protected void onPostExecute(Bundle args) {
+                        ibReferenceEdit.setEnabled(true);
+                    }
+
+                    @Override
+                    protected Void onExecute(Context context, Bundle args) throws Throwable {
+                        long id = args.getLong("id");
+                        String body = args.getString("body");
+
+                        File file = EntityMessage.getFile(context, id);
+                        File ref = EntityMessage.getRefFile(context, id);
+
+                        BufferedReader in = null;
+                        BufferedWriter out = null;
+                        try {
+                            out = new BufferedWriter(new FileWriter(file));
+                            out.write(body);
+
+                            in = new BufferedReader(new FileReader(ref));
+                            String str;
+                            while ((str = in.readLine()) != null)
+                                out.write(str);
+                        } finally {
+                            if (out != null)
+                                out.close();
+                            if (in != null)
+                                in.close();
+                        }
+
+                        ref.delete();
+
+                        return null;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, Void data) {
+                        showDraft(working);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                    }
+                }.execute(FragmentCompose.this, args, "compose:refedit");
+            }
+        });
+
+        ibReferenceImages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 show_images = true;
@@ -377,7 +444,8 @@ public class FragmentCompose extends FragmentBase {
         grpBody.setVisibility(View.GONE);
         grpSignature.setVisibility(View.GONE);
         grpReference.setVisibility(View.GONE);
-        ibImages.setVisibility(View.GONE);
+        ibReferenceEdit.setVisibility(View.GONE);
+        ibReferenceImages.setVisibility(View.GONE);
         edit_bar.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
@@ -2166,7 +2234,8 @@ public class FragmentCompose extends FragmentBase {
 
                 tvReference.setText(text[1]);
                 grpReference.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
-                ibImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
+                ibReferenceEdit.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
+                ibReferenceImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
 
                 new Handler().post(new Runnable() {
                     @Override
@@ -2262,7 +2331,7 @@ public class FragmentCompose extends FragmentBase {
                     }
                 });
             } else
-                lld.setLevel(0); // broken
+                lld.setLevel(1); // image place holder
 
             return lld;
         }
