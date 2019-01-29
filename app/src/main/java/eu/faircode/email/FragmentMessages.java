@@ -1061,16 +1061,25 @@ public class FragmentMessages extends FragmentBase {
                                         wakeup = null;
 
                                     DB db = DB.getInstance(context);
-                                    for (long id : ids) {
-                                        EntityMessage message = db.message().getMessage(id);
-                                        if (message != null) {
-                                            List<EntityMessage> messages = db.message().getMessageByThread(
-                                                    message.account, message.thread, threading ? null : id, message.folder);
-                                            for (EntityMessage threaded : messages) {
-                                                db.message().setMessageSnoozed(threaded.id, wakeup);
-                                                EntityMessage.snooze(context, threaded.id, wakeup);
+                                    try {
+                                        db.beginTransaction();
+
+                                        for (long id : ids) {
+                                            EntityMessage message = db.message().getMessage(id);
+                                            if (message != null) {
+                                                List<EntityMessage> messages = db.message().getMessageByThread(
+                                                        message.account, message.thread, threading ? null : id, message.folder);
+                                                for (EntityMessage threaded : messages) {
+                                                    db.message().setMessageSnoozed(threaded.id, wakeup);
+                                                    EntityMessage.snooze(context, threaded.id, wakeup);
+                                                    EntityOperation.queue(context, db, threaded, EntityOperation.SEEN, true);
+                                                }
                                             }
                                         }
+
+                                        db.setTransactionSuccessful();
+                                    } finally {
+                                        db.endTransaction();
                                     }
 
                                     return null;
