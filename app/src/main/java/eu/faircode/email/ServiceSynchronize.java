@@ -1229,7 +1229,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                             db.folder().setFolderError(folder.id, null);
                                                         }
 
-                                                        processOperations(account, folder, operations, isession, istore, ifolder, state);
+                                                        processOperations(account, folder, isession, istore, ifolder, state);
 
                                                     } catch (Throwable ex) {
                                                         Log.e(folder.name, ex);
@@ -1433,13 +1433,15 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private void processOperations(
-            EntityAccount account, EntityFolder folder, List<EntityOperation> ops, Session isession,
-            IMAPStore istore, IMAPFolder ifolder, ServiceState state)
+            EntityAccount account, EntityFolder folder,
+            Session isession, IMAPStore istore, IMAPFolder ifolder,
+            ServiceState state)
             throws MessagingException, JSONException, IOException {
         try {
             Log.i(folder.name + " start process");
 
             DB db = DB.getInstance(this);
+            List<EntityOperation> ops = db.operation().getOperations(folder.id);
             Log.i(folder.name + " pending operations=" + ops.size());
             for (int i = 0; i < ops.size() && state.running(); i++) {
                 EntityOperation op = ops.get(i);
@@ -3023,7 +3025,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                         Log.i(outbox.name + " process");
 
                                                         db.folder().setFolderSyncState(outbox.id, "syncing");
-                                                        processOperations(null, outbox, operations, null, null, null, state);
+                                                        processOperations(null, outbox, null, null, null, state);
                                                         db.folder().setFolderError(outbox.id, null);
                                                     } catch (Throwable ex) {
                                                         Log.e(outbox.name, ex);

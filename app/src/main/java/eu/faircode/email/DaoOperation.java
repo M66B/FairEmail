@@ -44,7 +44,7 @@ public interface DaoOperation {
             ", id")
     LiveData<List<TupleOperationEx>> liveOperations();
 
-    @Query("SELECT operation.* FROM operation" +
+    String GET_OPS_FOLDER = "SELECT operation.* FROM operation" +
             " JOIN folder ON folder.id = operation.folder" +
             " LEFT JOIN message ON message.id = operation.message" +
             " LEFT JOIN account ON account.id = message.account" +
@@ -57,7 +57,12 @@ public interface DaoOperation {
             "    CASE WHEN folder.account IS NULL THEN -1 ELSE 1 END" + // outbox
             "    ELSE 0" +
             "  END" +
-            ", id")
+            ", id";
+
+    @Query(GET_OPS_FOLDER)
+    List<EntityOperation> getOperations(long folder);
+
+    @Query(GET_OPS_FOLDER)
     LiveData<List<EntityOperation>> liveOperations(long folder);
 
     @Query("SELECT * FROM operation ORDER BY id")
