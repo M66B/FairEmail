@@ -512,6 +512,19 @@
             app:layout_constraintTop_toBottomOf="@id/tvSizeEx" />
 
         <TextView
+            android:id="@+id/tvFlags"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:text="Flags"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSubjectEx" />
+
+        <TextView
             android:id="@+id/tvKeywords"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -522,7 +535,7 @@
             android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSubjectEx" />
+            app:layout_constraintTop_toBottomOf="@id/tvFlags" />
 
         <View
             android:id="@+id/vSeparatorHeaders"

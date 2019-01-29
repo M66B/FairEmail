@@ -413,6 +413,15 @@ public class MessageHelper {
         return imessage.isSet(Flags.Flag.FLAGGED);
     }
 
+    String getFlags() throws MessagingException {
+        if (!BuildConfig.DEBUG)
+            return null;
+
+        Flags flags = imessage.getFlags();
+        flags.clearUserFlags();
+        return flags.toString();
+    }
+
     String[] getKeywords() throws MessagingException {
         return imessage.getFlags().getUserFlags();
     }

@@ -116,6 +116,7 @@ public class EntityMessage implements Serializable {
     public Boolean answered = false;
     @NonNull
     public Boolean flagged = false;
+    public String flags; // system flags
     public String[] keywords; // user flags
     @NonNull
     public Boolean ui_seen = false;
@@ -217,6 +218,7 @@ public class EntityMessage implements Serializable {
                     //this.seen.equals(other.seen) &&
                     //this.answered.equals(other.answered) &&
                     //this.flagged.equals(other.flagged) &&
+                    (!BuildConfig.DEBUG || (this.flags == null ? other.flags == null : this.flags.equals(other.flags))) &&
                     Helper.equal(this.keywords, other.keywords) &&
                     this.ui_seen.equals(other.ui_seen) &&
                     this.ui_answered.equals(other.ui_answered) &&
@@ -263,6 +265,7 @@ public class EntityMessage implements Serializable {
                     this.seen.equals(other.seen) &&
                     this.answered.equals(other.answered) &&
                     this.flagged.equals(other.flagged) &&
+                    (this.flags == null ? other.flags == null : this.flags.equals(other.flags)) &&
                     Helper.equal(this.keywords, other.keywords) &&
                     this.ui_seen.equals(other.ui_seen) &&
                     this.ui_answered.equals(other.ui_answered) &&

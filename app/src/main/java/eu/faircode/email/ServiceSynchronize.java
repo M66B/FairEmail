@@ -2561,6 +2561,7 @@ public class ServiceSynchronize extends LifecycleService {
         boolean seen = helper.getSeen();
         boolean answered = helper.getAnsered();
         boolean flagged = helper.getFlagged();
+        String flags = helper.getFlags();
         String[] keywords = helper.getKeywords();
         boolean filter = false;
 
@@ -2677,6 +2678,7 @@ public class ServiceSynchronize extends LifecycleService {
             message.seen = seen;
             message.answered = answered;
             message.flagged = flagged;
+            message.flags = flags;
             message.keywords = keywords;
             message.ui_seen = seen;
             message.ui_answered = answered;
@@ -2733,6 +2735,12 @@ public class ServiceSynchronize extends LifecycleService {
                 message.flagged = flagged;
                 message.ui_flagged = flagged;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " flagged=" + flagged);
+            }
+
+            if (flags == null ? message.flags != null : !flags.equals(message.flags)) {
+                update = true;
+                message.flags = flags;
+                Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " flags=" + flags);
             }
 
             if (!Helper.equal(message.keywords, keywords)) {
