@@ -28,24 +28,36 @@ import androidx.room.Query;
 
 @Dao
 public interface DaoOperation {
-    @Query("SELECT * FROM operation" +
-            " WHERE folder = :folder" +
+    @Query("SELECT operation.*, account.name AS accountName, folder.name AS folderName" +
+            " ,((account.synchronize IS NULL OR account.synchronize)" +
+            " AND (NOT folder.account IS NULL OR identity.synchronize)) AS synchronize" +
+            " FROM operation" +
+            " JOIN folder ON folder.id = operation.folder" +
+            " LEFT JOIN message ON message.id = operation.message" +
+            " LEFT JOIN account ON account.id = message.account" +
+            " LEFT JOIN identity ON identity.id = message.identity" +
             " ORDER BY" +
-            "  CASE WHEN name = '" + EntityOperation.SYNC + "' THEN" +
-            "    CASE WHEN :outbox THEN -1 ELSE 1 END" +
+            "  CASE WHEN operation.name = '" + EntityOperation.SYNC + "' THEN" +
+            "    CASE WHEN folder.account IS NULL THEN -1 ELSE 1 END" + // outbox
             "    ELSE 0" +
             "  END" +
             ", id")
-    List<EntityOperation> getOperationsByFolder(long folder, boolean outbox);
-
-    @Query("SELECT operation.*, account.name AS accountName, folder.name AS folderName" +
-            " FROM operation" +
-            " JOIN folder ON folder.id = operation.folder" +
-            " LEFT JOIN account ON account.id = folder.account" +
-            " ORDER BY operation.id")
     LiveData<List<TupleOperationEx>> liveOperations();
 
-    @Query("SELECT * FROM operation WHERE folder = :folder ORDER BY id")
+    @Query("SELECT operation.* FROM operation" +
+            " JOIN folder ON folder.id = operation.folder" +
+            " LEFT JOIN message ON message.id = operation.message" +
+            " LEFT JOIN account ON account.id = message.account" +
+            " LEFT JOIN identity ON identity.id = message.identity" +
+            " WHERE operation.folder = :folder" +
+            " AND (account.synchronize IS NULL OR account.synchronize)" +
+            " AND (NOT folder.account IS NULL OR identity.synchronize)" +
+            " ORDER BY" +
+            "  CASE WHEN operation.name = '" + EntityOperation.SYNC + "' THEN" +
+            "    CASE WHEN folder.account IS NULL THEN -1 ELSE 1 END" + // outbox
+            "    ELSE 0" +
+            "  END" +
+            ", id")
     LiveData<List<EntityOperation>> liveOperations(long folder);
 
     @Query("SELECT * FROM operation ORDER BY id")

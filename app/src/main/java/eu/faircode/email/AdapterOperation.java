@@ -60,7 +60,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
         ViewHolder(View itemView) {
             super(itemView);
 
-            this.itemView = itemView;
+            this.itemView = itemView.findViewById(R.id.clItem);
             tvFolder = itemView.findViewById(R.id.tvFolder);
             tvMessage = itemView.findViewById(R.id.tvMessage);
             tvOperation = itemView.findViewById(R.id.tvOperation);
@@ -77,6 +77,8 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
         }
 
         private void bindTo(TupleOperationEx operation) {
+            itemView.setAlpha(operation.synchronize ? 1.0f : Helper.LOW_LIGHT);
+
             StringBuilder sb = new StringBuilder();
             sb.append(operation.name);
             try {

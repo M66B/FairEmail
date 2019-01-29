@@ -22,6 +22,7 @@ package eu.faircode.email;
 public class TupleOperationEx extends EntityOperation {
     public String accountName;
     public String folderName;
+    public boolean synchronize;
 
     @Override
     public boolean equals(Object obj) {
@@ -29,7 +30,8 @@ public class TupleOperationEx extends EntityOperation {
             TupleOperationEx other = (TupleOperationEx) obj;
             return (super.equals(obj) &&
                     (this.accountName == null ? other.accountName == null : accountName.equals(other.accountName)) &&
-                    (this.folderName == null ? other.folderName == null : this.folderName.equals(other.folderName)));
+                    (this.folderName == null ? other.folderName == null : this.folderName.equals(other.folderName)) &&
+                    this.synchronize == other.synchronize);
         } else
             return false;
     }
