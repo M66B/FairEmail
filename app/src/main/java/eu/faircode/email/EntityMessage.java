@@ -137,7 +137,7 @@ public class EntityMessage implements Serializable {
     public Long last_attempt; // send
 
     @Ignore
-    public boolean day = false;
+    boolean day = false;
 
     static String generateMessageId() {
         StringBuilder sb = new StringBuilder();
