@@ -40,6 +40,11 @@
         <item quantity="few">Se mută %1$d mesaje la %2$s ?</item>
         <item quantity="other">Se mută %1$d de mesaje la %2$s ?</item>
     </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="one">Ștergeți definitiv %1$d mesaj?</item>
+        <item quantity="few">Ștergeți definitiv %1$d mesaje?</item>
+        <item quantity="other">Ștergeți definitiv %1$d de mesaje?</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Raportați %1$d mesaj drept spam?</item>
         <item quantity="few">Raportați %1$d mesaje drept spam?</item>
@@ -124,6 +129,7 @@
     <string name="title_advanced_identicons">Arată iconițe generate</string>
     <string name="title_advanced_preview">Arată previzualizare mesaj</string>
     <string name="title_advanced_addresses">Implicit arată detaliile adreselor</string>
+    <string name="title_advanced_images">Arată în mod automat imaginile pentru contactele cunoscute</string>
     <string name="title_advanced_actionbar">Bara de acțiuni corversație</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
     <string name="title_advanced_sound">Selectare sunet de notificare</string>
@@ -283,7 +289,6 @@
     <string name="title_attachment_unavailable">Unele fișiere atașate nu sunt descărcate și nu vor fi adăugate, continuați?</string>
     <string name="title_image_unavailable">Unele imagini nu sunt descărcate și nu vor fi adăugate, continuați?</string>
     <string name="title_ask_delete">Ștergeți definitiv mesajul?</string>
-    <string name="title_ask_delete_selected">Se șterg permanent toate mesajele selectate?</string>
     <string name="title_ask_delete_answer">Se șterge permanent șablonul de răspuns?</string>
     <string name="title_ask_delete_rule">Ștergeți regula definitiv?</string>
     <string name="title_ask_discard">Renunțați la ciornă?</string>

@@ -232,7 +232,6 @@
     <string name="title_attachment_unavailable">Bəzi qoşmalar endirilmədi və əlavə edilməyəcək, davam edək?</string>
     <string name="title_image_unavailable">Bəzi təsvirlər endirilmədi və əlavə edilməyəcək, davam edək?</string>
     <string name="title_ask_delete">Mesaj birdəfəlik silinsin?</string>
-    <string name="title_ask_delete_selected">Seçilmiş mesajlar birdəfəlik silinsin?</string>
     <string name="title_ask_delete_answer">Cavab şablonu birdəfəlik silinsin?</string>
     <string name="title_ask_discard">Qaralama silinsin?</string>
     <string name="title_ask_show_html">Orijinal mesajın göstərilməsi, gizlilik həssaslı məlumatları sızdıra bilər</string>

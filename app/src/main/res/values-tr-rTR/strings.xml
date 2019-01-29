@@ -34,12 +34,21 @@
         <item quantity="one">%1$d iletiyi %2$s konumuna taşı?</item>
         <item quantity="other">%1$d iletiyi %2$s konumuna taşı?</item>
     </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="one">%1$d ileti kalıcı olarak silinsin mi?</item>
+        <item quantity="other">%1$d ileti kalıcı olarak silinsin mi?</item>
+    </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="one">%1$d ileti istenmeyen posta olarak bildirilsin mi?</item>
+        <item quantity="other">%1$d ileti istenmeyen posta olarak bildirilsin mi?</item>
+    </plurals>
     <string name="title_notification_failed">\'%1$s\' başarısız oldu</string>
     <string name="menu_answers">Kalıplar</string>
     <string name="menu_operations">İşlemler</string>
     <string name="menu_setup">Kurulum</string>
     <string name="menu_legend">Simgelerin anlamları</string>
     <string name="menu_faq">Destek</string>
+    <string name="menu_issue">Sorun bildir</string>
     <string name="menu_privacy">Gizlilik</string>
     <string name="menu_about">Hakkında</string>
     <string name="menu_pro">Pro özellikleri</string>
@@ -112,6 +121,7 @@
     <string name="title_advanced_identicons">Kimliklerini göster</string>
     <string name="title_advanced_preview">İleti önizlemesini göster</string>
     <string name="title_advanced_addresses">Öntanımlı olarak adres ayrıntılarını göster</string>
+    <string name="title_advanced_images">Bilinen kişiler için görselleri otomatik olarak göster</string>
     <string name="title_advanced_actionbar">İletişim etkinlik çubuğu</string>
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
@@ -267,7 +277,6 @@
     <string name="title_attachment_unavailable">Bazı eklentiler indirilmedi ve eklenmeyecek. Devam edilsin mi?</string>
     <string name="title_image_unavailable">Bazı resimler indirilmemiş ve eklenmeyecek, devam edilsin mi?</string>
     <string name="title_ask_delete">İleti kalıcı olarak silinsin mi?</string>
-    <string name="title_ask_delete_selected">Seçilen iletiler kalıcı olarak silinsin mi?</string>
     <string name="title_ask_delete_answer">Yanıt kalıbı kalıcı olarak silinsin mi?</string>
     <string name="title_ask_delete_rule">Kural kalıcı olarak silinsin mi?</string>
     <string name="title_ask_discard">Taslak silinsin mi?</string>

@@ -273,7 +273,6 @@
     <string name="title_attachment_unavailable">Einige Anlagen wurden nicht heruntergeladen und werden nicht hinzugefügt, fortsetzen?</string>
     <string name="title_image_unavailable">Einige Bilder wurden nicht heruntergeladen und werden nicht hinzugefügt, fortsetzen?</string>
     <string name="title_ask_delete">E-Mail unwiderruflich löschen?</string>
-    <string name="title_ask_delete_selected">Ausgewählte E-Mail(s) unwiderruflich löschen?</string>
     <string name="title_ask_delete_answer">Antwortvorlage unwiderruflich löschen?</string>
     <string name="title_ask_delete_rule">Regel unwiderruflich löschen?</string>
     <string name="title_ask_discard">Entwurf löschen?</string>

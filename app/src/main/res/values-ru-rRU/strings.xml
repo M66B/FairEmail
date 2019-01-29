@@ -46,11 +46,17 @@
         <item quantity="many">Перемещение сообщений %1$d к %2$s?</item>
         <item quantity="other">Перемещение сообщений %1$d к %2$s?</item>
     </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="one">Удалить %1$d сообщение навсегда?</item>
+        <item quantity="few">Удалить %1$d сообщения навсегда?</item>
+        <item quantity="many">Удалить %1$d сообщения навсегда?</item>
+        <item quantity="other">Удалить %1$d сообщения навсегда?</item>
+    </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="one">Сообщить о сообщении %1$d как о спаме?</item>
-        <item quantity="few">Сообщить о сообщениях %1$d как о спаме?</item>
-        <item quantity="many">Сообщить о сообщениях %1$d как о спаме?</item>
-        <item quantity="other">Сообщить о сообщениях %1$d как о спаме?</item>
+        <item quantity="one">Сообщить об %1$d сообщении, как о спаме?</item>
+        <item quantity="few">Сообщить о %1$d сообщениях, как о спаме?</item>
+        <item quantity="many">Сообщить о %1$d сообщениях, как о спаме?</item>
+        <item quantity="other">Сообщить о %1$d сообщениях, как о спаме?</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' не удалось</string>
     <string name="menu_answers">Шаблоны</string>
@@ -291,7 +297,6 @@
     <string name="title_attachment_unavailable">Некоторые вложения не загружены и не будут пересылаться, продолжить?</string>
     <string name="title_image_unavailable">Некоторые изображения не загружены и не будут добавленны, продолжить?</string>
     <string name="title_ask_delete">Удалить сообщение навсегда?</string>
-    <string name="title_ask_delete_selected">Удалить выбранные сообщения навсегда?</string>
     <string name="title_ask_delete_answer">Удалить шаблон ответа навсегда?</string>
     <string name="title_ask_delete_rule">Удалить правило навсегда?</string>
     <string name="title_ask_discard">Удалить черновик?</string>

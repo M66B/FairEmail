@@ -226,7 +226,6 @@
     <string name="title_attachment_unavailable">一些附件未被下载并将不会添加，仍要继续吗？</string>
     <string name="title_image_unavailable">一些附件未被下载并将不会添加，仍要继续吗？</string>
     <string name="title_ask_delete">确定要永久删除邮件吗？</string>
-    <string name="title_ask_delete_selected">是否永久性删除选定的邮件？</string>
     <string name="title_ask_delete_answer">是否永久性删除回复模板？</string>
     <string name="title_ask_discard">丢弃草稿？</string>
     <string name="title_ask_show_html">显示原件可能会泄露隐私敏感信息</string>

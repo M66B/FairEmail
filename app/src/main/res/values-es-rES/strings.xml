@@ -34,6 +34,10 @@
         <item quantity="one">¿Mover %1$d mensaje a %2$s?</item>
         <item quantity="other">¿Mover %1$d mensajes a %2$s?</item>
     </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="one">¿Eliminar %1$d mensaje permanentemente?</item>
+        <item quantity="other">¿Eliminar %1$d mensajes permanentemente?</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">¿Reportar %1$d mensaje como Spam?</item>
         <item quantity="other">¿Reportar %1$d mensajes como Spam?</item>
@@ -117,6 +121,7 @@
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_preview">Mostrar vista previa de mensajes</string>
     <string name="title_advanced_addresses">Mostrar detalles de dirección por defecto</string>
+    <string name="title_advanced_images">Mostrar imágenes automáticamente para contactos conocidos</string>
     <string name="title_advanced_actionbar">Barra de acciones de conversación</string>
     <string name="title_advanced_light">Usar luz de notificación</string>
     <string name="title_advanced_sound">Seleccionar sonido de notificación</string>
@@ -276,7 +281,6 @@
     <string name="title_attachment_unavailable">Algunos adjuntos no están descargados y no serán agregados, ¿continuar?</string>
     <string name="title_image_unavailable">Algunas imágenes no están descargadas y no serán aagregadas, ¿continuar?</string>
     <string name="title_ask_delete">¿Eliminar mensaje permanentemente?</string>
-    <string name="title_ask_delete_selected">¿Eliminar mensajes seleccionados permanentemente?</string>
     <string name="title_ask_delete_answer">¿Eliminar plantilla de respuesta permanentemente?</string>
     <string name="title_ask_delete_rule">¿Eliminar regla permanentemente?</string>
     <string name="title_ask_discard">¿Descartar el borrador?</string>

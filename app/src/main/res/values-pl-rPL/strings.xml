@@ -232,7 +232,6 @@
     <string name="title_attachment_unavailable">Niektóre załączniki nie są pobrane i nie zostaną dodane, kontynuować?</string>
     <string name="title_image_unavailable">Niektóre obrazki nie są pobrane i nie zostaną dodane, kontynuować?</string>
     <string name="title_ask_delete">Usunąć wiadomość bezpowrotnie?</string>
-    <string name="title_ask_delete_selected">Trwale usunąć wybrane wiadomości?</string>
     <string name="title_ask_delete_answer">Trwale usunąć szablon odpowiedzi?</string>
     <string name="title_ask_discard">Odrzucić szkic?</string>
     <string name="title_ask_show_html">Pokazywanie oryginalnej wiadomości może spowodować wyciek wrażliwych informacji</string>

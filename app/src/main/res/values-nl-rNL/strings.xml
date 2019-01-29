@@ -34,6 +34,10 @@
         <item quantity="one">Één bericht verplaatsen naar %2$s ?</item>
         <item quantity="other">%1$d berichten verplaatsen naar %2$s?</item>
     </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="one">Verwijder één bericht permanent?</item>
+        <item quantity="other">Verwijder %1$d berichten permanent?</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Rapporteer één bericht als spam?</item>
         <item quantity="other">Rapporteer %1$d berichten als spam?</item>
@@ -117,7 +121,7 @@
     <string name="title_advanced_identicons">Toon identicons</string>
     <string name="title_advanced_preview">Bericht voorvertoning</string>
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
-    <string name="title_advanced_images">Automatisch afbeeldingen weergeven voor bekende contacten</string>
+    <string name="title_advanced_images">Automatisch afbeeldingen voor bekende contacten weergeven</string>
     <string name="title_advanced_actionbar">Actiebalk gesprek</string>
     <string name="title_advanced_light">Gebruik meldingslicht</string>
     <string name="title_advanced_sound">Selecteer meldingsgeluid</string>
@@ -277,7 +281,6 @@
     <string name="title_attachment_unavailable">Sommige bijlagen zijn niet gedownload en zullen niet toegevoegd worden, doorgaan?</string>
     <string name="title_image_unavailable">Sommige afbeeldingen zijn niet gedownload en zullen niet toegevoegd worden, doorgaan?</string>
     <string name="title_ask_delete">Verwijder bericht permanent?</string>
-    <string name="title_ask_delete_selected">Verwijder geselecteerde berichten permanent?</string>
     <string name="title_ask_delete_answer">Verwijder antwoordsjabloon permanent?</string>
     <string name="title_ask_delete_rule">Verwijder regel permanent?</string>
     <string name="title_ask_discard">Concept weggooien?</string>

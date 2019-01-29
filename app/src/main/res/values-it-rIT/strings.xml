@@ -34,12 +34,21 @@
         <item quantity="one">Spostare %1$d messaggio in %2$s ?</item>
         <item quantity="other">Spostare %1$d messaggi in %2$s ?</item>
     </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="one">Eliminare %1$d messaggio definitivamente?</item>
+        <item quantity="other">Eliminare %1$d messaggi definitivamente?</item>
+    </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="one">Segnalare %1$d messaggio come spam?</item>
+        <item quantity="other">Segnalare %1$d messaggi come spam?</item>
+    </plurals>
     <string name="title_notification_failed">\'%1$s\' fallito</string>
     <string name="menu_answers">Modelli</string>
     <string name="menu_operations">Operazioni</string>
     <string name="menu_setup">Configurazione</string>
     <string name="menu_legend">Legenda</string>
     <string name="menu_faq">Supporto</string>
+    <string name="menu_issue">Segnala problema</string>
     <string name="menu_privacy">Privacy</string>
     <string name="menu_about">Al riguardo</string>
     <string name="menu_pro">Funzionalità a pagamento</string>
@@ -112,6 +121,7 @@
     <string name="title_advanced_identicons">Visualizza identicon</string>
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
     <string name="title_advanced_addresses">Mostra i dettagli dell\'indirizzo per impostazione predefinita</string>
+    <string name="title_advanced_images">Mostra automaticamente le immagini per i contatti conosciuti</string>
     <string name="title_advanced_actionbar">Barra di azione di conversazione</string>
     <string name="title_advanced_light">Usa il led di notifica</string>
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
@@ -271,7 +281,6 @@
     <string name="title_attachment_unavailable">Alcuni allegati non vengono scaricati e non verranno aggiunti, continuare?</string>
     <string name="title_image_unavailable">Alcune immagini non vengono scaricate e non verranno aggiunte, continuare?</string>
     <string name="title_ask_delete">Eliminare il messaggio permanentemente?</string>
-    <string name="title_ask_delete_selected">Eliminare definitivamente i messaggi selezionati?</string>
     <string name="title_ask_delete_answer">Elimina definitivamente il modello di risposta?</string>
     <string name="title_ask_delete_rule">Eliminare la regola permanentemente?</string>
     <string name="title_ask_discard">Eliminare la bozza?</string>

@@ -34,6 +34,10 @@
         <item quantity="one">Déplacer %1$d message vers %2$s ?</item>
         <item quantity="other">Déplacer %1$d messages vers %2$s ?</item>
     </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="one">Supprimer définitivement %1$d message ?</item>
+        <item quantity="other">Supprimer définitivement %1$d messages ?</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Signaler %1$d message comme spam ?</item>
         <item quantity="other">Signaler %1$d messages comme spam ?</item>
@@ -98,7 +102,7 @@
     <string name="title_setup_done">Fait</string>
     <string name="title_setup_light_theme">Thème clair</string>
     <string name="title_setup_dark_theme">Thème sombre</string>
-    <string name="title_setup_black_theme">Thème sombre</string>
+    <string name="title_setup_black_theme">Thème noir</string>
     <string name="title_setup_defaults">Rétablir les paramètres par défaut</string>
     <string name="title_advanced">Options avancées</string>
     <string name="title_advanced_section_general">Général</string>
@@ -277,7 +281,6 @@
     <string name="title_attachment_unavailable">Certaines pièces jointes ne sont pas téléchargées et ne seront pas ajoutées, continuer ?</string>
     <string name="title_image_unavailable">Certaines images ne sont pas téléchargées et ne seront pas ajoutées, continuer ?</string>
     <string name="title_ask_delete">Supprimer ce message définitivement ?</string>
-    <string name="title_ask_delete_selected">Supprimer définitivement les messages sélectionnés ?</string>
     <string name="title_ask_delete_answer">Supprimer définitivement le modèle de réponse ?</string>
     <string name="title_ask_delete_rule">Supprimer définitivement la règle ?</string>
     <string name="title_ask_discard">Supprimer le brouillon ?</string>

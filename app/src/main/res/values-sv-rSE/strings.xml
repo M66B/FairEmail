@@ -264,7 +264,6 @@
     <string name="title_attachment_unavailable">Vissa bilagor hämtas inte och kommer inte att läggas till, fortsätt?</string>
     <string name="title_image_unavailable">Vissa bilder hämtas inte och kommer inte att läggas till, fortsätta?</string>
     <string name="title_ask_delete">Ta bort meddelandet permanent?</string>
-    <string name="title_ask_delete_selected">Ta bort valda meddelanden permanent?</string>
     <string name="title_ask_delete_answer">Ta bort svarsmall permanent?</string>
     <string name="title_ask_delete_rule">Ta bort regel permanent?</string>
     <string name="title_ask_discard">Släng utkastet?</string>
