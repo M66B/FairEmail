@@ -1189,18 +1189,19 @@ public class ServiceSynchronize extends LifecycleService {
                                         PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":folder." + folder.id);
 
                                 @Override
-                                public void onChanged(final List<EntityOperation> operations) {
-                                    boolean process = false;
-                                    List<Long> current = new ArrayList<>();
-                                    for (EntityOperation op : operations) {
-                                        if (!handling.contains(op.id))
-                                            process = true;
-                                        current.add(op.id);
+                                public void onChanged(final List<EntityOperation> ops) {
+                                    final List<EntityOperation> arrived = new ArrayList<>();
+                                    synchronized (handling) {
+                                        for (EntityOperation op : ops) {
+                                            if (!handling.contains(op.id)) {
+                                                handling.add(op.id);
+                                                arrived.add(op);
+                                            }
+                                        }
                                     }
-                                    handling = current;
 
-                                    if (handling.size() > 0 && process) {
-                                        Log.i(folder.name + " operations=" + operations.size());
+                                    if (arrived.size() > 0) {
+                                        Log.i(folder.name + " process operations=" + arrived.size());
                                         (folder.poll ? pollExecutor : folderExecutor).submit(new Runnable() {
                                             @Override
                                             public void run() {
@@ -1229,8 +1230,12 @@ public class ServiceSynchronize extends LifecycleService {
                                                             db.folder().setFolderError(folder.id, null);
                                                         }
 
-                                                        processOperations(account, folder, operations, isession, istore, ifolder, state);
+                                                        processOperations(account, folder, arrived, isession, istore, ifolder, state);
 
+                                                        synchronized (handling) {
+                                                            for (EntityOperation op : arrived)
+                                                                handling.remove(op.id);
+                                                        }
                                                     } catch (Throwable ex) {
                                                         Log.e(folder.name, ex);
                                                         reportError(account, folder, ex);
@@ -3003,18 +3008,19 @@ public class ServiceSynchronize extends LifecycleService {
                                             PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":outbox");
 
                                     @Override
-                                    public void onChanged(final List<EntityOperation> operations) {
-                                        boolean process = false;
-                                        List<Long> current = new ArrayList<>();
-                                        for (EntityOperation op : operations) {
-                                            if (!handling.contains(op.id))
-                                                process = true;
-                                            current.add(op.id);
+                                    public void onChanged(final List<EntityOperation> ops) {
+                                        final List<EntityOperation> arrived = new ArrayList<>();
+                                        synchronized (handling) {
+                                            for (EntityOperation op : ops) {
+                                                if (!handling.contains(op.id)) {
+                                                    handling.add(op.id);
+                                                    arrived.add(op);
+                                                }
+                                            }
                                         }
-                                        handling = current;
 
-                                        if (handling.size() > 0 && process) {
-                                            Log.i(outbox.name + " operations=" + operations.size());
+                                        if (arrived.size() > 0) {
+                                            Log.i(outbox.name + " process operations=" + arrived.size());
                                             executor.submit(new Runnable() {
                                                 @Override
                                                 public void run() {
@@ -3023,8 +3029,13 @@ public class ServiceSynchronize extends LifecycleService {
                                                         Log.i(outbox.name + " process");
 
                                                         db.folder().setFolderSyncState(outbox.id, "syncing");
-                                                        processOperations(null, outbox, operations, null, null, null, state);
+                                                        processOperations(null, outbox, arrived, null, null, null, state);
                                                         db.folder().setFolderError(outbox.id, null);
+
+                                                        for (EntityOperation op : arrived)
+                                                            synchronized (handling) {
+                                                                handling.remove(op.id);
+                                                            }
                                                     } catch (Throwable ex) {
                                                         Log.e(outbox.name, ex);
                                                         reportError(null, outbox, ex);
