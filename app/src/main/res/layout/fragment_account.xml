@@ -70,6 +70,7 @@
             android:layout_marginTop="12dp"
             android:minWidth="0dp"
             android:minHeight="0dp"
+            android:tag="disable"
             android:text="@string/title_autoconfig"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etDomain" />
@@ -166,6 +167,7 @@
             android:layout_marginTop="12dp"
             android:minWidth="0dp"
             android:minHeight="0dp"
+            android:tag="disable"
             android:text="@string/title_authorize"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etPort" />
@@ -281,6 +283,7 @@
             android:layout_marginTop="12dp"
             android:minWidth="0dp"
             android:minHeight="0dp"
+            android:tag="disable"
             android:text="@string/title_account_color"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etName" />
@@ -423,6 +426,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:tag="disable"
             android:text="@string/title_check"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etPrefix" />
@@ -613,6 +617,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:tag="disable"
             android:text="@string/title_save"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spRight" />

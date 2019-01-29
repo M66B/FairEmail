@@ -61,6 +61,7 @@ public class FragmentFolder extends FragmentBase {
 
     private long id = -1;
     private long account = -1;
+    private boolean saving = false;
     private boolean deletable = false;
 
     @Override
@@ -159,15 +160,17 @@ public class FragmentFolder extends FragmentBase {
         new SimpleTask<Void>() {
             @Override
             protected void onPreExecute(Bundle args) {
+                saving = true;
+                getActivity().invalidateOptionsMenu();
                 Helper.setViewsEnabled(view, false);
-                btnSave.setEnabled(false);
                 pbSave.setVisibility(View.VISIBLE);
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
+                saving = false;
+                getActivity().invalidateOptionsMenu();
                 Helper.setViewsEnabled(view, true);
-                btnSave.setEnabled(true);
                 pbSave.setVisibility(View.GONE);
             }
 
@@ -284,7 +287,7 @@ public class FragmentFolder extends FragmentBase {
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.menu_delete).setVisible(id > 0 && deletable);
+        menu.findItem(R.id.menu_delete).setVisible(id > 0 && !saving && deletable);
         super.onPrepareOptionsMenu(menu);
     }
 
@@ -306,7 +309,6 @@ public class FragmentFolder extends FragmentBase {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Helper.setViewsEnabled(view, false);
-                        btnSave.setEnabled(false);
                         pbSave.setVisibility(View.VISIBLE);
 
                         Bundle args = new Bundle();
@@ -338,7 +340,6 @@ public class FragmentFolder extends FragmentBase {
                             @Override
                             protected void onException(Bundle args, Throwable ex) {
                                 Helper.setViewsEnabled(view, true);
-                                btnSave.setEnabled(true);
                                 pbSave.setVisibility(View.GONE);
 
                                 if (ex instanceof IllegalArgumentException)

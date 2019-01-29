@@ -45,6 +45,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -223,7 +224,8 @@ public class Helper {
             if (child instanceof Spinner ||
                     child instanceof EditText ||
                     child instanceof CheckBox ||
-                    child instanceof ImageView /* =ImageButton */)
+                    child instanceof ImageView /* =ImageButton */ ||
+                    (child instanceof Button && "disable".equals(child.getTag())))
                 child.setEnabled(enabled);
             if (child instanceof BottomNavigationView) {
                 Menu menu = ((BottomNavigationView) child).getMenu();

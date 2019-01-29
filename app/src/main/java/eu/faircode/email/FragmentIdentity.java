@@ -114,6 +114,7 @@ public class FragmentIdentity extends FragmentBase {
     private Group grpAdvanced;
 
     private long id = -1;
+    private boolean saving = false;
     private int auth_type = Helper.AUTH_TYPE_PASSWORD;
     private int color = Color.TRANSPARENT;
 
@@ -483,16 +484,18 @@ public class FragmentIdentity extends FragmentBase {
         new SimpleTask<Void>() {
             @Override
             protected void onPreExecute(Bundle args) {
+                saving = true;
+                getActivity().invalidateOptionsMenu();
                 Helper.setViewsEnabled(view, false);
-                btnSave.setEnabled(false);
                 pbSave.setVisibility(View.VISIBLE);
                 tvError.setVisibility(View.GONE);
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
+                saving = false;
+                getActivity().invalidateOptionsMenu();
                 Helper.setViewsEnabled(view, true);
-                btnSave.setEnabled(true);
                 pbSave.setVisibility(View.GONE);
             }
 
@@ -854,7 +857,7 @@ public class FragmentIdentity extends FragmentBase {
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.menu_delete).setVisible(id > 0);
+        menu.findItem(R.id.menu_delete).setVisible(id > 0 && !saving);
         super.onPrepareOptionsMenu(menu);
     }
 
@@ -875,14 +878,16 @@ public class FragmentIdentity extends FragmentBase {
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Helper.setViewsEnabled(view, false);
-                        btnSave.setEnabled(false);
-                        pbWait.setVisibility(View.VISIBLE);
-
                         Bundle args = new Bundle();
                         args.putLong("id", id);
 
                         new SimpleTask<Void>() {
+                            @Override
+                            protected void onPostExecute(Bundle args) {
+                                Helper.setViewsEnabled(view, false);
+                                pbWait.setVisibility(View.VISIBLE);
+                            }
+
                             @Override
                             protected Void onExecute(Context context, Bundle args) {
                                 long id = args.getLong("id");
@@ -918,10 +923,5 @@ public class FragmentIdentity extends FragmentBase {
         border.setColor(color);
         border.setStroke(1, Helper.resolveColor(getContext(), R.attr.colorSeparator));
         vwColor.setBackground(border);
-    }
-
-    class IdentityFolders {
-        EntityIdentity identity;
-        List<EntityFolder> folders;
     }
 }
