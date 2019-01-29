@@ -24,9 +24,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -81,31 +78,13 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
 
         private void bindTo(EntityAttachment attachment) {
             if (attachment.available) {
-                Drawable d = null;
-                File file = EntityAttachment.getFile(context, attachment.id);
-
-                if ("image/jpeg".equals(attachment.type) || "image/png".equals(attachment.type)) {
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                    options.inJustDecodeBounds = true;
-                    BitmapFactory.decodeFile(file.getAbsolutePath(), options);
-
-                    int scaleTo = context.getResources().getDisplayMetrics().widthPixels / 2;
-                    int factor = Math.min(options.outWidth / scaleTo, options.outWidth / scaleTo);
-                    if (factor > 1) {
-                        options.inJustDecodeBounds = false;
-                        options.inSampleSize = factor;
-                        Bitmap scaled = BitmapFactory.decodeFile(file.getAbsolutePath(), options);
-                        d = new BitmapDrawable(scaled);
-                    }
-                }
-
-                if (d == null)
-                    d = BitmapDrawable.createFromPath(file.getAbsolutePath());
-
-                if (d == null)
+                Bitmap bm = Helper.decodeImage(
+                        EntityAttachment.getFile(context, attachment.id),
+                        context.getResources().getDisplayMetrics().widthPixels / 2);
+                if (bm == null)
                     image.setImageResource(R.drawable.baseline_broken_image_24);
                 else
-                    image.setImageDrawable(d);
+                    image.setImageBitmap(bm);
             } else
                 image.setImageResource(attachment.progress == null
                         ? R.drawable.baseline_image_24 : R.drawable.baseline_hourglass_empty_24);

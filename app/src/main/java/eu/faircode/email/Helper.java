@@ -31,6 +31,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
@@ -216,6 +218,22 @@ public class Helper {
         int color = a.getColor(0, 0xFF0000);
         a.recycle();
         return color;
+    }
+
+    static Bitmap decodeImage(File file, int scaleToPixels) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+
+        int factor = Math.min(options.outWidth / scaleToPixels, options.outWidth / scaleToPixels);
+        if (factor > 1) {
+            Log.i("Decode image factor=" + factor);
+            options.inJustDecodeBounds = false;
+            options.inSampleSize = factor;
+            return BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+        }
+
+        return BitmapFactory.decodeFile(file.getAbsolutePath());
     }
 
     static void setViewsEnabled(ViewGroup view, boolean enabled) {

@@ -36,10 +36,8 @@ import org.jsoup.safety.Whitelist;
 import org.jsoup.select.NodeTraversor;
 import org.jsoup.select.NodeVisitor;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -126,129 +124,135 @@ public class HtmlHelper {
 
         boolean embedded = source.startsWith("cid:");
         boolean data = source.startsWith("data:");
-        Log.i("Image embedded=" + embedded + " data=" + data + " source=" + source);
+        Log.i("Image show=" + show + " embedded=" + embedded + " data=" + data + " source=" + source);
 
-        if (show) {
-            // Embedded images
-            if (embedded) {
-                String cid = "<" + source.substring(4) + ">";
-                EntityAttachment attachment = DB.getInstance(context).attachment().getAttachment(id, cid);
-                if (attachment == null) {
-                    Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
-                    d.setBounds(0, 0, px, px);
-                    return d;
-                } else if (!attachment.available) {
-                    Drawable d = context.getResources().getDrawable(R.drawable.baseline_photo_library_24, context.getTheme());
-                    d.setBounds(0, 0, px, px);
-                    return d;
-                } else {
-                    File file = EntityAttachment.getFile(context, attachment.id);
-                    Drawable d = Drawable.createFromPath(file.getAbsolutePath());
-                    if (d == null) {
-                        d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
-                        d.setBounds(0, 0, px, px);
-                    } else
-                        d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
-                    return d;
-                }
-            }
-
-            // Data URI
-            if (data)
-                try {
-                    // "<img src=\"data:image/png;base64,iVBORw0KGgoAAA" +
-                    // "ANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4" +
-                    // "//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU" +
-                    // "5ErkJggg==\" alt=\"Red dot\" />";
-
-                    String base64 = source.substring(source.indexOf(',') + 1);
-                    byte[] bytes = Base64.decode(base64.getBytes(), 0);
-
-                    Bitmap bm = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                    if (bm == null)
-                        throw new IllegalArgumentException("decode byte array failed");
-
-                    Drawable d = new BitmapDrawable(context.getResources(), bm);
-                    d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
-                    return d;
-                } catch (IllegalArgumentException ex) {
-                    Log.w(ex);
-                    Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
-                    d.setBounds(0, 0, px, px);
-                    return d;
-                }
-
-            // Get cache folder
-            File dir = new File(context.getCacheDir(), "images");
-            if (!dir.exists())
-                dir.mkdir();
-
-            InputStream is = null;
-            OutputStream os = null;
-            try {
-                // Create unique file name
-                File file = new File(dir, id + "_" + source.hashCode());
-
-                // Get input stream
-                if (file.exists()) {
-                    Log.i("Using cached " + file);
-                    is = new BufferedInputStream(new FileInputStream(file));
-                } else {
-                    Log.i("Downloading " + source);
-                    try {
-                        is = new URL(source).openStream();
-                    } catch (FileNotFoundException ex) {
-                        throw ex;
-                    } catch (IOException ex) {
-                        Log.w(ex);
-                        Drawable d = context.getResources().getDrawable(R.drawable.baseline_cloud_off_24, context.getTheme());
-                        d.setBounds(0, 0, px, px);
-                        return d;
-                    }
-                }
-
-                // Decode image from stream
-                Bitmap bm = BitmapFactory.decodeStream(is);
-                if (bm == null)
-                    throw new IllegalArgumentException("decode stream failed");
-
-                // Cache bitmap
-                if (!file.exists()) {
-                    os = new BufferedOutputStream(new FileOutputStream(file));
-                    bm.compress(Bitmap.CompressFormat.PNG, 100, os);
-                }
-
-                // Create drawable from bitmap
-                Drawable d = new BitmapDrawable(context.getResources(), bm);
-                d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
-                return d;
-            } catch (Throwable ex) {
-                // Show warning icon
-                Log.e(ex);
-                Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
-                d.setBounds(0, 0, px, px);
-                return d;
-            } finally {
-                // Close streams
-                if (is != null) {
-                    try {
-                        is.close();
-                    } catch (IOException e) {
-                        Log.w(e);
-                    }
-                }
-                if (os != null) {
-                    try {
-                        os.close();
-                    } catch (IOException e) {
-                        Log.w(e);
-                    }
-                }
-            }
-        } else {
+        if (!show) {
             // Show placeholder icon
             int resid = (embedded || data ? R.drawable.baseline_photo_library_24 : R.drawable.baseline_image_24);
             Drawable d = context.getResources().getDrawable(resid, context.getTheme());
+            d.setBounds(0, 0, px, px);
+            return d;
+        }
+
+        // Embedded images
+        if (embedded) {
+            String cid = "<" + source.substring(4) + ">";
+            EntityAttachment attachment = DB.getInstance(context).attachment().getAttachment(id, cid);
+            if (attachment == null) {
+                Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
+                d.setBounds(0, 0, px, px);
+                return d;
+            } else if (!attachment.available) {
+                Drawable d = context.getResources().getDrawable(R.drawable.baseline_photo_library_24, context.getTheme());
+                d.setBounds(0, 0, px, px);
+                return d;
+            } else {
+                Bitmap bm = Helper.decodeImage(
+                        EntityAttachment.getFile(context, attachment.id),
+                        context.getResources().getDisplayMetrics().widthPixels);
+                if (bm == null) {
+                    Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
+                    d.setBounds(0, 0, px, px);
+                    return d;
+                } else
+                    return new BitmapDrawable(bm);
+            }
+        }
+
+        // Data URI
+        if (data)
+            try {
+                // "<img src=\"data:image/png;base64,iVBORw0KGgoAAA" +
+                // "ANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4" +
+                // "//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU" +
+                // "5ErkJggg==\" alt=\"Red dot\" />";
+
+                String base64 = source.substring(source.indexOf(',') + 1);
+                byte[] bytes = Base64.decode(base64.getBytes(), 0);
+
+                Bitmap bm = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                if (bm == null)
+                    throw new IllegalArgumentException("decode byte array failed");
+
+                Drawable d = new BitmapDrawable(context.getResources(), bm);
+                d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
+                return d;
+            } catch (IllegalArgumentException ex) {
+                Log.w(ex);
+                Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
+                d.setBounds(0, 0, px, px);
+                return d;
+            }
+
+        // Get cache file name
+        File dir = new File(context.getCacheDir(), "images");
+        if (!dir.exists())
+            dir.mkdir();
+        File file = new File(dir, id + "_" + source.hashCode());
+
+        if (file.exists()) {
+            Log.i("Using cached " + file);
+            return Drawable.createFromPath(file.getAbsolutePath());
+        }
+
+        try {
+            InputStream probe = null;
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            try {
+                Log.i("Probe " + source);
+                probe = new URL(source).openStream();
+                options.inJustDecodeBounds = true;
+                BitmapFactory.decodeStream(probe, null, options);
+            } finally {
+                if (probe != null)
+                    probe.close();
+            }
+
+            Bitmap bm;
+            InputStream is = null;
+            try {
+                Log.i("Download " + source);
+                is = new URL(source).openStream();
+
+                int scaleTo = context.getResources().getDisplayMetrics().widthPixels;
+                int factor = Math.min(options.outWidth / scaleTo, options.outWidth / scaleTo);
+                if (factor > 1) {
+                    Log.i("Download image factor=" + factor);
+                    options.inJustDecodeBounds = false;
+                    options.inSampleSize = factor;
+                    bm = BitmapFactory.decodeStream(is, null, options);
+                } else
+                    bm = BitmapFactory.decodeStream(is);
+            } finally {
+                if (is != null)
+                    is.close();
+            }
+
+            if (bm == null)
+                throw new FileNotFoundException("Download image failed");
+
+            Log.i("Downloaded image");
+
+            OutputStream os = null;
+            try {
+                os = new BufferedOutputStream(new FileOutputStream(file));
+                bm.compress(Bitmap.CompressFormat.PNG, 100, os);
+            } finally {
+                if (os != null)
+                    os.close();
+            }
+
+            // Create drawable from bitmap
+            Drawable d = new BitmapDrawable(context.getResources(), bm);
+            d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
+            return d;
+        } catch (Throwable ex) {
+            // Show warning icon
+            Log.w(ex);
+            int res = (ex instanceof IOException && !(ex instanceof FileNotFoundException)
+                    ? R.drawable.baseline_cloud_off_24
+                    : R.drawable.baseline_broken_image_24);
+            Drawable d = context.getResources().getDrawable(res, context.getTheme());
             d.setBounds(0, 0, px, px);
             return d;
         }
