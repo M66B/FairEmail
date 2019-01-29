@@ -280,20 +280,22 @@ public class FragmentMessages extends FragmentBase {
         rvMessage.setAdapter(adapter);
 
         if (viewType == AdapterMessage.ViewType.THREAD) {
-            ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-            model.observePrevNext(getViewLifecycleOwner(), thread, new ViewModelMessages.IPrevNext() {
-                @Override
-                public void onPrevious(Long id) {
-                    bottom_navigation.getMenu().findItem(R.id.action_prev).setIntent(new Intent().putExtra("id", id));
-                    bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(id != null);
-                }
+            if (actionbar) {
+                ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+                model.observePrevNext(getViewLifecycleOwner(), thread, new ViewModelMessages.IPrevNext() {
+                    @Override
+                    public void onPrevious(boolean exists, Long id) {
+                        bottom_navigation.getMenu().findItem(R.id.action_prev).setIntent(new Intent().putExtra("id", id));
+                        bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(id != null);
+                    }
 
-                @Override
-                public void onNext(Long id) {
-                    bottom_navigation.getMenu().findItem(R.id.action_next).setIntent(new Intent().putExtra("id", id));
-                    bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(id != null);
-                }
-            });
+                    @Override
+                    public void onNext(boolean exists, Long id) {
+                        bottom_navigation.getMenu().findItem(R.id.action_next).setIntent(new Intent().putExtra("id", id));
+                        bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(id != null);
+                    }
+                });
+            }
         } else {
             final SelectionPredicateMessage predicate = new SelectionPredicateMessage(rvMessage);
 
@@ -2069,12 +2071,21 @@ public class FragmentMessages extends FragmentBase {
         if (autoclose)
             finish();
         else if (autonext) {
-            Intent intent = bottom_navigation.getMenu().findItem(R.id.action_next).getIntent();
-            Long id = (intent == null ? null : intent.getLongExtra("id", -1));
-            if (id == null || id < 0)
-                finish();
-            else
-                navigate(id);
+            ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+            model.observePrevNext(getViewLifecycleOwner(), thread, new ViewModelMessages.IPrevNext() {
+                @Override
+                public void onPrevious(boolean exists, Long id) {
+                    // Do nothing
+                }
+
+                @Override
+                public void onNext(boolean exists, Long id) {
+                    if (id != null)
+                        navigate(id);
+                    if (!exists)
+                        finish();
+                }
+            });
         }
     }
 

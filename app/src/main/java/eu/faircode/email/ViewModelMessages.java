@@ -91,19 +91,17 @@ public class ViewModelMessages extends ViewModel {
                             TupleMessageEx next = list.get(pos - 1);
                             if (next == null)
                                 load = true;
-                            else
-                                intf.onNext(next.id);
+                            intf.onNext(true, next == null ? null : next.id);
                         } else
-                            intf.onNext(null);
+                            intf.onNext(false, null);
 
                         if (pos + 1 < list.size()) {
                             TupleMessageEx prev = list.get(pos + 1);
                             if (prev == null)
                                 load = true;
-                            else
-                                intf.onPrevious(prev.id);
+                            intf.onPrevious(true, prev == null ? null : prev.id);
                         } else
-                            intf.onPrevious(null);
+                            intf.onPrevious(false, null);
 
                         if (load)
                             list.loadAround(pos);
@@ -116,8 +114,8 @@ public class ViewModelMessages extends ViewModel {
     }
 
     interface IPrevNext {
-        void onPrevious(Long id);
+        void onPrevious(boolean exists, Long id);
 
-        void onNext(Long id);
+        void onNext(boolean exists, Long id);
     }
 }
