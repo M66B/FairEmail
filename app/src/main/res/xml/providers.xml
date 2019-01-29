@@ -244,4 +244,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <!-- no IMAP IDLE -->
+    <provider
+        name="Onet"
+        link="http://m.poczta.onet.pl/pomoc/android.html">
+        <imap
+            host="imap.poczta.onet.pl"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.poczta.onet.pl"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
