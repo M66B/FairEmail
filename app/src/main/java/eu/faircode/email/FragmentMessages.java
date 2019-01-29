@@ -1748,18 +1748,18 @@ public class FragmentMessages extends FragmentBase {
                         new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
                             @Override
                             public void onLoading() {
-                                pbWait.setTag(true);
-                                tvNoEmail.setVisibility(View.GONE);
                                 pbWait.setVisibility(View.VISIBLE);
                             }
 
                             @Override
                             public void onLoaded(int fetched) {
-                                RecyclerView.Adapter adapter = rvMessage.getAdapter();
-                                int items = (adapter == null ? 0 : adapter.getItemCount());
-                                tvNoEmail.setVisibility(items + fetched == 0 ? View.VISIBLE : View.GONE);
                                 pbWait.setVisibility(View.GONE);
-                                pbWait.setTag(null);
+
+                                Integer submitted = (Integer) rvMessage.getTag();
+                                if (submitted == null)
+                                    submitted = 0;
+                                if (submitted + fetched == 0)
+                                    tvNoEmail.setVisibility(View.VISIBLE);
                             }
 
                             @Override
@@ -2018,13 +2018,14 @@ public class FragmentMessages extends FragmentBase {
 
             Log.i("Submit messages=" + messages.size());
             adapter.submitList(messages);
+            rvMessage.setTag(messages.size());
 
-            if (pbWait.getTag() == null) {
+            if (boundaryCallback == null || !boundaryCallback.isLoading())
                 pbWait.setVisibility(View.GONE);
-                if (!(viewType == AdapterMessage.ViewType.FOLDER || viewType == AdapterMessage.ViewType.SEARCH))
-                    tvNoEmail.setVisibility(messages.size() == 0 ? View.VISIBLE : View.GONE);
-                grpReady.setVisibility(messages.size() > 0 ? View.VISIBLE : View.GONE);
-            }
+            if (boundaryCallback == null && messages.size() == 0)
+                tvNoEmail.setVisibility(View.VISIBLE);
+            if (messages.size() > 0)
+                grpReady.setVisibility(View.VISIBLE);
         }
     };
 

@@ -32,6 +32,7 @@ import androidx.paging.PagedList;
 public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMessageEx> {
     private ViewModelBrowse model;
     private Handler handler;
+    private boolean loading = false;
     private IBoundaryCallbackMessages intf;
 
     private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
@@ -86,6 +87,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     return;
 
                 try {
+                    loading = true;
                     fetched = 0;
                     handler.post(new Runnable() {
                         @Override
@@ -103,6 +105,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         }
                     });
                 } finally {
+                    loading = false;
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
@@ -112,5 +115,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 }
             }
         });
+    }
+
+    boolean isLoading() {
+        return loading;
     }
 }

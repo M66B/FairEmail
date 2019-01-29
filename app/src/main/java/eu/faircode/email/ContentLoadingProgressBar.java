@@ -37,6 +37,10 @@ public class ContentLoadingProgressBar extends ProgressBar {
 
     @Override
     public void setVisibility(int visibility) {
+        if (false && BuildConfig.DEBUG) {
+            super.setVisibility(visibility);
+            return;
+        }
         removeCallbacks(delayedShow);
         if (visibility == VISIBLE) {
             super.setVisibility(INVISIBLE);
