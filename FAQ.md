@@ -986,6 +986,7 @@ but even Google's Chrome cannot handle this.
 * Did you know that you can select text (or an email address) in any app on recent Android versions and let FairEmail search for it? You'll need to set a primary account and an archive folder for this to work, so FairEmail knows where to search. There will be 'FairEmail' in the menu with copy, cut, etc.
 * Did you know that FairEmail has a tablet mode? Rotate your device in landscape mode and conversation threads will be opened in a second column if there is enough screen space.
 * Did you know that you can long press a reply template to create a draft message from the template?
+* Did you know that you can long press, hold and swipe to select a range of messages?
 
 <br />
 
