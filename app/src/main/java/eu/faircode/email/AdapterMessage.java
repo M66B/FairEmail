@@ -52,6 +52,7 @@ import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
+import android.util.LongSparseArray;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -85,10 +86,8 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -145,7 +144,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     private SelectionTracker<Long> selectionTracker = null;
     private AsyncPagedListDiffer<TupleMessageEx> differ = new AsyncPagedListDiffer<>(this, DIFF_CALLBACK);
-    private Map<Long, List<EntityAttachment>> idAttachments = new HashMap<>();
+    private LongSparseArray<List<EntityAttachment>> idAttachments = new LongSparseArray<>();
 
     enum ViewType {UNIFIED, FOLDER, THREAD, SEARCH}
 
@@ -703,8 +702,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     bodyTask.execute(context, owner, args, "message:body");
                 }
 
-                if (idAttachments.containsKey(message.id))
-                    adapterAttachment.set(idAttachments.get(message.id));
+                List<EntityAttachment> attachments = idAttachments.get(message.id);
+                if (attachments != null)
+                    adapterAttachment.set(attachments);
 
                 // Observe attachments
                 observerAttachments = new Observer<List<EntityAttachment>>() {
