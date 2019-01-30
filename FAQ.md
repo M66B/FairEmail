@@ -40,9 +40,8 @@ Anything on this list is in random order and *might* be added in the near future
 * Widget to read e-mail: widgets can have limited user interaction only, so a widget to read e-mail would not be very useful. Moreover, it would be not very useful to duplicate functions which are already available in the app.
 * Badge count: there is no standard Android API for this and third party solutions might stop working anytime. For example *ShortcutBadger* [has lots of problems](https://github.com/leolin310148/ShortcutBadger/issues). You can use the provided widget instead.
 * Switch language: Android is not designed to change the language of an app and on recent Android versions it even causes problems. So, better fix the translation in your language if needed, see [this FAQ](#user-content-faq26) about how to.
-* Select identities to show in unified inbox: this would add complexity for something which would hardly be used.
 * Better design: please let me know what you have in mind [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
-* Hide archived messages: hiding archived messages which exists in other folders too would have a performance impact.
+* Hide duplicate (archived) messages: hiding archived messages which exists in other folders too would have a performance impact.
 * ActiveSync: using the Exchange ActiveSync protocol requires [a license](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing), so this cannot be added.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
