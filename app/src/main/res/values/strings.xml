@@ -334,6 +334,7 @@
     <string name="title_ask_discard">Discard draft?</string>
     <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
     <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
+    <string name="title_ask_edit_ref">Edit reformatted replied/forwarded message text?</string>
     <string name="title_sync_queued">Synchronization will take place on next account connection</string>
     <string name="title_fix">Fix</string>
 

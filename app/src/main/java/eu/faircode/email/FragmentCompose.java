@@ -292,70 +292,14 @@ public class FragmentCompose extends FragmentBase {
         ibReferenceEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle args = new Bundle();
-                args.putLong("id", working);
-                args.putString("body", Html.toHtml(etBody.getText()));
-
-                new SimpleTask<Void>() {
-                    @Override
-                    protected void onPreExecute(Bundle args) {
-                        ibReferenceEdit.setEnabled(false);
-                    }
-
-                    @Override
-                    protected void onPostExecute(Bundle args) {
-                        ibReferenceEdit.setEnabled(true);
-                    }
-
-                    @Override
-                    protected Void onExecute(Context context, Bundle args) throws Throwable {
-                        long id = args.getLong("id");
-                        String body = args.getString("body");
-
-                        File file = EntityMessage.getFile(context, id);
-                        File ref = EntityMessage.getRefFile(context, id);
-
-                        BufferedReader in = null;
-                        BufferedWriter out = null;
-                        try {
-                            out = new BufferedWriter(new FileWriter(file));
-                            out.write(body);
-
-                            in = new BufferedReader(new FileReader(ref));
-                            String str;
-                            while ((str = in.readLine()) != null)
-                                out.write(str);
-                        } finally {
-                            if (out != null)
-                                out.close();
-                            if (in != null)
-                                in.close();
-                        }
-
-                        ref.delete();
-
-                        return null;
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, Void data) {
-                        showDraft(working);
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                    }
-                }.execute(FragmentCompose.this, args, "compose:refedit");
+                onReferenceEdit();
             }
         });
 
         ibReferenceImages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                show_images = true;
-                onAction(R.id.action_save);
-                showDraft(working);
+                onReferenceImages();
             }
         });
 
@@ -528,6 +472,97 @@ public class FragmentCompose extends FragmentBase {
         pgpService.bindToService();
 
         return view;
+    }
+
+    private void onReferenceEdit() {
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        if (prefs.getBoolean("edit_ref_confirmed", false)) {
+            onReferenceEditConfirmed();
+            return;
+        }
+
+        final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
+        final TextView tvMessage = dview.findViewById(R.id.tvMessage);
+        final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+
+        tvMessage.setText(getText(R.string.title_ask_edit_ref));
+
+        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                .setView(dview)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (cbNotAgain.isChecked())
+                            prefs.edit().putBoolean("edit_ref_confirmed", true).apply();
+                        onReferenceEditConfirmed();
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
+    }
+
+    private void onReferenceEditConfirmed() {
+        Bundle args = new Bundle();
+        args.putLong("id", working);
+        args.putString("body", Html.toHtml(etBody.getText()));
+
+        new SimpleTask<Void>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                ibReferenceEdit.setEnabled(false);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                ibReferenceEdit.setEnabled(true);
+            }
+
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                String body = args.getString("body");
+
+                File file = EntityMessage.getFile(context, id);
+                File ref = EntityMessage.getRefFile(context, id);
+
+                BufferedReader in = null;
+                BufferedWriter out = null;
+                try {
+                    out = new BufferedWriter(new FileWriter(file));
+                    out.write(body);
+
+                    in = new BufferedReader(new FileReader(ref));
+                    String str;
+                    while ((str = in.readLine()) != null)
+                        out.write(str);
+                } finally {
+                    if (out != null)
+                        out.close();
+                    if (in != null)
+                        in.close();
+                }
+
+                ref.delete();
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                showDraft(working);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(FragmentCompose.this, args, "compose:refedit");
+    }
+
+    private void onReferenceImages() {
+        show_images = true;
+        onAction(R.id.action_save);
+        showDraft(working);
     }
 
     @Override
