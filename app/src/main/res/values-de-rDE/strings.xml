@@ -35,6 +35,7 @@
         <item quantity="one">Verschiebe eine E-Mail nach %2$s ?</item>
         <item quantity="other">Verschiebe %1$d E-Mails nach %2$s ?</item>
     </plurals>
+    <string name="title_ask_spam_who">Nachricht von %1$s als Spam markieren?</string>
     <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
     <string name="menu_answers">Vorlagen</string>
     <string name="menu_operations">Vorgänge</string>
@@ -279,6 +280,7 @@
     <string name="title_ask_discard">Entwurf löschen?</string>
     <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
+    <string name="title_ask_edit_ref">Nachrichtentext der zu beantwortenden/weitergeleitenden Nachricht bearbeiten?</string>
     <string name="title_sync_queued">Synchronisierung wird bei der nächsten Kontoverbindung ausgeführt</string>
     <string name="title_fix">Problem beheben</string>
     <string name="title_compose">Verfassen</string>

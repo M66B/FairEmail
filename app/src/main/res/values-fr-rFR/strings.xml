@@ -43,6 +43,7 @@
         <item quantity="one">Signaler %1$d message comme spam ?</item>
         <item quantity="other">Signaler %1$d messages comme spam ?</item>
     </plurals>
+    <string name="title_ask_spam_who">Signaler le message de %1$s comme indésirable ?</string>
     <string name="title_notification_failed">\'%1$s\' a échoué</string>
     <string name="menu_answers">Modèles</string>
     <string name="menu_operations">Opérations</string>
@@ -287,6 +288,7 @@
     <string name="title_ask_discard">Supprimer le brouillon ?</string>
     <string name="title_ask_show_html">Afficher le message original peut divulguer des informations sensibles privées</string>
     <string name="title_ask_show_image">Afficher les images peut divulguer des informations sensibles privées</string>
+    <string name="title_ask_edit_ref">Modifier le texte du message reformaté et répondu/transféré ?</string>
     <string name="title_sync_queued">La synchronisation sera effectuée à la prochaine connexion d\'un compte</string>
     <string name="title_fix">Corriger</string>
     <string name="title_compose">Rédiger</string>

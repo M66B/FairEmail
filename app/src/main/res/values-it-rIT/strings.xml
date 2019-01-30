@@ -43,6 +43,7 @@
         <item quantity="one">Segnalare %1$d messaggio come spam?</item>
         <item quantity="other">Segnalare %1$d messaggi come spam?</item>
     </plurals>
+    <string name="title_ask_spam_who">Segnalare messaggio da %1$s come spam?</string>
     <string name="title_notification_failed">\'%1$s\' fallito</string>
     <string name="menu_answers">Modelli</string>
     <string name="menu_operations">Operazioni</string>
@@ -287,6 +288,7 @@
     <string name="title_ask_discard">Eliminare la bozza?</string>
     <string name="title_ask_show_html">Mostrare il messaggio originale rende possibile una fuga di informazioni personali sensibili</string>
     <string name="title_ask_show_image">Mostrare le immagini rende possibile una fuga di informazioni personali sensibili</string>
+    <string name="title_ask_edit_ref">Modificare il testo del messaggio inviato/inoltrato riformattato?</string>
     <string name="title_sync_queued">La sincronizzazione avverrà alla connessione del prossimo account</string>
     <string name="title_fix">Correggi</string>
     <string name="title_compose">Scrivi</string>
