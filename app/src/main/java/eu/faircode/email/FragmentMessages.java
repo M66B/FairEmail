@@ -297,6 +297,30 @@ public class FragmentMessages extends FragmentBase {
                     }
                 });
             }
+
+            ActivityBase activity = (ActivityBase) getActivity();
+            activity.setSwipeListener(new SwipeListener.ISwipeListener() {
+                @Override
+                public boolean onSwipeRight() {
+                    return swipe(R.id.action_prev);
+                }
+
+                @Override
+                public boolean onSwipeLeft() {
+                    return swipe(R.id.action_next);
+                }
+
+                private boolean swipe(int menu) {
+                    Intent intent = bottom_navigation.getMenu().findItem(menu).getIntent();
+                    Long id = (intent == null ? null : intent.getLongExtra("id", -1));
+                    if (id != null && id > 0) {
+                        navigate(id);
+                        return true;
+                    } else
+                        return false;
+                }
+            });
+
         } else {
             final SelectionPredicateMessage predicate = new SelectionPredicateMessage(rvMessage);
 
