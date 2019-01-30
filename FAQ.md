@@ -986,6 +986,7 @@ but even Google's Chrome cannot handle this.
 * Did you know that you can long press a reply template to create a draft message from the template?
 * Did you know that you can long press, hold and swipe to select a range of messages?
 * Did you know that you can retry sending messages by using pull-down-to-refresh in the outbox?
+* Did you know that you can swipe a conversation left or right to go to the next or previous conversation?
 
 <br />
 
