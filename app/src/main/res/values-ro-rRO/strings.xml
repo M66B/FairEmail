@@ -51,6 +51,7 @@
         <item quantity="few">Raportați %1$d mesaje drept spam?</item>
         <item quantity="other">Raportați %1$d de mesaje drept spam?</item>
     </plurals>
+    <string name="title_ask_spam_who">Raportează mesajul de la %1$s ca spam?</string>
     <string name="title_notification_failed">\'%1$s\' a eșuat</string>
     <string name="menu_answers">Șabloane</string>
     <string name="menu_operations">Operaţii</string>
@@ -295,6 +296,7 @@
     <string name="title_ask_discard">Renunțați la ciornă?</string>
     <string name="title_ask_show_html">Vizualizarea mesajului original poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
+    <string name="title_ask_edit_ref">Se editează textul mesajului rescris ca răspuns/redirecționat?</string>
     <string name="title_sync_queued">Sincronizarea va avea loc la următoarea conexiune a contului</string>
     <string name="title_fix">Remediere</string>
     <string name="title_compose">Compune</string>
