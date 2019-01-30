@@ -116,6 +116,7 @@ public class FragmentMessages extends FragmentBase {
     private boolean threading;
     private boolean pull;
     private boolean actionbar;
+    private boolean autoexpand;
     private boolean autoclose;
     private boolean autonext;
     private boolean addresses;
@@ -133,7 +134,7 @@ public class FragmentMessages extends FragmentBase {
     private Long next = null;
     private Long closeNext = null;
     private int autoCloseCount = 0;
-    private boolean autoExpand = true;
+    private boolean autoExpanded = true;
     private Map<String, List<Long>> values = new HashMap<>();
     private LongSparseArray<Spanned> bodies = new LongSparseArray<>();
     private LongSparseArray<TupleAccountSwipes> accountSwipes = new LongSparseArray<>();
@@ -189,6 +190,7 @@ public class FragmentMessages extends FragmentBase {
 
         threading = prefs.getBoolean("threading", true);
         actionbar = prefs.getBoolean("actionbar", true);
+        autoexpand = prefs.getBoolean("autoexpand", true);
         autoclose = prefs.getBoolean("autoclose", true);
         autonext = prefs.getBoolean("autonext", false);
         addresses = prefs.getBoolean("addresses", true);
@@ -1347,7 +1349,7 @@ public class FragmentMessages extends FragmentBase {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putBoolean("autoExpand", autoExpand);
+        outState.putBoolean("autoExpanded", autoExpanded);
         outState.putInt("autoCloseCount", autoCloseCount);
 
         outState.putStringArray("values", values.keySet().toArray(new String[0]));
@@ -1363,7 +1365,7 @@ public class FragmentMessages extends FragmentBase {
         super.onActivityCreated(savedInstanceState);
 
         if (savedInstanceState != null) {
-            autoExpand = savedInstanceState.getBoolean("autoExpand");
+            autoExpanded = savedInstanceState.getBoolean("autoExpanded");
             autoCloseCount = savedInstanceState.getInt("autoCloseCount");
 
             String[] names = savedInstanceState.getStringArray("values");
@@ -1931,8 +1933,8 @@ public class FragmentMessages extends FragmentBase {
                     }
                 }
 
-                if (autoExpand) {
-                    autoExpand = false;
+                if (autoExpanded) {
+                    autoExpanded = false;
 
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                     long download = prefs.getInt("download", 32768);
@@ -1972,21 +1974,22 @@ public class FragmentMessages extends FragmentBase {
                     // - single, non archived/trashed/sent message
                     // - one unread, non archived/trashed/sent message in conversation
                     // - sole message
+                    if (autoexpand) {
+                        TupleMessageEx expand = null;
+                        if (count == 1)
+                            expand = single;
+                        else if (unseen == 1)
+                            expand = see;
+                        else if (messages.size() == 1)
+                            expand = messages.get(0);
 
-                    TupleMessageEx expand = null;
-                    if (count == 1)
-                        expand = single;
-                    else if (unseen == 1)
-                        expand = see;
-                    else if (messages.size() == 1)
-                        expand = messages.get(0);
-
-                    if (expand != null &&
-                            (expand.content || !metered || (expand.size != null && expand.size < download))) {
-                        if (!values.containsKey("expanded"))
-                            values.put("expanded", new ArrayList<Long>());
-                        values.get("expanded").add(expand.id);
-                        handleExpand(expand.id);
+                        if (expand != null &&
+                                (expand.content || !metered || (expand.size != null && expand.size < download))) {
+                            if (!values.containsKey("expanded"))
+                                values.put("expanded", new ArrayList<Long>());
+                            values.get("expanded").add(expand.id);
+                            handleExpand(expand.id);
+                        }
                     }
                 } else {
                     if (autoCloseCount > 0 && (autoclose || autonext)) {

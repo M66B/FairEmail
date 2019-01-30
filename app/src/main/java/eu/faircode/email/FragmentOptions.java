@@ -70,9 +70,10 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swPreview;
     private SwitchCompat swAddresses;
     private SwitchCompat swImages;
+    private SwitchCompat swActionbar;
 
     private SwitchCompat swPull;
-    private SwitchCompat swActionbar;
+    private SwitchCompat swAutoExpand;
     private SwitchCompat swAutoClose;
     private SwitchCompat swAutoNext;
     private SwitchCompat swAutoRead;
@@ -90,20 +91,20 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private Group grpNotification;
 
     static String[] OPTIONS_RESTART = new String[]{
-            "unified", "date", "threading", "avatars", "identicons", "preview", "addresses", "autoimages",
-            "pull", "actionbar", "autoclose", "autonext", "debug"
+            "unified", "date", "threading", "avatars", "identicons", "preview", "addresses", "autoimages", "actionbar",
+            "pull", "autoexpand", "autoclose", "autonext",
+            "debug"
     };
 
     private final static String[] ADVANCED_OPTIONS = new String[]{
             "enabled", "updates",
             "metered", "download",
-            "unified", "date", "threading", "avatars", "identicons", "preview", "addresses",
-            "pull", "actionbar", "autoclose", "autonext",
-            "autoread", "collapse", "automove", "sender", "autoresize", "autosend",
-            "light", "sound", "debug",
-            "first", "why", "last_update_check",
-            "app_support", "message_swipe", "message_select",
-            "folder_actions", "folder_sync",
+            "unified", "date", "threading", "avatars", "identicons", "preview", "addresses", "autoimages", "actionbar",
+            "pull", "autoexpand", "autoclose", "autonext", "autoread", "collapse", "automove", "sender", "autoresize", "autosend",
+            "light", "sound",
+            "debug",
+            "first", "why", "last_update_check", "app_support", "message_swipe", "message_select", "folder_actions", "folder_sync",
+            "edit_ref_confirmed", "autosend", "automove", "show_html_confirmed", "show_images_confirmed"
     };
 
     @Override
@@ -130,9 +131,10 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swPreview = view.findViewById(R.id.swPreview);
         swAddresses = view.findViewById(R.id.swAddresses);
         swImages = view.findViewById(R.id.swImages);
+        swActionbar = view.findViewById(R.id.swActionbar);
 
         swPull = view.findViewById(R.id.swPull);
-        swActionbar = view.findViewById(R.id.swActionbar);
+        swAutoExpand = view.findViewById(R.id.swAutoExpand);
         swAutoClose = view.findViewById(R.id.swAutoClose);
         swAutoNext = view.findViewById(R.id.swAutoNext);
         swAutoRead = view.findViewById(R.id.swAutoRead);
@@ -273,6 +275,14 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             }
         });
 
+        swActionbar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("actionbar", checked).apply();
+            }
+        });
+
+
         swPull.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -280,10 +290,10 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             }
         });
 
-        swActionbar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swAutoExpand.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("actionbar", checked).apply();
+                prefs.edit().putBoolean("autoexpand", checked).apply();
             }
         });
 
@@ -455,9 +465,10 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swPreview.setChecked(prefs.getBoolean("preview", false));
         swAddresses.setChecked(prefs.getBoolean("addresses", true));
         swImages.setChecked(prefs.getBoolean("autoimages", false));
+        swActionbar.setChecked(prefs.getBoolean("actionbar", true));
 
         swPull.setChecked(prefs.getBoolean("pull", true));
-        swActionbar.setChecked(prefs.getBoolean("actionbar", true));
+        swAutoExpand.setChecked(prefs.getBoolean("autoexpand", true));
         swAutoClose.setChecked(prefs.getBoolean("autoclose", true));
         swAutoNext.setChecked(prefs.getBoolean("autonext", false));
         swAutoNext.setEnabled(!swAutoClose.isChecked());
