@@ -129,7 +129,9 @@ public class FragmentMessages extends FragmentBase {
     private AdapterMessage.ViewType viewType;
     private SelectionTracker<Long> selectionTracker = null;
 
+    private Long previous = null;
     private Long next = null;
+    private Long closeNext = null;
     private int autoCloseCount = 0;
     private boolean autoExpand = true;
     private Map<String, List<Long>> values = new HashMap<>();
@@ -281,43 +283,35 @@ public class FragmentMessages extends FragmentBase {
         rvMessage.setAdapter(adapter);
 
         if (viewType == AdapterMessage.ViewType.THREAD) {
-            if (actionbar) {
-                ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-                model.observePrevNext(getViewLifecycleOwner(), id, new ViewModelMessages.IPrevNext() {
-                    @Override
-                    public void onPrevious(boolean exists, Long id) {
-                        bottom_navigation.getMenu().findItem(R.id.action_prev).setIntent(new Intent().putExtra("id", id));
-                        bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(id != null);
-                    }
+            ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+            model.observePrevNext(getViewLifecycleOwner(), id, new ViewModelMessages.IPrevNext() {
+                @Override
+                public void onPrevious(boolean exists, Long id) {
+                    previous = id;
+                    bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(id != null);
+                }
 
-                    @Override
-                    public void onNext(boolean exists, Long id) {
-                        bottom_navigation.getMenu().findItem(R.id.action_next).setIntent(new Intent().putExtra("id", id));
-                        bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(id != null);
-                    }
-                });
-            }
+                @Override
+                public void onNext(boolean exists, Long id) {
+                    next = id;
+                    bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(id != null);
+                }
+            });
 
             ActivityBase activity = (ActivityBase) getActivity();
             activity.setSwipeListener(new SwipeListener.ISwipeListener() {
                 @Override
                 public boolean onSwipeRight() {
-                    return swipe(R.id.action_prev);
+                    if (previous != null)
+                        navigate(previous);
+                    return (previous != null);
                 }
 
                 @Override
                 public boolean onSwipeLeft() {
-                    return swipe(R.id.action_next);
-                }
-
-                private boolean swipe(int menu) {
-                    Intent intent = bottom_navigation.getMenu().findItem(menu).getIntent();
-                    Long id = (intent == null ? null : intent.getLongExtra("id", -1));
-                    if (id != null && id > 0) {
-                        navigate(id);
-                        return true;
-                    } else
-                        return false;
+                    if (next != null)
+                        navigate(next);
+                    return (next != null);
                 }
             });
 
@@ -383,11 +377,11 @@ public class FragmentMessages extends FragmentBase {
                         return true;
 
                     case R.id.action_prev:
-                        navigate(menuItem.getIntent().getLongExtra("id", -1));
+                        navigate(previous);
                         return true;
 
                     case R.id.action_next:
-                        navigate(menuItem.getIntent().getLongExtra("id", -1));
+                        navigate(next);
                         return true;
 
                     default:
@@ -1788,7 +1782,7 @@ public class FragmentMessages extends FragmentBase {
                 @Override
                 public void onNext(boolean exists, Long id) {
                     if (!exists || id != null) {
-                        next = id;
+                        closeNext = id;
                         if (!once) {
                             once = true;
                             loadMessagesNext();
@@ -2133,11 +2127,11 @@ public class FragmentMessages extends FragmentBase {
         if (autoclose)
             finish();
         else if (autonext) {
-            if (next == null)
+            if (closeNext == null)
                 finish();
             else {
-                Log.i("Navigating to last next=" + next);
-                navigate(next);
+                Log.i("Navigating to last next=" + closeNext);
+                navigate(closeNext);
             }
         }
     }
