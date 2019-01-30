@@ -987,6 +987,7 @@ but even Google's Chrome cannot handle this.
 * Did you know that FairEmail has a tablet mode? Rotate your device in landscape mode and conversation threads will be opened in a second column if there is enough screen space.
 * Did you know that you can long press a reply template to create a draft message from the template?
 * Did you know that you can long press, hold and swipe to select a range of messages?
+* Did you know that you can retry sending messages by using pull-down-to-refresh in the outbox?
 
 <br />
 
