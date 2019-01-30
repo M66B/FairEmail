@@ -75,22 +75,22 @@ public class ViewModelMessages extends ViewModel {
         messages.clear();
     }
 
-    void observePrevNext(LifecycleOwner owner, final String thread, final IPrevNext intf) {
+    void observePrevNext(LifecycleOwner owner, final long id, final IPrevNext intf) {
         LiveData<PagedList<TupleMessageEx>> list = messages.get(false);
         if (list == null) {
             Log.w("Observe previous/next without list");
             return;
         }
 
-        Log.i("Observe previous/next thread=" + thread);
+        Log.i("Observe previous/next id=" + id);
         list.observe(owner, new Observer<PagedList<TupleMessageEx>>() {
             @Override
             public void onChanged(PagedList<TupleMessageEx> messages) {
-                Log.i("Observe previous/next thread=" + thread + " messages=" + messages.size());
+                Log.i("Observe previous/next id=" + id + " messages=" + messages.size());
 
                 for (int pos = 0; pos < messages.size(); pos++) {
                     TupleMessageEx item = messages.get(pos);
-                    if (item != null && thread.equals(item.thread)) {
+                    if (item != null && id == item.id) {
                         boolean load = false;
 
                         if (pos - 1 >= 0) {
@@ -116,7 +116,7 @@ public class ViewModelMessages extends ViewModel {
                     }
                 }
 
-                Log.w("Observe previous/next gone thread=" + thread);
+                Log.w("Observe previous/next gone id=" + id);
             }
         });
     }

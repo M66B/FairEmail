@@ -283,7 +283,7 @@ public class FragmentMessages extends FragmentBase {
         if (viewType == AdapterMessage.ViewType.THREAD) {
             if (actionbar) {
                 ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-                model.observePrevNext(getViewLifecycleOwner(), thread, new ViewModelMessages.IPrevNext() {
+                model.observePrevNext(getViewLifecycleOwner(), id, new ViewModelMessages.IPrevNext() {
                     @Override
                     public void onPrevious(boolean exists, Long id) {
                         bottom_navigation.getMenu().findItem(R.id.action_prev).setIntent(new Intent().putExtra("id", id));
@@ -1777,7 +1777,7 @@ public class FragmentMessages extends FragmentBase {
     private void loadMessages() {
         if (viewType == AdapterMessage.ViewType.THREAD && autonext) {
             ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-            model.observePrevNext(getViewLifecycleOwner(), thread, new ViewModelMessages.IPrevNext() {
+            model.observePrevNext(getViewLifecycleOwner(), id, new ViewModelMessages.IPrevNext() {
                 boolean once = false;
 
                 @Override
