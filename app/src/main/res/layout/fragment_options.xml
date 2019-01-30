@@ -435,13 +435,13 @@
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swConfirm"
+            android:id="@+id/swAutoResize"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="12dp"
-            android:text="@string/title_advanced_confirm"
+            android:text="@string/title_advanced_autoresize"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swAutoMove"
             app:switchPadding="12dp" />
@@ -455,7 +455,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_sender"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swConfirm"
+            app:layout_constraintTop_toBottomOf="@id/swAutoResize"
             app:switchPadding="12dp" />
 
         <TextView
@@ -472,18 +472,6 @@
             app:layout_constraintTop_toBottomOf="@id/swSender" />
 
         <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swAutoResize"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="12dp"
-            android:text="@string/title_advanced_autoresize"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSenderHint"
-            app:switchPadding="12dp" />
-
-        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swAutoSend"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -492,7 +480,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_autosend"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swAutoResize"
+            app:layout_constraintTop_toBottomOf="@id/tvSenderHint"
             app:switchPadding="12dp" />
 
         <TextView

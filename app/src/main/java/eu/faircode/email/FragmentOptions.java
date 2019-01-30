@@ -78,7 +78,6 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swAutoRead;
     private SwitchCompat swCollapse;
     private SwitchCompat swAutoMove;
-    private SwitchCompat swConfirm;
     private SwitchCompat swSender;
     private SwitchCompat swAutoResize;
     private SwitchCompat swAutoSend;
@@ -92,7 +91,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
 
     static String[] OPTIONS_RESTART = new String[]{
             "unified", "date", "threading", "avatars", "identicons", "preview", "addresses", "autoimages",
-            "pull", "actionbar", "autoclose", "autonext", "confirm", "debug"
+            "pull", "actionbar", "autoclose", "autonext", "debug"
     };
 
     private final static String[] ADVANCED_OPTIONS = new String[]{
@@ -100,7 +99,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             "metered", "download",
             "unified", "date", "threading", "avatars", "identicons", "preview", "addresses",
             "pull", "actionbar", "autoclose", "autonext",
-            "autoread", "collapse", "automove", "confirm", "sender", "autoresize", "autosend",
+            "autoread", "collapse", "automove", "sender", "autoresize", "autosend",
             "light", "sound", "debug",
             "first", "why", "last_update_check",
             "app_support", "message_swipe", "message_select",
@@ -139,7 +138,6 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swAutoRead = view.findViewById(R.id.swAutoRead);
         swCollapse = view.findViewById(R.id.swCollapse);
         swAutoMove = view.findViewById(R.id.swAutoMove);
-        swConfirm = view.findViewById(R.id.swConfirm);
         swSender = view.findViewById(R.id.swSender);
         swAutoResize = view.findViewById(R.id.swAutoResize);
         swAutoSend = view.findViewById(R.id.swAutoSend);
@@ -325,13 +323,6 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             }
         });
 
-        swConfirm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("confirm", checked).apply();
-            }
-        });
-
         swSender.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -473,7 +464,6 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swAutoRead.setChecked(prefs.getBoolean("autoread", false));
         swCollapse.setChecked(prefs.getBoolean("collapse", false));
         swAutoMove.setChecked(!prefs.getBoolean("automove", false));
-        swConfirm.setChecked(prefs.getBoolean("confirm", false));
         swSender.setChecked(prefs.getBoolean("sender", false));
         swAutoResize.setChecked(prefs.getBoolean("autoresize", true));
         swAutoSend.setChecked(!prefs.getBoolean("autosend", false));

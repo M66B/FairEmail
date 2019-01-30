@@ -61,7 +61,6 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     private LifecycleOwner owner;
 
     private boolean readonly;
-    private boolean confirm;
     private boolean debug;
 
     private List<EntityAttachment> all = new ArrayList<>();
@@ -230,7 +229,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 return;
             }
 
-            if (confirm) {
+            if (false) {
                 View dview = LayoutInflater.from(context).inflate(R.layout.dialog_attachment, null);
                 final AlertDialog dialog = new DialogBuilderLifecycle(context, owner)
                         .setView(dview)
@@ -338,7 +337,6 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         this.inflater = LayoutInflater.from(context);
         this.owner = owner;
         this.readonly = readonly;
-        this.confirm = prefs.getBoolean("confirm", false);
         this.debug = prefs.getBoolean("debug", false);
         setHasStableIds(true);
     }
