@@ -1555,8 +1555,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onMenuJunk(final ActionData data) {
+            String who = MessageHelper.formatAddresses(data.message.from);
             new DialogBuilderLifecycle(context, owner)
-                    .setMessage(context.getResources().getQuantityString(R.plurals.title_ask_spam, 1, 1))
+                    .setMessage(context.getString(R.string.title_ask_spam_who, who))
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {

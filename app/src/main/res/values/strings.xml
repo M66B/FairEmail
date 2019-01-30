@@ -57,6 +57,7 @@
         <item quantity="one">Report %1$d message as spam?</item>
         <item quantity="other">Report %1$d messages as spam?</item>
     </plurals>
+    <string name="title_ask_spam_who">Report message from %1$s as spam?</string>
 
     <string name="title_notification_failed">\'%1$s\' failed</string>
 
