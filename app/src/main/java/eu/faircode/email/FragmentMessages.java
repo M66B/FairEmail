@@ -2062,8 +2062,10 @@ public class FragmentMessages extends FragmentBase {
                 pbWait.setVisibility(View.GONE);
             if (boundaryCallback == null && messages.size() == 0)
                 tvNoEmail.setVisibility(View.VISIBLE);
-            if (messages.size() > 0)
+            if (messages.size() > 0) {
+                tvNoEmail.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
+            }
         }
     };
 
