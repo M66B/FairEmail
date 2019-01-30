@@ -188,11 +188,20 @@ public class HtmlHelper {
         File dir = new File(context.getCacheDir(), "images");
         if (!dir.exists())
             dir.mkdir();
-        File file = new File(dir, id + "_" + source.hashCode());
+        File file = new File(dir, id + "_" + Math.abs(source.hashCode()) + ".png");
 
         if (file.exists()) {
             Log.i("Using cached " + file);
-            return Drawable.createFromPath(file.getAbsolutePath());
+            Bitmap bm = BitmapFactory.decodeFile(file.getAbsolutePath());
+            if (bm == null) {
+                Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
+                d.setBounds(0, 0, px, px);
+                return d;
+            } else {
+                Drawable d = new BitmapDrawable(bm);
+                d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
+                return d;
+            }
         }
 
         try {
