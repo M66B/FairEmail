@@ -304,16 +304,16 @@ public class FragmentMessages extends FragmentBase {
             activity.setSwipeListener(new SwipeListener.ISwipeListener() {
                 @Override
                 public boolean onSwipeRight() {
-                    if (previous != null)
-                        navigate(previous);
-                    return (previous != null);
+                    if (next != null)
+                        navigate(next);
+                    return (next != null);
                 }
 
                 @Override
                 public boolean onSwipeLeft() {
-                    if (next != null)
-                        navigate(next);
-                    return (next != null);
+                    if (previous != null)
+                        navigate(previous);
+                    return (previous != null);
                 }
             });
 
