@@ -59,6 +59,7 @@
         <item quantity="many">Сообщить о %1$d сообщениях, как о спаме?</item>
         <item quantity="other">Сообщить о %1$d сообщениях, как о спаме?</item>
     </plurals>
+    <string name="title_ask_spam_who">Сообщение от %1$s спам?</string>
     <string name="title_notification_failed">\'%1$s\' не удалось</string>
     <string name="menu_answers">Шаблоны</string>
     <string name="menu_operations">Операции</string>
@@ -303,6 +304,7 @@
     <string name="title_ask_discard">Удалить черновик?</string>
     <string name="title_ask_show_html">Отображение исходного сообщения может привести к утечке конфиденциальной информации</string>
     <string name="title_ask_show_image">Отображение изображений может привести к утечке конфиденциальной информации</string>
+    <string name="title_ask_edit_ref">Редактировать текст исходного/пересылаемого сообщения?</string>
     <string name="title_sync_queued">Будет синхронизировано при следующем подключении к учетной записи</string>
     <string name="title_fix">Исправить</string>
     <string name="title_compose">Создать</string>
