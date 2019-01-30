@@ -1096,6 +1096,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(
+                android.R.anim.fade_in, android.R.anim.fade_in,
+                android.R.anim.fade_out, android.R.anim.fade_out);
         fragmentTransaction.replace(pane, fragment).addToBackStack("thread");
         fragmentTransaction.commit();
     }

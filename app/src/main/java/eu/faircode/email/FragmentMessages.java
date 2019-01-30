@@ -73,6 +73,7 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
@@ -112,6 +113,7 @@ public class FragmentMessages extends FragmentBase {
     private String thread;
     private long id;
     private String search;
+    private boolean pane;
 
     private boolean threading;
     private boolean pull;
@@ -169,6 +171,7 @@ public class FragmentMessages extends FragmentBase {
         thread = args.getString("thread");
         id = args.getLong("id", -1);
         search = args.getString("search");
+        pane = args.getBoolean("pane", false);
 
         if (TextUtils.isEmpty(search))
             if (thread == null)
@@ -304,16 +307,16 @@ public class FragmentMessages extends FragmentBase {
             activity.setSwipeListener(new SwipeListener.ISwipeListener() {
                 @Override
                 public boolean onSwipeRight() {
-                    if (next != null)
-                        navigate(next);
-                    return (next != null);
+                    if (previous != null)
+                        navigate(previous, true);
+                    return (previous != null);
                 }
 
                 @Override
                 public boolean onSwipeLeft() {
-                    if (previous != null)
-                        navigate(previous);
-                    return (previous != null);
+                    if (next != null)
+                        navigate(next, false);
+                    return (next != null);
                 }
             });
 
@@ -379,11 +382,11 @@ public class FragmentMessages extends FragmentBase {
                         return true;
 
                     case R.id.action_prev:
-                        navigate(previous);
+                        navigate(previous, true);
                         return true;
 
                     case R.id.action_next:
-                        navigate(next);
+                        navigate(next, false);
                         return true;
 
                     default:
@@ -2134,12 +2137,12 @@ public class FragmentMessages extends FragmentBase {
                 finish();
             else {
                 Log.i("Navigating to last next=" + closeNext);
-                navigate(closeNext);
+                navigate(closeNext, false);
             }
         }
     }
 
-    private void navigate(long id) {
+    private void navigate(long id, final boolean left) {
         Bundle args = new Bundle();
         args.putLong("id", id);
         new SimpleTask<EntityMessage>() {
@@ -2156,12 +2159,25 @@ public class FragmentMessages extends FragmentBase {
                     return;
                 }
 
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                lbm.sendBroadcast(
-                        new Intent(ActivityView.ACTION_VIEW_THREAD)
-                                .putExtra("account", message.account)
-                                .putExtra("thread", message.thread)
-                                .putExtra("id", message.id));
+                getFragmentManager().popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+                Bundle nargs = new Bundle();
+                nargs.putLong("account", message.account);
+                nargs.putString("thread", message.thread);
+                nargs.putLong("id", message.id);
+                nargs.putBoolean("pane", pane);
+
+                FragmentMessages fragment = new FragmentMessages();
+                fragment.setArguments(nargs);
+
+                int res = (pane ? R.id.content_pane : R.id.content_frame);
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.setCustomAnimations(
+                        left ? R.anim.enter_from_left : R.anim.enter_from_right,
+                        left ? R.anim.exit_to_right : R.anim.exit_to_left,
+                        android.R.anim.fade_out, android.R.anim.fade_out);
+                fragmentTransaction.replace(res, fragment).addToBackStack("thread");
+                fragmentTransaction.commit();
             }
 
             @Override
