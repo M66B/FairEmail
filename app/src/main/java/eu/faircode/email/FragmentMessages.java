@@ -129,6 +129,7 @@ public class FragmentMessages extends FragmentBase {
     private AdapterMessage.ViewType viewType;
     private SelectionTracker<Long> selectionTracker = null;
 
+    private Long last_next = null;
     private int autoCloseCount = 0;
     private boolean autoExpand = true;
     private Map<String, List<Long>> values = new HashMap<>();
@@ -291,6 +292,8 @@ public class FragmentMessages extends FragmentBase {
 
                     @Override
                     public void onNext(boolean exists, Long id) {
+                        if (id != null)
+                            last_next = id;
                         bottom_navigation.getMenu().findItem(R.id.action_next).setIntent(new Intent().putExtra("id", id));
                         bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(id != null);
                     }
@@ -2080,8 +2083,16 @@ public class FragmentMessages extends FragmentBase {
         if (autoclose)
             finish();
         else if (autonext) {
+            if (last_next != null) {
+                Log.i("Navigating to last next=" + last_next);
+                navigate(last_next);
+                return;
+            }
+
             ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
             model.observePrevNext(getViewLifecycleOwner(), thread, new ViewModelMessages.IPrevNext() {
+                private boolean once = false;
+
                 @Override
                 public void onPrevious(boolean exists, Long id) {
                     // Do nothing
@@ -2089,6 +2100,10 @@ public class FragmentMessages extends FragmentBase {
 
                 @Override
                 public void onNext(boolean exists, Long id) {
+                    if (once)
+                        return;
+                    once = true;
+
                     if (id != null)
                         navigate(id);
                     if (!exists)
@@ -2110,6 +2125,11 @@ public class FragmentMessages extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, EntityMessage message) {
+                if (message == null) {
+                    finish();
+                    return;
+                }
+
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
                 lbm.sendBroadcast(
                         new Intent(ActivityView.ACTION_VIEW_THREAD)

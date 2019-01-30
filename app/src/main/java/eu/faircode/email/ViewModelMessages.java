@@ -77,40 +77,60 @@ public class ViewModelMessages extends ViewModel {
 
     void observePrevNext(LifecycleOwner owner, final String thread, final IPrevNext intf) {
         LiveData<PagedList<TupleMessageEx>> list = messages.get(false);
-        if (list == null)
+        if (list == null) {
+            Log.w("Observe previous/next without list");
             return;
+        }
 
+        Log.i("Observe previous/next thread=" + thread);
         list.observe(owner, new Observer<PagedList<TupleMessageEx>>() {
             @Override
-            public void onChanged(PagedList<TupleMessageEx> list) {
-                boolean load = false;
-                for (int pos = 0; pos < list.size(); pos++) {
-                    TupleMessageEx item = list.get(pos);
+            public void onChanged(PagedList<TupleMessageEx> messages) {
+                Log.i("Observe previous/next thread=" + thread + " messages=" + messages.size());
+
+                for (int pos = 0; pos < messages.size(); pos++) {
+                    TupleMessageEx item = messages.get(pos);
                     if (item != null && thread.equals(item.thread)) {
+                        boolean load = false;
+
                         if (pos - 1 >= 0) {
-                            TupleMessageEx next = list.get(pos - 1);
+                            TupleMessageEx next = messages.get(pos - 1);
                             if (next == null)
                                 load = true;
-                            intf.onNext(true, next == null ? null : next.id);
+                            reportNext(intf, true, next == null ? null : next.id);
                         } else
-                            intf.onNext(false, null);
+                            reportNext(intf, false, null);
 
-                        if (pos + 1 < list.size()) {
-                            TupleMessageEx prev = list.get(pos + 1);
+                        if (pos + 1 < messages.size()) {
+                            TupleMessageEx prev = messages.get(pos + 1);
                             if (prev == null)
                                 load = true;
-                            intf.onPrevious(true, prev == null ? null : prev.id);
+                            reportPrevious(intf, true, prev == null ? null : prev.id);
                         } else
-                            intf.onPrevious(false, null);
+                            reportPrevious(intf, false, null);
 
                         if (load)
-                            list.loadAround(pos);
+                            messages.loadAround(pos);
 
-                        break;
+                        return;
                     }
                 }
+
+                Log.w("Observe previous/next gone thread=" + thread);
+                reportNext(intf, false, null);
+                reportPrevious(intf, false, null);
             }
         });
+    }
+
+    private void reportPrevious(IPrevNext intf, boolean exists, Long id) {
+        Log.i("Previous exists=" + exists + " id=" + id);
+        intf.onPrevious(exists, id);
+    }
+
+    private void reportNext(IPrevNext intf, boolean exists, Long id) {
+        Log.i("Next exists=" + exists + " id=" + id);
+        intf.onNext(exists, id);
     }
 
     interface IPrevNext {
