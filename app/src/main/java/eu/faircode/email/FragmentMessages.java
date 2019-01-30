@@ -117,6 +117,7 @@ public class FragmentMessages extends FragmentBase {
     private boolean pull;
     private boolean actionbar;
     private boolean autoclose;
+    private boolean autonext;
     private boolean addresses;
 
     private long primary = -1;
@@ -128,6 +129,7 @@ public class FragmentMessages extends FragmentBase {
     private AdapterMessage.ViewType viewType;
     private SelectionTracker<Long> selectionTracker = null;
 
+    private Long next = null;
     private int autoCloseCount = 0;
     private boolean autoExpand = true;
     private Map<String, List<Long>> values = new HashMap<>();
@@ -186,6 +188,7 @@ public class FragmentMessages extends FragmentBase {
         threading = prefs.getBoolean("threading", true);
         actionbar = prefs.getBoolean("actionbar", true);
         autoclose = prefs.getBoolean("autoclose", true);
+        autonext = prefs.getBoolean("autonext", false);
         addresses = prefs.getBoolean("addresses", true);
     }
 
@@ -291,12 +294,6 @@ public class FragmentMessages extends FragmentBase {
                     public void onNext(boolean exists, Long id) {
                         bottom_navigation.getMenu().findItem(R.id.action_next).setIntent(new Intent().putExtra("id", id));
                         bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(id != null);
-                    }
-
-                    @Override
-                    public void onDeleted() {
-                        bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(false);
-                        bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(false);
                     }
                 });
             }
@@ -1754,6 +1751,32 @@ public class FragmentMessages extends FragmentBase {
     }
 
     private void loadMessages() {
+        if (viewType == AdapterMessage.ViewType.THREAD && autonext) {
+            ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+            model.observePrevNext(getViewLifecycleOwner(), thread, new ViewModelMessages.IPrevNext() {
+                boolean once = false;
+
+                @Override
+                public void onPrevious(boolean exists, Long id) {
+                    // Do nothing
+                }
+
+                @Override
+                public void onNext(boolean exists, Long id) {
+                    if (!exists || id != null) {
+                        next = id;
+                        if (!once) {
+                            once = true;
+                            loadMessagesNext();
+                        }
+                    }
+                }
+            });
+        } else
+            loadMessagesNext();
+    }
+
+    private void loadMessagesNext() {
         ViewModelBrowse modelBrowse = ViewModelProviders.of(getActivity()).get(ViewModelBrowse.class);
         modelBrowse.set(getContext(), folder, search, REMOTE_PAGE_SIZE);
 
@@ -1847,8 +1870,9 @@ public class FragmentMessages extends FragmentBase {
         @Override
         public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
             if (messages == null ||
-                    (viewType == AdapterMessage.ViewType.THREAD && messages.size() == 0 && autoclose)) {
-                finish();
+                    (viewType == AdapterMessage.ViewType.THREAD && messages.size() == 0 &&
+                            (autoclose || autonext))) {
+                handleAutoClose();
                 return;
             }
 
@@ -1947,7 +1971,7 @@ public class FragmentMessages extends FragmentBase {
                         handleExpand(expand.id);
                     }
                 } else {
-                    if (autoCloseCount > 0 && autoclose) {
+                    if (autoCloseCount > 0 && (autoclose || autonext)) {
                         int count = 0;
                         for (int i = 0; i < messages.size(); i++) {
                             TupleMessageEx message = messages.get(i);
@@ -1964,7 +1988,7 @@ public class FragmentMessages extends FragmentBase {
                         // - no more non archived/trashed/sent messages
 
                         if (count == 0) {
-                            finish();
+                            handleAutoClose();
                             return;
                         }
                     }
@@ -2079,6 +2103,19 @@ public class FragmentMessages extends FragmentBase {
         }.execute(this, args, "messages:expand");
     }
 
+    private void handleAutoClose() {
+        if (autoclose)
+            finish();
+        else if (autonext) {
+            if (next == null)
+                finish();
+            else {
+                Log.i("Navigating to last next=" + next);
+                navigate(next);
+            }
+        }
+    }
+
     private void navigate(long id) {
         Bundle args = new Bundle();
         args.putLong("id", id);
@@ -2091,14 +2128,17 @@ public class FragmentMessages extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, EntityMessage message) {
-                if (message != null) {
-                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                    lbm.sendBroadcast(
-                            new Intent(ActivityView.ACTION_VIEW_THREAD)
-                                    .putExtra("account", message.account)
-                                    .putExtra("thread", message.thread)
-                                    .putExtra("id", message.id));
+                if (message == null) {
+                    finish();
+                    return;
                 }
+
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_VIEW_THREAD)
+                                .putExtra("account", message.account)
+                                .putExtra("thread", message.thread)
+                                .putExtra("id", message.id));
             }
 
             @Override

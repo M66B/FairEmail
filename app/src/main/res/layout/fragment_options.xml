@@ -387,6 +387,18 @@
             app:layout_constraintTop_toBottomOf="@id/swAutoClose" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swAutoNext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:text="@string/title_advanced_autonext"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAutocloseHint"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swAutoRead"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -395,7 +407,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_autoread"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAutocloseHint"
+            app:layout_constraintTop_toBottomOf="@id/swAutoNext"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
