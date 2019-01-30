@@ -47,9 +47,9 @@
             android:id="@+id/btnQuick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="6dp"
             android:text="@string/title_setup_go"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvQuick" />
 
         <!-- account -->
@@ -112,10 +112,9 @@
             android:id="@+id/btnAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:text="@string/title_setup_manage"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAccountDone" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvAccountDone" />
 
         <TextView
             android:id="@+id/tvNoPrimaryDrafts"
@@ -189,10 +188,9 @@
             android:id="@+id/btnIdentity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:text="@string/title_setup_manage"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvIdentityDone" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvIdentityDone" />
 
         <!-- permissions -->
 
@@ -254,10 +252,9 @@
             android:id="@+id/btnPermissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:text="@string/title_setup_grant"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPermissionsDone" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvPermissionsDone" />
 
         <!-- doze -->
 
@@ -320,10 +317,9 @@
             android:id="@+id/btnDoze"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:text="@string/title_setup_manage"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDozeDone" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvDozeDone" />
 
         <!-- data saver -->
 
@@ -336,7 +332,7 @@
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:text="@string/title_setup_data"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnDoze" />
 
         <!-- inbox -->
@@ -377,9 +373,9 @@
             android:id="@+id/btnInbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="6dp"
             android:text="@string/title_setup_go"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/five" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
