@@ -535,10 +535,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else
                 ivExpander.setVisibility(View.GONE);
 
-            int flagged = (message.count - message.unflagged);
-            ivFlagged.setImageResource(flagged > 0 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
-            ivFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? colorAccent : textColorSecondary));
-            ivFlagged.setVisibility(message.uid == null ? View.INVISIBLE : View.VISIBLE);
+            bindFlagged(message);
 
             tvSize.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
             tvSize.setVisibility(message.size == null || message.content ? View.GONE : View.VISIBLE);
@@ -852,6 +849,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             itemView.setActivated(selectionTracker != null && selectionTracker.isSelected(message.id));
         }
 
+        private void bindFlagged(TupleMessageEx message) {
+            int flagged = (message.count - message.unflagged);
+            ivFlagged.setImageResource(flagged > 0 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
+            ivFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? colorAccent : textColorSecondary));
+            ivFlagged.setVisibility(message.uid == null ? View.INVISIBLE : View.VISIBLE);
+        }
+
         private void showContactInfo(ContactInfo info, TupleMessageEx message) {
             if (info.hasPhoto())
                 ivAvatar.setImageBitmap(info.getPhotoBitmap());
@@ -933,11 +937,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onToggleFlag(TupleMessageEx message) {
+            Log.i("Set message id=" + message.id +
+                    " flagged=" + message.ui_flagged + " " + message.unflagged + "/" + message.count);
+
             Bundle args = new Bundle();
             args.putLong("id", message.id);
             args.putBoolean("flagged", !message.ui_flagged);
             args.putBoolean("thread", viewType != ViewType.THREAD);
-            Log.i("Set message id=" + message.id + " flagged=" + !message.ui_flagged);
+
+            message.unflagged = message.ui_flagged ? message.count : 0;
+            message.ui_flagged = !message.ui_flagged;
+            bindFlagged(message);
 
             new SimpleTask<Void>() {
                 @Override
