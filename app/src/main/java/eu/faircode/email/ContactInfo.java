@@ -76,9 +76,9 @@ public class ContactInfo {
             return new ContactInfo();
         InternetAddress address = (InternetAddress) addresses[0];
 
-        String email = address.getAddress();
+        String key = address.toString();
         synchronized (emailContactInfo) {
-            ContactInfo info = emailContactInfo.get(email);
+            ContactInfo info = emailContactInfo.get(key);
             if (info != null && !info.isExpired())
                 return info;
         }
@@ -87,7 +87,7 @@ public class ContactInfo {
             return null;
 
         ContactInfo info = new ContactInfo();
-        info.email = email;
+        info.email = address.getAddress();
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
@@ -105,7 +105,7 @@ public class ContactInfo {
                             },
                             ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
                             new String[]{
-                                    email
+                                    address.getAddress()
                             }, null);
 
                     if (cursor != null && cursor.moveToNext()) {
@@ -139,7 +139,7 @@ public class ContactInfo {
             if (identicons) {
                 String theme = prefs.getString("theme", "light");
                 int dp = Helper.dp2pixels(context, 48);
-                info.bitmap = Identicon.generate(email, dp, 5, "light".equals(theme));
+                info.bitmap = Identicon.generate(key, dp, 5, "light".equals(theme));
             }
         }
 
@@ -147,7 +147,7 @@ public class ContactInfo {
             info.displayName = address.getPersonal();
 
         synchronized (emailContactInfo) {
-            emailContactInfo.put(email, info);
+            emailContactInfo.put(key, info);
         }
 
         info.time = new Date().getTime();
