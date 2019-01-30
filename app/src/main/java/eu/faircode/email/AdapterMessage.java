@@ -131,7 +131,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean search;
     private boolean avatars;
     private boolean preview;
-    private boolean confirm;
     private boolean autoimages;
     private boolean debug;
 
@@ -1152,19 +1151,30 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowHtml(final TupleMessageEx message) {
-            if (confirm)
-                new DialogBuilderLifecycle(context, owner)
-                        .setMessage(R.string.title_ask_show_html)
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                onShowHtmlConfirmed(message);
-                            }
-                        })
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show();
-            else
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            if (prefs.getBoolean("show_html_confirmed", false)) {
                 onShowHtmlConfirmed(message);
+                return;
+            }
+
+            final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_ask_again, null);
+            final TextView tvMessage = dview.findViewById(R.id.tvMessage);
+            final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+
+            tvMessage.setText(context.getText(R.string.title_ask_show_html));
+
+            new DialogBuilderLifecycle(context, owner)
+                    .setView(dview)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if (cbNotAgain.isChecked())
+                                prefs.edit().putBoolean("show_html_confirmed", true).apply();
+                            onShowHtmlConfirmed(message);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
         }
 
         private void onShowHtmlConfirmed(final TupleMessageEx message) {
@@ -1185,19 +1195,30 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowImages(final TupleMessageEx message) {
-            if (confirm)
-                new DialogBuilderLifecycle(context, owner)
-                        .setMessage(R.string.title_ask_show_image)
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                onShowImagesConfirmed(message);
-                            }
-                        })
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show();
-            else
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            if (prefs.getBoolean("show_images_confirmed", false)) {
                 onShowImagesConfirmed(message);
+                return;
+            }
+
+            final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_ask_again, null);
+            final TextView tvMessage = dview.findViewById(R.id.tvMessage);
+            final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+
+            tvMessage.setText(context.getText(R.string.title_ask_show_image));
+
+            new DialogBuilderLifecycle(context, owner)
+                    .setView(dview)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if (cbNotAgain.isChecked())
+                                prefs.edit().putBoolean("show_images_confirmed", true).apply();
+                            onShowImagesConfirmed(message);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
         }
 
         private void onShowImagesConfirmed(final TupleMessageEx message) {
@@ -2230,7 +2251,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.avatars = (prefs.getBoolean("avatars", true) ||
                 prefs.getBoolean("identicons", false));
         this.preview = prefs.getBoolean("preview", false);
-        this.confirm = prefs.getBoolean("confirm", false);
         this.autoimages = prefs.getBoolean("autoimages", false);
         this.debug = prefs.getBoolean("debug", false);
 
