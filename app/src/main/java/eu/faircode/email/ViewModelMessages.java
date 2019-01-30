@@ -117,8 +117,7 @@ public class ViewModelMessages extends ViewModel {
                 }
 
                 Log.w("Observe previous/next gone thread=" + thread);
-                reportNext(intf, false, null);
-                reportPrevious(intf, false, null);
+                intf.onDeleted();
             }
         });
     }
@@ -137,5 +136,7 @@ public class ViewModelMessages extends ViewModel {
         void onPrevious(boolean exists, Long id);
 
         void onNext(boolean exists, Long id);
+
+        void onDeleted();
     }
 }

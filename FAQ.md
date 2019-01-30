@@ -36,6 +36,7 @@ Anything on this list is in random order and *might* be added in the near future
 ## Frequently requested features
 
 * Swipe left/right to go to previous/next message: besides that swiping left/right is already being used to move messages to archive/trash, swiping also selects message text, so this will not work reliably. You can use the bottom navigation bar instead.
+* Automatically go to next message: after closing a conversation thread it is not possible anymore to reliably determine the next conversation thread without delays. Note that most apps implementing something similar work with individual messages instead of conversations and don't support two way synchronization.
 * Rich text editor: besides that very few people would use this on a small mobile device, Android doesn't support a rich text editor and most rich text editor open source projects are abandoned.
 * Widget to read e-mail: widgets can have limited user interaction only, so a widget to read e-mail would not be very useful. Moreover, it would be not very useful to duplicate functions which are already available in the app.
 * Badge count: there is no standard Android API for this and third party solutions might stop working anytime. For example *ShortcutBadger* [has lots of problems](https://github.com/leolin310148/ShortcutBadger/issues). You can use the provided widget instead.

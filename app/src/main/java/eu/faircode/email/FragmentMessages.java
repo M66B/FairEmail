@@ -117,7 +117,6 @@ public class FragmentMessages extends FragmentBase {
     private boolean pull;
     private boolean actionbar;
     private boolean autoclose;
-    private boolean autonext;
     private boolean addresses;
 
     private long primary = -1;
@@ -129,7 +128,6 @@ public class FragmentMessages extends FragmentBase {
     private AdapterMessage.ViewType viewType;
     private SelectionTracker<Long> selectionTracker = null;
 
-    private Long last_next = null;
     private int autoCloseCount = 0;
     private boolean autoExpand = true;
     private Map<String, List<Long>> values = new HashMap<>();
@@ -188,7 +186,6 @@ public class FragmentMessages extends FragmentBase {
         threading = prefs.getBoolean("threading", true);
         actionbar = prefs.getBoolean("actionbar", true);
         autoclose = prefs.getBoolean("autoclose", true);
-        autonext = prefs.getBoolean("autonext", false);
         addresses = prefs.getBoolean("addresses", true);
     }
 
@@ -292,10 +289,14 @@ public class FragmentMessages extends FragmentBase {
 
                     @Override
                     public void onNext(boolean exists, Long id) {
-                        if (id != null)
-                            last_next = id;
                         bottom_navigation.getMenu().findItem(R.id.action_next).setIntent(new Intent().putExtra("id", id));
                         bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(id != null);
+                    }
+
+                    @Override
+                    public void onDeleted() {
+                        bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(false);
+                        bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(false);
                     }
                 });
             }
@@ -1846,9 +1847,8 @@ public class FragmentMessages extends FragmentBase {
         @Override
         public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
             if (messages == null ||
-                    (viewType == AdapterMessage.ViewType.THREAD && messages.size() == 0 &&
-                            (autoclose || autonext))) {
-                handleAutoClose();
+                    (viewType == AdapterMessage.ViewType.THREAD && messages.size() == 0 && autoclose)) {
+                finish();
                 return;
             }
 
@@ -1947,7 +1947,7 @@ public class FragmentMessages extends FragmentBase {
                         handleExpand(expand.id);
                     }
                 } else {
-                    if (autoCloseCount > 0 && (autoclose || autonext)) {
+                    if (autoCloseCount > 0 && autoclose) {
                         int count = 0;
                         for (int i = 0; i < messages.size(); i++) {
                             TupleMessageEx message = messages.get(i);
@@ -1964,7 +1964,7 @@ public class FragmentMessages extends FragmentBase {
                         // - no more non archived/trashed/sent messages
 
                         if (count == 0) {
-                            handleAutoClose();
+                            finish();
                             return;
                         }
                     }
@@ -2079,40 +2079,6 @@ public class FragmentMessages extends FragmentBase {
         }.execute(this, args, "messages:expand");
     }
 
-    private void handleAutoClose() {
-        if (autoclose)
-            finish();
-        else if (autonext) {
-            if (last_next != null) {
-                Log.i("Navigating to last next=" + last_next);
-                navigate(last_next);
-                return;
-            }
-
-            ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-            model.observePrevNext(getViewLifecycleOwner(), thread, new ViewModelMessages.IPrevNext() {
-                private boolean once = false;
-
-                @Override
-                public void onPrevious(boolean exists, Long id) {
-                    // Do nothing
-                }
-
-                @Override
-                public void onNext(boolean exists, Long id) {
-                    if (once)
-                        return;
-                    once = true;
-
-                    if (id != null)
-                        navigate(id);
-                    if (!exists)
-                        finish();
-                }
-            });
-        }
-    }
-
     private void navigate(long id) {
         Bundle args = new Bundle();
         args.putLong("id", id);
@@ -2125,17 +2091,14 @@ public class FragmentMessages extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, EntityMessage message) {
-                if (message == null) {
-                    finish();
-                    return;
+                if (message != null) {
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                    lbm.sendBroadcast(
+                            new Intent(ActivityView.ACTION_VIEW_THREAD)
+                                    .putExtra("account", message.account)
+                                    .putExtra("thread", message.thread)
+                                    .putExtra("id", message.id));
                 }
-
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                lbm.sendBroadcast(
-                        new Intent(ActivityView.ACTION_VIEW_THREAD)
-                                .putExtra("account", message.account)
-                                .putExtra("thread", message.thread)
-                                .putExtra("id", message.id));
             }
 
             @Override
