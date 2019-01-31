@@ -496,11 +496,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Bundle aargs = new Bundle();
                 aargs.putLong("id", message.id);
                 aargs.putSerializable("addresses", addresses);
-                aargs.putInt("position", position);
 
                 new SimpleTask<ContactInfo>() {
                     @Override
                     protected void onPreExecute(Bundle args) {
+                        args.putInt("position", position);
                         ivAvatar.setVisibility(avatars ? View.INVISIBLE : View.GONE);
                         tvFrom.setText(MessageHelper.formatAddresses(addresses, !compact, false));
                     }
@@ -778,6 +778,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 new SimpleTask<List<EntityFolder>>() {
                     @Override
                     protected void onPreExecute(Bundle args) {
+                        args.putInt("position", position);
                         bnvActions.setHasTransientState(true);
                     }
 
@@ -794,6 +795,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     @Override
                     protected void onExecuted(Bundle args, List<EntityFolder> folders) {
+                        if (args.getInt("position") != position)
+                            return;
+
                         boolean hasJunk = false;
                         boolean hasTrash = false;
                         boolean hasArchive = false;
@@ -1235,20 +1239,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             @Override
             protected void onPreExecute(Bundle args) {
-                btnHtml.setHasTransientState(true);
-                ibQuotes.setHasTransientState(true);
-                ibImages.setHasTransientState(true);
-                tvBody.setHasTransientState(true);
-                pbBody.setHasTransientState(true);
-            }
-
-            @Override
-            protected void onPostExecute(Bundle args) {
-                btnHtml.setHasTransientState(false);
-                ibQuotes.setHasTransientState(false);
-                ibImages.setHasTransientState(false);
-                tvBody.setHasTransientState(false);
-                pbBody.setHasTransientState(false);
+                args.putInt("position", position);
             }
 
             @Override
@@ -1282,6 +1273,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             @Override
             protected void onExecuted(Bundle args, SpannableStringBuilder body) {
+                if (args.getInt("position") != position)
+                    return;
+
                 TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
 
                 boolean has_quotes = (body.getSpans(0, body.length(), StyledQuoteSpan.class).length > 0);
