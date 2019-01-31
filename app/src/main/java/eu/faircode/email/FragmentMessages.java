@@ -48,6 +48,7 @@ import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -129,7 +130,6 @@ public class FragmentMessages extends FragmentBase {
     private boolean connected;
     private boolean searching = false;
     private AdapterMessage adapter;
-    private boolean animate = true;
 
     private AdapterMessage.ViewType viewType;
     private SelectionTracker<Long> selectionTracker = null;
@@ -2166,6 +2166,8 @@ public class FragmentMessages extends FragmentBase {
 
                 getFragmentManager().popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
+                getArguments().putBoolean("fade", true);
+
                 Bundle nargs = new Bundle();
                 nargs.putLong("account", message.account);
                 nargs.putString("thread", message.thread);
@@ -2173,16 +2175,13 @@ public class FragmentMessages extends FragmentBase {
                 nargs.putBoolean("pane", pane);
                 nargs.putLong("primary", primary);
                 nargs.putBoolean("connected", connected);
+                nargs.putBoolean("left", left);
 
                 FragmentMessages fragment = new FragmentMessages();
                 fragment.setArguments(nargs);
 
                 int res = (pane ? R.id.content_pane : R.id.content_frame);
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.setCustomAnimations(
-                        left ? R.anim.enter_from_left : R.anim.enter_from_right,
-                        left ? R.anim.exit_to_right : R.anim.exit_to_left,
-                        android.R.anim.fade_out, android.R.anim.fade_out);
                 fragmentTransaction.replace(res, fragment).addToBackStack("thread");
                 fragmentTransaction.commit();
             }
@@ -2397,20 +2396,26 @@ public class FragmentMessages extends FragmentBase {
                     return true;
                 }
 
-            animate = false;
-
             return false;
         }
     };
 
     @Override
     public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
-        if (!animate) {
-            Animation a = new Animation() {
-            };
-            a.setDuration(0);
-            return a;
+        Bundle args = getArguments();
+        if (viewType == AdapterMessage.ViewType.THREAD && args != null) {
+            if (enter) {
+                Boolean left = (Boolean) args.get("left");
+                if (left != null)
+                    return AnimationUtils.loadAnimation(getContext(), left ? R.anim.enter_from_left : R.anim.enter_from_right);
+            } else {
+                if (args.getBoolean("fade")) {
+                    args.remove("fade");
+                    return AnimationUtils.loadAnimation(getContext(), android.R.anim.fade_out);
+                }
+            }
         }
+
         return super.onCreateAnimation(transit, enter, nextAnim);
     }
 

@@ -44,7 +44,6 @@ import android.os.ParcelFileDescriptor;
 import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -1096,15 +1095,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             args.putBoolean("pane", true);
         }
 
-        TypedValue enter = new TypedValue();
-        TypedValue exit = new TypedValue();
-        getTheme().resolveAttribute(android.R.attr.activityOpenEnterAnimation, enter, false);
-        getTheme().resolveAttribute(android.R.attr.activityOpenExitAnimation, exit, false);
-
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(
-                enter.resourceId, exit.resourceId,
-                android.R.anim.fade_out, android.R.anim.fade_out);
         fragmentTransaction.replace(pane, fragment).addToBackStack("thread");
         fragmentTransaction.commit();
     }
