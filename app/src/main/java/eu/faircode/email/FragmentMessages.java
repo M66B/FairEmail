@@ -47,6 +47,7 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -128,6 +129,7 @@ public class FragmentMessages extends FragmentBase {
     private Boolean connected = null;
     private boolean searching = false;
     private AdapterMessage adapter;
+    private boolean animate = true;
 
     private AdapterMessage.ViewType viewType;
     private SelectionTracker<Long> selectionTracker = null;
@@ -2393,9 +2395,22 @@ public class FragmentMessages extends FragmentBase {
                     return true;
                 }
 
+            animate = false;
+
             return false;
         }
     };
+
+    @Override
+    public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
+        if (!animate) {
+            Animation a = new Animation() {
+            };
+            a.setDuration(0);
+            return a;
+        }
+        return super.onCreateAnimation(transit, enter, nextAnim);
+    }
 
     private class MoreResult {
         boolean seen;
