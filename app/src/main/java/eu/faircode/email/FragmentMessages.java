@@ -195,7 +195,7 @@ public class FragmentMessages extends FragmentBase {
         actionbar = prefs.getBoolean("actionbar", true);
         autoexpand = prefs.getBoolean("autoexpand", true);
         autoclose = prefs.getBoolean("autoclose", true);
-        autonext = prefs.getBoolean("autonext", false);
+        autonext = (!autoclose && prefs.getBoolean("autonext", false));
         addresses = prefs.getBoolean("addresses", true);
     }
 
