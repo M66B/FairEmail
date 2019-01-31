@@ -1885,7 +1885,7 @@ public class FragmentMessages extends FragmentBase {
 
         builder.setFetchExecutor(executor);
 
-        modelMessages.setMessages(viewType, getActivity(), builder.build());
+        modelMessages.setMessages(viewType, getViewLifecycleOwner(), builder.build());
         modelMessages.observe(viewType, getViewLifecycleOwner(), observer);
     }
 

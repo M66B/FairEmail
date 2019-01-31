@@ -38,20 +38,22 @@ public class ViewModelMessages extends ViewModel {
         final boolean thread = (viewType == AdapterMessage.ViewType.THREAD);
         this.messages.put(thread, messages);
 
-        // Keep list up-to-date for previous/next navigation
-        messages.observe(owner, new Observer<PagedList<TupleMessageEx>>() {
-            @Override
-            public void onChanged(PagedList<TupleMessageEx> messages) {
-            }
-        });
-
-        owner.getLifecycle().addObserver(new LifecycleObserver() {
-            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-            public void onDestroyed() {
-                Log.i("Removed model thread=" + thread);
-                ViewModelMessages.this.messages.remove(thread);
-            }
-        });
+        if (thread)
+            owner.getLifecycle().addObserver(new LifecycleObserver() {
+                @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+                public void onDestroyed() {
+                    Log.i("Removed model thread");
+                    ViewModelMessages.this.messages.remove(thread);
+                }
+            });
+        else {
+            // Keep list up-to-date for previous/next navigation
+            messages.observeForever(new Observer<PagedList<TupleMessageEx>>() {
+                @Override
+                public void onChanged(PagedList<TupleMessageEx> messages) {
+                }
+            });
+        }
     }
 
     void observe(AdapterMessage.ViewType viewType, LifecycleOwner owner, Observer<PagedList<TupleMessageEx>> observer) {
