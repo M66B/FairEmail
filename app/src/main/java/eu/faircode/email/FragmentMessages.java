@@ -1651,7 +1651,8 @@ public class FragmentMessages extends FragmentBase {
 
         boolean selection = (selectionTracker != null && selectionTracker.hasSelection());
 
-        menu.findItem(R.id.menu_search).setVisible(viewType != AdapterMessage.ViewType.SEARCH);
+        menu.findItem(R.id.menu_search).setVisible(
+                viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
 
         menu.findItem(R.id.menu_folders).setVisible(primary >= 0);
         menu.findItem(R.id.menu_folders).setIcon(connected ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24);
