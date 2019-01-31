@@ -67,9 +67,9 @@ import javax.mail.internet.ParseException;
 public class MessageHelper {
     private MimeMessage imessage;
 
-    private final static int NETWORK_TIMEOUT = 60 * 1000; // milliseconds
+    private final static int NETWORK_TIMEOUT = 20 * 1000; // milliseconds
     private final static int FETCH_SIZE = 1024 * 1024; // bytes, default 16K
-    private final static int POOL_TIMEOUT = 3 * 60 * 1000; // milliseconds, default 45 sec
+    private final static int POOL_TIMEOUT = 45 * 1000; // milliseconds, default 45 sec
 
     static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
