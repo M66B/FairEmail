@@ -173,6 +173,8 @@ public class FragmentMessages extends FragmentBase {
         thread = args.getString("thread");
         id = args.getLong("id", -1);
         search = args.getString("search");
+        primary = args.getLong("primary", -1);
+        connected = args.getBoolean("connected", false);
         pane = args.getBoolean("pane", false);
 
         if (TextUtils.isEmpty(search))
@@ -2168,6 +2170,8 @@ public class FragmentMessages extends FragmentBase {
                 nargs.putString("thread", message.thread);
                 nargs.putLong("id", message.id);
                 nargs.putBoolean("pane", pane);
+                nargs.putLong("primary", primary);
+                nargs.putBoolean("connected", connected);
 
                 FragmentMessages fragment = new FragmentMessages();
                 fragment.setArguments(nargs);
