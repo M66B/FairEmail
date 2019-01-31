@@ -35,6 +35,14 @@
         <item quantity="one">Verschiebe eine E-Mail nach %2$s ?</item>
         <item quantity="other">Verschiebe %1$d E-Mails nach %2$s ?</item>
     </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="one">E-Mail unwiderruflich löschen?</item>
+        <item quantity="other">%1$d E-Mails unwiderruflich löschen?</item>
+    </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="one">Melde E-Mail als Spam?</item>
+        <item quantity="other">Melde %1$d E-Mails als Spam?</item>
+    </plurals>
     <string name="title_ask_spam_who">Nachricht von %1$s als Spam markieren?</string>
     <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
     <string name="menu_answers">Vorlagen</string>
@@ -120,6 +128,7 @@
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
     <string name="title_advanced_sound">Benachrichtigungston auswählen</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
+    <string name="title_advanced_autoexpand">Nachrichten automatisch erweitern</string>
     <string name="title_advanced_autoclose">Konversationen automatisch schließen</string>
     <string name="title_advanced_autonext">Automatisch beim Schließen einer Konversation zur nächsten Konversation wechseln</string>
     <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen markieren</string>
@@ -137,6 +146,7 @@
     <string name="title_advanced_unified_hint">Zeige die Ordner oder die E-Mails des Sammeleingangs an</string>
     <string name="title_advanced_threading_hint">E-Mails gruppieren, die miteinander verwandt sind</string>
     <string name="title_advanced_preview_hint">Nur verfügbar, wenn der E-Mail-Text heruntergeladen wurde</string>
+    <string name="title_advanced_autoexpand_hint">Eine (ungelesene) Nachricht wird automatisch geöffnet</string>
     <string name="title_advanced_autoclose_hint">Automatisches Schließen des Unterhaltungsthreads, wenn alle E-Mails archiviert, gesendet oder gelöscht wurden</string>
     <string name="title_advanced_sender_hint">Die meisten Anbieter erlauben keine veränderten Absenderadressen</string>
     <string name="title_select">Wählen Sie &#8230;</string>
@@ -311,6 +321,7 @@
     <string name="title_attachments_missing">Nicht alle Dateianhänge wurden heruntergeladen</string>
     <string name="title_draft_deleted">Entwurf gelöscht</string>
     <string name="title_draft_saved">Entwurf gespeichert</string>
+    <string name="title_ask_send_via">Sende E-Mail zu %1$s über %2$s?</string>
     <string name="title_queued">Nachricht senden\u2026</string>
     <string name="title_encrypt">Verschlüsseln</string>
     <string name="title_decrypt">Entschlüsseln</string>

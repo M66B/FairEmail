@@ -128,6 +128,7 @@
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
     <string name="title_advanced_pull_refresh">Tirer vers le bas pour actualiser</string>
+    <string name="title_advanced_autoexpand">Développer automatiquement les messages</string>
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
     <string name="title_advanced_autonext">Lors de la fermeture d\'une conversation, aller automatiquement sur la suivante</string>
     <string name="title_advanced_autoread">Marquer automatiquement le message comme lu lors de son déplacement</string>
@@ -145,6 +146,7 @@
     <string name="title_advanced_unified_hint">Afficher les dossiers de la boîte de réception unifiée ou les messages de la boîte de réception unifiée</string>
     <string name="title_advanced_threading_hint">Groupe de messages liés les uns aux autres</string>
     <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
+    <string name="title_advanced_autoexpand_hint">Ouvrir automatiquement le message lorsqu’il n’y a qu’un seul message ou seulement un message non lu dans une conversation</string>
     <string name="title_advanced_autoclose_hint">Fermer automatiquement les fils de conversation quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n\'autorisent pas les adresses d\'expéditeur modifiées</string>
     <string name="title_select">Sélectionner &#8230;</string>

@@ -128,6 +128,7 @@
     <string name="title_advanced_light">Gebruik meldingslicht</string>
     <string name="title_advanced_sound">Selecteer meldingsgeluid</string>
     <string name="title_advanced_pull_refresh">Omlaag schuiven om te verversen</string>
+    <string name="title_advanced_autoexpand">Berichten automatisch uitvouwen</string>
     <string name="title_advanced_autoclose">Gesprekken automatisch sluiten</string>
     <string name="title_advanced_autonext">Automatisch naar het volgende gesprek gaan bij het sluiten van een gesprek</string>
     <string name="title_advanced_autoread">Markeer berichten automatisch als gelezen bij het verplaatsen van berichten</string>
@@ -145,6 +146,7 @@
     <string name="title_advanced_unified_hint">Gecombineerd postvak in mappen of gecombineerd postvak in berichten weergeven</string>
     <string name="title_advanced_threading_hint">Groepeer gerelateerde berichten</string>
     <string name="title_advanced_preview_hint">Alleen beschikbaar wanneer de berichttekst werd gedownload</string>
+    <string name="title_advanced_autoexpand_hint">Bericht automatisch openen als een er slechts één bericht of slechts één ongelezen bericht in een gesprek is</string>
     <string name="title_advanced_autoclose_hint">Gesprekken automatisch sluiten wanneer alle berichten zijn gearchiveerd, verzonden of weggegooid</string>
     <string name="title_advanced_sender_hint">De meeste providers staan gemodificeerde verzendadressen niet toe</string>
     <string name="title_select">Selecteer &#8230;</string>

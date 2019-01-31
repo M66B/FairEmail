@@ -138,12 +138,13 @@
     <string name="title_advanced_avatars">Показать фотографии контакта</string>
     <string name="title_advanced_identicons">Показать идентификаторы</string>
     <string name="title_advanced_preview">Показать предварительный просмотр сообщения</string>
-    <string name="title_advanced_addresses">Показывать подробную информацию об адресах по умолчанию</string>
+    <string name="title_advanced_addresses">По умолчанию показывать подробную информацию об адресах</string>
     <string name="title_advanced_images">Автоматически показывать изображения для известных контактов</string>
     <string name="title_advanced_actionbar">Панель управления диалогами</string>
     <string name="title_advanced_light">Использовать индикатор уведомлений</string>
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
     <string name="title_advanced_pull_refresh">Потяните вниз, для обновления</string>
+    <string name="title_advanced_autoexpand">Автоматически разворачивать сообщения</string>
     <string name="title_advanced_autoclose">Автоматически закрывать диалоги</string>
     <string name="title_advanced_autonext">При закрытии диалога, автоматически открыть следующий</string>
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
@@ -161,6 +162,7 @@
     <string name="title_advanced_unified_hint">Показать отдельные папки \"Входящие\" или сообщения в единой папке</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
     <string name="title_advanced_preview_hint">Доступно только когда был загружен текст сообщения</string>
+    <string name="title_advanced_autoexpand_hint">Автоматически открывать сообщение, когда оно только одно или только одно непрочитанное сообщение в диалоге</string>
     <string name="title_advanced_autoclose_hint">Автоматически закрывать диалог, если все сообщения удалены, отправлены или помещены в архив</string>
     <string name="title_advanced_sender_hint">Большинство провайдеров не разрешают изменять адреса отправителей</string>
     <string name="title_select">Выбор &#8230;</string>

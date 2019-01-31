@@ -43,6 +43,7 @@
         <item quantity="one">¿Reportar %1$d mensaje como spam?</item>
         <item quantity="other">¿Reportar %1$d mensajes como spam?</item>
     </plurals>
+    <string name="title_ask_spam_who">¿Reportar mensaje de %1$s como spam?</string>
     <string name="title_notification_failed">\'%1$s\' falló</string>
     <string name="menu_answers">Plantillas</string>
     <string name="menu_operations">Operaciones</string>
@@ -127,6 +128,7 @@
     <string name="title_advanced_light">Usar luz de notificación</string>
     <string name="title_advanced_sound">Seleccionar sonido de notificación</string>
     <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
+    <string name="title_advanced_autoexpand">Expandir mensajes automáticamente</string>
     <string name="title_advanced_autoclose">Cerrar conversaciones automáticamente</string>
     <string name="title_advanced_autonext">Al cerrar una conversación, ir automáticamente a la siguiente</string>
     <string name="title_advanced_autoread">Marcar mensaje como leído automáticamente al moverlo</string>
@@ -144,6 +146,7 @@
     <string name="title_advanced_unified_hint">Mostrar carpetas de bandeja de entrada unificada o mensajes de bandeja de entrada unificada</string>
     <string name="title_advanced_threading_hint">Agrupar mensajes relacionados entre sí</string>
     <string name="title_advanced_preview_hint">Sólo disponible cuando el texto del mensaje fue descargado</string>
+    <string name="title_advanced_autoexpand_hint">Abrir mensajes automáticamente cuando sólo haya uno o uno no leído en una conversación</string>
     <string name="title_advanced_autoclose_hint">Cerrar automáticamente hilos de conversación cuando todos los mensajes son archivados, enviados o eliminados</string>
     <string name="title_advanced_sender_hint">La mayoría de los proveedores no permiten direcciones de remitente modificadas</string>
     <string name="title_select">Seleccione &#8230;</string>
@@ -287,6 +290,7 @@
     <string name="title_ask_discard">¿Descartar el borrador?</string>
     <string name="title_ask_show_html">Mostrar el mensaje original puede filtrar información privada sensible</string>
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
+    <string name="title_ask_edit_ref">¿Editar texto reformateado de mensaje respondido/reenviado?</string>
     <string name="title_sync_queued">La sincronización se realizará en la próxima conexión de la cuenta</string>
     <string name="title_fix">Reparar</string>
     <string name="title_compose">Redactar</string>
