@@ -136,6 +136,7 @@
     <string name="title_advanced_light">Folosire LED de notificare</string>
     <string name="title_advanced_sound">Selectare sunet de notificare</string>
     <string name="title_advanced_pull_refresh">Trageți în jos pentru a actualiza</string>
+    <string name="title_advanced_autoexpand">Extinde mesajele automat</string>
     <string name="title_advanced_autoclose">Închide automat conversațiile</string>
     <string name="title_advanced_autonext">Se trece la următoarea conversație când este închisă cea curentă</string>
     <string name="title_advanced_autoread">Marchează automat mesajele mutate ca citite</string>
@@ -153,7 +154,8 @@
     <string name="title_advanced_unified_hint">Arată dosarele unificate sau mesajele primite unificate</string>
     <string name="title_advanced_threading_hint">Grupează mesajele asociate</string>
     <string name="title_advanced_preview_hint">Disponibil doar atunci când a fost descarcat textul mesajului</string>
-    <string name="title_advanced_autoclose_hint">Închide automat discuțiile atunci când toate mesajele sunt arhivate, trimise sau la gunoi</string>
+    <string name="title_advanced_autoexpand_hint">Atunci când este doar un mesaj sau doar un mesaj necitit într-o conversație</string>
+    <string name="title_advanced_autoclose_hint">Atunci când toate mesajele sunt arhivate, trimise sau mutate la gunoi</string>
     <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
     <string name="title_select">Selectaţi &#8230;</string>
     <string name="title_identity_name">Numele dumneavoastră</string>

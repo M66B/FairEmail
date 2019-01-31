@@ -128,6 +128,7 @@
     <string name="title_advanced_light">Usa il led di notifica</string>
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
     <string name="title_advanced_pull_refresh">Trascina in basso per aggiornare</string>
+    <string name="title_advanced_autoexpand">Espandi automaticamente i messaggi</string>
     <string name="title_advanced_autoclose">Chiudi automaticamente le conversazioni</string>
     <string name="title_advanced_autonext">Passa automaticamente alla conversazione successiva nella conversazione stretta</string>
     <string name="title_advanced_autoread">Contrassegna automaticamente il messaggio come letto sul messaggio in movimento</string>
@@ -145,6 +146,7 @@
     <string name="title_advanced_unified_hint">Mostra cartelle in arrivo unificate o messaggi in arrivo unificati</string>
     <string name="title_advanced_threading_hint">Messaggi di gruppo relazionati a vicenda</string>
     <string name="title_advanced_preview_hint">Disponibile solo quando è stato scaricato il testo del messaggio</string>
+    <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando c\'è un solo messaggio o solo un messaggio da leggere in una conversazione</string>
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni raggruppate quando tutti i messaggi sono archiviati, inviati o cestinati</string>
     <string name="title_advanced_sender_hint">La maggior parte dei fornitori non consente indirizzi mittente modificati</string>
     <string name="title_select">Seleziona &#8230;</string>
