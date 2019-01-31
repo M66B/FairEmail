@@ -115,8 +115,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private OpenPgpServiceConnection pgpService;
 
-    private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
-
     static final int REQUEST_UNIFIED = 1;
     static final int REQUEST_THREAD = 2;
 
@@ -1408,7 +1406,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     os = new FileOutputStream(pfd.getFileDescriptor());
                     is = new BufferedInputStream(new FileInputStream(file));
 
-                    byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
+                    byte[] buffer = new byte[MessageHelper.ATTACHMENT_BUFFER_SIZE];
                     int read;
                     while ((read = is.read(buffer)) != -1)
                         os.write(buffer, 0, read);
@@ -1477,7 +1475,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     os = new FileOutputStream(pfd.getFileDescriptor());
                     is = new BufferedInputStream(new FileInputStream(file));
 
-                    byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
+                    byte[] buffer = new byte[MessageHelper.ATTACHMENT_BUFFER_SIZE];
                     int read;
                     while ((read = is.read(buffer)) != -1)
                         os.write(buffer, 0, read);
@@ -1549,7 +1547,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         os = new FileOutputStream(pfd.getFileDescriptor());
                         is = new BufferedInputStream(new FileInputStream(file));
 
-                        byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
+                        byte[] buffer = new byte[MessageHelper.ATTACHMENT_BUFFER_SIZE];
                         int read;
                         while ((read = is.read(buffer)) != -1)
                             os.write(buffer, 0, read);
