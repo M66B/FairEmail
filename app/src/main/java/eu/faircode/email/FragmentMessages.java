@@ -124,9 +124,9 @@ public class FragmentMessages extends FragmentBase {
     private boolean autonext;
     private boolean addresses;
 
-    private long primary = -1;
+    private long primary;
     private boolean outbox = false;
-    private boolean connected = false;
+    private boolean connected;
     private boolean searching = false;
     private AdapterMessage adapter;
     private boolean animate = true;
@@ -173,9 +173,9 @@ public class FragmentMessages extends FragmentBase {
         thread = args.getString("thread");
         id = args.getLong("id", -1);
         search = args.getString("search");
+        pane = args.getBoolean("pane", false);
         primary = args.getLong("primary", -1);
         connected = args.getBoolean("connected", false);
-        pane = args.getBoolean("pane", false);
 
         if (TextUtils.isEmpty(search))
             if (thread == null)
