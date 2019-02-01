@@ -359,6 +359,7 @@
     <string name="title_rule_regex">Expresión regular</string>
     <string name="title_rule_and">Y</string>
     <string name="title_rule_action">Acción</string>
+    <string name="title_rule_action_remark">Esta acción se aplicará a nuevos mensajes que lleguen a la carpeta %1$s</string>
     <string name="title_rule_folder">Carpeta</string>
     <string name="title_rule_identity">Identidad</string>
     <string name="title_rule_answer">Plantilla de respuesta</string>
@@ -382,6 +383,7 @@
     <string name="title_legend_browsed">Explorados o buscados</string>
     <string name="title_legend_answered">Respondido</string>
     <string name="title_legend_attachment">Adjunto</string>
+    <string name="title_legend_flagged">Destacado</string>
     <string name="title_legend_contacts">Contactos</string>
     <string name="title_legend_view">Ver contenido</string>
     <string name="title_legend_download">Descargar contenido</string>
@@ -392,6 +394,7 @@
     <string name="title_legend_download_on">Descargar el contenido de mensajes automáticamente</string>
     <string name="title_legend_synchronize_on">Sincronización activada</string>
     <string name="title_legend_synchronize_off">Sincronización desactivada</string>
+    <string name="title_legend_primary">Primaria</string>
     <string name="title_legend_disconnected">Desconectado</string>
     <string name="title_legend_connecting">Conectando</string>
     <string name="title_legend_connected">Conectado</string>

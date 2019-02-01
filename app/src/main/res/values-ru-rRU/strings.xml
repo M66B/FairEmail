@@ -375,6 +375,7 @@
     <string name="title_rule_regex">Регулярное выражение</string>
     <string name="title_rule_and">И</string>
     <string name="title_rule_action">Действие</string>
+    <string name="title_rule_action_remark">Это действие будет применяться к новым сообщениям в папке %1$s</string>
     <string name="title_rule_folder">Папка</string>
     <string name="title_rule_identity">Идентификатор</string>
     <string name="title_rule_answer">Шаблон ответа</string>

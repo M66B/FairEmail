@@ -383,6 +383,7 @@
     <string name="title_legend_browsed">Gesehen oder gesucht</string>
     <string name="title_legend_answered">Beantwortet</string>
     <string name="title_legend_attachment">Anhang</string>
+    <string name="title_legend_flagged">Markierte</string>
     <string name="title_legend_contacts">Kontakte</string>
     <string name="title_legend_view">Inhalt anzeigen</string>
     <string name="title_legend_download">Inhalt herunterladen</string>
@@ -393,6 +394,7 @@
     <string name="title_legend_download_on">Nachrichteninhalt automatisch herunterladen</string>
     <string name="title_legend_synchronize_on">Synchronisierung an</string>
     <string name="title_legend_synchronize_off">Synchronisierung aus</string>
+    <string name="title_legend_primary">Hauptkonto</string>
     <string name="title_legend_disconnected">Keine Verbindung</string>
     <string name="title_legend_connecting">Verbinde</string>
     <string name="title_legend_connected">Verbunden</string>
