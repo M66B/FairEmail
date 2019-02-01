@@ -275,11 +275,6 @@ public class ServiceSynchronize extends LifecycleService {
                         }
                     }
                 });
-
-                try {
-                    Thread.sleep(YIELD_DURATION);
-                } catch (InterruptedException ignored) {
-                }
             }
         });
     }
@@ -1256,7 +1251,6 @@ public class ServiceSynchronize extends LifecycleService {
                                                 }
                                             }
                                         });
-                                        state.yield();
                                     }
                                 }
                             };
@@ -2465,12 +2459,6 @@ public class ServiceSynchronize extends LifecycleService {
                         // Reduce memory usage
                         ((IMAPMessage) isub[j]).invalidateHeaders();
                     }
-
-                if (state.running())
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException ignored) {
-                    }
             }
 
             // Delete not synchronized messages without uid
@@ -2519,12 +2507,6 @@ public class ServiceSynchronize extends LifecycleService {
                             db.endTransaction();
                             // Free memory
                             ((IMAPMessage) isub[j]).invalidateHeaders();
-                        }
-
-                    if (state.running())
-                        try {
-                            Thread.sleep(100);
-                        } catch (InterruptedException ignored) {
                         }
                 }
             }
@@ -3044,7 +3026,6 @@ public class ServiceSynchronize extends LifecycleService {
                                                     }
                                                 }
                                             });
-                                            state.yield();
                                         }
                                     }
                                 };
@@ -3192,11 +3173,6 @@ public class ServiceSynchronize extends LifecycleService {
                     }
                 }
             });
-
-            try {
-                Thread.sleep(YIELD_DURATION);
-            } catch (InterruptedException ignored) {
-            }
         }
     }
 
@@ -3255,7 +3231,6 @@ public class ServiceSynchronize extends LifecycleService {
 
         void start() {
             thread.start();
-            yield();
         }
 
         void stop() {
