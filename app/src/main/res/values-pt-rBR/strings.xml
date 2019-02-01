@@ -209,15 +209,15 @@
     <string name="title_action_archive">Arquivo</string>
     <string name="title_action_trash">Lixeira</string>
     <string name="title_legend_inbox">Caixa de entrada</string>
-    <string name="title_legend_notify">Notificar novas mensagens</string>
     <string name="title_legend_archive">Arquivo</string>
     <string name="title_legend_trash">Lixeira</string>
+    <string name="title_legend_notify">Notificar novas mensagens</string>
     <string name="title_legend_primary_disconnected">Conta desconectada</string>
     <string name="title_legend_primary_connected">Conta conectada</string>
     <string name="title_legend_thread">Conversação</string>
     <string name="title_legend_cc">CC/CCO</string>
-    <string name="title_legend_attachment">Anexo</string>
     <string name="title_legend_answered">Respondida</string>
+    <string name="title_legend_attachment">Anexo</string>
     <string name="title_legend_contacts">Contatos</string>
     <string name="title_legend_view">Ver conteúdo</string>
     <string name="title_legend_download">Baixar conteúdo</string>

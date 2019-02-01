@@ -169,9 +169,9 @@
     <string name="title_previous">Anterior</string>
     <string name="title_next">Següent</string>
     <string name="title_legend_inbox">Safata d\'entrada</string>
-    <string name="title_legend_unified">Safata d\'entrada unificada</string>
     <string name="title_legend_archive">Arxiu</string>
     <string name="title_legend_trash">Paperera</string>
+    <string name="title_legend_unified">Safata d\'entrada unificada</string>
     <string name="title_legend_primary_disconnected">Compte desconnectat</string>
     <string name="title_legend_primary_connected">Compte connectat</string>
     <string name="title_legend_thread">Conversació</string>
@@ -180,7 +180,6 @@
     <string name="title_legend_contacts">Contactes</string>
     <string name="title_legend_synchronize_on">Sincronitza engegada</string>
     <string name="title_legend_synchronize_off">Sincronització apagada</string>
-    <string name="title_legend_primary">Primària/destacada</string>
     <string name="title_legend_disconnected">Desconnectat</string>
     <string name="title_legend_connecting">S\'està connectant</string>
     <string name="title_legend_connected">Connectat</string>

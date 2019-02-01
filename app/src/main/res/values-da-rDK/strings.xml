@@ -181,9 +181,9 @@
     <string name="title_action_archive">Arkivér</string>
     <string name="title_action_trash">Papirkurv</string>
     <string name="title_legend_inbox">Indbakke</string>
-    <string name="title_legend_unified">Samlet indbakke</string>
     <string name="title_legend_archive">Arkivér</string>
     <string name="title_legend_trash">Papirkurv</string>
+    <string name="title_legend_unified">Samlet indbakke</string>
     <string name="title_legend_primary_connected">Konto forbundet</string>
     <string name="title_legend_thread">Samtale</string>
     <string name="title_legend_cc">CC/BCC</string>
