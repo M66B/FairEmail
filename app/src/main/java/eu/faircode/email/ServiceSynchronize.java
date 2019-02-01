@@ -3221,7 +3221,7 @@ public class ServiceSynchronize extends LifecycleService {
             yield();
         }
 
-        void yield() {
+        private void yield() {
             try {
                 // Give interrupted thread some time to acquire wake lock
                 Thread.sleep(YIELD_DURATION);
