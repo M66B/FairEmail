@@ -117,9 +117,20 @@
                 android:hint="@string/title_optional"
                 android:inputType="textEmailAddress"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ivSender"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cbSender" />
+
+            <ImageView
+                android:id="@+id/ivSender"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:src="@drawable/baseline_person_24"
+                app:layout_constraintBottom_toBottomOf="@id/etSender"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/etSender" />
 
             <TextView
                 android:id="@+id/tvAndSubject"
@@ -239,7 +250,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title_rule_action"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/vSeparatorAction" />
 
@@ -251,6 +262,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvAction" />
 
+            <TextView
+                android:id="@+id/tvActionRemark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/title_rule_action_remark"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spAction" />
+
             <View
                 android:id="@+id/vSeparatorParameters"
                 android:layout_width="match_parent"
@@ -258,7 +280,7 @@
                 android:layout_marginTop="24dp"
                 android:background="?attr/colorSeparator"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/spAction" />
+                app:layout_constraintTop_toBottomOf="@id/tvActionRemark" />
 
             <TextView
                 android:id="@+id/tvMoveTarget"

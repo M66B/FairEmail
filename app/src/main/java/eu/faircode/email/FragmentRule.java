@@ -21,8 +21,12 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -32,8 +36,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -50,6 +56,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 
+import static android.app.Activity.RESULT_OK;
+
 public class FragmentRule extends FragmentBase {
     private ViewGroup view;
     private ScrollView scroll;
@@ -60,11 +68,13 @@ public class FragmentRule extends FragmentBase {
     private CheckBox cbStop;
     private EditText etSender;
     private CheckBox cbSender;
+    private ImageView ivSender;
     private EditText etSubject;
     private CheckBox cbSubject;
     private EditText etHeader;
     private CheckBox cbHeader;
     private Spinner spAction;
+    private TextView tvActionRemark;
     private Spinner spTarget;
     private Spinner spIdent;
     private Spinner spAnswer;
@@ -108,11 +118,13 @@ public class FragmentRule extends FragmentBase {
         cbStop = view.findViewById(R.id.cbStop);
         etSender = view.findViewById(R.id.etSender);
         cbSender = view.findViewById(R.id.cbSender);
+        ivSender = view.findViewById(R.id.ivSender);
         etSubject = view.findViewById(R.id.etSubject);
         cbSubject = view.findViewById(R.id.cbSubject);
         etHeader = view.findViewById(R.id.etHeader);
         cbHeader = view.findViewById(R.id.cbHeader);
         spAction = view.findViewById(R.id.spAction);
+        tvActionRemark = view.findViewById(R.id.tvActionRemark);
         spTarget = view.findViewById(R.id.spTarget);
         spIdent = view.findViewById(R.id.spIdent);
         spAnswer = view.findViewById(R.id.spAnswer);
@@ -121,6 +133,17 @@ public class FragmentRule extends FragmentBase {
         grpReady = view.findViewById(R.id.grpReady);
         grpMove = view.findViewById(R.id.grpMove);
         grpAnswer = view.findViewById(R.id.grpAnswer);
+
+        ivSender.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
+                if (pick.resolveActivity(getContext().getPackageManager()) == null)
+                    Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
+                else
+                    startActivityForResult(Helper.getChooser(getContext(), pick), ActivityView.REQUEST_SENDER);
+            }
+        });
 
         adapterAction = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<Action>());
         adapterAction.setDropDownViewResource(R.layout.spinner_item1_dropdown);
@@ -173,6 +196,8 @@ public class FragmentRule extends FragmentBase {
             }
         });
 
+        tvActionRemark.setVisibility(View.GONE);
+
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -205,16 +230,19 @@ public class FragmentRule extends FragmentBase {
 
         Bundle args = new Bundle();
         args.putLong("account", account);
+        args.putLong("folder", folder);
 
         new SimpleTask<RefData>() {
             @Override
             protected RefData onExecute(Context context, Bundle args) {
-                long account = args.getLong("account");
+                long aid = args.getLong("account");
+                long fid = args.getLong("folder");
 
                 RefData data = new RefData();
 
                 DB db = DB.getInstance(context);
-                data.folders = db.folder().getFolders(account);
+                data.folder = db.folder().getFolder(fid);
+                data.folders = db.folder().getFolders(aid);
 
                 if (data.folders == null)
                     data.folders = new ArrayList<>();
@@ -223,7 +251,7 @@ public class FragmentRule extends FragmentBase {
                     folder.display = folder.getDisplayName(context);
                 EntityFolder.sort(context, data.folders);
 
-                data.identities = db.identity().getIdentities(account);
+                data.identities = db.identity().getIdentities(aid);
                 data.answers = db.answer().getAnswers();
 
                 return data;
@@ -239,6 +267,10 @@ public class FragmentRule extends FragmentBase {
 
                 adapterAnswer.clear();
                 adapterAnswer.addAll(data.answers);
+
+                tvActionRemark.setText(
+                        getString(R.string.title_rule_action_remark, data.folder.getDisplayName(getContext())));
+                tvActionRemark.setVisibility(View.VISIBLE);
 
                 Bundle rargs = new Bundle();
                 rargs.putLong("id", id);
@@ -337,6 +369,38 @@ public class FragmentRule extends FragmentBase {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.execute(this, args, "rule:accounts");
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.i("Request=" + requestCode + " result=" + resultCode + " data=" + data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == ActivityView.REQUEST_SENDER) {
+                if (data != null)
+                    handlePickContact(data);
+            }
+        }
+    }
+
+    private void handlePickContact(Intent data) {
+        Cursor cursor = null;
+        try {
+            Uri uri = data.getData();
+            if (uri != null)
+                cursor = getContext().getContentResolver().query(uri,
+                        new String[]{
+                                ContactsContract.CommonDataKinds.Email.ADDRESS
+                        },
+                        null, null, null);
+            if (cursor != null && cursor.moveToFirst())
+                etSender.setText(cursor.getString(0));
+        } catch (Throwable ex) {
+            Log.e(ex);
+            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+        } finally {
+            if (cursor != null)
+                cursor.close();
+        }
     }
 
     private void onActionTrash() {
@@ -535,6 +599,7 @@ public class FragmentRule extends FragmentBase {
     }
 
     private class RefData {
+        EntityFolder folder;
         List<EntityFolder> folders;
         List<EntityIdentity> identities;
         List<EntityAnswer> answers;

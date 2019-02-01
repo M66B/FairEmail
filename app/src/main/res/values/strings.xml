@@ -416,6 +416,7 @@
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">AND</string>
     <string name="title_rule_action">Action</string>
+    <string name="title_rule_action_remark">This action will be applied to new messages arriving in the folder %1$s</string>
     <string name="title_rule_folder">Folder</string>
     <string name="title_rule_identity">Identity</string>
     <string name="title_rule_answer">Reply template</string>
