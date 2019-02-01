@@ -331,7 +331,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             vwColor.getTop(),
                             itemView.getRight(),
                             vwColor.getBottom());
-                    Log.i("Touch delegate=" + rect);
                     itemView.setTouchDelegate(new TouchDelegate(rect, touch));
                 }
             });
@@ -1268,18 +1267,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     builder.removeSpan(quoteSpan);
                 }
 
+                args.putBoolean("has_quotes", builder.getSpans(0, body.length(), StyledQuoteSpan.class).length > 0);
+                args.putBoolean("has_images", builder.getSpans(0, body.length(), ImageSpan.class).length > 0);
+
                 return builder;
             }
 
             @Override
             protected void onExecuted(Bundle args, SpannableStringBuilder body) {
+                TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
+                properties.setBody(message.id, body);
+
                 if (args.getInt("position") != position)
                     return;
 
-                TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
-
-                boolean has_quotes = (body.getSpans(0, body.length(), StyledQuoteSpan.class).length > 0);
-                boolean has_images = (body.getSpans(0, body.length(), ImageSpan.class).length > 0);
+                boolean has_quotes = args.getBoolean("has_quotes");
+                boolean has_images = args.getBoolean("has_images");
                 boolean show_expanded = properties.getValue("expanded", message.id);
                 boolean show_quotes = properties.getValue("quotes", message.id);
                 boolean show_images = properties.getValue("images", message.id);
@@ -1290,8 +1293,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvBody.setText(body);
                 tvBody.setMovementMethod(new UrlHandler());
                 pbBody.setVisibility(View.GONE);
-                properties.setBody(message.id, body);
-
             }
 
             @Override
