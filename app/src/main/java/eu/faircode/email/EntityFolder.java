@@ -105,7 +105,7 @@ public class EntityFolder implements Serializable {
     static final String USER = "User";
 
     // https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml
-    static final List<String> SYSTEM_FOLDER_ATTR = Arrays.asList(
+    private static final List<String> SYSTEM_FOLDER_ATTR = Arrays.asList(
             "All",
             "Archive",
             "Drafts",
@@ -115,7 +115,7 @@ public class EntityFolder implements Serializable {
             "Important",
             "Flagged"
     );
-    static final List<String> SYSTEM_FOLDER_TYPE = Arrays.asList(
+    private static final List<String> SYSTEM_FOLDER_TYPE = Arrays.asList(
             ARCHIVE,
             ARCHIVE,
             DRAFTS,
@@ -182,6 +182,25 @@ public class EntityFolder implements Serializable {
 
     static boolean isOutgoing(String type) {
         return DRAFTS.equals(type) || OUTBOX.equals(type) || SENT.equals(type);
+    }
+
+    static String getType(String[] attrs, String fullName) {
+        for (String attr : attrs) {
+            if ("\\Noselect".equals(attr) || "\\NonExistent".equals(attr))
+                return null;
+
+            if (attr.startsWith("\\")) {
+                int index = SYSTEM_FOLDER_ATTR.indexOf(attr.substring(1));
+                if (index >= 0)
+                    return SYSTEM_FOLDER_TYPE.get(index);
+            }
+        }
+
+        // https://tools.ietf.org/html/rfc3501#section-5.1
+        if ("INBOX".equals(fullName.toUpperCase()))
+            return INBOX;
+
+        return USER;
     }
 
     static int getLevel(Character separator, String name) {

@@ -582,30 +582,19 @@ public class FragmentAccount extends FragmentBase {
 
                     for (Folder ifolder : istore.getDefaultFolder().list("*")) {
                         // Check folder attributes
-                        String type = null;
-                        boolean selectable = true;
+                        String fullName = ifolder.getFullName();
                         String[] attrs = ((IMAPFolder) ifolder).getAttributes();
-                        Log.i(ifolder.getFullName() + " attrs=" + TextUtils.join(" ", attrs));
-                        for (String attr : attrs) {
-                            if ("\\Noselect".equals(attr) || "\\NonExistent".equals(attr))
-                                selectable = false;
-                            if (attr.startsWith("\\")) {
-                                int index = EntityFolder.SYSTEM_FOLDER_ATTR.indexOf(attr.substring(1));
-                                if (index >= 0) {
-                                    type = EntityFolder.SYSTEM_FOLDER_TYPE.get(index);
-                                    break;
-                                }
-                            }
-                        }
+                        Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs));
+                        String type = EntityFolder.getType(attrs, fullName);
 
-                        if (selectable) {
+                        if (type != null) {
                             // Create entry
-                            EntityFolder folder = db.folder().getFolderByName(id, ifolder.getFullName());
+                            EntityFolder folder = db.folder().getFolderByName(id, fullName);
                             if (folder == null) {
                                 int sync = EntityFolder.SYSTEM_FOLDER_SYNC.indexOf(type);
                                 folder = new EntityFolder();
-                                folder.name = ifolder.getFullName();
-                                folder.type = (type == null ? EntityFolder.USER : type);
+                                folder.name = fullName;
+                                folder.type = type;
                                 folder.synchronize = (sync >= 0);
                                 folder.download = (sync < 0 ? true : EntityFolder.SYSTEM_FOLDER_DOWNLOAD.get(sync));
                                 folder.sync_days = EntityFolder.DEFAULT_SYNC;
@@ -613,7 +602,7 @@ public class FragmentAccount extends FragmentBase {
                             }
                             result.folders.add(folder);
 
-                            if (type == null) {
+                            if (EntityFolder.USER.equals(type)) {
                                 if (folder.name.toLowerCase().contains("archive"))
                                     altArchive = folder;
                                 if (folder.name.toLowerCase().contains("draft"))

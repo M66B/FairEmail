@@ -2195,30 +2195,13 @@ public class ServiceSynchronize extends LifecycleService {
 
             for (Folder ifolder : ifolders) {
                 String fullName = ifolder.getFullName();
-
-                String type = null;
-                boolean selectable = true;
                 String[] attrs = ((IMAPFolder) ifolder).getAttributes();
+                String type = EntityFolder.getType(attrs, fullName);
+
                 EntityLog.log(this, account.name + ":" + fullName +
-                        " attrs=" + TextUtils.join(" ", attrs));
-                for (String attr : attrs) {
-                    if ("\\Noselect".equals(attr) || "\\NonExistent".equals(attr))
-                        selectable = false;
+                        " attrs=" + TextUtils.join(" ", attrs) + " type=" + type);
 
-                    if (attr.startsWith("\\")) {
-                        int index = EntityFolder.SYSTEM_FOLDER_ATTR.indexOf(attr.substring(1));
-                        if (index >= 0) {
-                            type = EntityFolder.SYSTEM_FOLDER_TYPE.get(index);
-                            break;
-                        }
-                    }
-                }
-
-                // https://tools.ietf.org/html/rfc3501#section-5.1
-                if ("INBOX".equals(fullName.toUpperCase()))
-                    type = EntityFolder.INBOX;
-
-                if (selectable) {
+                if (type != null) {
                     names.remove(fullName);
 
                     int level = EntityFolder.getLevel(separator, fullName);
@@ -2232,7 +2215,7 @@ public class ServiceSynchronize extends LifecycleService {
                         folder.account = account.id;
                         folder.name = fullName;
                         folder.display = display;
-                        folder.type = (type == null ? EntityFolder.USER : type);
+                        folder.type = EntityFolder.USER;
                         folder.level = level;
                         folder.synchronize = false;
                         folder.poll = ("imap.gmail.com".equals(account.host));

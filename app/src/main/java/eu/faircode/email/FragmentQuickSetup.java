@@ -226,26 +226,16 @@ public class FragmentQuickSetup extends FragmentBase {
 
                         boolean drafts = false;
                         for (Folder ifolder : istore.getDefaultFolder().list("*")) {
-                            String type = null;
-                            boolean selectable = true;
+                            String fullName = ifolder.getFullName();
                             String[] attrs = ((IMAPFolder) ifolder).getAttributes();
-                            Log.i(ifolder.getFullName() + " attrs=" + TextUtils.join(" ", attrs));
-                            for (String attr : attrs) {
-                                if ("\\Noselect".equals(attr) || "\\NonExistent".equals(attr))
-                                    selectable = false;
-                                if (attr.startsWith("\\")) {
-                                    int index = EntityFolder.SYSTEM_FOLDER_ATTR.indexOf(attr.substring(1));
-                                    if (index >= 0) {
-                                        type = EntityFolder.SYSTEM_FOLDER_TYPE.get(index);
-                                        break;
-                                    }
-                                }
-                            }
+                            String type = EntityFolder.getType(attrs, fullName);
 
-                            if (selectable && type != null) {
+                            Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs) + " type=" + type);
+
+                            if (type != null) {
                                 int sync = EntityFolder.SYSTEM_FOLDER_SYNC.indexOf(type);
                                 EntityFolder folder = new EntityFolder();
-                                folder.name = ifolder.getFullName();
+                                folder.name = fullName;
                                 folder.type = type;
                                 folder.level = EntityFolder.getLevel(separator, folder.name);
                                 folder.synchronize = (sync >= 0);
