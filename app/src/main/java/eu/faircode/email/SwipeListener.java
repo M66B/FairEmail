@@ -15,6 +15,9 @@ public class SwipeListener implements View.OnTouchListener {
 
             @Override
             public boolean onFling(MotionEvent me1, MotionEvent me2, float vx, float vy) {
+                if (me1 == null || me2 == null)
+                    return false;
+
                 boolean consumed = false;
                 float dx = me2.getX() - me1.getX();
                 float dy = me2.getY() - me1.getY();
