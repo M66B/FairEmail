@@ -510,7 +510,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     protected void onExecuted(Bundle args, ContactInfo info) {
                         long id = args.getLong("id");
                         TupleMessageEx amessage = getMessage();
-                        if (amessage == null || !amessage.equals(id))
+                        if (amessage == null || !amessage.id.equals(id))
                             return;
 
                         showContactInfo(info, message);
