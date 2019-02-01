@@ -427,42 +427,48 @@
     <string name="title_action_trash">Trash</string>
 
     <string name="title_legend_inbox">Inbox</string>
-    <string name="title_legend_notify">Notify new messages</string>
-    <string name="title_legend_unified">Unified inbox</string>
     <string name="title_legend_archive">Archive</string>
     <string name="title_legend_trash">Trash</string>
     <string name="title_legend_junk">Spam</string>
+    <string name="title_legend_notify">Notify new messages</string>
+    <string name="title_legend_unified">Unified inbox</string>
     <string name="title_legend_primary_disconnected">Account disconnected</string>
     <string name="title_legend_primary_connected">Account connected</string>
+
     <string name="title_legend_thread">Conversation</string>
     <string name="title_legend_cc">CC/BCC</string>
-    <string name="title_legend_attachment">Attachment</string>
     <string name="title_legend_draft">Draft/edit</string>
     <string name="title_legend_snoozed">Snoozed</string>
     <string name="title_legend_browsed">Browsed or searched</string>
     <string name="title_legend_answered">Answered</string>
+    <string name="title_legend_attachment">Attachment</string>
+    <string name="title_legend_flagged">Starred</string>
     <string name="title_legend_contacts">Contacts</string>
     <string name="title_legend_view">View content</string>
     <string name="title_legend_download">Download content</string>
     <string name="title_legend_external_image">External image placeholder</string>
     <string name="title_legend_embedded_image">Embedded image placeholder</string>
     <string name="title_legend_broken_image">Broken image</string>
+
     <string name="title_legend_download_off">Download message content on demand </string>
     <string name="title_legend_download_on">Download message content automatically</string>
     <string name="title_legend_synchronize_on">Synchronize on</string>
     <string name="title_legend_synchronize_off">Synchronize off</string>
-    <string name="title_legend_primary">Primary/starred</string>
+    <string name="title_legend_primary">Primary</string>
     <string name="title_legend_disconnected">Disconnected</string>
     <string name="title_legend_connecting">Connecting</string>
     <string name="title_legend_connected">Connected</string>
     <string name="title_legend_synchronizing">Synchronizing</string>
     <string name="title_legend_downloading">Downloading</string>
     <string name="title_legend_closing">Closing</string>
+
     <string name="title_legend_stop">Stop processing rules</string>
-    <string name="title_legend_metered">Connection is metered</string>
-    <string name="title_legend_unmetered">Connection is unmetered</string>
+
     <string name="title_legend_sync_keep">Number of days to synchronize / to keep messages</string>
     <string name="title_legend_download_fetch">Number of message bodies downloaded / headers fetched</string>
+
+    <string name="title_legend_metered">Connection is metered</string>
+    <string name="title_legend_unmetered">Connection is unmetered</string>
 
     <string name="title_hint_folder_actions">Long press for options</string>
     <string name="title_hint_folder_sync">To limit battery and network usage not all folders and not all messages will be synchronized by default</string>

@@ -30,55 +30,13 @@
             app:layout_constraintTop_toTopOf="@id/ivInbox" />
 
         <ImageView
-            android:id="@+id/ivNotify"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="24dp"
-            android:src="@drawable/baseline_notifications_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivInbox" />
-
-        <TextView
-            android:id="@+id/tvNotify"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:text="@string/title_legend_notify"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="@id/ivNotify"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivNotify"
-            app:layout_constraintTop_toTopOf="@id/ivNotify" />
-
-        <ImageView
-            android:id="@+id/ivUnified"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="24dp"
-            android:src="@drawable/baseline_folder_special_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivNotify" />
-
-        <TextView
-            android:id="@+id/tvUnified"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:text="@string/title_legend_unified"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="@id/ivUnified"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivUnified"
-            app:layout_constraintTop_toTopOf="@id/ivUnified" />
-
-        <ImageView
             android:id="@+id/ivArchive"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="24dp"
             android:src="@drawable/baseline_archive_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivUnified" />
+            app:layout_constraintTop_toBottomOf="@id/ivInbox" />
 
         <TextView
             android:id="@+id/tvArchive"
@@ -135,13 +93,55 @@
             app:layout_constraintTop_toTopOf="@id/ivJunk" />
 
         <ImageView
+            android:id="@+id/ivNotify"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/baseline_notifications_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivJunk" />
+
+        <TextView
+            android:id="@+id/tvNotify"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_notify"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivNotify"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivNotify"
+            app:layout_constraintTop_toTopOf="@id/ivNotify" />
+
+        <ImageView
+            android:id="@+id/ivUnified"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/baseline_folder_special_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivNotify" />
+
+        <TextView
+            android:id="@+id/tvUnified"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_unified"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivUnified"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivUnified"
+            app:layout_constraintTop_toTopOf="@id/ivUnified" />
+
+        <ImageView
             android:id="@+id/ivPrimaryDisconnected"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="24dp"
             android:src="@drawable/baseline_folder_open_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivJunk" />
+            app:layout_constraintTop_toBottomOf="@id/ivUnified" />
 
         <TextView
             android:id="@+id/tvPrimaryDisconnected"
@@ -176,6 +176,15 @@
             app:layout_constraintStart_toEndOf="@id/ivPrimaryConnected"
             app:layout_constraintTop_toTopOf="@id/ivPrimaryConnected" />
 
+        <View
+            android:id="@+id/vSeparatorFolder"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivPrimaryConnected" />
+
         <ImageView
             android:id="@+id/ivThread"
             android:layout_width="24dp"
@@ -183,7 +192,7 @@
             android:layout_marginTop="24dp"
             android:src="@drawable/baseline_message_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivPrimaryConnected" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorFolder" />
 
         <TextView
             android:id="@+id/tvThread"
@@ -325,13 +334,34 @@
             app:layout_constraintTop_toTopOf="@id/ivAttachment" />
 
         <ImageView
+            android:id="@+id/ivStarred"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/baseline_star_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAttachment" />
+
+        <TextView
+            android:id="@+id/tvStarred"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_flagged"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivStarred"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivStarred"
+            app:layout_constraintTop_toTopOf="@id/ivStarred" />
+
+        <ImageView
             android:id="@+id/ivContacts"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="24dp"
             android:src="@drawable/baseline_import_contacts_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivAttachment" />
+            app:layout_constraintTop_toBottomOf="@id/ivStarred" />
 
         <TextView
             android:id="@+id/tvContacts"
@@ -450,6 +480,15 @@
             app:layout_constraintStart_toEndOf="@id/ivBrokenImage"
             app:layout_constraintTop_toTopOf="@id/ivBrokenImage" />
 
+        <View
+            android:id="@+id/vSeparatorMessage"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivBrokenImage" />
+
         <ImageView
             android:id="@+id/ivDownloadOff"
             android:layout_width="24dp"
@@ -457,7 +496,7 @@
             android:layout_marginTop="24dp"
             android:src="@drawable/baseline_mail_outline_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivBrokenImage" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorMessage" />
 
         <TextView
             android:id="@+id/tvDownloadOff"
@@ -681,6 +720,15 @@
             app:layout_constraintStart_toEndOf="@id/ivClosing"
             app:layout_constraintTop_toTopOf="@id/ivClosing" />
 
+        <View
+            android:id="@+id/vSeparatorSync"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivClosing" />
+
         <ImageView
             android:id="@+id/ivStop"
             android:layout_width="24dp"
@@ -688,7 +736,7 @@
             android:layout_marginTop="24dp"
             android:src="@drawable/baseline_stop_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvClosing" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorSync" />
 
         <TextView
             android:id="@+id/tvStop"
@@ -702,6 +750,15 @@
             app:layout_constraintStart_toEndOf="@id/ivStop"
             app:layout_constraintTop_toTopOf="@id/ivStop" />
 
+        <View
+            android:id="@+id/vSeparatorRules"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivStop" />
+
         <TextView
             android:id="@+id/tvDownloadFetch"
             android:layout_width="wrap_content"
@@ -712,7 +769,7 @@
             android:textAppearance="@android:style/TextAppearance.Small"
             app:layout_constraintBottom_toBottomOf="@+id/tvDownloadFetchLegend"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvStop" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorRules" />
 
         <ImageView
             android:id="@+id/ivDownloadFetch"
