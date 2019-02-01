@@ -152,7 +152,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
             View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
-        private int position;
         private View itemView;
         private TextView tvDay;
         private View vwColor;
@@ -422,9 +421,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         @SuppressLint("WrongConstant")
-        private void bindTo(int pos, final TupleMessageEx message) {
-            position = pos;
-
+        private void bindTo(int position, final TupleMessageEx message) {
             final DB db = DB.getInstance(context);
             final boolean show_expanded = properties.getValue("expanded", message.id);
             boolean show_addresses = !properties.getValue("addresses", message.id);
@@ -499,7 +496,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 new SimpleTask<ContactInfo>() {
                     @Override
                     protected void onPreExecute(Bundle args) {
-                        args.putInt("position", position);
                         ivAvatar.setVisibility(avatars ? View.INVISIBLE : View.GONE);
                         tvFrom.setText(MessageHelper.formatAddresses(addresses, !compact, false));
                     }
@@ -512,8 +508,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     @Override
                     protected void onExecuted(Bundle args, ContactInfo info) {
-                        if (args.getInt("position") == position)
-                            showContactInfo(info, message);
+                        long id = args.getLong("id");
+                        TupleMessageEx amessage = getMessage();
+                        if (amessage == null || !amessage.equals(id))
+                            return;
+
+                        showContactInfo(info, message);
                     }
 
                     @Override
@@ -772,20 +772,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 // Setup action
                 Bundle sargs = new Bundle();
+                sargs.putLong("id", message.id);
                 sargs.putLong("account", message.account);
 
                 new SimpleTask<List<EntityFolder>>() {
-                    @Override
-                    protected void onPreExecute(Bundle args) {
-                        args.putInt("position", position);
-                        bnvActions.setHasTransientState(true);
-                    }
-
-                    @Override
-                    protected void onPostExecute(Bundle args) {
-                        bnvActions.setHasTransientState(false);
-                    }
-
                     @Override
                     protected List<EntityFolder> onExecute(Context context, Bundle args) {
                         long account = args.getLong("account");
@@ -794,7 +784,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     @Override
                     protected void onExecuted(Bundle args, List<EntityFolder> folders) {
-                        if (args.getInt("position") != position)
+                        long id = args.getLong("id");
+                        TupleMessageEx amessage = getMessage();
+                        if (amessage == null || !amessage.id.equals(id))
                             return;
 
                         boolean hasJunk = false;
@@ -878,13 +870,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        @Override
-        public void onClick(View view) {
+        private TupleMessageEx getMessage() {
             int pos = getAdapterPosition();
             if (pos == RecyclerView.NO_POSITION)
-                return;
+                return null;
 
-            TupleMessageEx message = differ.getItem(pos);
+            return differ.getItem(pos);
+        }
+
+        @Override
+        public void onClick(View view) {
+            TupleMessageEx message = getMessage();
             if (message == null)
                 return;
 
@@ -898,7 +894,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 onAddContact(message);
             else if (viewType == ViewType.THREAD) {
                 if (view.getId() == R.id.ivExpanderAddress)
-                    onToggleAddresses(pos, message);
+                    onToggleAddresses(message);
                 else if (view.getId() == R.id.btnDownloadAttachments)
                     onDownloadAttachments(message);
                 else if (view.getId() == R.id.btnSaveAttachments)
@@ -910,7 +906,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 else if (view.getId() == R.id.ibImages)
                     onShowImages(message);
                 else
-                    onToggleMessage(pos, message);
+                    onToggleMessage(message);
             } else {
                 if (EntityFolder.DRAFTS.equals(message.folderType))
                     context.startActivity(
@@ -1083,7 +1079,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private void onToggleMessage(int pos, TupleMessageEx message) {
+        private void onToggleMessage(TupleMessageEx message) {
             if (EntityFolder.DRAFTS.equals(message.folderType))
                 context.startActivity(
                         new Intent(context, ActivityCompose.class)
@@ -1097,6 +1093,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     properties.setValue("images", message.id, false);
                 }
 
+                int pos = getAdapterPosition();
                 notifyItemChanged(pos);
 
                 if (expanded)
@@ -1104,10 +1101,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private void onToggleAddresses(int pos, TupleMessageEx message) {
+        private void onToggleAddresses(TupleMessageEx message) {
             boolean addresses = !properties.getValue("addresses", message.id);
             properties.setValue("addresses", message.id, addresses);
-            notifyItemChanged(pos);
+            notifyItemChanged(getAdapterPosition());
         }
 
         private void onDownloadAttachments(final TupleMessageEx message) {
@@ -1237,11 +1234,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             private String body = null;
 
             @Override
-            protected void onPreExecute(Bundle args) {
-                args.putInt("position", position);
-            }
-
-            @Override
             protected SpannableStringBuilder onExecute(Context context, final Bundle args) {
                 DB db = DB.getInstance(context);
                 TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
@@ -1278,7 +1270,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
                 properties.setBody(message.id, body);
 
-                if (args.getInt("position") != position)
+                TupleMessageEx amessage = getMessage();
+                if (amessage == null || !amessage.id.equals(message.id))
                     return;
 
                 boolean has_quotes = args.getBoolean("has_quotes");
