@@ -1127,6 +1127,7 @@ You can disable a rule and you can stop processing other rules after a rule has 
 
 All the conditions of a rule need to be true for a filter rule to be executed.
 Conditions are optional, but there needs to be at least one condition.
+Matching is not case sensitive, unless you use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression).
 
 You can select one of these actions to apply to matching messages:
 
