@@ -1733,18 +1733,7 @@ public class ServiceSynchronize extends LifecycleService {
                 imessage.setFlag(Flags.Flag.DRAFT, true);
 
         // Add message
-        long uid;
-        if (istore.hasCapability("UIDPLUS")) {
-            Log.i(folder.name + " append uid id=" + message.id);
-            AppendUID[] uids = ifolder.appendUIDMessages(new Message[]{imessage});
-            if (uids == null || uids.length == 0)
-                throw new MessageRemovedException("Message not appended");
-            uid = uids[0].uid;
-        } else {
-            Log.i(folder.name + " append id=" + message.id);
-            ifolder.appendMessages(new Message[]{imessage});
-            uid = getUid(folder, ifolder, message.msgid);
-        }
+        long uid = append(istore, ifolder, imessage, message.msgid);
         Log.i(folder.name + " appended id=" + message.id + " uid=" + uid);
         db.message().setMessageUid(message.id, uid);
 
@@ -1833,18 +1822,7 @@ public class ServiceSynchronize extends LifecycleService {
                         icopy.setFlag(Flags.Flag.DRAFT, true);
 
                 // Append target
-                long uid;
-                if (istore.hasCapability("UIDPLUS")) {
-                    Log.i(folder.name + " move/append uid id=" + message.id);
-                    AppendUID[] uids = itarget.appendUIDMessages(new Message[]{icopy});
-                    if (uids == null || uids.length == 0)
-                        throw new MessageRemovedException("Message not move/appended");
-                    uid = uids[0].uid;
-                } else {
-                    Log.i(folder.name + " move/append id=" + message.id);
-                    itarget.appendMessages(new Message[]{icopy});
-                    uid = getUid(target, itarget, message.msgid);
-                }
+                long uid = append(istore, itarget, icopy, message.msgid);
                 Log.i(folder.name + " appended id=" + message.id + " uid=" + uid);
                 db.message().setMessageUid(message.id, uid);
 
@@ -2164,22 +2142,29 @@ public class ServiceSynchronize extends LifecycleService {
         parts.downloadAttachment(this, db, attachment.id, sequence);
     }
 
-    private long getUid(EntityFolder folder, IMAPFolder ifolder, String msgid) throws MessagingException {
-        long uid = -1;
-        Message[] messages = ifolder.search(new MessageIDTerm(msgid));
-        if (messages != null)
-            for (Message message : messages) {
-                long muid = ifolder.getUID(message);
-                Log.i(folder.name + " " + msgid + " uid=" + muid);
-                // RFC3501: Unique identifiers are assigned in a strictly ascending fashion
-                if (muid > uid)
-                    uid = muid;
-            }
+    private long append(IMAPStore istore, IMAPFolder ifolder, Message imessage, String msgid) throws MessagingException {
+        if (istore.hasCapability("UIDPLUS")) {
+            AppendUID[] uids = ifolder.appendUIDMessages(new Message[]{imessage});
+            if (uids == null || uids.length == 0)
+                throw new MessageRemovedException("Message not appended");
+            return uids[0].uid;
+        } else {
+            ifolder.appendMessages(new Message[]{imessage});
+            long uid = -1;
+            Message[] messages = ifolder.search(new MessageIDTerm(msgid));
+            if (messages != null)
+                for (Message iappended : messages) {
+                    long muid = ifolder.getUID(iappended);
+                    // RFC3501: Unique identifiers are assigned in a strictly ascending fashion
+                    if (muid > uid)
+                        uid = muid;
+                }
 
-        if (uid < 0)
-            throw new MessageRemovedException("uid not found");
+            if (uid < 0)
+                throw new MessageRemovedException("uid not found");
 
-        return uid;
+            return uid;
+        }
     }
 
     private void synchronizeFolders(EntityAccount account, IMAPStore istore, ServiceState state) throws MessagingException {
