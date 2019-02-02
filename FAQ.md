@@ -297,10 +297,11 @@ So, unless your provider can enable this extension, you cannot use FairEmail for
 **(11) Why is POP not supported?**
 
 Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,
-using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary battery usage and delayed new message notifications.
-Moreover, POP is unsuitable for two way synchronization and more often than not people read email on different devices.
+using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary extra battery usage and delayed new message notifications.
+Moreover, POP is unsuitable for two way synchronization and more often than not people read and write messages on different devices.
+For example marking messages as read on the server and storing (backing up) drafts on the server is not possible with POP.
 
-See also [here](https://support.google.com/mail/answer/7104828) about what Google writes about it.
+See also [what Google writes about it](https://support.google.com/mail/answer/7104828).
 
 <br />
 
