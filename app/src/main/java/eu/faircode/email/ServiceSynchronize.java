@@ -2222,9 +2222,9 @@ public class ServiceSynchronize extends LifecycleService {
                         folder.sync_days = EntityFolder.DEFAULT_SYNC;
                         folder.keep_days = EntityFolder.DEFAULT_KEEP;
                         db.folder().insertFolder(folder);
-                        Log.i(folder.name + " added");
+                        Log.i(folder.name + " added type=" + folder.type);
                     } else {
-                        Log.i(folder.name + " exists");
+                        Log.i(folder.name + " exists type=" + folder.type);
 
                         if (folder.display == null) {
                             if (display != null) {

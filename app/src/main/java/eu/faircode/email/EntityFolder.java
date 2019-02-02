@@ -143,6 +143,7 @@ public class EntityFolder implements Serializable {
     static final int DEFAULT_KEEP = 30; // days
 
     static final List<String> SYSTEM_FOLDER_SYNC = Arrays.asList(
+            INBOX,
             DRAFTS,
             SENT,
             ARCHIVE,
@@ -150,6 +151,7 @@ public class EntityFolder implements Serializable {
             JUNK
     );
     static final List<Boolean> SYSTEM_FOLDER_DOWNLOAD = Arrays.asList(
+            true, // inbox
             true, // drafts
             false, // sent
             false, // archive

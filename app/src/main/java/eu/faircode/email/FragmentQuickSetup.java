@@ -202,17 +202,6 @@ public class FragmentQuickSetup extends FragmentBase {
 
                 List<EntityFolder> folders = new ArrayList<>();
 
-                EntityFolder inbox = new EntityFolder();
-                inbox.name = "INBOX";
-                inbox.type = EntityFolder.INBOX;
-                inbox.level = 0;
-                inbox.synchronize = true;
-                inbox.unified = true;
-                inbox.notify = true;
-                inbox.sync_days = EntityFolder.DEFAULT_SYNC;
-                inbox.keep_days = EntityFolder.DEFAULT_KEEP;
-                folders.add(inbox);
-
                 {
                     Properties props = MessageHelper.getSessionProperties(auth_type, null, false);
                     Session isession = Session.getInstance(props, null);
@@ -224,6 +213,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
                         separator = istore.getDefaultFolder().getSeparator();
 
+                        boolean inbox = false;
                         boolean drafts = false;
                         for (Folder ifolder : istore.getDefaultFolder().list("*")) {
                             String fullName = ifolder.getFullName();
@@ -232,7 +222,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
                             Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs) + " type=" + type);
 
-                            if (type != null) {
+                            if (type != null && !EntityFolder.USER.equals(type)) {
                                 int sync = EntityFolder.SYSTEM_FOLDER_SYNC.indexOf(type);
                                 EntityFolder folder = new EntityFolder();
                                 folder.name = fullName;
@@ -244,12 +234,14 @@ public class FragmentQuickSetup extends FragmentBase {
                                 folder.keep_days = EntityFolder.DEFAULT_KEEP;
                                 folders.add(folder);
 
+                                if (EntityFolder.INBOX.equals(type))
+                                    inbox = true;
                                 if (EntityFolder.DRAFTS.equals(type))
                                     drafts = true;
                             }
                         }
 
-                        if (!drafts)
+                        if (!inbox || !drafts)
                             throw new IllegalArgumentException(
                                     context.getString(R.string.title_setup_no_settings, dparts[1]));
                     } finally {
@@ -301,11 +293,13 @@ public class FragmentQuickSetup extends FragmentBase {
                     account.last_connected = now;
 
                     account.id = db.account().insertAccount(account);
+                    EntityLog.log(context, "Quick added account=" + account.name);
 
                     // Create folders
                     for (EntityFolder folder : folders) {
                         folder.account = account.id;
                         folder.id = db.folder().insertFolder(folder);
+                        EntityLog.log(context, "Quick added folder=" + folder.name + " type=" + folder.type);
                     }
 
                     // Set swipe left/right folder
@@ -349,6 +343,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     identity.error = null;
 
                     identity.id = db.identity().insertIdentity(identity);
+                    EntityLog.log(context, "Quick added identity=" + identity.name + " email=" + identity.email);
 
                     db.setTransactionSuccessful();
                 } finally {

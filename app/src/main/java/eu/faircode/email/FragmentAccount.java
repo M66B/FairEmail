@@ -569,6 +569,7 @@ public class FragmentAccount extends FragmentBase {
 
                     result.idle = istore.hasCapability("IDLE");
 
+                    boolean inbox = false;
                     boolean archive = false;
                     boolean drafts = false;
                     boolean trash = false;
@@ -614,7 +615,9 @@ public class FragmentAccount extends FragmentBase {
                                 if (folder.name.toLowerCase().contains("junk"))
                                     altJunk = folder;
                             } else {
-                                if (EntityFolder.ARCHIVE.equals(type))
+                                if (EntityFolder.INBOX.equals(type))
+                                    inbox = true;
+                                else if (EntityFolder.ARCHIVE.equals(type))
                                     archive = true;
                                 else if (EntityFolder.DRAFTS.equals(type))
                                     drafts = true;
@@ -631,6 +634,8 @@ public class FragmentAccount extends FragmentBase {
                         }
                     }
 
+                    if (!inbox)
+                        throw new IllegalArgumentException(getString(R.string.title_no_inbox));
                     if (!archive && altArchive != null)
                         altArchive.type = EntityFolder.ARCHIVE;
                     if (!drafts && altDrafts != null)
@@ -835,6 +840,7 @@ public class FragmentAccount extends FragmentBase {
                     last_connected = account.last_connected;
 
                 // Check IMAP server
+                EntityFolder inbox = null;
                 if (check) {
                     Properties props = MessageHelper.getSessionProperties(auth_type, realm, insecure);
                     Session isession = Session.getInstance(props, null);
@@ -853,6 +859,26 @@ public class FragmentAccount extends FragmentBase {
                                 throw ex;
                         }
                         separator = istore.getDefaultFolder().getSeparator();
+
+                        for (Folder ifolder : istore.getDefaultFolder().list("*")) {
+                            // Check folder attributes
+                            String fullName = ifolder.getFullName();
+                            String[] attrs = ((IMAPFolder) ifolder).getAttributes();
+                            Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs));
+                            String type = EntityFolder.getType(attrs, fullName);
+
+                            if (EntityFolder.INBOX.equals(type)) {
+                                inbox = new EntityFolder();
+                                inbox.name = fullName;
+                                inbox.type = type;
+                                inbox.synchronize = true;
+                                inbox.unified = true;
+                                inbox.notify = true;
+                                inbox.sync_days = EntityFolder.DEFAULT_SYNC;
+                                inbox.keep_days = EntityFolder.DEFAULT_KEEP;
+                            }
+                        }
+
                     } finally {
                         if (istore != null)
                             istore.close();
@@ -906,6 +932,7 @@ public class FragmentAccount extends FragmentBase {
                         db.account().updateAccount(account);
                     else
                         account.id = db.account().insertAccount(account);
+                    EntityLog.log(context, (update ? "Updated" : "Added") + " account=" + account.name);
 
                     // Make sure the channel exists on commit
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
@@ -918,16 +945,8 @@ public class FragmentAccount extends FragmentBase {
 
                     List<EntityFolder> folders = new ArrayList<>();
 
-                    EntityFolder inbox = new EntityFolder();
-                    inbox.name = "INBOX";
-                    inbox.type = EntityFolder.INBOX;
-                    inbox.synchronize = true;
-                    inbox.unified = true;
-                    inbox.notify = true;
-                    inbox.sync_days = EntityFolder.DEFAULT_SYNC;
-                    inbox.keep_days = EntityFolder.DEFAULT_KEEP;
-
-                    folders.add(inbox);
+                    if (inbox != null)
+                        folders.add(inbox);
 
                     if (drafts != null) {
                         drafts.type = EntityFolder.DRAFTS;
@@ -987,9 +1006,10 @@ public class FragmentAccount extends FragmentBase {
                         EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
                         if (existing == null) {
                             folder.account = account.id;
-                            Log.i("Creating folder=" + folder.name + " (" + folder.type + ")");
+                            EntityLog.log(context, "Added folder=" + folder.name + " type=" + folder.type);
                             folder.id = db.folder().insertFolder(folder);
                         } else {
+                            EntityLog.log(context, "Updated folder=" + folder.name + " type=" + folder.type);
                             db.folder().setFolderType(existing.id, folder.type);
                             db.folder().setFolderLevel(existing.id, folder.level);
                         }

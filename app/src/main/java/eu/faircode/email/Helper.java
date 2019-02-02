@@ -254,7 +254,7 @@ public class Helper {
     }
 
     static String localizeFolderName(Context context, String name) {
-        if ("INBOX".equals(name))
+        if (name != null && "INBOX".equals(name.toUpperCase()))
             return context.getString(R.string.title_folder_inbox);
         else if ("OUTBOX".equals(name))
             return context.getString(R.string.title_folder_outbox);

@@ -640,6 +640,8 @@ public class FragmentIdentity extends FragmentBase {
                         db.identity().updateIdentity(identity);
                     else
                         identity.id = db.identity().insertIdentity(identity);
+                    EntityLog.log(context, (update ? "Updated" : "Added") +
+                            " identity=" + identity.name + " email=" + identity.email);
 
                     db.setTransactionSuccessful();
                 } finally {
