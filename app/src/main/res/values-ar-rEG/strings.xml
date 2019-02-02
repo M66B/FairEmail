@@ -147,7 +147,6 @@
     <string name="title_no_host">اسم المضيف مفقود</string>
     <string name="title_no_user">اسم المستخدم مفقود</string>
     <string name="title_no_password">كلمة المرور مفقودة</string>
-    <string name="title_no_drafts">لا يوجد مجلد المسودات مختارة</string>
     <string name="title_no_primary_drafts">لا يوجد حساب أساسي أو لا مجلد المسودات</string>
     <string name="title_account_delete">حذف هذا الحساب نهائيا؟</string>
     <string name="title_identity_delete">حذف هذه الهوية نهائيا؟</string>

@@ -203,7 +203,6 @@
     <string name="title_no_host">Lipsește numele serverului</string>
     <string name="title_no_user">Lipsește numele de utilizator</string>
     <string name="title_no_password">Lipsește parola</string>
-    <string name="title_no_drafts">Nici un folder selectat pentru ciorne</string>
     <string name="title_no_primary_drafts">Nici un cont principal sau nici un dosar pentru ciorne</string>
     <string name="title_no_idle">Acest furnizor de servicii e-mail nu suporta mesaje push. Acest fapt va duce la întârzierea recepției mesajelor și un consum mai mare al bateriei.</string>
     <string name="title_no_sync">Erori de sincronizare începând cu %1$s</string>

@@ -192,7 +192,6 @@
     <string name="title_no_host">Värdnamn saknas</string>
     <string name="title_no_user">Användarnamn saknas</string>
     <string name="title_no_password">Lösenord saknas</string>
-    <string name="title_no_drafts">Ingen utkastmapp vald</string>
     <string name="title_no_primary_drafts">Inget primärt konto eller ingen utkastmapp</string>
     <string name="title_no_idle">Leverantören stöder inte push-meddelanden. Detta kommer att fördröja mottagning av nya meddelanden och öka batterianvändningen.</string>
     <string name="title_no_sync">Synkroniseringsfel sedan %1$s</string>

@@ -212,7 +212,6 @@
     <string name="title_no_user">Отсутствует имя пользователя</string>
     <string name="title_no_password">Пароль отсутствует</string>
     <string name="title_no_inbox">Папка \"Входящие\" не найдена</string>
-    <string name="title_no_drafts">Папка черновиков не выбрана</string>
     <string name="title_no_primary_drafts">Нет основной учетной записи или папки с черновиками</string>
     <string name="title_no_idle">Этот провайдер не поддерживает push-сообщения. Это задержит прием новых сообщений и увеличит расход батареи.</string>
     <string name="title_no_sync">Ошибки синхронизации после %1$s</string>

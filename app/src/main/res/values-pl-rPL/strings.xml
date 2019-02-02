@@ -185,7 +185,6 @@
     <string name="title_no_host">Brak nazwy hosta</string>
     <string name="title_no_user">Brak nazwy użytkownika</string>
     <string name="title_no_password">Brak hasła</string>
-    <string name="title_no_drafts">Nie wybrano folderu szkiców</string>
     <string name="title_no_primary_drafts">Brak konta podstawowego lub brak folderu szkiców</string>
     <string name="title_no_idle">Ten dostawca nie obsługuje wiadomości push. To opóźni otrzymywanie nowych wiadomości i zwiększy zużycie baterii.</string>
     <string name="title_no_sync">Błędy synchornizacji od %1$s</string>

@@ -191,7 +191,6 @@
     <string name="title_no_user">Kullanıcı adı eksik</string>
     <string name="title_no_password">Parola Eksik</string>
     <string name="title_no_inbox">Gelen kutusu bulunamadı</string>
-    <string name="title_no_drafts">Taslaklar klasörü seçilmedi</string>
     <string name="title_no_primary_drafts">Birincil hesap veya taslak klasörü yok</string>
     <string name="title_no_idle">Bu sağlayıcı anlık mesajları desteklemiyor. Bu, yeni mesajların alınmasını geciktirecek ve pil kullanımını artıracaktır.</string>
     <string name="title_no_sync">%1$s\'den beri eşzamanlama hataları</string>

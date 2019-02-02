@@ -148,7 +148,6 @@
     <string name="title_no_host">缺少主机名称</string>
     <string name="title_no_user">缺少用户名</string>
     <string name="title_no_password">缺少密码</string>
-    <string name="title_no_drafts">未选择草稿文件夹</string>
     <string name="title_no_primary_drafts">没有主帐户或草稿文件夹</string>
     <string name="title_no_idle">该提供商不支持消息推送，这将延迟新消息的接收并增加电池用量</string>
     <string name="title_account_delete">确定永久删除这个账户吗？</string>

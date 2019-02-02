@@ -196,7 +196,6 @@
     <string name="title_no_user">Falta nombre de usuario</string>
     <string name="title_no_password">Falta contraseña</string>
     <string name="title_no_inbox">Bandeja de entrada no encontrada</string>
-    <string name="title_no_drafts">No se seleccionó la carpeta de borradores</string>
     <string name="title_no_primary_drafts">No hay cuenta primaria o no hay carpeta de borradores</string>
     <string name="title_no_idle">Este proveedor no soporta mensajes PUSH. Esto retrasará la recepción de nuevos mensajes y aumentará el uso de batería.</string>
     <string name="title_no_sync">Errores de sincronización desde %1$s</string>

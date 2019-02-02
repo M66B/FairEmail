@@ -196,10 +196,10 @@
     <string name="title_no_user">Gebruikersnaam ontbreekt</string>
     <string name="title_no_password">Wachtwoord ontbreekt</string>
     <string name="title_no_inbox">Postvak in niet gevonden</string>
-    <string name="title_no_drafts">Geen concepten map geslecteerd</string>
     <string name="title_no_primary_drafts">Geen primair account of geen map voor concepten</string>
     <string name="title_no_idle">Deze provider biedt geen ondersteuning voor push-berichten. Dit zal het ontvangen van nieuwe berichten vertragen en het gebruik van de batterij te verhogen.</string>
     <string name="title_no_sync">Synchronisatiefouten sinds %1$s</string>
+    <string name="title_drafts_required">Een concepten map is vereist om berichten te verzenden</string>
     <string name="title_account_delete">Verwijder dit account permanent?</string>
     <string name="title_identity_delete">Verwijder deze identiteit permanent?</string>
     <string name="title_pop">POP wordt niet ondersteund</string>

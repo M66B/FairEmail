@@ -118,7 +118,6 @@
     <string name="title_no_host">Nome do servidor faltante</string>
     <string name="title_no_user">Nome do usuário faltante</string>
     <string name="title_no_password">Senha faltante</string>
-    <string name="title_no_drafts">Nenhuma pasta de rascunhos selecionada</string>
     <string name="title_no_primary_drafts">Nenhuma conta primária ou pasta de rascunhos</string>
     <string name="title_account_delete">Excluir esta conta permanentemente?</string>
     <string name="title_identity_delete">Excluir esta identidade permanentemente?</string>
