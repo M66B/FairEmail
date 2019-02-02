@@ -15,19 +15,16 @@
 
     <item
         android:id="@+id/menu_clear"
-        android:icon="@drawable/baseline_format_clear_24"
         android:title="@string/title_style_clear"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/menu_encrypt"
-        android:icon="@drawable/baseline_lock_24"
         android:title="@string/title_encrypt"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/menu_send_after"
-        android:icon="@drawable/baseline_lock_24"
         android:title="@string/title_send_at"
         app:showAsAction="never" />
 </menu>
