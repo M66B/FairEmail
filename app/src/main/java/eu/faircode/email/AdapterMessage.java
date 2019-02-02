@@ -789,18 +789,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (amessage == null || !amessage.id.equals(id))
                             return;
 
-                        boolean hasJunk = false;
-                        boolean hasTrash = false;
                         boolean hasArchive = false;
-
+                        boolean hasTrash = false;
+                        boolean hasJunk = false;
                         if (folders != null)
                             for (EntityFolder folder : folders) {
-                                if (EntityFolder.JUNK.equals(folder.type))
-                                    hasJunk = true;
+                                if (EntityFolder.ARCHIVE.equals(folder.type))
+                                    hasArchive = true;
                                 else if (EntityFolder.TRASH.equals(folder.type))
                                     hasTrash = true;
-                                else if (EntityFolder.ARCHIVE.equals(folder.type))
-                                    hasArchive = true;
+                                else if (EntityFolder.JUNK.equals(folder.type))
+                                    hasJunk = true;
                             }
 
                         boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
