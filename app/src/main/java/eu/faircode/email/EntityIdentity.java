@@ -96,6 +96,7 @@ public class EntityIdentity {
             json.put("color", color);
         json.put("signature", signature);
         // not account
+
         json.put("auth_type", auth_type);
         json.put("host", host);
         json.put("starttls", starttls);
@@ -103,11 +104,14 @@ public class EntityIdentity {
         json.put("port", port);
         json.put("user", user);
         json.put("password", password);
+        json.put("realm", realm);
+
         json.put("synchronize", synchronize);
         json.put("primary", primary);
 
         json.put("replyto", replyto);
         json.put("bcc", bcc);
+
         json.put("delivery_receipt", delivery_receipt);
         json.put("read_receipt", read_receipt);
         json.put("store_sent", store_sent);
@@ -120,10 +124,8 @@ public class EntityIdentity {
         EntityIdentity identity = new EntityIdentity();
         identity.name = json.getString("name");
         identity.email = json.getString("email");
-
         if (json.has("display"))
             identity.display = json.getString("display");
-
         if (json.has("color"))
             identity.color = json.getInt("color");
         if (json.has("signature"))
@@ -136,19 +138,19 @@ public class EntityIdentity {
         identity.port = json.getInt("port");
         identity.user = json.getString("user");
         identity.password = json.getString("password");
+        if (json.has("realm"))
+            identity.realm = json.getString("realm");
 
         identity.synchronize = json.getBoolean("synchronize");
         identity.primary = json.getBoolean("primary");
 
         if (json.has("replyto"))
             identity.replyto = json.getString("replyto");
-
         if (json.has("bcc"))
-            identity.replyto = json.getString("bcc");
+            identity.bcc = json.getString("bcc");
 
         if (json.has("delivery_receipt"))
             identity.delivery_receipt = json.getBoolean("delivery_receipt");
-
         if (json.has("read_receipt"))
             identity.read_receipt = json.getBoolean("read_receipt");
 

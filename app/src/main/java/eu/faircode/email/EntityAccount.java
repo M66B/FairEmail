@@ -108,24 +108,28 @@ public class EntityAccount implements Serializable {
 
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
-        json.put("name", name);
-        json.put("prefix", prefix);
+        json.put("auth_type", auth_type);
         json.put("host", host);
         json.put("starttls", starttls);
         json.put("insecure", insecure);
         json.put("port", port);
         json.put("user", user);
         json.put("password", password);
-        json.put("auth_type", auth_type);
+        json.put("realm", password);
+
+        json.put("name", name);
+        json.put("color", color);
+
         json.put("synchronize", synchronize);
         json.put("primary", primary);
+        json.put("notify", notify);
         json.put("browse", browse);
+
         json.put("swipe_left", swipe_left);
         json.put("swipe_right", swipe_right);
-        if (color != null)
-            json.put("color", color);
-        json.put("notify", notify);
+
         json.put("poll_interval", poll_interval);
+        json.put("prefix", prefix);
         // not created
         // not state
         // not error
@@ -135,36 +139,37 @@ public class EntityAccount implements Serializable {
 
     public static EntityAccount fromJSON(JSONObject json) throws JSONException {
         EntityAccount account = new EntityAccount();
-        if (json.has("name"))
-            account.name = json.getString("name");
-        if (json.has("prefix"))
-            account.prefix = json.getString("prefix");
+        account.auth_type = json.getInt("auth_type");
         account.host = json.getString("host");
         account.starttls = (json.has("starttls") && json.getBoolean("starttls"));
         account.insecure = (json.has("insecure") && json.getBoolean("insecure"));
         account.port = json.getInt("port");
         account.user = json.getString("user");
         account.password = json.getString("password");
-        account.auth_type = json.getInt("auth_type");
+        if (json.has("realm"))
+            account.realm = json.getString("realm");
+
+        if (json.has("name"))
+            account.name = json.getString("name");
+        if (json.has("color"))
+            account.color = json.getInt("color");
+
         account.synchronize = json.getBoolean("synchronize");
         account.primary = json.getBoolean("primary");
-
+        if (json.has("notify"))
+            account.notify = json.getBoolean("notify");
         if (json.has("browse"))
             account.browse = json.getBoolean("browse");
 
         if (json.has("swipe_left"))
             account.swipe_left = json.getLong("swipe_left");
-
         if (json.has("swipe_right"))
             account.swipe_right = json.getLong("swipe_right");
 
-        if (json.has("color"))
-            account.color = json.getInt("color");
-
-        if (json.has("notify"))
-            account.notify = json.getBoolean("notify");
-
         account.poll_interval = json.getInt("poll_interval");
+        if (json.has("prefix"))
+            account.prefix = json.getString("prefix");
+
         return account;
     }
 
