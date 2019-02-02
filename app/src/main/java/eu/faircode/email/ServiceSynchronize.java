@@ -1243,7 +1243,10 @@ public class ServiceSynchronize extends LifecycleService {
                                                                     Log.w(folder.name, ex);
                                                                 }
                                                             }
-                                                            db.folder().setFolderState(folder.id, null);
+                                                            if (folder.synchronize && (folder.poll || !capIdle))
+                                                                db.folder().setFolderState(folder.id, "waiting");
+                                                            else
+                                                                db.folder().setFolderState(folder.id, null);
                                                         }
                                                     }
                                                 } finally {
