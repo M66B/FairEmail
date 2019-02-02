@@ -116,14 +116,14 @@ public class EntityFolder implements Serializable {
             "Flagged"
     );
     private static final List<String> SYSTEM_FOLDER_TYPE = Arrays.asList(
-            ARCHIVE,
+            ARCHIVE, // All
             ARCHIVE,
             DRAFTS,
             TRASH,
             JUNK,
             SENT,
-            SYSTEM,
-            SYSTEM
+            SYSTEM, // Important
+            SYSTEM // Flagged
     ); // MUST match SYSTEM_FOLDER_ATTR
 
     static final List<String> FOLDER_SORT_ORDER = Arrays.asList(

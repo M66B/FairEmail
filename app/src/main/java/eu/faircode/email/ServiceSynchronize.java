@@ -2218,7 +2218,7 @@ public class ServiceSynchronize extends LifecycleService {
                         folder.account = account.id;
                         folder.name = fullName;
                         folder.display = display;
-                        folder.type = EntityFolder.USER;
+                        folder.type = (EntityFolder.SYSTEM.equals(type) ? type : EntityFolder.USER);
                         folder.level = level;
                         folder.synchronize = false;
                         folder.poll = ("imap.gmail.com".equals(account.host));
