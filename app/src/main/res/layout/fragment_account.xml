@@ -541,6 +541,16 @@
             app:layout_constraintStart_toEndOf="@id/barrier_folders"
             app:layout_constraintTop_toBottomOf="@id/tvIdle" />
 
+        <TextView
+            android:id="@+id/tvDraftsRemark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_drafts_required"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spDrafts" />
+
         <Spinner
             android:id="@+id/spSent"
             android:layout_width="0dp"
@@ -549,7 +559,7 @@
             android:layout_marginTop="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/barrier_folders"
-            app:layout_constraintTop_toBottomOf="@id/spDrafts" />
+            app:layout_constraintTop_toBottomOf="@id/tvDraftsRemark" />
 
         <Spinner
             android:id="@+id/spAll"
@@ -679,6 +689,6 @@
             android:id="@+id/grpFolders"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvDrafts,spDrafts,tvSent,spSent,tvAll,spAll,tvTrash,spTrash,tvJunk,spJunk,vSeparatorSwipe,tvLeft,spLeft,tvRight,spRight" />
+            app:constraint_referenced_ids="tvDrafts,spDrafts,tvDraftsRemark,tvSent,spSent,tvAll,spAll,tvTrash,spTrash,tvJunk,spJunk,vSeparatorSwipe,tvLeft,spLeft,tvRight,spRight" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

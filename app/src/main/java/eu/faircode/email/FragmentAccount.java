@@ -807,8 +807,6 @@ public class FragmentAccount extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
                 if (TextUtils.isEmpty(interval))
                     interval = "19";
-                if (synchronize && drafts == null)
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_drafts));
 
                 if (TextUtils.isEmpty(realm))
                     realm = null;
