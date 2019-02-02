@@ -154,8 +154,11 @@ public class HtmlHelper {
                     Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
                     d.setBounds(0, 0, px, px);
                     return d;
-                } else
-                    return new BitmapDrawable(bm);
+                } else {
+                    Drawable d = new BitmapDrawable(bm);
+                    d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
+                    return d;
+                }
             }
         }
 
