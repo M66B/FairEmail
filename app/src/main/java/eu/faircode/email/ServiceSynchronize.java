@@ -1827,12 +1827,23 @@ public class ServiceSynchronize extends LifecycleService {
                 Log.i(folder.name + " appended id=" + message.id + " uid=" + uid);
                 db.message().setMessageUid(message.id, uid);
 
+                // Some providers, like Gmail, don't honor the appended seen flag
                 if (itarget.getPermanentFlags().contains(Flags.Flag.SEEN)) {
                     boolean seen = (autoread || message.ui_seen);
                     icopy = itarget.getMessageByUID(uid);
                     if (seen != icopy.isSet(Flags.Flag.SEEN)) {
                         Log.i(folder.name + " Fixing id=" + message.id + " seen=" + seen);
                         icopy.setFlag(Flags.Flag.SEEN, seen);
+                    }
+                }
+
+                // This is not based on an actual case, so this is just a safeguard
+                if (itarget.getPermanentFlags().contains(Flags.Flag.DRAFT)) {
+                    boolean draft = EntityFolder.DRAFTS.equals(target.type);
+                    icopy = itarget.getMessageByUID(uid);
+                    if (draft != icopy.isSet(Flags.Flag.DRAFT)) {
+                        Log.i(folder.name + " Fixing id=" + message.id + " draft=" + draft);
+                        icopy.setFlag(Flags.Flag.DRAFT, draft);
                     }
                 }
 
