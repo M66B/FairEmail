@@ -99,17 +99,19 @@ public class ViewModelMessages extends ViewModel {
                             TupleMessageEx next = messages.get(pos - 1);
                             if (next == null)
                                 load = true;
-                            reportNext(intf, true, next == null ? null : next.id);
+                            intf.onNext(true, next == null ? null : next.id);
                         } else
-                            reportNext(intf, false, null);
+                            intf.onNext(false, null);
 
                         if (pos + 1 < messages.size()) {
                             TupleMessageEx prev = messages.get(pos + 1);
                             if (prev == null)
                                 load = true;
-                            reportPrevious(intf, true, prev == null ? null : prev.id);
+                            intf.onPrevious(true, prev == null ? null : prev.id);
                         } else
-                            reportPrevious(intf, false, null);
+                            intf.onPrevious(false, null);
+
+                        intf.onFound(pos, messages.size());
 
                         if (load)
                             messages.loadAround(pos);
@@ -123,19 +125,11 @@ public class ViewModelMessages extends ViewModel {
         });
     }
 
-    private void reportPrevious(IPrevNext intf, boolean exists, Long id) {
-        Log.i("Previous exists=" + exists + " id=" + id);
-        intf.onPrevious(exists, id);
-    }
-
-    private void reportNext(IPrevNext intf, boolean exists, Long id) {
-        Log.i("Next exists=" + exists + " id=" + id);
-        intf.onNext(exists, id);
-    }
-
     interface IPrevNext {
         void onPrevious(boolean exists, Long id);
 
         void onNext(boolean exists, Long id);
+
+        void onFound(int position, int size);
     }
 }

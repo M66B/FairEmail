@@ -51,6 +51,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -100,6 +101,7 @@ public class FragmentMessages extends FragmentBase {
     private ImageButton ibHintSelect;
     private TextView tvNoEmail;
     private FixedRecyclerView rvMessage;
+    private SeekBar seekBar;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
     private Group grpSupport;
@@ -218,6 +220,7 @@ public class FragmentMessages extends FragmentBase {
         ibHintSelect = view.findViewById(R.id.ibHintSelect);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
         rvMessage = view.findViewById(R.id.rvMessage);
+        seekBar = view.findViewById(R.id.seekBar);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
         grpSupport = view.findViewById(R.id.grpSupport);
@@ -291,86 +294,6 @@ public class FragmentMessages extends FragmentBase {
 
         rvMessage.setAdapter(adapter);
 
-        if (viewType == AdapterMessage.ViewType.THREAD) {
-            ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-            model.observePrevNext(getViewLifecycleOwner(), id, new ViewModelMessages.IPrevNext() {
-                @Override
-                public void onPrevious(boolean exists, Long id) {
-                    previous = id;
-                    bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(id != null);
-                }
-
-                @Override
-                public void onNext(boolean exists, Long id) {
-                    next = id;
-                    bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(id != null);
-                }
-            });
-
-            ActivityBase activity = (ActivityBase) getActivity();
-            activity.setSwipeListener(new SwipeListener.ISwipeListener() {
-                @Override
-                public boolean onSwipeRight() {
-                    if (previous != null)
-                        navigate(previous, true);
-                    return (previous != null);
-                }
-
-                @Override
-                public boolean onSwipeLeft() {
-                    if (next != null)
-                        navigate(next, false);
-                    return (next != null);
-                }
-            });
-
-        } else {
-            final SelectionPredicateMessage predicate = new SelectionPredicateMessage(rvMessage);
-
-            selectionTracker = new SelectionTracker.Builder<>(
-                    "messages-selection",
-                    rvMessage,
-                    new ItemKeyProviderMessage(rvMessage),
-                    new ItemDetailsLookupMessage(rvMessage),
-                    StorageStrategy.createLongStorage())
-                    .withSelectionPredicate(predicate)
-                    .build();
-            adapter.setSelectionTracker(selectionTracker);
-
-            selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
-                @Override
-                public void onSelectionChanged() {
-                    SelectionTracker tracker = selectionTracker;
-                    if (tracker == null)
-                        return;
-
-                    FragmentActivity activity = getActivity();
-                    if (activity != null) {
-                        try {
-                            ViewModelMessages modelMessages = ViewModelProviders.of(activity).get(ViewModelMessages.class);
-                            if (tracker.hasSelection())
-                                modelMessages.removeObservers(viewType, getViewLifecycleOwner());
-                            else
-                                modelMessages.observe(viewType, getViewLifecycleOwner(), observer);
-                        } catch (IllegalStateException ex) {
-                            // getViewLifecycleOwner
-                            Log.w(ex);
-                        }
-
-                        activity.invalidateOptionsMenu();
-                    }
-
-                    if (tracker.hasSelection()) {
-                        swipeRefresh.setEnabled(false);
-                        fabMore.show();
-                    } else {
-                        fabMore.hide();
-                        swipeRefresh.setEnabled(pull);
-                    }
-                }
-            });
-        }
-
         new ItemTouchHelper(touchHelper).attachToRecyclerView(rvMessage);
 
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -438,6 +361,8 @@ public class FragmentMessages extends FragmentBase {
         // Initialize
         swipeRefresh.setEnabled(pull);
         tvNoEmail.setVisibility(View.GONE);
+        seekBar.setEnabled(false);
+        seekBar.setVisibility(View.GONE);
         bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(false);
         bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(false);
         bottom_navigation.setVisibility(View.GONE);
@@ -446,6 +371,93 @@ public class FragmentMessages extends FragmentBase {
 
         fab.hide();
         fabMore.hide();
+
+        if (viewType == AdapterMessage.ViewType.THREAD) {
+            ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+            model.observePrevNext(getViewLifecycleOwner(), id, new ViewModelMessages.IPrevNext() {
+                @Override
+                public void onPrevious(boolean exists, Long id) {
+                    previous = id;
+                    bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(id != null);
+                }
+
+                @Override
+                public void onNext(boolean exists, Long id) {
+                    next = id;
+                    bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(id != null);
+                }
+
+                @Override
+                public void onFound(int position, int size) {
+                    seekBar.setProgress(position);
+                    seekBar.setMax(size - 1);
+                    seekBar.setVisibility(View.VISIBLE);
+                }
+            });
+
+            ActivityBase activity = (ActivityBase) getActivity();
+            activity.setSwipeListener(new SwipeListener.ISwipeListener() {
+                @Override
+                public boolean onSwipeRight() {
+                    if (previous != null)
+                        navigate(previous, true);
+                    return (previous != null);
+                }
+
+                @Override
+                public boolean onSwipeLeft() {
+                    if (next != null)
+                        navigate(next, false);
+                    return (next != null);
+                }
+            });
+
+        } else {
+            final SelectionPredicateMessage predicate = new SelectionPredicateMessage(rvMessage);
+
+            selectionTracker = new SelectionTracker.Builder<>(
+                    "messages-selection",
+                    rvMessage,
+                    new ItemKeyProviderMessage(rvMessage),
+                    new ItemDetailsLookupMessage(rvMessage),
+                    StorageStrategy.createLongStorage())
+                    .withSelectionPredicate(predicate)
+                    .build();
+            adapter.setSelectionTracker(selectionTracker);
+
+            selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
+                @Override
+                public void onSelectionChanged() {
+                    SelectionTracker tracker = selectionTracker;
+                    if (tracker == null)
+                        return;
+
+                    FragmentActivity activity = getActivity();
+                    if (activity != null) {
+                        try {
+                            ViewModelMessages modelMessages = ViewModelProviders.of(activity).get(ViewModelMessages.class);
+                            if (tracker.hasSelection())
+                                modelMessages.removeObservers(viewType, getViewLifecycleOwner());
+                            else
+                                modelMessages.observe(viewType, getViewLifecycleOwner(), observer);
+                        } catch (IllegalStateException ex) {
+                            // getViewLifecycleOwner
+                            Log.w(ex);
+                        }
+
+                        activity.invalidateOptionsMenu();
+                    }
+
+                    if (tracker.hasSelection()) {
+                        swipeRefresh.setEnabled(false);
+                        fabMore.show();
+                    } else {
+                        fabMore.hide();
+                        swipeRefresh.setEnabled(pull);
+                    }
+                }
+            });
+        }
 
         return view;
     }
@@ -1798,6 +1810,11 @@ public class FragmentMessages extends FragmentBase {
                             loadMessagesNext();
                         }
                     }
+                }
+
+                @Override
+                public void onFound(int position, int size) {
+                    // Do nothing
                 }
             });
         } else
