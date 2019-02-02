@@ -300,6 +300,8 @@ Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/
 using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary battery usage and delayed new message notifications.
 Moreover, POP is unsuitable for two way synchronization and more often than not people read email on different devices.
 
+See also [here](https://support.google.com/mail/answer/7104828) about what Google writes about it.
+
 <br />
 
 <a name="faq12"></a>
