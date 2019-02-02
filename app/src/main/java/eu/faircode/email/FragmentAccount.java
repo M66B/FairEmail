@@ -827,6 +827,7 @@ public class FragmentAccount extends FragmentBase {
                 String accountRealm = (account == null ? null : account.realm);
 
                 boolean check = (synchronize && (account == null ||
+                        auth_type != account.auth_type ||
                         !host.equals(account.host) || Integer.parseInt(port) != account.port ||
                         !user.equals(account.user) || !password.equals(account.password) ||
                         (realm == null ? accountRealm != null : !realm.equals(accountRealm))));
