@@ -1733,23 +1733,20 @@ public class ServiceSynchronize extends LifecycleService {
                 imessage.setFlag(Flags.Flag.DRAFT, true);
 
         // Add message
+        long uid;
         if (istore.hasCapability("UIDPLUS")) {
             Log.i(folder.name + " append uid id=" + message.id);
             AppendUID[] uids = ifolder.appendUIDMessages(new Message[]{imessage});
             if (uids == null || uids.length == 0)
                 throw new MessageRemovedException("Message not appended");
-            Log.i(folder.name + " appended uid=" + uids[0].uid);
-            db.message().setMessageUid(message.id, uids[0].uid);
+            uid = uids[0].uid;
         } else {
             Log.i(folder.name + " append id=" + message.id);
             ifolder.appendMessages(new Message[]{imessage});
-
-            Log.i(folder.name + " lookup id=" + message.id);
-            long uid = getUid(folder, ifolder, message.msgid);
-
-            Log.i(folder.name + " lookup id=" + message.id + " uid=" + uid);
-            db.message().setMessageUid(message.id, uid);
+            uid = getUid(folder, ifolder, message.msgid);
         }
+        Log.i(folder.name + " appended id=" + message.id + " uid=" + uid);
+        db.message().setMessageUid(message.id, uid);
 
         if (folder.id.equals(message.folder)) {
             // Delete previous message
@@ -1836,7 +1833,29 @@ public class ServiceSynchronize extends LifecycleService {
                         icopy.setFlag(Flags.Flag.DRAFT, true);
 
                 // Append target
-                itarget.appendMessages(new Message[]{icopy});
+                long uid;
+                if (istore.hasCapability("UIDPLUS")) {
+                    Log.i(folder.name + " move/append uid id=" + message.id);
+                    AppendUID[] uids = itarget.appendUIDMessages(new Message[]{icopy});
+                    if (uids == null || uids.length == 0)
+                        throw new MessageRemovedException("Message not move/appended");
+                    uid = uids[0].uid;
+                } else {
+                    Log.i(folder.name + " move/append id=" + message.id);
+                    itarget.appendMessages(new Message[]{icopy});
+                    uid = getUid(target, itarget, message.msgid);
+                }
+                Log.i(folder.name + " appended id=" + message.id + " uid=" + uid);
+                db.message().setMessageUid(message.id, uid);
+
+                if (itarget.getPermanentFlags().contains(Flags.Flag.SEEN)) {
+                    boolean seen = (autoread || message.ui_seen);
+                    icopy = itarget.getMessageByUID(uid);
+                    if (seen != icopy.isSet(Flags.Flag.SEEN)) {
+                        Log.i(folder.name + " Fixing id=" + message.id + " seen=" + seen);
+                        icopy.setFlag(Flags.Flag.SEEN, seen);
+                    }
+                }
 
                 // Delete source
                 imessage.setFlag(Flags.Flag.DELETED, true);
