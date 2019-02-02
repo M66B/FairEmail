@@ -1397,6 +1397,14 @@ public class FragmentAccount extends FragmentBase {
         Long left = (account == null ? null : account.swipe_left);
         Long right = (account == null ? null : account.swipe_right);
 
+        String leftDefault = EntityFolder.TRASH;
+        String rightDefault = EntityFolder.TRASH;
+        for (EntityFolder folder : folders)
+            if (EntityFolder.ARCHIVE.equals(folder.type)) {
+                rightDefault = folder.type;
+                break;
+            }
+
         for (int pos = 0; pos < folders.size(); pos++) {
             EntityFolder folder = folders.get(pos);
 
@@ -1411,10 +1419,10 @@ public class FragmentAccount extends FragmentBase {
             else if (EntityFolder.JUNK.equals(folder.type))
                 spJunk.setSelection(pos);
 
-            if (left == null ? (account == null && EntityFolder.TRASH.equals(folder.type)) : left.equals(folder.id))
+            if (left == null ? (account == null && leftDefault.equals(folder.type)) : left.equals(folder.id))
                 spLeft.setSelection(pos);
 
-            if (right == null ? (account == null && EntityFolder.ARCHIVE.equals(folder.type)) : right.equals(folder.id))
+            if (right == null ? (account == null && rightDefault.equals(folder.type)) : right.equals(folder.id))
                 spRight.setSelection(pos);
         }
 
