@@ -175,9 +175,6 @@
     <string name="title_legend_primary_disconnected">Compte desconnectat</string>
     <string name="title_legend_primary_connected">Compte connectat</string>
     <string name="title_legend_thread">Conversació</string>
-    <string name="title_legend_cc">CC/CCO</string>
-    <string name="title_legend_attachment">Adjunt</string>
-    <string name="title_legend_contacts">Contactes</string>
     <string name="title_legend_synchronize_on">Sincronitza engegada</string>
     <string name="title_legend_synchronize_off">Sincronització apagada</string>
     <string name="title_legend_disconnected">Desconnectat</string>

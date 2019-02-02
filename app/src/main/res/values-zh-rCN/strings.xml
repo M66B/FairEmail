@@ -293,10 +293,6 @@
     <string name="title_legend_primary_disconnected">帐户已断开连接</string>
     <string name="title_legend_primary_connected">帐户已连接</string>
     <string name="title_legend_thread">对话</string>
-    <string name="title_legend_cc">抄送或密送</string>
-    <string name="title_legend_answered">已回答</string>
-    <string name="title_legend_attachment">附件</string>
-    <string name="title_legend_contacts">联系人</string>
     <string name="title_legend_view">查看内容</string>
     <string name="title_legend_download">下载内容</string>
     <string name="title_legend_external_image">外部图像占位符</string>

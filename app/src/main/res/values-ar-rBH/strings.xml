@@ -275,8 +275,6 @@
     <string name="title_legend_trash">سلة المهملات</string>
     <string name="title_legend_junk">البريد المزعج</string>
     <string name="title_legend_thread">المحادثة</string>
-    <string name="title_legend_attachment">المرفق</string>
-    <string name="title_legend_contacts">المُراسِلون</string>
     <string name="title_legend_view">عرض المحتوى</string>
     <string name="title_legend_download">تنزيل المحتوى</string>
     <string name="title_legend_disconnected">غير متصل</string>

@@ -299,11 +299,6 @@
     <string name="title_legend_primary_disconnected">Hesab bağlantısı kəsildi</string>
     <string name="title_legend_primary_connected">Hesab bağlantısı quruldu</string>
     <string name="title_legend_thread">Söhbət</string>
-    <string name="title_legend_cc">CC/BCC</string>
-    <string name="title_legend_draft">Qaralama/düzəliş</string>
-    <string name="title_legend_answered">Cavablandı</string>
-    <string name="title_legend_attachment">Qoşma</string>
-    <string name="title_legend_contacts">Şəxslər</string>
     <string name="title_legend_view">Məzmuna bax</string>
     <string name="title_legend_download">Məzmunu endir</string>
     <string name="title_legend_broken_image">Zədələnmiş təsvir</string>

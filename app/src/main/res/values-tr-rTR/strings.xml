@@ -126,6 +126,7 @@
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
     <string name="title_advanced_pull_refresh">Yenilemek için aşağıya çekin</string>
+    <string name="title_advanced_autoexpand">İletileri otomatik olarak aç </string>
     <string name="title_advanced_autoclose">İletişimleri otomatik olarak kapat</string>
     <string name="title_advanced_autoread">İleti taşındığında otomatik olarak okundu diye işaretle</string>
     <string name="title_advanced_collapse">Konuşmalardaki mesajları \'geri\' seçeneğinde daralt</string>
@@ -189,6 +190,7 @@
     <string name="title_no_host">Sunucu adı eksik</string>
     <string name="title_no_user">Kullanıcı adı eksik</string>
     <string name="title_no_password">Parola Eksik</string>
+    <string name="title_no_inbox">Gelen kutusu bulunamadı</string>
     <string name="title_no_drafts">Taslaklar klasörü seçilmedi</string>
     <string name="title_no_primary_drafts">Birincil hesap veya taslak klasörü yok</string>
     <string name="title_no_idle">Bu sağlayıcı anlık mesajları desteklemiyor. Bu, yeni mesajların alınmasını geciktirecek ve pil kullanımını artıracaktır.</string>
@@ -366,13 +368,8 @@
     <string name="title_legend_primary_disconnected">Hesap bağlantısı kesildi</string>
     <string name="title_legend_primary_connected">Hesap bağlantısı kuruldu</string>
     <string name="title_legend_thread">Sohbet</string>
-    <string name="title_legend_cc">CC/BCC</string>
-    <string name="title_legend_draft">Taslak/düzenle</string>
+    <string name="title_legend_zoom">Metin boyutunu değiştir</string>
     <string name="title_legend_snoozed">Ertelendi</string>
-    <string name="title_legend_browsed">Gözatılmış veya aranmış</string>
-    <string name="title_legend_answered">Yanıtlanmış</string>
-    <string name="title_legend_attachment">Ek</string>
-    <string name="title_legend_contacts">Kişiler</string>
     <string name="title_legend_view">İçeriği görüntüle</string>
     <string name="title_legend_download">İçeriği indir</string>
     <string name="title_legend_external_image">Harici resim vekili</string>

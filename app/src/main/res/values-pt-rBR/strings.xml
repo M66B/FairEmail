@@ -215,10 +215,6 @@
     <string name="title_legend_primary_disconnected">Conta desconectada</string>
     <string name="title_legend_primary_connected">Conta conectada</string>
     <string name="title_legend_thread">Conversação</string>
-    <string name="title_legend_cc">CC/CCO</string>
-    <string name="title_legend_answered">Respondida</string>
-    <string name="title_legend_attachment">Anexo</string>
-    <string name="title_legend_contacts">Contatos</string>
     <string name="title_legend_view">Ver conteúdo</string>
     <string name="title_legend_download">Baixar conteúdo</string>
     <string name="title_legend_broken_image">Imagem quebrada</string>

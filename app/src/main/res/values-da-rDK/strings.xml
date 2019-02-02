@@ -186,9 +186,6 @@
     <string name="title_legend_unified">Samlet indbakke</string>
     <string name="title_legend_primary_connected">Konto forbundet</string>
     <string name="title_legend_thread">Samtale</string>
-    <string name="title_legend_cc">CC/BCC</string>
-    <string name="title_legend_attachment">Vedhæftning</string>
-    <string name="title_legend_contacts">Kontakter</string>
     <string name="title_legend_disconnected">Afbrudt</string>
     <string name="title_legend_connecting">Tilslutter</string>
     <string name="title_legend_connected">Tilsluttet</string>

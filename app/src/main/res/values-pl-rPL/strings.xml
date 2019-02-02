@@ -348,11 +348,6 @@
     <string name="title_legend_primary_disconnected">Konto rozłączone</string>
     <string name="title_legend_primary_connected">Konto połączone</string>
     <string name="title_legend_thread">Konwersacja</string>
-    <string name="title_legend_cc">DW/UDW</string>
-    <string name="title_legend_draft">Szkic/edycja</string>
-    <string name="title_legend_answered">Odpowiedziano</string>
-    <string name="title_legend_attachment">Załącznik</string>
-    <string name="title_legend_contacts">Kontakty</string>
     <string name="title_legend_view">Zobacz zawartość</string>
     <string name="title_legend_download">Pobierz zawartość</string>
     <string name="title_legend_broken_image">Uszkodzony obraz</string>

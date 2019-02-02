@@ -365,13 +365,6 @@
     <string name="title_legend_primary_disconnected">Kontot frånkopplat</string>
     <string name="title_legend_primary_connected">Kontot anslutet</string>
     <string name="title_legend_thread">Konversation</string>
-    <string name="title_legend_cc">Kopia/Dold kopia</string>
-    <string name="title_legend_draft">Utkast/redigera</string>
-    <string name="title_legend_snoozed">Slumrade</string>
-    <string name="title_legend_browsed">Bläddrad eller sökt</string>
-    <string name="title_legend_answered">Besvarad</string>
-    <string name="title_legend_attachment">Bilaga</string>
-    <string name="title_legend_contacts">Kontakter</string>
     <string name="title_legend_view">Visa innehåll</string>
     <string name="title_legend_download">Hämta innehåll</string>
     <string name="title_legend_external_image">Extern bildplatshållare</string>

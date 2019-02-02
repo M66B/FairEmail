@@ -69,9 +69,9 @@
     <string name="menu_issue">Сообщить о проблеме</string>
     <string name="menu_privacy">Конфиденциальность</string>
     <string name="menu_about">О приложении</string>
-    <string name="menu_pro">Возможности Pro-версии</string>
+    <string name="menu_pro">Функции Pro</string>
     <string name="menu_invite">Пригласить</string>
-    <string name="menu_rate">Оцените это приложение</string>
+    <string name="menu_rate">Оцените приложение</string>
     <string name="menu_other">Другие приложения</string>
     <string name="title_welcome">Добро пожаловать</string>
     <string name="title_eula">Пользовательское соглашение</string>
@@ -211,6 +211,7 @@
     <string name="title_no_host">Отсутствует имя хоста</string>
     <string name="title_no_user">Отсутствует имя пользователя</string>
     <string name="title_no_password">Пароль отсутствует</string>
+    <string name="title_no_inbox">Папка \"Входящие\" не найдена</string>
     <string name="title_no_drafts">Папка черновиков не выбрана</string>
     <string name="title_no_primary_drafts">Нет основной учетной записи или папки с черновиками</string>
     <string name="title_no_idle">Этот провайдер не поддерживает push-сообщения. Это задержит прием новых сообщений и увеличит расход батареи.</string>
@@ -257,7 +258,7 @@
     <string name="title_folder_user">Пользователь</string>
     <string name="title_folder_primary">Папки основной учетной записи</string>
     <string name="title_folder_thread">Диалог %1$s</string>
-    <string name="title_folders_unified">Унифицированные папки входящих</string>
+    <string name="title_folders_unified">Папки единого почтового ящика</string>
     <string name="title_no_messages">Нет сообщений</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
@@ -393,14 +394,6 @@
     <string name="title_legend_primary_disconnected">Учетная запись отключена</string>
     <string name="title_legend_primary_connected">Учетная запись подключена</string>
     <string name="title_legend_thread">Диалог</string>
-    <string name="title_legend_cc">Копия/Скрытая</string>
-    <string name="title_legend_draft">Черновик/Правка</string>
-    <string name="title_legend_snoozed">Отложенные</string>
-    <string name="title_legend_browsed">Сообщение на сервере</string>
-    <string name="title_legend_answered">Отвечено</string>
-    <string name="title_legend_attachment">Вложение</string>
-    <string name="title_legend_flagged">Избранные</string>
-    <string name="title_legend_contacts">Контакты</string>
     <string name="title_legend_view">Просмотр содержимого</string>
     <string name="title_legend_download">Загрузить содержимое</string>
     <string name="title_legend_external_image">Внешнее изображение</string>

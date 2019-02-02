@@ -376,13 +376,6 @@
     <string name="title_legend_primary_disconnected">Account disconnesso</string>
     <string name="title_legend_primary_connected">Account connesso</string>
     <string name="title_legend_thread">Conversazione</string>
-    <string name="title_legend_cc">CC/CCN</string>
-    <string name="title_legend_draft">Bozza/modifica</string>
-    <string name="title_legend_snoozed">Posticipato</string>
-    <string name="title_legend_browsed">Sfogliato o cercato</string>
-    <string name="title_legend_answered">Risposto</string>
-    <string name="title_legend_attachment">Allegato</string>
-    <string name="title_legend_contacts">Contatti</string>
     <string name="title_legend_view">Mostra il contenuto</string>
     <string name="title_legend_download">Scarica il contenuto</string>
     <string name="title_legend_external_image">Segnaposto immagine esterna</string>
