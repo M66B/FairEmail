@@ -1326,17 +1326,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public boolean onTouch(View v, MotionEvent me) {
                     if (me.getPointerCount() == 2) {
+                        ConstraintLayout cl = (ConstraintLayout) itemView;
                         switch (me.getAction()) {
                             case MotionEvent.ACTION_DOWN:
-                                v.getParent().requestDisallowInterceptTouchEvent(true);
+                                cl.requestDisallowInterceptTouchEvent(true);
                                 break;
 
                             case MotionEvent.ACTION_MOVE:
-                                v.getParent().requestDisallowInterceptTouchEvent(true);
+                                cl.requestDisallowInterceptTouchEvent(true);
                                 break;
 
                             case MotionEvent.ACTION_UP:
-                                v.getParent().requestDisallowInterceptTouchEvent(false);
+                                cl.requestDisallowInterceptTouchEvent(false);
                                 break;
                         }
                     }
