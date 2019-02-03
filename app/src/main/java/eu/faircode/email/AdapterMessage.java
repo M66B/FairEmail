@@ -697,8 +697,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean show_expanded = properties.getValue("expanded", message.id);
                 if (show_expanded)
                     bindExpanded(message);
-                else
+                else {
                     properties.setBody(message.id, null);
+                    properties.setHtml(message.id, null);
+                }
             }
         }
 
@@ -918,15 +920,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, sargs, "message:actions");
 
             // Message text
-            Spanned body = properties.getBody(message.id);
-            tvBody.setText(body);
-            tvBody.setMovementMethod(null);
             if (internet || message.content)
                 pbBody.setVisibility(View.VISIBLE);
             else
                 tvNoInternetBody.setVisibility(View.VISIBLE);
 
-            if (body == null && message.content)
+            if (message.content)
                 if (show_html)
                     onShowHtmlConfirmed(message);
                 else {
@@ -1269,6 +1268,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 };
                 webView.setId(vwBody.getId());
+                webView.setVisibility(vwBody.getVisibility());
 
                 ConstraintLayout cl = (ConstraintLayout) itemView;
                 cl.removeView(vwBody);
@@ -1278,7 +1278,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             final WebView webView = (WebView) vwBody;
-            webView.setVisibility(View.INVISIBLE);
+            webView.loadUrl("about:blank");
 
             WebSettings settings = webView.getSettings();
             settings.setJavaScriptEnabled(true);
@@ -1289,18 +1289,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 
             webView.setWebViewClient(new WebViewClient() {
-                @Override
-                public void onPageCommitVisible(WebView view, String url) {
-                    pbBody.setVisibility(View.GONE);
-                    webView.setVisibility(View.VISIBLE);
-                }
-
-                @Override
-                public void onPageFinished(WebView view, String url) {
-                    pbBody.setVisibility(View.GONE);
-                    webView.setVisibility(View.VISIBLE);
-                }
-
                 public boolean shouldOverrideUrlLoading(WebView view, String url) {
                     Helper.view(context, owner, Uri.parse(url), true);
                     return true;
@@ -1356,63 +1344,75 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             });
 
-            Bundle args = new Bundle();
-            args.putLong("id", message.id);
+            String html = properties.getHtml(message.id);
+            if (TextUtils.isEmpty(html)) {
+                Bundle args = new Bundle();
+                args.putLong("id", message.id);
 
-            new SimpleTask<String>() {
-                @Override
-                protected String onExecute(Context context, Bundle args) throws Throwable {
-                    long id = args.getLong("id");
+                new SimpleTask<String>() {
+                    @Override
+                    protected String onExecute(Context context, Bundle args) throws Throwable {
+                        long id = args.getLong("id");
 
-                    String html = Helper.readText(EntityMessage.getFile(context, id));
+                        String html = Helper.readText(EntityMessage.getFile(context, id));
 
-                    Document doc = Jsoup.parse(html);
-                    for (Element img : doc.select("img"))
-                        try {
-                            String src = img.attr("src");
-                            if (src.startsWith("cid:")) {
-                                String cid = src.substring(4);
-                                EntityAttachment attachment = DB.getInstance(context).attachment().getAttachment(id, cid);
-                                if (attachment != null && attachment.available) {
-                                    InputStream is = null;
-                                    try {
-                                        File file = EntityAttachment.getFile(context, attachment.id);
+                        Document doc = Jsoup.parse(html);
+                        for (Element img : doc.select("img"))
+                            try {
+                                String src = img.attr("src");
+                                if (src.startsWith("cid:")) {
+                                    String cid = src.substring(4);
+                                    EntityAttachment attachment = DB.getInstance(context).attachment().getAttachment(id, cid);
+                                    if (attachment != null && attachment.available) {
+                                        InputStream is = null;
+                                        try {
+                                            File file = EntityAttachment.getFile(context, attachment.id);
 
-                                        is = new BufferedInputStream(new FileInputStream(file));
-                                        byte[] bytes = new byte[(int) file.length()];
-                                        if (is.read(bytes) != bytes.length)
-                                            throw new IOException("length");
+                                            is = new BufferedInputStream(new FileInputStream(file));
+                                            byte[] bytes = new byte[(int) file.length()];
+                                            if (is.read(bytes) != bytes.length)
+                                                throw new IOException("length");
 
-                                        StringBuilder sb = new StringBuilder();
-                                        sb.append("data:");
-                                        sb.append(attachment.type);
-                                        sb.append(";base64,");
-                                        sb.append(Base64.encodeToString(bytes, Base64.DEFAULT));
+                                            StringBuilder sb = new StringBuilder();
+                                            sb.append("data:");
+                                            sb.append(attachment.type);
+                                            sb.append(";base64,");
+                                            sb.append(Base64.encodeToString(bytes, Base64.DEFAULT));
 
-                                        img.attr("src", sb.toString());
-                                    } finally {
-                                        if (is != null)
-                                            is.close();
+                                            img.attr("src", sb.toString());
+                                        } finally {
+                                            if (is != null)
+                                                is.close();
+                                        }
                                     }
                                 }
+                            } catch (Throwable ex) {
+                                Log.e(ex);
                             }
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                        }
 
-                    return doc.html();
-                }
+                        return doc.html();
+                    }
 
-                @Override
-                protected void onExecuted(Bundle args, String html) {
-                    webView.loadDataWithBaseURL("email://", html, "text/html", "UTF-8", null);
-                }
+                    @Override
+                    protected void onExecuted(Bundle args, String html) {
+                        properties.setHtml(message.id, html);
+                        webView.loadDataWithBaseURL("email://", html, "text/html", "UTF-8", null);
 
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
-                }
-            }.execute(context, owner, args, "message:webview");
+                        boolean expanded = properties.getValue("expanded", message.id);
+                        pbBody.setVisibility(View.GONE);
+                        webView.setVisibility(expanded ? View.VISIBLE : View.GONE);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(context, owner, ex);
+                    }
+                }.execute(context, owner, args, "message:webview");
+            } else {
+                webView.loadDataWithBaseURL("email://", html, "text/html", "UTF-8", null);
+                pbBody.setVisibility(View.GONE);
+                webView.setVisibility(View.VISIBLE);
+            }
         }
 
         private void onShowQuotes(final TupleMessageEx message) {
@@ -1462,6 +1462,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private SimpleTask<SpannableStringBuilder> bodyTask = new SimpleTask<SpannableStringBuilder>() {
             private String body = null;
+
+            @Override
+            protected void onPreExecute(Bundle args) {
+                TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
+                Spanned body = properties.getBody(message.id);
+                tvBody.setText(body);
+                tvBody.setMovementMethod(null);
+            }
 
             @Override
             protected SpannableStringBuilder onExecute(Context context, final Bundle args) {
@@ -2656,6 +2664,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void setBody(long id, Spanned body);
 
         Spanned getBody(long id);
+
+        void setHtml(long id, String html);
+
+        String getHtml(long id);
 
         void scrollTo(int pos, int dy);
 

@@ -143,6 +143,7 @@ public class FragmentMessages extends FragmentBase {
     private boolean autoExpanded = true;
     private Map<String, List<Long>> values = new HashMap<>();
     private LongSparseArray<Spanned> bodies = new LongSparseArray<>();
+    private LongSparseArray<String> html = new LongSparseArray<>();
     private LongSparseArray<TupleAccountSwipes> accountSwipes = new LongSparseArray<>();
 
     private BoundaryCallbackMessages boundaryCallback = null;
@@ -555,16 +556,29 @@ public class FragmentMessages extends FragmentBase {
         }
 
         @Override
-        public void setBody(long id, Spanned body) {
-            if (body == null)
+        public void setBody(long id, Spanned value) {
+            if (value == null)
                 bodies.remove(id);
             else
-                bodies.put(id, body);
+                bodies.put(id, value);
         }
 
         @Override
         public Spanned getBody(long id) {
             return bodies.get(id);
+        }
+
+        @Override
+        public void setHtml(long id, String value) {
+            if (value == null)
+                html.remove(id);
+            else
+                html.put(id, value);
+        }
+
+        @Override
+        public String getHtml(long id) {
+            return html.get(id);
         }
 
         @Override
