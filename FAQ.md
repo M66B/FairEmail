@@ -298,8 +298,10 @@ So, unless your provider can enable this extension, you cannot use FairEmail for
 
 Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,
 using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary extra battery usage and delayed new message notifications.
-Moreover, POP is unsuitable for two way synchronization and more often than not people read and write messages on different devices.
-For example marking messages as read on the server and storing (backing up) drafts on the server is not possible with POP.
+Moreover, POP is unsuitable for two way synchronization and more often than not people read and write messages on different devices these days.
+
+Basically POP supports only downloading and deleting messages from the server.
+So, common operations like setting message attributes (read, starred, answered, etc), adding (backing up) and moving messages is not possible.
 
 See also [what Google writes about it](https://support.google.com/mail/answer/7104828).
 
