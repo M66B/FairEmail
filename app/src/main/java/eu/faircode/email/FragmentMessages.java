@@ -390,9 +390,9 @@ public class FragmentMessages extends FragmentBase {
                 @Override
                 public void onFound(int position, int size) {
                     if (actionbar) {
-                        seekBar.setProgress(position);
                         seekBar.setMax(size - 1);
-                        seekBar.setVisibility(View.VISIBLE);
+                        seekBar.setProgress(size - 1 - position);
+                        seekBar.setVisibility(size > 1 ? View.VISIBLE : View.GONE);
                     }
                 }
             });
