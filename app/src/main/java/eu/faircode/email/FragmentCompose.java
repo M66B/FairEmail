@@ -1487,7 +1487,7 @@ public class FragmentCompose extends FragmentBase {
                     if ("edit".equals(action))
                         throw new IllegalStateException("Draft not found hide=" + (result.draft != null));
 
-                    List<TupleIdentityEx> identities = db.identity().getComposableIdentities(true);
+                    List<TupleIdentityEx> identities = db.identity().getComposableIdentities();
 
                     EntityMessage ref = db.message().getMessage(reference);
                     if (ref == null) {
@@ -1752,7 +1752,7 @@ public class FragmentCompose extends FragmentBase {
                 @Override
                 protected List<TupleIdentityEx> onExecute(Context context, Bundle args) {
                     DB db = DB.getInstance(context);
-                    List<TupleIdentityEx> identities = db.identity().getComposableIdentities(true);
+                    List<TupleIdentityEx> identities = db.identity().getComposableIdentities();
                     if (identities == null)
                         identities = new ArrayList<>();
 
