@@ -131,6 +131,7 @@
     <string name="title_advanced_identicons">Arată iconițe generate</string>
     <string name="title_advanced_preview">Arată previzualizare mesaj</string>
     <string name="title_advanced_addresses">Implicit arată detaliile adreselor</string>
+    <string name="title_advanced_html">Arată în mod automat imaginile originale pentru contactele cunoscute</string>
     <string name="title_advanced_images">Arată în mod automat imaginile pentru contactele cunoscute</string>
     <string name="title_advanced_actionbar">Bara de acțiuni corversație</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
@@ -138,6 +139,7 @@
     <string name="title_advanced_pull_refresh">Trageți în jos pentru a actualiza</string>
     <string name="title_advanced_autoexpand">Extinde mesajele automat</string>
     <string name="title_advanced_autoclose">Închide automat conversațiile</string>
+    <string name="title_advanced_swipenav">Glisați stânga/dreapta pentru a merge la conversația următoare/anterioară</string>
     <string name="title_advanced_autonext">Se trece la următoarea conversație când este închisă cea curentă</string>
     <string name="title_advanced_autoread">Marchează automat mesajele mutate ca citite</string>
     <string name="title_advanced_collapse">Pliază mesajele din discuție când se apasă \'înapoi\'</string>
@@ -308,6 +310,7 @@
     <string name="title_reply_to">Răspunde la:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
+    <string name="title_via_identity">Via:</string>
     <string name="title_received">Primit:</string>
     <string name="title_size">Mărime:</string>
     <string name="title_subject">Subiect:</string>
