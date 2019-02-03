@@ -1257,7 +1257,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibQuotes.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
             tvBody.setVisibility(View.GONE);
-            pbBody.setVisibility(View.VISIBLE);
 
             if (!(vwBody instanceof WebView)) {
                 // For performance reasons the WebView is created when needed only
