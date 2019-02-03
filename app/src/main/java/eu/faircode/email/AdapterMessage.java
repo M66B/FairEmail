@@ -2243,8 +2243,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                             EntityFolder folder = db.folder().getFolder(message.folder);
 
-                                            if (EntityFolder.OUTBOX.equals(folder.type) &&
-                                                    (message.ui_snoozed != null || !TextUtils.isEmpty(message.error))) {
+                                            if (EntityFolder.OUTBOX.equals(folder.type)) {
                                                 db.message().deleteMessage(id);
 
                                                 db.folder().setFolderError(message.folder, null);
