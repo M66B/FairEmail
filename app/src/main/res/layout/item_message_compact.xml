@@ -739,13 +739,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/barrier_body" />
 
+        <View
+            android:id="@+id/vwBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBody" />
+
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbBody"
             style="@style/Base.Widget.AppCompat.ProgressBar"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:indeterminate="true"
-            app:layout_constraintBottom_toBottomOf="@id/tvBody"
+            app:layout_constraintBottom_toBottomOf="@id/vwBody"
             app:layout_constraintEnd_toEndOf="@id/tvBody"
             app:layout_constraintStart_toStartOf="@id/tvBody"
             app:layout_constraintTop_toTopOf="@id/tvBody" />
@@ -756,7 +764,7 @@
             android:layout_height="wrap_content"
             android:text="@string/title_no_internet"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintBottom_toBottomOf="@id/tvBody"
+            app:layout_constraintBottom_toBottomOf="@id/vwBody"
             app:layout_constraintEnd_toEndOf="@id/tvBody"
             app:layout_constraintStart_toStartOf="@id/tvBody"
             app:layout_constraintTop_toTopOf="@id/tvBody" />
@@ -768,7 +776,7 @@
             android:layout_marginTop="3dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvBody" />
+            app:layout_constraintTop_toBottomOf="@id/vwBody" />
 
         <View
             android:id="@+id/vSeparator"
@@ -806,6 +814,6 @@
             android:id="@+id/grpExpanded"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="vSeparatorAddress,ivExpanderAddress,bnvActions,tvBody" />
+            app:constraint_referenced_ids="vSeparatorAddress,ivExpanderAddress,bnvActions" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

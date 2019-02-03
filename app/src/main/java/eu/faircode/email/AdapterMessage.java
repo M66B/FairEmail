@@ -52,6 +52,7 @@ import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
+import android.util.Base64;
 import android.util.LongSparseArray;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -61,6 +62,10 @@ import android.view.MotionEvent;
 import android.view.TouchDelegate;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.DownloadListener;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -73,10 +78,16 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.xml.sax.XMLReader;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.Collator;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -95,6 +106,7 @@ import javax.mail.internet.InternetAddress;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleOwner;
@@ -204,6 +216,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibQuotes;
         private ImageButton ibImages;
         private TextView tvBody;
+        private View vwBody;
         private ContentLoadingProgressBar pbBody;
         private TextView tvNoInternetBody;
 
@@ -283,6 +296,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibQuotes = itemView.findViewById(R.id.ibQuotes);
             ibImages = itemView.findViewById(R.id.ibImages);
             tvBody = itemView.findViewById(R.id.tvBody);
+            vwBody = itemView.findViewById(R.id.vwBody);
             pbBody = itemView.findViewById(R.id.pbBody);
             tvNoInternetBody = itemView.findViewById(R.id.tvNoInternetBody);
 
@@ -406,6 +420,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnHtml.setVisibility(View.GONE);
             ibQuotes.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
+            tvBody.setVisibility(View.GONE);
+            vwBody.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
             tvNoInternetBody.setVisibility(View.GONE);
 
@@ -426,6 +442,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final boolean show_expanded = properties.getValue("expanded", message.id);
             boolean show_addresses = !properties.getValue("addresses", message.id);
             boolean show_headers = properties.getValue("headers", message.id);
+            final boolean show_html = properties.getValue("html", message.id);
 
             pbLoading.setVisibility(View.GONE);
 
@@ -637,9 +654,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             grpHeaders.setVisibility(show_headers && show_expanded ? View.VISIBLE : View.GONE);
             grpAttachments.setVisibility(message.attachments > 0 && show_expanded ? View.VISIBLE : View.GONE);
-            btnHtml.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
-            ibQuotes.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
-            ibImages.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
+            btnHtml.setVisibility(viewType == ViewType.THREAD && show_expanded && !show_html ? View.INVISIBLE : View.GONE);
+            ibQuotes.setVisibility(viewType == ViewType.THREAD && show_expanded && !show_html ? View.INVISIBLE : View.GONE);
+            ibImages.setVisibility(viewType == ViewType.THREAD && show_expanded && !show_html ? View.INVISIBLE : View.GONE);
+            tvBody.setVisibility(viewType == ViewType.THREAD && show_expanded && !show_html ? View.INVISIBLE : View.GONE);
+            vwBody.setVisibility(viewType == ViewType.THREAD && show_expanded && show_html ? View.INVISIBLE : View.GONE);
             pbBody.setVisibility(View.GONE);
             tvNoInternetBody.setVisibility(View.GONE);
 
@@ -697,11 +716,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 else
                     tvNoInternetBody.setVisibility(View.VISIBLE);
 
-                if (body == null && message.content) {
-                    Bundle args = new Bundle();
-                    args.putSerializable("message", message);
-                    bodyTask.execute(context, owner, args, "message:body");
-                }
+                if (body == null && message.content)
+                    if (show_html)
+                        onShowHtmlConfirmed(message);
+                    else {
+                        Bundle args = new Bundle();
+                        args.putSerializable("message", message);
+                        bodyTask.execute(context, owner, args, "message:body");
+                    }
 
                 List<EntityAttachment> attachments = idAttachments.get(message.id);
                 if (attachments != null)
@@ -758,9 +780,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (attachment.type.startsWith("image/") && !attachment.isInline())
                                 images.add(attachment);
                         adapterImage.set(images);
-                        rvImage.setVisibility(images.size() > 0 ? View.VISIBLE : View.INVISIBLE);
+                        rvImage.setVisibility(images.size() > 0 ? View.VISIBLE : View.GONE);
 
-                        if (message.content) {
+                        if (message.content && !show_html) {
                             Bundle args = new Bundle();
                             args.putSerializable("message", message);
                             bodyTask.execute(context, owner, args, "message:body");
@@ -1176,12 +1198,164 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .show();
         }
 
+        @SuppressLint({"SetJavaScriptEnabled", "ClickableViewAccessibility"})
         private void onShowHtmlConfirmed(final TupleMessageEx message) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(
-                    new Intent(ActivityView.ACTION_VIEW_FULL)
-                            .putExtra("id", message.id)
-                            .putExtra("from", MessageHelper.formatAddresses(message.from)));
+            properties.setValue("html", message.id, true);
+            btnHtml.setVisibility(View.GONE);
+            ibQuotes.setVisibility(View.GONE);
+            ibImages.setVisibility(View.GONE);
+            tvBody.setVisibility(View.GONE);
+            pbBody.setVisibility(View.VISIBLE);
+
+            if (!(vwBody instanceof WebView)) {
+                // For performance reasons the WebView is created when needed only
+                WebView webView = new WebView(context) {
+                    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+                        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+                        int height = getMeasuredHeight();
+                        if (height < tvBody.getMinHeight())
+                            setMeasuredDimension(getMeasuredWidth(), tvBody.getMinHeight());
+                    }
+                };
+                webView.setId(vwBody.getId());
+
+                ConstraintLayout cl = (ConstraintLayout) itemView;
+                cl.removeView(vwBody);
+                cl.addView(webView, vwBody.getLayoutParams());
+
+                vwBody = webView;
+            }
+
+            final WebView webView = (WebView) vwBody;
+            webView.setVisibility(View.INVISIBLE);
+
+            WebSettings settings = webView.getSettings();
+            settings.setJavaScriptEnabled(true);
+            settings.setUseWideViewPort(true);
+            settings.setLoadWithOverviewMode(true);
+            settings.setBuiltInZoomControls(true);
+            settings.setDisplayZoomControls(false);
+            settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+
+            webView.setWebViewClient(new WebViewClient() {
+                @Override
+                public void onPageCommitVisible(WebView view, String url) {
+                    pbBody.setVisibility(View.GONE);
+                    webView.setVisibility(View.VISIBLE);
+                }
+
+                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                    Helper.view(context, owner, Uri.parse(url), true);
+                    return true;
+                }
+            });
+
+            webView.setDownloadListener(new DownloadListener() {
+                public void onDownloadStart(
+                        String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+                    Log.i("Download url=" + url + " mime type=" + mimetype);
+                    Uri uri = Uri.parse(url);
+                    Helper.view(context, owner, uri, true);
+                }
+            });
+
+            webView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    WebView.HitTestResult result = ((WebView) view).getHitTestResult();
+                    if (result.getType() == WebView.HitTestResult.IMAGE_TYPE ||
+                            result.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
+                        Log.i("Long press url=" + result.getExtra());
+
+                        Uri uri = Uri.parse(result.getExtra());
+                        Helper.view(context, owner, uri, true);
+
+                        return true;
+                    }
+                    return false;
+                }
+            });
+
+            // Fix zooming
+            webView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent me) {
+                    if (me.getPointerCount() == 2) {
+                        switch (me.getAction()) {
+                            case MotionEvent.ACTION_DOWN:
+                                v.getParent().requestDisallowInterceptTouchEvent(true);
+                                break;
+
+                            case MotionEvent.ACTION_MOVE:
+                                v.getParent().requestDisallowInterceptTouchEvent(true);
+                                break;
+
+                            case MotionEvent.ACTION_UP:
+                                v.getParent().requestDisallowInterceptTouchEvent(false);
+                                break;
+                        }
+                    }
+                    return false;
+                }
+            });
+
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            new SimpleTask<String>() {
+                @Override
+                protected String onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+
+                    String html = Helper.readText(EntityMessage.getFile(context, id));
+
+                    Document doc = Jsoup.parse(html);
+                    for (Element img : doc.select("img"))
+                        try {
+                            String src = img.attr("src");
+                            if (src.startsWith("cid:")) {
+                                String cid = src.substring(4);
+                                EntityAttachment attachment = DB.getInstance(context).attachment().getAttachment(id, cid);
+                                if (attachment != null && attachment.available) {
+                                    InputStream is = null;
+                                    try {
+                                        File file = EntityAttachment.getFile(context, attachment.id);
+
+                                        is = new BufferedInputStream(new FileInputStream(file));
+                                        byte[] bytes = new byte[(int) file.length()];
+                                        if (is.read(bytes) != bytes.length)
+                                            throw new IOException("length");
+
+                                        StringBuilder sb = new StringBuilder();
+                                        sb.append("data:");
+                                        sb.append(attachment.type);
+                                        sb.append(";base64,");
+                                        sb.append(Base64.encodeToString(bytes, Base64.DEFAULT));
+
+                                        img.attr("src", sb.toString());
+                                    } finally {
+                                        if (is != null)
+                                            is.close();
+                                    }
+                                }
+                            }
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+
+                    return doc.html();
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, String html) {
+                    webView.loadDataWithBaseURL("email://", html, "text/html", "UTF-8", null);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, owner, ex);
+                }
+            }.execute(context, owner, args, "message:webview");
         }
 
         private void onShowQuotes(final TupleMessageEx message) {
@@ -1284,6 +1458,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibImages.setVisibility(has_images && show_expanded && !show_images ? View.VISIBLE : View.GONE);
                 tvBody.setText(body);
                 tvBody.setMovementMethod(new UrlHandler());
+                tvBody.setVisibility(show_expanded ? View.VISIBLE : View.GONE);
                 pbBody.setVisibility(View.GONE);
             }
 

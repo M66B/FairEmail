@@ -126,7 +126,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
     static final String ACTION_VIEW_THREAD = BuildConfig.APPLICATION_ID + ".VIEW_THREAD";
-    static final String ACTION_VIEW_FULL = BuildConfig.APPLICATION_ID + ".VIEW_FULL";
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_EDIT_FOLDER = BuildConfig.APPLICATION_ID + ".EDIT_FOLDER";
     static final String ACTION_EDIT_ANSWERS = BuildConfig.APPLICATION_ID + ".EDIT_ANSWERS";
@@ -481,7 +480,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         IntentFilter iff = new IntentFilter();
         iff.addAction(ACTION_VIEW_MESSAGES);
         iff.addAction(ACTION_VIEW_THREAD);
-        iff.addAction(ACTION_VIEW_FULL);
         iff.addAction(ACTION_STORE_RAW);
         iff.addAction(ACTION_EDIT_FOLDER);
         iff.addAction(ACTION_EDIT_ANSWERS);
@@ -1031,8 +1029,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     onViewMessages(intent);
                 else if (ACTION_VIEW_THREAD.equals(action))
                     onViewThread(intent);
-                else if (ACTION_VIEW_FULL.equals(action))
-                    onViewFull(intent);
                 else if (ACTION_STORE_RAW.equals(action))
                     onStoreRaw(intent);
                 else if (ACTION_EDIT_FOLDER.equals(action))
@@ -1096,15 +1092,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(pane, fragment).addToBackStack("thread");
-        fragmentTransaction.commit();
-    }
-
-    private void onViewFull(Intent intent) {
-        FragmentWebView fragment = new FragmentWebView();
-        fragment.setArguments(intent.getExtras());
-
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("webview");
         fragmentTransaction.commit();
     }
 
