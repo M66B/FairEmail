@@ -303,7 +303,7 @@ public class MessageHelper {
         StringBuilder body = new StringBuilder();
         body.append(Helper.readText(EntityMessage.getFile(context, message.id)));
 
-        if (Helper.isPro(context) && message.identity != null) {
+        if (message.identity != null) {
             EntityIdentity identity = db.identity().getIdentity(message.identity);
             if (!TextUtils.isEmpty(identity.signature))
                 body.append(identity.signature);
