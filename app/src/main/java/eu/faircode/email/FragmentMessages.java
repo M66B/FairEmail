@@ -402,6 +402,10 @@ public class FragmentMessages extends FragmentBase {
             activity.setSwipeListener(new SwipeListener.ISwipeListener() {
                 @Override
                 public boolean onSwipeRight() {
+                    boolean swipenav = prefs.getBoolean("swipenav", true);
+                    if (!swipenav)
+                        return false;
+
                     if (previous != null)
                         navigate(previous, true);
                     return (previous != null);
@@ -409,6 +413,10 @@ public class FragmentMessages extends FragmentBase {
 
                 @Override
                 public boolean onSwipeLeft() {
+                    boolean swipenav = prefs.getBoolean("swipenav", true);
+                    if (!swipenav)
+                        return false;
+
                     if (next != null)
                         navigate(next, false);
                     return (next != null);

@@ -161,6 +161,7 @@
     <string name="title_advanced_pull_refresh">Pull down to refresh</string>
     <string name="title_advanced_autoexpand">Automatically expand messages</string>
     <string name="title_advanced_autoclose">Automatically close conversations</string>
+    <string name="title_advanced_swipenav">Swipe left/right to go to next/previous conversation</string>
     <string name="title_advanced_autonext">Automatically go to next conversation on close conversation</string>
     <string name="title_advanced_autoread">Automatically mark messages read on moving messages</string>
     <string name="title_advanced_collapse">Collapse messages in conversations on \'back\'</string>

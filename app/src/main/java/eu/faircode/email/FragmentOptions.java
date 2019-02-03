@@ -74,11 +74,12 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swActionbar;
 
     private SwitchCompat swPull;
+    private SwitchCompat swSwipeNav;
     private SwitchCompat swAutoExpand;
     private SwitchCompat swAutoClose;
     private SwitchCompat swAutoNext;
-    private SwitchCompat swAutoRead;
     private SwitchCompat swCollapse;
+    private SwitchCompat swAutoRead;
     private SwitchCompat swAutoMove;
     private SwitchCompat swSender;
     private SwitchCompat swAutoResize;
@@ -101,7 +102,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             "enabled", "updates",
             "metered", "download",
             "unified", "date", "threading", "avatars", "identicons", "preview", "addresses", "autoimages", "actionbar",
-            "pull", "autoexpand", "autoclose", "autonext", "autoread", "collapse", "automove", "sender", "autoresize", "autosend",
+            "pull", "swipenav", "autoexpand", "autoclose", "autonext", "collapse", "autoread", "automove", "sender", "autoresize", "autosend",
             "light", "sound",
             "debug",
             "first", "why", "last_update_check", "app_support", "message_swipe", "message_select", "folder_actions", "folder_sync",
@@ -136,11 +137,12 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swActionbar = view.findViewById(R.id.swActionbar);
 
         swPull = view.findViewById(R.id.swPull);
+        swSwipeNav = view.findViewById(R.id.swSwipeNav);
         swAutoExpand = view.findViewById(R.id.swAutoExpand);
         swAutoClose = view.findViewById(R.id.swAutoClose);
         swAutoNext = view.findViewById(R.id.swAutoNext);
-        swAutoRead = view.findViewById(R.id.swAutoRead);
         swCollapse = view.findViewById(R.id.swCollapse);
+        swAutoRead = view.findViewById(R.id.swAutoRead);
         swAutoMove = view.findViewById(R.id.swAutoMove);
         swSender = view.findViewById(R.id.swSender);
         swAutoResize = view.findViewById(R.id.swAutoResize);
@@ -292,11 +294,17 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             }
         });
 
-
         swPull.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("pull", checked).apply();
+            }
+        });
+
+        swSwipeNav.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("swipenav", checked).apply();
             }
         });
 
@@ -322,17 +330,17 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             }
         });
 
-        swAutoRead.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("autoread", checked).apply();
-            }
-        });
-
         swCollapse.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("collapse", checked).apply();
+            }
+        });
+
+        swAutoRead.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("autoread", checked).apply();
             }
         });
 
@@ -480,12 +488,13 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
 
         swPull.setChecked(prefs.getBoolean("pull", true));
+        swSwipeNav.setChecked(prefs.getBoolean("swipenav", true));
         swAutoExpand.setChecked(prefs.getBoolean("autoexpand", true));
         swAutoClose.setChecked(prefs.getBoolean("autoclose", true));
         swAutoNext.setChecked(prefs.getBoolean("autonext", false));
         swAutoNext.setEnabled(!swAutoClose.isChecked());
-        swAutoRead.setChecked(prefs.getBoolean("autoread", false));
         swCollapse.setChecked(prefs.getBoolean("collapse", false));
+        swAutoRead.setChecked(prefs.getBoolean("autoread", false));
         swAutoMove.setChecked(!prefs.getBoolean("automove", false));
         swSender.setChecked(prefs.getBoolean("sender", false));
         swAutoResize.setChecked(prefs.getBoolean("autoresize", true));
