@@ -123,6 +123,7 @@
     <string name="title_advanced_identicons">Afficher les identicônes</string>
     <string name="title_advanced_preview">Afficher l\'aperçu du message</string>
     <string name="title_advanced_addresses">Afficher par défaut les détails de l\'adresse</string>
+    <string name="title_advanced_html">Afficher automatiquement le message initial pour les contacts connus</string>
     <string name="title_advanced_images">Afficher automatiquement les images des contacts connus</string>
     <string name="title_advanced_actionbar">Barre d\'action de conversation</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
@@ -199,6 +200,7 @@
     <string name="title_no_primary_drafts">Pas de compte principal ou pas de dossier Brouillons</string>
     <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Cela va retarder la réception de nouveaux messages et augmenter l\'utilisation de la batterie.</string>
     <string name="title_no_sync">Erreurs de synchronisation depuis %1$s</string>
+    <string name="title_drafts_required">Un dossier brouillon est nécessaire pour envoyer des messages</string>
     <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
     <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
     <string name="title_pop">POP n\'est pas supporté</string>
@@ -306,7 +308,6 @@
     <string name="title_discard">Supprimer</string>
     <string name="title_save">Enregistrer</string>
     <string name="title_send">Envoyer</string>
-    <string name="title_view">Voir</string>
     <string name="title_send_at">Envoyer à &#8230;</string>
     <string name="title_no_selection">Rien n\'est sélectionné</string>
     <string name="title_style_bold">Gras</string>

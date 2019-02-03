@@ -199,6 +199,7 @@
     <string name="title_no_primary_drafts">Nessun account principale o nessuna cartella bozze</string>
     <string name="title_no_idle">Questo fornitore non supporta i messaggi push. Ciò ritarderà la ricezione di nuovi messaggi e aumenterà l\'utilizzo della batteria.</string>
     <string name="title_no_sync">Errori di sincronizzazione da %1$s</string>
+    <string name="title_drafts_required">Per inviare messaggi è necessaria una cartella bozze</string>
     <string name="title_account_delete">Eliminare questo account permanentemente?</string>
     <string name="title_identity_delete">Eliminare questa identità permanentemente?</string>
     <string name="title_pop">POP non è supportato</string>
@@ -306,7 +307,6 @@
     <string name="title_discard">Elimina</string>
     <string name="title_save">Salva</string>
     <string name="title_send">Invia</string>
-    <string name="title_view">Visualizza</string>
     <string name="title_send_at">Invia alle &#8230;</string>
     <string name="title_no_selection">Nessuna selezione</string>
     <string name="title_style_bold">Grassetto</string>
