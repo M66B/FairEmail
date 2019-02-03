@@ -205,7 +205,6 @@ public class MessageHelper {
             imessage.addHeader("In-Reply-To", message.inreplyto);
 
         imessage.addHeader("X-FairEmail-ID", message.msgid);
-        imessage.addHeader("X-FairEmail-Thread", message.thread);
 
         imessage.setFlag(Flags.Flag.SEEN, message.seen);
         imessage.setFlag(Flags.Flag.FLAGGED, message.flagged);
@@ -449,11 +448,6 @@ public class MessageHelper {
     }
 
     String getThreadId(long uid) throws MessagingException {
-        // Some providers break references when moving messages
-        String[] xThread = imessage.getHeader("X-FairEmail-Thread");
-        if (xThread != null && xThread.length > 0)
-            return xThread[0];
-
         for (String ref : getReferences())
             if (!TextUtils.isEmpty(ref))
                 return ref;
