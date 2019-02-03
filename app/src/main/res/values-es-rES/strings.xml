@@ -123,6 +123,7 @@
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_preview">Mostrar vista previa de mensajes</string>
     <string name="title_advanced_addresses">Mostrar detalles de dirección por defecto</string>
+    <string name="title_advanced_html">Mostrar mensaje original automáticamente para contactos conocidos</string>
     <string name="title_advanced_images">Mostrar imágenes automáticamente para contactos conocidos</string>
     <string name="title_advanced_actionbar">Barra de acciones de conversación</string>
     <string name="title_advanced_light">Usar luz de notificación</string>
