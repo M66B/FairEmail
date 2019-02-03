@@ -190,17 +190,6 @@ public interface DaoMessage {
             " AND msgid = :msgid")
     int countMessageByMsgId(long folder, String msgid);
 
-    @Query("SELECT * FROM message" +
-            " WHERE folder = :folder" +
-            " AND ui_seen" +
-            " AND NOT ui_hide")
-    List<EntityMessage> getMessageSeen(long folder);
-
-    @Query("SELECT id FROM message" +
-            " WHERE content" +
-            " AND (preview IS NULL OR preview = '')")
-    List<Long> getMessageWithoutPreview();
-
     @Query("SELECT message.*" +
             ", account.name AS accountName, identity.color AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
