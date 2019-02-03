@@ -1290,7 +1290,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             webView.setWebViewClient(new WebViewClient() {
                 public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                    Helper.view(context, owner, Uri.parse(url), true);
+                    onOpenLink(Uri.parse(url));
                     return true;
                 }
             });
@@ -1585,40 +1585,43 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (link.length != 0) {
                     String url = link[0].getURL();
                     Uri uri = Uri.parse(url);
-
-                    if (BuildConfig.APPLICATION_ID.equals(uri.getHost()) && "/activate/".equals(uri.getPath())) {
-                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                        lbm.sendBroadcast(
-                                new Intent(ActivityView.ACTION_ACTIVATE_PRO)
-                                        .putExtra("uri", uri));
-
-                    } else {
-                        View view = LayoutInflater.from(context).inflate(R.layout.dialog_link, null);
-                        final EditText etLink = view.findViewById(R.id.etLink);
-                        etLink.setText(url);
-                        new DialogBuilderLifecycle(context, owner)
-                                .setView(view)
-                                .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        Uri uri = Uri.parse(etLink.getText().toString());
-                                        Helper.view(context, owner, uri, false);
-                                    }
-                                })
-                                .setNeutralButton(R.string.title_browse, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        Uri uri = Uri.parse(etLink.getText().toString());
-                                        Helper.view(context, owner, uri, true);
-                                    }
-                                })
-                                .setNegativeButton(R.string.title_no, null)
-                                .show();
-                    }
+                    onOpenLink(uri);
                 }
 
                 return true;
             }
+        }
+
+        private void onOpenLink(Uri uri) {
+            if (BuildConfig.APPLICATION_ID.equals(uri.getHost()) && "/activate/".equals(uri.getPath())) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_ACTIVATE_PRO)
+                                .putExtra("uri", uri));
+            } else {
+                View view = LayoutInflater.from(context).inflate(R.layout.dialog_link, null);
+                final EditText etLink = view.findViewById(R.id.etLink);
+                etLink.setText(uri.toString());
+                new DialogBuilderLifecycle(context, owner)
+                        .setView(view)
+                        .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Uri uri = Uri.parse(etLink.getText().toString());
+                                Helper.view(context, owner, uri, false);
+                            }
+                        })
+                        .setNeutralButton(R.string.title_browse, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Uri uri = Uri.parse(etLink.getText().toString());
+                                Helper.view(context, owner, uri, true);
+                            }
+                        })
+                        .setNegativeButton(R.string.title_no, null)
+                        .show();
+            }
+
         }
 
         private class ActionData {
