@@ -46,14 +46,13 @@ Anything on this list is in random order and *might* be added in the near future
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
 * Open links without confirmation
-* Show original message without confirmation
+* Show original messages from unknown senders without confirmation
 * Direct file/folder access: for security/privacy reasons (other) apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider), see also [this FAQ](#user-content-faq49) and [this FAQ](#user-content-faq68)
 
 Confirmation is just one tap, which is just a small price for better privacy.
 Note that your contacts could unknowingly send malicious messages if they got infected with malware.
 
 Stripped and reformatted messages are often better readable than original messages because the margins are removed and font sizes are standardized.
-Moreover, original messages cannot be shown inline anyway because zooming in a scroll view does not work properly.
 
 FairEmail does not allow other apps access to your messages and attachments without your approval.
 
@@ -225,6 +224,7 @@ In the display section of the advanced settings you can enable or disable:
 * *Show message preview*: to show two lines of the message text
 * *Show address details by default*: to collapse the addresses section by default
 * *Conversation action bar*: to disable the bottom navigation bar
+* *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
 * *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
 
 Note that messages can be previewed only when the message text was downloaded.
