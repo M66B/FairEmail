@@ -69,6 +69,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swIdenticons;
     private SwitchCompat swPreview;
     private SwitchCompat swAddresses;
+    private SwitchCompat swHtml;
     private SwitchCompat swImages;
     private SwitchCompat swActionbar;
 
@@ -130,6 +131,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swIdenticons = view.findViewById(R.id.swIdenticons);
         swPreview = view.findViewById(R.id.swPreview);
         swAddresses = view.findViewById(R.id.swAddresses);
+        swHtml = view.findViewById(R.id.swHtml);
         swImages = view.findViewById(R.id.swImages);
         swActionbar = view.findViewById(R.id.swActionbar);
 
@@ -265,6 +267,14 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("addresses", checked).apply();
+            }
+        });
+
+        swHtml.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("autohtml", checked).apply();
+                swImages.setEnabled(!checked);
             }
         });
 
@@ -464,7 +474,9 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swIdenticons.setChecked(prefs.getBoolean("identicons", false));
         swPreview.setChecked(prefs.getBoolean("preview", false));
         swAddresses.setChecked(prefs.getBoolean("addresses", true));
+        swHtml.setChecked(prefs.getBoolean("autohtml", false));
         swImages.setChecked(prefs.getBoolean("autoimages", false));
+        swImages.setEnabled(!swHtml.isChecked());
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
 
         swPull.setChecked(prefs.getBoolean("pull", true));
