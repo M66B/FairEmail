@@ -453,6 +453,29 @@
             app:layout_constraintTop_toBottomOf="@id/tvCc" />
 
         <TextView
+            android:id="@+id/tvIdentityTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@string/title_via_identity"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBcc" />
+
+        <TextView
+            android:id="@+id/tvIdentity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:text="user@example.org"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvIdentityTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvBcc" />
+
+        <TextView
             android:id="@+id/tvTimeExTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -460,7 +483,7 @@
             android:text="@string/title_received"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvBcc" />
+            app:layout_constraintTop_toBottomOf="@id/tvIdentity" />
 
         <TextView
             android:id="@+id/tvTimeEx"
@@ -473,7 +496,7 @@
             android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvTimeExTitle"
-            app:layout_constraintTop_toBottomOf="@id/tvBcc" />
+            app:layout_constraintTop_toBottomOf="@id/tvIdentity" />
 
         <TextView
             android:id="@+id/tvSizeExTitle"
@@ -780,7 +803,8 @@
             android:id="@+id/grpAddress"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvFromExTitle,tvFromEx,tvToTitle,tvTo,tvReplyToTitle,tvReplyTo,tvCcTitle,tvCc,tvBccTitle,tvBcc,tvTimeExTitle,tvTimeEx,tvSizeExTitle,tvSizeEx,tvSubjectEx" />
+            app:constraint_referenced_ids="tvFromExTitle,tvFromEx,tvToTitle,tvTo,tvReplyToTitle,tvReplyTo,tvCcTitle,tvCc,tvBccTitle,tvBcc,
+            tvIdentityTitle,tvIdentity,tvTimeExTitle,tvTimeEx,tvSizeExTitle,tvSizeEx,tvSubjectEx" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpDay"

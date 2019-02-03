@@ -28,6 +28,9 @@ public class TupleMessageEx extends EntityMessage {
     public String folderName;
     public String folderDisplay;
     public String folderType;
+    public String identityName;
+    public String identityEmail;
+    public Boolean identitySynchronize;
     public int count;
     public int unseen;
     public int unflagged;
@@ -48,6 +51,9 @@ public class TupleMessageEx extends EntityMessage {
                     this.folderName.equals(other.folderName) &&
                     (this.folderDisplay == null ? other.folderDisplay == null : this.folderDisplay.equals(other.folderDisplay)) &&
                     this.folderType.equals(other.folderType) &&
+                    (this.identityName == null ? other.identityName == null : this.identityName.equals(other.identityName)) &&
+                    (this.identityEmail == null ? other.identityEmail == null : this.identityEmail.equals(other.identityEmail)) &&
+                    (this.identitySynchronize == null ? other.identitySynchronize == null : this.identitySynchronize.equals(other.identitySynchronize)) &&
                     this.count == other.count &&
                     this.unseen == other.unseen &&
                     this.unflagged == other.unflagged &&

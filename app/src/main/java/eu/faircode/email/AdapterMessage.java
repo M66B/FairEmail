@@ -88,6 +88,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.text.Collator;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -195,6 +196,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvReplyTo;
         private TextView tvCc;
         private TextView tvBcc;
+        private TextView tvIdentity;
         private TextView tvTimeEx;
         private TextView tvSizeEx;
         private TextView tvSubjectEx;
@@ -267,6 +269,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvReplyTo = itemView.findViewById(R.id.tvReplyTo);
             tvCc = itemView.findViewById(R.id.tvCc);
             tvBcc = itemView.findViewById(R.id.tvBcc);
+            tvIdentity = itemView.findViewById(R.id.tvIdentity);
             tvTimeEx = itemView.findViewById(R.id.tvTimeEx);
             tvSizeEx = itemView.findViewById(R.id.tvSizeEx);
             tvSubjectEx = itemView.findViewById(R.id.tvSubjectEx);
@@ -737,6 +740,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvCc.setText(MessageHelper.formatAddresses(message.cc));
             tvBcc.setText(MessageHelper.formatAddresses(message.bcc));
 
+            try {
+                InternetAddress via = new InternetAddress(message.identityEmail, message.identityName);
+                tvIdentity.setText(via.toString());
+            } catch (UnsupportedEncodingException ex) {
+                tvIdentity.setText(ex.getMessage());
+            }
+
             tvTimeEx.setText(dtf.format(message.received));
 
             tvSizeEx.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
@@ -887,7 +897,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     bnvActions.getMenu().findItem(R.id.action_delete).setVisible(
                             (inTrash && message.msgid != null) ||
                                     (!inTrash && hasTrash && message.uid != null) ||
-                                    (inOutbox && !TextUtils.isEmpty(message.error)));
+                                    (inOutbox && (!TextUtils.isEmpty(message.error) || !message.identitySynchronize)));
                     bnvActions.getMenu().findItem(R.id.action_delete).setTitle(inTrash ? R.string.title_delete : R.string.title_trash);
 
                     bnvActions.getMenu().findItem(R.id.action_move).setVisible(
