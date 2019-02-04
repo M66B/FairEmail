@@ -1625,26 +1625,29 @@ public class FragmentCompose extends FragmentBase {
 
                     // Select identity matching from address
                     int icount = 0;
-                    String from = null;
                     EntityIdentity first = null;
                     EntityIdentity primary = null;
-                    if (result.draft.from != null && result.draft.from.length > 0)
-                        from = Helper.canonicalAddress(((InternetAddress) result.draft.from[0]).getAddress());
-                    for (EntityIdentity identity : identities) {
-                        String email = Helper.canonicalAddress(identity.email);
-                        if (email.equals(from)) {
-                            result.draft.identity = identity.id;
-                            result.draft.from = new InternetAddress[]{new InternetAddress(identity.email, identity.name)};
-                            break;
+                    if (result.draft.from != null)
+                        for (Address afrom : result.draft.from) {
+                            String from = Helper.canonicalAddress(((InternetAddress) afrom).getAddress());
+                            for (EntityIdentity identity : identities) {
+                                String email = Helper.canonicalAddress(identity.email);
+                                if (email.equals(from)) {
+                                    result.draft.identity = identity.id;
+                                    result.draft.from = new InternetAddress[]{new InternetAddress(identity.email, identity.name)};
+                                    break;
+                                }
+                                if (identity.account.equals(result.draft.account)) {
+                                    icount++;
+                                    if (identity.primary)
+                                        primary = identity;
+                                    if (first == null)
+                                        first = identity;
+                                }
+                            }
+                            if (result.draft.identity != null)
+                                break;
                         }
-                        if (identity.account.equals(result.draft.account)) {
-                            icount++;
-                            if (identity.primary)
-                                primary = identity;
-                            if (first == null)
-                                first = identity;
-                        }
-                    }
 
                     // Select primary identity
                     if (result.draft.identity == null) {
