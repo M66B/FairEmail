@@ -225,7 +225,10 @@ public class Helper {
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(file.getAbsolutePath(), options);
 
-        int factor = Math.min(options.outWidth / scaleToPixels, options.outWidth / scaleToPixels);
+        int factor = 1;
+        while (options.outWidth / factor > scaleToPixels)
+            factor *= 2;
+
         if (factor > 1) {
             Log.i("Decode image factor=" + factor);
             options.inJustDecodeBounds = false;
