@@ -441,12 +441,24 @@ public class FragmentMessages extends FragmentBase {
                 @Override
                 public void onSelectionChanged() {
                     SelectionTracker tracker = selectionTracker;
-                    if (tracker == null) // destroyed
+                    if (tracker == null)
                         return;
 
                     FragmentActivity activity = getActivity();
-                    if (activity != null)
+                    if (activity != null) {
+                        try {
+                            ViewModelMessages modelMessages = ViewModelProviders.of(activity).get(ViewModelMessages.class);
+                            if (tracker.hasSelection())
+                                modelMessages.removeObservers(viewType, getViewLifecycleOwner());
+                            else
+                                modelMessages.observe(viewType, getViewLifecycleOwner(), observer);
+                        } catch (IllegalStateException ex) {
+                            // getViewLifecycleOwner
+                            Log.w(ex);
+                        }
+
                         activity.invalidateOptionsMenu();
+                    }
 
                     if (tracker.hasSelection()) {
                         swipeRefresh.setEnabled(false);
