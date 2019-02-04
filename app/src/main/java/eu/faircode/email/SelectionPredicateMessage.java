@@ -66,6 +66,6 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
 
     @Override
     public boolean canSelectMultiple() {
-        return true;
+        return enabled;
     }
 }
