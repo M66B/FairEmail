@@ -441,7 +441,7 @@ public class FragmentMessages extends FragmentBase {
                 @Override
                 public void onSelectionChanged() {
                     SelectionTracker tracker = selectionTracker;
-                    if (tracker == null)
+                    if (tracker == null) // destroyed
                         return;
 
                     FragmentActivity activity = getActivity();
@@ -476,6 +476,8 @@ public class FragmentMessages extends FragmentBase {
 
     @Override
     public void onDestroy() {
+        if (selectionPredicate != null)
+            selectionPredicate.destroy();
         selectionTracker = null;
         super.onDestroy();
     }
