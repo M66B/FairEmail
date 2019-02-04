@@ -741,6 +741,9 @@ public class FragmentMessages extends FragmentBase {
 
             Log.i("Swiped dir=" + direction + " message=" + message.id);
 
+            if (selectionPredicate != null)
+                selectionPredicate.setEnabled(false);
+
             Bundle args = new Bundle();
             args.putLong("id", message.id);
             args.putBoolean("thread", viewType != AdapterMessage.ViewType.THREAD);
@@ -1949,6 +1952,9 @@ public class FragmentMessages extends FragmentBase {
                 handleAutoClose();
                 return;
             }
+
+            if (selectionPredicate != null)
+                selectionPredicate.setEnabled(true);
 
             if (viewType == AdapterMessage.ViewType.THREAD) {
                 // Mark duplicates
