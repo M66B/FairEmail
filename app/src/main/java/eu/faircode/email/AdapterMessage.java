@@ -638,13 +638,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }.execute(context, owner, aargs, "message:avatar");
             } else
                 bindContactInfo(info, message);
-        }
 
-        private void bindFlagged(TupleMessageEx message) {
-            int flagged = (message.count - message.unflagged);
-            ivFlagged.setImageResource(flagged > 0 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
-            ivFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? colorAccent : textColorSecondary));
-            ivFlagged.setVisibility(message.uid == null ? View.INVISIBLE : View.VISIBLE);
+            if (message.avatar != null) {
+                if (autohtml)
+                    properties.setValue("html", message.id, true);
+
+                if (autoimages)
+                    properties.setValue("images", message.id, true);
+            }
+
+            if (viewType == ViewType.THREAD) {
+                boolean show_expanded = properties.getValue("expanded", message.id);
+                if (show_expanded)
+                    bindExpanded(message);
+                else {
+                    properties.setBody(message.id, null);
+                    properties.setHtml(message.id, null);
+                }
+            }
         }
 
         private void clearExpanded() {
@@ -675,6 +686,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             rvImage.setVisibility(View.GONE);
         }
 
+        private void bindFlagged(TupleMessageEx message) {
+            int flagged = (message.count - message.unflagged);
+            ivFlagged.setImageResource(flagged > 0 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
+            ivFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? colorAccent : textColorSecondary));
+            ivFlagged.setVisibility(message.uid == null ? View.INVISIBLE : View.VISIBLE);
+        }
+
         private void bindContactInfo(ContactInfo info, TupleMessageEx message) {
             if (info.hasPhoto())
                 ivAvatar.setImageBitmap(info.getPhotoBitmap());
@@ -682,26 +700,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ivAvatar.setImageResource(R.drawable.baseline_person_24);
             ivAvatar.setVisibility(avatars ? View.VISIBLE : View.GONE);
             tvFrom.setText(info.getDisplayName(compact));
-
-            if (info.hasLookupUri()) {
-                boolean show_html = properties.getValue("html", message.id);
-                if (autohtml && !show_html)
-                    properties.setValue("html", message.id, true);
-
-                boolean show_images = properties.getValue("images", message.id);
-                if (autoimages && !show_images)
-                    properties.setValue("images", message.id, true);
-            }
-
-            if (viewType == ViewType.THREAD) {
-                boolean show_expanded = properties.getValue("expanded", message.id);
-                if (show_expanded)
-                    bindExpanded(message);
-                else {
-                    properties.setBody(message.id, null);
-                    properties.setHtml(message.id, null);
-                }
-            }
         }
 
         private void bindExpanded(final TupleMessageEx message) {

@@ -153,4 +153,46 @@ public class ContactInfo {
         info.time = new Date().getTime();
         return info;
     }
+
+    static Uri getLookupUri(Context context, Address[] addresses) {
+        if (addresses == null || addresses.length == 0)
+            return null;
+        InternetAddress address = (InternetAddress) addresses[0];
+
+        if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
+                != PackageManager.PERMISSION_GRANTED)
+            return null;
+
+        try {
+            Cursor cursor = null;
+            try {
+                ContentResolver resolver = context.getContentResolver();
+                cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                        new String[]{
+                                ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
+                                ContactsContract.Contacts.LOOKUP_KEY
+                        },
+                        ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
+                        new String[]{
+                                address.getAddress()
+                        }, null);
+
+                if (cursor != null && cursor.moveToNext()) {
+                    int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
+                    int colLookupKey = cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY);
+
+                    long contactId = cursor.getLong(colContactId);
+                    String lookupKey = cursor.getString(colLookupKey);
+                    return ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
+                } else
+                    return null;
+            } finally {
+                if (cursor != null)
+                    cursor.close();
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return null;
+        }
+    }
 }

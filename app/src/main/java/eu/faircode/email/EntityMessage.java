@@ -91,7 +91,7 @@ public class EntityMessage implements Serializable {
     public String deliveredto;
     public String inreplyto;
     public String thread; // compose = null
-    public String avatar; // obsolete
+    public String avatar; // lookup URI from sender
     public String sender; // sort key
     public Address[] from;
     public Address[] to;

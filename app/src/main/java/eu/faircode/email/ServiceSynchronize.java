@@ -490,8 +490,7 @@ public class ServiceSynchronize extends LifecycleService {
         // Get contact info
         Map<TupleMessageEx, ContactInfo> messageContact = new HashMap<>();
         for (TupleMessageEx message : messages)
-            messageContact.put(message,
-                    ContactInfo.get(this, message.from, false));
+            messageContact.put(message, ContactInfo.get(this, message.from, false));
 
         // Build pending intent
         Intent view = new Intent(this, ActivityView.class);
@@ -2673,6 +2672,9 @@ public class ServiceSynchronize extends LifecycleService {
             message.ui_ignored = seen;
             message.ui_browsed = browsed;
 
+            Uri lookupUri = ContactInfo.getLookupUri(context, message.from);
+            message.avatar = (lookupUri == null ? null : lookupUri.toString());
+
             // Check sender
             Address sender = helper.getSender();
             if (sender != null && senders.length > 0) {
@@ -2745,6 +2747,15 @@ public class ServiceSynchronize extends LifecycleService {
                 update = true;
                 message.ui_browsed = false;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " unbrowse");
+            }
+
+            if (message.avatar == null) {
+                Uri lookupUri = ContactInfo.getLookupUri(context, message.from);
+                if (lookupUri != null) {
+                    update = true;
+                    message.avatar = lookupUri.toString();
+                    Log.i(folder.name + " updated id=" + message.id + " lookup=" + lookupUri);
+                }
             }
 
             if (update)
