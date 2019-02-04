@@ -1543,7 +1543,7 @@ public class FragmentCompose extends FragmentBase {
                     if (drafts == null)
                         drafts = db.folder().getPrimaryDrafts();
                     if (drafts == null)
-                        throw new IllegalArgumentException(getString(R.string.title_no_primary_drafts));
+                        throw new IllegalArgumentException(context.getString(R.string.title_no_primary_drafts));
 
                     String body = "";
 

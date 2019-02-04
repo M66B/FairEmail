@@ -635,7 +635,7 @@ public class FragmentAccount extends FragmentBase {
                     }
 
                     if (!inbox)
-                        throw new IllegalArgumentException(getString(R.string.title_no_inbox));
+                        throw new IllegalArgumentException(context.getString(R.string.title_no_inbox));
                     if (!archive && altArchive != null)
                         altArchive.type = EntityFolder.ARCHIVE;
                     if (!drafts && altDrafts != null)

@@ -1217,7 +1217,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 for (EntityAttachment attachment : attachments)
                     if (EntityAttachment.PGP_MESSAGE.equals(attachment.encryption)) {
                         if (!attachment.available)
-                            throw new IllegalArgumentException(getString(R.string.title_attachments_missing));
+                            throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
 
                         File file = EntityAttachment.getFile(context, attachment.id);
                         encrypted = new BufferedInputStream(new FileInputStream(file));
@@ -1246,7 +1246,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
 
                 if (encrypted == null)
-                    throw new IllegalArgumentException(getString(R.string.title_not_encrypted));
+                    throw new IllegalArgumentException(context.getString(R.string.title_not_encrypted));
 
                 ByteArrayOutputStream decrypted = new ByteArrayOutputStream();
 

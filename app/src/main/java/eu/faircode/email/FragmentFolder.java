@@ -208,7 +208,7 @@ public class FragmentFolder extends FragmentBase {
                         Log.i("Creating folder=" + name);
 
                         if (TextUtils.isEmpty(name))
-                            throw new IllegalArgumentException(getString(R.string.title_folder_name_missing));
+                            throw new IllegalArgumentException(context.getString(R.string.title_folder_name_missing));
 
                         EntityFolder create = new EntityFolder();
                         create.account = aid;
@@ -323,7 +323,7 @@ public class FragmentFolder extends FragmentBase {
                                 int count = db.operation().getOperationCount(id, null);
                                 if (count > 0)
                                     throw new IllegalArgumentException(
-                                            getResources().getQuantityString(
+                                            context.getResources().getQuantityString(
                                                     R.plurals.title_notification_operations, count, count));
                                 db.folder().setFolderTbd(id);
 
