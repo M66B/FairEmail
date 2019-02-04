@@ -2187,22 +2187,25 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i("Start sync folders account=" + account.name);
 
             List<String> names = new ArrayList<>();
-            for (EntityFolder folder : db.folder().getFolders(account.id)) {
+            for (EntityFolder folder : db.folder().getFolders(account.id))
                 if (folder.tbc != null) {
+                    Log.i(folder.name + " creating");
                     IMAPFolder ifolder = (IMAPFolder) istore.getFolder(folder.name);
-                    ifolder.create(Folder.HOLDS_MESSAGES);
-                    db.folder().resetFolderTbc(folder.id);
-                }
-
-                if (folder.tbd == null)
-                    names.add(folder.name);
-                else {
+                    try {
+                        ifolder.create(Folder.HOLDS_MESSAGES);
+                        db.folder().resetFolderTbc(folder.id);
+                    } catch (Throwable ex) {
+                        reportError(account, folder, ex);
+                        db.folder().deleteFolder(folder.id);
+                    }
+                } else if (folder.tbd != null) {
+                    Log.i(folder.name + " deleting");
                     IMAPFolder ifolder = (IMAPFolder) istore.getFolder(folder.name);
                     if (ifolder.exists())
                         ifolder.delete(false);
                     db.folder().deleteFolder(folder.id);
-                }
-            }
+                } else
+                    names.add(folder.name);
             Log.i("Local folder count=" + names.size());
 
             Folder defaultFolder = istore.getDefaultFolder();
