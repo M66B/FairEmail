@@ -443,7 +443,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         @SuppressLint("WrongConstant")
         private void bindTo(int position, final TupleMessageEx message) {
             setDisplacement(0);
-            clearExpanded();
             pbLoading.setVisibility(View.GONE);
 
             // Text size
@@ -652,10 +651,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (show_expanded)
                     bindExpanded(message);
                 else {
+                    clearExpanded();
                     properties.setBody(message.id, null);
                     properties.setHtml(message.id, null);
                 }
-            }
+            } else
+                clearExpanded();
         }
 
         private void clearExpanded() {
@@ -718,6 +719,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (show_headers && message.headers == null) {
                 pbHeaders.setVisibility(internet ? View.VISIBLE : View.GONE);
                 tvNoInternetHeaders.setVisibility(internet ? View.GONE : View.VISIBLE);
+            } else {
+                pbHeaders.setVisibility(View.GONE);
+                tvNoInternetHeaders.setVisibility(View.GONE);
             }
 
             grpAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
@@ -782,69 +786,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvHeaders.setText(null);
 
             // Attachments
-            List<EntityAttachment> attachments = idAttachments.get(message.id);
-            if (attachments != null)
-                adapterAttachment.set(attachments);
-
-            // Observe attachments
+            bindAttachments(message, idAttachments.get(message.id));
             observerAttachments = new Observer<List<EntityAttachment>>() {
                 @Override
                 public void onChanged(@Nullable List<EntityAttachment> attachments) {
-                    if (attachments == null)
-                        attachments = new ArrayList<>();
-                    idAttachments.put(message.id, attachments);
-
-                    boolean show_inline = properties.getValue("inline", message.id);
-                    Log.i("Show inline=" + show_inline);
-
-                    boolean inline = false;
-                    boolean download = false;
-                    boolean save = (attachments.size() > 1);
-                    boolean downloading = false;
-                    List<EntityAttachment> a = new ArrayList<>();
-                    for (EntityAttachment attachment : attachments) {
-                        if (attachment.isInline())
-                            inline = true;
-                        if (attachment.progress == null && !attachment.available)
-                            download = true;
-                        if (!attachment.available)
-                            save = false;
-                        if (attachment.progress != null)
-                            downloading = true;
-                        if (show_inline || !attachment.isInline())
-                            a.add(attachment);
-                    }
-                    adapterAttachment.set(a);
-
-                    cbInline.setOnCheckedChangeListener(null);
-                    cbInline.setChecked(show_inline);
-                    cbInline.setVisibility(inline ? View.VISIBLE : View.GONE);
-                    btnDownloadAttachments.setVisibility(download && internet ? View.VISIBLE : View.GONE);
-                    btnSaveAttachments.setVisibility(save ? View.VISIBLE : View.GONE);
-                    tvNoInternetAttachments.setVisibility(downloading && !internet ? View.VISIBLE : View.GONE);
-
-                    cbInline.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                        @Override
-                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                            properties.setValue("inline", message.id, isChecked);
-                            liveAttachments.removeObserver(observerAttachments);
-                            liveAttachments.observe(owner, observerAttachments);
-                        }
-                    });
-
-                    List<EntityAttachment> images = new ArrayList<>();
-                    for (EntityAttachment attachment : attachments)
-                        if (attachment.type.startsWith("image/") && !attachment.isInline())
-                            images.add(attachment);
-                    adapterImage.set(images);
-                    rvImage.setVisibility(images.size() > 0 ? View.VISIBLE : View.GONE);
-
-                    boolean show_html = properties.getValue("html", message.id);
-                    if (message.content && !show_html) {
-                        Bundle args = new Bundle();
-                        args.putSerializable("message", message);
-                        bodyTask.execute(context, owner, args, "message:body");
-                    }
+                    bindAttachments(message, attachments);
                 }
             };
             liveAttachments = db.attachment().liveAttachments(message.id);
@@ -918,10 +864,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, sargs, "message:actions");
 
             // Message text
-            if (internet || message.content)
-                pbBody.setVisibility(View.VISIBLE);
-            else
-                tvNoInternetBody.setVisibility(View.VISIBLE);
+            pbBody.setVisibility(internet || message.content ? View.VISIBLE : View.GONE);
+            tvNoInternetBody.setVisibility(internet || message.content ? View.GONE : View.VISIBLE);
 
             if (message.content)
                 if (show_html)
@@ -931,6 +875,64 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     args.putSerializable("message", message);
                     bodyTask.execute(context, owner, args, "message:body");
                 }
+        }
+
+        private void bindAttachments(final TupleMessageEx message, @Nullable List<EntityAttachment> attachments) {
+            if (attachments == null)
+                attachments = new ArrayList<>();
+            idAttachments.put(message.id, attachments);
+
+            boolean show_inline = properties.getValue("inline", message.id);
+            Log.i("Show inline=" + show_inline);
+
+            boolean inline = false;
+            boolean download = false;
+            boolean save = (attachments.size() > 1);
+            boolean downloading = false;
+            List<EntityAttachment> a = new ArrayList<>();
+            for (EntityAttachment attachment : attachments) {
+                if (attachment.isInline())
+                    inline = true;
+                if (attachment.progress == null && !attachment.available)
+                    download = true;
+                if (!attachment.available)
+                    save = false;
+                if (attachment.progress != null)
+                    downloading = true;
+                if (show_inline || !attachment.isInline())
+                    a.add(attachment);
+            }
+            adapterAttachment.set(a);
+
+            cbInline.setOnCheckedChangeListener(null);
+            cbInline.setChecked(show_inline);
+            cbInline.setVisibility(inline ? View.VISIBLE : View.GONE);
+            btnDownloadAttachments.setVisibility(download && internet ? View.VISIBLE : View.GONE);
+            btnSaveAttachments.setVisibility(save ? View.VISIBLE : View.GONE);
+            tvNoInternetAttachments.setVisibility(downloading && !internet ? View.VISIBLE : View.GONE);
+
+            cbInline.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    properties.setValue("inline", message.id, isChecked);
+                    liveAttachments.removeObserver(observerAttachments);
+                    liveAttachments.observe(owner, observerAttachments);
+                }
+            });
+
+            List<EntityAttachment> images = new ArrayList<>();
+            for (EntityAttachment attachment : attachments)
+                if (attachment.type.startsWith("image/") && !attachment.isInline())
+                    images.add(attachment);
+            adapterImage.set(images);
+            rvImage.setVisibility(images.size() > 0 ? View.VISIBLE : View.GONE);
+
+            boolean show_html = properties.getValue("html", message.id);
+            if (message.content && !show_html) {
+                Bundle args = new Bundle();
+                args.putSerializable("message", message);
+                bodyTask.execute(context, owner, args, "message:body");
+            }
         }
 
         void unbind() {
