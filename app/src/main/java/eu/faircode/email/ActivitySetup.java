@@ -143,6 +143,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     case R.string.title_setup_light_theme:
                     case R.string.title_setup_dark_theme:
                     case R.string.title_setup_black_theme:
+                    case R.string.title_setup_system_theme:
                         onMenuTheme(item.getId());
                         break;
                     case R.string.title_setup_notifications:
@@ -178,13 +179,15 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
             drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_unarchive_24, R.string.title_setup_import));
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String theme = prefs.getString("theme", "light");
-        if ("dark".equals(theme))
+        String theme = prefs.getString("theme", "system");
+        if ("light".equals(theme))
+            drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_palette_24, R.string.title_setup_dark_theme));
+        else if ("dark".equals(theme))
             drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_palette_24, R.string.title_setup_black_theme));
         else if ("black".equals(theme))
-            drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_palette_24, R.string.title_setup_light_theme));
+            drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_palette_24, R.string.title_setup_system_theme));
         else
-            drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_palette_24, R.string.title_setup_dark_theme));
+            drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_palette_24, R.string.title_setup_light_theme));
 
         if (getIntentNotifications(this).resolveActivity(pm) != null)
             drawerArray.add(new DrawerItem(this, R.layout.item_drawer, R.drawable.baseline_notifications_24, R.string.title_setup_notifications));
@@ -374,6 +377,9 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 break;
             case R.string.title_setup_black_theme:
                 prefs.edit().putString("theme", "black").apply();
+                break;
+            case R.string.title_setup_system_theme:
+                prefs.edit().putString("theme", "system").apply();
                 break;
         }
     }
