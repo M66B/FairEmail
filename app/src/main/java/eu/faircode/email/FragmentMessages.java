@@ -134,6 +134,7 @@ public class FragmentMessages extends FragmentBase {
     private AdapterMessage adapter;
 
     private AdapterMessage.ViewType viewType;
+    private SelectionPredicateMessage selectionPredicate = null;
     private SelectionTracker<Long> selectionTracker = null;
 
     private Long previous = null;
@@ -424,7 +425,7 @@ public class FragmentMessages extends FragmentBase {
             });
 
         } else {
-            final SelectionPredicateMessage predicate = new SelectionPredicateMessage(rvMessage);
+            selectionPredicate = new SelectionPredicateMessage(rvMessage);
 
             selectionTracker = new SelectionTracker.Builder<>(
                     "messages-selection",
@@ -432,7 +433,7 @@ public class FragmentMessages extends FragmentBase {
                     new ItemKeyProviderMessage(rvMessage),
                     new ItemDetailsLookupMessage(rvMessage),
                     StorageStrategy.createLongStorage())
-                    .withSelectionPredicate(predicate)
+                    .withSelectionPredicate(selectionPredicate)
                     .build();
             adapter.setSelectionTracker(selectionTracker);
 
@@ -689,6 +690,9 @@ public class FragmentMessages extends FragmentBase {
                 float dX, float dY, int actionState, boolean isCurrentlyActive) {
             AdapterMessage.ViewHolder holder = ((AdapterMessage.ViewHolder) viewHolder);
             holder.setDisplacement(dX);
+
+            if (selectionPredicate != null)
+                selectionPredicate.setEnabled(!isCurrentlyActive);
 
             TupleMessageEx message = getMessage(viewHolder);
             if (message == null)

@@ -24,14 +24,23 @@ import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class SelectionPredicateMessage extends SelectionTracker.SelectionPredicate<Long> {
+    private boolean enabled;
     private RecyclerView recyclerView;
 
     SelectionPredicateMessage(RecyclerView recyclerView) {
+        this.enabled = true;
         this.recyclerView = recyclerView;
+    }
+
+    void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     @Override
     public boolean canSetStateForKey(@NonNull Long key, boolean nextState) {
+        if (!enabled)
+            return false;
+
         AdapterMessage adapter = (AdapterMessage) recyclerView.getAdapter();
         TupleMessageEx message = adapter.getItemForKey(key);
 
@@ -43,6 +52,9 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
 
     @Override
     public boolean canSetStateAtPosition(int position, boolean nextState) {
+        if (!enabled)
+            return false;
+
         AdapterMessage adapter = (AdapterMessage) recyclerView.getAdapter();
         TupleMessageEx message = adapter.getItemAtPosition(position);
 
