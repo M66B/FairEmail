@@ -40,7 +40,6 @@ Anything on this list is in random order and *might* be added in the near future
 * Badge count: there is no standard Android API for this and third party solutions might stop working anytime. For example *ShortcutBadger* [has lots of problems](https://github.com/leolin310148/ShortcutBadger/issues). You can use the provided widget instead.
 * Switch language: Android is not designed to change the language of an app and on recent Android versions it even causes problems. So, better fix the translation in your language if needed, see [this FAQ](#user-content-faq26) about how to.
 * Better design: please let me know what you have in mind [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
-* Hide duplicate (archived) messages: hiding archived messages which exists in other folders too would have a performance impact.
 * ActiveSync: using the Exchange ActiveSync protocol requires [a license](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing), so this cannot be added.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
@@ -133,6 +132,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(71) How do I use filter rules?](#user-content-faq71)
 * [(72) What are primary accounts/identities?](#user-content-faq72)
 * [(73) Is moving messages across accounts safe/efficient?](#user-content-faq73)
+* [(74) Why do I see duplicate messages?](#user-content-faq74)
 
 [I have another question.](#support)
 
@@ -1170,6 +1170,17 @@ Batch moving messages across accounts is efficient if both the source folder and
 else FairEmail needs to connect to the folder(s) for each message.
 
 <br />
+
+<a name="faq74"></a>
+**(74) Why do I see duplicate messages?**
+
+Some providers, notably Gmail, list all messages in all folders, except trashed messages, in the archive (all messages) folder too.
+FairEmail shows all these messages, except for one, dimmed, to indicate that these messages are in fact the same message.
+
+Gmail allows one message to have multiple labels, which are presented to FairEmail as folders.
+This means that messages with multiple labels will be shown multiple times as well.
+
+Since there is not really an original message because it is in fact just the same message, it is not really possible to show just one message.
 
 ## Support
 
