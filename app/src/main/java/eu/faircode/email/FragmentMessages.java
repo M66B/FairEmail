@@ -761,18 +761,19 @@ public class FragmentMessages extends FragmentBase {
                         db.beginTransaction();
 
                         EntityFolder target = db.folder().getFolder(tid);
-                        if (target != null) {
-                            EntityAccount account = db.account().getAccount(target.account);
-                            EntityMessage message = db.message().getMessage(id);
-                            if (message != null) {
-                                List<EntityMessage> messages = db.message().getMessageByThread(
-                                        message.account, message.thread, threading && thread ? null : id, message.folder);
-                                for (EntityMessage threaded : messages) {
-                                    result.add(new MessageTarget(threaded, account, target));
-                                    db.message().setMessageUiHide(threaded.id, true);
-                                    // Prevent new message notification on undo
-                                    db.message().setMessageUiIgnored(threaded.id, true);
-                                }
+                        if (target == null)
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_folder));
+
+                        EntityAccount account = db.account().getAccount(target.account);
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message != null) {
+                            List<EntityMessage> messages = db.message().getMessageByThread(
+                                    message.account, message.thread, threading && thread ? null : id, message.folder);
+                            for (EntityMessage threaded : messages) {
+                                result.add(new MessageTarget(threaded, account, target));
+                                db.message().setMessageUiHide(threaded.id, true);
+                                // Prevent new message notification on undo
+                                db.message().setMessageUiIgnored(threaded.id, true);
                             }
                         }
 
