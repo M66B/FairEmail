@@ -55,10 +55,6 @@ public class HtmlHelper {
     private static final List<String> heads = Arrays.asList("p", "h1", "h2", "h3", "h4", "h5", "tr");
     private static final List<String> tails = Arrays.asList("br", "dd", "dt", "p", "h1", "h2", "h3", "h4", "h5");
 
-    static String getBody(String html) {
-        return Jsoup.parse(html).body().html();
-    }
-
     static String sanitize(String html, boolean quotes) {
         Document document = Jsoup.parse(Jsoup.clean(html, Whitelist
                 .relaxed()
@@ -84,6 +80,12 @@ public class HtmlHelper {
                     a.appendChild(img);
                 }
             }
+        }
+
+        for (Element img : document.select("img")) {
+            Element p = document.createElement("p");
+            img.replaceWith(p);
+            p.appendChild(img);
         }
 
         if (!quotes)
