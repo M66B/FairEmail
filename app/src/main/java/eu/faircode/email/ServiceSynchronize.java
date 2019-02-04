@@ -2193,14 +2193,10 @@ public class ServiceSynchronize extends LifecycleService {
                 if (folder.tbc != null) {
                     Log.i(folder.name + " creating");
                     IMAPFolder ifolder = (IMAPFolder) istore.getFolder(folder.name);
-                    try {
+                    if (!ifolder.exists())
                         ifolder.create(Folder.HOLDS_MESSAGES);
-                        db.folder().resetFolderTbc(folder.id);
-                    } catch (Throwable ex) {
-                        reportError(account, folder, ex);
-                        db.folder().deleteFolder(folder.id);
-                    }
-                } else if (folder.tbd != null) {
+                    db.folder().resetFolderTbc(folder.id);
+                } else if (folder.tbd != null && folder.tbd) {
                     Log.i(folder.name + " deleting");
                     IMAPFolder ifolder = (IMAPFolder) istore.getFolder(folder.name);
                     if (ifolder.exists())

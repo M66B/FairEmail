@@ -118,7 +118,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
 
         private void bindTo(TupleFolderEx folder) {
-            itemView.setActivated(folder.tbd != null);
+            itemView.setActivated(folder.tbc != null || folder.tbd != null);
             itemView.setAlpha(folder.hide ? 0.5f : 1.0f);
 
             if (textSize != 0)
