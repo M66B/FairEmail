@@ -156,7 +156,7 @@ public class HtmlHelper {
                     return d;
                 } else {
                     Drawable d = new BitmapDrawable(bm);
-                    d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
+                    d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
                     return d;
                 }
             }
