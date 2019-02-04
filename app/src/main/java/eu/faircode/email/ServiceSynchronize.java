@@ -364,6 +364,8 @@ public class ServiceSynchronize extends LifecycleService {
 
                                     long id = Long.parseLong(parts[1]);
                                     EntityMessage message = db.message().getMessage(id);
+                                    if (message == null)
+                                        return;
 
                                     switch (parts[0]) {
                                         case "seen":
