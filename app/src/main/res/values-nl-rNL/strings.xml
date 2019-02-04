@@ -83,7 +83,7 @@
     <string name="title_setup_quick_remark">Voor het snel instellen van een account en een identiteit voor de meeste grote providers</string>
     <string name="title_setup_go">Ga</string>
     <string name="title_setup_setting_gmail">Toegang voor \"minder veilige\" apps inschakelen</string>
-    <string name="title_setup_no_settings">Geen instellingen gevonden voor \'%1$s \'</string>
+    <string name="title_setup_no_settings">Geen instellingen gevonden voor \'%1$s\'</string>
     <string name="title_setup_quick_success">Een account en een identiteit zijn succesvol toegevoegd</string>
     <string name="title_setup_quick_failed">U kunt ook proberen om hieronder een account en een identiteit te configureren</string>
     <string name="title_setup_manage">Beheer</string>
@@ -124,7 +124,7 @@
     <string name="title_advanced_preview">Bericht voorvertoning</string>
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
     <string name="title_advanced_html">Automatisch originele bericht weergeven voor bekende contacten</string>
-    <string name="title_advanced_images">Automatisch afbeeldingen voor bekende contacten weergeven</string>
+    <string name="title_advanced_images">Automatisch afbeeldingen weergeven voor bekende contacten</string>
     <string name="title_advanced_actionbar">Actiebalk gesprek</string>
     <string name="title_advanced_light">Gebruik meldingslicht</string>
     <string name="title_advanced_sound">Selecteer meldingsgeluid</string>

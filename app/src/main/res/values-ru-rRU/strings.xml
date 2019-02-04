@@ -147,6 +147,7 @@
     <string name="title_advanced_pull_refresh">Потяните вниз, для обновления</string>
     <string name="title_advanced_autoexpand">Автоматически разворачивать сообщения</string>
     <string name="title_advanced_autoclose">Автоматически закрывать диалоги</string>
+    <string name="title_advanced_swipenav">Свайп влево/вправо, чтобы перейти к следующему/предыдущему диплогу</string>
     <string name="title_advanced_autonext">При закрытии диалога, автоматически открыть следующий</string>
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
     <string name="title_advanced_collapse">Сворачивать сообщения в диалоге при нажатии кнопки \'назад\'</string>
@@ -317,6 +318,7 @@
     <string name="title_reply_to">Ответить:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
+    <string name="title_via_identity">Через:</string>
     <string name="title_received">Получено:</string>
     <string name="title_size">Размер:</string>
     <string name="title_subject">Тема:</string>

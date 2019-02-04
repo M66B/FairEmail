@@ -131,6 +131,7 @@
     <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
     <string name="title_advanced_autoexpand">Expandir mensajes automáticamente</string>
     <string name="title_advanced_autoclose">Cerrar conversaciones automáticamente</string>
+    <string name="title_advanced_swipenav">Deslice a la izquierda/derecha para ir a la siguiente/anterior conversación</string>
     <string name="title_advanced_autonext">Al cerrar una conversación, ir automáticamente a la siguiente</string>
     <string name="title_advanced_autoread">Marcar mensaje como leído automáticamente al moverlo</string>
     <string name="title_advanced_collapse">Contraer mensajes en conversaciones al ir \'atrás\'</string>
@@ -147,7 +148,7 @@
     <string name="title_advanced_unified_hint">Mostrar carpetas de bandeja de entrada unificada o mensajes de bandeja de entrada unificada</string>
     <string name="title_advanced_threading_hint">Agrupar mensajes relacionados entre sí</string>
     <string name="title_advanced_preview_hint">Sólo disponible cuando el texto del mensaje fue descargado</string>
-    <string name="title_advanced_autoexpand_hint">Abrir mensajes automáticamente cuando sólo haya uno o uno no leído en una conversación</string>
+    <string name="title_advanced_autoexpand_hint">Abrir mensaje automáticamente cuando haya solo un mensaje o uno no leído en una conversación</string>
     <string name="title_advanced_autoclose_hint">Cerrar automáticamente hilos de conversación cuando todos los mensajes son archivados, enviados o eliminados</string>
     <string name="title_advanced_sender_hint">La mayoría de los proveedores no permiten direcciones de remitente modificadas</string>
     <string name="title_select">Seleccione &#8230;</string>
@@ -301,6 +302,7 @@
     <string name="title_reply_to">Responder a:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">CCO:</string>
+    <string name="title_via_identity">Vía:</string>
     <string name="title_received">Recibido:</string>
     <string name="title_size">Tamaño:</string>
     <string name="title_subject">Asunto:</string>
@@ -360,7 +362,7 @@
     <string name="title_rule_regex">Expresión regular</string>
     <string name="title_rule_and">Y</string>
     <string name="title_rule_action">Acción</string>
-    <string name="title_rule_action_remark">Esta acción se aplicará a nuevos mensajes que lleguen a la carpeta %1$s</string>
+    <string name="title_rule_action_remark">Esta acción se aplicará a los nuevos mensajes que lleguen a la carpeta %1$s</string>
     <string name="title_rule_folder">Carpeta</string>
     <string name="title_rule_identity">Identidad</string>
     <string name="title_rule_answer">Plantilla de respuesta</string>
@@ -385,7 +387,7 @@
     <string name="title_legend_answered">Ha sido respondido</string>
     <string name="title_legend_attachment">Tiene adjunto</string>
     <string name="title_legend_flagged">Está destacado</string>
-    <string name="title_legend_contacts">Gestionar contactos</string>
+    <string name="title_legend_contacts">Administrar contactos</string>
     <string name="title_legend_view">Ver contenido</string>
     <string name="title_legend_download">Descargar contenido</string>
     <string name="title_legend_external_image">Imagen externa</string>
@@ -402,7 +404,7 @@
     <string name="title_legend_download_on">Descargar el contenido de mensajes automáticamente</string>
     <string name="title_legend_synchronize_on">Sincronización activada</string>
     <string name="title_legend_synchronize_off">Sincronización desactivada</string>
-    <string name="title_legend_primary">Primaria</string>
+    <string name="title_legend_primary">Principal</string>
     <string name="title_legend_disconnected">Desconectado</string>
     <string name="title_legend_connecting">Conectando</string>
     <string name="title_legend_connected">Conectado</string>

@@ -131,6 +131,7 @@
     <string name="title_advanced_pull_refresh">Tirer vers le bas pour actualiser</string>
     <string name="title_advanced_autoexpand">Développer automatiquement les messages</string>
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
+    <string name="title_advanced_swipenav">Balayez vers la gauche/droite pour passer à la conversation suivante/précédente</string>
     <string name="title_advanced_autonext">Lors de la fermeture d\'une conversation, aller automatiquement sur la suivante</string>
     <string name="title_advanced_autoread">Marquer automatiquement le message comme lu lors de son déplacement</string>
     <string name="title_advanced_collapse">Replier les messages dans les conversations en appuyant sur « Retour »</string>
@@ -301,6 +302,7 @@
     <string name="title_reply_to">Répondre à :</string>
     <string name="title_cc">Cc :</string>
     <string name="title_bcc">Cci :</string>
+    <string name="title_via_identity">Via :</string>
     <string name="title_received">Reçu :</string>
     <string name="title_size">Taille :</string>
     <string name="title_subject">Objet :</string>

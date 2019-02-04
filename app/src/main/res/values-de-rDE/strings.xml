@@ -131,6 +131,7 @@
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
     <string name="title_advanced_autoexpand">Nachrichten automatisch erweitern</string>
     <string name="title_advanced_autoclose">Konversationen automatisch schließen</string>
+    <string name="title_advanced_swipenav">Wische nach links/rechts, um zum nächsten/vorherigen Gespräch zu gehen</string>
     <string name="title_advanced_autonext">Automatisch beim Schließen einer Konversation zur nächsten Konversation wechseln</string>
     <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen markieren</string>
     <string name="title_advanced_collapse">\'Zurück\' klappt die Konversationsansicht zusammen</string>
@@ -301,6 +302,7 @@
     <string name="title_reply_to">Antworten an:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
+    <string name="title_via_identity">Über:</string>
     <string name="title_received">Empfangen:</string>
     <string name="title_size">Größe:</string>
     <string name="title_subject">Betreff:</string>
@@ -381,6 +383,7 @@
     <string name="title_legend_zoom">Textgröße ändern</string>
     <string name="title_legend_draft">Entwurf vorhanden</string>
     <string name="title_legend_snoozed">Schlummert</string>
+    <string name="title_legend_browsed">Gesehen oder gesucht</string>
     <string name="title_legend_answered">Wurde beantwortet</string>
     <string name="title_legend_attachment">Anhang vorhanden</string>
     <string name="title_legend_flagged">Als wichtig markiert</string>

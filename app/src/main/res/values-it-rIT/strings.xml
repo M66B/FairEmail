@@ -123,6 +123,7 @@
     <string name="title_advanced_identicons">Visualizza identicon</string>
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
     <string name="title_advanced_addresses">Mostra i dettagli dell\'indirizzo per impostazione predefinita</string>
+    <string name="title_advanced_html">Mostra automaticamente il messaggio originale per i contatti conosciuti</string>
     <string name="title_advanced_images">Mostra automaticamente le immagini per i contatti conosciuti</string>
     <string name="title_advanced_actionbar">Barra di azione di conversazione</string>
     <string name="title_advanced_light">Usa il led di notifica</string>
@@ -130,6 +131,7 @@
     <string name="title_advanced_pull_refresh">Trascina in basso per aggiornare</string>
     <string name="title_advanced_autoexpand">Espandi automaticamente i messaggi</string>
     <string name="title_advanced_autoclose">Chiudi automaticamente le conversazioni</string>
+    <string name="title_advanced_swipenav">Scorri a sinistra/destra per andare alla conversazione successiva/precedente</string>
     <string name="title_advanced_autonext">Passa automaticamente alla conversazione successiva nella conversazione stretta</string>
     <string name="title_advanced_autoread">Contrassegna automaticamente il messaggio come letto sul messaggio in movimento</string>
     <string name="title_advanced_collapse">Raggruppa i messaggi in conversazioni premendo \'indietro\'</string>
@@ -300,6 +302,7 @@
     <string name="title_reply_to">Rispondi a:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">CCN:</string>
+    <string name="title_via_identity">Tramite:</string>
     <string name="title_received">Ricevuto:</string>
     <string name="title_size">Dimensioni:</string>
     <string name="title_subject">Oggetto:</string>
