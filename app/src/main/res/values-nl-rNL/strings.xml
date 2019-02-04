@@ -105,6 +105,7 @@
     <string name="title_setup_light_theme">Licht thema</string>
     <string name="title_setup_dark_theme">Donker thema</string>
     <string name="title_setup_black_theme">Zwart thema</string>
+    <string name="title_setup_system_theme">Systeem thema</string>
     <string name="title_setup_defaults">Verstekwaarden herstellen</string>
     <string name="title_advanced">Geavanceerde opties</string>
     <string name="title_advanced_section_general">Algemeen</string>
@@ -281,6 +282,7 @@
     <string name="title_no_stream">Een verouderde app verzond een bestandsnaam in plaats van een bestandsstroom</string>
     <string name="title_no_contacts">Contact kiezer niet beschikbaar</string>
     <string name="title_no_internet">Geen internet verbinding</string>
+    <string name="title_no_folder">Map bestaat niet</string>
     <string name="title_accross_remark">Berichten die worden verplaatst tussen accounts worden opnieuw gedownload en veroorzaken extra dataverbruik</string>
     <string name="title_raw_saved">Ruw bericht opgeslagen</string>
     <string name="title_attachment_saved">Bijlage opgeslagen</string>

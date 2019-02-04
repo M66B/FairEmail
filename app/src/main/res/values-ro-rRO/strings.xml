@@ -113,6 +113,7 @@
     <string name="title_setup_light_theme">Temă luminoasă</string>
     <string name="title_setup_dark_theme">Temă întunecată</string>
     <string name="title_setup_black_theme">Temă neagră</string>
+    <string name="title_setup_system_theme">Temă de sistem</string>
     <string name="title_setup_defaults">Restabiliți valorile implicite</string>
     <string name="title_advanced">Opțiuni avansate</string>
     <string name="title_advanced_section_general">Generale</string>
@@ -289,6 +290,7 @@
     <string name="title_no_stream">O aplicație invechită a trimis calea fișierului în locul unui flux de date</string>
     <string name="title_no_contacts">Selectorul de contacte nu este disponibil</string>
     <string name="title_no_internet">Nu există conexiune la internet</string>
+    <string name="title_no_folder">Dosarul nu există</string>
     <string name="title_accross_remark">Mesajele mutate între conturi vor fi descărcate din nou consumând date în plus</string>
     <string name="title_raw_saved">Mesaj original salvat</string>
     <string name="title_attachment_saved">Atașament salvat</string>

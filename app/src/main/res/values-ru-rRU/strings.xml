@@ -121,6 +121,7 @@
     <string name="title_setup_light_theme">Светлая тема</string>
     <string name="title_setup_dark_theme">Тёмная тема</string>
     <string name="title_setup_black_theme">Чёрная тема</string>
+    <string name="title_setup_system_theme">Системная тема</string>
     <string name="title_setup_defaults">Восстановить настройки по умолчанию</string>
     <string name="title_advanced">Дополнительные опции</string>
     <string name="title_advanced_section_general">Общее</string>
@@ -297,6 +298,7 @@
     <string name="title_no_stream">Устаревшее приложение послало путь к файлу вместо файлового потока</string>
     <string name="title_no_contacts">Выбор контакта недоступен</string>
     <string name="title_no_internet">Отсутствует подключение к Интернету</string>
+    <string name="title_no_folder">Папка не существует</string>
     <string name="title_accross_remark">Сообщения, перемещаемые между учётными записями, будут загружены заново, порождая дополнительный трафик</string>
     <string name="title_raw_saved">Оригинал сообщения сохранён</string>
     <string name="title_attachment_saved">Файл сохранен</string>
