@@ -93,7 +93,7 @@ public class EntityRule {
                         InternetAddress ia = (InternetAddress) from;
                         String personal = ia.getPersonal();
                         String formatted = ((personal == null ? "" : personal + " ") + "<" + ia.getAddress() + ">");
-                        if (matches(value, formatted, regex)) {
+                        if (matches(context, value, formatted, regex)) {
                             matches = true;
                             break;
                         }
@@ -108,7 +108,7 @@ public class EntityRule {
                 String value = jsubject.getString("value");
                 boolean regex = jsubject.getBoolean("regex");
 
-                if (!matches(value, message.subject, regex))
+                if (!matches(context, value, message.subject, regex))
                     return false;
             }
 
@@ -122,7 +122,7 @@ public class EntityRule {
                 while (headers.hasMoreElements()) {
                     Header header = headers.nextElement();
                     String formatted = header.getName() + ": " + header.getValue();
-                    if (matches(value, formatted, regex)) {
+                    if (matches(context, value, formatted, regex)) {
                         matches = true;
                         break;
                     }
@@ -142,17 +142,18 @@ public class EntityRule {
         return true;
     }
 
-    private boolean matches(String needle, String haystack, boolean regex) {
-        Log.i("Matches needle=" + needle + " haystack=" + haystack + " regex=" + regex);
+    private boolean matches(Context context, String needle, String haystack, boolean regex) {
+        boolean matched = false;
+        if (needle != null && haystack != null)
+            if (regex) {
+                Pattern pattern = Pattern.compile(needle);
+                matched = pattern.matcher(haystack).matches();
+            } else
+                matched = haystack.toLowerCase().contains(needle.trim().toLowerCase());
 
-        if (needle == null || haystack == null)
-            return false;
-
-        if (regex) {
-            Pattern pattern = Pattern.compile(needle);
-            return pattern.matcher(haystack).matches();
-        } else
-            return haystack.toLowerCase().contains(needle.toLowerCase());
+        EntityLog.log(context, "Rule=" + name + " matched=" + matched +
+                " needle=" + needle + " haystack=" + haystack + " regex=" + regex);
+        return matched;
     }
 
     void execute(Context context, DB db, EntityMessage message) throws IOException {
