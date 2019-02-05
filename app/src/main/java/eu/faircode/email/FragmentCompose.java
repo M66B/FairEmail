@@ -1945,6 +1945,7 @@ public class FragmentCompose extends FragmentBase {
                     draft.msgid = EntityMessage.generateMessageId();
                     draft.content = true;
                     draft.ui_hide = false;
+                    EntityOperation.queue(context, db, draft, EntityOperation.ADD);
                 }
 
                 List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
