@@ -793,7 +793,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     bindAttachments(message, attachments);
                 }
             };
-            liveAttachments = db.attachment().liveAttachments(message.id, true);
+            liveAttachments = db.attachment().liveAttachments(message.id);
             liveAttachments.observe(owner, observerAttachments);
 
             // Setup actions

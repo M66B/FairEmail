@@ -30,9 +30,8 @@ import androidx.room.Query;
 public interface DaoAttachment {
     @Query("SELECT * FROM attachment" +
             " WHERE message = :message" +
-            " AND (:inline OR disposition <> 'inline')" +
             " ORDER BY sequence")
-    LiveData<List<EntityAttachment>> liveAttachments(long message, boolean inline);
+    LiveData<List<EntityAttachment>> liveAttachments(long message);
 
     @Query("SELECT ifnull(MAX(sequence), 0)" +
             " FROM attachment" +
