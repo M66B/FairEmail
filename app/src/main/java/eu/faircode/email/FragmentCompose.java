@@ -1627,29 +1627,34 @@ public class FragmentCompose extends FragmentBase {
                     int icount = 0;
                     EntityIdentity first = null;
                     EntityIdentity primary = null;
-                    if (result.draft.from != null)
-                        for (Address afrom : result.draft.from) {
-                            String from = Helper.canonicalAddress(((InternetAddress) afrom).getAddress());
-                            for (EntityIdentity identity : identities) {
-                                String email = Helper.canonicalAddress(identity.email);
-                                if (email.equals(from)) {
-                                    result.draft.identity = identity.id;
-                                    result.draft.from = new InternetAddress[]{new InternetAddress(identity.email, identity.name)};
-                                    break;
-                                }
-                                if (identity.account.equals(result.draft.account)) {
-                                    icount++;
-                                    if (identity.primary)
-                                        primary = identity;
-                                    if (first == null)
-                                        first = identity;
-                                }
-                            }
-                            if (result.draft.identity != null)
-                                break;
-                        }
 
-                    // Select primary identity
+                    int iindex = -1;
+                    do {
+                        String from = null;
+                        if (iindex >= 0)
+                            from = Helper.canonicalAddress(((InternetAddress) result.draft.from[iindex]).getAddress());
+                        for (EntityIdentity identity : identities) {
+                            String email = Helper.canonicalAddress(identity.email);
+                            if (email.equals(from)) {
+                                result.draft.identity = identity.id;
+                                result.draft.from = new InternetAddress[]{new InternetAddress(identity.email, identity.name)};
+                                break;
+                            }
+                            if (identity.account.equals(result.draft.account)) {
+                                icount++;
+                                if (identity.primary)
+                                    primary = identity;
+                                if (first == null)
+                                    first = identity;
+                            }
+                        }
+                        if (result.draft.identity != null)
+                            break;
+
+                        iindex++;
+                    } while (iindex < (result.draft.from == null ? -1 : result.draft.from.length));
+
+                    // Select identity
                     if (result.draft.identity == null) {
                         if (primary != null) {
                             result.draft.identity = primary.id;
