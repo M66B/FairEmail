@@ -184,7 +184,7 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
         switch (item.getItemId()) {
             case android.R.id.home:
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                    getSupportFragmentManager().popBackStack();
+                    onBackPressed();
                 return true;
             default:
                 return false;
