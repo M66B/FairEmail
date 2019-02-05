@@ -1808,7 +1808,7 @@ public class FragmentCompose extends FragmentBase {
 
             DB db = DB.getInstance(getContext());
 
-            db.attachment().liveAttachments(result.draft.id).observe(getViewLifecycleOwner(),
+            db.attachment().liveAttachments(result.draft.id, false).observe(getViewLifecycleOwner(),
                     new Observer<List<EntityAttachment>>() {
                         private int last_available = 0;
 
