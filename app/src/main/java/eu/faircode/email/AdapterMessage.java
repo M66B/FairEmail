@@ -980,7 +980,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 else
                     onToggleMessage(message);
             } else {
-                if (EntityFolder.DRAFTS.equals(message.folderType))
+                if (EntityFolder.DRAFTS.equals(message.folderType) && message.visible == 1)
                     context.startActivity(
                             new Intent(context, ActivityCompose.class)
                                     .putExtra("action", "edit")
