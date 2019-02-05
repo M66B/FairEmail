@@ -476,8 +476,6 @@ public class FragmentMessages extends FragmentBase {
 
     @Override
     public void onDestroy() {
-        if (selectionPredicate != null)
-            selectionPredicate.destroy();
         selectionTracker = null;
         super.onDestroy();
     }

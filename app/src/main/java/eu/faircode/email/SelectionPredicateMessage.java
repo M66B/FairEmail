@@ -25,21 +25,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class SelectionPredicateMessage extends SelectionTracker.SelectionPredicate<Long> {
     private boolean enabled;
-    private boolean destroyed;
     private RecyclerView recyclerView;
 
     SelectionPredicateMessage(RecyclerView recyclerView) {
         this.enabled = true;
-        this.destroyed = false;
         this.recyclerView = recyclerView;
     }
 
     void setEnabled(boolean enabled) {
         this.enabled = enabled;
-    }
-
-    void destroy() {
-        this.destroyed = true;
     }
 
     @Override
@@ -72,6 +66,6 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
 
     @Override
     public boolean canSelectMultiple() {
-        return !destroyed;
+        return true;
     }
 }
