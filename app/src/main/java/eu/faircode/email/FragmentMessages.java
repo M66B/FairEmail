@@ -442,27 +442,11 @@ public class FragmentMessages extends FragmentBase {
             selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
                 @Override
                 public void onSelectionChanged() {
-                    SelectionTracker tracker = selectionTracker;
-                    if (tracker == null) // destroyed
-                        return;
-
                     FragmentActivity activity = getActivity();
-                    if (activity != null) {
-                        try {
-                            ViewModelMessages modelMessages = ViewModelProviders.of(activity).get(ViewModelMessages.class);
-                            if (tracker.hasSelection())
-                                modelMessages.removeObservers(viewType, getViewLifecycleOwner());
-                            else
-                                modelMessages.observe(viewType, getViewLifecycleOwner(), observer);
-                        } catch (IllegalStateException ex) {
-                            // getViewLifecycleOwner
-                            Log.w(ex);
-                        }
-
+                    if (activity != null)
                         activity.invalidateOptionsMenu();
-                    }
 
-                    if (tracker.hasSelection()) {
+                    if (selectionTracker != null && selectionTracker.hasSelection()) {
                         swipeRefresh.setEnabled(false);
                         fabMore.show();
                     } else {
@@ -478,7 +462,6 @@ public class FragmentMessages extends FragmentBase {
 
     @Override
     public void onDestroy() {
-        selectionTracker = null;
         super.onDestroy();
     }
 
