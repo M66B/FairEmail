@@ -134,6 +134,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(73) Is moving messages across accounts safe/efficient?](#user-content-faq73)
 * [(74) Why do I see duplicate messages?](#user-content-faq74)
 * [(75) Can you make an iOS, Windows, etc version?](#user-content-faq75)
+* [(76) What does 'Clear local messages' ?](#user-content-faq76)
 
 [I have another question.](#support)
 
@@ -1192,6 +1193,14 @@ I develop apps for Android only.
 
 <br />
 
+<a name="faq76"></a>
+**(76) What does 'Clear local messages' ?**
+
+The folder menu *Clear local messages* removes messages from the device which are present on the server too.
+It does not delete messages from the server.
+This can be useful after changing the folder settings to not download the message content (text and attachments), for example to save space.
+
+<br />
 
 ## Support
 
