@@ -105,6 +105,7 @@
     <string name="title_setup_light_theme">Tema chiaro</string>
     <string name="title_setup_dark_theme">Tema scuro</string>
     <string name="title_setup_black_theme">Tema nero</string>
+    <string name="title_setup_system_theme">Tema di sistema</string>
     <string name="title_setup_defaults">Ripristina predefiniti</string>
     <string name="title_advanced">Opzioni avanzate</string>
     <string name="title_advanced_section_general">Generale</string>
@@ -281,6 +282,7 @@
     <string name="title_no_stream">Un\'app obsoleta ha inviato un percorso file invece di un flusso di file</string>
     <string name="title_no_contacts">Selettore di contatti non disponibile</string>
     <string name="title_no_internet">Nessuna connessione Internet</string>
+    <string name="title_no_folder">La cartella non esiste</string>
     <string name="title_accross_remark">I messaggi spostati tra gli account verranno scaricati di nuovo causando un ulteriore utilizzo dei dati</string>
     <string name="title_raw_saved">Messaggio non elaborato salvato</string>
     <string name="title_attachment_saved">Allegato salvato</string>

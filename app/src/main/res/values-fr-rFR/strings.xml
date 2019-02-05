@@ -104,7 +104,7 @@
     <string name="title_setup_done">Fait</string>
     <string name="title_setup_light_theme">Thème clair</string>
     <string name="title_setup_dark_theme">Thème sombre</string>
-    <string name="title_setup_black_theme">Thème sombre</string>
+    <string name="title_setup_black_theme">Thème noir</string>
     <string name="title_setup_system_theme">Thème système</string>
     <string name="title_setup_defaults">Rétablir les paramètres par défaut</string>
     <string name="title_advanced">Options avancées</string>

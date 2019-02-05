@@ -282,6 +282,7 @@
     <string name="title_no_stream">Eine veraltete App verschickte den Dateinamen anstelle des Datenstroms</string>
     <string name="title_no_contacts">Kontaktauswahl nicht verfügbar</string>
     <string name="title_no_internet">Keine Internetverbindung</string>
+    <string name="title_no_folder">Ordner nicht vorhanden</string>
     <string name="title_accross_remark">E-Mails, die über unterschiedliche Konten verschoben werden, werden erneut heruntergeladen, was zu einem erhöhtem Datenverbrauch führt</string>
     <string name="title_raw_saved">Rohdaten gespeichert</string>
     <string name="title_attachment_saved">Anhang gespeichert</string>

@@ -104,6 +104,7 @@
     <string name="title_setup_light_theme">Aydınlık tema</string>
     <string name="title_setup_dark_theme">Koyu Tema</string>
     <string name="title_setup_black_theme">Siyah tema</string>
+    <string name="title_setup_system_theme">Sistem teması</string>
     <string name="title_setup_defaults">Öntanımlıları geri yükle</string>
     <string name="title_advanced">Gelişmiş seçenekler</string>
     <string name="title_advanced_section_general">Genel</string>
@@ -238,6 +239,7 @@
     <string name="title_folder_system">Sistem</string>
     <string name="title_folder_user">Kullanıcı</string>
     <string name="title_folder_primary">Klasörler birincil hesap</string>
+    <string name="title_folder_thread">Söyleşi %1$s</string>
     <string name="title_folders_unified">Birleşik gelen kutusu klasörleri</string>
     <string name="title_no_messages">İleti yok</string>
     <string name="title_subject_reply">Ynt: %1$s</string>
@@ -275,6 +277,7 @@
     <string name="title_no_stream">Eski bir uygulama bir dosya akışı yerine dosya yolu gönderdi</string>
     <string name="title_no_contacts">Kişi seçici mevcut değil</string>
     <string name="title_no_internet">İnternet bağlantısı yok</string>
+    <string name="title_no_folder">Klasör yok</string>
     <string name="title_raw_saved">Ham ileti kaydedildi</string>
     <string name="title_attachment_saved">Ek kaydedildi</string>
     <string name="title_attachments_saved">Ekler kaydedildi</string>
@@ -302,8 +305,8 @@
     <string name="title_save">Kaydet</string>
     <string name="title_send">Gönder</string>
     <string name="title_no_selection">Seçili hiçbir şey yok</string>
-    <string name="title_style_bold">Kalın</string>
-    <string name="title_style_italic">Eğik</string>
+    <string name="title_style_bold">Kalın yazı</string>
+    <string name="title_style_italic">Eğik yazı</string>
     <string name="title_style_clear">Biçimlendirmeyi temizle</string>
     <string name="title_style_link">Bağlantı ekle</string>
     <string name="title_style_image">Resim Ekle</string>
@@ -368,7 +371,7 @@
     <string name="title_legend_unified">Birleştirilmiş gelen kutusu</string>
     <string name="title_legend_primary_disconnected">Hesap bağlantısı kesildi</string>
     <string name="title_legend_primary_connected">Hesap bağlantısı kuruldu</string>
-    <string name="title_legend_thread">Sohbet</string>
+    <string name="title_legend_thread">Söyleşi</string>
     <string name="title_legend_zoom">Metin boyutunu değiştir</string>
     <string name="title_legend_snoozed">Ertelendi</string>
     <string name="title_legend_answered">Yanıtlandı</string>
@@ -403,7 +406,7 @@
     <string name="title_legend_download_fetch">İndirilen ileti metinlerinin / alınan başlıkların sayısı</string>
     <string name="title_legend_metered">Bağlantı ölçülü</string>
     <string name="title_legend_unmetered">Bağlantı ölçüsüz</string>
-    <string name="title_hint_folder_actions">Ayarlar için uzun basın</string>
+    <string name="title_hint_folder_actions">Seçenekler için uzun basın</string>
     <string name="title_hint_folder_sync">Pil ve ağ kullanımını sınırlamak için, öntanımlı olarak tüm klasörler ve tüm iletilere eşzamanlama yapılmayacak</string>
     <string name="title_hint_support">Bir soru ya da bir probleminiz varsa, lütfen yardım almak için destek menüsünü kullanın</string>
     <string name="title_hint_message_actions">Çöp kutusu için sola kaydırın; arşivlemek için sağa kaydırın (eğer varsa)</string>
