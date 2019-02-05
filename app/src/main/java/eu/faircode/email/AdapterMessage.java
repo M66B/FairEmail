@@ -991,7 +991,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             new Intent(ActivityView.ACTION_VIEW_THREAD)
                                     .putExtra("account", message.account)
                                     .putExtra("thread", message.thread)
-                                    .putExtra("id", message.id));
+                                    .putExtra("id", message.id)
+                                    .putExtra("found", viewType == ViewType.SEARCH));
                 }
             }
         }

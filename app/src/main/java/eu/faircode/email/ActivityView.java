@@ -1070,13 +1070,16 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onViewThread(Intent intent) {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+        boolean found = intent.getBooleanExtra("found", false);
+
+        if (!found && getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
             getSupportFragmentManager().popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         Bundle args = new Bundle();
         args.putLong("account", intent.getLongExtra("account", -1));
         args.putString("thread", intent.getStringExtra("thread"));
         args.putLong("id", intent.getLongExtra("id", -1));
+        args.putBoolean("found", found);
 
         FragmentMessages fragment = new FragmentMessages();
         fragment.setArguments(args);

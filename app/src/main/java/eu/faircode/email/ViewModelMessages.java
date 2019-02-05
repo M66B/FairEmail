@@ -32,18 +32,23 @@ import androidx.lifecycle.ViewModel;
 import androidx.paging.PagedList;
 
 public class ViewModelMessages extends ViewModel {
-    private Map<Boolean, LiveData<PagedList<TupleMessageEx>>> messages = new HashMap<>();
+    private Map<AdapterMessage.ViewType, LiveData<PagedList<TupleMessageEx>>> messages = new HashMap<>();
 
     void setMessages(AdapterMessage.ViewType viewType, LifecycleOwner owner, final LiveData<PagedList<TupleMessageEx>> messages) {
-        final boolean thread = (viewType == AdapterMessage.ViewType.THREAD);
-        this.messages.put(thread, messages);
+        if (viewType == AdapterMessage.ViewType.UNIFIED)
+            viewType = AdapterMessage.ViewType.FOLDER;
 
-        if (thread)
+        this.messages.put(viewType, messages);
+
+        if (viewType == AdapterMessage.ViewType.FOLDER)
+            this.messages.remove(AdapterMessage.ViewType.SEARCH);
+
+        if (viewType == AdapterMessage.ViewType.THREAD)
             owner.getLifecycle().addObserver(new LifecycleObserver() {
                 @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
                 public void onDestroyed() {
                     Log.i("Removed model thread");
-                    ViewModelMessages.this.messages.remove(thread);
+                    ViewModelMessages.this.messages.remove(AdapterMessage.ViewType.THREAD);
                 }
             });
         else {
@@ -57,16 +62,19 @@ public class ViewModelMessages extends ViewModel {
     }
 
     void observe(AdapterMessage.ViewType viewType, LifecycleOwner owner, Observer<PagedList<TupleMessageEx>> observer) {
-        if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.INITIALIZED)) {
-            final boolean thread = (viewType == AdapterMessage.ViewType.THREAD);
-            messages.get(thread).observe(owner, observer);
-        }
+        if (viewType == AdapterMessage.ViewType.UNIFIED)
+            viewType = AdapterMessage.ViewType.FOLDER;
+
+        if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.INITIALIZED))
+            messages.get(viewType).observe(owner, observer);
     }
 
     void removeObservers(AdapterMessage.ViewType viewType, LifecycleOwner owner) {
+        if (viewType == AdapterMessage.ViewType.UNIFIED)
+            viewType = AdapterMessage.ViewType.FOLDER;
+
         if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.INITIALIZED)) {
-            boolean thread = (viewType == AdapterMessage.ViewType.THREAD);
-            LiveData<PagedList<TupleMessageEx>> list = messages.get(thread);
+            LiveData<PagedList<TupleMessageEx>> list = messages.get(viewType);
             if (list != null)
                 list.removeObservers(owner);
         }
@@ -77,8 +85,11 @@ public class ViewModelMessages extends ViewModel {
         messages.clear();
     }
 
-    void observePrevNext(LifecycleOwner owner, final long id, final IPrevNext intf) {
-        LiveData<PagedList<TupleMessageEx>> list = messages.get(false);
+    void observePrevNext(LifecycleOwner owner, final long id, boolean found, final IPrevNext intf) {
+        AdapterMessage.ViewType viewType =
+                (found ? AdapterMessage.ViewType.SEARCH : AdapterMessage.ViewType.FOLDER);
+
+        LiveData<PagedList<TupleMessageEx>> list = messages.get(viewType);
         if (list == null) {
             Log.w("Observe previous/next without list");
             return;

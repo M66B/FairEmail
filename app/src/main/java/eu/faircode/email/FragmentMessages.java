@@ -116,6 +116,7 @@ public class FragmentMessages extends FragmentBase {
     private long folder;
     private String thread;
     private long id;
+    private boolean found;
     private String search;
     private boolean pane;
 
@@ -176,6 +177,7 @@ public class FragmentMessages extends FragmentBase {
         folder = args.getLong("folder", -1);
         thread = args.getString("thread");
         id = args.getLong("id", -1);
+        found = args.getBoolean("found", false);
         search = args.getString("search");
         pane = args.getBoolean("pane", false);
         primary = args.getLong("primary", -1);
@@ -376,7 +378,7 @@ public class FragmentMessages extends FragmentBase {
 
         if (viewType == AdapterMessage.ViewType.THREAD) {
             ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-            model.observePrevNext(getViewLifecycleOwner(), id, new ViewModelMessages.IPrevNext() {
+            model.observePrevNext(getViewLifecycleOwner(), id, found, new ViewModelMessages.IPrevNext() {
                 @Override
                 public void onPrevious(boolean exists, Long id) {
                     previous = id;
@@ -1825,7 +1827,7 @@ public class FragmentMessages extends FragmentBase {
     private void loadMessages() {
         if (viewType == AdapterMessage.ViewType.THREAD && autonext) {
             ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-            model.observePrevNext(getViewLifecycleOwner(), id, new ViewModelMessages.IPrevNext() {
+            model.observePrevNext(getViewLifecycleOwner(), id, found, new ViewModelMessages.IPrevNext() {
                 boolean once = false;
 
                 @Override
@@ -2224,6 +2226,7 @@ public class FragmentMessages extends FragmentBase {
                 nargs.putLong("account", message.account);
                 nargs.putString("thread", message.thread);
                 nargs.putLong("id", message.id);
+                nargs.putBoolean("found", found);
                 nargs.putBoolean("pane", pane);
                 nargs.putLong("primary", primary);
                 nargs.putBoolean("connected", connected);
