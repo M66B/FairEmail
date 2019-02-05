@@ -23,9 +23,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Element;
-
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -336,21 +333,8 @@ public class MessageHelper {
         alternativePart.addBodyPart(plainPart);
         alternativePart.addBodyPart(htmlPart);
 
-        List<String> cids = new ArrayList<>();
-        for (Element element : Jsoup.parse(body.toString()).select("img")) {
-            String src = element.attr("src");
-            if (src.startsWith("cid:"))
-                cids.add("<" + src.substring(4) + ">");
-        }
-
-        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-        for (EntityAttachment attachment : new ArrayList<>(attachments))
-            if (attachment.isInline() && attachment.cid != null && !cids.contains(attachment.cid)) {
-                Log.i("Removing unused inline attachment cid=" + attachment.cid);
-                attachments.remove(attachment);
-            }
-
         int available = 0;
+        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
         for (EntityAttachment attachment : attachments)
             if (attachment.available)
                 available++;

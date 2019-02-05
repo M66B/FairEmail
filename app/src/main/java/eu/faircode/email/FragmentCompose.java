@@ -87,6 +87,7 @@ import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Element;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
@@ -2002,6 +2003,20 @@ public class FragmentCompose extends FragmentBase {
                     Helper.writeText(EntityMessage.getFile(context, draft.id), body);
                     db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body));
                 }
+
+                // Remove unused inline images
+                List<String> cids = new ArrayList<>();
+                for (Element element : Jsoup.parse(body.toString()).select("img")) {
+                    String src = element.attr("src");
+                    if (src.startsWith("cid:"))
+                        cids.add("<" + src.substring(4) + ">");
+                }
+
+                for (EntityAttachment attachment : new ArrayList<>(attachments))
+                    if (attachment.isInline() && attachment.cid != null && !cids.contains(attachment.cid)) {
+                        Log.i("Removing unused inline attachment cid=" + attachment.cid);
+                        db.attachment().deleteAttachment(attachment.id);
+                    }
 
                 // Execute action
                 if (action == R.id.action_delete) {
