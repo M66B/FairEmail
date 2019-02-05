@@ -2564,11 +2564,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         return differ.getItemCount();
     }
 
-    @Override
-    public long getItemId(int position) {
-        return super.getItemId(position);
-    }
-
     private static final DiffUtil.ItemCallback<TupleMessageEx> DIFF_CALLBACK =
             new DiffUtil.ItemCallback<TupleMessageEx>() {
                 @Override
