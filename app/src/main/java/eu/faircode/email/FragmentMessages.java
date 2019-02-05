@@ -659,6 +659,16 @@ public class FragmentMessages extends FragmentBase {
     };
 
     private ItemTouchHelper.Callback touchHelper = new ItemTouchHelper.Callback() {
+        private Handler handler = new Handler();
+
+        private Runnable enableSelection = new Runnable() {
+            @Override
+            public void run() {
+                if (selectionPredicate != null)
+                    selectionPredicate.setEnabled(true);
+            }
+        };
+
         @Override
         public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
             TupleMessageEx message = getMessage(viewHolder);
@@ -693,8 +703,13 @@ public class FragmentMessages extends FragmentBase {
             AdapterMessage.ViewHolder holder = ((AdapterMessage.ViewHolder) viewHolder);
             holder.setDisplacement(dX);
 
-            if (selectionPredicate != null)
-                selectionPredicate.setEnabled(!isCurrentlyActive);
+            if (selectionPredicate != null) {
+                handler.removeCallbacks(enableSelection);
+                if (isCurrentlyActive)
+                    selectionPredicate.setEnabled(false);
+                else
+                    handler.postDelayed(enableSelection, 1000);
+            }
 
             TupleMessageEx message = getMessage(viewHolder);
             if (message == null)
@@ -742,9 +757,6 @@ public class FragmentMessages extends FragmentBase {
                 return;
 
             Log.i("Swiped dir=" + direction + " message=" + message.id);
-
-            if (selectionPredicate != null)
-                selectionPredicate.setEnabled(false);
 
             Bundle args = new Bundle();
             args.putLong("id", message.id);
@@ -1954,9 +1966,6 @@ public class FragmentMessages extends FragmentBase {
                 handleAutoClose();
                 return;
             }
-
-            if (selectionPredicate != null)
-                selectionPredicate.setEnabled(true);
 
             if (viewType == AdapterMessage.ViewType.THREAD) {
                 // Mark duplicates
