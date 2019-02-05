@@ -133,6 +133,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(72) What are primary accounts/identities?](#user-content-faq72)
 * [(73) Is moving messages across accounts safe/efficient?](#user-content-faq73)
 * [(74) Why do I see duplicate messages?](#user-content-faq74)
+* [(75) Can you make an iOS, Windows, etc version?](#user-content-faq75)
 
 [I have another question.](#support)
 
@@ -1181,6 +1182,16 @@ Gmail allows one message to have multiple labels, which are presented to FairEma
 This means that messages with multiple labels will be shown multiple times as well.
 
 Since there is not really an original message because it is in fact just the same message, it is not really possible to show just one message.
+
+<br />
+
+<a name="faq75"></a>
+**(75) Can you make an iOS, Windows, etc version?**
+
+I develop apps for Android only.
+
+<br />
+
 
 ## Support
 
