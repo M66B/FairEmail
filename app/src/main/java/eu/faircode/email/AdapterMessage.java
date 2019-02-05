@@ -639,7 +639,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 bindContactInfo(info, message);
 
             if (message.avatar != null) {
-                if (autohtml)
+                if (autohtml && hasWebView)
                     properties.setValue("html", message.id, true);
 
                 if (autoimages)
