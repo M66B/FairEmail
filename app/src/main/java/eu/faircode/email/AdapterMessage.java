@@ -1398,10 +1398,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     @Override
                     protected void onExecuted(Bundle args, String html) {
-                        properties.setHtml(message.id, html);
+                        long id = args.getLong("id");
+                        properties.setHtml(id, html);
+
+                        TupleMessageEx amessage = getMessage();
+                        if (amessage == null || !amessage.id.equals(id))
+                            return;
+
                         webView.loadDataWithBaseURL("email://", html, "text/html", "UTF-8", null);
 
-                        boolean expanded = properties.getValue("expanded", message.id);
+                        boolean expanded = properties.getValue("expanded", id);
                         pbBody.setVisibility(View.GONE);
                         webView.setVisibility(expanded ? View.VISIBLE : View.GONE);
                     }
