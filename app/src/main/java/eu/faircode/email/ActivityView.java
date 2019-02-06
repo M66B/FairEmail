@@ -83,7 +83,6 @@ import java.util.Locale;
 import java.util.Properties;
 
 import javax.mail.Session;
-import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.net.ssl.HttpsURLConnection;
 
@@ -765,8 +764,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         int times = cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.TIMES_CONTACTED));
                         long last = cursor.getLong(cursor.getColumnIndex(ContactsContract.Contacts.LAST_TIME_CONTACTED));
 
-                        InternetAddress address = new InternetAddress(email, name);
-                        Log.i("Shortcut id=" + id + " address=" + address +
+                        Log.i("Shortcut id=" + id + " email=" + email +
                                 " starred=" + starred + " times=" + times + " last=" + last);
 
                         if (starred == 0 && times == 0 && last == 0)
@@ -784,7 +782,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                         Intent intent = new Intent(this, ActivityCompose.class);
                         intent.setAction(Intent.ACTION_SEND);
-                        intent.setData(Uri.parse("mailto:" + address));
+                        intent.setData(Uri.parse("mailto:" + email));
 
                         shortcuts.add(
                                 new ShortcutInfo.Builder(this, Long.toString(id))
