@@ -1470,8 +1470,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private SimpleTask<SpannableStringBuilder> bodyTask = new SimpleTask<SpannableStringBuilder>() {
-            private String body = null;
-
             @Override
             protected void onPreExecute(Bundle args) {
                 TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
@@ -1484,14 +1482,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             protected SpannableStringBuilder onExecute(Context context, final Bundle args) {
                 DB db = DB.getInstance(context);
                 TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
-                if (body == null)
-                    try {
-                        body = Helper.readText(EntityMessage.getFile(context, message.id));
-                    } catch (IOException ex) {
-                        Log.e(ex);
-                        body = "";
-                        db.message().setMessageContent(message.id, false, null);
-                    }
+
+                String body;
+                try {
+                    body = Helper.readText(EntityMessage.getFile(context, message.id));
+                } catch (IOException ex) {
+                    Log.e(ex);
+                    db.message().setMessageContent(message.id, false, null);
+                    return null;
+                }
 
                 Spanned html = decodeHtml(context, message, body);
 
