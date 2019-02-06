@@ -1687,6 +1687,10 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private void doAdd(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException, IOException {
+        // Add message
+        if (TextUtils.isEmpty(message.msgid))
+            throw new IllegalArgumentException("Message ID missing");
+
         // Get message
         MimeMessage imessage;
         if (folder.id.equals(message.folder)) {
@@ -1741,16 +1745,17 @@ public class ServiceSynchronize extends LifecycleService {
 
         if (folder.id.equals(message.folder)) {
             // Delete previous message
-            if (message.uid != null) {
-                Message iprevious = ifolder.getMessageByUID(message.uid);
-                if (iprevious == null)
-                    Log.e(folder.name + " previous uid=" + message.uid + " not found");
+            Message[] ideletes = ifolder.search(new MessageIDTerm(message.msgid));
+            for (Message idelete : ideletes) {
+                long duid = ifolder.getUID(idelete);
+                if (duid == uid)
+                    Log.i(folder.name + " append confirmed uid=" + duid);
                 else {
-                    Log.i(folder.name + " deleting uid=" + message.uid);
-                    iprevious.setFlag(Flags.Flag.DELETED, true);
-                    ifolder.expunge();
+                    Log.i(folder.name + " deleting uid=" + duid + " msgid=" + message.msgid);
+                    idelete.setFlag(Flags.Flag.DELETED, true);
                 }
             }
+            ifolder.expunge();
         } else {
             // Cross account move
             if (autoread) {
@@ -1861,14 +1866,15 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doDelete(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException {
         // Delete message
-        if (message.msgid != null) {
-            Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
-            for (Message imessage : imessages) {
-                Log.i("Deleting uid=" + message.uid + " msgid=" + message.msgid);
-                imessage.setFlag(Flags.Flag.DELETED, true);
-            }
-            ifolder.expunge();
+        if (TextUtils.isEmpty(message.msgid))
+            throw new IllegalArgumentException("Message ID missing");
+
+        Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
+        for (Message imessage : imessages) {
+            Log.i(folder.name + " deleting uid=" + message.uid + " msgid=" + message.msgid);
+            imessage.setFlag(Flags.Flag.DELETED, true);
         }
+        ifolder.expunge();
 
         db.message().deleteMessage(message.id);
     }
@@ -2578,10 +2584,8 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.i(folder.name + " set uid=" + uid);
                         dup.uid = uid;
                         filter = true;
-                    } else if (dup.uid != uid) {
-                        Log.e(folder.name + " changed uid=" + dup.uid + "/" + uid);
-                        dup.uid = uid;
-                    }
+                    } else
+                        Log.w(folder.name + " changed uid=" + dup.uid + " -> " + uid);
 
                     dup.msgid = msgid;
                     dup.thread = thread;
