@@ -62,6 +62,7 @@ public class ApplicationEx extends Application {
         });
 
         createNotificationChannels();
+        MessageHelper.setSystemProperties();
     }
 
     private void createNotificationChannels() {

@@ -70,6 +70,20 @@ public class MessageHelper {
 
     static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
+    static void setSystemProperties() {
+        System.setProperty("mail.mime.decodetext.strict", "false");
+
+        System.setProperty("mail.mime.ignoreunknownencoding", "true"); // Content-Transfer-Encoding
+        System.setProperty("mail.mime.base64.ignoreerrors", "true");
+        System.setProperty("mail.mime.decodefilename", "true");
+        System.setProperty("mail.mime.encodefilename", "true");
+        System.setProperty("mail.mime.allowutf8", "true"); // InternetAddress, MimeBodyPart, MimeUtility
+
+        // https://docs.oracle.com/javaee/6/api/javax/mail/internet/MimeMultipart.html
+        System.setProperty("mail.mime.multipart.ignoremissingboundaryparameter", "true"); // javax.mail.internet.ParseException: In parameter list
+        System.setProperty("mail.mime.multipart.ignoreexistingboundaryparameter", "true");
+    }
+
     static Properties getSessionProperties(int auth_type, String realm, boolean insecure) {
         Properties props = new Properties();
 
@@ -151,29 +165,8 @@ public class MessageHelper {
         props.put("mail.smtp.writetimeout", Integer.toString(NETWORK_TIMEOUT)); // one thread overhead
         props.put("mail.smtp.timeout", Integer.toString(NETWORK_TIMEOUT));
 
-        props.put("mail.mime.allowutf8", "true");
+        props.put("mail.mime.allowutf8", "true"); // SMTPTransport, MimeMessage
         props.put("mail.mime.address.strict", "false");
-        props.put("mail.mime.decodetext.strict", "false");
-
-        props.put("mail.mime.ignoreunknownencoding", "true"); // Content-Transfer-Encoding
-        props.put("mail.mime.base64.ignoreerrors", "true");
-        props.put("mail.mime.decodefilename", "true");
-        props.put("mail.mime.encodefilename", "true");
-
-        // https://docs.oracle.com/javaee/6/api/javax/mail/internet/MimeMultipart.html
-        props.put("mail.mime.multipart.ignoremissingboundaryparameter", "true"); // javax.mail.internet.ParseException: In parameter list
-        props.put("mail.mime.multipart.ignoreexistingboundaryparameter", "true");
-
-        // The documentation is unclear/inconsistent whether this are system or session properties:
-        System.setProperty("mail.mime.address.strict", "false");
-        System.setProperty("mail.mime.decodetext.strict", "false");
-
-        System.setProperty("mail.mime.ignoreunknownencoding", "true"); // Content-Transfer-Encoding
-        System.setProperty("mail.mime.decodefilename", "true");
-        System.setProperty("mail.mime.encodefilename", "true");
-
-        System.setProperty("mail.mime.multipart.ignoremissingboundaryparameter", "true"); // javax.mail.internet.ParseException: In parameter list
-        System.setProperty("mail.mime.multipart.ignoreexistingboundaryparameter", "true");
 
         if (false) {
             Log.i("Prefering IPv4");
