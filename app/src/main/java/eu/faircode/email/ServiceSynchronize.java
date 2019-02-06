@@ -2760,6 +2760,8 @@ public class ServiceSynchronize extends LifecycleService {
 
             if (update)
                 db.message().updateMessage(message);
+            else
+                Log.i(folder.name + " unchanged uid=" + uid);
         }
 
         List<String> fkeywords = new ArrayList<>(Arrays.asList(folder.keywords));
