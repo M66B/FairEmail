@@ -355,6 +355,7 @@ public class Helper {
             draft.folder = drafts.id;
             draft.identity = (primary == null ? null : primary.id);
             draft.msgid = EntityMessage.generateMessageId();
+            draft.thread = draft.msgid;
             draft.to = new Address[]{myAddress()};
             draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " debug info";
             draft.received = new Date().getTime();
