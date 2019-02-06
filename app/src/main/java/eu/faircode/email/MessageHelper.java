@@ -626,6 +626,10 @@ public class MessageHelper {
             return result;
         }
 
+        List<AttachmentPart> getRawAttachments() {
+            return attachments;
+        }
+
         List<EntityAttachment> getAttachments() throws MessagingException {
             List<EntityAttachment> result = new ArrayList<>();
 
@@ -734,7 +738,7 @@ public class MessageHelper {
         }
     }
 
-    private class AttachmentPart {
+    class AttachmentPart {
         String disposition;
         String filename;
         boolean pgp;

@@ -1,63 +1,221 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ActivityEml">
 
-    <TextView
-        android:id="@+id/tvEml"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:fontFamily="monospace"
-        android:scrollbars="vertical"
-        android:text="EML"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintBottom_toTopOf="@+id/vSeparator"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_weight="2" />
-
-    <View
-        android:id="@+id/vSeparator"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="3dp"
-        android:background="?attr/colorSeparator"
-        app:layout_constraintBottom_toBottomOf="@+id/tvBody"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvEml" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvBody"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="3dp"
-        android:fontFamily="monospace"
-        android:scrollbars="vertical"
-        android:text="Body"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:layout_constraintVertical_weight="1" />
 
-    <eu.faircode.email.ContentLoadingProgressBar
-        android:id="@+id/pbWait"
-        style="@style/Base.Widget.AppCompat.ProgressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvFromTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_from"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/grpEml"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:constraint_referenced_ids="tvEml,vSeparator,tvBody" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvFrom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="From"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvFromTitle"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvToTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_to"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFrom" />
+
+        <TextView
+            android:id="@+id/tvTo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="To"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvToTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvFrom" />
+
+        <TextView
+            android:id="@+id/tvReplyToTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_reply_to"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTo" />
+
+        <TextView
+            android:id="@+id/tvReplyTo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="Reply to"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvReplyToTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvTo" />
+
+        <TextView
+            android:id="@+id/tvCcTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_cc"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
+
+        <TextView
+            android:id="@+id/tvCc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="Cc"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvCcTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
+
+        <TextView
+            android:id="@+id/tvBccTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_bcc"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCc" />
+
+        <TextView
+            android:id="@+id/tvBcc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="Bcc"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvBccTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvCc" />
+
+        <TextView
+            android:id="@+id/tvSubject"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Subject"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBcc" />
+
+        <View
+            android:id="@+id/vSeparatorParts"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSubject" />
+
+        <TextView
+            android:id="@+id/tvParts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Parts"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorParts" />
+
+        <View
+            android:id="@+id/vSeparatorBody"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvParts" />
+
+        <TextView
+            android:id="@+id/tvBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:fontFamily="monospace"
+            android:text="Body"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorBody" />
+
+        <View
+            android:id="@+id/vSeparatorEml"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBody" />
+
+        <TextView
+            android:id="@+id/tvEml"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:fontFamily="monospace"
+            android:text="EML"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorEml" />
+
+        <eu.faircode.email.ContentLoadingProgressBar
+            android:id="@+id/pbWait"
+            style="@style/Base.Widget.AppCompat.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpEml"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="
+            tvFromTitle,tvFrom,
+            tvToTitle,tvTo,
+            tvReplyToTitle,tvReplyTo,
+            tvCcTitle,tvCc,
+            tvBccTitle,tvBcc,
+            tvSubject,
+            vSeparatorParts,tvParts,
+            vSeparatorBody,tvBody,
+            vSeparatorEml,tvEml" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
