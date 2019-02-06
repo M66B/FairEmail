@@ -338,7 +338,13 @@
                 android:id="@+id/grpReady"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:constraint_referenced_ids="tvName,etName,tvOrder,etOrder,cbEnabled,cbStop,tvSender,cbSender,etSender,tvAndSender,tvSubject,cbSubject,etSubject,tvAction,spAction" />
+                app:constraint_referenced_ids="
+                tvName,etName,tvOrder,etOrder,cbEnabled,cbStop,
+                vSeparatorSender,tvSender,cbSender,etSender,ivSender,tvAndSubject,
+                vSeparatorSubject,tvSubject,cbSubject,etSubject,tvAndHeader,
+                vSeparatorHeader,tvHeader,cbHeader,etHeader,
+                vSeparatorAction,tvAction,spAction,tvActionRemark,
+                vSeparatorParameters" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpMove"
