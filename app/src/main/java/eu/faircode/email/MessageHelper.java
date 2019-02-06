@@ -35,7 +35,6 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
@@ -59,7 +58,6 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
-import javax.mail.internet.MimePart;
 import javax.mail.internet.MimeUtility;
 import javax.mail.internet.ParseException;
 
@@ -71,13 +69,6 @@ public class MessageHelper {
     private final static int POOL_TIMEOUT = 45 * 1000; // milliseconds, default 45 sec
 
     static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
-
-    private static final List<String> ENCODINGS = Arrays.asList(
-            "base64",
-            "quoted-printable",
-            "uuencode", "x-uuencode", "x-uue",
-            "binary", "7bit", "8bit"
-    );
 
     static Properties getSessionProperties(int auth_type, String realm, boolean insecure) {
         Properties props = new Properties();
@@ -604,8 +595,6 @@ public class MessageHelper {
             Part part = (html == null ? plain : html);
 
             try {
-                fixEncoding((MimePart) part);
-
                 Object content = part.getContent();
                 if (content instanceof String)
                     result = (String) content;
@@ -642,33 +631,6 @@ public class MessageHelper {
                 result = "<pre>" + result.replaceAll("\\r?\\n", "<br />") + "</pre>";
 
             return result;
-        }
-
-        private void fixEncoding(MimePart part) throws MessagingException {
-            String mencoding = part.getEncoding();
-            if (mencoding == null || ENCODINGS.contains(mencoding))
-                return;
-
-            String cte = part.getHeader("Content-Transfer-Encoding")[0];
-            Log.i("Attempting to fix encoding=" + cte);
-
-            for (String encoding : ENCODINGS) {
-                boolean contains = true;
-                for (String pencoding : encoding.split("-"))
-                    contains = (contains && mencoding.toLowerCase().contains(pencoding));
-
-                if (contains) {
-                    String warning = "Changed invalid encoding " + cte + " to " + encoding;
-                    Log.w(warning);
-                    warnings.add(warning);
-                    part.setHeader("Content-Transfer-Encoding", encoding);
-                    return;
-                }
-            }
-
-            String warning = "Unfixable encoding " + cte;
-            Log.w(warning);
-            warnings.add(warning);
         }
 
         List<EntityAttachment> getAttachments() throws MessagingException {
