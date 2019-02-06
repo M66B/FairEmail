@@ -626,7 +626,7 @@ public class MessageHelper {
             return result;
         }
 
-        List<AttachmentPart> getRawAttachments() {
+        List<AttachmentPart> getAttachmentParts() {
             return attachments;
         }
 
