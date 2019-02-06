@@ -26,7 +26,6 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -40,7 +39,6 @@ import androidx.fragment.app.Fragment;
 
 abstract class ActivityBase extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     private boolean contacts;
-    private SwipeListener swipeListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,17 +63,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         prefs.registerOnSharedPreferenceChangeListener(this);
 
         super.onCreate(savedInstanceState);
-    }
-
-    void setSwipeListener(SwipeListener.ISwipeListener listener) {
-        swipeListener = new SwipeListener(this, listener);
-    }
-
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        if (swipeListener != null)
-            swipeListener.onTouch(null, ev);
-        return super.dispatchTouchEvent(ev);
     }
 
     @Override

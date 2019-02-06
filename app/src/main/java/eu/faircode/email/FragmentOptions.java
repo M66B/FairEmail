@@ -94,7 +94,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
 
     static String[] OPTIONS_RESTART = new String[]{
             "unified", "date", "threading", "avatars", "identicons", "preview", "addresses", "autoimages", "actionbar",
-            "pull", "autoexpand", "autoclose", "autonext",
+            "pull", "swipenav", "autoexpand", "autoclose", "autonext",
             "debug"
     };
 
