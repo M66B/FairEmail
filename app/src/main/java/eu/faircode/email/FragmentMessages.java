@@ -167,6 +167,7 @@ public class FragmentMessages extends FragmentBase {
     private static final int LOCAL_PAGE_SIZE = 100;
     private static final int REMOTE_PAGE_SIZE = 10;
     private static final int UNDO_TIMEOUT = 5000; // milliseconds
+    private static final int SWIPE_DISABLE_SELECT_DURATION = 1500; // milliseconds
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -687,7 +688,7 @@ public class FragmentMessages extends FragmentBase {
                 if (isCurrentlyActive)
                     selectionPredicate.setEnabled(false);
                 else
-                    handler.postDelayed(enableSelection, 1000);
+                    handler.postDelayed(enableSelection, SWIPE_DISABLE_SELECT_DURATION);
             }
 
             TupleMessageEx message = getMessage(viewHolder);
