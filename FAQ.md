@@ -865,7 +865,8 @@ This can result into the error message *An outdated app sent a file path instead
 when a file name instead of a file stream is presented to FairEmail.
 You can fix this by switching to an up-to-date file manager or an app designed for recent Android versions.
 
-See also [question 25](#user-content-faq25).
+See also [question 25](#user-content-faq25)
+and [what Google writes about it](https://developer.android.com/training/secure-file-sharing/share-file#RespondToRequest).
 
 <br />
 
