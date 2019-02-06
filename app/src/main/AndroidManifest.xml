@@ -123,6 +123,29 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ActivityEml"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="content" />
+                <data android:mimeType="*/*" />
+                <data android:host="*" />
+                <data android:pathPattern=".*\\.eml" />
+                <data android:pathPattern=".*\\..*\\.eml" />
+                <data android:pathPattern=".*\\..*\\..*\\.eml" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.eml" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.eml" />
+            </intent-filter>
+        </activity>
+
         <service android:name=".ServiceSynchronize" />
 
         <service
