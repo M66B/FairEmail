@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_next"
+        android:icon="@drawable/baseline_navigate_next_24"
+        android:title="@string/title_next" />
+
+    <item
+        android:id="@+id/action_delete"
+        android:icon="@drawable/baseline_delete_24"
+        android:title="@string/title_trash" />
+
+    <item
+        android:id="@+id/action_archive"
+        android:icon="@drawable/baseline_archive_24"
+        android:title="@string/title_archive" />
+
+    <item
+        android:id="@+id/action_prev"
+        android:icon="@drawable/baseline_navigate_before_24"
+        android:title="@string/title_previous" />
+</menu>
