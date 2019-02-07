@@ -10,6 +10,8 @@ import android.text.Spanned;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -56,8 +58,16 @@ public class ActivityEml extends ActivityBase {
 
         new SimpleTask<Result>() {
             @Override
+            protected void onPostExecute(Bundle args) {
+                pbWait.setVisibility(View.GONE);
+            }
+
+            @Override
             protected Result onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
+
+                if ("file".equals(uri.getScheme()))
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
 
                 Result result = new Result();
 
@@ -119,12 +129,14 @@ public class ActivityEml extends ActivityBase {
                 tvBody.setText(result.body);
                 tvEml.setText(result.eml);
                 grpEml.setVisibility(View.VISIBLE);
-                pbWait.setVisibility(View.GONE);
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(ActivityEml.this, ActivityEml.this, ex);
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(findViewById(android.R.id.content), ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Helper.unexpectedError(ActivityEml.this, ActivityEml.this, ex);
             }
         }.execute(this, args, "eml");
     }
