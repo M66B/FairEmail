@@ -621,6 +621,13 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     for (int a = 0; a < jaccounts.length(); a++) {
                         JSONObject jaccount = (JSONObject) jaccounts.get(a);
                         EntityAccount account = EntityAccount.fromJSON(jaccount);
+
+                        // Forward referenced
+                        Long swipe_left = account.swipe_left;
+                        Long swipe_right = account.swipe_right;
+                        account.swipe_left = null;
+                        account.swipe_right = null;
+
                         account.created = new Date().getTime();
                         account.id = db.account().insertAccount(account);
                         Log.i("Imported account=" + account.name);
@@ -642,8 +649,17 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                         for (int f = 0; f < jfolders.length(); f++) {
                             JSONObject jfolder = (JSONObject) jfolders.get(f);
                             EntityFolder folder = EntityFolder.fromJSON(jfolder);
+                            long id = folder.id;
+                            folder.id = null;
+
                             folder.account = account.id;
                             folder.id = db.folder().insertFolder(folder);
+
+                            if (swipe_left != null && swipe_left.equals(id))
+                                account.swipe_left = folder.id;
+                            if (swipe_right != null && swipe_right.equals(id))
+                                account.swipe_right = folder.id;
+
                             if (jfolder.has("rules")) {
                                 JSONArray jrules = jfolder.getJSONArray("rules");
                                 for (int r = 0; r < jrules.length(); r++) {
@@ -655,6 +671,9 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                             }
                             Log.i("Imported folder=" + folder.name);
                         }
+
+                        // Update swipe left/right
+                        db.account().updateAccount(account);
                     }
 
                     JSONArray janswers = jimport.getJSONArray("answers");

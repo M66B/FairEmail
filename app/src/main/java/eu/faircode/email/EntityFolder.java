@@ -253,6 +253,7 @@ public class EntityFolder implements Serializable {
 
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
+        json.put("id", id);
         json.put("name", name);
         json.put("type", type);
         json.put("level", level);
@@ -270,6 +271,7 @@ public class EntityFolder implements Serializable {
 
     public static EntityFolder fromJSON(JSONObject json) throws JSONException {
         EntityFolder folder = new EntityFolder();
+        folder.id = json.getLong("id");
         folder.name = json.getString("name");
         folder.type = json.getString("type");
 

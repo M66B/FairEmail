@@ -240,6 +240,7 @@ public class EntityRule {
 
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
+        json.put("id", id);
         json.put("name", name);
         json.put("order", order);
         json.put("enabled", enabled);
@@ -251,6 +252,7 @@ public class EntityRule {
 
     public static EntityRule fromJSON(JSONObject json) throws JSONException {
         EntityRule rule = new EntityRule();
+        // id
         rule.name = json.getString("name");
         rule.order = json.getInt("order");
         rule.enabled = json.getBoolean("enabled");

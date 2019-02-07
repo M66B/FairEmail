@@ -108,6 +108,7 @@ public class EntityAccount implements Serializable {
 
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
+        json.put("id", id);
         json.put("auth_type", auth_type);
         json.put("host", host);
         json.put("starttls", starttls);
@@ -139,6 +140,7 @@ public class EntityAccount implements Serializable {
 
     public static EntityAccount fromJSON(JSONObject json) throws JSONException {
         EntityAccount account = new EntityAccount();
+        // id
         account.auth_type = json.getInt("auth_type");
         account.host = json.getString("host");
         account.starttls = (json.has("starttls") && json.getBoolean("starttls"));

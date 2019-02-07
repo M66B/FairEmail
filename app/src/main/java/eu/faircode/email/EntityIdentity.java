@@ -89,6 +89,7 @@ public class EntityIdentity {
 
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
+        json.put("id", id);
         json.put("name", name);
         json.put("email", email);
         json.put("display", display);
@@ -122,6 +123,7 @@ public class EntityIdentity {
 
     public static EntityIdentity fromJSON(JSONObject json) throws JSONException {
         EntityIdentity identity = new EntityIdentity();
+        // id
         identity.name = json.getString("name");
         identity.email = json.getString("email");
         if (json.has("display"))

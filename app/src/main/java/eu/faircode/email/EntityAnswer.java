@@ -71,6 +71,7 @@ public class EntityAnswer implements Serializable {
 
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
+        json.put("id", id);
         json.put("name", name);
         json.put("text", text);
         return json;
@@ -78,6 +79,7 @@ public class EntityAnswer implements Serializable {
 
     public static EntityAnswer fromJSON(JSONObject json) throws JSONException {
         EntityAnswer answer = new EntityAnswer();
+        // id
         answer.name = json.getString("name");
         answer.text = json.getString("text");
         return answer;
