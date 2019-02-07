@@ -50,27 +50,27 @@ android {
     productFlavors {
         full {
             dimension "all"
-            buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
-            buildConfigField "String", "INVITE_LINK", "\"https://email.faircode.eu/\""
-            buildConfigField "String", "PRO_FEATURES", "\"https://email.faircode.eu/donate/\""
-            buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/open-source-email/releases/latest\""
             buildConfigField "boolean", "BETA_RELEASE", "true"
+            buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
+            buildConfigField "String", "INVITE_URI", "\"https://email.faircode.eu/\""
+            buildConfigField "String", "PRO_FEATURES_URI", "\"https://email.faircode.eu/donate/\""
+            buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/open-source-email/releases/latest\""
         }
         play_beta {
             dimension "all"
-            buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
-            buildConfigField "String", "INVITE_LINK", "\"https://play.google.com/apps/testing/eu.faircode.email\""
-            buildConfigField "String", "PRO_FEATURES", "\"https://email.faircode.eu/#pro\""
-            buildConfigField "String", "GITHUB_LATEST_API", "\"\""
             buildConfigField "boolean", "BETA_RELEASE", "true"
+            buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
+            buildConfigField "String", "INVITE_URI", "\"https://play.google.com/apps/testing/eu.faircode.email\""
+            buildConfigField "String", "PRO_FEATURES_URI", "\"https://email.faircode.eu/#pro\""
+            buildConfigField "String", "GITHUB_LATEST_API", "\"\""
         }
         play_release {
             dimension "all"
-            buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
-            buildConfigField "String", "INVITE_LINK", "\"https://play.google.com/store/apps/details?id=eu.faircode.email\""
-            buildConfigField "String", "PRO_FEATURES", "\"https://email.faircode.eu/#pro\""
-            buildConfigField "String", "GITHUB_LATEST_API", "\"\""
             buildConfigField "boolean", "BETA_RELEASE", "false"
+            buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
+            buildConfigField "String", "INVITE_URI", "\"https://play.google.com/store/apps/details?id=eu.faircode.email\""
+            buildConfigField "String", "PRO_FEATURES_URI", "\"https://email.faircode.eu/#pro\""
+            buildConfigField "String", "GITHUB_LATEST_API", "\"\""
         }
     }
 

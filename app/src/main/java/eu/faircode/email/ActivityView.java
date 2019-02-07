@@ -806,7 +806,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private Intent getIntentInvite() {
         StringBuilder sb = new StringBuilder();
         sb.append(getString(R.string.title_try)).append("\n\n");
-        sb.append(BuildConfig.INVITE_LINK).append("\n\n");
+        sb.append(BuildConfig.INVITE_URI).append("\n\n");
 
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");

@@ -101,7 +101,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
 
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(BuildConfig.PRO_FEATURES + "?challenge=" + getChallenge()));
+            intent.setData(Uri.parse(BuildConfig.PRO_FEATURES_URI + "?challenge=" + getChallenge()));
             return intent;
         } catch (NoSuchAlgorithmException ex) {
             Log.e(ex);
