@@ -23,7 +23,7 @@ For authorizing:
 
 ## Known problems
 
-A [bug in Android](https://issuetracker.google.com/issues/78495471) lets FairEmail occasionally crash on long pressing or swiping.
+~~A [bug in Android](https://issuetracker.google.com/issues/78495471) lets FairEmail occasionally crash on long pressing or swiping.~~
 
 
 ## Planned features
