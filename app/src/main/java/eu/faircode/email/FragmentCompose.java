@@ -1875,7 +1875,7 @@ public class FragmentCompose extends FragmentBase {
     void handleFileShare() {
         final Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq49"));
+        intent.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq49"));
         boolean resolves = (intent.resolveActivity(getContext().getPackageManager()) != null);
 
         Snackbar sb = Snackbar.make(view,

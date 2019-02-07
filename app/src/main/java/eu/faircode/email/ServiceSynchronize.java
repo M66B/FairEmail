@@ -313,7 +313,7 @@ public class ServiceSynchronize extends LifecycleService {
                 switch (parts[0]) {
                     case "why":
                         Intent why = new Intent(Intent.ACTION_VIEW);
-                        why.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq2"));
+                        why.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq2"));
                         why.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
                         PackageManager pm = getPackageManager();

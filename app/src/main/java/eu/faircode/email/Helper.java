@@ -105,6 +105,8 @@ public class Helper {
 
     static final float LOW_LIGHT = 0.6f;
 
+    static final String FAQ_URI = "https://github.com/M66B/open-source-email/blob/master/FAQ.md";
+
     static ThreadFactory backgroundThreadFactory = new ThreadFactory() {
         @Override
         public Thread newThread(@NonNull Runnable runnable) {
@@ -177,7 +179,7 @@ public class Helper {
 
     static Intent getIntentFAQ() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/FAQ.md"));
+        intent.setData(Uri.parse(Helper.FAQ_URI));
         return intent;
     }
 

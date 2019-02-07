@@ -168,7 +168,7 @@ public class FragmentOperations extends FragmentBase {
 
     private Intent getFAQIntent() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq3"));
+        intent.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq3"));
         return intent;
     }
 }
