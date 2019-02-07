@@ -860,10 +860,11 @@ so you'll need to select one account to be the primary account and/or you'll nee
 <a name="faq49"></a>
 **(49) How can I fix 'An outdated app sent a file path instead of a file stream' ?**
 
-You likely selected or sent an attachment or image with an outdated file manager or an outdated app that assumes all apps still have storage permissions.
+You likely selected or sent an attachment or image with an outdated file manager
+or an outdated app which assumes all apps still have storage permissions.
 For security and privacy reasons modern apps like FairEmail have no full access to all files anymore.
 This can result into the error message *An outdated app sent a file path instead of a file stream*
-when a file name instead of a file stream is presented to FairEmail.
+if a file name instead of a file stream is being shared with FairEmail because FairEmail cannot randomly open files.
 You can fix this by switching to an up-to-date file manager or an app designed for recent Android versions.
 Alternatively, you can grant FairEmail read access to the storage space on your device in the Android app settings.
 

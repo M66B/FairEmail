@@ -1244,8 +1244,8 @@ public class FragmentCompose extends FragmentBase {
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 // External app sending absolute file
-                if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                if (ex instanceof SecurityException)
+                    handleFileShare();
                 else
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
@@ -1330,7 +1330,7 @@ public class FragmentCompose extends FragmentBase {
         if ("file".equals(uri.getScheme()) &&
                 !Helper.hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)) {
             Log.w("Add attachment uri=" + uri);
-            throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
+            throw new SecurityException();
         }
 
         EntityAttachment attachment = new EntityAttachment();
@@ -1862,13 +1862,33 @@ public class FragmentCompose extends FragmentBase {
 
         @Override
         protected void onException(Bundle args, Throwable ex) {
+            pbWait.setVisibility(View.GONE);
+
             // External app sending absolute file
-            if (ex instanceof IllegalArgumentException)
-                Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+            if (ex instanceof SecurityException)
+                handleFileShare();
             else
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
         }
     };
+
+    void handleFileShare() {
+        final Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq49"));
+        boolean resolves = (intent.resolveActivity(getContext().getPackageManager()) != null);
+
+        Snackbar sb = Snackbar.make(view,
+                R.string.title_no_stream,
+                resolves ? Snackbar.LENGTH_INDEFINITE : Snackbar.LENGTH_LONG);
+        if (resolves)
+            sb.setAction(R.string.title_info, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(intent);
+                }
+            });
+        sb.show();
+    }
 
     private SimpleTask<EntityMessage> actionLoader = new SimpleTask<EntityMessage>() {
         int last_available = 0;

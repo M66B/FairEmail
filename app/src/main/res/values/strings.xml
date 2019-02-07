@@ -501,6 +501,7 @@
     <string name="title_undo">Undo</string>
     <string name="title_add">Add</string>
     <string name="title_browse">Browse</string>
+    <string name="title_info">Info</string>
     <string name="title_report">Report</string>
     <string name="title_no_ask_again">Do not ask this again</string>
     <string name="title_no_adobe">Adobe Acrobat reader cannot open safely shared files, see the FAQ for more information</string>
