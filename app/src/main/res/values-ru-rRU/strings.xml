@@ -450,6 +450,7 @@
     <string name="title_undo">Отменить</string>
     <string name="title_add">Добавить</string>
     <string name="title_browse">Обзор</string>
+    <string name="title_info">Инфо</string>
     <string name="title_report">Отчет</string>
     <string name="title_no_ask_again">Больше не спрашивать</string>
     <string name="title_no_adobe">Adobe Acrobat Reader не открывает файлы безопасно, смотрите FAQ для более детального описания</string>

@@ -434,6 +434,7 @@
     <string name="title_undo">Ongedaan maken</string>
     <string name="title_add">Toevoegen</string>
     <string name="title_browse">Bladeren</string>
+    <string name="title_info">Info</string>
     <string name="title_report">Rapporteer</string>
     <string name="title_no_ask_again">Dit niet meer vragen</string>
     <string name="title_no_adobe">Adobe Acrobat reader kan veilig gedeelde bestanden niet openen, zie de FAQ voor meer informatie</string>

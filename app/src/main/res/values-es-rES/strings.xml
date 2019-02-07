@@ -434,6 +434,7 @@
     <string name="title_undo">Deshacer</string>
     <string name="title_add">Agregar</string>
     <string name="title_browse">Explorar</string>
+    <string name="title_info">Info</string>
     <string name="title_report">Reportar</string>
     <string name="title_no_ask_again">No volver a preguntar</string>
     <string name="title_no_adobe">Adobe Acrobat Reader no puede abrir archivos compartidos de forma segura, consulte las Preguntas Frecuentes para más información</string>

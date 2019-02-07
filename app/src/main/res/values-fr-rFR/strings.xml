@@ -434,6 +434,7 @@
     <string name="title_undo">Annuler</string>
     <string name="title_add">Ajouter</string>
     <string name="title_browse">Parcourir</string>
+    <string name="title_info">Info</string>
     <string name="title_report">Rapport</string>
     <string name="title_no_ask_again">Ne plus me le demander</string>
     <string name="title_no_adobe">Adobe Acrobat reader ne peut pas ouvrir les fichiers partagés de façon sécurisée, voir la FAQ plus d\'information</string>

@@ -434,6 +434,7 @@
     <string name="title_undo">Rückgängig</string>
     <string name="title_add">Hinzufügen</string>
     <string name="title_browse">Browser</string>
+    <string name="title_info">Info</string>
     <string name="title_report">Bericht</string>
     <string name="title_no_ask_again">Dies nicht mehr anzeigen</string>
     <string name="title_no_adobe">Adobe Acrobat Reader kann freigegebene Dateien nicht sicher öffnen, schauen Sie bitte in die FAQ für weitere Informationen</string>
