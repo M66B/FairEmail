@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -19,8 +18,6 @@ import java.util.Map;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
-
-import androidx.core.content.ContextCompat;
 
 public class ContactInfo {
     private String email;
@@ -91,8 +88,7 @@ public class ContactInfo {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
-        if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
-                == PackageManager.PERMISSION_GRANTED)
+        if (Helper.hasPermission(context, Manifest.permission.READ_CONTACTS))
             try {
                 Cursor cursor = null;
                 try {
@@ -159,8 +155,7 @@ public class ContactInfo {
             return null;
         InternetAddress address = (InternetAddress) addresses[0];
 
-        if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
-                != PackageManager.PERMISSION_GRANTED)
+        if (!Helper.hasPermission(context, Manifest.permission.READ_CONTACTS))
             return null;
 
         try {

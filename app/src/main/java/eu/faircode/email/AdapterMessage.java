@@ -109,7 +109,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
@@ -2480,8 +2479,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         this.date = prefs.getBoolean("date", true);
         this.threading = prefs.getBoolean("threading", true);
-        this.contacts = (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
-                == PackageManager.PERMISSION_GRANTED);
+        this.contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
         this.search = (context.getPackageManager().getComponentEnabledSetting(
                 new ComponentName(context, ActivitySearch.class)) ==
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED);

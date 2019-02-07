@@ -136,4 +136,11 @@ public class FragmentBase extends Fragment {
         Bundle args = getArguments();
         return (args != null && args.getBoolean("pane"));
     }
+
+    boolean hasPermission(String name) {
+        ActivityBase activity = (ActivityBase) getActivity();
+        if (activity == null)
+            return false;
+        return activity.hasPermission(name);
+    }
 }

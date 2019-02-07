@@ -90,6 +90,7 @@ import javax.mail.internet.InternetAddress;
 
 import androidx.annotation.NonNull;
 import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 
@@ -112,6 +113,10 @@ public class Helper {
             return thread;
         }
     };
+
+    static boolean hasPermission(Context context, String name) {
+        return (ContextCompat.checkSelfPermission(context, name) == PackageManager.PERMISSION_GRANTED);
+    }
 
     static void view(Context context, LifecycleOwner owner, Intent intent) {
         Uri uri = intent.getData();

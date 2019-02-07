@@ -29,7 +29,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.content.res.Configuration;
@@ -89,7 +88,6 @@ import javax.net.ssl.HttpsURLConnection;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.content.ContextCompat;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -734,8 +732,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         List<ShortcutInfo> shortcuts = new ArrayList<>();
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
-                == PackageManager.PERMISSION_GRANTED) {
+        if (hasPermission(Manifest.permission.READ_CONTACTS)) {
             Cursor cursor = null;
             try {
                 // https://developer.android.com/guide/topics/providers/contacts-provider#ObsoleteData

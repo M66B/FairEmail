@@ -22,7 +22,6 @@ package eu.faircode.email;
 import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -34,7 +33,6 @@ import java.util.List;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 abstract class ActivityBase extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -44,8 +42,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     protected void onCreate(Bundle savedInstanceState) {
         Log.i("Create " + this.getClass().getName() + " version=" + BuildConfig.VERSION_NAME);
 
-        this.contacts = (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
-                == PackageManager.PERMISSION_GRANTED);
+        this.contacts = hasPermission(Manifest.permission.READ_CONTACTS);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String theme = prefs.getString("theme", null);
@@ -69,9 +66,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     protected void onResume() {
         Log.i("Resume " + this.getClass().getName());
 
-        boolean contacts = (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
-                == PackageManager.PERMISSION_GRANTED);
-
+        boolean contacts = hasPermission(Manifest.permission.READ_CONTACTS);
         if (!this.getClass().equals(ActivitySetup.class) && this.contacts != contacts) {
             Log.i("Contacts permission=" + contacts);
             finish();
@@ -117,6 +112,10 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         } else if (!this.getClass().equals(ActivitySetup.class) &&
                 Arrays.asList(FragmentOptions.OPTIONS_RESTART).contains(key))
             finish();
+    }
+
+    public boolean hasPermission(String name) {
+        return Helper.hasPermission(this, name);
     }
 
     protected View getVisibleView() {

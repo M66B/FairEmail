@@ -78,7 +78,6 @@ import javax.mail.Session;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 import static android.accounts.AccountManager.newChooseAccountIntent;
@@ -349,7 +348,7 @@ public class FragmentAccount extends FragmentBase {
                 if ("com.google".equals(provider.type)) {
                     String permission = Manifest.permission.GET_ACCOUNTS;
                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O &&
-                            ContextCompat.checkSelfPermission(getContext(), permission) != PackageManager.PERMISSION_GRANTED) {
+                            !Helper.hasPermission(getContext(), permission)) {
                         Log.i("Requesting " + permission);
                         requestPermissions(new String[]{permission}, ActivitySetup.REQUEST_PERMISSION);
                     } else

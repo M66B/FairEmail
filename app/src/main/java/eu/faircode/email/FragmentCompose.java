@@ -124,7 +124,6 @@ import javax.mail.internet.MimeMessage;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.content.ContextCompat;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
@@ -398,8 +397,7 @@ public class FragmentCompose extends FragmentBase {
         getActivity().invalidateOptionsMenu();
         Helper.setViewsEnabled(view, false);
 
-        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_CONTACTS)
-                == PackageManager.PERMISSION_GRANTED) {
+        if (Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS)) {
             SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                     getContext(),
                     android.R.layout.simple_list_item_2,

@@ -63,7 +63,6 @@ import javax.mail.Transport;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 
 import static android.accounts.AccountManager.newChooseAccountIntent;
 import static android.app.Activity.RESULT_OK;
@@ -104,7 +103,7 @@ public class FragmentQuickSetup extends FragmentBase {
             public void onClick(View v) {
                 String permission = Manifest.permission.GET_ACCOUNTS;
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O &&
-                        ContextCompat.checkSelfPermission(getContext(), permission) != PackageManager.PERMISSION_GRANTED) {
+                        !Helper.hasPermission(getContext(), permission)) {
                     Log.i("Requesting " + permission);
                     requestPermissions(new String[]{permission}, ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
                 } else
