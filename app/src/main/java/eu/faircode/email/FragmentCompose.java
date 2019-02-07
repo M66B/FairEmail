@@ -1327,14 +1327,15 @@ public class FragmentCompose extends FragmentBase {
 
     private static EntityAttachment addAttachment(Context context, long id, Uri uri,
                                                   boolean image) throws IOException {
-        if ("file".equals(uri.getScheme())) {
+        if ("file".equals(uri.getScheme()) &&
+                !Helper.hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)) {
             Log.w("Add attachment uri=" + uri);
             throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
         }
 
         EntityAttachment attachment = new EntityAttachment();
 
-        String name = null;
+        String name = uri.getLastPathSegment();
         String s = null;
 
         Cursor cursor = null;

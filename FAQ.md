@@ -149,6 +149,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while synchronizing messages
 * Optional: *read your contacts* (READ_CONTACTS): to autocomplete addresses and to show photos
 * Optional: *find accounts on the device* (GET_ACCOUNTS): to use [OAuth](https://en.wikipedia.org/wiki/OAuth) instead of passwords
+* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
 * Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): needed to select accounts (not used/needed on later Android versions)
 
 <br />
@@ -864,6 +865,7 @@ For security and privacy reasons modern apps like FairEmail have no full access 
 This can result into the error message *An outdated app sent a file path instead of a file stream*
 when a file name instead of a file stream is presented to FairEmail.
 You can fix this by switching to an up-to-date file manager or an app designed for recent Android versions.
+Alternatively, you can grant FairEmail read access to the storage space on your device in the Android app settings.
 
 See also [question 25](#user-content-faq25)
 and [what Google writes about it](https://developer.android.com/training/secure-file-sharing/share-file#RespondToRequest).
