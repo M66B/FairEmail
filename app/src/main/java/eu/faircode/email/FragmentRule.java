@@ -457,52 +457,6 @@ public class FragmentRule extends FragmentBase {
         try {
             Helper.setViewsEnabled(view, false);
 
-            JSONObject jcondition = new JSONObject();
-
-            String sender = etSender.getText().toString();
-            if (!TextUtils.isEmpty(sender)) {
-                JSONObject jsender = new JSONObject();
-                jsender.put("value", sender);
-                jsender.put("regex", cbSender.isChecked());
-                jcondition.put("sender", jsender);
-            }
-
-            String subject = etSubject.getText().toString();
-            if (!TextUtils.isEmpty(subject)) {
-                JSONObject jsubject = new JSONObject();
-                jsubject.put("value", subject);
-                jsubject.put("regex", cbSubject.isChecked());
-                jcondition.put("subject", jsubject);
-            }
-
-            String header = etHeader.getText().toString();
-            if (!TextUtils.isEmpty(header)) {
-                JSONObject jheader = new JSONObject();
-                jheader.put("value", header);
-                jheader.put("regex", cbHeader.isChecked());
-                jcondition.put("header", jheader);
-            }
-
-            JSONObject jaction = new JSONObject();
-
-            Action action = (Action) spAction.getSelectedItem();
-            if (action != null) {
-                jaction.put("type", action.type);
-                switch (action.type) {
-                    case EntityRule.TYPE_MOVE:
-                        EntityFolder target = (EntityFolder) spTarget.getSelectedItem();
-                        jaction.put("target", target.id);
-                        break;
-
-                    case EntityRule.TYPE_ANSWER:
-                        EntityIdentity identity = (EntityIdentity) spIdent.getSelectedItem();
-                        EntityAnswer answer = (EntityAnswer) spAnswer.getSelectedItem();
-                        jaction.put("identity", identity.id);
-                        jaction.put("answer", answer.id);
-                        break;
-                }
-            }
-
             Bundle args = new Bundle();
             args.putLong("id", id);
             args.putLong("folder", folder);
@@ -510,8 +464,8 @@ public class FragmentRule extends FragmentBase {
             args.putString("order", etOrder.getText().toString());
             args.putBoolean("enabled", cbEnabled.isChecked());
             args.putBoolean("stop", cbStop.isChecked());
-            args.putString("condition", jcondition.toString());
-            args.putString("action", jaction.toString());
+            args.putString("condition", getCondition().toString());
+            args.putString("action", getAction().toString());
 
             new SimpleTask<Void>() {
                 @Override
@@ -596,6 +550,60 @@ public class FragmentRule extends FragmentBase {
     private void showActionParameters(int type) {
         grpMove.setVisibility(type == EntityRule.TYPE_MOVE ? View.VISIBLE : View.GONE);
         grpAnswer.setVisibility(type == EntityRule.TYPE_ANSWER ? View.VISIBLE : View.GONE);
+    }
+
+    private JSONObject getCondition() throws JSONException {
+        JSONObject jcondition = new JSONObject();
+
+        String sender = etSender.getText().toString();
+        if (!TextUtils.isEmpty(sender)) {
+            JSONObject jsender = new JSONObject();
+            jsender.put("value", sender);
+            jsender.put("regex", cbSender.isChecked());
+            jcondition.put("sender", jsender);
+        }
+
+        String subject = etSubject.getText().toString();
+        if (!TextUtils.isEmpty(subject)) {
+            JSONObject jsubject = new JSONObject();
+            jsubject.put("value", subject);
+            jsubject.put("regex", cbSubject.isChecked());
+            jcondition.put("subject", jsubject);
+        }
+
+        String header = etHeader.getText().toString();
+        if (!TextUtils.isEmpty(header)) {
+            JSONObject jheader = new JSONObject();
+            jheader.put("value", header);
+            jheader.put("regex", cbHeader.isChecked());
+            jcondition.put("header", jheader);
+        }
+
+        return jcondition;
+    }
+
+    private JSONObject getAction() throws JSONException {
+        JSONObject jaction = new JSONObject();
+
+        Action action = (Action) spAction.getSelectedItem();
+        if (action != null) {
+            jaction.put("type", action.type);
+            switch (action.type) {
+                case EntityRule.TYPE_MOVE:
+                    EntityFolder target = (EntityFolder) spTarget.getSelectedItem();
+                    jaction.put("target", target.id);
+                    break;
+
+                case EntityRule.TYPE_ANSWER:
+                    EntityIdentity identity = (EntityIdentity) spIdent.getSelectedItem();
+                    EntityAnswer answer = (EntityAnswer) spAnswer.getSelectedItem();
+                    jaction.put("identity", identity.id);
+                    jaction.put("answer", answer.id);
+                    break;
+            }
+        }
+
+        return jaction;
     }
 
     private class RefData {
