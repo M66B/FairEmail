@@ -804,10 +804,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private Intent getIntentInvite() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getString(R.string.title_try)).append("\n\n");
+        sb.append(BuildConfig.INVITE_LINK).append("\n\n");
+
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-        intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.title_try) + "\n\nhttps://email.faircode.eu/\n\n");
+        intent.putExtra(Intent.EXTRA_TEXT, sb.toString());
         return intent;
     }
 
