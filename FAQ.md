@@ -1152,6 +1152,8 @@ Filter rules are applied direct after the message header has been fetched, befor
 so it is not possible to apply filter rules to the message text.
 Note that large message texts are downloaded on demand on a metered connection to save data.
 
+To debug rules you can long press *Operations* to see logging about the evaluation of rule conditions.
+
 Using filter rules is a pro feature.
 
 <br />
