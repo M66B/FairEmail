@@ -1874,6 +1874,7 @@ public class FragmentCompose extends FragmentBase {
 
     void handleFileShare() {
         final Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq49"));
         boolean resolves = (intent.resolveActivity(getContext().getPackageManager()) != null);
 
@@ -1885,6 +1886,7 @@ public class FragmentCompose extends FragmentBase {
                 @Override
                 public void onClick(View v) {
                     startActivity(intent);
+                    finish();
                 }
             });
         sb.show();
