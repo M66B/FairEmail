@@ -1154,7 +1154,7 @@ Note that large message texts are downloaded on demand on a metered connection t
 
 To debug rules you can long press *Operations* to see logging about the evaluation of rule conditions.
 Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space
-it is not possible to check which messages would match the rule conditions.
+it is not possible to preview which messages would match the rule conditions.
 
 Using filter rules is a pro feature.
 
