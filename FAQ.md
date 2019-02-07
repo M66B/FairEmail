@@ -135,6 +135,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(74) Why do I see duplicate messages?](#user-content-faq74)
 * [(75) Can you make an iOS, Windows, etc version?](#user-content-faq75)
 * [(76) What does 'Clear local messages' ?](#user-content-faq76)
+* [(77) Why are messages sometimes shown with a small delay?](#user-content-faq76)
 
 [I have another question.](#support)
 
@@ -1203,6 +1204,25 @@ I develop apps for Android only.
 The folder menu *Clear local messages* removes messages from the device which are present on the server too.
 It does not delete messages from the server.
 This can be useful after changing the folder settings to not download the message content (text and attachments), for example to save space.
+
+<br />
+
+<a name="faq77"></a>
+**(77) Why are messages sometimes shown with a small delay?**
+
+Depending on the speed of your device (processor speed and maybe even more memory speed) messages might be displayed with a small delay.
+FairEmail is designed to dynamically handle a large number of messages without running out of memory.
+This means that messages needs to be read from a database and that this database needs to be watched for changes, both of which might cause small delays.
+
+Some convenience features, like grouping messages to display conversation threads and determining the previous/next message, take a little extra time.
+Note that there is no *the* next message because in the meantime a new message might have been arrived.
+
+When comparing the speed of FairEmail with similar apps this should be part of the comparison.
+It is easy to write a similar, faster app which just displays a lineair list of messages while possible using too much memory,
+but it is not so easy to properly manage resource usage and to offer more advanced features like conversation threading.
+
+FairEmail is based on the state-of-the-art [Android architecture components](https://developer.android.com/topic/libraries/architecture/),
+so there is little room for performance improvements.
 
 <br />
 
