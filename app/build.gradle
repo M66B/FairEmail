@@ -108,7 +108,7 @@ dependencies {
     def browser_version = "1.0.0"
     def lifecycle_version = "2.0.0"
     def room_version = "2.0.0"
-    def paging_version = "2.0.0"
+    def paging_version = "2.1.0"
     def billingclient_version = "1.2"
     def javamail_version = "1.6.3"
     def jsoup_version = "1.11.3"
@@ -118,7 +118,6 @@ dependencies {
     def openpgp_version = "12.0"
     def requery_version = "3.26.0"
 
-    // https://developer.android.com/topic/libraries/support-library/androidx-rn
     // https://developer.android.com/jetpack/docs/release-notes
 
     // https://mvnrepository.com/artifact/androidx.appcompat/appcompat
