@@ -102,6 +102,7 @@
     <string name="title_advanced_threading">مؤشر ترابط المحادثة</string>
     <string name="title_advanced_avatars">إظهار صور جهات الاتصال</string>
     <string name="title_advanced_identicons">إظهار أيقونات الهوية</string>
+    <string name="title_advanced_name_email">إظهار الأسماء وعناوين البريد الإلكترونية</string>
     <string name="title_advanced_preview">عرض معاينة الرسالة</string>
     <string name="title_advanced_images">أظهر تلقائيا صور المُراسِلين المعروفين</string>
     <string name="title_advanced_actionbar">شريط إجراءات المحادثة</string>

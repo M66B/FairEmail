@@ -122,6 +122,7 @@
     <string name="title_advanced_threading">Fil de conversation</string>
     <string name="title_advanced_avatars">Afficher les photos des contacts</string>
     <string name="title_advanced_identicons">Afficher les identicônes</string>
+    <string name="title_advanced_name_email">Afficher les noms et les adresses e-mail</string>
     <string name="title_advanced_preview">Afficher l\'aperçu du message</string>
     <string name="title_advanced_addresses">Afficher par défaut les détails de l\'adresse</string>
     <string name="title_advanced_html">Afficher automatiquement le message initial pour les contacts connus</string>
@@ -148,6 +149,7 @@
     <string name="title_advanced_browse_hint">Télécharger plus de messages en faisant défiler vers le bas</string>
     <string name="title_advanced_unified_hint">Afficher les dossiers de la boîte de réception unifiée ou les messages de la boîte de réception unifiée</string>
     <string name="title_advanced_threading_hint">Groupe de messages liés les uns aux autres</string>
+    <string name="title_advanced_name_email_hint">Si désactivé, seuls les noms seront affichés si disponibles</string>
     <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
     <string name="title_advanced_autoexpand_hint">Ouvrir automatiquement le message lorsqu’il n’y a qu’un seul message ou seulement un message non lu dans une conversation</string>
     <string name="title_advanced_autoclose_hint">Fermer automatiquement les fils de conversation quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>
