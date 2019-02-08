@@ -132,6 +132,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private LifecycleOwner owner;
     private ViewType viewType;
     private boolean compact;
+    private boolean name_email;
     private int zoom;
     private String sort;
     private boolean internet;
@@ -699,7 +700,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else
                 ivAvatar.setImageResource(R.drawable.baseline_person_24);
             ivAvatar.setVisibility(avatars ? View.VISIBLE : View.GONE);
-            tvFrom.setText(info.getDisplayName(compact));
+            tvFrom.setText(info.getDisplayName(name_email));
         }
 
         private void bindExpanded(final TupleMessageEx message) {
@@ -2465,17 +2466,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     AdapterMessage(Context context, LifecycleOwner owner,
                    ViewType viewType, boolean compact, int zoom, String sort, IProperties properties) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
         this.context = context;
         this.owner = owner;
         this.inflater = LayoutInflater.from(context);
         this.viewType = viewType;
         this.compact = compact;
+        this.name_email = prefs.getBoolean("name_email", !compact);
         this.zoom = zoom;
         this.sort = sort;
         this.internet = (Helper.isMetered(context, false) != null);
         this.properties = properties;
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         this.date = prefs.getBoolean("date", true);
         this.threading = prefs.getBoolean("threading", true);
@@ -2530,7 +2533,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     void setCompact(boolean compact) {
         if (this.compact != compact) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             this.compact = compact;
+            this.name_email = prefs.getBoolean("name_email", !compact);
             notifyDataSetChanged();
         }
     }

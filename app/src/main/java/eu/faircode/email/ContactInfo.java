@@ -41,8 +41,8 @@ public class ContactInfo {
         return bitmap;
     }
 
-    String getDisplayName(boolean compact) {
-        if (compact && displayName != null)
+    String getDisplayName(boolean name_email) {
+        if (!name_email && displayName != null)
             return displayName;
         else if (displayName == null)
             return (email == null ? "" : email);
