@@ -817,7 +817,7 @@ public class ServiceSynchronize extends LifecycleService {
                 isession.setDebug(debug);
                 // adb -t 1 logcat | grep "fairemail\|System.out"
 
-                final IMAPStore istore = (IMAPStore) isession.getStore(account.starttls ? "imap" : "imaps");
+                final IMAPStore istore = (IMAPStore) isession.getStore(account.getProtocol());
                 final Map<EntityFolder, IMAPFolder> folders = new HashMap<>();
                 List<Thread> idlers = new ArrayList<>();
                 List<Handler> handlers = new ArrayList<>();
@@ -1889,8 +1889,6 @@ public class ServiceSynchronize extends LifecycleService {
             db.message().setMessageLastAttempt(message.id, message.last_attempt);
         }
 
-        String transportType = (ident.starttls ? "smtp" : "smtps");
-
         // Get properties
         Properties props = MessageHelper.getSessionProperties(ident.auth_type, ident.realm, ident.insecure);
         props.put("mail.smtp.localhost", ident.host);
@@ -1925,7 +1923,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         // Create transport
         // TODO: cache transport?
-        Transport itransport = isession.getTransport(transportType);
+        Transport itransport = isession.getTransport(ident.getProtocol());
         try {
             // Connect transport
             db.identity().setIdentityState(ident.id, "connecting");

@@ -210,6 +210,7 @@
     <string name="title_domain">Domain name</string>
     <string name="title_autoconfig">Get settings</string>
     <string name="title_imap" translatable="false">IMAP</string>
+    <string name="title_pop3" translatable="false">POP3</string>
     <string name="title_smtp" translatable="false">SMTP</string>
     <string name="title_provider">Provider</string>
     <string name="title_custom">Custom</string>

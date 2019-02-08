@@ -158,7 +158,7 @@ public class ViewModelBrowse extends ViewModel {
                 isession.setDebug(true);
 
                 Log.i("Boundary connecting account=" + account.name);
-                state.istore = (IMAPStore) isession.getStore(account.starttls ? "imap" : "imaps");
+                state.istore = (IMAPStore) isession.getStore(account.getProtocol());
                 Helper.connect(state.context, state.istore, account);
 
                 Log.i("Boundary opening folder=" + folder.name);

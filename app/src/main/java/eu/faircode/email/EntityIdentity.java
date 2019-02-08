@@ -87,6 +87,10 @@ public class EntityIdentity {
     public String error;
     public Long last_connected;
 
+    String getProtocol() {
+        return (starttls ? "smtp" : "smtps");
+    }
+
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
         json.put("id", id);

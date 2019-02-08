@@ -74,9 +74,11 @@ import java.util.Properties;
 import javax.mail.AuthenticationFailedException;
 import javax.mail.Folder;
 import javax.mail.Session;
+import javax.mail.Store;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -91,6 +93,7 @@ public class FragmentAccount extends FragmentBase {
     private Button btnAutoConfig;
 
     private Button btnAuthorize;
+    private SwitchCompat swPop;
     private EditText etHost;
     private CheckBox cbStartTls;
     private CheckBox cbInsecure;
@@ -165,6 +168,7 @@ public class FragmentAccount extends FragmentBase {
         btnAutoConfig = view.findViewById(R.id.btnAutoConfig);
 
         btnAuthorize = view.findViewById(R.id.btnAuthorize);
+        swPop = view.findViewById(R.id.swPop);
         etHost = view.findViewById(R.id.etHost);
         etPort = view.findViewById(R.id.etPort);
         cbStartTls = view.findViewById(R.id.cbStartTls);
@@ -235,6 +239,7 @@ public class FragmentAccount extends FragmentBase {
 
                 auth_type = Helper.AUTH_TYPE_PASSWORD;
 
+                swPop.setChecked(false);
                 etHost.setText(provider.imap_host);
                 etPort.setText(provider.imap_host == null ? null : Integer.toString(provider.imap_port));
                 cbStartTls.setChecked(provider.imap_starttls);
@@ -280,10 +285,33 @@ public class FragmentAccount extends FragmentBase {
             }
         });
 
+        swPop.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                boolean starttls = cbStartTls.isChecked();
+                if (isChecked) {
+                    etHost.setHint("pop.domain.tld");
+                    etPort.setHint(starttls ? "110" : "995");
+                    etRealm.setText(null);
+                    cbBrowse.setChecked(false);
+                    etPrefix.setText(null);
+                } else {
+                    etHost.setHint("imap.domain.tld");
+                    etPort.setHint(starttls ? "143" : "993");
+                }
+                etRealm.setEnabled(!isChecked);
+                cbBrowse.setEnabled(!isChecked);
+                etPrefix.setEnabled(!isChecked);
+            }
+        });
+
         cbStartTls.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                etPort.setHint(checked ? "143" : "993");
+                if (swPop.isChecked())
+                    etPort.setHint(checked ? "110" : "995");
+                else
+                    etPort.setHint(checked ? "143" : "993");
             }
         });
 
@@ -472,6 +500,7 @@ public class FragmentAccount extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, EmailProvider provider) {
+                swPop.setChecked(false);
                 etHost.setText(provider.imap_host);
                 etPort.setText(Integer.toString(provider.imap_port));
                 cbStartTls.setChecked(provider.imap_starttls);
@@ -491,6 +520,7 @@ public class FragmentAccount extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("id", id);
         args.putInt("auth_type", auth_type);
+        args.putBoolean("pop", swPop.isChecked());
         args.putString("host", etHost.getText().toString());
         args.putBoolean("starttls", cbStartTls.isChecked());
         args.putBoolean("insecure", cbInsecure.isChecked());
@@ -523,6 +553,7 @@ public class FragmentAccount extends FragmentBase {
             protected CheckResult onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
                 int auth_type = args.getInt("auth_type");
+                boolean pop = args.getBoolean("pop");
                 String host = args.getString("host");
                 boolean starttls = args.getBoolean("starttls");
                 boolean insecure = args.getBoolean("insecure");
@@ -534,7 +565,10 @@ public class FragmentAccount extends FragmentBase {
                 if (TextUtils.isEmpty(host))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                 if (TextUtils.isEmpty(port))
-                    port = (starttls ? "143" : "993");
+                    if (pop)
+                        port = (starttls ? "110" : "995");
+                    else
+                        port = (starttls ? "143" : "993");
                 if (TextUtils.isEmpty(user))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_user));
                 if (TextUtils.isEmpty(password) && !insecure)
@@ -553,9 +587,9 @@ public class FragmentAccount extends FragmentBase {
                 Properties props = MessageHelper.getSessionProperties(auth_type, realm, insecure);
                 Session isession = Session.getInstance(props, null);
                 isession.setDebug(true);
-                IMAPStore istore = null;
+                Store istore = null;
                 try {
-                    istore = (IMAPStore) isession.getStore(starttls ? "imap" : "imaps");
+                    istore = isession.getStore((pop ? "pop3" : "imap") + (starttls ? "" : "s"));
                     try {
                         istore.connect(host, Integer.parseInt(port), user, password);
                     } catch (AuthenticationFailedException ex) {
@@ -566,7 +600,8 @@ public class FragmentAccount extends FragmentBase {
                             throw ex;
                     }
 
-                    result.idle = istore.hasCapability("IDLE");
+                    if (istore instanceof IMAPStore)
+                        result.idle = ((IMAPStore) istore).hasCapability("IDLE");
 
                     boolean inbox = false;
                     boolean archive = false;
@@ -583,7 +618,11 @@ public class FragmentAccount extends FragmentBase {
                     for (Folder ifolder : istore.getDefaultFolder().list("*")) {
                         // Check folder attributes
                         String fullName = ifolder.getFullName();
-                        String[] attrs = ((IMAPFolder) ifolder).getAttributes();
+                        String[] attrs;
+                        if (ifolder instanceof IMAPFolder)
+                            attrs = ((IMAPFolder) ifolder).getAttributes();
+                        else
+                            attrs = new String[0];
                         Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs));
                         String type = EntityFolder.getType(attrs, fullName);
 
@@ -660,9 +699,15 @@ public class FragmentAccount extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, CheckResult result) {
-                tvIdle.setVisibility(result.idle ? View.GONE : View.VISIBLE);
+                boolean pop = args.getBoolean("pop");
 
-                setFolders(result.folders, result.account);
+                tvIdle.setVisibility(result.idle || pop ? View.GONE : View.VISIBLE);
+
+                if (pop) {
+                    grpFolders.setVisibility(View.GONE);
+                    btnSave.setVisibility(View.VISIBLE);
+                } else
+                    setFolders(result.folders, result.account);
 
                 new Handler().post(new Runnable() {
                     @Override
@@ -721,6 +766,7 @@ public class FragmentAccount extends FragmentBase {
         args.putLong("id", id);
 
         args.putInt("auth_type", auth_type);
+        args.putBoolean("pop", swPop.isChecked());
         args.putString("host", etHost.getText().toString());
         args.putBoolean("starttls", cbStartTls.isChecked());
         args.putBoolean("insecure", cbInsecure.isChecked());
@@ -770,6 +816,7 @@ public class FragmentAccount extends FragmentBase {
                 long id = args.getLong("id");
 
                 int auth_type = args.getInt("auth_type");
+                boolean pop = args.getBoolean("pop");
                 String host = args.getString("host");
                 boolean starttls = args.getBoolean("starttls");
                 boolean insecure = args.getBoolean("insecure");
@@ -799,7 +846,10 @@ public class FragmentAccount extends FragmentBase {
                 if (TextUtils.isEmpty(host))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                 if (TextUtils.isEmpty(port))
-                    port = (starttls ? "143" : "993");
+                    if (pop)
+                        port = (starttls ? "110" : "995");
+                    else
+                        port = (starttls ? "143" : "993");
                 if (TextUtils.isEmpty(user))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_user));
                 if (synchronize && TextUtils.isEmpty(password) && !insecure)
@@ -825,6 +875,7 @@ public class FragmentAccount extends FragmentBase {
 
                 boolean check = (synchronize && (account == null ||
                         auth_type != account.auth_type ||
+                        pop != account.pop ||
                         !host.equals(account.host) || Integer.parseInt(port) != account.port ||
                         !user.equals(account.user) || !password.equals(account.password) ||
                         (realm == null ? accountRealm != null : !realm.equals(accountRealm))));
@@ -844,9 +895,9 @@ public class FragmentAccount extends FragmentBase {
                     Session isession = Session.getInstance(props, null);
                     isession.setDebug(true);
 
-                    IMAPStore istore = null;
+                    Store istore = null;
                     try {
-                        istore = (IMAPStore) isession.getStore(starttls ? "imap" : "imaps");
+                        istore = isession.getStore((pop ? "pop3" : "imap") + (starttls ? "" : "s"));
                         try {
                             istore.connect(host, Integer.parseInt(port), user, password);
                         } catch (AuthenticationFailedException ex) {
@@ -861,7 +912,11 @@ public class FragmentAccount extends FragmentBase {
                         for (Folder ifolder : istore.getDefaultFolder().list("*")) {
                             // Check folder attributes
                             String fullName = ifolder.getFullName();
-                            String[] attrs = ((IMAPFolder) ifolder).getAttributes();
+                            String[] attrs;
+                            if (ifolder instanceof IMAPFolder)
+                                attrs = ((IMAPFolder) ifolder).getAttributes();
+                            else
+                                attrs = new String[0];
                             Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs));
                             String type = EntityFolder.getType(attrs, fullName);
 
@@ -894,6 +949,7 @@ public class FragmentAccount extends FragmentBase {
                         account = new EntityAccount();
 
                     account.auth_type = auth_type;
+                    account.pop = pop;
                     account.host = host;
                     account.starttls = starttls;
                     account.insecure = insecure;
@@ -1111,6 +1167,7 @@ public class FragmentAccount extends FragmentBase {
                             spProvider.setTag(1);
                             spProvider.setSelection(1);
                         }
+                        swPop.setChecked(account.pop);
                         etHost.setText(account.host);
                         etPort.setText(Long.toString(account.port));
                     }
@@ -1172,6 +1229,15 @@ public class FragmentAccount extends FragmentBase {
 
                 // Consider previous check/save/delete as cancelled
                 pbWait.setVisibility(View.GONE);
+
+                if (account != null && account.pop) {
+                    etRealm.setEnabled(false);
+                    cbBrowse.setEnabled(false);
+                    etPrefix.setEnabled(false);
+                    grpFolders.setVisibility(View.GONE);
+                    btnSave.setVisibility(View.VISIBLE);
+                    return;
+                }
 
                 args.putLong("account", account == null ? -1 : account.id);
 
