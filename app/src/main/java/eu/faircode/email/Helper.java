@@ -707,7 +707,7 @@ public class Helper {
         }
 
         if (log)
-            Log.i("isMetered: active info=" + cm.getNetworkInfo(active));
+            EntityLog.log(context, "isMetered: active info=" + cm.getNetworkInfo(active));
 
         NetworkCapabilities caps = cm.getNetworkCapabilities(active);
         if (caps == null) {
@@ -717,7 +717,7 @@ public class Helper {
         }
 
         if (log)
-            Log.i("isMetered: active caps=" + caps);
+            EntityLog.log(context, "isMetered: active caps=" + caps);
 
         if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
             boolean unmetered = caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED);
