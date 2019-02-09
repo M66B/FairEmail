@@ -338,18 +338,6 @@ public class ServiceSynchronize extends LifecycleService {
                         break;
 
                     case "clear":
-                        executor.submit(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    DB.getInstance(ServiceSynchronize.this).message().ignoreAll();
-                                } catch (Throwable ex) {
-                                    Log.e(ex);
-                                }
-                            }
-                        });
-                        break;
-
                     case "seen":
                     case "archive":
                     case "trash":
@@ -362,12 +350,16 @@ public class ServiceSynchronize extends LifecycleService {
                                 try {
                                     db.beginTransaction();
 
-                                    long id = Long.parseLong(parts[1]);
+                                    long id = (parts.length > 1 ? Long.parseLong(parts[1]) : -1);
                                     EntityMessage message = db.message().getMessage(id);
-                                    if (message == null)
+                                    if (id > 0 && message == null)
                                         return;
 
                                     switch (parts[0]) {
+                                        case "clear":
+                                            db.message().ignoreAll();
+                                            break;
+
                                         case "seen":
                                             EntityOperation.queue(ServiceSynchronize.this, db, message, EntityOperation.SEEN, true);
                                             break;
