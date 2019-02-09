@@ -37,7 +37,7 @@ This app starts a foreground service with a low priority status bar notification
 
 * Account/identity colors
 * Notifications per account
-* Notifications with message preview (requires Android 7 Nougat or later)
+* Notifications with message details (requires Android 7 Nougat or later)
 * Snooze messages
 * Send messages after selected time
 * Reply templates
