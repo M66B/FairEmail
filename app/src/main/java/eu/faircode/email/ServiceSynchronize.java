@@ -155,12 +155,13 @@ public class ServiceSynchronize extends LifecycleService {
     private static final long YIELD_DURATION = 200L; // milliseconds
 
     static final int PI_WHY = 1;
-    static final int PI_CLEAR = 2;
-    static final int PI_SEEN = 3;
-    static final int PI_ARCHIVE = 4;
-    static final int PI_TRASH = 5;
-    static final int PI_IGNORED = 6;
-    static final int PI_SNOOZED = 7;
+    static final int PI_SUMMARY = 2;
+    static final int PI_CLEAR = 3;
+    static final int PI_SEEN = 4;
+    static final int PI_ARCHIVE = 5;
+    static final int PI_TRASH = 6;
+    static final int PI_IGNORED = 7;
+    static final int PI_SNOOZED = 8;
 
     @Override
     public void onCreate() {
@@ -337,6 +338,7 @@ public class ServiceSynchronize extends LifecycleService {
                         serviceManager.service_reload(intent.getStringExtra("reason"));
                         break;
 
+                    case "summary":
                     case "clear":
                     case "seen":
                     case "archive":
@@ -356,6 +358,15 @@ public class ServiceSynchronize extends LifecycleService {
                                         return;
 
                                     switch (parts[0]) {
+                                        case "summary":
+                                            db.message().ignoreAll();
+
+                                            Intent view = new Intent(ServiceSynchronize.this, ActivityView.class);
+                                            view.setAction("unified");
+                                            view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                            startActivity(view);
+                                            break;
+
                                         case "clear":
                                             db.message().ignoreAll();
                                             break;
@@ -476,7 +487,7 @@ public class ServiceSynchronize extends LifecycleService {
         // https://developer.android.com/training/notify-user/group
         String group = Long.toString(account);
 
-        String summary = getResources().getQuantityString(
+        String title = getResources().getQuantityString(
                 R.plurals.title_notification_unseen, messages.size(), messages.size());
 
         // Get contact info
@@ -485,11 +496,9 @@ public class ServiceSynchronize extends LifecycleService {
             messageContact.put(message, ContactInfo.get(this, message.from, false));
 
         // Build pending intent
-        Intent view = new Intent(this, ActivityView.class);
-        view.setAction("unified");
-        view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent piView = PendingIntent.getActivity(
-                this, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent summary = new Intent(this, ServiceSynchronize.class);
+        summary.setAction("summary");
+        PendingIntent piSummary = PendingIntent.getService(this, PI_SUMMARY, summary, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Intent clear = new Intent(this, ServiceSynchronize.class);
         clear.setAction("clear");
@@ -506,8 +515,8 @@ public class ServiceSynchronize extends LifecycleService {
 
         pbuilder
                 .setSmallIcon(R.drawable.baseline_email_white_24)
-                .setContentTitle(summary)
-                .setContentIntent(piView)
+                .setContentTitle(title)
+                .setContentIntent(piSummary)
                 .setNumber(messages.size())
                 .setShowWhen(false)
                 .setDeleteIntent(piClear)
@@ -528,7 +537,7 @@ public class ServiceSynchronize extends LifecycleService {
         builder
                 .setSmallIcon(R.drawable.baseline_email_white_24)
                 .setContentTitle(getResources().getQuantityString(R.plurals.title_notification_unseen, messages.size(), messages.size()))
-                .setContentIntent(piView)
+                .setContentIntent(piSummary)
                 .setNumber(messages.size())
                 .setShowWhen(false)
                 .setDeleteIntent(piClear)
@@ -570,7 +579,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             builder.setStyle(new Notification.BigTextStyle()
                     .bigText(Html.fromHtml(sb.toString()))
-                    .setSummaryText(summary));
+                    .setSummaryText(title));
         }
 
         notifications.add(builder.build());
