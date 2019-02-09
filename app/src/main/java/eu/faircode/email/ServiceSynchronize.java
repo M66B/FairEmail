@@ -552,10 +552,12 @@ public class ServiceSynchronize extends LifecycleService {
             builder.setSubText(accountName);
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-            if (prefs.getBoolean("light", false))
+            boolean light = prefs.getBoolean("light", false);
+            String sound = prefs.getString("sound", null);
+
+            if (light)
                 builder.setLights(Color.GREEN, 1000, 1000);
 
-            String sound = prefs.getString("sound", null);
             if (sound == null) {
                 Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
                 builder.setSound(uri);
@@ -584,6 +586,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         notifications.add(builder.build());
 
+        boolean preview = prefs.getBoolean("notify_preview", true);
         for (TupleMessageEx message : messages) {
             ContactInfo info = messageContact.get(message);
 
@@ -665,7 +668,7 @@ public class ServiceSynchronize extends LifecycleService {
                 if (!TextUtils.isEmpty(message.subject))
                     mbuilder.setContentText(message.subject);
 
-                if (message.content)
+                if (message.content && preview)
                     try {
                         String body = Helper.readText(EntityMessage.getFile(this, message.id));
                         StringBuilder sb = new StringBuilder();

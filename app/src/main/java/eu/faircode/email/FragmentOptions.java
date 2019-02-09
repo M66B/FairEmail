@@ -86,6 +86,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swAutoResize;
     private SwitchCompat swAutoSend;
 
+    private SwitchCompat swNotifyPreview;
     private SwitchCompat swLight;
     private Button btnSound;
 
@@ -104,7 +105,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             "metered", "download",
             "unified", "date", "threading", "avatars", "identicons", "name_email", "preview", "addresses", "autoimages", "actionbar",
             "pull", "swipenav", "autoexpand", "autoclose", "autonext", "collapse", "autoread", "automove", "sender", "autoresize", "autosend",
-            "light", "sound",
+            "notify_preview", "light", "sound",
             "debug",
             "first", "why", "last_update_check", "app_support", "message_swipe", "message_select", "folder_actions", "folder_sync",
             "edit_ref_confirmed", "autosend", "automove", "show_html_confirmed", "show_images_confirmed"
@@ -150,6 +151,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swAutoResize = view.findViewById(R.id.swAutoResize);
         swAutoSend = view.findViewById(R.id.swAutoSend);
 
+        swNotifyPreview = view.findViewById(R.id.swNotifyPreview);
         swLight = view.findViewById(R.id.swLight);
         btnSound = view.findViewById(R.id.btnSound);
 
@@ -381,6 +383,13 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             }
         });
 
+        swNotifyPreview.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("notify_preview", checked).apply();
+            }
+        });
+
         swLight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -512,6 +521,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swAutoResize.setChecked(prefs.getBoolean("autoresize", true));
         swAutoSend.setChecked(!prefs.getBoolean("autosend", false));
 
+        swNotifyPreview.setChecked(prefs.getBoolean("notify_preview", true));
         swLight.setChecked(prefs.getBoolean("light", false));
         swDebug.setChecked(prefs.getBoolean("debug", false));
 
