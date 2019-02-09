@@ -233,8 +233,10 @@ public class FragmentQuickSetup extends FragmentBase {
                                 folder.keep_days = EntityFolder.DEFAULT_KEEP;
                                 folders.add(folder);
 
-                                if (EntityFolder.INBOX.equals(type))
+                                if (EntityFolder.INBOX.equals(type)) {
+                                    folder.unified = true;
                                     inbox = true;
+                                }
                                 if (EntityFolder.DRAFTS.equals(type))
                                     drafts = true;
                             }
