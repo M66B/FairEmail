@@ -41,6 +41,7 @@ import java.util.Calendar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.Group;
 
 public class FragmentFolder extends FragmentBase {
     private ViewGroup view;
@@ -58,6 +59,7 @@ public class FragmentFolder extends FragmentBase {
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
     private ContentLoadingProgressBar pbWait;
+    private Group grpPop;
 
     private long id = -1;
     private long account = -1;
@@ -97,6 +99,7 @@ public class FragmentFolder extends FragmentBase {
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
         pbWait = view.findViewById(R.id.pbWait);
+        grpPop = view.findViewById(R.id.grpPop);
 
         cbUnified.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -136,6 +139,7 @@ public class FragmentFolder extends FragmentBase {
         btnSave.setEnabled(false);
         pbSave.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
+        grpPop.setVisibility(View.GONE);
 
         return view;
     }
@@ -361,15 +365,15 @@ public class FragmentFolder extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("id", id);
 
-        new SimpleTask<EntityFolder>() {
+        new SimpleTask<TupleFolderEx>() {
             @Override
-            protected EntityFolder onExecute(Context context, Bundle args) {
+            protected TupleFolderEx onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
-                return DB.getInstance(context).folder().getFolder(id);
+                return DB.getInstance(context).folder().getFolderEx(id);
             }
 
             @Override
-            protected void onExecuted(Bundle args, EntityFolder folder) {
+            protected void onExecuted(Bundle args, TupleFolderEx folder) {
                 if (savedInstanceState == null) {
                     etName.setText(folder == null ? null : folder.name);
                     etDisplay.setText(folder == null ? null : folder.display);
@@ -389,6 +393,8 @@ public class FragmentFolder extends FragmentBase {
 
                 // Consider previous save as cancelled
                 pbWait.setVisibility(View.GONE);
+                grpPop.setVisibility(folder == null || !folder.accountPop ? View.VISIBLE : View.GONE);
+
                 Helper.setViewsEnabled(view, true);
                 etName.setEnabled(folder == null);
                 etDisplay.setEnabled(folder == null || !EntityFolder.INBOX.equals(folder.type));

@@ -75,27 +75,37 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etDomain" />
 
-        <!-- IMAP -->
+        <!-- IMAP/POP3 -->
 
         <TextView
             android:id="@+id/tvImap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:text="@string/title_imap"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@+id/swPop"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/swPop" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swPop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toEndOf="@id/tvImap"
             app:layout_constraintTop_toBottomOf="@id/btnAutoConfig" />
 
         <TextView
             android:id="@+id/tvPop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/title_pop"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvImap" />
+            android:layout_marginStart="6dp"
+            android:text="@string/title_pop3"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@id/swPop"
+            app:layout_constraintStart_toEndOf="@id/swPop"
+            app:layout_constraintTop_toTopOf="@id/swPop" />
 
         <!-- host -->
 
@@ -107,7 +117,7 @@
             android:text="@string/title_host"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPop" />
+            app:layout_constraintTop_toBottomOf="@id/swPop" />
 
         <EditText
             android:id="@+id/etHost"
@@ -671,24 +681,36 @@
             android:id="@+id/grpServer"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvDomain,tvDomainHint,etDomain,btnAutoConfig,tvImap,tvPop,tvHost,etHost,cbStartTls,cbInsecure,tvPort,etPort" />
+            app:constraint_referenced_ids="
+            tvDomain,tvDomainHint,etDomain,btnAutoConfig,
+            tvImap,swPop,tvPop,tvHost,etHost,cbStartTls,cbInsecure,tvPort,etPort" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpAuthorize"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvUser,etUser,tvPassword,tilPassword,tvRealm,etRealm,tvName,tvNameRemark,etName,btnColor,vwColor,ibColorDefault" />
+            app:constraint_referenced_ids="
+            tvUser,etUser,tvPassword,tilPassword,tvRealm,etRealm,
+            tvName,tvNameRemark,etName,btnColor,vwColor,ibColorDefault" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpAdvanced"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvPrefix,tvPrefixRemark,etPrefix,cbNotify,cbSynchronize,cbPrimary,cbBrowse,tvBrowseHint,tvInterval,etInterval" />
+            app:constraint_referenced_ids="
+            tvPrefix,tvPrefixRemark,etPrefix,cbNotify,
+            cbSynchronize,cbPrimary,cbBrowse,tvBrowseHint,tvInterval,etInterval" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpFolders"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvDrafts,spDrafts,tvDraftsRemark,tvSent,spSent,tvAll,spAll,tvTrash,spTrash,tvJunk,spJunk,vSeparatorSwipe,tvLeft,spLeft,tvRight,spRight" />
+            app:constraint_referenced_ids="
+            tvDrafts,spDrafts,tvDraftsRemark,
+            tvSent,spSent,
+            tvAll,spAll,
+            tvTrash,spTrash,
+            tvJunk,spJunk,
+            vSeparatorSwipe,tvLeft,spLeft,tvRight,spRight" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

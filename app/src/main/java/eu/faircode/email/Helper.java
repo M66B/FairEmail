@@ -56,7 +56,6 @@ import android.widget.Toast;
 
 import com.android.billingclient.api.BillingClient;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.sun.mail.imap.IMAPStore;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -86,6 +85,7 @@ import java.util.concurrent.ThreadFactory;
 import javax.mail.Address;
 import javax.mail.AuthenticationFailedException;
 import javax.mail.MessagingException;
+import javax.mail.Store;
 import javax.mail.internet.InternetAddress;
 
 import androidx.annotation.NonNull;
@@ -779,7 +779,7 @@ public class Helper {
         return true;
     }
 
-    static void connect(Context context, IMAPStore istore, EntityAccount account) throws
+    static void connect(Context context, Store istore, EntityAccount account) throws
             MessagingException {
         try {
             istore.connect(account.host, account.port, account.user, account.password);

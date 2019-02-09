@@ -22,6 +22,7 @@ package eu.faircode.email;
 public class TupleFolderEx extends EntityFolder {
     public String accountName;
     public Integer accountColor;
+    public boolean accountPop;
     public String accountState;
     public int messages;
     public int content;
@@ -34,6 +35,7 @@ public class TupleFolderEx extends EntityFolder {
             return (super.equals(obj) &&
                     (this.accountName == null ? other.accountName == null : accountName.equals(other.accountName)) &&
                     (this.accountColor == null ? other.accountColor == null : this.accountColor.equals(other.accountColor)) &&
+                    this.accountPop == other.accountPop &&
                     (this.accountState == null ? other.accountState == null : accountState.equals(other.accountState)) &&
                     this.messages == other.messages &&
                     this.content == other.content &&

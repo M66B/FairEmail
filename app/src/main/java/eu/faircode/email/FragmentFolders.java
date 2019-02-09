@@ -131,8 +131,7 @@ public class FragmentFolders extends FragmentBase {
         tbShowHidden.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
-        if (account < 0)
-            fab.hide();
+        fab.hide();
 
         return view;
     }
@@ -155,6 +154,10 @@ public class FragmentFolders extends FragmentBase {
                 @Override
                 public void onChanged(@Nullable EntityAccount account) {
                     setSubtitle(account == null ? null : account.name);
+                    if (account == null || account.pop)
+                        fab.hide();
+                    else
+                        fab.show();
                 }
             });
 
