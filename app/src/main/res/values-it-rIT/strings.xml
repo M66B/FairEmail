@@ -122,6 +122,7 @@
     <string name="title_advanced_threading">Thread di conversazione</string>
     <string name="title_advanced_avatars">Mostra foto del contatto</string>
     <string name="title_advanced_identicons">Visualizza identicon</string>
+    <string name="title_advanced_name_email">Mostra nomi e indirizzi email</string>
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
     <string name="title_advanced_addresses">Mostra i dettagli dell\'indirizzo per impostazione predefinita</string>
     <string name="title_advanced_html">Mostra automaticamente il messaggio originale per i contatti conosciuti</string>
@@ -148,6 +149,7 @@
     <string name="title_advanced_browse_hint">Scarica più messaggi quando scorri verso il basso</string>
     <string name="title_advanced_unified_hint">Mostra cartelle in arrivo unificate o messaggi in arrivo unificati</string>
     <string name="title_advanced_threading_hint">Messaggi di gruppo relazionati a vicenda</string>
+    <string name="title_advanced_name_email_hint">Quando disabilitati saranno mostrati solo i nomi quando disponibili</string>
     <string name="title_advanced_preview_hint">Disponibile solo quando è stato scaricato il testo del messaggio</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando c\'è un solo messaggio o solo un messaggio da leggere in una conversazione</string>
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni raggruppate quando tutti i messaggi sono archiviati, inviati o cestinati</string>
@@ -434,6 +436,7 @@
     <string name="title_undo">Annulla</string>
     <string name="title_add">Aggiungi</string>
     <string name="title_browse">Esplora</string>
+    <string name="title_info">Info</string>
     <string name="title_report">Report</string>
     <string name="title_no_ask_again">Non chiedere di nuovo</string>
     <string name="title_no_adobe">Adobe Acrobat Reader non può aprire file condivisi in modo sicuro, consultare le domande frequenti per ulteriori informazioni</string>

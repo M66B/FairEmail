@@ -121,6 +121,7 @@
     <string name="title_advanced_threading">İletişim iş parçacığı</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
     <string name="title_advanced_identicons">Kimliklerini göster</string>
+    <string name="title_advanced_name_email">Adları ve e-posta adreslarini göster</string>
     <string name="title_advanced_preview">İleti önizlemesini göster</string>
     <string name="title_advanced_addresses">Öntanımlı olarak adres ayrıntılarını göster</string>
     <string name="title_advanced_html">Bilinen kişilerden gelen özgün iletileri otomatik olarak göster</string>
@@ -131,6 +132,8 @@
     <string name="title_advanced_pull_refresh">Yenilemek için aşağıya çekin</string>
     <string name="title_advanced_autoexpand">İletileri otomatik olarak aç </string>
     <string name="title_advanced_autoclose">İletişimleri otomatik olarak kapat</string>
+    <string name="title_advanced_swipenav">Sonraki / önceki sohbete gitmek için sola / sağa kaydırın</string>
+    <string name="title_advanced_autonext">Sohbet kapatıldığında otomatik olarak sonraki sohbete git</string>
     <string name="title_advanced_autoread">İleti taşındığında otomatik olarak okundu diye işaretle</string>
     <string name="title_advanced_collapse">Konuşmalardaki mesajları \'geri\' seçeneğinde daralt</string>
     <string name="title_advanced_automove">İletileri taşımayı onaylayın</string>
@@ -145,6 +148,7 @@
     <string name="title_advanced_browse_hint">Aşağı doğru kaydırdığında daha çok ileti getirir</string>
     <string name="title_advanced_unified_hint">Birleşik gelen kutusu klasörlerini veya birleşik gelen kutusu iletilerini göster</string>
     <string name="title_advanced_threading_hint">Birbirlerine bağlı grup iletileri</string>
+    <string name="title_advanced_name_email_hint">Devre dışı bırakıldığında, yalnızca adlar mevcut olduğunda gösterilecektir</string>
     <string name="title_advanced_preview_hint">Yalnızca ileti metni indirildiğinde kullanılabilir</string>
     <string name="title_advanced_autoclose_hint">Tüm iletiler arşivlendiğinde veya çöpe gittiğinde bu iletişim kutusunu otomatik olarak kapat</string>
     <string name="title_advanced_sender_hint">Çoğu sağlayıcı değiştirilmiş gönderici adreslerine izin vermiyor</string>
@@ -156,6 +160,7 @@
     <string name="title_identity_delivery_receipt">Alındı belgesi iste</string>
     <string name="title_identity_receipt_remark">Çoğu sağlayıcı alındı isteklerini yok sayıyor</string>
     <string name="title_identity_store_sent">Gönderilen iletileri depola</string>
+    <string name="title_identity_store_sent_remark">Bunu, yalnızca sağlayıcınız gönderilen iletileri otomatik olarak kaydetmiyorsa etkinleştirin</string>
     <string name="title_optional">İsteğe bağlı</string>
     <string name="title_account_linked">Bağlı hesap</string>
     <string name="title_account_name">Hesap adı</string>
@@ -278,6 +283,7 @@
     <string name="title_no_contacts">Kişi seçici mevcut değil</string>
     <string name="title_no_internet">İnternet bağlantısı yok</string>
     <string name="title_no_folder">Klasör yok</string>
+    <string name="title_accross_remark">Hesaplar arasında taşınan iletiler daha fazla veri kullanımıyla sonuçlanacak şekilde tekrar indirilecek</string>
     <string name="title_raw_saved">Ham ileti kaydedildi</string>
     <string name="title_attachment_saved">Ek kaydedildi</string>
     <string name="title_attachments_saved">Ekler kaydedildi</string>
@@ -289,6 +295,7 @@
     <string name="title_ask_discard">Taslak silinsin mi?</string>
     <string name="title_ask_show_html">Özgün iletiyi göstermek gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_show_image">Resimlerin gösterilmesi gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
+    <string name="title_ask_edit_ref">Yeniden biçimlendirilmiş yanıtlanmış/iletilmiş ileti metni düzenlensin mi?</string>
     <string name="title_sync_queued">Eşzamanlama bir sonraki hesap bağlantısında gerçekleşecek</string>
     <string name="title_fix">Düzelt</string>
     <string name="title_compose">Eposta Oluştur</string>
@@ -297,6 +304,7 @@
     <string name="title_reply_to">Yanıt adresi:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
+    <string name="title_via_identity">Şu yol ile:</string>
     <string name="title_received">Gelen:</string>
     <string name="title_size">Boyut:</string>
     <string name="title_subject">Konu:</string>
@@ -304,6 +312,7 @@
     <string name="title_discard">Sil</string>
     <string name="title_save">Kaydet</string>
     <string name="title_send">Gönder</string>
+    <string name="title_send_at">&#8230;\'te gönder</string>
     <string name="title_no_selection">Seçili hiçbir şey yok</string>
     <string name="title_style_bold">Kalın yazı</string>
     <string name="title_style_italic">Eğik yazı</string>
@@ -355,6 +364,7 @@
     <string name="title_rule_regex">Düzenli ifade</string>
     <string name="title_rule_and">VE</string>
     <string name="title_rule_action">Eylem</string>
+    <string name="title_rule_action_remark">Bu işlem %1$s klasörüne gelen yeni iletilere uygulanacaktır</string>
     <string name="title_rule_folder">Klasör</string>
     <string name="title_rule_identity">Kimlik</string>
     <string name="title_rule_answer">Yanıt kalıbı</string>
@@ -373,8 +383,11 @@
     <string name="title_legend_primary_connected">Hesap bağlantısı kuruldu</string>
     <string name="title_legend_thread">Söyleşi</string>
     <string name="title_legend_zoom">Metin boyutunu değiştir</string>
+    <string name="title_legend_draft">Taslak var</string>
     <string name="title_legend_snoozed">Ertelendi</string>
+    <string name="title_legend_browsed">Gözatılmış ve aranmış</string>
     <string name="title_legend_answered">Yanıtlandı</string>
+    <string name="title_legend_attachment">Eki var</string>
     <string name="title_legend_flagged">Yıldızlı</string>
     <string name="title_legend_contacts">Kişi rehberini yönet</string>
     <string name="title_legend_view">İçeriği görüntüle</string>
@@ -421,11 +434,13 @@
     <string name="title_undo">Geri Al</string>
     <string name="title_add">Ekle</string>
     <string name="title_browse">Göz at</string>
+    <string name="title_info">Bilgi</string>
     <string name="title_report">Rapor Et</string>
     <string name="title_no_ask_again">Bunu bir daha sorma</string>
     <string name="title_no_adobe">Adobe Acrobat Reader güvenli bir biçimde paylaşılan dosyaları açamıyor, daha fazla bilgi için SSS bölümüne bakın</string>
     <string name="title_no_body">Hiçbir ileti metni bulunamadı</string>
     <string name="title_no_charset">Desteklenmeyen kodlama: %1$s</string>
+    <string name="title_via">Şu yol ile: %1$s</string>
     <string name="title_try">Android için açık kaynaklı, gizlilik dostu bir e-posta uygulaması olan FairEmail\'i deneyin</string>
     <string name="title_pro_feature">Bu Pro özelliğidir</string>
     <string name="title_pro_list">Pro özelliklerin listesi</string>

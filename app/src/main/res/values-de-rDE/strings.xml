@@ -158,6 +158,7 @@
     <string name="title_identity_name">Ihr Name</string>
     <string name="title_identity_email">Ihre E-Mail-Adresse</string>
     <string name="title_identity_reply_to">Antwortadresse</string>
+    <string name="title_identity_plain_text">Nur-Text-Email senden</string>
     <string name="title_identity_read_receipt">Lesebestätigung anfordern</string>
     <string name="title_identity_delivery_receipt">Übermittlungsbestätigung anfordern</string>
     <string name="title_identity_receipt_remark">Die meisten Anbieter ignorieren Lesebestätigungsanfragen</string>

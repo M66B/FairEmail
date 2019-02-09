@@ -123,11 +123,12 @@
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
     <string name="title_advanced_identicons">Toon identicons</string>
     <string name="title_advanced_name_email">Toon namen en e-mailadressen</string>
-    <string name="title_advanced_preview">Bericht voorvertoning</string>
+    <string name="title_advanced_preview">Toon berichtvoorbeeld</string>
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
     <string name="title_advanced_html">Automatisch originele bericht weergeven voor bekende contacten</string>
     <string name="title_advanced_images">Automatisch afbeeldingen weergeven voor bekende contacten</string>
     <string name="title_advanced_actionbar">Actiebalk gesprek</string>
+    <string name="title_advanced_notify_preview">Toon berichtvoorbeeld in meldingen</string>
     <string name="title_advanced_light">Gebruik meldingslicht</string>
     <string name="title_advanced_sound">Selecteer meldingsgeluid</string>
     <string name="title_advanced_pull_refresh">Omlaag schuiven om te verversen</string>
@@ -158,6 +159,7 @@
     <string name="title_identity_name">Uw naam</string>
     <string name="title_identity_email">Uw e-mailadres</string>
     <string name="title_identity_reply_to">Antwoord op adres</string>
+    <string name="title_identity_plain_text">Verstuur alleen platte tekst</string>
     <string name="title_identity_read_receipt">Vraag leesbevestiging</string>
     <string name="title_identity_delivery_receipt">Vraag ontvangstbevestiging</string>
     <string name="title_identity_receipt_remark">De meeste providers negeren bevestigingsverzoeken</string>

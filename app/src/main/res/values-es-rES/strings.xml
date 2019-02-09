@@ -122,6 +122,7 @@
     <string name="title_advanced_threading">Hilos de conversación</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
+    <string name="title_advanced_name_email">Mostrar nombres y direcciones de correo electrónico</string>
     <string name="title_advanced_preview">Mostrar vista previa de mensajes</string>
     <string name="title_advanced_addresses">Mostrar detalles de dirección por defecto</string>
     <string name="title_advanced_html">Mostrar mensaje original automáticamente para contactos conocidos</string>
@@ -148,6 +149,7 @@
     <string name="title_advanced_browse_hint">Buscar más mensajes al desplazarse hacia abajo</string>
     <string name="title_advanced_unified_hint">Mostrar carpetas de bandeja de entrada unificada o mensajes de bandeja de entrada unificada</string>
     <string name="title_advanced_threading_hint">Agrupar mensajes relacionados entre sí</string>
+    <string name="title_advanced_name_email_hint">Si está desactivado, solo se mostrarán los nombres cuando estén disponibles</string>
     <string name="title_advanced_preview_hint">Sólo disponible cuando el texto del mensaje fue descargado</string>
     <string name="title_advanced_autoexpand_hint">Abrir mensaje automáticamente cuando haya solo un mensaje o uno no leído en una conversación</string>
     <string name="title_advanced_autoclose_hint">Cerrar automáticamente hilos de conversación cuando todos los mensajes son archivados, enviados o eliminados</string>
@@ -434,7 +436,7 @@
     <string name="title_undo">Deshacer</string>
     <string name="title_add">Agregar</string>
     <string name="title_browse">Explorar</string>
-    <string name="title_info">Info</string>
+    <string name="title_info">Información</string>
     <string name="title_report">Reportar</string>
     <string name="title_no_ask_again">No volver a preguntar</string>
     <string name="title_no_adobe">Adobe Acrobat Reader no puede abrir archivos compartidos de forma segura, consulte las Preguntas Frecuentes para más información</string>

@@ -138,6 +138,7 @@
     <string name="title_advanced_threading">Связанные диалоги</string>
     <string name="title_advanced_avatars">Показать фотографии контакта</string>
     <string name="title_advanced_identicons">Показать идентификаторы</string>
+    <string name="title_advanced_name_email">Показывать имена и адреса электронной почты</string>
     <string name="title_advanced_preview">Показать предварительный просмотр сообщения</string>
     <string name="title_advanced_addresses">По умолчанию показывать подробную информацию об адресах</string>
     <string name="title_advanced_html">Автоматически показывать исходное сообщение для известных контактов</string>
@@ -164,6 +165,7 @@
     <string name="title_advanced_browse_hint">Получите больше сообщений при прокрутке вниз</string>
     <string name="title_advanced_unified_hint">Показать отдельные папки \"Входящие\" или сообщения в единой папке</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
+    <string name="title_advanced_name_email_hint">Если отключено, будут показаны только имена (при наличии)</string>
     <string name="title_advanced_preview_hint">Доступно только когда был загружен текст сообщения</string>
     <string name="title_advanced_autoexpand_hint">Автоматически открывать сообщение, когда оно только одно или только одно непрочитанное сообщение в диалоге</string>
     <string name="title_advanced_autoclose_hint">Автоматически закрывать диалог, если все сообщения удалены, отправлены или помещены в архив</string>
@@ -172,6 +174,7 @@
     <string name="title_identity_name">Ваше имя</string>
     <string name="title_identity_email">Ваш эл. адрес</string>
     <string name="title_identity_reply_to">Обратный адрес</string>
+    <string name="title_identity_plain_text">Отправка простым текстом</string>
     <string name="title_identity_read_receipt">Запросить уведомления о прочтении</string>
     <string name="title_identity_delivery_receipt">Запросить уведомление о доставке</string>
     <string name="title_identity_receipt_remark">Большинство провайдеров игнорируют запросы на получение</string>

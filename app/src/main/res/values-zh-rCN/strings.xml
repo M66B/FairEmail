@@ -108,6 +108,7 @@
     <string name="title_advanced_threading">会话线程</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
+    <string name="title_advanced_name_email">显示名称和电子邮件地址</string>
     <string name="title_advanced_preview">显示邮件预览</string>
     <string name="title_advanced_addresses">默认显示地址详情</string>
     <string name="title_advanced_html">自动显示已知联系人的原始消息</string>
@@ -134,6 +135,7 @@
     <string name="title_advanced_browse_hint">向下滚动时拉取更多邮件</string>
     <string name="title_advanced_unified_hint">显示统一收件箱文件夹或统一收件箱邮件</string>
     <string name="title_advanced_threading_hint">对相互关联的邮件进行分组</string>
+    <string name="title_advanced_name_email_hint">禁用该选项，将仅显示名称（如果可用）</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
     <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>
