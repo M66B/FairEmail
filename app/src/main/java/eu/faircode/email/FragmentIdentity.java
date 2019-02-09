@@ -581,11 +581,11 @@ public class FragmentIdentity extends FragmentBase {
 
                 // Check SMTP server
                 if (check) {
-                    String protocol = (starttls ? "smtp" : "smtps");
+                    String transportType = (starttls ? "smtp" : "smtps");
                     Properties props = MessageHelper.getSessionProperties(auth_type, realm, insecure);
                     Session isession = Session.getInstance(props, null);
                     isession.setDebug(true);
-                    Transport itransport = isession.getTransport(protocol);
+                    Transport itransport = isession.getTransport(transportType);
                     try {
                         try {
                             itransport.connect(host, Integer.parseInt(port), user, password);

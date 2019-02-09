@@ -49,9 +49,7 @@ public class EntityAccount implements Serializable {
     @NonNull
     public Integer auth_type;
     @NonNull
-    public Boolean pop = false;
-    @NonNull
-    public String host; // POP3/IMAP
+    public String host; // IMAP
     @NonNull
     public Boolean starttls;
     @NonNull
@@ -88,10 +86,6 @@ public class EntityAccount implements Serializable {
     public String error;
     public Long last_connected;
 
-    String getProtocol() {
-        return (pop ? "pop3" : "imap") + (starttls ? "" : "s");
-    }
-
     static String getNotificationChannelName(long account) {
         return "notification." + account;
     }
@@ -116,7 +110,6 @@ public class EntityAccount implements Serializable {
         JSONObject json = new JSONObject();
         json.put("id", id);
         json.put("auth_type", auth_type);
-        json.put("pop", pop);
         json.put("host", host);
         json.put("starttls", starttls);
         json.put("insecure", insecure);
@@ -149,8 +142,6 @@ public class EntityAccount implements Serializable {
         EntityAccount account = new EntityAccount();
         // id
         account.auth_type = json.getInt("auth_type");
-        if (json.has("pop"))
-            account.pop = json.getBoolean("pop");
         account.host = json.getString("host");
         account.starttls = (json.has("starttls") && json.getBoolean("starttls"));
         account.insecure = (json.has("insecure") && json.getBoolean("insecure"));

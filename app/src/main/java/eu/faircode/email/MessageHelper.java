@@ -165,26 +165,6 @@ public class MessageHelper {
         props.put("mail.smtp.writetimeout", Integer.toString(NETWORK_TIMEOUT)); // one thread overhead
         props.put("mail.smtp.timeout", Integer.toString(NETWORK_TIMEOUT));
 
-        // https://javaee.github.io/javamail/docs/api/com/sun/mail/pop3/package-summary.html
-        props.put("mail.pop3s.ssl.checkserveridentity", checkserveridentity);
-        props.put("mail.pop3s.ssl.trust", "*");
-        props.put("mail.pop3s.starttls.enable", "false");
-        props.put("mail.pop3s.starttls.required", "false");
-
-        props.put("mail.pop3s.connectiontimeout", Integer.toString(NETWORK_TIMEOUT));
-        props.put("mail.pop3s.timeout", Integer.toString(NETWORK_TIMEOUT));
-        props.put("mail.pop3s.writetimeout", Integer.toString(NETWORK_TIMEOUT)); // one thread overhead
-
-        props.put("mail.pop3.ssl.checkserveridentity", checkserveridentity);
-        props.put("mail.pop3.ssl.trust", "*");
-        props.put("mail.pop3.starttls.enable", "true");
-        props.put("mail.pop3.starttls.required", "true");
-
-        props.put("mail.pop3.connectiontimeout", Integer.toString(NETWORK_TIMEOUT));
-        props.put("mail.pop3.timeout", Integer.toString(NETWORK_TIMEOUT));
-        props.put("mail.pop3.writetimeout", Integer.toString(NETWORK_TIMEOUT)); // one thread overhead
-
-        // MIME
         props.put("mail.mime.allowutf8", "true"); // SMTPTransport, MimeMessage
         props.put("mail.mime.address.strict", "false");
 
