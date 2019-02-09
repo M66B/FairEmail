@@ -185,7 +185,7 @@ public class MessageHelper {
         return props;
     }
 
-    static MimeMessageEx from(Context context, EntityMessage message, Session isession) throws MessagingException, IOException {
+    static MimeMessageEx from(Context context, EntityMessage message, Session isession, boolean plainOnly) throws MessagingException, IOException {
         DB db = DB.getInstance(context);
         MimeMessageEx imessage = new MimeMessageEx(isession, message.msgid);
 
@@ -282,12 +282,12 @@ public class MessageHelper {
                 return imessage;
             }
 
-        build(context, message, imessage);
+        build(context, message, imessage, plainOnly);
 
         return imessage;
     }
 
-    static void build(Context context, EntityMessage message, MimeMessage imessage) throws IOException, MessagingException {
+    static void build(Context context, EntityMessage message, MimeMessage imessage, boolean plainOnly) throws IOException, MessagingException {
         DB db = DB.getInstance(context);
 
         StringBuilder body = new StringBuilder();
@@ -334,12 +334,18 @@ public class MessageHelper {
         Log.i("Attachments available=" + available);
 
         if (available == 0)
-            imessage.setContent(alternativePart);
+            if (plainOnly)
+                imessage.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
+            else
+                imessage.setContent(alternativePart);
         else {
             Multipart mixedPart = new MimeMultipart("mixed");
 
             BodyPart attachmentPart = new MimeBodyPart();
-            attachmentPart.setContent(alternativePart);
+            if (plainOnly)
+                attachmentPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
+            else
+                attachmentPart.setContent(alternativePart);
             mixedPart.addBodyPart(attachmentPart);
 
             for (final EntityAttachment attachment : attachments)

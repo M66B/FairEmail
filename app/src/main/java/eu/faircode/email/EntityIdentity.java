@@ -76,6 +76,8 @@ public class EntityIdentity {
     public String replyto;
     public String bcc;
     @NonNull
+    public Boolean plain_only = false;
+    @NonNull
     public Boolean delivery_receipt = false;
     @NonNull
     public Boolean read_receipt = false;
@@ -113,6 +115,7 @@ public class EntityIdentity {
         json.put("replyto", replyto);
         json.put("bcc", bcc);
 
+        json.put("plain_only", plain_only);
         json.put("delivery_receipt", delivery_receipt);
         json.put("read_receipt", read_receipt);
         json.put("store_sent", store_sent);
@@ -151,6 +154,8 @@ public class EntityIdentity {
         if (json.has("bcc"))
             identity.bcc = json.getString("bcc");
 
+        if (json.has("plain_only"))
+            identity.plain_only = json.getBoolean("plain_only");
         if (json.has("delivery_receipt"))
             identity.delivery_receipt = json.getBoolean("delivery_receipt");
         if (json.has("read_receipt"))

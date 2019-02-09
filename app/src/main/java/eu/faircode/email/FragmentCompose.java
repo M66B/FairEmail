@@ -1003,11 +1003,14 @@ public class FragmentCompose extends FragmentBase {
                     if (attachment.encryption != null)
                         attachments.remove(attachment);
 
+                EntityIdentity identity =
+                        (message.identity == null ? null : db.identity().getIdentity(message.identity));
+
                 // Build message
                 Properties props = MessageHelper.getSessionProperties(Helper.AUTH_TYPE_PASSWORD, null, false);
                 Session isession = Session.getInstance(props, null);
                 MimeMessage imessage = new MimeMessage(isession);
-                MessageHelper.build(context, message, imessage);
+                MessageHelper.build(context, message, imessage, identity == null ? false : identity.plain_only);
 
                 // Serialize message
                 ByteArrayOutputStream os = new ByteArrayOutputStream();

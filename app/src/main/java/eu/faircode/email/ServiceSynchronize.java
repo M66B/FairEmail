@@ -1690,12 +1690,16 @@ public class ServiceSynchronize extends LifecycleService {
             if (!message.content)
                 throw new IllegalArgumentException("Message body missing");
 
+            EntityIdentity identity =
+                    (message.identity == null ? null : db.identity().getIdentity(message.identity));
+
             List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
             for (EntityAttachment attachment : attachments)
                 if (!attachment.available)
                     throw new IllegalArgumentException("Attachment missing");
 
-            imessage = MessageHelper.from(this, message, isession);
+            imessage = MessageHelper.from(this, message, isession,
+                    identity == null ? false : identity.plain_only);
         } else {
             // Cross account move
             File file = EntityMessage.getRawFile(this, message.id);
@@ -1891,7 +1895,7 @@ public class ServiceSynchronize extends LifecycleService {
         final Session isession = Session.getInstance(props, null);
 
         // Create message
-        MimeMessage imessage = MessageHelper.from(this, message, isession);
+        MimeMessage imessage = MessageHelper.from(this, message, isession, ident.plain_only);
 
         // Add reply to
         if (ident.replyto != null)
