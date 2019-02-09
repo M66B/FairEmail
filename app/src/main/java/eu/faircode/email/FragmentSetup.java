@@ -353,6 +353,7 @@ public class FragmentSetup extends FragmentBase {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         PackageManager pm = getContext().getPackageManager();
+        menu.findItem(R.id.menu_advanced).setVisible(BuildConfig.DEBUG);
         menu.findItem(R.id.menu_help).setVisible(getIntentHelp().resolveActivity(pm) != null);
         super.onPrepareOptionsMenu(menu);
     }
