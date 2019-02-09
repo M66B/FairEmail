@@ -347,15 +347,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         });
 
-        if (getSupportFragmentManager().getFragments().size() == 0 &&
-                !getIntent().hasExtra(Intent.EXTRA_PROCESS_TEXT)) {
-            FragmentBase fragment = (unified ? new FragmentMessages() : new FragmentFolders());
-            fragment.setArguments(new Bundle());
-
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("unified");
-            fragmentTransaction.commit();
-        }
+        if (getSupportFragmentManager().getFragments().size() == 0 && !getIntent().hasExtra(Intent.EXTRA_PROCESS_TEXT))
+            init();
 
         if (savedInstanceState != null)
             drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("toggle"));
@@ -373,6 +366,18 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         updateShortcuts();
     }
 
+    private void init() {
+        FragmentBase fragment = (unified ? new FragmentMessages() : new FragmentFolders());
+        fragment.setArguments(new Bundle());
+
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        for (Fragment existing : fm.getFragments())
+            fragmentTransaction.remove(existing);
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("unified");
+        fragmentTransaction.commit();
+    }
+
     private Runnable checkIntent = new Runnable() {
         @Override
         public void run() {
@@ -388,7 +393,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 setIntent(intent);
 
                 if ("unified".equals(action))
-                    getSupportFragmentManager().popBackStack("unified", 0);
+                    init();
 
                 else if ("error".equals(action))
                     onDebugInfo();
