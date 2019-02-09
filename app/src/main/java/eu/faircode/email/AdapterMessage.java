@@ -47,7 +47,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
-import android.text.method.LinkMovementMethod;
+import android.text.method.ArrowKeyMovementMethod;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.StyleSpan;
@@ -1530,6 +1530,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibQuotes.setVisibility(has_quotes && show_expanded && !show_quotes ? View.VISIBLE : View.GONE);
                 ibImages.setVisibility(has_images && show_expanded && !show_images ? View.VISIBLE : View.GONE);
                 tvBody.setText(body);
+                tvBody.setTextIsSelectable(false);
+                tvBody.setTextIsSelectable(true);
                 tvBody.setMovementMethod(new UrlHandler());
                 tvBody.setVisibility(show_expanded ? View.VISIBLE : View.GONE);
                 pbBody.setVisibility(View.GONE);
@@ -1570,7 +1572,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             });
         }
 
-        private class UrlHandler extends LinkMovementMethod {
+        private class UrlHandler extends ArrowKeyMovementMethod {
             public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
                 if (event.getAction() != MotionEvent.ACTION_UP)
                     return false;
