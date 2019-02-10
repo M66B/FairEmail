@@ -148,7 +148,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
 
         all = answers;
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new MessageDiffCallback(filtered, all));
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(filtered, all));
 
         filtered.clear();
         filtered.addAll(all);
@@ -177,11 +177,11 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
         diff.dispatchUpdatesTo(this);
     }
 
-    private class MessageDiffCallback extends DiffUtil.Callback {
+    private class DiffCallback extends DiffUtil.Callback {
         private List<EntityAnswer> prev;
         private List<EntityAnswer> next;
 
-        MessageDiffCallback(List<EntityAnswer> prev, List<EntityAnswer> next) {
+        DiffCallback(List<EntityAnswer> prev, List<EntityAnswer> next) {
             this.prev = prev;
             this.next = next;
         }

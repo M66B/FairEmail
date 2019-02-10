@@ -152,7 +152,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
         all = accounts;
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new MessageDiffCallback(filtered, all));
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(filtered, all));
 
         filtered.clear();
         filtered.addAll(all);
@@ -181,11 +181,11 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         diff.dispatchUpdatesTo(this);
     }
 
-    private class MessageDiffCallback extends DiffUtil.Callback {
+    private class DiffCallback extends DiffUtil.Callback {
         private List<EntityAccount> prev;
         private List<EntityAccount> next;
 
-        MessageDiffCallback(List<EntityAccount> prev, List<EntityAccount> next) {
+        DiffCallback(List<EntityAccount> prev, List<EntityAccount> next) {
             this.prev = prev;
             this.next = next;
         }

@@ -127,7 +127,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
         all = rules;
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new MessageDiffCallback(filtered, all));
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(filtered, all));
 
         filtered.clear();
         filtered.addAll(all);
@@ -156,11 +156,11 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         diff.dispatchUpdatesTo(this);
     }
 
-    private class MessageDiffCallback extends DiffUtil.Callback {
+    private class DiffCallback extends DiffUtil.Callback {
         private List<TupleRuleEx> prev;
         private List<TupleRuleEx> next;
 
-        MessageDiffCallback(List<TupleRuleEx> prev, List<TupleRuleEx> next) {
+        DiffCallback(List<TupleRuleEx> prev, List<TupleRuleEx> next) {
             this.prev = prev;
             this.next = next;
         }

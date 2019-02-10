@@ -448,7 +448,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (!folder.hide || showAll)
                 shown.add((TupleFolderEx) folder);
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new MessageDiffCallback(filtered, shown));
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(filtered, shown));
 
         filtered.clear();
         filtered.addAll(shown);
@@ -477,11 +477,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         diff.dispatchUpdatesTo(this);
     }
 
-    private class MessageDiffCallback extends DiffUtil.Callback {
+    private class DiffCallback extends DiffUtil.Callback {
         private List<TupleFolderEx> prev;
         private List<TupleFolderEx> next;
 
-        MessageDiffCallback(List<TupleFolderEx> prev, List<TupleFolderEx> next) {
+        DiffCallback(List<TupleFolderEx> prev, List<TupleFolderEx> next) {
             this.prev = prev;
             this.next = next;
         }

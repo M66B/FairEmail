@@ -191,7 +191,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
 
         all = attachments;
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new MessageDiffCallback(filtered, all));
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(filtered, all));
 
         filtered.clear();
         filtered.addAll(all);
@@ -220,11 +220,11 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
         diff.dispatchUpdatesTo(this);
     }
 
-    private class MessageDiffCallback extends DiffUtil.Callback {
+    private class DiffCallback extends DiffUtil.Callback {
         private List<EntityAttachment> prev;
         private List<EntityAttachment> next;
 
-        MessageDiffCallback(List<EntityAttachment> prev, List<EntityAttachment> next) {
+        DiffCallback(List<EntityAttachment> prev, List<EntityAttachment> next) {
             this.prev = prev;
             this.next = next;
         }

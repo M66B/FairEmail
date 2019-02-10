@@ -152,7 +152,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
         all = identities;
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new MessageDiffCallback(filtered, all));
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(filtered, all));
 
         filtered.clear();
         filtered.addAll(all);
@@ -181,11 +181,11 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         diff.dispatchUpdatesTo(this);
     }
 
-    private class MessageDiffCallback extends DiffUtil.Callback {
+    private class DiffCallback extends DiffUtil.Callback {
         private List<TupleIdentityEx> prev;
         private List<TupleIdentityEx> next;
 
-        MessageDiffCallback(List<TupleIdentityEx> prev, List<TupleIdentityEx> next) {
+        DiffCallback(List<TupleIdentityEx> prev, List<TupleIdentityEx> next) {
             this.prev = prev;
             this.next = next;
         }

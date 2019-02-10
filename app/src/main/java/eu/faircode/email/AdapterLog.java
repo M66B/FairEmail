@@ -75,7 +75,7 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
 
         all = logs;
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new MessageDiffCallback(filtered, all));
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(filtered, all));
 
         filtered.clear();
         filtered.addAll(all);
@@ -104,11 +104,11 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
         diff.dispatchUpdatesTo(this);
     }
 
-    private class MessageDiffCallback extends DiffUtil.Callback {
+    private class DiffCallback extends DiffUtil.Callback {
         private List<EntityLog> prev;
         private List<EntityLog> next;
 
-        MessageDiffCallback(List<EntityLog> prev, List<EntityLog> next) {
+        DiffCallback(List<EntityLog> prev, List<EntityLog> next) {
             this.prev = prev;
             this.next = next;
         }
