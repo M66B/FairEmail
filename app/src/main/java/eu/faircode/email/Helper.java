@@ -706,8 +706,15 @@ public class Helper {
             return null;
         }
 
+        NetworkInfo ani = cm.getNetworkInfo(active);
         if (log)
-            EntityLog.log(context, "isMetered: active info=" + cm.getNetworkInfo(active));
+            EntityLog.log(context, "isMetered: active info=" + ani);
+
+        if (ani == null || !ani.isConnected()) {
+            if (log)
+                EntityLog.log(context, "isMetered: active network not connected");
+            return null;
+        }
 
         NetworkCapabilities caps = cm.getNetworkCapabilities(active);
         if (caps == null) {
