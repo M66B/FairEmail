@@ -53,7 +53,8 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         btnPurchase = view.findViewById(R.id.btnPurchase);
         tvPrice = view.findViewById(R.id.tvPrice);
 
-        tvList.setText(Html.fromHtml("<a href=\"" + BuildConfig.PRO_FEATURES_URI + "\">" + Html.escapeHtml(getString(R.string.title_pro_list)) + "</a>"));
+        tvList.setText(HtmlHelper.fromHtml(
+                "<a href=\"" + BuildConfig.PRO_FEATURES_URI + "\">" + Html.escapeHtml(getString(R.string.title_pro_list)) + "</a>"));
         tvList.setMovementMethod(LinkMovementMethod.getInstance());
 
         btnPurchase.setOnClickListener(new View.OnClickListener() {

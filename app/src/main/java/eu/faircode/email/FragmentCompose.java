@@ -94,13 +94,11 @@ import org.openintents.openpgp.util.OpenPgpServiceConnection;
 import org.xml.sax.XMLReader;
 
 import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -235,7 +233,7 @@ public class FragmentCompose extends FragmentBase {
                 Spanned signature = null;
                 if (pro) {
                     if (identity != null && !TextUtils.isEmpty(identity.signature))
-                        signature = Html.fromHtml(identity.signature, new Html.ImageGetter() {
+                        signature = HtmlHelper.fromHtml(identity.signature, new Html.ImageGetter() {
                             @Override
                             public Drawable getDrawable(String source) {
                                 int px = Helper.dp2pixels(getContext(), 24);
@@ -503,7 +501,7 @@ public class FragmentCompose extends FragmentBase {
     private void onReferenceEditConfirmed() {
         Bundle args = new Bundle();
         args.putLong("id", working);
-        args.putString("body", Html.toHtml(etBody.getText()));
+        args.putString("body", HtmlHelper.toHtml(etBody.getText()));
 
         new SimpleTask<Void>() {
             @Override
@@ -522,26 +520,23 @@ public class FragmentCompose extends FragmentBase {
                 String body = args.getString("body");
 
                 File file = EntityMessage.getFile(context, id);
-                File ref = EntityMessage.getRefFile(context, id);
+                File refFile = EntityMessage.getRefFile(context, id);
 
-                BufferedReader in = null;
+                String ref = Helper.readText(refFile);
+                String plain = HtmlHelper.getText(ref);
+                String html = "<p>" + plain.replaceAll("\\r?\\n", "<br />" + "</p>");
+
                 BufferedWriter out = null;
                 try {
                     out = new BufferedWriter(new FileWriter(file));
                     out.write(body);
-
-                    in = new BufferedReader(new FileReader(ref));
-                    String str;
-                    while ((str = in.readLine()) != null)
-                        out.write(str);
+                    out.write(html);
                 } finally {
                     if (out != null)
                         out.close();
-                    if (in != null)
-                        in.close();
                 }
 
-                ref.delete();
+                refFile.delete();
 
                 return null;
             }
@@ -1237,8 +1232,8 @@ public class FragmentCompose extends FragmentBase {
                     SpannableString s = new SpannableString(etBody.getText());
                     ImageSpan is = new ImageSpan(getContext(), Uri.parse("cid:" + BuildConfig.APPLICATION_ID + "." + attachment.id), ImageSpan.ALIGN_BASELINE);
                     s.setSpan(is, start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    String html = Html.toHtml(s);
-                    etBody.setText(Html.fromHtml(html, cidGetter, null));
+                    String html = HtmlHelper.toHtml(s);
+                    etBody.setText(HtmlHelper.fromHtml(html, cidGetter, null));
                 }
 
                 onAction(R.id.action_save);
@@ -1295,7 +1290,7 @@ public class FragmentCompose extends FragmentBase {
             return false;
         if (!etSubject.getText().toString().trim().equals(etSubject.getTag()))
             return false;
-        if (!TextUtils.isEmpty(Jsoup.parse(Html.toHtml(etBody.getText())).text().trim()))
+        if (!TextUtils.isEmpty(Jsoup.parse(HtmlHelper.toHtml(etBody.getText())).text().trim()))
             return false;
         if (rvAttachment.getAdapter().getItemCount() > 0)
             return false;
@@ -1321,7 +1316,7 @@ public class FragmentCompose extends FragmentBase {
         args.putString("cc", etCc.getText().toString().trim());
         args.putString("bcc", etBcc.getText().toString().trim());
         args.putString("subject", etSubject.getText().toString().trim());
-        args.putString("body", Html.toHtml(spannable));
+        args.putString("body", HtmlHelper.toHtml(spannable));
         args.putBoolean("empty", isEmpty());
 
         Log.i("Run execute id=" + working);
@@ -2253,13 +2248,13 @@ public class FragmentCompose extends FragmentBase {
                 final boolean show_images = args.getBoolean("show_images", false);
 
                 String body = Helper.readText(EntityMessage.getFile(context, id));
-                Spanned spannedBody = Html.fromHtml(body, cidGetter, null);
+                Spanned spannedBody = HtmlHelper.fromHtml(body, cidGetter, null);
 
                 Spanned spannedReference = null;
                 File refFile = EntityMessage.getRefFile(context, id);
                 if (refFile.exists()) {
                     String quote = HtmlHelper.sanitize(Helper.readText(refFile), true);
-                    Spanned spannedQuote = Html.fromHtml(quote,
+                    Spanned spannedQuote = HtmlHelper.fromHtml(quote,
                             new Html.ImageGetter() {
                                 @Override
                                 public Drawable getDrawable(String source) {

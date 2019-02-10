@@ -26,7 +26,6 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
-import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -296,14 +295,14 @@ public class FragmentIdentity extends FragmentBase {
             public void onClick(View v) {
                 View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_html, null);
                 final EditText etHtml = dview.findViewById(R.id.etHtml);
-                etHtml.setText(Html.toHtml(etSignature.getText()));
+                etHtml.setText(HtmlHelper.toHtml(etSignature.getText()));
 
                 new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                         .setView(dview)
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Spanned html = Html.fromHtml(etHtml.getText().toString());
+                                Spanned html = HtmlHelper.fromHtml(etHtml.getText().toString());
                                 etSignature.setText(html);
                             }
                         })
@@ -480,7 +479,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("password", tilPassword.getEditText().getText().toString());
         args.putString("realm", etRealm.getText().toString());
         args.putInt("color", color);
-        args.putString("signature", Html.toHtml(etSignature.getText()));
+        args.putString("signature", HtmlHelper.toHtml(etSignature.getText()));
         args.putBoolean("synchronize", cbSynchronize.isChecked());
         args.putBoolean("primary", cbPrimary.isChecked());
 
@@ -718,7 +717,7 @@ public class FragmentIdentity extends FragmentBase {
 
                     etDisplay.setText(identity == null ? null : identity.display);
                     etSignature.setText(identity == null ||
-                            TextUtils.isEmpty(identity.signature) ? null : Html.fromHtml(identity.signature));
+                            TextUtils.isEmpty(identity.signature) ? null : HtmlHelper.fromHtml(identity.signature));
 
                     etHost.setText(identity == null ? null : identity.host);
                     cbStartTls.setChecked(identity == null ? false : identity.starttls);

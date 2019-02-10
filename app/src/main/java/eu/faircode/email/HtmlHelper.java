@@ -24,6 +24,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.text.Html;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Base64;
 
@@ -49,20 +51,35 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.text.HtmlCompat;
+
+import static androidx.core.text.HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM;
+import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
+
 public class HtmlHelper {
     private static final int PREVIEW_SIZE = 250;
     private static Pattern pattern = Pattern.compile("([http|https]+://[\\w\\S(\\.|:|/)]+)");
-    private static final List<String> heads = Arrays.asList("p", "h1", "h2", "h3", "h4", "h5", "tr");
-    private static final List<String> tails = Arrays.asList("br", "dd", "dt", "p", "h1", "h2", "h3", "h4", "h5");
+    private static final List<String> heads = Arrays.asList("h1", "h2", "h3", "h4", "h5", "h6", "p", "table", "ol", "ul", "br", "hr");
+    private static final List<String> tails = Arrays.asList("h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "li");
 
-    static String sanitize(String html, boolean quotes) {
+    static String sanitize(String html, boolean showQuotes) {
         Document document = Jsoup.parse(Jsoup.clean(html, Whitelist
                 .relaxed()
                 .addProtocols("img", "src", "cid")
                 .addProtocols("img", "src", "data")));
 
-        for (Element tr : document.select("tr"))
-            tr.after("<br>");
+        for (Element td : document.select("th,td")) {
+            Element next = td.nextElementSibling();
+            if (next != null && ("th".equals(next.tagName()) || "td".equals(next.tagName())))
+                td.append("<span> </span>");
+            else
+                td.append("<br>");
+        }
+
+        for (Element ol : document.select("ol,ul"))
+            ol.append("<br>");
 
         for (Element img : document.select("img")) {
             boolean linked = false;
@@ -88,15 +105,16 @@ public class HtmlHelper {
             p.appendChild(img);
         }
 
-        if (!quotes)
+        if (!showQuotes)
             for (Element quote : document.select("blockquote"))
-                quote.text("&#8230;");
+                quote.html("&#8230;");
 
+        // Autolink
         NodeTraversor.traverse(new NodeVisitor() {
             @Override
             public void head(Node node, int depth) {
                 if (node instanceof TextNode) {
-                    String text = ((TextNode) node).text();
+                    String text = Html.escapeHtml(((TextNode) node).text());
                     Matcher matcher = pattern.matcher(text);
                     while (matcher.find()) {
                         String ref = matcher.group();
@@ -281,29 +299,72 @@ public class HtmlHelper {
         final StringBuilder sb = new StringBuilder();
 
         NodeTraversor.traverse(new NodeVisitor() {
+            private int qlevel = 0;
+
             public void head(Node node, int depth) {
                 if (node instanceof TextNode)
-                    sb.append(((TextNode) node).text());
+                    sb.append(((TextNode) node).text()).append(' ');
                 else {
                     String name = node.nodeName();
-                    if (name.equals("li"))
-                        sb.append("\n * ");
-                    else if (name.equals("dt"))
-                        sb.append("  ");
-                    else if (heads.contains(name))
-                        sb.append("\n");
+                    if ("li".equals(name))
+                        sb.append("* ");
+                    else if ("blockquote".equals(name))
+                        qlevel++;
+
+                    if (heads.contains(name))
+                        newline();
                 }
             }
 
             public void tail(Node node, int depth) {
                 String name = node.nodeName();
+                if ("a".equals(name))
+                    sb.append("[").append(node.absUrl("href")).append("] ");
+                if ("img".equals(name))
+                    sb.append("[").append(node.absUrl("src")).append("] ");
+                else if ("th".equals(name) || "td".equals(name)) {
+                    Node next = node.nextSibling();
+                    if (next == null || !("th".equals(next.nodeName()) || "td".equals(next.nodeName())))
+                        newline();
+                } else if ("blockquote".equals(name))
+                    qlevel--;
+
                 if (tails.contains(name))
-                    sb.append("\n");
-                else if (name.equals("a"))
-                    sb.append(" <").append(node.absUrl("href")).append(">");
+                    newline();
+            }
+
+            private void newline() {
+                trimEnd(sb);
+                sb.append("\n");
+                for (int i = 0; i < qlevel; i++)
+                    sb.append('>');
+                if (qlevel > 0)
+                    sb.append(' ');
             }
         }, Jsoup.parse(html));
 
+        trimEnd(sb);
+        sb.append("\n");
+
         return sb.toString();
+    }
+
+    static void trimEnd(StringBuilder sb) {
+        int length = sb.length();
+        while (length > 0 && sb.charAt(length - 1) == ' ')
+            length--;
+        sb.setLength(length);
+    }
+
+    static Spanned fromHtml(@NonNull String html) {
+        return fromHtml(html, null, null);
+    }
+
+    static Spanned fromHtml(@NonNull String html, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
+        return HtmlCompat.fromHtml(html, FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM, imageGetter, null);
+    }
+
+    static String toHtml(Spanned spanned) {
+        return HtmlCompat.toHtml(spanned, TO_HTML_PARAGRAPH_LINES_CONSECUTIVE);
     }
 }

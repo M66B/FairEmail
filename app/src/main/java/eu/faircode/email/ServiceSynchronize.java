@@ -43,7 +43,6 @@ import android.os.Handler;
 import android.os.PowerManager;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
-import android.text.Html;
 import android.text.TextUtils;
 import android.util.LongSparseArray;
 
@@ -583,7 +582,7 @@ public class ServiceSynchronize extends LifecycleService {
             }
 
             builder.setStyle(new Notification.BigTextStyle()
-                    .bigText(Html.fromHtml(sb.toString()))
+                    .bigText(HtmlHelper.fromHtml(sb.toString()))
                     .setSummaryText(title));
         }
 
@@ -678,7 +677,7 @@ public class ServiceSynchronize extends LifecycleService {
                         if (!TextUtils.isEmpty(message.subject))
                             sb.append(message.subject).append("<br>");
                         sb.append(HtmlHelper.getPreview(body));
-                        mbuilder.setStyle(new Notification.BigTextStyle().bigText(Html.fromHtml(sb.toString())));
+                        mbuilder.setStyle(new Notification.BigTextStyle().bigText(HtmlHelper.fromHtml(sb.toString())));
                     } catch (IOException ex) {
                         Log.e(ex);
                         mbuilder.setStyle(new Notification.BigTextStyle().bigText(ex.toString()));

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Html;
 import android.text.Spanned;
 import android.view.View;
 import android.widget.TextView;
@@ -101,10 +100,10 @@ public class ActivityEml extends ActivityBase {
                                 .append(apart.disposition).append(' ')
                                 .append(apart.filename);
                     }
-                    result.parts = Html.fromHtml(sb.toString());
+                    result.parts = HtmlHelper.fromHtml(sb.toString());
 
                     String html = HtmlHelper.sanitize(parts.getHtml(context), true);
-                    result.body = Html.fromHtml(html);
+                    result.body = HtmlHelper.fromHtml(html);
 
                     ByteArrayOutputStream bos = new ByteArrayOutputStream();
                     mmessage.writeTo(bos);

@@ -22,7 +22,6 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -107,7 +106,7 @@ public class FragmentAnswer extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, EntityAnswer answer) {
                 etName.setText(answer == null ? null : answer.name);
-                etText.setText(answer == null ? null : Html.fromHtml(answer.text));
+                etText.setText(answer == null ? null : HtmlHelper.fromHtml(answer.text));
                 bottom_navigation.findViewById(R.id.action_delete).setVisibility(answer == null ? View.GONE : View.VISIBLE);
 
                 pbWait.setVisibility(View.GONE);
@@ -168,7 +167,7 @@ public class FragmentAnswer extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("id", id);
         args.putString("name", etName.getText().toString());
-        args.putString("text", Html.toHtml(etText.getText()));
+        args.putString("text", HtmlHelper.toHtml(etText.getText()));
 
         new SimpleTask<Void>() {
             @Override
