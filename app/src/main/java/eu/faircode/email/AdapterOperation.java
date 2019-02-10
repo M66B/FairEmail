@@ -49,7 +49,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
     private List<TupleOperationEx> all = new ArrayList<>();
     private List<TupleOperationEx> filtered = new ArrayList<>();
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View itemView;
         private TextView tvFolder;
         private TextView tvMessage;
@@ -70,10 +70,14 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
         private void wire() {
             itemView.setOnClickListener(this);
+            if (BuildConfig.DEBUG)
+                itemView.setOnLongClickListener(this);
         }
 
         private void unwire() {
             itemView.setOnClickListener(null);
+            if (BuildConfig.DEBUG)
+                itemView.setOnLongClickListener(null);
         }
 
         private void bindTo(TupleOperationEx operation) {
@@ -104,6 +108,9 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                 return;
 
             TupleOperationEx operation = filtered.get(pos);
+            if (operation == null)
+                return;
+
             if (operation.message == null) {
                 Bundle args = new Bundle();
                 args.putLong("id", operation.folder);
@@ -157,6 +164,40 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                     }
                 }.execute(context, owner, args, "operation:open:message");
             }
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return false;
+
+            TupleOperationEx operation = filtered.get(pos);
+            if (operation == null)
+                return false;
+
+            Bundle args = new Bundle();
+            args.putLong("id", operation.id);
+            args.putLong("folder", operation.folder);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+                    long folder = args.getLong("folder");
+                    DB db = DB.getInstance(context);
+                    db.operation().deleteOperation(id);
+                    db.folder().setFolderError(folder, null);
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, owner, ex);
+                }
+            }.execute(context, owner, args, "operation:delete");
+
+            return true;
         }
     }
 
