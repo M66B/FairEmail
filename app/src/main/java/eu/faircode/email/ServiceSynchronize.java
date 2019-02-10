@@ -1226,12 +1226,15 @@ public class ServiceSynchronize extends LifecycleService {
                                                             if (db.operation().getOperationCount(folder.id, null) == 0)
                                                                 return;
 
-                                                            db.folder().setFolderState(folder.id, "connecting");
+                                                            if (!account.pop || EntityFolder.INBOX.equals(folder.type)) {
+                                                                db.folder().setFolderState(folder.id, "connecting");
 
-                                                            ifolder = istore.getFolder(folder.name);
-                                                            ifolder.open(Folder.READ_WRITE);
+                                                                ifolder = istore.getFolder(folder.name);
+                                                                ifolder.open(Folder.READ_WRITE);
 
-                                                            db.folder().setFolderState(folder.id, "connected");
+                                                                db.folder().setFolderState(folder.id, "connected");
+                                                            }
+
                                                             db.folder().setFolderError(folder.id, null);
                                                         }
 
@@ -1618,7 +1621,7 @@ public class ServiceSynchronize extends LifecycleService {
         if (message.seen.equals(seen))
             return;
 
-        Log.i("Setting POP message=" + message.id + " seen=" + seen);
+        Log.i(folder.name + " setting POP message=" + message.id + " seen=" + seen);
         db.message().setMessageSeen(message.id, seen);
     }
 
@@ -1905,19 +1908,21 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private void doDelete(EntityFolder folder, POP3Folder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException {
-        Log.i("Deleting POP message=" + message.id + " msgid=" + message.msgid);
+        Log.i(folder.name + " deleting POP message=" + message.id + " msgid=" + message.msgid);
 
-        // Delete message
-        if (TextUtils.isEmpty(message.msgid))
-            throw new IllegalArgumentException("Message ID missing");
+        if (EntityFolder.INBOX.equals(folder.type)) {
+            // Delete message
+            if (TextUtils.isEmpty(message.msgid))
+                throw new IllegalArgumentException("Message ID missing");
 
-        Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
-        for (Message imessage : imessages) {
-            Log.i(folder.name + " deleting uid=" + message.uid + " msgid=" + message.msgid);
-            imessage.setFlag(Flags.Flag.DELETED, true);
+            Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
+            for (Message imessage : imessages) {
+                Log.i(folder.name + " deleting uid=" + message.uid + " msgid=" + message.msgid);
+                imessage.setFlag(Flags.Flag.DELETED, true);
+            }
+            ifolder.close();
+            ifolder.open(Folder.READ_WRITE);
         }
-        ifolder.close();
-        ifolder.open(Folder.READ_WRITE);
 
         db.message().deleteMessage(message.id);
     }
@@ -2349,6 +2354,12 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void synchronizeMessages(EntityAccount account, final EntityFolder folder, POP3Folder ifolder, JSONArray jargs, ServiceState state) throws JSONException, MessagingException, IOException {
         DB db = DB.getInstance(this);
+
+        if (!EntityFolder.INBOX.equals(folder.type)) {
+            db.folder().setFolderSyncState(folder.id, null);
+            return;
+        }
+
         try {
             db.folder().setFolderSyncState(folder.id, "syncing");
 

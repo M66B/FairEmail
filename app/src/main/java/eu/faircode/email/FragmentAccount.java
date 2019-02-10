@@ -860,11 +860,18 @@ public class FragmentAccount extends FragmentBase {
 
                 if (pop) {
                     drafts = new EntityFolder();
-                    drafts.name = "Drafts";
+                    drafts.name = context.getString(R.string.title_folder_drafts);
                     drafts.synchronize = false;
                     drafts.initialize = false;
                     drafts.sync_days = 0;
                     drafts.keep_days = 0;
+
+                    sent = new EntityFolder();
+                    sent.name = context.getString(R.string.title_folder_sent);
+                    sent.synchronize = false;
+                    sent.initialize = false;
+                    sent.sync_days = 0;
+                    sent.keep_days = 0;
                 }
 
                 if (TextUtils.isEmpty(host))
