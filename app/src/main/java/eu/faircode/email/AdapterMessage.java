@@ -871,6 +871,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (show_html)
                     onShowHtmlConfirmed(message);
                 else {
+                    Spanned body = properties.getBody(message.id);
+                    tvBody.setText(body);
+                    tvBody.setMovementMethod(null);
+
                     Bundle args = new Bundle();
                     args.putSerializable("message", message);
                     bodyTask.execute(context, owner, args, "message:body");
@@ -1470,14 +1474,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private SimpleTask<SpannableStringBuilder> bodyTask = new SimpleTask<SpannableStringBuilder>() {
-            @Override
-            protected void onPreExecute(Bundle args) {
-                TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
-                Spanned body = properties.getBody(message.id);
-                tvBody.setText(body);
-                tvBody.setMovementMethod(null);
-            }
-
             @Override
             protected SpannableStringBuilder onExecute(Context context, final Bundle args) {
                 DB db = DB.getInstance(context);
