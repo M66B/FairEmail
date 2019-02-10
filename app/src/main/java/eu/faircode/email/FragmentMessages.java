@@ -329,11 +329,9 @@ public class FragmentMessages extends FragmentBase {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EntityFolder drafts = (EntityFolder) fab.getTag();
-
                 startActivity(new Intent(getContext(), ActivityCompose.class)
                         .putExtra("action", "new")
-                        .putExtra("account", drafts.account)
+                        .putExtra("account", account)
                 );
             }
         });
@@ -341,13 +339,35 @@ public class FragmentMessages extends FragmentBase {
         fab.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                EntityFolder drafts = (EntityFolder) fab.getTag();
+                Bundle args = new Bundle();
+                args.putLong("account", account);
 
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                lbm.sendBroadcast(
-                        new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                                .putExtra("account", drafts.account)
-                                .putExtra("folder", drafts.id));
+                new SimpleTask<EntityFolder>() {
+                    @Override
+                    protected EntityFolder onExecute(Context context, Bundle args) {
+                        long account = args.getLong("account");
+
+                        DB db = DB.getInstance(context);
+                        if (account < 0)
+                            return db.folder().getPrimaryDrafts();
+                        else
+                            return db.folder().getFolderByType(account, EntityFolder.DRAFTS);
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, EntityFolder drafts) {
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                        lbm.sendBroadcast(
+                                new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                        .putExtra("account", drafts.account)
+                                        .putExtra("folder", drafts.id));
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                    }
+                }.execute(FragmentMessages.this, args, "messages:drafts");
 
                 return true;
             }
@@ -1556,17 +1576,16 @@ public class FragmentMessages extends FragmentBase {
             fabMore.hide();
 
         if (viewType != AdapterMessage.ViewType.THREAD) {
-            db.folder().liveDrafts(account < 0 ? null : account).observe(getViewLifecycleOwner(), new Observer<EntityFolder>() {
-                @Override
-                public void onChanged(EntityFolder drafts) {
-                    if (drafts == null)
-                        fab.hide();
-                    else {
-                        fab.setTag(drafts);
-                        fab.show();
-                    }
-                }
-            });
+            db.identity().liveComposableIdentities(account < 0 ? null : account).observe(getViewLifecycleOwner(),
+                    new Observer<List<TupleIdentityEx>>() {
+                        @Override
+                        public void onChanged(List<TupleIdentityEx> identities) {
+                            if (identities == null || identities.size() == 0)
+                                fab.hide();
+                            else
+                                fab.show();
+                        }
+                    });
         }
     }
 
