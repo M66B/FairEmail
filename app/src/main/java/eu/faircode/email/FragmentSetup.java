@@ -71,6 +71,7 @@ public class FragmentSetup extends FragmentBase {
 
     private Button btnData;
 
+    private Button btnOptions;
     private Button btnInbox;
 
     private int textColorPrimary;
@@ -111,6 +112,7 @@ public class FragmentSetup extends FragmentBase {
 
         btnData = view.findViewById(R.id.btnData);
 
+        btnOptions = view.findViewById(R.id.btnOptions);
         btnInbox = view.findViewById(R.id.btnInbox);
 
         // Wire controls
@@ -180,6 +182,15 @@ public class FragmentSetup extends FragmentBase {
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
+            }
+        });
+
+        btnOptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, new FragmentOptions()).addToBackStack("options");
+                fragmentTransaction.commit();
             }
         });
 

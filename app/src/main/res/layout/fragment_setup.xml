@@ -370,6 +370,17 @@
             app:layout_constraintStart_toEndOf="@id/five" />
 
         <Button
+            android:id="@+id/btnOptions"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_setup_options"
+            app:layout_constraintBottom_toBottomOf="@+id/btnInbox"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
             android:id="@+id/btnInbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
