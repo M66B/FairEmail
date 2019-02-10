@@ -23,6 +23,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 
+import com.sun.mail.imap.IMAPMessage;
+
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -528,6 +530,18 @@ public class MessageHelper {
     Integer getSize() throws MessagingException {
         int size = imessage.getSize();
         return (size < 0 ? null : size);
+    }
+
+    long getReceived() throws MessagingException {
+        if (imessage instanceof IMAPMessage)
+            return imessage.getReceivedDate().getTime();
+        else
+            return new Date().getTime();
+    }
+
+    Long getSent() throws MessagingException {
+        Date date = imessage.getSentDate();
+        return (date == null ? null : date.getTime());
     }
 
     String getHeaders() throws MessagingException {

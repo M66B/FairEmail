@@ -2406,8 +2406,8 @@ public class ServiceSynchronize extends LifecycleService {
                     message.subject = helper.getSubject();
                     message.size = helper.getSize();
                     message.content = false;
-                    message.received = new Date().getTime(); // TODO
-                    message.sent = (imessage.getSentDate() == null ? null : imessage.getSentDate().getTime());
+                    message.received = helper.getReceived();
+                    message.sent = helper.getSent();
                     message.seen = false;
                     message.answered = false;
                     message.flagged = false;
@@ -2824,8 +2824,8 @@ public class ServiceSynchronize extends LifecycleService {
             message.subject = helper.getSubject();
             message.size = helper.getSize();
             message.content = false;
-            message.received = imessage.getReceivedDate().getTime();
-            message.sent = (imessage.getSentDate() == null ? null : imessage.getSentDate().getTime());
+            message.received = helper.getReceived();
+            message.sent = helper.getSent();
             message.seen = seen;
             message.answered = answered;
             message.flagged = flagged;
