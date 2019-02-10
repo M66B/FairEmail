@@ -635,11 +635,7 @@ public class FragmentAccount extends FragmentBase {
                     for (Folder ifolder : istore.getDefaultFolder().list("*")) {
                         // Check folder attributes
                         String fullName = ifolder.getFullName();
-                        String[] attrs;
-                        if (ifolder instanceof IMAPFolder)
-                            attrs = ((IMAPFolder) ifolder).getAttributes();
-                        else
-                            attrs = new String[0];
+                        String[] attrs = ((IMAPFolder) ifolder).getAttributes();
                         Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs));
                         String type = EntityFolder.getType(attrs, fullName);
 
@@ -862,6 +858,15 @@ public class FragmentAccount extends FragmentBase {
                 EntityFolder left = (EntityFolder) args.getSerializable("left");
                 EntityFolder right = (EntityFolder) args.getSerializable("right");
 
+                if (pop) {
+                    drafts = new EntityFolder();
+                    drafts.name = "Drafts";
+                    drafts.synchronize = false;
+                    drafts.initialize = false;
+                    drafts.sync_days = 0;
+                    drafts.keep_days = 0;
+                }
+
                 if (TextUtils.isEmpty(host))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                 if (TextUtils.isEmpty(port))
@@ -947,8 +952,8 @@ public class FragmentAccount extends FragmentBase {
                                 inbox.unified = true;
                                 inbox.notify = true;
                                 inbox.initialize = !pop;
-                                inbox.sync_days = EntityFolder.DEFAULT_SYNC;
-                                inbox.keep_days = EntityFolder.DEFAULT_KEEP;
+                                inbox.sync_days = (pop ? 0 : EntityFolder.DEFAULT_SYNC);
+                                inbox.keep_days = (pop ? 0 : EntityFolder.DEFAULT_KEEP);
                             }
                         }
 

@@ -481,7 +481,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             // Selected / disabled
             itemView.setActivated(selectionTracker != null && selectionTracker.isSelected(message.id));
             itemView.setAlpha(
-                    message.uid == null && !EntityFolder.OUTBOX.equals(message.folderType) ? Helper.LOW_LIGHT : 1.0f);
+                    message.uid == null &&
+                            !message.accountPop &&
+                            !EntityFolder.OUTBOX.equals(message.folderType)
+                            ? Helper.LOW_LIGHT : 1.0f);
 
             // Duplicate
             if (viewType == ViewType.THREAD) {
@@ -842,9 +845,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     bnvActions.getMenu().findItem(R.id.action_delete).setVisible(
                             (inTrash && message.msgid != null) ||
+                                    message.accountPop ||
                                     (!inTrash && hasTrash && message.uid != null) ||
                                     (inOutbox && (!TextUtils.isEmpty(message.error) || !message.identitySynchronize)));
-                    bnvActions.getMenu().findItem(R.id.action_delete).setTitle(inTrash ? R.string.title_delete : R.string.title_trash);
+                    bnvActions.getMenu().findItem(R.id.action_delete).setTitle(inTrash || message.accountPop ? R.string.title_delete : R.string.title_trash);
 
                     bnvActions.getMenu().findItem(R.id.action_move).setVisible(
                             message.uid != null || (inOutbox && (message.ui_snoozed != null || message.error != null)));
@@ -2161,7 +2165,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_reply_all).setEnabled(data.message.content);
             popupMenu.getMenu().findItem(R.id.menu_answer).setEnabled(data.message.content);
 
-            popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(data.message.uid != null);
+            popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(data.message.uid != null || data.message.accountPop);
 
             popupMenu.getMenu().findItem(R.id.menu_junk).setEnabled(data.message.uid != null);
             popupMenu.getMenu().findItem(R.id.menu_junk).setVisible(

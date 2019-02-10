@@ -951,7 +951,8 @@ public class ServiceSynchronize extends LifecycleService {
                     EntityLog.log(this, account.name + " connected");
 
                     // Update folder list
-                    synchronizeFolders(account, istore, state);
+                    if (istore instanceof IMAPStore)
+                        synchronizeFolders(account, istore, state);
 
                     // Open synchronizing folders
                     final ExecutorService pollExecutor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
@@ -1473,63 +1474,77 @@ public class ServiceSynchronize extends LifecycleService {
                         if (message != null)
                             db.message().setMessageError(message.id, null);
 
-                        if (message != null && message.uid == null &&
-                                !(EntityOperation.ADD.equals(op.name) ||
-                                        EntityOperation.DELETE.equals(op.name) ||
-                                        EntityOperation.SEND.equals(op.name) ||
-                                        EntityOperation.SYNC.equals(op.name)))
-                            throw new IllegalArgumentException(op.name + " without uid " + op.args);
+                        if (account != null && account.pop) {
+                            if (EntityOperation.SEEN.equals(op.name))
+                                doSeen(folder, (POP3Folder) ifolder, message, jargs, db);
 
-                        // Operations should use database transaction when needed
+                            else if (EntityOperation.ADD.equals(op.name))
+                                ; // Do nothing
 
-                        if (EntityOperation.SEEN.equals(op.name))
-                            doSeen(folder, (IMAPFolder) ifolder, message, jargs, db);
+                            else if (EntityOperation.DELETE.equals(op.name))
+                                doDelete(folder, (POP3Folder) ifolder, message, jargs, db);
 
-                        else if (EntityOperation.FLAG.equals(op.name))
-                            doFlag(folder, (IMAPFolder) ifolder, message, jargs, db);
+                            else if (EntityOperation.SYNC.equals(op.name))
+                                synchronizeMessages(account, folder, (POP3Folder) ifolder, jargs, state);
 
-                        else if (EntityOperation.ANSWERED.equals(op.name))
-                            doAnswered(folder, (IMAPFolder) ifolder, message, jargs, db);
+                            else
+                                throw new MessagingException("Unknown operation name=" + op.name);
 
-                        else if (EntityOperation.KEYWORD.equals(op.name))
-                            doKeyword(folder, (IMAPFolder) ifolder, message, jargs, db);
+                        } else {
+                            if (message != null && message.uid == null &&
+                                    !(EntityOperation.ADD.equals(op.name) ||
+                                            EntityOperation.DELETE.equals(op.name) ||
+                                            EntityOperation.SEND.equals(op.name) ||
+                                            EntityOperation.SYNC.equals(op.name)))
+                                throw new IllegalArgumentException(op.name + " without uid " + op.args);
 
-                        else if (EntityOperation.ADD.equals(op.name))
-                            doAdd(folder, isession, (IMAPStore) istore, (IMAPFolder) ifolder, message, jargs, db);
+                            // Operations should use database transaction when needed
 
-                        else if (EntityOperation.MOVE.equals(op.name))
-                            doMove(folder, isession, (IMAPStore) istore, (IMAPFolder) ifolder, message, jargs, db);
+                            if (EntityOperation.SEEN.equals(op.name))
+                                doSeen(folder, (IMAPFolder) ifolder, message, jargs, db);
 
-                        else if (EntityOperation.DELETE.equals(op.name))
-                            doDelete(folder, (IMAPFolder) ifolder, message, jargs, db);
+                            else if (EntityOperation.FLAG.equals(op.name))
+                                doFlag(folder, (IMAPFolder) ifolder, message, jargs, db);
 
-                        else if (EntityOperation.SEND.equals(op.name))
-                            doSend(message, db);
+                            else if (EntityOperation.ANSWERED.equals(op.name))
+                                doAnswered(folder, (IMAPFolder) ifolder, message, jargs, db);
 
-                        else if (EntityOperation.HEADERS.equals(op.name))
-                            doHeaders(folder, (IMAPFolder) ifolder, message, db);
+                            else if (EntityOperation.KEYWORD.equals(op.name))
+                                doKeyword(folder, (IMAPFolder) ifolder, message, jargs, db);
 
-                        else if (EntityOperation.RAW.equals(op.name))
-                            doRaw(folder, (IMAPFolder) ifolder, message, jargs, db);
+                            else if (EntityOperation.ADD.equals(op.name))
+                                doAdd(folder, isession, (IMAPStore) istore, (IMAPFolder) ifolder, message, jargs, db);
 
-                        else if (EntityOperation.BODY.equals(op.name))
-                            doBody(folder, (IMAPFolder) ifolder, message, db);
+                            else if (EntityOperation.MOVE.equals(op.name))
+                                doMove(folder, isession, (IMAPStore) istore, (IMAPFolder) ifolder, message, jargs, db);
 
-                        else if (EntityOperation.ATTACHMENT.equals(op.name))
-                            doAttachment(folder, op, (IMAPFolder) ifolder, message, jargs, db);
+                            else if (EntityOperation.DELETE.equals(op.name))
+                                doDelete(folder, (IMAPFolder) ifolder, message, jargs, db);
 
-                        else if (EntityOperation.SYNC.equals(op.name))
-                            if (EntityFolder.OUTBOX.equals(folder.type))
-                                db.folder().setFolderError(folder.id, null);
-                            else {
-                                if (ifolder instanceof IMAPFolder)
+                            else if (EntityOperation.SEND.equals(op.name))
+                                doSend(message, db);
+
+                            else if (EntityOperation.HEADERS.equals(op.name))
+                                doHeaders(folder, (IMAPFolder) ifolder, message, db);
+
+                            else if (EntityOperation.RAW.equals(op.name))
+                                doRaw(folder, (IMAPFolder) ifolder, message, jargs, db);
+
+                            else if (EntityOperation.BODY.equals(op.name))
+                                doBody(folder, (IMAPFolder) ifolder, message, db);
+
+                            else if (EntityOperation.ATTACHMENT.equals(op.name))
+                                doAttachment(folder, op, (IMAPFolder) ifolder, message, jargs, db);
+
+                            else if (EntityOperation.SYNC.equals(op.name))
+                                if (EntityFolder.OUTBOX.equals(folder.type))
+                                    db.folder().setFolderError(folder.id, null);
+                                else
                                     synchronizeMessages(account, folder, (IMAPFolder) ifolder, jargs, state);
-                                else if (ifolder instanceof POP3Folder)
-                                    synchronizeMessages(account, folder, (POP3Folder) ifolder, jargs, state);
-                            }
 
-                        else
-                            throw new MessagingException("Unknown operation name=" + op.name);
+                            else
+                                throw new MessagingException("Unknown operation name=" + op.name);
+                        }
 
                         // Operation succeeded
                         db.operation().deleteOperation(op.id);
@@ -1596,6 +1611,15 @@ public class ServiceSynchronize extends LifecycleService {
         } finally {
             Log.i(folder.name + " end process state=" + state);
         }
+    }
+
+    private void doSeen(EntityFolder folder, POP3Folder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
+        boolean seen = jargs.getBoolean(0);
+        if (message.seen.equals(seen))
+            return;
+
+        Log.i("Setting POP message=" + message.id + " seen=" + seen);
+        db.message().setMessageSeen(message.id, seen);
     }
 
     private void doSeen(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
@@ -1878,6 +1902,24 @@ public class ServiceSynchronize extends LifecycleService {
                 throw ex;
             }
         }
+    }
+
+    private void doDelete(EntityFolder folder, POP3Folder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException {
+        Log.i("Deleting POP message=" + message.id + " msgid=" + message.msgid);
+
+        // Delete message
+        if (TextUtils.isEmpty(message.msgid))
+            throw new IllegalArgumentException("Message ID missing");
+
+        Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
+        for (Message imessage : imessages) {
+            Log.i(folder.name + " deleting uid=" + message.uid + " msgid=" + message.msgid);
+            imessage.setFlag(Flags.Flag.DELETED, true);
+        }
+        ifolder.close();
+        ifolder.open(Folder.READ_WRITE);
+
+        db.message().deleteMessage(message.id);
     }
 
     private void doDelete(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException {
@@ -2234,11 +2276,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             for (Folder ifolder : ifolders) {
                 String fullName = ifolder.getFullName();
-                String[] attrs;
-                if (ifolder instanceof IMAPFolder)
-                    attrs = ((IMAPFolder) ifolder).getAttributes();
-                else
-                    attrs = new String[0];
+                String[] attrs = ((IMAPFolder) ifolder).getAttributes();
                 String type = EntityFolder.getType(attrs, fullName);
 
                 EntityLog.log(this, account.name + ":" + fullName +

@@ -2171,7 +2171,11 @@ public class FragmentMessages extends FragmentBase {
                     db.beginTransaction();
 
                     EntityMessage message = db.message().getMessage(id);
-                    if (message.uid != null) {
+                    if (message == null)
+                        return null;
+                    EntityAccount account = db.account().getAccount(message.account);
+
+                    if (message.uid != null || account.pop) {
                         if (!message.content)
                             EntityOperation.queue(context, db, message, EntityOperation.BODY);
                         if (!message.ui_seen)
