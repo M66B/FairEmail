@@ -2283,7 +2283,7 @@ public class FragmentCompose extends FragmentBase {
                                 builder.getSpanStart(quoteSpan),
                                 builder.getSpanEnd(quoteSpan),
                                 builder.getSpanFlags(quoteSpan));
-                        builder.removeSpan(quote);
+                        builder.removeSpan(quoteSpan);
                     }
 
                     spannedReference = builder;
