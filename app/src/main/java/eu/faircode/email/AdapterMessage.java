@@ -749,7 +749,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             try {
                 InternetAddress via = new InternetAddress(message.identityEmail, message.identityName);
-                tvIdentity.setText(via.toString());
+                tvIdentity.setText(MessageHelper.formatAddresses(new Address[]{via}));
             } catch (UnsupportedEncodingException ex) {
                 tvIdentity.setText(ex.getMessage());
             }
