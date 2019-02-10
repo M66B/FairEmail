@@ -118,6 +118,8 @@ public class FragmentAccount extends FragmentBase {
     private Button btnCheck;
     private ContentLoadingProgressBar pbCheck;
     private TextView tvIdle;
+    private TextView tvMove;
+    private TextView tvUidPlus;
 
     private ArrayAdapter<EntityFolder> adapter;
     private Spinner spDrafts;
@@ -194,6 +196,8 @@ public class FragmentAccount extends FragmentBase {
         pbCheck = view.findViewById(R.id.pbCheck);
 
         tvIdle = view.findViewById(R.id.tvIdle);
+        tvMove = view.findViewById(R.id.tvMove);
+        tvUidPlus = view.findViewById(R.id.tvUidPlus);
 
         spDrafts = view.findViewById(R.id.spDrafts);
         spSent = view.findViewById(R.id.spSent);
@@ -231,6 +235,8 @@ public class FragmentAccount extends FragmentBase {
 
                 btnCheck.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 tvIdle.setVisibility(View.GONE);
+                tvMove.setVisibility(View.GONE);
+                tvUidPlus.setVisibility(View.GONE);
 
                 Object tag = adapterView.getTag();
                 if (tag != null && (Integer) tag == position)
@@ -463,6 +469,8 @@ public class FragmentAccount extends FragmentBase {
         btnAdvanced.setVisibility(View.GONE);
 
         tvIdle.setVisibility(View.GONE);
+        tvMove.setVisibility(View.GONE);
+        tvUidPlus.setVisibility(View.GONE);
 
         btnCheck.setVisibility(View.GONE);
         pbCheck.setVisibility(View.GONE);
@@ -541,6 +549,8 @@ public class FragmentAccount extends FragmentBase {
                 Helper.setViewsEnabled(view, false);
                 pbCheck.setVisibility(View.VISIBLE);
                 tvIdle.setVisibility(View.GONE);
+                tvMove.setVisibility(View.GONE);
+                tvUidPlus.setVisibility(View.GONE);
                 grpFolders.setVisibility(View.GONE);
                 tvError.setVisibility(View.GONE);
             }
@@ -604,8 +614,11 @@ public class FragmentAccount extends FragmentBase {
                             throw ex;
                     }
 
-                    if (istore instanceof IMAPStore)
+                    if (istore instanceof IMAPStore) {
                         result.idle = ((IMAPStore) istore).hasCapability("IDLE");
+                        result.move = ((IMAPStore) istore).hasCapability("MOVE");
+                        result.uidplus = ((IMAPStore) istore).hasCapability("UIDPLUS");
+                    }
 
                     boolean inbox = false;
                     boolean archive = false;
@@ -706,6 +719,8 @@ public class FragmentAccount extends FragmentBase {
                 boolean pop = args.getBoolean("pop");
 
                 tvIdle.setVisibility(result.idle || pop ? View.GONE : View.VISIBLE);
+                tvMove.setVisibility(result.move || pop ? View.GONE : View.VISIBLE);
+                tvUidPlus.setVisibility(result.uidplus || pop ? View.GONE : View.VISIBLE);
 
                 if (pop) {
                     grpFolders.setVisibility(View.GONE);
@@ -1503,5 +1518,7 @@ public class FragmentAccount extends FragmentBase {
         EntityAccount account;
         List<EntityFolder> folders;
         boolean idle;
+        boolean move;
+        boolean uidplus;
     }
 }
