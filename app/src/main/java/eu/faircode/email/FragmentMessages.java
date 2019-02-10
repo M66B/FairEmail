@@ -1437,6 +1437,11 @@ public class FragmentMessages extends FragmentBase {
         for (String name : values.keySet())
             outState.putLongArray(name, Helper.toLongArray(values.get(name)));
 
+        if (rvMessage != null) {
+            Parcelable rv = rvMessage.getLayoutManager().onSaveInstanceState();
+            outState.putParcelable("rv", rv);
+        }
+
         if (selectionTracker != null)
             selectionTracker.onSaveInstanceState(outState);
     }
@@ -1454,6 +1459,11 @@ public class FragmentMessages extends FragmentBase {
                 values.put(name, new ArrayList<Long>());
                 for (Long value : savedInstanceState.getLongArray(name))
                     values.get(name).add(value);
+            }
+
+            if (rvMessage != null) {
+                Parcelable rv = savedInstanceState.getBundle("rv");
+                rvMessage.getLayoutManager().onRestoreInstanceState(rv);
             }
 
             if (selectionTracker != null)
