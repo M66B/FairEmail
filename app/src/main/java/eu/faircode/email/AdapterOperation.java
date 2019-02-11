@@ -21,7 +21,9 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,6 +47,8 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
     private Context context;
     private LayoutInflater inflater;
     private LifecycleOwner owner;
+
+    private boolean debug;
 
     private List<TupleOperationEx> all = new ArrayList<>();
     private List<TupleOperationEx> filtered = new ArrayList<>();
@@ -70,13 +74,13 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
         private void wire() {
             itemView.setOnClickListener(this);
-            if (BuildConfig.DEBUG)
+            if (BuildConfig.DEBUG || debug)
                 itemView.setOnLongClickListener(this);
         }
 
         private void unwire() {
             itemView.setOnClickListener(null);
-            if (BuildConfig.DEBUG)
+            if (BuildConfig.DEBUG || debug)
                 itemView.setOnLongClickListener(null);
         }
 
@@ -208,6 +212,10 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.owner = owner;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        this.debug = prefs.getBoolean("debug", false);
+
         setHasStableIds(true);
     }
 
