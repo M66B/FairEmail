@@ -37,6 +37,7 @@ public class ActivityEml extends ActivityBase {
         final TextView tvSubject = findViewById(R.id.tvSubject);
         final TextView tvParts = findViewById(R.id.tvParts);
         final TextView tvBody = findViewById(R.id.tvBody);
+        final TextView tvHtml = findViewById(R.id.tvHtml);
         final TextView tvEml = findViewById(R.id.tvEml);
         final ContentLoadingProgressBar pbWait = findViewById(R.id.pbWait);
         final Group grpEml = findViewById(R.id.grpEml);
@@ -102,8 +103,8 @@ public class ActivityEml extends ActivityBase {
                     }
                     result.parts = HtmlHelper.fromHtml(sb.toString());
 
-                    String html = HtmlHelper.sanitize(parts.getHtml(context), true);
-                    result.body = HtmlHelper.fromHtml(html);
+                    result.html = HtmlHelper.sanitize(parts.getHtml(context), true);
+                    result.body = HtmlHelper.fromHtml(result.html);
 
                     ByteArrayOutputStream bos = new ByteArrayOutputStream();
                     mmessage.writeTo(bos);
@@ -126,6 +127,7 @@ public class ActivityEml extends ActivityBase {
                 tvSubject.setText(result.subject);
                 tvParts.setText(result.parts);
                 tvBody.setText(result.body);
+                tvHtml.setText(result.html);
                 tvEml.setText(result.eml);
                 grpEml.setVisibility(View.VISIBLE);
             }
@@ -149,6 +151,7 @@ public class ActivityEml extends ActivityBase {
         String subject;
         Spanned parts;
         Spanned body;
+        String html;
         String eml;
     }
 }
