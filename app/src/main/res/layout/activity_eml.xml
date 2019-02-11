@@ -166,6 +166,7 @@
             android:fontFamily="monospace"
             android:text="Body"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorBody" />
@@ -188,6 +189,7 @@
             android:fontFamily="monospace"
             android:text="HTML"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorHtml" />
@@ -210,6 +212,7 @@
             android:fontFamily="monospace"
             android:text="EML"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorEml" />
