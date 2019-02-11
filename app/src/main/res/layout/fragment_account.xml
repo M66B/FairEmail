@@ -46,6 +46,7 @@
             android:id="@+id/tvDomainHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
             android:text="@string/title_optional"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic"
@@ -107,6 +108,17 @@
             app:layout_constraintStart_toEndOf="@id/swPop"
             app:layout_constraintTop_toTopOf="@id/swPop" />
 
+        <TextView
+            android:id="@+id/tvPopHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_pop3_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swPop" />
+
         <!-- host -->
 
         <TextView
@@ -117,7 +129,7 @@
             android:text="@string/title_host"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swPop" />
+            app:layout_constraintTop_toBottomOf="@id/tvPopHint" />
 
         <EditText
             android:id="@+id/etHost"

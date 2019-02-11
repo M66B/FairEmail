@@ -94,6 +94,7 @@ public class FragmentAccount extends FragmentBase {
 
     private Button btnAuthorize;
     private SwitchCompat swPop;
+    private TextView tvPopHint;
     private EditText etHost;
     private CheckBox cbStartTls;
     private CheckBox cbInsecure;
@@ -171,6 +172,7 @@ public class FragmentAccount extends FragmentBase {
 
         btnAuthorize = view.findViewById(R.id.btnAuthorize);
         swPop = view.findViewById(R.id.swPop);
+        tvPopHint = view.findViewById(R.id.tvPopHint);
         etHost = view.findViewById(R.id.etHost);
         etPort = view.findViewById(R.id.etPort);
         cbStartTls = view.findViewById(R.id.cbStartTls);
@@ -296,6 +298,7 @@ public class FragmentAccount extends FragmentBase {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 boolean starttls = cbStartTls.isChecked();
                 if (isChecked) {
+                    tvPopHint.setVisibility(View.VISIBLE);
                     etHost.setHint("pop.domain.tld");
                     etPort.setHint(starttls ? "110" : "995");
                     etRealm.setText(null);
@@ -304,6 +307,7 @@ public class FragmentAccount extends FragmentBase {
                     btnCheck.setVisibility(View.GONE);
                     btnSave.setVisibility(View.VISIBLE);
                 } else {
+                    tvPopHint.setVisibility(View.GONE);
                     etHost.setHint("imap.domain.tld");
                     etPort.setHint(starttls ? "143" : "993");
                     btnCheck.setVisibility(View.VISIBLE);
@@ -460,6 +464,8 @@ public class FragmentAccount extends FragmentBase {
         Helper.setViewsEnabled(view, false);
 
         btnAutoConfig.setEnabled(false);
+
+        tvPopHint.setVisibility(View.GONE);
 
         btnAuthorize.setVisibility(View.GONE);
         cbStartTls.setVisibility(View.GONE);
