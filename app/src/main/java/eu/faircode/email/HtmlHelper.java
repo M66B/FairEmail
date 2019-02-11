@@ -82,6 +82,8 @@ public class HtmlHelper {
             ol.append("<br>");
 
         for (Element img : document.select("img")) {
+            img.prependElement("br");
+
             boolean linked = false;
             for (Element parent : img.parents())
                 if ("a".equals(parent.tagName())) {
@@ -93,16 +95,10 @@ public class HtmlHelper {
                 if (src.startsWith("http://") || src.startsWith("https://")) {
                     Element a = document.createElement("a");
                     a.attr("href", src);
+                    a.appendChild(img.clone());
                     img.replaceWith(a);
-                    a.appendChild(img);
                 }
             }
-        }
-
-        for (Element img : document.select("img")) {
-            Element p = document.createElement("p");
-            img.replaceWith(p);
-            p.appendChild(img);
         }
 
         if (!showQuotes)
