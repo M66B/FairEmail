@@ -1917,11 +1917,21 @@ public class ServiceSynchronize extends LifecycleService {
             if (TextUtils.isEmpty(message.msgid))
                 throw new IllegalArgumentException("Message ID missing");
 
-            Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
+            boolean found = false;
+            Message[] imessages = ifolder.getMessages();
             for (Message imessage : imessages) {
-                Log.i(folder.name + " deleting uid=" + message.uid + " msgid=" + message.msgid);
-                imessage.setFlag(Flags.Flag.DELETED, true);
+                MessageHelper helper = new MessageHelper((MimeMessage) imessage);
+                String msgid = helper.getMessageID();
+                if (message.msgid.equals(msgid)) {
+                    found = true;
+                    imessage.setFlag(Flags.Flag.DELETED, true);
+                    break;
+                }
             }
+
+            if (!found)
+                throw new MessageRemovedException();
+
             ifolder.close();
             ifolder.open(Folder.READ_WRITE);
         }
@@ -2384,6 +2394,8 @@ public class ServiceSynchronize extends LifecycleService {
 
                     List<EntityMessage> messages = db.message().getMessageByMsgId(folder.account, msgid);
                     if (messages.size() > 0) {
+                        for (EntityMessage message : messages)
+                            db.message().setMessageUiHide(message.id, false);
                         Log.i(folder.name + " POP having=" + msgid);
                         continue;
                     }
