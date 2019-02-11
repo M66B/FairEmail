@@ -296,14 +296,16 @@ public class HtmlHelper {
 
         NodeTraversor.traverse(new NodeVisitor() {
             private int qlevel = 0;
+            private int tlevel = 0;
 
             public void head(Node node, int depth) {
-                if (node instanceof TextNode)
-                    sb.append(((TextNode) node).text()).append(' ');
-                else {
+                if (node instanceof TextNode) {
+                    append(((TextNode) node).text());
+                    append(" ");
+                } else {
                     String name = node.nodeName();
                     if ("li".equals(name))
-                        sb.append("* ");
+                        append("* ");
                     else if ("blockquote".equals(name))
                         qlevel++;
 
@@ -314,11 +316,15 @@ public class HtmlHelper {
 
             public void tail(Node node, int depth) {
                 String name = node.nodeName();
-                if ("a".equals(name))
-                    sb.append("[").append(node.absUrl("href")).append("] ");
-                if ("img".equals(name))
-                    sb.append("[").append(node.absUrl("src")).append("] ");
-                else if ("th".equals(name) || "td".equals(name)) {
+                if ("a".equals(name)) {
+                    append("[");
+                    append(node.absUrl("href"));
+                    append("] ");
+                } else if ("img".equals(name)) {
+                    append("[");
+                    append(node.absUrl("src"));
+                    append("] ");
+                } else if ("th".equals(name) || "td".equals(name)) {
                     Node next = node.nextSibling();
                     if (next == null || !("th".equals(next.nodeName()) || "td".equals(next.nodeName())))
                         newline();
@@ -327,6 +333,14 @@ public class HtmlHelper {
 
                 if (tails.contains(name))
                     newline();
+            }
+
+            private void append(String text) {
+                if (tlevel != qlevel) {
+                    newline();
+                    tlevel = qlevel;
+                }
+                sb.append(text);
             }
 
             private void newline() {
