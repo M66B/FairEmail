@@ -93,7 +93,10 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                 sb.append(' ').append(ex.toString());
             }
 
-            tvFolder.setText(operation.accountName + "/" + operation.folderName);
+            String folderName =
+                    (operation.accountName == null ? "" : operation.accountName + "/") + operation.folderName;
+
+            tvFolder.setText(folderName);
             tvMessage.setText(operation.message == null ? null : Long.toString(operation.message));
             tvOperation.setText(sb.toString());
             tvTime.setText(DateUtils.getRelativeTimeSpanString(context, operation.created));
