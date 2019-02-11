@@ -109,6 +109,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             ivDelete.setVisibility(readonly ? View.GONE : attachment.isInline() ? View.INVISIBLE : View.VISIBLE);
             tvName.setText(attachment.name);
             tvType.setText(attachment.type);
+            tvType.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
             if (attachment.size != null)
                 tvSize.setText(Helper.humanReadableByteCount(attachment.size, true));

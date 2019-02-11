@@ -899,7 +899,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean downloading = false;
             List<EntityAttachment> a = new ArrayList<>();
             for (EntityAttachment attachment : attachments) {
-                if (attachment.isInline())
+                if (attachment.isInline() || TextUtils.isEmpty(attachment.name))
                     inline = true;
                 if (attachment.progress == null && !attachment.available)
                     download = true;
