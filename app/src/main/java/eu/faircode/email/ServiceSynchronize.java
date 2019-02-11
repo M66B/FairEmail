@@ -1827,7 +1827,8 @@ public class ServiceSynchronize extends LifecycleService {
             throw new FolderNotFoundException();
         IMAPFolder itarget = (IMAPFolder) istore.getFolder(target.name);
 
-        if (istore.hasCapability("MOVE") &&
+        boolean canMove = istore.hasCapability("MOVE");
+        if (canMove &&
                 !EntityFolder.DRAFTS.equals(folder.type) &&
                 !EntityFolder.DRAFTS.equals(target.type)) {
             // Autoread
@@ -1839,7 +1840,8 @@ public class ServiceSynchronize extends LifecycleService {
             // Move message to
             ifolder.moveMessages(new Message[]{imessage}, itarget);
         } else {
-            Log.w(folder.name + " MOVE by DELETE/APPEND");
+            Log.w(folder.name + " MOVE by DELETE/APPEND" +
+                    " cap=" + canMove + " from=" + folder.type + " to=" + target.type);
 
             // Serialize source message
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
