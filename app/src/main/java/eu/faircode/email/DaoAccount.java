@@ -45,7 +45,7 @@ public interface DaoAccount {
     LiveData<List<EntityAccount>> liveAccounts(boolean synchronize);
 
     @Query("SELECT *" +
-            ", (SELECT COUNT(DISTINCT CASE WHEN :threading THEN message.thread ELSE message.id END)" +
+            ", (SELECT COUNT(message.id)" +
             "    FROM message" +
             "    JOIN folder ON folder.id = message.folder" +
             "    WHERE message.account = account.id" +
@@ -56,8 +56,8 @@ public interface DaoAccount {
             "    AND NOT ui_seen" +
             "    AND NOT ui_hide) AS unseen" +
             " FROM account" +
-            " WHERE synchronize = :synchronize")
-    LiveData<List<TupleAccountEx>> liveAccounts(boolean synchronize, boolean threading);
+            " WHERE synchronize")
+    LiveData<List<TupleAccountEx>> liveAccountsEx();
 
     @Query("SELECT * FROM account WHERE id = :id")
     EntityAccount getAccount(long id);

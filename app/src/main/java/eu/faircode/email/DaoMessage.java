@@ -170,14 +170,15 @@ public interface DaoMessage {
             " ORDER BY message.received DESC")
     List<Long> getMessageIdsByFolder(Long folder);
 
-    @Query("SELECT *" +
+    @Query("SELECT message.*" +
             " FROM message" +
+            " LEFT JOIN account ON account.id = :account" +
             " WHERE account = :account" +
-            " AND thread = :thread" +
+            " AND message.thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
             " AND (:folder IS NULL OR message.folder = :folder)" +
-            " AND NOT uid IS NULL" +
-            " AND NOT ui_hide")
+            " AND (NOT message.uid IS NULL OR account.pop)" +
+            " AND NOT message.ui_hide")
     List<EntityMessage> getMessageByThread(long account, String thread, Long id, Long folder);
 
     @Query("SELECT * FROM message" +
@@ -235,6 +236,7 @@ public interface DaoMessage {
             " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
             " AND folder.unified" +
+            " AND (account.created IS NULL OR message.received > account.created)" +
             " AND NOT message.ui_seen" +
             " AND NOT message.ui_hide" +
             " AND NOT message.ui_ignored" +

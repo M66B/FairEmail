@@ -258,7 +258,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
-        DB.getInstance(this).account().liveAccounts(true, threading).observe(this, new Observer<List<TupleAccountEx>>() {
+        DB.getInstance(this).account().liveAccountsEx().observe(this, new Observer<List<TupleAccountEx>>() {
             private List<TupleAccountEx> last = new ArrayList<>();
 
             @Override
