@@ -25,6 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class SelectionPredicateMessage extends SelectionTracker.SelectionPredicate<Long> {
     private boolean enabled;
+    private boolean folder;
     private RecyclerView recyclerView;
 
     SelectionPredicateMessage(RecyclerView recyclerView) {
@@ -36,6 +37,10 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
         this.enabled = enabled;
     }
 
+    void setFolder(boolean folder) {
+        this.folder = folder;
+    }
+
     @Override
     public boolean canSetStateForKey(@NonNull Long key, boolean nextState) {
         if (!enabled)
@@ -43,8 +48,10 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
 
         AdapterMessage adapter = (AdapterMessage) recyclerView.getAdapter();
         TupleMessageEx message = adapter.getItemForKey(key);
+        if (message == null)
+            return false;
 
-        if (message != null && message.uid != null)
+        if (message.uid != null || (folder && message.accountPop))
             return true;
 
         return false;
@@ -57,8 +64,10 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
 
         AdapterMessage adapter = (AdapterMessage) recyclerView.getAdapter();
         TupleMessageEx message = adapter.getItemAtPosition(position);
+        if (message == null)
+            return false;
 
-        if (message != null && message.uid != null)
+        if (message.uid != null || (folder && message.accountPop))
             return true;
 
         return false;
