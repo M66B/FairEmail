@@ -36,10 +36,13 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Locale;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -535,8 +538,21 @@ public class MessageHelper {
     long getReceived() throws MessagingException {
         if (imessage instanceof IMAPMessage)
             return imessage.getReceivedDate().getTime();
-        else
+        else {
+            String[] headers = imessage.getHeader("Received");
+            DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z", Locale.ENGLISH);
+            if (headers != null)
+                for (String received : headers) {
+                    int i = received.lastIndexOf(';');
+                    if (i > 0)
+                        try {
+                            return df.parse(received.substring(i + 1).trim()).getTime();
+                        } catch (java.text.ParseException ex) {
+                            // Ignored
+                        }
+                }
             return new Date().getTime();
+        }
     }
 
     Long getSent() throws MessagingException {
