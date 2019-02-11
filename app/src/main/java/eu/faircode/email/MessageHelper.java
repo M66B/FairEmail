@@ -46,6 +46,7 @@ import javax.activation.FileTypeMap;
 import javax.mail.Address;
 import javax.mail.BodyPart;
 import javax.mail.Flags;
+import javax.mail.FolderClosedException;
 import javax.mail.Header;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -761,13 +762,13 @@ public class MessageHelper {
         Part part;
     }
 
-    MessageParts getMessageParts() throws IOException {
+    MessageParts getMessageParts() throws IOException, FolderClosedException {
         MessageParts parts = new MessageParts();
         getMessageParts(imessage, parts, false); // Can throw ParseException
         return parts;
     }
 
-    private void getMessageParts(Part part, MessageParts parts, boolean pgp) throws IOException {
+    private void getMessageParts(Part part, MessageParts parts, boolean pgp) throws IOException, FolderClosedException {
         try {
             if (part.isMimeType("multipart/*")) {
                 Multipart multipart = (Multipart) part.getContent();
@@ -822,6 +823,8 @@ public class MessageHelper {
                     parts.attachments.add(apart);
                 }
             }
+        } catch (FolderClosedException ex) {
+            throw ex;
         } catch (MessagingException ex) {
             Log.w(ex);
             parts.warnings.add(Helper.formatThrowable(ex));
