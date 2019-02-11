@@ -55,7 +55,7 @@ public interface DaoFolder {
             " AND (:search OR (account.synchronize AND account.browse))")
     EntityFolder getBrowsableFolder(long folder, boolean search);
 
-    @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor, account.pop as accountPop, account.state AS accountState" +
+    @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
@@ -69,7 +69,7 @@ public interface DaoFolder {
             " GROUP BY folder.id")
     LiveData<List<TupleFolderEx>> liveFolders(Long account);
 
-    @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor, account.pop as accountPop, account.state AS accountState" +
+    @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
@@ -91,7 +91,7 @@ public interface DaoFolder {
             " WHERE `primary` AND type = '" + EntityFolder.ARCHIVE + "'")
     LiveData<EntityFolder> livePrimaryArchive();
 
-    @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor, account.pop as accountPop, account.state AS accountState" +
+    @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
@@ -111,16 +111,6 @@ public interface DaoFolder {
 
     @Query("SELECT * FROM folder WHERE id = :id")
     EntityFolder getFolder(Long id);
-
-    @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor, account.pop as accountPop, account.state AS accountState" +
-            ", COUNT(message.id) AS messages" +
-            ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
-            ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
-            " FROM folder" +
-            " LEFT JOIN account ON account.id = folder.account" +
-            " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
-            " WHERE folder.id = :id")
-    TupleFolderEx getFolderEx(Long id);
 
     @Query("SELECT * FROM folder WHERE account = :account AND name = :name")
     EntityFolder getFolderByName(Long account, String name);

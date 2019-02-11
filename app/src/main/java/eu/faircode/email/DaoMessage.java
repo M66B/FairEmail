@@ -47,7 +47,7 @@ public interface DaoMessage {
             "    AND NOT folder.type = '" + EntityFolder.DRAFTS + "' THEN 0 ELSE 1 END)";
 
     @Query("SELECT message.*" +
-            ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.pop as accountPop, account.notify AS accountNotify" +
+            ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
             ", identity.name AS identityName, identity.email AS identityEmail, identity.synchronize AS identitySynchronize" +
             ", COUNT(message.id) AS count" +
@@ -87,7 +87,7 @@ public interface DaoMessage {
             "    AND NOT (folder.id <> :folder AND folder.type = '" + EntityFolder.DRAFTS + "') THEN 0 ELSE 1 END)";
 
     @Query("SELECT message.*" +
-            ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.pop as accountPop, account.notify AS accountNotify" +
+            ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
             ", identity.name AS identityName, identity.email AS identityEmail, identity.synchronize AS identitySynchronize" +
             ", COUNT(message.id) AS count" +
@@ -119,7 +119,7 @@ public interface DaoMessage {
     DataSource.Factory<Integer, TupleMessageEx> pagedFolder(long folder, boolean threading, String sort, boolean snoozed, boolean found, boolean debug);
 
     @Query("SELECT message.*" +
-            ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.pop as accountPop, account.notify AS accountNotify" +
+            ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
             ", identity.name AS identityName, identity.email AS identityEmail, identity.synchronize AS identitySynchronize" +
             ", 1 AS count" +
@@ -170,15 +170,14 @@ public interface DaoMessage {
             " ORDER BY message.received DESC")
     List<Long> getMessageIdsByFolder(Long folder);
 
-    @Query("SELECT message.*" +
+    @Query("SELECT *" +
             " FROM message" +
-            " LEFT JOIN account ON account.id = :account" +
             " WHERE account = :account" +
-            " AND message.thread = :thread" +
+            " AND thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
             " AND (:folder IS NULL OR message.folder = :folder)" +
-            " AND (NOT message.uid IS NULL OR account.pop)" +
-            " AND NOT message.ui_hide")
+            " AND NOT uid IS NULL" +
+            " AND NOT ui_hide")
     List<EntityMessage> getMessageByThread(long account, String thread, Long id, Long folder);
 
     @Query("SELECT * FROM message" +
@@ -192,7 +191,7 @@ public interface DaoMessage {
     int countMessageByMsgId(long folder, String msgid);
 
     @Query("SELECT message.*" +
-            ", account.name AS accountName, identity.color AS accountColor, account.pop as accountPop, account.notify AS accountNotify" +
+            ", account.name AS accountName, identity.color AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
             ", identity.name AS identityName, identity.email AS identityEmail, identity.synchronize AS identitySynchronize" +
             ", 1 AS count" +
@@ -209,7 +208,7 @@ public interface DaoMessage {
     LiveData<TupleMessageEx> liveMessage(long id);
 
     @Query("SELECT message.*" +
-            ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.pop as accountPop, account.notify AS accountNotify" +
+            ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
             ", identity.name AS identityName, identity.email AS identityEmail, identity.synchronize AS identitySynchronize" +
             ", 1 AS count" +

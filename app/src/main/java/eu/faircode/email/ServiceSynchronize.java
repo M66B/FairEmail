@@ -55,8 +55,6 @@ import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.FetchResponse;
 import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.imap.protocol.UID;
-import com.sun.mail.pop3.POP3Folder;
-import com.sun.mail.pop3.POP3Message;
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MailConnectException;
 
@@ -937,10 +935,8 @@ public class ServiceSynchronize extends LifecycleService {
                         throw ex;
                     }
 
-                    final boolean capIdle =
-                            (istore instanceof IMAPStore ? ((IMAPStore) istore).hasCapability("IDLE") : false);
-                    final boolean capUidPlus =
-                            (istore instanceof IMAPStore ? ((IMAPStore) istore).hasCapability("UIDPLUS") : false);
+                    final boolean capIdle = ((IMAPStore) istore).hasCapability("IDLE");
+                    final boolean capUidPlus = ((IMAPStore) istore).hasCapability("UIDPLUS");
                     Log.i(account.name + " idle=" + capIdle + " uidplus=" + capUidPlus);
 
                     db.account().setAccountState(account.id, "connected");
@@ -951,8 +947,7 @@ public class ServiceSynchronize extends LifecycleService {
                     EntityLog.log(this, account.name + " connected");
 
                     // Update folder list
-                    if (istore instanceof IMAPStore)
-                        synchronizeFolders(account, istore, state);
+                    synchronizeFolders(account, istore, state);
 
                     // Open synchronizing folders
                     final ExecutorService pollExecutor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
@@ -1226,14 +1221,12 @@ public class ServiceSynchronize extends LifecycleService {
                                                             if (db.operation().getOperationCount(folder.id, null) == 0)
                                                                 return;
 
-                                                            if (!account.pop || EntityFolder.INBOX.equals(folder.type)) {
-                                                                db.folder().setFolderState(folder.id, "connecting");
+                                                            db.folder().setFolderState(folder.id, "connecting");
 
-                                                                ifolder = istore.getFolder(folder.name);
-                                                                ifolder.open(Folder.READ_WRITE);
+                                                            ifolder = istore.getFolder(folder.name);
+                                                            ifolder.open(Folder.READ_WRITE);
 
-                                                                db.folder().setFolderState(folder.id, "connected");
-                                                            }
+                                                            db.folder().setFolderState(folder.id, "connected");
 
                                                             db.folder().setFolderError(folder.id, null);
                                                         }
@@ -1477,77 +1470,59 @@ public class ServiceSynchronize extends LifecycleService {
                         if (message != null)
                             db.message().setMessageError(message.id, null);
 
-                        if (account != null && account.pop) {
-                            if (EntityOperation.SEEN.equals(op.name))
-                                doSeen(folder, (POP3Folder) ifolder, message, jargs, db);
+                        if (message != null && message.uid == null &&
+                                !(EntityOperation.ADD.equals(op.name) ||
+                                        EntityOperation.DELETE.equals(op.name) ||
+                                        EntityOperation.SEND.equals(op.name) ||
+                                        EntityOperation.SYNC.equals(op.name)))
+                            throw new IllegalArgumentException(op.name + " without uid " + op.args);
 
-                            else if (EntityOperation.ADD.equals(op.name))
-                                ; // Do nothing
+                        // Operations should use database transaction when needed
 
-                            else if (EntityOperation.DELETE.equals(op.name))
-                                doDelete(folder, (POP3Folder) ifolder, message, jargs, db);
+                        if (EntityOperation.SEEN.equals(op.name))
+                            doSeen(folder, (IMAPFolder) ifolder, message, jargs, db);
 
-                            else if (EntityOperation.SYNC.equals(op.name))
-                                synchronizeMessages(account, folder, (POP3Folder) ifolder, jargs, state);
+                        else if (EntityOperation.FLAG.equals(op.name))
+                            doFlag(folder, (IMAPFolder) ifolder, message, jargs, db);
 
+                        else if (EntityOperation.ANSWERED.equals(op.name))
+                            doAnswered(folder, (IMAPFolder) ifolder, message, jargs, db);
+
+                        else if (EntityOperation.KEYWORD.equals(op.name))
+                            doKeyword(folder, (IMAPFolder) ifolder, message, jargs, db);
+
+                        else if (EntityOperation.ADD.equals(op.name))
+                            doAdd(folder, isession, (IMAPStore) istore, (IMAPFolder) ifolder, message, jargs, db);
+
+                        else if (EntityOperation.MOVE.equals(op.name))
+                            doMove(folder, isession, (IMAPStore) istore, (IMAPFolder) ifolder, message, jargs, db);
+
+                        else if (EntityOperation.DELETE.equals(op.name))
+                            doDelete(folder, (IMAPFolder) ifolder, message, jargs, db);
+
+                        else if (EntityOperation.SEND.equals(op.name))
+                            doSend(message, db);
+
+                        else if (EntityOperation.HEADERS.equals(op.name))
+                            doHeaders(folder, (IMAPFolder) ifolder, message, db);
+
+                        else if (EntityOperation.RAW.equals(op.name))
+                            doRaw(folder, (IMAPFolder) ifolder, message, jargs, db);
+
+                        else if (EntityOperation.BODY.equals(op.name))
+                            doBody(folder, (IMAPFolder) ifolder, message, db);
+
+                        else if (EntityOperation.ATTACHMENT.equals(op.name))
+                            doAttachment(folder, op, (IMAPFolder) ifolder, message, jargs, db);
+
+                        else if (EntityOperation.SYNC.equals(op.name))
+                            if (EntityFolder.OUTBOX.equals(folder.type))
+                                db.folder().setFolderError(folder.id, null);
                             else
-                                throw new MessagingException("Unknown operation name=" + op.name);
+                                synchronizeMessages(account, folder, (IMAPFolder) ifolder, jargs, state);
 
-                        } else {
-                            if (message != null && message.uid == null &&
-                                    !(EntityOperation.ADD.equals(op.name) ||
-                                            EntityOperation.DELETE.equals(op.name) ||
-                                            EntityOperation.SEND.equals(op.name) ||
-                                            EntityOperation.SYNC.equals(op.name)))
-                                throw new IllegalArgumentException(op.name + " without uid " + op.args);
-
-                            // Operations should use database transaction when needed
-
-                            if (EntityOperation.SEEN.equals(op.name))
-                                doSeen(folder, (IMAPFolder) ifolder, message, jargs, db);
-
-                            else if (EntityOperation.FLAG.equals(op.name))
-                                doFlag(folder, (IMAPFolder) ifolder, message, jargs, db);
-
-                            else if (EntityOperation.ANSWERED.equals(op.name))
-                                doAnswered(folder, (IMAPFolder) ifolder, message, jargs, db);
-
-                            else if (EntityOperation.KEYWORD.equals(op.name))
-                                doKeyword(folder, (IMAPFolder) ifolder, message, jargs, db);
-
-                            else if (EntityOperation.ADD.equals(op.name))
-                                doAdd(folder, isession, (IMAPStore) istore, (IMAPFolder) ifolder, message, jargs, db);
-
-                            else if (EntityOperation.MOVE.equals(op.name))
-                                doMove(folder, isession, (IMAPStore) istore, (IMAPFolder) ifolder, message, jargs, db);
-
-                            else if (EntityOperation.DELETE.equals(op.name))
-                                doDelete(folder, (IMAPFolder) ifolder, message, jargs, db);
-
-                            else if (EntityOperation.SEND.equals(op.name))
-                                doSend(message, db);
-
-                            else if (EntityOperation.HEADERS.equals(op.name))
-                                doHeaders(folder, (IMAPFolder) ifolder, message, db);
-
-                            else if (EntityOperation.RAW.equals(op.name))
-                                doRaw(folder, (IMAPFolder) ifolder, message, jargs, db);
-
-                            else if (EntityOperation.BODY.equals(op.name))
-                                doBody(folder, (IMAPFolder) ifolder, message, db);
-
-                            else if (EntityOperation.ATTACHMENT.equals(op.name))
-                                doAttachment(folder, op, (IMAPFolder) ifolder, message, jargs, db);
-
-                            else if (EntityOperation.SYNC.equals(op.name))
-                                if (EntityFolder.OUTBOX.equals(folder.type))
-                                    db.folder().setFolderError(folder.id, null);
-                                else
-                                    synchronizeMessages(account, folder, (IMAPFolder) ifolder, jargs, state);
-
-                            else
-                                throw new MessagingException("Unknown operation name=" + op.name);
-                        }
+                        else
+                            throw new MessagingException("Unknown operation name=" + op.name);
 
                         // Operation succeeded
                         db.operation().deleteOperation(op.id);
@@ -1614,15 +1589,6 @@ public class ServiceSynchronize extends LifecycleService {
         } finally {
             Log.i(folder.name + " end process state=" + state);
         }
-    }
-
-    private void doSeen(EntityFolder folder, POP3Folder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
-        boolean seen = jargs.getBoolean(0);
-        if (message.seen.equals(seen))
-            return;
-
-        Log.i(folder.name + " setting POP message=" + message.id + " seen=" + seen);
-        db.message().setMessageSeen(message.id, seen);
     }
 
     private void doSeen(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
@@ -1907,36 +1873,6 @@ public class ServiceSynchronize extends LifecycleService {
                 throw ex;
             }
         }
-    }
-
-    private void doDelete(EntityFolder folder, POP3Folder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException {
-        Log.i(folder.name + " deleting POP message=" + message.id + " msgid=" + message.msgid);
-
-        if (EntityFolder.INBOX.equals(folder.type)) {
-            // Delete message
-            if (TextUtils.isEmpty(message.msgid))
-                throw new IllegalArgumentException("Message ID missing");
-
-            boolean found = false;
-            Message[] imessages = ifolder.getMessages();
-            for (Message imessage : imessages) {
-                MessageHelper helper = new MessageHelper((MimeMessage) imessage);
-                String msgid = helper.getMessageID();
-                if (message.msgid.equals(msgid)) {
-                    found = true;
-                    imessage.setFlag(Flags.Flag.DELETED, true);
-                    break;
-                }
-            }
-
-            if (!found)
-                throw new MessageRemovedException();
-
-            ifolder.close();
-            ifolder.open(Folder.READ_WRITE);
-        }
-
-        db.message().deleteMessage(message.id);
     }
 
     private void doDelete(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException {
@@ -2361,110 +2297,6 @@ public class ServiceSynchronize extends LifecycleService {
         } finally {
             db.endTransaction();
             Log.i("End sync folder");
-        }
-    }
-
-    private void synchronizeMessages(EntityAccount account, final EntityFolder folder, POP3Folder ifolder, JSONArray jargs, ServiceState state) throws JSONException, MessagingException, IOException {
-        DB db = DB.getInstance(this);
-
-        if (!EntityFolder.INBOX.equals(folder.type)) {
-            db.folder().setFolderSyncState(folder.id, null);
-            return;
-        }
-
-        try {
-            db.folder().setFolderSyncState(folder.id, "syncing");
-
-            Message[] imessages = ifolder.getMessages();
-            Log.i(folder.name + " POP messages=" + imessages.length);
-
-            db.folder().setFolderSyncState(folder.id, "downloading");
-
-            for (Message imessage : imessages)
-                try {
-                    if (!state.running())
-                        break;
-
-                    MessageHelper helper = new MessageHelper((MimeMessage) imessage);
-                    String msgid = helper.getMessageID();
-                    if (msgid == null) {
-                        Log.w(folder.name + " POP no message ID");
-                        continue;
-                    }
-
-                    List<EntityMessage> messages = db.message().getMessageByMsgId(folder.account, msgid);
-                    if (messages.size() > 0) {
-                        for (EntityMessage message : messages)
-                            db.message().setMessageUiHide(message.id, false);
-                        Log.i(folder.name + " POP having=" + msgid);
-                        continue;
-                    }
-
-                    EntityMessage message = new EntityMessage();
-                    message.account = folder.account;
-                    message.folder = folder.id;
-                    message.identity = null;
-                    message.uid = null;
-
-                    message.msgid = helper.getMessageID();
-                    message.references = TextUtils.join(" ", helper.getReferences());
-                    message.inreplyto = helper.getInReplyTo();
-                    message.deliveredto = helper.getDeliveredTo();
-                    message.thread = helper.getThreadId(0);
-                    message.sender = MessageHelper.getSortKey(helper.getFrom());
-                    message.from = helper.getFrom();
-                    message.to = helper.getTo();
-                    message.cc = helper.getCc();
-                    message.bcc = helper.getBcc();
-                    message.reply = helper.getReply();
-                    message.subject = helper.getSubject();
-                    message.size = helper.getSize();
-                    message.content = false;
-                    message.received = helper.getReceived();
-                    message.sent = helper.getSent();
-                    message.seen = false;
-                    message.answered = false;
-                    message.flagged = false;
-                    message.flags = null;
-                    message.keywords = null;
-                    message.ui_seen = false;
-                    message.ui_answered = false;
-                    message.ui_flagged = false;
-                    message.ui_hide = false;
-                    message.ui_found = false;
-                    message.ui_ignored = false;
-                    message.ui_browsed = false;
-
-                    Uri lookupUri = ContactInfo.getLookupUri(this, message.from);
-                    message.avatar = (lookupUri == null ? null : lookupUri.toString());
-
-                    message.id = db.message().insertMessage(message);
-
-                    Log.i(folder.name + " POP id=" + message.id + " uid=" + message.uid);
-
-                    MessageHelper.MessageParts parts = helper.getMessageParts();
-                    String body = parts.getHtml(this);
-                    Helper.writeText(EntityMessage.getFile(this, message.id), body);
-                    db.message().setMessageContent(message.id, true, HtmlHelper.getPreview(body));
-                    db.message().setMessageWarning(message.id, parts.getWarnings(message.warning));
-
-                    int sequence = 1;
-                    for (EntityAttachment attachment : parts.getAttachments()) {
-                        Log.i(folder.name + " POP attachment seq=" + sequence +
-                                " name=" + attachment.name + " type=" + attachment.type +
-                                " cid=" + attachment.cid + " pgp=" + attachment.encryption);
-                        attachment.message = message.id;
-                        attachment.sequence = sequence++;
-                        attachment.id = db.attachment().insertAttachment(attachment);
-                        parts.downloadAttachment(this, db, attachment.id, attachment.sequence);
-                    }
-                } catch (Throwable ex) {
-                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
-                } finally {
-                    ((POP3Message) imessage).invalidate(true);
-                }
-        } finally {
-            db.folder().setFolderSyncState(folder.id, null);
         }
     }
 

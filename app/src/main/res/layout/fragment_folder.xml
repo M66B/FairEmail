@@ -199,15 +199,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/grpPop"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:constraint_referenced_ids="
-            cbHide,
-            cbPoll,cbDownload,
-            tvSyncDays,tvSyncDaysRemark,etSyncDays,
-            tvKeepDays,etKeepDays,cbKeepAll" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

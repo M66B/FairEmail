@@ -154,7 +154,7 @@ public class FragmentFolders extends FragmentBase {
                 @Override
                 public void onChanged(@Nullable EntityAccount account) {
                     setSubtitle(account == null ? null : account.name);
-                    if (account == null || account.pop)
+                    if (account == null)
                         fab.hide();
                     else
                         fab.show();

@@ -25,7 +25,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class SelectionPredicateMessage extends SelectionTracker.SelectionPredicate<Long> {
     private boolean enabled;
-    private boolean folder;
     private RecyclerView recyclerView;
 
     SelectionPredicateMessage(RecyclerView recyclerView) {
@@ -35,10 +34,6 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
 
     void setEnabled(boolean enabled) {
         this.enabled = enabled;
-    }
-
-    void setFolder(boolean folder) {
-        this.folder = folder;
     }
 
     @Override
@@ -51,7 +46,7 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
         if (message == null)
             return false;
 
-        if (message.uid != null || (folder && message.accountPop))
+        if (message.uid != null)
             return true;
 
         return false;
@@ -67,7 +62,7 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
         if (message == null)
             return false;
 
-        if (message.uid != null || (folder && message.accountPop))
+        if (message.uid != null)
             return true;
 
         return false;

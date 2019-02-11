@@ -82,42 +82,22 @@
             android:id="@+id/tvImap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:text="@string/title_imap"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-            app:layout_constraintBottom_toBottomOf="@+id/swPop"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/swPop" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swPop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="12dp"
-            app:layout_constraintStart_toEndOf="@id/tvImap"
             app:layout_constraintTop_toBottomOf="@id/btnAutoConfig" />
 
         <TextView
-            android:id="@+id/tvPop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:text="@string/title_pop3"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-            app:layout_constraintBottom_toBottomOf="@id/swPop"
-            app:layout_constraintStart_toEndOf="@id/swPop"
-            app:layout_constraintTop_toTopOf="@id/swPop" />
-
-        <TextView
-            android:id="@+id/tvPopHint"
+            android:id="@+id/tvPopSupport"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="@string/title_pop3_hint"
+            android:text="@string/title_pop3_support"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swPop" />
+            app:layout_constraintTop_toBottomOf="@id/tvImap" />
 
         <!-- host -->
 
@@ -129,7 +109,7 @@
             android:text="@string/title_host"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPopHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvPopSupport" />
 
         <EditText
             android:id="@+id/etHost"
@@ -717,7 +697,7 @@
             android:layout_height="0dp"
             app:constraint_referenced_ids="
             tvDomain,tvDomainHint,etDomain,btnAutoConfig,
-            tvImap,swPop,tvPop,tvHost,etHost,cbStartTls,cbInsecure,tvPort,etPort" />
+            tvImap,tvPopSupport,tvHost,etHost,cbStartTls,cbInsecure,tvPort,etPort" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpAuthorize"

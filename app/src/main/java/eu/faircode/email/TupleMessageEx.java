@@ -24,7 +24,6 @@ import androidx.room.Ignore;
 public class TupleMessageEx extends EntityMessage {
     public String accountName;
     public Integer accountColor;
-    public boolean accountPop;
     public boolean accountNotify;
     public String folderName;
     public String folderDisplay;
@@ -48,7 +47,6 @@ public class TupleMessageEx extends EntityMessage {
             return (super.uiEquals(obj) &&
                     (this.accountName == null ? other.accountName == null : this.accountName.equals(other.accountName)) &&
                     (this.accountColor == null ? other.accountColor == null : this.accountColor.equals(other.accountColor)) &&
-                    this.accountPop == other.accountPop &&
                     //this.accountNotify == other.accountNotify &&
                     this.folderName.equals(other.folderName) &&
                     (this.folderDisplay == null ? other.folderDisplay == null : this.folderDisplay.equals(other.folderDisplay)) &&
@@ -74,7 +72,6 @@ public class TupleMessageEx extends EntityMessage {
             return (super.equals(obj) &&
                     (this.accountName == null ? other.accountName == null : this.accountName.equals(other.accountName)) &&
                     (this.accountColor == null ? other.accountColor == null : this.accountColor.equals(other.accountColor)) &&
-                    this.accountPop == other.accountPop &&
                     this.accountNotify == other.accountNotify &&
                     this.folderName.equals(other.folderName) &&
                     (this.folderDisplay == null ? other.folderDisplay == null : this.folderDisplay.equals(other.folderDisplay)) &&

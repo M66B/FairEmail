@@ -238,17 +238,15 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             popupMenu.getMenu().add(Menu.NONE, action_synchronize_now, 1, R.string.title_synchronize_now);
 
-            if (folder.account != null && !folder.accountPop)
+            if (folder.account != null)
                 popupMenu.getMenu().add(Menu.NONE, action_delete_local, 2, R.string.title_delete_local);
 
-            if (EntityFolder.TRASH.equals(folder.type) && !folder.accountPop)
+            if (EntityFolder.TRASH.equals(folder.type))
                 popupMenu.getMenu().add(Menu.NONE, action_empty_trash, 3, R.string.title_empty_trash);
 
             if (folder.account != null) {
-                if (!folder.accountPop || EntityFolder.INBOX.equals(folder.type))
-                    popupMenu.getMenu().add(Menu.NONE, action_edit_properties, 4, R.string.title_edit_properties);
-                if (!folder.accountPop)
-                    popupMenu.getMenu().add(Menu.NONE, action_edit_rules, 5, R.string.title_edit_rules);
+                popupMenu.getMenu().add(Menu.NONE, action_edit_properties, 4, R.string.title_edit_properties);
+                popupMenu.getMenu().add(Menu.NONE, action_edit_rules, 5, R.string.title_edit_rules);
             }
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {

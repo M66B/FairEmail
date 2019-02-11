@@ -252,6 +252,7 @@
     <string name="title_edit_html">Edit as HTML</string>
     <string name="title_last_connected">Last connected: %1$s</string>
     <string name="title_pop3_hint">POP3 has significant limitations, so use IMAP whenever possible</string>
+    <string name="title_pop3_support">POP3 is not supported, see also the FAQ</string>
 
     <string name="title_unseen_count" translatable="false">%1$s (%2$d)</string>
 
