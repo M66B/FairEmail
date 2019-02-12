@@ -150,6 +150,7 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
+    private static final int BACKOFF_ERROR_AFTER = 16; // seconds
     private static final int IDENTITY_ERROR_AFTER = 30; // minutes
     private static final long STOP_DELAY = 5000L; // milliseconds
     private static final long YIELD_DURATION = 200L; // milliseconds
@@ -920,7 +921,7 @@ public class ServiceSynchronize extends LifecycleService {
                             EntityLog.log(this, account.name + " last connected: " + new Date(account.last_connected));
                             long now = new Date().getTime();
                             long delayed = now - account.last_connected - account.poll_interval * 60 * 1000L;
-                            if (delayed > ACCOUNT_ERROR_AFTER * 60 * 1000L) {
+                            if (delayed > ACCOUNT_ERROR_AFTER * 60 * 1000L && backoff > BACKOFF_ERROR_AFTER) {
                                 Log.i("Reporting sync error after=" + delayed);
                                 Throwable warning = new Throwable(
                                         getString(R.string.title_no_sync,
@@ -1305,7 +1306,9 @@ public class ServiceSynchronize extends LifecycleService {
                             backoff = CONNECT_BACKOFF_START;
 
                             // Record successful connection
-                            db.account().setAccountConnected(account.id, new Date().getTime());
+                            Date last_connected = new Date();
+                            EntityLog.log(this, account.name + " set last_connected=" + last_connected);
+                            db.account().setAccountConnected(account.id, last_connected.getTime());
                             db.account().setAccountError(account.id, capIdle ? null : getString(R.string.title_no_idle));
 
                             // Schedule keep alive alarm
