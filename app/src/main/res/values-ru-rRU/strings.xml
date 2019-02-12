@@ -123,6 +123,7 @@
     <string name="title_setup_black_theme">Чёрная тема</string>
     <string name="title_setup_system_theme">Системная тема</string>
     <string name="title_setup_defaults">Восстановить настройки по умолчанию</string>
+    <string name="title_setup_options">Опции</string>
     <string name="title_advanced">Дополнительные опции</string>
     <string name="title_advanced_section_general">Общее</string>
     <string name="title_advanced_section_connection">Соединение</string>
@@ -144,6 +145,7 @@
     <string name="title_advanced_html">Автоматически показывать исходное сообщение для известных контактов</string>
     <string name="title_advanced_images">Автоматически показывать изображения для известных контактов</string>
     <string name="title_advanced_actionbar">Панель управления диалогами</string>
+    <string name="title_advanced_notify_preview">Предпросмотр сообщений в уведомлениях</string>
     <string name="title_advanced_light">Использовать индикатор уведомлений</string>
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
     <string name="title_advanced_pull_refresh">Потяните вниз, для обновления</string>
@@ -220,13 +222,16 @@
     <string name="title_no_inbox">Папка \"Входящие\" не найдена</string>
     <string name="title_no_primary_drafts">Нет основной учетной записи или папки черновиков</string>
     <string name="title_no_idle">Этот провайдер не поддерживает push-сообщения. Это задержит прием новых сообщений и увеличит расход батареи.</string>
+    <string name="title_no_move">Этот провайдер не поддерживает MOVE</string>
+    <string name="title_no_uidplus">Этот провайдер не поддерживает UIDPLUS</string>
     <string name="title_no_sync">Ошибки синхронизации после %1$s</string>
     <string name="title_drafts_required">Для отправки сообщений требуется папка черновиков</string>
     <string name="title_account_delete">Удалить эту учетную запись навсегда?</string>
     <string name="title_identity_delete">Удалить эту учетную запись навсегда?</string>
-    <string name="title_pop">POP не поддерживается</string>
     <string name="title_edit_html">Редактировать как HTML</string>
     <string name="title_last_connected">Последнее подключение: %1$s</string>
+    <string name="title_pop3_hint">POP3 имеет значительные ограничения, поэтому используйте IMAP, когда это возможно</string>
+    <string name="title_pop3_support">POP3 не поддерживается, см. также FAQ</string>
     <string name="title_synchronize_now">Синхронизировать сейчас</string>
     <string name="title_delete_local">Удалить локальные сообщения</string>
     <string name="title_empty_trash">Очистить корзину</string>

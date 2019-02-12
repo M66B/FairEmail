@@ -115,6 +115,7 @@
     <string name="title_setup_black_theme">Temă neagră</string>
     <string name="title_setup_system_theme">Temă de sistem</string>
     <string name="title_setup_defaults">Restabiliți valorile implicite</string>
+    <string name="title_setup_options">Opţiuni</string>
     <string name="title_advanced">Opțiuni avansate</string>
     <string name="title_advanced_section_general">Generale</string>
     <string name="title_advanced_section_connection">Conexiune</string>
@@ -136,6 +137,7 @@
     <string name="title_advanced_html">Arată în mod automat imaginile originale pentru contactele cunoscute</string>
     <string name="title_advanced_images">Arată în mod automat imaginile pentru contactele cunoscute</string>
     <string name="title_advanced_actionbar">Bara de acțiuni corversație</string>
+    <string name="title_advanced_notify_preview">Arată previzualizare mesaj în notificare</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
     <string name="title_advanced_sound">Selectare sunet de notificare</string>
     <string name="title_advanced_pull_refresh">Trageți în jos pentru a actualiza</string>
@@ -166,6 +168,7 @@
     <string name="title_identity_name">Numele dumneavoastră</string>
     <string name="title_identity_email">Adresa dvs. de e-mail</string>
     <string name="title_identity_reply_to">Răspuns la adresa</string>
+    <string name="title_identity_plain_text">Trimite numai text simplu</string>
     <string name="title_identity_read_receipt">Solicitare confirmare citire</string>
     <string name="title_identity_delivery_receipt">Solicitare confirmare livrare</string>
     <string name="title_identity_receipt_remark">Majoritatea furnizorilor ignoră cererile de confirmare a livrării</string>
@@ -211,11 +214,12 @@
     <string name="title_no_inbox">Căsuța poștală nu a fost găsită</string>
     <string name="title_no_primary_drafts">Nici un cont principal sau nici un dosar pentru ciorne</string>
     <string name="title_no_idle">Acest furnizor de servicii e-mail nu suporta mesaje push. Acest fapt va duce la întârzierea recepției mesajelor și un consum mai mare al bateriei.</string>
+    <string name="title_no_move">Acest furnizor nu suportă MOVE</string>
+    <string name="title_no_uidplus">Acest furnizor nu suportă UIDPLUS</string>
     <string name="title_no_sync">Erori de sincronizare începând cu %1$s</string>
     <string name="title_drafts_required">Un dosar de ciorne este necesar pentru a trimite mesaje</string>
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
-    <string name="title_pop">POP nu este acceptat</string>
     <string name="title_edit_html">Editează ca HTML</string>
     <string name="title_last_connected">Ultima conectare: %1$s</string>
     <string name="title_synchronize_now">Sincronizează acum</string>

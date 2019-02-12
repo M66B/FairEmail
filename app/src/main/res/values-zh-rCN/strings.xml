@@ -93,6 +93,7 @@
     <string name="title_setup_black_theme">黑色主题</string>
     <string name="title_setup_system_theme">系统主题</string>
     <string name="title_setup_defaults">恢复默认设置</string>
+    <string name="title_setup_options">选项</string>
     <string name="title_advanced">高级选项</string>
     <string name="title_advanced_section_general">常规​​​​​</string>
     <string name="title_advanced_section_connection">连接</string>
@@ -114,6 +115,7 @@
     <string name="title_advanced_html">自动显示已知联系人的原始消息</string>
     <string name="title_advanced_images">自动显示来自已知联系人邮件中的图片</string>
     <string name="title_advanced_actionbar">对话操作栏</string>
+    <string name="title_advanced_notify_preview">通知中显示消息预览</string>
     <string name="title_advanced_light">使用指示灯</string>
     <string name="title_advanced_sound">选择通知提示音</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
@@ -144,6 +146,7 @@
     <string name="title_identity_name">姓名</string>
     <string name="title_identity_email">电子邮件地址</string>
     <string name="title_identity_reply_to">回复地址</string>
+    <string name="title_identity_plain_text">仅发送纯文本</string>
     <string name="title_identity_read_receipt">请求读取回执</string>
     <string name="title_identity_delivery_receipt">请求发出凭据</string>
     <string name="title_identity_receipt_remark">大部份提供商忽略接收请求</string>
@@ -189,12 +192,15 @@
     <string name="title_no_inbox">未找到收件箱</string>
     <string name="title_no_primary_drafts">没有主帐户或草稿文件夹</string>
     <string name="title_no_idle">该提供商不支持消息推送，这将延迟新消息的接收并增加电池用量</string>
+    <string name="title_no_move">该邮件服务供应商不支持MOVE扩展</string>
+    <string name="title_no_uidplus">该邮件服务供应商不支持UIDPLUS扩展</string>
     <string name="title_drafts_required">需要一个草稿文件夹来发送消息</string>
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
-    <string name="title_pop">不支持POP</string>
     <string name="title_edit_html">以 html 格式编辑</string>
     <string name="title_last_connected">上次连接%1$s前</string>
+    <string name="title_pop3_hint">POP3协议有很大局限性，因此尽可能使用 IMAP</string>
+    <string name="title_pop3_support">不支持POP3协议，另见FAQ</string>
     <string name="title_synchronize_now">现在同步</string>
     <string name="title_delete_local">删除本地消息</string>
     <string name="title_empty_trash">清空垃圾箱</string>
@@ -424,7 +430,7 @@
     <string name="title_no_ask_again">别再询问</string>
     <string name="title_no_adobe">Adobe Acrobat 阅读器无法安全打开共享的文件，请参阅FAQ 以获取更多信息</string>
     <string name="title_no_body">没有找到消息文本</string>
-    <string name="title_no_charset">不支持的编码</string>
+    <string name="title_no_charset">不支持的编码: %1$s</string>
     <string name="title_try">请试下FairEmail吧！一个安卓平台上开源、隐私友好的邮件客户端</string>
     <string name="title_pro_feature">这是专业版功能</string>
     <string name="title_pro_list">专业版功能列表</string>

@@ -107,6 +107,7 @@
     <string name="title_setup_black_theme">Schwarzes Design</string>
     <string name="title_setup_system_theme">System Design</string>
     <string name="title_setup_defaults">Auf Standard zurücksetzen</string>
+    <string name="title_setup_options">Optionen</string>
     <string name="title_advanced">Erweiterte Optionen</string>
     <string name="title_advanced_section_general">Allgemeines</string>
     <string name="title_advanced_section_connection">Verbindung</string>
@@ -128,6 +129,7 @@
     <string name="title_advanced_html">Für bekannte Kontakte Mails automatisch im Original-Format anzeigen</string>
     <string name="title_advanced_images">Für bekannte Kontakte Bilder automatisch anzeigen</string>
     <string name="title_advanced_actionbar">Navigationsleiste in Konversationen</string>
+    <string name="title_advanced_notify_preview">Zeige die Nachrichten-Vorschau in den Benachrichtigungen</string>
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
     <string name="title_advanced_sound">Benachrichtigungston auswählen</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
@@ -204,13 +206,16 @@
     <string name="title_no_inbox">Posteingang nicht gefunden</string>
     <string name="title_no_primary_drafts">Kein Hauptkonto oder kein Entwürfe-Ordner</string>
     <string name="title_no_idle">Dieser Anbieter unterstützt keine Pushnachrichten. Dies verzögert den Empfang neuer E-Mails und erhöht den Akkuverbrauch.</string>
+    <string name="title_no_move">Dieser Anbieter unterstützt das Verschieben nicht</string>
+    <string name="title_no_uidplus">Dieser Anbieter unterstützt UIDPLUS nicht</string>
     <string name="title_no_sync">Synchronisationsfehler seit %1$s</string>
     <string name="title_drafts_required">Ein Entwürfe-Ordner ist erforderlich, um Nachrichten zu senden</string>
     <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
     <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
-    <string name="title_pop">POP wird nicht unterstützt</string>
     <string name="title_edit_html">Als HTML bearbeiten</string>
     <string name="title_last_connected">Zuletzt verbunden: %1$s</string>
+    <string name="title_pop3_hint">POP3 hat erhebliche Einschränkungen, daher verwenden Sie bitte IMAP, falls möglich</string>
+    <string name="title_pop3_support">POP3 wird nicht unterstützt, siehe auch die FAQ</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
     <string name="title_delete_local">Lösche lokale Nachrichten</string>
     <string name="title_empty_trash">Papierkorb leeren</string>
@@ -264,7 +269,7 @@
     <string name="title_raw_save">Rohdaten speichern</string>
     <string name="title_manage_keywords">Schlagwörter verwalten</string>
     <string name="title_add_keyword">Schlagwort hinzufügen</string>
-    <string name="title_show_inline">In line-Anhänger anzeigen</string>
+    <string name="title_show_inline">Inline-Anhänge anzeigen</string>
     <string name="title_download_all">Alle herunterladen</string>
     <string name="title_save_all">Alles speichern</string>
     <string name="title_show_html">Original anzeigen</string>

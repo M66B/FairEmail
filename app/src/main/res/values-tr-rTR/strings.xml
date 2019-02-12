@@ -205,7 +205,6 @@
     <string name="title_drafts_required">İleti göndermek için taslaklar klasörü gerekir</string>
     <string name="title_account_delete">Bu hesap kalıcı olarak silinsin mi?</string>
     <string name="title_identity_delete">Bu kimlik kalıcı olarak silinsin mi?</string>
-    <string name="title_pop">POP desteklenmiyor</string>
     <string name="title_edit_html">HTML olarak düzenle</string>
     <string name="title_last_connected">Son bağlantı: %1$s</string>
     <string name="title_synchronize_now">Şimdi senkronize et</string>

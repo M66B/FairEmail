@@ -105,6 +105,7 @@
     <string name="title_setup_light_theme">Ljust tema</string>
     <string name="title_setup_dark_theme">Mörkt tema</string>
     <string name="title_setup_black_theme">Svart Tema</string>
+    <string name="title_setup_system_theme">Systemtema</string>
     <string name="title_setup_defaults">Återställ standardvärden</string>
     <string name="title_advanced">Avancerade inställningar</string>
     <string name="title_advanced_section_general">Allmänt</string>
@@ -121,6 +122,7 @@
     <string name="title_advanced_threading">Konversationstrådar</string>
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
     <string name="title_advanced_identicons">Visa identicons</string>
+    <string name="title_advanced_name_email">Visa namn och e-postadresser</string>
     <string name="title_advanced_preview">Förhandsvisning av meddelande</string>
     <string name="title_advanced_addresses">Visa adressuppgifter som standard</string>
     <string name="title_advanced_images">Visa bilder automatiskt för kända kontakter</string>
@@ -130,6 +132,7 @@
     <string name="title_advanced_pull_refresh">Dra ner för att uppdatera</string>
     <string name="title_advanced_autoexpand">Utöka meddelanden automatiskt</string>
     <string name="title_advanced_autoclose">Stäng konversationer automatiskt</string>
+    <string name="title_advanced_swipenav">Svep vänster/höger för att gå till nästa/föregående konversation</string>
     <string name="title_advanced_autonext">Gå automatiskt till nästa konversation vid stängning av konversation</string>
     <string name="title_advanced_autoread">Märk automatiskt meddelanden som lästa vid flyttning av meddelanden</string>
     <string name="title_advanced_collapse">Kollapsa meddelanden i konversationer på \"tillbaka\"</string>
@@ -197,7 +200,6 @@
     <string name="title_no_sync">Synkroniseringsfel sedan %1$s</string>
     <string name="title_account_delete">Ta bort detta konto permanent?</string>
     <string name="title_identity_delete">Ta bort denna identitet permanent?</string>
-    <string name="title_pop">POP stöds inte</string>
     <string name="title_edit_html">Redigera som HTML</string>
     <string name="title_last_connected">Senast ansluten: %1$s</string>
     <string name="title_synchronize_now">Synkronisera nu</string>

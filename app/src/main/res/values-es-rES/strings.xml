@@ -107,6 +107,7 @@
     <string name="title_setup_black_theme">Tema negro</string>
     <string name="title_setup_system_theme">Tema del sistema</string>
     <string name="title_setup_defaults">Restablecer ajustes por defecto</string>
+    <string name="title_setup_options">Opciones</string>
     <string name="title_advanced">Opciones avanzadas</string>
     <string name="title_advanced_section_general">General</string>
     <string name="title_advanced_section_connection">Conexión</string>
@@ -128,6 +129,7 @@
     <string name="title_advanced_html">Mostrar mensaje original automáticamente para contactos conocidos</string>
     <string name="title_advanced_images">Mostrar imágenes automáticamente para contactos conocidos</string>
     <string name="title_advanced_actionbar">Barra de acciones de conversación</string>
+    <string name="title_advanced_notify_preview">Mostrar vista previa del mensaje en notificaciones</string>
     <string name="title_advanced_light">Usar luz de notificación</string>
     <string name="title_advanced_sound">Seleccionar sonido de notificación</string>
     <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
@@ -158,6 +160,7 @@
     <string name="title_identity_name">Su nombre</string>
     <string name="title_identity_email">Su dirección de correo electrónico</string>
     <string name="title_identity_reply_to">Responder a la dirección</string>
+    <string name="title_identity_plain_text">Enviar sólo texto plano</string>
     <string name="title_identity_read_receipt">Solicitar confirmación de lectura</string>
     <string name="title_identity_delivery_receipt">Solicitar confirmación de entrega</string>
     <string name="title_identity_receipt_remark">La mayoría de los proveedores ignoran las solicitudes de confirmación</string>
@@ -203,13 +206,15 @@
     <string name="title_no_inbox">Bandeja de entrada no encontrada</string>
     <string name="title_no_primary_drafts">No hay cuenta primaria o no hay carpeta de borradores</string>
     <string name="title_no_idle">Este proveedor no soporta mensajes PUSH. Esto retrasará la recepción de nuevos mensajes y aumentará el uso de batería.</string>
+    <string name="title_no_move">Este proveedor no soporta MOVE</string>
+    <string name="title_no_uidplus">Este proveedor no soporta UIDPLUS</string>
     <string name="title_no_sync">Errores de sincronización desde %1$s</string>
     <string name="title_drafts_required">Una carpeta de borradores es necesaria para enviar mensajes</string>
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
     <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
-    <string name="title_pop">POP no está soportado</string>
     <string name="title_edit_html">Editar como HTML</string>
     <string name="title_last_connected">Última conexión: %1$s</string>
+    <string name="title_pop3_hint">POP3 tiene limitaciones importantes, así que use IMAP siempre que sea posible</string>
     <string name="title_synchronize_now">Sincronizar ahora</string>
     <string name="title_delete_local">Eliminar mensajes locales</string>
     <string name="title_empty_trash">Vaciar papelera</string>

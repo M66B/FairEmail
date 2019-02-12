@@ -107,6 +107,7 @@
     <string name="title_setup_black_theme">Thème noir</string>
     <string name="title_setup_system_theme">Thème système</string>
     <string name="title_setup_defaults">Rétablir les paramètres par défaut</string>
+    <string name="title_setup_options">Options</string>
     <string name="title_advanced">Options avancées</string>
     <string name="title_advanced_section_general">Général</string>
     <string name="title_advanced_section_connection">Connexion</string>
@@ -128,6 +129,7 @@
     <string name="title_advanced_html">Afficher automatiquement le message initial pour les contacts connus</string>
     <string name="title_advanced_images">Afficher automatiquement les images des contacts connus</string>
     <string name="title_advanced_actionbar">Barre d\'action de conversation</string>
+    <string name="title_advanced_notify_preview">Afficher l\'aperçu du message dans les notifications</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
     <string name="title_advanced_pull_refresh">Tirer vers le bas pour actualiser</string>
@@ -204,13 +206,16 @@
     <string name="title_no_inbox">Boîte de réception introuvable</string>
     <string name="title_no_primary_drafts">Pas de compte principal ou pas de dossier Brouillons</string>
     <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Cela va retarder la réception de nouveaux messages et augmenter l\'utilisation de la batterie.</string>
+    <string name="title_no_move">Ce fournisseur ne prend pas en charge MOVE</string>
+    <string name="title_no_uidplus">Ce fournisseur ne prend pas en charge UIDPLUS</string>
     <string name="title_no_sync">Erreurs de synchronisation depuis %1$s</string>
     <string name="title_drafts_required">Un dossier brouillon est nécessaire pour envoyer des messages</string>
     <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
     <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
-    <string name="title_pop">POP n\'est pas supporté</string>
     <string name="title_edit_html">Modifier en HTML</string>
     <string name="title_last_connected">Dernière connexion : %1$s</string>
+    <string name="title_pop3_hint">POP3 a des limitations significatives, donc utilisez IMAP si possible</string>
+    <string name="title_pop3_support">POP3 n\'est pas pris en charge, voir aussi la FAQ</string>
     <string name="title_synchronize_now">Synchroniser maintenant</string>
     <string name="title_delete_local">Supprimer les messages locaux</string>
     <string name="title_empty_trash">Vider la corbeille</string>

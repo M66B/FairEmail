@@ -93,7 +93,6 @@
     <string name="title_no_password">Falta la contrasenya</string>
     <string name="title_account_delete">Esborrar aquest compte per sempre?</string>
     <string name="title_identity_delete">Esborrar aquesta identitat per sempre?</string>
-    <string name="title_pop">POP no està suportat</string>
     <string name="title_synchronize_now">Sincronitza ara</string>
     <string name="title_delete_local">Esborra els missatges locals</string>
     <string name="title_edit_properties">Edita les propietats</string>

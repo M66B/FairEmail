@@ -107,6 +107,7 @@
     <string name="title_setup_black_theme">Zwart thema</string>
     <string name="title_setup_system_theme">Systeem thema</string>
     <string name="title_setup_defaults">Verstekwaarden herstellen</string>
+    <string name="title_setup_options">Opties</string>
     <string name="title_advanced">Geavanceerde opties</string>
     <string name="title_advanced_section_general">Algemeen</string>
     <string name="title_advanced_section_connection">Verbinding</string>
@@ -205,13 +206,16 @@
     <string name="title_no_inbox">Postvak in niet gevonden</string>
     <string name="title_no_primary_drafts">Geen primair account of geen map voor concepten</string>
     <string name="title_no_idle">Deze provider biedt geen ondersteuning voor push-berichten. Dit zal het ontvangen van nieuwe berichten vertragen en het gebruik van de batterij te verhogen.</string>
+    <string name="title_no_move">Deze provider ondersteunt geen MOVE</string>
+    <string name="title_no_uidplus">Deze provider ondersteunt geen UIDPLUS</string>
     <string name="title_no_sync">Synchronisatiefouten sinds %1$s</string>
     <string name="title_drafts_required">Een concepten map is vereist om berichten te verzenden</string>
     <string name="title_account_delete">Verwijder dit account permanent?</string>
     <string name="title_identity_delete">Verwijder deze identiteit permanent?</string>
-    <string name="title_pop">POP wordt niet ondersteund</string>
     <string name="title_edit_html">Als HTML bewerken</string>
     <string name="title_last_connected">Laatst verbonden: %1$s</string>
+    <string name="title_pop3_hint">POP3 heeft aanzienlijke beperkingen, dus gebruik IMAP indien mogelijk</string>
+    <string name="title_pop3_support">POP3 wordt niet ondersteund, zie ook de FAQ</string>
     <string name="title_synchronize_now">Nu synchroniseren</string>
     <string name="title_delete_local">Verwijder lokale berichten</string>
     <string name="title_empty_trash">Prullenbak leegmaken</string>
