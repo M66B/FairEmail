@@ -41,6 +41,9 @@
         <meta-data
             android:name="android.webkit.WebView.EnableSafeBrowsing"
             android:value="false" />
+        <meta-data
+            android:name="android.allow_multiple_resumed_activities"
+            android:value="true" />
 
         <activity
             android:name=".ActivityMain"
