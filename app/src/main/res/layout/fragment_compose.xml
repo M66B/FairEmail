@@ -276,7 +276,7 @@
                 android:id="@+id/grpExtra"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:constraint_referenced_ids="tvExtraPrefix,etExtra,tvExtraSuffix" />
+                app:constraint_referenced_ids="etExtra,tvDomain" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpAddresses"
