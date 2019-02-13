@@ -171,8 +171,8 @@
     <string name="title_advanced_collapse">Collapse messages in conversations on \'back\'</string>
     <string name="title_advanced_automove">Confirm moving messages</string>
     <string name="title_advanced_confirm">Confirm actions that might leak privacy sensitive information</string>
-    <string name="title_advanced_sender">Allow editing sender address</string>
     <string name="title_advanced_autoresize">Automatically resize images for displaying on screens</string>
+    <string name="title_advanced_sender">Allow editing sender address</string>
     <string name="title_advanced_autosend">Confirm sending messages</string>
 
     <string name="title_advanced_updates">Check for updates</string>
