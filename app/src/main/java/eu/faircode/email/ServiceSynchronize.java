@@ -1482,50 +1482,65 @@ public class ServiceSynchronize extends LifecycleService {
 
                         // Operations should use database transaction when needed
 
-                        if (EntityOperation.SEEN.equals(op.name))
-                            doSeen(folder, (IMAPFolder) ifolder, message, jargs, db);
+                        switch (op.name) {
+                            case EntityOperation.SEEN:
+                                doSeen(folder, (IMAPFolder) ifolder, message, jargs, db);
+                                break;
 
-                        else if (EntityOperation.FLAG.equals(op.name))
-                            doFlag(folder, (IMAPFolder) ifolder, message, jargs, db);
+                            case EntityOperation.FLAG:
+                                doFlag(folder, (IMAPFolder) ifolder, message, jargs, db);
+                                break;
 
-                        else if (EntityOperation.ANSWERED.equals(op.name))
-                            doAnswered(folder, (IMAPFolder) ifolder, message, jargs, db);
+                            case EntityOperation.ANSWERED:
+                                doAnswered(folder, (IMAPFolder) ifolder, message, jargs, db);
+                                break;
 
-                        else if (EntityOperation.KEYWORD.equals(op.name))
-                            doKeyword(folder, (IMAPFolder) ifolder, message, jargs, db);
+                            case EntityOperation.KEYWORD:
+                                doKeyword(folder, (IMAPFolder) ifolder, message, jargs, db);
+                                break;
 
-                        else if (EntityOperation.ADD.equals(op.name))
-                            doAdd(folder, isession, (IMAPStore) istore, (IMAPFolder) ifolder, message, jargs, db);
+                            case EntityOperation.ADD:
+                                doAdd(folder, isession, (IMAPStore) istore, (IMAPFolder) ifolder, message, jargs, db);
+                                break;
 
-                        else if (EntityOperation.MOVE.equals(op.name))
-                            doMove(folder, isession, (IMAPStore) istore, (IMAPFolder) ifolder, message, jargs, db);
+                            case EntityOperation.MOVE:
+                                doMove(folder, isession, (IMAPStore) istore, (IMAPFolder) ifolder, message, jargs, db);
+                                break;
 
-                        else if (EntityOperation.DELETE.equals(op.name))
-                            doDelete(folder, (IMAPFolder) ifolder, message, jargs, db);
+                            case EntityOperation.DELETE:
+                                doDelete(folder, (IMAPFolder) ifolder, message, jargs, db);
+                                break;
 
-                        else if (EntityOperation.SEND.equals(op.name))
-                            doSend(message, db);
+                            case EntityOperation.SEND:
+                                doSend(message, db);
+                                break;
 
-                        else if (EntityOperation.HEADERS.equals(op.name))
-                            doHeaders(folder, (IMAPFolder) ifolder, message, db);
+                            case EntityOperation.HEADERS:
+                                doHeaders(folder, (IMAPFolder) ifolder, message, db);
+                                break;
 
-                        else if (EntityOperation.RAW.equals(op.name))
-                            doRaw(folder, (IMAPFolder) ifolder, message, jargs, db);
+                            case EntityOperation.RAW:
+                                doRaw(folder, (IMAPFolder) ifolder, message, jargs, db);
+                                break;
 
-                        else if (EntityOperation.BODY.equals(op.name))
-                            doBody(folder, (IMAPFolder) ifolder, message, db);
+                            case EntityOperation.BODY:
+                                doBody(folder, (IMAPFolder) ifolder, message, db);
+                                break;
 
-                        else if (EntityOperation.ATTACHMENT.equals(op.name))
-                            doAttachment(folder, op, (IMAPFolder) ifolder, message, jargs, db);
+                            case EntityOperation.ATTACHMENT:
+                                doAttachment(folder, op, (IMAPFolder) ifolder, message, jargs, db);
+                                break;
 
-                        else if (EntityOperation.SYNC.equals(op.name))
-                            if (EntityFolder.OUTBOX.equals(folder.type))
-                                db.folder().setFolderError(folder.id, null);
-                            else
-                                synchronizeMessages(account, folder, (IMAPFolder) ifolder, jargs, state);
+                            case EntityOperation.SYNC:
+                                if (EntityFolder.OUTBOX.equals(folder.type))
+                                    db.folder().setFolderError(folder.id, null);
+                                else
+                                    synchronizeMessages(account, folder, (IMAPFolder) ifolder, jargs, state);
+                                break;
 
-                        else
-                            throw new MessagingException("Unknown operation name=" + op.name);
+                            default:
+                                throw new MessagingException("Unknown operation name=" + op.name);
+                        }
 
                         // Operation succeeded
                         db.operation().deleteOperation(op.id);
@@ -2285,9 +2300,9 @@ public class ServiceSynchronize extends LifecycleService {
                         // Compatibility
                         if ("Inbox_sub".equals(folder.type))
                             db.folder().setFolderType(folder.id, EntityFolder.USER);
-                        if (EntityFolder.USER.equals(folder.type) && EntityFolder.SYSTEM.equals(type))
+                        else if (EntityFolder.USER.equals(folder.type) && EntityFolder.SYSTEM.equals(type))
                             db.folder().setFolderType(folder.id, type);
-                        if (EntityFolder.SYSTEM.equals(folder.type) && EntityFolder.USER.equals(type))
+                        else if (EntityFolder.SYSTEM.equals(folder.type) && EntityFolder.USER.equals(type))
                             db.folder().setFolderType(folder.id, type);
                     }
                 }
