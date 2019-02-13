@@ -154,6 +154,12 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
 * Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): needed to select accounts (not used/needed on later Android versions)
 
+FairEmail will keep a list of addresses you receive messages from and send messages to
+and will use this list for contact suggestions when no contacts permissions is granted to FairEmail.
+This means you can use FairEmail without the Android contacts provider (address book).
+Note that you can still pick contacts without granting contacts permissions to FairEmail,
+only suggesting contacts won't work without contacts permissions.
+
 <br />
 
 <a name="faq2"></a>
