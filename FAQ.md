@@ -25,6 +25,7 @@ For authorizing:
 
 ~~A [bug in Android](https://issuetracker.google.com/issues/78495471) lets FairEmail occasionally crash on long pressing or swiping.~~
 
+A [bug in Android](https://issuetracker.google.com/issues/119872129) lets FairEmail crash on some devices after updating FairEmail and tapping on a notification.
 
 ## Planned features
 
@@ -308,6 +309,9 @@ Basically, POP supports only downloading and deleting messages from the inbox.
 So, common operations like setting message attributes (read, starred, answered, etc), adding (backing up) and moving messages is not possible.
 
 See also [what Google writes about it](https://support.google.com/mail/answer/7104828).
+
+For example [Gmail can import messages](https://support.google.com/mail/answer/21289) from another POP account,
+which can be used as a workaround for when your provider doesn't support IMAP.
 
 <br />
 
