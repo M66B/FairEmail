@@ -393,31 +393,40 @@ public class FragmentCompose extends FragmentBase {
         getActivity().invalidateOptionsMenu();
         Helper.setViewsEnabled(view, false);
 
-        if (Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS)) {
-            SimpleCursorAdapter adapter = new SimpleCursorAdapter(
-                    getContext(),
-                    android.R.layout.simple_list_item_2,
-                    null,
-                    new String[]{
-                            ContactsContract.Contacts.DISPLAY_NAME,
-                            ContactsContract.CommonDataKinds.Email.DATA
-                    },
-                    new int[]{
-                            android.R.id.text1,
-                            android.R.id.text2
-                    },
-                    0);
+        final DB db = DB.getInstance(getContext());
+        final boolean contacts = Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS);
 
-            etTo.setAdapter(adapter);
-            etCc.setAdapter(adapter);
-            etBcc.setAdapter(adapter);
+        SimpleCursorAdapter cadapter = new SimpleCursorAdapter(
+                getContext(),
+                R.layout.spinner_contact,
+                null,
+                contacts
+                        ? new String[]{
+                        ContactsContract.Contacts.DISPLAY_NAME,
+                        ContactsContract.CommonDataKinds.Email.DATA
+                }
+                        : new String[]{
+                        "name",
+                        "email",
+                        "type"
+                },
+                contacts
+                        ? new int[]{android.R.id.text1, android.R.id.text2}
+                        : new int[]{android.R.id.text1, android.R.id.text2, R.id.tvType},
+                0);
 
-            etTo.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
-            etCc.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
-            etBcc.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+        etTo.setAdapter(cadapter);
+        etCc.setAdapter(cadapter);
+        etBcc.setAdapter(cadapter);
 
-            adapter.setFilterQueryProvider(new FilterQueryProvider() {
+        etTo.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+        etCc.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+        etBcc.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+
+        if (contacts)
+            cadapter.setFilterQueryProvider(new FilterQueryProvider() {
                 public Cursor runQuery(CharSequence typed) {
+                    Log.i("Searching provided contact=" + typed);
                     return getContext().getContentResolver().query(
                             ContactsContract.CommonDataKinds.Email.CONTENT_URI,
                             new String[]{
@@ -434,24 +443,31 @@ public class FragmentCompose extends FragmentBase {
                                     ", " + ContactsContract.CommonDataKinds.Email.DATA + " COLLATE NOCASE");
                 }
             });
-
-            adapter.setCursorToStringConverter(new SimpleCursorAdapter.CursorToStringConverter() {
-                public CharSequence convertToString(Cursor cursor) {
-                    int colName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
-                    int colEmail = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA);
-                    String name = cursor.getString(colName);
-                    String email = cursor.getString(colEmail);
-                    StringBuilder sb = new StringBuilder();
-                    if (name == null)
-                        sb.append(email);
-                    else {
-                        sb.append("\"").append(name).append("\" ");
-                        sb.append("<").append(email).append(">");
-                    }
-                    return sb.toString();
+        else
+            cadapter.setFilterQueryProvider(new FilterQueryProvider() {
+                @Override
+                public Cursor runQuery(CharSequence typed) {
+                    Log.i("Searching local contact=" + typed);
+                    return db.contact().searchContacts(null, "%" + typed + "%");
                 }
             });
-        }
+
+        cadapter.setCursorToStringConverter(new SimpleCursorAdapter.CursorToStringConverter() {
+            public CharSequence convertToString(Cursor cursor) {
+                int colName = cursor.getColumnIndex(contacts ? ContactsContract.Contacts.DISPLAY_NAME : "name");
+                int colEmail = cursor.getColumnIndex(contacts ? ContactsContract.CommonDataKinds.Email.DATA : "email");
+                String name = cursor.getString(colName);
+                String email = cursor.getString(colEmail);
+                StringBuilder sb = new StringBuilder();
+                if (name == null)
+                    sb.append(email);
+                else {
+                    sb.append("\"").append(name).append("\" ");
+                    sb.append("<").append(email).append(">");
+                }
+                return sb.toString();
+            }
+        });
 
         rvAttachment.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());

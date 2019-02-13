@@ -49,7 +49,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 43,
+        version = 44,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -57,6 +57,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
                 EntityMessage.class,
                 EntityAttachment.class,
                 EntityOperation.class,
+                EntityContact.class,
                 EntityAnswer.class,
                 EntityRule.class,
                 EntityLog.class
@@ -76,6 +77,8 @@ public abstract class DB extends RoomDatabase {
     public abstract DaoAttachment attachment();
 
     public abstract DaoOperation operation();
+
+    public abstract DaoContact contact();
 
     public abstract DaoAnswer answer();
 
@@ -494,6 +497,19 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `account` ADD COLUMN `pop` INTEGER NOT NULL DEFAULT 0");
+                    }
+                })
+                .addMigrations(new Migration(43, 44) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("CREATE TABLE IF NOT EXISTS `contact`" +
+                                " (`id` INTEGER PRIMARY KEY AUTOINCREMENT" +
+                                ", `type` INTEGER NOT NULL" +
+                                ", `email` TEXT NOT NULL" +
+                                ", `name` TEXT)");
+                        db.execSQL("CREATE UNIQUE INDEX `index_contact_email_type` ON `contact` (`email`, `type`)");
+                        db.execSQL("CREATE  INDEX `index_contact_name_type` ON `contact` (`name`, `type`)");
                     }
                 })
                 .build();

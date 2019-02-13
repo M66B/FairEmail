@@ -2054,6 +2054,30 @@ public class ServiceSynchronize extends LifecycleService {
 
                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                 nm.cancel("send", message.identity.intValue());
+
+                if (message.to != null)
+                    for (Address recipient : message.to) {
+                        String email = ((InternetAddress) recipient).getAddress();
+                        String name = ((InternetAddress) recipient).getPersonal();
+                        List<EntityContact> contacts = db.contact().getContacts(EntityContact.TYPE_TO, email);
+                        if (contacts.size() == 0) {
+                            EntityContact contact = new EntityContact();
+                            contact.type = EntityContact.TYPE_TO;
+                            contact.email = email;
+                            contact.name = name;
+                            db.contact().insertContact(contact);
+                            Log.i("Inserted recipient contact=" + contact);
+                        } else {
+                            EntityContact contact = contacts.get(0);
+                            if (name != null && !name.equals(contact.name)) {
+                                contact.name = name;
+                                db.contact().updateContact(contact);
+                                Log.i("Updated recipient contact=" + contact);
+                            }
+                        }
+                    }
+
+
             } catch (Throwable ex) {
                 if (sid != null)
                     db.message().deleteMessage(sid);
@@ -2796,6 +2820,31 @@ public class ServiceSynchronize extends LifecycleService {
                 db.message().updateMessage(message);
             else
                 Log.i(folder.name + " unchanged uid=" + uid);
+        }
+
+        if (!folder.isOutgoing() && !EntityFolder.ARCHIVE.equals(folder.type)) {
+            Address[] senders = (message.reply != null ? message.reply : message.from);
+            if (senders != null)
+                for (Address sender : senders) {
+                    String email = ((InternetAddress) sender).getAddress();
+                    String name = ((InternetAddress) sender).getPersonal();
+                    List<EntityContact> contacts = db.contact().getContacts(EntityContact.TYPE_FROM, email);
+                    if (contacts.size() == 0) {
+                        EntityContact contact = new EntityContact();
+                        contact.type = EntityContact.TYPE_FROM;
+                        contact.email = email;
+                        contact.name = name;
+                        contact.id = db.contact().insertContact(contact);
+                        Log.i("Inserted sender contact=" + contact);
+                    } else {
+                        EntityContact contact = contacts.get(0);
+                        if (name != null && !name.equals(contact.name)) {
+                            contact.name = name;
+                            db.contact().updateContact(contact);
+                            Log.i("Updated sender contact=" + contact);
+                        }
+                    }
+                }
         }
 
         List<String> fkeywords = new ArrayList<>(Arrays.asList(folder.keywords));

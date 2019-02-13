@@ -479,6 +479,11 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     jaccounts.put(jaccount);
                 }
 
+                // Contacts
+                JSONArray jcontacts = new JSONArray();
+                for (EntityContact contact : db.contact().getContacts())
+                    jcontacts.put(contact.toJSON());
+
                 // Answers
                 JSONArray janswers = new JSONArray();
                 for (EntityAnswer answer : db.answer().getAnswers())
@@ -497,6 +502,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
                 JSONObject jexport = new JSONObject();
                 jexport.put("accounts", jaccounts);
+                jexport.put("contacts", jcontacts);
                 jexport.put("answers", janswers);
                 jexport.put("settings", jsettings);
 
@@ -617,6 +623,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 try {
                     db.beginTransaction();
 
+                    // Accounts
                     JSONArray jaccounts = jimport.getJSONArray("accounts");
                     for (int a = 0; a < jaccounts.length(); a++) {
                         JSONObject jaccount = (JSONObject) jaccounts.get(a);
@@ -676,6 +683,18 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                         db.account().updateAccount(account);
                     }
 
+                    // Contacts
+                    JSONArray jcontacts = jimport.getJSONArray("contacts");
+                    for (int c = 0; c < jcontacts.length(); c++) {
+                        JSONObject jcontact = (JSONObject) jcontacts.get(c);
+                        EntityContact contact = EntityContact.fromJSON(jcontact);
+                        if (db.contact().getContacts(contact.type, contact.email).size() == 0) {
+                            contact.id = db.contact().insertContact(contact);
+                            Log.i("Imported contact=" + contact);
+                        }
+                    }
+
+                    // Answers
                     JSONArray janswers = jimport.getJSONArray("answers");
                     for (int a = 0; a < janswers.length(); a++) {
                         JSONObject janswer = (JSONObject) janswers.get(a);
@@ -684,6 +703,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                         Log.i("Imported answer=" + answer.name);
                     }
 
+                    // Settings
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     SharedPreferences.Editor editor = prefs.edit();
                     JSONArray jsettings = jimport.getJSONArray("settings");
