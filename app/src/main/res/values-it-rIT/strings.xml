@@ -141,8 +141,8 @@
     <string name="title_advanced_collapse">Raggruppa i messaggi in conversazioni premendo \'indietro\'</string>
     <string name="title_advanced_automove">Conferma i messaggi in movimento</string>
     <string name="title_advanced_confirm">Conferma le azioni che potrebbero rivelare informazioni personali sensibili</string>
-    <string name="title_advanced_sender">Consenti la modifica dell\'indirizzo mittente</string>
     <string name="title_advanced_autoresize">Ridimensiona automaticamente le immagini per la visualizzazione su schermi</string>
+    <string name="title_advanced_sender">Consenti la modifica dell\'indirizzo mittente</string>
     <string name="title_advanced_autosend">Confermare l\'invio dei messaggi</string>
     <string name="title_advanced_updates">Controlla aggiornamenti</string>
     <string name="title_advanced_debug">Debug</string>

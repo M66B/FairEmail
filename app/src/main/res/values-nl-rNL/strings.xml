@@ -141,8 +141,8 @@
     <string name="title_advanced_collapse">Berichten in gesprekken samenvouwen bij \'terug\'</string>
     <string name="title_advanced_automove">Bevestig het verplaatsen van berichten</string>
     <string name="title_advanced_confirm">Bevestigen van acties die privacy gevoelige informatie kunnen lekken</string>
-    <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
     <string name="title_advanced_autoresize">Wijzig afbeeldingen automatisch van formaat voor weergave op schermen</string>
+    <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
     <string name="title_advanced_autosend">Bevestig het verzenden van berichten</string>
     <string name="title_advanced_updates">Controleren op updates</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>

@@ -157,8 +157,8 @@
     <string name="title_advanced_collapse">Сворачивать сообщения в диалоге при нажатии кнопки \'назад\'</string>
     <string name="title_advanced_automove">Подтверждать перемещение сообщений</string>
     <string name="title_advanced_confirm">Подтвердить действия, которое может привести к утечке конфиденциальной информации</string>
-    <string name="title_advanced_sender">Разрешить редактирование адреса отправителя</string>
     <string name="title_advanced_autoresize">Автоматически масштабировать изображения к размеру экрана</string>
+    <string name="title_advanced_sender">Разрешить редактирование адреса отправителя</string>
     <string name="title_advanced_autosend">Подтверждать отправку сообщений</string>
     <string name="title_advanced_updates">Проверить наличие обновлений</string>
     <string name="title_advanced_debug">Режим отладки</string>

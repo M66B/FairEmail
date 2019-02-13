@@ -141,8 +141,8 @@
     <string name="title_advanced_collapse">Contraer mensajes en conversaciones al ir \'atrás\'</string>
     <string name="title_advanced_automove">Confirmar mover mensajes</string>
     <string name="title_advanced_confirm">Confirmar acciones que podrían filtrar información privada sensible</string>
-    <string name="title_advanced_sender">Permitir editar dirección del remitente</string>
     <string name="title_advanced_autoresize">Redimensionar imágenes automáticamente para mostrar en pantallas</string>
+    <string name="title_advanced_sender">Permitir editar dirección del remitente</string>
     <string name="title_advanced_autosend">Confirmar enviar mensajes</string>
     <string name="title_advanced_updates">Buscar actualizaciones</string>
     <string name="title_advanced_debug">Modo de depuración</string>

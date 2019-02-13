@@ -141,8 +141,8 @@
     <string name="title_advanced_collapse">\'Zurück\' klappt die Konversationsansicht zusammen</string>
     <string name="title_advanced_automove">Verschieben von Nachrichten bestätigen</string>
     <string name="title_advanced_confirm">Aktionen bestätigen, die datenschutzrelevante Information preisgeben können</string>
-    <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
     <string name="title_advanced_autoresize">Bildgröße automatisch für das Anzeigen auf Displays ändern</string>
+    <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
     <string name="title_advanced_autosend">Senden von E-Mails bestätigen</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
     <string name="title_advanced_debug">Debugmodus</string>

@@ -149,8 +149,8 @@
     <string name="title_advanced_collapse">Pliază mesajele din discuție când se apasă \'înapoi\'</string>
     <string name="title_advanced_automove">Confirmă mutarea mesajelor</string>
     <string name="title_advanced_confirm">Confirmarea operațiilor care ar putea divulga informații confidențiale</string>
-    <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_advanced_autoresize">Se reduce automat mărimea imaginilor pentru a fi afișate pe ecran</string>
+    <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_advanced_autosend">Confirmă trimiterea mesajelor</string>
     <string name="title_advanced_updates">Verificare actualizări aplicație</string>
     <string name="title_advanced_debug">Depanare</string>
@@ -222,6 +222,8 @@
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
     <string name="title_edit_html">Editează ca HTML</string>
     <string name="title_last_connected">Ultima conectare: %1$s</string>
+    <string name="title_pop3_hint">POP3 are limitări semnificative, așa ca folosiți IMAP dacă se poate</string>
+    <string name="title_pop3_support">POP3 nu este suportat activ, vedeți de asemenea secțiunea de întrebări și răspunsuri</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
     <string name="title_delete_local">Șterge mesajul local</string>
     <string name="title_empty_trash">Golire coș de gunoi</string>

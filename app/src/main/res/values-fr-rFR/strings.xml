@@ -141,8 +141,8 @@
     <string name="title_advanced_collapse">Replier les messages dans les conversations en appuyant sur « Retour »</string>
     <string name="title_advanced_automove">Confirmer le déplacement des messages</string>
     <string name="title_advanced_confirm">Confirmer les actions qui peuvent entraîner une fuite d\'informations sensibles privées</string>
-    <string name="title_advanced_sender">Autoriser la modification de l\'adresse de l\'expéditeur</string>
     <string name="title_advanced_autoresize">Redimensionner automatiquement les images pour l\'affichage sur écrans</string>
+    <string name="title_advanced_sender">Autoriser la modification de l\'adresse de l\'expéditeur</string>
     <string name="title_advanced_autosend">Confirmer l\'envoi des messages</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
     <string name="title_advanced_debug">Débogage</string>

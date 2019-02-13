@@ -133,8 +133,8 @@
     <string name="title_advanced_collapse">按返回键折叠对话中的邮件</string>
     <string name="title_advanced_automove">确认移动邮件</string>
     <string name="title_advanced_confirm">确认执行可能泄露隐私敏感信息的操作</string>
-    <string name="title_advanced_sender">允许编辑发件人地址</string>
     <string name="title_advanced_autoresize">自动调整屏幕显示的图像大小</string>
+    <string name="title_advanced_sender">允许编辑发件人地址</string>
     <string name="title_advanced_autosend">确认发送邮件</string>
     <string name="title_advanced_updates">检查更新</string>
     <string name="title_advanced_debug">调试模式</string>

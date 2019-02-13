@@ -110,8 +110,8 @@
     <string name="title_advanced_collapse">جمع شدن پیام‌ها در مکالمات در برگشت</string>
     <string name="title_advanced_automove">تایید انتقال پیام‌ها</string>
     <string name="title_advanced_confirm">تایید اقداماتی که ممکن است باعث درز اطلاعات حساس شوند</string>
-    <string name="title_advanced_sender">اجازه ویرایش آدرس فرستنده</string>
     <string name="title_advanced_autoresize">تغییر اندازه تصاویر به صورت خودکار برای نمایش در صفحه نمایش</string>
+    <string name="title_advanced_sender">اجازه ویرایش آدرس فرستنده</string>
     <string name="title_advanced_autosend">تایید ارسال پیام‌ها</string>
     <string name="title_advanced_updates">بررسی بروزرسانی ها</string>
     <string name="title_advanced_debug">حالت عیب‌یابی</string>
