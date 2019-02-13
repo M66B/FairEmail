@@ -215,6 +215,7 @@
     <string name="title_edit_html">Modifica come HTML</string>
     <string name="title_last_connected">Ultima connessione:%1$s</string>
     <string name="title_pop3_hint">POP3 ha limitazioni significative, quindi usa IMAP quando possibile</string>
+    <string name="title_pop3_support">POP3 non è supportato, vedi anche le FAQ</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
     <string name="title_delete_local">Elimina i messaggi locali</string>
     <string name="title_empty_trash">Svuota cestino</string>

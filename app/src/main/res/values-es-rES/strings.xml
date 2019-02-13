@@ -205,9 +205,9 @@
     <string name="title_no_password">Falta contraseña</string>
     <string name="title_no_inbox">Bandeja de entrada no encontrada</string>
     <string name="title_no_primary_drafts">No hay cuenta primaria o no hay carpeta de borradores</string>
-    <string name="title_no_idle">Este proveedor no soporta mensajes PUSH. Esto retrasará la recepción de nuevos mensajes y aumentará el uso de batería.</string>
-    <string name="title_no_move">Este proveedor no soporta MOVE</string>
-    <string name="title_no_uidplus">Este proveedor no soporta UIDPLUS</string>
+    <string name="title_no_idle">Este proveedor no es compatible con mensajes push. Esto retrasará la recepción de nuevos mensajes y aumentará el uso de batería.</string>
+    <string name="title_no_move">Este proveedor no es compatible con MOVE</string>
+    <string name="title_no_uidplus">Este proveedor no es compatible con UIDPLUS</string>
     <string name="title_no_sync">Errores de sincronización desde %1$s</string>
     <string name="title_drafts_required">Una carpeta de borradores es necesaria para enviar mensajes</string>
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
@@ -215,6 +215,7 @@
     <string name="title_edit_html">Editar como HTML</string>
     <string name="title_last_connected">Última conexión: %1$s</string>
     <string name="title_pop3_hint">POP3 tiene limitaciones importantes, así que use IMAP siempre que sea posible</string>
+    <string name="title_pop3_support">POP3 no es compatible, vea las Preguntas Frecuentes</string>
     <string name="title_synchronize_now">Sincronizar ahora</string>
     <string name="title_delete_local">Eliminar mensajes locales</string>
     <string name="title_empty_trash">Vaciar papelera</string>
@@ -452,7 +453,7 @@
     <string name="title_pro_feature">Esta es una característica Pro</string>
     <string name="title_pro_list">Lista de características Pro</string>
     <string name="title_pro_purchase">Comprar</string>
-    <string name="title_pro_hint">Comprar las características Pro le permitirá usar todas las características Pro que existen y las futuras, mantendrá esta app en mantenimiento y soportada</string>
+    <string name="title_pro_hint">Comprar las características Pro le permitirá usar todas las características Pro que existen y las futuras, mantendrá esta app en mantenimiento y con soporte</string>
     <string name="title_pro_price">Por favor vea <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">estas Preguntas Frecuentes</a> acerca del precio de las características Pro</string>
     <string name="title_pro_activated">Todas las características Pro están activadas</string>
     <string name="title_pro_valid">Todas las características Pro activadas</string>
