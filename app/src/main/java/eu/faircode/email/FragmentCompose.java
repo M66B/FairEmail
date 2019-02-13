@@ -136,9 +136,8 @@ public class FragmentCompose extends FragmentBase {
 
     private ViewGroup view;
     private Spinner spIdentity;
-    private TextView tvExtraPrefix;
     private EditText etExtra;
-    private TextView tvExtraSuffix;
+    private TextView tvDomain;
     private MultiAutoCompleteTextView etTo;
     private ImageView ivToAdd;
     private MultiAutoCompleteTextView etCc;
@@ -193,9 +192,8 @@ public class FragmentCompose extends FragmentBase {
 
         // Get controls
         spIdentity = view.findViewById(R.id.spIdentity);
-        tvExtraPrefix = view.findViewById(R.id.tvExtraPrefix);
         etExtra = view.findViewById(R.id.etExtra);
-        tvExtraSuffix = view.findViewById(R.id.tvExtraSuffix);
+        tvDomain = view.findViewById(R.id.tvDomain);
         etTo = view.findViewById(R.id.etTo);
         ivToAdd = view.findViewById(R.id.ivToAdd);
         etCc = view.findViewById(R.id.etCc);
@@ -228,8 +226,8 @@ public class FragmentCompose extends FragmentBase {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 EntityIdentity identity = (EntityIdentity) parent.getAdapter().getItem(position);
                 int at = (identity == null ? -1 : identity.email.indexOf('@'));
-                tvExtraPrefix.setText(at < 0 ? null : identity.email.substring(0, at));
-                tvExtraSuffix.setText(at < 0 ? null : identity.email.substring(at));
+                etExtra.setHint(at < 0 ? null : identity.email.substring(0, at));
+                tvDomain.setText(at < 0 ? null : identity.email.substring(at));
                 Spanned signature = null;
                 if (pro) {
                     if (identity != null && !TextUtils.isEmpty(identity.signature))
@@ -250,8 +248,8 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                tvExtraPrefix.setText(null);
-                tvExtraSuffix.setText(null);
+                etExtra.setHint("");
+                tvDomain.setText(null);
                 tvSignature.setText(null);
                 grpSignature.setVisibility(View.GONE);
             }
@@ -375,8 +373,8 @@ public class FragmentCompose extends FragmentBase {
 
         // Initialize
         setSubtitle(R.string.title_compose);
-        tvExtraPrefix.setText(null);
-        tvExtraSuffix.setText(null);
+        etExtra.setHint("");
+        tvDomain.setText(null);
 
         grpHeader.setVisibility(View.GONE);
         grpExtra.setVisibility(View.GONE);
