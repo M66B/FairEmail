@@ -107,6 +107,11 @@ final class TouchInputHandler<K> extends MotionInputHandler<K> {
     }
 
     @Override
+    public boolean onDoubleTapEvent(MotionEvent e) {
+        return mSelectionTracker.hasSelection();
+    }
+
+    @Override
     public void onLongPress(@NonNull MotionEvent e) {
         if (!mDetailsLookup.overItemWithSelectionKey(e)) {
             if (DEBUG) Log.d(TAG, "Ignoring LongPress on non-model-backed item.");
