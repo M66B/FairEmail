@@ -163,6 +163,13 @@
 
         <service android:name=".ServiceSynchronize" />
 
+        <service android:name=".ServiceExternal">
+            <intent-filter>
+                <action android:name="eu.faircode.email.ENABLE" />
+                <action android:name="eu.faircode.email.DISABLE" />
+            </intent-filter>
+        </service>
+
         <service
             android:name=".JobDaily"
             android:exported="true"

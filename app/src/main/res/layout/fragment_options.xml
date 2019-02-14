@@ -57,41 +57,39 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swEnabled" />
 
-        <TextView
-            android:id="@+id/tvSchedule"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swSchedule"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_schedule"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?android:attr/textColorPrimary"
-            app:layout_constraintBottom_toBottomOf="@+id/tvScheduleStart"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvScheduleStart" />
+            app:layout_constraintTop_toBottomOf="@id/tvEnabledHint"
+            app:switchPadding="12dp" />
 
         <TextView
             android:id="@+id/tvScheduleStart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="6dp"
             android:padding="12dp"
             android:text="00:00"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
-            app:layout_constraintEnd_toStartOf="@+id/tvScheduleSeparator"
-            app:layout_constraintTop_toBottomOf="@id/tvEnabledHint" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swSchedule" />
 
         <TextView
             android:id="@+id/tvScheduleSeparator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="6dp"
             android:text="—"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintBottom_toBottomOf="@+id/tvScheduleStart"
-            app:layout_constraintEnd_toStartOf="@+id/tvScheduleEnd"
-            app:layout_constraintTop_toTopOf="@+id/tvScheduleStart" />
+            app:layout_constraintStart_toEndOf="@id/tvScheduleStart"
+            app:layout_constraintTop_toTopOf="@id/tvScheduleStart" />
 
         <TextView
             android:id="@+id/tvScheduleEnd"
@@ -101,8 +99,8 @@
             android:text="00:00"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvEnabledHint" />
+            app:layout_constraintStart_toEndOf="@id/tvScheduleSeparator"
+            app:layout_constraintTop_toTopOf="@id/tvScheduleStart" />
 
         <TextView
             android:id="@+id/tvScheduleHint"
@@ -115,7 +113,7 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvScheduleEnd" />
+            app:layout_constraintTop_toBottomOf="@id/tvScheduleStart" />
 
         <TextView
             android:id="@+id/tvSectionConnection"

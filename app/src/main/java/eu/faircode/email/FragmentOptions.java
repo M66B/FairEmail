@@ -63,6 +63,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class FragmentOptions extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swEnabled;
+    private SwitchCompat swSchedule;
     private TextView tvScheduleStart;
     private TextView tvScheduleEnd;
 
@@ -131,6 +132,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
 
         // Get controls
         swEnabled = view.findViewById(R.id.swEnabled);
+        swSchedule = view.findViewById(R.id.swSchedule);
         tvScheduleStart = view.findViewById(R.id.tvScheduleStart);
         tvScheduleEnd = view.findViewById(R.id.tvScheduleEnd);
 
@@ -182,6 +184,19 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("enabled", checked).apply();
                 ServiceSynchronize.reload(getContext(), "enabled=" + checked);
+            }
+        });
+
+        swSchedule.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("schedule", checked).apply();
+                if (checked)
+                    ServiceSynchronize.schedule(getContext());
+                else {
+                    prefs.edit().putBoolean("enabled", true).apply();
+                    ServiceSynchronize.reload(getContext(), "schedule=" + checked);
+                }
             }
         });
 
@@ -513,6 +528,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swEnabled.setChecked(prefs.getBoolean("enabled", true));
+        swSchedule.setChecked(prefs.getBoolean("schedule", false));
 
         tvScheduleStart.setText(formatHour(prefs.getInt("schedule_start", 0)));
         tvScheduleEnd.setText(formatHour(prefs.getInt("schedule_end", 0)));
@@ -601,7 +617,10 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             boolean start = args.getBoolean("start");
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            prefs.edit().putInt("schedule_" + (start ? "start" : "end"), hour * 60 + minute).apply();
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("schedule_" + (start ? "start" : "end"), hour * 60 + minute);
+            editor.putBoolean("schedule", true);
+            editor.apply();
 
             ServiceSynchronize.schedule(getContext());
         }
@@ -624,7 +643,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         }
     };
 
-    public void showConnectionType() {
+    private void showConnectionType() {
         FragmentActivity activity = getActivity();
         if (activity == null)
             return;
@@ -665,6 +684,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
         if ("enabled".equals(key))
             swEnabled.setChecked(prefs.getBoolean(key, true));
+        else if ("schedule".equals(key))
+            swSchedule.setChecked(prefs.getBoolean(key, false));
         else if ("schedule_start".equals(key))
             tvScheduleStart.setText(formatHour(prefs.getInt(key, 0)));
         else if ("schedule_end".equals(key))

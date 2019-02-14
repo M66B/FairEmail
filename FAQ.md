@@ -136,7 +136,8 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(74) Why do I see duplicate messages?](#user-content-faq74)
 * [(75) Can you make an iOS, Windows, etc version?](#user-content-faq75)
 * [(76) What does 'Clear local messages' ?](#user-content-faq76)
-* [(77) Why are messages sometimes shown with a small delay?](#user-content-faq76)
+* [(77) Why are messages sometimes shown with a small delay?](#user-content-faq77)
+* [(78) How do I use schedules?](#user-content-faq78)
 
 [I have another question.](#support)
 
@@ -1238,6 +1239,26 @@ but it is not so easy to properly manage resource usage and to offer more advanc
 
 FairEmail is based on the state-of-the-art [Android architecture components](https://developer.android.com/topic/libraries/architecture/),
 so there is little room for performance improvements.
+
+<br />
+
+<a name="faq78"></a>
+**(78) How do I use schedules?**
+
+In the advanced options you can enable scheduling and set the time to turn synchronizing automatically on and off.
+
+An end time equal to or earlier than the start time is considered to be 24 hours later.
+
+You can also automate turning synchronization on and off by sending these commands to FairEmail:
+
+```
+(adb shell) am startservice -a eu.faircode.email.ENABLE
+(adb shell) am startservice -a eu.faircode.email.DISABLE
+```
+
+Sending these commands will automatically turn scheduling off.
+
+Scheduling is a pro feature.
 
 <br />
 

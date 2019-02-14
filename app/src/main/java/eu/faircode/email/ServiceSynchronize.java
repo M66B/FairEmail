@@ -3239,6 +3239,9 @@ public class ServiceSynchronize extends LifecycleService {
             am.cancel(piSchedule);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
+            if (!prefs.getBoolean("schedule", false))
+                return;
+
             int minuteStart = prefs.getInt("schedule_start", 0);
             int minuteEnd = prefs.getInt("schedule_end", 0);
 
