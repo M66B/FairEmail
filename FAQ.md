@@ -1258,6 +1258,8 @@ You can also automate turning synchronization on and off by sending these comman
 
 Sending these commands will automatically turn scheduling off.
 
+Automation can be used for more advanced schedules.
+
 Scheduling is a pro feature.
 
 <br />
