@@ -33,10 +33,11 @@ public class ServiceExternal extends IntentService {
         else if (ACTION_DISABLE.equals(intent.getAction()))
             enabled = false;
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean previous = prefs.getBoolean("enabled", true);
         if (enabled != null) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             prefs.edit().putBoolean("schedule", false).apply();
+
+            boolean previous = prefs.getBoolean("enabled", true);
             if (!enabled.equals(previous)) {
                 prefs.edit().putBoolean("enabled", enabled).apply();
                 ServiceSynchronize.reload(this, "external");
