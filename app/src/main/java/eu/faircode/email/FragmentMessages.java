@@ -2478,13 +2478,13 @@ public class FragmentMessages extends FragmentBase {
                 return true;
             }
 
-            if (values.containsKey("expanded")) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                if (values.get("expanded").size() > 1 || prefs.getBoolean("collapse", false)) {
-                    values.get("expanded").clear();
-                    adapter.notifyDataSetChanged();
-                    return true;
-                }
+            int count = (values.containsKey("expanded") ? values.get("expanded").size() : 0);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            boolean collapse = prefs.getBoolean("collapse", false);
+            if ((count == 1 && collapse) || count > 1) {
+                values.get("expanded").clear();
+                adapter.notifyDataSetChanged();
+                return true;
             }
 
             return false;
