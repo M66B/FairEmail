@@ -106,12 +106,12 @@
     <string name="title_advanced_preview">عرض معاينة الرسالة</string>
     <string name="title_advanced_images">أظهر تلقائيا صور المُراسِلين المعروفين</string>
     <string name="title_advanced_actionbar">شريط إجراءات المحادثة</string>
-    <string name="title_advanced_light">استخدم الإشعار الضوئي</string>
-    <string name="title_advanced_sound">إختر نغمة التنبيه</string>
     <string name="title_advanced_pull_refresh">اسحب لأسفل للتحديث</string>
     <string name="title_advanced_automove">تأكيد نقل الرسائل</string>
     <string name="title_advanced_sender">السماح بتغيير عنوان المُرسِل</string>
     <string name="title_advanced_autosend">تأكيد إرسال الرسائل</string>
+    <string name="title_advanced_light">استخدم الإشعار الضوئي</string>
+    <string name="title_advanced_sound">إختر نغمة التنبيه</string>
     <string name="title_advanced_updates">فحص التحديثات</string>
     <string name="title_advanced_debug">وضع التصحيح</string>
     <string name="title_identity_name">إسمك</string>

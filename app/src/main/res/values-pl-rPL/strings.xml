@@ -143,12 +143,11 @@
     <string name="title_advanced_addresses">Domyślnie pokazuj szczegóły adresu</string>
     <string name="title_advanced_html">Automatycznie pokaż oryginalną wiadomość dla znanych kontaktów</string>
     <string name="title_advanced_images">Automatycznie pokaż obrazki dla znanych kontaktów</string>
-    <string name="title_advanced_light">Użyj diody powiadomień</string>
-    <string name="title_advanced_sound">Wybierz dźwięk powiadomienia</string>
     <string name="title_advanced_pull_refresh">Pociągnij w dół, aby odświeżyć</string>
     <string name="title_advanced_autoclose">Automatycznie zamykaj konwersacje</string>
-    <string name="title_advanced_confirm">Potwierdź działania, które mogą spowodować wyciek wrażliwych informacji</string>
     <string name="title_advanced_sender">Zezwól na edycję adresu nadawcy</string>
+    <string name="title_advanced_light">Użyj diody powiadomień</string>
+    <string name="title_advanced_sound">Wybierz dźwięk powiadomienia</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
     <string name="title_advanced_debug">Debuguj</string>
     <string name="title_advanced_metered_hint">Połączeniu taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>
