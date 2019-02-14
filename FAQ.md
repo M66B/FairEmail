@@ -23,9 +23,8 @@ For authorizing:
 
 ## Known problems
 
-~~A [bug in Android](https://issuetracker.google.com/issues/78495471) lets FairEmail occasionally crash on long pressing or swiping.~~
-
-A [bug in Android](https://issuetracker.google.com/issues/119872129) lets FairEmail crash on some devices after updating FairEmail and tapping on a notification.
+* ~~A [bug in Android](https://issuetracker.google.com/issues/78495471) lets FairEmail occasionally crash on long pressing or swiping.~~
+* A [bug in Android](https://issuetracker.google.com/issues/119872129) lets FairEmail crash on some devices after updating FairEmail and tapping on a notification.
 
 ## Planned features
 
@@ -1248,6 +1247,9 @@ so there is little room for performance improvements.
 In the advanced options you can enable scheduling and set the time to turn synchronizing automatically on and off.
 
 An end time equal to or earlier than the start time is considered to be 24 hours later.
+​
+Turning FairEmail on or off, for example by using [a quick settings tile](#user-content-faq30), will not turn scheduling off.
+This means that the next schedule event will still turn FairEmail on or off.
 
 You can also automate turning synchronization on and off by sending these commands to FairEmail:
 
@@ -1258,7 +1260,8 @@ You can also automate turning synchronization on and off by sending these comman
 
 Sending these commands will automatically turn scheduling off.
 
-Automation can be used for more advanced schedules.
+Automation can be used for more advanced schedules,
+like for example multiple synchronization periods per day or different synchronization periods for different days.
 
 Scheduling is a pro feature.
 
