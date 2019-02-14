@@ -256,6 +256,7 @@ Preferably select Gmail as provider and select an account on your device.
 If you want/need to use a username/password instead of selecting an account, you'll need to enable access for "less secure" apps,
 see [here](https://support.google.com/accounts/answer/6010255) for Google's instructions
 or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
+You can solve the error *535-5.7.8 Username and Password not accepted* by enabling "less secure" apps.
 
 To login to Gmail / G suite you'll sometimes need an app password, for example when two factor authentication is enabled.
 See here for instructions: [https://support.google.com/accounts/answer/185833](https://support.google.com/accounts/answer/185833).
