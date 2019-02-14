@@ -276,8 +276,7 @@ public class FragmentIdentity extends FragmentBase {
                     colorPickerDialog.show(getFragmentManager(), "colorpicker");
                 } else {
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.hide(FragmentIdentity.this);
-                    fragmentTransaction.add(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                    fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
                     fragmentTransaction.commit();
                 }
             }
