@@ -40,6 +40,7 @@ This app starts a foreground service with a low priority status bar notification
 * Notifications with message details (requires Android 7 Nougat or later)
 * Snooze messages
 * Send messages after selected time
+* Synchronization schedules
 * Reply templates
 * Filter rules
 * Search on device or server
