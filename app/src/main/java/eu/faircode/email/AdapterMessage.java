@@ -1370,7 +1370,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             try {
                                 String src = img.attr("src");
                                 if (src.startsWith("cid:")) {
-                                    String cid = src.substring(4);
+                                    String cid = '<' + src.substring(4) + '>';
                                     EntityAttachment attachment = DB.getInstance(context).attachment().getAttachment(id, cid);
                                     if (attachment != null && attachment.available) {
                                         InputStream is = null;
