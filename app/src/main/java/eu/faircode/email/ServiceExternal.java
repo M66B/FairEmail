@@ -27,6 +27,9 @@ public class ServiceExternal extends IntentService {
         if (intent == null)
             return;
 
+        if (!Helper.isPro(this))
+            return;
+
         Boolean enabled = null;
         if (ACTION_ENABLE.equals(intent.getAction()))
             enabled = true;

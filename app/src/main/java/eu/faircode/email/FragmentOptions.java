@@ -57,6 +57,7 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 
 import static android.app.Activity.RESULT_OK;
@@ -190,11 +191,21 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swSchedule.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("schedule", checked).apply();
-                if (checked)
-                    ServiceSynchronize.schedule(getContext());
-                else {
-                    prefs.edit().putBoolean("enabled", true).apply();
+                if (checked) {
+                    if (Helper.isPro(getContext())) {
+                        prefs.edit().putBoolean("schedule", true).apply();
+                        ServiceSynchronize.schedule(getContext());
+                    } else {
+                        swSchedule.setChecked(false);
+                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                        fragmentTransaction.commit();
+                    }
+                } else {
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putBoolean("schedule", false);
+                    editor.putBoolean("enabled", true);
+                    editor.apply();
                     ServiceSynchronize.reload(getContext(), "schedule=" + checked);
                 }
             }
