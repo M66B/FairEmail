@@ -141,7 +141,8 @@
     <string name="title_advanced_section_misc">Miscellaneous</string>
 
     <string name="title_advanced_enabled">Synchronize</string>
-    <string name="title_advanced_updates">Check for updates</string>
+    <string name="title_advanced_schedule">Schedule</string>
+    <string name="title_advanced_schedule_hint">Tap on a time to set a time</string>
 
     <string name="title_advanced_metered">Use metered connections</string>
     <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
@@ -174,6 +175,7 @@
     <string name="title_advanced_notify_preview">Show message preview in notifications</string>
     <string name="title_advanced_light">Use notification light</string>
     <string name="title_advanced_sound">Select notification sound</string>
+    <string name="title_advanced_updates">Check for updates</string>
     <string name="title_advanced_debug">Debug mode</string>
 
     <string name="title_advanced_enabled_hint">Globally disable or enable receiving and sending of messages</string>

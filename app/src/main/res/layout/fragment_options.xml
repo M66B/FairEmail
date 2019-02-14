@@ -57,17 +57,65 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swEnabled" />
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swUpdates"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tvSchedule"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="12dp"
-            android:text="@string/title_advanced_updates"
+            android:text="@string/title_advanced_schedule"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintBottom_toBottomOf="@+id/tvScheduleStart"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvEnabledHint"
-            app:switchPadding="12dp" />
+            app:layout_constraintTop_toTopOf="@+id/tvScheduleStart" />
+
+        <TextView
+            android:id="@+id/tvScheduleStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:padding="12dp"
+            android:text="00:00"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toStartOf="@+id/tvScheduleSeparator"
+            app:layout_constraintTop_toBottomOf="@id/tvEnabledHint" />
+
+        <TextView
+            android:id="@+id/tvScheduleSeparator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:text="—"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintBottom_toBottomOf="@+id/tvScheduleStart"
+            app:layout_constraintEnd_toStartOf="@+id/tvScheduleEnd"
+            app:layout_constraintTop_toTopOf="@+id/tvScheduleStart" />
+
+        <TextView
+            android:id="@+id/tvScheduleEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:text="00:00"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvEnabledHint" />
+
+        <TextView
+            android:id="@+id/tvScheduleHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="60dp"
+            android:text="@string/title_advanced_schedule_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvScheduleEnd" />
 
         <TextView
             android:id="@+id/tvSectionConnection"
@@ -78,7 +126,7 @@
             android:text="@string/title_advanced_section_connection"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swUpdates" />
+            app:layout_constraintTop_toBottomOf="@id/tvScheduleHint" />
 
         <View
             android:id="@+id/vSeparatorConnection"
@@ -681,6 +729,18 @@
             app:layout_constraintTop_toBottomOf="@id/swLight" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swUpdates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:text="@string/title_advanced_updates"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSound"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swDebug"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -690,7 +750,7 @@
             android:layout_marginBottom="12dp"
             android:text="@string/title_advanced_debug"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnSound"
+            app:layout_constraintTop_toBottomOf="@id/swUpdates"
             app:switchPadding="12dp" />
 
         <androidx.constraintlayout.widget.Group

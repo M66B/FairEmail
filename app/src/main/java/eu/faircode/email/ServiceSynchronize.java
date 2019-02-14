@@ -163,6 +163,7 @@ public class ServiceSynchronize extends LifecycleService {
     static final int PI_TRASH = 6;
     static final int PI_IGNORED = 7;
     static final int PI_SNOOZED = 8;
+    static final int PI_SCHEDULE = 9;
 
     @Override
     public void onCreate() {
@@ -304,6 +305,7 @@ public class ServiceSynchronize extends LifecycleService {
     public int onStartCommand(Intent intent, int flags, int startId) {
         String action = (intent == null ? null : intent.getAction());
         Log.i("Service command intent=" + intent + " action=" + action);
+        Log.logExtras(intent);
 
         startForeground(NOTIFICATION_SYNCHRONIZE, getNotificationService(null).build());
 
@@ -333,6 +335,10 @@ public class ServiceSynchronize extends LifecycleService {
                     case "init":
                         // Network events will manage the service
                         serviceManager.service_init();
+                        break;
+
+                    case "schedule":
+                        serviceManager.service_schedule();
                         break;
 
                     case "reload":
@@ -3015,6 +3021,18 @@ public class ServiceSynchronize extends LifecycleService {
 
         private void service_init() {
             EntityLog.log(ServiceSynchronize.this, "Service init");
+
+            next_schedule();
+
+            boolean enabled = isEnabled();
+            JobDaily.schedule(ServiceSynchronize.this, enabled);
+            if (!enabled)
+                stopSelf();
+        }
+
+        private void service_schedule() {
+            next_schedule();
+            service_reload("schedule");
         }
 
         private void service_reload(String reason) {
@@ -3033,6 +3051,8 @@ public class ServiceSynchronize extends LifecycleService {
                 if (started)
                     queue_reload(false, "service destroy");
             }
+
+            JobDaily.schedule(ServiceSynchronize.this, false);
         }
 
         private void start() {
@@ -3209,11 +3229,63 @@ public class ServiceSynchronize extends LifecycleService {
             state = null;
         }
 
+        private void next_schedule() {
+            Intent schedule = new Intent(ServiceSynchronize.this, ServiceSynchronize.class);
+            schedule.setAction("schedule");
+            PendingIntent piSchedule = PendingIntent.getService(
+                    ServiceSynchronize.this, PI_SCHEDULE, schedule, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            am.cancel(piSchedule);
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
+            int minuteStart = prefs.getInt("schedule_start", 0);
+            int minuteEnd = prefs.getInt("schedule_end", 0);
+
+            if (minuteEnd <= minuteStart)
+                minuteEnd += 24 * 60;
+
+            Calendar calStart = Calendar.getInstance();
+            calStart.set(Calendar.HOUR_OF_DAY, minuteStart / 60);
+            calStart.set(Calendar.MINUTE, minuteStart % 60);
+            calStart.set(Calendar.SECOND, 0);
+            calStart.set(Calendar.MILLISECOND, 0);
+
+            Calendar calEnd = Calendar.getInstance();
+            calEnd.set(Calendar.HOUR_OF_DAY, minuteEnd / 60);
+            calEnd.set(Calendar.MINUTE, minuteEnd % 60);
+            calEnd.set(Calendar.SECOND, 0);
+            calEnd.set(Calendar.MILLISECOND, 0);
+
+            long now = new Date().getTime();
+            if (now > calEnd.getTimeInMillis()) {
+                calStart.set(Calendar.DAY_OF_MONTH, calStart.get(Calendar.DAY_OF_MONTH) + 1);
+                calEnd.set(Calendar.DAY_OF_MONTH, calEnd.get(Calendar.DAY_OF_MONTH) + 1);
+            }
+
+            long start = calStart.getTimeInMillis();
+            long end = calEnd.getTimeInMillis();
+            long next = (now < start ? start : end);
+
+            EntityLog.log(ServiceSynchronize.this, "Schedule now=" + new Date(now));
+            EntityLog.log(ServiceSynchronize.this, "Schedule start=" + new Date(start));
+            EntityLog.log(ServiceSynchronize.this, "Schedule end=" + new Date(end));
+            EntityLog.log(ServiceSynchronize.this, "Schedule next=" + new Date(next));
+
+            boolean enabled = (now >= start && now < end);
+            prefs.edit().putBoolean("enabled", enabled).apply();
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, next, piSchedule);
+            else
+                am.set(AlarmManager.RTC_WAKEUP, next, piSchedule);
+        }
+
         private void queue_reload(final boolean start, final String reason) {
             final boolean doStop = started;
             final boolean doStart = (start && isEnabled() && suitableNetwork());
 
-            EntityLog.log(ServiceSynchronize.this, "Queue reload " +
+            EntityLog.log(ServiceSynchronize.this, "Queue reload" +
                     " doStop=" + doStop + " doStart=" + doStart + " queued=" + queued + " " + reason);
 
             started = doStart;
@@ -3276,13 +3348,15 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     public static void init(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        if (prefs.getBoolean("enabled", true)) {
-            ContextCompat.startForegroundService(context,
-                    new Intent(context, ServiceSynchronize.class)
-                            .setAction("init"));
-            JobDaily.schedule(context);
-        }
+        ContextCompat.startForegroundService(context,
+                new Intent(context, ServiceSynchronize.class)
+                        .setAction("init"));
+    }
+
+    public static void schedule(Context context) {
+        ContextCompat.startForegroundService(context,
+                new Intent(context, ServiceSynchronize.class)
+                        .setAction("schedule"));
     }
 
     public static void reload(Context context, String reason) {

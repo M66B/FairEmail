@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -31,6 +33,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -42,13 +45,17 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 
@@ -56,7 +63,8 @@ import static android.app.Activity.RESULT_OK;
 
 public class FragmentOptions extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swEnabled;
-    private SwitchCompat swUpdates;
+    private TextView tvScheduleStart;
+    private TextView tvScheduleEnd;
 
     private TextView tvConnectionType;
     private SwitchCompat swMetered;
@@ -90,6 +98,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swLight;
     private Button btnSound;
 
+    private SwitchCompat swUpdates;
     private SwitchCompat swDebug;
 
     private Group grpNotification;
@@ -101,13 +110,13 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     };
 
     private final static String[] ADVANCED_OPTIONS = new String[]{
-            "enabled", "updates",
+            "enabled", "schedule_start", "schedule_end",
             "metered", "download",
             "unified", "date", "threading", "avatars", "identicons", "name_email", "preview", "addresses", "autoimages", "actionbar",
             "pull", "swipenav", "autoexpand", "autoclose", "autonext", "collapse", "autoread", "automove",
             "autoresize", "sender", "autosend",
             "notify_preview", "light", "sound",
-            "debug",
+            "updates", "debug",
             "first", "why", "last_update_check", "app_support", "message_swipe", "message_select", "folder_actions", "folder_sync",
             "edit_ref_confirmed", "show_html_confirmed", "show_images_confirmed"
     };
@@ -122,7 +131,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
 
         // Get controls
         swEnabled = view.findViewById(R.id.swEnabled);
-        swUpdates = view.findViewById(R.id.swUpdates);
+        tvScheduleStart = view.findViewById(R.id.tvScheduleStart);
+        tvScheduleEnd = view.findViewById(R.id.tvScheduleEnd);
 
         tvConnectionType = view.findViewById(R.id.tvConnectionType);
         swMetered = view.findViewById(R.id.swMetered);
@@ -156,6 +166,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swLight = view.findViewById(R.id.swLight);
         btnSound = view.findViewById(R.id.btnSound);
 
+        swUpdates = view.findViewById(R.id.swUpdates);
         swDebug = view.findViewById(R.id.swDebug);
 
         grpNotification = view.findViewById(R.id.grpNotification);
@@ -171,6 +182,28 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("enabled", checked).apply();
                 ServiceSynchronize.reload(getContext(), "enabled=" + checked);
+            }
+        });
+
+        tvScheduleStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putBoolean("start", true);
+                DialogFragment timePicker = new TimePickerFragment();
+                timePicker.setArguments(args);
+                timePicker.show(getFragmentManager(), "timePicker");
+            }
+        });
+
+        tvScheduleEnd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putBoolean("start", false);
+                DialogFragment timePicker = new TimePickerFragment();
+                timePicker.setArguments(args);
+                timePicker.show(getFragmentManager(), "timePicker");
             }
         });
 
@@ -480,8 +513,9 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swEnabled.setChecked(prefs.getBoolean("enabled", true));
-        swUpdates.setChecked(prefs.getBoolean("updates", true));
-        swUpdates.setVisibility(Helper.isPlayStoreInstall(getContext()) ? View.GONE : View.VISIBLE);
+
+        tvScheduleStart.setText(formatHour(prefs.getInt("schedule_start", 0)));
+        tvScheduleEnd.setText(formatHour(prefs.getInt("schedule_end", 0)));
 
         swMetered.setChecked(prefs.getBoolean("metered", true));
 
@@ -524,9 +558,53 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
 
         swNotifyPreview.setChecked(prefs.getBoolean("notify_preview", true));
         swLight.setChecked(prefs.getBoolean("light", false));
+        swUpdates.setChecked(prefs.getBoolean("updates", true));
+        swUpdates.setVisibility(Helper.isPlayStoreInstall(getContext()) ? View.GONE : View.VISIBLE);
         swDebug.setChecked(prefs.getBoolean("debug", false));
 
         grpNotification.setVisibility(BuildConfig.DEBUG || Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
+    }
+
+    private String formatHour(int minutes) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY, minutes / 60);
+        cal.set(Calendar.MINUTE, minutes % 60);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return SimpleDateFormat.getTimeInstance(SimpleDateFormat.SHORT).format(cal.getTime());
+    }
+
+    public static class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            Bundle args = getArguments();
+            boolean start = args.getBoolean("start");
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            int minutes = prefs.getInt("schedule_" + (start ? "start" : "end"), 0);
+
+            Calendar cal = Calendar.getInstance();
+            cal.set(Calendar.HOUR_OF_DAY, minutes / 60);
+            cal.set(Calendar.MINUTE, minutes % 60);
+            cal.set(Calendar.SECOND, 0);
+            cal.set(Calendar.MILLISECOND, 0);
+
+            return new TimePickerDialog(getActivity(), this,
+                    cal.get(Calendar.HOUR_OF_DAY),
+                    cal.get(Calendar.MINUTE),
+                    DateFormat.is24HourFormat(getActivity()));
+        }
+
+        public void onTimeSet(TimePicker view, int hour, int minute) {
+            Bundle args = getArguments();
+            boolean start = args.getBoolean("start");
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            prefs.edit().putInt("schedule_" + (start ? "start" : "end"), hour * 60 + minute).apply();
+
+            ServiceSynchronize.schedule(getContext());
+        }
     }
 
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
@@ -587,5 +665,9 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
         if ("enabled".equals(key))
             swEnabled.setChecked(prefs.getBoolean(key, true));
+        else if ("schedule_start".equals(key))
+            tvScheduleStart.setText(formatHour(prefs.getInt(key, 0)));
+        else if ("schedule_end".equals(key))
+            tvScheduleEnd.setText(formatHour(prefs.getInt(key, 0)));
     }
 }
