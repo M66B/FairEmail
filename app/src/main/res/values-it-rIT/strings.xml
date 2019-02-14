@@ -115,6 +115,8 @@
     <string name="title_advanced_section_behavior">Comportamento</string>
     <string name="title_advanced_section_misc">Altro</string>
     <string name="title_advanced_enabled">Sincronizza</string>
+    <string name="title_advanced_schedule">Pianificazione</string>
+    <string name="title_advanced_schedule_hint">Tocca un orario per cambiare la pianificazione</string>
     <string name="title_advanced_metered">Usa connessioni a consumo</string>
     <string name="title_advanced_download">Scarica automaticamente i messaggi e gli allegati con una connessione a consumo fino a</string>
     <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
@@ -153,6 +155,7 @@
     <string name="title_advanced_name_email_hint">Quando disabilitati saranno mostrati solo i nomi quando disponibili</string>
     <string name="title_advanced_preview_hint">Disponibile solo quando è stato scaricato il testo del messaggio</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando c\'è un solo messaggio o solo un messaggio da leggere in una conversazione</string>
+    <string name="title_advanced_autocollapse_hint">Più messaggi estesi verranno sempre chiusi con \'indietro\'</string>
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni raggruppate quando tutti i messaggi sono archiviati, inviati o cestinati</string>
     <string name="title_advanced_sender_hint">La maggior parte dei fornitori non consente indirizzi mittente modificati</string>
     <string name="title_select">Seleziona &#8230;</string>

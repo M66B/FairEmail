@@ -155,7 +155,7 @@
     <string name="title_advanced_name_email_hint">Indien uitgeschakeld, worden alleen namen weergegeven als deze beschikbaar zijn</string>
     <string name="title_advanced_preview_hint">Alleen beschikbaar wanneer de berichttekst werd gedownload</string>
     <string name="title_advanced_autoexpand_hint">Bericht automatisch openen als een er slechts één bericht of slechts één ongelezen bericht in een gesprek is</string>
-    <string name="title_advanced_autocollapse_hint">Meerdere uitgeklapte berichten worden altijd gesloten op \'terug\'</string>
+    <string name="title_advanced_autocollapse_hint">Meerdere uitgeklapte berichten worden altijd gesloten bij \'terug\'</string>
     <string name="title_advanced_autoclose_hint">Gesprekken automatisch sluiten wanneer alle berichten zijn gearchiveerd, verzonden of weggegooid</string>
     <string name="title_advanced_sender_hint">De meeste providers staan gemodificeerde verzendadressen niet toe</string>
     <string name="title_select">Selecteer &#8230;</string>
