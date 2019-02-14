@@ -488,6 +488,16 @@ public class FragmentMessages extends FragmentBase {
 
         new SimpleTask<Boolean>() {
             @Override
+            protected void onPreExecute(Bundle args) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                boolean enabled = prefs.getBoolean("enabled", true);
+                if (!enabled) {
+                    prefs.edit().putBoolean("enabled", true).apply();
+                    ServiceSynchronize.reload(getContext(), "refresh");
+                }
+            }
+
+            @Override
             protected Boolean onExecute(Context context, Bundle args) {
                 long fid = args.getLong("folder");
 
