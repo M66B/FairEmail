@@ -1260,6 +1260,15 @@ You can also automate turning synchronization on and off by sending these comman
 
 Sending these commands will automatically turn scheduling off.
 
+You can automatically send commands with for example [Tasker](https://tasker.joaoapps.com/userguide/en/intents.html):
+
+```
+New task: Something recognizable
+Action Category: Misc/Send Intent
+Action: eu.faircode.email.ENABLE
+Target: Service
+```
+
 Automation can be used for more advanced schedules,
 like for example multiple synchronization periods per day or different synchronization periods for different days.
 
