@@ -33,7 +33,7 @@ public class ReceiverAutostart extends BroadcastReceiver {
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction()) ||
                 Intent.ACTION_MY_PACKAGE_REPLACED.equals(intent.getAction())) {
             EntityLog.log(context, intent.getAction());
-            ServiceSynchronize.init(context);
+            ServiceSynchronize.init(context, true);
 
             Thread thread = new Thread(new Runnable() {
                 @Override

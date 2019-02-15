@@ -141,8 +141,6 @@ public class ServiceSynchronize extends LifecycleService {
     private ServiceManager serviceManager = new ServiceManager();
     private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
-    private static final int NOTIFICATION_SYNCHRONIZE = 1;
-
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 64; // seconds (totally 2 minutes)
     private static final int CONNECT_BACKOFF_AlARM = 15; // minutes
@@ -184,7 +182,7 @@ public class ServiceSynchronize extends LifecycleService {
             @Override
             public void onChanged(@Nullable TupleAccountStats stats) {
                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                nm.notify(NOTIFICATION_SYNCHRONIZE, getNotificationService(stats).build());
+                nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(stats).build());
             }
         });
 
@@ -296,7 +294,7 @@ public class ServiceSynchronize extends LifecycleService {
         stopForeground(true);
 
         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        nm.cancel(NOTIFICATION_SYNCHRONIZE);
+        nm.cancel(Helper.NOTIFICATION_SYNCHRONIZE);
 
         super.onDestroy();
     }
@@ -307,7 +305,7 @@ public class ServiceSynchronize extends LifecycleService {
         Log.i("Service command intent=" + intent + " action=" + action);
         Log.logExtras(intent);
 
-        startForeground(NOTIFICATION_SYNCHRONIZE, getNotificationService(null).build());
+        startForeground(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(null).build());
 
         super.onStartCommand(intent, flags, startId);
 
@@ -334,7 +332,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                     case "init":
                         // Network events will manage the service
-                        serviceManager.service_init();
+                        serviceManager.service_init(intent.getBooleanExtra("schedule", false));
                         break;
 
                     case "schedule":
@@ -3019,13 +3017,16 @@ public class ServiceSynchronize extends LifecycleService {
             return prefs.getBoolean("enabled", true);
         }
 
-        private void service_init() {
-            EntityLog.log(ServiceSynchronize.this, "Service init");
-
-            next_schedule();
-
+        private void service_init(boolean schedule) {
             boolean enabled = isEnabled();
-            JobDaily.schedule(ServiceSynchronize.this, enabled);
+            EntityLog.log(ServiceSynchronize.this,
+                    "Service init schedule=" + schedule + " enabled=" + enabled);
+
+            if (schedule) {
+                next_schedule();
+                JobDaily.schedule(ServiceSynchronize.this, enabled);
+            }
+
             if (!enabled)
                 stopSelf();
         }
@@ -3350,10 +3351,11 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    public static void init(Context context) {
+    public static void init(Context context, boolean schedule) {
         ContextCompat.startForegroundService(context,
                 new Intent(context, ServiceSynchronize.class)
-                        .setAction("init"));
+                        .setAction("init")
+                        .putExtra("schedule", schedule));
     }
 
     public static void schedule(Context context) {

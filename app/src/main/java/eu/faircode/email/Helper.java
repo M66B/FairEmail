@@ -98,6 +98,9 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION;
 
 public class Helper {
+    static final int NOTIFICATION_SYNCHRONIZE = 1;
+    static final int NOTIFICATION_EXTERNAL = 2;
+
     static final int JOB_DAILY = 1001;
 
     static final int AUTH_TYPE_PASSWORD = 1;
