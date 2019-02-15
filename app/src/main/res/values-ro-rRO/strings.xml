@@ -124,7 +124,6 @@
     <string name="title_advanced_section_misc">Diverse</string>
     <string name="title_advanced_enabled">Sincronizare</string>
     <string name="title_advanced_schedule">Programat</string>
-    <string name="title_advanced_schedule_hint">Atingeți data pentru a schimba programarea</string>
     <string name="title_advanced_metered">Folosește conexiuni contorizate</string>
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>

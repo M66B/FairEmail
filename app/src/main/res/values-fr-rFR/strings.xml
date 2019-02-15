@@ -81,6 +81,7 @@
     <string name="title_setup_imported">Paramètres importés</string>
     <string name="title_setup_quick">Configuration rapide</string>
     <string name="title_setup_quick_remark">Pour configurer rapidement un compte et une identité pour la plupart des fournisseurs principaux</string>
+    <string name="title_setup_quick_hint">La configuration rapide récupérera les informations de configuration de autoconfig.thunderbird.net</string>
     <string name="title_setup_go">Aller</string>
     <string name="title_setup_setting_gmail">Activer l\'accès pour les applications « moins sûres »</string>
     <string name="title_setup_no_settings">Aucun paramètre trouvé pour %1$s</string>
@@ -116,7 +117,7 @@
     <string name="title_advanced_section_misc">Divers</string>
     <string name="title_advanced_enabled">Synchroniser</string>
     <string name="title_advanced_schedule">Planifier</string>
-    <string name="title_advanced_schedule_hint">Appuyez sur une heure pour changer la planification</string>
+    <string name="title_advanced_schedule_hint">Appuyez sur une heure pour définir une heure</string>
     <string name="title_advanced_metered">Utiliser des connexions limitées</string>
     <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes avec une connexion limitée jusqu\'à</string>
     <string name="title_advanced_browse">Lire directement les messages sur le serveur</string>

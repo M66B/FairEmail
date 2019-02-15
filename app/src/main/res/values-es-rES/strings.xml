@@ -81,6 +81,7 @@
     <string name="title_setup_imported">Ajustes importados</string>
     <string name="title_setup_quick">Configuración rápida</string>
     <string name="title_setup_quick_remark">Para configurar rápidamente una cuenta y una identidad para la mayoría de los principales proveedores</string>
+    <string name="title_setup_quick_hint">La configuración rápida buscará información de ajustes de autoconfig.thunderbird.net</string>
     <string name="title_setup_go">Ir</string>
     <string name="title_setup_setting_gmail">Habilitar acceso para aplicaciones \"menos seguras\"</string>
     <string name="title_setup_no_settings">No se encontraron ajustes para \'%1$s\'</string>
@@ -115,6 +116,8 @@
     <string name="title_advanced_section_behavior">Comportamiento</string>
     <string name="title_advanced_section_misc">Miscelánea</string>
     <string name="title_advanced_enabled">Sincronizar</string>
+    <string name="title_advanced_schedule">Programar</string>
+    <string name="title_advanced_schedule_hint">Toque sobre un horario para establecer un horario</string>
     <string name="title_advanced_metered">Usar conexión de datos</string>
     <string name="title_advanced_download">Descargar automáticamente mensajes y adjuntos usando conexión de datos hasta</string>
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
@@ -153,6 +156,7 @@
     <string name="title_advanced_name_email_hint">Si está desactivado, solo se mostrarán los nombres cuando estén disponibles</string>
     <string name="title_advanced_preview_hint">Sólo disponible cuando el texto del mensaje fue descargado</string>
     <string name="title_advanced_autoexpand_hint">Abrir mensaje automáticamente cuando haya solo un mensaje o uno no leído en una conversación</string>
+    <string name="title_advanced_autocollapse_hint">Múltiples mensajes expandidos siempre serán cerrados con \'atrás\'</string>
     <string name="title_advanced_autoclose_hint">Cerrar automáticamente hilos de conversación cuando todos los mensajes son archivados, enviados o eliminados</string>
     <string name="title_advanced_sender_hint">La mayoría de los proveedores no permiten direcciones de remitente modificadas</string>
     <string name="title_select">Seleccione &#8230;</string>

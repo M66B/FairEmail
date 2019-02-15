@@ -73,6 +73,7 @@
     <string name="title_setup_imported">设置已导入！</string>
     <string name="title_setup_quick">快速设置</string>
     <string name="title_setup_quick_remark">为大多数主要邮件服务提供商快速设置账户和身份</string>
+    <string name="title_setup_quick_hint">快速设置将从autoconfig.thunderbird.net 获取配置信息</string>
     <string name="title_setup_go">转到</string>
     <string name="title_setup_setting_gmail">启用对 \"安全性较低\" 的应用的访问</string>
     <string name="title_setup_no_settings">找不到 \"%1$s\" 的设置</string>
@@ -107,6 +108,8 @@
     <string name="title_advanced_section_behavior">行为</string>
     <string name="title_advanced_section_misc">杂项</string>
     <string name="title_advanced_enabled">同步</string>
+    <string name="title_advanced_schedule">任务计划</string>
+    <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
     <string name="title_advanced_metered">使用按流量计费的连接</string>
     <string name="title_advanced_download">在计量的连接下自动下载邮件和附件, 最高可达</string>
     <string name="title_advanced_browse">浏览服务器上的消息</string>
@@ -145,6 +148,7 @@
     <string name="title_advanced_name_email_hint">禁用该选项，将仅显示名称（如果可用）</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
+    <string name="title_advanced_autocollapse_hint">App将在您按下“返回”键时关闭多条展开的消息</string>
     <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
     <string name="title_select">选择 &#8230;</string>

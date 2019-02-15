@@ -81,6 +81,7 @@
     <string name="title_setup_imported">Instellingen geïmporteerd</string>
     <string name="title_setup_quick">Snel instellen</string>
     <string name="title_setup_quick_remark">Voor het snel instellen van een account en een identiteit voor de meeste grote providers</string>
+    <string name="title_setup_quick_hint">De snelle instelling zal configuratie informatie ophalen van autoconfig.thunderbird.net</string>
     <string name="title_setup_go">Ga</string>
     <string name="title_setup_setting_gmail">Toegang voor \"minder veilige\" apps inschakelen</string>
     <string name="title_setup_no_settings">Geen instellingen gevonden voor \'%1$s\'</string>
@@ -116,7 +117,7 @@
     <string name="title_advanced_section_misc">Diversen</string>
     <string name="title_advanced_enabled">Synchroniseren</string>
     <string name="title_advanced_schedule">Schema</string>
-    <string name="title_advanced_schedule_hint">Tik op een tijd om het schema te wijzigen</string>
+    <string name="title_advanced_schedule_hint">Tik op een tijd om een tijd in te stellen</string>
     <string name="title_advanced_metered">Gemeten verbindingen gebruiken</string>
     <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
     <string name="title_advanced_browse">Blader door berichten op de server</string>
