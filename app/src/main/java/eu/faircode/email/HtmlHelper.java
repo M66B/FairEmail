@@ -111,11 +111,7 @@ public class HtmlHelper {
             public void head(Node node, int depth) {
                 if (node instanceof TextNode) {
                     String text = Html.escapeHtml(((TextNode) node).text());
-                    Matcher matcher = pattern.matcher(text);
-                    while (matcher.find()) {
-                        String ref = matcher.group();
-                        text = text.replace(ref, String.format("<a href=\"%s\">%s</a>", ref, ref));
-                    }
+                    text = autolink(text);
                     node.before(text);
                     ((TextNode) node).text("");
                 }
@@ -127,6 +123,15 @@ public class HtmlHelper {
         }, document.body());
 
         return document.body().html();
+    }
+
+    static String autolink(String text) {
+        Matcher matcher = pattern.matcher(text);
+        while (matcher.find()) {
+            String ref = matcher.group();
+            text = text.replace(ref, String.format("<a href=\"%s\">%s</a>", ref, ref));
+        }
+        return text;
     }
 
     static Drawable decodeImage(String source, Context context, long id, boolean show) {
