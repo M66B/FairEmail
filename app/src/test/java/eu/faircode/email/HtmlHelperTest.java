@@ -13,10 +13,10 @@ class HtmlHelperTest {
                 "To visit http://www.example.org, go to http://www.example.org.",
 
                 "" +
-                        // FIXME: The trailing comma must not be part of the URL.
-                        "To visit <a href=\"http://www.example.org,\">http://www.example.org,</a> " +
-                        // FIXME: The trailing dot must not be part of the URL.
-                        "go to <a href=\"http://www.example.org.\">http://www.example.org.</a>");
+                        // The trailing comma must not be part of the URL.
+                        "To visit <a href=\"http://www.example.org\">http://www.example.org</a>, " +
+                        // The trailing dot must not be part of the URL.
+                        "go to <a href=\"http://www.example.org\">http://www.example.org</a>.");
 
         testAutolink(
                 "one hhhhh|spt://example.org three",
