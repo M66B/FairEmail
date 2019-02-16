@@ -46,6 +46,15 @@ class HtmlHelperTest {
                 // FIXME: The < must be encoded as &lt;.
                 "Go to <<a href=\"http://example.org/\">http://example.org/</a>>."
         );
+
+        testAutolink(
+                "http://example.org/ and http://example.org/subdir/",
+
+                // FIXME: Each URL must be linked to its exact address, not just to a prefix.
+                "" +
+                        "<a href=\"http://example.org/\">http://example.org/</a> and " +
+                        "<a href=\"http://example.org/\">http://example.org/</a>subdir/"
+        );
     }
 
     private void testAutolink(String input, String expectedOutput) {
