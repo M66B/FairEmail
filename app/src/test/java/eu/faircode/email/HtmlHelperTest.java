@@ -21,8 +21,8 @@ class HtmlHelperTest {
         testAutolink(
                 "one hhhhh|spt://example.org three",
 
-                // FIXME: "hhhhh|spt" is not a proper URL scheme.
-                "one <a href=\"hhhhh|spt://example.org\">hhhhh|spt://example.org</a> three"
+                // This string had been wrongly interpreted as a complete URL up to February 2019.
+                "one hhhhh|spt://example.org three"
         );
 
         testAutolink(
@@ -37,16 +37,14 @@ class HtmlHelperTest {
         testAutolink(
                 "Go to \"http://example.org/\".",
 
-                // FIXME: The quote must not end up as part of the URL.
-                "Go to \"<a href=\"http://example.org/\".\">http://example.org/\".</a>"
+                "Go to \"<a href=\"http://example.org/\">http://example.org/</a>\"."
         );
 
         testAutolink(
                 "Go to <http://example.org/>.",
 
                 // FIXME: The < must be encoded as &lt;.
-                // FIXME: THe > must not end up as part of the URL.
-                "Go to <<a href=\"http://example.org/>.\">http://example.org/>.</a>"
+                "Go to <<a href=\"http://example.org/\">http://example.org/</a>>."
         );
     }
 
