@@ -28,6 +28,7 @@ import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Base64;
+import android.util.Patterns;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -49,7 +50,6 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -60,12 +60,11 @@ import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
 
 public class HtmlHelper {
     private static final int PREVIEW_SIZE = 250;
-    private static Pattern pattern = Pattern.compile("([http|https]+://[\\w\\S(\\.|:|/)]+)");
     private static final List<String> heads = Arrays.asList("h1", "h2", "h3", "h4", "h5", "h6", "p", "table", "ol", "ul", "br", "hr");
     private static final List<String> tails = Arrays.asList("h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "li");
 
     static String sanitize(String html, boolean showQuotes) {
-        Document document = Jsoup.parse(Jsoup.clean(html, Whitelist
+        final Document document = Jsoup.parse(Jsoup.clean(html, Whitelist
                 .relaxed()
                 .addProtocols("img", "src", "cid")
                 .addProtocols("img", "src", "data")));
@@ -110,14 +109,26 @@ public class HtmlHelper {
             @Override
             public void head(Node node, int depth) {
                 if (node instanceof TextNode) {
-                    String text = Html.escapeHtml(((TextNode) node).text());
-                    Matcher matcher = pattern.matcher(text);
+                    TextNode tnode = (TextNode) node;
+                    Element span = document.createElement("span");
+
+                    int pos = 0;
+                    String text = tnode.text();
+                    Matcher matcher = Patterns.WEB_URL.matcher(text);
                     while (matcher.find()) {
-                        String ref = matcher.group();
-                        text = text.replace(ref, String.format("<a href=\"%s\">%s</a>", ref, ref));
+                        span.appendText(text.substring(pos, matcher.start()));
+
+                        Element a = document.createElement("a");
+                        a.attr("href", matcher.group());
+                        a.text(matcher.group());
+                        span.appendChild(a);
+
+                        pos = matcher.end();
                     }
-                    node.before(text);
-                    ((TextNode) node).text("");
+                    span.appendText(text.substring(pos));
+
+                    tnode.before(span);
+                    tnode.text("");
                 }
             }
 
