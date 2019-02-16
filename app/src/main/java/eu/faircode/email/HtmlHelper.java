@@ -130,17 +130,13 @@ public class HtmlHelper {
         StringBuilder sb = new StringBuilder();
         int end = 0;
         while (matcher.find()) {
-            sb.append(html(text.substring(end, matcher.start())));
-            String ref = html(matcher.group());
+            sb.append(Html.escapeHtml(text.substring(end, matcher.start())));
+            String ref = Html.escapeHtml(matcher.group());
             sb.append(String.format("<a href=\"%s\">%s</a>", ref, ref));
             end = matcher.end();
         }
         sb.append(text.substring(end));
         return sb.toString();
-    }
-
-    private static String html(String plain) {
-        return plain.replace("&", "&amp;").replace("<", "&lt;");
     }
 
     static Drawable decodeImage(String source, Context context, long id, boolean show) {

@@ -1,13 +1,39 @@
 package eu.faircode.email;
 
-import org.junit.jupiter.api.Test;
+import android.text.Html;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.powermock.api.mockito.PowerMockito.mockStatic;
+import static org.powermock.api.mockito.PowerMockito.when;
 
-class HtmlHelperTest {
+@PrepareForTest(Html.class)
+@RunWith(PowerMockRunner.class)
+public class HtmlHelperTest {
+
+    @Before
+    public void setUp() {
+        mockStatic(Html.class);
+        when(Html.escapeHtml(any(CharSequence.class))).thenAnswer(new Answer<Object>() {
+            @Override
+            public Object answer(InvocationOnMock invocation) {
+                return invocation.getArgument(0).toString()
+                        .replace("&", "&amp;")
+                        .replace("<", "&lt;");
+            }
+        });
+    }
 
     @Test
-    void autolink() {
+    public void autolink() {
 
         testAutolink(
                 "To visit http://www.example.org, go to http://www.example.org.",
