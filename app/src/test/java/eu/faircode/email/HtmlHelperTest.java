@@ -28,10 +28,10 @@ class HtmlHelperTest {
         testAutolink(
                 "https://example.org/search?q=%C3%A4&hl=nl",
 
-                // TODO: Strictly speaking, the & should be encoded as &amp;.
-                // Most browsers can deal with this situation though.
-                "<a href=\"https://example.org/search?q=%C3%A4&hl=nl\">" +
-                        "https://example.org/search?q=%C3%A4&hl=nl</a>"
+                // The & should be encoded as &amp;, even though
+                // most browsers can deal with this situation.
+                "<a href=\"https://example.org/search?q=%C3%A4&amp;hl=nl\">" +
+                        "https://example.org/search?q=%C3%A4&amp;hl=nl</a>"
         );
 
         testAutolink(
@@ -43,8 +43,8 @@ class HtmlHelperTest {
         testAutolink(
                 "Go to <http://example.org/>.",
 
-                // FIXME: The < must be encoded as &lt;.
-                "Go to <<a href=\"http://example.org/\">http://example.org/</a>>."
+                // The < must be encoded as &lt;, to avoid confusion.
+                "Go to &lt;<a href=\"http://example.org/\">http://example.org/</a>>."
         );
 
         testAutolink(

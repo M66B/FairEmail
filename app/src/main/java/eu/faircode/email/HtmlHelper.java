@@ -127,13 +127,20 @@ public class HtmlHelper {
 
     static String autolink(String text) {
         Matcher matcher = pattern.matcher(text);
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
+        int end = 0;
         while (matcher.find()) {
-            String ref = matcher.group();
-            matcher.appendReplacement(sb, String.format("<a href=\"%s\">%s</a>", ref, ref));
+            sb.append(html(text.substring(end, matcher.start())));
+            String ref = html(matcher.group());
+            sb.append(String.format("<a href=\"%s\">%s</a>", ref, ref));
+            end = matcher.end();
         }
-        matcher.appendTail(sb);
+        sb.append(text.substring(end));
         return sb.toString();
+    }
+
+    private static String html(String plain) {
+        return plain.replace("&", "&amp;").replace("<", "&lt;");
     }
 
     static Drawable decodeImage(String source, Context context, long id, boolean show) {
