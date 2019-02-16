@@ -55,6 +55,55 @@ class HtmlHelperTest {
                         "<a href=\"http://example.org/\">http://example.org/</a> and " +
                         "<a href=\"http://example.org/\">http://example.org/</a>subdir/"
         );
+
+        testAutolink(
+                "http://example.org/ and http://example.org/ and http://example.org/",
+
+                // FIXME: Even when the same URL is mentioned multiple times,
+                // each of the URLs must only appear a single time.
+                "" +
+                        "<a href=\"" +
+                        "<a href=\"" +
+                        "<a href=\"http://example.org/\">http://example.org/</a>" +
+                        "\">" +
+                        "<a href=\"http://example.org/\">http://example.org/</a>" +
+                        "</a>" +
+                        "\">" +
+                        "<a href=\"" +
+                        "<a href=\"http://example.org/\">http://example.org/</a>" +
+                        "\">" +
+                        "<a href=\"http://example.org/\">http://example.org/</a>" +
+                        "</a>" +
+                        "</a>" +
+                        " and " +
+                        "<a href=\"" +
+                        "<a href=\"" +
+                        "<a href=\"http://example.org/\">http://example.org/</a>" +
+                        "\">" +
+                        "<a href=\"http://example.org/\">http://example.org/</a>" +
+                        "</a>" +
+                        "\">" +
+                        "<a href=\"" +
+                        "<a href=\"http://example.org/\">http://example.org/</a>" +
+                        "\">" +
+                        "<a href=\"http://example.org/\">http://example.org/</a>" +
+                        "</a>" +
+                        "</a>" +
+                        " and " +
+                        "<a href=\"" +
+                        "<a href=\"" +
+                        "<a href=\"http://example.org/\">http://example.org/</a>" +
+                        "\">" +
+                        "<a href=\"http://example.org/\">http://example.org/</a>" +
+                        "</a>" +
+                        "\">" +
+                        "<a href=\"" +
+                        "<a href=\"http://example.org/\">http://example.org/</a>" +
+                        "\">" +
+                        "<a href=\"http://example.org/\">http://example.org/</a>" +
+                        "</a>" +
+                        "</a>"
+        );
     }
 
     private void testAutolink(String input, String expectedOutput) {
