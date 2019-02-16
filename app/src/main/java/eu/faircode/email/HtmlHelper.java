@@ -131,9 +131,15 @@ public class HtmlHelper {
         int end = 0;
         while (matcher.find()) {
             sb.append(Html.escapeHtml(text.substring(end, matcher.start())));
-            String ref = Html.escapeHtml(matcher.group());
+
+            String url = matcher.group();
+            if (url.endsWith(")") && !url.contains("(")) {
+                url = url.substring(0, url.length() - 1);
+            }
+
+            String ref = Html.escapeHtml(url);
             sb.append(String.format("<a href=\"%s\">%s</a>", ref, ref));
-            end = matcher.end();
+            end = matcher.start() + url.length();
         }
         sb.append(text.substring(end));
         return sb.toString();

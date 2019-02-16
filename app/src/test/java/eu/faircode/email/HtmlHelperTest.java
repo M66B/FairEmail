@@ -120,10 +120,10 @@ public class HtmlHelperTest {
         testAutolink(
                 "See my homepage (at https://example.org), with lots of examples.",
 
-                // FIXME: The URL doesn't contain an opening parenthesis, therefore
+                // This URL doesn't contain an opening parenthesis, therefore
                 // the closing parenthesis probably also doesn't belong to it.
-                "See my homepage (at <a href=\"https://example.org)\">" +
-                        "https://example.org)</a>, with lots of examples."
+                "See my homepage (at <a href=\"https://example.org\">" +
+                        "https://example.org</a>), with lots of examples."
         );
 
         // The terminating sequence of a base64-encoded URL parameter is always
