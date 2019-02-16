@@ -127,11 +127,13 @@ public class HtmlHelper {
 
     static String autolink(String text) {
         Matcher matcher = pattern.matcher(text);
+        StringBuffer sb = new StringBuffer();
         while (matcher.find()) {
             String ref = matcher.group();
-            text = text.replace(ref, String.format("<a href=\"%s\">%s</a>", ref, ref));
+            matcher.appendReplacement(sb, String.format("<a href=\"%s\">%s</a>", ref, ref));
         }
-        return text;
+        matcher.appendTail(sb);
+        return sb.toString();
     }
 
     static Drawable decodeImage(String source, Context context, long id, boolean show) {

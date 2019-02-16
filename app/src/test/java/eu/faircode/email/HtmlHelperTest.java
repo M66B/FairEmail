@@ -50,59 +50,23 @@ class HtmlHelperTest {
         testAutolink(
                 "http://example.org/ and http://example.org/subdir/",
 
-                // FIXME: Each URL must be linked to its exact address, not just to a prefix.
+                // Each URL must be linked to its exact address, not just to a prefix.
                 "" +
                         "<a href=\"http://example.org/\">http://example.org/</a> and " +
-                        "<a href=\"http://example.org/\">http://example.org/</a>subdir/"
+                        "<a href=\"http://example.org/subdir/\">http://example.org/subdir/</a>"
         );
 
         testAutolink(
                 "http://example.org/ and http://example.org/ and http://example.org/",
 
-                // FIXME: Even when the same URL is mentioned multiple times,
+                // When the same URL is mentioned multiple times,
                 // each of the URLs must only appear a single time.
                 "" +
-                        "<a href=\"" +
-                        "<a href=\"" +
                         "<a href=\"http://example.org/\">http://example.org/</a>" +
-                        "\">" +
-                        "<a href=\"http://example.org/\">http://example.org/</a>" +
-                        "</a>" +
-                        "\">" +
-                        "<a href=\"" +
-                        "<a href=\"http://example.org/\">http://example.org/</a>" +
-                        "\">" +
-                        "<a href=\"http://example.org/\">http://example.org/</a>" +
-                        "</a>" +
-                        "</a>" +
                         " and " +
-                        "<a href=\"" +
-                        "<a href=\"" +
                         "<a href=\"http://example.org/\">http://example.org/</a>" +
-                        "\">" +
-                        "<a href=\"http://example.org/\">http://example.org/</a>" +
-                        "</a>" +
-                        "\">" +
-                        "<a href=\"" +
-                        "<a href=\"http://example.org/\">http://example.org/</a>" +
-                        "\">" +
-                        "<a href=\"http://example.org/\">http://example.org/</a>" +
-                        "</a>" +
-                        "</a>" +
                         " and " +
-                        "<a href=\"" +
-                        "<a href=\"" +
-                        "<a href=\"http://example.org/\">http://example.org/</a>" +
-                        "\">" +
-                        "<a href=\"http://example.org/\">http://example.org/</a>" +
-                        "</a>" +
-                        "\">" +
-                        "<a href=\"" +
-                        "<a href=\"http://example.org/\">http://example.org/</a>" +
-                        "\">" +
-                        "<a href=\"http://example.org/\">http://example.org/</a>" +
-                        "</a>" +
-                        "</a>"
+                        "<a href=\"http://example.org/\">http://example.org/</a>"
         );
     }
 
