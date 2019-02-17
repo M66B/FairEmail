@@ -29,6 +29,7 @@ import java.text.Collator;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -160,6 +161,17 @@ public class EntityFolder implements Serializable {
     ); // MUST match SYSTEM_FOLDER_SYNC
 
     public EntityFolder() {
+    }
+
+    long getSyncDays() {
+        int days = sync_days;
+        if (last_sync != null) {
+            int ago_days = (int) ((new Date().getTime() - last_sync) / (24 * 3600 * 1000L)) + 1;
+            if (ago_days > days)
+                days = ago_days;
+        }
+
+        return (initialize ? Math.min(DEFAULT_INIT, keep_days) : days);
     }
 
     static int getIcon(String type) {

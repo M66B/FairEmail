@@ -38,8 +38,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -236,7 +234,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             PopupMenu popupMenu = new PopupMenu(context, itemView);
 
-            popupMenu.getMenu().add(Menu.NONE, action_synchronize_now, 1, R.string.title_synchronize_now);
+            popupMenu.getMenu().add(Menu.NONE, action_synchronize_now, 1, R.string.title_synchronize_now)
+                    .setEnabled(folder.account != null || "connected".equals(folder.state) /* outbox */);
 
             if (folder.account != null)
                 popupMenu.getMenu().add(Menu.NONE, action_delete_local, 2, R.string.title_delete_local);
@@ -283,25 +282,33 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     args.putLong("account", folder.account == null ? -1 : folder.account);
                     args.putLong("folder", folder.id);
 
-                    new SimpleTask<Boolean>() {
+                    new SimpleTask<Void>() {
                         @Override
-                        protected Boolean onExecute(Context context, Bundle args) {
+                        protected Void onExecute(Context context, Bundle args) {
                             long aid = args.getLong("account");
                             long fid = args.getLong("folder");
 
                             DB db = DB.getInstance(context);
-                            EntityOperation.sync(db, fid);
+                            try {
+                                db.beginTransaction();
 
-                            if (aid < 0) // outbox
-                                return "connected".equals(db.folder().getFolder(fid).state);
-                            else
-                                return "connected".equals(db.account().getAccount(aid).state);
-                        }
+                                if (aid < 0) // outbox
+                                    EntityOperation.sync(db, fid);
+                                else {
+                                    if ("connected".equals(db.account().getAccount(aid).state))
+                                        EntityOperation.sync(db, fid);
+                                    else {
+                                        db.folder().setFolderSyncState(folder.id, "requested");
+                                        ServiceSynchronize.sync(context, fid);
+                                    }
+                                }
 
-                        @Override
-                        protected void onExecuted(Bundle args, Boolean connected) {
-                            if (!connected)
-                                Snackbar.make(itemView, R.string.title_sync_queued, Snackbar.LENGTH_LONG).show();
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
+
+                            return null;
                         }
 
                         @Override

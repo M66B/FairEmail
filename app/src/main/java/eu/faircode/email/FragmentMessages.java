@@ -488,20 +488,8 @@ public class FragmentMessages extends FragmentBase {
 
         new SimpleTask<Boolean>() {
             @Override
-            protected void onPreExecute(Bundle args) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                boolean enabled = prefs.getBoolean("enabled", true);
-                if (!enabled) {
-                    prefs.edit().putBoolean("enabled", true).apply();
-                    ServiceSynchronize.reload(getContext(), "refresh");
-                }
-            }
-
-            @Override
             protected Boolean onExecute(Context context, Bundle args) {
                 long fid = args.getLong("folder");
-
-                boolean connected = false;
 
                 DB db = DB.getInstance(context);
                 try {
@@ -518,33 +506,34 @@ public class FragmentMessages extends FragmentBase {
                             folders.add(folder);
                     }
 
-                    for (EntityFolder folder : folders) {
-                        EntityOperation.sync(db, folder.id);
-
+                    boolean now = false;
+                    for (EntityFolder folder : folders)
                         if (folder.account == null) { // outbox
-                            if ("connected".equals(folder.state))
-                                connected = true;
+                            now = ("connected".equals(folder.state));
+                            EntityOperation.sync(db, folder.id);
                         } else {
+                            now = true;
                             EntityAccount account = db.account().getAccount(folder.account);
                             if ("connected".equals(account.state))
-                                connected = true;
+                                EntityOperation.sync(db, folder.id);
+                            else {
+                                db.folder().setFolderSyncState(folder.id, "requested");
+                                ServiceSynchronize.sync(context, folder.id);
+                            }
                         }
-                    }
 
                     db.setTransactionSuccessful();
+
+                    return now;
                 } finally {
                     db.endTransaction();
                 }
-
-                return connected;
             }
 
             @Override
-            protected void onExecuted(Bundle args, Boolean connected) {
-                if (!connected) {
+            protected void onExecuted(Bundle args, Boolean now) {
+                if (!now)
                     swipeRefresh.setRefreshing(false);
-                    Snackbar.make(view, R.string.title_sync_queued, Snackbar.LENGTH_LONG).show();
-                }
             }
 
             @Override

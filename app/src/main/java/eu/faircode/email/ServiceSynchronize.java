@@ -343,6 +343,15 @@ public class ServiceSynchronize extends LifecycleService {
                         serviceManager.service_reload(intent.getStringExtra("reason"));
                         break;
 
+                    case "synchronize":
+                        executor.submit(new Runnable() {
+                            @Override
+                            public void run() {
+                                synchronizeOnDemand(Long.parseLong(parts[1]));
+                            }
+                        });
+                        break;
+
                     case "summary":
                     case "clear":
                     case "seen":
@@ -2210,6 +2219,77 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
+    private void synchronizeOnDemand(long fid) {
+        Log.i("Synchronize on demand folder=" + fid);
+
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        PowerManager.WakeLock wlAccount = pm.newWakeLock(
+                PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":sync." + fid);
+
+        DB db = DB.getInstance(this);
+        EntityFolder folder = null;
+        EntityAccount account = null;
+
+        Store istore = null;
+        try {
+            wlAccount.acquire();
+
+            folder = db.folder().getFolder(fid);
+            account = db.account().getAccount(folder.account);
+
+            // Create session
+            Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
+            final Session isession = Session.getInstance(props, null);
+            isession.setDebug(true);
+
+            // Connect account
+            Log.i(account.name + " connecting");
+            db.account().setAccountState(account.id, "connecting");
+            istore = isession.getStore(account.getProtocol());
+            Helper.connect(this, istore, account);
+            db.account().setAccountState(account.id, "connected");
+            Log.i(account.name + " connected");
+
+            // Connect folder
+            Log.i(folder.name + " connecting");
+            db.folder().setFolderState(folder.id, "connecting");
+            Folder ifolder = istore.getFolder(folder.name);
+            ifolder.open(Folder.READ_WRITE);
+            db.folder().setFolderState(folder.id, "connected");
+            db.folder().setFolderError(folder.id, null);
+            Log.i(folder.name + " connected");
+
+            // Synchronize messages
+            JSONArray jargs = new JSONArray();
+            jargs.put(folder.getSyncDays());
+            jargs.put(folder.keep_days);
+            jargs.put(folder.download);
+            synchronizeMessages(account, folder, (IMAPFolder) ifolder, jargs, new ServiceState());
+
+        } catch (Throwable ex) {
+            db.account().setAccountError(account.id, Helper.formatThrowable(ex));
+            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+        } finally {
+            if (istore != null) {
+                Log.i(account.name + " closing");
+                db.account().setAccountState(account.id, "closing");
+                db.folder().setFolderState(folder.id, "closing");
+
+                try {
+                    istore.close();
+                } catch (MessagingException ex) {
+                    Log.e(ex);
+                }
+
+                db.account().setAccountState(account.id, null);
+                db.folder().setFolderState(folder.id, null);
+                Log.i(account.name + " closed");
+            }
+
+            wlAccount.release();
+        }
+    }
+
     private void synchronizeFolders(EntityAccount account, Store istore, ServiceState state) throws MessagingException {
         DB db = DB.getInstance(this);
         try {
@@ -3273,7 +3353,7 @@ public class ServiceSynchronize extends LifecycleService {
                     try {
                         wl.acquire();
 
-                        EntityLog.log(ServiceSynchronize.this, "Reload " +
+                        EntityLog.log(ServiceSynchronize.this, "Reload" +
                                 " stop=" + doStop + " start=" + doStart + " queued=" + queued + " " + reason);
 
                         if (doStop)
@@ -3337,6 +3417,12 @@ public class ServiceSynchronize extends LifecycleService {
                 new Intent(context, ServiceSynchronize.class)
                         .setAction("reload")
                         .putExtra("reason", reason));
+    }
+
+    public static void sync(Context context, long folder) {
+        ContextCompat.startForegroundService(context,
+                new Intent(context, ServiceSynchronize.class)
+                        .setAction("synchronize:" + folder));
     }
 
     private class ServiceState {
