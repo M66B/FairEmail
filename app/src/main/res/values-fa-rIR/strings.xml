@@ -130,8 +130,6 @@
     <string name="title_identity_read_receipt">درخواست اعلان خوانده شدن</string>
     <string name="title_identity_delivery_receipt">درخواست اعلان تحویل</string>
     <string name="title_identity_receipt_remark">اکثر سرویس دهندگان درخواست اعلان را نادیده می‌گیرند</string>
-    <string name="title_identity_store_sent">ذخیره پیام‌های ارسال شده</string>
-    <string name="title_identity_store_sent_remark">تنها درصورتیکه سرویس دهنده شما به طور خودکار پیام‌های ارسال شده را ذخیره نمی‌کند، این گزینه را فعال نمایید</string>
     <string name="title_optional">اختیاری</string>
     <string name="title_account_linked">حساب مرتبط</string>
     <string name="title_account_name">نام حساب</string>
@@ -327,7 +325,6 @@
     <string name="title_rule_name">نام</string>
     <string name="title_rule_order">سفارش</string>
     <string name="title_rule_enabled">فعال شده</string>
-    <string name="title_rule_stop">توقف پردازش</string>
     <string name="title_rule_sender">محتوای فرستنده</string>
     <string name="title_rule_subject">محتوای موضوع</string>
     <string name="title_rule_header">محتوای سرمتن</string>

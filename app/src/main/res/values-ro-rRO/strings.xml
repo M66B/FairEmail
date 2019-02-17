@@ -87,8 +87,9 @@
     <string name="title_setup_password_invalid">Parolă incorectă</string>
     <string name="title_setup_exported">Setări exportate</string>
     <string name="title_setup_imported">Setări importate</string>
-    <string name="title_setup_quick">Setare rapidă</string>
+    <string name="title_setup_quick">Configurare rapidă</string>
     <string name="title_setup_quick_remark">Permite setarea rapidă a unui cont și a unei identități pentru furnizorii comuni</string>
+    <string name="title_setup_quick_hint">Se vor descărca informațiile necesare de pe autoconfig.thunderbird.net</string>
     <string name="title_setup_go">Start</string>
     <string name="title_setup_setting_gmail">Permite accesul pentru applicații \"mai puţin sigure\"</string>
     <string name="title_setup_no_settings">Nu s-au gasit setări pentru \'%1$s\'</string>
@@ -124,6 +125,7 @@
     <string name="title_advanced_section_misc">Diverse</string>
     <string name="title_advanced_enabled">Sincronizare</string>
     <string name="title_advanced_schedule">Programat</string>
+    <string name="title_advanced_schedule_hint">Atingeţi data pentru a seta un timp</string>
     <string name="title_advanced_metered">Folosește conexiuni contorizate</string>
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
@@ -173,8 +175,6 @@
     <string name="title_identity_read_receipt">Solicitare confirmare citire</string>
     <string name="title_identity_delivery_receipt">Solicitare confirmare livrare</string>
     <string name="title_identity_receipt_remark">Majoritatea furnizorilor ignoră cererile de confirmare a livrării</string>
-    <string name="title_identity_store_sent">Stochează mesajele trimise</string>
-    <string name="title_identity_store_sent_remark">Activați doar dacă furnizorul nu stochează în mod automat mesajele trimise</string>
     <string name="title_optional">Opțional</string>
     <string name="title_account_linked">Cont asociat</string>
     <string name="title_account_name">Nume cont</string>
@@ -374,7 +374,6 @@
     <string name="title_rule_name">Nume</string>
     <string name="title_rule_order">Ordine</string>
     <string name="title_rule_enabled">Activată</string>
-    <string name="title_rule_stop">Oprire procesare</string>
     <string name="title_rule_sender">Expeditorul conține</string>
     <string name="title_rule_subject">Subiectul conține</string>
     <string name="title_rule_header">Antetul conține</string>

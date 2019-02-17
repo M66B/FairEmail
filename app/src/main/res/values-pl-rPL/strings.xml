@@ -123,6 +123,7 @@
     <string name="title_setup_black_theme">Czarny motyw</string>
     <string name="title_setup_system_theme">Motyw systemu</string>
     <string name="title_setup_defaults">Przywróć domyślne</string>
+    <string name="title_setup_options">Opcje</string>
     <string name="title_advanced">Opcje zaawansowane</string>
     <string name="title_advanced_section_general">Ogólne</string>
     <string name="title_advanced_section_connection">Połączenie</string>
@@ -130,6 +131,8 @@
     <string name="title_advanced_section_behavior">Zachowanie</string>
     <string name="title_advanced_section_misc">Różne</string>
     <string name="title_advanced_enabled">Synchronizuj</string>
+    <string name="title_advanced_schedule">Harmonogram</string>
+    <string name="title_advanced_schedule_hint">Dotknij zegara, aby ustawić czas</string>
     <string name="title_advanced_metered">Użyj połączeń taryfowych</string>
     <string name="title_advanced_download">Automatycznie pobieraj wiadomości i załączniki przy połączeniach taryfowych do</string>
     <string name="title_advanced_browse">Przeglądaj wiadomości na serwerze</string>
@@ -145,7 +148,11 @@
     <string name="title_advanced_images">Automatycznie pokaż obrazki dla znanych kontaktów</string>
     <string name="title_advanced_pull_refresh">Pociągnij w dół, aby odświeżyć</string>
     <string name="title_advanced_autoclose">Automatycznie zamykaj konwersacje</string>
+    <string name="title_advanced_autonext">Automatycznie przejdź do następnej rozmowy przy zamykaniu rozmowy</string>
+    <string name="title_advanced_autoread">Automatycznie oznacz wiadomość jako przeczytaną przy przenoszeniu</string>
+    <string name="title_advanced_automove">Potwierdź przenoszenie wiadomości</string>
     <string name="title_advanced_sender">Zezwól na edycję adresu nadawcy</string>
+    <string name="title_advanced_autosend">Potwierdź wysłanie wiadomości</string>
     <string name="title_advanced_light">Użyj diody powiadomień</string>
     <string name="title_advanced_sound">Wybierz dźwięk powiadomienia</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
@@ -158,10 +165,10 @@
     <string name="title_identity_name">Twoja nazwa</string>
     <string name="title_identity_email">Twój adres e-mail</string>
     <string name="title_identity_reply_to">Odpowiedz na adres</string>
+    <string name="title_identity_plain_text">Wyślij tylko zwykły tekst</string>
     <string name="title_identity_read_receipt">Poproś o potwierdzenie odczytu</string>
     <string name="title_identity_delivery_receipt">Poproś o potwierdzenie dostarczenia</string>
     <string name="title_identity_receipt_remark">Większość dostawców ignoruje prośby otrzymania</string>
-    <string name="title_identity_store_sent">Zachowuj wiadomości wysłane</string>
     <string name="title_optional">Opcjonalnie</string>
     <string name="title_account_linked">Połączone konto</string>
     <string name="title_account_name">Nazwa konta</string>
@@ -196,6 +203,7 @@
     <string name="title_no_host">Brak nazwy hosta</string>
     <string name="title_no_user">Brak nazwy użytkownika</string>
     <string name="title_no_password">Brak hasła</string>
+    <string name="title_no_inbox">Nie znaleziono skrzynki odbiorczej</string>
     <string name="title_no_primary_drafts">Brak konta podstawowego lub brak folderu szkiców</string>
     <string name="title_no_idle">Ten dostawca nie obsługuje wiadomości push. To opóźni otrzymywanie nowych wiadomości i zwiększy zużycie baterii.</string>
     <string name="title_no_sync">Błędy synchornizacji od %1$s</string>
@@ -239,6 +247,7 @@
     <string name="title_folder_system">System</string>
     <string name="title_folder_user">Użytkownik</string>
     <string name="title_folder_primary">Podstawowe konto folderów</string>
+    <string name="title_folder_thread">Rozmowa %1$s</string>
     <string name="title_no_messages">Brak wiadomości</string>
     <string name="title_subject_reply">Odp: %1$s</string>
     <string name="title_subject_forward">Pd: %1$s</string>
@@ -269,6 +278,7 @@
     <string name="title_no_viewer">Brak aplikacji do podglądu %1$s</string>
     <string name="title_no_saf">Brak dostępu do plików</string>
     <string name="title_no_internet">Brak połączenia internetowego</string>
+    <string name="title_no_folder">Folder nie istnieje</string>
     <string name="title_attachment_saved">Załącznik zapisany</string>
     <string name="title_attachments_saved">Załączniki zapisane</string>
     <string name="title_attachment_unavailable">Niektóre załączniki nie są pobrane i nie zostaną dodane, kontynuować?</string>
@@ -287,6 +297,7 @@
     <string name="title_reply_to">Odpisz do:</string>
     <string name="title_cc">DW:</string>
     <string name="title_bcc">UDW:</string>
+    <string name="title_via_identity">Przez:</string>
     <string name="title_received">Odebrano:</string>
     <string name="title_size">Rozmiar:</string>
     <string name="title_subject">Temat:</string>
@@ -308,6 +319,7 @@
     <string name="title_attachments_missing">Nie wszystkie załączniki są pobrane</string>
     <string name="title_draft_deleted">Szkic odrzucony</string>
     <string name="title_draft_saved">Szkic zapisany</string>
+    <string name="title_ask_send_via">Wyślij wiadomość do %1$s przez %2$s?</string>
     <string name="title_queued">Wysyłanie wiadomości</string>
     <string name="title_encrypt">Zaszyfruj</string>
     <string name="title_decrypt">Odszyfruj</string>
@@ -340,6 +352,8 @@
     <string name="title_rule_sender">Nadawca zawiera</string>
     <string name="title_rule_subject">Tytuł zawiera</string>
     <string name="title_rule_header">Nagłówek zawiera</string>
+    <string name="title_rule_and">I</string>
+    <string name="title_rule_action">Akcja</string>
     <string name="title_rule_folder">Folder</string>
     <string name="title_rule_identity">Tożsamość</string>
     <string name="title_rule_answer">Szablon odpowiedzi</string>
@@ -356,9 +370,22 @@
     <string name="title_legend_primary_disconnected">Konto rozłączone</string>
     <string name="title_legend_primary_connected">Konto połączone</string>
     <string name="title_legend_thread">Konwersacja</string>
+    <string name="title_legend_zoom">Zmień rozmiaru tekstu</string>
+    <string name="title_legend_answered">Udzielono odpowiedzi</string>
+    <string name="title_legend_attachment">Zawiera załącznik</string>
+    <string name="title_legend_contacts">Zarządzaj kontaktami</string>
     <string name="title_legend_view">Zobacz zawartość</string>
     <string name="title_legend_download">Pobierz zawartość</string>
     <string name="title_legend_broken_image">Uszkodzony obraz</string>
+    <string name="title_legend_cc">Pokaż DW/UDW</string>
+    <string name="title_legend_pick">Wybierz kontakt</string>
+    <string name="title_legend_bold">Pogrubienie</string>
+    <string name="title_legend_italic">Kursywa</string>
+    <string name="title_legend_link">Wstaw link</string>
+    <string name="title_legend_picture">Wstaw obraz</string>
+    <string name="title_legend_file">Dołącz plik</string>
+    <string name="title_legend_download_off">Pobierz treść wiadomości na żądanie </string>
+    <string name="title_legend_download_on">Automatycznie pobierz zawartość wiadomości</string>
     <string name="title_legend_synchronize_on">Synchronizacja włączona</string>
     <string name="title_legend_synchronize_off">Synchronizacja wyłączona</string>
     <string name="title_legend_disconnected">Rozłączony</string>
@@ -367,6 +394,8 @@
     <string name="title_legend_synchronizing">Synchronizowanie</string>
     <string name="title_legend_downloading">Pobieranie</string>
     <string name="title_legend_closing">Zamykanie</string>
+    <string name="title_legend_waiting">Oczekiwanie na następną synchronizację</string>
+    <string name="title_legend_stop">Zatrzymaj przetwarzanie reguł</string>
     <string name="title_legend_sync_keep">Liczba dni do synchronizacji / zachowania wiadomości</string>
     <string name="title_legend_download_fetch">Liczba pobranych wiadomości / nagłówków</string>
     <string name="title_legend_metered">Połączenie jest taryfowe</string>
@@ -386,9 +415,11 @@
     <string name="title_undo">Cofnij</string>
     <string name="title_add">Dodaj</string>
     <string name="title_browse">Przeglądaj</string>
+    <string name="title_info">Info</string>
     <string name="title_report">Raport</string>
     <string name="title_no_ask_again">Nie pytaj ponownie</string>
     <string name="title_no_adobe">Adobe Acrobat Reader nie może bezpiecznie otworzyć udostępnionych plików, po więcej informacji zajrzyj do FAQ</string>
+    <string name="title_no_body">Nie znaleziono tekstu wiadomości</string>
     <string name="title_no_charset">Nieobsługiwane kodowanie: %1$s</string>
     <string name="title_via">Przez: %1$s</string>
     <string name="title_try">Wypróbuj FairEmail, przyjazna prywatności aplikacja pocztowa dla Android o otwartym kodzie</string>

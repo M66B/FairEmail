@@ -167,8 +167,6 @@
     <string name="title_identity_read_receipt">Demander une confirmation de lecture</string>
     <string name="title_identity_delivery_receipt">Demander un accusé de réception</string>
     <string name="title_identity_receipt_remark">La plupart des fournisseurs ignorent les demandes d\'accusé de réception</string>
-    <string name="title_identity_store_sent">Enregistrer les messages envoyés</string>
-    <string name="title_identity_store_sent_remark">Activer ceci seulement si votre fournisseur n\'enregistre pas automatiquement les messages envoyés</string>
     <string name="title_optional">Facultatif</string>
     <string name="title_account_linked">Compte associé</string>
     <string name="title_account_name">Nom du compte</string>
@@ -368,7 +366,7 @@
     <string name="title_rule_name">Nom</string>
     <string name="title_rule_order">Ordre</string>
     <string name="title_rule_enabled">Activé</string>
-    <string name="title_rule_stop">Arrêter le traitement</string>
+    <string name="title_rule_stop">Arrêtez le traitement des règles après avoir exécuté cette règle</string>
     <string name="title_rule_sender">L\'expéditeur contient</string>
     <string name="title_rule_subject">L’objet contient</string>
     <string name="title_rule_header">L’en-tête contient</string>

@@ -81,6 +81,7 @@
     <string name="title_setup_imported">Inställningar importerade</string>
     <string name="title_setup_quick">Snabbinstallation</string>
     <string name="title_setup_quick_remark">För att snabbt konfigurera ett konto och identitet för de flesta större leverantörer</string>
+    <string name="title_setup_quick_hint">Snabbinställningen hämtar konfigurationsinformation från autoconfig.thunderbird.net</string>
     <string name="title_setup_go">Kör</string>
     <string name="title_setup_setting_gmail">Aktivera åtkomst för ”mindre säkra” appar</string>
     <string name="title_setup_no_settings">Inga inställningar hittades för \"%1$s\"</string>
@@ -115,6 +116,8 @@
     <string name="title_advanced_section_behavior">Beteende</string>
     <string name="title_advanced_section_misc">Diverse</string>
     <string name="title_advanced_enabled">Synkronisera</string>
+    <string name="title_advanced_schedule">Schema</string>
+    <string name="title_advanced_schedule_hint">Tryck på en tid för att ställa in en tid</string>
     <string name="title_advanced_metered">Använda uppmätta anslutningar</string>
     <string name="title_advanced_download">Automatiskt hämta meddelanden och bilagor på en uppmätt anslutning upp till</string>
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
@@ -153,6 +156,7 @@
     <string name="title_advanced_name_email_hint">När inaktiverad visas endast namn när det är tillgängligt</string>
     <string name="title_advanced_preview_hint">Endast tillgängligt när meddelandetexten hämtades</string>
     <string name="title_advanced_autoexpand_hint">Öppna automatiskt meddelandet när det bara finns ett meddelande eller bara ett oläst meddelande i en konversation</string>
+    <string name="title_advanced_autocollapse_hint">Flera utökade meddelanden kommer alltid att stängas på \"Tillbaka\"</string>
     <string name="title_advanced_autoclose_hint">Stäng automatiskt konversationstrådar när alla meddelanden arkiveras, skickas eller kastas</string>
     <string name="title_advanced_sender_hint">De flesta leverantörer tillåter inte ändrade avsändaradresser</string>
     <string name="title_select">Välj &#8230;</string>
@@ -163,8 +167,6 @@
     <string name="title_identity_read_receipt">Begär läskvitto</string>
     <string name="title_identity_delivery_receipt">Begär leveranskvitto</string>
     <string name="title_identity_receipt_remark">De flesta leverantörer ignorerar kvittobegäran</string>
-    <string name="title_identity_store_sent">Lagra skickade meddelanden</string>
-    <string name="title_identity_store_sent_remark">Aktivera detta endast om din leverantör inte automatiskt lagrar skickade meddelanden</string>
     <string name="title_optional">Valfritt</string>
     <string name="title_account_linked">Länkade kontot</string>
     <string name="title_account_name">Kontonamn</string>
@@ -354,7 +356,6 @@
     <string name="title_rule_name">Namn</string>
     <string name="title_rule_order">Ordning</string>
     <string name="title_rule_enabled">Aktiverad</string>
-    <string name="title_rule_stop">Stoppa bearbetning</string>
     <string name="title_rule_sender">Avsändaren innehåller</string>
     <string name="title_rule_subject">Ämnet innehåller</string>
     <string name="title_rule_header">Rubriken innhåller</string>
@@ -380,6 +381,7 @@
     <string name="title_legend_thread">Konversation</string>
     <string name="title_legend_zoom">Ändra textstorlek</string>
     <string name="title_legend_draft">Har utkast</string>
+    <string name="title_legend_browsed">Bläddrat eller sökt</string>
     <string name="title_legend_answered">Har besvarats</string>
     <string name="title_legend_attachment">Har bilaga</string>
     <string name="title_legend_flagged">Är stjärnmärkt</string>

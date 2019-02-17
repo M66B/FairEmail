@@ -183,8 +183,6 @@
     <string name="title_identity_read_receipt">Запросить уведомления о прочтении</string>
     <string name="title_identity_delivery_receipt">Запросить уведомление о доставке</string>
     <string name="title_identity_receipt_remark">Большинство провайдеров игнорируют запросы на получение</string>
-    <string name="title_identity_store_sent">Сохранять отправленные сообщения</string>
-    <string name="title_identity_store_sent_remark">Включите это, только если ваш провайдер не сохраняет отправленные сообщения автоматически</string>
     <string name="title_optional">Необязательно</string>
     <string name="title_account_linked">Связанная учётная запись</string>
     <string name="title_account_name">Название учётной записи</string>
@@ -384,7 +382,6 @@
     <string name="title_rule_name">Название</string>
     <string name="title_rule_order">Порядок</string>
     <string name="title_rule_enabled">Включено</string>
-    <string name="title_rule_stop">Остановить обработку</string>
     <string name="title_rule_sender">\"Отправитель\" содержит</string>
     <string name="title_rule_subject">\"Тема\" содержит</string>
     <string name="title_rule_header">Заголовок содержит</string>

@@ -163,8 +163,6 @@
     <string name="title_identity_read_receipt">Solicitar recibo de leitura</string>
     <string name="title_identity_delivery_receipt">Solicitar recibo de entrega</string>
     <string name="title_identity_receipt_remark">A maioria dos provedores ignoram solicitações de recebimento</string>
-    <string name="title_identity_store_sent">Armazenar mensagens enviadas</string>
-    <string name="title_identity_store_sent_remark">Habilitar isto somente se seu provedor de e-mail não armazena automaticamente mensagens enviadas</string>
     <string name="title_optional">Opcional</string>
     <string name="title_account_linked">Conta vinculada</string>
     <string name="title_account_name">Nome da conta</string>
@@ -321,7 +319,6 @@
     <string name="title_previous">Voltar</string>
     <string name="title_next">Avançar</string>
     <string name="title_rule_enabled">Ativado</string>
-    <string name="title_rule_stop">Parar processamento</string>
     <string name="title_rule_sender">Remetente contém</string>
     <string name="title_rule_subject">Assunto contém</string>
     <string name="title_rule_header">Cabeçalho contém</string>

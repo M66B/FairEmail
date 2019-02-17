@@ -116,7 +116,7 @@
     <string name="title_advanced_section_behavior">Comportamiento</string>
     <string name="title_advanced_section_misc">Miscelánea</string>
     <string name="title_advanced_enabled">Sincronizar</string>
-    <string name="title_advanced_schedule">Programar</string>
+    <string name="title_advanced_schedule">Programa</string>
     <string name="title_advanced_schedule_hint">Toque sobre un horario para establecer un horario</string>
     <string name="title_advanced_metered">Usar conexión de datos</string>
     <string name="title_advanced_download">Descargar automáticamente mensajes y adjuntos usando conexión de datos hasta</string>
@@ -167,8 +167,6 @@
     <string name="title_identity_read_receipt">Solicitar confirmación de lectura</string>
     <string name="title_identity_delivery_receipt">Solicitar confirmación de entrega</string>
     <string name="title_identity_receipt_remark">La mayoría de los proveedores ignoran las solicitudes de confirmación</string>
-    <string name="title_identity_store_sent">Almacenar mensajes guardados</string>
-    <string name="title_identity_store_sent_remark">Active esto solo si su proveedor no almacena automáticamente los mensajes enviados</string>
     <string name="title_optional">Opcional</string>
     <string name="title_account_linked">Cuenta vinculada</string>
     <string name="title_account_name">Nombre de cuenta</string>
@@ -368,7 +366,6 @@
     <string name="title_rule_name">Nombre</string>
     <string name="title_rule_order">Orden</string>
     <string name="title_rule_enabled">Activada</string>
-    <string name="title_rule_stop">Detener procesamiento</string>
     <string name="title_rule_sender">Remitente contiene</string>
     <string name="title_rule_subject">Asunto contiene</string>
     <string name="title_rule_header">Encabezado contiene</string>

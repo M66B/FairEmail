@@ -80,6 +80,7 @@
     <string name="title_setup_imported">Ayarlar içe aktarıldı</string>
     <string name="title_setup_quick">Hızlı Kurulum</string>
     <string name="title_setup_quick_remark">Çoğu büyük sağlayıcı için bir hesap kimlik hızlı kurulumu</string>
+    <string name="title_setup_quick_hint">Hızlı kurulum, yapılandırma bilgilerini autoconfig.thunderbird.net adresinden alır</string>
     <string name="title_setup_go">Git</string>
     <string name="title_setup_setting_gmail">\"Daha az güvenli\" uygulamalara erişimi etkinleştir</string>
     <string name="title_setup_no_settings">%1$s için ayar bulunamadı</string>
@@ -106,6 +107,7 @@
     <string name="title_setup_black_theme">Siyah tema</string>
     <string name="title_setup_system_theme">Sistem teması</string>
     <string name="title_setup_defaults">Öntanımlıları geri yükle</string>
+    <string name="title_setup_options">Seçenekler</string>
     <string name="title_advanced">Gelişmiş seçenekler</string>
     <string name="title_advanced_section_general">Genel</string>
     <string name="title_advanced_section_connection">Bağlantı</string>
@@ -113,6 +115,8 @@
     <string name="title_advanced_section_behavior">Davranış</string>
     <string name="title_advanced_section_misc">Çeşitli</string>
     <string name="title_advanced_enabled">Eşzamanlama</string>
+    <string name="title_advanced_schedule">Program</string>
+    <string name="title_advanced_schedule_hint">Bir zaman ayarlamak için bir saate dokunun</string>
     <string name="title_advanced_metered">Ölçülü bağlantıları kullan</string>
     <string name="title_advanced_download">Mesajları ve ekleri ölçülü bir bağlantıya kadar otomatik olarak indir</string>
     <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
@@ -138,6 +142,7 @@
     <string name="title_advanced_autoresize">Ekranda görüntülemek için görselleri otomatik olarak yeniden boyutlandır</string>
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
     <string name="title_advanced_autosend">İleti göndermeyi onayla</string>
+    <string name="title_advanced_notify_preview">Bildirimlerde ileti önizlemesini göster</string>
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
     <string name="title_advanced_updates">Güncellemelere bak</string>
@@ -155,11 +160,10 @@
     <string name="title_identity_name">Adınız</string>
     <string name="title_identity_email">E-posta adresiniz</string>
     <string name="title_identity_reply_to">Yanıtlama adresi</string>
+    <string name="title_identity_plain_text">Yalnızca düz metin gönder</string>
     <string name="title_identity_read_receipt">Okundu bilgisi iste</string>
     <string name="title_identity_delivery_receipt">Alındı belgesi iste</string>
     <string name="title_identity_receipt_remark">Çoğu sağlayıcı alındı isteklerini yok sayıyor</string>
-    <string name="title_identity_store_sent">Gönderilen iletileri depola</string>
-    <string name="title_identity_store_sent_remark">Bunu, yalnızca sağlayıcınız gönderilen iletileri otomatik olarak kaydetmiyorsa etkinleştirin</string>
     <string name="title_optional">İsteğe bağlı</string>
     <string name="title_account_linked">Bağlı hesap</string>
     <string name="title_account_name">Hesap adı</string>
@@ -200,12 +204,16 @@
     <string name="title_no_inbox">Gelen kutusu bulunamadı</string>
     <string name="title_no_primary_drafts">Birincil hesap veya taslak klasörü yok</string>
     <string name="title_no_idle">Bu sağlayıcı anlık mesajları desteklemiyor. Bu, yeni mesajların alınmasını geciktirecek ve pil kullanımını artıracaktır.</string>
+    <string name="title_no_move">Bu sağlayıcı MOVE\'yi desteklemiyor</string>
+    <string name="title_no_uidplus">Bu sağlayıcı UIDPLUS\'ı desteklemiyor</string>
     <string name="title_no_sync">%1$s\'den beri eşzamanlama hataları</string>
     <string name="title_drafts_required">İleti göndermek için taslaklar klasörü gerekir</string>
     <string name="title_account_delete">Bu hesap kalıcı olarak silinsin mi?</string>
     <string name="title_identity_delete">Bu kimlik kalıcı olarak silinsin mi?</string>
     <string name="title_edit_html">HTML olarak düzenle</string>
     <string name="title_last_connected">Son bağlantı: %1$s</string>
+    <string name="title_pop3_hint">POP3\'ün önemli sınırlamaları var, mümkünse IMAP kullanın</string>
+    <string name="title_pop3_support">POP3 desteklenmiyor, ayrıca SSS bölümüne bakınız</string>
     <string name="title_synchronize_now">Şimdi senkronize et</string>
     <string name="title_delete_local">Yerel mesajları sil</string>
     <string name="title_empty_trash">Çöpü boşalt</string>
@@ -355,7 +363,6 @@
     <string name="title_rule_name">Ad</string>
     <string name="title_rule_order">Sıralama</string>
     <string name="title_rule_enabled">Etkin</string>
-    <string name="title_rule_stop">İşlemi durdur</string>
     <string name="title_rule_sender">Gönderen içeriyor</string>
     <string name="title_rule_subject">Konu içeriyor</string>
     <string name="title_rule_header">Başlık içeriyor</string>

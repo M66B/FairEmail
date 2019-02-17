@@ -159,8 +159,6 @@
     <string name="title_identity_read_receipt">请求读取回执</string>
     <string name="title_identity_delivery_receipt">请求发出凭据</string>
     <string name="title_identity_receipt_remark">大部份提供商忽略接收请求</string>
-    <string name="title_identity_store_sent">存储发送消息</string>
-    <string name="title_identity_store_sent_remark">仅当您的电邮供应商不自动存储发送消息时才启用此选项</string>
     <string name="title_optional">可选</string>
     <string name="title_account_linked">已绑定的账户</string>
     <string name="title_account_name">账户名</string>
@@ -359,7 +357,6 @@
     <string name="title_rule_name">名称</string>
     <string name="title_rule_order">顺序</string>
     <string name="title_rule_enabled">已启用</string>
-    <string name="title_rule_stop">停止处理</string>
     <string name="title_rule_sender">发件人包含</string>
     <string name="title_rule_subject">主题包含</string>
     <string name="title_rule_header">邮件头包含</string>

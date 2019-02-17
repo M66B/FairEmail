@@ -167,8 +167,6 @@
     <string name="title_identity_read_receipt">Vraag leesbevestiging</string>
     <string name="title_identity_delivery_receipt">Vraag ontvangstbevestiging</string>
     <string name="title_identity_receipt_remark">De meeste providers negeren bevestigingsverzoeken</string>
-    <string name="title_identity_store_sent">Sla verzonden berichten op</string>
-    <string name="title_identity_store_sent_remark">Dit alleen inschakelen als uw provider niet automatisch verzonden berichten opslaat</string>
     <string name="title_optional">Optioneel</string>
     <string name="title_account_linked">Gekoppeld account</string>
     <string name="title_account_name">Accountnaam</string>
@@ -368,7 +366,7 @@
     <string name="title_rule_name">Naam</string>
     <string name="title_rule_order">Volgorde</string>
     <string name="title_rule_enabled">Ingeschakeld</string>
-    <string name="title_rule_stop">Stop met verwerken</string>
+    <string name="title_rule_stop">Stop verwerking van regels na het uitvoeren van deze regel</string>
     <string name="title_rule_sender">Afzender bevat</string>
     <string name="title_rule_subject">Onderwerp bevat</string>
     <string name="title_rule_header">De kop bevat</string>
