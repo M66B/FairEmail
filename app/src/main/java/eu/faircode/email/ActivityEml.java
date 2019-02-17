@@ -96,10 +96,11 @@ public class ActivityEml extends ActivityBase {
                     for (MessageHelper.AttachmentPart apart : parts.getAttachmentParts()) {
                         if (sb.length() > 0)
                             sb.append("<br />");
-                        sb.append(
-                                apart.part.getContentType()).append(' ')
-                                .append(apart.disposition).append(' ')
-                                .append(apart.filename);
+                        sb.append(apart.part.getContentType());
+                        if (apart.disposition != null)
+                            sb.append(' ').append(apart.disposition);
+                        if (apart.filename != null)
+                            sb.append(' ').append(apart.filename);
                     }
                     result.parts = HtmlHelper.fromHtml(sb.toString());
 
@@ -128,7 +129,7 @@ public class ActivityEml extends ActivityBase {
                 tvParts.setText(result.parts);
                 tvBody.setText(result.body);
                 tvHtml.setText(result.html);
-                tvEml.setText(result.eml);
+                tvEml.setText(result.eml.substring(0, Math.min(10 * 1024, result.eml.length()))); // prevent ANR
                 grpEml.setVisibility(View.VISIBLE);
             }
 
