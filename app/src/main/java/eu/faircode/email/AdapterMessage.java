@@ -1573,31 +1573,32 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private class UrlHandler extends ArrowKeyMovementMethod {
+            @Override
             public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
-                if (event.getAction() != MotionEvent.ACTION_UP)
-                    return false;
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    int x = (int) event.getX();
+                    int y = (int) event.getY();
 
-                int x = (int) event.getX();
-                int y = (int) event.getY();
+                    x -= widget.getTotalPaddingLeft();
+                    y -= widget.getTotalPaddingTop();
 
-                x -= widget.getTotalPaddingLeft();
-                y -= widget.getTotalPaddingTop();
+                    x += widget.getScrollX();
+                    y += widget.getScrollY();
 
-                x += widget.getScrollX();
-                y += widget.getScrollY();
+                    Layout layout = widget.getLayout();
+                    int line = layout.getLineForVertical(y);
+                    int off = layout.getOffsetForHorizontal(line, x);
 
-                Layout layout = widget.getLayout();
-                int line = layout.getLineForVertical(y);
-                int off = layout.getOffsetForHorizontal(line, x);
-
-                URLSpan[] link = buffer.getSpans(off, off, URLSpan.class);
-                if (link.length != 0) {
-                    String url = link[0].getURL();
-                    Uri uri = Uri.parse(url);
-                    onOpenLink(uri);
+                    URLSpan[] link = buffer.getSpans(off, off, URLSpan.class);
+                    if (link.length != 0) {
+                        String url = link[0].getURL();
+                        Uri uri = Uri.parse(url);
+                        onOpenLink(uri);
+                        return true;
+                    }
                 }
 
-                return true;
+                return super.onTouchEvent(widget, buffer, event);
             }
         }
 
