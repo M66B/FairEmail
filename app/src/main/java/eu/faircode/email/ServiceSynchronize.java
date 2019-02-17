@@ -1772,7 +1772,7 @@ public class ServiceSynchronize extends LifecycleService {
                 imessage.setFlag(Flags.Flag.DRAFT, true);
 
         // Add message
-        long uid = append(istore, ifolder, imessage, message.msgid);
+        long uid = append(istore, ifolder, imessage);
         Log.i(folder.name + " appended id=" + message.id + " uid=" + uid);
         db.message().setMessageUid(message.id, uid);
 
@@ -1822,10 +1822,9 @@ public class ServiceSynchronize extends LifecycleService {
                 !EntityFolder.DRAFTS.equals(folder.type) &&
                 !EntityFolder.DRAFTS.equals(target.type)) {
             // Autoread
-            if (ifolder.getPermanentFlags().contains(Flags.Flag.SEEN)) {
+            if (ifolder.getPermanentFlags().contains(Flags.Flag.SEEN))
                 if (autoread && !imessage.isSet(Flags.Flag.SEEN))
                     imessage.setFlag(Flags.Flag.SEEN, true);
-            }
 
             // Move message to
             ifolder.moveMessages(new Message[]{imessage}, itarget);
@@ -1838,20 +1837,23 @@ public class ServiceSynchronize extends LifecycleService {
             imessage.writeTo(bos);
 
             // Deserialize target message
+            // Make sure the message has a message ID
             ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
-            Message icopy = new MimeMessage(isession, bis);
+            String msgid = message.msgid;
+            if (msgid == null) {
+                msgid = EntityMessage.generateMessageId();
+                Log.i(target.name + " generated message id=" + msgid);
+            }
+            Message icopy = new MimeMessageEx(isession, bis, msgid);
 
             try {
                 // Needed to read flags
                 itarget.open(Folder.READ_WRITE);
 
                 // Auto read
-                if (itarget.getPermanentFlags().contains(Flags.Flag.SEEN)) {
-                    if (autoread && !icopy.isSet(Flags.Flag.SEEN)) {
-                        Log.i("Copy autoread");
+                if (itarget.getPermanentFlags().contains(Flags.Flag.SEEN))
+                    if (autoread && !icopy.isSet(Flags.Flag.SEEN))
                         icopy.setFlag(Flags.Flag.SEEN, true);
-                    }
-                }
 
                 // Move from drafts
                 if (EntityFolder.DRAFTS.equals(folder.type))
@@ -1864,8 +1866,8 @@ public class ServiceSynchronize extends LifecycleService {
                         icopy.setFlag(Flags.Flag.DRAFT, true);
 
                 // Append target
-                long uid = append(istore, itarget, icopy, message.msgid);
-                Log.i(folder.name + " appended id=" + message.id + " uid=" + uid);
+                long uid = append(istore, itarget, (MimeMessage) icopy);
+                Log.i(target.name + " appended id=" + message.id + " uid=" + uid);
                 db.message().setMessageUid(message.id, uid);
 
                 // Some providers, like Gmail, don't honor the appended seen flag
@@ -1873,7 +1875,7 @@ public class ServiceSynchronize extends LifecycleService {
                     boolean seen = (autoread || message.ui_seen);
                     icopy = itarget.getMessageByUID(uid);
                     if (seen != icopy.isSet(Flags.Flag.SEEN)) {
-                        Log.i(folder.name + " Fixing id=" + message.id + " seen=" + seen);
+                        Log.i(target.name + " Fixing id=" + message.id + " seen=" + seen);
                         icopy.setFlag(Flags.Flag.SEEN, seen);
                     }
                 }
@@ -1883,7 +1885,7 @@ public class ServiceSynchronize extends LifecycleService {
                     boolean draft = EntityFolder.DRAFTS.equals(target.type);
                     icopy = itarget.getMessageByUID(uid);
                     if (draft != icopy.isSet(Flags.Flag.DRAFT)) {
-                        Log.i(folder.name + " Fixing id=" + message.id + " draft=" + draft);
+                        Log.i(target.name + " Fixing id=" + message.id + " draft=" + draft);
                         icopy.setFlag(Flags.Flag.DRAFT, draft);
                     }
                 }
@@ -2174,7 +2176,7 @@ public class ServiceSynchronize extends LifecycleService {
         parts.downloadAttachment(this, db, attachment.id, sequence);
     }
 
-    private long append(IMAPStore istore, IMAPFolder ifolder, Message imessage, String msgid) throws MessagingException {
+    private long append(IMAPStore istore, IMAPFolder ifolder, MimeMessage imessage) throws MessagingException {
         if (istore.hasCapability("UIDPLUS")) {
             AppendUID[] uids = ifolder.appendUIDMessages(new Message[]{imessage});
             if (uids == null || uids.length == 0)
@@ -2183,7 +2185,7 @@ public class ServiceSynchronize extends LifecycleService {
         } else {
             ifolder.appendMessages(new Message[]{imessage});
             long uid = -1;
-            Message[] messages = ifolder.search(new MessageIDTerm(msgid));
+            Message[] messages = ifolder.search(new MessageIDTerm(imessage.getMessageID()));
             if (messages != null)
                 for (Message iappended : messages) {
                     long muid = ifolder.getUID(iappended);
