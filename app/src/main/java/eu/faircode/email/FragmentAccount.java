@@ -383,6 +383,7 @@ public class FragmentAccount extends FragmentBase {
         cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                cbOnDemand.setEnabled(checked);
                 cbPrimary.setEnabled(checked);
             }
         });
@@ -1189,6 +1190,7 @@ public class FragmentAccount extends FragmentBase {
                 etRealm.setEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
 
                 setColor(color);
+                cbOnDemand.setEnabled(cbSynchronize.isChecked());
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
 
                 // Consider previous check/save/delete as cancelled
