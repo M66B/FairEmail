@@ -265,6 +265,9 @@ public interface DaoMessage {
     @Update
     int updateMessage(EntityMessage message);
 
+    @Query("UPDATE message SET folder = :folder WHERE id = :id")
+    int setMessageFolder(long id, long folder);
+
     @Query("UPDATE message SET uid = :uid WHERE id = :id")
     int setMessageUid(long id, long uid);
 

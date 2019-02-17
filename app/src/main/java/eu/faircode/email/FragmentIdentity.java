@@ -102,6 +102,8 @@ public class FragmentIdentity extends FragmentBase {
     private CheckBox cbDeliveryReceipt;
     private CheckBox cbReadReceipt;
 
+    private CheckBox cbStoreSent;
+
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
     private TextView tvError;
@@ -166,6 +168,8 @@ public class FragmentIdentity extends FragmentBase {
         cbPlainOnly = view.findViewById(R.id.cbPlainOnly);
         cbDeliveryReceipt = view.findViewById(R.id.cbDeliveryReceipt);
         cbReadReceipt = view.findViewById(R.id.cbReadReceipt);
+
+        cbStoreSent = view.findViewById(R.id.cbStoreSent);
 
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
@@ -463,6 +467,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putBoolean("plain_only", cbPlainOnly.isChecked());
         args.putBoolean("delivery_receipt", cbDeliveryReceipt.isChecked());
         args.putBoolean("read_receipt", cbReadReceipt.isChecked());
+        args.putBoolean("store_sent", cbStoreSent.isChecked());
         args.putLong("account", account == null ? -1 : account.id);
         args.putInt("auth_type", auth_type);
         args.putString("host", etHost.getText().toString());
@@ -522,6 +527,7 @@ public class FragmentIdentity extends FragmentBase {
                 boolean plain_only = args.getBoolean("plain_only");
                 boolean delivery_receipt = args.getBoolean("delivery_receipt");
                 boolean read_receipt = args.getBoolean("read_receipt");
+                boolean store_sent = args.getBoolean("store_sent");
 
                 if (TextUtils.isEmpty(name))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_name));
@@ -626,6 +632,8 @@ public class FragmentIdentity extends FragmentBase {
                     identity.plain_only = plain_only;
                     identity.delivery_receipt = delivery_receipt;
                     identity.read_receipt = read_receipt;
+                    identity.store_sent = store_sent;
+                    identity.sent_folder = null;
                     identity.error = null;
                     identity.last_connected = last_connected;
 
@@ -726,6 +734,7 @@ public class FragmentIdentity extends FragmentBase {
                     cbPlainOnly.setChecked(identity == null ? false : identity.plain_only);
                     cbDeliveryReceipt.setChecked(identity == null ? false : identity.delivery_receipt);
                     cbReadReceipt.setChecked(identity == null ? false : identity.read_receipt);
+                    cbStoreSent.setChecked(identity == null ? false : identity.store_sent);
 
                     color = (identity == null || identity.color == null ? Color.TRANSPARENT : identity.color);
 

@@ -1987,7 +1987,13 @@ public class ServiceSynchronize extends LifecycleService {
             EntityLog.log(this, "Sent via " + ident.host + "/" + ident.user +
                     " to " + TextUtils.join(", ", to));
 
+            // Append replied/forwarded text
+            StringBuilder sb = new StringBuilder();
+            sb.append(Helper.readText(EntityMessage.getFile(this, message.id)));
             File refFile = EntityMessage.getRefFile(this, message.id);
+            if (refFile.exists())
+                sb.append(Helper.readText(refFile));
+            Helper.writeText(EntityMessage.getFile(this, message.id), sb.toString());
 
             try {
                 db.beginTransaction();
@@ -1997,13 +2003,13 @@ public class ServiceSynchronize extends LifecycleService {
                 db.message().setMessageUiSeen(message.id, true);
                 db.message().setMessageError(message.id, null);
 
-                // Append replied/forwarded text
-                StringBuilder sb = new StringBuilder();
-                sb.append(Helper.readText(EntityMessage.getFile(this, message.id)));
-                if (refFile.exists())
-                    sb.append(Helper.readText(refFile));
-
-                Helper.writeText(EntityMessage.getFile(this, message.id), sb.toString());
+                EntityFolder sent = db.folder().getFolderByType(message.account, EntityFolder.SENT);
+                if (ident.store_sent && sent != null) {
+                    db.message().setMessageFolder(message.id, sent.id);
+                    message.folder = sent.id;
+                    EntityOperation.queue(this, db, message, EntityOperation.ADD);
+                } else
+                    db.message().setMessageUiHide(message.id, true);
 
                 db.setTransactionSuccessful();
             } finally {
