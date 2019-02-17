@@ -2259,11 +2259,7 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(folder.name + " connected");
 
             // Synchronize messages
-            JSONArray jargs = new JSONArray();
-            jargs.put(folder.getSyncDays());
-            jargs.put(folder.keep_days);
-            jargs.put(folder.download);
-            synchronizeMessages(account, folder, (IMAPFolder) ifolder, jargs, new ServiceState());
+            synchronizeMessages(account, folder, (IMAPFolder) ifolder, folder.getSyncArgs(), new ServiceState());
 
         } catch (Throwable ex) {
             db.account().setAccountError(account.id, Helper.formatThrowable(ex));

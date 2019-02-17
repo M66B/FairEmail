@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -163,7 +164,7 @@ public class EntityFolder implements Serializable {
     public EntityFolder() {
     }
 
-    long getSyncDays() {
+    JSONArray getSyncArgs() {
         int days = sync_days;
         if (last_sync != null) {
             int ago_days = (int) ((new Date().getTime() - last_sync) / (24 * 3600 * 1000L)) + 1;
@@ -171,7 +172,12 @@ public class EntityFolder implements Serializable {
                 days = ago_days;
         }
 
-        return (initialize ? Math.min(DEFAULT_INIT, keep_days) : days);
+        JSONArray jargs = new JSONArray();
+        jargs.put(initialize ? Math.min(DEFAULT_INIT, keep_days) : days);
+        jargs.put(keep_days);
+        jargs.put(download);
+
+        return jargs;
     }
 
     static int getIcon(String type) {

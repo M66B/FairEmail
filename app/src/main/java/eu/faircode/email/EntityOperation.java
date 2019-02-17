@@ -102,16 +102,11 @@ public class EntityOperation {
 
             EntityFolder folder = db.folder().getFolder(fid);
 
-            JSONArray jargs = new JSONArray();
-            jargs.put(folder.getSyncDays());
-            jargs.put(folder.keep_days);
-            jargs.put(folder.download);
-
             EntityOperation operation = new EntityOperation();
             operation.folder = folder.id;
             operation.message = null;
             operation.name = SYNC;
-            operation.args = jargs.toString();
+            operation.args = folder.getSyncArgs().toString();
             operation.created = new Date().getTime();
             operation.id = db.operation().insertOperation(operation);
 
