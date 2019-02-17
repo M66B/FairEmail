@@ -49,7 +49,7 @@ public class ActivityMain extends AppCompatActivity implements FragmentManager.O
             new SimpleTask<List<EntityAccount>>() {
                 @Override
                 protected List<EntityAccount> onExecute(Context context, Bundle args) {
-                    return DB.getInstance(context).account().getAccounts(true);
+                    return DB.getInstance(context).account().getSynchronizingAccounts(true);
                 }
 
                 @Override

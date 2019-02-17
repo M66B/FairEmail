@@ -241,7 +241,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         if (savedInstanceState != null)
             drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("toggle"));
 
-        DB.getInstance(this).account().liveAccounts(true).observe(this, new Observer<List<EntityAccount>>() {
+        DB.getInstance(this).account().liveSynchronizingAccounts().observe(this, new Observer<List<EntityAccount>>() {
             @Override
             public void onChanged(List<EntityAccount> accounts) {
                 hasAccount = (accounts != null && accounts.size() > 0);

@@ -3202,7 +3202,7 @@ public class ServiceSynchronize extends LifecycleService {
                         }
 
                         // Start monitoring accounts
-                        List<EntityAccount> accounts = db.account().getAccounts(true);
+                        List<EntityAccount> accounts = db.account().getSynchronizingAccounts(false);
                         for (final EntityAccount account : accounts) {
                             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
                                 if (account.notify)

@@ -32,8 +32,10 @@ public interface DaoAccount {
     @Query("SELECT * FROM account")
     List<EntityAccount> getAccounts();
 
-    @Query("SELECT * FROM account WHERE synchronize = :synchronize")
-    List<EntityAccount> getAccounts(boolean synchronize);
+    @Query("SELECT * FROM account" +
+            " WHERE synchronize" +
+            " AND (:all OR NOT ondemand)")
+    List<EntityAccount> getSynchronizingAccounts(boolean all);
 
     @Query("SELECT * FROM account WHERE tbd = 1")
     List<EntityAccount> getAccountsTbd();
@@ -41,8 +43,10 @@ public interface DaoAccount {
     @Query("SELECT * FROM account")
     LiveData<List<EntityAccount>> liveAccounts();
 
-    @Query("SELECT * FROM account WHERE synchronize = :synchronize")
-    LiveData<List<EntityAccount>> liveAccounts(boolean synchronize);
+    @Query("SELECT * FROM account" +
+            " WHERE synchronize")
+        // including on demand
+    LiveData<List<EntityAccount>> liveSynchronizingAccounts();
 
     @Query("SELECT *" +
             ", (SELECT COUNT(message.id)" +

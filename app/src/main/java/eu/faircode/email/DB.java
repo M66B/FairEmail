@@ -49,7 +49,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 44,
+        version = 45,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -510,6 +510,13 @@ public abstract class DB extends RoomDatabase {
                                 ", `name` TEXT)");
                         db.execSQL("CREATE UNIQUE INDEX `index_contact_email_type` ON `contact` (`email`, `type`)");
                         db.execSQL("CREATE  INDEX `index_contact_name_type` ON `contact` (`name`, `type`)");
+                    }
+                })
+                .addMigrations(new Migration(44, 45) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("ALTER TABLE `account` ADD COLUMN `ondemand` INTEGER NOT NULL DEFAULT 0");
                     }
                 })
                 .build();

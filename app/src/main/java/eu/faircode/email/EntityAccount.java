@@ -71,6 +71,8 @@ public class EntityAccount implements Serializable {
     @NonNull
     public Boolean synchronize;
     @NonNull
+    public Boolean ondemand = false;
+    @NonNull
     public Boolean primary;
     @NonNull
     public Boolean notify;
@@ -128,6 +130,7 @@ public class EntityAccount implements Serializable {
         json.put("color", color);
 
         json.put("synchronize", synchronize);
+        json.put("ondemand", ondemand);
         json.put("primary", primary);
         json.put("notify", notify);
         json.put("browse", browse);
@@ -163,6 +166,8 @@ public class EntityAccount implements Serializable {
             account.color = json.getInt("color");
 
         account.synchronize = json.getBoolean("synchronize");
+        if (json.has("ondemand"))
+            account.ondemand = json.getBoolean("ondemand");
         account.primary = json.getBoolean("primary");
         if (json.has("notify"))
             account.notify = json.getBoolean("notify");

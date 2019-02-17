@@ -270,7 +270,7 @@ public class FragmentSetup extends FragmentBase {
 
         final DB db = DB.getInstance(getContext());
 
-        db.account().liveAccounts(true).observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
+        db.account().liveSynchronizingAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
             private boolean done = false;
             private LiveData<EntityFolder> livePrimaryDrafts = null;
             private LiveData<EntityFolder> livePrimaryArchive = null;
