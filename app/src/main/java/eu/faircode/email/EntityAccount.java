@@ -122,7 +122,7 @@ public class EntityAccount implements Serializable {
         json.put("port", port);
         json.put("user", user);
         json.put("password", password);
-        json.put("realm", password);
+        json.put("realm", realm);
 
         json.put("name", name);
         json.put("color", color);
