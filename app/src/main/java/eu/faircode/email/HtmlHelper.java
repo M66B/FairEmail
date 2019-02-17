@@ -83,15 +83,18 @@ public class HtmlHelper {
         for (Element img : document.select("img")) {
             img.prependElement("br");
 
-            boolean linked = false;
-            for (Element parent : img.parents())
-                if ("a".equals(parent.tagName())) {
-                    linked = true;
-                    break;
-                }
-            if (!linked) {
-                String src = img.attr("src");
-                if (src.startsWith("http://") || src.startsWith("https://")) {
+            String src = img.attr("src");
+            if (src.startsWith("http://") || src.startsWith("https://")) {
+                boolean linked = false;
+                for (Element parent : img.parents())
+                    if ("a".equals(parent.tagName())) {
+                        if (TextUtils.isEmpty(parent.attr("href")))
+                            parent.attr("href", img.attr("src"));
+                        linked = true;
+                        break;
+                    }
+
+                if (!linked) {
                     Element a = document.createElement("a");
                     a.attr("href", src);
                     a.appendChild(img.clone());
