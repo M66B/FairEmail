@@ -28,7 +28,7 @@ For authorizing:
 
 ## Planned features
 
-None at this moment.
+* Synchronize on demand
 
 Anything on this list is in random order and *might* be added in the near future.
 
