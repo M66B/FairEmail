@@ -78,7 +78,7 @@ public class MessageHelper {
         System.setProperty("mail.mime.base64.ignoreerrors", "true");
         System.setProperty("mail.mime.decodefilename", "true");
         System.setProperty("mail.mime.encodefilename", "true");
-        System.setProperty("mail.mime.allowutf8", "true"); // InternetAddress, MimeBodyPart, MimeUtility
+        System.setProperty("mail.mime.allowutf8", "false"); // InternetAddress, MimeBodyPart, MimeUtility
 
         // https://docs.oracle.com/javaee/6/api/javax/mail/internet/MimeMultipart.html
         System.setProperty("mail.mime.multipart.ignoremissingboundaryparameter", "true"); // javax.mail.internet.ParseException: In parameter list
@@ -167,7 +167,7 @@ public class MessageHelper {
         props.put("mail.smtp.timeout", Integer.toString(NETWORK_TIMEOUT));
 
         // MIME
-        props.put("mail.mime.allowutf8", "true"); // SMTPTransport, MimeMessage
+        props.put("mail.mime.allowutf8", "false"); // SMTPTransport, MimeMessage
         props.put("mail.mime.address.strict", "false");
 
         if (false) {
