@@ -955,10 +955,6 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.i(account.name + " idle=" + capIdle + " uidplus=" + capUidPlus);
 
                     db.account().setAccountState(account.id, "connected");
-
-                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                    nm.cancel("receive", account.id.intValue());
-
                     EntityLog.log(this, account.name + " connected");
 
                     // Update folder list
@@ -1324,6 +1320,9 @@ public class ServiceSynchronize extends LifecycleService {
                             EntityLog.log(this, account.name + " set last_connected=" + last_connected);
                             db.account().setAccountConnected(account.id, last_connected.getTime());
                             db.account().setAccountError(account.id, capIdle ? null : getString(R.string.title_no_idle));
+
+                            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                            nm.cancel("receive", account.id.intValue());
 
                             // Schedule keep alive alarm
                             EntityLog.log(this, account.name + " wait=" + account.poll_interval);
