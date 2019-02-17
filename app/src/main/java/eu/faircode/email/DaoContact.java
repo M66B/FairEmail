@@ -55,4 +55,7 @@ public interface DaoContact {
 
     @Update
     int updateContact(EntityContact contact);
+
+    @Query("DELETE from contact")
+    int clearContacts();
 }
