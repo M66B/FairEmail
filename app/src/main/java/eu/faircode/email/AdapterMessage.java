@@ -891,28 +891,30 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean show_inline = properties.getValue("inline", message.id);
             Log.i("Show inline=" + show_inline);
 
-            boolean inline = false;
+            boolean has_inline = false;
             boolean download = false;
             boolean save = (attachments.size() > 1);
             boolean downloading = false;
             List<EntityAttachment> a = new ArrayList<>();
             for (EntityAttachment attachment : attachments) {
-                if (attachment.isInline() || TextUtils.isEmpty(attachment.name))
-                    inline = true;
+                boolean inline = (TextUtils.isEmpty(attachment.name) ||
+                        (attachment.isInline() && attachment.type.startsWith("image/")));
+                if (inline)
+                    has_inline = true;
                 if (attachment.progress == null && !attachment.available)
                     download = true;
                 if (!attachment.available)
                     save = false;
                 if (attachment.progress != null)
                     downloading = true;
-                if (show_inline || !attachment.isInline())
+                if (show_inline || !inline)
                     a.add(attachment);
             }
             adapterAttachment.set(a);
 
             cbInline.setOnCheckedChangeListener(null);
             cbInline.setChecked(show_inline);
-            cbInline.setVisibility(inline ? View.VISIBLE : View.GONE);
+            cbInline.setVisibility(has_inline ? View.VISIBLE : View.GONE);
             btnDownloadAttachments.setVisibility(download && internet ? View.VISIBLE : View.GONE);
             btnSaveAttachments.setVisibility(save ? View.VISIBLE : View.GONE);
             tvNoInternetAttachments.setVisibility(downloading && !internet ? View.VISIBLE : View.GONE);
@@ -928,7 +930,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             List<EntityAttachment> images = new ArrayList<>();
             for (EntityAttachment attachment : attachments)
-                if (attachment.type.startsWith("image/") && !attachment.isInline())
+                if (attachment.type.startsWith("image/"))
                     images.add(attachment);
             adapterImage.set(images);
             rvImage.setVisibility(images.size() > 0 ? View.VISIBLE : View.GONE);
