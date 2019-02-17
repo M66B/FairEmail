@@ -338,8 +338,6 @@ public class FragmentQuickSetup extends FragmentBase {
                     identity.bcc = null;
                     identity.delivery_receipt = false;
                     identity.read_receipt = false;
-                    identity.store_sent = false;
-                    identity.sent_folder = null;
                     identity.error = null;
 
                     identity.id = db.identity().insertIdentity(identity);

@@ -249,11 +249,12 @@ public interface DaoMessage {
             " AND NOT ui_browsed")
     List<Long> getUids(long folder, Long received);
 
-    @Query("SELECT * FROM message" +
-            " WHERE folder = :folder" +
-            " AND uid IS NULL" +
-            " AND ui_browsed")
-    List<EntityMessage> getSentOrphans(long folder);
+    @Query("SELECT message.* FROM message" +
+            " JOIN folder on folder.id = message.folder" +
+            " WHERE  message.account = :account" +
+            " AND folder.type = '" + EntityFolder.OUTBOX + "'" +
+            " AND sent IS NOT NULL")
+    List<EntityMessage> getSentOrphans(long account);
 
     @Query("SELECT * FROM message WHERE NOT ui_snoozed IS NULL")
     List<EntityMessage> getSnoozed();
