@@ -38,7 +38,8 @@ public class MimeMessageEx extends MimeMessage {
         this.msgid = msgid;
     }
 
-    public String getMsgid() throws MessagingException {
+    @Override
+    public String getMessageID() throws MessagingException {
         if (this.msgid == null)
             return super.getMessageID();
         else
