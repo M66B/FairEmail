@@ -1981,17 +1981,13 @@ public class ServiceSynchronize extends LifecycleService {
 
             db.identity().setIdentityState(ident.id, "connected");
 
-            // Append replied/forwarded text
-            String body = Helper.readText(EntityMessage.getFile(this, message.id));
-            File refFile = EntityMessage.getRefFile(this, message.id);
-            if (refFile.exists())
-                body += Helper.readText(refFile);
-
             // Send message
             Address[] to = imessage.getAllRecipients();
             itransport.sendMessage(imessage, to);
             EntityLog.log(this, "Sent via " + ident.host + "/" + ident.user +
                     " to " + TextUtils.join(", ", to));
+
+            File refFile = EntityMessage.getRefFile(this, message.id);
 
             try {
                 db.beginTransaction();
@@ -2000,7 +1996,14 @@ public class ServiceSynchronize extends LifecycleService {
                 db.message().setMessageSeen(message.id, true);
                 db.message().setMessageUiSeen(message.id, true);
                 db.message().setMessageError(message.id, null);
-                Helper.writeText(EntityMessage.getFile(this, message.id), body);
+
+                // Append replied/forwarded text
+                StringBuilder sb = new StringBuilder();
+                sb.append(Helper.readText(EntityMessage.getFile(this, message.id)));
+                if (refFile.exists())
+                    sb.append(Helper.readText(refFile));
+
+                Helper.writeText(EntityMessage.getFile(this, message.id), sb.toString());
 
                 db.setTransactionSuccessful();
             } finally {
