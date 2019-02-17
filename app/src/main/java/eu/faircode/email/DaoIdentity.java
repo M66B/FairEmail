@@ -37,7 +37,7 @@ public interface DaoIdentity {
     @Query("SELECT identity.*, account.name AS accountName FROM identity" +
             " JOIN account ON account.id = identity.account" +
             " JOIN folder ON folder.account = identity.account AND folder.type = '" + EntityFolder.DRAFTS + "'" +
-            " WHERE :account IS NULL OR identity.account = :account" +
+            " WHERE (:account IS NULL OR identity.account = :account)" +
             " AND identity.synchronize" +
             " AND account.synchronize")
     List<TupleIdentityEx> getComposableIdentities(Long account);
@@ -45,7 +45,7 @@ public interface DaoIdentity {
     @Query("SELECT identity.*, account.name AS accountName FROM identity" +
             " JOIN account ON account.id = identity.account" +
             " JOIN folder ON folder.account = identity.account AND folder.type = '" + EntityFolder.DRAFTS + "'" +
-            " WHERE :account IS NULL OR identity.account = :account" +
+            " WHERE (:account IS NULL OR identity.account = :account)" +
             " AND identity.synchronize" +
             " AND account.synchronize")
     LiveData<List<TupleIdentityEx>> liveComposableIdentities(Long account);
