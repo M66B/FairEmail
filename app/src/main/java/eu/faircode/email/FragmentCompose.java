@@ -2030,8 +2030,13 @@ public class FragmentCompose extends FragmentBase {
                 }
 
                 // Remove unused inline images
+                StringBuilder sb = new StringBuilder();
+                sb.append(body);
+                File rfile = EntityMessage.getRefFile(context, draft.id);
+                if (rfile.exists())
+                    sb.append(Helper.readText(rfile));
                 List<String> cids = new ArrayList<>();
-                for (Element element : Jsoup.parse(body.toString()).select("img")) {
+                for (Element element : Jsoup.parse(sb.toString()).select("img")) {
                     String src = element.attr("src");
                     if (src.startsWith("cid:"))
                         cids.add("<" + src.substring(4) + ">");
