@@ -2092,6 +2092,10 @@ public class FragmentCompose extends FragmentBase {
                         if (!attachment.available)
                             throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
 
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    if (!prefs.getBoolean("enabled", true))
+                        throw new IllegalArgumentException(context.getString(R.string.title_sync_disabled));
+
                     // Delete draft (cannot move to outbox)
                     EntityOperation.queue(context, db, draft, EntityOperation.DELETE);
 

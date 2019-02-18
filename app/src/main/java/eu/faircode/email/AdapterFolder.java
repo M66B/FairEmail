@@ -232,10 +232,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (folder.tbd != null)
                 return false;
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean enabled = prefs.getBoolean("enabled", true);
+
             PopupMenu popupMenu = new PopupMenu(context, itemView);
 
             popupMenu.getMenu().add(Menu.NONE, action_synchronize_now, 1, R.string.title_synchronize_now)
-                    .setEnabled(folder.account != null || "connected".equals(folder.state) /* outbox */);
+                    .setEnabled(enabled &&
+                            (folder.account != null || "connected".equals(folder.state) /* outbox */));
 
             if (folder.account != null)
                 popupMenu.getMenu().add(Menu.NONE, action_delete_local, 2, R.string.title_delete_local);

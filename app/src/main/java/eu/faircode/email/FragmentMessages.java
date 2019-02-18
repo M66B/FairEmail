@@ -491,6 +491,10 @@ public class FragmentMessages extends FragmentBase {
             protected Boolean onExecute(Context context, Bundle args) {
                 long fid = args.getLong("folder");
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                if (!prefs.getBoolean("enabled", true))
+                    throw new IllegalArgumentException(context.getString(R.string.title_sync_disabled));
+
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
@@ -538,7 +542,12 @@ public class FragmentMessages extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                swipeRefresh.setRefreshing(false);
+
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.execute(FragmentMessages.this, args, "messages:refresh");
     }
