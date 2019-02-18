@@ -20,6 +20,7 @@
 
     <item
         android:id="@+id/menu_encrypt"
+        android:checkable="true"
         android:title="@string/title_encrypt"
         app:showAsAction="never" />
 

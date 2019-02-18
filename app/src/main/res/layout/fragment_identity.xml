@@ -458,13 +458,22 @@
             app:layout_constraintTop_toBottomOf="@id/etBcc" />
 
         <CheckBox
+            android:id="@+id/cbEncrypt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_identity_encrypt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbPlainOnly" />
+
+        <CheckBox
             android:id="@+id/cbDeliveryReceipt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/title_identity_delivery_receipt"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbPlainOnly" />
+            app:layout_constraintTop_toBottomOf="@id/cbEncrypt" />
 
         <CheckBox
             android:id="@+id/cbReadReceipt"
@@ -571,7 +580,7 @@
             tvRealm,etRealm,
             cbSynchronize,cbPrimary,
             tvReplyTo,etReplyTo,tvBcc,etBcc,
-            cbPlainOnly,cbDeliveryReceipt,cbReadReceipt,tvReceipt,
+            cbPlainOnly,cbEncrypt,cbDeliveryReceipt,cbReadReceipt,tvReceipt,
             cbStoreSent,tvStoreSent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

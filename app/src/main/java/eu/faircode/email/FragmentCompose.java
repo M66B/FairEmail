@@ -174,6 +174,7 @@ public class FragmentCompose extends FragmentBase {
     private boolean autosave = false;
     private boolean busy = false;
 
+    private boolean encrypt = false;
     private OpenPgpServiceConnection pgpService;
 
     private static final int REDUCED_IMAGE_SIZE = 1280;
@@ -225,9 +226,14 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 EntityIdentity identity = (EntityIdentity) parent.getAdapter().getItem(position);
+
+                encrypt = (identity != null && identity.encrypt);
+                getActivity().invalidateOptionsMenu();
+
                 int at = (identity == null ? -1 : identity.email.indexOf('@'));
                 etExtra.setHint(at < 0 ? null : identity.email.substring(0, at));
                 tvDomain.setText(at < 0 ? null : identity.email.substring(at));
+
                 Spanned signature = null;
                 if (pro) {
                     if (identity != null && !TextUtils.isEmpty(identity.signature))
@@ -248,8 +254,12 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+                encrypt = false;
+                getActivity().invalidateOptionsMenu();
+
                 etExtra.setHint("");
                 tvDomain.setText(null);
+
                 tvSignature.setText(null);
                 grpSignature.setVisibility(View.GONE);
             }
@@ -717,6 +727,10 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_clear).setEnabled(!busy);
         menu.findItem(R.id.menu_encrypt).setEnabled(!busy);
         menu.findItem(R.id.menu_send_after).setEnabled(!busy);
+
+        menu.findItem(R.id.menu_encrypt).setChecked(encrypt);
+        bottom_navigation.getMenu().findItem(R.id.action_send)
+                .setTitle(encrypt ? R.string.title_encrypt : R.string.title_send);
     }
 
     @Override
@@ -736,7 +750,8 @@ public class FragmentCompose extends FragmentBase {
                 onMenuStyle(item.getItemId());
                 return true;
             case R.id.menu_encrypt:
-                onAction(R.id.menu_encrypt);
+                encrypt = !encrypt;
+                getActivity().invalidateOptionsMenu();
                 return true;
             case R.id.menu_send_after:
                 onMenuSendAfter();
@@ -910,7 +925,7 @@ public class FragmentCompose extends FragmentBase {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean autosend = prefs.getBoolean("autosend", false);
         if (autosend) {
-            onAction(R.id.action_send);
+            onActionSendConfirmed();
             return;
         }
 
@@ -938,14 +953,21 @@ public class FragmentCompose extends FragmentBase {
                         public void onClick(DialogInterface dialog, int which) {
                             if (cbNotAgain.isChecked())
                                 prefs.edit().putBoolean("autosend", true).apply();
-                            onAction(R.id.action_send);
+                            onActionSendConfirmed();
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
                     .show();
         } catch (Throwable ex) {
-            onAction(R.id.action_send);
+            onActionSendConfirmed();
         }
+    }
+
+    private void onActionSendConfirmed() {
+        if (encrypt)
+            onAction(R.id.menu_encrypt);
+        else
+            onAction(R.id.action_send);
     }
 
     private void onEncrypt() {
@@ -1118,7 +1140,9 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, PendingIntent pi) {
-                if (pi != null)
+                if (pi == null)
+                    onAction(R.id.action_send);
+                else
                     try {
                         startIntentSenderForResult(
                                 pi.getIntentSender(),

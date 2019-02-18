@@ -78,6 +78,8 @@ public class EntityIdentity {
     @NonNull
     public Boolean plain_only = false;
     @NonNull
+    public Boolean encrypt = false;
+    @NonNull
     public Boolean delivery_receipt = false;
     @NonNull
     public Boolean read_receipt = false;
@@ -120,6 +122,7 @@ public class EntityIdentity {
         json.put("bcc", bcc);
 
         json.put("plain_only", plain_only);
+        json.put("encrypt", encrypt);
         json.put("delivery_receipt", delivery_receipt);
         json.put("read_receipt", read_receipt);
         json.put("store_sent", store_sent);
@@ -160,6 +163,8 @@ public class EntityIdentity {
 
         if (json.has("plain_only"))
             identity.plain_only = json.getBoolean("plain_only");
+        if (json.has("encrypt"))
+            identity.encrypt = json.getBoolean("encrypt");
         if (json.has("delivery_receipt"))
             identity.delivery_receipt = json.getBoolean("delivery_receipt");
         if (json.has("read_receipt"))
@@ -193,6 +198,8 @@ public class EntityIdentity {
                     this.primary.equals(other.primary) &&
                     (this.replyto == null ? other.replyto == null : this.replyto.equals(other.replyto)) &&
                     (this.bcc == null ? other.bcc == null : this.bcc.equals(other.bcc)) &&
+                    this.plain_only.equals(other.plain_only) &&
+                    this.encrypt.equals(other.encrypt) &&
                     this.delivery_receipt.equals(other.delivery_receipt) &&
                     this.read_receipt.equals(other.read_receipt) &&
                     this.store_sent.equals(other.store_sent) &&
