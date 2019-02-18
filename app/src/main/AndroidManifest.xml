@@ -99,9 +99,8 @@
 
         <activity
             android:name=".ActivityCompose"
-            android:documentLaunchMode="always"
             android:exported="true"
-            android:launchMode="standard"
+            android:launchMode="singleTop"
             android:parentActivityName=".ActivityView">
 
             <intent-filter>
