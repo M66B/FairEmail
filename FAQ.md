@@ -80,7 +80,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(19) Why are the pro features so expensive?](#user-content-faq19)
 * [(20) Can I get a refund?](#user-content-faq20)
 * [(21) How do I enable the notification light?](#user-content-faq21)
-* [(22) Why do I get 'Couldn't connect to host' ?](#user-content-faq22)
+* [(22) Why do I get 'Couldn't connect to host', 'Connection refused' or 'Network unreachable' ?](#user-content-faq22)
 * [(23) Why do I get 'Too many simultaneous connections' ?](#user-content-faq23)
 * [(24) What is browse messages on the server?](#user-content-faq24)
 * [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
@@ -168,7 +168,8 @@ only suggesting contacts won't work without contacts permissions.
 A permanent status bar notification with the number of accounts being synchronized, the number of messages to send and the number of operations pending (see next question) is shown
 to prevent Android from killing the service that takes care of receiving and sending email.
 
-Most, if not all, other email apps don't show a notification with the "side effect" that new email is often not or late being reported.
+Most, if not all, other email apps don't show a notification
+with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
 
 Background: this is necessary because of the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow.
 
@@ -467,9 +468,10 @@ You can use the button *Manage notifications* in the setup to directly go to the
 <br />
 
 <a name="faq22"></a>
-**(22) Why do I get 'Couldn't connect to host' ?**
+**(22) Why do I get 'Couldn't connect to host', 'Connection refused' or 'Network unreachable' ?**
 
-The message *Couldn't connect to host ...* means that FairEmail was not able to connect to the email server.
+The messages *Couldn't connect to host ...*, *Connection refused* or *Network unreachable*
+mean that FairEmail was not able to connect to the email server.
 
 Possible causes are:
 
