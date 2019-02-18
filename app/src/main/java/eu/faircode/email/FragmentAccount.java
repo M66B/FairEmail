@@ -308,6 +308,7 @@ public class FragmentAccount extends FragmentBase {
                     auth_type = Helper.AUTH_TYPE_PASSWORD;
                     tilPassword.getEditText().setText(null);
                     tilPassword.setEnabled(true);
+                    tilPassword.setPasswordVisibilityToggleEnabled(true);
                     etRealm.setEnabled(true);
                 }
             }
@@ -1362,6 +1363,7 @@ public class FragmentAccount extends FragmentBase {
                                             btnAuthorize.setEnabled(true);
                                             etUser.setEnabled(true);
                                             tilPassword.setEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
+                                            tilPassword.setPasswordVisibilityToggleEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
                                             etRealm.setEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
                                             btnCheck.setEnabled(true);
                                             btnSave.setEnabled(true);

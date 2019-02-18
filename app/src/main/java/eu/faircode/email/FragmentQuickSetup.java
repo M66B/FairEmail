@@ -62,6 +62,7 @@ import javax.mail.Transport;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.Group;
 
 import static android.accounts.AccountManager.newChooseAccountIntent;
 import static android.app.Activity.RESULT_OK;
@@ -74,8 +75,14 @@ public class FragmentQuickSetup extends FragmentBase {
     private Button btnAuthorize;
     private TextInputLayout tilPassword;
     private Button btnCheck;
+
     private TextView tvError;
     private TextView tvInstructions;
+
+    private TextView tvImap;
+    private TextView tvSmtp;
+    private Button btnSave;
+    private Group grpSetup;
 
     private int auth_type = Helper.AUTH_TYPE_PASSWORD;
 
@@ -92,8 +99,14 @@ public class FragmentQuickSetup extends FragmentBase {
         etEmail = view.findViewById(R.id.etEmail);
         tilPassword = view.findViewById(R.id.tilPassword);
         btnCheck = view.findViewById(R.id.btnCheck);
+
         tvError = view.findViewById(R.id.tvError);
         tvInstructions = view.findViewById(R.id.tvInstructions);
+
+        tvImap = view.findViewById(R.id.tvImap);
+        tvSmtp = view.findViewById(R.id.tvSmtp);
+        btnSave = view.findViewById(R.id.btnSave);
+        grpSetup = view.findViewById(R.id.grpSetup);
 
         // Wire controls
 
@@ -110,30 +123,39 @@ public class FragmentQuickSetup extends FragmentBase {
             }
         });
 
-        TextWatcher credentialsWatcher = new TextWatcher() {
+        etEmail.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                auth_type = Helper.AUTH_TYPE_PASSWORD;
+                if (auth_type != Helper.AUTH_TYPE_PASSWORD) {
+                    auth_type = Helper.AUTH_TYPE_PASSWORD;
+                    tilPassword.getEditText().setText(null);
+                    tilPassword.setEnabled(true);
+                    tilPassword.setPasswordVisibilityToggleEnabled(true);
+                }
             }
 
             @Override
             public void afterTextChanged(Editable s) {
             }
-        };
-
-        etEmail.addTextChangedListener(credentialsWatcher);
-        tilPassword.getEditText().addTextChangedListener(credentialsWatcher);
+        });
 
         tilPassword.setHintEnabled(false);
 
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onCheck();
+                onSave(true);
+            }
+        });
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSave(false);
             }
         });
 
@@ -141,44 +163,42 @@ public class FragmentQuickSetup extends FragmentBase {
         tvError.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
         tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
+        grpSetup.setVisibility(View.GONE);
 
         return view;
     }
 
-    private void onCheck() {
+    private void onSave(boolean check) {
         Bundle args = new Bundle();
         args.putString("name", etName.getText().toString());
         args.putString("email", etEmail.getText().toString().trim());
         args.putString("password", tilPassword.getEditText().getText().toString());
         args.putInt("auth_type", auth_type);
+        args.putBoolean("check", check);
 
-        new SimpleTask<Void>() {
+        new SimpleTask<EmailProvider>() {
             @Override
             protected void onPreExecute(Bundle args) {
-                etName.setEnabled(false);
-                etEmail.setEnabled(false);
-                tilPassword.setEnabled(false);
-                btnAuthorize.setEnabled(false);
-                btnCheck.setEnabled(false);
+                boolean check = args.getBoolean("check");
+
+                Helper.setViewsEnabled(view, false);
                 tvError.setVisibility(View.GONE);
                 tvInstructions.setVisibility(View.GONE);
+                grpSetup.setVisibility(check ? View.GONE : View.VISIBLE);
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
-                etName.setEnabled(true);
-                etEmail.setEnabled(true);
-                tilPassword.setEnabled(true);
-                btnAuthorize.setEnabled(true);
-                btnCheck.setEnabled(true);
+                Helper.setViewsEnabled(view, true);
             }
 
             @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
+            protected EmailProvider onExecute(Context context, Bundle args) throws Throwable {
                 String name = args.getString("name");
                 String email = args.getString("email");
                 String password = args.getString("password");
                 int auth_type = args.getInt("auth_type");
+                boolean check = args.getBoolean("check");
 
                 if (TextUtils.isEmpty(name))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_name));
@@ -196,9 +216,8 @@ public class FragmentQuickSetup extends FragmentBase {
                 String user = (provider.user == EmailProvider.UserType.EMAIL ? email : dparts[0]);
 
                 Character separator;
-                long now = new Date().getTime();
-
                 List<EntityFolder> folders = new ArrayList<>();
+                long now = new Date().getTime();
 
                 {
                     Properties props = MessageHelper.getSessionProperties(auth_type, null, false);
@@ -261,6 +280,9 @@ public class FragmentQuickSetup extends FragmentBase {
                         itransport.close();
                     }
                 }
+
+                if (check)
+                    return provider;
 
                 DB db = DB.getInstance(context);
                 try {
@@ -354,22 +376,24 @@ public class FragmentQuickSetup extends FragmentBase {
             }
 
             @Override
-            protected void onExecuted(Bundle args, Void data) {
-                etName.setText(null);
-                etEmail.setText(null);
-                tilPassword.getEditText().setText(null);
-
-                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                        .setMessage(R.string.title_setup_quick_success)
-                        .setPositiveButton(android.R.string.ok, null)
-                        .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                            @Override
-                            public void onDismiss(DialogInterface dialog) {
-                                finish();
-                            }
-                        })
-                        .create()
-                        .show();
+            protected void onExecuted(Bundle args, EmailProvider result) {
+                boolean check = args.getBoolean("check");
+                if (check) {
+                    tvImap.setText(result == null ? null : result.imap_host + ":" + result.imap_port);
+                    tvSmtp.setText(result == null ? null : result.smtp_host + ":" + result.smtp_port);
+                    grpSetup.setVisibility(result == null ? View.GONE : View.VISIBLE);
+                } else
+                    new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                            .setMessage(R.string.title_setup_quick_success)
+                            .setPositiveButton(android.R.string.ok, null)
+                            .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                                @Override
+                                public void onDismiss(DialogInterface dialog) {
+                                    finish();
+                                }
+                            })
+                            .create()
+                            .show();
             }
 
             @Override
@@ -461,7 +485,8 @@ public class FragmentQuickSetup extends FragmentBase {
                                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                                 } finally {
                                     etEmail.setEnabled(true);
-                                    tilPassword.setEnabled(true);
+                                    tilPassword.setEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
+                                    tilPassword.setPasswordVisibilityToggleEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
                                     btnAuthorize.setEnabled(true);
                                     btnCheck.setEnabled(true);
                                     new Handler().postDelayed(new Runnable() {
