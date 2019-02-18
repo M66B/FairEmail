@@ -379,8 +379,10 @@ public class FragmentQuickSetup extends FragmentBase {
             protected void onExecuted(Bundle args, EmailProvider result) {
                 boolean check = args.getBoolean("check");
                 if (check) {
-                    tvImap.setText(result == null ? null : result.imap_host + ":" + result.imap_port);
-                    tvSmtp.setText(result == null ? null : result.smtp_host + ":" + result.smtp_port);
+                    tvImap.setText(result == null ? null
+                            : result.imap_host + ":" + result.imap_port + (result.imap_starttls ? " starttls" : " ssl"));
+                    tvSmtp.setText(result == null ? null
+                            : result.smtp_host + ":" + result.smtp_port + (result.smtp_starttls ? " starttls" : " ssl"));
                     grpSetup.setVisibility(result == null ? View.GONE : View.VISIBLE);
                 } else
                     new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
