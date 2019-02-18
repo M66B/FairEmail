@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Intent;
+import android.net.MailTo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Spanned;
@@ -73,7 +74,10 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
 
                 Uri uri = intent.getData();
                 if (uri != null && "mailto".equals(uri.getScheme())) {
-                    String to = uri.getSchemeSpecificPart();
+                    // https://www.ietf.org/rfc/rfc2368.txt
+                    MailTo mailto = MailTo.parse(uri.toString());
+
+                    String to = mailto.getTo();
                     if (to != null)
                         try {
                             InternetAddress.parse(to);
@@ -81,6 +85,23 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
                         } catch (AddressException ex) {
                             Log.w(ex);
                         }
+
+                    String cc = mailto.getCc();
+                    if (cc != null)
+                        try {
+                            InternetAddress.parse(cc);
+                            args.putString("cc", cc);
+                        } catch (AddressException ex) {
+                            Log.w(ex);
+                        }
+
+                    String subject = mailto.getSubject();
+                    if (subject != null)
+                        args.putString("subject", subject);
+
+                    String body = mailto.getBody();
+                    if (body != null)
+                        args.putString("body", body);
                 }
 
                 if (intent.hasExtra(Intent.EXTRA_EMAIL)) {
