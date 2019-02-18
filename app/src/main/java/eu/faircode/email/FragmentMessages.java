@@ -664,6 +664,11 @@ public class FragmentMessages extends FragmentBase {
                 }
             }.execute(FragmentMessages.this, args, "messages:move");
         }
+
+        @Override
+        public void finish() {
+            FragmentMessages.this.finish();
+        }
     };
 
     private ItemTouchHelper.Callback touchHelper = new ItemTouchHelper.Callback() {

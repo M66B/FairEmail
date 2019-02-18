@@ -1816,6 +1816,92 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "message:unseen");
         }
 
+        private void onMenuSnooze(final ActionData data) {
+            DialogDuration.show(context, owner, R.string.title_snooze,
+                    new DialogDuration.IDialogDuration() {
+                        @Override
+                        public void onDurationSelected(long duration, long time) {
+                            if (!Helper.isPro(context)) {
+                                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                                lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                                return;
+                            }
+
+                            Bundle args = new Bundle();
+                            args.putLong("id", data.message.id);
+                            args.putLong("wakeup", duration == 0 ? -1 : time);
+
+                            new SimpleTask<Long>() {
+                                @Override
+                                protected Long onExecute(Context context, Bundle args) {
+                                    long id = args.getLong("id");
+                                    Long wakeup = args.getLong("wakeup");
+                                    if (wakeup < 0)
+                                        wakeup = null;
+
+                                    DB db = DB.getInstance(context);
+                                    try {
+                                        db.beginTransaction();
+
+                                        EntityMessage message = db.message().getMessage(id);
+                                        if (message != null) {
+                                            List<EntityMessage> messages = db.message().getMessageByThread(
+                                                    message.account, message.thread, threading ? null : id, message.folder);
+                                            for (EntityMessage threaded : messages) {
+                                                db.message().setMessageSnoozed(threaded.id, wakeup);
+                                                EntityMessage.snooze(context, threaded.id, wakeup);
+                                            }
+                                        }
+
+                                        db.setTransactionSuccessful();
+                                    } finally {
+                                        db.endTransaction();
+                                    }
+
+                                    return wakeup;
+                                }
+
+                                @Override
+                                protected void onExecuted(Bundle args, Long wakeup) {
+                                    if (wakeup != null)
+                                        properties.finish();
+                                }
+
+                                @Override
+                                protected void onException(Bundle args, Throwable ex) {
+                                    Helper.unexpectedError(context, owner, ex);
+                                }
+                            }.execute(context, owner, args, "message:snooze");
+                        }
+
+                        @Override
+                        public void onDismiss() {
+                        }
+                    });
+
+        }
+
+        private void onMenuDelete(final ActionData data) {
+            Bundle args = new Bundle();
+            args.putLong("id", data.message.id);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    db.message().deleteMessage(id);
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, owner, ex);
+                }
+            }.execute(context, owner, args, "message:delete");
+        }
+
         private void onMenuJunk(final ActionData data) {
             String who = MessageHelper.formatAddresses(data.message.from);
             new DialogBuilderLifecycle(context, owner)
@@ -1859,27 +1945,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     })
                     .setNegativeButton(android.R.string.cancel, null)
                     .show();
-        }
-
-        private void onMenuDelete(final ActionData data) {
-            Bundle args = new Bundle();
-            args.putLong("id", data.message.id);
-
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onExecute(Context context, Bundle args) {
-                    long id = args.getLong("id");
-
-                    DB db = DB.getInstance(context);
-                    db.message().deleteMessage(id);
-                    return null;
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
-                }
-            }.execute(context, owner, args, "message:delete");
         }
 
         private void onMenuShare(ActionData data) {
@@ -2168,11 +2233,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(data.message.uid != null);
 
+            popupMenu.getMenu().findItem(R.id.menu_delete).setVisible(debug);
+
             popupMenu.getMenu().findItem(R.id.menu_junk).setEnabled(data.message.uid != null);
             popupMenu.getMenu().findItem(R.id.menu_junk).setVisible(
                     data.hasJunk && !EntityFolder.JUNK.equals(data.message.folderType));
-
-            popupMenu.getMenu().findItem(R.id.menu_delete).setVisible(debug);
 
             popupMenu.getMenu().findItem(R.id.menu_share).setEnabled(data.message.content);
 
@@ -2206,12 +2271,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         case R.id.menu_unseen:
                             onMenuUnseen(data);
                             return true;
-                        case R.id.menu_junk:
-                            onMenuJunk(data);
+                        case R.id.menu_snooze:
+                            onMenuSnooze(data);
                             return true;
                         case R.id.menu_delete:
                             // For emergencies
                             onMenuDelete(data);
+                            return true;
+                        case R.id.menu_junk:
+                            onMenuJunk(data);
                             return true;
                         case R.id.menu_share:
                             onMenuShare(data);
@@ -2682,5 +2750,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void scrollTo(int pos, int dy);
 
         void move(long id, String target, boolean type);
+
+        void finish();
     }
 }

@@ -17,12 +17,16 @@
         android:title="@string/title_unseen" />
 
     <item
-        android:id="@+id/menu_junk"
-        android:title="@string/title_spam" />
+        android:id="@+id/menu_snooze"
+        android:title="@string/title_snooze" />
 
     <item
         android:id="@+id/menu_delete"
         android:title="@string/title_delete" />
+
+    <item
+        android:id="@+id/menu_junk"
+        android:title="@string/title_spam" />
 
     <item
         android:id="@+id/menu_share"

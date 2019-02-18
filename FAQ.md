@@ -1099,6 +1099,7 @@ to justify making FairEmail available in the [Google Play Family Library](https:
 **(67) How can I snooze conversations?**
 
 Multiple select one of more conversations (long press to start multiple selecting), tap the three dot button and select *Snooze ...*.
+Alternatively, use the *Snooze ...* 'more' menu in the expanded message view.
 Select the time the conversation(s) should snooze and confirm by tapping OK.
 The conversations will be hidden for the selected time and shown again afterwards.
 You will receive a new message notification as reminder.
