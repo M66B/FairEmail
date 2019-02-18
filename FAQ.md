@@ -329,9 +329,12 @@ which can be used as a workaround for when your provider doesn't support IMAP.
 **(12) How does encryption/decryption work?**
 
 First of all you need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/).
-To encrypt a message before sending, just select the menu *Encrypt*. Similarly, to decrypt a received message, just select the menu *Decrypt*.
+To encrypt and send a message just check the menu *Encrypt* and the message will be encrypted on sending.
+Similarly, to decrypt a received message, just select the menu *Decrypt* in the expanded message view.
+
+You can enable *Encrypt by default* in the identity settings.
+
 Encryption is [Autocrypt](https://autocrypt.org/) compatible. For security reasons received messages are not decrypted automatically.
-Encryption/decryption is a pro feature.
 
 Inline PGP in received messages is supported, but inline PGP in outgoing messages is not supported,
 see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about why not.
@@ -339,13 +342,15 @@ see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about w
 S/MIME is not supported because it is not used much and because key management is complex.
 There are also [security concerns](https://security.stackexchange.com/a/83752).
 
-Note that signed only or encrypted only messages are not supported, see here for some considerations:
+Note that signed only or encrypted only messages are not supported, see here about why not:
 
 * [OpenPGP Considerations Part I](https://k9mail.github.io/2016/11/24/OpenPGP-Considerations-Part-I.html)
 * [OpenPGP Considerations Part II](https://k9mail.github.io/2017/01/30/OpenPGP-Considerations-Part-II.html)
 * [OpenPGP Considerations Part III Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
 
 If you want, you can verify a signature by opening the *signature.asc* attachment.
+
+Encryption/decryption is a pro feature.
 
 <br />
 
