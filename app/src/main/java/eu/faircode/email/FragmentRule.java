@@ -78,6 +78,7 @@ public class FragmentRule extends FragmentBase {
     private Spinner spTarget;
     private Spinner spIdent;
     private Spinner spAnswer;
+    private CheckBox cbCc;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -128,6 +129,7 @@ public class FragmentRule extends FragmentBase {
         spTarget = view.findViewById(R.id.spTarget);
         spIdent = view.findViewById(R.id.spIdent);
         spAnswer = view.findViewById(R.id.spAnswer);
+        cbCc = view.findViewById(R.id.cbCc);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
@@ -378,6 +380,9 @@ public class FragmentRule extends FragmentBase {
                                         spAnswer.setSelection(pos);
                                         break;
                                     }
+
+                                boolean cc = (jaction.has("cc") && jaction.getBoolean("cc"));
+                                cbCc.setChecked(cc);
                                 break;
                         }
 
@@ -601,8 +606,10 @@ public class FragmentRule extends FragmentBase {
                 case EntityRule.TYPE_ANSWER:
                     EntityIdentity identity = (EntityIdentity) spIdent.getSelectedItem();
                     EntityAnswer answer = (EntityAnswer) spAnswer.getSelectedItem();
+                    boolean cc = cbCc.isChecked();
                     jaction.put("identity", identity.id);
                     jaction.put("answer", answer.id);
+                    jaction.put("cc", cc);
                     break;
             }
         }

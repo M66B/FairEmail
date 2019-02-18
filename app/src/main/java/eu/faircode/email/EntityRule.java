@@ -194,6 +194,7 @@ public class EntityRule {
     private void onActionAnswer(Context context, DB db, EntityMessage message, JSONObject jargs) throws JSONException, IOException {
         long iid = jargs.getLong("identity");
         long aid = jargs.getLong("answer");
+        boolean cc = (jargs.has("cc") && jargs.getBoolean("cc"));
 
         EntityIdentity identity = db.identity().getIdentity(iid);
         if (identity == null)
@@ -213,6 +214,8 @@ public class EntityRule {
         reply.thread = message.thread;
         reply.to = (message.reply == null || message.reply.length == 0 ? message.from : message.reply);
         reply.from = new InternetAddress[]{new InternetAddress(identity.email, identity.name)};
+        if (cc)
+            reply.cc = message.cc;
         reply.subject = context.getString(R.string.title_subject_reply, message.subject == null ? "" : message.subject);
         reply.sender = MessageHelper.getSortKey(reply.from);
         reply.received = new Date().getTime();
