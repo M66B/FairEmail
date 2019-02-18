@@ -39,6 +39,9 @@ import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.util.Patterns;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -90,6 +93,7 @@ public class FragmentQuickSetup extends FragmentBase {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_setup);
+        setHasOptionsMenu(true);
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_quick_setup, container, false);
 
@@ -166,6 +170,34 @@ public class FragmentQuickSetup extends FragmentBase {
         grpSetup.setVisibility(View.GONE);
 
         return view;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_quick_setup, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        PackageManager pm = getContext().getPackageManager();
+        menu.findItem(R.id.menu_help).setVisible(Helper.getIntentSetupHelp().resolveActivity(pm) != null);
+        super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_help:
+                onMenuHelp();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuHelp() {
+        startActivity(Helper.getIntentSetupHelp());
     }
 
     private void onSave(boolean check) {

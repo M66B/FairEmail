@@ -353,7 +353,7 @@ public class FragmentSetup extends FragmentBase {
     public void onPrepareOptionsMenu(Menu menu) {
         PackageManager pm = getContext().getPackageManager();
         menu.findItem(R.id.menu_advanced).setVisible(BuildConfig.DEBUG);
-        menu.findItem(R.id.menu_help).setVisible(getIntentHelp().resolveActivity(pm) != null);
+        menu.findItem(R.id.menu_help).setVisible(Helper.getIntentSetupHelp().resolveActivity(pm) != null);
         super.onPrepareOptionsMenu(menu);
     }
 
@@ -378,13 +378,7 @@ public class FragmentSetup extends FragmentBase {
     }
 
     private void onMenuHelp() {
-        startActivity(getIntentHelp());
-    }
-
-    private Intent getIntentHelp() {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/SETUP.md#setup-help"));
-        return intent;
+        startActivity(Helper.getIntentSetupHelp());
     }
 
     @Override

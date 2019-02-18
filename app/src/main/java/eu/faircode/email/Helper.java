@@ -180,6 +180,12 @@ public class Helper {
             return Intent.createChooser(intent, context.getString(R.string.title_select_app));
     }
 
+    static Intent getIntentSetupHelp() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/SETUP.md#setup-help"));
+        return intent;
+    }
+
     static Intent getIntentFAQ() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(Helper.FAQ_URI));
