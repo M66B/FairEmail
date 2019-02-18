@@ -105,6 +105,8 @@
     <string name="title_setup_quick">Quick setup</string>
     <string name="title_setup_quick_remark">To quickly setup an account and identity for most major providers</string>
     <string name="title_setup_quick_hint">The quick setup will fetch configuration information from autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_imap">IMAP server to receive message</string>
+    <string name="title_setup_quick_smtp">SMTP server to send messages</string>
     <string name="title_setup_go">Go</string>
     <string name="title_setup_setting_gmail">Enable access for "less secure" apps</string>
     <string name="title_setup_no_settings">No settings found for \'%1$s\'</string>
@@ -174,7 +176,7 @@
     <string name="title_advanced_autosend">Confirm sending messages</string>
 
     <string name="title_advanced_notify_preview">Show message preview in notifications</string>
-    <string name="title_advanced_search_local">Search on device</string>
+    <string name="title_advanced_search_local">External search on device</string>
     <string name="title_advanced_light">Use notification light</string>
     <string name="title_advanced_sound">Select notification sound</string>
     <string name="title_advanced_updates">Check for updates</string>

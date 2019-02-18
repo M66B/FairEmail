@@ -116,7 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:gravity="center_horizontal"
-            android:text="@string/title_imap"
+            android:text="@string/title_setup_quick_imap"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvInstructions" />
@@ -138,7 +138,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:gravity="center_horizontal"
-            android:text="@string/title_smtp"
+            android:text="@string/title_setup_quick_smtp"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvImap" />
