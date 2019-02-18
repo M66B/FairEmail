@@ -29,6 +29,7 @@ For authorizing:
 ## Planned features
 
 * ~~Synchronize on demand~~
+* ~~Semi-automatic encryption~~
 
 Anything on this list is in random order and *might* be added in the near future.
 
@@ -137,6 +138,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(76) What does 'Clear local messages' ?](#user-content-faq76)
 * [(77) Why are messages sometimes shown with a small delay?](#user-content-faq77)
 * [(78) How do I use schedules?](#user-content-faq78)
+* [(79) How do I use synchronize on demand?](#user-content-faq79)
 
 [I have another question.](#support)
 
@@ -1275,6 +1277,23 @@ Automation can be used for more advanced schedules,
 like for example multiple synchronization periods per day or different synchronization periods for different days.
 
 Scheduling is a pro feature.
+
+<br />
+
+<a name="faq79"></a>
+**(79) How do I use synchronize on demand?**
+
+Normally, FairEmail maintains a connection to the configured email servers whenever possible to receive messages in real-time.
+If you don't want this, for example to be not disturbed or to save on battery usage,
+you can enable on demand synchronization in the account settings.
+When enabled FairEmail will not keep a connection to the email server anymore,
+instead you can manually synchronize messages by either using pull-down-to-refresh or by using the folder menu *Synchronize now*.
+
+Note that both real-time and on demand synchronization requires FairEmail to be globally enabled.
+You can globally enable or disable FairEmail with the advanced option *Synchronize*,
+by using [a schedule](#user-content-faq78) or by using [a quick settings tile](#user-content-faq30).
+
+When globally enabled FairEmail will always show [a status bar notification](#user-content-faq2).
 
 <br />
 
