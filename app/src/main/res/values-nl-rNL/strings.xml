@@ -167,6 +167,8 @@
     <string name="title_identity_read_receipt">Vraag leesbevestiging</string>
     <string name="title_identity_delivery_receipt">Vraag ontvangstbevestiging</string>
     <string name="title_identity_receipt_remark">De meeste providers negeren bevestigingsverzoeken</string>
+    <string name="title_identity_store_sent">Sla verzonden berichten op</string>
+    <string name="title_identity_store_sent_remark">Dit alleen inschakelen als uw provider niet automatisch verzonden berichten opslaat</string>
     <string name="title_optional">Optioneel</string>
     <string name="title_account_linked">Gekoppeld account</string>
     <string name="title_account_name">Accountnaam</string>
@@ -192,6 +194,7 @@
     <string name="title_authorizing">Account autoriseren &#8230;</string>
     <string name="title_setup_advanced">Geavanceerd</string>
     <string name="title_synchronize_account">Synchroniseren (ontvang berichten)</string>
+    <string name="title_synchronize_ondemand">Synchroniseren op aanvraag (handmatig)</string>
     <string name="title_synchronize_identity">Synchroniseren (stuur berichten)</string>
     <string name="title_primary_account">Primair account (standaard account)</string>
     <string name="title_primary_identity">Primaire identiteit (standaard identiteit)</string>
@@ -305,7 +308,6 @@
     <string name="title_ask_show_html">Het originele bericht tonen kan privacy gevoelige informatie lekken</string>
     <string name="title_ask_show_image">Afbeeldingen tonen kan privacy gevoelige informatie lekken</string>
     <string name="title_ask_edit_ref">Bewerk opnieuw geformatteerde beantwoorde/doorgestuurde berichttekst?</string>
-    <string name="title_sync_queued">Synchronisatie zal plaatsvinden bij de volgende accountverbinding</string>
     <string name="title_fix">Oplossen</string>
     <string name="title_compose">Opstellen</string>
     <string name="title_from">Van:</string>

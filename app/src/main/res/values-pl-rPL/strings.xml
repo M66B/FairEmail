@@ -289,7 +289,6 @@
     <string name="title_ask_discard">Odrzucić szkic?</string>
     <string name="title_ask_show_html">Pokazywanie oryginalnej wiadomości może spowodować wyciek wrażliwych informacji</string>
     <string name="title_ask_show_image">Pokazywanie obrazów może spowodować wyciek wrażliwych informacji</string>
-    <string name="title_sync_queued">Synchronizacja nastąpi podczas następnego połączenia z kontem</string>
     <string name="title_fix">Popraw</string>
     <string name="title_compose">Napisz</string>
     <string name="title_from">Od:</string>

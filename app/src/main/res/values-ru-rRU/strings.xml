@@ -164,7 +164,7 @@
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
     <string name="title_advanced_updates">Проверить наличие обновлений</string>
     <string name="title_advanced_debug">Режим отладки</string>
-    <string name="title_advanced_enabled_hint">Глобальное отключение или включение полученых и отправленных сообщений</string>
+    <string name="title_advanced_enabled_hint">Глобальное включение/отключение получения и отправки сообщений</string>
     <string name="title_advanced_metered_hint">Лимитированные подключения - это обычно мобильные сети или платные Wi-Fi</string>
     <string name="title_advanced_browse_hint">Получите больше сообщений при прокрутке вниз</string>
     <string name="title_advanced_unified_hint">Показать отдельные папки \"Входящие\" или сообщения в единой папке</string>
@@ -183,6 +183,8 @@
     <string name="title_identity_read_receipt">Запросить уведомления о прочтении</string>
     <string name="title_identity_delivery_receipt">Запросить уведомление о доставке</string>
     <string name="title_identity_receipt_remark">Большинство провайдеров игнорируют запросы на получение</string>
+    <string name="title_identity_store_sent">Сохранять отправленные сообщения</string>
+    <string name="title_identity_store_sent_remark">Включите это, только если ваш провайдер не сохраняет отправленные сообщения автоматически</string>
     <string name="title_optional">Необязательно</string>
     <string name="title_account_linked">Связанная учётная запись</string>
     <string name="title_account_name">Название учётной записи</string>
@@ -208,6 +210,7 @@
     <string name="title_authorizing">Авторизация учетной записи &#8230;</string>
     <string name="title_setup_advanced">Дополнительные опции</string>
     <string name="title_synchronize_account">Синхронизировать (получать сообщения)</string>
+    <string name="title_synchronize_ondemand">Синхронизировать по требованию (вручную)</string>
     <string name="title_synchronize_identity">Синхронизировать (отправлять сообщения)</string>
     <string name="title_primary_account">Основная (учетная запись по умолчанию)</string>
     <string name="title_primary_identity">Основной (идентификатор по умолчанию)</string>
@@ -321,7 +324,6 @@
     <string name="title_ask_show_html">Отображение исходного сообщения может привести к утечке конфиденциальной информации</string>
     <string name="title_ask_show_image">Отображение изображений может привести к утечке конфиденциальной информации</string>
     <string name="title_ask_edit_ref">Редактировать текст исходного/пересылаемого сообщения?</string>
-    <string name="title_sync_queued">Будет синхронизировано при следующем подключении к учетной записи</string>
     <string name="title_fix">Исправить</string>
     <string name="title_compose">Создать</string>
     <string name="title_from">От:</string>
@@ -382,6 +384,7 @@
     <string name="title_rule_name">Название</string>
     <string name="title_rule_order">Порядок</string>
     <string name="title_rule_enabled">Включено</string>
+    <string name="title_rule_stop">Остановить обработку правил после выполнения этого правила</string>
     <string name="title_rule_sender">\"Отправитель\" содержит</string>
     <string name="title_rule_subject">\"Тема\" содержит</string>
     <string name="title_rule_header">Заголовок содержит</string>

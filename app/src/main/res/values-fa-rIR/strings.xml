@@ -264,7 +264,6 @@
     <string name="title_ask_show_html">نمایش پیام اصلی می تواند موجب نشت اطلاعات حساس شود</string>
     <string name="title_ask_show_image">نمایش تصاویر می تواند موجب نشت اطلاعات حساس شود</string>
     <string name="title_ask_edit_ref">ویرایش متن پیام پاسخ داده شده/بازگردانده شده؟</string>
-    <string name="title_sync_queued">همگام سازی در اتصال بعدی اکانت صورت خواهد گرفت</string>
     <string name="title_fix">تعمیر</string>
     <string name="title_compose">ایجاد پیام</string>
     <string name="title_from">از:</string>

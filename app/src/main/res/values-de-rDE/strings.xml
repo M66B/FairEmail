@@ -167,6 +167,8 @@
     <string name="title_identity_read_receipt">Lesebestätigung anfordern</string>
     <string name="title_identity_delivery_receipt">Übermittlungsbestätigung anfordern</string>
     <string name="title_identity_receipt_remark">Die meisten Anbieter ignorieren Lesebestätigungsanfragen</string>
+    <string name="title_identity_store_sent">Gesendete E-Mails speichern</string>
+    <string name="title_identity_store_sent_remark">Aktivieren Sie diese Option nur, wenn Ihr Provider gesendete E-Mails nicht automatisch speichert</string>
     <string name="title_optional">Optional</string>
     <string name="title_account_linked">Verknüpftes Konto</string>
     <string name="title_account_name">Kontobezeichnung</string>
@@ -192,6 +194,7 @@
     <string name="title_authorizing">Konto autorisieren &#8230;</string>
     <string name="title_setup_advanced">Erweitert</string>
     <string name="title_synchronize_account">Synchronisieren (E-Mails empfangen)</string>
+    <string name="title_synchronize_ondemand">Synchronisieren auf Nachfrage (manuell)</string>
     <string name="title_synchronize_identity">Synchronisieren (E-Mails versenden)</string>
     <string name="title_primary_account">Primäres Konto</string>
     <string name="title_primary_identity">Primäre Identität</string>
@@ -305,7 +308,6 @@
     <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_edit_ref">Nachrichtentext der zu beantwortenden/weitergeleitenden Nachricht bearbeiten?</string>
-    <string name="title_sync_queued">Synchronisierung wird bei der nächsten Kontoverbindung ausgeführt</string>
     <string name="title_fix">Problem beheben</string>
     <string name="title_compose">Verfassen</string>
     <string name="title_from">Von:</string>
@@ -366,6 +368,7 @@
     <string name="title_rule_name">Name</string>
     <string name="title_rule_order">Reihenfolge</string>
     <string name="title_rule_enabled">Aktiviert</string>
+    <string name="title_rule_stop">Regeln nach der Ausführung dieser Regel beenden</string>
     <string name="title_rule_sender">Absender enthält</string>
     <string name="title_rule_subject">Betreff enthält</string>
     <string name="title_rule_header">Kopfzeile enthält</string>

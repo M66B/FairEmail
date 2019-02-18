@@ -305,7 +305,6 @@
     <string name="title_ask_show_html">Mostrar el mensaje original puede filtrar información privada sensible</string>
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
     <string name="title_ask_edit_ref">¿Editar texto reformateado de mensaje respondido/reenviado?</string>
-    <string name="title_sync_queued">La sincronización se realizará en la próxima conexión de la cuenta</string>
     <string name="title_fix">Reparar</string>
     <string name="title_compose">Redactar</string>
     <string name="title_from">De:</string>
@@ -366,6 +365,7 @@
     <string name="title_rule_name">Nombre</string>
     <string name="title_rule_order">Orden</string>
     <string name="title_rule_enabled">Activada</string>
+    <string name="title_rule_stop">Detener el procesamiento de reglas después de ejecutar esta regla</string>
     <string name="title_rule_sender">Remitente contiene</string>
     <string name="title_rule_subject">Asunto contiene</string>
     <string name="title_rule_header">Encabezado contiene</string>

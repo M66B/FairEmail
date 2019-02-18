@@ -313,7 +313,6 @@
     <string name="title_ask_show_html">Vizualizarea mesajului original poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_edit_ref">Se editează textul mesajului rescris ca răspuns/redirecționat?</string>
-    <string name="title_sync_queued">Sincronizarea va avea loc la următoarea conexiune a contului</string>
     <string name="title_fix">Remediere</string>
     <string name="title_compose">Compune</string>
     <string name="title_from">De la:</string>

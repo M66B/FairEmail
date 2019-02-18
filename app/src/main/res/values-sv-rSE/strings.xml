@@ -297,7 +297,6 @@
     <string name="title_ask_discard">Släng utkastet?</string>
     <string name="title_ask_show_html">Att visa det ursprungliga meddelandet kan läcka sekretesskänslig information</string>
     <string name="title_ask_show_image">Att visa bilder kan läcka sekretesskänslig information</string>
-    <string name="title_sync_queued">Synkronisering kommer att äga rum vid nästa kontoanslutning</string>
     <string name="title_fix">Åtgärda</string>
     <string name="title_compose">Skriv</string>
     <string name="title_from">Från:</string>

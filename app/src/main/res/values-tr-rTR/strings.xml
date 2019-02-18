@@ -302,7 +302,6 @@
     <string name="title_ask_show_html">Özgün iletiyi göstermek gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_show_image">Resimlerin gösterilmesi gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_edit_ref">Yeniden biçimlendirilmiş yanıtlanmış/iletilmiş ileti metni düzenlensin mi?</string>
-    <string name="title_sync_queued">Eşzamanlama bir sonraki hesap bağlantısında gerçekleşecek</string>
     <string name="title_fix">Düzelt</string>
     <string name="title_compose">Eposta Oluştur</string>
     <string name="title_from">Gönderen:</string>

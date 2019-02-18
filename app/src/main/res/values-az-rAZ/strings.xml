@@ -233,7 +233,6 @@
     <string name="title_ask_discard">Qaralama silinsin?</string>
     <string name="title_ask_show_html">Orijinal mesajın göstərilməsi, gizlilik həssaslı məlumatları sızdıra bilər</string>
     <string name="title_ask_show_image">Təsvirlərin göstərilməsi, gizlilik həssaslı məlumatların sızdıra bilər</string>
-    <string name="title_sync_queued">Eyniləşdirmə növbəti hesab bağlantısında həyata keçiriləcək</string>
     <string name="title_fix">Düzəlt</string>
     <string name="title_compose">Yaz</string>
     <string name="title_from">Göndərən:</string>

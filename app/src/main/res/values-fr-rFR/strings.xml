@@ -167,6 +167,8 @@
     <string name="title_identity_read_receipt">Demander une confirmation de lecture</string>
     <string name="title_identity_delivery_receipt">Demander un accusé de réception</string>
     <string name="title_identity_receipt_remark">La plupart des fournisseurs ignorent les demandes d\'accusé de réception</string>
+    <string name="title_identity_store_sent">Enregistrer les messages envoyés</string>
+    <string name="title_identity_store_sent_remark">Activer ceci seulement si votre fournisseur n\'enregistre pas automatiquement les messages envoyés</string>
     <string name="title_optional">Facultatif</string>
     <string name="title_account_linked">Compte associé</string>
     <string name="title_account_name">Nom du compte</string>
@@ -192,6 +194,7 @@
     <string name="title_authorizing">Autorisation du compte en cours &#8230;</string>
     <string name="title_setup_advanced">Avancé</string>
     <string name="title_synchronize_account">Synchroniser (recevoir des messages)</string>
+    <string name="title_synchronize_ondemand">Synchroniser à la demande (manuel)</string>
     <string name="title_synchronize_identity">Synchroniser (envoyer des messages)</string>
     <string name="title_primary_account">Principal (compte par défaut)</string>
     <string name="title_primary_identity">Principal (identité par défaut)</string>
@@ -305,7 +308,6 @@
     <string name="title_ask_show_html">Afficher le message original peut divulguer des informations sensibles privées</string>
     <string name="title_ask_show_image">Afficher les images peut divulguer des informations sensibles privées</string>
     <string name="title_ask_edit_ref">Modifier le texte du message reformaté et répondu/transféré ?</string>
-    <string name="title_sync_queued">La synchronisation sera effectuée à la prochaine connexion d\'un compte</string>
     <string name="title_fix">Corriger</string>
     <string name="title_compose">Rédiger</string>
     <string name="title_from">De :</string>

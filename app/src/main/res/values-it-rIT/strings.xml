@@ -167,6 +167,8 @@
     <string name="title_identity_read_receipt">Richiedi conferma di lettura</string>
     <string name="title_identity_delivery_receipt">Richiedi ricevuta di consegna</string>
     <string name="title_identity_receipt_remark">La maggior parte dei fornitori ignora le richieste di conferma</string>
+    <string name="title_identity_store_sent">Memorizza messaggi inviati</string>
+    <string name="title_identity_store_sent_remark">Abilitalo solo se il tuo provider non memorizza automaticamente i messaggi inviati</string>
     <string name="title_optional">Facoltativo</string>
     <string name="title_account_linked">Account collegato</string>
     <string name="title_account_name">Nome account</string>
@@ -192,6 +194,7 @@
     <string name="title_authorizing">Autorizzazione account &#8230;</string>
     <string name="title_setup_advanced">Avanzate</string>
     <string name="title_synchronize_account">Sincronizza (ricevi messaggi)</string>
+    <string name="title_synchronize_ondemand">Sincronizza su richiesta (manuale)</string>
     <string name="title_synchronize_identity">Sincronizza (invia messaggi)</string>
     <string name="title_primary_account">Principale (account predefinito)</string>
     <string name="title_primary_identity">Principale (identità predefinita)</string>
@@ -305,7 +308,6 @@
     <string name="title_ask_show_html">Mostrare il messaggio originale rende possibile una fuga di informazioni personali sensibili</string>
     <string name="title_ask_show_image">Mostrare le immagini rende possibile una fuga di informazioni personali sensibili</string>
     <string name="title_ask_edit_ref">Modificare il testo del messaggio inviato/inoltrato riformattato?</string>
-    <string name="title_sync_queued">La sincronizzazione avverrà alla connessione del prossimo account</string>
     <string name="title_fix">Correggi</string>
     <string name="title_compose">Scrivi</string>
     <string name="title_from">Da:</string>
@@ -366,6 +368,7 @@
     <string name="title_rule_name">Nome</string>
     <string name="title_rule_order">Ordine</string>
     <string name="title_rule_enabled">Abilitato</string>
+    <string name="title_rule_stop">Ferma l\'elaborazione delle regole dopo l\'esecuzione di questa regola</string>
     <string name="title_rule_sender">Il mittente contiene</string>
     <string name="title_rule_subject">L\'oggetto contiene</string>
     <string name="title_rule_header">L\'intestazione contiene</string>
