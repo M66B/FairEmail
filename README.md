@@ -40,12 +40,12 @@ This app starts a foreground service with a low priority status bar notification
 * Notifications with message details (requires Android 7 Nougat or later)
 * Snooze messages
 * Send messages after selected time
-* Synchronization schedules
+* Synchronization schedules ([instructions](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq78))
 * Reply templates
-* Filter rules
-* Search on device or server
+* Filter rules ([instructions](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq71))
+* Search on device or server ([instructions](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq13))
 * Keyword management
-* Encryption/decryption ([OpenPGP](https://www.openpgp.org/))
+* Encryption/decryption ([OpenPGP](https://www.openpgp.org/)) ([instructions](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq12))
 * Export settings
 
 ## Simple
