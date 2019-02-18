@@ -653,10 +653,10 @@ public class FragmentCompose extends FragmentBase {
         if (autosave)
             onAction(R.id.action_save);
 
-        super.onPause();
-
         ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.unregisterNetworkCallback(networkCallback);
+
+        super.onPause();
     }
 
     ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
