@@ -174,6 +174,7 @@
     <string name="title_advanced_autosend">Confirm sending messages</string>
 
     <string name="title_advanced_notify_preview">Show message preview in notifications</string>
+    <string name="title_advanced_search_local">Search on device</string>
     <string name="title_advanced_light">Use notification light</string>
     <string name="title_advanced_sound">Select notification sound</string>
     <string name="title_advanced_updates">Check for updates</string>
@@ -185,11 +186,12 @@
     <string name="title_advanced_unified_hint">Show unified inbox folders or unified inbox messages</string>
     <string name="title_advanced_threading_hint">Group messages related to each other</string>
     <string name="title_advanced_name_email_hint">When disabled only names will be shown when available</string>
-    <string name="title_advanced_preview_hint">Only available when message text was downloaded</string>
     <string name="title_advanced_autoexpand_hint">Automatically open message when there is just one message or just one unread message in a conversation</string>
     <string name="title_advanced_autocollapse_hint">Multiple expanded messages will always be closed on \'back\'</string>
     <string name="title_advanced_autoclose_hint">Automatically close conversations when all messages are archived, sent or trashed</string>
     <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
+    <string name="title_advanced_preview_hint">Only available when message text was downloaded</string>
+    <string name="title_advanced_search_local_hint">Instead of searching in the primary archive folder on the server</string>
 
     <string name="title_select">Select &#8230;</string>
     <string name="title_identity_name">Your name</string>

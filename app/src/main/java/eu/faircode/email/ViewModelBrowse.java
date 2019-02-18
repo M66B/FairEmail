@@ -97,7 +97,7 @@ public class ViewModelBrowse extends ViewModel {
 
                 if (state.messages == null) {
                     state.messages = db.message().getMessageIdsByFolder(state.fid);
-                    Log.i("Messages=" + state.messages.size());
+                    Log.i("Boundary search folder=" + state.fid + " messages=" + state.messages.size());
                 }
 
                 for (int i = state.local; i < state.messages.size() && local < state.pageSize; i++) {

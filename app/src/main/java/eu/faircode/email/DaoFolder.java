@@ -86,11 +86,6 @@ public interface DaoFolder {
             " WHERE `primary` AND type = '" + EntityFolder.DRAFTS + "'")
     LiveData<EntityFolder> livePrimaryDrafts();
 
-    @Query("SELECT folder.* FROM folder" +
-            " JOIN account ON account.id = folder.account" +
-            " WHERE `primary` AND type = '" + EntityFolder.ARCHIVE + "'")
-    LiveData<EntityFolder> livePrimaryArchive();
-
     @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +

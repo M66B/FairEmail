@@ -421,16 +421,18 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                             db.message().resetSearch();
 
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                            if (prefs.getBoolean("search_local", false))
+                                return null;
+
                             EntityFolder archive = db.folder().getPrimaryArchive();
-                            if (archive == null)
-                                throw new IllegalArgumentException("No primary archive");
-                            return archive.id;
+                            return (archive == null ? null : archive.id);
                         }
 
                         @Override
                         protected void onExecuted(Bundle args, Long archive) {
                             Bundle sargs = new Bundle();
-                            sargs.putLong("folder", archive);
+                            sargs.putLong("folder", archive == null ? -1 : archive);
                             sargs.putString("search", args.getString("search"));
 
                             FragmentMessages fragment = new FragmentMessages();

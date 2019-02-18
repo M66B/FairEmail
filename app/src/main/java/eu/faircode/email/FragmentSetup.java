@@ -273,7 +273,6 @@ public class FragmentSetup extends FragmentBase {
         db.account().liveSynchronizingAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
             private boolean done = false;
             private LiveData<EntityFolder> livePrimaryDrafts = null;
-            private LiveData<EntityFolder> livePrimaryArchive = null;
 
             @Override
             public void onChanged(@Nullable List<EntityAccount> accounts) {
@@ -293,28 +292,10 @@ public class FragmentSetup extends FragmentBase {
                 else
                     livePrimaryDrafts.removeObservers(getViewLifecycleOwner());
 
-                if (livePrimaryArchive == null)
-                    livePrimaryArchive = db.folder().livePrimaryArchive();
-                else
-                    livePrimaryArchive.removeObservers(getViewLifecycleOwner());
-
                 livePrimaryDrafts.observe(getViewLifecycleOwner(), new Observer<EntityFolder>() {
                     @Override
                     public void onChanged(EntityFolder drafts) {
                         tvNoPrimaryDrafts.setVisibility(done && drafts == null ? View.VISIBLE : View.GONE);
-                    }
-                });
-
-                livePrimaryArchive.observe(getViewLifecycleOwner(), new Observer<EntityFolder>() {
-                    @Override
-                    public void onChanged(EntityFolder archive) {
-                        PackageManager pm = getContext().getPackageManager();
-                        pm.setComponentEnabledSetting(
-                                new ComponentName(getContext(), ActivitySearch.class),
-                                archive == null
-                                        ? PackageManager.COMPONENT_ENABLED_STATE_DISABLED
-                                        : PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-                                PackageManager.DONT_KILL_APP);
                     }
                 });
             }
@@ -329,6 +310,13 @@ public class FragmentSetup extends FragmentBase {
                 tvIdentityDone.setCompoundDrawablesWithIntrinsicBounds(done ? check : null, null, null, null);
             }
         });
+
+        // Backward compatibility
+        PackageManager pm = getContext().getPackageManager();
+        pm.setComponentEnabledSetting(
+                new ComponentName(getContext(), ActivitySearch.class),
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                PackageManager.DONT_KILL_APP);
     }
 
     @Override

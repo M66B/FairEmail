@@ -97,6 +97,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swAutoSend;
 
     private SwitchCompat swNotifyPreview;
+    private SwitchCompat swSearchLocal;
     private SwitchCompat swLight;
     private Button btnSound;
 
@@ -117,7 +118,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             "unified", "date", "threading", "avatars", "identicons", "name_email", "preview", "addresses", "autoimages", "actionbar",
             "pull", "swipenav", "autoexpand", "autoclose", "autonext", "collapse", "autoread", "automove",
             "autoresize", "sender", "autosend",
-            "notify_preview", "light", "sound",
+            "notify_preview", "search_local", "light", "sound",
             "updates", "debug",
             "first", "why", "last_update_check", "app_support", "message_swipe", "message_select", "folder_actions", "folder_sync",
             "edit_ref_confirmed", "show_html_confirmed", "show_images_confirmed"
@@ -166,6 +167,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swAutoSend = view.findViewById(R.id.swAutoSend);
 
         swNotifyPreview = view.findViewById(R.id.swNotifyPreview);
+        swSearchLocal = view.findViewById(R.id.swSearchLocal);
         swLight = view.findViewById(R.id.swLight);
         btnSound = view.findViewById(R.id.btnSound);
 
@@ -450,6 +452,13 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             }
         });
 
+        swSearchLocal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("search_local", checked).apply();
+            }
+        });
+
         swLight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -584,6 +593,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swAutoSend.setChecked(!prefs.getBoolean("autosend", false));
 
         swNotifyPreview.setChecked(prefs.getBoolean("notify_preview", true));
+        swSearchLocal.setChecked(prefs.getBoolean("search_local", false));
         swLight.setChecked(prefs.getBoolean("light", false));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swUpdates.setVisibility(Helper.isPlayStoreInstall(getContext()) ? View.GONE : View.VISIBLE);
