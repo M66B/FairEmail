@@ -764,7 +764,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Flags
             tvFlags.setText(message.flags);
-            tvFlags.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+            tvFlags.setVisibility(debug ? View.VISIBLE : View.GONE);
 
             // Keywords
             tvKeywords.setText(TextUtils.join(" ", message.keywords));
