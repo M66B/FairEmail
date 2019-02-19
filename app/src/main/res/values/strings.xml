@@ -360,7 +360,6 @@
     <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
     <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
     <string name="title_ask_edit_ref">Edit reformatted replied/forwarded message text?</string>
-    <string name="title_fix">Fix</string>
 
     <string name="title_compose">Compose</string>
     <string name="title_from">From:</string>
@@ -521,6 +520,8 @@
     <string name="title_browse">Browse</string>
     <string name="title_info">Info</string>
     <string name="title_report">Report</string>
+    <string name="title_fix">Fix</string>
+    <string name="title_enable">Enable</string>
     <string name="title_no_ask_again">Do not ask this again</string>
     <string name="title_no_adobe">Adobe Acrobat reader cannot open safely shared files, see the FAQ for more information</string>
     <string name="title_no_body">No message text found</string>

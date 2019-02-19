@@ -1521,7 +1521,7 @@ public class FragmentCompose extends FragmentBase {
                 if (draft == null || draft.ui_hide) {
                     // New draft
                     if ("edit".equals(action))
-                        throw new IllegalStateException("Draft not found hide=" + (draft != null));
+                        throw new IllegalArgumentException("Draft not found hide=" + (draft != null));
 
                     List<TupleIdentityEx> identities = db.identity().getComposableIdentities(null);
 
@@ -1741,7 +1741,7 @@ public class FragmentCompose extends FragmentBase {
                 } else {
                     if (!draft.content) {
                         if (draft.uid == null)
-                            throw new IllegalStateException("Draft without uid");
+                            throw new IllegalArgumentException("Draft without uid");
                         EntityOperation.queue(context, db, draft, EntityOperation.BODY);
                     }
 
@@ -2118,7 +2118,7 @@ public class FragmentCompose extends FragmentBase {
 
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     if (!prefs.getBoolean("enabled", true))
-                        throw new IllegalArgumentException(context.getString(R.string.title_sync_disabled));
+                        throw new IllegalStateException(context.getString(R.string.title_sync_disabled));
 
                     // Delete draft (cannot move to outbox)
                     EntityOperation.queue(context, db, draft, EntityOperation.DELETE);
@@ -2198,7 +2198,18 @@ public class FragmentCompose extends FragmentBase {
                 finish();
             else if (ex instanceof IllegalArgumentException || ex instanceof AddressException)
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-            else
+            else if (ex instanceof IllegalStateException) {
+                Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
+                snackbar.setAction(R.string.title_enable, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                        prefs.edit().putBoolean("enabled", true).apply();
+                        ServiceSynchronize.reload(getContext(), "compose/disabled");
+                    }
+                });
+                snackbar.show();
+            } else
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
         }
     };
