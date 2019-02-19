@@ -60,6 +60,7 @@ import com.sun.mail.util.MailConnectException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.jsoup.Jsoup;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -688,7 +689,12 @@ public class ServiceSynchronize extends LifecycleService {
                         StringBuilder sb = new StringBuilder();
                         if (!TextUtils.isEmpty(message.subject))
                             sb.append(message.subject).append("<br>");
-                        sb.append(HtmlHelper.getPreview(body));
+                        String text = Jsoup.parse(body).text();
+                        if (text.length() > HtmlHelper.PREVIEW_SIZE) {
+                            sb.append(text.substring(0, HtmlHelper.PREVIEW_SIZE));
+                            sb.append(" …");
+                        } else
+                            sb.append(text);
                         mbuilder.setStyle(new Notification.BigTextStyle().bigText(HtmlHelper.fromHtml(sb.toString())));
                     } catch (IOException ex) {
                         Log.e(ex);

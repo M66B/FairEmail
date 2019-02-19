@@ -60,7 +60,8 @@ import static androidx.core.text.HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_LIST_
 import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
 
 public class HtmlHelper {
-    private static final int PREVIEW_SIZE = 250;
+    static final int PREVIEW_SIZE = 250;
+
     private static final List<String> heads = Arrays.asList("h1", "h2", "h3", "h4", "h5", "h6", "p", "table", "ol", "ul", "br", "hr");
     private static final List<String> tails = Arrays.asList("h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "li");
 
