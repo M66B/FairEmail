@@ -262,7 +262,7 @@
     <string name="title_folder_system">System</string>
     <string name="title_folder_user">Benutzer</string>
     <string name="title_folder_primary">Ordner primäres Konto</string>
-    <string name="title_folder_thread">Thema %1$s</string>
+    <string name="title_folder_thread">Unterhaltungen %1$s</string>
     <string name="title_folders_unified">Sammeleingangsordner</string>
     <string name="title_no_messages">Keine E-Mails</string>
     <string name="title_subject_reply">Re: %1$s</string>

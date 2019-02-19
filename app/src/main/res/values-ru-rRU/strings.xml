@@ -98,6 +98,7 @@
     <string name="title_setup_quick">Быстрая настройка</string>
     <string name="title_setup_quick_remark">Быстрая настройка учётных записей и идентификаторов для большинства основных провайдеров</string>
     <string name="title_setup_quick_hint">Быстрая настройка считывает информацию о конфигурации с autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_imap">IMAP сервер для получения сообщений</string>
     <string name="title_setup_quick_smtp">SMTP сервер для отправки сообщений</string>
     <string name="title_setup_go">Далее</string>
     <string name="title_setup_setting_gmail">Разрешите доступ для «менее надежных» приложений</string>

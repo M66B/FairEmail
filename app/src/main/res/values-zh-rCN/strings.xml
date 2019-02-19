@@ -74,6 +74,8 @@
     <string name="title_setup_quick">快速设置</string>
     <string name="title_setup_quick_remark">为大多数主要邮件服务提供商快速设置账户和身份</string>
     <string name="title_setup_quick_hint">快速设置将从autoconfig.thunderbird.net 获取配置信息</string>
+    <string name="title_setup_quick_imap">接收消息的IMAP 服务器</string>
+    <string name="title_setup_quick_smtp">发送消息的SMTP服务器</string>
     <string name="title_setup_go">转到</string>
     <string name="title_setup_setting_gmail">启用对 \"安全性较低\" 的应用的访问</string>
     <string name="title_setup_no_settings">找不到 \"%1$s\" 的设置</string>
@@ -136,6 +138,7 @@
     <string name="title_advanced_sender">允许编辑发件人地址</string>
     <string name="title_advanced_autosend">确认发送邮件</string>
     <string name="title_advanced_notify_preview">通知中显示消息预览</string>
+    <string name="title_advanced_search_local">外部搜索</string>
     <string name="title_advanced_light">使用指示灯</string>
     <string name="title_advanced_sound">选择通知提示音</string>
     <string name="title_advanced_updates">检查更新</string>
@@ -157,6 +160,7 @@
     <string name="title_identity_email">电子邮件地址</string>
     <string name="title_identity_reply_to">回复地址</string>
     <string name="title_identity_plain_text">仅发送纯文本</string>
+    <string name="title_identity_encrypt">默认加密</string>
     <string name="title_identity_read_receipt">请求读取回执</string>
     <string name="title_identity_delivery_receipt">请求发出凭据</string>
     <string name="title_identity_receipt_remark">大部份提供商忽略接收请求</string>
@@ -206,6 +210,7 @@
     <string name="title_no_move">该邮件服务供应商不支持MOVE扩展</string>
     <string name="title_no_uidplus">该邮件服务供应商不支持UIDPLUS扩展</string>
     <string name="title_no_sync">从 %1$s 开始同步错误</string>
+    <string name="title_sync_disabled">已禁用同步</string>
     <string name="title_drafts_required">需要一个草稿文件夹来发送消息</string>
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
