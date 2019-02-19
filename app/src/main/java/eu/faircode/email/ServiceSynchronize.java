@@ -687,7 +687,7 @@ public class ServiceSynchronize extends LifecycleService {
                         String body = Helper.readText(EntityMessage.getFile(this, message.id));
                         StringBuilder sb = new StringBuilder();
                         if (!TextUtils.isEmpty(message.subject))
-                            sb.append(message.subject).append("<br>");
+                            sb.append("<b>").append(message.subject).append("</b>").append("<br>");
                         sb.append(HtmlHelper.getPreview(body));
                         mbuilder.setStyle(new Notification.BigTextStyle().bigText(HtmlHelper.fromHtml(sb.toString())));
                     } catch (IOException ex) {
