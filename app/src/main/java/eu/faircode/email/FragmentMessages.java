@@ -760,6 +760,12 @@ public class FragmentMessages extends FragmentBase {
         }
 
         @Override
+        public void onSelectedChanged(@Nullable RecyclerView.ViewHolder viewHolder, int actionState) {
+            super.onSelectedChanged(viewHolder, actionState);
+            swipeRefresh.setEnabled(pull && actionState != ItemTouchHelper.ACTION_STATE_SWIPE);
+        }
+
+        @Override
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
             TupleMessageEx message = getMessage(viewHolder);
             if (message == null)
