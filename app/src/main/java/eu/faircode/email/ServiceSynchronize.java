@@ -690,11 +690,15 @@ public class ServiceSynchronize extends LifecycleService {
                         if (!TextUtils.isEmpty(message.subject))
                             sb.append(message.subject).append("<br>");
                         String text = Jsoup.parse(body).text();
-                        if (text.length() > HtmlHelper.PREVIEW_SIZE) {
-                            sb.append(text.substring(0, HtmlHelper.PREVIEW_SIZE));
-                            sb.append(" …");
-                        } else
-                            sb.append(text);
+                        if (!TextUtils.isEmpty(text)) {
+                            sb.append("<em>");
+                            if (text.length() > HtmlHelper.PREVIEW_SIZE) {
+                                sb.append(text.substring(0, HtmlHelper.PREVIEW_SIZE));
+                                sb.append("…");
+                            } else
+                                sb.append(text);
+                            sb.append("</em>");
+                        }
                         mbuilder.setStyle(new Notification.BigTextStyle().bigText(HtmlHelper.fromHtml(sb.toString())));
                     } catch (IOException ex) {
                         Log.e(ex);
