@@ -315,7 +315,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 if (Helper.getIntentFAQ().resolveActivity(getPackageManager()) != null)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_question_answer_24, R.string.menu_faq));
 
-                if (!BuildConfig.PLAY_STORE_RELEASE)
+                if (BuildConfig.BETA_RELEASE)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_report_problem_24, R.string.menu_issue));
 
                 if (Helper.getIntentPrivacy().resolveActivity(getPackageManager()) != null)
