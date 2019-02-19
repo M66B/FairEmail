@@ -154,11 +154,12 @@
     <string name="title_advanced_unified_hint">Mostra cartelle in arrivo unificate o messaggi in arrivo unificati</string>
     <string name="title_advanced_threading_hint">Messaggi di gruppo relazionati a vicenda</string>
     <string name="title_advanced_name_email_hint">Quando disabilitati saranno mostrati solo i nomi quando disponibili</string>
-    <string name="title_advanced_preview_hint">Disponibile solo quando è stato scaricato il testo del messaggio</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando c\'è un solo messaggio o solo un messaggio da leggere in una conversazione</string>
     <string name="title_advanced_autocollapse_hint">Più messaggi estesi verranno sempre chiusi con \'indietro\'</string>
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni raggruppate quando tutti i messaggi sono archiviati, inviati o cestinati</string>
     <string name="title_advanced_sender_hint">La maggior parte dei fornitori non consente indirizzi mittente modificati</string>
+    <string name="title_advanced_preview_hint">Disponibile solo quando è stato scaricato il testo del messaggio</string>
+    <string name="title_advanced_search_local_hint">Invece di cercare nella cartella principale dell\'archivio sul server</string>
     <string name="title_select">Seleziona &#8230;</string>
     <string name="title_identity_name">Il tuo nome</string>
     <string name="title_identity_email">Il tuo indirizzo email</string>
@@ -379,6 +380,7 @@
     <string name="title_rule_folder">Cartella</string>
     <string name="title_rule_identity">Identità</string>
     <string name="title_rule_answer">Modello di risposta</string>
+    <string name="title_rule_cc">Rispondi agli indirizzi CC</string>
     <string name="title_rule_name_missing">Nome Regola mancante</string>
     <string name="title_rule_condition_missing">Condizione mancante</string>
     <string name="title_action_seen">Segna come letto</string>

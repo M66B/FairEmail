@@ -119,10 +119,10 @@
     <string name="title_advanced_browse_hint">گرفتن و دریافت پیام‌های بیشتر پیمایش به سمت پایین</string>
     <string name="title_advanced_unified_hint">نمایش پوشه‌های صندوق دریافت یکپارچه یا صندوق دریافت یکپارچه پیام‌ها</string>
     <string name="title_advanced_threading_hint">پیام‌های گروهی مرتبط با یکدیگر</string>
-    <string name="title_advanced_preview_hint">فقط زمانی در دسترس است که متن پیام دانلود شده باشد</string>
     <string name="title_advanced_autoexpand_hint">باز کردن خودکار پیام وقتی فقط یک پیام یا فقط یک پیام خوانده نشده در مکالمه وجود دارد</string>
     <string name="title_advanced_autoclose_hint">بسته شدن خودکار مکالمات زمانی که همه پیام‌ها آرشیو شده، فرستاده شده و یا به به سطل آشغال فرستاده شده است</string>
     <string name="title_advanced_sender_hint">اکثر سرویس دهندگان اجازه اصلاح یا تغییر آدرس فرستنده را نمی‌دهند</string>
+    <string name="title_advanced_preview_hint">فقط زمانی در دسترس است که متن پیام دانلود شده باشد</string>
     <string name="title_select">انتخاب &#8230;</string>
     <string name="title_identity_name">نام شما</string>
     <string name="title_identity_email">آدرس ایمیل شما</string>

@@ -82,6 +82,8 @@
     <string name="title_setup_quick">Configuration rapide</string>
     <string name="title_setup_quick_remark">Pour configurer rapidement un compte et une identité pour la plupart des fournisseurs principaux</string>
     <string name="title_setup_quick_hint">La configuration rapide récupérera les informations de configuration de autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_imap">Serveur IMAP pour recevoir des messages</string>
+    <string name="title_setup_quick_smtp">Serveur SMTP pour envoyer des messages</string>
     <string name="title_setup_go">Aller</string>
     <string name="title_setup_setting_gmail">Activer l\'accès pour les applications « moins sûres »</string>
     <string name="title_setup_no_settings">Aucun paramètre trouvé pour %1$s</string>
@@ -144,6 +146,7 @@
     <string name="title_advanced_sender">Autoriser la modification de l\'adresse de l\'expéditeur</string>
     <string name="title_advanced_autosend">Confirmer l\'envoi des messages</string>
     <string name="title_advanced_notify_preview">Afficher l\'aperçu du message dans les notifications</string>
+    <string name="title_advanced_search_local">Recherche externe sur l\'appareil</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
@@ -154,16 +157,18 @@
     <string name="title_advanced_unified_hint">Afficher les dossiers de la boîte de réception unifiée ou les messages de la boîte de réception unifiée</string>
     <string name="title_advanced_threading_hint">Groupe de messages liés les uns aux autres</string>
     <string name="title_advanced_name_email_hint">Si désactivé, seuls les noms seront affichés si disponibles</string>
-    <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
     <string name="title_advanced_autoexpand_hint">Ouvrir automatiquement le message lorsqu’il n’y a qu’un seul message ou seulement un message non lu dans une conversation</string>
     <string name="title_advanced_autocollapse_hint">Les messages étendus multiples seront toujours fermés par \'retour\'</string>
     <string name="title_advanced_autoclose_hint">Fermer automatiquement les fils de conversation quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n\'autorisent pas les adresses d\'expéditeur modifiées</string>
+    <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
+    <string name="title_advanced_search_local_hint">Au lieu de chercher dans le dossier de l’archive principale sur le serveur</string>
     <string name="title_select">Sélectionner &#8230;</string>
     <string name="title_identity_name">Votre nom</string>
     <string name="title_identity_email">Votre adresse e-mail</string>
     <string name="title_identity_reply_to">Répondre à l\'adresse</string>
     <string name="title_identity_plain_text">Envoyer en texte brut uniquement</string>
+    <string name="title_identity_encrypt">Chiffrer par défaut</string>
     <string name="title_identity_read_receipt">Demander une confirmation de lecture</string>
     <string name="title_identity_delivery_receipt">Demander un accusé de réception</string>
     <string name="title_identity_receipt_remark">La plupart des fournisseurs ignorent les demandes d\'accusé de réception</string>
@@ -213,6 +218,7 @@
     <string name="title_no_move">Ce fournisseur ne prend pas en charge MOVE</string>
     <string name="title_no_uidplus">Ce fournisseur ne prend pas en charge UIDPLUS</string>
     <string name="title_no_sync">Erreurs de synchronisation depuis %1$s</string>
+    <string name="title_sync_disabled">La synchronisation est désactivée</string>
     <string name="title_drafts_required">Un dossier brouillon est nécessaire pour envoyer des messages</string>
     <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
     <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
@@ -379,6 +385,7 @@
     <string name="title_rule_folder">Dossier</string>
     <string name="title_rule_identity">Identité</string>
     <string name="title_rule_answer">Modèle de réponse</string>
+    <string name="title_rule_cc">Répondre aux adresses CC</string>
     <string name="title_rule_name_missing">Nom de règle manquant</string>
     <string name="title_rule_condition_missing">Condition manquante</string>
     <string name="title_action_seen">Marquer comme lu</string>

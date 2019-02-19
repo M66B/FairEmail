@@ -162,11 +162,11 @@
     <string name="title_advanced_unified_hint">Arată dosarele unificate sau mesajele primite unificate</string>
     <string name="title_advanced_threading_hint">Grupează mesajele asociate</string>
     <string name="title_advanced_name_email_hint">Dacă este dezactivată, doar numele va fi afișat atunci când este disponibil</string>
-    <string name="title_advanced_preview_hint">Disponibil doar atunci când a fost descarcat textul mesajului</string>
     <string name="title_advanced_autoexpand_hint">Atunci când este doar un mesaj sau doar un mesaj necitit într-o conversație</string>
     <string name="title_advanced_autocollapse_hint">Mesajele multiple vor fi mereu plate când se apasă \'înapoi\'</string>
     <string name="title_advanced_autoclose_hint">Atunci când toate mesajele sunt arhivate, trimise sau mutate la gunoi</string>
     <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
+    <string name="title_advanced_preview_hint">Disponibil doar atunci când a fost descarcat textul mesajului</string>
     <string name="title_select">Selectaţi &#8230;</string>
     <string name="title_identity_name">Numele dumneavoastră</string>
     <string name="title_identity_email">Adresa dvs. de e-mail</string>

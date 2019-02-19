@@ -153,9 +153,9 @@
     <string name="title_advanced_unified_hint">Birleşik gelen kutusu klasörlerini veya birleşik gelen kutusu iletilerini göster</string>
     <string name="title_advanced_threading_hint">Birbirlerine bağlı grup iletileri</string>
     <string name="title_advanced_name_email_hint">Devre dışı bırakıldığında, yalnızca adlar mevcut olduğunda gösterilecektir</string>
-    <string name="title_advanced_preview_hint">Yalnızca ileti metni indirildiğinde kullanılabilir</string>
     <string name="title_advanced_autoclose_hint">Tüm iletiler arşivlendiğinde veya çöpe gittiğinde bu iletişim kutusunu otomatik olarak kapat</string>
     <string name="title_advanced_sender_hint">Çoğu sağlayıcı değiştirilmiş gönderici adreslerine izin vermiyor</string>
+    <string name="title_advanced_preview_hint">Yalnızca ileti metni indirildiğinde kullanılabilir</string>
     <string name="title_select">Seçin &#8230;</string>
     <string name="title_identity_name">Adınız</string>
     <string name="title_identity_email">E-posta adresiniz</string>

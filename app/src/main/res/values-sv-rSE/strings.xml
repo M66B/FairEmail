@@ -154,11 +154,11 @@
     <string name="title_advanced_unified_hint">Visa samlad inkorg eller kombinerade inkorgsmeddelanden</string>
     <string name="title_advanced_threading_hint">Gruppera meddelanden relaterade till varandra</string>
     <string name="title_advanced_name_email_hint">När inaktiverad visas endast namn när det är tillgängligt</string>
-    <string name="title_advanced_preview_hint">Endast tillgängligt när meddelandetexten hämtades</string>
     <string name="title_advanced_autoexpand_hint">Öppna automatiskt meddelandet när det bara finns ett meddelande eller bara ett oläst meddelande i en konversation</string>
     <string name="title_advanced_autocollapse_hint">Flera utökade meddelanden kommer alltid att stängas på \"Tillbaka\"</string>
     <string name="title_advanced_autoclose_hint">Stäng automatiskt konversationstrådar när alla meddelanden arkiveras, skickas eller kastas</string>
     <string name="title_advanced_sender_hint">De flesta leverantörer tillåter inte ändrade avsändaradresser</string>
+    <string name="title_advanced_preview_hint">Endast tillgängligt när meddelandetexten hämtades</string>
     <string name="title_select">Välj &#8230;</string>
     <string name="title_identity_name">Ditt namn</string>
     <string name="title_identity_email">Din e-postadress</string>

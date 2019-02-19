@@ -82,6 +82,8 @@
     <string name="title_setup_quick">Snel instellen</string>
     <string name="title_setup_quick_remark">Voor het snel instellen van een account en een identiteit voor de meeste grote providers</string>
     <string name="title_setup_quick_hint">De snelle instelling zal configuratie informatie ophalen van autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_imap">IMAP-server om berichten te ontvangen</string>
+    <string name="title_setup_quick_smtp">SMTP-server om berichten te verzenden</string>
     <string name="title_setup_go">Ga</string>
     <string name="title_setup_setting_gmail">Toegang voor \"minder veilige\" apps inschakelen</string>
     <string name="title_setup_no_settings">Geen instellingen gevonden voor \'%1$s\'</string>
@@ -144,6 +146,7 @@
     <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
     <string name="title_advanced_autosend">Bevestig het verzenden van berichten</string>
     <string name="title_advanced_notify_preview">Toon berichtvoorbeeld in meldingen</string>
+    <string name="title_advanced_search_local">Extern zoeken op apparaat</string>
     <string name="title_advanced_light">Gebruik meldingslicht</string>
     <string name="title_advanced_sound">Selecteer meldingsgeluid</string>
     <string name="title_advanced_updates">Controleren op updates</string>
@@ -154,16 +157,18 @@
     <string name="title_advanced_unified_hint">Gecombineerd postvak in mappen of gecombineerd postvak in berichten weergeven</string>
     <string name="title_advanced_threading_hint">Groepeer gerelateerde berichten</string>
     <string name="title_advanced_name_email_hint">Indien uitgeschakeld, worden alleen namen weergegeven als deze beschikbaar zijn</string>
-    <string name="title_advanced_preview_hint">Alleen beschikbaar wanneer de berichttekst werd gedownload</string>
     <string name="title_advanced_autoexpand_hint">Bericht automatisch openen als een er slechts één bericht of slechts één ongelezen bericht in een gesprek is</string>
     <string name="title_advanced_autocollapse_hint">Meerdere uitgeklapte berichten worden altijd gesloten bij \'terug\'</string>
     <string name="title_advanced_autoclose_hint">Gesprekken automatisch sluiten wanneer alle berichten zijn gearchiveerd, verzonden of weggegooid</string>
     <string name="title_advanced_sender_hint">De meeste providers staan gemodificeerde verzendadressen niet toe</string>
+    <string name="title_advanced_preview_hint">Alleen beschikbaar wanneer de berichttekst werd gedownload</string>
+    <string name="title_advanced_search_local_hint">In plaats van zoeken in de primaire archiefmap op de server</string>
     <string name="title_select">Selecteer &#8230;</string>
     <string name="title_identity_name">Uw naam</string>
     <string name="title_identity_email">Uw e-mailadres</string>
     <string name="title_identity_reply_to">Antwoord op adres</string>
     <string name="title_identity_plain_text">Verstuur alleen platte tekst</string>
+    <string name="title_identity_encrypt">Standaard versleutelen</string>
     <string name="title_identity_read_receipt">Vraag leesbevestiging</string>
     <string name="title_identity_delivery_receipt">Vraag ontvangstbevestiging</string>
     <string name="title_identity_receipt_remark">De meeste providers negeren bevestigingsverzoeken</string>
@@ -213,6 +218,7 @@
     <string name="title_no_move">Deze provider ondersteunt geen MOVE</string>
     <string name="title_no_uidplus">Deze provider ondersteunt geen UIDPLUS</string>
     <string name="title_no_sync">Synchronisatiefouten sinds %1$s</string>
+    <string name="title_sync_disabled">Synchronisatie is uitgeschakeld</string>
     <string name="title_drafts_required">Een concepten map is vereist om berichten te verzenden</string>
     <string name="title_account_delete">Verwijder dit account permanent?</string>
     <string name="title_identity_delete">Verwijder deze identiteit permanent?</string>
@@ -379,6 +385,7 @@
     <string name="title_rule_folder">Map</string>
     <string name="title_rule_identity">Identiteit</string>
     <string name="title_rule_answer">Antwoord sjabloon</string>
+    <string name="title_rule_cc">Antwoord op CC adressen</string>
     <string name="title_rule_name_missing">Regelnaam ontbreekt</string>
     <string name="title_rule_condition_missing">Voorwaarde ontbreekt</string>
     <string name="title_action_seen">Gelezen</string>
