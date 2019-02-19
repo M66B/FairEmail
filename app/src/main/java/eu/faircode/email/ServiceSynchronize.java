@@ -2030,8 +2030,7 @@ public class ServiceSynchronize extends LifecycleService {
             if (message.inreplyto != null) {
                 List<EntityMessage> replieds = db.message().getMessageByMsgId(message.account, message.inreplyto);
                 for (EntityMessage replied : replieds)
-                    if (replied.uid != null)
-                        EntityOperation.queue(this, db, replied, EntityOperation.ANSWERED, true);
+                    EntityOperation.queue(this, db, replied, EntityOperation.ANSWERED, true);
             }
 
             db.identity().setIdentityConnected(ident.id, new Date().getTime());
