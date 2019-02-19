@@ -324,7 +324,10 @@ public class HtmlHelper {
 
     static String getPreview(String body) {
         String text = (body == null ? null : Jsoup.parse(body).text());
-        return (text == null ? null : text.substring(0, Math.min(text.length(), PREVIEW_SIZE)));
+        if (text == null || text.length() <= PREVIEW_SIZE) {
+            return text;
+        }
+        return text.substring(0, PREVIEW_SIZE) + '\u2026';
     }
 
     static String getText(String html) {
