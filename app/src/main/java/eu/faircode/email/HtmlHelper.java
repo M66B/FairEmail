@@ -24,6 +24,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -119,12 +120,31 @@ public class HtmlHelper {
                     String text = tnode.text();
                     Matcher matcher = Patterns.WEB_URL.matcher(text);
                     while (matcher.find()) {
-                        span.appendText(text.substring(pos, matcher.start()));
+                        boolean linked = false;
+                        Node parent = node.parent();
+                        while (parent != null) {
+                            if ("a".equals(parent.nodeName())) {
+                                linked = true;
+                                break;
+                            }
+                            parent = parent.parent();
+                        }
 
-                        Element a = document.createElement("a");
-                        a.attr("href", matcher.group());
-                        a.text(matcher.group());
-                        span.appendChild(a);
+                        String scheme = Uri.parse(matcher.group()).getScheme();
+
+                        if (BuildConfig.DEBUG)
+                            Log.i("Web url=" + matcher.group() + " linked=" + linked + " scheme=" + scheme);
+
+                        if (linked || scheme == null)
+                            span.appendText(text.substring(pos, matcher.end()));
+                        else {
+                            span.appendText(text.substring(pos, matcher.start()));
+
+                            Element a = document.createElement("a");
+                            a.attr("href", matcher.group());
+                            a.text(matcher.group());
+                            span.appendChild(a);
+                        }
 
                         pos = matcher.end();
                     }
@@ -154,7 +174,9 @@ public class HtmlHelper {
 
         boolean embedded = source.startsWith("cid:");
         boolean data = source.startsWith("data:");
-        Log.i("Image show=" + show + " embedded=" + embedded + " data=" + data + " source=" + source);
+
+        if (BuildConfig.DEBUG)
+            Log.i("Image show=" + show + " embedded=" + embedded + " data=" + data + " source=" + source);
 
         if (!show) {
             // Show placeholder icon
