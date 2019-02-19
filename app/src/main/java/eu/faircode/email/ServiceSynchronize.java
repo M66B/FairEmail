@@ -2258,6 +2258,9 @@ public class ServiceSynchronize extends LifecycleService {
             db.folder().setFolderError(folder.id, null);
             Log.i(folder.name + " connected");
 
+            // Process operations
+            processOperations(account, folder, isession, istore, ifolder, new ServiceState());
+
             // Synchronize messages
             synchronizeMessages(account, folder, (IMAPFolder) ifolder, folder.getSyncArgs(), new ServiceState());
 
