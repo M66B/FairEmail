@@ -1001,4 +1001,8 @@ public class Helper {
         }
         return sb.toString();
     }
+
+    static String sanitizeFilename(String name) {
+        return (name == null ? null : name.replaceAll("[^a-zA-Z0-9\\.\\-]", "_"));
+    }
 }

@@ -188,7 +188,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             lbm.sendBroadcast(
                     new Intent(ActivityView.ACTION_STORE_ATTACHMENT)
                             .putExtra("id", attachment.id)
-                            .putExtra("name", attachment.name)
+                            .putExtra("name", Helper.sanitizeFilename(attachment.name))
                             .putExtra("type", attachment.type));
         }
 
@@ -205,7 +205,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             intent.setDataAndType(uri, attachment.type);
             intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             if (!TextUtils.isEmpty(attachment.name))
-                intent.putExtra(Intent.EXTRA_TITLE, attachment.name);
+                intent.putExtra(Intent.EXTRA_TITLE, Helper.sanitizeFilename(attachment.name));
             Log.i("Sharing " + file + " type=" + attachment.type);
             Log.i("Intent=" + intent);
 
