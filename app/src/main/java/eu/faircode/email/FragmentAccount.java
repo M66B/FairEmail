@@ -63,6 +63,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
+import com.sun.mail.imap.protocol.IMAPProtocol;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
@@ -119,6 +120,7 @@ public class FragmentAccount extends FragmentBase {
     private TextView tvIdle;
     private TextView tvMove;
     private TextView tvUidPlus;
+    private TextView tvUtf8;
 
     private ArrayAdapter<EntityFolder> adapter;
     private Spinner spDrafts;
@@ -197,6 +199,7 @@ public class FragmentAccount extends FragmentBase {
         tvIdle = view.findViewById(R.id.tvIdle);
         tvMove = view.findViewById(R.id.tvMove);
         tvUidPlus = view.findViewById(R.id.tvUidPlus);
+        tvUtf8 = view.findViewById(R.id.tvUtf8);
 
         spDrafts = view.findViewById(R.id.spDrafts);
         spSent = view.findViewById(R.id.spSent);
@@ -520,6 +523,7 @@ public class FragmentAccount extends FragmentBase {
                 tvIdle.setVisibility(View.GONE);
                 tvMove.setVisibility(View.GONE);
                 tvUidPlus.setVisibility(View.GONE);
+                tvUtf8.setVisibility(View.GONE);
                 grpFolders.setVisibility(View.GONE);
                 tvError.setVisibility(View.GONE);
             }
@@ -643,6 +647,14 @@ public class FragmentAccount extends FragmentBase {
                                     junk = true;
                             }
 
+                            if (EntityFolder.INBOX.equals(type))
+                                result.utf8 = (Boolean) ((IMAPFolder) ifolder).doCommand(new IMAPFolder.ProtocolCommand() {
+                                    @Override
+                                    public Object doCommand(IMAPProtocol protocol) {
+                                        return protocol.supportsUtf8();
+                                    }
+                                });
+
                             Log.i(folder.name + " id=" + folder.id +
                                     " type=" + folder.type + " attr=" + TextUtils.join(",", attrs));
                         }
@@ -678,6 +690,7 @@ public class FragmentAccount extends FragmentBase {
                 tvIdle.setVisibility(result.idle ? View.GONE : View.VISIBLE);
                 tvMove.setVisibility(result.move ? View.GONE : View.VISIBLE);
                 tvUidPlus.setVisibility(result.uidplus ? View.GONE : View.VISIBLE);
+                tvUtf8.setVisibility(result.utf8 == null || result.utf8 ? View.GONE : View.VISIBLE);
 
                 setFolders(result.folders, result.account);
 
@@ -1459,5 +1472,6 @@ public class FragmentAccount extends FragmentBase {
         boolean idle;
         boolean move;
         boolean uidplus;
+        Boolean utf8;
     }
 }
