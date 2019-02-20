@@ -288,11 +288,17 @@ public class Helper {
 
     static String formatThrowable(Throwable ex, String separator) {
         StringBuilder sb = new StringBuilder();
-        sb.append(ex.getMessage() == null ? ex.getClass().getName() : ex.getMessage());
+        if (BuildConfig.DEBUG)
+            sb.append(ex.toString());
+        else
+            sb.append(ex.getMessage() == null ? ex.getClass().getName() : ex.getMessage());
 
         Throwable cause = ex.getCause();
         while (cause != null) {
-            sb.append(separator).append(cause.getMessage() == null ? cause.getClass().getName() : cause.getMessage());
+            if (BuildConfig.DEBUG)
+                sb.append(separator).append(cause.toString());
+            else
+                sb.append(separator).append(cause.getMessage() == null ? cause.getClass().getName() : cause.getMessage());
             cause = cause.getCause();
         }
 
