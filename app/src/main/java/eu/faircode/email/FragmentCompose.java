@@ -1460,15 +1460,17 @@ public class FragmentCompose extends FragmentBase {
                 options.inJustDecodeBounds = true;
                 BitmapFactory.decodeFile(file.getAbsolutePath(), options);
 
-                int scaleTo = REDUCED_IMAGE_SIZE;
-                int factor = Math.min(options.outWidth / scaleTo, options.outWidth / scaleTo);
+                int factor = 1;
+                while (options.outWidth / factor > REDUCED_IMAGE_SIZE ||
+                        options.outHeight / factor > REDUCED_IMAGE_SIZE)
+                    factor *= 2;
+
                 if (factor > 1) {
                     options.inJustDecodeBounds = false;
                     options.inSampleSize = factor;
 
                     Bitmap scaled = BitmapFactory.decodeFile(file.getAbsolutePath(), options);
                     if (scaled != null) {
-
                         Log.i("Image target size=" + scaled.getWidth() + "x" + scaled.getHeight());
 
                         OutputStream out = null;

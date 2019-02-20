@@ -280,7 +280,10 @@ public class HtmlHelper {
                 is = new URL(source).openStream();
 
                 int scaleTo = context.getResources().getDisplayMetrics().widthPixels;
-                int factor = Math.min(options.outWidth / scaleTo, options.outWidth / scaleTo);
+                int factor = 1;
+                while (options.outWidth / factor > scaleTo)
+                    factor *= 2;
+
                 if (factor > 1) {
                     Log.i("Download image factor=" + factor);
                     options.inJustDecodeBounds = false;
