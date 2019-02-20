@@ -28,7 +28,7 @@ For authorizing:
 
 ## Planned features
 
-* ~~Synchronize on demand~~
+* ~~Synchronize on demand (manual)~~
 * ~~Semi-automatic encryption~~
 
 Anything on this list is in random order and *might* be added in the near future.
@@ -138,7 +138,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(76) What does 'Clear local messages' ?](#user-content-faq76)
 * [(77) Why are messages sometimes shown with a small delay?](#user-content-faq77)
 * [(78) How do I use schedules?](#user-content-faq78)
-* [(79) How do I use synchronize on demand?](#user-content-faq79)
+* [(79) How do I use synchronize on demand (manual)?](#user-content-faq79)
 
 [I have another question.](#support)
 
@@ -1287,7 +1287,7 @@ Scheduling is a pro feature.
 <br />
 
 <a name="faq79"></a>
-**(79) How do I use synchronize on demand?**
+**(79) How do I use synchronize on demand (manual)?**
 
 Normally, FairEmail maintains a connection to the configured email servers whenever possible to receive messages in real-time.
 If you don't want this, for example to be not disturbed or to save on battery usage,
