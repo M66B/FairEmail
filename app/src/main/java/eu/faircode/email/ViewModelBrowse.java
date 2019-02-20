@@ -174,7 +174,6 @@ public class ViewModelBrowse extends ViewModel {
                         @Override
                         public Object doCommand(IMAPProtocol protocol) {
                             try {
-                                boolean keywords = (folder.keywords.length > 0);
                                 if (protocol.supportsUtf8()) {
                                     // SEARCH OR OR FROM "x" TO "x" OR SUBJECT "x" BODY "x" ALL
                                     // SEARCH OR OR OR FROM "x" TO "x" OR SUBJECT "x" BODY "x" (KEYWORD x) ALL
@@ -194,7 +193,7 @@ public class ViewModelBrowse extends ViewModel {
                                     arg.writeBytes(state.search.getBytes());
                                     arg.writeAtom("BODY");
                                     arg.writeBytes(state.search.getBytes());
-                                    if (keywords) {
+                                    if (folder.keywords.length > 0) {
                                         arg.writeAtom("KEYWORD");
                                         arg.writeBytes(state.search.getBytes());
                                     }
@@ -225,44 +224,31 @@ public class ViewModelBrowse extends ViewModel {
                                     return imessages;
                                 } else {
                                     // No UTF-8 support
-                                    try {
-                                        Log.i("Boundary default search=" + state.search);
-                                        return state.ifolder.search(getSearchTerm(state.search, keywords));
-                                    } catch (MessagingException ex) {
-                                        Log.w(ex);
+                                    String search = Normalizer
+                                            .normalize(state.search, Normalizer.Form.NFD)
+                                            .replaceAll("[^\\p{ASCII}]", "");
+                                    Log.i("Boundary ASCII search=" + search);
+                                    SearchTerm term = new OrTerm(
+                                            new OrTerm(
+                                                    new FromStringTerm(search),
+                                                    new RecipientStringTerm(Message.RecipientType.TO, search)
+                                            ),
+                                            new OrTerm(
+                                                    new SubjectTerm(search),
+                                                    new BodyTerm(search)
+                                            )
+                                    );
 
-                                        // Workaround:
-                                        //   javax.mail.MessagingException: AE5 BAD Error in IMAP command SEARCH: 8bit data in atom;
-                                        //     nested exception is:
-                                        // 	   com.sun.mail.iap.BadCommandException: AE5 BAD Error in IMAP command SEARCH: 8bit data in atom
-                                        String search = Normalizer
-                                                .normalize(state.search, Normalizer.Form.NFD)
-                                                .replaceAll("[^\\p{ASCII}]", "");
-                                        Log.i("Boundary ASCII search=" + search);
-                                        return state.ifolder.search(getSearchTerm(search, keywords));
-                                    }
+                                    if (folder.keywords.length > 0)
+                                        term = new OrTerm(term, new FlagTerm(
+                                                new Flags(Helper.sanitizeKeyword(search)), true));
+
+                                    return state.ifolder.search(term);
                                 }
                             } catch (MessagingException ex) {
                                 Log.e(ex);
                                 return ex;
                             }
-                        }
-
-                        private SearchTerm getSearchTerm(String search, boolean keywords) {
-                            SearchTerm term = new OrTerm(
-                                    new OrTerm(
-                                            new FromStringTerm(search),
-                                            new RecipientStringTerm(Message.RecipientType.TO, search)
-                                    ),
-                                    new OrTerm(
-                                            new SubjectTerm(search),
-                                            new BodyTerm(search)
-                                    )
-                            );
-                            if (keywords)
-                                term = new OrTerm(term,
-                                        new FlagTerm(new Flags(Helper.sanitizeKeyword(search)), true));
-                            return term;
                         }
                     });
 
