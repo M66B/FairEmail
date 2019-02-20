@@ -213,7 +213,6 @@
     <string name="title_attachment_saved">حفظ المرفقات</string>
     <string name="title_ask_delete">هل تريد حذف الرسالة بشكل دائم؟</string>
     <string name="title_ask_discard">إلغاء المسودة؟</string>
-    <string name="title_fix">تصليح</string>
     <string name="title_compose">تحرير</string>
     <string name="title_from">من:</string>
     <string name="title_to">إلى:</string>
@@ -304,6 +303,7 @@
     <string name="title_add">إضافة</string>
     <string name="title_browse">تصفح</string>
     <string name="title_report">إبلاغ</string>
+    <string name="title_fix">تصليح</string>
     <string name="title_no_ask_again">لا تسألني مرة أخرى</string>
     <string name="title_via">عبر: %1$s</string>
     <string name="title_pro_feature">هذه ميزة احترافية</string>

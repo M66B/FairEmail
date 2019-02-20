@@ -81,7 +81,7 @@
     <string name="title_setup_imported">Ajustes importados</string>
     <string name="title_setup_quick">Configuración rápida</string>
     <string name="title_setup_quick_remark">Para configurar rápidamente una cuenta y una identidad para la mayoría de los principales proveedores</string>
-    <string name="title_setup_quick_hint">La configuración rápida buscará información de ajustes de autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_hint">La configuración rápida obtendrá información de configuración de autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Servidor IMAP para recibir mensajes</string>
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensajes</string>
     <string name="title_setup_go">Ir</string>
@@ -119,7 +119,7 @@
     <string name="title_advanced_section_misc">Miscelánea</string>
     <string name="title_advanced_enabled">Sincronizar</string>
     <string name="title_advanced_schedule">Programar</string>
-    <string name="title_advanced_schedule_hint">Toque sobre un horario para establecer un horario</string>
+    <string name="title_advanced_schedule_hint">Toque en una hora para establecer una hora</string>
     <string name="title_advanced_metered">Usar conexión de datos</string>
     <string name="title_advanced_download">Descargar automáticamente mensajes y adjuntos usando conexión de datos hasta</string>
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
@@ -314,7 +314,6 @@
     <string name="title_ask_show_html">Mostrar el mensaje original puede filtrar información privada sensible</string>
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
     <string name="title_ask_edit_ref">¿Editar texto reformateado de mensaje respondido/reenviado?</string>
-    <string name="title_fix">Reparar</string>
     <string name="title_compose">Redactar</string>
     <string name="title_from">De:</string>
     <string name="title_to">A:</string>
@@ -454,6 +453,8 @@
     <string name="title_browse">Explorar</string>
     <string name="title_info">Información</string>
     <string name="title_report">Reportar</string>
+    <string name="title_fix">Reparar</string>
+    <string name="title_enable">Activar</string>
     <string name="title_no_ask_again">No volver a preguntar</string>
     <string name="title_no_adobe">Adobe Acrobat Reader no puede abrir archivos compartidos de forma segura, consulte las Preguntas Frecuentes para más información</string>
     <string name="title_no_body">No se encontró texto en el mensaje</string>
@@ -463,7 +464,7 @@
     <string name="title_pro_feature">Esta es una característica Pro</string>
     <string name="title_pro_list">Lista de características Pro</string>
     <string name="title_pro_purchase">Comprar</string>
-    <string name="title_pro_hint">Comprar las características Pro le permitirá usar todas las características Pro que existen y las futuras, mantendrá esta app en mantenimiento y con soporte</string>
+    <string name="title_pro_hint">La compra de características Pro le permitirá usar todas las características Pro actuales y futuras, y ayudará al mantenimiento y desarrollo de esta aplicación</string>
     <string name="title_pro_price">Por favor vea <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">estas Preguntas Frecuentes</a> acerca del precio de las características Pro</string>
     <string name="title_pro_activated">Todas las características Pro están activadas</string>
     <string name="title_pro_valid">Todas las características Pro activadas</string>

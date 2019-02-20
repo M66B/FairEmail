@@ -306,7 +306,6 @@
     <string name="title_ask_show_html">显示原件可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
     <string name="title_ask_edit_ref">编辑格式已更改的回复/转发消息文本？</string>
-    <string name="title_fix">修复</string>
     <string name="title_compose">撰写</string>
     <string name="title_from">发件人：</string>
     <string name="title_to">收件人：</string>
@@ -445,6 +444,7 @@
     <string name="title_browse">浏览</string>
     <string name="title_info">信息</string>
     <string name="title_report">报告</string>
+    <string name="title_fix">修复</string>
     <string name="title_no_ask_again">别再询问</string>
     <string name="title_no_adobe">Adobe Acrobat 阅读器无法安全打开共享的文件，请参阅FAQ 以获取更多信息</string>
     <string name="title_no_body">没有找到消息文本</string>

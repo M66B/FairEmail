@@ -140,7 +140,6 @@
     <string name="title_attachment_saved">Vedhæftet fil gemt</string>
     <string name="title_ask_delete">Slet meddelelsen permanent?</string>
     <string name="title_ask_discard">Kassér udkast?</string>
-    <string name="title_fix">Ret</string>
     <string name="title_from">Fra:</string>
     <string name="title_to">Til:</string>
     <string name="title_reply_to">Svar til:</string>
@@ -200,6 +199,7 @@
     <string name="title_undo">Fortryd</string>
     <string name="title_add">Tilføj</string>
     <string name="title_report">Rapportér</string>
+    <string name="title_fix">Ret</string>
     <string name="title_no_ask_again">Vis ikke igen</string>
     <string name="title_pro_feature">Dette er en pro funktion</string>
     <string name="title_pro_list">Liste over pro funktioner</string>

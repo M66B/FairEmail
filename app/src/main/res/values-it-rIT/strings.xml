@@ -314,7 +314,6 @@
     <string name="title_ask_show_html">Mostrare il messaggio originale rende possibile una fuga di informazioni personali sensibili</string>
     <string name="title_ask_show_image">Mostrare le immagini rende possibile una fuga di informazioni personali sensibili</string>
     <string name="title_ask_edit_ref">Modificare il testo del messaggio inviato/inoltrato riformattato?</string>
-    <string name="title_fix">Correggi</string>
     <string name="title_compose">Scrivi</string>
     <string name="title_from">Da:</string>
     <string name="title_to">A:</string>
@@ -454,6 +453,7 @@
     <string name="title_browse">Esplora</string>
     <string name="title_info">Info</string>
     <string name="title_report">Report</string>
+    <string name="title_fix">Correggi</string>
     <string name="title_no_ask_again">Non chiedere di nuovo</string>
     <string name="title_no_adobe">Adobe Acrobat Reader non può aprire file condivisi in modo sicuro, consultare le domande frequenti per ulteriori informazioni</string>
     <string name="title_no_body">Nessun messaggio di testo trovato</string>

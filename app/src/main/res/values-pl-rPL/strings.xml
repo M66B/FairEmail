@@ -289,7 +289,6 @@
     <string name="title_ask_discard">Odrzucić szkic?</string>
     <string name="title_ask_show_html">Pokazywanie oryginalnej wiadomości może spowodować wyciek wrażliwych informacji</string>
     <string name="title_ask_show_image">Pokazywanie obrazów może spowodować wyciek wrażliwych informacji</string>
-    <string name="title_fix">Popraw</string>
     <string name="title_compose">Napisz</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Do:</string>
@@ -416,6 +415,7 @@
     <string name="title_browse">Przeglądaj</string>
     <string name="title_info">Info</string>
     <string name="title_report">Raport</string>
+    <string name="title_fix">Popraw</string>
     <string name="title_no_ask_again">Nie pytaj ponownie</string>
     <string name="title_no_adobe">Adobe Acrobat Reader nie może bezpiecznie otworzyć udostępnionych plików, po więcej informacji zajrzyj do FAQ</string>
     <string name="title_no_body">Nie znaleziono tekstu wiadomości</string>

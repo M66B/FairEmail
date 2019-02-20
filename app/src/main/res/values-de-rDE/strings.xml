@@ -314,7 +314,6 @@
     <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_edit_ref">Nachrichtentext der zu beantwortenden/weitergeleitenden Nachricht bearbeiten?</string>
-    <string name="title_fix">Problem beheben</string>
     <string name="title_compose">Verfassen</string>
     <string name="title_from">Von:</string>
     <string name="title_to">An:</string>
@@ -454,6 +453,8 @@
     <string name="title_browse">Browser</string>
     <string name="title_info">Info</string>
     <string name="title_report">Bericht</string>
+    <string name="title_fix">Problem beheben</string>
+    <string name="title_enable">Aktivieren</string>
     <string name="title_no_ask_again">Dies nicht mehr anzeigen</string>
     <string name="title_no_adobe">Adobe Acrobat Reader kann freigegebene Dateien nicht sicher öffnen, schauen Sie bitte in die FAQ für weitere Informationen</string>
     <string name="title_no_body">Kein Nachrichtentext gefunden</string>

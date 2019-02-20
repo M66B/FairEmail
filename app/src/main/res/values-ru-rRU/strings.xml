@@ -330,7 +330,6 @@
     <string name="title_ask_show_html">Отображение исходного сообщения может привести к утечке конфиденциальной информации</string>
     <string name="title_ask_show_image">Отображение изображений может привести к утечке конфиденциальной информации</string>
     <string name="title_ask_edit_ref">Редактировать текст исходного/пересылаемого сообщения?</string>
-    <string name="title_fix">Исправить</string>
     <string name="title_compose">Создать</string>
     <string name="title_from">От:</string>
     <string name="title_to">Кому:</string>
@@ -470,6 +469,8 @@
     <string name="title_browse">Обзор</string>
     <string name="title_info">Инфо</string>
     <string name="title_report">Отчет</string>
+    <string name="title_fix">Исправить</string>
+    <string name="title_enable">Включить</string>
     <string name="title_no_ask_again">Больше не спрашивать</string>
     <string name="title_no_adobe">Adobe Acrobat Reader не открывает файлы безопасно, смотрите FAQ для более детального описания</string>
     <string name="title_no_body">В сообщении нет текста</string>

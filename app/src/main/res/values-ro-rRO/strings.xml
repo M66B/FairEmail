@@ -172,9 +172,12 @@
     <string name="title_identity_email">Adresa dvs. de e-mail</string>
     <string name="title_identity_reply_to">Răspuns la adresa</string>
     <string name="title_identity_plain_text">Trimite numai text simplu</string>
+    <string name="title_identity_encrypt">Criptare în mod implicit</string>
     <string name="title_identity_read_receipt">Solicitare confirmare citire</string>
     <string name="title_identity_delivery_receipt">Solicitare confirmare livrare</string>
     <string name="title_identity_receipt_remark">Majoritatea furnizorilor ignoră cererile de confirmare a livrării</string>
+    <string name="title_identity_store_sent">Stochează mesajele trimise</string>
+    <string name="title_identity_store_sent_remark">Activați doar dacă furnizorul nu stochează în mod automat mesajele trimise</string>
     <string name="title_optional">Opțional</string>
     <string name="title_account_linked">Cont asociat</string>
     <string name="title_account_name">Nume cont</string>
@@ -200,6 +203,7 @@
     <string name="title_authorizing">Autorizare cont &#8230;</string>
     <string name="title_setup_advanced">Setări avansate</string>
     <string name="title_synchronize_account">Sincronizare (primire mesaje)</string>
+    <string name="title_synchronize_ondemand">Sincronizarea la cerere (manual)</string>
     <string name="title_synchronize_identity">Sincronizare (trimitere mesaje)</string>
     <string name="title_primary_account">Primară (identitatea implicită)</string>
     <string name="title_primary_identity">Primară (identitatea implicită)</string>
@@ -218,6 +222,7 @@
     <string name="title_no_move">Acest furnizor nu suportă MOVE</string>
     <string name="title_no_uidplus">Acest furnizor nu suportă UIDPLUS</string>
     <string name="title_no_sync">Erori de sincronizare începând cu %1$s</string>
+    <string name="title_sync_disabled">Sincronizarea este dezactivată</string>
     <string name="title_drafts_required">Un dosar de ciorne este necesar pentru a trimite mesaje</string>
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
@@ -313,7 +318,6 @@
     <string name="title_ask_show_html">Vizualizarea mesajului original poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_edit_ref">Se editează textul mesajului rescris ca răspuns/redirecționat?</string>
-    <string name="title_fix">Remediere</string>
     <string name="title_compose">Compune</string>
     <string name="title_from">De la:</string>
     <string name="title_to">Către:</string>
@@ -383,6 +387,7 @@
     <string name="title_rule_folder">Dosar</string>
     <string name="title_rule_identity">Identitate</string>
     <string name="title_rule_answer">Șablon răspuns</string>
+    <string name="title_rule_cc">Răspuns la adresa CC</string>
     <string name="title_rule_name_missing">Lipsește numele regulii</string>
     <string name="title_rule_condition_missing">Lipsește condiția</string>
     <string name="title_action_seen">Marcare ca citit</string>
@@ -451,6 +456,8 @@
     <string name="title_browse">Răsfoire</string>
     <string name="title_info">Informații</string>
     <string name="title_report">Raportează</string>
+    <string name="title_fix">Remediere</string>
+    <string name="title_enable">Activează</string>
     <string name="title_no_ask_again">Nu mai întreba din nou</string>
     <string name="title_no_adobe">Aplicația Adobe Acrobat reader nu poate deschide în siguranță fișierele, aflați mai multe în secțiunea de întrebări și răspunsuri</string>
     <string name="title_no_body">Nu a fost găsit textul mesajului</string>

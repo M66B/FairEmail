@@ -82,6 +82,7 @@
     <string name="title_setup_quick">Configuração rápida</string>
     <string name="title_setup_quick_remark">Configurar rapidamente uma conta e uma identidade para a maioria dos principais serviços/provedores</string>
     <string name="title_setup_quick_hint">A configuração rápida irá buscar informações de configuração a partir de autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_imap">Servidor IMAP para receber mensagens</string>
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensagens</string>
     <string name="title_setup_go">Ir</string>
     <string name="title_setup_setting_gmail">Permitir o acesso para apps \"menos seguros\"</string>
@@ -313,7 +314,6 @@
     <string name="title_ask_show_html">Mostrar a mensagem original pode vazar informações confidenciais de privacidade</string>
     <string name="title_ask_show_image">Mostrar imagens pode vazar informações sensíveis à privacidade</string>
     <string name="title_ask_edit_ref">Editar texto reformatado de mensagem respondida/encaminhada?</string>
-    <string name="title_fix">Corrigir</string>
     <string name="title_compose">Escrever</string>
     <string name="title_from">De:</string>
     <string name="title_to">Para:</string>
@@ -453,6 +453,8 @@
     <string name="title_browse">Navegar</string>
     <string name="title_info">Informações</string>
     <string name="title_report">Reportar</string>
+    <string name="title_fix">Corrigir</string>
+    <string name="title_enable">Habilitar</string>
     <string name="title_no_ask_again">Não perguntar novamente</string>
     <string name="title_no_adobe">O leitor Adobe Acrobat não pode abrir arquivos compartilhados com segurança, ver o FAQ para mais informações</string>
     <string name="title_no_body">Texto da mensagem não encontrado</string>

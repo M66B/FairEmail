@@ -233,7 +233,6 @@
     <string name="title_ask_discard">Qaralama silinsin?</string>
     <string name="title_ask_show_html">Orijinal mesajın göstərilməsi, gizlilik həssaslı məlumatları sızdıra bilər</string>
     <string name="title_ask_show_image">Təsvirlərin göstərilməsi, gizlilik həssaslı məlumatların sızdıra bilər</string>
-    <string name="title_fix">Düzəlt</string>
     <string name="title_compose">Yaz</string>
     <string name="title_from">Göndərən:</string>
     <string name="title_to">Alıcı:</string>
@@ -327,6 +326,7 @@
     <string name="title_add">Əlavə et</string>
     <string name="title_browse">Nəzər yetir</string>
     <string name="title_report">Bildir</string>
+    <string name="title_fix">Düzəlt</string>
     <string name="title_no_ask_again">Bunu bir də soruşma</string>
     <string name="title_try">Android üçün açıq mənbəli, gizlilik dostu, e-poçt tətbiqi olan FairEmail-ı sınayın</string>
     <string name="title_pro_feature">Bu Pro xüsusiyyətidir</string>

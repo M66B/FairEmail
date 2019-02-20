@@ -297,7 +297,6 @@
     <string name="title_ask_discard">Släng utkastet?</string>
     <string name="title_ask_show_html">Att visa det ursprungliga meddelandet kan läcka sekretesskänslig information</string>
     <string name="title_ask_show_image">Att visa bilder kan läcka sekretesskänslig information</string>
-    <string name="title_fix">Åtgärda</string>
     <string name="title_compose">Skriv</string>
     <string name="title_from">Från:</string>
     <string name="title_to">Till:</string>
@@ -431,6 +430,7 @@
     <string name="title_browse">Bläddra</string>
     <string name="title_info">Info</string>
     <string name="title_report">Rapportera</string>
+    <string name="title_fix">Åtgärda</string>
     <string name="title_no_ask_again">Fråga inte detta igen</string>
     <string name="title_no_adobe">Adobe Acrobat reader kan inte säkert öppna delade filer, se FAQ för mer information</string>
     <string name="title_no_body">Ingen meddelandetext hittades</string>

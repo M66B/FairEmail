@@ -302,7 +302,6 @@
     <string name="title_ask_show_html">Özgün iletiyi göstermek gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_show_image">Resimlerin gösterilmesi gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_edit_ref">Yeniden biçimlendirilmiş yanıtlanmış/iletilmiş ileti metni düzenlensin mi?</string>
-    <string name="title_fix">Düzelt</string>
     <string name="title_compose">Eposta Oluştur</string>
     <string name="title_from">Gönderen:</string>
     <string name="title_to">Alıcı:</string>
@@ -440,6 +439,7 @@
     <string name="title_browse">Göz at</string>
     <string name="title_info">Bilgi</string>
     <string name="title_report">Rapor Et</string>
+    <string name="title_fix">Düzelt</string>
     <string name="title_no_ask_again">Bunu bir daha sorma</string>
     <string name="title_no_adobe">Adobe Acrobat Reader güvenli bir biçimde paylaşılan dosyaları açamıyor, daha fazla bilgi için SSS bölümüne bakın</string>
     <string name="title_no_body">Hiçbir ileti metni bulunamadı</string>
