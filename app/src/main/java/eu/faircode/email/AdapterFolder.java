@@ -38,6 +38,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -232,14 +234,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (folder.tbd != null)
                 return false;
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean enabled = prefs.getBoolean("enabled", true);
-
             PopupMenu popupMenu = new PopupMenu(context, itemView);
 
             popupMenu.getMenu().add(Menu.NONE, action_synchronize_now, 1, R.string.title_synchronize_now)
-                    .setEnabled(enabled &&
-                            (folder.account != null || "connected".equals(folder.state) /* outbox */));
+                    .setEnabled(folder.account != null || "connected".equals(folder.state) /* outbox */);
 
             if (folder.account != null)
                 popupMenu.getMenu().add(Menu.NONE, action_delete_local, 2, R.string.title_delete_local);
@@ -292,6 +290,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             long aid = args.getLong("account");
                             long fid = args.getLong("folder");
 
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                            if (!prefs.getBoolean("enabled", true))
+                                throw new IllegalStateException(context.getString(R.string.title_sync_disabled));
+
                             DB db = DB.getInstance(context);
                             try {
                                 db.beginTransaction();
@@ -317,7 +319,19 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(context, owner, ex);
+                            if (ex instanceof IllegalStateException) {
+                                Snackbar snackbar = Snackbar.make(itemView, ex.getMessage(), Snackbar.LENGTH_LONG);
+                                snackbar.setAction(R.string.title_enable, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                                        prefs.edit().putBoolean("enabled", true).apply();
+                                        ServiceSynchronize.reload(context, "refresh/disabled");
+                                    }
+                                });
+                                snackbar.show();
+                            } else
+                                Helper.unexpectedError(context, owner, ex);
                         }
                     }.execute(context, owner, args, "folder:sync");
                 }
