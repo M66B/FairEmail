@@ -164,8 +164,8 @@
 
         <service android:name=".ServiceExternal">
             <intent-filter>
-                <action android:name="eu.faircode.email.ENABLE" />
-                <action android:name="eu.faircode.email.DISABLE" />
+                <action android:name="${applicationId}.ENABLE" />
+                <action android:name="${applicationId}.DISABLE" />
             </intent-filter>
         </service>
 
