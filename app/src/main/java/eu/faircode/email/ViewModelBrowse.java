@@ -30,6 +30,7 @@ import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.imap.protocol.IMAPResponse;
 
 import java.io.IOException;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -176,6 +177,8 @@ public class ViewModelBrowse extends ViewModel {
                                 if (protocol.supportsUtf8()) {
                                     // SEARCH OR OR FROM "x" TO "x" OR SUBJECT "x" BODY "x" ALL
                                     // SEARCH OR OR OR FROM "x" TO "x" OR SUBJECT "x" BODY "x" (KEYWORD x) ALL
+                                    // https://tools.ietf.org/html/rfc3501#section-6.4.4
+                                    Log.i("Boundary UTF8 search=" + state.search);
                                     Argument arg = new Argument();
                                     if (folder.keywords.length > 0)
                                         arg.writeAtom("OR");
@@ -220,20 +223,25 @@ public class ViewModelBrowse extends ViewModel {
 
                                     return imessages;
                                 } else {
+                                    // No UTF-8 support
+                                    String search = Normalizer
+                                            .normalize(state.search, Normalizer.Form.NFD)
+                                            .replaceAll("[^\\p{ASCII}]", "");
+                                    Log.i("Boundary ASCII search=" + search);
                                     SearchTerm term = new OrTerm(
                                             new OrTerm(
-                                                    new FromStringTerm(state.search),
-                                                    new RecipientStringTerm(Message.RecipientType.TO, state.search)
+                                                    new FromStringTerm(search),
+                                                    new RecipientStringTerm(Message.RecipientType.TO, search)
                                             ),
                                             new OrTerm(
-                                                    new SubjectTerm(state.search),
-                                                    new BodyTerm(state.search)
+                                                    new SubjectTerm(search),
+                                                    new BodyTerm(search)
                                             )
                                     );
 
                                     if (folder.keywords.length > 0)
                                         term = new OrTerm(term, new FlagTerm(
-                                                new Flags(Helper.sanitizeKeyword(state.search)), true));
+                                                new Flags(Helper.sanitizeKeyword(search)), true));
 
                                     return state.ifolder.search(term);
                                 }
