@@ -1748,11 +1748,6 @@ public class ServiceSynchronize extends LifecycleService {
             EntityIdentity identity =
                     (message.identity == null ? null : db.identity().getIdentity(message.identity));
 
-            List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-            for (EntityAttachment attachment : attachments)
-                if (!attachment.available)
-                    throw new IllegalArgumentException("Attachment missing");
-
             imessage = MessageHelper.from(this, message, isession,
                     identity == null ? false : identity.plain_only);
         } else {
