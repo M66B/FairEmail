@@ -19,8 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import java.io.InputStream;
-
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
@@ -30,11 +28,6 @@ public class MimeMessageEx extends MimeMessage {
 
     MimeMessageEx(Session session, String msgid) {
         super(session);
-        this.msgid = msgid;
-    }
-
-    MimeMessageEx(Session session, InputStream is, String msgid) throws MessagingException {
-        super(session, is);
         this.msgid = msgid;
     }
 
