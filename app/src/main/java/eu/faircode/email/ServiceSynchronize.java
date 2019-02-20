@@ -2219,7 +2219,7 @@ public class ServiceSynchronize extends LifecycleService {
                 }
 
             if (uid < 0)
-                throw new MessageRemovedException("uid not found");
+                throw new IllegalArgumentException("uid not found");
 
             return uid;
         }
