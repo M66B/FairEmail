@@ -304,7 +304,7 @@ public class HtmlHelper {
             OutputStream os = null;
             try {
                 os = new BufferedOutputStream(new FileOutputStream(file));
-                bm.compress(Bitmap.CompressFormat.PNG, 100, os);
+                bm.compress(Bitmap.CompressFormat.PNG, 90, os);
             } finally {
                 if (os != null)
                     os.close();
