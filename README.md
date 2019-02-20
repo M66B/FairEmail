@@ -1,6 +1,6 @@
 # FairEmail
 
-*Open source, privacy friendly email app*
+*Open source, privacy friendly email app for Android*
 
 This email app might be for you if your current email app:
 
