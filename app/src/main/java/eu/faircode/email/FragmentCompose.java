@@ -1293,28 +1293,11 @@ public class FragmentCompose extends FragmentBase {
             finish();
         else if (isEmpty())
             onAction(R.id.action_delete);
-        else
-            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                    .setMessage(R.string.title_ask_discard)
-                    .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            onAction(R.id.action_delete);
-                        }
-                    })
-                    .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    })
-                    .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                        @Override
-                        public void onDismiss(DialogInterface dialog) {
-                            finish();
-                        }
-                    })
-                    .show();
+        else {
+            autosave = false;
+            onAction(R.id.action_save);
+            finish();
+        }
     }
 
     private boolean isEmpty() {
