@@ -167,7 +167,8 @@ dependencies {
     // https://mvnrepository.com/artifact/com.ibm.icu/icu4j
     //implementation "com.ibm.icu:icu4j:$icu4j_version"
 
-    // http://www.xbill.org/dnsjava/
+    // http://www.dnsjava.org/
+    // https://mvnrepository.com/artifact/dnsjava/dnsjava
     implementation "dnsjava:dnsjava:$dnsjava_version"
 
     // https://github.com/open-keychain/openpgp-api
