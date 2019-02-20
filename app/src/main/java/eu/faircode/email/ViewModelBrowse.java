@@ -224,9 +224,10 @@ public class ViewModelBrowse extends ViewModel {
                                     return imessages;
                                 } else {
                                     // No UTF-8 support
-                                    String search = Normalizer
-                                            .normalize(state.search, Normalizer.Form.NFD)
+                                    String search = state.search.replace("ß", "ss"); // Eszett
+                                    search = Normalizer.normalize(search, Normalizer.Form.NFD)
                                             .replaceAll("[^\\p{ASCII}]", "");
+
                                     Log.i("Boundary ASCII search=" + search);
                                     SearchTerm term = new OrTerm(
                                             new OrTerm(
