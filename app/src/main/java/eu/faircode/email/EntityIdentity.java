@@ -70,6 +70,8 @@ public class EntityIdentity {
     public String password;
     public String realm;
     @NonNull
+    public Boolean use_ip = false; // instead of domain name
+    @NonNull
     public Boolean synchronize;
     @NonNull
     public Boolean primary;
@@ -114,6 +116,7 @@ public class EntityIdentity {
         json.put("user", user);
         json.put("password", password);
         json.put("realm", realm);
+        json.put("use_ip", use_ip);
 
         json.put("synchronize", synchronize);
         json.put("primary", primary);
@@ -152,6 +155,8 @@ public class EntityIdentity {
         identity.password = json.getString("password");
         if (json.has("realm"))
             identity.realm = json.getString("realm");
+        if (json.has("use_ip"))
+            identity.use_ip = json.getBoolean("use_ip");
 
         identity.synchronize = json.getBoolean("synchronize");
         identity.primary = json.getBoolean("primary");
@@ -194,6 +199,7 @@ public class EntityIdentity {
                     this.user.equals(other.user) &&
                     this.password.equals(other.password) &&
                     (this.realm == null ? other.realm == null : this.realm.equals(other.realm)) &&
+                    this.use_ip == other.use_ip &&
                     this.synchronize.equals(other.synchronize) &&
                     this.primary.equals(other.primary) &&
                     (this.replyto == null ? other.replyto == null : this.replyto.equals(other.replyto)) &&

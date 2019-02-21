@@ -52,6 +52,7 @@ import com.android.colorpicker.ColorPickerSwatch;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
@@ -92,6 +93,7 @@ public class FragmentIdentity extends FragmentBase {
     private EditText etUser;
     private TextInputLayout tilPassword;
     private EditText etRealm;
+    private CheckBox cbUseIp;
 
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
@@ -160,6 +162,7 @@ public class FragmentIdentity extends FragmentBase {
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
         etRealm = view.findViewById(R.id.etRealm);
+        cbUseIp = view.findViewById(R.id.cbUseIp);
 
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
@@ -480,6 +483,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("user", etUser.getText().toString());
         args.putString("password", tilPassword.getEditText().getText().toString());
         args.putString("realm", etRealm.getText().toString());
+        args.putBoolean("use_ip", cbUseIp.isChecked());
         args.putInt("color", color);
         args.putString("signature", HtmlHelper.toHtml(etSignature.getText()));
         args.putBoolean("synchronize", cbSynchronize.isChecked());
@@ -522,6 +526,7 @@ public class FragmentIdentity extends FragmentBase {
                 String user = args.getString("user");
                 String password = args.getString("password");
                 String realm = args.getString("realm");
+                boolean use_ip = args.getBoolean("use_ip");
                 boolean synchronize = args.getBoolean("synchronize");
                 boolean primary = args.getBoolean("primary");
 
@@ -578,7 +583,8 @@ public class FragmentIdentity extends FragmentBase {
                         auth_type != identity.auth_type ||
                         !host.equals(identity.host) || Integer.parseInt(port) != identity.port ||
                         !user.equals(identity.user) || !password.equals(identity.password) ||
-                        (realm == null ? identityRealm != null : !realm.equals(identityRealm))));
+                        (realm == null ? identityRealm != null : !realm.equals(identityRealm)) ||
+                        use_ip != identity.use_ip));
                 boolean reload = (identity == null || identity.synchronize != synchronize || check);
 
                 Long last_connected = null;
@@ -587,10 +593,29 @@ public class FragmentIdentity extends FragmentBase {
 
                 // Check SMTP server
                 if (check) {
-                    String protocol = (starttls ? "smtp" : "smtps");
+                    // Get properties
                     Properties props = MessageHelper.getSessionProperties(auth_type, realm, insecure);
+                    InetAddress ip = (use_ip ? Helper.getLocalIp(context) : null);
+                    if (ip == null) {
+                        Log.i("Check local host=" + host);
+                        if (starttls)
+                            props.put("mail.smtp.localhost", host);
+                        else
+                            props.put("mail.smtps.localhost", host);
+                    } else {
+                        Log.i("Check local address=" + ip.getHostAddress());
+                        if (starttls)
+                            props.put("mail.smtp.localaddress", ip.getHostAddress());
+                        else
+                            props.put("mail.smtps.localaddress", ip.getHostAddress());
+                    }
+
+                    // Create session
                     Session isession = Session.getInstance(props, null);
                     isession.setDebug(true);
+
+                    // Create transport
+                    String protocol = (starttls ? "smtp" : "smtps");
                     Transport itransport = isession.getTransport(protocol);
                     try {
                         try {
@@ -628,6 +653,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.user = user;
                     identity.password = password;
                     identity.realm = realm;
+                    identity.use_ip = use_ip;
                     identity.synchronize = synchronize;
                     identity.primary = (identity.synchronize && primary);
 
@@ -731,6 +757,7 @@ public class FragmentIdentity extends FragmentBase {
                     etUser.setText(identity == null ? null : identity.user);
                     tilPassword.getEditText().setText(identity == null ? null : identity.password);
                     etRealm.setText(identity == null ? null : identity.realm);
+                    cbUseIp.setChecked(identity == null ? false : identity.use_ip);
                     cbSynchronize.setChecked(identity == null ? true : identity.synchronize);
                     cbPrimary.setChecked(identity == null ? true : identity.primary);
 

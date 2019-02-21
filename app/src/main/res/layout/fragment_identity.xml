@@ -387,13 +387,22 @@
             app:layout_constraintTop_toBottomOf="@id/tvRealm" />
 
         <CheckBox
+            android:id="@+id/cbUseIp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_use_ip"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etRealm" />
+
+        <CheckBox
             android:id="@+id/cbSynchronize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/title_synchronize_identity"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etRealm" />
+            app:layout_constraintTop_toBottomOf="@id/cbUseIp" />
 
         <CheckBox
             android:id="@+id/cbPrimary"
@@ -578,6 +587,7 @@
             tvSmtp,tvHost,etHost,cbStartTls,cbInsecure,tvPort,etPort,
             tvUser,etUser,tvPassword,tilPassword,
             tvRealm,etRealm,
+            cbUseIp,
             cbSynchronize,cbPrimary,
             tvReplyTo,etReplyTo,tvBcc,etBcc,
             cbPlainOnly,cbEncrypt,cbDeliveryReceipt,cbReadReceipt,tvReceipt,
