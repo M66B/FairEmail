@@ -1167,7 +1167,9 @@ public class ServiceSynchronize extends LifecycleService {
                                             ((IMAPFolder) ifolder).idle(false);
                                         }
                                     } catch (Throwable ex) {
-                                        Log.w(folder.name, ex);
+                                        Log.e(folder.name, ex);
+                                        reportError(account, folder, ex);
+                                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                         state.error();
                                     } finally {
                                         Log.i(folder.name + " end idle");
