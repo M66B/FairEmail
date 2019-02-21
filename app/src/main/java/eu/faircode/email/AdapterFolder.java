@@ -246,8 +246,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 popupMenu.getMenu().add(Menu.NONE, action_empty_trash, 3, R.string.title_empty_trash);
 
             if (folder.account != null) {
-                popupMenu.getMenu().add(Menu.NONE, action_edit_properties, 4, R.string.title_edit_properties);
-                popupMenu.getMenu().add(Menu.NONE, action_edit_rules, 5, R.string.title_edit_rules);
+                popupMenu.getMenu().add(Menu.NONE, action_edit_rules, 4, R.string.title_edit_rules);
+                popupMenu.getMenu().add(Menu.NONE, action_edit_properties, 5, R.string.title_edit_properties);
             }
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -266,12 +266,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             onActionEmptyTrash();
                             return true;
 
-                        case action_edit_properties:
-                            onActionEditProperties();
-                            return true;
-
                         case action_edit_rules:
                             onActionEditRules();
+                            return true;
+
+                        case action_edit_properties:
+                            onActionEditProperties();
                             return true;
 
                         default:
@@ -404,19 +404,19 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             .show();
                 }
 
-                private void onActionEditProperties() {
-                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                    lbm.sendBroadcast(
-                            new Intent(ActivityView.ACTION_EDIT_FOLDER)
-                                    .putExtra("id", folder.id));
-                }
-
                 private void onActionEditRules() {
                     LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                     lbm.sendBroadcast(
                             new Intent(ActivityView.ACTION_EDIT_RULES)
                                     .putExtra("account", folder.account)
                                     .putExtra("folder", folder.id));
+                }
+
+                private void onActionEditProperties() {
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                    lbm.sendBroadcast(
+                            new Intent(ActivityView.ACTION_EDIT_FOLDER)
+                                    .putExtra("id", folder.id));
                 }
             });
 
