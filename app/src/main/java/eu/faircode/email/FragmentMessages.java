@@ -513,22 +513,29 @@ public class FragmentMessages extends FragmentBase {
                     }
 
                     boolean now = false;
+                    boolean nointernet = false;
                     for (EntityFolder folder : folders)
                         if (folder.account == null) { // outbox
                             now = "connected".equals(folder.state);
                             EntityOperation.sync(db, folder.id);
                         } else {
                             EntityAccount account = db.account().getAccount(folder.account);
-                            if (!internet || "connected".equals(account.state)) {
-                                now = internet;
-                                EntityOperation.sync(db, folder.id);
+                            if (account.ondemand) {
+                                if (internet) {
+                                    now = true;
+                                    ServiceSynchronize.sync(context, folder.id);
+                                } else
+                                    nointernet = true;
                             } else {
-                                now = true;
-                                ServiceSynchronize.sync(context, folder.id);
+                                now = "connected".equals(account.state);
+                                EntityOperation.sync(db, folder.id);
                             }
                         }
 
                     db.setTransactionSuccessful();
+
+                    if (nointernet)
+                        throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
 
                     return now;
                 } finally {

@@ -305,12 +305,16 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                     now = "connected".equals(folder.state);
                                     EntityOperation.sync(db, fid);
                                 } else {
-                                    if (!internet || "connected".equals(db.account().getAccount(aid).state)) {
-                                        now = internet;
-                                        EntityOperation.sync(db, fid);
+                                    EntityAccount account = db.account().getAccount(aid);
+                                    if (account.ondemand) {
+                                        if (internet) {
+                                            now = true;
+                                            ServiceSynchronize.sync(context, fid);
+                                        } else
+                                            throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
                                     } else {
-                                        now = true;
-                                        ServiceSynchronize.sync(context, fid);
+                                        now = "connected".equals(account.state);
+                                        EntityOperation.sync(db, fid);
                                     }
                                 }
 
@@ -330,7 +334,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            if (ex instanceof IllegalStateException) {
+                            if (ex instanceof IllegalArgumentException)
+                                Snackbar.make(itemView, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                            else if (ex instanceof IllegalStateException) {
                                 Snackbar snackbar = Snackbar.make(itemView, ex.getMessage(), Snackbar.LENGTH_LONG);
                                 snackbar.setAction(R.string.title_enable, new View.OnClickListener() {
                                     @Override
