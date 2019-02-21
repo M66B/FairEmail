@@ -294,6 +294,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             if (!prefs.getBoolean("enabled", true))
                                 throw new IllegalStateException(context.getString(R.string.title_sync_disabled));
 
+                            boolean internet = (Helper.isMetered(context, true) != null);
+
                             DB db = DB.getInstance(context);
                             try {
                                 db.beginTransaction();
@@ -301,13 +303,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                 boolean now;
                                 if (aid < 0) {
                                     // outbox
-                                    now = ("connected".equals(folder.state));
+                                    now = (internet && "connected".equals(folder.state));
                                     EntityOperation.sync(db, fid);
                                 } else {
-                                    now = true;
-                                    if ("connected".equals(db.account().getAccount(aid).state))
+                                    if (!internet || "connected".equals(db.account().getAccount(aid).state)) {
+                                        now = internet;
                                         EntityOperation.sync(db, fid);
-                                    else {
+                                    } else {
+                                        now = true;
                                         db.folder().setFolderSyncState(folder.id, "requested");
                                         ServiceSynchronize.sync(context, fid);
                                     }
