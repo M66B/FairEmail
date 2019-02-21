@@ -515,7 +515,7 @@ public class FragmentMessages extends FragmentBase {
                     boolean now = false;
                     for (EntityFolder folder : folders)
                         if (folder.account == null) { // outbox
-                            now = (internet && "connected".equals(folder.state));
+                            now = "connected".equals(folder.state);
                             EntityOperation.sync(db, folder.id);
                         } else {
                             EntityAccount account = db.account().getAccount(folder.account);
@@ -524,7 +524,6 @@ public class FragmentMessages extends FragmentBase {
                                 EntityOperation.sync(db, folder.id);
                             } else {
                                 now = true;
-                                db.folder().setFolderSyncState(folder.id, "requested");
                                 ServiceSynchronize.sync(context, folder.id);
                             }
                         }
