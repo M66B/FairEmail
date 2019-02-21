@@ -284,9 +284,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     args.putLong("account", folder.account == null ? -1 : folder.account);
                     args.putLong("folder", folder.id);
 
-                    new SimpleTask<Void>() {
+                    new SimpleTask<Boolean>() {
                         @Override
-                        protected Void onExecute(Context context, Bundle args) {
+                        protected Boolean onExecute(Context context, Bundle args) {
                             long aid = args.getLong("account");
                             long fid = args.getLong("folder");
 
@@ -298,9 +298,13 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             try {
                                 db.beginTransaction();
 
-                                if (aid < 0) // outbox
+                                boolean now;
+                                if (aid < 0) {
+                                    // outbox
+                                    now = ("connected".equals(folder.state));
                                     EntityOperation.sync(db, fid);
-                                else {
+                                } else {
+                                    now = true;
                                     if ("connected".equals(db.account().getAccount(aid).state))
                                         EntityOperation.sync(db, fid);
                                     else {
@@ -310,11 +314,17 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                 }
 
                                 db.setTransactionSuccessful();
+
+                                return now;
                             } finally {
                                 db.endTransaction();
                             }
+                        }
 
-                            return null;
+                        @Override
+                        protected void onExecuted(Bundle args, Boolean now) {
+                            if (!now)
+                                Snackbar.make(itemView, R.string.title_sync_delayed, Snackbar.LENGTH_LONG).show();
                         }
 
                         @Override

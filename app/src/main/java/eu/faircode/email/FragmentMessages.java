@@ -536,8 +536,10 @@ public class FragmentMessages extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, Boolean now) {
-                if (!now)
+                if (!now) {
                     swipeRefresh.setRefreshing(false);
+                    Snackbar.make(view, R.string.title_sync_delayed, Snackbar.LENGTH_LONG).show();
+                }
             }
 
             @Override
