@@ -23,11 +23,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.ToggleButton;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -44,7 +45,6 @@ import androidx.recyclerview.widget.RecyclerView;
 public class FragmentFolders extends FragmentBase {
     private ImageButton ibHintActions;
     private ImageButton ibHintSync;
-    private ToggleButton tbShowHidden;
     private RecyclerView rvFolder;
     private ContentLoadingProgressBar pbWait;
     private Group grpHintActions;
@@ -54,6 +54,8 @@ public class FragmentFolders extends FragmentBase {
 
     private long account;
     private AdapterFolder adapter;
+
+    private Boolean show_hidden = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,11 +70,11 @@ public class FragmentFolders extends FragmentBase {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_folders, container, false);
+        setHasOptionsMenu(true);
 
         // Get controls
         ibHintActions = view.findViewById(R.id.ibHintActions);
         ibHintSync = view.findViewById(R.id.ibHintSync);
-        tbShowHidden = view.findViewById(R.id.tbShowHidden);
         rvFolder = view.findViewById(R.id.rvFolder);
         pbWait = view.findViewById(R.id.pbWait);
         grpHintActions = view.findViewById(R.id.grpHintActions);
@@ -100,13 +102,6 @@ public class FragmentFolders extends FragmentBase {
             }
         });
 
-        tbShowHidden.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                adapter.showHidden(isChecked);
-            }
-        });
-
         rvFolder.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvFolder.setLayoutManager(llm);
@@ -128,7 +123,6 @@ public class FragmentFolders extends FragmentBase {
         });
 
         // Initialize
-        tbShowHidden.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
         fab.hide();
@@ -137,8 +131,20 @@ public class FragmentFolders extends FragmentBase {
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (show_hidden != null)
+            outState.putBoolean("show_hidden", show_hidden);
+    }
+
+    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            show_hidden = (Boolean) savedInstanceState.get("show_hidden");
+            getActivity().invalidateOptionsMenu();
+        }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         grpHintActions.setVisibility(prefs.getBoolean("folder_actions", false) ? View.GONE : View.VISIBLE);
@@ -170,19 +176,67 @@ public class FragmentFolders extends FragmentBase {
                     return;
                 }
 
-                boolean hidden = false;
+                boolean has_hidden = false;
                 for (TupleFolderEx folder : folders)
                     if (folder.hide) {
-                        hidden = true;
+                        has_hidden = true;
                         break;
                     }
-                tbShowHidden.setVisibility(hidden ? View.VISIBLE : View.GONE);
 
-                adapter.set(account, folders);
+                if (has_hidden) {
+                    if (show_hidden == null) {
+                        show_hidden = false;
+                        getActivity().invalidateOptionsMenu();
+                    }
+                } else {
+                    if (show_hidden != null) {
+                        show_hidden = null;
+                        getActivity().invalidateOptionsMenu();
+                    }
+                }
+
+                adapter.set(account, show_hidden == null || show_hidden, folders);
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
             }
         });
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_folders, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        MenuItem item = menu.findItem(R.id.menu_show_hidden);
+        if (show_hidden != null) {
+            item.setTitle(show_hidden ? R.string.title_hide_folders : R.string.title_show_folders);
+            item.setIcon(show_hidden ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_visibility_24);
+        }
+        item.setVisible(show_hidden != null);
+        super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_show_hidden:
+                onMenuShowHidden();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuShowHidden() {
+        if (show_hidden == null)
+            show_hidden = false;
+        else
+            show_hidden = !show_hidden;
+        getActivity().invalidateOptionsMenu();
+        adapter.showHidden(show_hidden);
     }
 }

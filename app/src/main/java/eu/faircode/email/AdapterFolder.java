@@ -447,14 +447,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         setHasStableIds(true);
     }
 
-    private boolean showAll = false;
-
     void showHidden(boolean show) {
-        showAll = show;
-        set(account, all);
+        set(account, show, all);
     }
 
-    public void set(long account, @NonNull List<TupleFolderEx> _folders) {
+    public void set(long account, boolean showAll, @NonNull List<TupleFolderEx> _folders) {
         Log.i("Set account=" + account + " folders=" + _folders.size());
 
         this.account = account;
