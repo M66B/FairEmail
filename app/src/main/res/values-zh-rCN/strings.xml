@@ -445,6 +445,7 @@
     <string name="title_info">信息</string>
     <string name="title_report">报告</string>
     <string name="title_fix">修复</string>
+    <string name="title_enable">启用</string>
     <string name="title_no_ask_again">别再询问</string>
     <string name="title_no_adobe">Adobe Acrobat 阅读器无法安全打开共享的文件，请参阅FAQ 以获取更多信息</string>
     <string name="title_no_body">没有找到消息文本</string>

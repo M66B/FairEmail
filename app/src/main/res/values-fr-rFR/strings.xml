@@ -217,6 +217,7 @@
     <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Cela va retarder la réception de nouveaux messages et augmenter l\'utilisation de la batterie.</string>
     <string name="title_no_move">Ce fournisseur ne prend pas en charge MOVE</string>
     <string name="title_no_uidplus">Ce fournisseur ne prend pas en charge UIDPLUS</string>
+    <string name="title_no_utf8">Ce fournisseur ne prend pas en charge l\'UTF-8</string>
     <string name="title_no_sync">Erreurs de synchronisation depuis %1$s</string>
     <string name="title_sync_disabled">La synchronisation est désactivée</string>
     <string name="title_drafts_required">Un dossier brouillon est nécessaire pour envoyer des messages</string>

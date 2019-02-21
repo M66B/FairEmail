@@ -233,6 +233,7 @@
     <string name="title_no_idle">Этот провайдер не поддерживает push-сообщения. Это задержит прием новых сообщений и увеличит расход батареи.</string>
     <string name="title_no_move">Этот провайдер не поддерживает MOVE</string>
     <string name="title_no_uidplus">Этот провайдер не поддерживает UIDPLUS</string>
+    <string name="title_no_utf8">Этот провайдер не поддерживает UTF-8</string>
     <string name="title_no_sync">Ошибки синхронизации после %1$s</string>
     <string name="title_sync_disabled">Синхронизация отключена</string>
     <string name="title_drafts_required">Для отправки сообщений требуется папка черновиков</string>
