@@ -214,9 +214,9 @@ public class FragmentMessages extends FragmentBase {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = (ViewGroup) inflater.inflate(R.layout.fragment_messages, container, false);
-
         setHasOptionsMenu(true);
+
+        view = (ViewGroup) inflater.inflate(R.layout.fragment_messages, container, false);
 
         // Get controls
         swipeRefresh = view.findViewById(R.id.swipeRefresh);

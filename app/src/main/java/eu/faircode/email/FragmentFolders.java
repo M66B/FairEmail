@@ -69,8 +69,9 @@ public class FragmentFolders extends FragmentBase {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_folders, container, false);
         setHasOptionsMenu(true);
+
+        View view = inflater.inflate(R.layout.fragment_folders, container, false);
 
         // Get controls
         ibHintActions = view.findViewById(R.id.ibHintActions);

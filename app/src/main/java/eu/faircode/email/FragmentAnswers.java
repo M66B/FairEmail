@@ -48,9 +48,10 @@ public class FragmentAnswers extends FragmentBase {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_answers, container, false);
-
+        setSubtitle(R.string.menu_answers);
         setHasOptionsMenu(true);
+
+        View view = inflater.inflate(R.layout.fragment_answers, container, false);
 
         // Get controls
         rvAnswer = view.findViewById(R.id.rvAnswer);
