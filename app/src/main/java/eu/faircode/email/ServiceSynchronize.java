@@ -2272,6 +2272,8 @@ public class ServiceSynchronize extends LifecycleService {
             synchronizeMessages(account, folder, (IMAPFolder) ifolder, folder.getSyncArgs(), new ServiceState());
 
         } catch (Throwable ex) {
+            Log.w(ex);
+            reportError(account, folder, ex);
             db.account().setAccountError(account.id, Helper.formatThrowable(ex));
             db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
         } finally {
