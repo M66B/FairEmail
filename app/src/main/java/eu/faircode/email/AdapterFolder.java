@@ -301,9 +301,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                 db.beginTransaction();
 
                                 boolean now;
-                                if (aid < 0) {
-                                    // outbox
-                                    now = (internet && "connected".equals(folder.state));
+                                if (aid < 0) { // outbox
+                                    now = "connected".equals(folder.state);
                                     EntityOperation.sync(db, fid);
                                 } else {
                                     if (!internet || "connected".equals(db.account().getAccount(aid).state)) {
@@ -311,7 +310,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                         EntityOperation.sync(db, fid);
                                     } else {
                                         now = true;
-                                        db.folder().setFolderSyncState(folder.id, "requested");
                                         ServiceSynchronize.sync(context, fid);
                                     }
                                 }
