@@ -56,6 +56,7 @@ import android.widget.Toast;
 
 import com.android.billingclient.api.BillingClient;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.sun.mail.util.FolderClosedIOException;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -84,9 +85,12 @@ import java.util.concurrent.ThreadFactory;
 
 import javax.mail.Address;
 import javax.mail.AuthenticationFailedException;
+import javax.mail.FolderClosedException;
+import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.Store;
 import javax.mail.internet.InternetAddress;
+import javax.net.ssl.SSLException;
 
 import androidx.annotation.NonNull;
 import androidx.browser.customtabs.CustomTabsIntent;
@@ -283,10 +287,28 @@ public class Helper {
     }
 
     static String formatThrowable(Throwable ex) {
-        return formatThrowable(ex, " ");
+        return formatThrowable(ex, false, " ");
     }
 
-    static String formatThrowable(Throwable ex, String separator) {
+    static String formatThrowable(Throwable ex, boolean sanitize) {
+        return formatThrowable(ex, sanitize, " ");
+    }
+
+    static String formatThrowable(Throwable ex, boolean sanitize, String separator) {
+        if (sanitize) {
+            if (ex instanceof MessageRemovedException)
+                return null;
+            if (ex instanceof FolderClosedException)
+                return null;
+            if (ex instanceof FolderClosedIOException)
+                return null;
+            if (ex instanceof IllegalStateException)
+                // sync when store disconnected
+                return null;
+            if (ex instanceof SSLException || ex.getCause() instanceof SSLException)
+                return null;
+        }
+
         StringBuilder sb = new StringBuilder();
         if (BuildConfig.DEBUG)
             sb.append(ex.toString());

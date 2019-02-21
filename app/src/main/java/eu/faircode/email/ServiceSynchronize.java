@@ -765,7 +765,7 @@ public class ServiceSynchronize extends LifecycleService {
                 .setVisibility(Notification.VISIBILITY_SECRET);
 
         builder.setStyle(new Notification.BigTextStyle()
-                .bigText(Helper.formatThrowable(ex, "\n")));
+                .bigText(Helper.formatThrowable(ex, false, "\n")));
 
         return builder;
     }
@@ -984,10 +984,10 @@ public class ServiceSynchronize extends LifecycleService {
                             } catch (MessagingException ex) {
                                 // Including ReadOnlyFolderException
                                 db.folder().setFolderState(folder.id, null);
-                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
                                 continue;
                             } catch (Throwable ex) {
-                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
                                 throw ex;
                             }
                             folders.put(folder, ifolder);
@@ -1048,13 +1048,12 @@ public class ServiceSynchronize extends LifecycleService {
                                             } catch (IOException ex) {
                                                 if (ex.getCause() instanceof MessagingException) {
                                                     Log.w(folder.name, ex);
-                                                    if (!(ex.getCause() instanceof MessageRemovedException))
-                                                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
                                                 } else
                                                     throw ex;
                                             } catch (Throwable ex) {
                                                 Log.e(folder.name, ex);
-                                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
                                             }
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
@@ -1084,7 +1083,7 @@ public class ServiceSynchronize extends LifecycleService {
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
                                         reportError(account, folder, ex);
-                                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
                                         state.error();
                                     } finally {
                                         wlAccount.release();
@@ -1138,13 +1137,12 @@ public class ServiceSynchronize extends LifecycleService {
                                         } catch (IOException ex) {
                                             if (ex.getCause() instanceof MessagingException) {
                                                 Log.w(folder.name, ex);
-                                                if (!(ex.getCause() instanceof MessageRemovedException))
-                                                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
                                             } else
                                                 throw ex;
                                         } catch (Throwable ex) {
                                             Log.e(folder.name, ex);
-                                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
                                         }
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
@@ -1169,7 +1167,7 @@ public class ServiceSynchronize extends LifecycleService {
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
                                         reportError(account, folder, ex);
-                                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
                                         state.error();
                                     } finally {
                                         Log.i(folder.name + " end idle");
@@ -1257,9 +1255,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                     } catch (Throwable ex) {
                                                         Log.e(folder.name, ex);
                                                         reportError(account, folder, ex);
-                                                        // IllegalStateException: sync when store disconnected
-                                                        if (!(ex instanceof IllegalStateException))
-                                                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
                                                         state.error();
                                                     } finally {
                                                         if (shouldClose) {
@@ -2277,7 +2273,7 @@ public class ServiceSynchronize extends LifecycleService {
             Log.w(ex);
             reportError(account, folder, ex);
             db.account().setAccountError(account.id, Helper.formatThrowable(ex));
-            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, false));
         } finally {
             if (istore != null) {
                 Log.i(account.name + " closing");
@@ -2477,7 +2473,7 @@ public class ServiceSynchronize extends LifecycleService {
                 } catch (Throwable ex) {
                     Log.e(folder.name, ex);
                     reportError(account, folder, ex);
-                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
                 }
 
             if (uids.size() > 0) {
@@ -2568,13 +2564,12 @@ public class ServiceSynchronize extends LifecycleService {
                     } catch (IOException ex) {
                         if (ex.getCause() instanceof MessagingException) {
                             Log.w(folder.name, ex);
-                            if (!(ex.getCause() instanceof MessageRemovedException))
-                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
                         } else
                             throw ex;
                     } catch (Throwable ex) {
                         Log.e(folder.name, ex);
-                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
                     } finally {
                         db.endTransaction();
                         // Reduce memory usage
@@ -3195,7 +3190,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                     } catch (Throwable ex) {
                                                         Log.e(outbox.name, ex);
                                                         reportError(null, outbox, ex);
-                                                        db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex));
+                                                        db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex, true));
                                                     } finally {
                                                         db.folder().setFolderSyncState(outbox.id, null);
                                                         wl.release();
