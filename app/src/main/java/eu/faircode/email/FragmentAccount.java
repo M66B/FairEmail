@@ -239,6 +239,7 @@ public class FragmentAccount extends FragmentBase {
                 tvIdle.setVisibility(View.GONE);
                 tvMove.setVisibility(View.GONE);
                 tvUidPlus.setVisibility(View.GONE);
+                tvUtf8.setVisibility(View.GONE);
 
                 Object tag = adapterView.getTag();
                 if (tag != null && (Integer) tag == position)
@@ -445,6 +446,7 @@ public class FragmentAccount extends FragmentBase {
         tvIdle.setVisibility(View.GONE);
         tvMove.setVisibility(View.GONE);
         tvUidPlus.setVisibility(View.GONE);
+        tvUtf8.setVisibility(View.GONE);
 
         btnCheck.setVisibility(View.GONE);
         pbCheck.setVisibility(View.GONE);
