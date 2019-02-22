@@ -34,6 +34,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
@@ -624,13 +625,10 @@ public class MessageHelper {
             if (TextUtils.isEmpty(charset)) {
                 if (BuildConfig.DEBUG)
                     warnings.add(context.getString(R.string.title_no_charset, ct.toString()));
-                if (part.isMimeType("text/plain"))
-                    try {
-                        // The first 127 characters are the same as in US-ASCII
-                        result = new String(result.getBytes("ISO-8859-1"));
-                    } catch (UnsupportedEncodingException ex) {
-                        warnings.add(Helper.formatThrowable(ex));
-                    }
+                if (part.isMimeType("text/plain")) {
+                    // The first 127 characters are the same as in US-ASCII
+                    result = new String(result.getBytes(StandardCharsets.ISO_8859_1));
+                }
             } else {
                 if ("US-ASCII".equals(Charset.forName(charset).name()) &&
                         !"US-ASCII".equals(charset.toUpperCase()))
