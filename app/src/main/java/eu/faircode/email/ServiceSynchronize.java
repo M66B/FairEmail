@@ -1880,7 +1880,6 @@ public class ServiceSynchronize extends LifecycleService {
                 // Append target
                 long uid = append(istore, itarget, (MimeMessage) icopy);
                 Log.i(target.name + " appended id=" + message.id + " uid=" + uid);
-                db.message().setMessageUid(message.id, uid);
 
                 // Some providers, like Gmail, don't honor the appended seen flag
                 if (itarget.getPermanentFlags().contains(Flags.Flag.SEEN)) {
