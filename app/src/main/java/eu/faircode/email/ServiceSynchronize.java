@@ -1553,7 +1553,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 break;
 
                             case EntityOperation.SYNC:
-                                if (EntityFolder.OUTBOX.equals(folder.type))
+                                if (folder.account == null)
                                     db.folder().setFolderError(folder.id, null);
                                 else
                                     synchronizeMessages(account, folder, (IMAPFolder) ifolder, jargs, state);
