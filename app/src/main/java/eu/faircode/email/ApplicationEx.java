@@ -129,21 +129,11 @@ public class ApplicationEx extends Application {
         File file = new File(context.getCacheDir(), "crash.log");
         Log.w("Writing exception to " + file);
 
-        FileWriter out = null;
-        try {
-            out = new FileWriter(file, true);
+        try (FileWriter out = new FileWriter(file, true)) {
             out.write(BuildConfig.VERSION_NAME + " " + new Date() + "\r\n");
             out.write(ex + "\r\n" + android.util.Log.getStackTraceString(ex) + "\r\n");
         } catch (IOException e) {
             Log.e(e);
-        } finally {
-            if (out != null) {
-                try {
-                    out.close();
-                } catch (IOException e) {
-                    Log.e(e);
-                }
-            }
         }
     }
 }

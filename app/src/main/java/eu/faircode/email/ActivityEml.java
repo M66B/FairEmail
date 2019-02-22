@@ -71,11 +71,9 @@ public class ActivityEml extends ActivityBase {
 
                 Result result = new Result();
 
-                InputStream is = null;
-                try {
-                    ContentResolver resolver = context.getContentResolver();
-                    AssetFileDescriptor descriptor = resolver.openTypedAssetFileDescriptor(uri, "*/*", null);
-                    is = new BufferedInputStream(descriptor.createInputStream());
+                ContentResolver resolver = context.getContentResolver();
+                AssetFileDescriptor descriptor = resolver.openTypedAssetFileDescriptor(uri, "*/*", null);
+                try (InputStream is = new BufferedInputStream(descriptor.createInputStream())) {
 
                     Properties props = MessageHelper.getSessionProperties(Helper.AUTH_TYPE_PASSWORD, null, false);
                     Session isession = Session.getInstance(props, null);
@@ -112,9 +110,6 @@ public class ActivityEml extends ActivityBase {
                     result.eml = new String(bos.toByteArray());
 
                     return result;
-                } finally {
-                    if (is != null)
-                        is.close();
                 }
             }
 

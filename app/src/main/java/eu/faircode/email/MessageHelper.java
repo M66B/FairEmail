@@ -235,17 +235,12 @@ public class MessageHelper {
                 if (attachment.available && EntityAttachment.PGP_SIGNATURE.equals(attachment.encryption)) {
                     InternetAddress from = (InternetAddress) message.from[0];
                     File file = EntityAttachment.getFile(context, attachment.id);
-                    BufferedReader br = null;
                     StringBuilder sb = new StringBuilder();
-                    try {
-                        br = new BufferedReader(new FileReader(file));
+                    try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                         String line;
                         while ((line = br.readLine()) != null)
                             if (!line.startsWith("-----") && !line.endsWith("-----"))
                                 sb.append(line);
-                    } finally {
-                        if (br != null)
-                            br.close();
                     }
 
                     imessage.addHeader("Autocrypt", "addr=" + from.getAddress() + "; keydata=" + sb.toString());
@@ -708,23 +703,21 @@ public class MessageHelper {
             File file = EntityAttachment.getFile(context, id);
 
             // Download attachment
-            OutputStream os = null;
-            try {
-                db.attachment().setProgress(id, null);
-
-                InputStream is = apart.part.getInputStream();
-                os = new BufferedOutputStream(new FileOutputStream(file));
-
+            db.attachment().setProgress(id, null);
+            try (InputStream is = apart.part.getInputStream()) {
                 long size = 0;
                 long total = apart.part.getSize();
-                byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
-                for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
-                    size += len;
-                    os.write(buffer, 0, len);
 
-                    // Update progress
-                    if (total > 0)
-                        db.attachment().setProgress(id, (int) (size * 100 / total));
+                try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                    byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
+                    for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
+                        size += len;
+                        os.write(buffer, 0, len);
+
+                        // Update progress
+                        if (total > 0)
+                            db.attachment().setProgress(id, (int) (size * 100 / total));
+                    }
                 }
 
                 // Store attachment data
@@ -737,9 +730,6 @@ public class MessageHelper {
                 // Reset progress on failure
                 db.attachment().setError(id, Helper.formatThrowable(ex));
                 return false;
-            } finally {
-                if (os != null)
-                    os.close();
             }
         }
 

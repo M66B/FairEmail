@@ -112,16 +112,11 @@ public abstract class DB extends RoomDatabase {
     }
 
     private static String exec(DB db, String command) {
-        Cursor cursor = null;
-        try {
-            cursor = db.query(command, new Object[0]);
+        try (Cursor cursor = db.query(command, new Object[0])) {
             if (cursor != null && cursor.moveToNext())
                 return cursor.getString(0);
             else
                 return null;
-        } finally {
-            if (cursor != null)
-                cursor.close();
         }
     }
 
@@ -358,9 +353,7 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
 
-                        Cursor cursor = null;
-                        try {
-                            cursor = db.query("SELECT `id`, `from` FROM message");
+                        try (Cursor cursor = db.query("SELECT `id`, `from` FROM message")) {
                             while (cursor.moveToNext())
                                 try {
                                     long id = cursor.getLong(0);
@@ -374,9 +367,6 @@ public abstract class DB extends RoomDatabase {
                                     Log.e(ex);
                                 }
 
-                        } finally {
-                            if (cursor != null)
-                                cursor.close();
                         }
                     }
                 })

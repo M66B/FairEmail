@@ -296,23 +296,18 @@ public class FragmentRule extends FragmentBase {
     }
 
     private void handlePickContact(Intent data) {
-        Cursor cursor = null;
-        try {
-            Uri uri = data.getData();
-            if (uri != null)
-                cursor = getContext().getContentResolver().query(uri,
-                        new String[]{
-                                ContactsContract.CommonDataKinds.Email.ADDRESS
-                        },
-                        null, null, null);
+        Uri uri = data.getData();
+        if (uri == null) return;
+        try (Cursor cursor = getContext().getContentResolver().query(uri,
+                new String[]{
+                        ContactsContract.CommonDataKinds.Email.ADDRESS
+                },
+                null, null, null)) {
             if (cursor != null && cursor.moveToFirst())
                 etSender.setText(cursor.getString(0));
         } catch (Throwable ex) {
             Log.e(ex);
             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-        } finally {
-            if (cursor != null)
-                cursor.close();
         }
     }
 

@@ -488,10 +488,8 @@ public class Helper {
         attachment.progress = 0;
         attachment.id = db.attachment().insertAttachment(attachment);
 
-        OutputStream os = null;
         File file = EntityAttachment.getFile(context, attachment.id);
-        try {
-            os = new BufferedOutputStream(new FileOutputStream(file));
+        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
 
             long size = 0;
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -501,9 +499,6 @@ public class Helper {
                 size += write(os, key + "=" + settings.get(key) + "\r\n");
 
             db.attachment().setDownloaded(attachment.id, size);
-        } finally {
-            if (os != null)
-                os.close();
         }
     }
 
@@ -519,10 +514,8 @@ public class Helper {
         attachment.progress = 0;
         attachment.id = db.attachment().insertAttachment(attachment);
 
-        OutputStream os = null;
         File file = EntityAttachment.getFile(context, attachment.id);
-        try {
-            os = new BufferedOutputStream(new FileOutputStream(file));
+        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
 
             long size = 0;
             ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -537,9 +530,6 @@ public class Helper {
             }
 
             db.attachment().setDownloaded(attachment.id, size);
-        } finally {
-            if (os != null)
-                os.close();
         }
     }
 
@@ -555,10 +545,8 @@ public class Helper {
         log.progress = 0;
         log.id = db.attachment().insertAttachment(log);
 
-        OutputStream os = null;
         File file = EntityAttachment.getFile(context, log.id);
-        try {
-            os = new BufferedOutputStream(new FileOutputStream(file));
+        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
 
             long size = 0;
             long from = new Date().getTime() - 24 * 3600 * 1000L;
@@ -568,9 +556,6 @@ public class Helper {
                 size += write(os, String.format("%s %s\r\n", DF.format(entry.time), entry.data));
 
             db.attachment().setDownloaded(log.id, size);
-        } finally {
-            if (os != null)
-                os.close();
         }
     }
 
@@ -586,10 +571,8 @@ public class Helper {
         attachment.progress = 0;
         attachment.id = db.attachment().insertAttachment(attachment);
 
-        OutputStream os = null;
         File file = EntityAttachment.getFile(context, attachment.id);
-        try {
-            os = new BufferedOutputStream(new FileOutputStream(file));
+        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
 
             long size = 0;
             DateFormat DF = SimpleDateFormat.getTimeInstance();
@@ -603,9 +586,6 @@ public class Helper {
                         op.error));
 
             db.attachment().setDownloaded(attachment.id, size);
-        } finally {
-            if (os != null)
-                os.close();
         }
     }
 
@@ -622,11 +602,8 @@ public class Helper {
         attachment.id = db.attachment().insertAttachment(attachment);
 
         Process proc = null;
-        BufferedReader br = null;
-        OutputStream os = null;
         File file = EntityAttachment.getFile(context, attachment.id);
-        try {
-            os = new BufferedOutputStream(new FileOutputStream(file));
+        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
 
             String[] cmd = new String[]{"logcat",
                     "-d",
@@ -634,20 +611,17 @@ public class Helper {
                     //"-t", "1000",
                     Log.TAG + ":I"};
             proc = Runtime.getRuntime().exec(cmd);
-            br = new BufferedReader(new InputStreamReader(proc.getInputStream()));
 
             long size = 0;
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(proc.getInputStream()))) {
+                String line;
+                while ((line = br.readLine()) != null)
+                    size += write(os, line + "\r\n");
+            }
 
-            String line;
-            while ((line = br.readLine()) != null)
-                size += write(os, line + "\r\n");
 
             db.attachment().setDownloaded(attachment.id, size);
         } finally {
-            if (os != null)
-                os.close();
-            if (br != null)
-                br.close();
             if (proc != null)
                 proc.destroy();
         }
@@ -682,20 +656,13 @@ public class Helper {
     }
 
     static void writeText(File file, String content) throws IOException {
-        BufferedWriter out = null;
-        try {
-            out = new BufferedWriter(new FileWriter(file));
+        try (BufferedWriter out = new BufferedWriter(new FileWriter(file))) {
             out.write(content == null ? "" : content);
-        } finally {
-            if (out != null)
-                out.close();
         }
     }
 
     static String readText(File file) throws IOException {
-        BufferedReader in = null;
-        try {
-            in = new BufferedReader(new FileReader(file));
+        try (BufferedReader in = new BufferedReader(new FileReader(file))) {
             StringBuilder body = new StringBuilder();
             String line;
             while ((line = in.readLine()) != null) {
@@ -703,26 +670,17 @@ public class Helper {
                 body.append('\n');
             }
             return body.toString();
-        } finally {
-            if (in != null)
-                in.close();
         }
     }
 
     static void copy(File src, File dst) throws IOException {
-        InputStream in = new BufferedInputStream(new FileInputStream(src));
-        try {
-            OutputStream out = new BufferedOutputStream(new FileOutputStream(dst));
-            try {
+        try (InputStream in = new BufferedInputStream(new FileInputStream(src))) {
+            try (OutputStream out = new BufferedOutputStream(new FileOutputStream(dst))) {
                 byte[] buf = new byte[4096];
                 int len;
                 while ((len = in.read(buf)) > 0)
                     out.write(buf, 0, len);
-            } finally {
-                out.close();
             }
-        } finally {
-            in.close();
         }
     }
 

@@ -584,15 +584,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 if (file.exists()) {
                     StringBuilder sb = new StringBuilder();
                     try {
-                        BufferedReader in = null;
-                        try {
-                            String line;
-                            in = new BufferedReader(new FileReader(file));
+                        String line;
+                        try (BufferedReader in = new BufferedReader(new FileReader(file))) {
                             while ((line = in.readLine()) != null)
                                 sb.append(line).append("\r\n");
-                        } finally {
-                            if (in != null)
-                                in.close();
                         }
 
                         return Helper.getDebugInfo(context, R.string.title_crash_info_remark, null, sb.toString()).id;
@@ -740,25 +735,23 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         List<ShortcutInfo> shortcuts = new ArrayList<>();
 
         if (hasPermission(Manifest.permission.READ_CONTACTS)) {
-            Cursor cursor = null;
-            try {
-                // https://developer.android.com/guide/topics/providers/contacts-provider#ObsoleteData
-                cursor = getContentResolver().query(
-                        ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                        new String[]{
-                                ContactsContract.RawContacts._ID,
-                                ContactsContract.Contacts.LOOKUP_KEY,
-                                ContactsContract.Contacts.DISPLAY_NAME,
-                                ContactsContract.CommonDataKinds.Email.DATA,
-                                ContactsContract.Contacts.STARRED,
-                                ContactsContract.Contacts.TIMES_CONTACTED,
-                                ContactsContract.Contacts.LAST_TIME_CONTACTED
-                        },
-                        ContactsContract.CommonDataKinds.Email.DATA + " <> ''",
-                        null,
-                        ContactsContract.Contacts.STARRED + " DESC" +
-                                ", " + ContactsContract.Contacts.TIMES_CONTACTED + " DESC" +
-                                ", " + ContactsContract.Contacts.LAST_TIME_CONTACTED + " DESC");
+            // https://developer.android.com/guide/topics/providers/contacts-provider#ObsoleteData
+            try (Cursor cursor = getContentResolver().query(
+                    ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                    new String[]{
+                            ContactsContract.RawContacts._ID,
+                            ContactsContract.Contacts.LOOKUP_KEY,
+                            ContactsContract.Contacts.DISPLAY_NAME,
+                            ContactsContract.CommonDataKinds.Email.DATA,
+                            ContactsContract.Contacts.STARRED,
+                            ContactsContract.Contacts.TIMES_CONTACTED,
+                            ContactsContract.Contacts.LAST_TIME_CONTACTED
+                    },
+                    ContactsContract.CommonDataKinds.Email.DATA + " <> ''",
+                    null,
+                    ContactsContract.Contacts.STARRED + " DESC" +
+                            ", " + ContactsContract.Contacts.TIMES_CONTACTED + " DESC" +
+                            ", " + ContactsContract.Contacts.LAST_TIME_CONTACTED + " DESC")) {
                 while (cursor != null && cursor.moveToNext())
                     try {
                         long id = cursor.getLong(cursor.getColumnIndex(ContactsContract.RawContacts._ID));
@@ -801,9 +794,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
-            } finally {
-                if (cursor != null)
-                    cursor.close();
             }
         }
 

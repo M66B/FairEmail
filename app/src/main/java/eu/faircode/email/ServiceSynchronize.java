@@ -1754,14 +1754,9 @@ public class ServiceSynchronize extends LifecycleService {
             if (!file.exists())
                 throw new IllegalArgumentException("raw message file not found");
 
-            InputStream is = null;
-            try {
-                Log.i(folder.name + " reading " + file);
-                is = new BufferedInputStream(new FileInputStream(file));
+            Log.i(folder.name + " reading " + file);
+            try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
                 imessage = new MimeMessage(isession, is);
-            } finally {
-                if (is != null)
-                    is.close();
             }
         }
 
@@ -1986,8 +1981,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         // Create transport
         // TODO: cache transport?
-        Transport itransport = isession.getTransport(ident.getProtocol());
-        try {
+        try (Transport itransport = isession.getTransport(ident.getProtocol())) {
             // Connect transport
             db.identity().setIdentityState(ident.id, "connecting");
             try {
@@ -2114,11 +2108,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             throw ex;
         } finally {
-            try {
-                itransport.close();
-            } finally {
-                db.identity().setIdentityState(ident.id, null);
-            }
+            db.identity().setIdentityState(ident.id, null);
         }
     }
 
@@ -2142,14 +2132,9 @@ public class ServiceSynchronize extends LifecycleService {
 
             File file = EntityMessage.getRawFile(this, message.id);
 
-            OutputStream os = null;
-            try {
-                os = new BufferedOutputStream(new FileOutputStream(file));
+            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                 imessage.writeTo(os);
                 db.message().setMessageRaw(message.id, true);
-            } finally {
-                if (os != null)
-                    os.close();
             }
         }
 

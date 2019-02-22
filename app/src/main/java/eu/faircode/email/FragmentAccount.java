@@ -573,9 +573,7 @@ public class FragmentAccount extends FragmentBase {
                 Properties props = MessageHelper.getSessionProperties(auth_type, realm, insecure);
                 Session isession = Session.getInstance(props, null);
                 isession.setDebug(true);
-                Store istore = null;
-                try {
-                    istore = isession.getStore("imap" + (starttls ? "" : "s"));
+                try (Store istore = isession.getStore("imap" + (starttls ? "" : "s"))) {
                     try {
                         istore.connect(host, Integer.parseInt(port), user, password);
                     } catch (AuthenticationFailedException ex) {
@@ -680,9 +678,6 @@ public class FragmentAccount extends FragmentBase {
                         folder.display = folder.getDisplayName(getContext());
                     EntityFolder.sort(getContext(), result.folders);
 
-                } finally {
-                    if (istore != null)
-                        istore.close();
                 }
 
                 return result;
@@ -880,9 +875,7 @@ public class FragmentAccount extends FragmentBase {
                     Session isession = Session.getInstance(props, null);
                     isession.setDebug(true);
 
-                    Store istore = null;
-                    try {
-                        istore = isession.getStore("imap" + (starttls ? "" : "s"));
+                    try (Store istore = isession.getStore("imap" + (starttls ? "" : "s"))) {
                         try {
                             istore.connect(host, Integer.parseInt(port), user, password);
                         } catch (AuthenticationFailedException ex) {
@@ -914,9 +907,6 @@ public class FragmentAccount extends FragmentBase {
                             }
                         }
 
-                    } finally {
-                        if (istore != null)
-                            istore.close();
                     }
                 }
 
