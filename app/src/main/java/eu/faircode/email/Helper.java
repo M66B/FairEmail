@@ -76,6 +76,7 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.Inet4Address;
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
@@ -735,11 +736,11 @@ public class Helper {
         return filename.substring(index + 1);
     }
 
-    static InetAddress getLocalIp(Context context) {
+    static InetAddress getLocalIp(Context context) throws UnknownHostException {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.M)
-            return null;
+            return InetAddress.getLocalHost();
 
         Network active = cm.getActiveNetwork();
         if (active == null)

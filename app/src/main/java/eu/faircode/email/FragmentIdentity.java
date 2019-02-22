@@ -52,6 +52,7 @@ import com.android.colorpicker.ColorPickerSwatch;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -603,11 +604,12 @@ public class FragmentIdentity extends FragmentBase {
                         else
                             props.put("mail.smtps.localhost", host);
                     } else {
-                        Log.i("Check local address=" + ip.getHostAddress());
+                        String haddr = (ip instanceof Inet6Address ? "IPv6:" : "") + ip.getHostAddress();
+                        Log.i("Check local address=" + haddr);
                         if (starttls)
-                            props.put("mail.smtp.localaddress", ip.getHostAddress());
+                            props.put("mail.smtp.localaddress", haddr);
                         else
-                            props.put("mail.smtps.localaddress", ip.getHostAddress());
+                            props.put("mail.smtps.localaddress", haddr);
                     }
 
                     // Create session

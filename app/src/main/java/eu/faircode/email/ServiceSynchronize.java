@@ -73,6 +73,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
@@ -1947,11 +1948,12 @@ public class ServiceSynchronize extends LifecycleService {
             else
                 props.put("mail.smtps.localhost", ident.host);
         } else {
-            EntityLog.log(ServiceSynchronize.this, "Send local address=" + ip.getHostAddress());
+            String haddr = (ip instanceof Inet6Address ? "IPv6:" : "") + ip.getHostAddress();
+            EntityLog.log(ServiceSynchronize.this, "Send local address=" + haddr);
             if (ident.starttls)
-                props.put("mail.smtp.localaddress", ip.getHostAddress());
+                props.put("mail.smtp.localaddress", haddr);
             else
-                props.put("mail.smtps.localaddress", ip.getHostAddress());
+                props.put("mail.smtps.localaddress", haddr);
         }
 
         // Create session
