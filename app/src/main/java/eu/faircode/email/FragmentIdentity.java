@@ -618,8 +618,7 @@ public class FragmentIdentity extends FragmentBase {
 
                     // Create transport
                     String protocol = (starttls ? "smtp" : "smtps");
-                    Transport itransport = isession.getTransport(protocol);
-                    try {
+                    try (Transport itransport = isession.getTransport(protocol)) {
                         try {
                             itransport.connect(host, Integer.parseInt(port), user, password);
                         } catch (AuthenticationFailedException ex) {
@@ -629,8 +628,6 @@ public class FragmentIdentity extends FragmentBase {
                             } else
                                 throw ex;
                         }
-                    } finally {
-                        itransport.close();
                     }
                 }
 

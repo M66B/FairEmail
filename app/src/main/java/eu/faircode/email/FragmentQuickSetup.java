@@ -255,9 +255,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     Properties props = MessageHelper.getSessionProperties(auth_type, null, false);
                     Session isession = Session.getInstance(props, null);
                     isession.setDebug(true);
-                    IMAPStore istore = null;
-                    try {
-                        istore = (IMAPStore) isession.getStore(provider.imap_starttls ? "imap" : "imaps");
+                    try (IMAPStore istore = (IMAPStore) isession.getStore(provider.imap_starttls ? "imap" : "imaps")) {
                         istore.connect(provider.imap_host, provider.imap_port, user, password);
 
                         separator = istore.getDefaultFolder().getSeparator();
@@ -295,9 +293,6 @@ public class FragmentQuickSetup extends FragmentBase {
                         if (!inbox || !drafts)
                             throw new IllegalArgumentException(
                                     context.getString(R.string.title_setup_no_settings, dparts[1]));
-                    } finally {
-                        if (istore != null)
-                            istore.close();
                     }
                 }
 
@@ -305,11 +300,8 @@ public class FragmentQuickSetup extends FragmentBase {
                     Properties props = MessageHelper.getSessionProperties(auth_type, null, false);
                     Session isession = Session.getInstance(props, null);
                     isession.setDebug(true);
-                    Transport itransport = isession.getTransport(provider.smtp_starttls ? "smtp" : "smtps");
-                    try {
+                    try (Transport itransport = isession.getTransport(provider.smtp_starttls ? "smtp" : "smtps")) {
                         itransport.connect(provider.smtp_host, provider.smtp_port, user, password);
-                    } finally {
-                        itransport.close();
                     }
                 }
 

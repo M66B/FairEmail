@@ -23,7 +23,6 @@ import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.Person;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -133,6 +132,7 @@ import javax.net.ssl.SSLException;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleService;
 import androidx.lifecycle.LiveData;
@@ -450,7 +450,7 @@ public class ServiceSynchronize extends LifecycleService {
         return START_STICKY;
     }
 
-    private Notification.Builder getNotificationService(TupleAccountStats stats) {
+    private NotificationCompat.Builder getNotificationService(TupleAccountStats stats) {
         if (stats == null)
             stats = lastStats;
         if (stats == null)
@@ -462,11 +462,7 @@ public class ServiceSynchronize extends LifecycleService {
         PendingIntent pi = PendingIntent.getService(this, PI_WHY, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Build notification
-        Notification.Builder builder;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            builder = new Notification.Builder(this, "service");
-        else
-            builder = new Notification.Builder(this);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "service");
 
         builder
                 .setSmallIcon(R.drawable.baseline_compare_arrows_white_24)
@@ -477,10 +473,10 @@ public class ServiceSynchronize extends LifecycleService {
                 .setShowWhen(false)
                 .setPriority(Notification.PRIORITY_MIN)
                 .setCategory(Notification.CATEGORY_STATUS)
-                .setVisibility(Notification.VISIBILITY_SECRET);
+                .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
         if (stats.operations > 0)
-            builder.setStyle(new Notification.BigTextStyle().setSummaryText(
+            builder.setStyle(new NotificationCompat.BigTextStyle().setSummaryText(
                     getResources().getQuantityString(
                             R.plurals.title_notification_operations, stats.operations, stats.operations)));
 
@@ -525,11 +521,7 @@ public class ServiceSynchronize extends LifecycleService {
         String channelName = (account == 0 ? "notification" : EntityAccount.getNotificationChannelName(account));
 
         // Build public notification
-        Notification.Builder pbuilder;
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
-            pbuilder = new Notification.Builder(this);
-        else
-            pbuilder = new Notification.Builder(this, channelName);
+        NotificationCompat.Builder pbuilder = new NotificationCompat.Builder(this, channelName);
 
         pbuilder
                 .setSmallIcon(R.drawable.baseline_email_white_24)
@@ -540,17 +532,13 @@ public class ServiceSynchronize extends LifecycleService {
                 .setDeleteIntent(piClear)
                 .setPriority(Notification.PRIORITY_DEFAULT)
                 .setCategory(Notification.CATEGORY_STATUS)
-                .setVisibility(Notification.VISIBILITY_PUBLIC);
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
 
         if (!TextUtils.isEmpty(accountName))
             pbuilder.setSubText(accountName);
 
         // Build notification
-        Notification.Builder builder;
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
-            builder = new Notification.Builder(this);
-        else
-            builder = new Notification.Builder(this, channelName);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channelName);
 
         builder
                 .setSmallIcon(R.drawable.baseline_email_white_24)
@@ -584,7 +572,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             builder.setOnlyAlertOnce(true);
         } else
-            builder.setGroupAlertBehavior(Notification.GROUP_ALERT_CHILDREN);
+            builder.setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
 
         if (pro) {
             DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
@@ -597,7 +585,7 @@ public class ServiceSynchronize extends LifecycleService {
                 sb.append("<br>");
             }
 
-            builder.setStyle(new Notification.BigTextStyle()
+            builder.setStyle(new NotificationCompat.BigTextStyle()
                     .bigText(HtmlHelper.fromHtml(sb.toString()))
                     .setSummaryText(title));
         }
@@ -636,26 +624,23 @@ public class ServiceSynchronize extends LifecycleService {
             PendingIntent piTrash = PendingIntent.getService(this, PI_TRASH, trash, PendingIntent.FLAG_UPDATE_CURRENT);
 
 
-            Notification.Action.Builder actionSeen = new Notification.Action.Builder(
+            NotificationCompat.Action.Builder actionSeen = new NotificationCompat.Action.Builder(
                     R.drawable.baseline_visibility_24,
                     getString(R.string.title_action_seen),
                     piSeen);
 
-            Notification.Action.Builder actionArchive = new Notification.Action.Builder(
+            NotificationCompat.Action.Builder actionArchive = new NotificationCompat.Action.Builder(
                     R.drawable.baseline_archive_24,
                     getString(R.string.title_action_archive),
                     piArchive);
 
-            Notification.Action.Builder actionTrash = new Notification.Action.Builder(
+            NotificationCompat.Action.Builder actionTrash = new NotificationCompat.Action.Builder(
                     R.drawable.baseline_delete_24,
                     getString(R.string.title_action_trash),
                     piTrash);
 
-            Notification.Builder mbuilder;
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
-                mbuilder = new Notification.Builder(this);
-            else
-                mbuilder = new Notification.Builder(this, channelName);
+            NotificationCompat.Builder mbuilder;
+            mbuilder = new NotificationCompat.Builder(this, channelName);
 
             String folderName = message.folderDisplay == null
                     ? Helper.localizeFolderName(this, message.folderName)
@@ -702,32 +687,25 @@ public class ServiceSynchronize extends LifecycleService {
                                 sb.append(text);
                             sb.append("</em>");
                         }
-                        mbuilder.setStyle(new Notification.BigTextStyle().bigText(HtmlHelper.fromHtml(sb.toString())));
+                        mbuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(HtmlHelper.fromHtml(sb.toString())));
                     } catch (IOException ex) {
                         Log.e(ex);
-                        mbuilder.setStyle(new Notification.BigTextStyle().bigText(ex.toString()));
+                        mbuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(ex.toString()));
                     }
 
                 if (info.hasPhoto())
                     mbuilder.setLargeIcon(info.getPhotoBitmap());
 
                 if (info.hasLookupUri())
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
-                        mbuilder.addPerson(new Person.Builder()
-                                .setUri(info.getLookupUri().toString())
-                                .build());
-                    else
-                        mbuilder.addPerson(info.getLookupUri().toString());
+                    mbuilder.addPerson(info.getLookupUri().toString());
 
                 if (message.accountColor != null) {
                     mbuilder.setColor(message.accountColor);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                        mbuilder.setColorized(true);
+                    mbuilder.setColorized(true);
                 }
             }
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                mbuilder.setGroupAlertBehavior(Notification.GROUP_ALERT_CHILDREN);
+            mbuilder.setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
 
             notifications.add(mbuilder.build());
         }
@@ -735,11 +713,11 @@ public class ServiceSynchronize extends LifecycleService {
         return notifications;
     }
 
-    private Notification.Builder getNotificationError(String title, Throwable ex) {
+    private NotificationCompat.Builder getNotificationError(String title, Throwable ex) {
         return getNotificationError("error", title, ex, true);
     }
 
-    private Notification.Builder getNotificationError(String channel, String title, Throwable ex, boolean debug) {
+    private NotificationCompat.Builder getNotificationError(String channel, String title, Throwable ex, boolean debug) {
         // Build pending intent
         Intent intent = new Intent(this, ActivitySetup.class);
         if (debug)
@@ -749,11 +727,7 @@ public class ServiceSynchronize extends LifecycleService {
                 this, ActivitySetup.REQUEST_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Build notification
-        Notification.Builder builder;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            builder = new Notification.Builder(this, channel);
-        else
-            builder = new Notification.Builder(this);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channel);
 
         builder
                 .setSmallIcon(R.drawable.baseline_warning_white_24)
@@ -765,9 +739,9 @@ public class ServiceSynchronize extends LifecycleService {
                 .setPriority(Notification.PRIORITY_MAX)
                 .setOnlyAlertOnce(true)
                 .setCategory(Notification.CATEGORY_ERROR)
-                .setVisibility(Notification.VISIBILITY_SECRET);
+                .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
-        builder.setStyle(new Notification.BigTextStyle()
+        builder.setStyle(new NotificationCompat.BigTextStyle()
                 .bigText(Helper.formatThrowable(ex, false, "\n")));
 
         return builder;
@@ -1755,14 +1729,9 @@ public class ServiceSynchronize extends LifecycleService {
             if (!file.exists())
                 throw new IllegalArgumentException("raw message file not found");
 
-            InputStream is = null;
-            try {
-                Log.i(folder.name + " reading " + file);
-                is = new BufferedInputStream(new FileInputStream(file));
+            Log.i(folder.name + " reading " + file);
+            try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
                 imessage = new MimeMessage(isession, is);
-            } finally {
-                if (is != null)
-                    is.close();
             }
         }
 
@@ -1987,8 +1956,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         // Create transport
         // TODO: cache transport?
-        Transport itransport = isession.getTransport(ident.getProtocol());
-        try {
+        try (Transport itransport = isession.getTransport(ident.getProtocol())) {
             // Connect transport
             db.identity().setIdentityState(ident.id, "connecting");
             try {
@@ -2115,11 +2083,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             throw ex;
         } finally {
-            try {
-                itransport.close();
-            } finally {
-                db.identity().setIdentityState(ident.id, null);
-            }
+            db.identity().setIdentityState(ident.id, null);
         }
     }
 
@@ -2143,14 +2107,9 @@ public class ServiceSynchronize extends LifecycleService {
 
             File file = EntityMessage.getRawFile(this, message.id);
 
-            OutputStream os = null;
-            try {
-                os = new BufferedOutputStream(new FileOutputStream(file));
+            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                 imessage.writeTo(os);
                 db.message().setMessageRaw(message.id, true);
-            } finally {
-                if (os != null)
-                    os.close();
             }
         }
 

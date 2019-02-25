@@ -533,9 +533,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
                 ContentResolver resolver = context.getContentResolver();
                 DocumentFile file = DocumentFile.fromSingleUri(context, uri);
-                OutputStream raw = null;
-                try {
-                    raw = new BufferedOutputStream(resolver.openOutputStream(uri));
+                try (OutputStream raw = new BufferedOutputStream(resolver.openOutputStream(uri))) {
                     Log.i("Writing URI=" + uri + " name=" + file.getName() + " virtual=" + file.isVirtual());
 
                     if (TextUtils.isEmpty(password))
@@ -564,9 +562,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     raw.flush();
 
                     Log.i("Exported data");
-                } finally {
-                    if (raw != null)
-                        raw.close();
                 }
 
                 return null;
@@ -603,13 +598,11 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
                 }
 
-                InputStream raw = null;
                 StringBuilder data = new StringBuilder();
-                try {
-                    Log.i("Reading URI=" + uri);
-                    ContentResolver resolver = context.getContentResolver();
-                    AssetFileDescriptor descriptor = resolver.openTypedAssetFileDescriptor(uri, "*/*", null);
-                    raw = new BufferedInputStream(descriptor.createInputStream());
+                Log.i("Reading URI=" + uri);
+                ContentResolver resolver = context.getContentResolver();
+                AssetFileDescriptor descriptor = resolver.openTypedAssetFileDescriptor(uri, "*/*", null);
+                try (InputStream raw = new BufferedInputStream(descriptor.createInputStream())) {
 
                     InputStream in;
                     if (TextUtils.isEmpty(password))
@@ -636,9 +629,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     String line;
                     while ((line = reader.readLine()) != null)
                         data.append(line);
-                } finally {
-                    if (raw != null)
-                        raw.close();
                 }
 
                 Log.i("Importing data");

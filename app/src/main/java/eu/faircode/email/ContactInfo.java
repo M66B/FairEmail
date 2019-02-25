@@ -90,19 +90,17 @@ public class ContactInfo {
 
         if (Helper.hasPermission(context, Manifest.permission.READ_CONTACTS))
             try {
-                Cursor cursor = null;
-                try {
-                    ContentResolver resolver = context.getContentResolver();
-                    cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                            new String[]{
-                                    ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
-                                    ContactsContract.Contacts.LOOKUP_KEY,
-                                    ContactsContract.Contacts.DISPLAY_NAME
-                            },
-                            ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
-                            new String[]{
-                                    address.getAddress()
-                            }, null);
+                ContentResolver resolver = context.getContentResolver();
+                try (Cursor cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                        new String[]{
+                                ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
+                                ContactsContract.Contacts.LOOKUP_KEY,
+                                ContactsContract.Contacts.DISPLAY_NAME
+                        },
+                        ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
+                        new String[]{
+                                address.getAddress()
+                        }, null)) {
 
                     if (cursor != null && cursor.moveToNext()) {
                         int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
@@ -122,9 +120,6 @@ public class ContactInfo {
                         info.displayName = cursor.getString(colDisplayName);
                         info.lookupUri = lookupUri;
                     }
-                } finally {
-                    if (cursor != null)
-                        cursor.close();
                 }
             } catch (Throwable ex) {
                 Log.e(ex);
@@ -159,18 +154,16 @@ public class ContactInfo {
             return null;
 
         try {
-            Cursor cursor = null;
-            try {
-                ContentResolver resolver = context.getContentResolver();
-                cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                        new String[]{
-                                ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
-                                ContactsContract.Contacts.LOOKUP_KEY
-                        },
-                        ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
-                        new String[]{
-                                address.getAddress()
-                        }, null);
+            ContentResolver resolver = context.getContentResolver();
+            try (Cursor cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                    new String[]{
+                            ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
+                            ContactsContract.Contacts.LOOKUP_KEY
+                    },
+                    ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
+                    new String[]{
+                            address.getAddress()
+                    }, null)) {
 
                 if (cursor != null && cursor.moveToNext()) {
                     int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
@@ -181,9 +174,6 @@ public class ContactInfo {
                     return ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
                 } else
                     return null;
-            } finally {
-                if (cursor != null)
-                    cursor.close();
             }
         } catch (Throwable ex) {
             Log.e(ex);

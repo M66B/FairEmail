@@ -34,6 +34,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
@@ -234,17 +235,12 @@ public class MessageHelper {
                 if (attachment.available && EntityAttachment.PGP_SIGNATURE.equals(attachment.encryption)) {
                     InternetAddress from = (InternetAddress) message.from[0];
                     File file = EntityAttachment.getFile(context, attachment.id);
-                    BufferedReader br = null;
                     StringBuilder sb = new StringBuilder();
-                    try {
-                        br = new BufferedReader(new FileReader(file));
+                    try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                         String line;
                         while ((line = br.readLine()) != null)
                             if (!line.startsWith("-----") && !line.endsWith("-----"))
                                 sb.append(line);
-                    } finally {
-                        if (br != null)
-                            br.close();
                     }
 
                     imessage.addHeader("Autocrypt", "addr=" + from.getAddress() + "; keydata=" + sb.toString());
@@ -624,13 +620,10 @@ public class MessageHelper {
             if (TextUtils.isEmpty(charset)) {
                 if (BuildConfig.DEBUG)
                     warnings.add(context.getString(R.string.title_no_charset, ct.toString()));
-                if (part.isMimeType("text/plain"))
-                    try {
-                        // The first 127 characters are the same as in US-ASCII
-                        result = new String(result.getBytes("ISO-8859-1"));
-                    } catch (UnsupportedEncodingException ex) {
-                        warnings.add(Helper.formatThrowable(ex));
-                    }
+                if (part.isMimeType("text/plain")) {
+                    // The first 127 characters are the same as in US-ASCII
+                    result = new String(result.getBytes(StandardCharsets.ISO_8859_1));
+                }
             } else {
                 if ("US-ASCII".equals(Charset.forName(charset).name()) &&
                         !"US-ASCII".equals(charset.toUpperCase()))
@@ -710,23 +703,21 @@ public class MessageHelper {
             File file = EntityAttachment.getFile(context, id);
 
             // Download attachment
-            OutputStream os = null;
-            try {
-                db.attachment().setProgress(id, null);
-
-                InputStream is = apart.part.getInputStream();
-                os = new BufferedOutputStream(new FileOutputStream(file));
-
+            db.attachment().setProgress(id, null);
+            try (InputStream is = apart.part.getInputStream()) {
                 long size = 0;
                 long total = apart.part.getSize();
-                byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
-                for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
-                    size += len;
-                    os.write(buffer, 0, len);
 
-                    // Update progress
-                    if (total > 0)
-                        db.attachment().setProgress(id, (int) (size * 100 / total));
+                try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                    byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
+                    for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
+                        size += len;
+                        os.write(buffer, 0, len);
+
+                        // Update progress
+                        if (total > 0)
+                            db.attachment().setProgress(id, (int) (size * 100 / total));
+                    }
                 }
 
                 // Store attachment data
@@ -739,9 +730,6 @@ public class MessageHelper {
                 // Reset progress on failure
                 db.attachment().setError(id, Helper.formatThrowable(ex));
                 return false;
-            } finally {
-                if (os != null)
-                    os.close();
             }
         }
 

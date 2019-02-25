@@ -4,11 +4,11 @@ import android.app.Notification;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
 
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 
 public class ServiceExternal extends Service {
     private final static String ACTION_ENABLE = "eu.faircode.email.ENABLE";
@@ -61,12 +61,8 @@ public class ServiceExternal extends Service {
         return null;
     }
 
-    private Notification.Builder getNotification() {
-        Notification.Builder builder;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            builder = new Notification.Builder(this, "service");
-        else
-            builder = new Notification.Builder(this);
+    private NotificationCompat.Builder getNotification() {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "service");
 
         builder
                 .setSmallIcon(R.drawable.baseline_compare_arrows_white_24)
@@ -75,7 +71,7 @@ public class ServiceExternal extends Service {
                 .setShowWhen(false)
                 .setPriority(Notification.PRIORITY_MIN)
                 .setCategory(Notification.CATEGORY_STATUS)
-                .setVisibility(Notification.VISIBILITY_SECRET);
+                .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
         return builder;
     }

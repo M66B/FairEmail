@@ -261,24 +261,16 @@ public class HtmlHelper {
         }
 
         try {
-            InputStream probe = null;
             BitmapFactory.Options options = new BitmapFactory.Options();
-            try {
-                Log.i("Probe " + source);
-                probe = new URL(source).openStream();
+            Log.i("Probe " + source);
+            try (InputStream probe = new URL(source).openStream()) {
                 options.inJustDecodeBounds = true;
                 BitmapFactory.decodeStream(probe, null, options);
-            } finally {
-                if (probe != null)
-                    probe.close();
             }
 
+            Log.i("Download " + source);
             Bitmap bm;
-            InputStream is = null;
-            try {
-                Log.i("Download " + source);
-                is = new URL(source).openStream();
-
+            try (InputStream is = new URL(source).openStream()) {
                 int scaleTo = context.getResources().getDisplayMetrics().widthPixels;
                 int factor = 1;
                 while (options.outWidth / factor > scaleTo)
@@ -291,9 +283,6 @@ public class HtmlHelper {
                     bm = BitmapFactory.decodeStream(is, null, options);
                 } else
                     bm = BitmapFactory.decodeStream(is);
-            } finally {
-                if (is != null)
-                    is.close();
             }
 
             if (bm == null)
@@ -301,13 +290,8 @@ public class HtmlHelper {
 
             Log.i("Downloaded image");
 
-            OutputStream os = null;
-            try {
-                os = new BufferedOutputStream(new FileOutputStream(file));
+            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                 bm.compress(Bitmap.CompressFormat.PNG, 90, os);
-            } finally {
-                if (os != null)
-                    os.close();
             }
 
             // Create drawable from bitmap
