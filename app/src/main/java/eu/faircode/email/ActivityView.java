@@ -297,7 +297,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             R.layout.item_drawer, -1,
                             "connected".equals(account.state) ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24,
                             account.color,
-                            account.unseen > 0 ? getString(R.string.title_unseen_count, account.name, account.unseen) : account.name,
+                            account.unseen > 0 ? getString(R.string.title_unseen_count, account.name, account.unseen) : account.toString(),
                             account.unseen > 0,
                             account.id));
 
