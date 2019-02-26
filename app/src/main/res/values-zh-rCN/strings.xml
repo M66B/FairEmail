@@ -187,6 +187,7 @@
     <string name="title_user">用户名</string>
     <string name="title_password">密码</string>
     <string name="title_realm">访问空间</string>
+    <string name="title_use_ip">使用本地IP地址而非主机名</string>
     <string name="title_authorize">选择账户</string>
     <string name="title_authorizing">授权帐户 &#8230;</string>
     <string name="title_setup_advanced">高级选项</string>
@@ -209,8 +210,10 @@
     <string name="title_no_idle">该提供商不支持消息推送，这将延迟新消息的接收并增加电池用量</string>
     <string name="title_no_move">该邮件服务供应商不支持MOVE扩展</string>
     <string name="title_no_uidplus">该邮件服务供应商不支持UIDPLUS扩展</string>
+    <string name="title_no_utf8">该邮件服务供应商不支持UTF-8字符集</string>
     <string name="title_no_sync">从 %1$s 开始同步错误</string>
     <string name="title_sync_disabled">已禁用同步</string>
+    <string name="title_sync_delayed">将在下次账户连接时进行同步</string>
     <string name="title_drafts_required">需要一个草稿文件夹来发送消息</string>
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>

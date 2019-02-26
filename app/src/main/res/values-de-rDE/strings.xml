@@ -195,6 +195,7 @@
     <string name="title_user">Benutzername</string>
     <string name="title_password">Passwort</string>
     <string name="title_realm">Bereich</string>
+    <string name="title_use_ip">Lokale IP-Adresse anstelle des Domain-Namens verwenden</string>
     <string name="title_authorize">Konto wählen</string>
     <string name="title_authorizing">Konto autorisieren &#8230;</string>
     <string name="title_setup_advanced">Erweitert</string>
@@ -220,6 +221,7 @@
     <string name="title_no_utf8">Dieser Anbieter unterstützt UTF-8 nicht</string>
     <string name="title_no_sync">Synchronisationsfehler seit %1$s</string>
     <string name="title_sync_disabled">Synchronisierung ist deaktiviert</string>
+    <string name="title_sync_delayed">Synchronisierung wird bei der nächsten Kontoverbindung ausgeführt</string>
     <string name="title_drafts_required">Ein Entwürfe-Ordner ist erforderlich, um Nachrichten zu senden</string>
     <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
     <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
@@ -263,7 +265,7 @@
     <string name="title_folder_system">System</string>
     <string name="title_folder_user">Benutzer</string>
     <string name="title_folder_primary">Ordner primäres Konto</string>
-    <string name="title_folder_thread">Unterhaltungen %1$s</string>
+    <string name="title_folder_thread">%1$s</string>
     <string name="title_folders_unified">Sammeleingangsordner</string>
     <string name="title_no_messages">Keine E-Mails</string>
     <string name="title_subject_reply">Re: %1$s</string>

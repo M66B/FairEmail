@@ -62,15 +62,19 @@
     <string name="title_setup_export">تصدير الإعدادات</string>
     <string name="title_setup_import">استيراد الإعدادات</string>
     <string name="title_setup_import_do">سيتم إضافة حسابات المستوردة، لا تتم الكتابة فوق</string>
-    <string name="title_setup_password">كلمة المرور</string>
-    <string name="title_setup_password_repeat">أعد كتابة كلمة المرور</string>
+    <string name="title_setup_password">الكلمة السرية</string>
+    <string name="title_setup_password_repeat">أعد كتابة الكلمة السرية</string>
     <string name="title_setup_password_missing">كلمة المرور مفقودة</string>
     <string name="title_setup_password_different">كلمات المرور غير متطابقة</string>
-    <string name="title_setup_password_invalid">كلمة المرور غير صالحة</string>
-    <string name="title_setup_exported">إعدادات تصدير</string>
-    <string name="title_setup_imported">استيراد إعدادات</string>
+    <string name="title_setup_password_invalid">الكلمة السرية غير صالحة</string>
+    <string name="title_setup_exported">تم تصدير الإعدادات</string>
+    <string name="title_setup_imported">تم استيراد الإعدادات</string>
     <string name="title_setup_quick">الإعداد السريع</string>
+    <string name="title_setup_quick_imap">خادم IMAP لتلقي الرسائل</string>
+    <string name="title_setup_quick_smtp">خادم SMTP لإرسال الرسائل</string>
     <string name="title_setup_go">إبدأ</string>
+    <string name="title_setup_setting_gmail">تمكين الوصول للتطبيقات \"الأقل أمانا\"</string>
+    <string name="title_setup_quick_success">تمت إضافة هوية وحساب بنجاح</string>
     <string name="title_setup_manage">إدارة</string>
     <string name="title_setup_grant">السماح</string>
     <string name="title_setup_account">إعداد الحسابات</string>
@@ -79,7 +83,7 @@
     <string name="title_setup_identity_remark">لإرسال البريد الإلكتروني</string>
     <string name="title_setup_permissions_remark">للحصول على معلومات جهة الاتصال (اختياري)</string>
     <string name="title_setup_doze">إعداد تحسينات البطارية</string>
-    <string name="title_setup_doze_remark">استمرار تلقي البريد الإلكتروني (اختياري)</string>
+    <string name="title_setup_doze_remark">لتلقي البريد الإلكتروني باستمرار (اختياري)</string>
     <string name="title_setup_doze_instructions">في مربع الحوار التالي، حدد \"كافة تطبيقات\" في الجزء العلوي، حدد هذا التطبيق وتحديد وتأكيد \"لا الأمثل\"</string>
     <string name="title_setup_data">تعطيل حفظ البيانات</string>
     <string name="title_setup_notifications">إدارة الإشعارات</string>
@@ -88,7 +92,9 @@
     <string name="title_setup_light_theme">سمة فاتحة</string>
     <string name="title_setup_dark_theme">سمة داكنة</string>
     <string name="title_setup_black_theme">سمة سوداء</string>
+    <string name="title_setup_system_theme">سمة النظام</string>
     <string name="title_setup_defaults">استعادة الأوضاع الافتراضية</string>
+    <string name="title_setup_options">الخيارات</string>
     <string name="title_advanced">الخيارات المتقدمة</string>
     <string name="title_advanced_section_general">العام</string>
     <string name="title_advanced_section_connection">اتصال</string>
@@ -96,7 +102,9 @@
     <string name="title_advanced_section_behavior">السلوك</string>
     <string name="title_advanced_section_misc">خيارات متنوعة</string>
     <string name="title_advanced_enabled">المزامنة</string>
+    <string name="title_advanced_schedule">برمجة</string>
     <string name="title_advanced_metered">استخدام اتصالات أجهزة الاستنشاق</string>
+    <string name="title_advanced_browse">تصفح الرسائل على الخادم</string>
     <string name="title_advanced_unified">علبة البريد الوارد الموحدة</string>
     <string name="title_advanced_date_header">تجميع بحسب التاريخ</string>
     <string name="title_advanced_threading">مؤشر ترابط المحادثة</string>
@@ -104,21 +112,30 @@
     <string name="title_advanced_identicons">إظهار أيقونات الهوية</string>
     <string name="title_advanced_name_email">إظهار الأسماء وعناوين البريد الإلكترونية</string>
     <string name="title_advanced_preview">عرض معاينة الرسالة</string>
+    <string name="title_advanced_addresses">عرض تفاصيل العناوين بشكل افتراضي</string>
+    <string name="title_advanced_html">أظهر تلقائيا الرسائل المصدرية للمُراسِلين المعروفين</string>
     <string name="title_advanced_images">أظهر تلقائيا صور المُراسِلين المعروفين</string>
     <string name="title_advanced_actionbar">شريط إجراءات المحادثة</string>
     <string name="title_advanced_pull_refresh">اسحب لأسفل للتحديث</string>
+    <string name="title_advanced_autoexpand">توسيع محتوى الرسائل تلقائيًا</string>
+    <string name="title_advanced_autoclose">غلق المحادثات تلقائيا</string>
     <string name="title_advanced_automove">تأكيد نقل الرسائل</string>
     <string name="title_advanced_sender">السماح بتغيير عنوان المُرسِل</string>
     <string name="title_advanced_autosend">تأكيد إرسال الرسائل</string>
+    <string name="title_advanced_notify_preview">إظهار معاينة للرسائل في الإشعارات</string>
     <string name="title_advanced_light">استخدم الإشعار الضوئي</string>
     <string name="title_advanced_sound">إختر نغمة التنبيه</string>
     <string name="title_advanced_updates">فحص التحديثات</string>
     <string name="title_advanced_debug">وضع التصحيح</string>
+    <string name="title_advanced_browse_hint">جلب المزيد من الرسائل عند التمرير إلى أسفل</string>
     <string name="title_identity_name">إسمك</string>
     <string name="title_identity_email">البريد الإلكتروني</string>
     <string name="title_identity_reply_to">الرد على العنوان</string>
+    <string name="title_identity_plain_text">إرسال كنص عادي فقط</string>
+    <string name="title_identity_encrypt">تشفير بشكل افتراضي</string>
     <string name="title_identity_read_receipt">طلب إيصال بالقراءة</string>
     <string name="title_identity_delivery_receipt">طلب إيصال بالقراءة</string>
+    <string name="title_identity_store_sent">الإحتفاظ بالرسائل المبعوثة</string>
     <string name="title_optional">اختياري</string>
     <string name="title_account_linked">الحساب المرتبط</string>
     <string name="title_account_name">اسم الحساب</string>
@@ -152,6 +169,7 @@
     <string name="title_drafts_required">مجلد للمسودات مطلوب لغرض إرسال رسائل</string>
     <string name="title_account_delete">حذف هذا الحساب نهائيا؟</string>
     <string name="title_identity_delete">حذف هذه الهوية نهائيا؟</string>
+    <string name="title_edit_html">تعديل كـ HTML</string>
     <string name="title_last_connected">آخر ربط: %1$s</string>
     <string name="title_synchronize_now">زامن الآن</string>
     <string name="title_delete_local">حذف الرسائل المحلية</string>
@@ -209,9 +227,12 @@
     <string name="title_open_with">افتح باستخدام</string>
     <string name="title_no_viewer">لا يوجد عارض التطبيق متاح ل %1$s</string>
     <string name="title_no_internet">لا يوجد اتصال بالإنترنت</string>
+    <string name="title_no_folder">المجلد غير موجود</string>
     <string name="title_accross_remark">سوف يتم تنزيل الرسائل المنقولة بين الحسابات مرة أخرى و قد يكلف ذلك استخداما في حجم البيانات</string>
     <string name="title_attachment_saved">حفظ المرفقات</string>
+    <string name="title_attachments_saved">تم حفظ المرفقات</string>
     <string name="title_ask_delete">هل تريد حذف الرسالة بشكل دائم؟</string>
+    <string name="title_ask_delete_rule">حذف القاعدة بشكل دائم؟</string>
     <string name="title_ask_discard">إلغاء المسودة؟</string>
     <string name="title_compose">تحرير</string>
     <string name="title_from">من:</string>
@@ -219,6 +240,7 @@
     <string name="title_reply_to">الرد على:</string>
     <string name="title_cc">نسخة:</string>
     <string name="title_bcc">نسخة مخفية:</string>
+    <string name="title_via_identity">عبر:</string>
     <string name="title_received">تاريخ الاستلام:</string>
     <string name="title_size">الحجم:</string>
     <string name="title_subject">الموضوع:</string>
@@ -227,15 +249,19 @@
     <string name="title_save">حفظ</string>
     <string name="title_send">إرسال</string>
     <string name="title_send_at">أرسِلها في &#8230;</string>
+    <string name="title_no_selection">لم يتم اختيار أي شيء</string>
     <string name="title_style_bold">غليظ</string>
     <string name="title_style_italic">مائل</string>
     <string name="title_style_link">إدراج رابط</string>
     <string name="title_style_image">إرفاق صورة</string>
     <string name="title_add_attachment">إضافة مرفق</string>
+    <string name="title_show_addresses">عرض CC/BCC</string>
     <string name="title_from_missing">المُرسِل مفقود</string>
     <string name="title_to_missing">المستلِم أو المُرسَل إليه مفقود</string>
+    <string name="title_draft_deleted">تم تجاهل المسودة</string>
     <string name="title_draft_saved">تم حفظ المسودة</string>
     <string name="title_ask_send_via">إرسال رسالة مِن %1$s عبر %2$s؟</string>
+    <string name="title_queued">جارٍ إرسال الرسالة</string>
     <string name="title_encrypt">تعمية</string>
     <string name="title_decrypt">فك التعمية</string>
     <string name="title_no_openpgp">لم يتم العثور على OpenKeychain</string>
@@ -244,6 +270,7 @@
     <string name="title_search_hint">البحث في الخادم</string>
     <string name="title_search_device">البحث في الجهاز</string>
     <string name="title_searching">جارٍ البحث عن \'%1$s\'</string>
+    <string name="title_sort_on">الفرز حسب</string>
     <string name="title_sort_on_time">التاريخ</string>
     <string name="title_sort_on_unread">غير مقروءة</string>
     <string name="title_sort_on_starred">مميّزة بنجمة</string>
@@ -256,6 +283,7 @@
     <string name="title_answer_text">نص النموذج</string>
     <string name="title_rule_name">الإسم</string>
     <string name="title_rule_order">الترتيب</string>
+    <string name="title_rule_enabled">تم تفعيله</string>
     <string name="title_rule_sender">المُرسِل يحتوي على</string>
     <string name="title_rule_subject">عنوان الرسالة يحتوي على</string>
     <string name="title_rule_header">الرأسية تحتوي على</string>
@@ -281,30 +309,41 @@
     <string name="title_legend_contacts">إدارة المُراسِلون</string>
     <string name="title_legend_view">عرض المحتوى</string>
     <string name="title_legend_download">تنزيل المحتوى</string>
+    <string name="title_legend_cc">عرض CC/BCC</string>
     <string name="title_legend_pick">اختيار جهة اتصال</string>
     <string name="title_legend_bold">جعل النص غامقاً</string>
     <string name="title_legend_italic">جعل النص مائلا</string>
     <string name="title_legend_link">إدراج رابط</string>
     <string name="title_legend_picture">إدراج صورة</string>
     <string name="title_legend_file">إرفاق ملف</string>
+    <string name="title_legend_download_on">تنزيل محتوى الرسائل تلقائيا</string>
+    <string name="title_legend_synchronize_on">المزامنة مشغّلة</string>
+    <string name="title_legend_synchronize_off">المزامنة معطّلة</string>
     <string name="title_legend_disconnected">غير متصل</string>
     <string name="title_legend_connecting">جارٍ الاتصال</string>
     <string name="title_legend_connected">متصل</string>
     <string name="title_legend_synchronizing">مزامنة</string>
     <string name="title_legend_downloading">جارٍ التنزيل</string>
+    <string name="title_legend_closing">إغلاق</string>
     <string name="title_legend_waiting">في انتظار المزامنة اللاحقة</string>
+    <string name="title_legend_metered">الشبكة مقاسة</string>
+    <string name="title_legend_unmetered">الشبكة غير مقاسة</string>
     <string name="title_hint_folder_actions">اضغط مطولاً للمزيد من الخيارات</string>
     <string name="title_open_link">افتح الرابط</string>
     <string name="title_select_app">اختر تطبيقا</string>
+    <string name="title_updated">هناك إصدار جديد متوفر %1$s</string>
     <string name="title_issue">هل عندك تساؤل أو صادفتَ مشكلة؟</string>
     <string name="title_yes">نعم</string>
     <string name="title_no">لا</string>
     <string name="title_undo">التراجع عن</string>
     <string name="title_add">إضافة</string>
     <string name="title_browse">تصفح</string>
+    <string name="title_info">معلومات</string>
     <string name="title_report">إبلاغ</string>
     <string name="title_fix">تصليح</string>
+    <string name="title_enable">تمكين</string>
     <string name="title_no_ask_again">لا تسألني مرة أخرى</string>
+    <string name="title_no_body">لم يتم العثور على أية رسالة نصية</string>
     <string name="title_via">عبر: %1$s</string>
     <string name="title_pro_feature">هذه ميزة احترافية</string>
     <string name="title_pro_list">قائمة الميزات الاحترافية</string>
@@ -315,4 +354,15 @@
     <string name="title_unexpected_error">لقد حدث خطأ غير متوقع</string>
     <string name="title_log">السجل</string>
     <string name="title_auto_scroll">تمرير تلقائي</string>
+    <string-array name="downloadNames">
+        <item>16 كيلوبايت</item>
+        <item>32 كيلوبايت</item>
+        <item>64 كيلوبايت</item>
+        <item>128 كيلوبايت</item>
+        <item>256 كيلوبايت</item>
+        <item>512 كيلوبايت</item>
+        <item>1 ميغابايت</item>
+        <item>2 ميغابايت</item>
+        <item>&#8734;</item>
+    </string-array>
 </resources>

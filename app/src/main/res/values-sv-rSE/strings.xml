@@ -82,6 +82,8 @@
     <string name="title_setup_quick">Snabbinstallation</string>
     <string name="title_setup_quick_remark">För att snabbt konfigurera ett konto och identitet för de flesta större leverantörer</string>
     <string name="title_setup_quick_hint">Snabbinställningen hämtar konfigurationsinformation från autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_imap">IMAP-server för att ta emot meddelanden</string>
+    <string name="title_setup_quick_smtp">SMTP-server för att skicka meddelanden</string>
     <string name="title_setup_go">Kör</string>
     <string name="title_setup_setting_gmail">Aktivera åtkomst för ”mindre säkra” appar</string>
     <string name="title_setup_no_settings">Inga inställningar hittades för \"%1$s\"</string>
@@ -144,6 +146,7 @@
     <string name="title_advanced_sender">Tillåt avsändaradress redigering</string>
     <string name="title_advanced_autosend">Bekräfta sändning av meddelanden</string>
     <string name="title_advanced_notify_preview">Visa meddelandeförhandsvisning i aviseringar</string>
+    <string name="title_advanced_search_local">Extern sökning på enheten</string>
     <string name="title_advanced_light">Använda aviseringslampan</string>
     <string name="title_advanced_sound">Välj aviseringsljud</string>
     <string name="title_advanced_updates">Sök efter uppdateringar</string>
@@ -159,14 +162,18 @@
     <string name="title_advanced_autoclose_hint">Stäng automatiskt konversationstrådar när alla meddelanden arkiveras, skickas eller kastas</string>
     <string name="title_advanced_sender_hint">De flesta leverantörer tillåter inte ändrade avsändaradresser</string>
     <string name="title_advanced_preview_hint">Endast tillgängligt när meddelandetexten hämtades</string>
+    <string name="title_advanced_search_local_hint">Istället för att söka i den primära arkivmappen på servern</string>
     <string name="title_select">Välj &#8230;</string>
     <string name="title_identity_name">Ditt namn</string>
     <string name="title_identity_email">Din e-postadress</string>
     <string name="title_identity_reply_to">Svara till adress</string>
     <string name="title_identity_plain_text">Skicka oformaterad text</string>
+    <string name="title_identity_encrypt">Kryptera som standard</string>
     <string name="title_identity_read_receipt">Begär läskvitto</string>
     <string name="title_identity_delivery_receipt">Begär leveranskvitto</string>
     <string name="title_identity_receipt_remark">De flesta leverantörer ignorerar kvittobegäran</string>
+    <string name="title_identity_store_sent">Lagra skickade meddelanden</string>
+    <string name="title_identity_store_sent_remark">Aktivera detta endast om din leverantör inte automatiskt lagrar skickade meddelanden</string>
     <string name="title_optional">Valfritt</string>
     <string name="title_account_linked">Länkade kontot</string>
     <string name="title_account_name">Kontonamn</string>
@@ -186,10 +193,12 @@
     <string name="title_port">Portnummer</string>
     <string name="title_user">Användarnamn</string>
     <string name="title_password">Lösenord</string>
+    <string name="title_use_ip">Använd lokal IP-adress istället för värdnamn</string>
     <string name="title_authorize">Välj konto</string>
     <string name="title_authorizing">Auktoriserar konto &#8230;</string>
     <string name="title_setup_advanced">Avancerat</string>
     <string name="title_synchronize_account">Synkronisera (hämta meddelanden)</string>
+    <string name="title_synchronize_ondemand">Synkronisera på efterfrågan (manuell)</string>
     <string name="title_synchronize_identity">Synkronisera (skicka meddelanden)</string>
     <string name="title_primary_account">Primär (standardkonto)</string>
     <string name="title_primary_identity">Primär (standardidentitet)</string>
@@ -206,7 +215,10 @@
     <string name="title_no_idle">Leverantören stöder inte push-meddelanden. Detta kommer att fördröja mottagning av nya meddelanden och öka batterianvändningen.</string>
     <string name="title_no_move">Denna leverantör stöder inte MOVE</string>
     <string name="title_no_uidplus">Denna leverantör stöder inte UIDPLUS</string>
+    <string name="title_no_utf8">Denna leverantör stöder inte UTF-8</string>
     <string name="title_no_sync">Synkroniseringsfel sedan %1$s</string>
+    <string name="title_sync_disabled">Synkronisering är inaktiverad</string>
+    <string name="title_sync_delayed">Synkronisering kommer att utföras på nästa kontoanslutning</string>
     <string name="title_drafts_required">En mapp för utkast krävs för att skicka meddelanden</string>
     <string name="title_account_delete">Ta bort detta konto permanent?</string>
     <string name="title_identity_delete">Ta bort denna identitet permanent?</string>
@@ -431,6 +443,7 @@
     <string name="title_info">Info</string>
     <string name="title_report">Rapportera</string>
     <string name="title_fix">Åtgärda</string>
+    <string name="title_enable">Aktivera</string>
     <string name="title_no_ask_again">Fråga inte detta igen</string>
     <string name="title_no_adobe">Adobe Acrobat reader kan inte säkert öppna delade filer, se FAQ för mer information</string>
     <string name="title_no_body">Ingen meddelandetext hittades</string>

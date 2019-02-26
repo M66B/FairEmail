@@ -195,6 +195,7 @@
     <string name="title_user">Nome de usuário</string>
     <string name="title_password">Senha</string>
     <string name="title_realm">Domínio</string>
+    <string name="title_use_ip">Usar endereço IP local em vez do nome do host</string>
     <string name="title_authorize">Selecionar conta</string>
     <string name="title_authorizing">Autorizando a conta &#8230;</string>
     <string name="title_setup_advanced">Avançado</string>
@@ -217,8 +218,10 @@
     <string name="title_no_idle">Este provedor não suporta mensagens push. Isso irá atrasar o recebimento de novas mensagens e aumentar o uso da bateria.</string>
     <string name="title_no_move">Este provedor de e-mail não dá suporte a opção MOVER</string>
     <string name="title_no_uidplus">Este provedor de e-mail não dá suporte a UIDPLUS</string>
+    <string name="title_no_utf8">Este provedor de e-mail não suporta UTF-8</string>
     <string name="title_no_sync">Erros de sincronização desde %1$s</string>
     <string name="title_sync_disabled">Sincronização está desativada</string>
+    <string name="title_sync_delayed">A sincronização será realizada na próxima conexão</string>
     <string name="title_drafts_required">Uma pasta de rascunhos é necessário para enviar mensagens</string>
     <string name="title_account_delete">Excluir esta conta permanentemente?</string>
     <string name="title_identity_delete">Excluir esta identidade permanentemente?</string>

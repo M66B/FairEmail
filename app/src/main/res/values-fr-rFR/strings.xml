@@ -195,6 +195,7 @@
     <string name="title_user">Nom d\'utilisateur</string>
     <string name="title_password">Mot de passe</string>
     <string name="title_realm">Domaine</string>
+    <string name="title_use_ip">Utiliser l\'adresse IP locale au lieu du nom de domaine</string>
     <string name="title_authorize">Sélectionner un compte</string>
     <string name="title_authorizing">Autorisation du compte en cours &#8230;</string>
     <string name="title_setup_advanced">Avancé</string>
@@ -220,6 +221,7 @@
     <string name="title_no_utf8">Ce fournisseur ne prend pas en charge l\'UTF-8</string>
     <string name="title_no_sync">Erreurs de synchronisation depuis %1$s</string>
     <string name="title_sync_disabled">La synchronisation est désactivée</string>
+    <string name="title_sync_delayed">La synchronisation sera effectuée à la prochaine connexion du compte</string>
     <string name="title_drafts_required">Un dossier brouillon est nécessaire pour envoyer des messages</string>
     <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
     <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
