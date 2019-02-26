@@ -22,6 +22,8 @@ package eu.faircode.email;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Objects;
+
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -188,9 +190,9 @@ public class EntityIdentity {
             return (this.name.equals(other.name) &&
                     this.email.equals(other.email) &&
                     this.account.equals(other.account) &&
-                    (this.display == null ? other.display == null : this.display.equals(other.display)) &&
-                    (this.color == null ? other.color == null : this.color.equals(other.color)) &&
-                    (this.signature == null ? other.signature == null : this.signature.equals(other.signature)) &&
+                    Objects.equals(this.display, other.display) &&
+                    Objects.equals(this.color, other.color) &&
+                    Objects.equals(this.signature, other.signature) &&
                     this.auth_type.equals(other.auth_type) &&
                     this.host.equals(other.host) &&
                     this.starttls.equals(other.starttls) &&
@@ -198,21 +200,21 @@ public class EntityIdentity {
                     this.port.equals(other.port) &&
                     this.user.equals(other.user) &&
                     this.password.equals(other.password) &&
-                    (this.realm == null ? other.realm == null : this.realm.equals(other.realm)) &&
+                    Objects.equals(this.realm, other.realm) &&
                     this.use_ip == other.use_ip &&
                     this.synchronize.equals(other.synchronize) &&
                     this.primary.equals(other.primary) &&
-                    (this.replyto == null ? other.replyto == null : this.replyto.equals(other.replyto)) &&
-                    (this.bcc == null ? other.bcc == null : this.bcc.equals(other.bcc)) &&
+                    Objects.equals(this.replyto, other.replyto) &&
+                    Objects.equals(this.bcc, other.bcc) &&
                     this.plain_only.equals(other.plain_only) &&
                     this.encrypt.equals(other.encrypt) &&
                     this.delivery_receipt.equals(other.delivery_receipt) &&
                     this.read_receipt.equals(other.read_receipt) &&
                     this.store_sent.equals(other.store_sent) &&
-                    (this.tbd == null ? other.tbd == null : this.tbd.equals(other.tbd)) &&
-                    (this.state == null ? other.state == null : this.state.equals(other.state)) &&
-                    (this.error == null ? other.error == null : this.error.equals(other.error)) &&
-                    (this.last_connected == null ? other.last_connected == null : this.last_connected.equals(other.last_connected)));
+                    Objects.equals(this.tbd, other.tbd) &&
+                    Objects.equals(this.state, other.state) &&
+                    Objects.equals(this.error, other.error) &&
+                    Objects.equals(this.last_connected, other.last_connected));
         } else
             return false;
     }

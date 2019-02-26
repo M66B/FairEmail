@@ -29,6 +29,7 @@ import org.json.JSONException;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Objects;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
@@ -242,11 +243,11 @@ public class EntityOperation {
         if (obj instanceof EntityOperation) {
             EntityOperation other = (EntityOperation) obj;
             return (this.folder.equals(other.folder) &&
-                    (this.message == null ? other.message == null : this.message.equals(other.message)) &&
+                    Objects.equals(this.message, other.message) &&
                     this.name.equals(other.name) &&
                     this.args.equals(other.args) &&
                     this.created.equals(other.created) &&
-                    (this.error == null ? other.error == null : this.error.equals(other.error)));
+                    Objects.equals(this.error, other.error));
         } else
             return false;
     }

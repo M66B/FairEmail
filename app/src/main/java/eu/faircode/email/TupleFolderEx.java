@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import java.util.Objects;
+
 public class TupleFolderEx extends EntityFolder {
     public String accountName;
     public Integer accountColor;
@@ -32,9 +34,9 @@ public class TupleFolderEx extends EntityFolder {
         if (obj instanceof TupleFolderEx) {
             TupleFolderEx other = (TupleFolderEx) obj;
             return (super.equals(obj) &&
-                    (this.accountName == null ? other.accountName == null : accountName.equals(other.accountName)) &&
-                    (this.accountColor == null ? other.accountColor == null : this.accountColor.equals(other.accountColor)) &&
-                    (this.accountState == null ? other.accountState == null : accountState.equals(other.accountState)) &&
+                    Objects.equals(accountName, other.accountName) &&
+                    Objects.equals(this.accountColor, other.accountColor) &&
+                    Objects.equals(accountState, other.accountState) &&
                     this.messages == other.messages &&
                     this.content == other.content &&
                     this.unseen == other.unseen);

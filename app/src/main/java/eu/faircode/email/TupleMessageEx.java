@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import java.util.Objects;
+
 import androidx.room.Ignore;
 
 public class TupleMessageEx extends EntityMessage {
@@ -45,15 +47,15 @@ public class TupleMessageEx extends EntityMessage {
         if (obj instanceof TupleMessageEx) {
             TupleMessageEx other = (TupleMessageEx) obj;
             return (super.uiEquals(obj) &&
-                    (this.accountName == null ? other.accountName == null : this.accountName.equals(other.accountName)) &&
-                    (this.accountColor == null ? other.accountColor == null : this.accountColor.equals(other.accountColor)) &&
+                    Objects.equals(this.accountName, other.accountName) &&
+                    Objects.equals(this.accountColor, other.accountColor) &&
                     //this.accountNotify == other.accountNotify &&
                     this.folderName.equals(other.folderName) &&
-                    (this.folderDisplay == null ? other.folderDisplay == null : this.folderDisplay.equals(other.folderDisplay)) &&
+                    Objects.equals(this.folderDisplay, other.folderDisplay) &&
                     this.folderType.equals(other.folderType) &&
-                    (this.identityName == null ? other.identityName == null : this.identityName.equals(other.identityName)) &&
-                    (this.identityEmail == null ? other.identityEmail == null : this.identityEmail.equals(other.identityEmail)) &&
-                    (this.identitySynchronize == null ? other.identitySynchronize == null : this.identitySynchronize.equals(other.identitySynchronize)) &&
+                    Objects.equals(this.identityName, other.identityName) &&
+                    Objects.equals(this.identityEmail, other.identityEmail) &&
+                    Objects.equals(this.identitySynchronize, other.identitySynchronize) &&
                     this.count == other.count &&
                     this.unseen == other.unseen &&
                     this.unflagged == other.unflagged &&
@@ -70,11 +72,11 @@ public class TupleMessageEx extends EntityMessage {
         if (obj instanceof TupleMessageEx) {
             TupleMessageEx other = (TupleMessageEx) obj;
             return (super.equals(obj) &&
-                    (this.accountName == null ? other.accountName == null : this.accountName.equals(other.accountName)) &&
-                    (this.accountColor == null ? other.accountColor == null : this.accountColor.equals(other.accountColor)) &&
+                    Objects.equals(this.accountName, other.accountName) &&
+                    Objects.equals(this.accountColor, other.accountColor) &&
                     this.accountNotify == other.accountNotify &&
                     this.folderName.equals(other.folderName) &&
-                    (this.folderDisplay == null ? other.folderDisplay == null : this.folderDisplay.equals(other.folderDisplay)) &&
+                    Objects.equals(this.folderDisplay, other.folderDisplay) &&
                     this.folderType.equals(other.folderType) &&
                     this.count == other.count &&
                     this.unseen == other.unseen &&

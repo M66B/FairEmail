@@ -24,6 +24,7 @@ import android.content.Context;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 import javax.mail.Part;
 
@@ -107,13 +108,13 @@ public class EntityAttachment {
             EntityAttachment other = (EntityAttachment) obj;
             return (this.message.equals(other.message) &&
                     this.sequence.equals(other.sequence) &&
-                    (this.name == null ? other.name == null : this.name.equals(other.name)) &&
+                    Objects.equals(this.name, other.name) &&
                     this.type.equals(other.type) &&
-                    (this.disposition == null ? other.disposition == null : this.disposition.equals(other.disposition)) &&
-                    (this.cid == null ? other.cid == null : this.cid.equals(other.cid)) &&
-                    (this.encryption == null ? other.encryption == null : this.encryption.equals(other.encryption)) &&
-                    (this.size == null ? other.size == null : this.size.equals(other.size)) &&
-                    (this.progress == null ? other.progress == null : this.progress.equals(other.progress)) &&
+                    Objects.equals(this.disposition, other.disposition) &&
+                    Objects.equals(this.cid, other.cid) &&
+                    Objects.equals(this.encryption, other.encryption) &&
+                    Objects.equals(this.size, other.size) &&
+                    Objects.equals(this.progress, other.progress) &&
                     this.available.equals(other.available));
         } else
             return false;
