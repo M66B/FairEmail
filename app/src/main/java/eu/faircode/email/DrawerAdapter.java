@@ -30,13 +30,24 @@ public class DrawerAdapter extends ArrayAdapter<DrawerItem> {
         }
 
         if (tv != null) {
-            tv.setText(item.getTitle());
+            tv.setText(item.getTitle(getContext()));
 
             tv.setTextColor(Helper.resolveColor(getContext(),
                     item.getHighlight() ? R.attr.colorUnread : android.R.attr.textColorSecondary));
         }
 
         return row;
+    }
+
+    @Override
+    public boolean hasStableIds() {
+        return true;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        DrawerItem item = getItem(position);
+        return (item == null ? 0 : item.getId());
     }
 
     @Override
