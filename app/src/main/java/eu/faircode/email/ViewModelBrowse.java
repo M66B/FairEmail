@@ -173,6 +173,14 @@ public class ViewModelBrowse extends ViewModel {
                     Object result = state.ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
                         @Override
                         public Object doCommand(IMAPProtocol protocol) {
+                            // Yahoo! does not support keyword search, but uses the flags $Forwarded $Junk $NotJunk
+                            boolean keywords = false;
+                            for (String keyword : folder.keywords)
+                                if (!keyword.startsWith("$")) {
+                                    keywords = true;
+                                    break;
+                                }
+
                             try {
                                 if (protocol.supportsUtf8()) {
                                     // SEARCH OR OR FROM "x" TO "x" OR SUBJECT "x" BODY "x" ALL
@@ -180,7 +188,7 @@ public class ViewModelBrowse extends ViewModel {
                                     // https://tools.ietf.org/html/rfc3501#section-6.4.4
                                     Log.i("Boundary UTF8 search=" + state.search);
                                     Argument arg = new Argument();
-                                    if (folder.keywords.length > 0)
+                                    if (keywords)
                                         arg.writeAtom("OR");
                                     arg.writeAtom("OR");
                                     arg.writeAtom("OR");
@@ -193,7 +201,7 @@ public class ViewModelBrowse extends ViewModel {
                                     arg.writeBytes(state.search.getBytes());
                                     arg.writeAtom("BODY");
                                     arg.writeBytes(state.search.getBytes());
-                                    if (folder.keywords.length > 0) {
+                                    if (keywords) {
                                         arg.writeAtom("KEYWORD");
                                         arg.writeBytes(state.search.getBytes());
                                     }
@@ -240,7 +248,7 @@ public class ViewModelBrowse extends ViewModel {
                                             )
                                     );
 
-                                    if (folder.keywords.length > 0)
+                                    if (keywords)
                                         term = new OrTerm(term, new FlagTerm(
                                                 new Flags(Helper.sanitizeKeyword(search)), true));
 
