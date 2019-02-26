@@ -86,6 +86,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ThreadFactory;
 
 import javax.mail.Address;
@@ -972,7 +973,7 @@ public class Helper {
     public static boolean hasValidFingerprint(Context context) {
         String signed = getFingerprint(context);
         String expected = context.getString(R.string.fingerprint);
-        return (signed != null && signed.equals(expected));
+        return Objects.equals(signed, expected);
     }
 
     static boolean isPro(Context context) {

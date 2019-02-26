@@ -86,6 +86,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -2818,7 +2819,7 @@ public class ServiceSynchronize extends LifecycleService {
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " flagged=" + flagged);
             }
 
-            if (flags == null ? message.flags != null : !flags.equals(message.flags)) {
+            if (!Objects.equals(flags, message.flags)) {
                 update = true;
                 message.flags = flags;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " flags=" + flags);

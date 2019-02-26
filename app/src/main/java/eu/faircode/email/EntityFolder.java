@@ -33,6 +33,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
@@ -241,7 +242,7 @@ public class EntityFolder implements Serializable {
         if (obj instanceof EntityFolder) {
             EntityFolder other = (EntityFolder) obj;
             return (this.id.equals(other.id) &&
-                    (this.account == null ? other.account == null : this.account.equals(other.account)) &&
+                    Objects.equals(this.account, other.account) &&
                     this.name.equals(other.name) &&
                     this.type.equals(other.type) &&
                     this.level.equals(other.level) &&
@@ -250,16 +251,16 @@ public class EntityFolder implements Serializable {
                     this.download.equals(other.download) &&
                     this.sync_days.equals(other.sync_days) &&
                     this.keep_days.equals(other.keep_days) &&
-                    (this.display == null ? other.display == null : this.display.equals(other.display)) &&
+                    Objects.equals(this.display, other.display) &&
                     this.hide == other.hide &&
                     this.unified == other.unified &&
                     this.notify == other.notify &&
                     Helper.equal(this.keywords, other.keywords) &&
-                    (this.tbd == null ? other.tbd == null : this.tbd.equals(other.tbd)) &&
-                    (this.state == null ? other.state == null : this.state.equals(other.state)) &&
-                    (this.sync_state == null ? other.sync_state == null : this.sync_state.equals(other.sync_state)) &&
-                    (this.error == null ? other.error == null : this.error.equals(other.error)) &&
-                    (this.last_sync == null ? other.last_sync == null : this.last_sync.equals(other.last_sync)));
+                    Objects.equals(this.tbd, other.tbd) &&
+                    Objects.equals(this.state, other.state) &&
+                    Objects.equals(this.sync_state, other.sync_state) &&
+                    Objects.equals(this.error, other.error) &&
+                    Objects.equals(this.last_sync, other.last_sync));
         } else
             return false;
     }

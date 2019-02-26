@@ -27,6 +27,7 @@ import android.content.Intent;
 import java.io.File;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 import java.util.Random;
 
 import javax.mail.Address;
@@ -195,30 +196,30 @@ public class EntityMessage implements Serializable {
                     //(this.identity == null ? other.identity == null : this.identity.equals(other.identity)) &&
                     //(this.replying == null ? other.replying == null : this.replying.equals(other.replying)) &&
                     //(this.forwarding == null ? other.forwarding == null : this.forwarding.equals(other.forwarding)) &&
-                    (this.uid == null ? other.uid == null : this.uid.equals(other.uid)) &&
-                    (this.msgid == null ? other.msgid == null : this.msgid.equals(other.msgid)) && // debug info
+                    Objects.equals(this.uid, other.uid) &&
+                    Objects.equals(this.msgid, other.msgid) && // debug info
                     //(this.references == null ? other.references == null : this.references.equals(other.references)) &&
                     //(this.deliveredto == null ? other.deliveredto == null : this.deliveredto.equals(other.deliveredto)) &&
                     //(this.inreplyto == null ? other.inreplyto == null : this.inreplyto.equals(other.inreplyto)) &&
-                    (this.thread == null ? other.thread == null : this.thread.equals(other.thread)) &&
+                    Objects.equals(this.thread, other.thread) &&
                     MessageHelper.equal(this.from, other.from) &&
                     MessageHelper.equal(this.to, other.to) &&
                     MessageHelper.equal(this.cc, other.cc) &&
                     MessageHelper.equal(this.bcc, other.bcc) &&
                     MessageHelper.equal(this.reply, other.reply) &&
-                    (this.headers == null ? other.headers == null : this.headers.equals(other.headers)) &&
-                    (this.raw == null ? other.raw == null : this.raw.equals(other.raw)) &&
-                    (this.subject == null ? other.subject == null : this.subject.equals(other.subject)) &&
-                    (this.size == null ? other.size == null : this.size.equals(other.size)) &&
+                    Objects.equals(this.headers, other.headers) &&
+                    Objects.equals(this.raw, other.raw) &&
+                    Objects.equals(this.subject, other.subject) &&
+                    Objects.equals(this.size, other.size) &&
                     this.content == other.content &&
-                    (this.preview == null ? other.preview == null : this.preview.equals(other.preview)) &&
+                    Objects.equals(this.preview, other.preview) &&
                     //(this.sent == null ? other.sent == null : this.sent.equals(other.sent)) &&
                     this.received.equals(other.received) &&
                     this.stored.equals(other.stored) && // updated after decryption
                     //this.seen.equals(other.seen) &&
                     //this.answered.equals(other.answered) &&
                     //this.flagged.equals(other.flagged) &&
-                    (!BuildConfig.DEBUG || (this.flags == null ? other.flags == null : this.flags.equals(other.flags))) &&
+                    (!BuildConfig.DEBUG || Objects.equals(this.flags, other.flags)) &&
                     Helper.equal(this.keywords, other.keywords) &&
                     this.ui_seen.equals(other.ui_seen) &&
                     this.ui_answered.equals(other.ui_answered) &&
@@ -227,9 +228,9 @@ public class EntityMessage implements Serializable {
                     this.ui_found.equals(other.ui_found) &&
                     this.ui_ignored.equals(other.ui_ignored) &&
                     this.ui_browsed.equals(other.ui_browsed) &&
-                    (this.ui_snoozed == null ? other.ui_snoozed == null : this.ui_snoozed.equals(other.ui_snoozed)) &&
-                    (this.warning == null ? other.warning == null : this.warning.equals(other.warning)) &&
-                    (this.error == null ? other.error == null : this.error.equals(other.error)) &&
+                    Objects.equals(this.ui_snoozed, other.ui_snoozed) &&
+                    Objects.equals(this.warning, other.warning) &&
+                    Objects.equals(this.error, other.error) &&
                     this.day == other.day);
         }
         return false;
@@ -239,33 +240,33 @@ public class EntityMessage implements Serializable {
     public boolean equals(Object obj) {
         if (obj instanceof EntityMessage) {
             EntityMessage other = (EntityMessage) obj;
-            return ((this.account == null ? other.account == null : this.account.equals(other.account)) &&
+            return (Objects.equals(this.account, other.account) &&
                     this.folder.equals(other.folder) &&
-                    (this.identity == null ? other.identity == null : this.identity.equals(other.identity)) &&
-                    (this.uid == null ? other.uid == null : this.uid.equals(other.uid)) &&
-                    (this.msgid == null ? other.msgid == null : this.msgid.equals(other.msgid)) &&
-                    (this.references == null ? other.references == null : this.references.equals(other.references)) &&
-                    (this.deliveredto == null ? other.deliveredto == null : this.deliveredto.equals(other.deliveredto)) &&
-                    (this.inreplyto == null ? other.inreplyto == null : this.inreplyto.equals(other.inreplyto)) &&
-                    (this.thread == null ? other.thread == null : this.thread.equals(other.thread)) &&
+                    Objects.equals(this.identity, other.identity) &&
+                    Objects.equals(this.uid, other.uid) &&
+                    Objects.equals(this.msgid, other.msgid) &&
+                    Objects.equals(this.references, other.references) &&
+                    Objects.equals(this.deliveredto, other.deliveredto) &&
+                    Objects.equals(this.inreplyto, other.inreplyto) &&
+                    Objects.equals(this.thread, other.thread) &&
                     MessageHelper.equal(this.from, other.from) &&
                     MessageHelper.equal(this.to, other.to) &&
                     MessageHelper.equal(this.cc, other.cc) &&
                     MessageHelper.equal(this.bcc, other.bcc) &&
                     MessageHelper.equal(this.reply, other.reply) &&
-                    (this.headers == null ? other.headers == null : this.headers.equals(other.headers)) &&
-                    (this.raw == null ? other.raw == null : this.raw.equals(other.raw)) &&
-                    (this.subject == null ? other.subject == null : this.subject.equals(other.subject)) &&
-                    (this.size == null ? other.size == null : this.size.equals(other.size)) &&
+                    Objects.equals(this.headers, other.headers) &&
+                    Objects.equals(this.raw, other.raw) &&
+                    Objects.equals(this.subject, other.subject) &&
+                    Objects.equals(this.size, other.size) &&
                     this.content == other.content &&
-                    (this.preview == null ? other.preview == null : this.preview.equals(other.preview)) &&
-                    (this.sent == null ? other.sent == null : this.sent.equals(other.sent)) &&
+                    Objects.equals(this.preview, other.preview) &&
+                    Objects.equals(this.sent, other.sent) &&
                     this.received.equals(other.received) &&
                     this.stored.equals(other.stored) &&
                     this.seen.equals(other.seen) &&
                     this.answered.equals(other.answered) &&
                     this.flagged.equals(other.flagged) &&
-                    (this.flags == null ? other.flags == null : this.flags.equals(other.flags)) &&
+                    Objects.equals(this.flags, other.flags) &&
                     Helper.equal(this.keywords, other.keywords) &&
                     this.ui_seen.equals(other.ui_seen) &&
                     this.ui_answered.equals(other.ui_answered) &&
@@ -274,9 +275,9 @@ public class EntityMessage implements Serializable {
                     this.ui_found.equals(other.ui_found) &&
                     this.ui_ignored.equals(other.ui_ignored) &&
                     this.ui_browsed.equals(other.ui_browsed) &&
-                    (this.ui_snoozed == null ? other.ui_snoozed == null : this.ui_snoozed.equals(other.ui_snoozed)) &&
-                    (this.warning == null ? other.warning == null : this.warning.equals(other.warning)) &&
-                    (this.error == null ? other.error == null : this.error.equals(other.error)));
+                    Objects.equals(this.ui_snoozed, other.ui_snoozed) &&
+                    Objects.equals(this.warning, other.warning) &&
+                    Objects.equals(this.error, other.error));
         }
         return false;
     }

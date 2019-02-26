@@ -57,6 +57,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Properties;
 
 import javax.mail.AuthenticationFailedException;
@@ -197,7 +198,7 @@ public class FragmentIdentity extends FragmentBase {
                 tilPassword.setPasswordVisibilityToggleEnabled(position == 0);
 
                 Integer tag = (Integer) adapterView.getTag();
-                if (tag != null && tag.equals(position))
+                if (Objects.equals(tag, position))
                     return;
                 adapterView.setTag(position);
 
@@ -334,7 +335,7 @@ public class FragmentIdentity extends FragmentBase {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 Integer tag = (Integer) adapterView.getTag();
-                if (tag != null && tag.equals(position))
+                if (Objects.equals(tag, position))
                     return;
                 adapterView.setTag(position);
 
@@ -584,7 +585,7 @@ public class FragmentIdentity extends FragmentBase {
                         auth_type != identity.auth_type ||
                         !host.equals(identity.host) || Integer.parseInt(port) != identity.port ||
                         !user.equals(identity.user) || !password.equals(identity.password) ||
-                        (realm == null ? identityRealm != null : !realm.equals(identityRealm)) ||
+                        !Objects.equals(realm, identityRealm) ||
                         use_ip != identity.use_ip));
                 boolean reload = (identity == null || identity.synchronize != synchronize || check);
 

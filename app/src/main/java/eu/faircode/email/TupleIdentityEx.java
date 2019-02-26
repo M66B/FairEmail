@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import java.util.Objects;
+
 public class TupleIdentityEx extends EntityIdentity {
     public String accountName;
 
@@ -27,7 +29,7 @@ public class TupleIdentityEx extends EntityIdentity {
         if (obj instanceof TupleIdentityEx) {
             TupleIdentityEx other = (TupleIdentityEx) obj;
             return (super.equals(obj) &&
-                    (this.accountName == null ? other.accountName == null : accountName.equals(other.accountName)));
+                    Objects.equals(accountName, other.accountName));
         } else
             return false;
     }

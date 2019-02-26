@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import java.util.Objects;
+
 public class TupleOperationEx extends EntityOperation {
     public String accountName;
     public String folderName;
@@ -29,8 +31,8 @@ public class TupleOperationEx extends EntityOperation {
         if (obj instanceof TupleOperationEx) {
             TupleOperationEx other = (TupleOperationEx) obj;
             return (super.equals(obj) &&
-                    (this.accountName == null ? other.accountName == null : accountName.equals(other.accountName)) &&
-                    (this.folderName == null ? other.folderName == null : this.folderName.equals(other.folderName)) &&
+                    Objects.equals(accountName, other.accountName) &&
+                    Objects.equals(this.folderName, other.folderName) &&
                     this.synchronize == other.synchronize);
         } else
             return false;

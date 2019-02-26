@@ -29,6 +29,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -197,22 +198,22 @@ public class EntityAccount implements Serializable {
                     this.port.equals(other.port) &&
                     this.user.equals(other.user) &&
                     this.password.equals(other.password) &&
-                    (this.realm == null ? other.realm == null : this.realm.equals(other.realm)) &&
-                    (this.name == null ? other.name == null : this.name.equals(other.name)) &&
-                    (this.color == null ? other.color == null : this.color.equals(other.color)) &&
+                    Objects.equals(this.realm, other.realm) &&
+                    Objects.equals(this.name, other.name) &&
+                    Objects.equals(this.color, other.color) &&
                     this.synchronize.equals(other.synchronize) &&
                     this.primary.equals(other.primary) &&
                     this.notify.equals(other.notify) &&
                     this.browse.equals(other.browse) &&
-                    (this.swipe_left == null ? other.swipe_left == null : this.swipe_left.equals(other.swipe_left)) &&
-                    (this.swipe_right == null ? other.swipe_right == null : this.swipe_right.equals(other.swipe_right)) &&
+                    Objects.equals(this.swipe_left, other.swipe_left) &&
+                    Objects.equals(this.swipe_right, other.swipe_right) &&
                     this.poll_interval.equals(other.poll_interval) &&
-                    (this.prefix == null ? other.prefix == null : this.prefix.equals(other.prefix)) &&
-                    (this.created == null ? other.created == null : this.created.equals(other.created)) &&
-                    (this.tbd == null ? other.tbd == null : this.tbd.equals(other.tbd)) &&
-                    (this.state == null ? other.state == null : this.state.equals(other.state)) &&
-                    (this.error == null ? other.error == null : this.error.equals(other.error)) &&
-                    (this.last_connected == null ? other.last_connected == null : this.last_connected.equals(other.last_connected)));
+                    Objects.equals(this.prefix, other.prefix) &&
+                    Objects.equals(this.created, other.created) &&
+                    Objects.equals(this.tbd, other.tbd) &&
+                    Objects.equals(this.state, other.state) &&
+                    Objects.equals(this.error, other.error) &&
+                    Objects.equals(this.last_connected, other.last_connected));
         } else
             return false;
     }

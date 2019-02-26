@@ -109,6 +109,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.Properties;
 
 import javax.mail.Address;
@@ -1986,13 +1987,13 @@ public class FragmentCompose extends FragmentBase {
                         available++;
 
                 Long ident = (identity == null ? null : identity.id);
-                boolean dirty = ((draft.identity == null ? ident != null : !draft.identity.equals(ident)) ||
-                        (draft.extra == null ? extra != null : !draft.extra.equals(extra)) ||
+                boolean dirty = (!Objects.equals(draft.identity, ident) ||
+                        !Objects.equals(draft.extra, extra) ||
                         !MessageHelper.equal(draft.from, afrom) ||
                         !MessageHelper.equal(draft.to, ato) ||
                         !MessageHelper.equal(draft.cc, acc) ||
                         !MessageHelper.equal(draft.bcc, abcc) ||
-                        (draft.subject == null ? subject != null : !draft.subject.equals(subject)) ||
+                        !Objects.equals(draft.subject, subject) ||
                         last_available != available ||
                         !body.equals(Helper.readText(EntityMessage.getFile(context, draft.id))));
 

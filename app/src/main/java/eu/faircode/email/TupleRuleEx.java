@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import java.util.Objects;
+
 public class TupleRuleEx extends EntityRule {
     public long account;
     public String folderName;
@@ -30,8 +32,8 @@ public class TupleRuleEx extends EntityRule {
             TupleRuleEx other = (TupleRuleEx) obj;
             return (super.equals(obj) &&
                     this.account == other.account &&
-                    (this.folderName == null ? other.folderName == null : this.folderName.equals(other.folderName)) &&
-                    (this.accountName == null ? other.accountName == null : this.accountName.equals(other.accountName)));
+                    Objects.equals(this.folderName, other.folderName) &&
+                    Objects.equals(this.accountName, other.accountName));
         } else
             return false;
     }

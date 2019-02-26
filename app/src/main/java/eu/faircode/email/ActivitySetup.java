@@ -59,6 +59,7 @@ import java.security.spec.KeySpec;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -677,9 +678,9 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                             folder.account = account.id;
                             folder.id = db.folder().insertFolder(folder);
 
-                            if (swipe_left != null && swipe_left.equals(id))
+                            if (Objects.equals(swipe_left, id))
                                 account.swipe_left = folder.id;
-                            if (swipe_right != null && swipe_right.equals(id))
+                            if (Objects.equals(swipe_right, id))
                                 account.swipe_right = folder.id;
 
                             if (jfolder.has("rules")) {
