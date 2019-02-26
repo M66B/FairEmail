@@ -1920,12 +1920,13 @@ public class ServiceSynchronize extends LifecycleService {
             else
                 props.put("mail.smtps.localhost", ident.host);
         } else {
-            String haddr = (ip instanceof Inet6Address ? "IPv6:" : "") + ip.getHostAddress();
+            InetAddress localhost = InetAddress.getLocalHost();
+            String haddr = "[" + (localhost instanceof Inet6Address ? "IPv6:" : "") + localhost.getHostAddress() + "]";
             EntityLog.log(ServiceSynchronize.this, "Send local address=" + haddr);
             if (ident.starttls)
-                props.put("mail.smtp.localaddress", haddr);
+                props.put("mail.smtp.localhost", haddr);
             else
-                props.put("mail.smtps.localaddress", haddr);
+                props.put("mail.smtps.localhost", haddr);
         }
 
         // Create session

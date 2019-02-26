@@ -604,12 +604,13 @@ public class FragmentIdentity extends FragmentBase {
                         else
                             props.put("mail.smtps.localhost", host);
                     } else {
-                        String haddr = (ip instanceof Inet6Address ? "IPv6:" : "") + ip.getHostAddress();
+                        InetAddress localhost = InetAddress.getLocalHost();
+                        String haddr = "[" + (localhost instanceof Inet6Address ? "IPv6:" : "") + localhost.getHostAddress() + "]";
                         Log.i("Check local address=" + haddr);
                         if (starttls)
-                            props.put("mail.smtp.localaddress", haddr);
+                            props.put("mail.smtp.localhost", haddr);
                         else
-                            props.put("mail.smtps.localaddress", haddr);
+                            props.put("mail.smtps.localhost", haddr);
                     }
 
                     // Create session
