@@ -594,6 +594,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swAutoSend.setChecked(!prefs.getBoolean("autosend", false));
 
         swNotifyPreview.setChecked(prefs.getBoolean("notify_preview", true));
+        swNotifyPreview.setEnabled(Helper.isPro(getContext()));
         swSearchLocal.setChecked(prefs.getBoolean("search_local", false));
         swLight.setChecked(prefs.getBoolean("light", false));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
