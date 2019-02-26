@@ -2231,6 +2231,9 @@ public class ServiceSynchronize extends LifecycleService {
             db.account().setAccountState(account.id, "connected");
             Log.i(account.name + " connected");
 
+            // Synchronize folders
+            synchronizeFolders(account, istore, new ServiceState());
+
             // Connect folder
             Log.i(folder.name + " connecting");
             db.folder().setFolderState(folder.id, "connecting");
