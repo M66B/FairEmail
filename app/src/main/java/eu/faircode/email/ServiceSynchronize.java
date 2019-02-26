@@ -54,7 +54,6 @@ import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.FetchResponse;
 import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.imap.protocol.UID;
-import com.sun.mail.smtp.SMTPTransport;
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MailConnectException;
 
@@ -1850,6 +1849,10 @@ public class ServiceSynchronize extends LifecycleService {
                 // Append target
                 long uid = append(istore, itarget, (MimeMessage) icopy);
                 Log.i(target.name + " appended id=" + message.id + " uid=" + uid);
+
+                // Fixed timing issue of at least Courier based servers
+                itarget.close(false);
+                itarget.open(Folder.READ_WRITE);
 
                 // Some providers, like Gmail, don't honor the appended seen flag
                 if (itarget.getPermanentFlags().contains(Flags.Flag.SEEN)) {
