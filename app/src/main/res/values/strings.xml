@@ -33,7 +33,6 @@
     </plurals>
 
     <plurals name="title_notification_unsent">
-        <item quantity="zero"></item>
         <item quantity="one">%1$d unsent message</item>
         <item quantity="other">%1$d unsent messages</item>
     </plurals>
