@@ -262,7 +262,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
-        DB.getInstance(this).account().liveAccountsEx().observe(this, new Observer<List<TupleAccountEx>>() {
+        DB db = DB.getInstance(this);
+
+        db.account().liveAccountsEx().observe(this, new Observer<List<TupleAccountEx>>() {
             private List<TupleAccountEx> last = new ArrayList<>();
 
             @Override
@@ -348,6 +350,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 if (other)
                     drawerArray.add(new DrawerItem(-15, R.string.menu_other, R.drawable.baseline_get_app_24));
+            }
+        });
+
+        db.message().liveUnseenNotify().observe(this, new Observer<List<TupleMessageEx>>() {
+            @Override
+            public void onChanged(List<TupleMessageEx> messages) {
+                Core.notify(ActivityView.this, messages);
             }
         });
 

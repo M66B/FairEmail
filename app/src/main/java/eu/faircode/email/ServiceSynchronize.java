@@ -126,7 +126,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         db.message().liveUnseenNotify().observe(this, new Observer<List<TupleMessageEx>>() {
             @Override
-            public void onChanged(final List<TupleMessageEx> messages) {
+            public void onChanged(List<TupleMessageEx> messages) {
                 Core.notify(ServiceSynchronize.this, messages);
             }
         });
