@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.PowerManager;
 import android.preference.PreferenceManager;
 
 import com.sun.mail.imap.IMAPFolder;
@@ -20,6 +21,8 @@ import javax.mail.Store;
 import androidx.annotation.Nullable;
 
 public class ServiceUI extends IntentService {
+    private PowerManager.WakeLock wl;
+
     static final int PI_WHY = 1;
     static final int PI_SUMMARY = 2;
     static final int PI_CLEAR = 3;
@@ -38,11 +41,27 @@ public class ServiceUI extends IntentService {
     }
 
     @Override
+    public void onCreate() {
+        Log.i("Service UI create");
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":ui");
+        wl.acquire();
+        super.onCreate();
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.i("Service UI destroy");
+        wl.release();
+        super.onDestroy();
+    }
+
+    @Override
     protected void onHandleIntent(@Nullable Intent intent) {
+        Log.i("Service UI intent=" + intent);
+
         if (intent == null)
             return;
-
-        // TODO: wakelock?
 
         String action = intent.getAction();
         if (action == null)
