@@ -33,16 +33,11 @@ public interface DaoFolder {
             " ORDER BY CASE WHEN folder.type = '" + EntityFolder.USER + "' THEN 1 ELSE 0 END")
     List<EntityFolder> getFolders(long account);
 
-    @Query("SELECT * FROM folder" +
-            " WHERE account = :account" +
-            " AND synchronize = :synchronize" +
-            " ORDER BY CASE WHEN folder.type = '" + EntityFolder.USER + "' THEN 1 ELSE 0 END")
-    List<EntityFolder> getFolders(long account, boolean synchronize);
-
     @Query("SELECT folder.* FROM folder" +
             " JOIN account ON account.id = folder.account" +
-            " WHERE account.synchronize AND folder.synchronize")
-    List<EntityFolder> getFoldersSynchronizing();
+            " WHERE folder.synchronize" +
+            " AND (account.synchronize AND NOT account.ondemand)")
+    List<EntityFolder> getFoldersAutoSync();
 
     @Query("SELECT folder.* FROM folder" +
             " JOIN account ON account.id = folder.account" +
