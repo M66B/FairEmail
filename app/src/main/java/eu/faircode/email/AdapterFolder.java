@@ -292,10 +292,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             long aid = args.getLong("account");
                             long fid = args.getLong("folder");
 
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                            if (!prefs.getBoolean("enabled", true))
-                                throw new IllegalStateException(context.getString(R.string.title_sync_disabled));
-
                             ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
                             NetworkInfo ni = cm.getActiveNetworkInfo();
                             boolean internet = (ni != null && ni.isConnected());
@@ -314,7 +310,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                     if (account.ondemand) {
                                         if (internet) {
                                             now = true;
-                                            ServiceSynchronize.sync(context, fid);
+                                            ServiceUI.sync(context, fid);
                                         } else
                                             throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
                                     } else {
@@ -341,18 +337,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         protected void onException(Bundle args, Throwable ex) {
                             if (ex instanceof IllegalArgumentException)
                                 Snackbar.make(itemView, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                            else if (ex instanceof IllegalStateException) {
-                                Snackbar snackbar = Snackbar.make(itemView, ex.getMessage(), Snackbar.LENGTH_LONG);
-                                snackbar.setAction(R.string.title_enable, new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                                        prefs.edit().putBoolean("enabled", true).apply();
-                                        ServiceSynchronize.reload(context, "refresh/disabled");
-                                    }
-                                });
-                                snackbar.show();
-                            } else
+                            else
                                 Helper.unexpectedError(context, owner, ex);
                         }
                     }.execute(context, owner, args, "folder:sync");

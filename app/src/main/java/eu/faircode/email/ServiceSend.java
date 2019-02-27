@@ -374,11 +374,11 @@ public class ServiceSend extends LifecycleService {
 
             long now = new Date().getTime();
             long delayed = now - message.last_attempt;
-            if (delayed > IDENTITY_ERROR_AFTER * 60 * 1000L) {
+            if (delayed > IDENTITY_ERROR_AFTER * 60 * 1000L || ex instanceof SendFailedException) {
                 Log.i("Reporting send error after=" + delayed);
                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                 nm.notify("send", message.identity.intValue(),
-                        Helper.getNotificationError(this, ident.name, ex).build());
+                        Core.getNotificationError(this, ident.name, ex).build());
             }
 
             throw ex;

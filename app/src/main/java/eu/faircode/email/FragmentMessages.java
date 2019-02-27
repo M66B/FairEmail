@@ -492,10 +492,6 @@ public class FragmentMessages extends FragmentBase {
             protected Boolean onExecute(Context context, Bundle args) {
                 long fid = args.getLong("folder");
 
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                if (!prefs.getBoolean("enabled", true))
-                    throw new IllegalStateException(context.getString(R.string.title_sync_disabled));
-
                 ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo ni = cm.getActiveNetworkInfo();
                 boolean internet = (ni != null && ni.isConnected());
@@ -527,7 +523,7 @@ public class FragmentMessages extends FragmentBase {
                             if (account.ondemand) {
                                 if (internet) {
                                     now = true;
-                                    ServiceSynchronize.sync(context, folder.id);
+                                    ServiceUI.sync(context, folder.id);
                                 } else
                                     nointernet = true;
                             } else {
@@ -561,18 +557,7 @@ public class FragmentMessages extends FragmentBase {
 
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                else if (ex instanceof IllegalStateException) {
-                    Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
-                    snackbar.setAction(R.string.title_enable, new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                            prefs.edit().putBoolean("enabled", true).apply();
-                            ServiceSynchronize.reload(getContext(), "refresh/disabled");
-                        }
-                    });
-                    snackbar.show();
-                } else
+                else
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.execute(FragmentMessages.this, args, "messages:refresh");

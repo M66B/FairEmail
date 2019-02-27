@@ -997,38 +997,4 @@ public class Helper {
     static String sanitizeFilename(String name) {
         return (name == null ? null : name.replaceAll("[^a-zA-Z0-9\\.\\-]", "_"));
     }
-
-    static NotificationCompat.Builder getNotificationError(Context context, String title, Throwable ex) {
-        return getNotificationError(context, "error", title, ex, true);
-    }
-
-    static NotificationCompat.Builder getNotificationError(Context context, String channel, String title, Throwable ex, boolean debug) {
-        // Build pending intent
-        Intent intent = new Intent(context, ActivitySetup.class);
-        if (debug)
-            intent.setAction("error");
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent pi = PendingIntent.getActivity(
-                context, ActivitySetup.REQUEST_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        // Build notification
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channel);
-
-        builder
-                .setSmallIcon(R.drawable.baseline_warning_white_24)
-                .setContentTitle(context.getString(R.string.title_notification_failed, title))
-                .setContentText(Helper.formatThrowable(ex))
-                .setContentIntent(pi)
-                .setAutoCancel(false)
-                .setShowWhen(true)
-                .setPriority(Notification.PRIORITY_MAX)
-                .setOnlyAlertOnce(true)
-                .setCategory(Notification.CATEGORY_ERROR)
-                .setVisibility(NotificationCompat.VISIBILITY_SECRET);
-
-        builder.setStyle(new NotificationCompat.BigTextStyle()
-                .bigText(Helper.formatThrowable(ex, false, "\n")));
-
-        return builder;
-    }
 }

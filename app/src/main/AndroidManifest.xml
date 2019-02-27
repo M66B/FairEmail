@@ -164,6 +164,8 @@
 
         <service android:name=".ServiceSend" />
 
+        <service android:name=".ServiceUI" />
+
         <service android:name=".ServiceExternal">
             <intent-filter>
                 <action android:name="${applicationId}.ENABLE" />

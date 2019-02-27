@@ -2078,10 +2078,6 @@ public class FragmentCompose extends FragmentBase {
                         if (!attachment.available)
                             throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
 
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    if (!prefs.getBoolean("enabled", true))
-                        throw new IllegalStateException(context.getString(R.string.title_sync_disabled));
-
                     // Delete draft (cannot move to outbox)
                     EntityOperation.queue(context, db, draft, EntityOperation.DELETE);
 
@@ -2160,18 +2156,7 @@ public class FragmentCompose extends FragmentBase {
                 finish();
             else if (ex instanceof IllegalArgumentException || ex instanceof AddressException)
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-            else if (ex instanceof IllegalStateException) {
-                Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
-                snackbar.setAction(R.string.title_enable, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                        prefs.edit().putBoolean("enabled", true).apply();
-                        ServiceSynchronize.reload(getContext(), "compose/disabled");
-                    }
-                });
-                snackbar.show();
-            } else
+            else
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
         }
     };

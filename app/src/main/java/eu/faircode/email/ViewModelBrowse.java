@@ -306,7 +306,7 @@ public class ViewModelBrowse extends ViewModel {
                         Log.i("Boundary sync uid=" + uid);
                         EntityMessage message = db.message().getMessageByUid(folder.id, uid);
                         if (message == null) {
-                            message = ServiceSynchronize.synchronizeMessage(state.context,
+                            message = Core.synchronizeMessage(state.context,
                                     folder, state.ifolder, (IMAPMessage) isub[j],
                                     true,
                                     new ArrayList<EntityRule>());
