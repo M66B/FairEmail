@@ -207,7 +207,7 @@ public interface DaoMessage {
             " WHERE message.id = :id")
     LiveData<TupleMessageEx> liveMessage(long id);
 
-    @Query("SELECT message.*" +
+    String notify = "SELECT message.*" +
             ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
             ", identity.name AS identityName, identity.email AS identityEmail, identity.synchronize AS identitySynchronize" +
@@ -227,8 +227,13 @@ public interface DaoMessage {
             " AND NOT message.ui_seen" +
             " AND NOT message.ui_hide" +
             " AND NOT message.ui_ignored" +
-            " ORDER BY message.received")
+            " ORDER BY message.received";
+
+    @Query(notify)
     LiveData<List<TupleMessageEx>> liveUnseenNotify();
+
+    @Query(notify)
+    List<TupleMessageEx> getUnseenNotify();
 
     @Query("SELECT COUNT(message.id) FROM message" +
             " JOIN account ON account.id = message.account" +

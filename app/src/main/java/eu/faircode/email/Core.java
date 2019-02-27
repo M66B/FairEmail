@@ -13,7 +13,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
+import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
+import android.util.LongSparseArray;
 
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.iap.Response;
@@ -1387,7 +1389,94 @@ class Core {
         }
     }
 
-    static List<Notification> getNotificationUnseen(Context context, long account, String accountName, List<TupleMessageEx> messages) {
+    static void notify(Context context, List<TupleMessageEx> messages) {
+        Log.i("Notify messages=" + messages.size());
+
+        Widget.update(context, messages.size());
+
+        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        LongSparseArray<List<Long>> notifying = new LongSparseArray<>();
+        LongSparseArray<String> accountName = new LongSparseArray<>();
+        LongSparseArray<List<TupleMessageEx>> accountMessages = new LongSparseArray<>();
+
+        // Existing
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            for (StatusBarNotification notification : nm.getActiveNotifications()) {
+                Bundle args = notification.getNotification().extras;
+                long id = args.getLong("id", 0);
+                long account = args.getLong("account", 0);
+                Log.i("Notify showing=" + id);
+                if (id != 0) {
+                    if (notifying.indexOfKey(account) < 0) {
+                        notifying.put(account, new ArrayList<Long>());
+                        accountMessages.put(account, new ArrayList<TupleMessageEx>());
+                    }
+                    notifying.get(account).add(id);
+                }
+            }
+        }
+
+        // Current
+        for (TupleMessageEx message : messages) {
+            long account = (message.accountNotify ? message.account : 0);
+            accountName.put(account, account > 0 ? message.accountName : null);
+            if (accountMessages.indexOfKey(account) < 0) {
+                notifying.put(account, new ArrayList<Long>());
+                accountMessages.put(account, new ArrayList<TupleMessageEx>());
+            }
+            accountMessages.get(account).add(message);
+        }
+
+        // Difference
+        for (int i = 0; i < accountMessages.size(); i++) {
+            long account = accountMessages.keyAt(i);
+            List<Notification> notifications = getNotificationUnseen(
+                    context, account, accountName.get(account), accountMessages.get(account));
+
+            List<Long> all = new ArrayList<>();
+            List<Long> added = new ArrayList<>();
+            List<Long> removed = notifying.get(account);
+            for (Notification notification : notifications) {
+                Long id = notification.extras.getLong("id", 0);
+                if (id != 0) {
+                    all.add(id);
+                    if (removed.contains(id)) {
+                        removed.remove(id);
+                        Log.i("Notify removing=" + id);
+                    } else {
+                        removed.remove(-id);
+                        added.add(id);
+                        Log.i("Notify adding=" + id);
+                    }
+                }
+            }
+
+            int headers = 0;
+            for (Long id : added)
+                if (id < 0)
+                    headers++;
+
+            Log.i("Notify account=" + account +
+                    " count=" + notifications.size() + " all=" + all.size() +
+                    " added=" + added.size() + " removed=" + removed.size() + " headers=" + headers);
+
+            if (notifications.size() == 0 ||
+                    (Build.VERSION.SDK_INT < Build.VERSION_CODES.O && headers > 0))
+                nm.cancel("unseen:" + account + ":0", 1);
+
+            for (Long id : removed)
+                nm.cancel("unseen:" + account + ":" + Math.abs(id), 1);
+
+            for (Notification notification : notifications) {
+                long id = notification.extras.getLong("id", 0);
+                if ((id == 0 && added.size() + removed.size() > 0) || added.contains(id))
+                    nm.notify("unseen:" + account + ":" + Math.abs(id), 1, notification);
+            }
+        }
+    }
+
+    private static List<Notification> getNotificationUnseen(Context context, long account, String accountName, List<TupleMessageEx> messages) {
         List<Notification> notifications = new ArrayList<>();
 
         if (messages.size() == 0)
@@ -1496,6 +1585,7 @@ class Core {
 
             Bundle args = new Bundle();
             args.putLong("id", message.content ? message.id : -message.id);
+            args.putLong("account", message.accountNotify ? message.account : 0);
 
             Intent thread = new Intent(context, ActivityView.class);
             thread.setAction("thread:" + message.thread);

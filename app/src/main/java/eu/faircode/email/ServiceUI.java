@@ -281,6 +281,9 @@ public class ServiceUI extends IntentService {
             // Synchronize messages
             Core.onSynchronizeMessages(this, account, folder, (IMAPFolder) ifolder, folder.getSyncArgs(), new Core.State());
 
+            // Notify new messages
+            Core.notify(this, db.message().getUnseenNotify());
+
         } catch (Throwable ex) {
             Log.w(ex);
             Core.reportError(this, account, folder, ex);

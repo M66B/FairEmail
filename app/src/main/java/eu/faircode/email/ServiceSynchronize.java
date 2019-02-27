@@ -36,7 +36,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
-import android.util.LongSparseArray;
 
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
@@ -126,79 +125,9 @@ public class ServiceSynchronize extends LifecycleService {
         });
 
         db.message().liveUnseenNotify().observe(this, new Observer<List<TupleMessageEx>>() {
-            private LongSparseArray<List<Integer>> notifying = new LongSparseArray<>();
-
             @Override
             public void onChanged(final List<TupleMessageEx> messages) {
-                Log.i("Notification messages=" + messages.size());
-
-                Widget.update(ServiceSynchronize.this, messages.size());
-
-                LongSparseArray<String> accountName = new LongSparseArray<>();
-                LongSparseArray<List<TupleMessageEx>> accountMessages = new LongSparseArray<>();
-
-                for (int i = 0; i < notifying.size(); i++)
-                    accountMessages.put(notifying.keyAt(i), new ArrayList<TupleMessageEx>());
-
-                for (TupleMessageEx message : messages) {
-                    long account = (message.accountNotify ? message.account : 0);
-                    accountName.put(account, account > 0 ? message.accountName : null);
-                    if (accountMessages.indexOfKey(account) < 0)
-                        accountMessages.put(account, new ArrayList<TupleMessageEx>());
-                    accountMessages.get(account).add(message);
-                    if (notifying.indexOfKey(account) < 0)
-                        notifying.put(account, new ArrayList<Integer>());
-                }
-
-                for (int i = 0; i < accountMessages.size(); i++) {
-                    long account = accountMessages.keyAt(i);
-                    List<Notification> notifications = Core.getNotificationUnseen(
-                            ServiceSynchronize.this, account, accountName.get(account), accountMessages.get(account));
-
-                    List<Integer> all = new ArrayList<>();
-                    List<Integer> added = new ArrayList<>();
-                    List<Integer> removed = notifying.get(account);
-                    for (Notification notification : notifications) {
-                        Integer id = (int) notification.extras.getLong("id", 0);
-                        if (id != 0) {
-                            all.add(id);
-                            if (removed.contains(id)) {
-                                removed.remove(id);
-                                Log.i("Notification removing=" + id);
-                            } else {
-                                removed.remove(Integer.valueOf(-id));
-                                added.add(id);
-                                Log.i("Notification adding=" + id);
-                            }
-                        }
-                    }
-
-                    int headers = 0;
-                    for (Integer id : added)
-                        if (id < 0)
-                            headers++;
-
-                    Log.i("Notification account=" + account +
-                            " notifications=" + notifications.size() + " all=" + all.size() +
-                            " added=" + added.size() + " removed=" + removed.size() + " headers=" + headers);
-
-                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-                    if (notifications.size() == 0 ||
-                            (Build.VERSION.SDK_INT < Build.VERSION_CODES.O && headers > 0))
-                        nm.cancel("unseen:" + account, 0);
-
-                    for (Integer id : removed)
-                        nm.cancel("unseen:" + account, Math.abs(id));
-
-                    for (Notification notification : notifications) {
-                        Integer id = (int) notification.extras.getLong("id", 0);
-                        if ((id == 0 && added.size() + removed.size() > 0) || added.contains(id))
-                            nm.notify("unseen:" + account, Math.abs(id), notification);
-                    }
-
-                    notifying.put(account, all);
-                }
+                Core.notify(ServiceSynchronize.this, messages);
             }
         });
     }
