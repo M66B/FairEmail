@@ -59,6 +59,7 @@
     </plurals>
     <string name="title_ask_spam_who">Report message from %1$s as spam?</string>
 
+    <string name="title_notification_sending">Sending messages</string>
     <string name="title_notification_failed">\'%1$s\' failed</string>
 
     <string name="menu_answers">Templates</string>

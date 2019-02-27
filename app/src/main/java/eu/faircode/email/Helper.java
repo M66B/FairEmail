@@ -21,6 +21,8 @@ package eu.faircode.email;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.app.usage.UsageStatsManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -100,6 +102,7 @@ import javax.net.ssl.SSLException;
 
 import androidx.annotation.NonNull;
 import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
@@ -109,7 +112,8 @@ import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_C
 
 public class Helper {
     static final int NOTIFICATION_SYNCHRONIZE = 1;
-    static final int NOTIFICATION_EXTERNAL = 2;
+    static final int NOTIFICATION_SEND = 2;
+    static final int NOTIFICATION_EXTERNAL = 3;
 
     static final int JOB_DAILY = 1001;
 
@@ -1034,5 +1038,39 @@ public class Helper {
 
     static String sanitizeFilename(String name) {
         return (name == null ? null : name.replaceAll("[^a-zA-Z0-9\\.\\-]", "_"));
+    }
+
+    static NotificationCompat.Builder getNotificationError(Context context, String title, Throwable ex) {
+        return getNotificationError(context, "error", title, ex, true);
+    }
+
+    static NotificationCompat.Builder getNotificationError(Context context, String channel, String title, Throwable ex, boolean debug) {
+        // Build pending intent
+        Intent intent = new Intent(context, ActivitySetup.class);
+        if (debug)
+            intent.setAction("error");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        PendingIntent pi = PendingIntent.getActivity(
+                context, ActivitySetup.REQUEST_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // Build notification
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channel);
+
+        builder
+                .setSmallIcon(R.drawable.baseline_warning_white_24)
+                .setContentTitle(context.getString(R.string.title_notification_failed, title))
+                .setContentText(Helper.formatThrowable(ex))
+                .setContentIntent(pi)
+                .setAutoCancel(false)
+                .setShowWhen(true)
+                .setPriority(Notification.PRIORITY_MAX)
+                .setOnlyAlertOnce(true)
+                .setCategory(Notification.CATEGORY_ERROR)
+                .setVisibility(NotificationCompat.VISIBILITY_SECRET);
+
+        builder.setStyle(new NotificationCompat.BigTextStyle()
+                .bigText(Helper.formatThrowable(ex, false, "\n")));
+
+        return builder;
     }
 }

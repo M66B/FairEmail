@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
@@ -221,6 +222,9 @@ public class EntityOperation {
 
             } else if (DELETE.equals(name))
                 db.message().setMessageUiHide(message.id, true);
+
+            else if (SEND.equals(name))
+                context.startService(new Intent(context, ServiceSend.class));
         } catch (JSONException ex) {
             Log.e(ex);
         }

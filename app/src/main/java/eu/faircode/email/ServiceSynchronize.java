@@ -71,8 +71,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.Inet6Address;
-import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
@@ -108,7 +106,6 @@ import javax.mail.SendFailedException;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.StoreClosedException;
-import javax.mail.Transport;
 import javax.mail.UIDFolder;
 import javax.mail.event.ConnectionAdapter;
 import javax.mail.event.ConnectionEvent;
@@ -153,7 +150,6 @@ public class ServiceSynchronize extends LifecycleService {
     private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
     private static final int ACCOUNT_ERROR_AFTER = 90; // minutes
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
-    private static final int IDENTITY_ERROR_AFTER = 30; // minutes
     private static final long STOP_DELAY = 5000L; // milliseconds
     private static final long YIELD_DURATION = 200L; // milliseconds
 
@@ -717,40 +713,6 @@ public class ServiceSynchronize extends LifecycleService {
         return notifications;
     }
 
-    private NotificationCompat.Builder getNotificationError(String title, Throwable ex) {
-        return getNotificationError("error", title, ex, true);
-    }
-
-    private NotificationCompat.Builder getNotificationError(String channel, String title, Throwable ex, boolean debug) {
-        // Build pending intent
-        Intent intent = new Intent(this, ActivitySetup.class);
-        if (debug)
-            intent.setAction("error");
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent pi = PendingIntent.getActivity(
-                this, ActivitySetup.REQUEST_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        // Build notification
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channel);
-
-        builder
-                .setSmallIcon(R.drawable.baseline_warning_white_24)
-                .setContentTitle(getString(R.string.title_notification_failed, title))
-                .setContentText(Helper.formatThrowable(ex))
-                .setContentIntent(pi)
-                .setAutoCancel(false)
-                .setShowWhen(true)
-                .setPriority(Notification.PRIORITY_MAX)
-                .setOnlyAlertOnce(true)
-                .setCategory(Notification.CATEGORY_ERROR)
-                .setVisibility(NotificationCompat.VISIBILITY_SECRET);
-
-        builder.setStyle(new NotificationCompat.BigTextStyle()
-                .bigText(Helper.formatThrowable(ex, false, "\n")));
-
-        return builder;
-    }
-
     private void reportError(EntityAccount account, EntityFolder folder, Throwable ex) {
         // FolderClosedException: can happen when no connectivity
 
@@ -778,7 +740,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         if ((ex instanceof SendFailedException) || (ex instanceof AlertException)) {
             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            nm.notify(tag, 1, getNotificationError(title, ex).build());
+            nm.notify(tag, 1, Helper.getNotificationError(this, title, ex).build());
         }
 
         // connection failure: Too many simultaneous connections
@@ -798,7 +760,7 @@ public class ServiceSynchronize extends LifecycleService {
                 !(ex instanceof MessagingException && ex.getCause() instanceof SSLException) &&
                 !(ex instanceof MessagingException && "connection failure".equals(ex.getMessage()))) {
             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            nm.notify(tag, 1, getNotificationError(title, ex).build());
+            nm.notify(tag, 1, Helper.getNotificationError(this, title, ex).build());
         }
     }
 
@@ -934,7 +896,8 @@ public class ServiceSynchronize extends LifecycleService {
                                                         .format((account.last_connected))), ex);
                                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                 nm.notify("receive", account.id.intValue(),
-                                        getNotificationError("warning", account.name, warning, false).build());
+                                        Helper.getNotificationError(this, "warning", account.name, warning, false)
+                                                .build());
                             }
                         }
 
@@ -1511,10 +1474,6 @@ public class ServiceSynchronize extends LifecycleService {
                                 doDelete(folder, (IMAPFolder) ifolder, message, jargs, db);
                                 break;
 
-                            case EntityOperation.SEND:
-                                doSend(message, db);
-                                break;
-
                             case EntityOperation.HEADERS:
                                 doHeaders(folder, (IMAPFolder) ifolder, message, db);
                                 break;
@@ -1559,7 +1518,6 @@ public class ServiceSynchronize extends LifecycleService {
 
                         if (ex instanceof MessageRemovedException ||
                                 ex instanceof FolderNotFoundException ||
-                                ex instanceof SendFailedException ||
                                 ex instanceof IllegalArgumentException) {
                             Log.w("Unrecoverable", ex);
 
@@ -1903,197 +1861,6 @@ public class ServiceSynchronize extends LifecycleService {
         ifolder.expunge();
 
         db.message().deleteMessage(message.id);
-    }
-
-    private void doSend(EntityMessage message, DB db) throws MessagingException, IOException {
-        // Send message
-        EntityIdentity ident = db.identity().getIdentity(message.identity);
-
-        // Mark attempt
-        if (message.last_attempt == null) {
-            message.last_attempt = new Date().getTime();
-            db.message().setMessageLastAttempt(message.id, message.last_attempt);
-        }
-
-        // Get properties
-        Properties props = MessageHelper.getSessionProperties(ident.auth_type, ident.realm, ident.insecure);
-        InetAddress ip = (ident.use_ip ? Helper.getLocalIp(ServiceSynchronize.this) : null);
-        if (ip == null) {
-            EntityLog.log(ServiceSynchronize.this, "Send local host=" + ident.host);
-            if (ident.starttls)
-                props.put("mail.smtp.localhost", ident.host);
-            else
-                props.put("mail.smtps.localhost", ident.host);
-        } else {
-            InetAddress localhost = InetAddress.getLocalHost();
-            String haddr = "[" + (localhost instanceof Inet6Address ? "IPv6:" : "") + localhost.getHostAddress() + "]";
-            EntityLog.log(ServiceSynchronize.this, "Send local address=" + haddr);
-            if (ident.starttls)
-                props.put("mail.smtp.localhost", haddr);
-            else
-                props.put("mail.smtps.localhost", haddr);
-        }
-
-        // Create session
-        final Session isession = Session.getInstance(props, null);
-        isession.setDebug(true);
-
-        // Create message
-        MimeMessage imessage = MessageHelper.from(this, message, isession, ident.plain_only);
-
-        // Add reply to
-        if (ident.replyto != null)
-            imessage.setReplyTo(new Address[]{new InternetAddress(ident.replyto)});
-
-        // Add bcc
-        if (ident.bcc != null) {
-            List<Address> bcc = new ArrayList<>();
-            Address[] existing = imessage.getRecipients(Message.RecipientType.BCC);
-            if (existing != null)
-                bcc.addAll(Arrays.asList(existing));
-            bcc.add(new InternetAddress(ident.bcc));
-            imessage.setRecipients(Message.RecipientType.BCC, bcc.toArray(new Address[0]));
-        }
-
-        // defacto standard
-        if (ident.delivery_receipt)
-            imessage.addHeader("Return-Receipt-To", ident.replyto == null ? ident.email : ident.replyto);
-
-        // https://tools.ietf.org/html/rfc3798
-        if (ident.read_receipt)
-            imessage.addHeader("Disposition-Notification-To", ident.replyto == null ? ident.email : ident.replyto);
-
-        // Create transport
-        // TODO: cache transport?
-        try (Transport itransport = isession.getTransport(ident.getProtocol())) {
-            // Connect transport
-            db.identity().setIdentityState(ident.id, "connecting");
-            try {
-                itransport.connect(ident.host, ident.port, ident.user, ident.password);
-            } catch (AuthenticationFailedException ex) {
-                if (ident.auth_type == Helper.AUTH_TYPE_GMAIL) {
-                    EntityAccount account = db.account().getAccount(ident.account);
-                    ident.password = Helper.refreshToken(this, "com.google", ident.user, account.password);
-                    DB.getInstance(this).identity().setIdentityPassword(ident.id, ident.password);
-                    itransport.connect(ident.host, ident.port, ident.user, ident.password);
-                } else
-                    throw ex;
-            }
-
-            db.identity().setIdentityState(ident.id, "connected");
-
-            // Send message
-            Address[] to = imessage.getAllRecipients();
-            itransport.sendMessage(imessage, to);
-            EntityLog.log(this, "Sent via " + ident.host + "/" + ident.user +
-                    " to " + TextUtils.join(", ", to));
-
-            // Append replied/forwarded text
-            StringBuilder sb = new StringBuilder();
-            sb.append(Helper.readText(EntityMessage.getFile(this, message.id)));
-            File refFile = EntityMessage.getRefFile(this, message.id);
-            if (refFile.exists())
-                sb.append(Helper.readText(refFile));
-            Helper.writeText(EntityMessage.getFile(this, message.id), sb.toString());
-
-            try {
-                db.beginTransaction();
-
-                db.message().setMessageSent(message.id, imessage.getSentDate().getTime());
-                db.message().setMessageSeen(message.id, true);
-                db.message().setMessageUiSeen(message.id, true);
-                db.message().setMessageError(message.id, null);
-
-                EntityFolder sent = db.folder().getFolderByType(message.account, EntityFolder.SENT);
-                if (ident.store_sent && sent != null) {
-                    db.message().setMessageFolder(message.id, sent.id);
-                    message.folder = sent.id;
-                    EntityOperation.queue(this, db, message, EntityOperation.ADD);
-                } else
-                    db.message().setMessageUiHide(message.id, true);
-
-                db.setTransactionSuccessful();
-            } finally {
-                db.endTransaction();
-            }
-
-            if (refFile.exists())
-                refFile.delete();
-
-            if (message.inreplyto != null) {
-                List<EntityMessage> replieds = db.message().getMessageByMsgId(message.account, message.inreplyto);
-                for (EntityMessage replied : replieds)
-                    EntityOperation.queue(this, db, replied, EntityOperation.ANSWERED, true);
-            }
-
-            db.identity().setIdentityConnected(ident.id, new Date().getTime());
-            db.identity().setIdentityError(ident.id, null);
-
-            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            nm.cancel("send", message.identity.intValue());
-
-            if (message.to != null)
-                for (Address recipient : message.to) {
-                    String email = ((InternetAddress) recipient).getAddress();
-                    String name = ((InternetAddress) recipient).getPersonal();
-                    List<EntityContact> contacts = db.contact().getContacts(EntityContact.TYPE_TO, email);
-                    if (contacts.size() == 0) {
-                        EntityContact contact = new EntityContact();
-                        contact.type = EntityContact.TYPE_TO;
-                        contact.email = email;
-                        contact.name = name;
-                        db.contact().insertContact(contact);
-                        Log.i("Inserted recipient contact=" + contact);
-                    } else {
-                        EntityContact contact = contacts.get(0);
-                        if (name != null && !name.equals(contact.name)) {
-                            contact.name = name;
-                            db.contact().updateContact(contact);
-                            Log.i("Updated recipient contact=" + contact);
-                        }
-                    }
-                }
-        } catch (MessagingException ex) {
-            if (ex instanceof SendFailedException) {
-                SendFailedException sfe = (SendFailedException) ex;
-
-                StringBuilder sb = new StringBuilder();
-
-                sb.append(sfe.getMessage());
-
-                sb.append(' ').append(getString(R.string.title_address_sent));
-                sb.append(' ').append(MessageHelper.formatAddresses(sfe.getValidSentAddresses()));
-
-                sb.append(' ').append(getString(R.string.title_address_unsent));
-                sb.append(' ').append(MessageHelper.formatAddresses(sfe.getValidUnsentAddresses()));
-
-                sb.append(' ').append(getString(R.string.title_address_invalid));
-                sb.append(' ').append(MessageHelper.formatAddresses(sfe.getInvalidAddresses()));
-
-                ex = new SendFailedException(
-                        sb.toString(),
-                        sfe.getNextException(),
-                        sfe.getValidSentAddresses(),
-                        sfe.getValidUnsentAddresses(),
-                        sfe.getInvalidAddresses());
-            }
-
-            db.identity().setIdentityError(ident.id, Helper.formatThrowable(ex));
-
-            EntityLog.log(this, ident.name + " last attempt: " + new Date(message.last_attempt));
-
-            long now = new Date().getTime();
-            long delayed = now - message.last_attempt;
-            if (delayed > IDENTITY_ERROR_AFTER * 60 * 1000L) {
-                Log.i("Reporting send error after=" + delayed);
-                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                nm.notify("send", message.identity.intValue(), getNotificationError(ident.name, ex).build());
-            }
-
-            throw ex;
-        } finally {
-            db.identity().setIdentityState(ident.id, null);
-        }
     }
 
     private void doHeaders(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, DB db) throws MessagingException {
@@ -3115,76 +2882,6 @@ public class ServiceSynchronize extends LifecycleService {
                                 Log.w("main backoff " + ex.toString());
                             }
 
-                        // Start monitoring outbox
-                        Handler handler = null;
-                        final EntityFolder outbox = db.folder().getOutbox();
-                        if (outbox != null) {
-                            db.folder().setFolderError(outbox.id, null);
-
-                            handler = new Handler(getMainLooper()) {
-                                private List<Long> handling = new ArrayList<>();
-                                private LiveData<List<EntityOperation>> liveOperations;
-
-                                @Override
-                                public void handleMessage(android.os.Message msg) {
-                                    Log.i(outbox.name + " observe=" + msg.what);
-                                    if (msg.what == 0) {
-                                        liveOperations.removeObserver(observer);
-                                        handling.clear();
-                                    } else {
-                                        liveOperations = db.operation().liveOperations(outbox.id);
-                                        liveOperations.observe(ServiceSynchronize.this, observer);
-                                    }
-                                }
-
-                                private Observer<List<EntityOperation>> observer = new Observer<List<EntityOperation>>() {
-                                    private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
-                                    PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-                                    PowerManager.WakeLock wl = pm.newWakeLock(
-                                            PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":outbox");
-
-                                    @Override
-                                    public void onChanged(final List<EntityOperation> operations) {
-                                        boolean process = false;
-                                        List<Long> current = new ArrayList<>();
-                                        for (EntityOperation op : operations) {
-                                            if (!handling.contains(op.id))
-                                                process = true;
-                                            current.add(op.id);
-                                        }
-                                        handling = current;
-
-                                        if (handling.size() > 0 && process) {
-                                            Log.i(outbox.name + " operations=" + operations.size());
-                                            executor.submit(new Runnable() {
-                                                @Override
-                                                public void run() {
-                                                    try {
-                                                        wl.acquire();
-                                                        Log.i(outbox.name + " process");
-
-                                                        db.folder().setFolderSyncState(outbox.id, "syncing");
-                                                        processOperations(null, outbox, null, null, null, state);
-                                                        db.folder().setFolderError(outbox.id, null);
-                                                    } catch (Throwable ex) {
-                                                        Log.e(outbox.name, ex);
-                                                        reportError(null, outbox, ex);
-                                                        db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex, true));
-                                                    } finally {
-                                                        db.folder().setFolderSyncState(outbox.id, null);
-                                                        wl.release();
-                                                        EntityLog.log(ServiceSynchronize.this, "Outbox wake lock=" + wl.isHeld());
-                                                    }
-                                                }
-                                            });
-                                        }
-                                    }
-                                };
-                            };
-                            handler.sendEmptyMessage(1);
-                            db.folder().setFolderState(outbox.id, "connected");
-                        }
-
                         // Start monitoring accounts
                         List<EntityAccount> accounts = db.account().getSynchronizingAccounts(false);
                         for (final EntityAccount account : accounts) {
@@ -3229,13 +2926,6 @@ public class ServiceSynchronize extends LifecycleService {
                         for (ServiceState astate : threadState)
                             astate.join();
                         threadState.clear();
-
-                        // Stop monitoring outbox
-                        if (outbox != null) {
-                            Log.i(outbox.name + " unlisten operations");
-                            handler.sendEmptyMessage(0);
-                            db.folder().setFolderState(outbox.id, null);
-                        }
 
                         EntityLog.log(ServiceSynchronize.this, "Main exited");
                     } catch (Throwable ex) {

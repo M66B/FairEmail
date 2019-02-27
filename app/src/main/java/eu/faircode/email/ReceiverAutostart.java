@@ -33,6 +33,7 @@ public class ReceiverAutostart extends BroadcastReceiver {
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction()) ||
                 Intent.ACTION_MY_PACKAGE_REPLACED.equals(intent.getAction())) {
             EntityLog.log(context, intent.getAction());
+
             ServiceSynchronize.init(context, true);
 
             Thread thread = new Thread(new Runnable() {
@@ -40,9 +41,18 @@ public class ReceiverAutostart extends BroadcastReceiver {
                 public void run() {
                     try {
                         DB db = DB.getInstance(context);
+
                         List<EntityMessage> messages = db.message().getSnoozed();
                         for (EntityMessage message : messages)
                             EntityMessage.snooze(context, message.id, message.ui_snoozed);
+
+                        EntityFolder outbox = db.folder().getOutbox();
+                        if (outbox == null)
+                            return;
+
+                        if (db.operation().getOperations(outbox.id).size() > 0)
+                            context.startService(new Intent(context, ServiceSend.class));
+
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }

@@ -162,6 +162,8 @@
 
         <service android:name=".ServiceSynchronize" />
 
+        <service android:name=".ServiceSend" />
+
         <service android:name=".ServiceExternal">
             <intent-filter>
                 <action android:name="${applicationId}.ENABLE" />
