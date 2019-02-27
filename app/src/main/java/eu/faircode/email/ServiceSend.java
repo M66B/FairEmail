@@ -55,8 +55,11 @@ import javax.mail.internet.MimeMessage;
 
 import androidx.core.app.NotificationCompat;
 import androidx.lifecycle.LifecycleService;
+import androidx.lifecycle.Observer;
 
 public class ServiceSend extends LifecycleService {
+    private int lastUnsent = 0;
+
     private static final int IDENTITY_ERROR_AFTER = 30; // minutes
 
     @Override
@@ -68,6 +71,16 @@ public class ServiceSend extends LifecycleService {
         NetworkRequest.Builder builder = new NetworkRequest.Builder();
         builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
         cm.registerNetworkCallback(builder.build(), networkCallback);
+
+        DB db = DB.getInstance(this);
+
+        db.account().liveUnsent().observe(this, new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer unsent) {
+                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                nm.notify(Helper.NOTIFICATION_SEND, getNotificationService(unsent).build());
+            }
+        });
     }
 
     @Override
@@ -87,7 +100,17 @@ public class ServiceSend extends LifecycleService {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        // Build notification
+        startForeground(Helper.NOTIFICATION_SEND, getNotificationService(null).build());
+
+        super.onStartCommand(intent, flags, startId);
+
+        return START_STICKY;
+    }
+
+    NotificationCompat.Builder getNotificationService(Integer unsent) {
+        if (unsent != null)
+            lastUnsent = unsent;
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "service");
 
         builder
@@ -99,11 +122,12 @@ public class ServiceSend extends LifecycleService {
                 .setCategory(Notification.CATEGORY_STATUS)
                 .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
-        startForeground(Helper.NOTIFICATION_SEND, builder.build());
+        if (lastUnsent > 0)
+            builder.setStyle(new NotificationCompat.BigTextStyle().setSummaryText(
+                    getResources().getQuantityString(
+                            R.plurals.title_notification_unsent, lastUnsent, lastUnsent)));
 
-        super.onStartCommand(intent, flags, startId);
-
-        return START_STICKY;
+        return builder;
     }
 
     ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {

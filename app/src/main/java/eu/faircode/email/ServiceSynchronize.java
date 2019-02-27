@@ -86,7 +86,7 @@ import androidx.lifecycle.Observer;
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class ServiceSynchronize extends LifecycleService {
-    private TupleAccountStats lastStats = null;
+    private TupleAccountStats lastStats = new TupleAccountStats();
     private ServiceManager serviceManager = new ServiceManager();
 
     private static final int CONNECT_BACKOFF_START = 8; // seconds
@@ -112,8 +112,6 @@ public class ServiceSynchronize extends LifecycleService {
         // builder.addCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
         cm.registerNetworkCallback(builder.build(), serviceManager);
 
-        JobDaily.schedule(this);
-
         DB db = DB.getInstance(this);
 
         db.account().liveStats().observe(this, new Observer<TupleAccountStats>() {
@@ -130,6 +128,8 @@ public class ServiceSynchronize extends LifecycleService {
                 Core.notifyMessages(ServiceSynchronize.this, messages);
             }
         });
+
+        JobDaily.schedule(this);
     }
 
     @Override
@@ -191,10 +191,8 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private NotificationCompat.Builder getNotificationService(TupleAccountStats stats) {
-        if (stats == null)
-            stats = lastStats;
-        if (stats == null)
-            stats = new TupleAccountStats();
+        if (stats != null)
+            lastStats = stats;
 
         // Build pending intent
         Intent intent = new Intent(this, ServiceUI.class);
@@ -207,7 +205,7 @@ public class ServiceSynchronize extends LifecycleService {
         builder
                 .setSmallIcon(R.drawable.baseline_compare_arrows_white_24)
                 .setContentTitle(getResources().getQuantityString(
-                        R.plurals.title_notification_synchronizing, stats.accounts, stats.accounts))
+                        R.plurals.title_notification_synchronizing, lastStats.accounts, lastStats.accounts))
                 .setContentIntent(pi)
                 .setAutoCancel(false)
                 .setShowWhen(false)
@@ -215,16 +213,10 @@ public class ServiceSynchronize extends LifecycleService {
                 .setCategory(Notification.CATEGORY_STATUS)
                 .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
-        if (stats.operations > 0)
+        if (lastStats.operations > 0)
             builder.setStyle(new NotificationCompat.BigTextStyle().setSummaryText(
                     getResources().getQuantityString(
-                            R.plurals.title_notification_operations, stats.operations, stats.operations)));
-
-        if (stats.unsent > 0)
-            builder.setContentText(getResources().getQuantityString(
-                    R.plurals.title_notification_unsent, stats.unsent, stats.unsent));
-
-        lastStats = stats;
+                            R.plurals.title_notification_operations, lastStats.operations, lastStats.operations)));
 
         return builder;
     }

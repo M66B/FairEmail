@@ -82,10 +82,12 @@ public interface DaoAccount {
             ", (SELECT COUNT(operation.id) FROM operation" +
             "    JOIN folder ON folder.id = operation.folder" +
             "    JOIN account ON account.id = folder.account" + // not outbox
-            "    WHERE account.synchronize) AS operations" +
-            ", (SELECT COUNT(operation.id) FROM operation" +
-            "    WHERE operation.name = '" + EntityOperation.SEND + "') AS unsent")
+            "    WHERE account.synchronize) AS operations")
     LiveData<TupleAccountStats> liveStats();
+
+    @Query("SELECT COUNT(operation.id) FROM operation" +
+            " WHERE operation.name = '" + EntityOperation.SEND + "'")
+    LiveData<Integer> liveUnsent();
 
     @Query("SELECT account.id, swipe_left, l.type AS left_type, swipe_right, r.type AS right_type" +
             " FROM account" +
