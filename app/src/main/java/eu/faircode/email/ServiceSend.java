@@ -33,6 +33,7 @@ import android.text.TextUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.util.ArrayList;
@@ -193,25 +194,23 @@ public class ServiceSend extends LifecycleService {
         }
 
         EntityIdentity ident = db.identity().getIdentity(message.identity);
+        String protocol = ident.getProtocol();
 
         // Get properties
         Properties props = MessageHelper.getSessionProperties(ident.auth_type, ident.realm, ident.insecure);
-        InetAddress ip = (ident.use_ip ? Helper.getLocalIp(this) : null);
-        if (ip == null) {
-            EntityLog.log(this, "Send local host=" + ident.host);
-            if (ident.starttls)
-                props.put("mail.smtp.localhost", ident.host);
+
+        String haddr;
+        if (ident.use_ip) {
+            InetAddress addr = InetAddress.getByName(ident.host);
+            if (addr instanceof Inet4Address)
+                haddr = "[" + Inet4Address.getLocalHost().getHostAddress() + "]";
             else
-                props.put("mail.smtps.localhost", ident.host);
-        } else {
-            InetAddress localhost = InetAddress.getLocalHost();
-            String haddr = "[" + (localhost instanceof Inet6Address ? "IPv6:" : "") + localhost.getHostAddress() + "]";
-            EntityLog.log(this, "Send local address=" + haddr);
-            if (ident.starttls)
-                props.put("mail.smtp.localhost", haddr);
-            else
-                props.put("mail.smtps.localhost", haddr);
-        }
+                haddr = "[IPv6:" + Inet6Address.getLocalHost().getHostAddress() + "]";
+        } else
+            haddr = ident.host;
+
+        EntityLog.log(this, "Send localhost=" + haddr);
+        props.put("mail." + protocol + ".localhost", haddr);
 
         // Create session
         final Session isession = Session.getInstance(props, null);
@@ -244,7 +243,7 @@ public class ServiceSend extends LifecycleService {
 
         // Create transport
         // TODO: cache transport?
-        try (Transport itransport = isession.getTransport(ident.getProtocol())) {
+        try (Transport itransport = isession.getTransport(protocol)) {
             // Connect transport
             db.identity().setIdentityState(ident.id, "connecting");
             try {

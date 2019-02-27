@@ -52,6 +52,7 @@ import com.android.colorpicker.ColorPickerSwatch;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -595,31 +596,29 @@ public class FragmentIdentity extends FragmentBase {
 
                 // Check SMTP server
                 if (check) {
+                    String protocol = (starttls ? "smtp" : "smtps");
+
                     // Get properties
                     Properties props = MessageHelper.getSessionProperties(auth_type, realm, insecure);
-                    InetAddress ip = (use_ip ? Helper.getLocalIp(context) : null);
-                    if (ip == null) {
-                        Log.i("Check local host=" + host);
-                        if (starttls)
-                            props.put("mail.smtp.localhost", host);
+
+                    String haddr;
+                    if (use_ip) {
+                        InetAddress addr = InetAddress.getByName(host);
+                        if (addr instanceof Inet4Address)
+                            haddr = "[" + Inet4Address.getLocalHost().getHostAddress() + "]";
                         else
-                            props.put("mail.smtps.localhost", host);
-                    } else {
-                        InetAddress localhost = InetAddress.getLocalHost();
-                        String haddr = "[" + (localhost instanceof Inet6Address ? "IPv6:" : "") + localhost.getHostAddress() + "]";
-                        Log.i("Check local address=" + haddr);
-                        if (starttls)
-                            props.put("mail.smtp.localhost", haddr);
-                        else
-                            props.put("mail.smtps.localhost", haddr);
-                    }
+                            haddr = "[IPv6:" + Inet6Address.getLocalHost().getHostAddress() + "]";
+                    } else
+                        haddr = host;
+
+                    Log.i("Send localhost=" + haddr);
+                    props.put("mail." + protocol + ".localhost", haddr);
 
                     // Create session
                     Session isession = Session.getInstance(props, null);
                     isession.setDebug(true);
 
                     // Create transport
-                    String protocol = (starttls ? "smtp" : "smtps");
                     try (Transport itransport = isession.getTransport(protocol)) {
                         try {
                             itransport.connect(host, Integer.parseInt(port), user, password);
