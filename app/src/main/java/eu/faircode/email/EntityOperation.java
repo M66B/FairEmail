@@ -99,7 +99,7 @@ public class EntityOperation {
         queue(context, db, message, name, jargs);
     }
 
-    static void sync(DB db, long fid) {
+    static void sync(Context context, DB db, long fid) {
         if (db.operation().getOperationCount(fid, EntityOperation.SYNC) == 0) {
 
             EntityFolder folder = db.folder().getFolder(fid);
@@ -113,6 +113,9 @@ public class EntityOperation {
             operation.id = db.operation().insertOperation(operation);
 
             db.folder().setFolderSyncState(fid, "requested");
+
+            if (folder.account == null) // Outbox
+                context.startService(new Intent(context, ServiceSend.class));
 
             Log.i("Queued sync folder=" + folder);
         }

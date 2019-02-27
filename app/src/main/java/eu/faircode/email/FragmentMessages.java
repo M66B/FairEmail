@@ -31,6 +31,7 @@ import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
+import android.net.NetworkInfo;
 import android.net.NetworkRequest;
 import android.os.Bundle;
 import android.os.Handler;
@@ -495,7 +496,9 @@ public class FragmentMessages extends FragmentBase {
                 if (!prefs.getBoolean("enabled", true))
                     throw new IllegalStateException(context.getString(R.string.title_sync_disabled));
 
-                boolean internet = (Helper.isMetered(context, true) != null);
+                ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo ni = cm.getActiveNetworkInfo();
+                boolean internet = (ni != null && ni.isConnected());
 
                 DB db = DB.getInstance(context);
                 try {
@@ -515,9 +518,10 @@ public class FragmentMessages extends FragmentBase {
                     boolean now = false;
                     boolean nointernet = false;
                     for (EntityFolder folder : folders)
-                        if (folder.account == null) { // outbox
-                            now = "connected".equals(folder.state);
-                            EntityOperation.sync(db, folder.id);
+                        if (folder.account == null) {
+                            // Outbox
+                            now = internet;
+                            EntityOperation.sync(context, db, folder.id);
                         } else {
                             EntityAccount account = db.account().getAccount(folder.account);
                             if (account.ondemand) {
@@ -528,7 +532,7 @@ public class FragmentMessages extends FragmentBase {
                                     nointernet = true;
                             } else {
                                 now = "connected".equals(account.state);
-                                EntityOperation.sync(db, folder.id);
+                                EntityOperation.sync(context, db, folder.id);
                             }
                         }
 

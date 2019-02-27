@@ -134,17 +134,27 @@ public class ServiceSend extends LifecycleService {
                                 List<EntityOperation> ops = db.operation().getOperations(outbox.id);
                                 Log.i(outbox.name + " pending operations=" + ops.size());
                                 for (EntityOperation op : ops) {
-                                    EntityMessage message = db.message().getMessage(op.message);
+                                    EntityMessage message = null;
                                     try {
                                         Log.i(outbox.name +
                                                 " start op=" + op.id + "/" + op.name +
                                                 " msg=" + op.message +
                                                 " args=" + op.args);
 
-                                        if (message == null)
-                                            throw new MessageRemovedException();
+                                        switch (op.name) {
+                                            case EntityOperation.SYNC:
+                                                break;
 
-                                        send(message);
+                                            case EntityOperation.SEND:
+                                                message = db.message().getMessage(op.message);
+                                                if (message == null)
+                                                    throw new MessageRemovedException();
+                                                send(message);
+                                                break;
+
+                                            default:
+                                                throw new IllegalArgumentException("Unknown operation=" + op.name);
+                                        }
 
                                         db.operation().deleteOperation(op.id);
                                     } catch (Throwable ex) {
@@ -153,7 +163,9 @@ public class ServiceSend extends LifecycleService {
                                         if (message != null)
                                             db.message().setMessageError(message.id, Helper.formatThrowable(ex));
 
-                                        if (ex instanceof SendFailedException)
+                                        if (ex instanceof MessageRemovedException ||
+                                                ex instanceof SendFailedException ||
+                                                ex instanceof IllegalArgumentException)
                                             db.operation().deleteOperation(op.id);
                                         else
                                             throw ex;

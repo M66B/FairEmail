@@ -26,6 +26,8 @@ import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -294,16 +296,19 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             if (!prefs.getBoolean("enabled", true))
                                 throw new IllegalStateException(context.getString(R.string.title_sync_disabled));
 
-                            boolean internet = (Helper.isMetered(context, true) != null);
+                            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                            NetworkInfo ni = cm.getActiveNetworkInfo();
+                            boolean internet = (ni != null && ni.isConnected());
 
                             DB db = DB.getInstance(context);
                             try {
                                 db.beginTransaction();
 
                                 boolean now;
-                                if (aid < 0) { // outbox
-                                    now = "connected".equals(folder.state);
-                                    EntityOperation.sync(db, fid);
+                                if (aid < 0) {
+                                    // Outbox
+                                    now = internet;
+                                    EntityOperation.sync(context, db, fid);
                                 } else {
                                     EntityAccount account = db.account().getAccount(aid);
                                     if (account.ondemand) {
@@ -314,7 +319,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                             throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
                                     } else {
                                         now = "connected".equals(account.state);
-                                        EntityOperation.sync(db, fid);
+                                        EntityOperation.sync(context, db, fid);
                                     }
                                 }
 

@@ -1122,7 +1122,7 @@ public class ServiceSynchronize extends LifecycleService {
                             idler.start();
                             idlers.add(idler);
 
-                            EntityOperation.sync(db, folder.id);
+                            EntityOperation.sync(this, db, folder.id);
                         } else
                             folders.put(folder, null);
 
@@ -1260,7 +1260,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         if (!folders.get(folder).isOpen())
                                             throw new FolderClosedException(folders.get(folder));
                                     } else
-                                        EntityOperation.sync(db, folder.id);
+                                        EntityOperation.sync(this, db, folder.id);
 
                             // Successfully connected: reset back off time
                             backoff = CONNECT_BACKOFF_START;
@@ -1498,7 +1498,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 break;
 
                             default:
-                                throw new MessagingException("Unknown operation name=" + op.name);
+                                throw new IllegalArgumentException("Unknown operation=" + op.name);
                         }
 
                         // Operation succeeded
