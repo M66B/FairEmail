@@ -42,22 +42,23 @@ public class JobDaily extends JobService {
     private static final long CACHE_IMAGE_DURATION = 3 * 24 * 3600 * 1000L; // milliseconds
     private static final long KEEP_LOG_DURATION = 24 * 3600 * 1000L; // milliseconds
 
-    public static void schedule(Context context, boolean enabled) {
+    public static void schedule(Context context) {
         JobScheduler scheduler = (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
 
         JobInfo.Builder job = new JobInfo.Builder(Helper.JOB_DAILY, new ComponentName(context, JobDaily.class))
                 .setPeriodic(CLEANUP_INTERVAL)
                 .setRequiresDeviceIdle(true);
 
-        if (enabled)
-            if (scheduler.schedule(job.build()) == JobScheduler.RESULT_SUCCESS)
-                Log.i("Scheduled daily job");
-            else
-                Log.e("Scheduling daily job failed");
-        else {
-            Log.i("Cancelled daily job");
-            scheduler.cancel(Helper.JOB_DAILY);
-        }
+        if (scheduler.schedule(job.build()) == JobScheduler.RESULT_SUCCESS)
+            Log.i("Scheduled daily job");
+        else
+            Log.e("Scheduling daily job failed");
+    }
+
+    public static void cancel(Context context) {
+        JobScheduler scheduler = (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
+        scheduler.cancel(Helper.JOB_DAILY);
+        Log.i("Cancelled daily job");
     }
 
     @Override

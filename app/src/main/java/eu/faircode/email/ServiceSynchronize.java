@@ -180,6 +180,8 @@ public class ServiceSynchronize extends LifecycleService {
         // builder.addCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
         cm.registerNetworkCallback(builder.build(), serviceManager);
 
+        JobDaily.schedule(this);
+
         DB db = DB.getInstance(this);
 
         db.account().liveStats().observe(this, new Observer<TupleAccountStats>() {
@@ -295,6 +297,8 @@ public class ServiceSynchronize extends LifecycleService {
 
         Widget.update(this, -1);
 
+        JobDaily.cancel(this);
+
         stopForeground(true);
 
         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -336,7 +340,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                     case "init":
                         // Network events will manage the service
-                        serviceManager.service_init(intent.getBooleanExtra("schedule", false));
+                        serviceManager.service_init(intent.getBooleanExtra("boot", false));
                         break;
 
                     case "schedule":
@@ -3050,17 +3054,13 @@ public class ServiceSynchronize extends LifecycleService {
             return prefs.getBoolean("enabled", true);
         }
 
-        private void service_init(boolean schedule) {
-            boolean enabled = isEnabled();
-            EntityLog.log(ServiceSynchronize.this,
-                    "Service init schedule=" + schedule + " enabled=" + enabled);
+        private void service_init(boolean boot) {
+            EntityLog.log(ServiceSynchronize.this, "Service init boot=" + boot);
 
-            if (schedule) {
+            if (boot)
                 next_schedule();
-                JobDaily.schedule(ServiceSynchronize.this, enabled);
-            }
 
-            if (!enabled)
+            if (!isEnabled())
                 stopSelf();
         }
 
@@ -3085,8 +3085,6 @@ public class ServiceSynchronize extends LifecycleService {
                 if (started)
                     queue_reload(false, "service destroy");
             }
-
-            JobDaily.schedule(ServiceSynchronize.this, false);
         }
 
         private void start() {
@@ -3384,11 +3382,11 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    public static void init(Context context, boolean schedule) {
+    public static void init(Context context, boolean boot) {
         ContextCompat.startForegroundService(context,
                 new Intent(context, ServiceSynchronize.class)
                         .setAction("init")
-                        .putExtra("schedule", schedule));
+                        .putExtra("boot", boot));
     }
 
     public static void schedule(Context context) {
