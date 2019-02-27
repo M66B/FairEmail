@@ -130,51 +130,51 @@ class Core {
 
                         switch (op.name) {
                             case EntityOperation.SEEN:
-                                doSeen(folder, (IMAPFolder) ifolder, message, jargs, context, db);
+                                onSeen(context, jargs, folder, message, (IMAPFolder) ifolder);
                                 break;
 
                             case EntityOperation.FLAG:
-                                doFlag(folder, (IMAPFolder) ifolder, message, jargs, context, db);
+                                onFlag(context, jargs, folder, message, (IMAPFolder) ifolder);
                                 break;
 
                             case EntityOperation.ANSWERED:
-                                doAnswered(folder, (IMAPFolder) ifolder, message, jargs, context, db);
+                                onAnswered(context, jargs, folder, message, (IMAPFolder) ifolder);
                                 break;
 
                             case EntityOperation.KEYWORD:
-                                doKeyword(folder, (IMAPFolder) ifolder, message, jargs, context, db);
+                                onKeyword(context, jargs, folder, message, (IMAPFolder) ifolder);
                                 break;
 
                             case EntityOperation.ADD:
-                                doAdd(folder, isession, (IMAPStore) istore, (IMAPFolder) ifolder, message, jargs, context, db);
+                                onAdd(context, jargs, folder, message, isession, (IMAPStore) istore, (IMAPFolder) ifolder);
                                 break;
 
                             case EntityOperation.MOVE:
-                                doMove(folder, isession, (IMAPStore) istore, (IMAPFolder) ifolder, message, jargs, context, db);
+                                onMove(context, jargs, folder, message, isession, (IMAPStore) istore, (IMAPFolder) ifolder);
                                 break;
 
                             case EntityOperation.DELETE:
-                                doDelete(folder, (IMAPFolder) ifolder, message, jargs, context, db);
+                                onDelete(context, jargs, folder, message, (IMAPFolder) ifolder);
                                 break;
 
                             case EntityOperation.HEADERS:
-                                doHeaders(folder, (IMAPFolder) ifolder, message, context, db);
+                                onHeaders(context, folder, message, (IMAPFolder) ifolder);
                                 break;
 
                             case EntityOperation.RAW:
-                                doRaw(folder, (IMAPFolder) ifolder, message, jargs, context, db);
+                                onRaw(context, jargs, folder, message, (IMAPFolder) ifolder);
                                 break;
 
                             case EntityOperation.BODY:
-                                doBody(folder, (IMAPFolder) ifolder, message, context, db);
+                                onBody(context, folder, message, (IMAPFolder) ifolder);
                                 break;
 
                             case EntityOperation.ATTACHMENT:
-                                doAttachment(folder, op, (IMAPFolder) ifolder, message, jargs, context, db);
+                                onAttachment(context, jargs, folder, message, op, (IMAPFolder) ifolder);
                                 break;
 
                             case EntityOperation.SYNC:
-                                synchronizeMessages(context, account, folder, (IMAPFolder) ifolder, jargs, state);
+                                onSynchronizeMessages(context, account, folder, (IMAPFolder) ifolder, jargs, state);
                                 break;
 
                             default:
@@ -248,8 +248,10 @@ class Core {
         }
     }
 
-    private static void doSeen(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, Context context, DB db) throws MessagingException, JSONException {
+    private static void onSeen(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException {
         // Mark message (un)seen
+        DB db = DB.getInstance(context);
+
         if (!ifolder.getPermanentFlags().contains(Flags.Flag.SEEN)) {
             db.message().setMessageSeen(message.id, false);
             db.message().setMessageUiSeen(message.id, false);
@@ -269,8 +271,10 @@ class Core {
         db.message().setMessageSeen(message.id, seen);
     }
 
-    private static void doFlag(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, Context context, DB db) throws MessagingException, JSONException {
+    private static void onFlag(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException {
         // Star/unstar message
+        DB db = DB.getInstance(context);
+
         if (!ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED)) {
             db.message().setMessageFlagged(message.id, false);
             db.message().setMessageUiFlagged(message.id, false);
@@ -290,8 +294,10 @@ class Core {
         db.message().setMessageFlagged(message.id, flagged);
     }
 
-    private static void doAnswered(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, Context context, DB db) throws MessagingException, JSONException {
+    private static void onAnswered(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException {
         // Mark message (un)answered
+        DB db = DB.getInstance(context);
+
         if (!ifolder.getPermanentFlags().contains(Flags.Flag.ANSWERED)) {
             db.message().setMessageAnswered(message.id, false);
             db.message().setMessageUiAnswered(message.id, false);
@@ -311,8 +317,10 @@ class Core {
         db.message().setMessageAnswered(message.id, answered);
     }
 
-    private static void doKeyword(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, Context context, DB db) throws MessagingException, JSONException {
+    private static void onKeyword(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException {
         // Set/reset user flag
+        DB db = DB.getInstance(context);
+
         if (!ifolder.getPermanentFlags().contains(Flags.Flag.USER)) {
             db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(null));
             return;
@@ -348,8 +356,10 @@ class Core {
         }
     }
 
-    private static void doAdd(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, Context context, DB db) throws MessagingException, JSONException, IOException {
+    private static void onAdd(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, Session isession, IMAPStore istore, IMAPFolder ifolder) throws MessagingException, JSONException, IOException {
         // Add message
+        DB db = DB.getInstance(context);
+
         if (TextUtils.isEmpty(message.msgid))
             throw new IllegalArgumentException("Message ID missing");
 
@@ -424,8 +434,10 @@ class Core {
         }
     }
 
-    private static void doMove(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, Context context, DB db) throws JSONException, MessagingException, IOException {
+    private static void onMove(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, Session isession, IMAPStore istore, IMAPFolder ifolder) throws JSONException, MessagingException, IOException {
         // Move message
+        DB db = DB.getInstance(context);
+
         Message imessage = ifolder.getMessageByUID(message.uid);
         if (imessage == null)
             throw new MessageRemovedException();
@@ -528,8 +540,10 @@ class Core {
         }
     }
 
-    private static void doDelete(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, Context context, DB db) throws MessagingException {
+    private static void onDelete(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException {
         // Delete message
+        DB db = DB.getInstance(context);
+
         if (TextUtils.isEmpty(message.msgid))
             throw new IllegalArgumentException("Message ID missing");
 
@@ -543,7 +557,10 @@ class Core {
         db.message().deleteMessage(message.id);
     }
 
-    private static void doHeaders(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, Context context, DB db) throws MessagingException {
+    private static void onHeaders(Context context, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException {
+        // Download headers
+        DB db = DB.getInstance(context);
+
         if (message.headers != null)
             return;
 
@@ -555,7 +572,10 @@ class Core {
         db.message().setMessageHeaders(message.id, helper.getHeaders());
     }
 
-    private static void doRaw(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, Context context, DB db) throws MessagingException, IOException, JSONException {
+    private static void onRaw(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, IOException, JSONException {
+        // Download raw message
+        DB db = DB.getInstance(context);
+
         if (message.raw == null || !message.raw) {
             IMAPMessage imessage = (IMAPMessage) ifolder.getMessageByUID(message.uid);
             if (imessage == null)
@@ -584,8 +604,10 @@ class Core {
         }
     }
 
-    private static void doBody(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, Context context, DB db) throws MessagingException, IOException {
+    private static void onBody(Context context, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, IOException {
         // Download message body
+        DB db = DB.getInstance(context);
+
         if (message.content)
             return;
 
@@ -603,8 +625,10 @@ class Core {
         db.message().setMessageWarning(message.id, parts.getWarnings(message.warning));
     }
 
-    private static void doAttachment(EntityFolder folder, EntityOperation op, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, Context context, DB db) throws JSONException, MessagingException, IOException {
+    private static void onAttachment(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws JSONException, MessagingException, IOException {
         // Download attachment
+        DB db = DB.getInstance(context);
+
         int sequence = jargs.getInt(0);
 
         // Get attachment
@@ -652,7 +676,7 @@ class Core {
         }
     }
 
-    static void synchronizeFolders(Context context, EntityAccount account, Store istore, State state) throws MessagingException {
+    static void onSynchronizeFolders(Context context, EntityAccount account, Store istore, State state) throws MessagingException {
         DB db = DB.getInstance(context);
         try {
             db.beginTransaction();
@@ -757,7 +781,7 @@ class Core {
         }
     }
 
-    static void synchronizeMessages(Context context, EntityAccount account, final EntityFolder folder, IMAPFolder ifolder, JSONArray jargs, State state) throws JSONException, MessagingException, IOException {
+    static void onSynchronizeMessages(Context context, EntityAccount account, final EntityFolder folder, IMAPFolder ifolder, JSONArray jargs, State state) throws JSONException, MessagingException, IOException {
         final DB db = DB.getInstance(context);
         try {
             int sync_days = jargs.getInt(0);

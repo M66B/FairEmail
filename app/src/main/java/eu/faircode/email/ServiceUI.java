@@ -264,7 +264,7 @@ public class ServiceUI extends IntentService {
             Log.i(account.name + " connected");
 
             // Synchronize folders
-            Core.synchronizeFolders(this, account, istore, new Core.State());
+            Core.onSynchronizeFolders(this, account, istore, new Core.State());
 
             // Connect folder
             Log.i(folder.name + " connecting");
@@ -279,7 +279,7 @@ public class ServiceUI extends IntentService {
             Core.processOperations(this, account, folder, isession, istore, ifolder, new Core.State());
 
             // Synchronize messages
-            Core.synchronizeMessages(this, account, folder, (IMAPFolder) ifolder, folder.getSyncArgs(), new Core.State());
+            Core.onSynchronizeMessages(this, account, folder, (IMAPFolder) ifolder, folder.getSyncArgs(), new Core.State());
 
         } catch (Throwable ex) {
             Log.w(ex);

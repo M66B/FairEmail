@@ -680,7 +680,7 @@ public class ServiceSynchronize extends LifecycleService {
                     EntityLog.log(this, account.name + " connected");
 
                     // Update folder list
-                    Core.synchronizeFolders(this, account, istore, state);
+                    Core.onSynchronizeFolders(this, account, istore, state);
 
                     // Open synchronizing folders
                     final ExecutorService pollExecutor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
