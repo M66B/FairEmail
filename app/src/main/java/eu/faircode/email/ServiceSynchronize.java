@@ -28,26 +28,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
-import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
-import android.text.TextUtils;
 import android.util.LongSparseArray;
 
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
-
-import org.jsoup.Jsoup;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -159,8 +152,8 @@ public class ServiceSynchronize extends LifecycleService {
 
                 for (int i = 0; i < accountMessages.size(); i++) {
                     long account = accountMessages.keyAt(i);
-                    List<Notification> notifications = getNotificationUnseen(
-                            account, accountName.get(account), accountMessages.get(account));
+                    List<Notification> notifications = Core.getNotificationUnseen(
+                            ServiceSynchronize.this, account, accountName.get(account), accountMessages.get(account));
 
                     List<Integer> all = new ArrayList<>();
                     List<Integer> added = new ArrayList<>();
@@ -305,229 +298,6 @@ public class ServiceSynchronize extends LifecycleService {
         lastStats = stats;
 
         return builder;
-    }
-
-    private List<Notification> getNotificationUnseen(long account, String accountName, List<TupleMessageEx> messages) {
-        List<Notification> notifications = new ArrayList<>();
-
-        if (messages.size() == 0)
-            return notifications;
-
-        boolean pro = Helper.isPro(this);
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-
-        // https://developer.android.com/training/notify-user/group
-        String group = Long.toString(account);
-
-        String title = getResources().getQuantityString(
-                R.plurals.title_notification_unseen, messages.size(), messages.size());
-
-        // Get contact info
-        Map<TupleMessageEx, ContactInfo> messageContact = new HashMap<>();
-        for (TupleMessageEx message : messages)
-            messageContact.put(message, ContactInfo.get(this, message.from, false));
-
-        // Build pending intent
-        Intent summary = new Intent(this, ServiceUI.class);
-        summary.setAction("summary");
-        PendingIntent piSummary = PendingIntent.getService(this, ServiceUI.PI_SUMMARY, summary, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        Intent clear = new Intent(this, ServiceUI.class);
-        clear.setAction("clear");
-        PendingIntent piClear = PendingIntent.getService(this, ServiceUI.PI_CLEAR, clear, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        String channelName = (account == 0 ? "notification" : EntityAccount.getNotificationChannelName(account));
-
-        // Build public notification
-        NotificationCompat.Builder pbuilder = new NotificationCompat.Builder(this, channelName);
-
-        pbuilder
-                .setSmallIcon(R.drawable.baseline_email_white_24)
-                .setContentTitle(title)
-                .setContentIntent(piSummary)
-                .setNumber(messages.size())
-                .setShowWhen(false)
-                .setDeleteIntent(piClear)
-                .setPriority(Notification.PRIORITY_DEFAULT)
-                .setCategory(Notification.CATEGORY_STATUS)
-                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
-
-        if (!TextUtils.isEmpty(accountName))
-            pbuilder.setSubText(accountName);
-
-        // Build notification
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channelName);
-
-        builder
-                .setSmallIcon(R.drawable.baseline_email_white_24)
-                .setContentTitle(getResources().getQuantityString(R.plurals.title_notification_unseen, messages.size(), messages.size()))
-                .setContentIntent(piSummary)
-                .setNumber(messages.size())
-                .setShowWhen(false)
-                .setDeleteIntent(piClear)
-                .setPriority(Notification.PRIORITY_DEFAULT)
-                .setCategory(Notification.CATEGORY_STATUS)
-                .setVisibility(Notification.VISIBILITY_PRIVATE)
-                .setPublicVersion(pbuilder.build())
-                .setGroup(group)
-                .setGroupSummary(true);
-
-        if (!TextUtils.isEmpty(accountName))
-            builder.setSubText(accountName);
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-            boolean light = prefs.getBoolean("light", false);
-            String sound = prefs.getString("sound", null);
-
-            if (light)
-                builder.setLights(Color.GREEN, 1000, 1000);
-
-            if (sound == null) {
-                Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-                builder.setSound(uri);
-            } else
-                builder.setSound(Uri.parse(sound));
-
-            builder.setOnlyAlertOnce(true);
-        } else
-            builder.setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
-
-        if (pro) {
-            DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
-            StringBuilder sb = new StringBuilder();
-            for (EntityMessage message : messages) {
-                sb.append("<strong>").append(messageContact.get(message).getDisplayName(true)).append("</strong>");
-                if (!TextUtils.isEmpty(message.subject))
-                    sb.append(": ").append(message.subject);
-                sb.append(" ").append(df.format(message.received));
-                sb.append("<br>");
-            }
-
-            builder.setStyle(new NotificationCompat.BigTextStyle()
-                    .bigText(HtmlHelper.fromHtml(sb.toString()))
-                    .setSummaryText(title));
-        }
-
-        notifications.add(builder.build());
-
-        boolean preview = prefs.getBoolean("notify_preview", true);
-        for (TupleMessageEx message : messages) {
-            ContactInfo info = messageContact.get(message);
-
-            Bundle args = new Bundle();
-            args.putLong("id", message.content ? message.id : -message.id);
-
-            Intent thread = new Intent(this, ActivityView.class);
-            thread.setAction("thread:" + message.thread);
-            thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            thread.putExtra("account", message.account);
-            thread.putExtra("id", message.id);
-            PendingIntent piContent = PendingIntent.getActivity(
-                    this, ActivityView.REQUEST_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
-
-            Intent ignored = new Intent(this, ServiceUI.class);
-            ignored.setAction("ignore:" + message.id);
-            PendingIntent piDelete = PendingIntent.getService(this, ServiceUI.PI_IGNORED, ignored, PendingIntent.FLAG_UPDATE_CURRENT);
-
-            Intent seen = new Intent(this, ServiceUI.class);
-            seen.setAction("seen:" + message.id);
-            PendingIntent piSeen = PendingIntent.getService(this, ServiceUI.PI_SEEN, seen, PendingIntent.FLAG_UPDATE_CURRENT);
-
-            Intent archive = new Intent(this, ServiceUI.class);
-            archive.setAction("archive:" + message.id);
-            PendingIntent piArchive = PendingIntent.getService(this, ServiceUI.PI_ARCHIVE, archive, PendingIntent.FLAG_UPDATE_CURRENT);
-
-            Intent trash = new Intent(this, ServiceUI.class);
-            trash.setAction("trash:" + message.id);
-            PendingIntent piTrash = PendingIntent.getService(this, ServiceUI.PI_TRASH, trash, PendingIntent.FLAG_UPDATE_CURRENT);
-
-            NotificationCompat.Action.Builder actionSeen = new NotificationCompat.Action.Builder(
-                    R.drawable.baseline_visibility_24,
-                    getString(R.string.title_action_seen),
-                    piSeen);
-
-            NotificationCompat.Action.Builder actionArchive = new NotificationCompat.Action.Builder(
-                    R.drawable.baseline_archive_24,
-                    getString(R.string.title_action_archive),
-                    piArchive);
-
-            NotificationCompat.Action.Builder actionTrash = new NotificationCompat.Action.Builder(
-                    R.drawable.baseline_delete_24,
-                    getString(R.string.title_action_trash),
-                    piTrash);
-
-            NotificationCompat.Builder mbuilder;
-            mbuilder = new NotificationCompat.Builder(this, channelName);
-
-            String folderName = message.folderDisplay == null
-                    ? Helper.localizeFolderName(this, message.folderName)
-                    : message.folderDisplay;
-
-            mbuilder
-                    .addExtras(args)
-                    .setSmallIcon(R.drawable.baseline_email_white_24)
-                    .setContentTitle(info.getDisplayName(true))
-                    .setSubText(message.accountName + " · " + folderName)
-                    .setContentIntent(piContent)
-                    .setWhen(message.received)
-                    .setDeleteIntent(piDelete)
-                    .setPriority(Notification.PRIORITY_DEFAULT)
-                    .setOnlyAlertOnce(true)
-                    .setCategory(Notification.CATEGORY_MESSAGE)
-                    .setVisibility(Notification.VISIBILITY_PRIVATE)
-                    .setGroup(group)
-                    .setGroupSummary(false)
-                    .addAction(actionSeen.build())
-                    .addAction(actionArchive.build())
-                    .addAction(actionTrash.build());
-
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
-                mbuilder.setSound(null);
-
-            if (pro) {
-                if (!TextUtils.isEmpty(message.subject))
-                    mbuilder.setContentText(message.subject);
-
-                if (message.content && preview)
-                    try {
-                        String body = Helper.readText(EntityMessage.getFile(this, message.id));
-                        StringBuilder sb = new StringBuilder();
-                        if (!TextUtils.isEmpty(message.subject))
-                            sb.append(message.subject).append("<br>");
-                        String text = Jsoup.parse(body).text();
-                        if (!TextUtils.isEmpty(text)) {
-                            sb.append("<em>");
-                            if (text.length() > HtmlHelper.PREVIEW_SIZE) {
-                                sb.append(text.substring(0, HtmlHelper.PREVIEW_SIZE));
-                                sb.append("…");
-                            } else
-                                sb.append(text);
-                            sb.append("</em>");
-                        }
-                        mbuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(HtmlHelper.fromHtml(sb.toString())));
-                    } catch (IOException ex) {
-                        Log.e(ex);
-                        mbuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(ex.toString()));
-                    }
-
-                if (info.hasPhoto())
-                    mbuilder.setLargeIcon(info.getPhotoBitmap());
-
-                if (info.hasLookupUri())
-                    mbuilder.addPerson(info.getLookupUri().toString());
-
-                if (message.accountColor != null) {
-                    mbuilder.setColor(message.accountColor);
-                    mbuilder.setColorized(true);
-                }
-            }
-
-            mbuilder.setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
-
-            notifications.add(mbuilder.build());
-        }
-
-        return notifications;
     }
 
     private void monitorAccount(final EntityAccount account, final Core.State state) throws NoSuchProviderException {
