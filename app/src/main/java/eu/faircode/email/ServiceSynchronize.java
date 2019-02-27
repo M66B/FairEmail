@@ -1245,6 +1245,11 @@ public class ServiceSynchronize extends LifecycleService {
             return prefs.getBoolean("enabled", true);
         }
 
+        private boolean hasWork() {
+            DB db = DB.getInstance(ServiceSynchronize.this);
+            return (db.account().getSynchronizingAccounts(false).size() > 0);
+        }
+
         private void service_init(boolean boot) {
             EntityLog.log(ServiceSynchronize.this, "Service init boot=" + boot);
 
@@ -1478,12 +1483,12 @@ public class ServiceSynchronize extends LifecycleService {
                         queued--;
                         EntityLog.log(ServiceSynchronize.this, "Reload done queued=" + queued);
 
-                        if (queued == 0 && !isEnabled()) {
+                        if (queued == 0 && !(isEnabled() && hasWork())) {
                             try {
                                 Thread.sleep(STOP_DELAY);
                             } catch (InterruptedException ignored) {
                             }
-                            if (queued == 0 && !isEnabled()) {
+                            if (queued == 0 && !(isEnabled() && hasWork())) {
                                 EntityLog.log(ServiceSynchronize.this, "Service stop");
                                 stopSelf();
                             }
