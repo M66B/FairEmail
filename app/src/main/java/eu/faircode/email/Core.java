@@ -174,10 +174,7 @@ class Core {
                                 break;
 
                             case EntityOperation.SYNC:
-                                if (folder.account == null)
-                                    db.folder().setFolderError(folder.id, null);
-                                else
-                                    synchronizeMessages(context, account, folder, (IMAPFolder) ifolder, jargs, state);
+                                synchronizeMessages(context, account, folder, (IMAPFolder) ifolder, jargs, state);
                                 break;
 
                             default:

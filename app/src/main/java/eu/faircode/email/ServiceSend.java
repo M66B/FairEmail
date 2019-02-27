@@ -143,6 +143,7 @@ public class ServiceSend extends LifecycleService {
 
                                         switch (op.name) {
                                             case EntityOperation.SYNC:
+                                                db.folder().setFolderError(outbox.id, null);
                                                 break;
 
                                             case EntityOperation.SEND:
