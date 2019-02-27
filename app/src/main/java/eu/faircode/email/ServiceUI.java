@@ -279,7 +279,7 @@ public class ServiceUI extends IntentService {
             Core.processOperations(this, account, folder, isession, istore, ifolder, new Core.State());
 
             // Synchronize messages
-            Core.onSynchronizeMessages(this, account, folder, (IMAPFolder) ifolder, folder.getSyncArgs(), new Core.State());
+            Core.onSynchronizeMessages(this, folder.getSyncArgs(), account, folder, (IMAPFolder) ifolder, new Core.State());
 
         } catch (Throwable ex) {
             Log.w(ex);

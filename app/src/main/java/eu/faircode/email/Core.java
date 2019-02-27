@@ -185,7 +185,7 @@ class Core {
                                 break;
 
                             case EntityOperation.SYNC:
-                                onSynchronizeMessages(context, account, folder, (IMAPFolder) ifolder, jargs, state);
+                                onSynchronizeMessages(context, jargs, account, folder, (IMAPFolder) ifolder, state);
                                 break;
 
                             default:
@@ -792,7 +792,10 @@ class Core {
         }
     }
 
-    static void onSynchronizeMessages(Context context, EntityAccount account, final EntityFolder folder, IMAPFolder ifolder, JSONArray jargs, State state) throws JSONException, MessagingException, IOException {
+    static void onSynchronizeMessages(
+            Context context, JSONArray jargs,
+            EntityAccount account, final EntityFolder folder,
+            IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
         final DB db = DB.getInstance(context);
         try {
             int sync_days = jargs.getInt(0);
@@ -1389,7 +1392,7 @@ class Core {
         }
     }
 
-    static void notify(Context context, List<TupleMessageEx> messages) {
+    static void notifyMessages(Context context, List<TupleMessageEx> messages) {
         Log.i("Notify messages=" + messages.size());
 
         Widget.update(context, messages.size());
@@ -1476,7 +1479,10 @@ class Core {
         }
     }
 
-    private static List<Notification> getNotificationUnseen(Context context, long account, String accountName, List<TupleMessageEx> messages) {
+    private static List<Notification> getNotificationUnseen(
+            Context context,
+            long account, String accountName,
+            List<TupleMessageEx> messages) {
         List<Notification> notifications = new ArrayList<>();
 
         if (messages.size() == 0)

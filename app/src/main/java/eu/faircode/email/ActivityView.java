@@ -356,7 +356,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         db.message().liveUnseenNotify().observe(this, new Observer<List<TupleMessageEx>>() {
             @Override
             public void onChanged(List<TupleMessageEx> messages) {
-                Core.notify(ActivityView.this, messages);
+                Core.notifyMessages(ActivityView.this, messages);
             }
         });
 
