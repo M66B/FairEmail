@@ -185,6 +185,7 @@ public class ServiceSend extends LifecycleService {
                                 Log.e(outbox.name, ex);
                                 db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex, true));
                             } finally {
+                                db.folder().setFolderState(outbox.id, null);
                                 db.folder().setFolderSyncState(outbox.id, null);
                             }
                         } finally {

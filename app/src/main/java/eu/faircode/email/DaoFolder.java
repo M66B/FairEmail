@@ -50,7 +50,9 @@ public interface DaoFolder {
             " AND (:search OR (account.synchronize AND account.browse))")
     EntityFolder getBrowsableFolder(long folder, boolean search);
 
-    @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
+    @Query("SELECT folder.*" +
+            ", account.name AS accountName, account.color AS accountColor" +
+            ", account.state AS accountState, account.ondemand AS accountOnDemand" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
@@ -64,7 +66,9 @@ public interface DaoFolder {
             " GROUP BY folder.id")
     LiveData<List<TupleFolderEx>> liveFolders(Long account);
 
-    @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
+    @Query("SELECT folder.*" +
+            ", account.name AS accountName, account.color AS accountColor" +
+            ", account.state AS accountState, account.ondemand AS accountOnDemand" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
@@ -81,7 +85,9 @@ public interface DaoFolder {
             " WHERE `primary` AND type = '" + EntityFolder.DRAFTS + "'")
     LiveData<EntityFolder> livePrimaryDrafts();
 
-    @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
+    @Query("SELECT folder.*" +
+            ", account.name AS accountName, account.color AS accountColor" +
+            ", account.state AS accountState, account.ondemand AS accountOnDemand" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +

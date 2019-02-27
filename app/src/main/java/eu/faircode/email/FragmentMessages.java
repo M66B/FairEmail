@@ -516,8 +516,11 @@ public class FragmentMessages extends FragmentBase {
                     for (EntityFolder folder : folders)
                         if (folder.account == null) {
                             // Outbox
-                            now = internet;
-                            EntityOperation.sync(context, db, folder.id);
+                            if (internet) {
+                                now = true;
+                                EntityOperation.sync(context, db, folder.id);
+                            } else
+                                nointernet = true;
                         } else {
                             EntityAccount account = db.account().getAccount(folder.account);
                             if (account.ondemand) {
@@ -1555,7 +1558,7 @@ public class FragmentMessages extends FragmentBase {
 
                         boolean refreshing = false;
                         for (TupleFolderEx folder : folders)
-                            if (folder.sync_state != null && "connected".equals(folder.accountState)) {
+                            if (folder.isSynchronizing()) {
                                 refreshing = true;
                                 break;
                             }
@@ -1585,10 +1588,7 @@ public class FragmentMessages extends FragmentBase {
                             }
                         }
 
-                        swipeRefresh.setRefreshing(
-                                folder != null && folder.sync_state != null &&
-                                        "connected".equals(EntityFolder.OUTBOX.equals(folder.type)
-                                                ? folder.state : folder.accountState));
+                        swipeRefresh.setRefreshing(folder != null && folder.isSynchronizing());
                     }
                 });
                 break;

@@ -306,6 +306,9 @@ public class ServiceUI extends IntentService {
     }
 
     public static void sync(Context context, long folder) {
+        DB db = DB.getInstance(context);
+        db.folder().setFolderSyncState(folder, "requested");
+
         context.startService(
                 new Intent(context, ServiceUI.class)
                         .setAction("synchronize:" + folder));

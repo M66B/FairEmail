@@ -238,8 +238,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             PopupMenu popupMenu = new PopupMenu(context, itemView);
 
-            popupMenu.getMenu().add(Menu.NONE, action_synchronize_now, 1, R.string.title_synchronize_now)
-                    .setEnabled(folder.account != null || "connected".equals(folder.state) /* outbox */);
+            popupMenu.getMenu().add(Menu.NONE, action_synchronize_now, 1, R.string.title_synchronize_now);
 
             if (folder.account != null)
                 popupMenu.getMenu().add(Menu.NONE, action_delete_local, 2, R.string.title_delete_local);
@@ -303,8 +302,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                 boolean now;
                                 if (aid < 0) {
                                     // Outbox
-                                    now = internet;
-                                    EntityOperation.sync(context, db, fid);
+                                    if (internet) {
+                                        now = true;
+                                        EntityOperation.sync(context, db, fid);
+                                    } else
+                                        throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
                                 } else {
                                     EntityAccount account = db.account().getAccount(aid);
                                     if (account.ondemand) {
