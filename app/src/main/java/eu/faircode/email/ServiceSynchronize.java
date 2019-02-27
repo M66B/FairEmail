@@ -96,7 +96,6 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 public class ServiceSynchronize extends LifecycleService {
     private TupleAccountStats lastStats = null;
     private ServiceManager serviceManager = new ServiceManager();
-    private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 64; // seconds (totally 2 minutes)
@@ -138,91 +137,75 @@ public class ServiceSynchronize extends LifecycleService {
 
             @Override
             public void onChanged(final List<TupleMessageEx> messages) {
-                executor.submit(new Runnable() {
-                    PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-                    PowerManager.WakeLock wl = pm.newWakeLock(
-                            PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":notify");
+                Log.i("Notification messages=" + messages.size());
 
-                    @Override
-                    public void run() {
-                        try {
-                            wl.acquire();
-                            Log.i("Notification messages=" + messages.size());
+                Widget.update(ServiceSynchronize.this, messages.size());
 
-                            Widget.update(ServiceSynchronize.this, messages.size());
+                LongSparseArray<String> accountName = new LongSparseArray<>();
+                LongSparseArray<List<TupleMessageEx>> accountMessages = new LongSparseArray<>();
 
-                            LongSparseArray<String> accountName = new LongSparseArray<>();
-                            LongSparseArray<List<TupleMessageEx>> accountMessages = new LongSparseArray<>();
+                for (int i = 0; i < notifying.size(); i++)
+                    accountMessages.put(notifying.keyAt(i), new ArrayList<TupleMessageEx>());
 
-                            for (int i = 0; i < notifying.size(); i++)
-                                accountMessages.put(notifying.keyAt(i), new ArrayList<TupleMessageEx>());
+                for (TupleMessageEx message : messages) {
+                    long account = (message.accountNotify ? message.account : 0);
+                    accountName.put(account, account > 0 ? message.accountName : null);
+                    if (accountMessages.indexOfKey(account) < 0)
+                        accountMessages.put(account, new ArrayList<TupleMessageEx>());
+                    accountMessages.get(account).add(message);
+                    if (notifying.indexOfKey(account) < 0)
+                        notifying.put(account, new ArrayList<Integer>());
+                }
 
-                            for (TupleMessageEx message : messages) {
-                                long account = (message.accountNotify ? message.account : 0);
-                                accountName.put(account, account > 0 ? message.accountName : null);
-                                if (accountMessages.indexOfKey(account) < 0)
-                                    accountMessages.put(account, new ArrayList<TupleMessageEx>());
-                                accountMessages.get(account).add(message);
-                                if (notifying.indexOfKey(account) < 0)
-                                    notifying.put(account, new ArrayList<Integer>());
+                for (int i = 0; i < accountMessages.size(); i++) {
+                    long account = accountMessages.keyAt(i);
+                    List<Notification> notifications = getNotificationUnseen(
+                            account, accountName.get(account), accountMessages.get(account));
+
+                    List<Integer> all = new ArrayList<>();
+                    List<Integer> added = new ArrayList<>();
+                    List<Integer> removed = notifying.get(account);
+                    for (Notification notification : notifications) {
+                        Integer id = (int) notification.extras.getLong("id", 0);
+                        if (id != 0) {
+                            all.add(id);
+                            if (removed.contains(id)) {
+                                removed.remove(id);
+                                Log.i("Notification removing=" + id);
+                            } else {
+                                removed.remove(Integer.valueOf(-id));
+                                added.add(id);
+                                Log.i("Notification adding=" + id);
                             }
-
-                            for (int i = 0; i < accountMessages.size(); i++) {
-                                long account = accountMessages.keyAt(i);
-                                List<Notification> notifications = getNotificationUnseen(
-                                        account, accountName.get(account), accountMessages.get(account));
-
-                                List<Integer> all = new ArrayList<>();
-                                List<Integer> added = new ArrayList<>();
-                                List<Integer> removed = notifying.get(account);
-                                for (Notification notification : notifications) {
-                                    Integer id = (int) notification.extras.getLong("id", 0);
-                                    if (id != 0) {
-                                        all.add(id);
-                                        if (removed.contains(id)) {
-                                            removed.remove(id);
-                                            Log.i("Notification removing=" + id);
-                                        } else {
-                                            removed.remove(Integer.valueOf(-id));
-                                            added.add(id);
-                                            Log.i("Notification adding=" + id);
-                                        }
-                                    }
-                                }
-
-                                int headers = 0;
-                                for (Integer id : added)
-                                    if (id < 0)
-                                        headers++;
-
-                                Log.i("Notification account=" + account +
-                                        " notifications=" + notifications.size() + " all=" + all.size() +
-                                        " added=" + added.size() + " removed=" + removed.size() + " headers=" + headers);
-
-                                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-                                if (notifications.size() == 0 ||
-                                        (Build.VERSION.SDK_INT < Build.VERSION_CODES.O && headers > 0))
-                                    nm.cancel("unseen:" + account, 0);
-
-                                for (Integer id : removed)
-                                    nm.cancel("unseen:" + account, Math.abs(id));
-
-                                for (Notification notification : notifications) {
-                                    Integer id = (int) notification.extras.getLong("id", 0);
-                                    if ((id == 0 && added.size() + removed.size() > 0) || added.contains(id))
-                                        nm.notify("unseen:" + account, Math.abs(id), notification);
-                                }
-
-                                notifying.put(account, all);
-                            }
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                        } finally {
-                            wl.release();
                         }
                     }
-                });
+
+                    int headers = 0;
+                    for (Integer id : added)
+                        if (id < 0)
+                            headers++;
+
+                    Log.i("Notification account=" + account +
+                            " notifications=" + notifications.size() + " all=" + all.size() +
+                            " added=" + added.size() + " removed=" + removed.size() + " headers=" + headers);
+
+                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+                    if (notifications.size() == 0 ||
+                            (Build.VERSION.SDK_INT < Build.VERSION_CODES.O && headers > 0))
+                        nm.cancel("unseen:" + account, 0);
+
+                    for (Integer id : removed)
+                        nm.cancel("unseen:" + account, Math.abs(id));
+
+                    for (Notification notification : notifications) {
+                        Integer id = (int) notification.extras.getLong("id", 0);
+                        if ((id == 0 && added.size() + removed.size() > 0) || added.contains(id))
+                            nm.notify("unseen:" + account, Math.abs(id), notification);
+                    }
+
+                    notifying.put(account, all);
+                }
             }
         });
     }
