@@ -30,6 +30,7 @@ For authorizing:
 
 * ~~Synchronize on demand (manual)~~
 * ~~Semi-automatic encryption~~
+* Add message copy
 
 Anything on this list is in random order and *might* be added in the near future.
 
