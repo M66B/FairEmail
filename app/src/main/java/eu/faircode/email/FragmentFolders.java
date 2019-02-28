@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
@@ -44,6 +45,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -132,15 +134,51 @@ public class FragmentFolders extends FragmentBase {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle args = new Bundle();
-                args.putLong("account", account);
-                FragmentFolder fragment = new FragmentFolder();
-                fragment.setArguments(args);
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("folder");
-                fragmentTransaction.commit();
+                if (account < 0) {
+                    startActivity(new Intent(getContext(), ActivityCompose.class)
+                            .putExtra("action", "new")
+                            .putExtra("account", account)
+                    );
+                } else {
+                    Bundle args = new Bundle();
+                    args.putLong("account", account);
+                    FragmentFolder fragment = new FragmentFolder();
+                    fragment.setArguments(args);
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("folder");
+                    fragmentTransaction.commit();
+                }
             }
         });
+
+        if (account < 0)
+            fab.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    new SimpleTask<EntityFolder>() {
+                        @Override
+                        protected EntityFolder onExecute(Context context, Bundle args) {
+                            return DB.getInstance(context).folder().getPrimaryDrafts();
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, EntityFolder drafts) {
+                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                            lbm.sendBroadcast(
+                                    new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                            .putExtra("account", drafts.account)
+                                            .putExtra("folder", drafts.id));
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                        }
+                    }.execute(FragmentFolders.this, new Bundle(), "folders:drafts");
+
+                    return true;
+                }
+            });
 
         // Initialize
         grpReady.setVisibility(View.GONE);
@@ -173,9 +211,22 @@ public class FragmentFolders extends FragmentBase {
         DB db = DB.getInstance(getContext());
 
         // Observe account
-        if (account < 0)
+        if (account < 0) {
             setSubtitle(R.string.title_folders_unified);
-        else
+
+            fab.setImageResource(R.drawable.baseline_edit_24);
+
+            db.identity().liveComposableIdentities(null).observe(getViewLifecycleOwner(),
+                    new Observer<List<TupleIdentityEx>>() {
+                        @Override
+                        public void onChanged(List<TupleIdentityEx> identities) {
+                            if (identities == null || identities.size() == 0)
+                                fab.hide();
+                            else
+                                fab.show();
+                        }
+                    });
+        } else
             db.account().liveAccount(account).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
                 @Override
                 public void onChanged(@Nullable EntityAccount account) {
