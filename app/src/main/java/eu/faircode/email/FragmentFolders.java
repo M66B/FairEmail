@@ -19,7 +19,11 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
@@ -31,6 +35,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -41,8 +46,11 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class FragmentFolders extends FragmentBase {
+    private ViewGroup view;
+    private SwipeRefreshLayout swipeRefresh;
     private ImageButton ibHintActions;
     private ImageButton ibHintSync;
     private RecyclerView rvFolder;
@@ -71,9 +79,10 @@ public class FragmentFolders extends FragmentBase {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
 
-        View view = inflater.inflate(R.layout.fragment_folders, container, false);
+        view = (ViewGroup) inflater.inflate(R.layout.fragment_folders, container, false);
 
         // Get controls
+        swipeRefresh = view.findViewById(R.id.swipeRefresh);
         ibHintActions = view.findViewById(R.id.ibHintActions);
         ibHintSync = view.findViewById(R.id.ibHintSync);
         rvFolder = view.findViewById(R.id.rvFolder);
@@ -86,6 +95,16 @@ public class FragmentFolders extends FragmentBase {
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        int colorPrimary = Helper.resolveColor(getContext(), R.attr.colorPrimary);
+        swipeRefresh.setColorSchemeColors(Color.WHITE, Color.WHITE, Color.WHITE);
+        swipeRefresh.setProgressBackgroundColorSchemeColor(colorPrimary);
+        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                onSwipeRefresh();
+            }
+        });
 
         ibHintActions.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -202,6 +221,93 @@ public class FragmentFolders extends FragmentBase {
                 grpReady.setVisibility(View.VISIBLE);
             }
         });
+    }
+
+    private void onSwipeRefresh() {
+        Bundle args = new Bundle();
+        args.putLong("account", account);
+
+        new SimpleTask<Boolean>() {
+            @Override
+            protected void onPostExecute(Bundle args) {
+                swipeRefresh.setRefreshing(false);
+            }
+
+            @Override
+            protected Boolean onExecute(Context context, Bundle args) {
+                long aid = args.getLong("account");
+
+                ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo ni = cm.getActiveNetworkInfo();
+                boolean internet = (ni != null && ni.isConnected());
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    boolean now = false;
+                    boolean nointernet = false;
+
+                    if (aid < 0) {
+                        // Unified inbox
+                        List<EntityFolder> folders = db.folder().getFoldersSynchronizingUnified();
+                        for (EntityFolder folder : folders) {
+                            EntityAccount account = db.account().getAccount(folder.account);
+                            if (account.ondemand)
+                                if (internet) {
+                                    now = true;
+                                    ServiceUI.sync(context, folder.id);
+                                } else
+                                    nointernet = true;
+                            else {
+                                now = "connected".equals(account.state);
+                                EntityOperation.sync(context, db, folder.id);
+                            }
+                        }
+                    } else {
+                        EntityAccount account = db.account().getAccount(aid);
+                        if (account.ondemand) {
+                            if (internet) {
+                                now = true;
+                                List<EntityFolder> folders = db.folder().getFoldersOnDemandSync(aid);
+                                for (EntityFolder folder : folders)
+                                    ServiceUI.sync(context, folder.id);
+                            } else
+                                nointernet = true;
+                        } else {
+                            if (internet) {
+                                now = true;
+                                ServiceSynchronize.reload(getContext(), "refresh folders");
+                            } else
+                                nointernet = true;
+                        }
+                    }
+
+                    db.setTransactionSuccessful();
+
+                    if (nointernet)
+                        throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
+
+                    return now;
+                } finally {
+                    db.endTransaction();
+                }
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Boolean now) {
+                if (!now)
+                    Snackbar.make(view, R.string.title_sync_delayed, Snackbar.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(FragmentFolders.this, args, "folders:refresh");
     }
 
     @Override

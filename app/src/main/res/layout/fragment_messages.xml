@@ -213,7 +213,6 @@
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="rvMessage" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
