@@ -51,7 +51,7 @@ public class ReceiverAutostart extends BroadcastReceiver {
                             return;
 
                         if (db.operation().getOperations(outbox.id).size() > 0)
-                            context.startService(new Intent(context, ServiceSend.class));
+                            ServiceSend.start(context);
 
                     } catch (Throwable ex) {
                         Log.e(ex);

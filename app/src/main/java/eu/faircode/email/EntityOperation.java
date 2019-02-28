@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
@@ -115,7 +114,7 @@ public class EntityOperation {
             db.folder().setFolderSyncState(fid, "requested");
 
             if (folder.account == null) // Outbox
-                context.startService(new Intent(context, ServiceSend.class));
+                ServiceSend.start(context);
 
             Log.i("Queued sync folder=" + folder);
         }
@@ -227,7 +226,7 @@ public class EntityOperation {
                 db.message().setMessageUiHide(message.id, true);
 
             else if (SEND.equals(name))
-                context.startService(new Intent(context, ServiceSend.class));
+                ServiceSend.start(context);
         } catch (JSONException ex) {
             Log.e(ex);
         }

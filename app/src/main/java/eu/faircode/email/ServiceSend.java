@@ -412,4 +412,8 @@ public class ServiceSend extends LifecycleService {
             db.identity().setIdentityState(ident.id, null);
         }
     }
+
+    static void start(Context context) {
+        context.startService(new Intent(context, ServiceSend.class));
+    }
 }
