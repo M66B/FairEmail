@@ -115,7 +115,10 @@ public class EntityOperation {
             operation.created = new Date().getTime();
             operation.id = db.operation().insertOperation(operation);
 
-            if (account != null && account.ondemand) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean enabled = prefs.getBoolean("enabled", true);
+
+            if (account != null && (account.ondemand || !enabled)) {
                 db.folder().setFolderState(fid, "waiting");
                 db.folder().setFolderSyncState(fid, "manual");
             } else
@@ -123,7 +126,7 @@ public class EntityOperation {
 
             if (account == null) // Outbox
                 ServiceSend.start(context);
-            else if (account.ondemand)
+            else if (account.ondemand || !enabled)
                 ServiceUI.process(context, fid);
 
             Log.i("Queued sync folder=" + folder);
