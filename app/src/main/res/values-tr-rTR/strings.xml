@@ -81,6 +81,8 @@
     <string name="title_setup_quick">Hızlı Kurulum</string>
     <string name="title_setup_quick_remark">Çoğu büyük sağlayıcı için bir hesap kimlik hızlı kurulumu</string>
     <string name="title_setup_quick_hint">Hızlı kurulum, yapılandırma bilgilerini autoconfig.thunderbird.net adresinden alır</string>
+    <string name="title_setup_quick_imap">İleti almak için IMAP sunucusu</string>
+    <string name="title_setup_quick_smtp">İleti göndermek için SMTP sunucusu</string>
     <string name="title_setup_go">Git</string>
     <string name="title_setup_setting_gmail">\"Daha az güvenli\" uygulamalara erişimi etkinleştir</string>
     <string name="title_setup_no_settings">%1$s için ayar bulunamadı</string>
@@ -143,6 +145,7 @@
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
     <string name="title_advanced_autosend">İleti göndermeyi onayla</string>
     <string name="title_advanced_notify_preview">Bildirimlerde ileti önizlemesini göster</string>
+    <string name="title_advanced_search_local">Aygıtta harici arama</string>
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
     <string name="title_advanced_updates">Güncellemelere bak</string>
@@ -161,9 +164,11 @@
     <string name="title_identity_email">E-posta adresiniz</string>
     <string name="title_identity_reply_to">Yanıtlama adresi</string>
     <string name="title_identity_plain_text">Yalnızca düz metin gönder</string>
+    <string name="title_identity_encrypt">Öntanımlı olarak şifrele</string>
     <string name="title_identity_read_receipt">Okundu bilgisi iste</string>
     <string name="title_identity_delivery_receipt">Alındı belgesi iste</string>
     <string name="title_identity_receipt_remark">Çoğu sağlayıcı alındı isteklerini yok sayıyor</string>
+    <string name="title_identity_store_sent">Gönderilmiş iletileri depola</string>
     <string name="title_optional">İsteğe bağlı</string>
     <string name="title_account_linked">Bağlı hesap</string>
     <string name="title_account_name">Hesap adı</string>
@@ -185,10 +190,12 @@
     <string name="title_user">Kullanıcı adı</string>
     <string name="title_password">Parola</string>
     <string name="title_realm">Bölge</string>
+    <string name="title_use_ip">Ana bilgisayar adı yerine yerel IP adresini kullan</string>
     <string name="title_authorize">Hesap seç</string>
     <string name="title_authorizing">Hesap yetkilendiriliyor &#8230;</string>
     <string name="title_setup_advanced">Gelişmiş</string>
     <string name="title_synchronize_account">Eşzamanlama (iletileri al)</string>
+    <string name="title_synchronize_ondemand">İstek üzerine eşzamanla (el ile)</string>
     <string name="title_synchronize_identity">Eşzamanlama (iletileri gönder)</string>
     <string name="title_primary_account">Birincil (varsayılan hesap)</string>
     <string name="title_primary_identity">Birincil (varsayılan kimlik)</string>
@@ -206,7 +213,9 @@
     <string name="title_no_idle">Bu sağlayıcı anlık mesajları desteklemiyor. Bu, yeni mesajların alınmasını geciktirecek ve pil kullanımını artıracaktır.</string>
     <string name="title_no_move">Bu sağlayıcı MOVE\'yi desteklemiyor</string>
     <string name="title_no_uidplus">Bu sağlayıcı UIDPLUS\'ı desteklemiyor</string>
+    <string name="title_no_utf8">Bu sağlayıcı UTF-8\'i desteklemiyor</string>
     <string name="title_no_sync">%1$s\'den beri eşzamanlama hataları</string>
+    <string name="title_sync_delayed">Bir sonraki hesap bağlantısında eşzamanlama gerçekleştirilecek</string>
     <string name="title_drafts_required">İleti göndermek için taslaklar klasörü gerekir</string>
     <string name="title_account_delete">Bu hesap kalıcı olarak silinsin mi?</string>
     <string name="title_identity_delete">Bu kimlik kalıcı olarak silinsin mi?</string>
@@ -361,6 +370,7 @@
     <string name="title_rule_name">Ad</string>
     <string name="title_rule_order">Sıralama</string>
     <string name="title_rule_enabled">Etkin</string>
+    <string name="title_rule_stop">Bu kuralı yürüttükten sonra kuralları işlemeyi durdur</string>
     <string name="title_rule_sender">Gönderen içeriyor</string>
     <string name="title_rule_subject">Konu içeriyor</string>
     <string name="title_rule_header">Başlık içeriyor</string>
@@ -371,6 +381,7 @@
     <string name="title_rule_folder">Klasör</string>
     <string name="title_rule_identity">Kimlik</string>
     <string name="title_rule_answer">Yanıt kalıbı</string>
+    <string name="title_rule_cc">CC adreslerini yanıtlayın</string>
     <string name="title_rule_name_missing">Kural adı eksik</string>
     <string name="title_rule_condition_missing">Koşul kayıp</string>
     <string name="title_action_seen">Okundu işareti</string>
@@ -440,6 +451,7 @@
     <string name="title_info">Bilgi</string>
     <string name="title_report">Rapor Et</string>
     <string name="title_fix">Düzelt</string>
+    <string name="title_enable">Etkin</string>
     <string name="title_no_ask_again">Bunu bir daha sorma</string>
     <string name="title_no_adobe">Adobe Acrobat Reader güvenli bir biçimde paylaşılan dosyaları açamıyor, daha fazla bilgi için SSS bölümüne bakın</string>
     <string name="title_no_body">Hiçbir ileti metni bulunamadı</string>

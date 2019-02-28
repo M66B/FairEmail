@@ -228,7 +228,6 @@
     <string name="title_no_uidplus">Acest furnizor nu suportă UIDPLUS</string>
     <string name="title_no_utf8">Acest furnizor nu suportă UTF-8</string>
     <string name="title_no_sync">Erori de sincronizare începând cu %1$s</string>
-    <string name="title_sync_disabled">Sincronizarea este dezactivată</string>
     <string name="title_sync_delayed">Sincronizarea se va face la următoarea conexiune a contului</string>
     <string name="title_drafts_required">Un dosar de ciorne este necesar pentru a trimite mesaje</string>
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>

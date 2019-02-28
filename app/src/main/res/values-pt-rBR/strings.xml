@@ -44,6 +44,7 @@
         <item quantity="other">Reportar as mensagens %1$d como spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Denunciar mensagem de %1$s como spam?</string>
+    <string name="title_notification_sending">Enviando mensagens</string>
     <string name="title_notification_failed">\'%1$s\' falhou</string>
     <string name="menu_answers">Modelos</string>
     <string name="menu_operations">Operações</string>
@@ -220,7 +221,6 @@
     <string name="title_no_uidplus">Este provedor de e-mail não dá suporte a UIDPLUS</string>
     <string name="title_no_utf8">Este provedor de e-mail não suporta UTF-8</string>
     <string name="title_no_sync">Erros de sincronização desde %1$s</string>
-    <string name="title_sync_disabled">Sincronização está desativada</string>
     <string name="title_sync_delayed">A sincronização será realizada na próxima conexão</string>
     <string name="title_drafts_required">Uma pasta de rascunhos é necessário para enviar mensagens</string>
     <string name="title_account_delete">Excluir esta conta permanentemente?</string>

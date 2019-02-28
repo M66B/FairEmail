@@ -44,6 +44,7 @@
         <item quantity="other">Signaler %1$d messages comme spam ?</item>
     </plurals>
     <string name="title_ask_spam_who">Signaler le message de %1$s comme indésirable ?</string>
+    <string name="title_notification_sending">Envoi des messages en cours</string>
     <string name="title_notification_failed">\'%1$s\' a échoué</string>
     <string name="menu_answers">Modèles</string>
     <string name="menu_operations">Opérations</string>
@@ -220,7 +221,6 @@
     <string name="title_no_uidplus">Ce fournisseur ne prend pas en charge UIDPLUS</string>
     <string name="title_no_utf8">Ce fournisseur ne prend pas en charge l\'UTF-8</string>
     <string name="title_no_sync">Erreurs de synchronisation depuis %1$s</string>
-    <string name="title_sync_disabled">La synchronisation est désactivée</string>
     <string name="title_sync_delayed">La synchronisation sera effectuée à la prochaine connexion du compte</string>
     <string name="title_drafts_required">Un dossier brouillon est nécessaire pour envoyer des messages</string>
     <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
@@ -376,7 +376,7 @@
     <string name="title_rule_name">Nom</string>
     <string name="title_rule_order">Ordre</string>
     <string name="title_rule_enabled">Activé</string>
-    <string name="title_rule_stop">Arrêtez le traitement des règles après avoir exécuté cette règle</string>
+    <string name="title_rule_stop">Arrêter le traitement des règles après avoir exécuté cette règle</string>
     <string name="title_rule_sender">L\'expéditeur contient</string>
     <string name="title_rule_subject">L’objet contient</string>
     <string name="title_rule_header">L’en-tête contient</string>
