@@ -86,10 +86,6 @@ public interface DaoAccount {
             "    WHERE account.synchronize) AS operations")
     LiveData<TupleAccountStats> liveStats();
 
-    @Query("SELECT COUNT(operation.id) FROM operation" +
-            " WHERE operation.name = '" + EntityOperation.SEND + "'")
-    LiveData<Integer> liveUnsent();
-
     @Query("SELECT account.id, swipe_left, l.type AS left_type, swipe_right, r.type AS right_type" +
             " FROM account" +
             " LEFT JOIN folder l ON l.id = account.swipe_left" +

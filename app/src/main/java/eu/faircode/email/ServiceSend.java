@@ -76,7 +76,7 @@ public class ServiceSend extends LifecycleService {
 
         DB db = DB.getInstance(this);
 
-        db.account().liveUnsent().observe(this, new Observer<Integer>() {
+        db.operation().liveUnsent().observe(this, new Observer<Integer>() {
             @Override
             public void onChanged(Integer unsent) {
                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
