@@ -83,7 +83,7 @@ public interface DaoAccount {
             ", (SELECT COUNT(operation.id) FROM operation" +
             "    JOIN folder ON folder.id = operation.folder" +
             "    JOIN account ON account.id = folder.account" + // not outbox
-            "    WHERE account.synchronize) AS operations")
+            "    WHERE account.synchronize) AS operations") // including on demand
     LiveData<TupleAccountStats> liveStats();
 
     @Query("SELECT account.id, swipe_left, l.type AS left_type, swipe_right, r.type AS right_type" +
