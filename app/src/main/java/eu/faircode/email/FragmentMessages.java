@@ -531,7 +531,7 @@ public class FragmentMessages extends FragmentBase {
                                     nointernet = true;
                             } else {
                                 now = "connected".equals(account.state);
-                                EntityOperation.sync(context, db, folder.id, true);
+                                EntityOperation.sync(context, db, folder.id);
                             }
                         }
 

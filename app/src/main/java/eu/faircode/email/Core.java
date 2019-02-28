@@ -185,8 +185,6 @@ class Core {
                                 break;
 
                             case EntityOperation.SYNC:
-                                if (jargs.getBoolean(3))
-                                    onSynchronizeFolders(context, account, istore, state);
                                 onSynchronizeMessages(context, jargs, account, folder, (IMAPFolder) ifolder, state);
                                 break;
 
