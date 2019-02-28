@@ -72,7 +72,7 @@ public class EntityIdentity {
     public String password;
     public String realm;
     @NonNull
-    public Boolean use_ip = false; // instead of domain name
+    public Boolean use_ip = true; // instead of domain name
     @NonNull
     public Boolean synchronize;
     @NonNull

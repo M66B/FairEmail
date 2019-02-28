@@ -757,7 +757,7 @@ public class FragmentIdentity extends FragmentBase {
                     etUser.setText(identity == null ? null : identity.user);
                     tilPassword.getEditText().setText(identity == null ? null : identity.password);
                     etRealm.setText(identity == null ? null : identity.realm);
-                    cbUseIp.setChecked(identity == null ? false : identity.use_ip);
+                    cbUseIp.setChecked(identity == null ? true : identity.use_ip);
                     cbSynchronize.setChecked(identity == null ? true : identity.synchronize);
                     cbPrimary.setChecked(identity == null ? true : identity.primary);
 
