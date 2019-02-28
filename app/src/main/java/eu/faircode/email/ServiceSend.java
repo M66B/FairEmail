@@ -54,6 +54,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleService;
 import androidx.lifecycle.Observer;
 
@@ -452,6 +453,7 @@ public class ServiceSend extends LifecycleService {
     }
 
     static void start(Context context) {
-        context.startService(new Intent(context, ServiceSend.class));
+        ContextCompat.startForegroundService(context,
+                new Intent(context, ServiceSend.class));
     }
 }
