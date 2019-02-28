@@ -1864,7 +1864,7 @@ public class FragmentCompose extends FragmentBase {
             if (ex instanceof SecurityException)
                 handleFileShare();
             else if (ex instanceof IllegalArgumentException)
-                Snackbar.make(view, ex.toString(), Snackbar.LENGTH_LONG).show();
+                Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
             else
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
         }
