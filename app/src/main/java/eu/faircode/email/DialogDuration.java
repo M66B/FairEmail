@@ -3,12 +3,14 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Build;
-import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -17,6 +19,7 @@ import androidx.lifecycle.LifecycleOwner;
 public class DialogDuration {
     static void show(Context context, LifecycleOwner owner, int title, final IDialogDuration intf) {
         final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_duration, null);
+        final TextView tvDuration = dview.findViewById(R.id.tvDuration);
         final TimePicker timePicker = dview.findViewById(R.id.timePicker);
         final DatePicker datePicker = dview.findViewById(R.id.datePicker);
 
@@ -24,7 +27,10 @@ public class DialogDuration {
         cal.setTimeInMillis(new Date().getTime() / (60 * 1000L) * (60 * 1000L));
         Log.i("Set init=" + new Date(cal.getTimeInMillis()));
 
-        timePicker.setIs24HourView(DateFormat.is24HourFormat(context));
+        final DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.FULL, SimpleDateFormat.SHORT);
+        tvDuration.setText(df.format(cal.getTime()));
+
+        timePicker.setIs24HourView(android.text.format.DateFormat.is24HourFormat(context));
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             timePicker.setCurrentHour(cal.get(Calendar.HOUR_OF_DAY));
             timePicker.setCurrentMinute(cal.get(Calendar.MINUTE));
@@ -38,6 +44,7 @@ public class DialogDuration {
             public void onTimeChanged(TimePicker view, int hour, int minute) {
                 cal.set(Calendar.HOUR_OF_DAY, hour);
                 cal.set(Calendar.MINUTE, minute);
+                tvDuration.setText(df.format(cal.getTime()));
                 Log.i("Set hour=" + hour + " minute=" + minute +
                         " time=" + new Date(cal.getTimeInMillis()));
             }
@@ -53,6 +60,7 @@ public class DialogDuration {
                         cal.set(Calendar.YEAR, year);
                         cal.set(Calendar.MONTH, month);
                         cal.set(Calendar.DAY_OF_MONTH, day);
+                        tvDuration.setText(df.format(cal.getTime()));
                         Log.i("Set year=" + year + " month=" + month + " day=" + day +
                                 " time=" + new Date(cal.getTimeInMillis()));
                     }
