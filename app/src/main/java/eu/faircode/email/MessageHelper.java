@@ -752,7 +752,25 @@ public class MessageHelper {
 
     MessageParts getMessageParts() throws IOException, FolderClosedException {
         MessageParts parts = new MessageParts();
-        getMessageParts(imessage, parts, false); // Can throw ParseException
+
+        MimeMessage cmessage = imessage;
+        try {
+            // Load body structure
+            cmessage.getContentID();
+        } catch (MessagingException ex) {
+            // https://javaee.github.io/javamail/FAQ#imapserverbug
+            if ("Unable to load BODYSTRUCTURE".equals(ex.getMessage())) {
+                Log.w(ex);
+                parts.warnings.add(Helper.formatThrowable(ex));
+                try {
+                    cmessage = new MimeMessage(imessage);
+                } catch (MessagingException ignored) {
+                }
+            }
+        }
+
+        getMessageParts(cmessage, parts, false);
+
         return parts;
     }
 
@@ -771,6 +789,7 @@ public class MessageHelper {
                         // Nested body: try to continue
                         // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
                         Log.w(ex);
+                        parts.warnings.add(Helper.formatThrowable(ex));
                     }
             } else {
                 // https://www.iana.org/assignments/cont-disp/cont-disp.xhtml
@@ -779,6 +798,7 @@ public class MessageHelper {
                     disposition = part.getDisposition();
                 } catch (MessagingException ex) {
                     Log.w(ex);
+                    parts.warnings.add(Helper.formatThrowable(ex));
                     disposition = null;
                 }
 
@@ -787,6 +807,7 @@ public class MessageHelper {
                     filename = part.getFileName();
                 } catch (MessagingException ex) {
                     Log.w(ex);
+                    parts.warnings.add(Helper.formatThrowable(ex));
                     filename = null;
                 }
 
