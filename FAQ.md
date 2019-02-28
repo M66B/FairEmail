@@ -140,6 +140,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(77) Why are messages sometimes shown with a small delay?](#user-content-faq77)
 * [(78) How do I use schedules?](#user-content-faq78)
 * [(79) How do I use synchronize on demand (manual)?](#user-content-faq79)
+* [(80) How can I fix 'Unable to load BODYSTRUCTURE'?](#user-content-faq80)
 
 [I have another question.](#support)
 
@@ -1298,6 +1299,16 @@ If you don't want this, for example to be not disturbed or to save on battery us
 you can enable on demand synchronization in the account settings.
 When enabled FairEmail will not keep a connection to the email server anymore,
 instead you can manually synchronize messages by either using pull-down-to-refresh or by using the folder menu *Synchronize now*.
+
+<br />
+
+<a name="faq80"></a>
+**(80) How can I fix 'Unable to load BODYSTRUCTURE' ?**
+
+The error message *Unable to load BODYSTRUCTURE* is caused by bugs in the email server,
+see [here](https://javaee.github.io/javamail/FAQ#imapserverbug) for more details.
+
+FairEmail already tries to workaround these bugs, but if this fail you'll need to ask for support from your provider.
 
 <br />
 
