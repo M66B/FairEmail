@@ -290,7 +290,9 @@ public class EntityFolder implements Serializable {
 
     public static EntityFolder fromJSON(JSONObject json) throws JSONException {
         EntityFolder folder = new EntityFolder();
-        folder.id = json.getLong("id");
+        if (json.has("id"))
+            folder.id = json.getLong("id");
+
         folder.name = json.getString("name");
         folder.type = json.getString("type");
 
