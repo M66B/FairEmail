@@ -242,14 +242,15 @@ public class ServiceUI extends IntentService {
         Log.i("Synchronize on demand folder=" + fid);
 
         DB db = DB.getInstance(this);
-        EntityFolder folder = null;
-        EntityAccount account = null;
+        EntityFolder folder = db.folder().getFolder(fid);
+        if (folder == null)
+            return;
+        EntityAccount account = db.account().getAccount(folder.account);
+        if (account == null)
+            return;
 
         Store istore = null;
         try {
-            folder = db.folder().getFolder(fid);
-            account = db.account().getAccount(folder.account);
-
             // Create session
             Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
             final Session isession = Session.getInstance(props, null);
