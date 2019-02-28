@@ -695,6 +695,12 @@ public class Helper {
         return filename.substring(index + 1);
     }
 
+    static boolean isConnected(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo ni = cm.getActiveNetworkInfo();
+        return (ni != null && ni.isConnected());
+    }
+
     static Boolean isMetered(Context context, boolean log) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 

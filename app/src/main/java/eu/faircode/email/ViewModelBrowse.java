@@ -21,8 +21,6 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.preference.PreferenceManager;
 
 import com.sun.mail.iap.Argument;
@@ -159,10 +157,7 @@ public class ViewModelBrowse extends ViewModel {
 
             try {
                 // Check connectivity
-                ConnectivityManager cm = (ConnectivityManager) state.context.getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo ni = cm.getActiveNetworkInfo();
-                boolean internet = (ni != null && ni.isConnected());
-                if (!internet)
+                if (!Helper.isConnected(state.context))
                     throw new IllegalArgumentException(state.context.getString(R.string.title_no_internet));
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(state.context);

@@ -26,8 +26,6 @@ import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -281,60 +279,29 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                 private void onActionSynchronizeNow() {
                     Bundle args = new Bundle();
-                    args.putLong("account", folder.account == null ? -1 : folder.account);
                     args.putLong("folder", folder.id);
 
-                    new SimpleTask<Boolean>() {
+                    new SimpleTask<Void>() {
                         @Override
-                        protected Boolean onExecute(Context context, Bundle args) {
-                            long aid = args.getLong("account");
+                        protected Void onExecute(Context context, Bundle args) {
                             long fid = args.getLong("folder");
 
-                            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-                            NetworkInfo ni = cm.getActiveNetworkInfo();
-                            boolean internet = (ni != null && ni.isConnected());
-
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                            boolean enabled = prefs.getBoolean("enabled", true);
+                            if (!Helper.isConnected(context))
+                                throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
 
                             DB db = DB.getInstance(context);
                             try {
                                 db.beginTransaction();
 
-                                boolean now;
-                                if (aid < 0) {
-                                    // Outbox
-                                    if (internet) {
-                                        now = true;
-                                        EntityOperation.sync(context, fid);
-                                    } else
-                                        throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
-                                } else {
-                                    EntityAccount account = db.account().getAccount(aid);
-                                    if (account.ondemand || !enabled) {
-                                        if (internet) {
-                                            now = true;
-                                            EntityOperation.sync(context, fid);
-                                        } else
-                                            throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
-                                    } else {
-                                        now = "connected".equals(account.state);
-                                        EntityOperation.sync(context, fid);
-                                    }
-                                }
+                                EntityOperation.sync(context, fid);
 
                                 db.setTransactionSuccessful();
 
-                                return now;
                             } finally {
                                 db.endTransaction();
                             }
-                        }
 
-                        @Override
-                        protected void onExecuted(Bundle args, Boolean now) {
-                            if (!now)
-                                Snackbar.make(itemView, R.string.title_sync_delayed, Snackbar.LENGTH_LONG).show();
+                            return null;
                         }
 
                         @Override

@@ -23,8 +23,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
@@ -278,78 +276,43 @@ public class FragmentFolders extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("account", account);
 
-        new SimpleTask<Boolean>() {
+        new SimpleTask<Void>() {
             @Override
             protected void onPostExecute(Bundle args) {
                 swipeRefresh.setRefreshing(false);
             }
 
             @Override
-            protected Boolean onExecute(Context context, Bundle args) {
+            protected Void onExecute(Context context, Bundle args) {
                 long aid = args.getLong("account");
 
-                ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo ni = cm.getActiveNetworkInfo();
-                boolean internet = (ni != null && ni.isConnected());
-
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean enabled = prefs.getBoolean("enabled", true);
+                if (!Helper.isConnected(context))
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
 
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
 
-                    boolean now = false;
-                    boolean nointernet = false;
-
                     if (aid < 0) {
                         // Unified inbox
                         List<EntityFolder> folders = db.folder().getFoldersSynchronizingUnified();
-                        for (EntityFolder folder : folders) {
-                            EntityAccount account = db.account().getAccount(folder.account);
-                            if (account.ondemand || !enabled)
-                                if (internet) {
-                                    now = true;
-                                    EntityOperation.sync(context, folder.id);
-                                } else
-                                    nointernet = true;
-                            else {
-                                now = "connected".equals(account.state);
-                                EntityOperation.sync(context, folder.id);
-                            }
-                        }
+                        for (EntityFolder folder : folders)
+                            EntityOperation.sync(context, folder.id);
                     } else {
+                        // Folder list
                         EntityAccount account = db.account().getAccount(aid);
-                        if (account.ondemand || !enabled) {
-                            if (internet) {
-                                now = true;
-                                ServiceUI.fsync(context, aid);
-                            } else
-                                nointernet = true;
-                        } else {
-                            if (internet) {
-                                now = true;
-                                ServiceSynchronize.reload(getContext(), "refresh folders");
-                            } else
-                                nointernet = true;
-                        }
+                        if (account.ondemand)
+                            ServiceUI.fsync(context, aid);
+                        else
+                            ServiceSynchronize.reload(getContext(), "refresh folders");
                     }
 
                     db.setTransactionSuccessful();
-
-                    if (nointernet)
-                        throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
-
-                    return now;
                 } finally {
                     db.endTransaction();
                 }
-            }
 
-            @Override
-            protected void onExecuted(Bundle args, Boolean now) {
-                if (!now)
-                    Snackbar.make(view, R.string.title_sync_delayed, Snackbar.LENGTH_LONG).show();
+                return null;
             }
 
             @Override

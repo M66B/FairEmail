@@ -26,7 +26,6 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
-import android.net.NetworkInfo;
 import android.net.NetworkRequest;
 import android.os.PowerManager;
 import android.text.TextUtils;
@@ -139,21 +138,15 @@ public class ServiceSend extends LifecycleService {
         @Override
         public void onAvailable(Network network) {
             Log.i("Service send available=" + network);
-            if (isConnected())
+            if (Helper.isConnected(ServiceSend.this))
                 run();
         }
 
         @Override
         public void onCapabilitiesChanged(Network network, NetworkCapabilities caps) {
             Log.i("Service send caps=" + caps);
-            if (isConnected())
+            if (Helper.isConnected(ServiceSend.this))
                 run();
-        }
-
-        private boolean isConnected() {
-            ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-            NetworkInfo ni = cm.getActiveNetworkInfo();
-            return (ni != null && ni.isConnected());
         }
 
         private void run() {
@@ -218,7 +211,7 @@ public class ServiceSend extends LifecycleService {
                                     Log.i(outbox.name + " end op=" + op.id + "/" + op.name);
                                 }
 
-                                if (!isConnected())
+                                if (!Helper.isConnected(ServiceSend.this))
                                     break;
                             }
 

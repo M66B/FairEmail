@@ -31,7 +31,6 @@ import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
-import android.net.NetworkInfo;
 import android.net.NetworkRequest;
 import android.os.Bundle;
 import android.os.Handler;
@@ -492,69 +491,29 @@ public class FragmentMessages extends FragmentBase {
             protected Boolean onExecute(Context context, Bundle args) {
                 long fid = args.getLong("folder");
 
-                ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo ni = cm.getActiveNetworkInfo();
-                boolean internet = (ni != null && ni.isConnected());
-
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean enabled = prefs.getBoolean("enabled", true);
+                if (!Helper.isConnected(context))
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
 
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
 
-                    List<EntityFolder> folders = new ArrayList<>();
                     if (fid < 0) {
-                        List<EntityFolder> unified = db.folder().getFoldersSynchronizingUnified();
-                        if (unified != null)
-                            folders.addAll(unified);
+                        List<EntityFolder> folders = db.folder().getFoldersSynchronizingUnified();
+                        for (EntityFolder folder : folders)
+                            EntityOperation.sync(context, folder.id);
                     } else {
                         EntityFolder folder = db.folder().getFolder(fid);
                         if (folder != null)
-                            folders.add(folder);
+                            EntityOperation.sync(context, folder.id);
                     }
 
-                    boolean now = false;
-                    boolean nointernet = false;
-                    for (EntityFolder folder : folders)
-                        if (folder.account == null) {
-                            // Outbox
-                            if (internet) {
-                                now = true;
-                                EntityOperation.sync(context, folder.id);
-                            } else
-                                nointernet = true;
-                        } else {
-                            EntityAccount account = db.account().getAccount(folder.account);
-                            if (account.ondemand || !enabled) {
-                                if (internet) {
-                                    now = true;
-                                    EntityOperation.sync(context, folder.id);
-                                } else
-                                    nointernet = true;
-                            } else {
-                                now = "connected".equals(account.state);
-                                EntityOperation.sync(context, folder.id);
-                            }
-                        }
-
                     db.setTransactionSuccessful();
-
-                    if (nointernet)
-                        throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
-
-                    return now;
                 } finally {
                     db.endTransaction();
                 }
-            }
 
-            @Override
-            protected void onExecuted(Bundle args, Boolean now) {
-                if (!now) {
-                    swipeRefresh.setRefreshing(false);
-                    Snackbar.make(view, R.string.title_sync_delayed, Snackbar.LENGTH_LONG).show();
-                }
+                return null;
             }
 
             @Override

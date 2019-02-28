@@ -256,7 +256,6 @@
     <string name="title_no_uidplus">This provider does not support UIDPLUS</string>
     <string name="title_no_utf8">This provider does not support UTF-8</string>
     <string name="title_no_sync">Synchronization errors since %1$s</string>
-    <string name="title_sync_delayed">Synchronization will be performed on the next account connection</string>
     <string name="title_drafts_required">A drafts folder is required to send messages</string>
     <string name="title_account_delete">Delete this account permanently?</string>
     <string name="title_identity_delete">Delete this identity permanently?</string>
