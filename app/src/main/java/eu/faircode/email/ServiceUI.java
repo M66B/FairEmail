@@ -299,10 +299,12 @@ public class ServiceUI extends IntentService {
                     Log.e(ex);
                 }
 
-                db.account().setAccountState(account.id, null);
-                db.folder().setFolderState(folder.id, null);
                 Log.i(account.name + " closed");
             }
+
+            db.account().setAccountState(account.id, null);
+            db.folder().setFolderState(folder.id, null);
+            db.folder().setFolderSyncState(folder.id, null);
         }
     }
 
