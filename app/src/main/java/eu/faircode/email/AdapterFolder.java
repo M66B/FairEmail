@@ -145,7 +145,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 else if ("closing".equals(folder.state))
                     ivState.setImageResource(R.drawable.baseline_close_24);
                 else if (folder.state == null)
-                    ivState.setImageResource(R.drawable.baseline_cloud_off_24);
+                    if ("requested".equals(folder.sync_state))
+                        ivState.setImageResource(R.drawable.baseline_hourglass_empty_24);
+                    else
+                        ivState.setImageResource(R.drawable.baseline_cloud_off_24);
                 else
                     ivState.setImageResource(android.R.drawable.stat_sys_warning);
             } else {
