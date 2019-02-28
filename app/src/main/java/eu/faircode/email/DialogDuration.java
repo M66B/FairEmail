@@ -24,7 +24,7 @@ public class DialogDuration {
         final DatePicker datePicker = dview.findViewById(R.id.datePicker);
 
         final Calendar cal = Calendar.getInstance();
-        cal.setTimeInMillis(new Date().getTime() / (60 * 1000L) * (60 * 1000L));
+        cal.setTimeInMillis((new Date().getTime() / (3600 * 1000L) + 1) * (3600 * 1000L));
         Log.i("Set init=" + new Date(cal.getTimeInMillis()));
 
         final DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.FULL, SimpleDateFormat.SHORT);
