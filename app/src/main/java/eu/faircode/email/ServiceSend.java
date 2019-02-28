@@ -138,89 +138,104 @@ public class ServiceSend extends LifecycleService {
         @Override
         public void onAvailable(Network network) {
             Log.i("Service send available=" + network);
+            if (isConnected())
+                run();
+        }
 
-            if (thread == null || !thread.isAlive()) {
-                thread = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-                        PowerManager.WakeLock wl = pm.newWakeLock(
-                                PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":send");
+        @Override
+        public void onCapabilitiesChanged(Network network, NetworkCapabilities caps) {
+            Log.i("Service send caps=" + caps);
+            if (isConnected())
+                run();
+        }
+
+        private boolean isConnected() {
+            ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo ni = cm.getActiveNetworkInfo();
+            return (ni != null && ni.isConnected());
+        }
+
+        private void run() {
+            if (thread != null && thread.isAlive())
+                return;
+
+            thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+                    PowerManager.WakeLock wl = pm.newWakeLock(
+                            PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":send");
+                    try {
+                        wl.acquire();
+
+                        DB db = DB.getInstance(ServiceSend.this);
+                        EntityFolder outbox = db.folder().getOutbox();
                         try {
-                            wl.acquire();
+                            db.folder().setFolderError(outbox.id, null);
+                            db.folder().setFolderSyncState(outbox.id, "syncing");
 
-                            DB db = DB.getInstance(ServiceSend.this);
-                            EntityFolder outbox = db.folder().getOutbox();
-                            try {
-                                db.folder().setFolderError(outbox.id, null);
-                                db.folder().setFolderSyncState(outbox.id, "syncing");
+                            List<EntityOperation> ops = db.operation().getOperations(outbox.id);
+                            Log.i(outbox.name + " pending operations=" + ops.size());
+                            for (EntityOperation op : ops) {
+                                EntityMessage message = null;
+                                try {
+                                    Log.i(outbox.name +
+                                            " start op=" + op.id + "/" + op.name +
+                                            " msg=" + op.message +
+                                            " args=" + op.args);
 
-                                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                                    switch (op.name) {
+                                        case EntityOperation.SYNC:
+                                            db.folder().setFolderError(outbox.id, null);
+                                            break;
 
-                                List<EntityOperation> ops = db.operation().getOperations(outbox.id);
-                                Log.i(outbox.name + " pending operations=" + ops.size());
-                                for (EntityOperation op : ops) {
-                                    EntityMessage message = null;
-                                    try {
-                                        Log.i(outbox.name +
-                                                " start op=" + op.id + "/" + op.name +
-                                                " msg=" + op.message +
-                                                " args=" + op.args);
+                                        case EntityOperation.SEND:
+                                            message = db.message().getMessage(op.message);
+                                            if (message == null)
+                                                throw new MessageRemovedException();
+                                            send(message);
+                                            break;
 
-                                        switch (op.name) {
-                                            case EntityOperation.SYNC:
-                                                db.folder().setFolderError(outbox.id, null);
-                                                break;
-
-                                            case EntityOperation.SEND:
-                                                message = db.message().getMessage(op.message);
-                                                if (message == null)
-                                                    throw new MessageRemovedException();
-                                                send(message);
-                                                break;
-
-                                            default:
-                                                throw new IllegalArgumentException("Unknown operation=" + op.name);
-                                        }
-
-                                        db.operation().deleteOperation(op.id);
-                                    } catch (Throwable ex) {
-                                        Log.e(ex);
-
-                                        if (message != null)
-                                            db.message().setMessageError(message.id, Helper.formatThrowable(ex));
-
-                                        if (ex instanceof MessageRemovedException ||
-                                                ex instanceof SendFailedException ||
-                                                ex instanceof IllegalArgumentException)
-                                            db.operation().deleteOperation(op.id);
-                                        else
-                                            throw ex;
-                                    } finally {
-                                        Log.i(outbox.name + " end op=" + op.id + "/" + op.name);
+                                        default:
+                                            throw new IllegalArgumentException("Unknown operation=" + op.name);
                                     }
 
-                                    NetworkInfo ni = cm.getActiveNetworkInfo();
-                                    if (ni == null || !ni.isConnected())
-                                        break;
+                                    db.operation().deleteOperation(op.id);
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+
+                                    if (message != null)
+                                        db.message().setMessageError(message.id, Helper.formatThrowable(ex));
+
+                                    if (ex instanceof MessageRemovedException ||
+                                            ex instanceof SendFailedException ||
+                                            ex instanceof IllegalArgumentException)
+                                        db.operation().deleteOperation(op.id);
+                                    else
+                                        throw ex;
+                                } finally {
+                                    Log.i(outbox.name + " end op=" + op.id + "/" + op.name);
                                 }
 
-                                if (db.operation().getOperations(outbox.id).size() == 0)
-                                    stopSelf();
-                            } catch (Throwable ex) {
-                                Log.e(outbox.name, ex);
-                                db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex, true));
-                            } finally {
-                                db.folder().setFolderState(outbox.id, null);
-                                db.folder().setFolderSyncState(outbox.id, null);
+                                if (!isConnected())
+                                    break;
                             }
+
+                            if (db.operation().getOperations(outbox.id).size() == 0)
+                                stopSelf();
+                        } catch (Throwable ex) {
+                            Log.e(outbox.name, ex);
+                            db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex, true));
                         } finally {
-                            wl.release();
+                            db.folder().setFolderState(outbox.id, null);
+                            db.folder().setFolderSyncState(outbox.id, null);
                         }
+                    } finally {
+                        wl.release();
                     }
-                });
-                thread.start();
-            }
+                }
+            });
+            thread.start();
         }
     };
 
