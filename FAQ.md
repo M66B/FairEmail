@@ -868,6 +868,9 @@ This can happen for example when you start FairEmail to compose a message from a
 FairEmail needs to know where to store the draft,
 so you'll need to select one account to be the primary account and/or you'll need to select a drafts folder for the primary account.
 
+This can also happen when you try to reply to a message or to forward a message from an account with no drafts folder
+while there is no primary account or when the primary account does not have a drafts folder.
+
 <br />
 
 <a name="faq48"></a>
