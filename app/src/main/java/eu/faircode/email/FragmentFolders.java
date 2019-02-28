@@ -310,12 +310,12 @@ public class FragmentFolders extends FragmentBase {
                             if (account.ondemand || !enabled)
                                 if (internet) {
                                     now = true;
-                                    ServiceUI.sync(context, folder.id);
+                                    EntityOperation.sync(context, folder.id);
                                 } else
                                     nointernet = true;
                             else {
                                 now = "connected".equals(account.state);
-                                EntityOperation.sync(context, db, folder.id);
+                                EntityOperation.sync(context, folder.id);
                             }
                         }
                     } else {
@@ -323,9 +323,7 @@ public class FragmentFolders extends FragmentBase {
                         if (account.ondemand || !enabled) {
                             if (internet) {
                                 now = true;
-                                List<EntityFolder> folders = db.folder().getFoldersOnDemandSync(aid);
-                                for (EntityFolder folder : folders)
-                                    ServiceUI.sync(context, folder.id);
+                                ServiceUI.fsync(context, aid);
                             } else
                                 nointernet = true;
                         } else {

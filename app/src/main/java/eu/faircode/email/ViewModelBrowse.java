@@ -20,8 +20,10 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.preference.PreferenceManager;
 
 import com.sun.mail.iap.Argument;
 import com.sun.mail.iap.Response;
@@ -163,9 +165,12 @@ public class ViewModelBrowse extends ViewModel {
                 if (!internet)
                     throw new IllegalArgumentException(state.context.getString(R.string.title_no_internet));
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(state.context);
+                boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
+
                 Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
                 Session isession = Session.getInstance(props, null);
-                isession.setDebug(true);
+                isession.setDebug(debug);
 
                 Log.i("Boundary connecting account=" + account.name);
                 state.istore = (IMAPStore) isession.getStore(account.getProtocol());

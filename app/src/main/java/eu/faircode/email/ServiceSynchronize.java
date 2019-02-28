@@ -235,9 +235,9 @@ public class ServiceSynchronize extends LifecycleService {
                 Log.i(account.name + " run");
 
                 // Debug
-                boolean debug = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("debug", false);
-                debug = debug || BuildConfig.DEBUG;
-                System.setProperty("mail.socket.debug", Boolean.toString(debug));
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
+                boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
+                //System.setProperty("mail.socket.debug", Boolean.toString(debug));
 
                 // Create session
                 Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
@@ -581,7 +581,7 @@ public class ServiceSynchronize extends LifecycleService {
                             idler.start();
                             idlers.add(idler);
 
-                            EntityOperation.sync(this, db, folder.id);
+                            EntityOperation.sync(this, folder.id);
                         } else
                             folders.put(folder, null);
 
@@ -722,7 +722,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         if (!folders.get(folder).isOpen())
                                             throw new FolderClosedException(folders.get(folder));
                                     } else
-                                        EntityOperation.sync(this, db, folder.id);
+                                        EntityOperation.sync(this, folder.id);
 
                             // Successfully connected: reset back off time
                             backoff = CONNECT_BACKOFF_START;

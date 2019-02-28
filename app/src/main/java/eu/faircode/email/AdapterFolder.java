@@ -306,7 +306,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                     // Outbox
                                     if (internet) {
                                         now = true;
-                                        EntityOperation.sync(context, db, fid);
+                                        EntityOperation.sync(context, fid);
                                     } else
                                         throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
                                 } else {
@@ -314,12 +314,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                     if (account.ondemand || !enabled) {
                                         if (internet) {
                                             now = true;
-                                            ServiceUI.sync(context, fid);
+                                            EntityOperation.sync(context, fid);
                                         } else
                                             throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
                                     } else {
                                         now = "connected".equals(account.state);
-                                        EntityOperation.sync(context, db, fid);
+                                        EntityOperation.sync(context, fid);
                                     }
                                 }
 

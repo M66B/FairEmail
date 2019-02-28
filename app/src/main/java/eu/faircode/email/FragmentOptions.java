@@ -269,7 +269,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
                                 DB db = DB.getInstance(context);
                                 List<EntityFolder> folders = db.folder().getFoldersAutoSync();
                                 for (EntityFolder folder : folders)
-                                    EntityOperation.sync(context, db, folder.id);
+                                    EntityOperation.sync(context, folder.id);
                                 return null;
                             }
 

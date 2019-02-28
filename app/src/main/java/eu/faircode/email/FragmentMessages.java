@@ -521,7 +521,7 @@ public class FragmentMessages extends FragmentBase {
                             // Outbox
                             if (internet) {
                                 now = true;
-                                EntityOperation.sync(context, db, folder.id);
+                                EntityOperation.sync(context, folder.id);
                             } else
                                 nointernet = true;
                         } else {
@@ -529,12 +529,12 @@ public class FragmentMessages extends FragmentBase {
                             if (account.ondemand || !enabled) {
                                 if (internet) {
                                     now = true;
-                                    ServiceUI.sync(context, folder.id);
+                                    EntityOperation.sync(context, folder.id);
                                 } else
                                     nointernet = true;
                             } else {
                                 now = "connected".equals(account.state);
-                                EntityOperation.sync(context, db, folder.id);
+                                EntityOperation.sync(context, folder.id);
                             }
                         }
 
