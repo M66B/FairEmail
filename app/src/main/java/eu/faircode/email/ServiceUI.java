@@ -104,7 +104,7 @@ public class ServiceUI extends IntentService {
                 break;
 
             case "process":
-                onProcessOperation(id);
+                onProcessOperations(id);
                 break;
 
             case "fsync":
@@ -241,7 +241,7 @@ public class ServiceUI extends IntentService {
         }
     }
 
-    private void onProcessOperation(long fid) {
+    private void onProcessOperations(long fid) {
         DB db = DB.getInstance(this);
 
         EntityFolder folder = db.folder().getFolder(fid);
