@@ -78,6 +78,7 @@ public interface DaoAccount {
     @Query("SELECT" +
             " (SELECT COUNT(account.id) FROM account" +
             "    WHERE synchronize" +
+            "    AND NOT ondemand" +
             "    AND state = 'connected') AS accounts" +
             ", (SELECT COUNT(operation.id) FROM operation" +
             "    JOIN folder ON folder.id = operation.folder" +
