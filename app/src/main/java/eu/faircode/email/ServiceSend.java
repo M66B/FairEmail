@@ -60,6 +60,8 @@ import androidx.lifecycle.Observer;
 public class ServiceSend extends LifecycleService {
     private int lastUnsent = 0;
 
+    private static boolean booted = false;
+
     private static final int IDENTITY_ERROR_AFTER = 30; // minutes
 
     @Override
@@ -410,6 +412,27 @@ public class ServiceSend extends LifecycleService {
             throw ex;
         } finally {
             db.identity().setIdentityState(ident.id, null);
+        }
+    }
+
+    static void boot(final Context context) {
+        if (!booted) {
+            booted = true;
+
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        DB db = DB.getInstance(context);
+                        EntityFolder outbox = db.folder().getOutbox();
+                        if (outbox != null && db.operation().getOperations(outbox.id).size() > 0)
+                            start(context);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                }
+            });
+            thread.start();
         }
     }
 

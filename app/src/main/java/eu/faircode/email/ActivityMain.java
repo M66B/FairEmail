@@ -58,7 +58,8 @@ public class ActivityMain extends AppCompatActivity implements FragmentManager.O
                         startActivity(new Intent(ActivityMain.this, ActivitySetup.class));
                     else {
                         startActivity(new Intent(ActivityMain.this, ActivityView.class));
-                        ServiceSynchronize.init(ActivityMain.this, false);
+                        ServiceSynchronize.boot(ActivityMain.this);
+                        ServiceSend.boot(ActivityMain.this);
                     }
                     finish();
                 }

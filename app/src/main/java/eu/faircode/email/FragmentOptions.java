@@ -197,7 +197,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
                 if (checked) {
                     if (Helper.isPro(getContext())) {
                         prefs.edit().putBoolean("schedule", true).apply();
-                        ServiceSynchronize.schedule(getContext());
+                        ServiceSynchronize.reschedule(getContext());
                     } else {
                         swSchedule.setChecked(false);
                         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
@@ -645,7 +645,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             editor.putBoolean("schedule", true);
             editor.apply();
 
-            ServiceSynchronize.schedule(getContext());
+            ServiceSynchronize.reschedule(getContext());
         }
     }
 

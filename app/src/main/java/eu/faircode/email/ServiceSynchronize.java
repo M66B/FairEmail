@@ -89,6 +89,8 @@ public class ServiceSynchronize extends LifecycleService {
     private TupleAccountStats lastStats = new TupleAccountStats();
     private ServiceManager serviceManager = new ServiceManager();
 
+    private static boolean booted = false;
+
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 64; // seconds (totally 2 minutes)
     private static final int CONNECT_BACKOFF_AlARM = 15; // minutes
@@ -97,7 +99,7 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
     private static final long STOP_DELAY = 5000L; // milliseconds
 
-    static final int PI_SCHEDULE = 1;
+    static final int PI_ALARM = 1;
 
     @Override
     public void onCreate() {
@@ -165,15 +167,13 @@ public class ServiceSynchronize extends LifecycleService {
 
         if (action != null)
             try {
-                final String[] parts = action.split(":");
-                switch (parts[0]) {
+                switch (action) {
                     case "init":
-                        // Network events will manage the service
-                        serviceManager.service_init(intent.getBooleanExtra("boot", false));
+                        serviceManager.service_init();
                         break;
 
-                    case "schedule":
-                        serviceManager.service_schedule();
+                    case "alarm":
+                        serviceManager.service_alarm();
                         break;
 
                     case "reload":
@@ -941,19 +941,14 @@ public class ServiceSynchronize extends LifecycleService {
             return (db.account().getSynchronizingAccounts(false).size() > 0);
         }
 
-        private void service_init(boolean boot) {
-            EntityLog.log(ServiceSynchronize.this, "Service init boot=" + boot);
-
-            if (boot)
-                next_schedule();
-
-            if (!isEnabled())
-                stopSelf();
+        private void service_init() {
+            EntityLog.log(ServiceSynchronize.this, "Service init");
+            // Network events will manage the service
         }
 
-        private void service_schedule() {
-            next_schedule();
-            service_reload("schedule");
+        private void service_alarm() {
+            schedule(ServiceSynchronize.this);
+            service_reload("alarm");
         }
 
         private void service_reload(String reason) {
@@ -1071,61 +1066,6 @@ public class ServiceSynchronize extends LifecycleService {
             state = null;
         }
 
-        private void next_schedule() {
-            Intent schedule = new Intent(ServiceSynchronize.this, ServiceSynchronize.class);
-            schedule.setAction("schedule");
-            PendingIntent piSchedule = PendingIntent.getService(
-                    ServiceSynchronize.this, PI_SCHEDULE, schedule, PendingIntent.FLAG_UPDATE_CURRENT);
-
-            AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-            am.cancel(piSchedule);
-
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
-            if (!prefs.getBoolean("schedule", false))
-                return;
-
-            int minuteStart = prefs.getInt("schedule_start", 0);
-            int minuteEnd = prefs.getInt("schedule_end", 0);
-
-            if (minuteEnd <= minuteStart)
-                minuteEnd += 24 * 60;
-
-            Calendar calStart = Calendar.getInstance();
-            calStart.set(Calendar.HOUR_OF_DAY, minuteStart / 60);
-            calStart.set(Calendar.MINUTE, minuteStart % 60);
-            calStart.set(Calendar.SECOND, 0);
-            calStart.set(Calendar.MILLISECOND, 0);
-
-            Calendar calEnd = Calendar.getInstance();
-            calEnd.set(Calendar.HOUR_OF_DAY, minuteEnd / 60);
-            calEnd.set(Calendar.MINUTE, minuteEnd % 60);
-            calEnd.set(Calendar.SECOND, 0);
-            calEnd.set(Calendar.MILLISECOND, 0);
-
-            long now = new Date().getTime();
-            if (now > calEnd.getTimeInMillis()) {
-                calStart.set(Calendar.DAY_OF_MONTH, calStart.get(Calendar.DAY_OF_MONTH) + 1);
-                calEnd.set(Calendar.DAY_OF_MONTH, calEnd.get(Calendar.DAY_OF_MONTH) + 1);
-            }
-
-            long start = calStart.getTimeInMillis();
-            long end = calEnd.getTimeInMillis();
-            long next = (now < start ? start : end);
-
-            EntityLog.log(ServiceSynchronize.this, "Schedule now=" + new Date(now));
-            EntityLog.log(ServiceSynchronize.this, "Schedule start=" + new Date(start));
-            EntityLog.log(ServiceSynchronize.this, "Schedule end=" + new Date(end));
-            EntityLog.log(ServiceSynchronize.this, "Schedule next=" + new Date(next));
-
-            boolean enabled = (now >= start && now < end);
-            prefs.edit().putBoolean("enabled", enabled).apply();
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-                am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, next, piSchedule);
-            else
-                am.set(AlarmManager.RTC_WAKEUP, next, piSchedule);
-        }
-
         private void queue_reload(final boolean start, final String reason) {
             final boolean doStop = started;
             final boolean doStart = (start && isEnabled() && suitableNetwork());
@@ -1192,20 +1132,103 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    public static void init(Context context, boolean boot) {
-        ContextCompat.startForegroundService(context,
-                new Intent(context, ServiceSynchronize.class)
-                        .setAction("init")
-                        .putExtra("boot", boot));
+    private static void schedule(Context context) {
+        Intent alarm = new Intent(context, ServiceSynchronize.class);
+        alarm.setAction("alarm");
+        PendingIntent piAlarm = PendingIntent.getService(context, PI_ALARM, alarm, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        am.cancel(piAlarm);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        if (!prefs.getBoolean("schedule", false))
+            return;
+
+        int minuteStart = prefs.getInt("schedule_start", 0);
+        int minuteEnd = prefs.getInt("schedule_end", 0);
+
+        if (minuteEnd <= minuteStart)
+            minuteEnd += 24 * 60;
+
+        Calendar calStart = Calendar.getInstance();
+        calStart.set(Calendar.HOUR_OF_DAY, minuteStart / 60);
+        calStart.set(Calendar.MINUTE, minuteStart % 60);
+        calStart.set(Calendar.SECOND, 0);
+        calStart.set(Calendar.MILLISECOND, 0);
+
+        Calendar calEnd = Calendar.getInstance();
+        calEnd.set(Calendar.HOUR_OF_DAY, minuteEnd / 60);
+        calEnd.set(Calendar.MINUTE, minuteEnd % 60);
+        calEnd.set(Calendar.SECOND, 0);
+        calEnd.set(Calendar.MILLISECOND, 0);
+
+        long now = new Date().getTime();
+        if (now > calEnd.getTimeInMillis()) {
+            calStart.set(Calendar.DAY_OF_MONTH, calStart.get(Calendar.DAY_OF_MONTH) + 1);
+            calEnd.set(Calendar.DAY_OF_MONTH, calEnd.get(Calendar.DAY_OF_MONTH) + 1);
+        }
+
+        long start = calStart.getTimeInMillis();
+        long end = calEnd.getTimeInMillis();
+        long next = (now < start ? start : end);
+
+        Log.i("Schedule now=" + new Date(now));
+        Log.i("Schedule start=" + new Date(start));
+        Log.i("Schedule end=" + new Date(end));
+        Log.i("Schedule next=" + new Date(next));
+
+        boolean enabled = (now >= start && now < end);
+        prefs.edit().putBoolean("enabled", enabled).apply();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, next, piAlarm);
+        else
+            am.set(AlarmManager.RTC_WAKEUP, next, piAlarm);
     }
 
-    public static void schedule(Context context) {
-        ContextCompat.startForegroundService(context,
-                new Intent(context, ServiceSynchronize.class)
-                        .setAction("schedule"));
+    static void boot(final Context context) {
+        if (!booted) {
+            booted = true;
+
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        DB db = DB.getInstance(context);
+
+                        // Restore snooze timers
+                        for (EntityMessage message : db.message().getSnoozed())
+                            EntityMessage.snooze(context, message.id, message.ui_snoozed);
+
+                        // Restore schedule
+                        schedule(context);
+
+                        // Conditionally init service
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        boolean enabled = prefs.getBoolean("enabled", true);
+
+                        int accounts = db.account().getSynchronizingAccounts(false).size();
+
+                        if (enabled && accounts > 0)
+                            ContextCompat.startForegroundService(context,
+                                    new Intent(context, ServiceSynchronize.class)
+                                            .setAction("init"));
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                }
+            });
+            thread.start();
+        }
     }
 
-    public static void reload(Context context, String reason) {
+    static void reschedule(Context context) {
+        ContextCompat.startForegroundService(context,
+                new Intent(context, ServiceSynchronize.class)
+                        .setAction("alarm"));
+    }
+
+    static void reload(Context context, String reason) {
         ContextCompat.startForegroundService(context,
                 new Intent(context, ServiceSynchronize.class)
                         .setAction("reload")
