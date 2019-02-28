@@ -489,11 +489,6 @@ public class FragmentMessages extends FragmentBase {
 
         new SimpleTask<Boolean>() {
             @Override
-            protected void onPostExecute(Bundle args) {
-                swipeRefresh.setRefreshing(false);
-            }
-
-            @Override
             protected Boolean onExecute(Context context, Bundle args) {
                 long fid = args.getLong("folder");
 
@@ -553,12 +548,15 @@ public class FragmentMessages extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, Boolean now) {
-                if (!now)
+                if (!now) {
+                    swipeRefresh.setRefreshing(false);
                     Snackbar.make(view, R.string.title_sync_delayed, Snackbar.LENGTH_LONG).show();
+                }
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
+                swipeRefresh.setRefreshing(false);
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
