@@ -36,6 +36,7 @@
         <item quantity="other">报告 %1$d 为垃圾邮件？</item>
     </plurals>
     <string name="title_ask_spam_who">将来自%1$s的消息举报为垃圾邮件?</string>
+    <string name="title_notification_sending">正发送消息</string>
     <string name="title_notification_failed">“%1$s”失败</string>
     <string name="menu_answers">模板</string>
     <string name="menu_operations">操作</string>
