@@ -1483,7 +1483,7 @@ public class FragmentCompose extends FragmentBase {
                 if (draft == null || draft.ui_hide) {
                     // New draft
                     if ("edit".equals(action))
-                        throw new IllegalArgumentException("Draft not found hide=" + (draft != null));
+                        throw new IllegalStateException("Draft not found hide=" + (draft != null));
 
                     List<TupleIdentityEx> identities = db.identity().getComposableIdentities(null);
 
@@ -1491,13 +1491,19 @@ public class FragmentCompose extends FragmentBase {
                     EntityMessage ref = db.message().getMessage(reference);
                     if (ref == null) {
                         long aid = args.getLong("account", -1);
-                        drafts = (aid < 0
-                                ? db.folder().getPrimaryDrafts()
-                                : db.folder().getFolderByType(aid, EntityFolder.DRAFTS));
+                        if (aid < 0)
+                            drafts = db.folder().getPrimaryDrafts();
+                        else {
+                            drafts = db.folder().getFolderByType(aid, EntityFolder.DRAFTS);
+                            if (drafts == null)
+                                drafts = db.folder().getPrimaryDrafts();
+                        }
                         if (drafts == null)
                             throw new IllegalArgumentException(context.getString(R.string.title_no_primary_drafts));
                     } else {
                         drafts = db.folder().getFolderByType(ref.account, EntityFolder.DRAFTS);
+                        if (drafts == null)
+                            drafts = db.folder().getPrimaryDrafts();
                         if (drafts == null)
                             throw new IllegalArgumentException(context.getString(R.string.title_no_primary_drafts));
 
@@ -1703,7 +1709,7 @@ public class FragmentCompose extends FragmentBase {
                 } else {
                     if (!draft.content) {
                         if (draft.uid == null)
-                            throw new IllegalArgumentException("Draft without uid");
+                            throw new IllegalStateException("Draft without uid");
                         EntityOperation.queue(context, db, draft, EntityOperation.BODY);
                     }
 
@@ -1857,6 +1863,8 @@ public class FragmentCompose extends FragmentBase {
             // External app sending absolute file
             if (ex instanceof SecurityException)
                 handleFileShare();
+            else if (ex instanceof IllegalArgumentException)
+                Snackbar.make(view, ex.toString(), Snackbar.LENGTH_LONG).show();
             else
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
         }
