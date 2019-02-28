@@ -21,8 +21,6 @@ package eu.faircode.email;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
-import android.app.Notification;
-import android.app.PendingIntent;
 import android.app.usage.UsageStatsManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -59,6 +57,7 @@ import android.widget.Toast;
 import com.android.billingclient.api.BillingClient;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.sun.mail.util.FolderClosedIOException;
+import com.sun.mail.util.MailConnectException;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -74,6 +73,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.UnknownHostException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
@@ -97,7 +97,6 @@ import javax.net.ssl.SSLException;
 
 import androidx.annotation.NonNull;
 import androidx.browser.customtabs.CustomTabsIntent;
-import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
@@ -311,6 +310,8 @@ public class Helper {
                 // sync when store disconnected
                 return null;
             if (ex instanceof SSLException || ex.getCause() instanceof SSLException)
+                return null;
+            if (ex instanceof MailConnectException && ex.getCause() instanceof UnknownHostException)
                 return null;
         }
 
