@@ -11,6 +11,7 @@ import android.preference.PreferenceManager;
 
 import com.sun.mail.imap.IMAPFolder;
 
+import java.util.Date;
 import java.util.Properties;
 
 import javax.mail.Folder;
@@ -262,6 +263,8 @@ public class ServiceUI extends IntentService {
             istore = isession.getStore(account.getProtocol());
             Helper.connect(this, istore, account);
             db.account().setAccountState(account.id, "connected");
+            db.account().setAccountConnected(account.id, new Date().getTime());
+            db.account().setAccountError(account.id, null);
             Log.i(account.name + " connected");
 
             // Synchronize folders
