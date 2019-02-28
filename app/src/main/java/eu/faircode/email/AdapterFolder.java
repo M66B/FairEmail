@@ -135,7 +135,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 vwLevel.setLayoutParams(lp);
             }
 
-            if (folder.sync_state == null || "requested".equals(folder.sync_state)) {
+            if (folder.sync_state == null ||
+                    "requested".equals(folder.sync_state) || "manual".equals(folder.sync_state)) {
                 if ("waiting".equals(folder.state))
                     ivState.setImageResource(R.drawable.baseline_hourglass_empty_24);
                 else if ("connected".equals(folder.state))
@@ -145,16 +146,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 else if ("closing".equals(folder.state))
                     ivState.setImageResource(R.drawable.baseline_close_24);
                 else if (folder.state == null)
-                    if ("requested".equals(folder.sync_state))
-                        ivState.setImageResource(R.drawable.baseline_hourglass_empty_24);
-                    else
-                        ivState.setImageResource(R.drawable.baseline_cloud_off_24);
+                    ivState.setImageResource(R.drawable.baseline_cloud_off_24);
                 else
                     ivState.setImageResource(android.R.drawable.stat_sys_warning);
             } else {
-                if ("requested".equals(folder.sync_state))
-                    ivState.setImageResource(R.drawable.baseline_hourglass_empty_24);
-                else if ("syncing".equals(folder.sync_state))
+                if ("syncing".equals(folder.sync_state))
                     ivState.setImageResource(R.drawable.baseline_compare_arrows_24);
                 else if ("downloading".equals(folder.sync_state))
                     ivState.setImageResource(R.drawable.baseline_cloud_download_24);
@@ -298,6 +294,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             NetworkInfo ni = cm.getActiveNetworkInfo();
                             boolean internet = (ni != null && ni.isConnected());
 
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                            boolean enabled = prefs.getBoolean("enabled", true);
+
                             DB db = DB.getInstance(context);
                             try {
                                 db.beginTransaction();
@@ -312,7 +311,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                         throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
                                 } else {
                                     EntityAccount account = db.account().getAccount(aid);
-                                    if (account.ondemand) {
+                                    if (account.ondemand || !enabled) {
                                         if (internet) {
                                             now = true;
                                             ServiceUI.sync(context, fid);

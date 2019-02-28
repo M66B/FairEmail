@@ -229,12 +229,20 @@ public class FragmentFolders extends FragmentBase {
 
         new SimpleTask<Boolean>() {
             @Override
+            protected void onPostExecute(Bundle args) {
+                swipeRefresh.setRefreshing(false);
+            }
+
+            @Override
             protected Boolean onExecute(Context context, Bundle args) {
                 long aid = args.getLong("account");
 
                 ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo ni = cm.getActiveNetworkInfo();
                 boolean internet = (ni != null && ni.isConnected());
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean enabled = prefs.getBoolean("enabled", true);
 
                 DB db = DB.getInstance(context);
                 try {
@@ -248,7 +256,7 @@ public class FragmentFolders extends FragmentBase {
                         List<EntityFolder> folders = db.folder().getFoldersSynchronizingUnified();
                         for (EntityFolder folder : folders) {
                             EntityAccount account = db.account().getAccount(folder.account);
-                            if (account.ondemand)
+                            if (account.ondemand || !enabled)
                                 if (internet) {
                                     now = true;
                                     ServiceUI.sync(context, folder.id);
@@ -261,7 +269,7 @@ public class FragmentFolders extends FragmentBase {
                         }
                     } else {
                         EntityAccount account = db.account().getAccount(aid);
-                        if (account.ondemand) {
+                        if (account.ondemand || !enabled) {
                             if (internet) {
                                 now = true;
                                 List<EntityFolder> folders = db.folder().getFoldersOnDemandSync(aid);
@@ -291,15 +299,12 @@ public class FragmentFolders extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, Boolean now) {
-                if (!now) {
-                    swipeRefresh.setRefreshing(false);
+                if (!now)
                     Snackbar.make(view, R.string.title_sync_delayed, Snackbar.LENGTH_LONG).show();
-                }
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                swipeRefresh.setRefreshing(false);
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else

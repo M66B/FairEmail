@@ -496,6 +496,9 @@ public class FragmentMessages extends FragmentBase {
                 NetworkInfo ni = cm.getActiveNetworkInfo();
                 boolean internet = (ni != null && ni.isConnected());
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean enabled = prefs.getBoolean("enabled", true);
+
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
@@ -523,7 +526,7 @@ public class FragmentMessages extends FragmentBase {
                                 nointernet = true;
                         } else {
                             EntityAccount account = db.account().getAccount(folder.account);
-                            if (account.ondemand) {
+                            if (account.ondemand || !enabled) {
                                 if (internet) {
                                     now = true;
                                     ServiceUI.sync(context, folder.id);

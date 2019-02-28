@@ -33,7 +33,8 @@ public class TupleFolderEx extends EntityFolder {
     boolean isSynchronizing() {
         return (sync_state != null &&
                 (EntityFolder.OUTBOX.equals(type) ||
-                        accountOnDemand || "connected".equals(accountState)));
+                        !"requested".equals(sync_state) ||
+                        "connected".equals(accountState)));
     }
 
     @Override

@@ -310,7 +310,8 @@ public class ServiceUI extends IntentService {
 
     public static void sync(Context context, long folder) {
         DB db = DB.getInstance(context);
-        db.folder().setFolderSyncState(folder, "requested");
+        db.folder().setFolderState(folder, "waiting");
+        db.folder().setFolderSyncState(folder, "manual");
 
         context.startService(
                 new Intent(context, ServiceUI.class)
