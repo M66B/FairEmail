@@ -99,15 +99,22 @@ public class EntityOperation {
     }
 
     static void sync(Context context, DB db, long fid) {
+        sync(context, db, fid, false);
+    }
+
+    static void sync(Context context, DB db, long fid, boolean folders) {
         if (db.operation().getOperationCount(fid, EntityOperation.SYNC) == 0) {
 
             EntityFolder folder = db.folder().getFolder(fid);
+
+            JSONArray jargs = folder.getSyncArgs();
+            jargs.put(folders);
 
             EntityOperation operation = new EntityOperation();
             operation.folder = folder.id;
             operation.message = null;
             operation.name = SYNC;
-            operation.args = folder.getSyncArgs().toString();
+            operation.args = jargs.toString();
             operation.created = new Date().getTime();
             operation.id = db.operation().insertOperation(operation);
 

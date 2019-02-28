@@ -320,7 +320,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                             throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
                                     } else {
                                         now = "connected".equals(account.state);
-                                        EntityOperation.sync(context, db, fid);
+                                        EntityOperation.sync(context, db, fid, true);
                                     }
                                 }
 
