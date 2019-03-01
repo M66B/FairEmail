@@ -332,22 +332,13 @@
             app:layout_constraintTop_toBottomOf="@id/btnAdvanced" />
 
         <CheckBox
-            android:id="@+id/cbOnDemand"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_synchronize_ondemand"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbSynchronize" />
-
-        <CheckBox
             android:id="@+id/cbPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/title_primary_account"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbOnDemand" />
+            app:layout_constraintTop_toBottomOf="@id/cbSynchronize" />
 
         <CheckBox
             android:id="@+id/cbNotify"
@@ -733,7 +724,7 @@
             android:layout_height="0dp"
             app:constraint_referenced_ids="
             tvPrefix,tvPrefixRemark,etPrefix,cbNotify,
-            cbSynchronize,cbOnDemand,cbPrimary,
+            cbSynchronize,cbPrimary,
             cbBrowse,tvBrowseHint,
             tvInterval,etInterval" />
 

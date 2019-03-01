@@ -36,8 +36,8 @@ public interface DaoFolder {
     @Query("SELECT folder.* FROM folder" +
             " JOIN account ON account.id = folder.account" +
             " WHERE folder.synchronize" +
-            " AND (account.synchronize AND NOT account.ondemand)")
-    List<EntityFolder> getFoldersAutoSync();
+            " AND account.synchronize")
+    List<EntityFolder> getSynchronizingFolders();
 
     @Query("SELECT folder.* FROM folder" +
             " JOIN account ON account.id = folder.account" +
@@ -52,8 +52,7 @@ public interface DaoFolder {
     EntityFolder getBrowsableFolder(long folder, boolean search);
 
     @Query("SELECT folder.*" +
-            ", account.name AS accountName, account.color AS accountColor" +
-            ", account.state AS accountState, account.ondemand AS accountOnDemand" +
+            ", account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
@@ -68,8 +67,7 @@ public interface DaoFolder {
     LiveData<List<TupleFolderEx>> liveFolders(Long account);
 
     @Query("SELECT folder.*" +
-            ", account.name AS accountName, account.color AS accountColor" +
-            ", account.state AS accountState, account.ondemand AS accountOnDemand" +
+            ", account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
@@ -87,8 +85,7 @@ public interface DaoFolder {
     LiveData<EntityFolder> livePrimaryDrafts();
 
     @Query("SELECT folder.*" +
-            ", account.name AS accountName, account.color AS accountColor" +
-            ", account.state AS accountState, account.ondemand AS accountOnDemand" +
+            ", account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +

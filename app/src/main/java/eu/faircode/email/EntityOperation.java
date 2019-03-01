@@ -115,7 +115,7 @@ public class EntityOperation {
             operation.created = new Date().getTime();
             operation.id = db.operation().insertOperation(operation);
 
-            if (account != null && (account.ondemand || !"connected".equals(account.state))) {
+            if (account != null && !"connected".equals(account.state)) {
                 db.folder().setFolderState(fid, "waiting");
                 db.folder().setFolderSyncState(fid, "manual");
             } else
@@ -123,7 +123,7 @@ public class EntityOperation {
 
             if (account == null) // Outbox
                 ServiceSend.start(context);
-            else if (account.ondemand || !"connected".equals(account.state))
+            else if (!"connected".equals(account.state))
                 ServiceUI.process(context, fid);
 
             Log.i("Queued sync folder=" + folder);
@@ -255,7 +255,7 @@ public class EntityOperation {
             ServiceSend.start(context);
         else {
             EntityAccount account = db.account().getAccount(message.account);
-            if (account.ondemand)
+            if (account != null && !"connected".equals(account.state))
                 ServiceUI.process(context, operation.folder);
         }
     }

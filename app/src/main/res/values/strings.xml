@@ -236,7 +236,6 @@
     <string name="title_authorizing">Authorizing account &#8230;</string>
     <string name="title_setup_advanced">Advanced</string>
     <string name="title_synchronize_account">Synchronize (receive messages)</string>
-    <string name="title_synchronize_ondemand">Synchronize on demand (manual)</string>
     <string name="title_synchronize_identity">Synchronize (send messages)</string>
     <string name="title_primary_account">Primary (default account)</string>
     <string name="title_primary_identity">Primary (default identity)</string>

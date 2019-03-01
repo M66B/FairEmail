@@ -936,11 +936,6 @@ public class ServiceSynchronize extends LifecycleService {
             return prefs.getBoolean("enabled", true);
         }
 
-        private boolean hasWork() {
-            DB db = DB.getInstance(ServiceSynchronize.this);
-            return (db.account().getSynchronizingAccounts(false).size() > 0);
-        }
-
         private void service_init() {
             EntityLog.log(ServiceSynchronize.this, "Service init");
             // Network events will manage the service
@@ -998,7 +993,7 @@ public class ServiceSynchronize extends LifecycleService {
                             }
 
                         // Start monitoring accounts
-                        List<EntityAccount> accounts = db.account().getSynchronizingAccounts(false);
+                        List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
                         for (final EntityAccount account : accounts) {
                             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
                                 if (account.notify)
@@ -1114,12 +1109,12 @@ public class ServiceSynchronize extends LifecycleService {
                         queued--;
                         EntityLog.log(ServiceSynchronize.this, "Reload done queued=" + queued);
 
-                        if (queued == 0 && !(isEnabled() && hasWork())) {
+                        if (queued == 0 && !isEnabled()) {
                             try {
                                 Thread.sleep(STOP_DELAY);
                             } catch (InterruptedException ignored) {
                             }
-                            if (queued == 0 && !(isEnabled() && hasWork())) {
+                            if (queued == 0 && !isEnabled()) {
                                 EntityLog.log(ServiceSynchronize.this, "Service stop");
                                 stopSelf();
                             }
@@ -1207,7 +1202,7 @@ public class ServiceSynchronize extends LifecycleService {
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         boolean enabled = prefs.getBoolean("enabled", true);
 
-                        int accounts = db.account().getSynchronizingAccounts(false).size();
+                        int accounts = db.account().getSynchronizingAccounts().size();
 
                         if (enabled && accounts > 0)
                             ContextCompat.startForegroundService(context,

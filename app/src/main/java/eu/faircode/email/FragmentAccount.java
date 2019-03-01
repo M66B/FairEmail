@@ -109,7 +109,6 @@ public class FragmentAccount extends FragmentBase {
 
     private Button btnAdvanced;
     private CheckBox cbSynchronize;
-    private CheckBox cbOnDemand;
     private CheckBox cbPrimary;
     private CheckBox cbNotify;
     private CheckBox cbBrowse;
@@ -188,7 +187,6 @@ public class FragmentAccount extends FragmentBase {
 
         btnAdvanced = view.findViewById(R.id.btnAdvanced);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
-        cbOnDemand = view.findViewById(R.id.cbOnDemand);
         cbPrimary = view.findViewById(R.id.cbPrimary);
         cbNotify = view.findViewById(R.id.cbNotify);
         cbBrowse = view.findViewById(R.id.cbBrowse);
@@ -390,7 +388,6 @@ public class FragmentAccount extends FragmentBase {
         cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                cbOnDemand.setEnabled(checked);
                 cbPrimary.setEnabled(checked);
             }
         });
@@ -762,7 +759,6 @@ public class FragmentAccount extends FragmentBase {
         args.putInt("color", color);
 
         args.putBoolean("synchronize", cbSynchronize.isChecked());
-        args.putBoolean("ondemand", cbOnDemand.isChecked());
         args.putBoolean("primary", cbPrimary.isChecked());
         args.putBoolean("notify", cbNotify.isChecked());
         args.putBoolean("browse", cbBrowse.isChecked());
@@ -812,7 +808,6 @@ public class FragmentAccount extends FragmentBase {
                 Integer color = args.getInt("color");
 
                 boolean synchronize = args.getBoolean("synchronize");
-                boolean ondemand = args.getBoolean("ondemand");
                 boolean primary = args.getBoolean("primary");
                 boolean notify = args.getBoolean("notify");
                 boolean browse = args.getBoolean("browse");
@@ -862,7 +857,6 @@ public class FragmentAccount extends FragmentBase {
                 boolean reload = (check || account == null ||
                         !Objects.equals(account.prefix, prefix) ||
                         account.synchronize != synchronize ||
-                        account.ondemand != ondemand ||
                         !account.poll_interval.equals(Integer.parseInt(interval)));
 
                 Long last_connected = null;
@@ -934,7 +928,6 @@ public class FragmentAccount extends FragmentBase {
                     account.color = color;
 
                     account.synchronize = synchronize;
-                    account.ondemand = ondemand;
                     account.primary = (account.synchronize && primary);
                     account.notify = notify;
                     account.browse = browse;
@@ -1157,7 +1150,6 @@ public class FragmentAccount extends FragmentBase {
                     cbNotify.setChecked(account == null ? false : account.notify);
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
-                    cbOnDemand.setChecked(account == null ? false : account.ondemand);
                     cbPrimary.setChecked(account == null ? false : account.primary);
                     cbBrowse.setChecked(account == null ? true : account.browse);
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
@@ -1198,7 +1190,6 @@ public class FragmentAccount extends FragmentBase {
                 etRealm.setEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
 
                 setColor(color);
-                cbOnDemand.setEnabled(cbSynchronize.isChecked());
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
 
                 // Consider previous check/save/delete as cancelled

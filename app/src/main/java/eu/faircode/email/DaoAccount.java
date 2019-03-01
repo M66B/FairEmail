@@ -32,10 +32,8 @@ public interface DaoAccount {
     @Query("SELECT * FROM account")
     List<EntityAccount> getAccounts();
 
-    @Query("SELECT * FROM account" +
-            " WHERE synchronize" +
-            " AND (:all OR NOT ondemand)")
-    List<EntityAccount> getSynchronizingAccounts(boolean all);
+    @Query("SELECT * FROM account WHERE synchronize")
+    List<EntityAccount> getSynchronizingAccounts();
 
     @Query("SELECT * FROM account WHERE tbd = 1")
     List<EntityAccount> getAccountsTbd();
@@ -43,9 +41,7 @@ public interface DaoAccount {
     @Query("SELECT * FROM account")
     LiveData<List<EntityAccount>> liveAccounts();
 
-    @Query("SELECT * FROM account" +
-            " WHERE synchronize")
-        // including on demand
+    @Query("SELECT * FROM account WHERE synchronize")
     LiveData<List<EntityAccount>> liveSynchronizingAccounts();
 
     @Query("SELECT *" +
@@ -78,12 +74,11 @@ public interface DaoAccount {
     @Query("SELECT" +
             " (SELECT COUNT(account.id) FROM account" +
             "    WHERE synchronize" +
-            "    AND NOT ondemand" +
             "    AND state = 'connected') AS accounts" +
             ", (SELECT COUNT(operation.id) FROM operation" +
             "    JOIN folder ON folder.id = operation.folder" +
             "    JOIN account ON account.id = folder.account" + // not outbox
-            "    WHERE account.synchronize) AS operations") // including on demand
+            "    WHERE account.synchronize) AS operations")
     LiveData<TupleAccountStats> liveStats();
 
     @Query("SELECT account.id, swipe_left, l.type AS left_type, swipe_right, r.type AS right_type" +

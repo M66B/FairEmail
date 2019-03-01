@@ -29,7 +29,7 @@ import androidx.room.Query;
 @Dao
 public interface DaoOperation {
     @Query("SELECT operation.*, account.name AS accountName, folder.name AS folderName" +
-            " ,((account.synchronize IS NULL OR account.synchronize)" + // including on demand
+            " ,((account.synchronize IS NULL OR account.synchronize)" +
             " AND (NOT folder.account IS NULL OR identity.synchronize IS NULL OR identity.synchronize)) AS synchronize" +
             " FROM operation" +
             " JOIN folder ON folder.id = operation.folder" +
@@ -50,7 +50,7 @@ public interface DaoOperation {
             " LEFT JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
             " WHERE operation.folder = :folder" +
-            " AND (account.synchronize IS NULL OR account.synchronize)" + // including on demand
+            " AND (account.synchronize IS NULL OR account.synchronize)" +
             " AND (NOT folder.account IS NULL OR identity.synchronize IS NULL OR identity.synchronize)" +
             " ORDER BY" +
             "  CASE WHEN operation.name = '" + EntityOperation.SYNC + "' THEN" +
