@@ -62,6 +62,7 @@ public class FragmentRule extends FragmentBase {
     private ViewGroup view;
     private ScrollView scroll;
     private ConstraintLayout content;
+    private TextView tvFolder;
     private EditText etName;
     private EditText etOrder;
     private CheckBox cbEnabled;
@@ -108,11 +109,14 @@ public class FragmentRule extends FragmentBase {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        setSubtitle(R.string.title_edit_rules);
+
         view = (ViewGroup) inflater.inflate(R.layout.fragment_rule, container, false);
 
         // Get controls
         scroll = view.findViewById(R.id.scroll);
         content = view.findViewById(R.id.content);
+        tvFolder = view.findViewById(R.id.tvFolder);
         etName = view.findViewById(R.id.etName);
         etOrder = view.findViewById(R.id.etOrder);
         cbEnabled = view.findViewById(R.id.cbEnabled);
@@ -217,6 +221,7 @@ public class FragmentRule extends FragmentBase {
         });
 
         // Initialize
+        tvFolder.setText(null);
         bottom_navigation.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         grpMove.setVisibility(View.GONE);
@@ -261,6 +266,8 @@ public class FragmentRule extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, RefData data) {
+                tvFolder.setText(data.folder.getDisplayName(getContext()));
+
                 adapterTarget.clear();
                 adapterTarget.addAll(data.folders);
 
@@ -314,6 +321,8 @@ public class FragmentRule extends FragmentBase {
     private void loadRule() {
         Bundle rargs = new Bundle();
         rargs.putLong("id", id);
+        rargs.putString("sender", getArguments().getString("sender"));
+        rargs.putString("subject", getArguments().getString("subject"));
 
         new SimpleTask<TupleRuleEx>() {
             @Override
@@ -336,9 +345,9 @@ public class FragmentRule extends FragmentBase {
                     etOrder.setText(rule == null ? null : Integer.toString(rule.order));
                     cbEnabled.setChecked(rule == null || rule.enabled);
                     cbStop.setChecked(rule != null && rule.stop);
-                    etSender.setText(jsender == null ? null : jsender.getString("value"));
+                    etSender.setText(jsender == null ? args.getString("sender") : jsender.getString("value"));
                     cbSender.setChecked(jsender != null && jsender.getBoolean("regex"));
-                    etSubject.setText(jsubject == null ? null : jsubject.getString("value"));
+                    etSubject.setText(jsubject == null ? args.getString("subject") : jsubject.getString("value"));
                     cbSubject.setChecked(jsubject != null && jsubject.getBoolean("regex"));
                     etHeader.setText(jheader == null ? null : jheader.getString("value"));
                     cbHeader.setChecked(jheader != null && jheader.getBoolean("regex"));

@@ -318,6 +318,7 @@
     <string name="title_unflag">Remove star</string>
     <string name="title_forward">Forward</string>
     <string name="title_reply_all">Reply to all</string>
+    <string name="title_create_rule">Create rule &#8230;</string>
     <string name="title_share">Share</string>
     <string name="title_show_headers">Show headers</string>
     <string name="title_raw_download">Download raw message</string>

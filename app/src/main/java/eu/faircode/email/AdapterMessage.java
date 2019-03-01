@@ -1936,6 +1936,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .show();
         }
 
+        private void onMenuCreateRule(ActionData data) {
+            Intent rule = new Intent(ActivityView.ACTION_EDIT_RULE);
+            rule.putExtra("account", data.message.account);
+            rule.putExtra("folder", data.message.folder);
+            if (data.message.from != null && data.message.from.length > 0)
+                rule.putExtra("sender", ((InternetAddress) data.message.from[0]).getAddress());
+            if (!TextUtils.isEmpty(data.message.subject))
+                rule.putExtra("subject", data.message.subject);
+
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            lbm.sendBroadcast(rule);
+        }
+
         private void onMenuShare(ActionData data) {
             Bundle args = new Bundle();
             args.putLong("id", data.message.id);
@@ -2269,6 +2282,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_junk:
                             onMenuJunk(data);
+                            return true;
+                        case R.id.menu_create_rule:
+                            onMenuCreateRule(data);
                             return true;
                         case R.id.menu_share:
                             onMenuShare(data);

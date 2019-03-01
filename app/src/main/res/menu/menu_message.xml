@@ -29,6 +29,10 @@
         android:title="@string/title_spam" />
 
     <item
+        android:id="@+id/menu_create_rule"
+        android:title="@string/title_create_rule" />
+
+    <item
         android:id="@+id/menu_share"
         android:title="@string/title_share" />
 
