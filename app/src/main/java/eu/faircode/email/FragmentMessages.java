@@ -134,6 +134,7 @@ public class FragmentMessages extends FragmentBase {
     private boolean outbox = false;
     private boolean connected;
     private boolean searching = false;
+    private boolean manual = false;
     private AdapterMessage adapter;
 
     private AdapterMessage.ViewType viewType;
@@ -489,6 +490,11 @@ public class FragmentMessages extends FragmentBase {
 
         new SimpleTask<Boolean>() {
             @Override
+            protected void onPreExecute(Bundle args) {
+                manual = true;
+            }
+
+            @Override
             protected Boolean onExecute(Context context, Bundle args) {
                 long fid = args.getLong("folder");
 
@@ -519,6 +525,7 @@ public class FragmentMessages extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
+                manual = false;
                 swipeRefresh.setRefreshing(false);
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
@@ -1525,6 +1532,11 @@ public class FragmentMessages extends FragmentBase {
                                 break;
                             }
 
+                        if (!refreshing && manual) {
+                            manual = false;
+                            rvMessage.scrollToPosition(0);
+                        }
+
                         swipeRefresh.setRefreshing(refreshing);
                     }
                 });
@@ -1550,7 +1562,14 @@ public class FragmentMessages extends FragmentBase {
                             }
                         }
 
-                        swipeRefresh.setRefreshing(folder != null && folder.isSynchronizing());
+                        boolean refreshing = (folder != null && folder.isSynchronizing());
+
+                        if (!refreshing && manual) {
+                            manual = false;
+                            rvMessage.scrollToPosition(0);
+                        }
+
+                        swipeRefresh.setRefreshing(refreshing);
                     }
                 });
                 break;

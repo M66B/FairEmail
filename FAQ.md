@@ -1133,7 +1133,7 @@ for example one listed [here](https://github.com/offa/android-foss#-document--pd
 <a name="faq69"></a>
 **(69) Can you add auto scroll up on new message?**
 
-The message list is automatically scrolled up when navigating from a new message notification.
+The message list is automatically scrolled up when navigating from a new message notification or after a manual refresh.
 Always automatically scrolling up on arrival of new messages would interfere with your own navigation and scrolling.
 
 <br />
