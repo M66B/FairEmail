@@ -40,6 +40,7 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
@@ -61,6 +62,7 @@ public class FragmentFolders extends FragmentBase {
     private FloatingActionButton fab;
 
     private long account;
+    private boolean searching = false;
     private AdapterFolder adapter;
 
     private Boolean show_hidden = null;
@@ -328,17 +330,55 @@ public class FragmentFolders extends FragmentBase {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_folders, menu);
+
+        final MenuItem menuSearch = menu.findItem(R.id.menu_search);
+        menuSearch.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem item) {
+                searching = true;
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem item) {
+                searching = false;
+                return true;
+            }
+        });
+        if (searching)
+            menuSearch.expandActionView();
+
+        final SearchView searchView = (SearchView) menuSearch.getActionView();
+        searchView.setQueryHint(getString(R.string.title_search_device));
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                searching = false;
+                menuSearch.collapseActionView();
+                FragmentMessages.search(getContext(), getViewLifecycleOwner(), getFragmentManager(), -1, query);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.menu_search).setVisible(account < 0);
+
         MenuItem item = menu.findItem(R.id.menu_show_hidden);
         if (show_hidden != null) {
             item.setTitle(show_hidden ? R.string.title_hide_folders : R.string.title_show_folders);
             item.setIcon(show_hidden ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_visibility_24);
         }
         item.setVisible(show_hidden != null);
+
         super.onPrepareOptionsMenu(menu);
     }
 

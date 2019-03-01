@@ -80,6 +80,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -1672,40 +1673,7 @@ public class FragmentMessages extends FragmentBase {
             public boolean onQueryTextSubmit(String query) {
                 searching = false;
                 menuSearch.collapseActionView();
-
-                if (Helper.isPro(getContext())) {
-                    Bundle args = new Bundle();
-                    args.putLong("folder", folder);
-                    args.putString("search", query);
-
-                    new SimpleTask<Void>() {
-                        @Override
-                        protected Void onExecute(Context context, Bundle args) {
-                            DB.getInstance(context).message().resetSearch();
-                            return null;
-                        }
-
-                        @Override
-                        protected void onExecuted(Bundle args, Void data) {
-                            FragmentMessages fragment = new FragmentMessages();
-                            fragment.setArguments(args);
-
-                            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                            fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
-                            fragmentTransaction.commit();
-                        }
-
-                        @Override
-                        protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                        }
-                    }.execute(FragmentMessages.this, args, "messages:resetsearch");
-                } else {
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-                    fragmentTransaction.commit();
-                }
-
+                search(getContext(), getViewLifecycleOwner(), getFragmentManager(), folder, query);
                 return true;
             }
 
@@ -2502,6 +2470,43 @@ public class FragmentMessages extends FragmentBase {
         }
 
         return super.onCreateAnimation(transit, enter, nextAnim);
+    }
+
+    static void search(
+            final Context context, final LifecycleOwner owner, final FragmentManager manager,
+            long folder, String query) {
+        if (Helper.isPro(context)) {
+            Bundle args = new Bundle();
+            args.putLong("folder", folder);
+            args.putString("search", query);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    DB.getInstance(context).message().resetSearch();
+                    return null;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Void data) {
+                    FragmentMessages fragment = new FragmentMessages();
+                    fragment.setArguments(args);
+
+                    FragmentTransaction fragmentTransaction = manager.beginTransaction();
+                    fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
+                    fragmentTransaction.commit();
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, owner, ex);
+                }
+            }.execute(context, owner, args, "search:reset");
+        } else {
+            FragmentTransaction fragmentTransaction = manager.beginTransaction();
+            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+            fragmentTransaction.commit();
+        }
     }
 
     private class MoreResult {
