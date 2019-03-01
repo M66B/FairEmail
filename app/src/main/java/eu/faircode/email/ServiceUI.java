@@ -10,6 +10,8 @@ import android.os.PowerManager;
 import android.preference.PreferenceManager;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.mail.Folder;
@@ -21,6 +23,7 @@ import androidx.annotation.Nullable;
 
 public class ServiceUI extends IntentService {
     private PowerManager.WakeLock wl;
+    private Map<EntityAccount, Store> accountStore = new HashMap<>();
 
     static final int PI_WHY = 1;
     static final int PI_SUMMARY = 2;
@@ -51,7 +54,31 @@ public class ServiceUI extends IntentService {
     @Override
     public void onDestroy() {
         Log.i("Service UI destroy");
-        wl.release();
+
+        final DB db = DB.getInstance(this);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    for (EntityAccount account : accountStore.keySet())
+                        try {
+                            Log.i(account.name + " closing");
+                            db.account().setAccountState(account.id, "closing");
+                            accountStore.get(account).close();
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        } finally {
+                            Log.i(account.name + " closed");
+                            db.account().setAccountState(account.id, null);
+                        }
+                    accountStore.clear();
+                } finally {
+                    wl.release();
+                }
+            }
+        }).start();
+
         super.onDestroy();
     }
 
@@ -251,7 +278,7 @@ public class ServiceUI extends IntentService {
         if (account == null)
             return;
 
-        Store istore = null;
+        Folder ifolder = null;
         try {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
@@ -261,20 +288,26 @@ public class ServiceUI extends IntentService {
             final Session isession = Session.getInstance(props, null);
             isession.setDebug(debug);
 
-            // Connect account
-            Log.i(account.name + " connecting");
-            db.account().setAccountState(account.id, "connecting");
-            istore = isession.getStore(account.getProtocol());
-            Helper.connect(this, istore, account);
-            db.account().setAccountState(account.id, "connected");
-            db.account().setAccountConnected(account.id, new Date().getTime());
-            db.account().setAccountError(account.id, null);
-            Log.i(account.name + " connected");
+            Store istore = accountStore.get(account.id);
+            if (istore == null || !istore.isConnected()) {
+                // Connect account
+                Log.i(account.name + " connecting");
+                db.account().setAccountState(account.id, "connecting");
+                istore = isession.getStore(account.getProtocol());
+                Helper.connect(this, istore, account);
+                db.account().setAccountState(account.id, "connected");
+                db.account().setAccountConnected(account.id, new Date().getTime());
+                db.account().setAccountError(account.id, null);
+                Log.i(account.name + " connected");
+
+                accountStore.put(account, istore);
+            } else
+                Log.i(account + " reusing connection");
 
             // Connect folder
             Log.i(folder.name + " connecting");
             db.folder().setFolderState(folder.id, "connecting");
-            Folder ifolder = istore.getFolder(folder.name);
+            ifolder = istore.getFolder(folder.name);
             ifolder.open(Folder.READ_WRITE);
             db.folder().setFolderState(folder.id, "connected");
             db.folder().setFolderError(folder.id, null);
@@ -289,23 +322,18 @@ public class ServiceUI extends IntentService {
             db.account().setAccountError(account.id, Helper.formatThrowable(ex));
             db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, false));
         } finally {
-            if (istore != null) {
-                Log.i(account.name + " closing");
-                db.account().setAccountState(account.id, "closing");
-                db.folder().setFolderState(folder.id, "closing");
-
+            if (ifolder != null)
                 try {
-                    istore.close();
+                    Log.i(folder.name + " closing");
+                    db.folder().setFolderState(folder.id, "closing");
+                    ifolder.close();
                 } catch (MessagingException ex) {
-                    Log.e(ex);
+                    Log.w(ex);
+                } finally {
+                    Log.i(folder.name + " closed");
+                    db.folder().setFolderState(folder.id, null);
+                    db.folder().setFolderSyncState(folder.id, null);
                 }
-
-                Log.i(account.name + " closed");
-            }
-
-            db.account().setAccountState(account.id, null);
-            db.folder().setFolderState(folder.id, null);
-            db.folder().setFolderSyncState(folder.id, null);
         }
     }
 
