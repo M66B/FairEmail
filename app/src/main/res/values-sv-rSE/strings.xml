@@ -217,7 +217,6 @@
     <string name="title_no_uidplus">Denna leverantör stöder inte UIDPLUS</string>
     <string name="title_no_utf8">Denna leverantör stöder inte UTF-8</string>
     <string name="title_no_sync">Synkroniseringsfel sedan %1$s</string>
-    <string name="title_sync_delayed">Synkronisering kommer att utföras på nästa kontoanslutning</string>
     <string name="title_drafts_required">En mapp för utkast krävs för att skicka meddelanden</string>
     <string name="title_account_delete">Ta bort detta konto permanent?</string>
     <string name="title_identity_delete">Ta bort denna identitet permanent?</string>

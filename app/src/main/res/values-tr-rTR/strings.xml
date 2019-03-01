@@ -215,7 +215,6 @@
     <string name="title_no_uidplus">Bu sağlayıcı UIDPLUS\'ı desteklemiyor</string>
     <string name="title_no_utf8">Bu sağlayıcı UTF-8\'i desteklemiyor</string>
     <string name="title_no_sync">%1$s\'den beri eşzamanlama hataları</string>
-    <string name="title_sync_delayed">Bir sonraki hesap bağlantısında eşzamanlama gerçekleştirilecek</string>
     <string name="title_drafts_required">İleti göndermek için taslaklar klasörü gerekir</string>
     <string name="title_account_delete">Bu hesap kalıcı olarak silinsin mi?</string>
     <string name="title_identity_delete">Bu kimlik kalıcı olarak silinsin mi?</string>

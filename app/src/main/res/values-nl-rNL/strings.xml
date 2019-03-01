@@ -221,7 +221,6 @@
     <string name="title_no_uidplus">Deze provider ondersteunt geen UIDPLUS</string>
     <string name="title_no_utf8">Deze provider ondersteunt geen UTF-8</string>
     <string name="title_no_sync">Synchronisatiefouten sinds %1$s</string>
-    <string name="title_sync_delayed">Synchronisatie zal worden uitgevoerd bij de volgende accountverbinding</string>
     <string name="title_drafts_required">Een concepten map is vereist om berichten te verzenden</string>
     <string name="title_account_delete">Verwijder dit account permanent?</string>
     <string name="title_identity_delete">Verwijder deze identiteit permanent?</string>
