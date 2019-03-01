@@ -208,7 +208,6 @@
     <string name="title_authorizing">Autorizare cont &#8230;</string>
     <string name="title_setup_advanced">Setări avansate</string>
     <string name="title_synchronize_account">Sincronizare (primire mesaje)</string>
-    <string name="title_synchronize_ondemand">Sincronizarea la cerere (manual)</string>
     <string name="title_synchronize_identity">Sincronizare (trimitere mesaje)</string>
     <string name="title_primary_account">Primară (identitatea implicită)</string>
     <string name="title_primary_identity">Primară (identitatea implicită)</string>

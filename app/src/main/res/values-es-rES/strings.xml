@@ -201,7 +201,6 @@
     <string name="title_authorizing">Autorizando cuenta &#8230;</string>
     <string name="title_setup_advanced">Avanzado</string>
     <string name="title_synchronize_account">Sincronizar (recibir mensajes)</string>
-    <string name="title_synchronize_ondemand">Sincronizar bajo demanda (manual)</string>
     <string name="title_synchronize_identity">Sincronizar (enviar mensajes)</string>
     <string name="title_primary_account">Primaria (cuenta predeterminada)</string>
     <string name="title_primary_identity">Primaria (identidad predeterminada)</string>

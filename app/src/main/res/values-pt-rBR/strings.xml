@@ -201,7 +201,6 @@
     <string name="title_authorizing">Autorizando a conta &#8230;</string>
     <string name="title_setup_advanced">Avançado</string>
     <string name="title_synchronize_account">Sincronizar (receber mensagens)</string>
-    <string name="title_synchronize_ondemand">Sincronizar na demanda (manual)</string>
     <string name="title_synchronize_identity">Sincronizar (enviar mensagens)</string>
     <string name="title_primary_account">Principal (identidade padrão)</string>
     <string name="title_primary_identity">Primária (identidade padrão)</string>
@@ -275,6 +274,7 @@
     <string name="title_unflag">Remover estrela</string>
     <string name="title_forward">Encaminhar</string>
     <string name="title_reply_all">Responder a todos</string>
+    <string name="title_create_rule">Criar regra &#8230;</string>
     <string name="title_share">Compartilhar</string>
     <string name="title_show_headers">Mostrar cabeçalhos</string>
     <string name="title_raw_download">Baixar mensagem bruta</string>

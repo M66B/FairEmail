@@ -198,7 +198,6 @@
     <string name="title_authorizing">Auktoriserar konto &#8230;</string>
     <string name="title_setup_advanced">Avancerat</string>
     <string name="title_synchronize_account">Synkronisera (hämta meddelanden)</string>
-    <string name="title_synchronize_ondemand">Synkronisera på efterfrågan (manuell)</string>
     <string name="title_synchronize_identity">Synkronisera (skicka meddelanden)</string>
     <string name="title_primary_account">Primär (standardkonto)</string>
     <string name="title_primary_identity">Primär (standardidentitet)</string>

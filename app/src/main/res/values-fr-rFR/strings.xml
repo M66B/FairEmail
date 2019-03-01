@@ -201,7 +201,6 @@
     <string name="title_authorizing">Autorisation du compte en cours &#8230;</string>
     <string name="title_setup_advanced">Avancé</string>
     <string name="title_synchronize_account">Synchroniser (recevoir des messages)</string>
-    <string name="title_synchronize_ondemand">Synchroniser à la demande (manuel)</string>
     <string name="title_synchronize_identity">Synchroniser (envoyer des messages)</string>
     <string name="title_primary_account">Principal (compte par défaut)</string>
     <string name="title_primary_identity">Principal (identité par défaut)</string>
@@ -275,6 +274,7 @@
     <string name="title_unflag">Marquer comme non suivi</string>
     <string name="title_forward">Transférer</string>
     <string name="title_reply_all">Répondre à tous</string>
+    <string name="title_create_rule">Créer la règle &#8230;</string>
     <string name="title_share">Partager</string>
     <string name="title_show_headers">Afficher les en-têtes</string>
     <string name="title_raw_download">Télécharger le message brut</string>

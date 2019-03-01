@@ -195,7 +195,6 @@
     <string name="title_authorizing">Hesap yetkilendiriliyor &#8230;</string>
     <string name="title_setup_advanced">Gelişmiş</string>
     <string name="title_synchronize_account">Eşzamanlama (iletileri al)</string>
-    <string name="title_synchronize_ondemand">İstek üzerine eşzamanla (el ile)</string>
     <string name="title_synchronize_identity">Eşzamanlama (iletileri gönder)</string>
     <string name="title_primary_account">Birincil (varsayılan hesap)</string>
     <string name="title_primary_identity">Birincil (varsayılan kimlik)</string>

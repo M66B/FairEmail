@@ -215,7 +215,6 @@
     <string name="title_authorizing">Авторизация учетной записи &#8230;</string>
     <string name="title_setup_advanced">Дополнительные опции</string>
     <string name="title_synchronize_account">Синхронизировать (получать сообщения)</string>
-    <string name="title_synchronize_ondemand">Синхронизировать по требованию (вручную)</string>
     <string name="title_synchronize_identity">Синхронизировать (отправлять сообщения)</string>
     <string name="title_primary_account">Основная (учетная запись по умолчанию)</string>
     <string name="title_primary_identity">Основной (идентификатор по умолчанию)</string>

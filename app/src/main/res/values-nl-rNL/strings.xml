@@ -201,7 +201,6 @@
     <string name="title_authorizing">Account autoriseren &#8230;</string>
     <string name="title_setup_advanced">Geavanceerd</string>
     <string name="title_synchronize_account">Synchroniseren (ontvang berichten)</string>
-    <string name="title_synchronize_ondemand">Synchroniseren op aanvraag (handmatig)</string>
     <string name="title_synchronize_identity">Synchroniseren (stuur berichten)</string>
     <string name="title_primary_account">Primair account (standaard account)</string>
     <string name="title_primary_identity">Primaire identiteit (standaard identiteit)</string>
@@ -275,6 +274,7 @@
     <string name="title_unflag">Ster verwijderen</string>
     <string name="title_forward">Doorsturen</string>
     <string name="title_reply_all">Allen beantwoorden</string>
+    <string name="title_create_rule">Maak regel &#8230;</string>
     <string name="title_share">Delen</string>
     <string name="title_show_headers">Toon koppen</string>
     <string name="title_raw_download">Ruw bericht downloaden</string>

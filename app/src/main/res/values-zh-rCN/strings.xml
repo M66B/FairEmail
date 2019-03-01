@@ -193,7 +193,6 @@
     <string name="title_authorizing">授权帐户 &#8230;</string>
     <string name="title_setup_advanced">高级选项</string>
     <string name="title_synchronize_account">同步（接收）</string>
-    <string name="title_synchronize_ondemand">按需（手动）同步</string>
     <string name="title_synchronize_identity">同步（发送）</string>
     <string name="title_primary_account">默认账户</string>
     <string name="title_primary_identity">默认身份</string>
