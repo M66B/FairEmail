@@ -9,21 +9,10 @@ import android.net.Uri;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
-
-import javax.mail.Folder;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Store;
-
 import androidx.annotation.Nullable;
 
 public class ServiceUI extends IntentService {
     private PowerManager.WakeLock wl;
-    private Map<EntityAccount, Store> accountStore = new HashMap<>();
 
     static final int PI_WHY = 1;
     static final int PI_SUMMARY = 2;
@@ -54,31 +43,7 @@ public class ServiceUI extends IntentService {
     @Override
     public void onDestroy() {
         Log.i("Service UI destroy");
-
-        final DB db = DB.getInstance(this);
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    for (EntityAccount account : accountStore.keySet())
-                        try {
-                            Log.i(account.name + " closing");
-                            db.account().setAccountState(account.id, "closing");
-                            accountStore.get(account).close();
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                        } finally {
-                            Log.i(account.name + " closed");
-                            db.account().setAccountState(account.id, null);
-                        }
-                    accountStore.clear();
-                } finally {
-                    wl.release();
-                }
-            }
-        }).start();
-
+        wl.release();
         super.onDestroy();
     }
 
@@ -128,14 +93,6 @@ public class ServiceUI extends IntentService {
             case "snooze":
                 // AlarmManager.RTC_WAKEUP
                 onSnooze(id);
-                break;
-
-            case "process":
-                onProcessOperations(id);
-                break;
-
-            case "fsync":
-                onFolderSync(id);
                 break;
 
             default:
@@ -266,137 +223,5 @@ public class ServiceUI extends IntentService {
         } finally {
             db.endTransaction();
         }
-    }
-
-    private void onProcessOperations(long fid) {
-        DB db = DB.getInstance(this);
-
-        EntityFolder folder = db.folder().getFolder(fid);
-        if (folder == null)
-            return;
-        EntityAccount account = db.account().getAccount(folder.account);
-        if (account == null)
-            return;
-
-        Folder ifolder = null;
-        try {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-            boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
-
-            // Create session
-            Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
-            final Session isession = Session.getInstance(props, null);
-            isession.setDebug(debug);
-
-            Store istore = accountStore.get(account.id);
-            if (istore == null || !istore.isConnected()) {
-                // Connect account
-                Log.i(account.name + " connecting");
-                db.account().setAccountState(account.id, "connecting");
-                istore = isession.getStore(account.getProtocol());
-                Helper.connect(this, istore, account);
-                db.account().setAccountState(account.id, "connected");
-                db.account().setAccountConnected(account.id, new Date().getTime());
-                db.account().setAccountError(account.id, null);
-                Log.i(account.name + " connected");
-
-                accountStore.put(account, istore);
-            } else
-                Log.i(account + " reusing connection");
-
-            // Connect folder
-            Log.i(folder.name + " connecting");
-            db.folder().setFolderState(folder.id, "connecting");
-            ifolder = istore.getFolder(folder.name);
-            ifolder.open(Folder.READ_WRITE);
-            db.folder().setFolderState(folder.id, "connected");
-            db.folder().setFolderError(folder.id, null);
-            Log.i(folder.name + " connected");
-
-            // Process operations
-            Core.processOperations(this, account, folder, isession, istore, ifolder, new Core.State());
-
-        } catch (Throwable ex) {
-            Log.w(ex);
-            Core.reportError(this, account, folder, ex);
-            db.account().setAccountError(account.id, Helper.formatThrowable(ex));
-            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, false));
-        } finally {
-            if (ifolder != null)
-                try {
-                    Log.i(folder.name + " closing");
-                    db.folder().setFolderState(folder.id, "closing");
-                    ifolder.close();
-                } catch (MessagingException ex) {
-                    Log.w(ex);
-                } finally {
-                    Log.i(folder.name + " closed");
-                    db.folder().setFolderState(folder.id, null);
-                    db.folder().setFolderSyncState(folder.id, null);
-                }
-        }
-    }
-
-    private void onFolderSync(long aid) {
-        DB db = DB.getInstance(this);
-        EntityAccount account = db.account().getAccount(aid);
-        if (account == null)
-            return;
-
-        Store istore = null;
-        try {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-            boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
-
-            // Create session
-            Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
-            final Session isession = Session.getInstance(props, null);
-            isession.setDebug(debug);
-
-            // Connect account
-            Log.i(account.name + " connecting");
-            db.account().setAccountState(account.id, "connecting");
-            istore = isession.getStore(account.getProtocol());
-            Helper.connect(this, istore, account);
-            db.account().setAccountState(account.id, "connected");
-            db.account().setAccountConnected(account.id, new Date().getTime());
-            db.account().setAccountError(account.id, null);
-            Log.i(account.name + " connected");
-
-            // Synchronize folders
-            Core.onSynchronizeFolders(this, account, istore, new Core.State());
-
-        } catch (Throwable ex) {
-            Log.w(ex);
-            Core.reportError(this, account, null, ex);
-            db.account().setAccountError(account.id, Helper.formatThrowable(ex));
-        } finally {
-            if (istore != null) {
-                Log.i(account.name + " closing");
-                db.account().setAccountState(account.id, "closing");
-
-                try {
-                    istore.close();
-                } catch (MessagingException ex) {
-                    Log.e(ex);
-                }
-
-                Log.i(account.name + " closed");
-            }
-
-            db.account().setAccountState(account.id, null);
-        }
-    }
-
-    public static void process(Context context, long folder) {
-        context.startService(
-                new Intent(context, ServiceUI.class)
-                        .setAction("process:" + folder));
-    }
-
-    public static void fsync(Context context, long account) {
-        context.startService(
-                new Intent(context, ServiceUI.class)
-                        .setAction("fsync:" + account));
     }
 }

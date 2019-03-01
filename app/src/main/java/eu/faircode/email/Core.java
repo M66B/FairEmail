@@ -1269,7 +1269,7 @@ class Core {
 
             if (update)
                 db.message().updateMessage(message);
-            else if (BuildConfig.DEBUG)
+            else if (false && BuildConfig.DEBUG)
                 Log.i(folder.name + " unchanged uid=" + uid);
         }
 

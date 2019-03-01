@@ -85,6 +85,12 @@ public interface DaoOperation {
             " AND  message = :message")
     int getOperationCount(long folder, long message);
 
+    @Query("SELECT COUNT(operation.id) FROM operation" +
+            " JOIN folder ON folder.id = operation.folder" +
+            " JOIN account ON account.id = folder.account" + // not outbox
+            " WHERE account.synchronize")
+    LiveData<Integer> livePendingOperationsCount();
+
     @Query("UPDATE operation SET error = :error WHERE id = :id")
     int setOperationError(long id, String error);
 

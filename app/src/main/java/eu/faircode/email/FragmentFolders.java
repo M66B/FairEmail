@@ -302,11 +302,7 @@ public class FragmentFolders extends FragmentBase {
                             EntityOperation.sync(context, folder.id);
                     } else {
                         // Folder list
-                        EntityAccount account = db.account().getAccount(aid);
-                        if (account != null && !"connected".equals(account.state))
-                            ServiceUI.fsync(context, aid);
-                        else
-                            ServiceSynchronize.reload(getContext(), "refresh folders");
+                        ServiceSynchronize.reload(getContext(), "refresh folders");
                     }
 
                     db.setTransactionSuccessful();
