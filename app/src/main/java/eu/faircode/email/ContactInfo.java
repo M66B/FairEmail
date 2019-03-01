@@ -97,7 +97,7 @@ public class ContactInfo {
                                 ContactsContract.Contacts.LOOKUP_KEY,
                                 ContactsContract.Contacts.DISPLAY_NAME
                         },
-                        ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
+                        ContactsContract.CommonDataKinds.Email.ADDRESS + " = ? COLLATE NOCASE",
                         new String[]{
                                 address.getAddress()
                         }, null)) {
