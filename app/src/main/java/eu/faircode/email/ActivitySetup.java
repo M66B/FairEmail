@@ -57,6 +57,7 @@ import java.io.OutputStream;
 import java.security.SecureRandom;
 import java.security.spec.KeySpec;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -138,6 +139,9 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 DrawerItem item = drawerArray.getItem(position);
+                if (item == null)
+                    return;
+
                 switch (item.getMenuId()) {
                     case R.string.title_setup_export:
                         onMenuExport();
@@ -179,6 +183,9 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 DrawerItem item = drawerArray.getItem(position);
+                if (item == null)
+                    return false;
+
                 if (item.getMenuId() == R.string.menu_privacy) {
                     new SimpleTask<Void>() {
                         @Override
@@ -200,36 +207,40 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
             }
         });
 
+        List<DrawerItem> items = new ArrayList<>();
+
         PackageManager pm = getPackageManager();
         if (getIntentExport().resolveActivity(pm) != null)
-            drawerArray.add(new DrawerItem(-1, R.string.title_setup_export, R.drawable.baseline_archive_24));
+            items.add(new DrawerItem(-1, R.string.title_setup_export, R.drawable.baseline_archive_24));
         if (getIntentImport().resolveActivity(pm) != null)
-            drawerArray.add(new DrawerItem(-2, R.string.title_setup_import, R.drawable.baseline_unarchive_24));
+            items.add(new DrawerItem(-2, R.string.title_setup_import, R.drawable.baseline_unarchive_24));
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String theme = prefs.getString("theme", "system");
         if ("light".equals(theme))
-            drawerArray.add(new DrawerItem(-3, R.string.title_setup_dark_theme, R.drawable.baseline_palette_24));
+            items.add(new DrawerItem(-3, R.string.title_setup_dark_theme, R.drawable.baseline_palette_24));
         else if ("dark".equals(theme))
-            drawerArray.add(new DrawerItem(-4, R.string.title_setup_black_theme, R.drawable.baseline_palette_24));
+            items.add(new DrawerItem(-4, R.string.title_setup_black_theme, R.drawable.baseline_palette_24));
         else if ("black".equals(theme))
-            drawerArray.add(new DrawerItem(-5, R.string.title_setup_system_theme, R.drawable.baseline_palette_24));
+            items.add(new DrawerItem(-5, R.string.title_setup_system_theme, R.drawable.baseline_palette_24));
         else
-            drawerArray.add(new DrawerItem(-6, R.string.title_setup_light_theme, R.drawable.baseline_palette_24));
+            items.add(new DrawerItem(-6, R.string.title_setup_light_theme, R.drawable.baseline_palette_24));
 
         if (getIntentNotifications(this).resolveActivity(pm) != null)
-            drawerArray.add(new DrawerItem(-7, R.string.title_setup_notifications, R.drawable.baseline_notifications_24));
+            items.add(new DrawerItem(-7, R.string.title_setup_notifications, R.drawable.baseline_notifications_24));
 
-        drawerArray.add(new DrawerItem(-8, R.string.title_setup_advanced, R.drawable.baseline_settings_applications_24));
+        items.add(new DrawerItem(-8, R.string.title_setup_advanced, R.drawable.baseline_settings_applications_24));
 
-        drawerArray.add(new DrawerItem(-9));
+        items.add(new DrawerItem(-9));
 
-        drawerArray.add(new DrawerItem(-10, R.string.menu_legend, R.drawable.baseline_help_24));
+        items.add(new DrawerItem(-10, R.string.menu_legend, R.drawable.baseline_help_24));
         if (Helper.getIntentFAQ().resolveActivity(getPackageManager()) != null)
-            drawerArray.add(new DrawerItem(-11, R.string.menu_faq, R.drawable.baseline_question_answer_24));
+            items.add(new DrawerItem(-11, R.string.menu_faq, R.drawable.baseline_question_answer_24));
         if (Helper.getIntentPrivacy().resolveActivity(getPackageManager()) != null)
-            drawerArray.add(new DrawerItem(-12, R.string.menu_privacy, R.drawable.baseline_account_box_24));
-        drawerArray.add(new DrawerItem(-13, R.string.menu_about, R.drawable.baseline_info_24));
+            items.add(new DrawerItem(-12, R.string.menu_privacy, R.drawable.baseline_account_box_24));
+        items.add(new DrawerItem(-13, R.string.menu_about, R.drawable.baseline_info_24));
+
+        drawerArray.set(items);
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 

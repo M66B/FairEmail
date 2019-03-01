@@ -178,6 +178,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 DrawerItem item = drawerArray.getItem(position);
+                if (item == null)
+                    return;
+
                 switch (item.getMenuId()) {
                     case R.string.menu_answers:
                         onMenuAnswers();
@@ -229,6 +232,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 DrawerItem item = drawerArray.getItem(position);
+                if (item == null)
+                    return false;
+
                 switch (item.getMenuId()) {
                     case R.string.menu_operations:
                         onShowLog();
@@ -303,33 +309,33 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     return;
                 last = accounts;
 
-                drawerArray.clear();
+                List<DrawerItem> items = new ArrayList<>();
 
                 for (TupleAccountEx account : accounts)
-                    drawerArray.add(new DrawerItem(
+                    items.add(new DrawerItem(
                             account.id,
                             "connected".equals(account.state) ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24,
                             account.color,
                             account.unseen > 0 ? getString(R.string.title_unseen_count, account.name, account.unseen) : account.toString(),
                             account.unseen > 0));
 
-                drawerArray.add(new DrawerItem(-1));
-                drawerArray.add(new DrawerItem(-2, R.string.menu_answers, R.drawable.baseline_reply_24));
-                drawerArray.add(new DrawerItem(-3, R.string.menu_operations, R.drawable.baseline_list_24));
-                drawerArray.add(new DrawerItem(-4, R.string.menu_setup, R.drawable.baseline_settings_applications_24));
-                drawerArray.add(new DrawerItem(-5));
-                drawerArray.add(new DrawerItem(-6, R.string.menu_legend, R.drawable.baseline_help_24));
+                items.add(new DrawerItem(-1));
+                items.add(new DrawerItem(-2, R.string.menu_answers, R.drawable.baseline_reply_24));
+                items.add(new DrawerItem(-3, R.string.menu_operations, R.drawable.baseline_list_24));
+                items.add(new DrawerItem(-4, R.string.menu_setup, R.drawable.baseline_settings_applications_24));
+                items.add(new DrawerItem(-5));
+                items.add(new DrawerItem(-6, R.string.menu_legend, R.drawable.baseline_help_24));
 
                 if (Helper.getIntentFAQ().resolveActivity(getPackageManager()) != null)
-                    drawerArray.add(new DrawerItem(-7, R.string.menu_faq, R.drawable.baseline_question_answer_24));
+                    items.add(new DrawerItem(-7, R.string.menu_faq, R.drawable.baseline_question_answer_24));
 
                 if (BuildConfig.BETA_RELEASE)
-                    drawerArray.add(new DrawerItem(-8, R.string.menu_issue, R.drawable.baseline_report_problem_24));
+                    items.add(new DrawerItem(-8, R.string.menu_issue, R.drawable.baseline_report_problem_24));
 
                 if (Helper.getIntentPrivacy().resolveActivity(getPackageManager()) != null)
-                    drawerArray.add(new DrawerItem(-9, R.string.menu_privacy, R.drawable.baseline_account_box_24));
+                    items.add(new DrawerItem(-9, R.string.menu_privacy, R.drawable.baseline_account_box_24));
 
-                drawerArray.add(new DrawerItem(-10, R.string.menu_about, R.drawable.baseline_info_24));
+                items.add(new DrawerItem(-10, R.string.menu_about, R.drawable.baseline_info_24));
 
                 boolean pro = (getIntentPro() == null || getIntentPro().resolveActivity(getPackageManager()) != null);
                 boolean invite = (getIntentInvite().resolveActivity(getPackageManager()) != null);
@@ -337,19 +343,21 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 boolean other = (getIntentOtherApps().resolveActivity(getPackageManager()) != null);
 
                 if (pro || invite || rate || other)
-                    drawerArray.add(new DrawerItem(-11));
+                    items.add(new DrawerItem(-11));
 
                 if (pro)
-                    drawerArray.add(new DrawerItem(-12, R.string.menu_pro, R.drawable.baseline_monetization_on_24));
+                    items.add(new DrawerItem(-12, R.string.menu_pro, R.drawable.baseline_monetization_on_24));
 
                 if (invite)
-                    drawerArray.add(new DrawerItem(-13, R.string.menu_invite, R.drawable.baseline_people_24));
+                    items.add(new DrawerItem(-13, R.string.menu_invite, R.drawable.baseline_people_24));
 
                 if (rate)
-                    drawerArray.add(new DrawerItem(-14, R.string.menu_rate, R.drawable.baseline_star_24));
+                    items.add(new DrawerItem(-14, R.string.menu_rate, R.drawable.baseline_star_24));
 
                 if (other)
-                    drawerArray.add(new DrawerItem(-15, R.string.menu_other, R.drawable.baseline_get_app_24));
+                    items.add(new DrawerItem(-15, R.string.menu_other, R.drawable.baseline_get_app_24));
+
+                drawerArray.set(items);
             }
         });
 

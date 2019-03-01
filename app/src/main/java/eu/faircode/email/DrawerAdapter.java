@@ -8,9 +8,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class DrawerAdapter extends ArrayAdapter<DrawerItem> {
+    private List<DrawerItem> items = new ArrayList<>();
+
     DrawerAdapter(@NonNull Context context) {
         super(context, -1);
     }
@@ -37,6 +43,25 @@ public class DrawerAdapter extends ArrayAdapter<DrawerItem> {
         }
 
         return row;
+    }
+
+    void set(List<DrawerItem> items) {
+        this.items = items;
+        notifyDataSetChanged();
+    }
+
+    @Override
+    public int getCount() {
+        return items.size();
+    }
+
+    @Nullable
+    @Override
+    public DrawerItem getItem(int position) {
+        if (position < items.size())
+            return items.get(position);
+        else
+            return null;
     }
 
     @Override
