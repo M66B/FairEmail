@@ -63,6 +63,7 @@ public class ApplicationEx extends Application {
 
         createNotificationChannels();
         MessageHelper.setSystemProperties();
+        Core.init(this);
     }
 
     private void createNotificationChannels() {
