@@ -396,13 +396,34 @@
             app:layout_constraintTop_toTopOf="@id/ivView" />
 
         <ImageView
+            android:id="@+id/ivHide"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/baseline_visibility_off_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivView" />
+
+        <TextView
+            android:id="@+id/tvHide"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_hide"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivHide"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivHide"
+            app:layout_constraintTop_toTopOf="@id/ivHide" />
+
+        <ImageView
             android:id="@+id/ivDownload"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="24dp"
             android:src="@drawable/baseline_cloud_download_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivView" />
+            app:layout_constraintTop_toBottomOf="@id/ivHide" />
 
         <TextView
             android:id="@+id/tvDownload"
