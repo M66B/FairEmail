@@ -299,7 +299,7 @@ public class FragmentFolders extends FragmentBase {
                         // Unified inbox
                         List<EntityFolder> folders = db.folder().getFoldersSynchronizingUnified();
                         for (EntityFolder folder : folders)
-                            EntityOperation.sync(context, folder.id);
+                            EntityOperation.sync(context, folder.id, true);
                     } else {
                         // Folder list
                         EntityAccount account = db.account().getAccount(aid);

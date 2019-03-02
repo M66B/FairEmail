@@ -399,21 +399,5 @@ public class FragmentSetup extends FragmentBase {
         tvPermissionsDone.setTextColor(has ? textColorPrimary : colorWarning);
         tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds(has ? check : null, null, null, null);
         btnPermissions.setEnabled(!has);
-
-        if (has && !init)
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onExecute(Context context, Bundle args) {
-                    DB db = DB.getInstance(context);
-                    for (EntityFolder folder : db.folder().getSynchronizingFolders())
-                        EntityOperation.sync(context, folder.id);
-                    return null;
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                }
-            }.execute(FragmentSetup.this, new Bundle(), "setup:sync");
     }
 }

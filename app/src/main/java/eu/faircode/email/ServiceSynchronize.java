@@ -581,7 +581,7 @@ public class ServiceSynchronize extends LifecycleService {
                             idler.start();
                             idlers.add(idler);
 
-                            EntityOperation.sync(this, folder.id);
+                            EntityOperation.sync(this, folder.id, false);
                         } else
                             folders.put(folder, null);
 
@@ -722,7 +722,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         if (!folders.get(folder).isOpen())
                                             throw new FolderClosedException(folders.get(folder));
                                     } else
-                                        EntityOperation.sync(this, folder.id);
+                                        EntityOperation.sync(this, folder.id, false);
 
                             // Successfully connected: reset back off time
                             backoff = CONNECT_BACKOFF_START;

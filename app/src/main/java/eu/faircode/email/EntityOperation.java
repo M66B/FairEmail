@@ -87,7 +87,7 @@ public class EntityOperation {
         queue(context, db, message, name, jargs);
     }
 
-    static void sync(Context context, long fid) {
+    static void sync(Context context, long fid, boolean foreground) {
         DB db = DB.getInstance(context);
         if (db.operation().getOperationCount(fid, EntityOperation.SYNC) == 0) {
 
@@ -112,10 +112,10 @@ public class EntityOperation {
 
             if (account == null) // Outbox
                 ServiceSend.start(context);
-            else if (!"connected".equals(account.state))
+            else if (foreground && !"connected".equals(account.state))
                 ServiceUI.process(context, fid);
 
-            Log.i("Queued sync folder=" + folder);
+            Log.i("Queued sync folder=" + folder + " foreground=" + foreground);
         }
     }
 

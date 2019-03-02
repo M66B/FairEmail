@@ -49,7 +49,6 @@ import android.widget.TimePicker;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Objects;
 
 import androidx.annotation.NonNull;
@@ -260,25 +259,6 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
 
                     int[] values = getResources().getIntArray(R.array.downloadValues);
                     prefs.edit().putInt("download", values[position]).apply();
-
-                    Boolean metered = Helper.isMetered(getContext(), true);
-                    if (metered != null && metered)
-                        new SimpleTask<Void>() {
-                            @Override
-                            protected Void onExecute(Context context, Bundle args) {
-                                DB db = DB.getInstance(context);
-                                List<EntityFolder> folders = db.folder().getSynchronizingFolders();
-                                for (EntityFolder folder : folders)
-                                    EntityOperation.sync(context, folder.id);
-                                return null;
-                            }
-
-                            @Override
-                            protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-
-                            }
-                        }.execute(FragmentOptions.this, new Bundle(), "download:sync");
                 }
             }
 

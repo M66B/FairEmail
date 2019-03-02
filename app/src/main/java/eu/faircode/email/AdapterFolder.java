@@ -293,7 +293,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             try {
                                 db.beginTransaction();
 
-                                EntityOperation.sync(context, fid);
+                                EntityOperation.sync(context, fid, true);
 
                                 db.setTransactionSuccessful();
 

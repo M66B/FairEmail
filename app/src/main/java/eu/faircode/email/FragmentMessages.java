@@ -508,11 +508,11 @@ public class FragmentMessages extends FragmentBase {
                     if (fid < 0) {
                         List<EntityFolder> folders = db.folder().getFoldersSynchronizingUnified();
                         for (EntityFolder folder : folders)
-                            EntityOperation.sync(context, folder.id);
+                            EntityOperation.sync(context, folder.id, true);
                     } else {
                         EntityFolder folder = db.folder().getFolder(fid);
                         if (folder != null)
-                            EntityOperation.sync(context, folder.id);
+                            EntityOperation.sync(context, folder.id, true);
                     }
 
                     db.setTransactionSuccessful();
