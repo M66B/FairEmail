@@ -80,21 +80,10 @@ public class EntityOperation {
     static final String ATTACHMENT = "attachment";
     static final String SYNC = "sync";
 
-    static void queue(Context context, DB db, EntityMessage message, String name) {
+    static void queue(Context context, DB db, EntityMessage message, String name, Object... values) {
         JSONArray jargs = new JSONArray();
-        queue(context, db, message, name, jargs);
-    }
-
-    static void queue(Context context, DB db, EntityMessage message, String name, Object value) {
-        JSONArray jargs = new JSONArray();
-        jargs.put(value);
-        queue(context, db, message, name, jargs);
-    }
-
-    static void queue(Context context, DB db, EntityMessage message, String name, Object value1, Object value2) {
-        JSONArray jargs = new JSONArray();
-        jargs.put(value1);
-        jargs.put(value2);
+        for (Object value : values)
+            jargs.put(value);
         queue(context, db, message, name, jargs);
     }
 
