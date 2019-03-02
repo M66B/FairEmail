@@ -1215,6 +1215,8 @@ class Core {
                 update = true;
                 message.seen = seen;
                 message.ui_seen = seen;
+                if (seen)
+                    message.ui_ignored = true;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " seen=" + seen);
             }
 
