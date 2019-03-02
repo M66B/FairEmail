@@ -167,7 +167,7 @@ public class ViewModelBrowse extends ViewModel {
 
                 // Get properties
                 Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
-                props.put("mail." + protocol + ".separatestoreconnection", true);
+                props.put("mail." + protocol + ".separatestoreconnection", "true");
 
                 // Create session
                 Session isession = Session.getInstance(props, null);

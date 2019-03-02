@@ -291,7 +291,7 @@ public class ServiceUI extends IntentService {
 
             // Get properties
             Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
-            props.put("mail." + protocol + ".separatestoreconnection", true);
+            props.put("mail." + protocol + ".separatestoreconnection", "true");
 
             // Create session
             final Session isession = Session.getInstance(props, null);
@@ -361,7 +361,7 @@ public class ServiceUI extends IntentService {
 
             // Get properties
             Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
-            props.put("mail." + protocol + ".separatestoreconnection", true);
+            props.put("mail." + protocol + ".separatestoreconnection", "true");
 
             // Create session
             final Session isession = Session.getInstance(props, null);
