@@ -27,8 +27,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import androidx.annotation.NonNull;
@@ -79,6 +81,8 @@ public class EntityOperation {
     static final String BODY = "body";
     static final String ATTACHMENT = "attachment";
     static final String SYNC = "sync";
+
+    private static List<String> FOREGROUND = Arrays.asList(KEYWORD, HEADERS, RAW, BODY, ATTACHMENT);
 
     static void queue(Context context, DB db, EntityMessage message, String name, Object... values) {
         JSONArray jargs = new JSONArray();
@@ -207,7 +211,7 @@ public class EntityOperation {
 
         if (SEND.equals(name))
             ServiceSend.start(context);
-        else {
+        else if (FOREGROUND.contains(name)) {
             EntityAccount account = db.account().getAccount(message.account);
             if (account != null && !"connected".equals(account.state))
                 ServiceUI.process(context, operation.folder);
