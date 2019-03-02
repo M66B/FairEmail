@@ -273,7 +273,7 @@
     <string name="title_flag">Marcar como favorito</string>
     <string name="title_unflag">Desmarcar como favorito</string>
     <string name="title_forward">Reenviar</string>
-    <string name="title_reply_all">Responder a todos</string>
+    <string name="title_create_rule">Crear regla &#8230;</string>
     <string name="title_share">Compartir</string>
     <string name="title_show_headers">Mostrar encabezados</string>
     <string name="title_raw_download">Descargar mensaje raw</string>

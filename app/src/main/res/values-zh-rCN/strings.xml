@@ -265,7 +265,6 @@
     <string name="title_flag">加注星标</string>
     <string name="title_unflag">移除星标</string>
     <string name="title_forward">转发</string>
-    <string name="title_reply_all">回复全部</string>
     <string name="title_share">分享</string>
     <string name="title_show_headers">显示标题</string>
     <string name="title_raw_download">下载原始消息</string>

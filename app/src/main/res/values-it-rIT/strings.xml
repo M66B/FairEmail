@@ -273,7 +273,7 @@
     <string name="title_flag">Aggiungi stella</string>
     <string name="title_unflag">Rimuovi stella</string>
     <string name="title_forward">Inoltra</string>
-    <string name="title_reply_all">Rispondi a tutti</string>
+    <string name="title_create_rule">Crea regola &#8230;</string>
     <string name="title_share">Condividi</string>
     <string name="title_show_headers">Visualizza header</string>
     <string name="title_raw_download">Scarica messaggio non elaborato</string>
