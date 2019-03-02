@@ -60,6 +60,7 @@
         <item quantity="other">Zgłosić %1$d wiadomości jako spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Zgłosić wiadomość od %1$s jako spam?</string>
+    <string name="title_notification_sending">Wysyłanie wiadomości</string>
     <string name="title_notification_failed">%1$s nie powiodło się</string>
     <string name="menu_answers">Szablony</string>
     <string name="menu_operations">Operacje</string>
@@ -97,6 +98,9 @@
     <string name="title_setup_imported">Ustawienia zaimportowane</string>
     <string name="title_setup_quick">Szybkie ustawienia</string>
     <string name="title_setup_quick_remark">Ustaw konto i tożsamość dla większości głównych dostawców poczty</string>
+    <string name="title_setup_quick_hint">Szybka konfiguracja pobierze informacje o ustawieniach z autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_imap">Serwer IMAP do odbierania wiadomości</string>
+    <string name="title_setup_quick_smtp">Serwer SMTP do wysyłania wiadomości</string>
     <string name="title_setup_go">Idż</string>
     <string name="title_setup_setting_gmail">Włącz dostęp dla \"mniej bezpiecznych\" aplikacji do konta</string>
     <string name="title_setup_no_settings">Nie znaleziono ustawień dla \'%1$s\'</string>
@@ -147,10 +151,13 @@
     <string name="title_advanced_html">Automatycznie pokaż oryginalną wiadomość dla znanych kontaktów</string>
     <string name="title_advanced_images">Automatycznie pokaż obrazki dla znanych kontaktów</string>
     <string name="title_advanced_pull_refresh">Pociągnij w dół, aby odświeżyć</string>
+    <string name="title_advanced_swipenav">Przesuń w lewo/prawo, aby przejść do następnej/poprzedniej konwersacji</string>
+    <string name="title_advanced_autoexpand">Automatycznie rozwijaj wiadomości</string>
     <string name="title_advanced_autoclose">Automatycznie zamykaj konwersacje</string>
     <string name="title_advanced_autonext">Automatycznie przejdź do następnej rozmowy przy zamykaniu rozmowy</string>
     <string name="title_advanced_autoread">Automatycznie oznacz wiadomość jako przeczytaną przy przenoszeniu</string>
     <string name="title_advanced_automove">Potwierdź przenoszenie wiadomości</string>
+    <string name="title_advanced_autoresize">Automatycznie zmień rozmiar obrazów do wyświetlania na ekranach</string>
     <string name="title_advanced_sender">Zezwól na edycję adresu nadawcy</string>
     <string name="title_advanced_autosend">Potwierdź wysłanie wiadomości</string>
     <string name="title_advanced_light">Użyj diody powiadomień</string>
@@ -166,9 +173,12 @@
     <string name="title_identity_email">Twój adres e-mail</string>
     <string name="title_identity_reply_to">Odpowiedz na adres</string>
     <string name="title_identity_plain_text">Wyślij tylko zwykły tekst</string>
+    <string name="title_identity_encrypt">Szyfruj domyślnie</string>
     <string name="title_identity_read_receipt">Poproś o potwierdzenie odczytu</string>
     <string name="title_identity_delivery_receipt">Poproś o potwierdzenie dostarczenia</string>
     <string name="title_identity_receipt_remark">Większość dostawców ignoruje prośby otrzymania</string>
+    <string name="title_identity_store_sent">Zachowuj wysłane wiadomości</string>
+    <string name="title_identity_store_sent_remark">Włącz tylko, gdy dostawca nie zachowuje automatycznie wysłanych wiadomości</string>
     <string name="title_optional">Opcjonalnie</string>
     <string name="title_account_linked">Połączone konto</string>
     <string name="title_account_name">Nazwa konta</string>
@@ -256,6 +266,7 @@
     <string name="title_flag">Dodaj gwiazdkę</string>
     <string name="title_unflag">Usuń gwiazdkę</string>
     <string name="title_forward">Prześlij dalej</string>
+    <string name="title_create_rule">Utwórz regułę &#8230;</string>
     <string name="title_share">Udostępnij</string>
     <string name="title_show_headers">Pokaż nagłówki</string>
     <string name="title_manage_keywords">Zarządzaj słowami kluczowymi</string>
@@ -271,6 +282,9 @@
     <string name="title_move_to">Przenieś do %1$s</string>
     <string name="title_archive">Archiwum</string>
     <string name="title_reply">Odpowiedz</string>
+    <string name="title_reply_to_sender">Nadawca</string>
+    <string name="title_reply_to_all">Wszyscy</string>
+    <string name="title_reply_template">Szablon</string>
     <string name="title_moving">Przenoszę do %1$s</string>
     <string name="title_open_with">Otwórz z</string>
     <string name="title_no_answers">Brak zdefiniowanych szablonów odpowiedzi</string>
@@ -372,6 +386,7 @@
     <string name="title_legend_attachment">Zawiera załącznik</string>
     <string name="title_legend_contacts">Zarządzaj kontaktami</string>
     <string name="title_legend_view">Zobacz zawartość</string>
+    <string name="title_legend_hide">Ukryj zawartość</string>
     <string name="title_legend_download">Pobierz zawartość</string>
     <string name="title_legend_broken_image">Uszkodzony obraz</string>
     <string name="title_legend_cc">Pokaż DW/UDW</string>
@@ -415,6 +430,7 @@
     <string name="title_info">Info</string>
     <string name="title_report">Raport</string>
     <string name="title_fix">Popraw</string>
+    <string name="title_enable">Włącz</string>
     <string name="title_no_ask_again">Nie pytaj ponownie</string>
     <string name="title_no_adobe">Adobe Acrobat Reader nie może bezpiecznie otworzyć udostępnionych plików, po więcej informacji zajrzyj do FAQ</string>
     <string name="title_no_body">Nie znaleziono tekstu wiadomości</string>

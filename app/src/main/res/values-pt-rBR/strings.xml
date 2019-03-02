@@ -412,6 +412,7 @@
     <string name="title_legend_flagged">Possui estrela</string>
     <string name="title_legend_contacts">Gerenciar contatos</string>
     <string name="title_legend_view">Ver conteúdo</string>
+    <string name="title_legend_hide">Ocultar conteúdo</string>
     <string name="title_legend_download">Baixar conteúdo</string>
     <string name="title_legend_external_image">Espaço reservado a uma imagem externa</string>
     <string name="title_legend_embedded_image">Espaço reservado a uma imagem embutida</string>

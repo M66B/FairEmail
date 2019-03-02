@@ -412,6 +412,7 @@
     <string name="title_legend_flagged">Est favori</string>
     <string name="title_legend_contacts">Gérer les contacts</string>
     <string name="title_legend_view">Voir le contenu</string>
+    <string name="title_legend_hide">Masquer le contenu</string>
     <string name="title_legend_download">Télécharger le contenu</string>
     <string name="title_legend_external_image">Espace réservé pour une image externe</string>
     <string name="title_legend_embedded_image">Espace réservé pour une image intégrée</string>

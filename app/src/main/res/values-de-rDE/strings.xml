@@ -412,6 +412,7 @@
     <string name="title_legend_flagged">Als wichtig markiert</string>
     <string name="title_legend_contacts">Kontakte verwalten</string>
     <string name="title_legend_view">Inhalt anzeigen</string>
+    <string name="title_legend_hide">Inhalt ausblenden</string>
     <string name="title_legend_download">Inhalt herunterladen</string>
     <string name="title_legend_external_image">Platzhalter für externe Bilder</string>
     <string name="title_legend_embedded_image">Platzhalter für eingebettete Bilder</string>

@@ -43,6 +43,7 @@
         <item quantity="other">%1$d ileti istenmeyen posta olarak bildirilsin mi?</item>
     </plurals>
     <string name="title_ask_spam_who">%1$s\' iletisi gereksiz posta olarak bildirilsin mi?</string>
+    <string name="title_notification_sending">İletileri gönderiliyor</string>
     <string name="title_notification_failed">\'%1$s\' başarısız oldu</string>
     <string name="menu_answers">Kalıplar</string>
     <string name="menu_operations">İşlemler</string>
@@ -267,6 +268,7 @@
     <string name="title_flag">Yıldız Ekle</string>
     <string name="title_unflag">Yıldızı Kaldır</string>
     <string name="title_forward">İlet</string>
+    <string name="title_create_rule">Kural oluştur</string>
     <string name="title_share">Paylaş</string>
     <string name="title_show_headers">Başlıkları Göster</string>
     <string name="title_raw_download">Ham iletiyi indir</string>
@@ -286,6 +288,9 @@
     <string name="title_snooze">Kısa uyku &#8230;</string>
     <string name="title_archive">Arşivle</string>
     <string name="title_reply">Yanıtla</string>
+    <string name="title_reply_to_sender">Gönderici</string>
+    <string name="title_reply_to_all">Hepsi</string>
+    <string name="title_reply_template">Şablon</string>
     <string name="title_moving">%1$s\'e taşınıyor</string>
     <string name="title_open_with">Birlikte aç</string>
     <string name="title_no_answers">Tanımlanmış yanıt kalıbı yok</string>
@@ -402,6 +407,7 @@
     <string name="title_legend_flagged">Yıldızlı</string>
     <string name="title_legend_contacts">Kişi rehberini yönet</string>
     <string name="title_legend_view">İçeriği görüntüle</string>
+    <string name="title_legend_hide">İçeriği gizle</string>
     <string name="title_legend_download">İçeriği indir</string>
     <string name="title_legend_external_image">Harici resim vekili</string>
     <string name="title_legend_embedded_image">İliştirilmiş resim vekili</string>

@@ -52,6 +52,7 @@
         <item quantity="other">Raportați %1$d de mesaje drept spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Raportează mesajul de la %1$s ca spam?</string>
+    <string name="title_notification_sending">Se trimit mesaje</string>
     <string name="title_notification_failed">\'%1$s\' a eșuat</string>
     <string name="menu_answers">Șabloane</string>
     <string name="menu_operations">Operaţii</string>
@@ -280,6 +281,7 @@
     <string name="title_flag">Marcare</string>
     <string name="title_unflag">Anulare marcare</string>
     <string name="title_forward">Redirecționează</string>
+    <string name="title_create_rule">Creare regulă &#8230;</string>
     <string name="title_share">Partajează</string>
     <string name="title_show_headers">Arată antetul</string>
     <string name="title_raw_download">Descarcă mesaj original</string>
@@ -299,6 +301,9 @@
     <string name="title_snooze">Amână &#8230;</string>
     <string name="title_archive">Arhivă</string>
     <string name="title_reply">Răspunde</string>
+    <string name="title_reply_to_sender">Expeditor</string>
+    <string name="title_reply_to_all">Toate</string>
+    <string name="title_reply_template">Șablon</string>
     <string name="title_moving">Mutare în %1$s</string>
     <string name="title_open_with">Deschide cu</string>
     <string name="title_no_answers">Nici un șablon de răspuns definit</string>
@@ -415,6 +420,7 @@
     <string name="title_legend_flagged">Este marcat</string>
     <string name="title_legend_contacts">Administrare contacte</string>
     <string name="title_legend_view">Afișare conținut</string>
+    <string name="title_legend_hide">Ascunde conținutul</string>
     <string name="title_legend_download">Descărcare conținut</string>
     <string name="title_legend_external_image">Înlocuitor imagine externă</string>
     <string name="title_legend_embedded_image">Înlocuitor imagine incorporată</string>
