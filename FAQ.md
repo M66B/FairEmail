@@ -17,7 +17,7 @@ for instance when two factor authentication is enabled.
 For authorizing:
 
 * Gmail / G suite: see [question 6](#user-content-faq6)
-* Outlook: see [question 14](#user-content-faq14)
+* Outlook / Hotmail: see [question 14](#user-content-faq14)
 * Microsoft Exchange: see [question 8](#user-content-faq8)
 
 
@@ -74,7 +74,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [~~(10) What does 'UIDPLUS not supported' mean?~~](#user-content-faq10)
 * [(12) How does encryption/decryption work?](#user-content-faq12)
 * [(13) How does search on device/server work?](#user-content-faq13)
-* [(14) How can I setup Outlook with 2FA?](#user-content-faq14)
+* [(14) How can I setup Outlook / Hotmail with 2FA?](#user-content-faq14)
 * [(15) Why does the message text keep loading?](#user-content-faq15)
 * [(16) Why are messages not being synchronized?](#user-content-faq16)
 * [~~(17) Why does manual synchronize not work?~~](#user-content-faq17)
@@ -372,12 +372,12 @@ Searching messages is a pro feature.
 <br />
 
 <a name="faq14"></a>
-**(14) How can I setup Outlook with 2FA?**
+**(14) How can I setup Outlook / Hotmail with 2FA?**
 
-To use Outlook with two factor authentication enabled, you need to create an app password.
+To use Outlook or Hotmail with two factor authentication enabled, you need to create an app password.
 See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
 
-Unfortunately, Outlook doesn't properly support OAuth for IMAP/SMTP connections, so there is no other way.
+Unfortunately, Outlook and Hotmail do not properly support OAuth for IMAP/SMTP connections, so there is no other way.
 
 Technical background: [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-android) is supported for business accounts only
 and OAuth requires embedding a client secret in the app.
