@@ -2568,7 +2568,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.name_email = prefs.getBoolean("name_email", !compact);
         this.zoom = zoom;
         this.sort = sort;
-        this.internet = (Helper.isMetered(context, false) != null);
+        this.internet = Helper.isConnected(context);
         this.properties = properties;
 
 
@@ -2648,7 +2648,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     void checkInternet() {
-        boolean internet = (Helper.isMetered(context, false) != null);
+        boolean internet = Helper.isConnected(context);
         if (this.internet != internet) {
             this.internet = internet;
             notifyDataSetChanged();

@@ -696,16 +696,18 @@ public class Helper {
     }
 
     static boolean isConnected(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo ni = cm.getActiveNetworkInfo();
-        return (ni != null && ni.isConnected());
+        return (isMetered(context, false) != null);
     }
 
     static Boolean isMetered(Context context, boolean log) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.M)
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            NetworkInfo ani = cm.getActiveNetworkInfo();
+            if (ani == null || !ani.isConnected())
+                return null;
             return cm.isActiveNetworkMetered();
+        }
 
         Network active = cm.getActiveNetwork();
         if (active == null) {
