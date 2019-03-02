@@ -221,7 +221,7 @@ public class EntityRule {
         reply.received = new Date().getTime();
         reply.id = db.message().insertMessage(reply);
         Helper.writeText(EntityMessage.getFile(context, reply.id), body);
-        db.message().setMessageContent(reply.id, true, HtmlHelper.getPreview(body));
+        db.message().setMessageContent(reply.id, true, HtmlHelper.getPreview(body), null);
 
         EntityOperation.queue(context, db, reply, EntityOperation.SEND);
     }

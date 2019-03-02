@@ -435,15 +435,9 @@ public class ServiceSynchronize extends LifecycleService {
                                                 }
 
                                                 if (db.folder().getFolderDownload(folder.id))
-                                                    try {
-                                                        db.beginTransaction();
-                                                        Core.downloadMessage(ServiceSynchronize.this,
-                                                                folder, (IMAPFolder) ifolder,
-                                                                (IMAPMessage) imessage, message.id);
-                                                        db.setTransactionSuccessful();
-                                                    } finally {
-                                                        db.endTransaction();
-                                                    }
+                                                    Core.downloadMessage(ServiceSynchronize.this,
+                                                            folder, (IMAPFolder) ifolder,
+                                                            (IMAPMessage) imessage, message.id);
                                             } catch (MessageRemovedException ex) {
                                                 Log.w(folder.name, ex);
                                             } catch (FolderClosedException ex) {
@@ -524,15 +518,9 @@ public class ServiceSynchronize extends LifecycleService {
                                             }
 
                                             if (db.folder().getFolderDownload(folder.id))
-                                                try {
-                                                    db.beginTransaction();
-                                                    Core.downloadMessage(ServiceSynchronize.this,
-                                                            folder, (IMAPFolder) ifolder,
-                                                            (IMAPMessage) e.getMessage(), message.id);
-                                                    db.setTransactionSuccessful();
-                                                } finally {
-                                                    db.endTransaction();
-                                                }
+                                                Core.downloadMessage(ServiceSynchronize.this,
+                                                        folder, (IMAPFolder) ifolder,
+                                                        (IMAPMessage) e.getMessage(), message.id);
                                         } catch (MessageRemovedException ex) {
                                             Log.w(folder.name, ex);
                                         } catch (FolderClosedException ex) {

@@ -412,7 +412,7 @@ public class Helper {
             draft.received = new Date().getTime();
             draft.id = db.message().insertMessage(draft);
             writeText(EntityMessage.getFile(context, draft.id), body);
-            db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body));
+            db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body), null);
 
             attachSettings(context, draft.id, 1);
             attachNetworkInfo(context, draft.id, 2);

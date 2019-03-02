@@ -1671,7 +1671,7 @@ public class FragmentCompose extends FragmentBase {
                     draft.id = db.message().insertMessage(draft);
                     Helper.writeText(EntityMessage.getFile(context, draft.id), body);
 
-                    db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body));
+                    db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body), null);
 
                     // Write reference text
                     if (ref != null && ref.content) {
@@ -2020,7 +2020,7 @@ public class FragmentCompose extends FragmentBase {
                     draft.received = new Date().getTime();
                     db.message().updateMessage(draft);
                     Helper.writeText(EntityMessage.getFile(context, draft.id), body);
-                    db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body));
+                    db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body), null);
                 }
 
                 // Remove unused inline images

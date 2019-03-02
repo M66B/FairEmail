@@ -1477,7 +1477,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     body = Helper.readText(EntityMessage.getFile(context, message.id));
                 } catch (IOException ex) {
                     Log.e(ex);
-                    db.message().setMessageContent(message.id, false, null);
+                    db.message().setMessageContent(message.id, false, null, null);
                     return null;
                 }
 

@@ -165,7 +165,7 @@ public class EntityOperation {
                                     EntityMessage.getFile(context, newid));
                         } catch (IOException ex) {
                             Log.e(ex);
-                            db.message().setMessageContent(newid, false, null);
+                            db.message().setMessageContent(newid, false, null, null);
                         }
 
                     EntityAttachment.copy(context, db, message.id, newid);

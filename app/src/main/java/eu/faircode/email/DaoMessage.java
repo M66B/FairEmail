@@ -304,14 +304,11 @@ public interface DaoMessage {
     @Query("UPDATE message SET sent = :sent WHERE id = :id")
     int setMessageSent(long id, Long sent);
 
-    @Query("UPDATE message SET warning = :warning WHERE id = :id")
-    int setMessageWarning(long id, String warning);
-
     @Query("UPDATE message SET error = :error WHERE id = :id")
     int setMessageError(long id, String error);
 
-    @Query("UPDATE message SET content = :content, preview = :preview WHERE id = :id")
-    int setMessageContent(long id, boolean content, String preview);
+    @Query("UPDATE message SET content = :content, preview = :preview, warning = :warning WHERE id = :id")
+    int setMessageContent(long id, boolean content, String preview, String warning);
 
     @Query("UPDATE message SET headers = :headers WHERE id = :id")
     int setMessageHeaders(long id, String headers);

@@ -629,10 +629,9 @@ class Core {
         MessageHelper helper = new MessageHelper((MimeMessage) imessage);
         MessageHelper.MessageParts parts = helper.getMessageParts();
         String body = parts.getHtml(context);
-        String preview = HtmlHelper.getPreview(body);
         Helper.writeText(EntityMessage.getFile(context, message.id), body);
-        db.message().setMessageContent(message.id, true, preview);
-        db.message().setMessageWarning(message.id, parts.getWarnings(message.warning));
+        db.message().setMessageContent(message.id, true,
+                HtmlHelper.getPreview(body), parts.getWarnings(message.warning));
     }
 
     private static void onAttachment(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws JSONException, MessagingException, IOException {
@@ -1001,13 +1000,11 @@ class Core {
 
                     for (int j = isub.length - 1; j >= 0 && state.running(); j--)
                         try {
-                            db.beginTransaction();
                             if (ids[from + j] != null)
                                 downloadMessage(
                                         context,
                                         folder, ifolder,
                                         (IMAPMessage) isub[j], ids[from + j]);
-                            db.setTransactionSuccessful();
                         } catch (FolderClosedException ex) {
                             throw ex;
                         } catch (FolderClosedIOException ex) {
@@ -1015,7 +1012,6 @@ class Core {
                         } catch (Throwable ex) {
                             Log.e(folder.name, ex);
                         } finally {
-                            db.endTransaction();
                             // Free memory
                             ((IMAPMessage) isub[j]).invalidateHeaders();
                         }
@@ -1379,8 +1375,8 @@ class Core {
                 if (!metered || (message.size != null && message.size < maxSize)) {
                     String body = parts.getHtml(context);
                     Helper.writeText(EntityMessage.getFile(context, message.id), body);
-                    db.message().setMessageContent(message.id, true, HtmlHelper.getPreview(body));
-                    db.message().setMessageWarning(message.id, parts.getWarnings(message.warning));
+                    db.message().setMessageContent(message.id, true,
+                            HtmlHelper.getPreview(body), parts.getWarnings(message.warning));
                     Log.i(folder.name + " downloaded message id=" + message.id + " size=" + message.size);
                 }
             }
