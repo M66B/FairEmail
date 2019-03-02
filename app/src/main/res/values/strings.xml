@@ -316,7 +316,6 @@
     <string name="title_flag">Add star</string>
     <string name="title_unflag">Remove star</string>
     <string name="title_forward">Forward</string>
-    <string name="title_reply_all">Reply to all</string>
     <string name="title_create_rule">Create rule &#8230;</string>
     <string name="title_share">Share</string>
     <string name="title_show_headers">Show headers</string>
@@ -338,6 +337,9 @@
     <string name="title_snooze">Snooze &#8230;</string>
     <string name="title_archive">Archive</string>
     <string name="title_reply">Reply</string>
+    <string name="title_reply_to_sender">Sender</string>
+    <string name="title_reply_to_all">All</string>
+    <string name="title_reply_template">Template</string>
     <string name="title_moving">Moving to %1$s</string>
     <string name="title_open_with">Open with</string>
 

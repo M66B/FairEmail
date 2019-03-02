@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_reply_to_sender"
+        android:title="@string/title_reply_to_sender" />
+
+    <item
+        android:id="@+id/menu_reply_to_all"
+        android:title="@string/title_reply_to_all" />
+
+    <item
+        android:id="@+id/menu_reply_template"
+        android:title="@string/title_reply_template" />
+</menu>
