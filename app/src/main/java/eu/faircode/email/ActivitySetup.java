@@ -251,7 +251,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         }
 
         if (savedInstanceState != null)
-            drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("toggle"));
+            drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("fair:toggle"));
 
         DB.getInstance(this).account().liveSynchronizingAccounts().observe(this, new Observer<List<EntityAccount>>() {
             @Override
@@ -264,7 +264,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putBoolean("toggle", drawerToggle.isDrawerIndicatorEnabled());
+        outState.putBoolean("fair:toggle", drawerToggle.isDrawerIndicatorEnabled());
     }
 
     @Override

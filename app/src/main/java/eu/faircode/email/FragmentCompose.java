@@ -594,8 +594,8 @@ public class FragmentCompose extends FragmentBase {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putLong("working", working);
-        outState.putBoolean("show_images", show_images);
+        outState.putLong("fair:working", working);
+        outState.putBoolean("fair:show_images", show_images);
     }
 
     @Override
@@ -628,8 +628,8 @@ public class FragmentCompose extends FragmentBase {
                 draftLoader.execute(this, args, "compose:edit");
             }
         } else {
-            working = savedInstanceState.getLong("working");
-            show_images = savedInstanceState.getBoolean("show_images");
+            working = savedInstanceState.getLong("fair:working");
+            show_images = savedInstanceState.getBoolean("fair:show_images");
 
             Bundle args = new Bundle();
             args.putString("action", working < 0 ? "new" : "edit");

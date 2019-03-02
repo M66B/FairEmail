@@ -372,7 +372,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             init();
 
         if (savedInstanceState != null)
-            drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("toggle"));
+            drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("fair:toggle"));
 
         new Handler().post(checkIntent);
 
@@ -481,7 +481,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putBoolean("toggle", drawerToggle.isDrawerIndicatorEnabled());
+        outState.putBoolean("fair:toggle", drawerToggle.isDrawerIndicatorEnabled());
     }
 
     @Override

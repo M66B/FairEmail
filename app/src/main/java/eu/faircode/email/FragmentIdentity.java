@@ -715,12 +715,12 @@ public class FragmentIdentity extends FragmentBase {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt("account", spAccount.getSelectedItemPosition());
-        outState.putInt("provider", spProvider.getSelectedItemPosition());
-        outState.putInt("auth_type", auth_type);
-        outState.putString("password", tilPassword.getEditText().getText().toString());
-        outState.putInt("advanced", grpAdvanced.getVisibility());
-        outState.putInt("color", color);
+        outState.putInt("fair:account", spAccount.getSelectedItemPosition());
+        outState.putInt("fair:provider", spProvider.getSelectedItemPosition());
+        outState.putInt("fair:auth_type", auth_type);
+        outState.putString("fair:password", tilPassword.getEditText().getText().toString());
+        outState.putInt("fair:advanced", grpAdvanced.getVisibility());
+        outState.putInt("fair:color", color);
     }
 
     @Override
@@ -791,10 +791,10 @@ public class FragmentIdentity extends FragmentBase {
                             }
                         }.execute(FragmentIdentity.this, new Bundle(), "identity:count");
                 } else {
-                    auth_type = savedInstanceState.getInt("auth_type");
-                    tilPassword.getEditText().setText(savedInstanceState.getString("password"));
-                    grpAdvanced.setVisibility(savedInstanceState.getInt("advanced"));
-                    color = savedInstanceState.getInt("color");
+                    auth_type = savedInstanceState.getInt("fair:auth_type");
+                    tilPassword.getEditText().setText(savedInstanceState.getString("fair:password"));
+                    grpAdvanced.setVisibility(savedInstanceState.getInt("fair:advanced"));
+                    color = savedInstanceState.getInt("fair:color");
                 }
 
                 Helper.setViewsEnabled(view, true);
@@ -865,11 +865,11 @@ public class FragmentIdentity extends FragmentBase {
                                 }
                             }
                         } else {
-                            int provider = savedInstanceState.getInt("provider");
+                            int provider = savedInstanceState.getInt("fair:provider");
                             spProvider.setTag(provider);
                             spProvider.setSelection(provider);
 
-                            int account = savedInstanceState.getInt("account");
+                            int account = savedInstanceState.getInt("fair:account");
                             spAccount.setTag(account);
                             spAccount.setSelection(account);
                         }

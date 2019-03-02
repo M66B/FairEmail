@@ -192,7 +192,7 @@ public class FragmentFolders extends FragmentBase {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         if (show_hidden != null)
-            outState.putBoolean("show_hidden", show_hidden);
+            outState.putBoolean("fair:show_hidden", show_hidden);
     }
 
     @Override
@@ -200,7 +200,7 @@ public class FragmentFolders extends FragmentBase {
         super.onActivityCreated(savedInstanceState);
 
         if (savedInstanceState != null) {
-            show_hidden = (Boolean) savedInstanceState.get("show_hidden");
+            show_hidden = (Boolean) savedInstanceState.get("fair:show_hidden");
             getActivity().invalidateOptionsMenu();
         }
 

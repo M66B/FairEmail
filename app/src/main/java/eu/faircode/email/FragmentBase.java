@@ -56,7 +56,7 @@ public class FragmentBase extends Fragment {
     public void onSaveInstanceState(Bundle outState) {
         Log.i("Save instance " + this);
         super.onSaveInstanceState(outState);
-        outState.putString("subtitle", subtitle);
+        outState.putString("fair:subtitle", subtitle);
     }
 
     @Override
@@ -64,7 +64,7 @@ public class FragmentBase extends Fragment {
         Log.i("Create " + this + " saved=" + (savedInstanceState != null));
         super.onCreate(savedInstanceState);
         if (savedInstanceState != null)
-            subtitle = savedInstanceState.getString("subtitle");
+            subtitle = savedInstanceState.getString("fair:subtitle");
     }
 
     @Override

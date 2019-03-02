@@ -1431,16 +1431,16 @@ public class FragmentMessages extends FragmentBase {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putBoolean("autoExpanded", autoExpanded);
-        outState.putInt("autoCloseCount", autoCloseCount);
+        outState.putBoolean("fair:autoExpanded", autoExpanded);
+        outState.putInt("fair:autoCloseCount", autoCloseCount);
 
-        outState.putStringArray("values", values.keySet().toArray(new String[0]));
+        outState.putStringArray("fair:values", values.keySet().toArray(new String[0]));
         for (String name : values.keySet())
-            outState.putLongArray(name, Helper.toLongArray(values.get(name)));
+            outState.putLongArray("fair:name:" + name, Helper.toLongArray(values.get(name)));
 
         if (rvMessage != null) {
             Parcelable rv = rvMessage.getLayoutManager().onSaveInstanceState();
-            outState.putParcelable("rv", rv);
+            outState.putParcelable("fair:rv", rv);
         }
 
         if (selectionTracker != null)
@@ -1452,18 +1452,18 @@ public class FragmentMessages extends FragmentBase {
         super.onActivityCreated(savedInstanceState);
 
         if (savedInstanceState != null) {
-            autoExpanded = savedInstanceState.getBoolean("autoExpanded");
-            autoCloseCount = savedInstanceState.getInt("autoCloseCount");
+            autoExpanded = savedInstanceState.getBoolean("fair:autoExpanded");
+            autoCloseCount = savedInstanceState.getInt("fair:autoCloseCount");
 
-            String[] names = savedInstanceState.getStringArray("values");
+            String[] names = savedInstanceState.getStringArray("fair:values");
             for (String name : names) {
                 values.put(name, new ArrayList<Long>());
-                for (Long value : savedInstanceState.getLongArray(name))
+                for (Long value : savedInstanceState.getLongArray("fair:name:" + name))
                     values.get(name).add(value);
             }
 
             if (rvMessage != null) {
-                Parcelable rv = savedInstanceState.getBundle("rv");
+                Parcelable rv = savedInstanceState.getBundle("fair:rv");
                 rvMessage.getLayoutManager().onRestoreInstanceState(rv);
             }
 
