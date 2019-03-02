@@ -289,8 +289,13 @@ public class ServiceUI extends IntentService {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
 
-            // Create session
+            String protocol = account.getProtocol();
+
+            // Get properties
             Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
+            props.put("mail." + protocol + ".separatestoreconnection", true);
+
+            // Create session
             final Session isession = Session.getInstance(props, null);
             isession.setDebug(debug);
 
@@ -299,7 +304,7 @@ public class ServiceUI extends IntentService {
                 // Connect account
                 Log.i(account.name + " connecting");
                 db.account().setAccountState(account.id, "connecting");
-                istore = isession.getStore(account.getProtocol());
+                istore = isession.getStore(protocol);
                 Helper.connect(this, istore, account);
                 db.account().setAccountState(account.id, "connected");
                 db.account().setAccountConnected(account.id, new Date().getTime());
@@ -354,15 +359,20 @@ public class ServiceUI extends IntentService {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
 
-            // Create session
+            String protocol = account.getProtocol();
+
+            // Get properties
             Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
+            props.put("mail." + protocol + ".separatestoreconnection", true);
+
+            // Create session
             final Session isession = Session.getInstance(props, null);
             isession.setDebug(debug);
 
             // Connect account
             Log.i(account.name + " connecting");
             db.account().setAccountState(account.id, "connecting");
-            istore = isession.getStore(account.getProtocol());
+            istore = isession.getStore(protocol);
             Helper.connect(this, istore, account);
             db.account().setAccountState(account.id, "connected");
             db.account().setAccountConnected(account.id, new Date().getTime());

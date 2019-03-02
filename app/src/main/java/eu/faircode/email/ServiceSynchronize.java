@@ -239,13 +239,16 @@ public class ServiceSynchronize extends LifecycleService {
                 boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
                 //System.setProperty("mail.socket.debug", Boolean.toString(debug));
 
-                // Create session
+                // Get properties
                 Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
+
+                // Create session
                 final Session isession = Session.getInstance(props, null);
                 isession.setDebug(debug);
                 // adb -t 1 logcat | grep "fairemail\|System.out"
 
                 final Store istore = isession.getStore(account.getProtocol());
+
                 final Map<EntityFolder, Folder> folders = new HashMap<>();
                 List<Thread> idlers = new ArrayList<>();
                 List<Handler> handlers = new ArrayList<>();

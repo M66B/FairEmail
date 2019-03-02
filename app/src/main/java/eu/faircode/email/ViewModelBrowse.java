@@ -163,12 +163,18 @@ public class ViewModelBrowse extends ViewModel {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(state.context);
                 boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
 
+                String protocol = account.getProtocol();
+
+                // Get properties
                 Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
+                props.put("mail." + protocol + ".separatestoreconnection", true);
+
+                // Create session
                 Session isession = Session.getInstance(props, null);
                 isession.setDebug(debug);
 
                 Log.i("Boundary connecting account=" + account.name);
-                state.istore = (IMAPStore) isession.getStore(account.getProtocol());
+                state.istore = (IMAPStore) isession.getStore(protocol);
                 Helper.connect(state.context, state.istore, account);
 
                 Log.i("Boundary opening folder=" + folder.name);
