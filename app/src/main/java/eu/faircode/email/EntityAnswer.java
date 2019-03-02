@@ -57,13 +57,28 @@ public class EntityAnswer implements Serializable {
 
         String name = null;
         String email = null;
+        String first = null;
+        String last = null;
         if (from != null && from.length > 0) {
             name = ((InternetAddress) from[0]).getPersonal();
             email = ((InternetAddress) from[0]).getAddress();
         }
+        if (name != null) {
+            name = name.trim();
+            int c = name.lastIndexOf(",");
+            if (c < 0) {
+                first = name;
+                last = name;
+            } else {
+                first = name.substring(c + 1).trim();
+                last = name.substring(0, c).trim();
+            }
+        }
 
         String text = answer.text;
         text = text.replace("$name$", name == null ? "" : name);
+        text = text.replace("$firstname$", first == null ? "" : first);
+        text = text.replace("$lastname$", last == null ? "" : last);
         text = text.replace("$email$", email == null ? "" : email);
 
         return text;
