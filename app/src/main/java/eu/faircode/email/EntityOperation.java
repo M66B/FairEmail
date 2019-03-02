@@ -228,11 +228,14 @@ public class EntityOperation {
             if (folder.account != null)
                 account = db.account().getAccount(folder.account);
 
+            JSONArray jargs = folder.getSyncArgs();
+            jargs.put(foreground);
+
             EntityOperation operation = new EntityOperation();
             operation.folder = folder.id;
             operation.message = null;
             operation.name = SYNC;
-            operation.args = folder.getSyncArgs().toString();
+            operation.args = jargs.toString();
             operation.created = new Date().getTime();
             operation.id = db.operation().insertOperation(operation);
 

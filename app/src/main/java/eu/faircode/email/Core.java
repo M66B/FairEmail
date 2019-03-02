@@ -222,7 +222,7 @@ class Core {
                         if (ex instanceof MessageRemovedException ||
                                 ex instanceof FolderNotFoundException ||
                                 ex instanceof IllegalArgumentException) {
-                            Log.w("Unrecoverable", ex);
+                            Log.w("Unrecoverable");
 
                             // There is no use in repeating
                             db.operation().deleteOperation(op.id);
@@ -254,10 +254,16 @@ class Core {
                         } else if (ex instanceof MessagingException) {
                             // Socket timeout is a recoverable condition (send message)
                             if (ex.getCause() instanceof SocketTimeoutException) {
-                                Log.w("Recoverable", ex);
+                                Log.w("Recoverable");
                                 // No need to inform user
                                 return;
                             }
+                        }
+
+                        if (EntityOperation.SYNC.equals(op.name) && jargs.getBoolean(3) /* foreground */) {
+                            Log.w("Deleting foreground SYNC");
+                            db.operation().deleteOperation(op.id);
+                            db.folder().setFolderSyncState(folder.id, null);
                         }
 
                         throw ex;
