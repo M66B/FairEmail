@@ -84,6 +84,9 @@ public class ServiceUI extends IntentService {
 
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
+        // Under certain circumstances, a background app is placed on a temporary whitelist for several minutes
+        // - Executing a PendingIntent from a notification.
+        // https://developer.android.com/about/versions/oreo/background#services
         Log.i("Service UI intent=" + intent);
 
         if (intent == null)
@@ -127,6 +130,9 @@ public class ServiceUI extends IntentService {
 
             case "snooze":
                 // AlarmManager.RTC_WAKEUP
+                // When the alarm is dispatched, the app will also be added to the system's temporary whitelist
+                // for approximately 10 seconds to allow that application to acquire further wake locks in which to complete its work.
+                // https://developer.android.com/reference/android/app/AlarmManager
                 onSnooze(id);
                 break;
 
@@ -389,14 +395,24 @@ public class ServiceUI extends IntentService {
     }
 
     public static void process(Context context, long folder) {
-        context.startService(
-                new Intent(context, ServiceUI.class)
-                        .setAction("process:" + folder));
+        try {
+            context.startService(
+                    new Intent(context, ServiceUI.class)
+                            .setAction("process:" + folder));
+        } catch (IllegalStateException ex) {
+            Log.w(ex);
+            // The background service will handle the operation
+        }
     }
 
     public static void fsync(Context context, long account) {
-        context.startService(
-                new Intent(context, ServiceUI.class)
-                        .setAction("fsync:" + account));
+        try {
+            context.startService(
+                    new Intent(context, ServiceUI.class)
+                            .setAction("fsync:" + account));
+        } catch (IllegalStateException ex) {
+            Log.w(ex);
+            // The user went away
+        }
     }
 }
