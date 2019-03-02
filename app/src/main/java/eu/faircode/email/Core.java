@@ -13,7 +13,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
-import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
 import android.util.LongSparseArray;
 
@@ -1397,51 +1396,52 @@ class Core {
 
         Widget.update(context, messages.size());
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = prefs.edit();
+
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         LongSparseArray<List<Long>> notifying = new LongSparseArray<>();
         LongSparseArray<String> accountName = new LongSparseArray<>();
         LongSparseArray<List<TupleMessageEx>> accountMessages = new LongSparseArray<>();
 
-        // Existing
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            for (StatusBarNotification notification : nm.getActiveNotifications()) {
-                Bundle args = notification.getNotification().extras;
-                long id = args.getLong("id", 0);
-                long account = args.getLong("account", 0);
-                Log.i("Notify showing=" + id);
-                if (id != 0) {
-                    if (notifying.indexOfKey(account) < 0) {
-                        notifying.put(account, new ArrayList<Long>());
-                        accountMessages.put(account, new ArrayList<TupleMessageEx>());
-                    }
-                    notifying.get(account).add(id);
-                }
+        // Previous
+        for (String key : prefs.getAll().keySet())
+            if (key.startsWith("notifying:")) {
+                long account = Long.parseLong(key.split(":")[1]);
+                notifying.put(account, new ArrayList<Long>());
+
+                for (String id : prefs.getString(key, null).split(","))
+                    notifying.get(account).add(Long.parseLong(id));
+
+                editor.remove(key);
             }
-        }
 
         // Current
         for (TupleMessageEx message : messages) {
             long account = (message.accountNotify ? message.account : 0);
             accountName.put(account, account > 0 ? message.accountName : null);
             if (accountMessages.indexOfKey(account) < 0) {
-                notifying.put(account, new ArrayList<Long>());
                 accountMessages.put(account, new ArrayList<TupleMessageEx>());
+                if (notifying.indexOfKey(account) < 0)
+                    notifying.put(account, new ArrayList<Long>());
             }
             accountMessages.get(account).add(message);
         }
 
         // Difference
-        for (int i = 0; i < accountMessages.size(); i++) {
-            long account = accountMessages.keyAt(i);
+        for (int i = 0; i < notifying.size(); i++) {
+            long account = notifying.keyAt(i);
             List<Notification> notifications = getNotificationUnseen(
                     context, account, accountName.get(account), accountMessages.get(account));
 
+            List<String> all = new ArrayList<>();
             List<Long> add = new ArrayList<>();
             List<Long> remove = notifying.get(account);
             for (Notification notification : notifications) {
                 Long id = notification.extras.getLong("id", 0);
                 if (id != 0) {
+                    all.add(Long.toString(id));
                     if (remove.contains(id)) {
                         remove.remove(id);
                         Log.i("Notify existing=" + id);
@@ -1473,7 +1473,12 @@ class Core {
                 if ((id == 0 && add.size() + remove.size() > 0) || add.contains(id))
                     nm.notify("unseen:" + account + ":" + Math.abs(id), 1, notification);
             }
+
+            if (all.size() > 0)
+                editor.putString("notifying:" + account, TextUtils.join(",", all));
         }
+
+        editor.apply();
     }
 
     private static List<Notification> getNotificationUnseen(
@@ -1482,7 +1487,7 @@ class Core {
             List<TupleMessageEx> messages) {
         List<Notification> notifications = new ArrayList<>();
 
-        if (messages.size() == 0)
+        if (messages == null || messages.size() == 0)
             return notifications;
 
         boolean pro = Helper.isPro(context);
