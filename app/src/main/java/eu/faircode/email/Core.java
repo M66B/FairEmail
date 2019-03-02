@@ -160,7 +160,11 @@ class Core {
                                 break;
 
                             case EntityOperation.MOVE:
-                                onMove(context, jargs, folder, message, isession, (IMAPStore) istore, (IMAPFolder) ifolder);
+                                onMove(context, jargs, false, folder, message, isession, (IMAPStore) istore, (IMAPFolder) ifolder);
+                                break;
+
+                            case EntityOperation.COPY:
+                                onMove(context, jargs, true, folder, message, isession, (IMAPStore) istore, (IMAPFolder) ifolder);
                                 break;
 
                             case EntityOperation.DELETE:
@@ -444,16 +448,13 @@ class Core {
         }
     }
 
-    private static void onMove(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, Session isession, IMAPStore istore, IMAPFolder ifolder) throws JSONException, MessagingException, IOException {
+    private static void onMove(Context context, JSONArray jargs, boolean copy, EntityFolder folder, EntityMessage message, Session isession, IMAPStore istore, IMAPFolder ifolder) throws JSONException, MessagingException, IOException {
         // Move message
         DB db = DB.getInstance(context);
 
         Message imessage = ifolder.getMessageByUID(message.uid);
         if (imessage == null)
             throw new MessageRemovedException();
-
-        // Get parameters
-        boolean autoread = jargs.getBoolean(1);
 
         // Get target folder
         long id = jargs.getLong(0);
@@ -462,8 +463,10 @@ class Core {
             throw new FolderNotFoundException();
         IMAPFolder itarget = (IMAPFolder) istore.getFolder(target.name);
 
+        boolean autoread = (jargs.length() > 1 && jargs.getBoolean(1));
+
         boolean canMove = istore.hasCapability("MOVE");
-        if (canMove &&
+        if (!copy && canMove &&
                 !EntityFolder.DRAFTS.equals(folder.type) &&
                 !EntityFolder.DRAFTS.equals(target.type)) {
             // Autoread
@@ -474,8 +477,9 @@ class Core {
             // Move message to
             ifolder.moveMessages(new Message[]{imessage}, itarget);
         } else {
-            Log.w(folder.name + " MOVE by DELETE/APPEND" +
-                    " cap=" + canMove + " from=" + folder.type + " to=" + target.type);
+            if (!copy)
+                Log.w(folder.name + " MOVE by DELETE/APPEND" +
+                        " cap=" + canMove + " from=" + folder.type + " to=" + target.type);
 
             // Serialize source message
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -486,7 +490,7 @@ class Core {
             Message icopy = new MimeMessage(isession, bis);
 
             // Make sure the message has a message ID
-            if (message.msgid == null) {
+            if (copy || message.msgid == null) {
                 String msgid = EntityMessage.generateMessageId();
                 Log.i(target.name + " generated message id=" + msgid);
                 icopy.setHeader("Message-ID", msgid);
@@ -540,8 +544,10 @@ class Core {
                 }
 
                 // Delete source
-                imessage.setFlag(Flags.Flag.DELETED, true);
-                ifolder.expunge();
+                if (!copy) {
+                    imessage.setFlag(Flags.Flag.DELETED, true);
+                    ifolder.expunge();
+                }
             } catch (Throwable ex) {
                 if (itarget.isOpen())
                     itarget.close();

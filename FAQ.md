@@ -30,7 +30,7 @@ For authorizing:
 
 * ~~Synchronize on demand (manual)~~
 * ~~Semi-automatic encryption~~
-* Add message copy
+* ~~Copy message~~
 
 Anything on this list is in random order and *might* be added in the near future.
 
@@ -188,6 +188,7 @@ The low priority status bar notification shows the number of pending operations,
 
 * *add*: add message to remote folder
 * *move*: move message to another remote folder
+* *copy*: copy message to another remote folder
 * *delete*: delete message from remote folder
 * *send*: send message
 * *seen*: mark message as read/unread in remote folder

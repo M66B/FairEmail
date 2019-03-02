@@ -1803,6 +1803,89 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         }
 
+        private void onMenuCopy(final ActionData data) {
+            Bundle args = new Bundle();
+            args.putLong("id", data.message.id);
+
+            new SimpleTask<List<EntityFolder>>() {
+                @Override
+                protected List<EntityFolder> onExecute(Context context, Bundle args) {
+                    DB db = DB.getInstance(context);
+
+                    EntityMessage message = db.message().getMessage(args.getLong("id"));
+                    if (message == null)
+                        return null;
+
+                    List<EntityFolder> folders = db.folder().getFolders(message.account);
+                    if (folders == null)
+                        return null;
+
+                    EntityFolder.sort(context, folders);
+
+                    return folders;
+                }
+
+                @Override
+                protected void onExecuted(final Bundle args, List<EntityFolder> folders) {
+                    if (folders == null)
+                        return;
+
+                    View anchor = bnvActions.findViewById(R.id.action_more);
+                    PopupMenu popupMenu = new PopupMenu(context, anchor);
+
+                    int order = 0;
+                    for (EntityFolder folder : folders)
+                        popupMenu.getMenu().add(Menu.NONE, folder.id.intValue(), order++, folder.getDisplayName(context));
+
+                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(final MenuItem target) {
+                            args.putLong("target", target.getItemId());
+
+                            new SimpleTask<Void>() {
+                                @Override
+                                protected Void onExecute(Context context, Bundle args) {
+                                    long id = args.getLong("id");
+                                    long target = args.getLong("target");
+
+                                    DB db = DB.getInstance(context);
+                                    try {
+                                        db.beginTransaction();
+
+                                        EntityMessage message = db.message().getMessage(id);
+                                        if (message == null)
+                                            return null;
+
+                                        EntityOperation.queue(context, db, message, EntityOperation.COPY, target);
+
+                                        db.setTransactionSuccessful();
+                                    } finally {
+                                        db.endTransaction();
+                                    }
+
+                                    return null;
+                                }
+
+                                @Override
+                                protected void onException(Bundle args, Throwable ex) {
+                                    Helper.unexpectedError(context, owner, ex);
+                                }
+                            }.execute(context, owner, args, "message:copy");
+
+                            return true;
+                        }
+                    });
+
+                    popupMenu.show();
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, owner, ex);
+                }
+            }.execute(context, owner, args, "message:copy:list");
+        }
+
         private void onMenuDelete(final ActionData data) {
             Bundle args = new Bundle();
             args.putLong("id", data.message.id);
@@ -2165,6 +2248,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(data.message.uid != null);
 
+            popupMenu.getMenu().findItem(R.id.menu_copy).setEnabled(data.message.uid != null);
             popupMenu.getMenu().findItem(R.id.menu_delete).setVisible(debug);
 
             popupMenu.getMenu().findItem(R.id.menu_junk).setEnabled(data.message.uid != null);
@@ -2199,6 +2283,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_snooze:
                             onMenuSnooze(data);
+                            return true;
+                        case R.id.menu_copy:
+                            onMenuCopy(data);
                             return true;
                         case R.id.menu_delete:
                             // For emergencies

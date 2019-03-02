@@ -70,6 +70,7 @@ public class EntityOperation {
 
     static final String ADD = "add";
     static final String MOVE = "move";
+    static final String COPY = "copy";
     static final String DELETE = "delete";
     static final String SEND = "send";
     static final String SEEN = "seen";

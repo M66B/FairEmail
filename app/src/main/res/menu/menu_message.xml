@@ -13,6 +13,10 @@
         android:title="@string/title_snooze" />
 
     <item
+        android:id="@+id/menu_copy"
+        android:title="@string/title_copy" />
+
+    <item
         android:id="@+id/menu_delete"
         android:title="@string/title_delete" />
 
