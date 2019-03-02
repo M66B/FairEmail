@@ -216,6 +216,9 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             for (ResolveInfo ri : ris) {
                 if ("com.adobe.reader".equals(ri.activityInfo.packageName))
                     Toast.makeText(context, R.string.title_no_adobe, Toast.LENGTH_LONG).show();
+                if (ri.activityInfo.packageName.startsWith("com.microsoft.office."))
+                    Toast.makeText(context, R.string.title_no_microsoft, Toast.LENGTH_LONG).show();
+
                 Log.i("Target=" + ri);
                 context.grantUriPermission(ri.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 targets.add(new NameResolveInfo(
