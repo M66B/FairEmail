@@ -123,8 +123,8 @@ public class EntityOperation {
 
             if (account == null) // Outbox
                 ServiceSend.start(context);
-            else
-                ServiceSynchronize.start(context);
+            else if (!"connected".equals(account.state))
+                ServiceUI.process(context, fid);
 
             Log.i("Queued sync folder=" + folder);
         }
@@ -253,8 +253,11 @@ public class EntityOperation {
 
         if (SEND.equals(name))
             ServiceSend.start(context);
-        else
-            ServiceSynchronize.start(context);
+        else {
+            EntityAccount account = db.account().getAccount(message.account);
+            if (account != null && !"connected".equals(account.state))
+                ServiceUI.process(context, operation.folder);
+        }
     }
 
     @Override

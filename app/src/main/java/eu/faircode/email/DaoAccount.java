@@ -32,13 +32,8 @@ public interface DaoAccount {
     @Query("SELECT * FROM account")
     List<EntityAccount> getAccounts();
 
-    @Query("SELECT account.* FROM account" +
-            " LEFT JOIN folder ON folder.account = account.id" + // not outbox
-            " LEFT JOIN operation ON operation.folder = folder.id" +
-            " WHERE account.synchronize" +
-            " GROUP BY account.id" +
-            " HAVING :all OR COUNT(operation.id) > 0")
-    List<EntityAccount> getSynchronizingAccounts(boolean all);
+    @Query("SELECT * FROM account WHERE synchronize")
+    List<EntityAccount> getSynchronizingAccounts();
 
     @Query("SELECT * FROM account WHERE tbd = 1")
     List<EntityAccount> getAccountsTbd();

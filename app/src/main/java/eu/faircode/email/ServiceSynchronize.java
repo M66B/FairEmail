@@ -97,6 +97,7 @@ public class ServiceSynchronize extends LifecycleService {
     private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
     private static final int ACCOUNT_ERROR_AFTER = 90; // minutes
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
+    private static final long STOP_DELAY = 5000L; // milliseconds
 
     static final int PI_ALARM = 1;
 
@@ -130,16 +131,6 @@ public class ServiceSynchronize extends LifecycleService {
             }
         });
 
-        db.operation().livePendingOperationsCount().observe(ServiceSynchronize.this, new Observer<Integer>() {
-            @Override
-            public void onChanged(Integer ops) {
-                Log.i("Pending ops=" + ops);
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
-                boolean enabled = prefs.getBoolean("enabled", true);
-                serviceManager.quit(!enabled && ops == 0);
-            }
-        });
-
         JobDaily.schedule(this);
     }
 
@@ -149,6 +140,8 @@ public class ServiceSynchronize extends LifecycleService {
 
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.unregisterNetworkCallback(serviceManager);
+
+        serviceManager.service_destroy();
 
         Widget.update(this, -1);
 
@@ -175,8 +168,8 @@ public class ServiceSynchronize extends LifecycleService {
         if (action != null)
             try {
                 switch (action) {
-                    case "start":
-                        serviceManager.service_start();
+                    case "init":
+                        serviceManager.service_init();
                         break;
 
                     case "alarm":
@@ -245,7 +238,6 @@ public class ServiceSynchronize extends LifecycleService {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
                 boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
                 //System.setProperty("mail.socket.debug", Boolean.toString(debug));
-                boolean enabled = prefs.getBoolean("enabled", true);
 
                 // Create session
                 Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
@@ -589,8 +581,7 @@ public class ServiceSynchronize extends LifecycleService {
                             idler.start();
                             idlers.add(idler);
 
-                            if (enabled)
-                                EntityOperation.sync(this, folder.id);
+                            EntityOperation.sync(this, folder.id);
                         } else
                             folders.put(folder, null);
 
@@ -877,7 +868,6 @@ public class ServiceSynchronize extends LifecycleService {
         private Core.State state;
         private boolean started = false;
         private int queued = 0;
-        private boolean quit = false;
         private long lastLost = 0;
         private ExecutorService queue = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
@@ -937,11 +927,17 @@ public class ServiceSynchronize extends LifecycleService {
             EntityLog.log(ServiceSynchronize.this,
                     "suitable=" + suitable + " metered=" + metered + " isMetered=" + isMetered);
 
+            // The connected state is deliberately ignored
             return suitable;
         }
 
-        private void service_start() {
-            EntityLog.log(ServiceSynchronize.this, "Service start");
+        private boolean isEnabled() {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
+            return prefs.getBoolean("enabled", true);
+        }
+
+        private void service_init() {
+            EntityLog.log(ServiceSynchronize.this, "Service init");
             // Network events will manage the service
         }
 
@@ -960,6 +956,14 @@ public class ServiceSynchronize extends LifecycleService {
             }
         }
 
+        private void service_destroy() {
+            synchronized (this) {
+                EntityLog.log(ServiceSynchronize.this, "Service destroy");
+                if (started)
+                    queue_reload(false, "service destroy");
+            }
+        }
+
         private void start() {
             EntityLog.log(ServiceSynchronize.this, "Main start");
 
@@ -975,9 +979,6 @@ public class ServiceSynchronize extends LifecycleService {
                     try {
                         wl.acquire();
 
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
-                        boolean enabled = prefs.getBoolean("enabled", true);
-
                         final DB db = DB.getInstance(ServiceSynchronize.this);
 
                         long ago = new Date().getTime() - lastLost;
@@ -992,7 +993,7 @@ public class ServiceSynchronize extends LifecycleService {
                             }
 
                         // Start monitoring accounts
-                        List<EntityAccount> accounts = db.account().getSynchronizingAccounts(enabled);
+                        List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
                         for (final EntityAccount account : accounts) {
                             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
                                 if (account.notify)
@@ -1034,7 +1035,6 @@ public class ServiceSynchronize extends LifecycleService {
                             astate.stop();
                         for (Core.State astate : threadState)
                             astate.join();
-
                         threadState.clear();
 
                         EntityLog.log(ServiceSynchronize.this, "Main exited");
@@ -1063,7 +1063,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         private void queue_reload(final boolean start, final String reason) {
             final boolean doStop = started;
-            final boolean doStart = (start && suitableNetwork());
+            final boolean doStart = (start && isEnabled() && suitableNetwork());
 
             EntityLog.log(ServiceSynchronize.this, "Queue reload" +
                     " doStop=" + doStop + " doStart=" + doStart + " queued=" + queued + " " + reason);
@@ -1108,18 +1108,22 @@ public class ServiceSynchronize extends LifecycleService {
                     } finally {
                         queued--;
                         EntityLog.log(ServiceSynchronize.this, "Reload done queued=" + queued);
-                        if (queued == 0 && quit)
-                            stopSelf();
+
+                        if (queued == 0 && !isEnabled()) {
+                            try {
+                                Thread.sleep(STOP_DELAY);
+                            } catch (InterruptedException ignored) {
+                            }
+                            if (queued == 0 && !isEnabled()) {
+                                EntityLog.log(ServiceSynchronize.this, "Service stop");
+                                stopSelf();
+                            }
+                        }
+
                         wl.release();
                     }
                 }
             });
-        }
-
-        private void quit(boolean quit) {
-            this.quit = quit;
-            if (quit && queued == 0)
-                queue_reload(false, "quit");
         }
     }
 
@@ -1194,9 +1198,16 @@ public class ServiceSynchronize extends LifecycleService {
                         // Restore schedule
                         schedule(context);
 
-                        // Start service
-                        start(context);
+                        // Conditionally init service
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        boolean enabled = prefs.getBoolean("enabled", true);
 
+                        int accounts = db.account().getSynchronizingAccounts().size();
+
+                        if (enabled && accounts > 0)
+                            ContextCompat.startForegroundService(context,
+                                    new Intent(context, ServiceSynchronize.class)
+                                            .setAction("init"));
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
@@ -1204,12 +1215,6 @@ public class ServiceSynchronize extends LifecycleService {
             });
             thread.start();
         }
-    }
-
-    static void start(Context context) {
-        ContextCompat.startForegroundService(context,
-                new Intent(context, ServiceSynchronize.class)
-                        .setAction("start"));
     }
 
     static void reschedule(Context context) {
