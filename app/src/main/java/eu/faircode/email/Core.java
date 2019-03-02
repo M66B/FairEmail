@@ -792,7 +792,7 @@ class Core {
         }
     }
 
-    static void onSynchronizeMessages(
+    private static void onSynchronizeMessages(
             Context context, JSONArray jargs,
             EntityAccount account, final EntityFolder folder,
             IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
@@ -1437,43 +1437,40 @@ class Core {
             List<Notification> notifications = getNotificationUnseen(
                     context, account, accountName.get(account), accountMessages.get(account));
 
-            List<Long> all = new ArrayList<>();
-            List<Long> added = new ArrayList<>();
-            List<Long> removed = notifying.get(account);
+            List<Long> add = new ArrayList<>();
+            List<Long> remove = notifying.get(account);
             for (Notification notification : notifications) {
                 Long id = notification.extras.getLong("id", 0);
                 if (id != 0) {
-                    all.add(id);
-                    if (removed.contains(id)) {
-                        removed.remove(id);
-                        Log.i("Notify removing=" + id);
+                    if (remove.contains(id)) {
+                        remove.remove(id);
+                        Log.i("Notify existing=" + id);
                     } else {
-                        removed.remove(-id);
-                        added.add(id);
+                        remove.remove(-id);
+                        add.add(id);
                         Log.i("Notify adding=" + id);
                     }
                 }
             }
 
             int headers = 0;
-            for (Long id : added)
+            for (Long id : add)
                 if (id < 0)
                     headers++;
 
-            Log.i("Notify account=" + account +
-                    " count=" + notifications.size() + " all=" + all.size() +
-                    " added=" + added.size() + " removed=" + removed.size() + " headers=" + headers);
+            Log.i("Notify account=" + account + " count=" + notifications.size() +
+                    " added=" + add.size() + " removed=" + remove.size() + " headers=" + headers);
 
             if (notifications.size() == 0 ||
                     (Build.VERSION.SDK_INT < Build.VERSION_CODES.O && headers > 0))
                 nm.cancel("unseen:" + account + ":0", 1);
 
-            for (Long id : removed)
+            for (Long id : remove)
                 nm.cancel("unseen:" + account + ":" + Math.abs(id), 1);
 
             for (Notification notification : notifications) {
                 long id = notification.extras.getLong("id", 0);
-                if ((id == 0 && added.size() + removed.size() > 0) || added.contains(id))
+                if ((id == 0 && add.size() + remove.size() > 0) || add.contains(id))
                     nm.notify("unseen:" + account + ":" + Math.abs(id), 1, notification);
             }
         }
