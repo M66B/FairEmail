@@ -143,6 +143,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean contacts;
     private boolean search;
     private boolean avatars;
+    private boolean flags;
     private boolean preview;
     private boolean autohtml;
     private boolean autoimages;
@@ -693,7 +694,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             int flagged = (message.count - message.unflagged);
             ivFlagged.setImageResource(flagged > 0 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
             ivFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? colorAccent : textColorSecondary));
-            ivFlagged.setVisibility(message.uid == null ? View.INVISIBLE : View.VISIBLE);
+            ivFlagged.setVisibility(flags ? (message.uid == null ? View.INVISIBLE : View.VISIBLE) : View.GONE);
         }
 
         private void bindContactInfo(ContactInfo info, TupleMessageEx message) {
@@ -2667,6 +2668,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED);
         this.avatars = (prefs.getBoolean("avatars", true) ||
                 prefs.getBoolean("identicons", false));
+        this.flags = prefs.getBoolean("flags", true);
         this.preview = prefs.getBoolean("preview", false);
         this.autohtml = prefs.getBoolean("autohtml", false);
         this.autoimages = (!this.autohtml && prefs.getBoolean("autoimages", false));

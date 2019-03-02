@@ -238,6 +238,7 @@ In the display section of the advanced settings you can enable or disable:
 * *Conversation threading*: to disable conversation threading and to show individual messages instead
 * *Show contact photos*: to hide contact photos
 * *Show identicons*: to show generated contact avatars
+* *Show stars*: to hide stars (favorites)
 * *Show message preview*: to show two lines of the message text
 * *Show address details by default*: to collapse the addresses section by default
 * *Conversation action bar*: to disable the bottom navigation bar
