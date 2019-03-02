@@ -412,6 +412,7 @@
     <string name="title_legend_flagged">Heeft een star</string>
     <string name="title_legend_contacts">Contacten beheren</string>
     <string name="title_legend_view">Inhoud weergeven</string>
+    <string name="title_legend_hide">Inhoud verbergen</string>
     <string name="title_legend_download">Inhoud downloaden</string>
     <string name="title_legend_external_image">Plaatshouder externe afbeelding</string>
     <string name="title_legend_embedded_image">Plaatshouder ingesloten afbeelding</string>

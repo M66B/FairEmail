@@ -293,6 +293,9 @@
     <string name="title_snooze">Später lesen &#8230;</string>
     <string name="title_archive">Archivieren</string>
     <string name="title_reply">Antworten</string>
+    <string name="title_reply_to_sender">Nur dem Absender antworten</string>
+    <string name="title_reply_to_all">Allen Empfängern antworten</string>
+    <string name="title_reply_template">Für die Antwort eine Vorlage verwenden</string>
     <string name="title_moving">Verschiebe nach %1$s</string>
     <string name="title_open_with">Öffnen mit</string>
     <string name="title_no_answers">Keine Antwortvorlagen definiert</string>
