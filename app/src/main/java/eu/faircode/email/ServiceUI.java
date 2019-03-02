@@ -167,8 +167,6 @@ public class ServiceUI extends IntentService {
     }
 
     private void onSummary() {
-        DB.getInstance(this).message().ignoreAll();
-
         Intent view = new Intent(this, ActivityView.class);
         view.setAction("unified");
         view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
