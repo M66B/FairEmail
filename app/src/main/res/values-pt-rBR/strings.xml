@@ -285,6 +285,7 @@
     <string name="title_save_all">Salvar todos</string>
     <string name="title_show_html">Mostrar original</string>
     <string name="title_trash">Lixeira</string>
+    <string name="title_copy">Copiar &#8230;</string>
     <string name="title_delete">Excluir</string>
     <string name="title_more">Mais</string>
     <string name="title_spam">Spam</string>

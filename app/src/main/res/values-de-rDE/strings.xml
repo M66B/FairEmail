@@ -130,6 +130,7 @@
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
     <string name="title_advanced_identicons">Identicons als Kontaktbilder anzeigen</string>
     <string name="title_advanced_name_email">Namen und E-Mail-Adressen anzeigen</string>
+    <string name="title_advanced_flags">Sterne / Favoriten anzeigen</string>
     <string name="title_advanced_preview">Nachrichtenvorschau anzeigen</string>
     <string name="title_advanced_addresses">Adressdetails standardmäßig anzeigen</string>
     <string name="title_advanced_html">Für bekannte Kontakte Mails automatisch im Original-Format anzeigen</string>
@@ -158,6 +159,7 @@
     <string name="title_advanced_unified_hint">Zeige die Ordner oder die E-Mails des Sammeleingangs an</string>
     <string name="title_advanced_threading_hint">E-Mails gruppieren, die miteinander verwandt sind</string>
     <string name="title_advanced_name_email_hint">Wenn deaktiviert, werden nur Namen angezeigt, sofern verfügbar</string>
+    <string name="title_advanced_flags_hint">Beachten Sie, dass markierte Nachrichten immer lokal gehalten werden</string>
     <string name="title_advanced_autoexpand_hint">Eine (ungelesene) Nachricht wird automatisch geöffnet</string>
     <string name="title_advanced_autocollapse_hint">Mehrere erweiterte Nachrichten werden immer auf \'zurück\' geschlossen</string>
     <string name="title_advanced_autoclose_hint">Automatisches Schließen des Unterhaltungsthreads, wenn alle E-Mails archiviert, gesendet oder gelöscht wurden</string>
@@ -285,6 +287,7 @@
     <string name="title_save_all">Alles speichern</string>
     <string name="title_show_html">Original anzeigen</string>
     <string name="title_trash">Löschen</string>
+    <string name="title_copy">Kopiere &#8230;</string>
     <string name="title_delete">Löschen</string>
     <string name="title_more">Mehr</string>
     <string name="title_spam">Spam</string>
