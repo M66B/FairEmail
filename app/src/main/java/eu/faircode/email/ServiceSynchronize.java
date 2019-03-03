@@ -131,7 +131,7 @@ public class ServiceSynchronize extends LifecycleService {
             }
         });
 
-        JobDaily.schedule(this);
+        WorkerCleanup.queue();
     }
 
     @Override
@@ -145,7 +145,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         Widget.update(this, -1);
 
-        JobDaily.cancel(this);
+        WorkerCleanup.cancel();
 
         stopForeground(true);
 

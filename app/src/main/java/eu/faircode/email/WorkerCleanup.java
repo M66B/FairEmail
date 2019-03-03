@@ -1,30 +1,7 @@
 package eu.faircode.email;
 
-/*
-    This file is part of FairEmail.
-
-    FairEmail is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    FairEmail is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with FairEmail.  If not, see <http://www.gnu.org/licenses/>.
-
-    Copyright 2018-2019 by Marcel Bokhorst (M66B)
-*/
-
-import android.app.job.JobInfo;
-import android.app.job.JobParameters;
-import android.app.job.JobScheduler;
-import android.app.job.JobService;
-import android.content.ComponentName;
 import android.content.Context;
+import android.os.Build;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -32,47 +9,30 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
-public class JobDaily extends JobService {
-    private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+import androidx.annotation.NonNull;
+import androidx.work.Constraints;
+import androidx.work.PeriodicWorkRequest;
+import androidx.work.WorkInfo;
+import androidx.work.WorkManager;
+import androidx.work.Worker;
+import androidx.work.WorkerParameters;
 
-    private static final long CLEANUP_INTERVAL = 4 * 3600 * 1000L; // milliseconds
+public class WorkerCleanup extends Worker {
+    private static final int CLEANUP_INTERVAL = 4; // hours
     private static final long CACHE_IMAGE_DURATION = 3 * 24 * 3600 * 1000L; // milliseconds
     private static final long KEEP_LOG_DURATION = 24 * 3600 * 1000L; // milliseconds
 
-    public static void schedule(Context context) {
-        JobScheduler scheduler = (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
-
-        JobInfo.Builder job = new JobInfo.Builder(Helper.JOB_DAILY, new ComponentName(context, JobDaily.class))
-                .setPeriodic(CLEANUP_INTERVAL)
-                .setRequiresDeviceIdle(true);
-
-        if (scheduler.schedule(job.build()) == JobScheduler.RESULT_SUCCESS)
-            Log.i("Scheduled daily job");
-        else
-            Log.e("Scheduling daily job failed");
+    public WorkerCleanup(@NonNull Context context, @NonNull WorkerParameters workerParams) {
+        super(context, workerParams);
     }
 
-    public static void cancel(Context context) {
-        JobScheduler scheduler = (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
-        scheduler.cancel(Helper.JOB_DAILY);
-        Log.i("Cancelled daily job");
-    }
-
+    @NonNull
     @Override
-    public boolean onStartJob(JobParameters args) {
-        EntityLog.log(this, "Daily cleanup");
-
-        executor.submit(new Runnable() {
-            @Override
-            public void run() {
-                cleanup(getApplicationContext(), false);
-            }
-        });
-
-        return false;
+    public Result doWork() {
+        cleanup(getApplicationContext(), false);
+        return Result.success();
     }
 
     static void cleanup(Context context, boolean manual) {
@@ -80,7 +40,7 @@ public class JobDaily extends JobService {
         try {
             db.beginTransaction();
 
-            Log.i("Start daily job manual=" + manual);
+            Log.i("Start cleanup manual=" + manual);
 
             // Cleanup folders
             Log.i("Cleanup kept messages");
@@ -162,13 +122,42 @@ public class JobDaily extends JobService {
             Log.e(ex);
         } finally {
             db.endTransaction();
-            Log.i("End daily job");
+            Log.i("End cleanup");
         }
     }
 
-    @Override
-    public boolean onStopJob(JobParameters args) {
-        return false;
+    static void queue() {
+        String tag = "cleanup";
+        Log.i("Queuing work " + tag);
+
+        try {
+            for (WorkInfo info : WorkManager.getInstance().getWorkInfosByTag(tag).get())
+                if (!info.getState().isFinished()) {
+                    Log.i("Work already queued " + tag);
+                    return;
+                }
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
+        Constraints.Builder constraints = new Constraints.Builder();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !BuildConfig.DEBUG)
+            constraints.setRequiresDeviceIdle(true);
+
+        PeriodicWorkRequest workRequest =
+                new PeriodicWorkRequest.Builder(WorkerCleanup.class, CLEANUP_INTERVAL, TimeUnit.HOURS)
+                        .addTag(tag)
+                        .setConstraints(constraints.build())
+                        .build();
+        WorkManager.getInstance().enqueue(workRequest);
+
+        Log.i("Queued work " + tag);
+    }
+
+    static void cancel() {
+        String tag = "cleanup";
+        Log.i("Cancelling work " + tag);
+
+        WorkManager.getInstance().cancelAllWorkByTag(tag);
     }
 }
-
