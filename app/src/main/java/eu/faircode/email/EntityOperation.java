@@ -49,7 +49,8 @@ import static androidx.room.ForeignKey.CASCADE;
         },
         indices = {
                 @Index(value = {"folder"}),
-                @Index(value = {"message"})
+                @Index(value = {"message"}),
+                @Index(value = {"name"})
         }
 )
 public class EntityOperation {
