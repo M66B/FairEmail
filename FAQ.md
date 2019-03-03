@@ -128,7 +128,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(65) Why are some attachments shown dimmed?](#user-content-faq65)
 * [(66) Is FairEmail available in the Google Play Family Library?](#user-content-faq66)
 * [(67) How can I snooze conversations?](#user-content-faq67)
-* [(68) Why can Adobe Acrobat reader not open PDF attachments?](#user-content-faq68)
+* [(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?](#user-content-faq68)
 * [(69) Can you add auto scroll up on new message?](#user-content-faq69)
 * [(70) When will messages be auto expanded?](#user-content-faq70)
 * [(71) How do I use filter rules?](#user-content-faq71)
@@ -1125,14 +1125,14 @@ By selecting a zero snooze duration you can cancel snoozing.
 <br />
 
 <a name="faq68"></a>
-**(68) Why can Adobe Acrobat reader not open PDF attachments?**
+**(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?**
 
-Adobe Acrobat reader still expects full access to all stored files,
+Adobe Acrobat reader and Microsoft apps still expects full access to all stored files,
 while apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) since Android KitKat (2013)
 to have access to actively shared files only. This is for privacy and security reasons.
 
-You can workaround this by saving the attachment and opening it from the Adobe Acrobat reader,
-but you are advised to install an up-to-date and preferably open source PDF reader,
+You can workaround this by saving the attachment and opening it from the Adobe Acrobat reader / Microsoft app,
+but you are advised to install an up-to-date and preferably open source PDF reader / document viewer,
 for example one listed [here](https://github.com/offa/android-foss#-document--pdf-viewer).
 
 <br />
