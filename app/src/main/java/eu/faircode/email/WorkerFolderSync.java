@@ -7,7 +7,6 @@ import android.preference.PreferenceManager;
 import java.util.Date;
 import java.util.Properties;
 
-import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Store;
 
@@ -75,7 +74,7 @@ public class WorkerFolderSync extends Worker {
                     Log.i(account.name + " closing");
                     db.account().setAccountState(account.id, "closing");
                     istore.close();
-                } catch (MessagingException ex) {
+                } catch (Throwable ex) {
                     Log.e(ex);
                 } finally {
                     Log.i(account.name + " closed");

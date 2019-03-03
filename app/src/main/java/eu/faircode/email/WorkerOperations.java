@@ -8,7 +8,6 @@ import java.util.Date;
 import java.util.Properties;
 
 import javax.mail.Folder;
-import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.event.StoreEvent;
@@ -107,7 +106,7 @@ public class WorkerOperations extends Worker {
                     db.account().setAccountState(account.id, "closing");
                     db.folder().setFolderState(folder.id, "closing");
                     istore.close();
-                } catch (MessagingException ex) {
+                } catch (Throwable ex) {
                     Log.w(ex);
                 } finally {
                     Log.i(account.name + " closed");
