@@ -1601,7 +1601,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             } else {
                 View view = LayoutInflater.from(context).inflate(R.layout.dialog_link, null);
                 final EditText etLink = view.findViewById(R.id.etLink);
+                TextView tvInsecure = view.findViewById(R.id.tvInsecure);
+
                 etLink.setText(uri.toString());
+                tvInsecure.setVisibility("http".equals(uri.getScheme()) ? View.VISIBLE : View.GONE);
+
                 new DialogBuilderLifecycle(context, owner)
                         .setView(view)
                         .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {

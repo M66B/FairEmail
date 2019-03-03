@@ -55,6 +55,7 @@ import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.StyleSpan;
@@ -770,73 +771,102 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onMenuStyle(int id) {
-        int start = etBody.getSelectionStart();
-        int end = etBody.getSelectionEnd();
-        if (start > end) {
-            int tmp = start;
-            start = end;
-            end = tmp;
+        int s = etBody.getSelectionStart();
+        int e = etBody.getSelectionEnd();
+
+        if (s < 0)
+            s = 0;
+        if (e < 0)
+            e = 0;
+
+        if (s > e) {
+            int tmp = s;
+            s = e;
+            e = tmp;
         }
-        if (start == end)
-            Snackbar.make(view, R.string.title_no_selection, Snackbar.LENGTH_LONG).show();
-        else {
-            final SpannableString s = new SpannableString(etBody.getText());
 
-            switch (id) {
-                case R.id.menu_bold:
-                    s.setSpan(new StyleSpan(Typeface.BOLD), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    break;
+        final int start = s;
+        final int end = e;
 
-                case R.id.menu_italic:
-                    s.setSpan(new StyleSpan(Typeface.ITALIC), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    break;
+        final SpannableString ss = new SpannableString(etBody.getText());
 
-                case R.id.menu_clear:
-                    for (Object span : s.getSpans(start, end, Object.class))
-                        if (!(span instanceof ImageSpan))
-                            s.removeSpan(span);
-                    break;
+        switch (id) {
+            case R.id.menu_bold:
+                if (start == end)
+                    Snackbar.make(view, R.string.title_no_selection, Snackbar.LENGTH_LONG).show();
+                else
+                    ss.setSpan(new StyleSpan(Typeface.BOLD), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                break;
 
-                case R.id.menu_link:
-                    Uri uri = null;
+            case R.id.menu_italic:
+                if (start == end)
+                    Snackbar.make(view, R.string.title_no_selection, Snackbar.LENGTH_LONG).show();
+                else
+                    ss.setSpan(new StyleSpan(Typeface.ITALIC), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                break;
 
-                    ClipboardManager cbm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-                    if (cbm.hasPrimaryClip()) {
-                        String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(getContext()).toString();
-                        uri = Uri.parse(link);
-                        if (uri.getScheme() == null)
-                            uri = null;
+            case R.id.menu_clear:
+                for (Object span : ss.getSpans(0, ss.length(), Object.class))
+                    if (!(span instanceof ImageSpan))
+                        ss.removeSpan(span);
+                break;
+
+            case R.id.menu_link:
+                Uri uri = null;
+
+                ClipboardManager cbm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                if (cbm.hasPrimaryClip()) {
+                    String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(getContext()).toString();
+                    uri = Uri.parse(link);
+                    if (uri.getScheme() == null)
+                        uri = null;
+                }
+
+                View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_link, null);
+                final EditText etLink = view.findViewById(R.id.etLink);
+                final TextView tvInsecure = view.findViewById(R.id.tvInsecure);
+
+                etLink.setText(uri == null ? "https://" : uri.toString());
+                tvInsecure.setVisibility(View.GONE);
+
+                etLink.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                     }
 
-                    View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_link, null);
-                    final int fStart = start;
-                    final int fEnd = end;
-                    final EditText etLink = view.findViewById(R.id.etLink);
-                    etLink.setText(uri == null ? "https://" : uri.toString());
-                    new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                            .setView(view)
-                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    s.setSpan(new URLSpan(etLink.getText().toString()), fStart, fEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                    etBody.setText(s);
-                                    etBody.setSelection(fEnd);
-                                }
-                            })
-                            .show();
-                    new Handler().post(new Runnable() {
-                        @Override
-                        public void run() {
-                            etLink.requestFocus();
-                        }
-                    });
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        tvInsecure.setVisibility("http".equals(Uri.parse(s.toString()).getScheme()) ? View.VISIBLE : View.GONE);
+                    }
 
-                    return;
-            }
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                    }
+                });
 
-            etBody.setText(s);
-            etBody.setSelection(end);
+                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                        .setView(view)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ss.setSpan(new URLSpan(etLink.getText().toString()), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                etBody.setText(ss);
+                                etBody.setSelection(end);
+                            }
+                        })
+                        .show();
+                new Handler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        etLink.requestFocus();
+                    }
+                });
+
+                return;
         }
+
+        etBody.setText(ss);
+        etBody.setSelection(end);
     }
 
     private void onMenuSendAfter() {
