@@ -109,8 +109,6 @@ public class Helper {
     static final int NOTIFICATION_SEND = 2;
     static final int NOTIFICATION_EXTERNAL = 3;
 
-    static final int JOB_DAILY = 1001;
-
     static final int AUTH_TYPE_PASSWORD = 1;
     static final int AUTH_TYPE_GMAIL = 2;
 
