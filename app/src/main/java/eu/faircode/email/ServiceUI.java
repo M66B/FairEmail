@@ -9,13 +9,9 @@ import android.net.Uri;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
-import javax.mail.MessagingException;
-import javax.mail.Session;
 import javax.mail.Store;
 
 import androidx.annotation.Nullable;
@@ -133,10 +129,6 @@ public class ServiceUI extends IntentService {
                 // for approximately 10 seconds to allow that application to acquire further wake locks in which to complete its work.
                 // https://developer.android.com/reference/android/app/AlarmManager
                 onSnooze(id);
-                break;
-
-            case "fsync":
-                onFolderSync(id);
                 break;
 
             default:
@@ -264,73 +256,6 @@ public class ServiceUI extends IntentService {
             db.setTransactionSuccessful();
         } finally {
             db.endTransaction();
-        }
-    }
-
-    private void onFolderSync(long aid) {
-        DB db = DB.getInstance(this);
-        EntityAccount account = db.account().getAccount(aid);
-        if (account == null)
-            return;
-
-        Store istore = null;
-        try {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-            boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
-
-            String protocol = account.getProtocol();
-
-            // Get properties
-            Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
-            props.put("mail." + protocol + ".separatestoreconnection", "true");
-
-            // Create session
-            final Session isession = Session.getInstance(props, null);
-            isession.setDebug(debug);
-
-            // Connect account
-            Log.i(account.name + " connecting");
-            db.account().setAccountState(account.id, "connecting");
-            istore = isession.getStore(protocol);
-            Helper.connect(this, istore, account);
-            db.account().setAccountState(account.id, "connected");
-            db.account().setAccountConnected(account.id, new Date().getTime());
-            db.account().setAccountError(account.id, null);
-            Log.i(account.name + " connected");
-
-            // Synchronize folders
-            Core.onSynchronizeFolders(this, account, istore, new Core.State());
-
-        } catch (Throwable ex) {
-            Log.w(ex);
-            Core.reportError(this, account, null, ex);
-            db.account().setAccountError(account.id, Helper.formatThrowable(ex));
-        } finally {
-            if (istore != null) {
-                Log.i(account.name + " closing");
-                db.account().setAccountState(account.id, "closing");
-
-                try {
-                    istore.close();
-                } catch (MessagingException ex) {
-                    Log.e(ex);
-                }
-
-                Log.i(account.name + " closed");
-            }
-
-            db.account().setAccountState(account.id, null);
-        }
-    }
-
-    public static void fsync(Context context, long account) {
-        try {
-            context.startService(
-                    new Intent(context, ServiceUI.class)
-                            .setAction("fsync:" + account));
-        } catch (IllegalStateException ex) {
-            Log.w(ex);
-            // The user went away
         }
     }
 }

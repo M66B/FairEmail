@@ -304,7 +304,7 @@ public class FragmentFolders extends FragmentBase {
                         // Folder list
                         EntityAccount account = db.account().getAccount(aid);
                         if (account != null && !"connected".equals(account.state))
-                            ServiceUI.fsync(context, aid);
+                            WorkerFolderSync.queue(aid);
                         else
                             ServiceSynchronize.reload(getContext(), "refresh folders");
                     }
