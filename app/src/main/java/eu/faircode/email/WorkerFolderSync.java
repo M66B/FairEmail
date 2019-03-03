@@ -12,7 +12,9 @@ import javax.mail.Session;
 import javax.mail.Store;
 
 import androidx.annotation.NonNull;
+import androidx.work.Constraints;
 import androidx.work.Data;
+import androidx.work.NetworkType;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkInfo;
 import androidx.work.WorkManager;
@@ -98,10 +100,14 @@ public class WorkerFolderSync extends Worker {
             Log.w(ex);
         }
 
+        Constraints.Builder constraints = new Constraints.Builder();
+        constraints.setRequiredNetworkType(NetworkType.CONNECTED);
+
         Data data = new Data.Builder().putLong("account", aid).build();
         OneTimeWorkRequest workRequest =
                 new OneTimeWorkRequest.Builder(WorkerFolderSync.class)
                         .addTag(tag)
+                        .setConstraints(constraints.build())
                         .setInputData(data)
                         .build();
         WorkManager.getInstance().enqueue(workRequest);
