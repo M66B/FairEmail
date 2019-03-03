@@ -214,9 +214,8 @@ public class ServiceSynchronize extends LifecycleService {
                 .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
         if (lastStats.operations > 0)
-            builder.setStyle(new NotificationCompat.BigTextStyle().setSummaryText(
-                    getResources().getQuantityString(
-                            R.plurals.title_notification_operations, lastStats.operations, lastStats.operations)));
+            builder.setContentText(getResources().getQuantityString(
+                    R.plurals.title_notification_operations, lastStats.operations, lastStats.operations));
 
         return builder;
     }

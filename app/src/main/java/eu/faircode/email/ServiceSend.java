@@ -125,9 +125,8 @@ public class ServiceSend extends LifecycleService {
                 .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
         if (lastUnsent > 0)
-            builder.setStyle(new NotificationCompat.BigTextStyle().setSummaryText(
-                    getResources().getQuantityString(
-                            R.plurals.title_notification_unsent, lastUnsent, lastUnsent)));
+            builder.setContentText(getResources().getQuantityString(
+                    R.plurals.title_notification_unsent, lastUnsent, lastUnsent));
 
         return builder;
     }
