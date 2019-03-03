@@ -119,13 +119,13 @@ public class WorkerOperations extends Worker {
     }
 
     static void queue(long fid) {
-        String tag = "operations:" + fid;
-        Log.i("Queuing work " + tag);
+        String tag = WorkerOperations.class.getSimpleName() + ":" + fid;
+        Log.i("Queuing " + tag);
 
         try {
             for (WorkInfo info : WorkManager.getInstance().getWorkInfosByTag(tag).get())
                 if (!info.getState().isFinished()) {
-                    Log.i("Work already queued " + tag);
+                    Log.i("Already queued " + tag);
                     return;
                 }
         } catch (Throwable ex) {
@@ -140,6 +140,6 @@ public class WorkerOperations extends Worker {
                         .build();
         WorkManager.getInstance().enqueue(workRequest);
 
-        Log.i("Queued work " + tag);
+        Log.i("Queued " + tag);
     }
 }

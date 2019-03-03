@@ -127,13 +127,13 @@ public class WorkerCleanup extends Worker {
     }
 
     static void queue() {
-        String tag = "cleanup";
-        Log.i("Queuing work " + tag);
+        String tag = WorkerCleanup.class.getSimpleName();
+        Log.i("Queuing " + tag);
 
         try {
             for (WorkInfo info : WorkManager.getInstance().getWorkInfosByTag(tag).get())
                 if (!info.getState().isFinished()) {
-                    Log.i("Work already queued " + tag);
+                    Log.i("Already queued " + tag);
                     return;
                 }
         } catch (Throwable ex) {
@@ -151,13 +151,12 @@ public class WorkerCleanup extends Worker {
                         .build();
         WorkManager.getInstance().enqueue(workRequest);
 
-        Log.i("Queued work " + tag);
+        Log.i("Queued " + tag);
     }
 
     static void cancel() {
-        String tag = "cleanup";
-        Log.i("Cancelling work " + tag);
-
+        String tag = WorkerCleanup.class.getSimpleName();
+        Log.i("Cancelling " + tag);
         WorkManager.getInstance().cancelAllWorkByTag(tag);
     }
 }

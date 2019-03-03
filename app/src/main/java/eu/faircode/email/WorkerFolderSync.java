@@ -85,13 +85,13 @@ public class WorkerFolderSync extends Worker {
     }
 
     static void queue(long aid) {
-        String tag = "fsync:" + aid;
-        Log.i("Queuing work " + tag);
+        String tag = WorkerFolderSync.class.getSimpleName() + ":" + aid;
+        Log.i("Queuing " + tag);
 
         try {
             for (WorkInfo info : WorkManager.getInstance().getWorkInfosByTag(tag).get())
                 if (!info.getState().isFinished()) {
-                    Log.i("Work already queued " + tag);
+                    Log.i("Already queued " + tag);
                     return;
                 }
         } catch (Throwable ex) {
@@ -106,6 +106,6 @@ public class WorkerFolderSync extends Worker {
                         .build();
         WorkManager.getInstance().enqueue(workRequest);
 
-        Log.i("Queued work " + tag);
+        Log.i("Queued " + tag);
     }
 }
