@@ -13,6 +13,7 @@
         android:fontFamily="monospace"
         android:gravity="top"
         android:hint="@string/title_edit_html"
+        android:imeOptions="actionDone"
         android:inputType="text|textMultiLine"
         android:minHeight="120dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"

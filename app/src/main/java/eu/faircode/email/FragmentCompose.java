@@ -266,6 +266,18 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
+        etTo.setMaxLines(Integer.MAX_VALUE);
+        etTo.setHorizontallyScrolling(false);
+
+        etCc.setMaxLines(Integer.MAX_VALUE);
+        etCc.setHorizontallyScrolling(false);
+
+        etBcc.setMaxLines(Integer.MAX_VALUE);
+        etBcc.setHorizontallyScrolling(false);
+
+        etSubject.setMaxLines(Integer.MAX_VALUE);
+        etSubject.setHorizontallyScrolling(false);
+
         View.OnClickListener onPick = new View.OnClickListener() {
             @Override
             public void onClick(View view) {

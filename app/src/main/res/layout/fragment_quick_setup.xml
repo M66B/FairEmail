@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:autofillHints="name"
             android:hint="@string/title_identity_name"
+            android:imeOptions="actionNext"
             android:inputType="textPersonName"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,6 +43,7 @@
             android:layout_height="wrap_content"
             android:autofillHints="emailAddress"
             android:hint="@string/title_identity_email"
+            android:imeOptions="actionNext"
             android:inputType="textEmailAddress"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
@@ -60,6 +62,7 @@
                 android:layout_height="wrap_content"
                 android:autofillHints="password"
                 android:hint="@string/title_setup_password"
+                android:imeOptions="actionGo"
                 android:inputType="textPassword"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </com.google.android.material.textfield.TextInputLayout>
