@@ -794,6 +794,10 @@ class Core {
                             db.folder().setFolderType(folder.id, type);
                         else if (EntityFolder.SYSTEM.equals(folder.type) && EntityFolder.USER.equals(type))
                             db.folder().setFolderType(folder.id, type);
+                        else if (EntityFolder.INBOX.equals(type) && !EntityFolder.INBOX.equals(folder.type)) {
+                            if (db.folder().getFolderByType(folder.account, EntityFolder.INBOX) == null)
+                                db.folder().setFolderType(folder.id, type);
+                        }
                     }
                 }
             }
