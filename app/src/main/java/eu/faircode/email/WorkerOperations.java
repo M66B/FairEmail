@@ -22,8 +22,8 @@ import androidx.work.WorkManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
-public class WorkerForeground extends Worker {
-    public WorkerForeground(@NonNull Context context, @NonNull WorkerParameters args) {
+public class WorkerOperations extends Worker {
+    public WorkerOperations(@NonNull Context context, @NonNull WorkerParameters args) {
         super(context, args);
     }
 
@@ -118,13 +118,8 @@ public class WorkerForeground extends Worker {
         return Result.success();
     }
 
-    @Override
-    public void onStopped() {
-        Log.i("Worked stopped");
-    }
-
     static void queue(long fid) {
-        String tag = "folder:" + fid;
+        String tag = "operations:" + fid;
         Log.i("Queuing work " + tag);
 
         try {
@@ -139,7 +134,7 @@ public class WorkerForeground extends Worker {
 
         Data data = new Data.Builder().putLong("folder", fid).build();
         OneTimeWorkRequest workRequest =
-                new OneTimeWorkRequest.Builder(WorkerForeground.class)
+                new OneTimeWorkRequest.Builder(WorkerOperations.class)
                         .addTag(tag)
                         .setInputData(data)
                         .build();
