@@ -130,6 +130,7 @@
     <string name="title_advanced_avatars">Mostra foto del contatto</string>
     <string name="title_advanced_identicons">Visualizza identicon</string>
     <string name="title_advanced_name_email">Mostra nomi e indirizzi email</string>
+    <string name="title_advanced_flags">Mostra stelle (preferiti)</string>
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
     <string name="title_advanced_addresses">Mostra i dettagli dell\'indirizzo per impostazione predefinita</string>
     <string name="title_advanced_html">Mostra automaticamente il messaggio originale per i contatti conosciuti</string>
@@ -158,6 +159,7 @@
     <string name="title_advanced_unified_hint">Mostra cartelle in arrivo unificate o messaggi in arrivo unificati</string>
     <string name="title_advanced_threading_hint">Messaggi di gruppo relazionati a vicenda</string>
     <string name="title_advanced_name_email_hint">Quando disabilitati saranno mostrati solo i nomi quando disponibili</string>
+    <string name="title_advanced_flags_hint">Nota che i messaggi preferiti saranno sempre conservati localmente</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando c\'è un solo messaggio o solo un messaggio da leggere in una conversazione</string>
     <string name="title_advanced_autocollapse_hint">Più messaggi estesi verranno sempre chiusi con \'indietro\'</string>
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni raggruppate quando tutti i messaggi sono archiviati, inviati o cestinati</string>
@@ -285,6 +287,7 @@
     <string name="title_save_all">Salva tutto</string>
     <string name="title_show_html">Visualizza originale</string>
     <string name="title_trash">Cestino</string>
+    <string name="title_copy">Copia &#8230;</string>
     <string name="title_delete">Elimina</string>
     <string name="title_more">Altro</string>
     <string name="title_spam">Posta indesiderata</string>
@@ -293,6 +296,9 @@
     <string name="title_snooze">Posticipa &#8230;</string>
     <string name="title_archive">Archivo</string>
     <string name="title_reply">Rispondi</string>
+    <string name="title_reply_to_sender">Mittente</string>
+    <string name="title_reply_to_all">Tutti</string>
+    <string name="title_reply_template">Modello</string>
     <string name="title_moving">Spostamento in %1$s</string>
     <string name="title_open_with">Apri con</string>
     <string name="title_no_answers">Nessun modello di risposta definito</string>
@@ -409,6 +415,7 @@
     <string name="title_legend_flagged">È preferito</string>
     <string name="title_legend_contacts">Gestisci contatti</string>
     <string name="title_legend_view">Mostra il contenuto</string>
+    <string name="title_legend_hide">Nascondi il contenuto</string>
     <string name="title_legend_download">Scarica il contenuto</string>
     <string name="title_legend_external_image">Segnaposto immagine esterna</string>
     <string name="title_legend_embedded_image">Segnaposto immagine incorporata</string>
@@ -458,6 +465,7 @@
     <string name="title_enable">Attiva</string>
     <string name="title_no_ask_again">Non chiedere di nuovo</string>
     <string name="title_no_adobe">Adobe Acrobat Reader non può aprire file condivisi in modo sicuro, consultare le domande frequenti per ulteriori informazioni</string>
+    <string name="title_no_microsoft">Le app Microsoft non possono aprire in sicurezza i file condivisi, guarda le FAQ per maggiori informazioni</string>
     <string name="title_no_body">Nessun messaggio di testo trovato</string>
     <string name="title_no_charset">Codifica non supportata: %1$s</string>
     <string name="title_via">Tramite: %1$s</string>

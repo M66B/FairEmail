@@ -406,6 +406,7 @@
     <string name="title_legend_flagged">已标星</string>
     <string name="title_legend_contacts">管理联系人</string>
     <string name="title_legend_view">查看内容</string>
+    <string name="title_legend_hide">隐藏内容</string>
     <string name="title_legend_download">下载内容</string>
     <string name="title_legend_external_image">外部图像占位符</string>
     <string name="title_legend_embedded_image">嵌入的图像占位符</string>
@@ -455,6 +456,7 @@
     <string name="title_enable">启用</string>
     <string name="title_no_ask_again">别再询问</string>
     <string name="title_no_adobe">Adobe Acrobat 阅读器无法安全打开共享的文件，请参阅FAQ 以获取更多信息</string>
+    <string name="title_no_microsoft">Microsoft 应用无法安全打开共享文件，请查看FAQ 以获取更多信息</string>
     <string name="title_no_body">没有找到消息文本</string>
     <string name="title_no_charset">不支持的编码: %1$s</string>
     <string name="title_via">通过: %1$s</string>

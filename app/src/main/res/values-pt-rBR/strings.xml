@@ -130,6 +130,7 @@
     <string name="title_advanced_avatars">Mostrar fotos de contatos</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_name_email">Mostrar os nomes e endereços de e-mail</string>
+    <string name="title_advanced_flags">Mostrar estrelas (favoritos)</string>
     <string name="title_advanced_preview">Mostrar pré-visualização da mensagem</string>
     <string name="title_advanced_addresses">Mostrar detalhes do endereço por padrão</string>
     <string name="title_advanced_html">Mostrar automaticamente a mensagem original para contatos conhecidos</string>
@@ -158,6 +159,7 @@
     <string name="title_advanced_unified_hint">Mostrar as pastas da caixa de entrada unificada ou as mensagens da caixa de entrada unificada</string>
     <string name="title_advanced_threading_hint">Agrupe as mensagens relacionadas entre si</string>
     <string name="title_advanced_name_email_hint">Quando desativado apenas os nomes serão exibidos quando disponíveis</string>
+    <string name="title_advanced_flags_hint">Observe que as mensagens favoritadas serão sempre mantidas localmente</string>
     <string name="title_advanced_autoexpand_hint">Abrir automaticamente a mensagem quando há apenas uma mensagem ou uma mensagem não-lida em uma conversa</string>
     <string name="title_advanced_autocollapse_hint">Várias mensagens expandidas serão sempre fechadas ao \'voltar\'</string>
     <string name="title_advanced_autoclose_hint">Fechar automaticamente conversas quando todas as mensagens estiverem arquivadas, enviadas ou na lixeira</string>
@@ -463,6 +465,7 @@
     <string name="title_enable">Habilitar</string>
     <string name="title_no_ask_again">Não perguntar novamente</string>
     <string name="title_no_adobe">O leitor Adobe Acrobat não pode abrir arquivos compartilhados com segurança, ver o FAQ para mais informações</string>
+    <string name="title_no_microsoft">Aplicativos Microsoft não podem abrir arquivos compartilhados com segurança, ver o FAQ para mais informações</string>
     <string name="title_no_body">Texto da mensagem não encontrado</string>
     <string name="title_no_charset">Codificação não suportada: %1$s</string>
     <string name="title_via">Via: %1$s</string>

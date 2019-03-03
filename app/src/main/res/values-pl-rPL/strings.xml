@@ -292,6 +292,7 @@
     <string name="title_no_saf">Brak dostępu do plików</string>
     <string name="title_no_internet">Brak połączenia internetowego</string>
     <string name="title_no_folder">Folder nie istnieje</string>
+    <string name="title_accross_remark">Wiadomości przenoszone pomiędzy kontami zostaną pobrane ponownie, wpływając na dodatkowe użycie danych</string>
     <string name="title_attachment_saved">Załącznik zapisany</string>
     <string name="title_attachments_saved">Załączniki zapisane</string>
     <string name="title_attachment_unavailable">Niektóre załączniki nie są pobrane i nie zostaną dodane, kontynuować?</string>
@@ -433,6 +434,7 @@
     <string name="title_enable">Włącz</string>
     <string name="title_no_ask_again">Nie pytaj ponownie</string>
     <string name="title_no_adobe">Adobe Acrobat Reader nie może bezpiecznie otworzyć udostępnionych plików, po więcej informacji zajrzyj do FAQ</string>
+    <string name="title_no_microsoft">Aplikacje Microsoft nie mogą bezpiecznie otwierać udostępnionych plików, po więcej informacji zajrzyj do FAQ</string>
     <string name="title_no_body">Nie znaleziono tekstu wiadomości</string>
     <string name="title_no_charset">Nieobsługiwane kodowanie: %1$s</string>
     <string name="title_via">Przez: %1$s</string>
