@@ -14,7 +14,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import javax.mail.Folder;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Store;
@@ -134,10 +133,6 @@ public class ServiceUI extends IntentService {
                 // for approximately 10 seconds to allow that application to acquire further wake locks in which to complete its work.
                 // https://developer.android.com/reference/android/app/AlarmManager
                 onSnooze(id);
-                break;
-
-            case "process":
-                onProcessOperations(id);
                 break;
 
             case "fsync":
@@ -272,80 +267,6 @@ public class ServiceUI extends IntentService {
         }
     }
 
-    private void onProcessOperations(long fid) {
-        DB db = DB.getInstance(this);
-
-        EntityFolder folder = db.folder().getFolder(fid);
-        if (folder == null)
-            return;
-        EntityAccount account = db.account().getAccount(folder.account);
-        if (account == null)
-            return;
-
-        Folder ifolder = null;
-        try {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-            boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
-
-            String protocol = account.getProtocol();
-
-            // Get properties
-            Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
-            props.put("mail." + protocol + ".separatestoreconnection", "true");
-
-            // Create session
-            final Session isession = Session.getInstance(props, null);
-            isession.setDebug(debug);
-
-            Store istore = accountStore.get(account.id);
-            if (istore == null || !istore.isConnected()) {
-                // Connect account
-                Log.i(account.name + " connecting");
-                db.account().setAccountState(account.id, "connecting");
-                istore = isession.getStore(protocol);
-                Helper.connect(this, istore, account);
-                db.account().setAccountState(account.id, "connected");
-                db.account().setAccountConnected(account.id, new Date().getTime());
-                db.account().setAccountError(account.id, null);
-                Log.i(account.name + " connected");
-
-                accountStore.put(account, istore);
-            } else
-                Log.i(account + " reusing connection");
-
-            // Connect folder
-            Log.i(folder.name + " connecting");
-            db.folder().setFolderState(folder.id, "connecting");
-            ifolder = istore.getFolder(folder.name);
-            ifolder.open(Folder.READ_WRITE);
-            db.folder().setFolderState(folder.id, "connected");
-            db.folder().setFolderError(folder.id, null);
-            Log.i(folder.name + " connected");
-
-            // Process operations
-            Core.processOperations(this, account, folder, isession, istore, ifolder, new Core.State());
-
-        } catch (Throwable ex) {
-            Log.w(ex);
-            Core.reportError(this, account, folder, ex);
-            db.account().setAccountError(account.id, Helper.formatThrowable(ex));
-            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, false));
-        } finally {
-            if (ifolder != null)
-                try {
-                    Log.i(folder.name + " closing");
-                    db.folder().setFolderState(folder.id, "closing");
-                    ifolder.close();
-                } catch (MessagingException ex) {
-                    Log.w(ex);
-                } finally {
-                    Log.i(folder.name + " closed");
-                    db.folder().setFolderState(folder.id, null);
-                    db.folder().setFolderSyncState(folder.id, null);
-                }
-        }
-    }
-
     private void onFolderSync(long aid) {
         DB db = DB.getInstance(this);
         EntityAccount account = db.account().getAccount(aid);
@@ -399,17 +320,6 @@ public class ServiceUI extends IntentService {
             }
 
             db.account().setAccountState(account.id, null);
-        }
-    }
-
-    public static void process(Context context, long folder) {
-        try {
-            context.startService(
-                    new Intent(context, ServiceUI.class)
-                            .setAction("process:" + folder));
-        } catch (IllegalStateException ex) {
-            Log.w(ex);
-            // The background service will handle the operation
         }
     }
 

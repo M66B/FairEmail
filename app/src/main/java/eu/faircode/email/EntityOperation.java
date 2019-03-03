@@ -215,7 +215,7 @@ public class EntityOperation {
         else if (FOREGROUND.contains(name)) {
             EntityAccount account = db.account().getAccount(message.account);
             if (account != null && !"connected".equals(account.state))
-                ServiceUI.process(context, operation.folder);
+                WorkerForeground.queue(operation.folder);
         }
     }
 
@@ -248,7 +248,7 @@ public class EntityOperation {
             if (account == null) // Outbox
                 ServiceSend.start(context);
             else if (foreground && !"connected".equals(account.state))
-                ServiceUI.process(context, fid);
+                WorkerForeground.queue(fid);
 
             Log.i("Queued sync folder=" + folder + " foreground=" + foreground);
         }

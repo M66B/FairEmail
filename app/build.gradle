@@ -109,6 +109,7 @@ dependencies {
     def lifecycle_version = "2.0.0"
     def room_version = "2.0.0"
     def paging_version = "2.1.0"
+    def work_version = "1.0.0-rc02"
     def billingclient_version = "1.2"
     def javamail_version = "1.6.3"
     def jsoup_version = "1.11.3"
@@ -149,6 +150,9 @@ dependencies {
 
     // https://mvnrepository.com/artifact/androidx.paging/paging-runtime
     implementation "androidx.paging:paging-runtime:$paging_version"
+
+    // https://mvnrepository.com/artifact/android.arch.work/work-runtime
+    implementation "android.arch.work:work-runtime:$work_version"
 
     // https://developer.android.com/google/play/billing/billing_library_releases_notes
     implementation "com.android.billingclient:billing:$billingclient_version"

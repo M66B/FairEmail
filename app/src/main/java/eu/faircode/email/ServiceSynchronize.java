@@ -259,17 +259,14 @@ public class ServiceSynchronize extends LifecycleService {
                         public void notification(StoreEvent e) {
                             try {
                                 wlAccount.acquire();
-                                String type = (e.getMessageType() == StoreEvent.ALERT ? "alert" : "notice");
                                 if (e.getMessageType() == StoreEvent.ALERT) {
-                                    Log.w(account.name + " " + type + ": " + e.getMessage());
-                                    EntityLog.log(ServiceSynchronize.this, account.name + " " + type + ": " + e.getMessage());
                                     db.account().setAccountError(account.id, e.getMessage());
                                     Core.reportError(
                                             ServiceSynchronize.this, account, null,
                                             new Core.AlertException(e.getMessage()));
                                     state.error();
                                 } else
-                                    Log.i(account.name + " " + type + ": " + e.getMessage());
+                                    Log.i(account.name + " notice: " + e.getMessage());
                             } finally {
                                 wlAccount.release();
                             }
