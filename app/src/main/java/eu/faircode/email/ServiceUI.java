@@ -1,25 +1,15 @@
 package eu.faircode.email;
 
 import android.app.IntentService;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.PowerManager;
 import android.preference.PreferenceManager;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.mail.Store;
 
 import androidx.annotation.Nullable;
 
 public class ServiceUI extends IntentService {
-    private PowerManager.WakeLock wl;
-    private Map<EntityAccount, Store> accountStore = new HashMap<>();
-
     static final int PI_WHY = 1;
     static final int PI_SUMMARY = 2;
     static final int PI_CLEAR = 3;
@@ -40,40 +30,12 @@ public class ServiceUI extends IntentService {
     @Override
     public void onCreate() {
         Log.i("Service UI create");
-        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-        wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":ui");
-        wl.acquire();
         super.onCreate();
     }
 
     @Override
     public void onDestroy() {
         Log.i("Service UI destroy");
-
-        final DB db = DB.getInstance(this);
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    for (EntityAccount account : accountStore.keySet())
-                        try {
-                            Log.i(account.name + " closing");
-                            db.account().setAccountState(account.id, "closing");
-                            accountStore.get(account).close();
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                        } finally {
-                            Log.i(account.name + " closed");
-                            db.account().setAccountState(account.id, null);
-                        }
-                    accountStore.clear();
-                } finally {
-                    wl.release();
-                }
-            }
-        }).start();
-
         super.onDestroy();
     }
 
@@ -98,31 +60,24 @@ public class ServiceUI extends IntentService {
             case "why":
                 onWhy();
                 break;
-
             case "summary":
                 onSummary();
                 break;
-
             case "clear":
                 onClear();
                 break;
-
             case "seen":
                 onSeen(id);
                 break;
-
             case "archive":
                 onArchive(id);
                 break;
-
             case "trash":
                 onTrash(id);
                 break;
-
             case "ignore":
                 onIgnore(id);
                 break;
-
             case "snooze":
                 // AlarmManager.RTC_WAKEUP
                 // When the alarm is dispatched, the app will also be added to the system's temporary whitelist
@@ -130,7 +85,6 @@ public class ServiceUI extends IntentService {
                 // https://developer.android.com/reference/android/app/AlarmManager
                 onSnooze(id);
                 break;
-
             default:
                 Log.w("Unknown action: " + parts[0]);
         }
