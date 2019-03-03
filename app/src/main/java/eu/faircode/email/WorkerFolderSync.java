@@ -12,8 +12,8 @@ import javax.mail.Store;
 
 import androidx.annotation.NonNull;
 import androidx.work.Data;
+import androidx.work.ExistingWorkPolicy;
 import androidx.work.OneTimeWorkRequest;
-import androidx.work.WorkInfo;
 import androidx.work.WorkManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
@@ -87,23 +87,13 @@ public class WorkerFolderSync extends Worker {
         String tag = WorkerFolderSync.class.getSimpleName() + ":" + aid;
         Log.i("Queuing " + tag);
 
-        try {
-            for (WorkInfo info : WorkManager.getInstance().getWorkInfosByTag(tag).get())
-                if (!info.getState().isFinished()) {
-                    Log.i("Already queued " + tag);
-                    return;
-                }
-        } catch (Throwable ex) {
-            Log.w(ex);
-        }
-
         Data data = new Data.Builder().putLong("account", aid).build();
         OneTimeWorkRequest workRequest =
                 new OneTimeWorkRequest.Builder(WorkerFolderSync.class)
                         .addTag(tag)
                         .setInputData(data)
                         .build();
-        WorkManager.getInstance().enqueue(workRequest);
+        WorkManager.getInstance().enqueueUniqueWork(tag, ExistingWorkPolicy.KEEP, workRequest);
 
         Log.i("Queued " + tag);
     }
