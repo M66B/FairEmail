@@ -442,6 +442,7 @@
     <string name="title_hint_message_selection">长按一则邮件以开始选择多则邮件</string>
     <string name="title_hint_sync">下载邮件可能需要一些时间, 具体取决于提供商的速度、网络连接、设备以及邮件数量。在下载邮件时, 应用的响应速度可能会变慢。</string>
     <string name="title_open_link">打开链接</string>
+    <string name="title_insecure_link">此链接不安全</string>
     <string name="title_select_app">选择应用</string>
     <string name="title_updated">有新的版本%1$s可用</string>
     <string name="title_issue">您要提问或有问题吗？</string>
