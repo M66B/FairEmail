@@ -1438,6 +1438,8 @@ public class FragmentMessages extends FragmentBase {
         for (String name : values.keySet())
             outState.putLongArray("fair:name:" + name, Helper.toLongArray(values.get(name)));
 
+        outState.putBoolean("fair:refreshing", swipeRefresh.isRefreshing());
+
         if (rvMessage != null) {
             Parcelable rv = rvMessage.getLayoutManager().onSaveInstanceState();
             outState.putParcelable("fair:rv", rv);
@@ -1461,6 +1463,8 @@ public class FragmentMessages extends FragmentBase {
                 for (Long value : savedInstanceState.getLongArray("fair:name:" + name))
                     values.get(name).add(value);
             }
+
+            swipeRefresh.setRefreshing(savedInstanceState.getBoolean("fair:refreshing"));
 
             if (rvMessage != null) {
                 Parcelable rv = savedInstanceState.getBundle("fair:rv");
