@@ -135,6 +135,7 @@ public class ServiceSynchronize extends LifecycleService {
         });
 
         WorkerCleanup.queue();
+        JobDaily.cancel(this);
     }
 
     @Override
