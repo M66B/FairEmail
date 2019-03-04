@@ -556,7 +556,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         : message.folderDisplay);
                 tvFolder.setText((compact ? "" : message.accountName + "/") + folderName);
             }
-            tvFolder.setVisibility(viewType == ViewType.FOLDER && compact ? View.GONE : View.VISIBLE);
+            tvFolder.setVisibility(compact &&
+                    (!threading ||
+                            viewType == ViewType.FOLDER ||
+                            (viewType == ViewType.UNIFIED && EntityFolder.INBOX.equals(message.folderType)))
+                    ? View.GONE : View.VISIBLE);
 
             if (viewType == ViewType.THREAD || !threading) {
                 tvCount.setVisibility(View.GONE);
