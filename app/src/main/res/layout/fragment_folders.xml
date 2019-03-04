@@ -134,7 +134,5 @@
         android:src="@drawable/baseline_add_24"
         android:tint="@color/colorActionForeground"
         android:tooltipText="@string/title_add"
-        app:backgroundTint="?attr/colorAccent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:backgroundTint="?attr/colorAccent" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
