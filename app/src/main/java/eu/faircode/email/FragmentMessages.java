@@ -997,7 +997,7 @@ public class FragmentMessages extends FragmentBase {
                                 !EntityFolder.JUNK.equals(target.type) &&
                                 (fids.size() != 1 || !fids.contains(target.id)))
                             targets.add(target);
-                    EntityFolder.sort(context, targets);
+                    EntityFolder.sort(context, targets, true);
                     result.targets.put(account, targets);
                 }
 

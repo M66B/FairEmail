@@ -674,7 +674,7 @@ public class FragmentAccount extends FragmentBase {
 
                     for (EntityFolder folder : result.folders)
                         folder.display = folder.getDisplayName(getContext());
-                    EntityFolder.sort(getContext(), result.folders);
+                    EntityFolder.sort(getContext(), result.folders, true);
 
                 }
 
@@ -1208,7 +1208,7 @@ public class FragmentAccount extends FragmentBase {
                         if (folders != null) {
                             for (EntityFolder folder : folders)
                                 folder.display = folder.getDisplayName(getContext());
-                            EntityFolder.sort(getContext(), folders);
+                            EntityFolder.sort(getContext(), folders, true);
                         }
 
                         return folders;

@@ -436,7 +436,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         List<EntityFolder> folders = new ArrayList<>();
         folders.addAll(_folders);
-        EntityFolder.sort(context, folders);
+        EntityFolder.sort(context, folders, false);
 
         all.clear();
         for (EntityFolder folder : folders)

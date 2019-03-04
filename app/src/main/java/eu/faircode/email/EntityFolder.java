@@ -333,7 +333,7 @@ public class EntityFolder implements Serializable {
         return folder;
     }
 
-    static void sort(final Context context, List<EntityFolder> folders) {
+    static void sort(final Context context, List<EntityFolder> folders, final boolean menu) {
         final Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
 
@@ -345,9 +345,13 @@ public class EntityFolder implements Serializable {
                 int s = Integer.compare(i1, i2);
                 if (s != 0)
                     return s;
-                int c = -f1.synchronize.compareTo(f2.synchronize);
-                if (c != 0)
-                    return c;
+
+                if (!menu) {
+                    int c = -f1.synchronize.compareTo(f2.synchronize);
+                    if (c != 0)
+                        return c;
+                }
+
                 String name1 = f1.getDisplayName(context);
                 String name2 = f2.getDisplayName(context);
                 return collator.compare(name1, name2);
