@@ -442,7 +442,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         @SuppressLint("WrongConstant")
-        private void bindTo(int position, final TupleMessageEx message) {
+        private void bindTo(final TupleMessageEx message) {
             setDisplacement(0);
             pbLoading.setVisibility(View.GONE);
 
@@ -2788,7 +2788,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         if (message == null)
             holder.clear();
         else {
-            holder.bindTo(position, message);
+            holder.bindTo(message);
             holder.wire();
         }
     }
