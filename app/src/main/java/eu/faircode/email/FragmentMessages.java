@@ -1517,8 +1517,13 @@ public class FragmentMessages extends FragmentBase {
                             folders = new ArrayList<>();
 
                         int unseen = 0;
-                        for (TupleFolderEx folder : folders)
+                        boolean errors = false;
+                        for (TupleFolderEx folder : folders) {
                             unseen += folder.unseen;
+                            if (!TextUtils.isEmpty(folder.error))
+                                errors = true;
+                        }
+
                         String name = getString(R.string.title_folder_unified);
                         if (unseen > 0)
                             setSubtitle(getString(R.string.title_unseen_count, name, unseen));
@@ -1536,6 +1541,10 @@ public class FragmentMessages extends FragmentBase {
                             manual = false;
                             rvMessage.scrollToPosition(0);
                         }
+
+                        if (errors &&
+                                !refreshing && swipeRefresh.isRefreshing())
+                            Snackbar.make(view, R.string.title_sync_errors, Snackbar.LENGTH_LONG).show();
 
                         swipeRefresh.setRefreshing(refreshing);
                     }
@@ -1568,6 +1577,10 @@ public class FragmentMessages extends FragmentBase {
                             manual = false;
                             rvMessage.scrollToPosition(0);
                         }
+
+                        if (folder != null && !TextUtils.isEmpty(folder.error) &&
+                                !refreshing && swipeRefresh.isRefreshing())
+                            Snackbar.make(view, folder.error, Snackbar.LENGTH_LONG).show();
 
                         swipeRefresh.setRefreshing(refreshing);
                     }
