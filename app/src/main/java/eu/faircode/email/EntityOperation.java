@@ -84,6 +84,7 @@ public class EntityOperation {
     static final String ATTACHMENT = "attachment";
     static final String SYNC = "sync";
 
+    // These operations should be prepared to be executed twice by both the background and foreground sync
     private static List<String> FOREGROUND = Arrays.asList(KEYWORD, HEADERS, RAW, BODY, ATTACHMENT);
 
     static void queue(Context context, DB db, EntityMessage message, String name, Object... values) {

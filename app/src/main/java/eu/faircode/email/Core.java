@@ -1088,7 +1088,6 @@ class Core {
         // - messages in inbox have same id as message sent to self
         // - messages in archive have same id as original
         if (message == null) {
-            // Will fetch headers within database transaction
             String msgid = helper.getMessageID();
             Log.i(folder.name + " searching for " + msgid);
             for (EntityMessage dup : db.message().getMessageByMsgId(folder.account, msgid)) {
