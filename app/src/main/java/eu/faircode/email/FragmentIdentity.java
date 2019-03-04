@@ -194,8 +194,10 @@ public class FragmentIdentity extends FragmentBase {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 grpAuthorize.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
-                if (position == 0)
+                if (position == 0) {
+                    tvError.setVisibility(View.GONE);
                     grpAdvanced.setVisibility(View.GONE);
+                }
                 tilPassword.setPasswordVisibilityToggleEnabled(position == 0);
 
                 Integer tag = (Integer) adapterView.getTag();
@@ -401,8 +403,10 @@ public class FragmentIdentity extends FragmentBase {
         btnAutoConfig.setEnabled(false);
         cbInsecure.setVisibility(View.GONE);
         tilPassword.setPasswordVisibilityToggleEnabled(id < 0);
-        btnSave.setVisibility(View.GONE);
+
         btnAdvanced.setVisibility(View.GONE);
+
+        btnSave.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
         tvError.setVisibility(View.GONE);
 
