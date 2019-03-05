@@ -362,7 +362,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 Throwable warning = new Throwable(
                                         getString(R.string.title_no_sync,
                                                 SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT)
-                                                        .format((account.last_connected))), ex);
+                                                        .format(account.last_connected)), ex);
                                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                 nm.notify("receive", account.id.intValue(),
                                         Core.getNotificationError(this, "warning", account.name, warning, false)
@@ -737,9 +737,9 @@ public class ServiceSynchronize extends LifecycleService {
                             backoff = CONNECT_BACKOFF_START;
 
                             // Record successful connection
-                            Date last_connected = new Date();
-                            EntityLog.log(this, account.name + " set last_connected=" + last_connected);
-                            db.account().setAccountConnected(account.id, last_connected.getTime());
+                            account.last_connected = new Date().getTime();
+                            EntityLog.log(this, account.name + " set last_connected=" + new Date(account.last_connected));
+                            db.account().setAccountConnected(account.id, account.last_connected);
                             db.account().setAccountError(account.id, capIdle ? null : getString(R.string.title_no_idle));
 
                             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
