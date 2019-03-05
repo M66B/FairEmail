@@ -1640,6 +1640,12 @@ public class FragmentMessages extends FragmentBase {
         int zoom = prefs.getInt("zoom", compact ? 0 : 1);
         adapter.setCompact(compact);
         adapter.setZoom(zoom);
+
+        // Restart spinner
+        if (swipeRefresh.isRefreshing()) {
+            swipeRefresh.setRefreshing(false);
+            swipeRefresh.setRefreshing(true);
+        }
     }
 
     @Override
