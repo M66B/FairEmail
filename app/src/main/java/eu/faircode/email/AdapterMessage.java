@@ -38,6 +38,9 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.print.PrintAttributes;
+import android.print.PrintDocumentAdapter;
+import android.print.PrintManager;
 import android.provider.ContactsContract;
 import android.text.Editable;
 import android.text.Html;
@@ -236,6 +239,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private AdapterImage adapterImage;
         private LiveData<List<EntityAttachment>> liveAttachments = null;
         private Observer<List<EntityAttachment>> observerAttachments = null;
+
+        private WebView printWebView = null;
 
         ViewHolder(final View itemView) {
             super(itemView);
@@ -1364,38 +1369,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     @Override
                     protected String onExecute(Context context, Bundle args) throws Throwable {
                         long id = args.getLong("id");
-
-                        String html = Helper.readText(EntityMessage.getFile(context, id));
-
-                        Document doc = Jsoup.parse(html);
-                        for (Element img : doc.select("img"))
-                            try {
-                                String src = img.attr("src");
-                                if (src.startsWith("cid:")) {
-                                    String cid = '<' + src.substring(4) + '>';
-                                    EntityAttachment attachment = DB.getInstance(context).attachment().getAttachment(id, cid);
-                                    if (attachment != null && attachment.available) {
-                                        File file = EntityAttachment.getFile(context, attachment.id);
-                                        try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
-                                            byte[] bytes = new byte[(int) file.length()];
-                                            if (is.read(bytes) != bytes.length)
-                                                throw new IOException("length");
-
-                                            StringBuilder sb = new StringBuilder();
-                                            sb.append("data:");
-                                            sb.append(attachment.type);
-                                            sb.append(";base64,");
-                                            sb.append(Base64.encodeToString(bytes, Base64.DEFAULT));
-
-                                            img.attr("src", sb.toString());
-                                        }
-                                    }
-                                }
-                            } catch (Throwable ex) {
-                                Log.e(ex);
-                            }
-
-                        return doc.html();
+                        return getHtmlEmbedded(id);
                     }
 
                     @Override
@@ -2022,6 +1996,51 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "message:share");
         }
 
+        private void onMenuPrint(final ActionData data) {
+            Bundle args = new Bundle();
+            args.putLong("id", data.message.id);
+
+            new SimpleTask<String>() {
+                @Override
+                protected String onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+                    return getHtmlEmbedded(id);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, String html) {
+                    // https://developer.android.com/training/printing/html-docs.html
+                    printWebView = new WebView(context);
+                    WebSettings settings = printWebView.getSettings();
+                    settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+
+                    printWebView.setWebViewClient(new WebViewClient() {
+                        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                            return false;
+                        }
+
+                        @Override
+                        public void onPageFinished(WebView view, String url) {
+                            PrintManager printManager = (PrintManager) context.getSystemService(Context.PRINT_SERVICE);
+                            String jobName = context.getString(R.string.app_name);
+                            if (!TextUtils.isEmpty(data.message.subject))
+                                jobName += " - " + data.message.subject;
+                            PrintDocumentAdapter adapter = printWebView.createPrintDocumentAdapter(jobName);
+                            printManager.print(jobName, adapter, new PrintAttributes.Builder().build());
+                            printWebView = null;
+                        }
+                    });
+
+                    printWebView.loadDataWithBaseURL("email://", html, "text/html", "UTF-8", null);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, owner, ex);
+                }
+            }.execute(context, owner, args, "message:print");
+        }
+
         private void onMenuShowHeaders(ActionData data) {
             boolean show_headers = !properties.getValue("headers", data.message.id);
             properties.setValue("headers", data.message.id, show_headers);
@@ -2265,6 +2284,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     data.hasJunk && !EntityFolder.JUNK.equals(data.message.folderType));
 
             popupMenu.getMenu().findItem(R.id.menu_share).setEnabled(data.message.content);
+            popupMenu.getMenu().findItem(R.id.menu_print).setEnabled(data.message.content);
 
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setChecked(show_headers);
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(data.message.uid != null);
@@ -2308,6 +2328,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_share:
                             onMenuShare(data);
+                            return true;
+                        case R.id.menu_print:
+                            onMenuPrint(data);
                             return true;
                         case R.id.menu_show_headers:
                             onMenuShowHeaders(data);
@@ -2641,6 +2664,37 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Helper.unexpectedError(context, owner, ex);
                 }
             }.execute(context, owner, new Bundle(), "message:answer");
+        }
+
+        private String getHtmlEmbedded(long id) throws IOException {
+            String html = Helper.readText(EntityMessage.getFile(context, id));
+
+            Document doc = Jsoup.parse(html);
+            for (Element img : doc.select("img")) {
+                String src = img.attr("src");
+                if (src.startsWith("cid:")) {
+                    String cid = '<' + src.substring(4) + '>';
+                    EntityAttachment attachment = DB.getInstance(context).attachment().getAttachment(id, cid);
+                    if (attachment != null && attachment.available) {
+                        File file = EntityAttachment.getFile(context, attachment.id);
+                        try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
+                            byte[] bytes = new byte[(int) file.length()];
+                            if (is.read(bytes) != bytes.length)
+                                throw new IOException("length");
+
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("data:");
+                            sb.append(attachment.type);
+                            sb.append(";base64,");
+                            sb.append(Base64.encodeToString(bytes, Base64.DEFAULT));
+
+                            img.attr("src", sb.toString());
+                        }
+                    }
+                }
+            }
+
+            return doc.html();
         }
 
         ItemDetailsLookup.ItemDetails<Long> getItemDetails(@NonNull MotionEvent motionEvent) {

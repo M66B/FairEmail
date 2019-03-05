@@ -33,6 +33,10 @@
         android:title="@string/title_share" />
 
     <item
+        android:id="@+id/menu_print"
+        android:title="@string/title_print" />
+
+    <item
         android:id="@+id/menu_show_headers"
         android:checkable="true"
         android:title="@string/title_show_headers" />
