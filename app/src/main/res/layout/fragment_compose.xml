@@ -176,7 +176,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvNoInternetAttachments" />
 
-            <EditText
+            <eu.faircode.email.EditTextCompose
                 android:id="@+id/etBody"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
