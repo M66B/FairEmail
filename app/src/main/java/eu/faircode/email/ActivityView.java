@@ -361,13 +361,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         });
 
-        db.message().liveUnseenNotify().observe(this, new Observer<List<TupleMessageEx>>() {
-            @Override
-            public void onChanged(List<TupleMessageEx> messages) {
-                Core.notifyMessages(ActivityView.this, messages);
-            }
-        });
-
         if (getSupportFragmentManager().getFragments().size() == 0 && !getIntent().hasExtra(Intent.EXTRA_PROCESS_TEXT))
             init();
 

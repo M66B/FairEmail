@@ -133,8 +133,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 vwLevel.setLayoutParams(lp);
             }
 
-            if (folder.sync_state == null ||
-                    "requested".equals(folder.sync_state) || "manual".equals(folder.sync_state)) {
+            if (folder.sync_state == null || "requested".equals(folder.sync_state)) {
                 if ("waiting".equals(folder.state))
                     ivState.setImageResource(R.drawable.baseline_hourglass_empty_24);
                 else if ("connected".equals(folder.state))

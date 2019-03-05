@@ -41,9 +41,6 @@ import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -100,9 +97,11 @@ public class ServiceSynchronize extends LifecycleService {
     private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
     private static final int ACCOUNT_ERROR_AFTER = 90; // minutes
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
+    private static final long ONESHOT_DURATION = 60 * 1000L; // milliseconds
     private static final long STOP_DELAY = 5000L; // milliseconds
 
     static final int PI_ALARM = 1;
+    static final int PI_ONESHOT = 2;
 
     @Override
     public void onCreate() {
@@ -182,6 +181,14 @@ public class ServiceSynchronize extends LifecycleService {
 
                     case "reload":
                         serviceManager.service_reload(intent.getStringExtra("reason"));
+                        break;
+
+                    case "oneshot_start":
+                        serviceManager.service_oneshot(true);
+                        break;
+
+                    case "oneshot_end":
+                        serviceManager.service_oneshot(false);
                         break;
 
                     default:
@@ -924,7 +931,9 @@ public class ServiceSynchronize extends LifecycleService {
 
         private boolean isEnabled() {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
-            return prefs.getBoolean("enabled", true);
+            boolean enabled = prefs.getBoolean("enabled", true);
+            boolean oneshot = prefs.getBoolean("oneshot", false);
+            return (enabled || oneshot);
         }
 
         private void service_init() {
@@ -944,6 +953,32 @@ public class ServiceSynchronize extends LifecycleService {
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
+            }
+        }
+
+        private void service_oneshot(boolean start) {
+            AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+            Intent alarm = new Intent(ServiceSynchronize.this, ServiceSynchronize.class);
+            alarm.setAction("oneshot_end");
+            PendingIntent piOneshot;
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+                piOneshot = PendingIntent.getService(ServiceSynchronize.this, PI_ONESHOT, alarm, PendingIntent.FLAG_UPDATE_CURRENT);
+            else
+                piOneshot = PendingIntent.getForegroundService(ServiceSynchronize.this, PI_ONESHOT, alarm, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            am.cancel(piOneshot);
+
+            if (start) {
+                // Network events will manage the service
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+                    am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + ONESHOT_DURATION, piOneshot);
+                else
+                    am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + ONESHOT_DURATION, piOneshot);
+            } else {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
+                prefs.edit().putBoolean("oneshot", false).apply();
+                queue_reload(false, "oneshot");
             }
         }
 
@@ -1105,21 +1140,8 @@ public class ServiceSynchronize extends LifecycleService {
                                 Thread.sleep(STOP_DELAY);
                             } catch (InterruptedException ignored) {
                             }
-                            if (queued == 0 && !isEnabled()) {
-                                EntityLog.log(ServiceSynchronize.this, "Service stop");
-                                List<EntityOperation> ops = db.operation().getOperations(EntityOperation.SYNC);
-                                for (EntityOperation op : ops)
-                                    try {
-                                        JSONArray jargs = new JSONArray(op.args);
-                                        if (!jargs.getBoolean(3) /* foreground */) {
-                                            Log.i("Deleting bacground SYNC args=" + jargs);
-                                            db.operation().deleteOperation(op.id);
-                                        }
-                                    } catch (JSONException ex) {
-                                        Log.e(ex);
-                                    }
-                                stopSelf();
-                            }
+                            if (queued == 0 && !isEnabled())
+                                stopService();
                         }
 
                         wl.release();
@@ -1127,12 +1149,27 @@ public class ServiceSynchronize extends LifecycleService {
                 }
             });
         }
+
+        private void stopService() {
+            EntityLog.log(ServiceSynchronize.this, "Service stop");
+
+            DB db = DB.getInstance(ServiceSynchronize.this);
+            List<EntityOperation> ops = db.operation().getOperations(EntityOperation.SYNC);
+            for (EntityOperation op : ops)
+                db.folder().setFolderSyncState(op.folder, null);
+
+            stopSelf();
+        }
     }
 
     private static void schedule(Context context) {
         Intent alarm = new Intent(context, ServiceSynchronize.class);
         alarm.setAction("alarm");
-        PendingIntent piAlarm = PendingIntent.getService(context, PI_ALARM, alarm, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent piAlarm;
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+            piAlarm = PendingIntent.getService(context, PI_ALARM, alarm, PendingIntent.FLAG_UPDATE_CURRENT);
+        else
+            piAlarm = PendingIntent.getForegroundService(context, PI_ALARM, alarm, PendingIntent.FLAG_UPDATE_CURRENT);
 
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         am.cancel(piAlarm);
@@ -1193,6 +1230,18 @@ public class ServiceSynchronize extends LifecycleService {
                     try {
                         DB db = DB.getInstance(context);
 
+                        // Reset state
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        prefs.edit().remove("oneshot").apply();
+
+                        for (EntityAccount account : db.account().getAccounts())
+                            db.account().setAccountState(account.id, null);
+
+                        for (EntityFolder folder : db.folder().getFolders()) {
+                            db.folder().setFolderState(folder.id, null);
+                            db.folder().setFolderSyncState(folder.id, null);
+                        }
+
                         // Restore snooze timers
                         for (EntityMessage message : db.message().getSnoozed())
                             EntityMessage.snooze(context, message.id, message.ui_snoozed);
@@ -1201,11 +1250,8 @@ public class ServiceSynchronize extends LifecycleService {
                         schedule(context);
 
                         // Conditionally init service
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         boolean enabled = prefs.getBoolean("enabled", true);
-
                         int accounts = db.account().getSynchronizingAccounts().size();
-
                         if (enabled && accounts > 0)
                             ContextCompat.startForegroundService(context,
                                     new Intent(context, ServiceSynchronize.class)
@@ -1230,5 +1276,17 @@ public class ServiceSynchronize extends LifecycleService {
                 new Intent(context, ServiceSynchronize.class)
                         .setAction("reload")
                         .putExtra("reason", reason));
+    }
+
+    static void process(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean enabled = prefs.getBoolean("enabled", true);
+        boolean oneshot = prefs.getBoolean("oneshot", false);
+        if (!enabled && !oneshot) {
+            prefs.edit().putBoolean("oneshot", true).apply();
+            ContextCompat.startForegroundService(context,
+                    new Intent(context, ServiceSynchronize.class)
+                            .setAction("oneshot_start"));
+        }
     }
 }

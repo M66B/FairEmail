@@ -29,13 +29,6 @@ public class TupleFolderEx extends EntityFolder {
     public int content;
     public int unseen;
 
-    boolean isSynchronizing() {
-        return (sync_state != null &&
-                (EntityFolder.OUTBOX.equals(type) ||
-                        !"requested".equals(sync_state) ||
-                        "connected".equals(accountState)));
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof TupleFolderEx) {

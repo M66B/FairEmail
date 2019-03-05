@@ -27,10 +27,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 
 import androidx.annotation.NonNull;
@@ -83,9 +81,6 @@ public class EntityOperation {
     static final String BODY = "body";
     static final String ATTACHMENT = "attachment";
     static final String SYNC = "sync";
-
-    // These operations should be prepared to be executed twice by both the background and foreground sync
-    private static List<String> FOREGROUND = Arrays.asList(KEYWORD, HEADERS, RAW, BODY, ATTACHMENT);
 
     static void queue(Context context, DB db, EntityMessage message, String name, Object... values) {
         JSONArray jargs = new JSONArray();
@@ -214,46 +209,37 @@ public class EntityOperation {
 
         if (SEND.equals(name))
             ServiceSend.start(context);
-        else if (FOREGROUND.contains(name)) {
-            EntityAccount account = db.account().getAccount(message.account);
-            if (account != null && !"connected".equals(account.state))
-                WorkerOperations.queue(operation.folder);
-        }
+        else
+            ServiceSynchronize.process(context);
     }
 
     static void sync(Context context, long fid, boolean foreground) {
         DB db = DB.getInstance(context);
+
+        EntityFolder folder = db.folder().getFolder(fid);
+        EntityAccount account = null;
+        if (folder.account != null)
+            account = db.account().getAccount(folder.account);
+
         if (db.operation().getOperationCount(fid, EntityOperation.SYNC) == 0) {
-
-            EntityFolder folder = db.folder().getFolder(fid);
-            EntityAccount account = null;
-            if (folder.account != null)
-                account = db.account().getAccount(folder.account);
-
-            JSONArray jargs = folder.getSyncArgs();
-            jargs.put(foreground);
-
             EntityOperation operation = new EntityOperation();
             operation.folder = folder.id;
             operation.message = null;
             operation.name = SYNC;
-            operation.args = jargs.toString();
+            operation.args = folder.getSyncArgs().toString();
             operation.created = new Date().getTime();
             operation.id = db.operation().insertOperation(operation);
 
-            if (account != null && !"connected".equals(account.state)) {
-                db.folder().setFolderState(fid, "waiting");
-                db.folder().setFolderSyncState(fid, "manual");
-            } else
-                db.folder().setFolderSyncState(fid, "requested");
-
-            if (account == null) // Outbox
-                ServiceSend.start(context);
-            else if (foreground && !"connected".equals(account.state))
-                WorkerOperations.queue(fid);
-
-            Log.i("Queued sync folder=" + folder + " foreground=" + foreground);
+            Log.i("Queued sync folder=" + folder);
         }
+
+        if (foreground)
+            db.folder().setFolderSyncState(fid, "requested");
+
+        if (account == null) // Outbox
+            ServiceSend.start(context);
+        else if (foreground)
+            ServiceSynchronize.process(context);
     }
 
     @Override

@@ -302,11 +302,12 @@ public class FragmentFolders extends FragmentBase {
                             EntityOperation.sync(context, folder.id, true);
                     } else {
                         // Folder list
-                        EntityAccount account = db.account().getAccount(aid);
-                        if (account != null && !"connected".equals(account.state))
-                            WorkerFolderSync.queue(aid);
-                        else
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        boolean enabled = prefs.getBoolean("enabled", true);
+                        if (enabled)
                             ServiceSynchronize.reload(getContext(), "refresh folders");
+                        else
+                            ServiceSynchronize.process(context);
                     }
 
                     db.setTransactionSuccessful();

@@ -260,12 +260,6 @@ class Core {
                             }
                         }
 
-                        if (EntityOperation.SYNC.equals(op.name) && jargs.getBoolean(3) /* foreground */) {
-                            Log.w("Deleting foreground SYNC");
-                            db.operation().deleteOperation(op.id);
-                            db.folder().setFolderSyncState(folder.id, null);
-                        }
-
                         throw ex;
                     }
                 } finally {
