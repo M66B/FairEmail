@@ -68,12 +68,13 @@ public interface DaoMessage {
             " GROUP BY account.id, CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING :found OR SUM(unified) > 0" +
             " ORDER BY" +
-            " CASE WHEN 'sender' = :sort THEN message.sender ELSE '' END," +
             " CASE" +
-            "  WHEN 'unread' = :sort THEN " + unseen_unified + " > 0" +
-            "  WHEN 'starred' = :sort THEN COUNT(message.id) - " + unflagged_unified + " > 0" +
+            "  WHEN 'unread' = :sort THEN " + unseen_unified + " = 0" +
+            "  WHEN 'starred' = :sort THEN COUNT(message.id) - " + unflagged_unified + " = 0" +
+            "  WHEN 'sender' = :sort THEN LOWER(message.sender)" +
+            "  WHEN 'subject' = :sort THEN LOWER(message.subject)" +
             "  ELSE 0" +
-            " END DESC, message.received DESC")
+            " END, message.received DESC")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(boolean threading, String sort, boolean snoozed, boolean found, boolean debug);
 
@@ -109,12 +110,13 @@ public interface DaoMessage {
             " GROUP BY CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING SUM(CASE WHEN folder.id = :folder THEN 1 ELSE 0 END) > 0" +
             " ORDER BY" +
-            " CASE WHEN 'sender' = :sort THEN message.sender ELSE '' END," +
             " CASE" +
-            "  WHEN 'unread' = :sort THEN " + unseen_folder + " > 0" +
-            "  WHEN 'starred' = :sort THEN COUNT(message.id) - " + unflagged_folder + " > 0" +
+            "  WHEN 'unread' = :sort THEN " + unseen_folder + " = 0" +
+            "  WHEN 'starred' = :sort THEN COUNT(message.id) - " + unflagged_folder + " = 0" +
+            "  WHEN 'sender' = :sort THEN LOWER(message.sender)" +
+            "  WHEN 'subject' = :sort THEN LOWER(message.subject)" +
             "  ELSE 0" +
-            " END DESC, message.received DESC")
+            " END, message.received DESC")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     DataSource.Factory<Integer, TupleMessageEx> pagedFolder(long folder, boolean threading, String sort, boolean snoozed, boolean found, boolean debug);
 

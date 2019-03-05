@@ -1746,6 +1746,8 @@ public class FragmentMessages extends FragmentBase {
             menu.findItem(R.id.menu_sort_on_starred).setChecked(true);
         else if ("sender".equals(sort))
             menu.findItem(R.id.menu_sort_on_sender).setChecked(true);
+        else if ("subject".equals(sort))
+            menu.findItem(R.id.menu_sort_on_subject).setChecked(true);
 
         menu.findItem(R.id.menu_zoom).setVisible(!selection);
 
@@ -1785,6 +1787,11 @@ public class FragmentMessages extends FragmentBase {
             case R.id.menu_sort_on_sender:
                 item.setChecked(true);
                 onMenuSort("sender");
+                return true;
+
+            case R.id.menu_sort_on_subject:
+                item.setChecked(true);
+                onMenuSort("subject");
                 return true;
 
             case R.id.menu_zoom:
