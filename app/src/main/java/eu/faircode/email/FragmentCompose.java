@@ -309,6 +309,8 @@ public class FragmentCompose extends FragmentBase {
         ivCcAdd.setOnClickListener(onPick);
         ivBccAdd.setOnClickListener(onPick);
 
+        setZoom();
+
         ibReferenceEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -915,8 +917,22 @@ public class FragmentCompose extends FragmentBase {
         int zoom = prefs.getInt("zoom", compact ? 0 : 1);
         zoom = ++zoom % 3;
         prefs.edit().putInt("zoom", zoom).apply();
-        onAction(R.id.action_save);
-        showDraft(working);
+        setZoom();
+    }
+
+    private void setZoom() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean compact = prefs.getBoolean("compact", false);
+        int zoom = prefs.getInt("zoom", compact ? 0 : 1);
+        setZoom(zoom);
+    }
+
+    private void setZoom(int zoom) {
+        float textSize = Helper.getTextSize(getContext(), zoom);
+        if (textSize != 0) {
+            etBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+            tvReference.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+        }
     }
 
     private void onMenuImage() {
@@ -2341,15 +2357,6 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, Spanned[] text) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                boolean compact = prefs.getBoolean("compact", false);
-                int zoom = prefs.getInt("zoom", compact ? 0 : 1);
-                float textSize = Helper.getTextSize(getContext(), zoom);
-                if (textSize != 0) {
-                    etBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
-                    tvReference.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
-                }
-
                 etBody.setText(text[0]);
                 etBody.setSelection(0);
                 grpBody.setVisibility(View.VISIBLE);
