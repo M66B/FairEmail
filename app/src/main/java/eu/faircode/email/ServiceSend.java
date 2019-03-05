@@ -338,6 +338,12 @@ public class ServiceSend extends LifecycleService {
                 } else
                     db.message().setMessageUiHide(message.id, true);
 
+                if (message.inreplyto != null) {
+                    List<EntityMessage> replieds = db.message().getMessageByMsgId(message.account, message.inreplyto);
+                    for (EntityMessage replied : replieds)
+                        EntityOperation.queue(this, db, replied, EntityOperation.ANSWERED, true);
+                }
+
                 db.setTransactionSuccessful();
             } finally {
                 db.endTransaction();
@@ -345,12 +351,6 @@ public class ServiceSend extends LifecycleService {
 
             if (refFile.exists())
                 refFile.delete();
-
-            if (message.inreplyto != null) {
-                List<EntityMessage> replieds = db.message().getMessageByMsgId(message.account, message.inreplyto);
-                for (EntityMessage replied : replieds)
-                    EntityOperation.queue(this, db, replied, EntityOperation.ANSWERED, true);
-            }
 
             db.identity().setIdentityConnected(ident.id, new Date().getTime());
             db.identity().setIdentityError(ident.id, null);

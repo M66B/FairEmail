@@ -142,7 +142,8 @@ class Core {
                                 !(EntityOperation.ADD.equals(op.name) ||
                                         EntityOperation.DELETE.equals(op.name) ||
                                         EntityOperation.SEND.equals(op.name) ||
-                                        EntityOperation.SYNC.equals(op.name)))
+                                        EntityOperation.SYNC.equals(op.name) ||
+                                        EntityOperation.WAIT.equals(op.name)))
                             throw new IllegalArgumentException(op.name + " without uid " + op.args);
 
                         // Operations should use database transaction when needed
@@ -199,6 +200,9 @@ class Core {
                             case EntityOperation.SYNC:
                                 onSynchronizeMessages(context, jargs, account, folder, (IMAPFolder) ifolder, state);
                                 break;
+
+                            case EntityOperation.WAIT:
+                                return;
 
                             default:
                                 throw new IllegalArgumentException("Unknown operation=" + op.name);
@@ -1286,6 +1290,10 @@ class Core {
                 db.message().updateMessage(message);
             else if (BuildConfig.DEBUG)
                 Log.i(folder.name + " unchanged uid=" + uid);
+
+            int wait = db.operation().deleteOperationWait(message.id);
+            if (wait > 0)
+                Log.i(folder.name + " deleted wait id=" + message.id);
         }
 
         if (!folder.isOutgoing() && !EntityFolder.ARCHIVE.equals(folder.type)) {

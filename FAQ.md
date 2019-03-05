@@ -200,6 +200,7 @@ The low priority status bar notification shows the number of pending operations,
 * *body*: download message text
 * *attachment*: download attachment
 * *sync*: synchronize local and remote messages
+* *wait*: wait for message synchronization
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing.
 See also [this FAQ](#user-content-faq16).

@@ -81,6 +81,7 @@ public class EntityOperation {
     static final String BODY = "body";
     static final String ATTACHMENT = "attachment";
     static final String SYNC = "sync";
+    static final String WAIT = "wait";
 
     static void queue(Context context, DB db, EntityMessage message, String name, Object... values) {
         JSONArray jargs = new JSONArray();
@@ -149,6 +150,8 @@ public class EntityOperation {
                         message.ui_seen = true;
                     }
                     newid = db.message().insertMessage(message);
+                    message.id = newid;
+                    queue(context, db, message, WAIT);
                     message.id = id;
                     message.account = source.account;
                     message.folder = source.id;

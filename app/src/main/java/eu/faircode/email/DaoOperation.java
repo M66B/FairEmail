@@ -94,6 +94,11 @@ public interface DaoOperation {
     @Insert
     long insertOperation(EntityOperation operation);
 
+    @Query("DELETE FROM operation" +
+            " WHERE message = :message" +
+            " AND name = '" + EntityOperation.WAIT + "'")
+    int deleteOperationWait(long message);
+
     @Query("DELETE FROM operation WHERE id = :id")
     void deleteOperation(long id);
 }

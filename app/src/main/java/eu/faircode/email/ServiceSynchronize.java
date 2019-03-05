@@ -585,6 +585,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                         // Observe operations
                         Handler handler = new Handler(getMainLooper()) {
+                            private List<Long> waiting = new ArrayList<>();
                             private List<Long> handling = new ArrayList<>();
                             private LiveData<List<EntityOperation>> liveOperations;
 
@@ -612,13 +613,23 @@ public class ServiceSynchronize extends LifecycleService {
                                 @Override
                                 public void onChanged(final List<EntityOperation> operations) {
                                     boolean process = false;
-                                    List<Long> current = new ArrayList<>();
+                                    List<Long> ops = new ArrayList<>();
+                                    List<Long> waits = new ArrayList<>();
                                     for (EntityOperation op : operations) {
+                                        if (EntityOperation.WAIT.equals(op.name))
+                                            waits.add(op.id);
                                         if (!handling.contains(op.id))
                                             process = true;
-                                        current.add(op.id);
+                                        ops.add(op.id);
                                     }
-                                    handling = current;
+                                    for (long wait : waits)
+                                        if (!waiting.contains(wait)) {
+                                            Log.i(folder.name + " not waiting anymore");
+                                            process = true;
+                                            break;
+                                        }
+                                    waiting = waits;
+                                    handling = ops;
 
                                     if (handling.size() > 0 && process) {
                                         Log.i(folder.name + " operations=" + operations.size());
