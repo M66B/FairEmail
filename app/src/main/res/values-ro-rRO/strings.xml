@@ -180,6 +180,7 @@
     <string name="title_identity_reply_to">Răspuns la adresa</string>
     <string name="title_identity_plain_text">Trimite numai text simplu</string>
     <string name="title_identity_encrypt">Criptare în mod implicit</string>
+    <string name="title_identity_use_ip_hint">În cazul în care apare erori de tipul \'invalid greeting\', \'requires valid address\' sau similare, încercați să schimbați această setare</string>
     <string name="title_identity_read_receipt">Solicitare confirmare citire</string>
     <string name="title_identity_delivery_receipt">Solicitare confirmare livrare</string>
     <string name="title_identity_receipt_remark">Majoritatea furnizorilor ignoră cererile de confirmare a livrării</string>
@@ -230,6 +231,7 @@
     <string name="title_no_uidplus">Acest furnizor nu suportă UIDPLUS</string>
     <string name="title_no_utf8">Acest furnizor nu suportă UTF-8</string>
     <string name="title_no_sync">Erori de sincronizare începând cu %1$s</string>
+    <string name="title_sync_errors">Sincronizarea unor dosare a eșuat</string>
     <string name="title_drafts_required">Un dosar de ciorne este necesar pentru a trimite mesaje</string>
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
@@ -372,6 +374,7 @@
     <string name="title_sort_on_unread">Necitit</string>
     <string name="title_sort_on_starred">Marcat</string>
     <string name="title_sort_on_sender">Expeditor</string>
+    <string name="title_sort_on_subject">Subiect</string>
     <string name="title_compact">Vizualizare compactă</string>
     <string name="title_zoom">Mărime text</string>
     <string name="title_address_sent">Trimis:</string>
@@ -459,6 +462,7 @@
     <string name="title_hint_message_selection">Apăsați lung un mesaj pentru a selecta multiple</string>
     <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcție de viteza furnizorului, conexiunea la internet, de dispozitiv precum și de numărul de mesaje. În timpul descărcării mesajelor aplicația ar putea răspunde mai lent.</string>
     <string name="title_open_link">Deschide legătura</string>
+    <string name="title_insecure_link">Această legătură este nesigură</string>
     <string name="title_select_app">Selectează aplicația</string>
     <string name="title_updated">Este disponibilă o actualizare la versiunea %1$s</string>
     <string name="title_issue">Aveți o întrebare sau problemă?</string>
@@ -473,6 +477,7 @@
     <string name="title_enable">Activează</string>
     <string name="title_no_ask_again">Nu mai întreba din nou</string>
     <string name="title_no_adobe">Aplicația Adobe Acrobat reader nu poate deschide în siguranță fișierele, aflați mai multe în secțiunea de întrebări și răspunsuri</string>
+    <string name="title_no_microsoft">Aplicațiile Microsoft nu pot deschide în siguranță fișierele partajate, aflați mai multe în secțiunea de întrebări și răspunsuri</string>
     <string name="title_no_body">Nu a fost găsit textul mesajului</string>
     <string name="title_no_charset">Codare nesuportată: %1$s</string>
     <string name="title_via">Via: %1$s</string>

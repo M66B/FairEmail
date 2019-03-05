@@ -172,6 +172,7 @@
     <string name="title_identity_reply_to">Répondre à l\'adresse</string>
     <string name="title_identity_plain_text">Envoyer en texte brut uniquement</string>
     <string name="title_identity_encrypt">Chiffrer par défaut</string>
+    <string name="title_identity_use_ip_hint">En cas de \"connexion invalide\", \"nécessite une adresse valide\" ou une erreur similaire, essayez de modifier ce paramètre</string>
     <string name="title_identity_read_receipt">Demander une confirmation de lecture</string>
     <string name="title_identity_delivery_receipt">Demander un accusé de réception</string>
     <string name="title_identity_receipt_remark">La plupart des fournisseurs ignorent les demandes d\'accusé de réception</string>
@@ -222,6 +223,7 @@
     <string name="title_no_uidplus">Ce fournisseur ne prend pas en charge UIDPLUS</string>
     <string name="title_no_utf8">Ce fournisseur ne prend pas en charge l\'UTF-8</string>
     <string name="title_no_sync">Erreurs de synchronisation depuis %1$s</string>
+    <string name="title_sync_errors">La synchronisation de certains dossiers a échoué</string>
     <string name="title_drafts_required">Un dossier brouillon est nécessaire pour envoyer des messages</string>
     <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
     <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
@@ -364,6 +366,7 @@
     <string name="title_sort_on_unread">Non lu(s)</string>
     <string name="title_sort_on_starred">Suivis</string>
     <string name="title_sort_on_sender">Expéditeur</string>
+    <string name="title_sort_on_subject">Objet</string>
     <string name="title_compact">Vue compacte</string>
     <string name="title_zoom">Taille du texte</string>
     <string name="title_address_sent">Envoyé :</string>

@@ -172,6 +172,7 @@
     <string name="title_identity_reply_to">Responder a la dirección</string>
     <string name="title_identity_plain_text">Enviar sólo texto plano</string>
     <string name="title_identity_encrypt">Encriptar por defecto</string>
+    <string name="title_identity_use_ip_hint">En caso de \'saludo inválido\', \'requiere dirección válida\' o un error similar, intente cambiar esta configuración</string>
     <string name="title_identity_read_receipt">Solicitar confirmación de lectura</string>
     <string name="title_identity_delivery_receipt">Solicitar confirmación de entrega</string>
     <string name="title_identity_receipt_remark">La mayoría de los proveedores ignoran las solicitudes de confirmación</string>
@@ -222,6 +223,7 @@
     <string name="title_no_uidplus">Este proveedor no es compatible con UIDPLUS</string>
     <string name="title_no_utf8">Este proveedor no es compatible con UTF-8</string>
     <string name="title_no_sync">Errores de sincronización desde %1$s</string>
+    <string name="title_sync_errors">Error al sincronizar algunas carpetas</string>
     <string name="title_drafts_required">Una carpeta de borradores es necesaria para enviar mensajes</string>
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
     <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
@@ -451,6 +453,7 @@
     <string name="title_hint_message_selection">Mantenga presionado un mensaje para empezar a seleccionar múltiples mensajes</string>
     <string name="title_hint_sync">Descargar mensajes puede llevar algún tiempo, dependiendo de la velocidad del proveedor, la conexión a internet, dispositivo y el número de mensajes. Mientras se descargan mensajes, la aplicación puede responder más lentamente.</string>
     <string name="title_open_link">Abrir enlace</string>
+    <string name="title_insecure_link">Este enlace es inseguro</string>
     <string name="title_select_app">Seleccionar aplicación</string>
     <string name="title_updated">Hay una actualización a la version %1$s disponible</string>
     <string name="title_issue">¿Tiene una pregunta o problema?</string>

@@ -172,6 +172,7 @@
     <string name="title_identity_reply_to">Antwoord op adres</string>
     <string name="title_identity_plain_text">Verstuur alleen platte tekst</string>
     <string name="title_identity_encrypt">Standaard versleutelen</string>
+    <string name="title_identity_use_ip_hint">In geval van \'invalid greeting\', \'requires valid address\' of een soortgelijke fout, probeer deze instelling te wijzigen</string>
     <string name="title_identity_read_receipt">Vraag leesbevestiging</string>
     <string name="title_identity_delivery_receipt">Vraag ontvangstbevestiging</string>
     <string name="title_identity_receipt_remark">De meeste providers negeren bevestigingsverzoeken</string>
@@ -222,6 +223,7 @@
     <string name="title_no_uidplus">Deze provider ondersteunt geen UIDPLUS</string>
     <string name="title_no_utf8">Deze provider ondersteunt geen UTF-8</string>
     <string name="title_no_sync">Synchronisatiefouten sinds %1$s</string>
+    <string name="title_sync_errors">Synchroniseren van sommige mappen mislukt</string>
     <string name="title_drafts_required">Een concepten map is vereist om berichten te verzenden</string>
     <string name="title_account_delete">Verwijder dit account permanent?</string>
     <string name="title_identity_delete">Verwijder deze identiteit permanent?</string>
@@ -277,6 +279,7 @@
     <string name="title_forward">Doorsturen</string>
     <string name="title_create_rule">Maak regel &#8230;</string>
     <string name="title_share">Delen</string>
+    <string name="title_print">Afdrukken</string>
     <string name="title_show_headers">Toon koppen</string>
     <string name="title_raw_download">Ruw bericht downloaden</string>
     <string name="title_raw_save">Ruw bericht opslaan</string>
@@ -364,6 +367,7 @@
     <string name="title_sort_on_unread">Ongelezen</string>
     <string name="title_sort_on_starred">Met ster</string>
     <string name="title_sort_on_sender">Afzender</string>
+    <string name="title_sort_on_subject">Onderwerp</string>
     <string name="title_compact">Compacte weergave</string>
     <string name="title_zoom">Tekstgrootte</string>
     <string name="title_address_sent">Verzonden:</string>

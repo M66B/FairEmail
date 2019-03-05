@@ -172,6 +172,7 @@
     <string name="title_identity_reply_to">Rispondi all\'indirizzo</string>
     <string name="title_identity_plain_text">Invia solo testo semplice</string>
     <string name="title_identity_encrypt">Cripta di default</string>
+    <string name="title_identity_use_ip_hint">In caso di \"saluto non valido\", \"richiede un indirizzo valido\" o un errore simile, provare a modificare questa impostazione</string>
     <string name="title_identity_read_receipt">Richiedi conferma di lettura</string>
     <string name="title_identity_delivery_receipt">Richiedi ricevuta di consegna</string>
     <string name="title_identity_receipt_remark">La maggior parte dei fornitori ignora le richieste di conferma</string>
@@ -222,6 +223,7 @@
     <string name="title_no_uidplus">Questo provider non supporta UIDPLUS</string>
     <string name="title_no_utf8">Questo provider non supporta UTF-8</string>
     <string name="title_no_sync">Errori di sincronizzazione da %1$s</string>
+    <string name="title_sync_errors">Sincronizzazione di alcune cartelle fallita</string>
     <string name="title_drafts_required">Per inviare messaggi è necessaria una cartella bozze</string>
     <string name="title_account_delete">Eliminare questo account permanentemente?</string>
     <string name="title_identity_delete">Eliminare questa identità permanentemente?</string>
@@ -451,6 +453,7 @@
     <string name="title_hint_message_selection">Premi a lungo un messaggio per iniziare a selezionare più messaggi</string>
     <string name="title_hint_sync">Scaricare i messaggi può richiedere molto tempo, a seconda della velocità del provider, della connessione internet e del dispositivo e dal numero di messaggi. Durante il download l\'app potrebbe funzionare più lentamente.</string>
     <string name="title_open_link">Apri collegamento</string>
+    <string name="title_insecure_link">Questo link non è sicuro</string>
     <string name="title_select_app">Seleziona app</string>
     <string name="title_updated">È disponibile un aggiornamento alla versione %1$s</string>
     <string name="title_issue">Hai una domanda o un problema?</string>

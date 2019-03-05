@@ -172,6 +172,7 @@
     <string name="title_identity_reply_to">Antwortadresse</string>
     <string name="title_identity_plain_text">Nur-Text-Email senden</string>
     <string name="title_identity_encrypt">Standardmäßig verschlüsseln</string>
+    <string name="title_identity_use_ip_hint">Bei \'invalid greeting\', \'requires valid address\' oder einem ähnlichen Fehler, versuchen Sie, diese Einstellung zu ändern</string>
     <string name="title_identity_read_receipt">Lesebestätigung anfordern</string>
     <string name="title_identity_delivery_receipt">Übermittlungsbestätigung anfordern</string>
     <string name="title_identity_receipt_remark">Die meisten Anbieter ignorieren Lesebestätigungsanfragen</string>
@@ -222,6 +223,7 @@
     <string name="title_no_uidplus">Dieser Anbieter unterstützt UIDPLUS nicht</string>
     <string name="title_no_utf8">Dieser Anbieter unterstützt UTF-8 nicht</string>
     <string name="title_no_sync">Synchronisationsfehler seit %1$s</string>
+    <string name="title_sync_errors">Synchronisieren einiger Ordner fehlgeschlagen</string>
     <string name="title_drafts_required">Ein Entwürfe-Ordner ist erforderlich, um Nachrichten zu senden</string>
     <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
     <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
@@ -277,6 +279,7 @@
     <string name="title_forward">Weiterleiten</string>
     <string name="title_create_rule">Regel &#8230; erstellen</string>
     <string name="title_share">Teilen</string>
+    <string name="title_print">Drucken</string>
     <string name="title_show_headers">Kopfzeile anzeigen</string>
     <string name="title_raw_download">Rohdaten runterladen</string>
     <string name="title_raw_save">Rohdaten speichern</string>
@@ -364,6 +367,7 @@
     <string name="title_sort_on_unread">Ungelesen</string>
     <string name="title_sort_on_starred">Favoriten</string>
     <string name="title_sort_on_sender">Absender</string>
+    <string name="title_sort_on_subject">Betreff</string>
     <string name="title_compact">Kompaktansicht</string>
     <string name="title_zoom">Schriftgröße</string>
     <string name="title_address_sent">Gesendet:</string>
