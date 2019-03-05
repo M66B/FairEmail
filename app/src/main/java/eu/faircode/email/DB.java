@@ -49,7 +49,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 49,
+        version = 50,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -234,7 +234,7 @@ public abstract class DB extends RoomDatabase {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
-                        db.execSQL("CREATE  INDEX `index_message_ui_flagged` ON `message` (`ui_flagged`)");
+                        db.execSQL("CREATE INDEX `index_message_ui_flagged` ON `message` (`ui_flagged`)");
                     }
                 })
                 .addMigrations(new Migration(13, 14) {
@@ -345,7 +345,7 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `sender` TEXT");
-                        db.execSQL("CREATE  INDEX `index_message_sender` ON `message` (`sender`)");
+                        db.execSQL("CREATE INDEX `index_message_sender` ON `message` (`sender`)");
                     }
                 })
                 .addMigrations(new Migration(27, 28) {
@@ -397,7 +397,7 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `ui_snoozed` INTEGER");
-                        db.execSQL("CREATE  INDEX `index_message_ui_snoozed` ON `message` (`ui_snoozed`)");
+                        db.execSQL("CREATE INDEX `index_message_ui_snoozed` ON `message` (`ui_snoozed`)");
                     }
                 })
                 .addMigrations(new Migration(32, 33) {
@@ -442,8 +442,8 @@ public abstract class DB extends RoomDatabase {
                                 " `condition` TEXT NOT NULL," +
                                 " `action` TEXT NOT NULL," +
                                 " FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE)");
-                        db.execSQL("CREATE  INDEX `index_rule_folder` ON `rule` (`folder`)");
-                        db.execSQL("CREATE  INDEX `index_rule_order` ON `rule` (`order`)");
+                        db.execSQL("CREATE INDEX `index_rule_folder` ON `rule` (`folder`)");
+                        db.execSQL("CREATE INDEX `index_rule_order` ON `rule` (`order`)");
                     }
                 })
                 .addMigrations(new Migration(37, 38) {
@@ -499,7 +499,7 @@ public abstract class DB extends RoomDatabase {
                                 ", `email` TEXT NOT NULL" +
                                 ", `name` TEXT)");
                         db.execSQL("CREATE UNIQUE INDEX `index_contact_email_type` ON `contact` (`email`, `type`)");
-                        db.execSQL("CREATE  INDEX `index_contact_name_type` ON `contact` (`name`, `type`)");
+                        db.execSQL("CREATE INDEX `index_contact_name_type` ON `contact` (`name`, `type`)");
                     }
                 })
                 .addMigrations(new Migration(44, 45) {
@@ -534,7 +534,16 @@ public abstract class DB extends RoomDatabase {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
-                        db.execSQL("CREATE  INDEX `index_operation_name` ON `operation` (`name`)");
+                        db.execSQL("CREATE INDEX `index_operation_name` ON `operation` (`name`)");
+                    }
+                })
+                .addMigrations(new Migration(49, 50) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("DROP INDEX `index_message_replying`");
+                        db.execSQL("DROP INDEX `index_message_forwarding`");
+                        db.execSQL("CREATE INDEX `index_message_subject` ON `message` (`subject`)");
                     }
                 })
                 .build();
