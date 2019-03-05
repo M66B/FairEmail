@@ -989,7 +989,7 @@ public class ServiceSynchronize extends LifecycleService {
             } else {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
                 prefs.edit().putBoolean("oneshot", false).apply();
-                queue_reload(false, "oneshot");
+                queue_reload(true, "oneshot");
             }
         }
 
