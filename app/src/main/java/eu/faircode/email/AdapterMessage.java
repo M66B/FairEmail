@@ -1997,6 +1997,33 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onMenuPrint(final ActionData data) {
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            if (prefs.getBoolean("print_html_confirmed", false)) {
+                onMenuPrintConfirmed(data);
+                return;
+            }
+
+            final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_ask_again, null);
+            final TextView tvMessage = dview.findViewById(R.id.tvMessage);
+            final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+
+            tvMessage.setText(context.getText(R.string.title_ask_show_html));
+
+            new DialogBuilderLifecycle(context, owner)
+                    .setView(dview)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if (cbNotAgain.isChecked())
+                                prefs.edit().putBoolean("print_html_confirmed", true).apply();
+                            onMenuPrintConfirmed(data);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
+        }
+
+        private void onMenuPrintConfirmed(final ActionData data) {
             Bundle args = new Bundle();
             args.putLong("id", data.message.id);
 
