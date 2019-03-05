@@ -307,8 +307,8 @@ public class Helper {
             if (ex instanceof IllegalStateException)
                 // sync when store disconnected
                 return null;
-            if (ex instanceof SSLException || ex.getCause() instanceof SSLException)
-                return null;
+            //if (ex instanceof SSLException || ex.getCause() instanceof SSLException)
+            //    return null;
             if (ex instanceof MailConnectException && ex.getCause() instanceof UnknownHostException)
                 return null;
         }

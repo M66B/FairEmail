@@ -216,12 +216,8 @@ class Core {
                         reportError(context, account, folder, ex);
 
                         db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
-
-                        if (message != null &&
-                                !(ex instanceof MessageRemovedException) &&
-                                !(ex instanceof FolderClosedException) &&
-                                !(ex instanceof IllegalStateException))
-                            db.message().setMessageError(message.id, Helper.formatThrowable(ex));
+                        if (message != null)
+                            db.message().setMessageError(message.id, Helper.formatThrowable(ex, true));
 
                         if (ex instanceof MessageRemovedException ||
                                 ex instanceof FolderNotFoundException ||
