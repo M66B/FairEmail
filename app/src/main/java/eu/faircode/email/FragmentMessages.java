@@ -1521,7 +1521,7 @@ public class FragmentMessages extends FragmentBase {
                         boolean errors = false;
                         for (TupleFolderEx folder : folders) {
                             unseen += folder.unseen;
-                            if (!TextUtils.isEmpty(folder.error))
+                            if (folder.error != null || folder.accountError != null)
                                 errors = true;
                         }
 
@@ -1543,8 +1543,7 @@ public class FragmentMessages extends FragmentBase {
                             rvMessage.scrollToPosition(0);
                         }
 
-                        if (errors &&
-                                !refreshing && swipeRefresh.isRefreshing())
+                        if (errors && !refreshing && swipeRefresh.isRefreshing())
                             Snackbar.make(view, R.string.title_sync_errors, Snackbar.LENGTH_LONG).show();
 
                         swipeRefresh.setRefreshing(refreshing);
@@ -1580,9 +1579,11 @@ public class FragmentMessages extends FragmentBase {
                             rvMessage.scrollToPosition(0);
                         }
 
-                        if (folder != null && !TextUtils.isEmpty(folder.error) &&
-                                !refreshing && swipeRefresh.isRefreshing())
-                            Snackbar.make(view, folder.error, Snackbar.LENGTH_LONG).show();
+                        String error = null;
+                        if (folder != null)
+                            error = (folder.error == null ? folder.accountError : folder.error);
+                        if (error != null && !refreshing && swipeRefresh.isRefreshing())
+                            Snackbar.make(view, error, Snackbar.LENGTH_LONG).show();
 
                         swipeRefresh.setRefreshing(refreshing);
                     }

@@ -52,7 +52,8 @@ public interface DaoFolder {
     EntityFolder getBrowsableFolder(long folder, boolean search);
 
     @Query("SELECT folder.*" +
-            ", account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
+            ", account.name AS accountName, account.color AS accountColor" +
+            ", account.state AS accountState, account.error AS accountError" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
@@ -67,7 +68,8 @@ public interface DaoFolder {
     LiveData<List<TupleFolderEx>> liveFolders(Long account);
 
     @Query("SELECT folder.*" +
-            ", account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
+            ", account.name AS accountName, account.color AS accountColor" +
+            ", account.state AS accountState, account.error AS accountError" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
@@ -85,7 +87,8 @@ public interface DaoFolder {
     LiveData<EntityFolder> livePrimaryDrafts();
 
     @Query("SELECT folder.*" +
-            ", account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
+            ", account.name AS accountName, account.color AS accountColor" +
+            ", account.state AS accountState, account.error AS accountError" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +

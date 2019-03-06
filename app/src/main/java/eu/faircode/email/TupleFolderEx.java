@@ -25,6 +25,7 @@ public class TupleFolderEx extends EntityFolder {
     public String accountName;
     public Integer accountColor;
     public String accountState;
+    public String accountError;
     public int messages;
     public int content;
     public int unseen;
@@ -37,6 +38,7 @@ public class TupleFolderEx extends EntityFolder {
                     Objects.equals(accountName, other.accountName) &&
                     Objects.equals(this.accountColor, other.accountColor) &&
                     Objects.equals(accountState, other.accountState) &&
+                    Objects.equals(accountError, other.accountError) &&
                     this.messages == other.messages &&
                     this.content == other.content &&
                     this.unseen == other.unseen);
