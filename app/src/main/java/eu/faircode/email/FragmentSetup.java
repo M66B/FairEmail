@@ -48,7 +48,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 
 public class FragmentSetup extends FragmentBase {
@@ -272,7 +271,6 @@ public class FragmentSetup extends FragmentBase {
 
         db.account().liveSynchronizingAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
             private boolean done = false;
-            private LiveData<EntityFolder> livePrimaryDrafts = null;
 
             @Override
             public void onChanged(@Nullable List<EntityAccount> accounts) {
@@ -286,18 +284,13 @@ public class FragmentSetup extends FragmentBase {
 
                 btnIdentity.setEnabled(done);
                 btnInbox.setEnabled(done);
+            }
+        });
 
-                if (livePrimaryDrafts == null)
-                    livePrimaryDrafts = db.folder().livePrimaryDrafts();
-                else
-                    livePrimaryDrafts.removeObservers(getViewLifecycleOwner());
-
-                livePrimaryDrafts.observe(getViewLifecycleOwner(), new Observer<EntityFolder>() {
-                    @Override
-                    public void onChanged(EntityFolder drafts) {
-                        tvNoPrimaryDrafts.setVisibility(done && drafts == null ? View.VISIBLE : View.GONE);
-                    }
-                });
+        db.folder().livePrimaryDrafts().observe(getViewLifecycleOwner(), new Observer<EntityFolder>() {
+            @Override
+            public void onChanged(EntityFolder draft) {
+                tvNoPrimaryDrafts.setVisibility(draft == null ? View.VISIBLE : View.GONE);
             }
         });
 

@@ -83,7 +83,9 @@ public interface DaoFolder {
 
     @Query("SELECT folder.* FROM folder" +
             " JOIN account ON account.id = folder.account" +
-            " WHERE `primary` AND type = '" + EntityFolder.DRAFTS + "'")
+            " WHERE account.synchronize" +
+            " AND account.`primary`" +
+            " AND folder.type = '" + EntityFolder.DRAFTS + "'")
     LiveData<EntityFolder> livePrimaryDrafts();
 
     @Query("SELECT folder.*" +
