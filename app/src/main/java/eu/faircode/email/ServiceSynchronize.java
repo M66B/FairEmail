@@ -86,8 +86,12 @@ import androidx.lifecycle.Observer;
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class ServiceSynchronize extends LifecycleService {
+    private Core.State state;
+    private boolean started = false;
+    private int queued = 0;
+    private long lastLost = 0;
     private TupleAccountStats lastStats = new TupleAccountStats();
-    private ServiceManager serviceManager = new ServiceManager();
+    private ExecutorService queue = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     private static boolean booted = false;
 
@@ -114,7 +118,7 @@ public class ServiceSynchronize extends LifecycleService {
         builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
         // Removed because of Android VPN service
         // builder.addCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
-        cm.registerNetworkCallback(builder.build(), serviceManager);
+        cm.registerNetworkCallback(builder.build(), networkCallback);
 
         DB db = DB.getInstance(this);
 
@@ -142,9 +146,13 @@ public class ServiceSynchronize extends LifecycleService {
         Log.i("Service destroy");
 
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        cm.unregisterNetworkCallback(serviceManager);
+        cm.unregisterNetworkCallback(networkCallback);
 
-        serviceManager.service_destroy();
+        synchronized (this) {
+            EntityLog.log(this, "Service destroy");
+            if (started)
+                queue_reload(false, "service destroy");
+        }
 
         Widget.update(this, -1);
 
@@ -172,23 +180,23 @@ public class ServiceSynchronize extends LifecycleService {
             try {
                 switch (action) {
                     case "init":
-                        serviceManager.service_init();
+                        onInit();
                         break;
 
                     case "alarm":
-                        serviceManager.service_alarm();
+                        onAlarm();
                         break;
 
                     case "reload":
-                        serviceManager.service_reload(intent.getStringExtra("reason"));
+                        onReload(intent.getStringExtra("reason"));
                         break;
 
                     case "oneshot_start":
-                        serviceManager.service_oneshot(true);
+                        onOneshot(true);
                         break;
 
                     case "oneshot_end":
-                        serviceManager.service_oneshot(false);
+                        onOneshot(false);
                         break;
 
                     default:
@@ -231,6 +239,230 @@ public class ServiceSynchronize extends LifecycleService {
         return builder;
     }
 
+    private void onInit() {
+        EntityLog.log(this, "Service init");
+        // Network events will manage the service
+    }
+
+    private void onAlarm() {
+        schedule(this);
+        onReload("alarm");
+    }
+
+    private void onReload(String reason) {
+        synchronized (this) {
+            try {
+                queue_reload(true, reason);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+        }
+    }
+
+    private void onOneshot(boolean start) {
+        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        Intent alarm = new Intent(this, ServiceSynchronize.class);
+        alarm.setAction("oneshot_end");
+        PendingIntent piOneshot;
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+            piOneshot = PendingIntent.getService(this, PI_ONESHOT, alarm, PendingIntent.FLAG_UPDATE_CURRENT);
+        else
+            piOneshot = PendingIntent.getForegroundService(this, PI_ONESHOT, alarm, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        am.cancel(piOneshot);
+
+        if (start) {
+            // Network events will manage the service
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+                am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + ONESHOT_DURATION, piOneshot);
+            else
+                am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + ONESHOT_DURATION, piOneshot);
+        } else {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            prefs.edit().putBoolean("oneshot", false).apply();
+            queue_reload(true, "oneshot");
+        }
+    }
+
+    private void queue_reload(final boolean start, final String reason) {
+        final boolean doStop = started;
+        final boolean doStart = (start && isEnabled() && Helper.suitableNetwork(this, true));
+
+        EntityLog.log(this, "Queue reload" +
+                " doStop=" + doStop + " doStart=" + doStart + " queued=" + queued + " " + reason);
+
+        started = doStart;
+
+        queued++;
+        queue.submit(new Runnable() {
+            PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+            PowerManager.WakeLock wl = pm.newWakeLock(
+                    PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":manage");
+
+            @Override
+            public void run() {
+                DB db = DB.getInstance(ServiceSynchronize.this);
+
+                try {
+                    wl.acquire();
+
+                    EntityLog.log(ServiceSynchronize.this, "Reload" +
+                            " stop=" + doStop + " start=" + doStart + " queued=" + queued + " " + reason);
+
+                    if (doStop)
+                        stop();
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                        for (EntityAccount account : db.account().getAccountsTbd())
+                            nm.deleteNotificationChannel(EntityAccount.getNotificationChannelName(account.id));
+                    }
+
+                    int accounts = db.account().deleteAccountsTbd();
+                    int identities = db.identity().deleteIdentitiesTbd();
+                    if (accounts > 0 || identities > 0)
+                        Log.i("Deleted accounts=" + accounts + " identities=" + identities);
+
+                    if (doStart)
+                        start();
+
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                } finally {
+                    queued--;
+                    EntityLog.log(ServiceSynchronize.this, "Reload done queued=" + queued);
+
+                    if (queued == 0 && !isEnabled()) {
+                        try {
+                            Thread.sleep(STOP_DELAY);
+                        } catch (InterruptedException ignored) {
+                        }
+                        if (queued == 0 && !isEnabled())
+                            stopService();
+                    }
+
+                    wl.release();
+                }
+            }
+        });
+    }
+
+    private boolean isEnabled() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean enabled = prefs.getBoolean("enabled", true);
+        boolean oneshot = prefs.getBoolean("oneshot", false);
+        return (enabled || oneshot);
+    }
+
+    private void start() {
+        EntityLog.log(this, "Main start");
+
+        state = new Core.State();
+        state.runnable(new Runnable() {
+            PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+            PowerManager.WakeLock wl = pm.newWakeLock(
+                    PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":main");
+            private List<Core.State> threadState = new ArrayList<>();
+
+            @Override
+            public void run() {
+                try {
+                    wl.acquire();
+
+                    final DB db = DB.getInstance(ServiceSynchronize.this);
+
+                    long ago = new Date().getTime() - lastLost;
+                    if (ago < RECONNECT_BACKOFF)
+                        try {
+                            long backoff = RECONNECT_BACKOFF - ago;
+                            EntityLog.log(ServiceSynchronize.this, "Main backoff=" + (backoff / 1000));
+                            if (state.acquire(backoff))
+                                return;
+                        } catch (InterruptedException ex) {
+                            Log.w("main backoff " + ex.toString());
+                        }
+
+                    // Start monitoring accounts
+                    List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
+                    for (final EntityAccount account : accounts) {
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
+                            if (account.notify)
+                                account.createNotificationChannel(ServiceSynchronize.this);
+                            else
+                                account.deleteNotificationChannel(ServiceSynchronize.this);
+
+                        Log.i(account.host + "/" + account.user + " run");
+                        final Core.State astate = new Core.State();
+                        astate.runnable(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    monitorAccount(account, astate);
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                    EntityLog.log(ServiceSynchronize.this, account.name + " " + Helper.formatThrowable(ex));
+                                    db.account().setAccountError(account.id, Helper.formatThrowable(ex));
+                                }
+                            }
+                        }, "sync.account." + account.id);
+                        astate.start();
+                        threadState.add(astate);
+                    }
+
+                    EntityLog.log(ServiceSynchronize.this, "Main started");
+
+                    try {
+                        wl.release();
+                        state.acquire();
+                    } catch (InterruptedException ex) {
+                        Log.w("main wait " + ex.toString());
+                    } finally {
+                        wl.acquire();
+                    }
+
+                    // Stop monitoring accounts
+                    for (Core.State astate : threadState)
+                        astate.stop();
+                    for (Core.State astate : threadState)
+                        astate.join();
+                    threadState.clear();
+
+                    EntityLog.log(ServiceSynchronize.this, "Main exited");
+                } catch (Throwable ex) {
+                    // Fail-safe
+                    Log.e(ex);
+                } finally {
+                    wl.release();
+                    EntityLog.log(ServiceSynchronize.this, "Start wake lock=" + wl.isHeld());
+                }
+            }
+        }, "sync.main");
+        state.start();
+    }
+
+    private void stop() {
+        EntityLog.log(this, "Main stop");
+
+        state.stop();
+        state.join();
+
+        EntityLog.log(this, "Main stopped");
+
+        state = null;
+    }
+
+    private void stopService() {
+        EntityLog.log(this, "Service stop");
+
+        DB db = DB.getInstance(this);
+        List<EntityOperation> ops = db.operation().getOperations(EntityOperation.SYNC);
+        for (EntityOperation op : ops)
+            db.folder().setFolderSyncState(op.folder, null);
+
+        stopSelf();
+    }
+
     private void monitorAccount(final EntityAccount account, final Core.State state) throws NoSuchProviderException {
         final PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         final PowerManager.WakeLock wlAccount = pm.newWakeLock(
@@ -245,7 +477,7 @@ public class ServiceSynchronize extends LifecycleService {
                 Log.i(account.name + " run");
 
                 // Debug
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
                 boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
                 //System.setProperty("mail.socket.debug", Boolean.toString(debug));
 
@@ -776,7 +1008,7 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.i(account.name + " done state=" + state);
                 } catch (Throwable ex) {
                     Log.e(account.name, ex);
-                    Core.reportError(ServiceSynchronize.this, account, null, ex);
+                    Core.reportError(this, account, null, ex);
 
                     EntityLog.log(this, account.name + " " + Helper.formatThrowable(ex));
                     db.account().setAccountError(account.id, Helper.formatThrowable(ex));
@@ -873,16 +1105,10 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private class ServiceManager extends ConnectivityManager.NetworkCallback {
-        private Core.State state;
-        private boolean started = false;
-        private int queued = 0;
-        private long lastLost = 0;
-        private ExecutorService queue = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
-
+    ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
         @Override
         public void onAvailable(Network network) {
-            synchronized (this) {
+            synchronized (ServiceSynchronize.this) {
                 try {
                     ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                     EntityLog.log(ServiceSynchronize.this, "Available " + network + " " + cm.getNetworkInfo(network));
@@ -897,7 +1123,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         @Override
         public void onCapabilitiesChanged(Network network, NetworkCapabilities capabilities) {
-            synchronized (this) {
+            synchronized (ServiceSynchronize.this) {
                 try {
                     if (!started) {
                         EntityLog.log(ServiceSynchronize.this, "Network " + network + " capabilities " + capabilities);
@@ -912,7 +1138,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         @Override
         public void onLost(Network network) {
-            synchronized (this) {
+            synchronized (ServiceSynchronize.this) {
                 try {
                     EntityLog.log(ServiceSynchronize.this, "Lost " + network);
 
@@ -925,237 +1151,50 @@ public class ServiceSynchronize extends LifecycleService {
                 }
             }
         }
+    };
 
-        private boolean isEnabled() {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
-            boolean enabled = prefs.getBoolean("enabled", true);
-            boolean oneshot = prefs.getBoolean("oneshot", false);
-            return (enabled || oneshot);
-        }
+    static void boot(final Context context) {
+        if (!booted) {
+            booted = true;
 
-        private void service_init() {
-            EntityLog.log(ServiceSynchronize.this, "Service init");
-            // Network events will manage the service
-        }
-
-        private void service_alarm() {
-            schedule(ServiceSynchronize.this);
-            service_reload("alarm");
-        }
-
-        private void service_reload(String reason) {
-            synchronized (this) {
-                try {
-                    serviceManager.queue_reload(true, reason);
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
-            }
-        }
-
-        private void service_oneshot(boolean start) {
-            AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
-            Intent alarm = new Intent(ServiceSynchronize.this, ServiceSynchronize.class);
-            alarm.setAction("oneshot_end");
-            PendingIntent piOneshot;
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
-                piOneshot = PendingIntent.getService(ServiceSynchronize.this, PI_ONESHOT, alarm, PendingIntent.FLAG_UPDATE_CURRENT);
-            else
-                piOneshot = PendingIntent.getForegroundService(ServiceSynchronize.this, PI_ONESHOT, alarm, PendingIntent.FLAG_UPDATE_CURRENT);
-
-            am.cancel(piOneshot);
-
-            if (start) {
-                // Network events will manage the service
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-                    am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + ONESHOT_DURATION, piOneshot);
-                else
-                    am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + ONESHOT_DURATION, piOneshot);
-            } else {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
-                prefs.edit().putBoolean("oneshot", false).apply();
-                queue_reload(true, "oneshot");
-            }
-        }
-
-        private void service_destroy() {
-            synchronized (this) {
-                EntityLog.log(ServiceSynchronize.this, "Service destroy");
-                if (started)
-                    queue_reload(false, "service destroy");
-            }
-        }
-
-        private void start() {
-            EntityLog.log(ServiceSynchronize.this, "Main start");
-
-            state = new Core.State();
-            state.runnable(new Runnable() {
-                PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-                PowerManager.WakeLock wl = pm.newWakeLock(
-                        PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":main");
-                private List<Core.State> threadState = new ArrayList<>();
-
+            Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     try {
-                        wl.acquire();
+                        DB db = DB.getInstance(context);
 
-                        final DB db = DB.getInstance(ServiceSynchronize.this);
+                        // Reset state
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        prefs.edit().remove("oneshot").apply();
 
-                        long ago = new Date().getTime() - lastLost;
-                        if (ago < RECONNECT_BACKOFF)
-                            try {
-                                long backoff = RECONNECT_BACKOFF - ago;
-                                EntityLog.log(ServiceSynchronize.this, "Main backoff=" + (backoff / 1000));
-                                if (state.acquire(backoff))
-                                    return;
-                            } catch (InterruptedException ex) {
-                                Log.w("main backoff " + ex.toString());
-                            }
+                        for (EntityAccount account : db.account().getAccounts())
+                            db.account().setAccountState(account.id, null);
 
-                        // Start monitoring accounts
-                        List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
-                        for (final EntityAccount account : accounts) {
-                            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
-                                if (account.notify)
-                                    account.createNotificationChannel(ServiceSynchronize.this);
-                                else
-                                    account.deleteNotificationChannel(ServiceSynchronize.this);
-
-                            Log.i(account.host + "/" + account.user + " run");
-                            final Core.State astate = new Core.State();
-                            astate.runnable(new Runnable() {
-                                @Override
-                                public void run() {
-                                    try {
-                                        monitorAccount(account, astate);
-                                    } catch (Throwable ex) {
-                                        Log.e(ex);
-                                        EntityLog.log(ServiceSynchronize.this, account.name + " " + Helper.formatThrowable(ex));
-                                        db.account().setAccountError(account.id, Helper.formatThrowable(ex));
-                                    }
-                                }
-                            }, "sync.account." + account.id);
-                            astate.start();
-                            threadState.add(astate);
+                        for (EntityFolder folder : db.folder().getFolders()) {
+                            db.folder().setFolderState(folder.id, null);
+                            db.folder().setFolderSyncState(folder.id, null);
                         }
 
-                        EntityLog.log(ServiceSynchronize.this, "Main started");
+                        // Restore snooze timers
+                        for (EntityMessage message : db.message().getSnoozed())
+                            EntityMessage.snooze(context, message.id, message.ui_snoozed);
 
-                        try {
-                            wl.release();
-                            state.acquire();
-                        } catch (InterruptedException ex) {
-                            Log.w("main wait " + ex.toString());
-                        } finally {
-                            wl.acquire();
-                        }
+                        // Restore schedule
+                        schedule(context);
 
-                        // Stop monitoring accounts
-                        for (Core.State astate : threadState)
-                            astate.stop();
-                        for (Core.State astate : threadState)
-                            astate.join();
-                        threadState.clear();
-
-                        EntityLog.log(ServiceSynchronize.this, "Main exited");
-                    } catch (Throwable ex) {
-                        // Fail-safe
-                        Log.e(ex);
-                    } finally {
-                        wl.release();
-                        EntityLog.log(ServiceSynchronize.this, "Start wake lock=" + wl.isHeld());
-                    }
-                }
-            }, "sync.main");
-            state.start();
-        }
-
-        private void stop() {
-            EntityLog.log(ServiceSynchronize.this, "Main stop");
-
-            state.stop();
-            state.join();
-
-            EntityLog.log(ServiceSynchronize.this, "Main stopped");
-
-            state = null;
-        }
-
-        private void queue_reload(final boolean start, final String reason) {
-            final boolean doStop = started;
-            final boolean doStart = (start && isEnabled() && Helper.suitableNetwork(ServiceSynchronize.this, true));
-
-            EntityLog.log(ServiceSynchronize.this, "Queue reload" +
-                    " doStop=" + doStop + " doStart=" + doStart + " queued=" + queued + " " + reason);
-
-            started = doStart;
-
-            queued++;
-            queue.submit(new Runnable() {
-                PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-                PowerManager.WakeLock wl = pm.newWakeLock(
-                        PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":manage");
-
-                @Override
-                public void run() {
-                    DB db = DB.getInstance(ServiceSynchronize.this);
-
-                    try {
-                        wl.acquire();
-
-                        EntityLog.log(ServiceSynchronize.this, "Reload" +
-                                " stop=" + doStop + " start=" + doStart + " queued=" + queued + " " + reason);
-
-                        if (doStop)
-                            stop();
-
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                            for (EntityAccount account : db.account().getAccountsTbd())
-                                nm.deleteNotificationChannel(EntityAccount.getNotificationChannelName(account.id));
-                        }
-
-                        int accounts = db.account().deleteAccountsTbd();
-                        int identities = db.identity().deleteIdentitiesTbd();
-                        if (accounts > 0 || identities > 0)
-                            Log.i("Deleted accounts=" + accounts + " identities=" + identities);
-
-                        if (doStart)
-                            start();
-
+                        // Conditionally init service
+                        boolean enabled = prefs.getBoolean("enabled", true);
+                        int accounts = db.account().getSynchronizingAccounts().size();
+                        if (enabled && accounts > 0)
+                            ContextCompat.startForegroundService(context,
+                                    new Intent(context, ServiceSynchronize.class)
+                                            .setAction("init"));
                     } catch (Throwable ex) {
                         Log.e(ex);
-                    } finally {
-                        queued--;
-                        EntityLog.log(ServiceSynchronize.this, "Reload done queued=" + queued);
-
-                        if (queued == 0 && !isEnabled()) {
-                            try {
-                                Thread.sleep(STOP_DELAY);
-                            } catch (InterruptedException ignored) {
-                            }
-                            if (queued == 0 && !isEnabled())
-                                stopService();
-                        }
-
-                        wl.release();
                     }
                 }
             });
-        }
-
-        private void stopService() {
-            EntityLog.log(ServiceSynchronize.this, "Service stop");
-
-            DB db = DB.getInstance(ServiceSynchronize.this);
-            List<EntityOperation> ops = db.operation().getOperations(EntityOperation.SYNC);
-            for (EntityOperation op : ops)
-                db.folder().setFolderSyncState(op.folder, null);
-
-            stopSelf();
+            thread.start();
         }
     }
 
@@ -1215,51 +1254,6 @@ public class ServiceSynchronize extends LifecycleService {
             am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, next, piAlarm);
         else
             am.set(AlarmManager.RTC_WAKEUP, next, piAlarm);
-    }
-
-    static void boot(final Context context) {
-        if (!booted) {
-            booted = true;
-
-            Thread thread = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        DB db = DB.getInstance(context);
-
-                        // Reset state
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                        prefs.edit().remove("oneshot").apply();
-
-                        for (EntityAccount account : db.account().getAccounts())
-                            db.account().setAccountState(account.id, null);
-
-                        for (EntityFolder folder : db.folder().getFolders()) {
-                            db.folder().setFolderState(folder.id, null);
-                            db.folder().setFolderSyncState(folder.id, null);
-                        }
-
-                        // Restore snooze timers
-                        for (EntityMessage message : db.message().getSnoozed())
-                            EntityMessage.snooze(context, message.id, message.ui_snoozed);
-
-                        // Restore schedule
-                        schedule(context);
-
-                        // Conditionally init service
-                        boolean enabled = prefs.getBoolean("enabled", true);
-                        int accounts = db.account().getSynchronizingAccounts().size();
-                        if (enabled && accounts > 0)
-                            ContextCompat.startForegroundService(context,
-                                    new Intent(context, ServiceSynchronize.class)
-                                            .setAction("init"));
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    }
-                }
-            });
-            thread.start();
-        }
     }
 
     static void reschedule(Context context) {
