@@ -445,16 +445,23 @@ class Core {
                 }
             }
             ifolder.expunge();
-        } else {
-            // Cross account move
-            if (autoread) {
-                Log.i(folder.name + " queuing SEEN id=" + message.id);
-                EntityOperation.queue(context, db, message, EntityOperation.SEEN, true);
-            }
+        } else
+            try {
+                db.beginTransaction();
 
-            Log.i(folder.name + " queuing DELETE id=" + message.id);
-            EntityOperation.queue(context, db, message, EntityOperation.DELETE);
-        }
+                // Cross account move
+                if (autoread) {
+                    Log.i(folder.name + " queuing SEEN id=" + message.id);
+                    EntityOperation.queue(context, db, message, EntityOperation.SEEN, true);
+                }
+
+                Log.i(folder.name + " queuing DELETE id=" + message.id);
+                EntityOperation.queue(context, db, message, EntityOperation.DELETE);
+
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+            }
     }
 
     private static void onMove(Context context, JSONArray jargs, boolean copy, EntityFolder folder, EntityMessage message, Session isession, IMAPStore istore, IMAPFolder ifolder) throws JSONException, MessagingException, IOException {
