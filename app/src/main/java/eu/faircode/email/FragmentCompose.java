@@ -710,7 +710,7 @@ public class FragmentCompose extends FragmentBase {
     };
 
     private void checkInternet() {
-        boolean internet = Helper.isConnected(getContext());
+        boolean internet = Helper.suitableNetwork(getContext(), false);
 
         Boolean content = (Boolean) tvNoInternet.getTag();
         tvNoInternet.setVisibility(!internet && content != null && !content ? View.VISIBLE : View.GONE);

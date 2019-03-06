@@ -354,7 +354,7 @@
     <string name="title_no_saf">Storage access framework not available</string>
     <string name="title_no_stream">An outdated app sent a file path instead of a file stream</string>
     <string name="title_no_contacts">Contact picker not available</string>
-    <string name="title_no_internet">No internet connection</string>
+    <string name="title_no_internet">No or no suitable internet connection</string>
     <string name="title_no_folder">Folder does not exist</string>
     <string name="title_accross_remark">Messages moved across accounts will be downloaded again resulting in extra data usage</string>
     <string name="title_raw_saved">Raw message saved</string>

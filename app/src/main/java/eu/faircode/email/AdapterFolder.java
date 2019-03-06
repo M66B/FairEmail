@@ -285,7 +285,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         protected Void onExecute(Context context, Bundle args) {
                             long fid = args.getLong("folder");
 
-                            if (!Helper.isConnected(context))
+                            if (!Helper.suitableNetwork(context, false))
                                 throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
 
                             DB db = DB.getInstance(context);

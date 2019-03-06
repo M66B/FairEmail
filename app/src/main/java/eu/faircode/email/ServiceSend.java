@@ -137,14 +137,14 @@ public class ServiceSend extends LifecycleService {
         @Override
         public void onAvailable(Network network) {
             Log.i("Service send available=" + network);
-            if (Helper.isConnected(ServiceSend.this))
+            if (Helper.suitableNetwork(ServiceSend.this, false))
                 run();
         }
 
         @Override
         public void onCapabilitiesChanged(Network network, NetworkCapabilities caps) {
             Log.i("Service send caps=" + caps);
-            if (Helper.isConnected(ServiceSend.this))
+            if (Helper.suitableNetwork(ServiceSend.this, false))
                 run();
         }
 
@@ -210,7 +210,7 @@ public class ServiceSend extends LifecycleService {
                                     Log.i(outbox.name + " end op=" + op.id + "/" + op.name);
                                 }
 
-                                if (!Helper.isConnected(ServiceSend.this))
+                                if (!Helper.suitableNetwork(ServiceSend.this, false))
                                     break;
                             }
 

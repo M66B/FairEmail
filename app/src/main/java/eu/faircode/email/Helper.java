@@ -93,7 +93,6 @@ import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.Store;
 import javax.mail.internet.InternetAddress;
-import javax.net.ssl.SSLException;
 
 import androidx.annotation.NonNull;
 import androidx.browser.customtabs.CustomTabsIntent;
@@ -693,8 +692,14 @@ public class Helper {
         return filename.substring(index + 1);
     }
 
-    static boolean isConnected(Context context) {
-        return (isMetered(context, false) != null);
+    static boolean suitableNetwork(Context context, boolean log) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean metered = prefs.getBoolean("metered", true);
+        Boolean isMetered = isMetered(context, log);
+        boolean suitable = (isMetered != null && (metered || !isMetered));
+        if (log)
+            EntityLog.log(context, "suitable=" + suitable + " metered=" + metered + " isMetered=" + isMetered);
+        return suitable;
     }
 
     static Boolean isMetered(Context context, boolean log) {
