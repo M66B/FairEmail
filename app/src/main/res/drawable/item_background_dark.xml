@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@color/darkColorItemSelected" android:state_activated="true" />
-    <item android:drawable="@android:color/transparent" />
-</selector>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="?android:attr/selectableItemBackground" />
+    <item>
+        <selector>
+            <item
+                android:drawable="@color/darkColorItemSelected"
+                android:state_activated="true" />
+            <item android:drawable="@android:color/transparent" />
+        </selector>
+    </item>
+</layer-list>
