@@ -56,7 +56,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.text.HtmlCompat;
 
-import static androidx.core.text.HtmlCompat.FROM_HTML_MODE_COMPACT;
+import static androidx.core.text.HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM;
 import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
 
 public class HtmlHelper {
@@ -395,7 +395,7 @@ public class HtmlHelper {
     }
 
     static Spanned fromHtml(@NonNull String html, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
-        return HtmlCompat.fromHtml(html, FROM_HTML_MODE_COMPACT, imageGetter, tagHandler);
+        return HtmlCompat.fromHtml(html, FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM, imageGetter, null);
     }
 
     static String toHtml(Spanned spanned) {
