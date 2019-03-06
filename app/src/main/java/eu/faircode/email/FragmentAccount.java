@@ -896,7 +896,6 @@ public class FragmentAccount extends FragmentBase {
                                 inbox.synchronize = true;
                                 inbox.unified = true;
                                 inbox.notify = true;
-                                inbox.initialize = true;
                                 inbox.sync_days = EntityFolder.DEFAULT_SYNC;
                                 inbox.keep_days = EntityFolder.DEFAULT_KEEP;
                             }

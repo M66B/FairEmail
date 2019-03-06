@@ -295,6 +295,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
                                 if (EntityFolder.INBOX.equals(type)) {
                                     folder.unified = true;
+                                    folder.notify = true;
                                     inbox = true;
                                 }
                                 if (EntityFolder.DRAFTS.equals(type))
