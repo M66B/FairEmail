@@ -309,7 +309,7 @@
     <string name="title_no_saf">Framework de acceso a almacenamiento no disponible</string>
     <string name="title_no_stream">Una app obsoleta ha enviado la ruta a un archivo en lugar de una secuencia de archivos</string>
     <string name="title_no_contacts">Selector de contactos no disponible</string>
-    <string name="title_no_internet">No hay conexión a internet</string>
+    <string name="title_no_internet">No o ninguna conexión adecuada de Internet</string>
     <string name="title_no_folder">La carpeta no existe</string>
     <string name="title_accross_remark">Los mensajes movidos a otras cuentas serán descargados nuevamente causando uso adicional de datos</string>
     <string name="title_raw_saved">Mensaje raw guardado</string>

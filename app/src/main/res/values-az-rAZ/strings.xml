@@ -222,7 +222,6 @@
     <string name="title_no_saf">Anbar müraciət çərçivəsi mövcud deyil</string>
     <string name="title_no_stream">Köhnə bir tətbiq, fayl axını əvəzinə fayl yolu göndərdi</string>
     <string name="title_no_contacts">Şəxs seçici mövcud deyil</string>
-    <string name="title_no_internet">İnternet bağlantısı yoxdur</string>
     <string name="title_attachment_saved">Qoşma saxlanıldı</string>
     <string name="title_attachments_saved">Qoşma saxlanıldı</string>
     <string name="title_attachment_unavailable">Bəzi qoşmalar endirilmədi və əlavə edilməyəcək, davam edək?</string>

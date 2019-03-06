@@ -248,7 +248,6 @@
     <string name="title_no_saf">چارچوب دسترسی ذخیره سازی موجود نیست</string>
     <string name="title_no_stream">یک برنامه منسوخ مسیر فایل را به جای فایل ارسال کرده</string>
     <string name="title_no_contacts">جمع کننده مخاطبین در دسترس نیست</string>
-    <string name="title_no_internet">اتصال اینترنت برقرار نیست</string>
     <string name="title_no_folder">پوشه وجود ندارد</string>
     <string name="title_accross_remark">پیام‌های انتقال یافته میان حساب‌ها موجب دانلود مجدد خواهد شد و در نتیجه افزایش مصرف دیتا را در پی دارد</string>
     <string name="title_raw_saved">پیام خام ذخیره شد</string>

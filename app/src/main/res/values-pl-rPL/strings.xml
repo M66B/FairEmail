@@ -290,7 +290,6 @@
     <string name="title_no_answers">Brak zdefiniowanych szablonów odpowiedzi</string>
     <string name="title_no_viewer">Brak aplikacji do podglądu %1$s</string>
     <string name="title_no_saf">Brak dostępu do plików</string>
-    <string name="title_no_internet">Brak połączenia internetowego</string>
     <string name="title_no_folder">Folder nie istnieje</string>
     <string name="title_accross_remark">Wiadomości przenoszone pomiędzy kontami zostaną pobrane ponownie, wpływając na dodatkowe użycie danych</string>
     <string name="title_attachment_saved">Załącznik zapisany</string>

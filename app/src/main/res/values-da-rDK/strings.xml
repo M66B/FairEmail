@@ -135,7 +135,6 @@
     <string name="title_moving">Flytter til %1$s</string>
     <string name="title_open_with">Åbn med</string>
     <string name="title_no_viewer">Ingen viewer app til rådighed for %1$s</string>
-    <string name="title_no_internet">Ingen internetforbindelse</string>
     <string name="title_attachment_saved">Vedhæftet fil gemt</string>
     <string name="title_ask_delete">Slet meddelelsen permanent?</string>
     <string name="title_ask_discard">Kassér udkast?</string>

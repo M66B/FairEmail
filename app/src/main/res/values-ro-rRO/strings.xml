@@ -287,6 +287,7 @@
     <string name="title_forward">Redirecționează</string>
     <string name="title_create_rule">Creare regulă &#8230;</string>
     <string name="title_share">Partajează</string>
+    <string name="title_print">Tipărire</string>
     <string name="title_show_headers">Arată antetul</string>
     <string name="title_raw_download">Descarcă mesaj original</string>
     <string name="title_raw_save">Salvează mesaj original</string>
@@ -316,7 +317,6 @@
     <string name="title_no_saf">Nu se poate accesa stocarea locală</string>
     <string name="title_no_stream">O aplicație invechită a trimis calea fișierului în locul unui flux de date</string>
     <string name="title_no_contacts">Selectorul de contacte nu este disponibil</string>
-    <string name="title_no_internet">Nu există conexiune la internet</string>
     <string name="title_no_folder">Dosarul nu există</string>
     <string name="title_accross_remark">Mesajele mutate între conturi vor fi descărcate din nou consumând date în plus</string>
     <string name="title_raw_saved">Mesaj original salvat</string>

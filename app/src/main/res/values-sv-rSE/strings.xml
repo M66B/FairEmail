@@ -292,7 +292,6 @@
     <string name="title_no_saf">Ramverk för lagringstillträde är inte tillgängligt</string>
     <string name="title_no_stream">En föråldrad app skickade en sökväg istället för en filström</string>
     <string name="title_no_contacts">Kontaktväljaren är inte tillgänglig</string>
-    <string name="title_no_internet">Ingen internetanslutning</string>
     <string name="title_no_folder">Mappen finns inte</string>
     <string name="title_accross_remark">Meddelanden flyttade över konton kommer att hämtas igen och orsakar extra dataanvändning</string>
     <string name="title_attachment_saved">Bilaga sparad</string>

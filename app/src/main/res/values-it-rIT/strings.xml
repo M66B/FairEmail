@@ -309,7 +309,6 @@
     <string name="title_no_saf">Storage access framework non disponibile</string>
     <string name="title_no_stream">Un\'app obsoleta ha inviato un percorso file invece di un flusso di file</string>
     <string name="title_no_contacts">Selettore di contatti non disponibile</string>
-    <string name="title_no_internet">Nessuna connessione Internet</string>
     <string name="title_no_folder">La cartella non esiste</string>
     <string name="title_accross_remark">I messaggi spostati tra gli account verranno scaricati di nuovo causando un ulteriore utilizzo dei dati</string>
     <string name="title_raw_saved">Messaggio non elaborato salvato</string>

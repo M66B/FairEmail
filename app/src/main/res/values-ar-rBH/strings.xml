@@ -225,7 +225,6 @@
     <string name="title_moving">جارٍ النقل إلى %1$s</string>
     <string name="title_open_with">افتح باستخدام</string>
     <string name="title_no_viewer">لا يوجد عارض التطبيق متاح ل %1$s</string>
-    <string name="title_no_internet">لا يوجد اتصال بالإنترنت</string>
     <string name="title_no_folder">المجلد غير موجود</string>
     <string name="title_accross_remark">سوف يتم تنزيل الرسائل المنقولة بين الحسابات مرة أخرى و قد يكلف ذلك استخداما في حجم البيانات</string>
     <string name="title_attachment_saved">حفظ المرفقات</string>

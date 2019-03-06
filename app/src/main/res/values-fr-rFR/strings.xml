@@ -309,7 +309,7 @@
     <string name="title_no_saf">Programme d\'accès au stockage non disponible</string>
     <string name="title_no_stream">Une application obsolète a envoyé un chemin d\'accès au lieu d\'un flux de fichier</string>
     <string name="title_no_contacts">Sélecteur de contact non disponible</string>
-    <string name="title_no_internet">Pas de connexion Internet</string>
+    <string name="title_no_internet">Pas ou pas de connexion internet appropriée</string>
     <string name="title_no_folder">Le dossier n\'existe pas</string>
     <string name="title_accross_remark">Les messages déplacés entre comptes seront téléchargés à nouveau entraînant une utilisation supplémentaire des données</string>
     <string name="title_raw_saved">Message brut enregistré</string>

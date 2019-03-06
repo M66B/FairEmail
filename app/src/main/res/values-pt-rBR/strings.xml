@@ -309,7 +309,7 @@
     <string name="title_no_saf">Storage access framework não disponivel</string>
     <string name="title_no_stream">Um aplicativo desatualizado enviou um caminho de arquivo em vez de um fluxo de arquivo</string>
     <string name="title_no_contacts">Seletor de contato não está disponível</string>
-    <string name="title_no_internet">Sem conexão com a internet</string>
+    <string name="title_no_internet">Não ou nenhuma conexão de internet adequada</string>
     <string name="title_no_folder">A pasta não existe</string>
     <string name="title_accross_remark">Mensagens movidas entre contas serão baixadas novamente, resultando em uso extra de dados</string>
     <string name="title_raw_saved">Mensagem bruta salva</string>
