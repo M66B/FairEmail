@@ -279,6 +279,7 @@
     <string name="title_forward">Inoltra</string>
     <string name="title_create_rule">Crea regola &#8230;</string>
     <string name="title_share">Condividi</string>
+    <string name="title_print">Stampa</string>
     <string name="title_show_headers">Visualizza header</string>
     <string name="title_raw_download">Scarica messaggio non elaborato</string>
     <string name="title_raw_save">Salva messaggio non elaborato</string>
@@ -366,6 +367,7 @@
     <string name="title_sort_on_unread">Non letti</string>
     <string name="title_sort_on_starred">Stellati</string>
     <string name="title_sort_on_sender">Mittente</string>
+    <string name="title_sort_on_subject">Soggetto</string>
     <string name="title_compact">Vista compatta</string>
     <string name="title_zoom">Dimensione testo</string>
     <string name="title_address_sent">Inviati:</string>

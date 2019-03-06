@@ -279,6 +279,7 @@
     <string name="title_forward">Transférer</string>
     <string name="title_create_rule">Créer la règle &#8230;</string>
     <string name="title_share">Partager</string>
+    <string name="title_print">Imprimer</string>
     <string name="title_show_headers">Afficher les en-têtes</string>
     <string name="title_raw_download">Télécharger le message brut</string>
     <string name="title_raw_save">Sauvegarder le message brut</string>

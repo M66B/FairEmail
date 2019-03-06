@@ -279,6 +279,7 @@
     <string name="title_forward">Reenviar</string>
     <string name="title_create_rule">Crear regla &#8230;</string>
     <string name="title_share">Compartir</string>
+    <string name="title_print">Imprimir</string>
     <string name="title_show_headers">Mostrar encabezados</string>
     <string name="title_raw_download">Descargar mensaje raw</string>
     <string name="title_raw_save">Guardar mensaje raw</string>
@@ -366,6 +367,7 @@
     <string name="title_sort_on_unread">No leído</string>
     <string name="title_sort_on_starred">Destacado</string>
     <string name="title_sort_on_sender">Remitente</string>
+    <string name="title_sort_on_subject">Asunto</string>
     <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Tamaño del texto</string>
     <string name="title_address_sent">Enviado/s:</string>
