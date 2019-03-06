@@ -29,43 +29,17 @@ import android.service.quicksettings.TileService;
 
 import java.util.List;
 
-import androidx.lifecycle.LifecycleService;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 
 @TargetApi(Build.VERSION_CODES.N)
 public class ServiceTileUnseen extends TileService {
-    private LifecycleService owner = new LifecycleService();
-    private LiveData<List<TupleMessageEx>> liveMessages;
+    private TwoStateOwner owner = new TwoStateOwner();
 
     @Override
     public void onCreate() {
-        owner.onCreate();
         super.onCreate();
-    }
 
-    @Override
-    public IBinder onBind(Intent intent) {
-        owner.onBind(intent);
-        return super.onBind(intent);
-    }
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        owner.onStartCommand(intent, flags, startId);
-        return super.onStartCommand(intent, flags, startId);
-    }
-
-    @Override
-    public void onDestroy() {
-        owner.onDestroy();
-        super.onDestroy();
-    }
-
-    public void onStartListening() {
-        Log.i("Start tile unseen");
-        liveMessages = DB.getInstance(this).message().liveUnseenNotify();
-        liveMessages.observe(owner, new Observer<List<TupleMessageEx>>() {
+        DB.getInstance(this).message().liveUnseenNotify().observe(owner, new Observer<List<TupleMessageEx>>() {
             @Override
             public void onChanged(List<TupleMessageEx> messages) {
                 Log.i("Update tile unseen=" + messages.size());
@@ -83,18 +57,35 @@ public class ServiceTileUnseen extends TileService {
         });
     }
 
+    @Override
+    public IBinder onBind(Intent intent) {
+        return super.onBind(intent);
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        return super.onStartCommand(intent, flags, startId);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    public void onStartListening() {
+        Log.i("Start tile unseen");
+        owner.start();
+    }
+
     public void onStopListening() {
         Log.i("Stop tile unseen");
-        if (liveMessages != null) {
-            liveMessages.removeObservers(owner);
-            liveMessages = null;
-        }
+        owner.stop();
     }
 
     public void onClick() {
         Log.i("Click tile unseen");
 
-        Intent clear = new Intent(this, ServiceSynchronize.class);
+        Intent clear = new Intent(this, ServiceUI.class);
         clear.setAction("clear");
         startService(clear);
     }
