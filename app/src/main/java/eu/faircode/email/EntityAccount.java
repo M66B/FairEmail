@@ -96,7 +96,7 @@ public class EntityAccount implements Serializable {
     }
 
     static String getNotificationChannelName(long account) {
-        return "notification." + account;
+        return "notification" + (account == 0 ? "" : "." + account);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

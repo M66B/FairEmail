@@ -14,7 +14,6 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.LongSparseArray;
 
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.iap.Response;
@@ -1449,43 +1448,43 @@ class Core {
 
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        LongSparseArray<List<Long>> notifying = new LongSparseArray<>();
-        LongSparseArray<String> accountName = new LongSparseArray<>();
-        LongSparseArray<List<TupleMessageEx>> accountMessages = new LongSparseArray<>();
+        Map<String, List<Long>> notifying = new HashMap<>();
+        Map<String, String> channelSubTitle = new HashMap<>();
+        Map<String, List<TupleMessageEx>> channelMessages = new HashMap<>();
 
         // Previous
         for (String key : prefs.getAll().keySet())
             if (key.startsWith("notifying:")) {
-                long account = Long.parseLong(key.split(":")[1]);
-                notifying.put(account, new ArrayList<Long>());
+                String channelName = key.split(":")[1];
+                notifying.put(channelName, new ArrayList<Long>());
 
                 for (String id : prefs.getString(key, null).split(","))
-                    notifying.get(account).add(Long.parseLong(id));
+                    notifying.get(channelName).add(Long.parseLong(id));
 
                 editor.remove(key);
             }
 
         // Current
         for (TupleMessageEx message : messages) {
-            long account = (message.accountNotify ? message.account : 0);
-            accountName.put(account, account > 0 ? message.accountName : null);
-            if (accountMessages.indexOfKey(account) < 0) {
-                accountMessages.put(account, new ArrayList<TupleMessageEx>());
-                if (notifying.indexOfKey(account) < 0)
-                    notifying.put(account, new ArrayList<Long>());
+            String channelName = EntityAccount.getNotificationChannelName(message.accountNotify ? message.account : 0);
+            String subTitle = (message.accountNotify ? message.accountName : null);
+            channelSubTitle.put(channelName, subTitle);
+            if (!channelMessages.containsKey(channelName)) {
+                channelMessages.put(channelName, new ArrayList<TupleMessageEx>());
+                if (!notifying.containsKey(channelName))
+                    notifying.put(channelName, new ArrayList<Long>());
             }
-            accountMessages.get(account).add(message);
+            channelMessages.get(channelName).add(message);
         }
 
         // Difference
-        for (int i = 0; i < notifying.size(); i++) {
-            long account = notifying.keyAt(i);
+        for (String channelName : notifying.keySet()) {
             List<Notification> notifications = getNotificationUnseen(
-                    context, account, accountName.get(account), accountMessages.get(account));
+                    context, channelName, channelSubTitle.get(channelName), channelMessages.get(channelName));
 
             List<String> all = new ArrayList<>();
             List<Long> add = new ArrayList<>();
-            List<Long> remove = notifying.get(account);
+            List<Long> remove = notifying.get(channelName);
             for (Notification notification : notifications) {
                 Long id = notification.extras.getLong("id", 0);
                 if (id != 0) {
@@ -1506,24 +1505,24 @@ class Core {
                 if (id < 0)
                     headers++;
 
-            Log.i("Notify account=" + account + " count=" + notifications.size() +
+            Log.i("Notify channel=" + channelName + " count=" + notifications.size() +
                     " added=" + add.size() + " removed=" + remove.size() + " headers=" + headers);
 
             if (notifications.size() == 0 ||
                     (Build.VERSION.SDK_INT < Build.VERSION_CODES.O && headers > 0))
-                nm.cancel("unseen:" + account + ":0", 1);
+                nm.cancel("unseen:0", 1);
 
             for (Long id : remove)
-                nm.cancel("unseen:" + account + ":" + Math.abs(id), 1);
+                nm.cancel("unseen:" + Math.abs(id), 1);
 
             for (Notification notification : notifications) {
                 long id = notification.extras.getLong("id", 0);
                 if ((id == 0 && add.size() + remove.size() > 0) || add.contains(id))
-                    nm.notify("unseen:" + account + ":" + Math.abs(id), 1, notification);
+                    nm.notify("unseen:" + Math.abs(id), 1, notification);
             }
 
             if (all.size() > 0)
-                editor.putString("notifying:" + account, TextUtils.join(",", all));
+                editor.putString("notifying:" + channelName, TextUtils.join(",", all));
         }
 
         editor.apply();
@@ -1531,7 +1530,7 @@ class Core {
 
     private static List<Notification> getNotificationUnseen(
             Context context,
-            long account, String accountName,
+            String channelName, String subTitle,
             List<TupleMessageEx> messages) {
         List<Notification> notifications = new ArrayList<>();
 
@@ -1542,7 +1541,7 @@ class Core {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         // https://developer.android.com/training/notify-user/group
-        String group = Long.toString(account);
+        String group = channelName;
 
         String title = context.getResources().getQuantityString(
                 R.plurals.title_notification_unseen, messages.size(), messages.size());
@@ -1561,8 +1560,6 @@ class Core {
         clear.setAction("clear");
         PendingIntent piClear = PendingIntent.getService(context, ServiceUI.PI_CLEAR, clear, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        String channelName = (account == 0 ? "notification" : EntityAccount.getNotificationChannelName(account));
-
         // Build public notification
         NotificationCompat.Builder pbuilder = new NotificationCompat.Builder(context, channelName);
 
@@ -1577,8 +1574,8 @@ class Core {
                 .setCategory(Notification.CATEGORY_STATUS)
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
 
-        if (!TextUtils.isEmpty(accountName))
-            pbuilder.setSubText(accountName);
+        if (!TextUtils.isEmpty(subTitle))
+            pbuilder.setSubText(subTitle);
 
         // Build notification
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelName);
@@ -1597,8 +1594,8 @@ class Core {
                 .setGroup(group)
                 .setGroupSummary(true);
 
-        if (!TextUtils.isEmpty(accountName))
-            builder.setSubText(accountName);
+        if (!TextUtils.isEmpty(subTitle))
+            builder.setSubText(subTitle);
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
             boolean light = prefs.getBoolean("light", false);
@@ -1641,7 +1638,6 @@ class Core {
 
             Bundle args = new Bundle();
             args.putLong("id", message.content ? message.id : -message.id);
-            args.putLong("account", message.accountNotify ? message.account : 0);
 
             Intent thread = new Intent(context, ActivityView.class);
             thread.setAction("thread:" + message.thread);
