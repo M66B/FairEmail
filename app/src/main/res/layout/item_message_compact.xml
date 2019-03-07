@@ -358,6 +358,16 @@
             android:layout_marginEnd="6dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:src="@drawable/baseline_search_24"
+            app:layout_constraintEnd_toStartOf="@+id/ivNotifyContact"
+            app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress" />
+
+        <ImageView
+            android:id="@+id/ivNotifyContact"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:layout_marginEnd="6dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/baseline_notifications_24"
             app:layout_constraintEnd_toStartOf="@+id/ivAddContact"
             app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress" />
 

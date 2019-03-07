@@ -21,6 +21,9 @@ package eu.faircode.email;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.ComponentName;
 import android.content.ContentResolver;
@@ -36,12 +39,14 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
 import android.print.PrintManager;
 import android.provider.ContactsContract;
+import android.provider.Settings;
 import android.text.Editable;
 import android.text.Html;
 import android.text.Layout;
@@ -195,6 +200,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageView ivExpanderAddress;
         private TextView tvFromEx;
         private ImageView ivSearchContact;
+        private ImageView ivNotifyContact;
         private ImageView ivAddContact;
         private TextView tvTo;
         private TextView tvReplyTo;
@@ -270,6 +276,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivExpanderAddress = itemView.findViewById(R.id.ivExpanderAddress);
             tvFromEx = itemView.findViewById(R.id.tvFromEx);
             ivSearchContact = itemView.findViewById(R.id.ivSearchContact);
+            ivNotifyContact = itemView.findViewById(R.id.ivNotifyContact);
             ivAddContact = itemView.findViewById(R.id.ivAddContact);
             tvTo = itemView.findViewById(R.id.tvTo);
             tvReplyTo = itemView.findViewById(R.id.tvReplyTo);
@@ -363,6 +370,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ivExpanderAddress.setOnClickListener(this);
             ivSearchContact.setOnClickListener(this);
+            ivNotifyContact.setOnClickListener(this);
             ivAddContact.setOnClickListener(this);
 
             btnDownloadAttachments.setOnClickListener(this);
@@ -385,6 +393,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivFlagged.setOnClickListener(null);
             ivExpanderAddress.setOnClickListener(null);
             ivSearchContact.setOnClickListener(null);
+            ivNotifyContact.setOnClickListener(null);
             ivAddContact.setOnClickListener(null);
             btnDownloadAttachments.setOnClickListener(null);
             btnSaveAttachments.setOnClickListener(null);
@@ -440,6 +449,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpDay.setVisibility(View.GONE);
             grpAddress.setVisibility(View.GONE);
             ivSearchContact.setVisibility(View.GONE);
+            ivNotifyContact.setVisibility(View.GONE);
             ivAddContact.setVisibility(View.GONE);
             grpHeaders.setVisibility(View.GONE);
             grpAttachments.setVisibility(View.GONE);
@@ -678,6 +688,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpExpanded.setVisibility(View.GONE);
 
             ivSearchContact.setVisibility(View.GONE);
+            ivNotifyContact.setVisibility(View.GONE);
             ivAddContact.setVisibility(View.GONE);
             tvFlags.setVisibility(View.GONE);
             tvKeywords.setVisibility(View.GONE);
@@ -723,9 +734,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             grpExpanded.setVisibility(View.VISIBLE);
 
+            boolean from = (message.from != null && message.from.length > 0);
+            boolean channel = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
             grpAddress.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
             ivSearchContact.setVisibility(show_addresses && search && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
-            ivAddContact.setVisibility(show_addresses && contacts && message.from != null && message.from.length > 0 ? View.VISIBLE : View.GONE);
+            ivNotifyContact.setVisibility(show_addresses && channel && from ? View.VISIBLE : View.GONE);
+            ivAddContact.setVisibility(show_addresses && contacts && from ? View.VISIBLE : View.GONE);
 
             grpHeaders.setVisibility(show_headers ? View.VISIBLE : View.GONE);
             if (show_headers && message.headers == null) {
@@ -980,6 +994,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 onToggleFlag(message);
             else if (view.getId() == R.id.ivSearchContact)
                 onSearchContact(message);
+            else if (view.getId() == R.id.ivNotifyContact)
+                onNotifyContact(message);
             else if (view.getId() == R.id.ivAddContact)
                 onAddContact(message);
             else if (viewType == ViewType.THREAD) {
@@ -1117,6 +1133,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Helper.unexpectedError(context, owner, ex);
                 }
             }.execute(context, owner, args, "message:search");
+        }
+
+        @TargetApi(Build.VERSION_CODES.O)
+        private void onNotifyContact(TupleMessageEx message) {
+            NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+            InternetAddress from = (InternetAddress) message.from[0];
+            String channelName = "notification." + from.getAddress().toLowerCase();
+
+            NotificationChannel channel = new NotificationChannel(
+                    channelName, from.getAddress(),
+                    NotificationManager.IMPORTANCE_HIGH);
+            channel.setDescription(from.getPersonal());
+            channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+            nm.createNotificationChannel(channel);
+
+            Intent intent = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
+                    .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName())
+                    .putExtra(Settings.EXTRA_CHANNEL_ID, channelName);
+            context.startActivity(intent);
         }
 
         private void onAddContact(TupleMessageEx message) {

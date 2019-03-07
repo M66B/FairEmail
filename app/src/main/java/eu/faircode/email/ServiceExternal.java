@@ -1,6 +1,5 @@
 package eu.faircode.email;
 
-import android.app.Notification;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -69,8 +68,8 @@ public class ServiceExternal extends Service {
                 .setContentTitle(getString(R.string.tile_synchronize))
                 .setAutoCancel(false)
                 .setShowWhen(false)
-                .setPriority(Notification.PRIORITY_MIN)
-                .setCategory(Notification.CATEGORY_STATUS)
+                .setPriority(NotificationCompat.PRIORITY_MIN)
+                .setCategory(NotificationCompat.CATEGORY_STATUS)
                 .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
         return builder;

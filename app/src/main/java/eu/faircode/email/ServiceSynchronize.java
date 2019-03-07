@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.app.AlarmManager;
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -227,8 +226,8 @@ public class ServiceSynchronize extends LifecycleService {
                 .setContentIntent(pi)
                 .setAutoCancel(false)
                 .setShowWhen(false)
-                .setPriority(Notification.PRIORITY_MIN)
-                .setCategory(Notification.CATEGORY_STATUS)
+                .setPriority(NotificationCompat.PRIORITY_MIN)
+                .setCategory(NotificationCompat.CATEGORY_STATUS)
                 .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
         if (lastStats.operations > 0)
