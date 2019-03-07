@@ -503,22 +503,23 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Duplicate
             if (viewType == ViewType.THREAD) {
-                ivFlagged.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
-                ivAvatar.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
-                tvFrom.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
-                tvSize.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
-                tvTime.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
-                ivDraft.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
-                ivSnoozed.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
-                ivBrowsed.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
-                ivAnswered.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
-                ivAttachments.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
-                tvSubject.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
-                tvFolder.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
-                tvCount.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
-                ivThread.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
-                tvPreview.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
-                tvError.setAlpha(message.duplicate ? Helper.LOW_LIGHT : 1.0f);
+                boolean dim = (message.duplicate || EntityFolder.TRASH.equals(message.folderType));
+                ivFlagged.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ivAvatar.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                tvFrom.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                tvSize.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                tvTime.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ivDraft.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ivSnoozed.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ivBrowsed.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ivAnswered.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ivAttachments.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                tvSubject.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                tvFolder.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                tvCount.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ivThread.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                tvPreview.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                tvError.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
             }
 
             // Unseen
