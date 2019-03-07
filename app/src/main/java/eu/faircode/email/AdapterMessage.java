@@ -174,7 +174,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private static DateFormat dtf = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
-            View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
+            View.OnClickListener, View.OnLongClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
         private View itemView;
         private TextView tvDay;
         private View vwColor;
@@ -371,6 +371,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivExpanderAddress.setOnClickListener(this);
             ivSearchContact.setOnClickListener(this);
             ivNotifyContact.setOnClickListener(this);
+            ivNotifyContact.setOnLongClickListener(this);
             ivAddContact.setOnClickListener(this);
 
             btnDownloadAttachments.setOnClickListener(this);
@@ -394,6 +395,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivExpanderAddress.setOnClickListener(null);
             ivSearchContact.setOnClickListener(null);
             ivNotifyContact.setOnClickListener(null);
+            ivNotifyContact.setOnLongClickListener(null);
             ivAddContact.setOnClickListener(null);
             btnDownloadAttachments.setOnClickListener(null);
             btnSaveAttachments.setOnClickListener(null);
@@ -1032,6 +1034,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
+        @Override
+        public boolean onLongClick(View v) {
+            TupleMessageEx message = getMessage();
+            if (message == null)
+                return false;
+
+            onNotifyContactDelete(message);
+            return true;
+        }
+
         private void onShowSnoozed(TupleMessageEx message) {
             if (message.ui_snoozed != null) {
                 DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
@@ -1154,6 +1166,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName())
                     .putExtra(Settings.EXTRA_CHANNEL_ID, channelName);
             context.startActivity(intent);
+        }
+
+        @TargetApi(Build.VERSION_CODES.O)
+        private void onNotifyContactDelete(TupleMessageEx message) {
+            NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+            InternetAddress from = (InternetAddress) message.from[0];
+            String channelName = "notification." + from.getAddress().toLowerCase();
+            nm.deleteNotificationChannel(channelName);
         }
 
         private void onAddContact(TupleMessageEx message) {
