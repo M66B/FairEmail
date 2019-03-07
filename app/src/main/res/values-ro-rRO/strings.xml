@@ -317,6 +317,7 @@
     <string name="title_no_saf">Nu se poate accesa stocarea locală</string>
     <string name="title_no_stream">O aplicație invechită a trimis calea fișierului în locul unui flux de date</string>
     <string name="title_no_contacts">Selectorul de contacte nu este disponibil</string>
+    <string name="title_no_internet">Nu există o conexiune viabilă la Internet</string>
     <string name="title_no_folder">Dosarul nu există</string>
     <string name="title_accross_remark">Mesajele mutate între conturi vor fi descărcate din nou consumând date în plus</string>
     <string name="title_raw_saved">Mesaj original salvat</string>
