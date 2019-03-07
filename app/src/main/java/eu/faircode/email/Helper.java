@@ -838,16 +838,7 @@ public class Helper {
     }
 
     static boolean isPlayStoreInstall(Context context) {
-        if (BuildConfig.PLAY_STORE_RELEASE)
-            return true;
-        if (false && BuildConfig.DEBUG)
-            return true;
-        try {
-            return "com.android.vending".equals(context.getPackageManager().getInstallerPackageName(context.getPackageName()));
-        } catch (Throwable ex) {
-            Log.e(ex);
-            return false;
-        }
+        return BuildConfig.PLAY_STORE_RELEASE;
     }
 
     static String sha256(String data) throws NoSuchAlgorithmException {
