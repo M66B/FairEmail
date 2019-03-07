@@ -31,6 +31,7 @@ For authorizing:
 * ~~Synchronize on demand (manual)~~
 * ~~Semi-automatic encryption~~
 * ~~Copy message~~
+* [Aztec](https://github.com/wordpress-mobile/AztecEditor-Android)
 
 Anything on this list is in random order and *might* be added in the near future.
 
