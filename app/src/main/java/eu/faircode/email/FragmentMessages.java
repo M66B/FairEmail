@@ -172,6 +172,18 @@ public class FragmentMessages extends FragmentBase {
     private static final int UNDO_TIMEOUT = 5000; // milliseconds
     private static final int SWIPE_DISABLE_SELECT_DURATION = 1500; // milliseconds
 
+    private static final List<String> DUPLICATE_ORDER = Arrays.asList(
+            EntityFolder.INBOX,
+            EntityFolder.OUTBOX,
+            EntityFolder.DRAFTS,
+            EntityFolder.SENT,
+            EntityFolder.TRASH,
+            EntityFolder.JUNK,
+            EntityFolder.SYSTEM,
+            EntityFolder.USER,
+            EntityFolder.ARCHIVE
+    );
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -2025,22 +2037,10 @@ public class FragmentMessages extends FragmentBase {
                     List<TupleMessageEx> dups = duplicates.get(msgid);
                     if (dups.size() > 1) {
                         Collections.sort(dups, new Comparator<TupleMessageEx>() {
-                            final List<String> ORDER = Arrays.asList(
-                                    EntityFolder.INBOX,
-                                    EntityFolder.OUTBOX,
-                                    EntityFolder.DRAFTS,
-                                    EntityFolder.SENT,
-                                    EntityFolder.TRASH,
-                                    EntityFolder.JUNK,
-                                    EntityFolder.SYSTEM,
-                                    EntityFolder.USER,
-                                    EntityFolder.ARCHIVE
-                            );
-
                             @Override
                             public int compare(TupleMessageEx d1, TupleMessageEx d2) {
-                                int o1 = ORDER.indexOf(d1.folderType);
-                                int o2 = ORDER.indexOf(d2.folderType);
+                                int o1 = DUPLICATE_ORDER.indexOf(d1.folderType);
+                                int o2 = DUPLICATE_ORDER.indexOf(d2.folderType);
                                 return ((Integer) o1).compareTo(o2);
                             }
                         });
