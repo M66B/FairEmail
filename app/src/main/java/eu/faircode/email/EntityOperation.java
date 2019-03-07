@@ -108,6 +108,8 @@ public class EntityOperation {
                 // Parameters:
                 // 0: target folder id
                 // 1: allow auto read
+                // 2: temporary target message id
+                // 3: wait operation id
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean autoread = prefs.getBoolean("autoread", false);
@@ -132,11 +134,12 @@ public class EntityOperation {
 
                 // Create copy without uid in target folder
                 // Message with same msgid can be in archive
-                Long newid = null;
+                Long tmpid = null;
                 if (message.uid != null &&
                         target.synchronize &&
                         message.received > cal_keep.getTimeInMillis() &&
                         db.message().countMessageByMsgId(target.id, message.msgid) == 0) {
+                    // Copy message to target folder
                     long id = message.id;
                     long uid = message.uid;
                     boolean seen = message.seen;
@@ -149,9 +152,8 @@ public class EntityOperation {
                         message.seen = true;
                         message.ui_seen = true;
                     }
-                    newid = db.message().insertMessage(message);
-                    message.id = newid;
-                    queue(context, db, message, WAIT);
+                    tmpid = db.message().insertMessage(message);
+
                     message.id = id;
                     message.account = source.account;
                     message.folder = source.id;
@@ -163,33 +165,48 @@ public class EntityOperation {
                         try {
                             Helper.copy(
                                     EntityMessage.getFile(context, id),
-                                    EntityMessage.getFile(context, newid));
+                                    EntityMessage.getFile(context, tmpid));
                         } catch (IOException ex) {
                             Log.e(ex);
-                            db.message().setMessageContent(newid, false, null, null);
+                            db.message().setMessageContent(tmpid, false, null, null);
                         }
 
-                    EntityAttachment.copy(context, db, message.id, newid);
-
-                    // Store new id for when source message was deleted
-                    jargs.put(2, newid);
+                    EntityAttachment.copy(context, db, message.id, tmpid);
                 }
 
                 // Cross account move
-                if (!source.account.equals(target.account))
+                if (source.account.equals(target.account)) {
+                    jargs.put(2, tmpid);
+
+                    // Block operations until message is moved
+                    JSONArray wargs = new JSONArray();
+                    wargs.put(source.id);
+                    wargs.put(message.id);
+
+                    EntityOperation wait = new EntityOperation();
+                    wait.folder = target.id;
+                    wait.message = tmpid;
+                    wait.name = EntityOperation.WAIT;
+                    wait.args = wargs.toString();
+                    wait.created = new Date().getTime();
+                    wait.id = db.operation().insertOperation(wait);
+
+                    jargs.put(3, wait.id);
+                } else {
                     if (message.raw != null && message.raw) {
                         name = ADD;
                         folder = target.id;
                         jargs = new JSONArray();
-                        jargs.put(0, newid); // Can be null
+                        jargs.put(0, tmpid); // Can be null
                         jargs.put(1, autoread);
                     } else {
                         name = RAW;
                         jargs = new JSONArray();
-                        jargs.put(0, newid); // Can be null
+                        jargs.put(0, tmpid); // Can be null
                         jargs.put(1, autoread);
                         jargs.put(2, target.id);
                     }
+                }
 
             } else if (DELETE.equals(name))
                 db.message().setMessageUiHide(message.id, true);

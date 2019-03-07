@@ -481,8 +481,10 @@ class Core {
 
         boolean autoread = (jargs.length() > 1 && jargs.getBoolean(1));
 
-        boolean canMove = istore.hasCapability("MOVE");
-        if (!copy && canMove &&
+        long uid;
+        if (!copy &&
+                istore.hasCapability("MOVE") &&
+                istore.hasCapability("UIDPLUS") &&
                 !EntityFolder.DRAFTS.equals(folder.type) &&
                 !EntityFolder.DRAFTS.equals(target.type)) {
             // Autoread
@@ -490,12 +492,14 @@ class Core {
                 if (autoread && !imessage.isSet(Flags.Flag.SEEN))
                     imessage.setFlag(Flags.Flag.SEEN, true);
 
-            // Move message to
-            ifolder.moveMessages(new Message[]{imessage}, itarget);
+            // Move message to target folder
+            AppendUID[] uids = ifolder.moveUIDMessages(new Message[]{imessage}, itarget);
+            if (uids == null || uids.length == 0)
+                throw new MessageRemovedException("Message not moved");
+            uid = uids[0].uid;
         } else {
             if (!copy)
-                Log.w(folder.name + " MOVE by DELETE/APPEND" +
-                        " cap=" + canMove + " from=" + folder.type + " to=" + target.type);
+                Log.w(folder.name + " MOVE by DELETE/APPEND");
 
             // Serialize source message
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -532,42 +536,63 @@ class Core {
                         icopy.setFlag(Flags.Flag.DRAFT, true);
 
                 // Append target
-                long uid = append(istore, itarget, (MimeMessage) icopy);
-                Log.i(target.name + " appended id=" + message.id + " uid=" + uid);
+                uid = append(istore, itarget, (MimeMessage) icopy);
 
-                // Fixed timing issue of at least Courier based servers
-                itarget.close(false);
-                itarget.open(Folder.READ_WRITE);
+                try {
+                    // Fixed timing issue of at least Courier based servers
+                    itarget.close(false);
+                    itarget.open(Folder.READ_WRITE);
 
-                // Some providers, like Gmail, don't honor the appended seen flag
-                if (itarget.getPermanentFlags().contains(Flags.Flag.SEEN)) {
-                    boolean seen = (autoread || message.ui_seen);
-                    icopy = itarget.getMessageByUID(uid);
-                    if (seen != icopy.isSet(Flags.Flag.SEEN)) {
-                        Log.i(target.name + " Fixing id=" + message.id + " seen=" + seen);
-                        icopy.setFlag(Flags.Flag.SEEN, seen);
+                    // Some providers, like Gmail, don't honor the appended seen flag
+                    if (itarget.getPermanentFlags().contains(Flags.Flag.SEEN)) {
+                        boolean seen = (autoread || message.ui_seen);
+                        icopy = itarget.getMessageByUID(uid);
+                        if (seen != icopy.isSet(Flags.Flag.SEEN)) {
+                            Log.i(target.name + " Fixing id=" + message.id + " seen=" + seen);
+                            icopy.setFlag(Flags.Flag.SEEN, seen);
+                        }
                     }
-                }
 
-                // This is not based on an actual case, so this is just a safeguard
-                if (itarget.getPermanentFlags().contains(Flags.Flag.DRAFT)) {
-                    boolean draft = EntityFolder.DRAFTS.equals(target.type);
-                    icopy = itarget.getMessageByUID(uid);
-                    if (draft != icopy.isSet(Flags.Flag.DRAFT)) {
-                        Log.i(target.name + " Fixing id=" + message.id + " draft=" + draft);
-                        icopy.setFlag(Flags.Flag.DRAFT, draft);
+                    // This is not based on an actual case, so this is just a safeguard
+                    if (itarget.getPermanentFlags().contains(Flags.Flag.DRAFT)) {
+                        boolean draft = EntityFolder.DRAFTS.equals(target.type);
+                        icopy = itarget.getMessageByUID(uid);
+                        if (draft != icopy.isSet(Flags.Flag.DRAFT)) {
+                            Log.i(target.name + " Fixing id=" + message.id + " draft=" + draft);
+                            icopy.setFlag(Flags.Flag.DRAFT, draft);
+                        }
                     }
-                }
 
-                // Delete source
-                if (!copy) {
-                    imessage.setFlag(Flags.Flag.DELETED, true);
-                    ifolder.expunge();
+                    // Delete source
+                    if (!copy) {
+                        imessage.setFlag(Flags.Flag.DELETED, true);
+                        ifolder.expunge();
+                    }
+                } catch (MessageRemovedException ignored) {
+                } catch (Throwable ex) {
+                    Log.w(ex);
                 }
-            } catch (Throwable ex) {
+            } finally {
                 if (itarget.isOpen())
                     itarget.close();
-                throw ex;
+            }
+        }
+
+        Log.i(folder.name + " moved uid=" + uid);
+        if (jargs.length() > 2) {
+            long tmpid = jargs.getLong(2);
+            try {
+                db.beginTransaction();
+                db.message().setMessageUid(tmpid, uid);
+                int waits = -1;
+                if (jargs.length() > 3) {
+                    long waitid = jargs.getLong(3);
+                    waits = db.operation().deleteOperation(waitid);
+                }
+                db.setTransactionSuccessful();
+                Log.i(folder.name + " set id=" + tmpid + " uid=" + uid + " waits=" + waits);
+            } finally {
+                db.endTransaction();
             }
         }
     }
@@ -1293,10 +1318,6 @@ class Core {
                 db.message().updateMessage(message);
             else if (BuildConfig.DEBUG)
                 Log.i(folder.name + " unchanged uid=" + uid);
-
-            int wait = db.operation().deleteOperationWait(message.id);
-            if (wait > 0)
-                Log.i(folder.name + " deleted wait id=" + message.id);
         }
 
         if (!folder.isOutgoing() && !EntityFolder.ARCHIVE.equals(folder.type)) {
