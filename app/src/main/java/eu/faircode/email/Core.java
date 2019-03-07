@@ -578,7 +578,7 @@ class Core {
         }
 
         Log.i(folder.name + " moved uid=" + uid);
-        if (jargs.length() > 2) {
+        if (jargs.length() > 2 && !jargs.isNull(2)) {
             long tmpid = jargs.getLong(2);
             try {
                 db.beginTransaction();
