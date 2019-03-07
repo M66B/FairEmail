@@ -11,7 +11,8 @@
         android:background="?attr/drawableItemBackground"
         android:descendantFocusability="beforeDescendants"
         android:focusable="true"
-        android:focusableInTouchMode="true">
+        android:focusableInTouchMode="true"
+        android:foreground="?attr/selectableItemBackground">
 
         <TextView
             android:id="@+id/tvDay"

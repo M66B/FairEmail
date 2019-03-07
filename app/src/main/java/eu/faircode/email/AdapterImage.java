@@ -63,7 +63,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
         ViewHolder(View itemView) {
             super(itemView);
 
-            this.itemView = itemView;
+            this.itemView = itemView.findViewById(R.id.clItem);
             image = itemView.findViewById(R.id.image);
             caption = itemView.findViewById(R.id.caption);
         }

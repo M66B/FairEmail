@@ -80,7 +80,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         ViewHolder(View itemView) {
             super(itemView);
 
-            this.itemView = itemView;
+            this.itemView = itemView.findViewById(R.id.clItem);
             ivDelete = itemView.findViewById(R.id.ivDelete);
             tvName = itemView.findViewById(R.id.tvName);
             tvType = itemView.findViewById(R.id.tvType);
