@@ -467,7 +467,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (textSize != 0) {
                 tvDay.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
                 tvFrom.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
-                tvSubject.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+                tvSubject.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
                 tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
             }
 
