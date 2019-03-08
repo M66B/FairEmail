@@ -39,11 +39,6 @@ public class ActivityMain extends AppCompatActivity implements FragmentManager.O
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.registerOnSharedPreferenceChangeListener(this);
 
-        if (!Helper.isPlayStoreInstall(this)) {
-            Log.i("Third party install");
-            prefs.edit().putBoolean("play_store", false).apply();
-        }
-
         if (prefs.getBoolean("eula", false)) {
             super.onCreate(savedInstanceState);
             new SimpleTask<List<EntityAccount>>() {

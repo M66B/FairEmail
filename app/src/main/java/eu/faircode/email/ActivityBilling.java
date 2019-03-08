@@ -236,9 +236,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         if (purchases != null) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             SharedPreferences.Editor editor = prefs.edit();
-
-            if (prefs.getBoolean("play_store", true))
-                editor.remove("pro");
+            editor.remove("pro");
 
             for (Purchase purchase : purchases)
                 try {
