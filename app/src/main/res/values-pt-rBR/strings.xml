@@ -3,6 +3,7 @@
 <resources>
     <string name="app_welcome">FairEmail é um aplicativo de e-mail de código aberto focado em privacidade e segurança. Por esse motivo, alguns recursos podem funcionar de maneira diferente do que você está acostumado.</string>
     <string name="app_limitations">Por exemplo, as mensagens serão sempre reformatadas para remover elementos inseguros e para melhorar a legibilidade, e a abertura de links devem ser confirmadas por questão de segurança.</string>
+    <string name="app_crash">O FairEmail não é suportado neste dispositivo porque bugs do Android causam tais falhas</string>
     <string name="channel_service">Serviço</string>
     <string name="channel_notification">Notificações</string>
     <string name="channel_warning">Avisos</string>
@@ -85,7 +86,7 @@
     <string name="title_setup_quick_hint">A configuração rápida irá buscar informações de configuração a partir de autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Servidor IMAP para receber mensagens</string>
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensagens</string>
-    <string name="title_setup_go">Ir</string>
+    <string name="title_setup_go">Iniciar</string>
     <string name="title_setup_setting_gmail">Permitir o acesso para apps \"menos seguros\"</string>
     <string name="title_setup_no_settings">Nenhuma configuração encontrada para \'%1$s\'</string>
     <string name="title_setup_quick_success">Uma conta e uma identidade foram adicionados com sucesso</string>

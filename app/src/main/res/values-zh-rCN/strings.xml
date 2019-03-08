@@ -3,6 +3,7 @@
 <resources>
     <string name="app_welcome">FairEmail是一个专注于隐私与安全的开源电子邮件软件。基于此某些功能的工作方式可能与您习惯的功能不同。</string>
     <string name="app_limitations">例如，为了去除不安全元素并提高阅读性，邮件将总被重建格式；出于安全考虑，打开邮件内链接需经用户确认</string>
+    <string name="app_crash">此设备不支持 FairEmail, 因为 android 中的错误会导致崩溃</string>
     <string name="channel_service">服务</string>
     <string name="channel_notification">通知</string>
     <string name="channel_warning">警告</string>
@@ -301,6 +302,7 @@
     <string name="title_no_saf">存储访问框架不可用</string>
     <string name="title_no_stream">过时的应用发送的是文件路径, 而不是文件流</string>
     <string name="title_no_contacts">联系选择器不可用</string>
+    <string name="title_no_internet">没有或没有合适的互联网连接</string>
     <string name="title_no_folder">文件夹不存在</string>
     <string name="title_accross_remark">App会再次下载在不同账户间移动的消息，这将导致额外的数据使用</string>
     <string name="title_raw_saved">原始消息已保存</string>
