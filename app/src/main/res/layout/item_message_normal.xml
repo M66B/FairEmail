@@ -8,11 +8,10 @@
         android:id="@+id/clItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/drawableItemBackground"
+        android:background="?attr/activatableItemBackground"
         android:descendantFocusability="beforeDescendants"
         android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:foreground="?attr/selectableItemBackground">
+        android:focusableInTouchMode="true">
 
         <TextView
             android:id="@+id/tvDay"

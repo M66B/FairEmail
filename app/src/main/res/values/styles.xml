@@ -5,7 +5,7 @@
     <attr name="colorDrawerScrim" format="reference" />
     <attr name="colorDrawerText" format="reference" />
     <attr name="colorDrawerBackground" format="reference" />
-    <attr name="drawableItemBackground" format="reference" />
+    <attr name="activatableItemBackground" format="reference" />
 
     <style name="AppThemeLight" parent="Base.Theme.AppCompat.Light.DarkActionBar">
         <item name="android:windowDisablePreview">true</item>
@@ -21,7 +21,7 @@
         <item name="colorDrawerText">@color/lightColorDrawerText</item>
         <item name="colorDrawerBackground">@color/lightColorDrawerBackground</item>
 
-        <item name="drawableItemBackground">@drawable/item_background_light</item>
+        <item name="activatableItemBackground">@drawable/activatable_item_background_light</item>
 
         <item name="android:checkboxStyle">@style/checkboxStyle</item>
         <item name="android:buttonStyle">@style/buttonStyle</item>
@@ -43,7 +43,7 @@
         <item name="colorDrawerText">@color/darkColorDrawerText</item>
         <item name="colorDrawerBackground">@color/darkColorDrawerBackground</item>
 
-        <item name="drawableItemBackground">@drawable/item_background_dark</item>
+        <item name="activatableItemBackground">@drawable/activatable_item_background_dark</item>
 
         <item name="android:checkboxStyle">@style/checkboxStyle</item>
         <item name="android:buttonStyle">@style/buttonStyle</item>
