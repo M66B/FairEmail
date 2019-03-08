@@ -469,6 +469,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvFrom.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
                 tvSubject.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
                 tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+
+                int px = Math.round(TypedValue.applyDimension(
+                        TypedValue.COMPLEX_UNIT_PX, textSize * (compact ? 1.5f : 3.0f),
+                        context.getResources().getDisplayMetrics()));
+                if (compact && tvFrom.getMinHeight() != px)
+                    tvFrom.setMinimumHeight(px);
+
+                ViewGroup.LayoutParams lparams = ivAvatar.getLayoutParams();
+                if (lparams.height != px) {
+                    lparams.width = px;
+                    lparams.height = px;
+                    ivAvatar.requestLayout();
+                }
             }
 
             // Date header

@@ -77,8 +77,9 @@
         <ImageView
             android:id="@+id/ivAvatar"
             android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:padding="6dp"
+            android:layout_height="0dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
             android:src="@drawable/baseline_person_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
             app:layout_constraintDimensionRatio="1:1"
