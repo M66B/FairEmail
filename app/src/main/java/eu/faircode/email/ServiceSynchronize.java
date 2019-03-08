@@ -604,8 +604,7 @@ public class ServiceSynchronize extends LifecycleService {
                     }
 
                     final boolean capIdle = ((IMAPStore) istore).hasCapability("IDLE");
-                    final boolean capUidPlus = ((IMAPStore) istore).hasCapability("UIDPLUS");
-                    Log.i(account.name + " idle=" + capIdle + " uidplus=" + capUidPlus);
+                    Log.i(account.name + " idle=" + capIdle);
 
                     db.account().setAccountState(account.id, "connected");
                     EntityLog.log(this, account.name + " connected");

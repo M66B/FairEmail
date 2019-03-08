@@ -18,7 +18,6 @@ import android.text.TextUtils;
 
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.iap.Response;
-import com.sun.mail.imap.AppendUID;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
@@ -680,32 +679,25 @@ class Core {
     }
 
     private static long append(IMAPStore istore, IMAPFolder ifolder, MimeMessage imessage) throws MessagingException {
-        if (istore.hasCapability("UIDPLUS")) {
-            AppendUID[] uids = ifolder.appendUIDMessages(new Message[]{imessage});
-            if (uids == null || uids.length == 0)
-                throw new MessageRemovedException("Message not appended");
-            return uids[0].uid;
-        } else {
-            ifolder.appendMessages(new Message[]{imessage});
+        ifolder.appendMessages(new Message[]{imessage});
 
-            long uid = -1;
-            String msgid = imessage.getMessageID();
-            Log.i("Searching for appended msgid=" + msgid);
-            Message[] messages = ifolder.search(new MessageIDTerm(msgid));
-            if (messages != null)
-                for (Message iappended : messages) {
-                    long muid = ifolder.getUID(iappended);
-                    Log.i("Found appended uid=" + muid);
-                    // RFC3501: Unique identifiers are assigned in a strictly ascending fashion
-                    if (muid > uid)
-                        uid = muid;
-                }
+        long uid = -1;
+        String msgid = imessage.getMessageID();
+        Log.i("Searching for appended msgid=" + msgid);
+        Message[] messages = ifolder.search(new MessageIDTerm(msgid));
+        if (messages != null)
+            for (Message iappended : messages) {
+                long muid = ifolder.getUID(iappended);
+                Log.i("Found appended uid=" + muid);
+                // RFC3501: Unique identifiers are assigned in a strictly ascending fashion
+                if (muid > uid)
+                    uid = muid;
+            }
 
-            if (uid < 0)
-                throw new IllegalArgumentException("uid not found");
+        if (uid < 0)
+            throw new IllegalArgumentException("uid not found");
 
-            return uid;
-        }
+        return uid;
     }
 
     static void onSynchronizeFolders(Context context, EntityAccount account, Store istore, State state) throws MessagingException {
