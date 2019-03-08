@@ -989,7 +989,22 @@ public class FragmentCompose extends FragmentBase {
                 throw new IllegalArgumentException(getString(R.string.title_from_missing));
 
             String to = etTo.getText().toString();
-            InternetAddress ato[] = (TextUtils.isEmpty(to) ? new InternetAddress[0] : InternetAddress.parse(to));
+            String cc = etCc.getText().toString();
+            String bcc = etBcc.getText().toString();
+
+            InternetAddress ato[] = new InternetAddress[0];
+            InternetAddress acc[] = new InternetAddress[0];
+            InternetAddress abcc[] = new InternetAddress[0];
+
+            if (!TextUtils.isEmpty(to))
+                ato = InternetAddress.parse(to);
+
+            if (!TextUtils.isEmpty(cc))
+                acc = InternetAddress.parse(cc);
+
+            if (!TextUtils.isEmpty(bcc))
+                abcc = InternetAddress.parse(bcc);
+
             if (ato.length == 0)
                 throw new IllegalArgumentException(getString(R.string.title_to_missing));
 
@@ -997,8 +1012,10 @@ public class FragmentCompose extends FragmentBase {
             final TextView tvMessage = dview.findViewById(R.id.tvMessage);
             final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
+            int plus = acc.length + abcc.length;
+
             tvMessage.setText(getString(R.string.title_ask_send_via,
-                    MessageHelper.formatAddressesShort(ato), ident.email));
+                    MessageHelper.formatAddressesShort(ato) + (plus > 0 ? " +" + plus : ""), ident.email));
 
             new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                     .setView(dview)
