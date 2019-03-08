@@ -794,17 +794,20 @@ public class FragmentCompose extends FragmentBase {
 
         switch (id) {
             case R.id.menu_bold:
-                if (start == end)
-                    Snackbar.make(view, R.string.title_no_selection, Snackbar.LENGTH_LONG).show();
-                else
-                    ss.setSpan(new StyleSpan(Typeface.BOLD), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                break;
-
             case R.id.menu_italic:
                 if (start == end)
                     Snackbar.make(view, R.string.title_no_selection, Snackbar.LENGTH_LONG).show();
-                else
-                    ss.setSpan(new StyleSpan(Typeface.ITALIC), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                else {
+                    int style = (id == R.id.menu_bold ? Typeface.BOLD : Typeface.ITALIC);
+                    boolean has = false;
+                    for (StyleSpan span : ss.getSpans(start, end, StyleSpan.class))
+                        if (span.getStyle() == style) {
+                            has = true;
+                            ss.removeSpan(span);
+                        }
+                    if (!has)
+                        ss.setSpan(new StyleSpan(style), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                }
                 break;
 
             case R.id.menu_clear:
