@@ -175,24 +175,9 @@ public class EntityOperation {
                 }
 
                 // Cross account move
-                if (source.account.equals(target.account)) {
-                    jargs.put(2, tmpid);
-
-                    // Block operations until message is moved
-                    JSONArray wargs = new JSONArray();
-                    wargs.put(source.id);
-                    wargs.put(message.id);
-
-                    EntityOperation wait = new EntityOperation();
-                    wait.folder = target.id;
-                    wait.message = tmpid;
-                    wait.name = EntityOperation.WAIT;
-                    wait.args = wargs.toString();
-                    wait.created = new Date().getTime();
-                    wait.id = db.operation().insertOperation(wait);
-
-                    jargs.put(3, wait.id);
-                } else {
+                if (source.account.equals(target.account))
+                    jargs.put(2, tmpid); // Can be null
+                else {
                     if (message.raw != null && message.raw) {
                         name = ADD;
                         folder = target.id;

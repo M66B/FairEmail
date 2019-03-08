@@ -202,7 +202,7 @@ class Core {
                                 break;
 
                             case EntityOperation.WAIT:
-                                return;
+                                break;
 
                             default:
                                 throw new IllegalArgumentException("Unknown operation=" + op.name);
@@ -329,6 +329,10 @@ class Core {
 
         boolean answered = jargs.getBoolean(0);
         if (message.answered.equals(answered))
+            return;
+
+        // This will be fixed when synchronizing the message
+        if (message.uid == null)
             return;
 
         Message imessage = ifolder.getMessageByUID(message.uid);
@@ -481,10 +485,8 @@ class Core {
 
         boolean autoread = (jargs.length() > 1 && jargs.getBoolean(1));
 
-        long uid;
         if (!copy &&
                 istore.hasCapability("MOVE") &&
-                istore.hasCapability("UIDPLUS") &&
                 !EntityFolder.DRAFTS.equals(folder.type) &&
                 !EntityFolder.DRAFTS.equals(target.type)) {
             // Autoread
@@ -493,10 +495,7 @@ class Core {
                     imessage.setFlag(Flags.Flag.SEEN, true);
 
             // Move message to target folder
-            AppendUID[] uids = ifolder.moveUIDMessages(new Message[]{imessage}, itarget);
-            if (uids == null || uids.length == 0)
-                throw new MessageRemovedException("Message not moved");
-            uid = uids[0].uid;
+            itarget.appendMessages(new Message[]{imessage});
         } else {
             if (!copy)
                 Log.w(folder.name + " MOVE by DELETE/APPEND");
@@ -536,63 +535,40 @@ class Core {
                         icopy.setFlag(Flags.Flag.DRAFT, true);
 
                 // Append target
-                uid = append(istore, itarget, (MimeMessage) icopy);
+                long uid = append(istore, itarget, (MimeMessage) icopy);
 
-                try {
-                    // Fixed timing issue of at least Courier based servers
-                    itarget.close(false);
-                    itarget.open(Folder.READ_WRITE);
+                // Fixed timing issue of at least Courier based servers
+                itarget.close(false);
+                itarget.open(Folder.READ_WRITE);
 
-                    // Some providers, like Gmail, don't honor the appended seen flag
-                    if (itarget.getPermanentFlags().contains(Flags.Flag.SEEN)) {
-                        boolean seen = (autoread || message.ui_seen);
-                        icopy = itarget.getMessageByUID(uid);
-                        if (seen != icopy.isSet(Flags.Flag.SEEN)) {
-                            Log.i(target.name + " Fixing id=" + message.id + " seen=" + seen);
-                            icopy.setFlag(Flags.Flag.SEEN, seen);
-                        }
+                // Some providers, like Gmail, don't honor the appended seen flag
+                if (itarget.getPermanentFlags().contains(Flags.Flag.SEEN)) {
+                    boolean seen = (autoread || message.ui_seen);
+                    icopy = itarget.getMessageByUID(uid);
+                    if (seen != icopy.isSet(Flags.Flag.SEEN)) {
+                        Log.i(target.name + " Fixing id=" + message.id + " seen=" + seen);
+                        icopy.setFlag(Flags.Flag.SEEN, seen);
                     }
+                }
 
-                    // This is not based on an actual case, so this is just a safeguard
-                    if (itarget.getPermanentFlags().contains(Flags.Flag.DRAFT)) {
-                        boolean draft = EntityFolder.DRAFTS.equals(target.type);
-                        icopy = itarget.getMessageByUID(uid);
-                        if (draft != icopy.isSet(Flags.Flag.DRAFT)) {
-                            Log.i(target.name + " Fixing id=" + message.id + " draft=" + draft);
-                            icopy.setFlag(Flags.Flag.DRAFT, draft);
-                        }
+                // This is not based on an actual case, so this is just a safeguard
+                if (itarget.getPermanentFlags().contains(Flags.Flag.DRAFT)) {
+                    boolean draft = EntityFolder.DRAFTS.equals(target.type);
+                    icopy = itarget.getMessageByUID(uid);
+                    if (draft != icopy.isSet(Flags.Flag.DRAFT)) {
+                        Log.i(target.name + " Fixing id=" + message.id + " draft=" + draft);
+                        icopy.setFlag(Flags.Flag.DRAFT, draft);
                     }
+                }
 
-                    // Delete source
-                    if (!copy) {
-                        imessage.setFlag(Flags.Flag.DELETED, true);
-                        ifolder.expunge();
-                    }
-                } catch (MessageRemovedException ignored) {
-                } catch (Throwable ex) {
-                    Log.w(ex);
+                // Delete source
+                if (!copy) {
+                    imessage.setFlag(Flags.Flag.DELETED, true);
+                    ifolder.expunge();
                 }
             } finally {
                 if (itarget.isOpen())
                     itarget.close();
-            }
-        }
-
-        Log.i(folder.name + " moved uid=" + uid);
-        if (jargs.length() > 2 && !jargs.isNull(2)) {
-            long tmpid = jargs.getLong(2);
-            try {
-                db.beginTransaction();
-                db.message().setMessageUid(tmpid, uid);
-                int waits = -1;
-                if (jargs.length() > 3) {
-                    long waitid = jargs.getLong(3);
-                    waits = db.operation().deleteOperation(waitid);
-                }
-                db.setTransactionSuccessful();
-                Log.i(folder.name + " set id=" + tmpid + " uid=" + uid + " waits=" + waits);
-            } finally {
-                db.endTransaction();
             }
         }
     }
@@ -1268,6 +1244,11 @@ class Core {
             }
 
             if (!message.answered.equals(answered) || !message.answered.equals(message.ui_answered)) {
+                if (!answered && message.ui_answered && ifolder.getPermanentFlags().contains(Flags.Flag.ANSWERED)) {
+                    // This can happen when the answered operation was skipped because the message was moving
+                    answered = true;
+                    imessage.setFlag(Flags.Flag.ANSWERED, answered);
+                }
                 update = true;
                 message.answered = answered;
                 message.ui_answered = answered;

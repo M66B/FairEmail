@@ -819,7 +819,6 @@ public class ServiceSynchronize extends LifecycleService {
                             @Override
                             public void run() {
                                 db.operation().liveOperations(folder.id).observe(owner, new Observer<List<EntityOperation>>() {
-                                    private List<Long> waiting = new ArrayList<>();
                                     private List<Long> handling = new ArrayList<>();
                                     private final ExecutorService folderExecutor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
                                     private final PowerManager.WakeLock wlFolder = pm.newWakeLock(
@@ -829,21 +828,11 @@ public class ServiceSynchronize extends LifecycleService {
                                     public void onChanged(final List<EntityOperation> operations) {
                                         boolean process = false;
                                         List<Long> ops = new ArrayList<>();
-                                        List<Long> waits = new ArrayList<>();
                                         for (EntityOperation op : operations) {
-                                            if (EntityOperation.WAIT.equals(op.name))
-                                                waits.add(op.id);
                                             if (!handling.contains(op.id))
                                                 process = true;
                                             ops.add(op.id);
                                         }
-                                        for (long wait : waits)
-                                            if (!waiting.contains(wait)) {
-                                                Log.i(folder.name + " not waiting anymore");
-                                                process = true;
-                                                break;
-                                            }
-                                        waiting = waits;
                                         handling = ops;
 
                                         if (handling.size() > 0 && process) {
