@@ -206,13 +206,21 @@ public class ViewModelBrowse extends ViewModel {
                                 }
                                 if (keywords)
                                     arg.writeAtom("OR");
-                                arg.writeAtom("TEXT");
+                                arg.writeAtom("OR");
+                                arg.writeAtom("OR");
+                                arg.writeAtom("OR");
+                                arg.writeAtom("FROM");
+                                arg.writeBytes(state.search.getBytes());
+                                arg.writeAtom("TO");
+                                arg.writeBytes(state.search.getBytes());
+                                arg.writeAtom("SUBJECT");
+                                arg.writeBytes(state.search.getBytes());
+                                arg.writeAtom("BODY");
                                 arg.writeBytes(state.search.getBytes());
                                 if (keywords) {
                                     arg.writeAtom("KEYWORD");
                                     arg.writeBytes(state.search.getBytes());
                                 }
-                                arg.writeAtom("ALL");
                                 Response[] responses = protocol.command("SEARCH", arg);
 
                                 List<Integer> msgnums = new ArrayList<>();
