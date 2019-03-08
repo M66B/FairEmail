@@ -651,7 +651,7 @@ public class Helper {
             if (extra.length > 0)
                 a[0] = extra[0];
         }
-        return TextUtils.join("@", a);
+        return TextUtils.join("@", a).toLowerCase();
     }
 
     static void writeText(File file, String content) throws IOException {

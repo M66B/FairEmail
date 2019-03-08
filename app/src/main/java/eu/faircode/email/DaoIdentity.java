@@ -56,7 +56,7 @@ public interface DaoIdentity {
     @Query("SELECT * FROM identity WHERE id = :id")
     EntityIdentity getIdentity(long id);
 
-    @Query("SELECT * FROM identity WHERE account = :account AND email = :email")
+    @Query("SELECT * FROM identity WHERE account = :account AND email = :email COLLATE NOCASE")
     EntityIdentity getIdentity(long account, String email);
 
     @Query("SELECT COUNT(*) FROM identity WHERE synchronize")
