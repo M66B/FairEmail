@@ -495,7 +495,7 @@ class Core {
                     imessage.setFlag(Flags.Flag.SEEN, true);
 
             // Move message to target folder
-            itarget.appendMessages(new Message[]{imessage});
+            ifolder.moveMessages(new Message[]{imessage}, itarget);
         } else {
             if (!copy)
                 Log.w(folder.name + " MOVE by DELETE/APPEND");
