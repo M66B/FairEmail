@@ -198,7 +198,6 @@ public class ViewModelBrowse extends ViewModel {
 
                             try {
                                 // https://tools.ietf.org/html/rfc3501#section-6.4.4
-                                Log.i("Boundary UTF8 search=" + state.search);
                                 Argument arg = new Argument();
                                 if (!protocol.supportsUtf8()) {
                                     arg.writeAtom("CHARSET");
@@ -221,48 +220,49 @@ public class ViewModelBrowse extends ViewModel {
                                     arg.writeAtom("KEYWORD");
                                     arg.writeBytes(state.search.getBytes());
                                 }
+
+                                Log.i("Boundary UTF8 search=" + state.search);
                                 Response[] responses = protocol.command("SEARCH", arg);
+                                if (responses.length > 0 && responses[responses.length - 1].isOK()) {
+                                    List<Integer> msgnums = new ArrayList<>();
 
-                                List<Integer> msgnums = new ArrayList<>();
-                                for (Response response : responses)
-                                    if (response.isOK())
-                                        Log.i(folder.name + " response=" + response);
-                                    else if (((IMAPResponse) response).keyEquals("SEARCH")) {
-                                        int msgnum;
-                                        while ((msgnum = response.readNumber()) != -1)
-                                            msgnums.add(msgnum);
-                                    } else {
-                                        Log.w(folder.name + " response=" + response);
+                                    for (Response response : responses)
+                                        if (((IMAPResponse) response).keyEquals("SEARCH")) {
+                                            int msgnum;
+                                            while ((msgnum = response.readNumber()) != -1)
+                                                msgnums.add(msgnum);
+                                        }
 
-                                        // Assume no UTF-8 support
-                                        String search = state.search.replace("ß", "ss"); // Eszett
-                                        search = Normalizer.normalize(search, Normalizer.Form.NFD)
-                                                .replaceAll("[^\\p{ASCII}]", "");
+                                    Message[] imessages = new Message[msgnums.size()];
+                                    for (int i = 0; i < msgnums.size(); i++)
+                                        imessages[i] = state.ifolder.getMessage(msgnums.get(i));
 
-                                        Log.i("Boundary ASCII search=" + search);
-                                        SearchTerm term = new OrTerm(
-                                                new OrTerm(
-                                                        new FromStringTerm(search),
-                                                        new RecipientStringTerm(Message.RecipientType.TO, search)
-                                                ),
-                                                new OrTerm(
-                                                        new SubjectTerm(search),
-                                                        new BodyTerm(search)
-                                                )
-                                        );
+                                    return imessages;
+                                } else {
+                                    // Assume no UTF-8 support
+                                    String search = state.search.replace("ß", "ss"); // Eszett
+                                    search = Normalizer.normalize(search, Normalizer.Form.NFD)
+                                            .replaceAll("[^\\p{ASCII}]", "");
 
-                                        if (keywords)
-                                            term = new OrTerm(term, new FlagTerm(
-                                                    new Flags(Helper.sanitizeKeyword(search)), true));
+                                    Log.i("Boundary ASCII search=" + search);
+                                    SearchTerm term = new OrTerm(
+                                            new OrTerm(
+                                                    new FromStringTerm(search),
+                                                    new RecipientStringTerm(Message.RecipientType.TO, search)
+                                            ),
+                                            new OrTerm(
+                                                    new SubjectTerm(search),
+                                                    new BodyTerm(search)
+                                            )
+                                    );
 
-                                        return state.ifolder.search(term);
-                                    }
+                                    if (keywords)
+                                        term = new OrTerm(term, new FlagTerm(
+                                                new Flags(Helper.sanitizeKeyword(search)), true));
 
-                                Message[] imessages = new Message[msgnums.size()];
-                                for (int i = 0; i < msgnums.size(); i++)
-                                    imessages[i] = state.ifolder.getMessage(msgnums.get(i));
+                                    return state.ifolder.search(term);
+                                }
 
-                                return imessages;
                             } catch (MessagingException ex) {
                                 Log.e(ex);
                                 return ex;

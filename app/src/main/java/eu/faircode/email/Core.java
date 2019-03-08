@@ -921,31 +921,32 @@ class Core {
                 }
 
             if (uids.size() > 0) {
-                ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
+                MessagingException ex = (MessagingException) ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
                     @Override
                     public Object doCommand(IMAPProtocol protocol) {
                         Log.i("Executing uid fetch count=" + uids.size());
                         Response[] responses = protocol.command(
                                 "UID FETCH " + TextUtils.join(",", uids) + " (UID)", null);
 
-                        for (int i = 0; i < responses.length; i++) {
-                            if (responses[i] instanceof FetchResponse) {
-                                FetchResponse fr = (FetchResponse) responses[i];
-                                UID uid = fr.getItem(UID.class);
-                                if (uid != null)
-                                    uids.remove(uid.uid);
-                            } else {
-                                if (responses[i].isOK())
-                                    Log.i(folder.name + " response=" + responses[i]);
-                                else {
-                                    Log.e(folder.name + " response=" + responses[i]);
-                                    db.folder().setFolderError(folder.id, responses[i].toString());
+                        if (responses.length > 0 && responses[responses.length - 1].isOK()) {
+                            for (Response response : responses)
+                                if (response instanceof FetchResponse) {
+                                    FetchResponse fr = (FetchResponse) response;
+                                    UID uid = fr.getItem(UID.class);
+                                    if (uid != null)
+                                        uids.remove(uid.uid);
                                 }
-                            }
+                            return null;
+                        } else {
+                            for (Response response : responses)
+                                if (response.isNO() || response.isBAD() || response.isBYE())
+                                    return new MessagingException(response.toString());
+                            return new MessagingException("UID FETCH failed");
                         }
-                        return null;
                     }
                 });
+                if (ex != null)
+                    throw ex;
 
                 long getuid = SystemClock.elapsedRealtime();
                 Log.i(folder.name + " remote uids=" + (SystemClock.elapsedRealtime() - getuid) + " ms");
