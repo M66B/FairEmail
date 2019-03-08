@@ -196,6 +196,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvPreview;
         private TextView tvError;
         private ContentLoadingProgressBar pbLoading;
+        private View vwRipple;
 
         private ImageView ivExpanderAddress;
         private TextView tvFromEx;
@@ -272,6 +273,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivThread = itemView.findViewById(R.id.ivThread);
             tvError = itemView.findViewById(R.id.tvError);
             pbLoading = itemView.findViewById(R.id.pbLoading);
+            vwRipple = itemView.findViewById(R.id.vwRipple);
 
             ivExpanderAddress = itemView.findViewById(R.id.ivExpanderAddress);
             tvFromEx = itemView.findViewById(R.id.tvFromEx);
@@ -1030,6 +1032,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 else
                     onToggleMessage(message);
             } else {
+                vwRipple.setPressed(true);
+                vwRipple.setPressed(false);
+
                 if (EntityFolder.DRAFTS.equals(message.folderType) && message.visible == 1)
                     context.startActivity(
                             new Intent(context, ActivityCompose.class)
