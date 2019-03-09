@@ -1005,6 +1005,9 @@ class Core {
                 }
             }
 
+            int count = ifolder.getMessageCount();
+            db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
+
             if (download) {
                 db.folder().setFolderSyncState(folder.id, "downloading");
 

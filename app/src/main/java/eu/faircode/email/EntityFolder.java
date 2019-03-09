@@ -86,6 +86,8 @@ public class EntityFolder implements Serializable {
     public Boolean unified = false;
     @NonNull
     public Boolean notify = false;
+
+    public Integer total; // messages on server
     public String[] keywords;
 
     @NonNull
@@ -255,6 +257,7 @@ public class EntityFolder implements Serializable {
                     this.hide == other.hide &&
                     this.unified == other.unified &&
                     this.notify == other.notify &&
+                    Objects.equals(this.total, other.total) &&
                     Helper.equal(this.keywords, other.keywords) &&
                     Objects.equals(this.tbd, other.tbd) &&
                     Objects.equals(this.state, other.state) &&

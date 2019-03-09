@@ -168,7 +168,17 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             tvName.setTypeface(null, folder.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
             tvName.setTextColor(folder.unseen > 0 ? colorUnread : textColorSecondary);
 
-            tvMessages.setText(String.format("%d/%d", folder.content, folder.messages));
+            StringBuilder sb = new StringBuilder();
+            sb.append(folder.content);
+            sb.append('/');
+            sb.append(folder.messages);
+            sb.append('/');
+            if (folder.total == null)
+                sb.append('?');
+            else
+                sb.append(folder.total);
+            tvMessages.setText(sb.toString());
+
             ivMessages.setImageResource(folder.download || EntityFolder.OUTBOX.equals(folder.type)
                     ? R.drawable.baseline_mail_24 : R.drawable.baseline_mail_outline_24);
 

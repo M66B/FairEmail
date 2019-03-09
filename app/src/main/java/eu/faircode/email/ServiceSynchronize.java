@@ -637,6 +637,9 @@ public class ServiceSynchronize extends LifecycleService {
                             db.folder().setFolderState(folder.id, "connected");
                             db.folder().setFolderError(folder.id, null);
 
+                            int count = ifolder.getMessageCount();
+                            db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
+
                             Log.i(account.name + " folder " + folder.name + " flags=" + ifolder.getPermanentFlags());
 
                             // Listen for new and deleted messages
@@ -691,6 +694,9 @@ public class ServiceSynchronize extends LifecycleService {
                                                 Log.e(folder.name, ex);
                                                 db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
                                             }
+
+                                        int count = ifolder.getMessageCount();
+                                        db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
                                         Core.reportError(ServiceSynchronize.this, account, folder, ex);
@@ -716,6 +722,9 @@ public class ServiceSynchronize extends LifecycleService {
                                             } catch (MessageRemovedException ex) {
                                                 Log.w(folder.name, ex);
                                             }
+
+                                        int count = ifolder.getMessageCount();
+                                        db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
                                         Core.reportError(ServiceSynchronize.this, account, folder, ex);
