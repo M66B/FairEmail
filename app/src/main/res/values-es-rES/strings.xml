@@ -221,7 +221,6 @@
     <string name="title_no_primary_drafts">No hay cuenta primaria o no hay carpeta de borradores</string>
     <string name="title_no_idle">Este proveedor no es compatible con mensajes push. Esto retrasará la recepción de nuevos mensajes y aumentará el uso de batería.</string>
     <string name="title_no_move">Este proveedor no es compatible con MOVE</string>
-    <string name="title_no_uidplus">Este proveedor no es compatible con UIDPLUS</string>
     <string name="title_no_utf8">Este proveedor no es compatible con UTF-8</string>
     <string name="title_no_sync">Errores de sincronización desde %1$s</string>
     <string name="title_sync_errors">Error al sincronizar algunas carpetas</string>
@@ -446,7 +445,6 @@
     <string name="title_legend_waiting">Esperando a la próxima sincronización</string>
     <string name="title_legend_stop">Detener procesamiento de reglas</string>
     <string name="title_legend_sync_keep">Número de días para sincronizar / mantener mensajes</string>
-    <string name="title_legend_download_fetch">Número de cuerpos de mensaje descargados / encabezados recuperados</string>
     <string name="title_legend_metered">Conexión medida</string>
     <string name="title_legend_unmetered">Conexión no medida</string>
     <string name="title_hint_folder_actions">Mantenga pulsado para opciones</string>

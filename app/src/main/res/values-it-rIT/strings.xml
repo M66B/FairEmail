@@ -221,7 +221,6 @@
     <string name="title_no_primary_drafts">Nessun account principale o nessuna cartella bozze</string>
     <string name="title_no_idle">Questo fornitore non supporta i messaggi push. Ciò ritarderà la ricezione di nuovi messaggi e aumenterà l\'utilizzo della batteria.</string>
     <string name="title_no_move">Questo provider non supporta MOVE</string>
-    <string name="title_no_uidplus">Questo provider non supporta UIDPLUS</string>
     <string name="title_no_utf8">Questo provider non supporta UTF-8</string>
     <string name="title_no_sync">Errori di sincronizzazione da %1$s</string>
     <string name="title_sync_errors">Sincronizzazione di alcune cartelle fallita</string>
@@ -446,7 +445,6 @@
     <string name="title_legend_waiting">In attesa della prossima sincronizzazione</string>
     <string name="title_legend_stop">Interrompi le regole di elaborazione</string>
     <string name="title_legend_sync_keep">Numero di giorni da sincronizzare / di cui mantenere i messaggi</string>
-    <string name="title_legend_download_fetch">Numero di corpi messaggio scaricati / intestazioni recuperate</string>
     <string name="title_legend_metered">La connessione è a consumo</string>
     <string name="title_legend_unmetered">La connessione non è a consumo</string>
     <string name="title_hint_folder_actions">Tieni premuto per le opzioni</string>

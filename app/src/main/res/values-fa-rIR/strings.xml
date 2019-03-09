@@ -379,7 +379,6 @@
     <string name="title_legend_waiting">در انتظار همگام سازی بعدی</string>
     <string name="title_legend_stop">توقف پردازش دستورات</string>
     <string name="title_legend_sync_keep">تعداد روزهای همگام سازی / برای نگه داشتن پیام ها</string>
-    <string name="title_legend_download_fetch">تعداد پیام‌های دریافت شده / سرصفحه‌های دریافتی</string>
     <string name="title_legend_metered">به شبکه موبایل متصلید</string>
     <string name="title_legend_unmetered">به شبکه غیر موبایل متصلید</string>
     <string name="title_hint_folder_actions">برای تنظیمات بیشتر، لمس طولانی کنید</string>

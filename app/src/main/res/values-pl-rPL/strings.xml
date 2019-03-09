@@ -409,7 +409,6 @@
     <string name="title_legend_waiting">Oczekiwanie na następną synchronizację</string>
     <string name="title_legend_stop">Zatrzymaj przetwarzanie reguł</string>
     <string name="title_legend_sync_keep">Liczba dni do synchronizacji / zachowania wiadomości</string>
-    <string name="title_legend_download_fetch">Liczba pobranych wiadomości / nagłówków</string>
     <string name="title_legend_metered">Połączenie jest taryfowe</string>
     <string name="title_legend_unmetered">Połączenie nie jest taryfowe</string>
     <string name="title_hint_folder_actions">Przytrzymaj, aby uzyskać więcej opcji</string>

@@ -213,7 +213,6 @@
     <string name="title_no_primary_drafts">没有主帐户或草稿文件夹</string>
     <string name="title_no_idle">该提供商不支持消息推送，这将延迟新消息的接收并增加电池用量</string>
     <string name="title_no_move">该邮件服务供应商不支持MOVE扩展</string>
-    <string name="title_no_uidplus">该邮件服务供应商不支持UIDPLUS扩展</string>
     <string name="title_no_utf8">该邮件服务供应商不支持UTF-8字符集</string>
     <string name="title_no_sync">从 %1$s 开始同步错误</string>
     <string name="title_sync_errors">一些文件夹同步失败</string>
@@ -437,7 +436,6 @@
     <string name="title_legend_waiting">等待下次同步</string>
     <string name="title_legend_stop">停止处理规则</string>
     <string name="title_legend_sync_keep">同步/保留邮件的天数</string>
-    <string name="title_legend_download_fetch">下载的邮件正文数/获取的标头数</string>
     <string name="title_legend_metered">连接是计量的</string>
     <string name="title_legend_unmetered">连接是不计量的</string>
     <string name="title_hint_folder_actions">长按以显示更多选项</string>

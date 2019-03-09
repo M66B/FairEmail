@@ -220,7 +220,6 @@
     <string name="title_no_primary_drafts">Birincil hesap veya taslak klasörü yok</string>
     <string name="title_no_idle">Bu sağlayıcı anlık mesajları desteklemiyor. Bu, yeni mesajların alınmasını geciktirecek ve pil kullanımını artıracaktır.</string>
     <string name="title_no_move">Bu sağlayıcı MOVE\'yi desteklemiyor</string>
-    <string name="title_no_uidplus">Bu sağlayıcı UIDPLUS\'ı desteklemiyor</string>
     <string name="title_no_utf8">Bu sağlayıcı UTF-8\'i desteklemiyor</string>
     <string name="title_no_sync">%1$s\'den beri eşzamanlama hataları</string>
     <string name="title_sync_errors">Bazı klasörlerin eşzamanlaması başarısız oldu</string>
@@ -445,7 +444,6 @@
     <string name="title_legend_waiting">Sonraki eşzamanlama için bekleniyor</string>
     <string name="title_legend_stop">İşlem kurallarının durdur</string>
     <string name="title_legend_sync_keep">İletilerin eşzamanlanacağı / saklanacağı gün sayısı</string>
-    <string name="title_legend_download_fetch">İndirilen ileti metinlerinin / alınan başlıkların sayısı</string>
     <string name="title_legend_metered">Bağlantı ölçülü</string>
     <string name="title_legend_unmetered">Bağlantı ölçüsüz</string>
     <string name="title_hint_folder_actions">Seçenekler için uzun basın</string>

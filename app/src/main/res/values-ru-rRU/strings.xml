@@ -231,7 +231,6 @@
     <string name="title_no_primary_drafts">Нет основной учетной записи или папки черновиков</string>
     <string name="title_no_idle">Этот провайдер не поддерживает push-сообщения. Это задержит прием новых сообщений и увеличит расход батареи.</string>
     <string name="title_no_move">Этот провайдер не поддерживает MOVE</string>
-    <string name="title_no_uidplus">Этот провайдер не поддерживает UIDPLUS</string>
     <string name="title_no_utf8">Этот провайдер не поддерживает UTF-8</string>
     <string name="title_no_sync">Ошибки синхронизации после %1$s</string>
     <string name="title_drafts_required">Для отправки сообщений требуется папка черновиков</string>
@@ -446,7 +445,6 @@
     <string name="title_legend_waiting">Ожидание следующей синхронизации</string>
     <string name="title_legend_stop">Остановить обработку правил</string>
     <string name="title_legend_sync_keep">Количество дней для синхронизации / хранения сообщений</string>
-    <string name="title_legend_download_fetch">Количество загруженных сообщений / полученных заголовков</string>
     <string name="title_legend_metered">Подключение лимитировано</string>
     <string name="title_legend_unmetered">Подключение безлимитное</string>
     <string name="title_hint_folder_actions">Длительно нажмите для вариантов</string>

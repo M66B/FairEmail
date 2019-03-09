@@ -3,6 +3,7 @@
 <resources>
     <string name="app_welcome">FairEmail är en e-postapp med öppen källkod som är fokuserad på integritet och säkerhet. Av denna anledning kan vissa funktioner fungera annorlunda än vad du är van vid.</string>
     <string name="app_limitations">Meddelanden kommer till exempel alltid att omformateras för att avlägsna osäkra element och för att förbättra läsbarheten och öppna länkar måste bekräftas för säkerheten.</string>
+    <string name="app_crash">FairEmail stöds inte på den här enheten eftersom buggar i Android orsakar kraschar</string>
     <string name="channel_service">Tjänst</string>
     <string name="channel_notification">Aviseringar</string>
     <string name="channel_warning">Varningar</string>
@@ -44,6 +45,7 @@
         <item quantity="other">Rapportera %1$d meddelanden som skräppost?</item>
     </plurals>
     <string name="title_ask_spam_who">Rapportera meddelande från %1$s som skräppost?</string>
+    <string name="title_notification_sending">Skickar meddelanden</string>
     <string name="title_notification_failed">\'%1$s\' misslyckades</string>
     <string name="menu_answers">Mallar</string>
     <string name="menu_operations">Aktiviteter</string>
@@ -129,6 +131,7 @@
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
     <string name="title_advanced_identicons">Visa identicons</string>
     <string name="title_advanced_name_email">Visa namn och e-postadresser</string>
+    <string name="title_advanced_flags">Visa stjärnor (favoriter)</string>
     <string name="title_advanced_preview">Förhandsvisning av meddelande</string>
     <string name="title_advanced_addresses">Visa adressuppgifter som standard</string>
     <string name="title_advanced_html">Visa automatiskt originalmeddelande för kända kontakter</string>
@@ -157,6 +160,7 @@
     <string name="title_advanced_unified_hint">Visa samlad inkorg eller kombinerade inkorgsmeddelanden</string>
     <string name="title_advanced_threading_hint">Gruppera meddelanden relaterade till varandra</string>
     <string name="title_advanced_name_email_hint">När inaktiverad visas endast namn när det är tillgängligt</string>
+    <string name="title_advanced_flags_hint">Observera att stjärnmärkta meddelanden alltid kommer att lagras lokalt</string>
     <string name="title_advanced_autoexpand_hint">Öppna automatiskt meddelandet när det bara finns ett meddelande eller bara ett oläst meddelande i en konversation</string>
     <string name="title_advanced_autocollapse_hint">Flera utökade meddelanden kommer alltid att stängas på \"Tillbaka\"</string>
     <string name="title_advanced_autoclose_hint">Stäng automatiskt konversationstrådar när alla meddelanden arkiveras, skickas eller kastas</string>
@@ -213,7 +217,6 @@
     <string name="title_no_primary_drafts">Inget primärt konto eller ingen utkastmapp</string>
     <string name="title_no_idle">Leverantören stöder inte push-meddelanden. Detta kommer att fördröja mottagning av nya meddelanden och öka batterianvändningen.</string>
     <string name="title_no_move">Denna leverantör stöder inte MOVE</string>
-    <string name="title_no_uidplus">Denna leverantör stöder inte UIDPLUS</string>
     <string name="title_no_utf8">Denna leverantör stöder inte UTF-8</string>
     <string name="title_no_sync">Synkroniseringsfel sedan %1$s</string>
     <string name="title_drafts_required">En mapp för utkast krävs för att skicka meddelanden</string>
@@ -270,6 +273,7 @@
     <string name="title_unflag">Ta bort stjärna</string>
     <string name="title_forward">Vidarebefordra</string>
     <string name="title_share">Dela</string>
+    <string name="title_print">Skriv ut</string>
     <string name="title_show_headers">Visa rubriker</string>
     <string name="title_manage_keywords">Hantera nyckelord</string>
     <string name="title_add_keyword">Lägg till nyckelord</string>
@@ -285,6 +289,9 @@
     <string name="title_snooze">Slumra &#8230;</string>
     <string name="title_archive">Arkivera</string>
     <string name="title_reply">Svara</string>
+    <string name="title_reply_to_sender">Avsändare</string>
+    <string name="title_reply_to_all">Alla</string>
+    <string name="title_reply_template">Mall</string>
     <string name="title_moving">Flyttar till %1$s</string>
     <string name="title_open_with">Öppna med</string>
     <string name="title_no_answers">Inga svarsmallar definierade</string>
@@ -292,6 +299,7 @@
     <string name="title_no_saf">Ramverk för lagringstillträde är inte tillgängligt</string>
     <string name="title_no_stream">En föråldrad app skickade en sökväg istället för en filström</string>
     <string name="title_no_contacts">Kontaktväljaren är inte tillgänglig</string>
+    <string name="title_no_internet">Ingen eller ingen lämplig internetuppkoppling</string>
     <string name="title_no_folder">Mappen finns inte</string>
     <string name="title_accross_remark">Meddelanden flyttade över konton kommer att hämtas igen och orsakar extra dataanvändning</string>
     <string name="title_attachment_saved">Bilaga sparad</string>
@@ -345,6 +353,7 @@
     <string name="title_sort_on_unread">Olästa</string>
     <string name="title_sort_on_starred">Stjärnmärkta</string>
     <string name="title_sort_on_sender">Avsändaren</string>
+    <string name="title_sort_on_subject">Ämne</string>
     <string name="title_compact">Kompakt vy</string>
     <string name="title_zoom">Textstorlek</string>
     <string name="title_address_sent">Skickat:</string>
@@ -392,6 +401,7 @@
     <string name="title_legend_flagged">Är stjärnmärkt</string>
     <string name="title_legend_contacts">Hantera kontakter</string>
     <string name="title_legend_view">Visa innehåll</string>
+    <string name="title_legend_hide">Dölj innehåll</string>
     <string name="title_legend_download">Hämta innehåll</string>
     <string name="title_legend_external_image">Extern bildplatshållare</string>
     <string name="title_legend_embedded_image">Inbäddad bildplatshållare</string>
@@ -417,7 +427,6 @@
     <string name="title_legend_waiting">Väntar på nästa synkronisering</string>
     <string name="title_legend_stop">Sluta bearbeta regler</string>
     <string name="title_legend_sync_keep">Antal dagar att synkronisera / för att behålla meddelanden</string>
-    <string name="title_legend_download_fetch">Antal meddelandetexter hämtat / rubriker hämtat</string>
     <string name="title_legend_metered">Uppmätt anslutning</string>
     <string name="title_legend_unmetered">Icke-uppmätt anslutning</string>
     <string name="title_hint_folder_actions">Långtryck för inställningar</string>
@@ -427,6 +436,7 @@
     <string name="title_hint_message_selection">Tryck länge på ett meddelande för att börja välja flera meddelanden</string>
     <string name="title_hint_sync">Hämtning av meddelanden kan ta lite tid, beroende på leverantörens hastighet, internetanslutning och enhet och på antalet meddelanden. När du hämtar meddelanden kan appen svara långsammare.</string>
     <string name="title_open_link">Öppna länken</string>
+    <string name="title_insecure_link">Denna länk är osäker</string>
     <string name="title_select_app">Välj app</string>
     <string name="title_updated">Det finns en uppdatering till version %1$s tillgänglig</string>
     <string name="title_issue">Har du en fråga eller problem?</string>
@@ -441,6 +451,7 @@
     <string name="title_enable">Aktivera</string>
     <string name="title_no_ask_again">Fråga inte detta igen</string>
     <string name="title_no_adobe">Adobe Acrobat reader kan inte säkert öppna delade filer, se FAQ för mer information</string>
+    <string name="title_no_microsoft">Microsoft-appar kan inte öppna delade filer säkert, se Vanliga frågor för mer information</string>
     <string name="title_no_body">Ingen meddelandetext hittades</string>
     <string name="title_no_charset">Kodningen stöds inte: %1$s</string>
     <string name="title_via">Via: %1$s</string>

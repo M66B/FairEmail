@@ -131,6 +131,7 @@
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
     <string name="title_advanced_identicons">Toon identicons</string>
     <string name="title_advanced_name_email">Toon namen en e-mailadressen</string>
+    <string name="title_advanced_subject_italic">Toon onderwerp cursief</string>
     <string name="title_advanced_flags">Toon sterren (favorieten)</string>
     <string name="title_advanced_preview">Toon berichtvoorbeeld</string>
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
@@ -221,7 +222,6 @@
     <string name="title_no_primary_drafts">Geen primair account of geen map voor concepten</string>
     <string name="title_no_idle">Deze provider biedt geen ondersteuning voor push-berichten. Dit zal het ontvangen van nieuwe berichten vertragen en het gebruik van de batterij te verhogen.</string>
     <string name="title_no_move">Deze provider ondersteunt geen MOVE</string>
-    <string name="title_no_uidplus">Deze provider ondersteunt geen UIDPLUS</string>
     <string name="title_no_utf8">Deze provider ondersteunt geen UTF-8</string>
     <string name="title_no_sync">Synchronisatiefouten sinds %1$s</string>
     <string name="title_sync_errors">Synchroniseren van sommige mappen mislukt</string>
@@ -446,7 +446,7 @@
     <string name="title_legend_waiting">Wachten op volgende synchronisatie</string>
     <string name="title_legend_stop">Stop met het verwerken van regels</string>
     <string name="title_legend_sync_keep">Aantal dagen om te synchroniseren / om berichten te houden</string>
-    <string name="title_legend_download_fetch">Aantal berichtteksten gedownload / koppen opgehaald</string>
+    <string name="title_legend_download_fetch">Aantal berichtteksten gedownload / koppen opgehaald / op server</string>
     <string name="title_legend_metered">Verbinding is gemeten</string>
     <string name="title_legend_unmetered">Verbinding is ongemeten</string>
     <string name="title_hint_folder_actions">Druk lang voor opties</string>

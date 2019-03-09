@@ -221,7 +221,6 @@
     <string name="title_no_primary_drafts">Nenhuma conta primária ou pasta de rascunhos</string>
     <string name="title_no_idle">Este provedor não suporta mensagens push. Isso irá atrasar o recebimento de novas mensagens e aumentar o uso da bateria.</string>
     <string name="title_no_move">Este provedor de e-mail não dá suporte a opção MOVER</string>
-    <string name="title_no_uidplus">Este provedor de e-mail não dá suporte a UIDPLUS</string>
     <string name="title_no_utf8">Este provedor de e-mail não suporta UTF-8</string>
     <string name="title_no_sync">Erros de sincronização desde %1$s</string>
     <string name="title_sync_errors">Falha ao sincronizar algumas pastas</string>
@@ -446,7 +445,6 @@
     <string name="title_legend_waiting">Aguardando a próxima sincronização</string>
     <string name="title_legend_stop">Parar o processamento de regras</string>
     <string name="title_legend_sync_keep">Número de dias para sincronizar / manter mensagens</string>
-    <string name="title_legend_download_fetch">Número de corpos de mensagens baixadas / cabeçalhos obtidos</string>
     <string name="title_legend_metered">A conexão é limitada</string>
     <string name="title_legend_unmetered">A conexão é ilimitada</string>
     <string name="title_hint_folder_actions">Mantenha pressionado para mais opções</string>

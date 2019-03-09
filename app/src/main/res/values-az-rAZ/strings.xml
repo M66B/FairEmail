@@ -305,7 +305,6 @@
     <string name="title_legend_downloading">Endirilir</string>
     <string name="title_legend_closing">Bağlanır</string>
     <string name="title_legend_sync_keep">Mesajları eyniləşdirmək / saxlamaq üçün gün sayı</string>
-    <string name="title_legend_download_fetch">Endirilmiş mesaj məzmunu / alınmış başlıq sayı</string>
     <string name="title_legend_metered">Bağlantı ölçülür</string>
     <string name="title_legend_unmetered">Bağlantı ölçülmür</string>
     <string name="title_hint_folder_actions">Variantlar üçün uzun basın</string>
