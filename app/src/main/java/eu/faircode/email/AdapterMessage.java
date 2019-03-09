@@ -141,6 +141,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private ViewType viewType;
     private boolean compact;
     private boolean name_email;
+    private boolean subject_italic;
     private int zoom;
     private String sort;
     private boolean internet;
@@ -544,7 +545,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvFrom.setTypeface(null, typeface);
             tvSize.setTypeface(null, typeface);
             tvTime.setTypeface(null, typeface);
-            tvSubject.setTypeface(null, typeface | Typeface.ITALIC);
+            tvSubject.setTypeface(null, typeface | (subject_italic ? Typeface.ITALIC : 0));
             tvCount.setTypeface(null, typeface);
 
             int colorUnseen = (message.unseen > 0 ? colorUnread : textColorSecondary);
@@ -2819,6 +2820,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.viewType = viewType;
         this.compact = compact;
         this.name_email = prefs.getBoolean("name_email", !compact);
+        this.subject_italic = prefs.getBoolean("subject_italic", true);
         this.zoom = zoom;
         this.sort = sort;
         this.internet = Helper.suitableNetwork(context, false);

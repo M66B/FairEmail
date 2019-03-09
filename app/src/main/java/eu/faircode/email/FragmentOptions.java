@@ -78,6 +78,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swAvatars;
     private SwitchCompat swIdenticons;
     private SwitchCompat swNameEmail;
+    private SwitchCompat swSubjectItalic;
     private SwitchCompat swFlags;
     private SwitchCompat swPreview;
     private SwitchCompat swAddresses;
@@ -108,7 +109,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private Group grpNotification;
 
     static String[] OPTIONS_RESTART = new String[]{
-            "unified", "date", "threading", "avatars", "identicons", "name_email", "flags", "preview", "addresses", "autoimages", "actionbar",
+            "unified", "date", "threading", "avatars", "identicons", "name_email", "subject_italic", "flags", "preview", "addresses", "autoimages", "actionbar",
             "pull", "swipenav", "autoexpand", "autoclose", "autonext",
             "debug"
     };
@@ -116,7 +117,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private final static String[] ADVANCED_OPTIONS = new String[]{
             "enabled", "schedule_start", "schedule_end",
             "metered", "download",
-            "unified", "date", "threading", "avatars", "identicons", "name_email", "flags", "preview", "addresses", "autoimages", "actionbar",
+            "unified", "date", "threading", "avatars", "identicons", "name_email", "subject_italic", "flags", "preview", "addresses", "autoimages", "actionbar",
             "pull", "swipenav", "autoexpand", "autoclose", "autonext", "collapse", "autoread", "automove",
             "autoresize", "sender", "autosend",
             "notify_preview", "search_local", "light", "sound",
@@ -149,6 +150,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swAvatars = view.findViewById(R.id.swAvatars);
         swIdenticons = view.findViewById(R.id.swIdenticons);
         swNameEmail = view.findViewById(R.id.swNameEmail);
+        swSubjectItalic = view.findViewById(R.id.swSubjectItalic);
         swFlags = view.findViewById(R.id.swFlags);
         swPreview = view.findViewById(R.id.swPreview);
         swAddresses = view.findViewById(R.id.swAddresses);
@@ -311,6 +313,13 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("name_email", checked).apply();
+            }
+        });
+
+        swSubjectItalic.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("subject_italic", checked).apply();
             }
         });
 
@@ -562,6 +571,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
         swIdenticons.setChecked(prefs.getBoolean("identicons", false));
         swNameEmail.setChecked(prefs.getBoolean("name_email", !compact));
+        swSubjectItalic.setChecked(prefs.getBoolean("subject_italic", true));
         swFlags.setChecked(prefs.getBoolean("flags", true));
         swPreview.setChecked(prefs.getBoolean("preview", false));
         swAddresses.setChecked(prefs.getBoolean("addresses", true));
