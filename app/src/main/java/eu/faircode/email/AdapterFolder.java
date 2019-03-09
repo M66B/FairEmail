@@ -40,6 +40,7 @@ import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,6 +66,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
     private List<TupleFolderEx> all = new ArrayList<>();
     private List<TupleFolderEx> filtered = new ArrayList<>();
+
+    private NumberFormat nf = NumberFormat.getInstance();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View itemView;
@@ -169,14 +172,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             tvName.setTextColor(folder.unseen > 0 ? colorUnread : textColorSecondary);
 
             StringBuilder sb = new StringBuilder();
-            sb.append(folder.content);
+            sb.append(nf.format(folder.content));
             sb.append('/');
-            sb.append(folder.messages);
+            sb.append(nf.format(folder.messages));
             sb.append('/');
             if (folder.total == null)
                 sb.append('?');
             else
-                sb.append(folder.total);
+                sb.append(nf.format(folder.total));
             tvMessages.setText(sb.toString());
 
             ivMessages.setImageResource(folder.download || EntityFolder.OUTBOX.equals(folder.type)
