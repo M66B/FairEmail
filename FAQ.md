@@ -482,6 +482,7 @@ Before Android 8 Oreo: there is an advanced option in the setup for this.
 
 Android 8 Oreo and later: see [here](https://developer.android.com/training/notify-user/channels) about how to configure notification channels.
 You can use the button *Manage notifications* in the setup to directly go to the Android notification settings.
+Note that apps cannot change notification settings, including the notification light setting, on Android 8 Oreo and later anymore.
 
 <br />
 
