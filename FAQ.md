@@ -141,6 +141,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(78) How do I use schedules?](#user-content-faq78)
 * [(79) How do I use synchronize on demand (manual)?](#user-content-faq79)
 * [(80) How can I fix 'Unable to load BODYSTRUCTURE'?](#user-content-faq80)
+* [(81) Can you make the background of the original message dark in the dark theme?](#user-content-faq81)
 
 [I have another question.](#support)
 
@@ -1318,6 +1319,14 @@ The error message *Unable to load BODYSTRUCTURE* is caused by bugs in the email 
 see [here](https://javaee.github.io/javamail/FAQ#imapserverbug) for more details.
 
 FairEmail already tries to workaround these bugs, but if this fail you'll need to ask for support from your provider.
+
+<br />
+
+<a name="faq81"></a>
+**(81) Can you make the background of the original message dark in the dark theme?**
+
+The original message is shown as the sender has sent it, including all colors.
+Changing the background color would not only make the original view not original anymore, it can also result in unreadable messages.
 
 <br />
 
