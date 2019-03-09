@@ -446,6 +446,7 @@
     <string name="title_legend_waiting">Warten auf Synchronisation</string>
     <string name="title_legend_stop">Regelverarbeitung stoppen</string>
     <string name="title_legend_sync_keep">Anzahl der zu synchronisierenden Tage / aufzubewahrenden E-Mails</string>
+    <string name="title_legend_download_fetch">Anzahl der heruntergeladenen Nachrichten-Inhalte / Header abgerufen / auf Server</string>
     <string name="title_legend_metered">Verbindung ist getaktet</string>
     <string name="title_legend_unmetered">Verbindung ist ungetaktet</string>
     <string name="title_hint_folder_actions">Gedrückt halten für weitere Optionen</string>

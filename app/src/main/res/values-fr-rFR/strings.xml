@@ -446,6 +446,7 @@
     <string name="title_legend_waiting">En attente de la prochaine synchronisation</string>
     <string name="title_legend_stop">Arrêter le traitement des règles</string>
     <string name="title_legend_sync_keep">Nombre de jours à synchroniser / pour conserver les messages</string>
+    <string name="title_legend_download_fetch">Nombre de contenus de messages téléchargés / en-têtes récupérés / sur le serveur</string>
     <string name="title_legend_metered">La connexion est limitée</string>
     <string name="title_legend_unmetered">La connexion est illimitée</string>
     <string name="title_hint_folder_actions">Appui long pour les options</string>

@@ -131,6 +131,7 @@
     <string name="title_advanced_avatars">Mostra foto del contatto</string>
     <string name="title_advanced_identicons">Visualizza identicon</string>
     <string name="title_advanced_name_email">Mostra nomi e indirizzi email</string>
+    <string name="title_advanced_subject_italic">Mostra soggetto in corsivo</string>
     <string name="title_advanced_flags">Mostra stelle (preferiti)</string>
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
     <string name="title_advanced_addresses">Mostra i dettagli dell\'indirizzo per impostazione predefinita</string>
@@ -445,6 +446,7 @@
     <string name="title_legend_waiting">In attesa della prossima sincronizzazione</string>
     <string name="title_legend_stop">Interrompi le regole di elaborazione</string>
     <string name="title_legend_sync_keep">Numero di giorni da sincronizzare / di cui mantenere i messaggi</string>
+    <string name="title_legend_download_fetch">Numero di corpi messaggio scaricati / intestazioni recuperate / sul server</string>
     <string name="title_legend_metered">La connessione è a consumo</string>
     <string name="title_legend_unmetered">La connessione non è a consumo</string>
     <string name="title_hint_folder_actions">Tieni premuto per le opzioni</string>

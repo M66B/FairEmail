@@ -139,6 +139,7 @@
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
     <string name="title_advanced_identicons">Arată iconițe generate</string>
     <string name="title_advanced_name_email">Arată nume și adrese de e-mail</string>
+    <string name="title_advanced_subject_italic">Arată obiectul cursiv</string>
     <string name="title_advanced_flags">Arată marcate (favorite)</string>
     <string name="title_advanced_preview">Arată previzualizare mesaj</string>
     <string name="title_advanced_addresses">Implicit arată detaliile adreselor</string>
@@ -453,6 +454,7 @@
     <string name="title_legend_waiting">Așteptă următoarea sincronizare</string>
     <string name="title_legend_stop">Oprește procesarea regulilor</string>
     <string name="title_legend_sync_keep">Numărul de zile de sincronizat / păstrat mesaje</string>
+    <string name="title_legend_download_fetch">Numărul de mesaje / antete descărcate / antetele au fost extrase / Pe server</string>
     <string name="title_legend_metered">Conexiunea este contorizată</string>
     <string name="title_legend_unmetered">Conexiunea este necontorizată</string>
     <string name="title_hint_folder_actions">Atingeți lung pentru opțiuni</string>

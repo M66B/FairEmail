@@ -123,6 +123,7 @@
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
     <string name="title_advanced_name_email">显示名称和电子邮件地址</string>
+    <string name="title_advanced_subject_italic">用斜体字显示邮件主题</string>
     <string name="title_advanced_flags">显示加星邮件(收藏)</string>
     <string name="title_advanced_preview">显示邮件预览</string>
     <string name="title_advanced_addresses">默认显示地址详情</string>
@@ -436,6 +437,7 @@
     <string name="title_legend_waiting">等待下次同步</string>
     <string name="title_legend_stop">停止处理规则</string>
     <string name="title_legend_sync_keep">同步/保留邮件的天数</string>
+    <string name="title_legend_download_fetch">下载的邮件正文数/获取的标头数</string>
     <string name="title_legend_metered">连接是计量的</string>
     <string name="title_legend_unmetered">连接是不计量的</string>
     <string name="title_hint_folder_actions">长按以显示更多选项</string>
