@@ -199,26 +199,33 @@ public class ViewModelBrowse extends ViewModel {
                             try {
                                 // https://tools.ietf.org/html/rfc3501#section-6.4.4
                                 Argument arg = new Argument();
-                                if (!protocol.supportsUtf8()) {
-                                    arg.writeAtom("CHARSET");
-                                    arg.writeAtom("UTF-8");
-                                }
-                                if (keywords)
+                                if (state.search.startsWith("raw:") && state.istore.hasCapability("X-GM-EXT-1")) {
+                                    // https://support.google.com/mail/answer/7190
+                                    // https://developers.google.com/gmail/imap/imap-extensions#extension_of_the_search_command_x-gm-raw
+                                    arg.writeAtom("X-GM-RAW");
+                                    arg.writeString(state.search.substring(4));
+                                } else {
+                                    if (!protocol.supportsUtf8()) {
+                                        arg.writeAtom("CHARSET");
+                                        arg.writeAtom("UTF-8");
+                                    }
+                                    if (keywords)
+                                        arg.writeAtom("OR");
                                     arg.writeAtom("OR");
-                                arg.writeAtom("OR");
-                                arg.writeAtom("OR");
-                                arg.writeAtom("OR");
-                                arg.writeAtom("FROM");
-                                arg.writeBytes(state.search.getBytes());
-                                arg.writeAtom("TO");
-                                arg.writeBytes(state.search.getBytes());
-                                arg.writeAtom("SUBJECT");
-                                arg.writeBytes(state.search.getBytes());
-                                arg.writeAtom("BODY");
-                                arg.writeBytes(state.search.getBytes());
-                                if (keywords) {
-                                    arg.writeAtom("KEYWORD");
+                                    arg.writeAtom("OR");
+                                    arg.writeAtom("OR");
+                                    arg.writeAtom("FROM");
                                     arg.writeBytes(state.search.getBytes());
+                                    arg.writeAtom("TO");
+                                    arg.writeBytes(state.search.getBytes());
+                                    arg.writeAtom("SUBJECT");
+                                    arg.writeBytes(state.search.getBytes());
+                                    arg.writeAtom("BODY");
+                                    arg.writeBytes(state.search.getBytes());
+                                    if (keywords) {
+                                        arg.writeAtom("KEYWORD");
+                                        arg.writeBytes(state.search.getBytes());
+                                    }
                                 }
 
                                 Log.i("Boundary UTF8 search=" + state.search);
