@@ -29,7 +29,6 @@ import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Base64;
-import android.util.Patterns;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -55,6 +54,7 @@ import java.util.regex.Matcher;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.text.HtmlCompat;
+import androidx.core.util.PatternsCompat;
 
 import static androidx.core.text.HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM;
 import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
@@ -119,7 +119,7 @@ public class HtmlHelper {
 
                     int pos = 0;
                     String text = tnode.text();
-                    Matcher matcher = Patterns.WEB_URL.matcher(text);
+                    Matcher matcher = PatternsCompat.WEB_URL.matcher(text);
                     while (matcher.find()) {
                         boolean linked = false;
                         Node parent = node.parent();
