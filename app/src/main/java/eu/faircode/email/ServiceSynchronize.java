@@ -61,7 +61,6 @@ import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
-import javax.mail.Store;
 import javax.mail.StoreClosedException;
 import javax.mail.UIDFolder;
 import javax.mail.event.ConnectionAdapter;
@@ -487,7 +486,7 @@ public class ServiceSynchronize extends LifecycleService {
                 isession.setDebug(debug);
                 // adb -t 1 logcat | grep "fairemail\|System.out"
 
-                final Store istore = isession.getStore(account.getProtocol());
+                final IMAPStore istore = (IMAPStore) isession.getStore(account.getProtocol());
 
                 final Map<EntityFolder, Folder> folders = new HashMap<>();
                 List<Thread> idlers = new ArrayList<>();

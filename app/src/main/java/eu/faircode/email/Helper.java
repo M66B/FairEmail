@@ -56,6 +56,7 @@ import android.widget.Toast;
 
 import com.android.billingclient.api.BillingClient;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MailConnectException;
 
@@ -83,6 +84,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -93,7 +95,6 @@ import javax.mail.AuthenticationFailedException;
 import javax.mail.FolderClosedException;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
-import javax.mail.Store;
 import javax.mail.internet.InternetAddress;
 import javax.net.ssl.HttpsURLConnection;
 
@@ -802,8 +803,7 @@ public class Helper {
         return true;
     }
 
-    static void connect(Context context, Store istore, EntityAccount account) throws
-            MessagingException {
+    static void connect(Context context, IMAPStore istore, EntityAccount account) throws MessagingException {
         try {
             istore.connect(account.host, account.port, account.user, account.password);
         } catch (AuthenticationFailedException ex) {
@@ -814,6 +814,19 @@ public class Helper {
             } else
                 throw ex;
         }
+
+        // https://www.ietf.org/rfc/rfc2971.txt
+        if (istore.hasCapability("ID"))
+            try {
+                Map<String, String> id = new LinkedHashMap<>();
+                id.put("name", context.getString(R.string.app_name));
+                id.put("version", BuildConfig.VERSION_NAME);
+                Map<String, String> sid = istore.id(id);
+                for (String key : sid.keySet())
+                    Log.i("Server " + key + "=" + sid.get(key));
+            } catch (MessagingException ex) {
+                Log.w(ex);
+            }
     }
 
     static String refreshToken(Context context, String type, String name, String current) {
