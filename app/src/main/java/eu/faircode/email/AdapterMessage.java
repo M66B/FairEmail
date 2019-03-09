@@ -161,6 +161,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private float textSize;
     private int colorPrimary;
     private int colorAccent;
+    private int colorWarning;
     private int textColorSecondary;
     private int colorUnread;
     private boolean hasWebView;
@@ -805,13 +806,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             String cc = MessageHelper.formatAddresses(message.cc);
             String bcc = MessageHelper.formatAddresses(message.bcc);
 
-            String identity;
-            try {
-                InternetAddress via = new InternetAddress(message.identityEmail, message.identityName);
-                identity = MessageHelper.formatAddresses(new Address[]{via});
-            } catch (UnsupportedEncodingException ex) {
-                identity = ex.getMessage();
-            }
+            boolean self = false;
+            InternetAddress via = null;
+            if (message.identityEmail != null)
+                try {
+                    via = new InternetAddress(message.identityEmail, message.identityName);
+                    if (message.to != null) {
+                        String v = Helper.canonicalAddress(via.getAddress());
+                        for (Address t : message.to) {
+                            if (v.equals(Helper.canonicalAddress(((InternetAddress) t).getAddress()))) {
+                                self = true;
+                                break;
+                            }
+                        }
+                    }
+                } catch (UnsupportedEncodingException ignored) {
+                }
 
             tvFromExTitle.setVisibility(show_addresses && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
             tvFromEx.setVisibility(show_addresses && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
@@ -820,6 +830,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvToTitle.setVisibility(show_addresses && !TextUtils.isEmpty(to) ? View.VISIBLE : View.GONE);
             tvTo.setVisibility(show_addresses && !TextUtils.isEmpty(to) ? View.VISIBLE : View.GONE);
             tvTo.setText(to);
+            tvToTitle.setTextColor(self ? textColorSecondary : colorWarning);
+            tvTo.setTextColor(self ? textColorSecondary : colorWarning);
 
             tvReplyToTitle.setVisibility(show_addresses && !TextUtils.isEmpty(replyto) ? View.VISIBLE : View.GONE);
             tvReplyTo.setVisibility(show_addresses && !TextUtils.isEmpty(replyto) ? View.VISIBLE : View.GONE);
@@ -833,9 +845,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvBcc.setVisibility(show_addresses && !TextUtils.isEmpty(bcc) ? View.VISIBLE : View.GONE);
             tvBcc.setText(bcc);
 
-            tvIdentityTitle.setVisibility(show_addresses && debug && !TextUtils.isEmpty(identity) ? View.VISIBLE : View.GONE);
-            tvIdentity.setVisibility(show_addresses && debug && !TextUtils.isEmpty(identity) ? View.VISIBLE : View.GONE);
-            tvIdentity.setText(identity);
+            tvIdentityTitle.setVisibility(show_addresses && via != null ? View.VISIBLE : View.GONE);
+            tvIdentity.setVisibility(show_addresses && via != null ? View.VISIBLE : View.GONE);
+            tvIdentity.setText(MessageHelper.formatAddresses(new Address[]{via}));
 
             tvTimeExTitle.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
             tvTimeEx.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
@@ -2889,6 +2901,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.textSize = Helper.getTextSize(context, zoom);
         this.colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
         this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
         this.colorUnread = Helper.resolveColor(context, R.attr.colorUnread);
         this.hasWebView = Helper.hasWebView(context);
