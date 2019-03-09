@@ -73,6 +73,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.InetAddress;
+import java.net.URL;
 import java.net.UnknownHostException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -93,6 +95,7 @@ import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.Store;
 import javax.mail.internet.InternetAddress;
+import javax.net.ssl.HttpsURLConnection;
 
 import androidx.annotation.NonNull;
 import androidx.browser.customtabs.CustomTabsIntent;
@@ -999,5 +1002,20 @@ public class Helper {
 
     static String sanitizeFilename(String name) {
         return (name == null ? null : name.replaceAll("[^a-zA-Z0-9\\.\\-]", "_"));
+    }
+
+    static String getOrganization(String host) throws IOException {
+        InetAddress address = InetAddress.getByName(host);
+        URL url = new URL("https://ipinfo.io/" + address.getHostAddress() + "/org");
+        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
+        connection.setReadTimeout(15 * 1000);
+        connection.connect();
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
+            String organization = reader.readLine();
+            if ("undefined".equals(organization))
+                organization = null;
+            return organization;
+        }
     }
 }

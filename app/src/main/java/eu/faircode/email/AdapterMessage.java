@@ -1704,18 +1704,58 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private void onOpenLink(Uri uri) {
+        private void onOpenLink(final Uri uri) {
             if (BuildConfig.APPLICATION_ID.equals(uri.getHost()) && "/activate/".equals(uri.getPath())) {
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                 lbm.sendBroadcast(
                         new Intent(ActivityView.ACTION_ACTIVATE_PRO)
                                 .putExtra("uri", uri));
             } else {
+                final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
                 View view = LayoutInflater.from(context).inflate(R.layout.dialog_link, null);
                 final EditText etLink = view.findViewById(R.id.etLink);
+                final CheckBox cbOrganization = view.findViewById(R.id.cbOrganization);
                 TextView tvInsecure = view.findViewById(R.id.tvInsecure);
 
+                cbOrganization.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        prefs.edit().putBoolean("show_organization", isChecked).apply();
+                        if (isChecked) {
+                            Bundle args = new Bundle();
+                            args.putParcelable("uri", uri);
+
+                            new SimpleTask<String>() {
+                                @Override
+                                protected void onPreExecute(Bundle args) {
+                                    cbOrganization.setText("…");
+                                }
+
+                                @Override
+                                protected String onExecute(Context context, Bundle args) throws Throwable {
+                                    Uri uri = args.getParcelable("uri");
+                                    String host = uri.getHost();
+                                    return (TextUtils.isEmpty(host) ? null : Helper.getOrganization(host));
+                                }
+
+                                @Override
+                                protected void onExecuted(Bundle args, String organization) {
+                                    cbOrganization.setText(organization == null ? "?" : organization);
+                                }
+
+                                @Override
+                                protected void onException(Bundle args, Throwable ex) {
+                                    cbOrganization.setText(ex.getMessage());
+                                }
+                            }.execute(context, owner, args, "link:domain");
+                        } else
+                            cbOrganization.setText(R.string.title_show_organization);
+                    }
+                });
+
                 etLink.setText(uri.toString());
+                cbOrganization.setChecked(prefs.getBoolean("show_organization", true));
                 tvInsecure.setVisibility("http".equals(uri.getScheme()) ? View.VISIBLE : View.GONE);
 
                 new DialogBuilderLifecycle(context, owner)
