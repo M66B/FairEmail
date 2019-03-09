@@ -338,258 +338,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorAddress" />
 
-        <TextView
-            android:id="@+id/tvFromExTitle"
-            android:layout_width="wrap_content"
+        <include
+            android:id="@+id/inAddresses"
+            layout="@layout/include_addresses"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
-            android:text="@string/title_from"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:layout_marginEnd="6dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress" />
-
-        <TextView
-            android:id="@+id/tvFromEx"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
-            android:text="From"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textIsSelectable="true"
-            app:layout_constraintEnd_toStartOf="@+id/ivSearchContact"
-            app:layout_constraintStart_toEndOf="@id/tvFromExTitle"
-            app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress" />
-
-        <ImageView
-            android:id="@+id/ivSearchContact"
-            android:layout_width="21dp"
-            android:layout_height="21dp"
-            android:layout_marginEnd="6dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/baseline_search_24"
-            app:layout_constraintEnd_toStartOf="@+id/ivNotifyContact"
-            app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress" />
-
-        <ImageView
-            android:id="@+id/ivNotifyContact"
-            android:layout_width="21dp"
-            android:layout_height="21dp"
-            android:layout_marginEnd="6dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/baseline_notifications_24"
-            app:layout_constraintEnd_toStartOf="@+id/ivAddContact"
-            app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress" />
-
-        <ImageView
-            android:id="@+id/ivAddContact"
-            android:layout_width="21dp"
-            android:layout_height="21dp"
-            android:layout_marginEnd="6dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/baseline_import_contacts_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress" />
-
-        <TextView
-            android:id="@+id/tvToTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:text="@string/title_to"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvFromEx" />
-
-        <TextView
-            android:id="@+id/tvTo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
-            android:text="To"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textIsSelectable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvToTitle"
-            app:layout_constraintTop_toBottomOf="@id/tvFromEx" />
-
-        <TextView
-            android:id="@+id/tvReplyToTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:text="@string/title_reply_to"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTo" />
-
-        <TextView
-            android:id="@+id/tvReplyTo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
-            android:text="Reply to"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textIsSelectable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvReplyToTitle"
-            app:layout_constraintTop_toBottomOf="@id/tvTo" />
-
-        <TextView
-            android:id="@+id/tvCcTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:text="@string/title_cc"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
-
-        <TextView
-            android:id="@+id/tvCc"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
-            android:text="Cc"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textIsSelectable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvCcTitle"
-            app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
-
-        <TextView
-            android:id="@+id/tvBccTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:text="@string/title_bcc"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCc" />
-
-        <TextView
-            android:id="@+id/tvBcc"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
-            android:text="Bcc"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textIsSelectable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvBccTitle"
-            app:layout_constraintTop_toBottomOf="@id/tvCc" />
-
-        <TextView
-            android:id="@+id/tvIdentityTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:text="@string/title_via_identity"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvBcc" />
-
-        <TextView
-            android:id="@+id/tvIdentity"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
-            android:text="user@example.org"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textIsSelectable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvIdentityTitle"
-            app:layout_constraintTop_toBottomOf="@id/tvBcc" />
-
-        <TextView
-            android:id="@+id/tvTimeExTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:text="@string/title_received"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvIdentity" />
-
-        <TextView
-            android:id="@+id/tvTimeEx"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
-            android:text="12:34:56"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textIsSelectable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvTimeExTitle"
-            app:layout_constraintTop_toBottomOf="@id/tvIdentity" />
-
-        <TextView
-            android:id="@+id/tvSizeExTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:text="@string/title_size"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTimeEx" />
-
-        <TextView
-            android:id="@+id/tvSizeEx"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
-            android:text="123 KB"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textIsSelectable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvSizeExTitle"
-            app:layout_constraintTop_toBottomOf="@id/tvTimeEx" />
-
-        <TextView
-            android:id="@+id/tvSubjectEx"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
-            android:text="Subject"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textIsSelectable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSizeEx" />
-
-        <TextView
-            android:id="@+id/tvFlags"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
-            android:text="Flags"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textIsSelectable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSubjectEx" />
-
-        <TextView
-            android:id="@+id/tvKeywords"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
-            android:text="Keywords"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textIsSelectable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvFlags" />
 
         <View
             android:id="@+id/vSeparatorHeaders"
@@ -601,7 +358,7 @@
             android:background="?attr/colorSeparator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvKeywords" />
+            app:layout_constraintTop_toBottomOf="@id/inAddresses" />
 
         <TextView
             android:id="@+id/tvHeaders"
@@ -836,14 +593,6 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="tvDay,vSeparatorDay" />
-
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/grpAddress"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:constraint_referenced_ids="
-            tvFromExTitle,tvFromEx,tvToTitle,tvTo,tvReplyToTitle,tvReplyTo,tvCcTitle,tvCc,tvBccTitle,tvBcc,
-            tvIdentityTitle,tvIdentity,tvTimeExTitle,tvTimeEx,tvSizeExTitle,tvSizeEx,tvSubjectEx" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpHeaders"

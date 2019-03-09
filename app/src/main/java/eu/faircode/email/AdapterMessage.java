@@ -200,10 +200,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private View vwRipple;
 
         private ImageView ivExpanderAddress;
-        private TextView tvFromEx;
+
         private ImageView ivSearchContact;
         private ImageView ivNotifyContact;
         private ImageView ivAddContact;
+
+        private TextView tvFromExTitle;
+        private TextView tvToTitle;
+        private TextView tvReplyToTitle;
+        private TextView tvCcTitle;
+        private TextView tvBccTitle;
+        private TextView tvIdentityTitle;
+        private TextView tvTimeExTitle;
+        private TextView tvSizeExTitle;
+
+        private TextView tvFromEx;
         private TextView tvTo;
         private TextView tvReplyTo;
         private TextView tvCc;
@@ -211,6 +222,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvIdentity;
         private TextView tvTimeEx;
         private TextView tvSizeEx;
+
         private TextView tvSubjectEx;
         private TextView tvFlags;
         private TextView tvKeywords;
@@ -238,7 +250,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private RecyclerView rvImage;
 
         private Group grpDay;
-        private Group grpAddress;
         private Group grpHeaders;
         private Group grpAttachments;
         private Group grpExpanded;
@@ -277,10 +288,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             vwRipple = itemView.findViewById(R.id.vwRipple);
 
             ivExpanderAddress = itemView.findViewById(R.id.ivExpanderAddress);
-            tvFromEx = itemView.findViewById(R.id.tvFromEx);
+
             ivSearchContact = itemView.findViewById(R.id.ivSearchContact);
             ivNotifyContact = itemView.findViewById(R.id.ivNotifyContact);
             ivAddContact = itemView.findViewById(R.id.ivAddContact);
+
+            tvFromExTitle = itemView.findViewById(R.id.tvFromExTitle);
+            tvToTitle = itemView.findViewById(R.id.tvToTitle);
+            tvReplyToTitle = itemView.findViewById(R.id.tvReplyToTitle);
+            tvCcTitle = itemView.findViewById(R.id.tvCcTitle);
+            tvBccTitle = itemView.findViewById(R.id.tvBccTitle);
+            tvIdentityTitle = itemView.findViewById(R.id.tvIdentityTitle);
+            tvTimeExTitle = itemView.findViewById(R.id.tvTimeExTitle);
+            tvSizeExTitle = itemView.findViewById(R.id.tvSizeExTitle);
+
+            tvFromEx = itemView.findViewById(R.id.tvFromEx);
             tvTo = itemView.findViewById(R.id.tvTo);
             tvReplyTo = itemView.findViewById(R.id.tvReplyTo);
             tvCc = itemView.findViewById(R.id.tvCc);
@@ -288,6 +310,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvIdentity = itemView.findViewById(R.id.tvIdentity);
             tvTimeEx = itemView.findViewById(R.id.tvTimeEx);
             tvSizeEx = itemView.findViewById(R.id.tvSizeEx);
+
             tvSubjectEx = itemView.findViewById(R.id.tvSubjectEx);
             tvFlags = itemView.findViewById(R.id.tvFlags);
             tvKeywords = itemView.findViewById(R.id.tvKeywords);
@@ -329,7 +352,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             rvImage.setAdapter(adapterImage);
 
             grpDay = itemView.findViewById(R.id.grpDay);
-            grpAddress = itemView.findViewById(R.id.grpAddress);
             grpHeaders = itemView.findViewById(R.id.grpHeaders);
             grpAttachments = itemView.findViewById(R.id.grpAttachments);
             grpExpanded = itemView.findViewById(R.id.grpExpanded);
@@ -430,35 +452,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvError.setVisibility(View.GONE);
             pbLoading.setVisibility(View.VISIBLE);
 
-            tvFlags.setVisibility(View.GONE);
-            tvKeywords.setVisibility(View.GONE);
-
-            pbHeaders.setVisibility(View.GONE);
-            tvNoInternetHeaders.setVisibility(View.GONE);
-
-            cbInline.setVisibility(View.GONE);
-            btnDownloadAttachments.setVisibility(View.GONE);
-            btnSaveAttachments.setVisibility(View.GONE);
-            tvNoInternetAttachments.setVisibility(View.GONE);
-
-            btnHtml.setVisibility(View.GONE);
-            ibQuotes.setVisibility(View.GONE);
-            ibImages.setVisibility(View.GONE);
-            tvBody.setVisibility(View.GONE);
-            vwBody.setVisibility(View.GONE);
-            pbBody.setVisibility(View.GONE);
-            tvNoInternetBody.setVisibility(View.GONE);
-
-            rvImage.setVisibility(View.GONE);
+            clearExpanded();
 
             grpDay.setVisibility(View.GONE);
-            grpAddress.setVisibility(View.GONE);
-            ivSearchContact.setVisibility(View.GONE);
-            ivNotifyContact.setVisibility(View.GONE);
-            ivAddContact.setVisibility(View.GONE);
-            grpHeaders.setVisibility(View.GONE);
-            grpAttachments.setVisibility(View.GONE);
-            grpExpanded.setVisibility(View.GONE);
         }
 
         @SuppressLint("WrongConstant")
@@ -701,7 +697,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void clearExpanded() {
-            grpAddress.setVisibility(View.GONE);
             grpHeaders.setVisibility(View.GONE);
             grpAttachments.setVisibility(View.GONE);
             grpExpanded.setVisibility(View.GONE);
@@ -709,8 +704,28 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivSearchContact.setVisibility(View.GONE);
             ivNotifyContact.setVisibility(View.GONE);
             ivAddContact.setVisibility(View.GONE);
+
+            tvFromExTitle.setVisibility(View.GONE);
+            tvToTitle.setVisibility(View.GONE);
+            tvReplyToTitle.setVisibility(View.GONE);
+            tvCcTitle.setVisibility(View.GONE);
+            tvBccTitle.setVisibility(View.GONE);
+            tvIdentityTitle.setVisibility(View.GONE);
+            tvTimeExTitle.setVisibility(View.GONE);
+            tvSizeExTitle.setVisibility(View.GONE);
+
+            tvFromEx.setVisibility(View.GONE);
+            tvTo.setVisibility(View.GONE);
+            tvReplyTo.setVisibility(View.GONE);
+            tvCc.setVisibility(View.GONE);
+            tvBcc.setVisibility(View.GONE);
+            tvIdentity.setVisibility(View.GONE);
+            tvTimeEx.setVisibility(View.GONE);
+            tvSizeEx.setVisibility(View.GONE);
+            tvSubjectEx.setVisibility(View.GONE);
             tvFlags.setVisibility(View.GONE);
             tvKeywords.setVisibility(View.GONE);
+
             pbHeaders.setVisibility(View.GONE);
             tvNoInternetHeaders.setVisibility(View.GONE);
 
@@ -753,12 +768,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             grpExpanded.setVisibility(View.VISIBLE);
 
-            boolean from = (message.from != null && message.from.length > 0);
-            boolean channel = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
-            grpAddress.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
+            boolean hasFrom = (message.from != null && message.from.length > 0);
+            boolean hasChannel = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
+
             ivSearchContact.setVisibility(show_addresses && search && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
-            ivNotifyContact.setVisibility(show_addresses && channel && from ? View.VISIBLE : View.GONE);
-            ivAddContact.setVisibility(show_addresses && contacts && from ? View.VISIBLE : View.GONE);
+            ivNotifyContact.setVisibility(show_addresses && hasChannel && hasFrom ? View.VISIBLE : View.GONE);
+            ivAddContact.setVisibility(show_addresses && contacts && hasFrom ? View.VISIBLE : View.GONE);
 
             grpHeaders.setVisibility(show_headers ? View.VISIBLE : View.GONE);
             if (show_headers && message.headers == null) {
@@ -783,35 +798,65 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Addresses
             ivExpanderAddress.setImageResource(show_addresses ? R.drawable.baseline_expand_less_24 : R.drawable.baseline_expand_more_24);
-            tvFromEx.setText(MessageHelper.formatAddresses(message.from));
-            tvTo.setText(MessageHelper.formatAddresses(message.to));
-            tvReplyTo.setText(MessageHelper.formatAddresses(message.reply));
-            tvCc.setText(MessageHelper.formatAddresses(message.cc));
-            tvBcc.setText(MessageHelper.formatAddresses(message.bcc));
 
+            String from = MessageHelper.formatAddresses(message.from);
+            String to = MessageHelper.formatAddresses(message.to);
+            String replyto = MessageHelper.formatAddresses(message.reply);
+            String cc = MessageHelper.formatAddresses(message.cc);
+            String bcc = MessageHelper.formatAddresses(message.bcc);
+
+            String identity;
             try {
                 InternetAddress via = new InternetAddress(message.identityEmail, message.identityName);
-                tvIdentity.setText(MessageHelper.formatAddresses(new Address[]{via}));
+                identity = MessageHelper.formatAddresses(new Address[]{via});
             } catch (UnsupportedEncodingException ex) {
-                tvIdentity.setText(ex.getMessage());
+                identity = ex.getMessage();
             }
 
+            tvFromExTitle.setVisibility(show_addresses && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
+            tvFromEx.setVisibility(show_addresses && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
+            tvFromEx.setText(from);
+
+            tvToTitle.setVisibility(show_addresses && !TextUtils.isEmpty(to) ? View.VISIBLE : View.GONE);
+            tvTo.setVisibility(show_addresses && !TextUtils.isEmpty(to) ? View.VISIBLE : View.GONE);
+            tvTo.setText(to);
+
+            tvReplyToTitle.setVisibility(show_addresses && !TextUtils.isEmpty(replyto) ? View.VISIBLE : View.GONE);
+            tvReplyTo.setVisibility(show_addresses && !TextUtils.isEmpty(replyto) ? View.VISIBLE : View.GONE);
+            tvReplyTo.setText(replyto);
+
+            tvCcTitle.setVisibility(show_addresses && !TextUtils.isEmpty(cc) ? View.VISIBLE : View.GONE);
+            tvCc.setVisibility(show_addresses && !TextUtils.isEmpty(cc) ? View.VISIBLE : View.GONE);
+            tvCc.setText(cc);
+
+            tvBccTitle.setVisibility(show_addresses && !TextUtils.isEmpty(bcc) ? View.VISIBLE : View.GONE);
+            tvBcc.setVisibility(show_addresses && !TextUtils.isEmpty(bcc) ? View.VISIBLE : View.GONE);
+            tvBcc.setText(bcc);
+
+            tvIdentityTitle.setVisibility(show_addresses && debug && !TextUtils.isEmpty(identity) ? View.VISIBLE : View.GONE);
+            tvIdentity.setVisibility(show_addresses && debug && !TextUtils.isEmpty(identity) ? View.VISIBLE : View.GONE);
+            tvIdentity.setText(identity);
+
+            tvTimeExTitle.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
+            tvTimeEx.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
             tvTimeEx.setText(dtf.format(message.received));
 
-            tvSizeEx.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
             if (!message.duplicate)
                 tvSizeEx.setAlpha(message.content ? 1.0f : Helper.LOW_LIGHT);
-            tvSizeEx.setVisibility(message.size == null ? View.GONE : View.VISIBLE);
+            tvSizeExTitle.setVisibility(!show_addresses || message.size == null ? View.GONE : View.VISIBLE);
+            tvSizeEx.setVisibility(!show_addresses || message.size == null ? View.GONE : View.VISIBLE);
+            tvSizeEx.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
 
+            tvSubjectEx.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
             tvSubjectEx.setText(message.subject);
 
             // Flags
+            tvFlags.setVisibility(show_addresses && debug ? View.VISIBLE : View.GONE);
             tvFlags.setText(message.flags);
-            tvFlags.setVisibility(debug ? View.VISIBLE : View.GONE);
 
             // Keywords
+            tvKeywords.setVisibility(show_addresses && message.keywords.length > 0 ? View.VISIBLE : View.GONE);
             tvKeywords.setText(TextUtils.join(" ", message.keywords));
-            tvKeywords.setVisibility(message.keywords.length > 0 ? View.VISIBLE : View.GONE);
 
             // Headers
             if (show_headers && message.headers != null) {
