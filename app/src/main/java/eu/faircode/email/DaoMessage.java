@@ -356,6 +356,12 @@ public interface DaoMessage {
 
     @Query("DELETE FROM message" +
             " WHERE folder = :folder" +
+            " AND ui_browsed" +
+            " AND NOT uid IS NULL")
+    int deleteBrowsedMessages(long folder);
+
+    @Query("DELETE FROM message" +
+            " WHERE folder = :folder" +
             " AND uid IS NULL" +
             " AND NOT ui_browsed" +
             " AND NOT EXISTS" +
@@ -366,14 +372,8 @@ public interface DaoMessage {
 
     @Query("DELETE FROM message" +
             " WHERE folder = :folder" +
-            " AND seen")
-    int deleteSeenMessages(long folder);
-
-    @Query("DELETE FROM message" +
-            " WHERE folder = :folder" +
             " AND received < :received" +
             " AND NOT uid IS NULL" +
-            " AND (NOT ui_browsed OR :browsed)" +
             " AND NOT ui_flagged")
-    int deleteMessagesBefore(long folder, long received, boolean browsed);
+    int deleteMessagesBefore(long folder, long received);
 }

@@ -248,7 +248,7 @@ public class FragmentFolder extends FragmentBase {
                                 sync_days, keep_days);
                         db.folder().setFolderError(id, null);
 
-                        db.message().deleteMessagesBefore(id, keep_time, true);
+                        db.message().deleteMessagesBefore(id, keep_time);
 
                         EntityOperation.sync(context, folder.id, true);
                     }

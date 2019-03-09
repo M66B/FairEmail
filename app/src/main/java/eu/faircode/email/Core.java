@@ -852,7 +852,7 @@ class Core {
             Log.i(folder.name + " sync=" + new Date(sync_time) + " keep=" + new Date(keep_time));
 
             // Delete old local messages
-            int old = db.message().deleteMessagesBefore(folder.id, keep_time, false);
+            int old = db.message().deleteMessagesBefore(folder.id, keep_time);
             Log.i(folder.name + " local old=" + old);
 
             // Get list of local uids

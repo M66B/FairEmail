@@ -87,9 +87,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         private final static int action_synchronize_now = 1;
         private final static int action_delete_local = 2;
-        private final static int action_empty_trash = 3;
-        private final static int action_edit_properties = 4;
-        private final static int action_edit_rules = 5;
+        private final static int action_delete_browsed = 3;
+        private final static int action_empty_trash = 4;
+        private final static int action_edit_properties = 5;
+        private final static int action_edit_rules = 6;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -249,15 +250,17 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             popupMenu.getMenu().add(Menu.NONE, action_synchronize_now, 1, R.string.title_synchronize_now);
 
-            if (folder.account != null)
+            if (folder.account != null) { // outbox
                 popupMenu.getMenu().add(Menu.NONE, action_delete_local, 2, R.string.title_delete_local);
+                popupMenu.getMenu().add(Menu.NONE, action_delete_browsed, 3, R.string.title_delete_browsed);
+            }
 
             if (EntityFolder.TRASH.equals(folder.type))
-                popupMenu.getMenu().add(Menu.NONE, action_empty_trash, 3, R.string.title_empty_trash);
+                popupMenu.getMenu().add(Menu.NONE, action_empty_trash, 4, R.string.title_empty_trash);
 
             if (folder.account != null) {
-                popupMenu.getMenu().add(Menu.NONE, action_edit_rules, 4, R.string.title_edit_rules);
-                popupMenu.getMenu().add(Menu.NONE, action_edit_properties, 5, R.string.title_edit_properties);
+                popupMenu.getMenu().add(Menu.NONE, action_edit_rules, 5, R.string.title_edit_rules);
+                popupMenu.getMenu().add(Menu.NONE, action_edit_properties, 6, R.string.title_edit_properties);
             }
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -269,7 +272,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             return true;
 
                         case action_delete_local:
-                            OnActionDeleteLocal();
+                            OnActionDeleteLocal(false);
+                            return true;
+
+                        case action_delete_browsed:
+                            OnActionDeleteLocal(true);
                             return true;
 
                         case action_empty_trash:
@@ -326,19 +333,19 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     }.execute(context, owner, args, "folder:sync");
                 }
 
-                private void OnActionDeleteLocal() {
+                private void OnActionDeleteLocal(boolean browsed) {
                     Bundle args = new Bundle();
                     args.putLong("id", folder.id);
-                    args.putBoolean("outbox", folder.account == null);
+                    args.putBoolean("browsed", browsed);
 
                     new SimpleTask<Void>() {
                         @Override
                         protected Void onExecute(Context context, Bundle args) {
                             long id = args.getLong("id");
-                            boolean outbox = args.getBoolean("outbox");
-                            Log.i("Delete local messages outbox=" + outbox);
-                            if (outbox)
-                                DB.getInstance(context).message().deleteSeenMessages(id);
+                            boolean browsed = args.getBoolean("browsed");
+                            Log.i("Delete local messages browsed=" + browsed);
+                            if (browsed)
+                                DB.getInstance(context).message().deleteBrowsedMessages(id);
                             else
                                 DB.getInstance(context).message().deleteLocalMessages(id);
                             return null;
