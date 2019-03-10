@@ -33,6 +33,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
@@ -75,6 +76,7 @@ public class HtmlHelper {
 
         Document document = Jsoup.parse(html);
 
+        // Remove tracking pixels
         for (Element img : document.select("img")) {
             String src = img.attr("src");
             String height = img.attr("height").trim();
@@ -82,6 +84,15 @@ public class HtmlHelper {
             if ("1".equals(height) && "1".equals(width) && !TextUtils.isEmpty(src))
                 img.removeAttr("src");
         }
+
+        // Remove Javascript
+        for (Element e : document.select("*"))
+            for (Attribute a : e.attributes())
+                if (a.getValue().trim().toLowerCase().startsWith("javascript:"))
+                    e.removeAttr(a.getKey());
+
+        // Remove scripts
+        document.select("script").remove();
 
         return document.outerHtml();
     }
