@@ -457,6 +457,7 @@
     <string name="title_hint_message_selection">Mantenga presionado un mensaje para empezar a seleccionar múltiples mensajes</string>
     <string name="title_hint_sync">Descargar mensajes puede llevar algún tiempo, dependiendo de la velocidad del proveedor, la conexión a internet, dispositivo y el número de mensajes. Mientras se descargan mensajes, la aplicación puede responder más lentamente.</string>
     <string name="title_open_link">Abrir enlace</string>
+    <string name="title_show_organization">Mostrar organización</string>
     <string name="title_insecure_link">Este enlace es inseguro</string>
     <string name="title_select_app">Seleccionar aplicación</string>
     <string name="title_updated">Hay una actualización a la version %1$s disponible</string>

@@ -457,6 +457,7 @@
     <string name="title_hint_message_selection">Lange auf eine Nachricht drücken, um mehrere Nachrichten auszuwählen</string>
     <string name="title_hint_sync">Das Herunterladen von E-Mails kann einige Zeit in Anspruch nehmen, abhängig von der Geschwindigkeit des Providers, der Internetverbindung, des Gerätes und von der Anzahl der E-Mails. Beim Herunterladen der E-Mails kann die App träge reagieren.</string>
     <string name="title_open_link">Link öffnen</string>
+    <string name="title_show_organization">Organisation anzeigen</string>
     <string name="title_insecure_link">Dieser Link ist unsicher</string>
     <string name="title_select_app">App auswählen</string>
     <string name="title_updated">Es ist ein Update auf Version %1$s verfügbar</string>
