@@ -850,6 +850,7 @@ public class FragmentAccount extends FragmentBase {
                 boolean reload = (check || account == null ||
                         !Objects.equals(account.prefix, prefix) ||
                         account.synchronize != synchronize ||
+                        account.notify != notify ||
                         !account.poll_interval.equals(Integer.parseInt(interval)));
 
                 Long last_connected = null;
