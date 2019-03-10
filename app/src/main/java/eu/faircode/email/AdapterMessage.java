@@ -2488,7 +2488,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     data.hasJunk && !EntityFolder.JUNK.equals(data.message.folderType));
 
             popupMenu.getMenu().findItem(R.id.menu_share).setEnabled(data.message.content);
-            popupMenu.getMenu().findItem(R.id.menu_print).setEnabled(data.message.content);
+            popupMenu.getMenu().findItem(R.id.menu_print).setEnabled(hasWebView && data.message.content);
 
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setChecked(show_headers);
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(data.message.uid != null);
