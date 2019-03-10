@@ -99,6 +99,7 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.text.Collator;
 import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -172,6 +173,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     enum ViewType {UNIFIED, FOLDER, THREAD, SEARCH}
 
+    private static NumberFormat nf = NumberFormat.getNumberInstance();
     private static DateFormat tf = SimpleDateFormat.getTimeInstance(SimpleDateFormat.SHORT);
     private static DateFormat dtf = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
 
@@ -597,7 +599,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvCount.setVisibility(View.GONE);
                 ivThread.setVisibility(View.GONE);
             } else {
-                tvCount.setText(Integer.toString(message.visible));
+                tvCount.setText(nf.format(message.visible));
                 ivThread.setVisibility(View.VISIBLE);
             }
 

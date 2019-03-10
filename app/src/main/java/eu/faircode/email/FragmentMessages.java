@@ -60,6 +60,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.text.Collator;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -166,6 +167,8 @@ public class FragmentMessages extends FragmentBase {
     private final int action_delete = 8;
     private final int action_junk = 9;
     private final int action_move = 10;
+
+    private static NumberFormat nf = NumberFormat.getNumberInstance();
 
     private static final int LOCAL_PAGE_SIZE = 100;
     private static final int REMOTE_PAGE_SIZE = 10;
@@ -1544,11 +1547,11 @@ public class FragmentMessages extends FragmentBase {
                                 errors = true;
                         }
 
-                        String name = getString(R.string.title_folder_unified);
+                        StringBuilder sb = new StringBuilder();
+                        sb.append(getString(R.string.title_folder_unified));
                         if (unseen > 0)
-                            setSubtitle(getString(R.string.title_unseen_count, name, unseen));
-                        else
-                            setSubtitle(name);
+                            sb.append(" (").append(nf.format(unseen)).append(")");
+                        setSubtitle(sb.toString());
 
                         boolean refreshing = false;
                         for (TupleFolderEx folder : folders)
@@ -1580,11 +1583,11 @@ public class FragmentMessages extends FragmentBase {
                         if (folder == null)
                             setSubtitle(null);
                         else {
-                            String name = folder.getDisplayName(getContext());
+                            StringBuilder sb = new StringBuilder();
+                            sb.append(folder.getDisplayName(getContext()));
                             if (folder.unseen > 0)
-                                setSubtitle(getString(R.string.title_unseen_count, name, folder.unseen));
-                            else
-                                setSubtitle(name);
+                                sb.append(" (").append(nf.format(folder.unseen)).append(")");
+                            setSubtitle(sb.toString());
 
                             boolean outbox = EntityFolder.OUTBOX.equals(folder.type);
                             if (FragmentMessages.this.outbox != outbox) {

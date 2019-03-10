@@ -67,7 +67,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private List<TupleFolderEx> all = new ArrayList<>();
     private List<TupleFolderEx> filtered = new ArrayList<>();
 
-    private NumberFormat nf = NumberFormat.getInstance();
+    private static NumberFormat nf = NumberFormat.getNumberInstance();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View itemView;
@@ -164,11 +164,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             ivNotify.setVisibility(folder.notify ? View.VISIBLE : View.GONE);
 
-            String name = folder.getDisplayName(context);
+            StringBuilder n = new StringBuilder();
+            n.append(folder.getDisplayName(context));
             if (folder.unseen > 0)
-                tvName.setText(context.getString(R.string.title_unseen_count, name, folder.unseen));
-            else
-                tvName.setText(name);
+                n.append(" (").append(nf.format(folder.unseen)).append(")");
+            tvName.setText(n.toString());
             tvName.setTypeface(null, folder.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
             tvName.setTextColor(folder.unseen > 0 ? colorUnread : textColorSecondary);
 
@@ -206,10 +206,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 tvAfter.setText(null);
                 ivSync.setImageResource(R.drawable.baseline_sync_24);
             } else {
+                StringBuilder a = new StringBuilder();
+                a.append(nf.format(folder.sync_days));
+                a.append('/');
                 if (folder.keep_days == Integer.MAX_VALUE)
-                    tvAfter.setText(String.format("%d/∞", folder.sync_days));
+                    a.append('∞');
                 else
-                    tvAfter.setText(String.format("%d/%d", folder.sync_days, folder.keep_days));
+                    a.append(nf.format(folder.keep_days));
+                tvAfter.setText(a.toString());
                 ivSync.setImageResource(folder.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
             }
             ivSync.setImageTintList(ColorStateList.valueOf(
