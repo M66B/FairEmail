@@ -20,11 +20,13 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -64,6 +66,25 @@ public class HtmlHelper {
 
     private static final List<String> heads = Arrays.asList("h1", "h2", "h3", "h4", "h5", "h6", "p", "table", "ol", "ul", "br", "hr");
     private static final List<String> tails = Arrays.asList("h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "li");
+
+    static String removeTracking(Context context, String html) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean remove_tracking = prefs.getBoolean("remove_tracking", true);
+        if (!remove_tracking)
+            return html;
+
+        Document document = Jsoup.parse(html);
+
+        for (Element img : document.select("img")) {
+            String src = img.attr("src");
+            String height = img.attr("height").trim();
+            String width = img.attr("width").trim();
+            if ("1".equals(height) && "1".equals(width) && !TextUtils.isEmpty(src))
+                img.removeAttr("src");
+        }
+
+        return document.outerHtml();
+    }
 
     static String sanitize(Context context, String html, boolean showQuotes) {
         final Document document = Jsoup.parse(Jsoup.clean(html, Whitelist

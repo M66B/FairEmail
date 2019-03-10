@@ -83,6 +83,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swPreview;
     private SwitchCompat swAddresses;
     private SwitchCompat swHtml;
+    private SwitchCompat swTracking;
     private SwitchCompat swImages;
     private SwitchCompat swActionbar;
 
@@ -109,7 +110,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private Group grpNotification;
 
     static String[] OPTIONS_RESTART = new String[]{
-            "unified", "date", "threading", "avatars", "identicons", "name_email", "subject_italic", "flags", "preview", "addresses", "autoimages", "actionbar",
+            "unified", "date", "threading", "avatars", "identicons", "name_email", "subject_italic", "flags", "preview",
+            "addresses", "autohtml", "autoimages", "actionbar",
             "pull", "swipenav", "autoexpand", "autoclose", "autonext",
             "debug"
     };
@@ -117,7 +119,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private final static String[] ADVANCED_OPTIONS = new String[]{
             "enabled", "schedule_start", "schedule_end",
             "metered", "download",
-            "unified", "date", "threading", "avatars", "identicons", "name_email", "subject_italic", "flags", "preview", "addresses", "autoimages", "actionbar",
+            "unified", "date", "threading", "avatars", "identicons", "name_email", "subject_italic", "flags", "preview",
+            "addresses", "autohtml", "remove_tracking", "autoimages", "actionbar",
             "pull", "swipenav", "autoexpand", "autoclose", "autonext", "collapse", "autoread", "automove",
             "autoresize", "sender", "autosend",
             "notify_preview", "search_local", "light", "sound",
@@ -155,6 +158,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swPreview = view.findViewById(R.id.swPreview);
         swAddresses = view.findViewById(R.id.swAddresses);
         swHtml = view.findViewById(R.id.swHtml);
+        swTracking = view.findViewById(R.id.swTracking);
         swImages = view.findViewById(R.id.swImages);
         swActionbar = view.findViewById(R.id.swActionbar);
 
@@ -349,6 +353,13 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("autohtml", checked).apply();
                 swImages.setEnabled(!checked);
+            }
+        });
+
+        swTracking.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("remove_tracking", checked).apply();
             }
         });
 
@@ -576,6 +587,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swPreview.setChecked(prefs.getBoolean("preview", false));
         swAddresses.setChecked(prefs.getBoolean("addresses", true));
         swHtml.setChecked(prefs.getBoolean("autohtml", false));
+        swTracking.setChecked(prefs.getBoolean("remove_tracking", true));
         swImages.setChecked(prefs.getBoolean("autoimages", false));
         swImages.setEnabled(!swHtml.isChecked());
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));

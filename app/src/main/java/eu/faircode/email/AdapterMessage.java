@@ -1505,9 +1505,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 new SimpleTask<String>() {
                     @Override
-                    protected String onExecute(Context context, Bundle args) throws Throwable {
+                    protected String onExecute(Context context, Bundle args) throws IOException {
                         long id = args.getLong("id");
-                        return getHtmlEmbedded(id);
+                        return HtmlHelper.removeTracking(context, getHtmlEmbedded(id));
                     }
 
                     @Override
@@ -2207,9 +2207,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             new SimpleTask<String>() {
                 @Override
-                protected String onExecute(Context context, Bundle args) throws Throwable {
+                protected String onExecute(Context context, Bundle args) throws IOException {
                     long id = args.getLong("id");
-                    return getHtmlEmbedded(id);
+                    return HtmlHelper.removeTracking(context, getHtmlEmbedded(id));
                 }
 
                 @Override
