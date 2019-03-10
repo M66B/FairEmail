@@ -65,7 +65,7 @@ public class HtmlHelper {
     private static final List<String> heads = Arrays.asList("h1", "h2", "h3", "h4", "h5", "h6", "p", "table", "ol", "ul", "br", "hr");
     private static final List<String> tails = Arrays.asList("h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "li");
 
-    static String sanitize(String html, boolean showQuotes) {
+    static String sanitize(Context context, String html, boolean showQuotes) {
         final Document document = Jsoup.parse(Jsoup.clean(html, Whitelist
                 .relaxed()
                 .addTags("hr")
@@ -137,9 +137,14 @@ public class HtmlHelper {
 
         // Images
         for (Element img : document.select("img")) {
+            String src = img.attr("src");
+            String alt = img.attr("alt");
+            String height = img.attr("height").trim();
+            String width = img.attr("width").trim();
+
             Element div = document.createElement("div");
 
-            Uri uri = Uri.parse(img.attr("src"));
+            Uri uri = Uri.parse(src);
             if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme())) {
                 boolean linked = false;
                 for (Element parent : img.parents())
@@ -160,10 +165,15 @@ public class HtmlHelper {
                 }
             }
 
-            String alt = img.attr("alt");
             if (!TextUtils.isEmpty(alt)) {
                 div.appendElement("br");
                 div.appendElement("em").text(alt);
+            }
+
+            // Tracking image
+            if ("1".equals(height) && "1".equals(width) && !TextUtils.isEmpty(src)) {
+                div.appendElement("br");
+                div.appendElement("strong").text(context.getString(R.string.title_hint_tracking_image));
             }
 
             img.replaceWith(div);
