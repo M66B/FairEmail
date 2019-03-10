@@ -849,7 +849,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvIdentityTitle.setVisibility(show_addresses && debug && via != null ? View.VISIBLE : View.GONE);
             tvIdentity.setVisibility(show_addresses && debug && via != null ? View.VISIBLE : View.GONE);
-            tvIdentity.setText(MessageHelper.formatAddresses(new Address[]{via}));
+            tvIdentity.setText(via == null ? null : MessageHelper.formatAddresses(new Address[]{via}));
 
             tvTimeExTitle.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
             tvTimeEx.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
