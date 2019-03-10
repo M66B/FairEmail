@@ -998,7 +998,7 @@ public class Helper {
             // flag-keyword    = atom
             // atom            = 1*ATOM-CHAR
             // ATOM-CHAR       = <any CHAR except atom-specials>
-            Character kar = keyword.charAt(i);
+            char kar = keyword.charAt(i);
             // atom-specials   = "(" / ")" / "{" / SP / CTL / list-wildcards / quoted-specials / resp-specials
             if (kar == '(' || kar == ')' || kar == '{' || kar == ' ' || Character.isISOControl(kar))
                 continue;
