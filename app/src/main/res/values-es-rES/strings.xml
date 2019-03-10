@@ -131,6 +131,7 @@
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_name_email">Mostrar nombres y direcciones de correo electrónico</string>
+    <string name="title_advanced_subject_italic">Mostrar asunto en cursiva</string>
     <string name="title_advanced_flags">Mostrar estrellas (destacados)</string>
     <string name="title_advanced_preview">Mostrar vista previa de mensajes</string>
     <string name="title_advanced_addresses">Mostrar detalles de dirección por defecto</string>
@@ -233,6 +234,7 @@
     <string name="title_pop3_support">POP3 no es compatible, vea las Preguntas Frecuentes</string>
     <string name="title_synchronize_now">Sincronizar ahora</string>
     <string name="title_delete_local">Eliminar mensajes locales</string>
+    <string name="title_delete_browsed">Eliminar mensajes explorados/buscados</string>
     <string name="title_empty_trash">Vaciar papelera</string>
     <string name="title_edit_properties">Editar propiedades</string>
     <string name="title_edit_rules">Editar reglas</string>
@@ -445,6 +447,7 @@
     <string name="title_legend_waiting">Esperando a la próxima sincronización</string>
     <string name="title_legend_stop">Detener procesamiento de reglas</string>
     <string name="title_legend_sync_keep">Número de días para sincronizar / mantener mensajes</string>
+    <string name="title_legend_download_fetch">Número de cuerpos de mensaje descargados / cabeceras obtenidas / en el servidor</string>
     <string name="title_legend_metered">Conexión medida</string>
     <string name="title_legend_unmetered">Conexión no medida</string>
     <string name="title_hint_folder_actions">Mantenga pulsado para opciones</string>

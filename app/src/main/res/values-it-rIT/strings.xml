@@ -234,6 +234,7 @@
     <string name="title_pop3_support">POP3 non è supportato, vedi anche le FAQ</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
     <string name="title_delete_local">Elimina i messaggi locali</string>
+    <string name="title_delete_browsed">Elimina i messaggi sfogliati/ricercati</string>
     <string name="title_empty_trash">Svuota cestino</string>
     <string name="title_edit_properties">Modifica le proprietà</string>
     <string name="title_edit_rules">Modifica regole</string>

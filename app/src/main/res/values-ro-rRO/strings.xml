@@ -242,6 +242,7 @@
     <string name="title_pop3_support">POP3 nu este suportat activ, vedeți de asemenea secțiunea de întrebări și răspunsuri</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
     <string name="title_delete_local">Șterge mesajul local</string>
+    <string name="title_delete_browsed">Ștergere browser/mesajele căutate</string>
     <string name="title_empty_trash">Golire coș de gunoi</string>
     <string name="title_edit_properties">Editare proprietăți</string>
     <string name="title_edit_rules">Editare reguli</string>

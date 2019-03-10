@@ -234,6 +234,7 @@
     <string name="title_pop3_support">POP3 wordt niet ondersteund, zie ook de FAQ</string>
     <string name="title_synchronize_now">Nu synchroniseren</string>
     <string name="title_delete_local">Verwijder lokale berichten</string>
+    <string name="title_delete_browsed">Verwijder gebladerde/gezochte berichten</string>
     <string name="title_empty_trash">Prullenbak leegmaken</string>
     <string name="title_edit_properties">Bewerk eigenschappen</string>
     <string name="title_edit_rules">Bewerk regels</string>

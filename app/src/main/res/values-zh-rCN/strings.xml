@@ -226,6 +226,7 @@
     <string name="title_pop3_support">不支持POP3协议，另见FAQ</string>
     <string name="title_synchronize_now">现在同步</string>
     <string name="title_delete_local">删除本地消息</string>
+    <string name="title_delete_browsed">删除浏览过/搜索过的消息</string>
     <string name="title_empty_trash">清空垃圾箱</string>
     <string name="title_edit_properties">编辑属性</string>
     <string name="title_edit_rules">编辑规则</string>
