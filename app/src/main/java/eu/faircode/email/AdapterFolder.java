@@ -173,14 +173,18 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             tvName.setTextColor(folder.unseen > 0 ? colorUnread : textColorSecondary);
 
             StringBuilder sb = new StringBuilder();
-            sb.append(nf.format(folder.content));
-            sb.append('/');
-            sb.append(nf.format(folder.messages));
-            sb.append('/');
-            if (folder.total == null)
-                sb.append('?');
-            else
-                sb.append(nf.format(folder.total));
+            if (folder.account == null)
+                sb.append(nf.format(folder.messages));
+            else {
+                sb.append(nf.format(folder.content));
+                sb.append('/');
+                sb.append(nf.format(folder.messages));
+                sb.append('/');
+                if (folder.total == null)
+                    sb.append('?');
+                else
+                    sb.append(nf.format(folder.total));
+            }
             tvMessages.setText(sb.toString());
 
             ivMessages.setImageResource(folder.download || EntityFolder.OUTBOX.equals(folder.type)
