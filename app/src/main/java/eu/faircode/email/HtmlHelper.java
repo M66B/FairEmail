@@ -36,7 +36,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
 import org.jsoup.safety.Whitelist;
-import org.jsoup.select.Elements;
 import org.jsoup.select.NodeTraversor;
 import org.jsoup.select.NodeVisitor;
 
@@ -69,56 +68,106 @@ public class HtmlHelper {
     static String sanitize(String html, boolean showQuotes) {
         final Document document = Jsoup.parse(Jsoup.clean(html, Whitelist
                 .relaxed()
+                .addTags("hr")
+                .removeTags("col", "colgroup", "thead", "tbody")
                 .addProtocols("img", "src", "cid")
                 .addProtocols("img", "src", "data")));
 
-        for (Element td : document.select("th,td")) {
-            Elements br = td.select("br");
-            br.after("&nbsp;");
-            br.remove();
+        // Quotes
+        if (!showQuotes)
+            for (Element quote : document.select("blockquote"))
+                quote.html("&#8230;");
 
-            Elements div = td.select("div");
-            div.tagName("span");
+        // Tables
+        for (Element col : document.select("th,td")) {
+            // prevent line breaks
+            col.select("br").tagName("span").html("&nbsp;");
+            col.select("div").tagName("span");
 
-            Element next = td.nextElementSibling();
+            Element next = col.nextElementSibling();
             if (next != null && ("th".equals(next.tagName()) || "td".equals(next.tagName())))
-                td.append("&nbsp;");
+                col.append(" "); // separate columns by a space
             else
-                td.append("<br>");
+                col.appendElement("br"); // line break after last column
+        }
+        document.select("table").tagName("div");
+        document.select("caption").tagName("p");
+        document.select("td").tagName("span");
+        document.select("th").tagName("strong");
 
-            if ("th".equals(td.tagName()))
-                td.html("<strong>" + td.html() + "<strong>");
+        // Lists
+        for (Element li : document.select("li")) {
+            li.tagName("span");
+            li.prependText("* ");
+            li.appendElement("br"); // line break after list item
+        }
+        document.select("ol").tagName("div");
+        document.select("ul").tagName("div");
+
+        // Short quotes
+        for (Element q : document.select("q")) {
+            q.prependText("\"");
+            q.appendText("\"");
+            q.tagName("em");
         }
 
-        for (Element ol : document.select("ol,ul"))
-            ol.append("<br>");
+        // Pre formatted text
+        for (Element code : document.select("pre")) {
+            code.html(code.html().replaceAll("\\r?\\n", "<br />"));
+            code.tagName("div");
+        }
 
+        // Code
+        document.select("code").tagName("div");
+
+        // Lines
+        for (Element hr : document.select("hr")) {
+            hr.tagName("div");
+            hr.text("--------------------");
+        }
+
+        // Descriptions
+        document.select("dl").tagName("div");
+        for (Element dt : document.select("dt"))
+            dt.appendElement("br");
+        for (Element dt : document.select("dd"))
+            dt.appendElement("br").appendElement("br");
+        document.select("dt").tagName("strong");
+        document.select("dd").tagName("em");
+
+        // Images
         for (Element img : document.select("img")) {
-            img.prependElement("br");
+            Element div = document.createElement("div");
 
-            String src = img.attr("src");
-            if (src.startsWith("http://") || src.startsWith("https://")) {
+            Uri uri = Uri.parse(img.attr("src"));
+            if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme())) {
                 boolean linked = false;
                 for (Element parent : img.parents())
                     if ("a".equals(parent.tagName())) {
                         if (TextUtils.isEmpty(parent.attr("href")))
-                            parent.attr("href", img.attr("src"));
+                            parent.attr("href", uri.toString());
                         linked = true;
                         break;
                     }
 
-                if (!linked) {
+                if (linked)
+                    div.appendChild(img);
+                else {
                     Element a = document.createElement("a");
-                    a.attr("href", src);
+                    a.attr("href", uri.toString());
                     a.appendChild(img.clone());
-                    img.replaceWith(a);
+                    div.appendChild(a);
                 }
             }
-        }
 
-        if (!showQuotes)
-            for (Element quote : document.select("blockquote"))
-                quote.html("&#8230;");
+            String alt = img.attr("alt");
+            if (!TextUtils.isEmpty(alt)) {
+                div.appendElement("br");
+                div.appendElement("em").text(alt);
+            }
+
+            img.replaceWith(div);
+        }
 
         // Autolink
         NodeTraversor.traverse(new NodeVisitor() {
@@ -133,7 +182,7 @@ public class HtmlHelper {
                     Matcher matcher = PatternsCompat.WEB_URL.matcher(text);
                     while (matcher.find()) {
                         boolean linked = false;
-                        Node parent = node.parent();
+                        Node parent = tnode.parent();
                         while (parent != null) {
                             if ("a".equals(parent.nodeName())) {
                                 linked = true;
