@@ -825,8 +825,9 @@ public class Helper {
                 id.put("name", context.getString(R.string.app_name));
                 id.put("version", BuildConfig.VERSION_NAME);
                 Map<String, String> sid = istore.id(id);
-                for (String key : sid.keySet())
-                    Log.i("Server " + key + "=" + sid.get(key));
+                if (sid != null)
+                    for (String key : sid.keySet())
+                        Log.i("Server " + key + "=" + sid.get(key));
             } catch (MessagingException ex) {
                 Log.w(ex);
             }
