@@ -36,6 +36,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
 import org.jsoup.safety.Whitelist;
+import org.jsoup.select.Elements;
 import org.jsoup.select.NodeTraversor;
 import org.jsoup.select.NodeVisitor;
 
@@ -72,11 +73,21 @@ public class HtmlHelper {
                 .addProtocols("img", "src", "data")));
 
         for (Element td : document.select("th,td")) {
+            Elements br = td.select("br");
+            br.after("&nbsp;");
+            br.remove();
+
+            Elements div = td.select("div");
+            div.tagName("span");
+
             Element next = td.nextElementSibling();
             if (next != null && ("th".equals(next.tagName()) || "td".equals(next.tagName())))
-                td.append("<span> </span>");
+                td.append("&nbsp;");
             else
                 td.append("<br>");
+
+            if ("th".equals(td.tagName()))
+                td.html("<strong>" + td.html() + "<strong>");
         }
 
         for (Element ol : document.select("ol,ul"))
