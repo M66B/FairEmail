@@ -234,7 +234,7 @@ class Core {
                                 Long newid = null;
 
                                 if (EntityOperation.MOVE.equals(op.name) &&
-                                        jargs.length() > 2)
+                                        jargs.length() > 2 && !jargs.isNull(2))
                                     newid = jargs.getLong(2);
 
                                 if ((EntityOperation.ADD.equals(op.name) ||
