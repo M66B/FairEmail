@@ -675,7 +675,7 @@ class Core {
         // Download attachment
         MessageHelper helper = new MessageHelper((MimeMessage) imessage);
         MessageHelper.MessageParts parts = helper.getMessageParts();
-        parts.downloadAttachment(context, db, attachment.id, sequence);
+        parts.downloadAttachment(context, sequence - 1, attachment.id);
     }
 
     private static long append(IMAPStore istore, IMAPFolder ifolder, MimeMessage imessage) throws MessagingException {
@@ -1411,7 +1411,7 @@ class Core {
             for (EntityAttachment attachment : attachments)
                 if (!attachment.available)
                     if (!metered || (attachment.size != null && attachment.size < maxSize))
-                        if (!parts.downloadAttachment(context, db, attachment.id, attachment.sequence))
+                        if (!parts.downloadAttachment(context, attachment.sequence - 1, attachment.id))
                             break;
         }
     }

@@ -1312,11 +1312,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                         db.attachment().deleteAttachment(a.id);
 
                                 // Add decrypted attachments
+                                attachments = parts.getAttachments();
                                 int sequence = db.attachment().getAttachmentSequence(id);
-                                for (EntityAttachment a : parts.getAttachments()) {
+                                for (int index = 0; index < attachments.size(); index++) {
+                                    EntityAttachment a = attachments.get(index);
                                     a.message = id;
                                     a.sequence = ++sequence;
                                     a.id = db.attachment().insertAttachment(a);
+                                    parts.downloadAttachment(context, index, a.id);
                                 }
 
                                 db.message().setMessageStored(id, new Date().getTime());

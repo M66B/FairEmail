@@ -691,18 +691,20 @@ public class MessageHelper {
             return result;
         }
 
-        boolean downloadAttachment(Context context, DB db, long id, int sequence) throws IOException {
+        boolean downloadAttachment(Context context, int index, long id) {
+            Log.i("downloading attchment id=" + id + " seq=" + index);
             // Attachments of drafts might not have been uploaded yet
-            if (sequence > attachments.size()) {
-                Log.w("Attachment unavailable sequence=" + sequence + " size=" + attachments.size());
+            if (index > attachments.size()) {
+                Log.w("Attachment unavailable sequence=" + index + " size=" + attachments.size());
                 return false;
             }
 
             // Get data
-            AttachmentPart apart = attachments.get(sequence - 1);
+            AttachmentPart apart = attachments.get(index);
             File file = EntityAttachment.getFile(context, id);
 
             // Download attachment
+            DB db = DB.getInstance(context);
             db.attachment().setProgress(id, null);
             try (InputStream is = apart.part.getInputStream()) {
                 long size = 0;
