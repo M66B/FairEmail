@@ -861,6 +861,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvSubjectEx.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
             tvSubjectEx.setText(message.subject);
+            tvSubjectEx.setTypeface(null, subject_italic ? Typeface.ITALIC : Typeface.NORMAL);
 
             // Flags
             tvFlags.setVisibility(show_addresses && debug ? View.VISIBLE : View.GONE);
