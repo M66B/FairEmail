@@ -1439,6 +1439,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             settings.setBuiltInZoomControls(true);
             settings.setDisplayZoomControls(false);
             settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+            settings.setAllowFileAccess(false);
 
             webView.setWebViewClient(new WebViewClient() {
                 public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -2217,6 +2218,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     printWebView = new WebView(context);
                     WebSettings settings = printWebView.getSettings();
                     settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+                    settings.setAllowFileAccess(false);
 
                     printWebView.setWebViewClient(new WebViewClient() {
                         public boolean shouldOverrideUrlLoading(WebView view, String url) {
