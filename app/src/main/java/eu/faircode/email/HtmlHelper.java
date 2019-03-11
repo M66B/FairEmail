@@ -115,19 +115,24 @@ public class HtmlHelper {
         // Tables
         for (Element col : document.select("th,td")) {
             // prevent line breaks
-            col.select("br").tagName("span").html("&nbsp;");
+            col.select("br").tagName("span").html(" ");
             col.select("div").tagName("span");
 
-            Element next = col.nextElementSibling();
-            if (next != null && ("th".equals(next.tagName()) || "td".equals(next.tagName())))
-                col.append(" "); // separate columns by a space
+            // separate columns by a space
+            if (col.nextElementSibling() != null)
+                col.append(" ");
+
+            if ("th".equals(col.tagName()))
+                col.tagName("strong");
             else
-                col.appendElement("br"); // line break after last column
+                col.tagName("span");
         }
-        document.select("table").tagName("div");
+
+        for (Element row : document.select("tr"))
+            row.tagName("span").appendElement("br");
+
         document.select("caption").tagName("p");
-        document.select("td").tagName("span");
-        document.select("th").tagName("strong");
+        document.select("table").tagName("div");
 
         // Lists
         for (Element li : document.select("li")) {
