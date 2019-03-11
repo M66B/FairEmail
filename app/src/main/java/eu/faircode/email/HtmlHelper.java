@@ -162,12 +162,14 @@ public class HtmlHelper {
 
         // Descriptions
         document.select("dl").tagName("div");
-        for (Element dt : document.select("dt"))
+        for (Element dt : document.select("dt")) {
+            dt.tagName("strong");
             dt.appendElement("br");
-        for (Element dt : document.select("dd"))
-            dt.appendElement("br").appendElement("br");
-        document.select("dt").tagName("strong");
-        document.select("dd").tagName("em");
+        }
+        for (Element dd : document.select("dd")) {
+            dd.tagName("em");
+            dd.appendElement("br").appendElement("br");
+        }
 
         // Images
         for (Element img : document.select("img")) {
