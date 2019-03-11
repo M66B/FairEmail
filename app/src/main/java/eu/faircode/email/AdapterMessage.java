@@ -71,6 +71,7 @@ import android.view.TouchDelegate;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.DownloadListener;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -1408,8 +1409,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibImages.setVisibility(View.GONE);
             tvBody.setVisibility(View.GONE);
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean remove_tracking = prefs.getBoolean("remove_tracking", true);
+
+            // For performance reasons the WebView is created when needed only
             if (!(vwBody instanceof WebView)) {
-                // For performance reasons the WebView is created when needed only
                 WebView webView = new WebView(context) {
                     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
                         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -1447,6 +1451,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     return true;
                 }
             });
+
+            if (!remove_tracking)
+                webView.setWebChromeClient(new WebChromeClient());
 
             webView.setDownloadListener(new DownloadListener() {
                 public void onDownloadStart(
