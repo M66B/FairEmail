@@ -2120,6 +2120,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .show();
         }
 
+        private void onMenuDecrypt(ActionData data) {
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            lbm.sendBroadcast(
+                    new Intent(ActivityView.ACTION_DECRYPT)
+                            .putExtra("id", data.message.id));
+        }
+
         private void onMenuCreateRule(ActionData data) {
             Intent rule = new Intent(ActivityView.ACTION_EDIT_RULE);
             rule.putExtra("account", data.message.account);
@@ -2131,6 +2138,137 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(rule);
+        }
+
+        private void onMenuManageKeywords(ActionData data) {
+            if (!Helper.isPro(context)) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                return;
+            }
+
+            Bundle args = new Bundle();
+            args.putSerializable("message", data.message);
+
+            new SimpleTask<EntityFolder>() {
+                @Override
+                protected EntityFolder onExecute(Context context, Bundle args) {
+                    EntityMessage message = (EntityMessage) args.getSerializable("message");
+                    return DB.getInstance(context).folder().getFolder(message.folder);
+                }
+
+                @Override
+                protected void onExecuted(final Bundle args, EntityFolder folder) {
+                    EntityMessage message = (EntityMessage) args.getSerializable("message");
+
+                    List<String> keywords = Arrays.asList(message.keywords);
+
+                    final List<String> items = new ArrayList<>(keywords);
+                    for (String keyword : folder.keywords)
+                        if (!items.contains(keyword))
+                            items.add(keyword);
+
+                    Collections.sort(items);
+
+                    final boolean selected[] = new boolean[items.size()];
+                    final boolean dirty[] = new boolean[items.size()];
+                    for (int i = 0; i < selected.length; i++) {
+                        selected[i] = keywords.contains(items.get(i));
+                        dirty[i] = false;
+                    }
+
+                    new DialogBuilderLifecycle(context, owner)
+                            .setTitle(R.string.title_manage_keywords)
+                            .setMultiChoiceItems(items.toArray(new String[0]), selected, new DialogInterface.OnMultiChoiceClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                                    dirty[which] = true;
+                                }
+                            })
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    args.putStringArray("keywords", items.toArray(new String[0]));
+                                    args.putBooleanArray("selected", selected);
+                                    args.putBooleanArray("dirty", dirty);
+
+                                    new SimpleTask<Void>() {
+                                        @Override
+                                        protected Void onExecute(Context context, Bundle args) {
+                                            EntityMessage message = (EntityMessage) args.getSerializable("message");
+                                            String[] keywords = args.getStringArray("keywords");
+                                            boolean[] selected = args.getBooleanArray("selected");
+                                            boolean[] dirty = args.getBooleanArray("dirty");
+
+                                            DB db = DB.getInstance(context);
+
+                                            try {
+                                                db.beginTransaction();
+
+                                                for (int i = 0; i < selected.length; i++)
+                                                    if (dirty[i])
+                                                        EntityOperation.queue(context, db, message, EntityOperation.KEYWORD, keywords[i], selected[i]);
+
+                                                db.setTransactionSuccessful();
+                                            } finally {
+                                                db.endTransaction();
+                                            }
+
+                                            return null;
+                                        }
+
+                                        @Override
+                                        protected void onException(Bundle args, Throwable ex) {
+                                            Helper.unexpectedError(context, owner, ex);
+                                        }
+                                    }.execute(context, owner, args, "message:keywords:managa");
+                                }
+                            })
+                            .setNeutralButton(R.string.title_add, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    View view = LayoutInflater.from(context).inflate(R.layout.dialog_keyword, null);
+                                    final EditText etKeyword = view.findViewById(R.id.etKeyword);
+                                    etKeyword.setText(null);
+                                    new DialogBuilderLifecycle(context, owner)
+                                            .setView(view)
+                                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    String keyword = Helper.sanitizeKeyword(etKeyword.getText().toString());
+                                                    if (!TextUtils.isEmpty(keyword)) {
+                                                        args.putString("keyword", keyword);
+
+                                                        new SimpleTask<Void>() {
+                                                            @Override
+                                                            protected Void onExecute(Context context, Bundle args) {
+                                                                EntityMessage message = (EntityMessage) args.getSerializable("message");
+                                                                String keyword = args.getString("keyword");
+
+                                                                DB db = DB.getInstance(context);
+                                                                EntityOperation.queue(context, db, message, EntityOperation.KEYWORD, keyword, true);
+
+                                                                return null;
+                                                            }
+
+                                                            @Override
+                                                            protected void onException(Bundle args, Throwable ex) {
+                                                                Helper.unexpectedError(context, owner, ex);
+                                                            }
+                                                        }.execute(context, owner, args, "message:keyword:add");
+                                                    }
+                                                }
+                                            }).show();
+                                }
+                            })
+                            .show();
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, owner, ex);
+                }
+            }.execute(context, owner, args, "message:keywords");
         }
 
         private void onMenuShare(ActionData data) {
@@ -2340,144 +2478,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private void onMenuManageKeywords(ActionData data) {
-            if (!Helper.isPro(context)) {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
-                return;
-            }
-
-            Bundle args = new Bundle();
-            args.putSerializable("message", data.message);
-
-            new SimpleTask<EntityFolder>() {
-                @Override
-                protected EntityFolder onExecute(Context context, Bundle args) {
-                    EntityMessage message = (EntityMessage) args.getSerializable("message");
-                    return DB.getInstance(context).folder().getFolder(message.folder);
-                }
-
-                @Override
-                protected void onExecuted(final Bundle args, EntityFolder folder) {
-                    EntityMessage message = (EntityMessage) args.getSerializable("message");
-
-                    List<String> keywords = Arrays.asList(message.keywords);
-
-                    final List<String> items = new ArrayList<>(keywords);
-                    for (String keyword : folder.keywords)
-                        if (!items.contains(keyword))
-                            items.add(keyword);
-
-                    Collections.sort(items);
-
-                    final boolean selected[] = new boolean[items.size()];
-                    final boolean dirty[] = new boolean[items.size()];
-                    for (int i = 0; i < selected.length; i++) {
-                        selected[i] = keywords.contains(items.get(i));
-                        dirty[i] = false;
-                    }
-
-                    new DialogBuilderLifecycle(context, owner)
-                            .setTitle(R.string.title_manage_keywords)
-                            .setMultiChoiceItems(items.toArray(new String[0]), selected, new DialogInterface.OnMultiChoiceClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-                                    dirty[which] = true;
-                                }
-                            })
-                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    args.putStringArray("keywords", items.toArray(new String[0]));
-                                    args.putBooleanArray("selected", selected);
-                                    args.putBooleanArray("dirty", dirty);
-
-                                    new SimpleTask<Void>() {
-                                        @Override
-                                        protected Void onExecute(Context context, Bundle args) {
-                                            EntityMessage message = (EntityMessage) args.getSerializable("message");
-                                            String[] keywords = args.getStringArray("keywords");
-                                            boolean[] selected = args.getBooleanArray("selected");
-                                            boolean[] dirty = args.getBooleanArray("dirty");
-
-                                            DB db = DB.getInstance(context);
-
-                                            try {
-                                                db.beginTransaction();
-
-                                                for (int i = 0; i < selected.length; i++)
-                                                    if (dirty[i])
-                                                        EntityOperation.queue(context, db, message, EntityOperation.KEYWORD, keywords[i], selected[i]);
-
-                                                db.setTransactionSuccessful();
-                                            } finally {
-                                                db.endTransaction();
-                                            }
-
-                                            return null;
-                                        }
-
-                                        @Override
-                                        protected void onException(Bundle args, Throwable ex) {
-                                            Helper.unexpectedError(context, owner, ex);
-                                        }
-                                    }.execute(context, owner, args, "message:keywords:managa");
-                                }
-                            })
-                            .setNeutralButton(R.string.title_add, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    View view = LayoutInflater.from(context).inflate(R.layout.dialog_keyword, null);
-                                    final EditText etKeyword = view.findViewById(R.id.etKeyword);
-                                    etKeyword.setText(null);
-                                    new DialogBuilderLifecycle(context, owner)
-                                            .setView(view)
-                                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                                @Override
-                                                public void onClick(DialogInterface dialog, int which) {
-                                                    String keyword = Helper.sanitizeKeyword(etKeyword.getText().toString());
-                                                    if (!TextUtils.isEmpty(keyword)) {
-                                                        args.putString("keyword", keyword);
-
-                                                        new SimpleTask<Void>() {
-                                                            @Override
-                                                            protected Void onExecute(Context context, Bundle args) {
-                                                                EntityMessage message = (EntityMessage) args.getSerializable("message");
-                                                                String keyword = args.getString("keyword");
-
-                                                                DB db = DB.getInstance(context);
-                                                                EntityOperation.queue(context, db, message, EntityOperation.KEYWORD, keyword, true);
-
-                                                                return null;
-                                                            }
-
-                                                            @Override
-                                                            protected void onException(Bundle args, Throwable ex) {
-                                                                Helper.unexpectedError(context, owner, ex);
-                                                            }
-                                                        }.execute(context, owner, args, "message:keyword:add");
-                                                    }
-                                                }
-                                            }).show();
-                                }
-                            })
-                            .show();
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
-                }
-            }.execute(context, owner, args, "message:keywords");
-        }
-
-        private void onMenuDecrypt(ActionData data) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(
-                    new Intent(ActivityView.ACTION_DECRYPT)
-                            .putExtra("id", data.message.id));
-        }
-
         private void onActionMore(final ActionData data) {
             boolean show_headers = properties.getValue("headers", data.message.id);
 
@@ -2536,8 +2536,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         case R.id.menu_junk:
                             onMenuJunk(data);
                             return true;
+                        case R.id.menu_decrypt:
+                            onMenuDecrypt(data);
+                            return true;
                         case R.id.menu_create_rule:
                             onMenuCreateRule(data);
+                            return true;
+                        case R.id.menu_manage_keywords:
+                            onMenuManageKeywords(data);
                             return true;
                         case R.id.menu_share:
                             onMenuShare(data);
@@ -2550,12 +2556,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_raw:
                             onMenuRaw(data);
-                            return true;
-                        case R.id.menu_manage_keywords:
-                            onMenuManageKeywords(data);
-                            return true;
-                        case R.id.menu_decrypt:
-                            onMenuDecrypt(data);
                             return true;
                         default:
                             return false;

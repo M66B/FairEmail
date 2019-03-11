@@ -25,8 +25,16 @@
         android:title="@string/title_spam" />
 
     <item
+        android:id="@+id/menu_decrypt"
+        android:title="@string/title_decrypt" />
+
+    <item
         android:id="@+id/menu_create_rule"
         android:title="@string/title_create_rule" />
+
+    <item
+        android:id="@+id/menu_manage_keywords"
+        android:title="@string/title_manage_keywords" />
 
     <item
         android:id="@+id/menu_share"
@@ -44,12 +52,4 @@
     <item
         android:id="@+id/menu_raw"
         android:title="@string/title_raw_download" />
-
-    <item
-        android:id="@+id/menu_manage_keywords"
-        android:title="@string/title_manage_keywords" />
-
-    <item
-        android:id="@+id/menu_decrypt"
-        android:title="@string/title_decrypt" />
 </menu>
