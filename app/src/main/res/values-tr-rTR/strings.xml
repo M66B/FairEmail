@@ -448,6 +448,7 @@
     <string name="title_legend_waiting">Sonraki eşzamanlama için bekleniyor</string>
     <string name="title_legend_stop">İşlem kurallarının durdur</string>
     <string name="title_legend_sync_keep">İletilerin eşzamanlanacağı / saklanacağı gün sayısı</string>
+    <string name="title_legend_download_fetch">Sunucudaki / getirilmiş başlıklar / indirilmiş ileti gövdeleri sayısı</string>
     <string name="title_legend_metered">Bağlantı ölçülü</string>
     <string name="title_legend_unmetered">Bağlantı ölçüsüz</string>
     <string name="title_hint_folder_actions">Seçenekler için uzun basın</string>

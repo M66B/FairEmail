@@ -163,6 +163,7 @@
     <string name="title_advanced_threading_hint">E-Mails gruppieren, die miteinander verwandt sind</string>
     <string name="title_advanced_name_email_hint">Wenn deaktiviert, werden nur Namen angezeigt, sofern verfügbar</string>
     <string name="title_advanced_flags_hint">Beachten Sie, dass markierte Nachrichten immer lokal gehalten werden</string>
+    <string name="title_advanced_tracking_hint">Das Deaktivieren dieser Option ermöglicht potenzielle unsichere Skripte</string>
     <string name="title_advanced_autoexpand_hint">Eine (ungelesene) Nachricht wird automatisch geöffnet</string>
     <string name="title_advanced_autocollapse_hint">Mehrere erweiterte Nachrichten werden immer auf \'zurück\' geschlossen</string>
     <string name="title_advanced_autoclose_hint">Automatisches Schließen des Unterhaltungsthreads, wenn alle E-Mails archiviert, gesendet oder gelöscht wurden</string>

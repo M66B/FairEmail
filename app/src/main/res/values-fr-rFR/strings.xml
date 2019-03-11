@@ -163,6 +163,7 @@
     <string name="title_advanced_threading_hint">Groupe de messages liés les uns aux autres</string>
     <string name="title_advanced_name_email_hint">Si désactivé, seuls les noms seront affichés si disponibles</string>
     <string name="title_advanced_flags_hint">Notez que les messages suivis seront toujours conservés localement</string>
+    <string name="title_advanced_tracking_hint">Désactiver cette option permet d\'exécuter des scripts potentiellement dangereux</string>
     <string name="title_advanced_autoexpand_hint">Ouvrir automatiquement le message lorsqu’il n’y a qu’un seul message ou seulement un message non lu dans une conversation</string>
     <string name="title_advanced_autocollapse_hint">Les messages étendus multiples seront toujours fermés par \'retour\'</string>
     <string name="title_advanced_autoclose_hint">Fermer automatiquement les fils de conversation quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>
