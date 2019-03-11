@@ -301,8 +301,8 @@
 
         <View
             android:id="@+id/vwRipple"
-            android:layout_width="411dp"
-            android:layout_height="125dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="?android:attr/selectableItemBackground"
             app:layout_constraintBottom_toTopOf="@+id/vSeparatorAddress"
             app:layout_constraintEnd_toEndOf="parent"
