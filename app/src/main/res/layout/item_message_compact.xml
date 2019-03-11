@@ -557,6 +557,7 @@
             android:layout_marginEnd="6dp"
             android:fontFamily="monospace"
             android:minHeight="60dp"
+            android:paddingBottom="6dp"
             android:text="Body"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
