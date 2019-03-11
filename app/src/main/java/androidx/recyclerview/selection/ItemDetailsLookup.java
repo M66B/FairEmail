@@ -16,13 +16,10 @@
 
 package androidx.recyclerview.selection;
 
-import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
-
 import android.view.MotionEvent;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
@@ -70,10 +67,8 @@ public abstract class ItemDetailsLookup<K> {
 
     /**
      * @return true if there is an item w/ a stable ID at the event coordinates.
-     * @hide
      */
-    @RestrictTo(LIBRARY_GROUP)
-    protected boolean overItemWithSelectionKey(@NonNull MotionEvent e) {
+    final boolean overItemWithSelectionKey(@NonNull MotionEvent e) {
         return overItem(e) && hasSelectionKey(getItemDetails(e));
     }
 

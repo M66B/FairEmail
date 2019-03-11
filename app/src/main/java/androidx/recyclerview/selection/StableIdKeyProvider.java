@@ -21,9 +21,11 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.collection.LongSparseArray;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * An {@link ItemKeyProvider} that provides stable ids by way of cached
@@ -38,7 +40,7 @@ import androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListene
 public final class StableIdKeyProvider extends ItemKeyProvider<Long> {
 
     private final SparseArray<Long> mPositionToKey = new SparseArray<>();
-    private final LongSparseArray<Integer> mKeyToPosition = new LongSparseArray<>();
+    private final Map<Long, Integer> mKeyToPosition = new HashMap<Long, Integer>();
     private final RecyclerView mRecyclerView;
 
     /**
@@ -100,6 +102,9 @@ public final class StableIdKeyProvider extends ItemKeyProvider<Long> {
 
     @Override
     public int getPosition(@NonNull Long key) {
-        return mKeyToPosition.get(key, RecyclerView.NO_POSITION);
+        if (mKeyToPosition.containsKey(key)) {
+            return mKeyToPosition.get(key);
+        }
+        return RecyclerView.NO_POSITION;
     }
 }

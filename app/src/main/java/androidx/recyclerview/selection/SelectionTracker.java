@@ -16,7 +16,6 @@
 
 package androidx.recyclerview.selection;
 
-import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
 import static androidx.core.util.Preconditions.checkArgument;
 
 import android.content.Context;
@@ -29,7 +28,6 @@ import android.view.MotionEvent;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.AdapterDataObserver;
 import androidx.recyclerview.widget.RecyclerView.OnItemTouchListener;
@@ -179,9 +177,7 @@ public abstract class SelectionTracker<K> {
      */
     public abstract boolean deselect(@NonNull K key);
 
-    /** @hide */
-    @RestrictTo(LIBRARY_GROUP)
-    protected abstract AdapterDataObserver getAdapterDataObserver();
+    abstract AdapterDataObserver getAdapterDataObserver();
 
     /**
      * Attempts to establish a range selection at {@code position}, selecting the item
@@ -190,10 +186,8 @@ public abstract class SelectionTracker<K> {
      * @param position The "anchor" position for the range. Subsequent range operations
      *                 (primarily keyboard and mouse based operations like SHIFT + click)
      *                 work with the established anchor point to define selection ranges.
-     * @hide
      */
-    @RestrictTo(LIBRARY_GROUP)
-    public abstract void startRange(int position);
+    abstract void startRange(int position);
 
     /**
      * Sets the end point for the active range selection.
@@ -206,26 +200,20 @@ public abstract class SelectionTracker<K> {
      * @param position  The new end position for the selection range.
      * @throws IllegalStateException if a range selection is not active. Range selection
      *         must have been started by a call to {@link #startRange(int)}.
-     * @hide
      */
-    @RestrictTo(LIBRARY_GROUP)
-    public abstract void extendRange(int position);
+    abstract void extendRange(int position);
 
     /**
      * Clears an in-progress range selection. Provisional range selection established
      * using {@link #extendProvisionalRange(int)} will be cleared (unless
      * {@link #mergeProvisionalSelection()} is called first.)
-     * @hide
      */
-    @RestrictTo(LIBRARY_GROUP)
-    public abstract void endRange();
+    abstract void endRange();
 
     /**
      * @return Whether or not there is a current range selection active.
-     * @hide
      */
-    @RestrictTo(LIBRARY_GROUP)
-    public abstract boolean isRangeActive();
+    abstract boolean isRangeActive();
 
     /**
      * Establishes the "anchor" at which a selection range begins. This "anchor" is consulted
@@ -235,42 +223,32 @@ public abstract class SelectionTracker<K> {
      * TODO: Reconcile this with startRange. Maybe just docs need to be updated.
      *
      * @param position the anchor position. Must already be selected.
-     * @hide
      */
-    @RestrictTo(LIBRARY_GROUP)
-    public abstract void anchorRange(int position);
+    abstract void anchorRange(int position);
 
     /**
      * Creates a provisional selection from anchor to {@code position}.
      *
      * @param position the end point.
-     * @hide
      */
-    @RestrictTo(LIBRARY_GROUP)
-    protected abstract void extendProvisionalRange(int position);
+    abstract void extendProvisionalRange(int position);
 
     /**
      * Sets the provisional selection, replacing any existing selection.
      * @param newSelection
-     * @hide
      */
-    @RestrictTo(LIBRARY_GROUP)
-    protected abstract void setProvisionalSelection(@NonNull Set<K> newSelection);
+    abstract void setProvisionalSelection(@NonNull Set<K> newSelection);
 
     /**
      * Clears any existing provisional selection
-     * @hide
      */
-    @RestrictTo(LIBRARY_GROUP)
-    protected abstract void clearProvisionalSelection();
+    abstract void clearProvisionalSelection();
 
     /**
      * Converts the provisional selection into primary selection, then clears
      * provisional selection.
-     * @hide
      */
-    @RestrictTo(LIBRARY_GROUP)
-    protected abstract void mergeProvisionalSelection();
+    abstract void mergeProvisionalSelection();
 
     /**
      * Preserves selection, if any. Call this method from Activity#onSaveInstanceState
