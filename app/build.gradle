@@ -113,8 +113,6 @@ dependencies {
     def billingclient_version = "1.2.1"
     def javamail_version = "1.6.3"
     def jsoup_version = "1.11.3"
-    def jcharset_version = "2.0"
-    def icu4j_version = "63.1"
     def dnsjava_version = "2.1.8"
     def openpgp_version = "12.0"
     def requery_version = "3.27.1"
@@ -164,12 +162,6 @@ dependencies {
 
     // https://jsoup.org/
     implementation "org.jsoup:jsoup:$jsoup_version"
-
-    // http://www.freeutils.net/source/jcharset/
-    //implementation "net.freeutils:jcharset:$jcharset_version"
-
-    // https://mvnrepository.com/artifact/com.ibm.icu/icu4j
-    //implementation "com.ibm.icu:icu4j:$icu4j_version"
 
     // http://www.dnsjava.org/
     // https://mvnrepository.com/artifact/dnsjava/dnsjava
