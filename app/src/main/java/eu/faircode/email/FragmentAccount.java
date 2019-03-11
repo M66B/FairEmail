@@ -845,7 +845,7 @@ public class FragmentAccount extends FragmentBase {
                 boolean check = (synchronize && (account == null ||
                         auth_type != account.auth_type ||
                         !host.equals(account.host) || Integer.parseInt(port) != account.port ||
-                        !user.equals(account.user) || !password.equals(account.password) ||
+                        !user.equals(account.user) || !password.equals(account.getPassword()) ||
                         !Objects.equals(realm, accountRealm)));
                 boolean reload = (check || account == null ||
                         !Objects.equals(account.prefix, prefix) ||
@@ -914,7 +914,7 @@ public class FragmentAccount extends FragmentBase {
                     account.insecure = insecure;
                     account.port = Integer.parseInt(port);
                     account.user = user;
-                    account.password = password;
+                    account.setPassword(password);
                     account.realm = realm;
 
                     account.name = name;
@@ -1135,7 +1135,7 @@ public class FragmentAccount extends FragmentBase {
 
                     etUser.setTag(account == null || auth_type == Helper.AUTH_TYPE_PASSWORD ? null : account.user);
                     etUser.setText(account == null ? null : account.user);
-                    tilPassword.getEditText().setText(account == null ? null : account.password);
+                    tilPassword.getEditText().setText(account == null ? null : account.getPassword());
                     etRealm.setText(account == null ? null : account.realm);
 
                     etName.setText(account == null ? null : account.name);

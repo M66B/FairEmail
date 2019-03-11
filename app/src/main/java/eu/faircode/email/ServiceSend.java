@@ -294,13 +294,13 @@ public class ServiceSend extends LifecycleService {
             // Connect transport
             db.identity().setIdentityState(ident.id, "connecting");
             try {
-                itransport.connect(ident.host, ident.port, ident.user, ident.password);
+                itransport.connect(ident.host, ident.port, ident.user, ident.getPassword());
             } catch (AuthenticationFailedException ex) {
                 if (ident.auth_type == Helper.AUTH_TYPE_GMAIL) {
                     EntityAccount account = db.account().getAccount(ident.account);
-                    ident.password = Helper.refreshToken(this, "com.google", ident.user, account.password);
+                    ident.setPassword(Helper.refreshToken(this, "com.google", ident.user, account.getPassword()));
                     DB.getInstance(this).identity().setIdentityPassword(ident.id, ident.password);
-                    itransport.connect(ident.host, ident.port, ident.user, ident.password);
+                    itransport.connect(ident.host, ident.port, ident.user, ident.getPassword());
                 } else
                     throw ex;
             }

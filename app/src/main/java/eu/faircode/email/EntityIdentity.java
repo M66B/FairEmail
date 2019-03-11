@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.os.Build;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -99,6 +101,20 @@ public class EntityIdentity {
         return (starttls ? "smtp" : "smtps");
     }
 
+    String getPassword() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+            return this.password;
+        else
+            return Helper.decryptPassword(this.password);
+    }
+
+    void setPassword(String plain) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+            this.password = plain;
+        else
+            this.password = Helper.encryptPassword(plain);
+    }
+
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
         json.put("id", id);
@@ -116,7 +132,7 @@ public class EntityIdentity {
         json.put("insecure", insecure);
         json.put("port", port);
         json.put("user", user);
-        json.put("password", password);
+        json.put("password", getPassword());
         json.put("realm", realm);
         json.put("use_ip", use_ip);
 
@@ -154,7 +170,7 @@ public class EntityIdentity {
         identity.insecure = (json.has("insecure") && json.getBoolean("insecure"));
         identity.port = json.getInt("port");
         identity.user = json.getString("user");
-        identity.password = json.getString("password");
+        identity.setPassword(json.getString("password"));
         if (json.has("realm"))
             identity.realm = json.getString("realm");
         if (json.has("use_ip"))
@@ -199,7 +215,7 @@ public class EntityIdentity {
                     this.insecure.equals(other.insecure) &&
                     this.port.equals(other.port) &&
                     this.user.equals(other.user) &&
-                    this.password.equals(other.password) &&
+                    this.getPassword().equals(other.getPassword()) &&
                     Objects.equals(this.realm, other.realm) &&
                     this.use_ip == other.use_ip &&
                     this.synchronize.equals(other.synchronize) &&

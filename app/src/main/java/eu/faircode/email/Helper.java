@@ -42,7 +42,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
+import android.security.keystore.KeyGenParameterSpec;
+import android.security.keystore.KeyProperties;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,6 +80,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
 import java.net.URL;
 import java.net.UnknownHostException;
+import java.nio.charset.StandardCharsets;
+import java.security.KeyStore;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
@@ -91,6 +96,10 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ThreadFactory;
 
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.GCMParameterSpec;
 import javax.mail.Address;
 import javax.mail.AuthenticationFailedException;
 import javax.mail.FolderClosedException;
@@ -100,6 +109,7 @@ import javax.mail.internet.InternetAddress;
 import javax.net.ssl.HttpsURLConnection;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Lifecycle;
@@ -809,12 +819,12 @@ public class Helper {
 
     static void connect(Context context, IMAPStore istore, EntityAccount account) throws MessagingException {
         try {
-            istore.connect(account.host, account.port, account.user, account.password);
+            istore.connect(account.host, account.port, account.user, account.getPassword());
         } catch (AuthenticationFailedException ex) {
             if (account.auth_type == AUTH_TYPE_GMAIL) {
-                account.password = refreshToken(context, "com.google", account.user, account.password);
+                account.setPassword(refreshToken(context, "com.google", account.user, account.getPassword()));
                 DB.getInstance(context).account().setAccountPassword(account.id, account.password);
-                istore.connect(account.host, account.port, account.user, account.password);
+                istore.connect(account.host, account.port, account.user, account.getPassword());
             } else
                 throw ex;
         }
@@ -1041,6 +1051,58 @@ public class Helper {
                 hostOrganization.put(host, organization);
             }
             return organization;
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private static SecretKey getSecretKey() throws Throwable {
+        final String alias = BuildConfig.APPLICATION_ID + ".key";
+
+        KeyStore store = KeyStore.getInstance("AndroidKeyStore");
+        store.load(null);
+
+        KeyStore.SecretKeyEntry entry = (KeyStore.SecretKeyEntry) store.getEntry(alias, null);
+        if (entry != null)
+            return entry.getSecretKey();
+
+        KeyGenerator generator = KeyGenerator.getInstance(KeyProperties.KEY_ALGORITHM_AES, "AndroidKeyStore");
+        KeyGenParameterSpec spec = new KeyGenParameterSpec.Builder(alias,
+                KeyProperties.PURPOSE_ENCRYPT | KeyProperties.PURPOSE_DECRYPT)
+                .setBlockModes(KeyProperties.BLOCK_MODE_GCM)
+                .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE)
+                .build();
+        generator.init(spec);
+        return generator.generateKey();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    static String decryptPassword(String secret) {
+        try {
+            int slash = secret.indexOf('/');
+            byte[] iv = Base64.decode(secret.substring(0, slash), Base64.URL_SAFE);
+            byte[] encrypted = Base64.decode(secret.substring(slash + 1), Base64.URL_SAFE);
+            Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+            GCMParameterSpec spec = new GCMParameterSpec(128, iv);
+            cipher.init(Cipher.DECRYPT_MODE, getSecretKey(), spec);
+            byte[] decrypted = cipher.doFinal(encrypted);
+            return new String(decrypted, StandardCharsets.UTF_8);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return secret;
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    static String encryptPassword(String plain) {
+        try {
+            Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+            cipher.init(Cipher.ENCRYPT_MODE, getSecretKey());
+            byte[] iv = cipher.getIV();
+            byte[] encrypted = cipher.doFinal(plain.getBytes(StandardCharsets.UTF_8));
+            return Base64.encodeToString(iv, Base64.URL_SAFE) + "/" + Base64.encodeToString(encrypted, Base64.URL_SAFE);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return plain;
         }
     }
 }

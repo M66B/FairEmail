@@ -3,6 +3,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
@@ -49,7 +50,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 52,
+        version = 53,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -558,6 +559,33 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `folder` ADD COLUMN `total` INTEGER");
+                    }
+                })
+                .addMigrations(new Migration(52, 53) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            Cursor cursor = db.query("SELECT id, password FROM account");
+                            while (cursor.moveToNext()) {
+                                long id = cursor.getLong(0);
+                                String plain = cursor.getString(1);
+                                db.execSQL("UPDATE account SET password = ? WHERE id = ?",
+                                        new Object[]{id, Helper.encryptPassword(plain)});
+                            }
+                            cursor.close();
+                        }
+
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            Cursor cursor = db.query("SELECT id, password FROM identity");
+                            while (cursor.moveToNext()) {
+                                long id = cursor.getLong(0);
+                                String plain = cursor.getString(1);
+                                db.execSQL("UPDATE identity SET password = ? WHERE id = ?",
+                                        new Object[]{id, Helper.encryptPassword(plain)});
+                            }
+                            cursor.close();
+                        }
                     }
                 })
                 .build();
