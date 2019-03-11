@@ -136,6 +136,7 @@
     <string name="title_advanced_preview">Nachrichtenvorschau anzeigen</string>
     <string name="title_advanced_addresses">Adressdetails standardmäßig anzeigen</string>
     <string name="title_advanced_html">Für bekannte Kontakte Mails automatisch im Original-Format anzeigen</string>
+    <string name="title_advanced_tracking">Versuche das Tracking von Originalnachrichten zu entfernen</string>
     <string name="title_advanced_images">Für bekannte Kontakte Bilder automatisch anzeigen</string>
     <string name="title_advanced_actionbar">Navigationsleiste in Konversationen</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
@@ -456,6 +457,7 @@
     <string name="title_hint_message_actions">Nach links wischen um zu Löschen; nach rechts wischen um zu Archivieren (falls vorhanden)</string>
     <string name="title_hint_message_selection">Lange auf eine Nachricht drücken, um mehrere Nachrichten auszuwählen</string>
     <string name="title_hint_sync">Das Herunterladen von E-Mails kann einige Zeit in Anspruch nehmen, abhängig von der Geschwindigkeit des Providers, der Internetverbindung, des Gerätes und von der Anzahl der E-Mails. Beim Herunterladen der E-Mails kann die App träge reagieren.</string>
+    <string name="title_hint_tracking_image">Tracking-Bild</string>
     <string name="title_open_link">Link öffnen</string>
     <string name="title_show_organization">Organisation anzeigen</string>
     <string name="title_insecure_link">Dieser Link ist unsicher</string>

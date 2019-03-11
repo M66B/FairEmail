@@ -3,6 +3,7 @@
 <resources>
     <string name="app_welcome">FairEmail gizlilik ve güvenlik odaklı açık kaynaklı bir e-posta uygulamasıdır. Bu nedenle, bazı özellikler alışkın olduğunuzdan farklı şekilde çalışabilir.</string>
     <string name="app_limitations">Örneğin, güvenli olmayan öğeleri çıkarmak ve okunabilirliği arttırmak için, iletiler daima tekrardan düzenlenecektir ve bağlantıları açmak güvenlik açısından doğrulama gerektirecektir.</string>
+    <string name="app_crash">FairEmail bu aygıtı desteklemiyor. Çünkü Androiddeki hatalar çökmelere neden oluyor</string>
     <string name="channel_service">Hizmet</string>
     <string name="channel_notification">Bildirimler</string>
     <string name="channel_warning">Uyarılar</string>
@@ -130,10 +131,12 @@
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
     <string name="title_advanced_identicons">Kimliklerini göster</string>
     <string name="title_advanced_name_email">Adları ve e-posta adreslarini göster</string>
+    <string name="title_advanced_subject_italic">Konuyu eğik yazı ile göster</string>
     <string name="title_advanced_flags">Sık Kullanılanları göster</string>
     <string name="title_advanced_preview">İleti önizlemesini göster</string>
     <string name="title_advanced_addresses">Öntanımlı olarak adres ayrıntılarını göster</string>
     <string name="title_advanced_html">Bilinen kişilerden gelen özgün iletileri otomatik olarak göster</string>
+    <string name="title_advanced_tracking">İzlemeyi özgün iletilerden kaldırmaya çalış</string>
     <string name="title_advanced_images">Bilinen kişiler için görselleri otomatik olarak göster</string>
     <string name="title_advanced_actionbar">İletişim etkinlik çubuğu</string>
     <string name="title_advanced_pull_refresh">Yenilemek için aşağıya çekin</string>
@@ -232,6 +235,7 @@
     <string name="title_pop3_support">POP3 desteklenmiyor, ayrıca SSS bölümüne bakınız</string>
     <string name="title_synchronize_now">Şimdi eşzamanla</string>
     <string name="title_delete_local">Yerel iletileri sil</string>
+    <string name="title_delete_browsed">Gözatılmış/aranmış iletileri sil</string>
     <string name="title_empty_trash">Çöpü boşalt</string>
     <string name="title_edit_properties">Özellikleri düzenle</string>
     <string name="title_edit_rules">Kuralları düzenle</string>
@@ -453,6 +457,7 @@
     <string name="title_hint_message_selection">Çoklu ileti seçmeye başlamak için bir mesaja uzun basın</string>
     <string name="title_hint_sync">Mesajların indirilmesi, sağlayıcının hızına, internet bağlantısına ve cihazın hızına ve mesaj sayısına bağlı olarak biraz zaman alabilir. Mesajları indirirken uygulama daha yavaş yanıt verebilir.</string>
     <string name="title_open_link">Bağlantıyı aç</string>
+    <string name="title_show_organization">Örgütleşimi göster</string>
     <string name="title_insecure_link">Bu bağlantı güvensiz</string>
     <string name="title_select_app">Uygulama seçin</string>
     <string name="title_updated">Sürüm %1$s için bir güncelleme mevcut</string>

@@ -144,6 +144,7 @@
     <string name="title_advanced_preview">Arată previzualizare mesaj</string>
     <string name="title_advanced_addresses">Implicit arată detaliile adreselor</string>
     <string name="title_advanced_html">Arată în mod automat imaginile originale pentru contactele cunoscute</string>
+    <string name="title_advanced_tracking">Se încearcă înlăturarea elementelor de urmărire din mesajele originale</string>
     <string name="title_advanced_images">Arată în mod automat imaginile pentru contactele cunoscute</string>
     <string name="title_advanced_actionbar">Bara de acțiuni conversație</string>
     <string name="title_advanced_pull_refresh">Trageți în jos pentru a actualiza</string>
@@ -242,7 +243,7 @@
     <string name="title_pop3_support">POP3 nu este suportat activ, vedeți de asemenea secțiunea de întrebări și răspunsuri</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
     <string name="title_delete_local">Șterge mesajul local</string>
-    <string name="title_delete_browsed">Ștergere browser/mesajele căutate</string>
+    <string name="title_delete_browsed">Ștergere mesajele răsfoite/căutate</string>
     <string name="title_empty_trash">Golire coș de gunoi</string>
     <string name="title_edit_properties">Editare proprietăți</string>
     <string name="title_edit_rules">Editare reguli</string>
@@ -455,7 +456,7 @@
     <string name="title_legend_waiting">Așteptă următoarea sincronizare</string>
     <string name="title_legend_stop">Oprește procesarea regulilor</string>
     <string name="title_legend_sync_keep">Numărul de zile de sincronizat / păstrat mesaje</string>
-    <string name="title_legend_download_fetch">Numărul de mesaje / antete descărcate / antetele au fost extrase / Pe server</string>
+    <string name="title_legend_download_fetch">Numărul de mesaje descărcate / antete preluate / pe server</string>
     <string name="title_legend_metered">Conexiunea este contorizată</string>
     <string name="title_legend_unmetered">Conexiunea este necontorizată</string>
     <string name="title_hint_folder_actions">Atingeți lung pentru opțiuni</string>
@@ -464,8 +465,9 @@
     <string name="title_hint_message_actions">Glisare spre stânga trimite la gunoi iar glisare spre dreapta la arhivă (dacă este disponibilă)</string>
     <string name="title_hint_message_selection">Apăsați lung un mesaj pentru a selecta multiple</string>
     <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcție de viteza furnizorului, conexiunea la internet, de dispozitiv precum și de numărul de mesaje. În timpul descărcării mesajelor aplicația ar putea răspunde mai lent.</string>
+    <string name="title_hint_tracking_image">Imagine folosită la urmărire</string>
     <string name="title_open_link">Deschide legătura</string>
-    <string name="title_show_organization">Arată organizarea</string>
+    <string name="title_show_organization">Arată organizația</string>
     <string name="title_insecure_link">Această legătură este nesigură</string>
     <string name="title_select_app">Selectează aplicația</string>
     <string name="title_updated">Este disponibilă o actualizare la versiunea %1$s</string>

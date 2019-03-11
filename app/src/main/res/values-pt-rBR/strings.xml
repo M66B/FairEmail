@@ -136,6 +136,7 @@
     <string name="title_advanced_preview">Mostrar pré-visualização da mensagem</string>
     <string name="title_advanced_addresses">Mostrar detalhes do endereço por padrão</string>
     <string name="title_advanced_html">Mostrar automaticamente a mensagem original para contatos conhecidos</string>
+    <string name="title_advanced_tracking">Tentativa de remover o rastreamento de mensagens originais</string>
     <string name="title_advanced_images">Mostrar automaticamente imagens para contatos conhecidos</string>
     <string name="title_advanced_actionbar">Barra de ação de conversa</string>
     <string name="title_advanced_pull_refresh">Puxe para baixo para atualizar</string>
@@ -456,7 +457,9 @@
     <string name="title_hint_message_actions">Deslize para a esquerda para mandar para lixeira; deslize para a direita para arquivar (se disponível)</string>
     <string name="title_hint_message_selection">Pressione longamente uma mensagem para começar a selecionar várias mensagens</string>
     <string name="title_hint_sync">Baixar mensagens pode levar algum tempo, dependendo da velocidade do provedor, da conexão de internet e do dispositivo, e o número de mensagens. Enquanto estiver baixando as mensagens o app pode responder mais devagar.</string>
+    <string name="title_hint_tracking_image">Imagem de rastreamento</string>
     <string name="title_open_link">Abrir link</string>
+    <string name="title_show_organization">Mostrar organização</string>
     <string name="title_insecure_link">Este link é inseguro</string>
     <string name="title_select_app">Selecionar app</string>
     <string name="title_updated">Há uma atualização para a versão %1$s disponível</string>

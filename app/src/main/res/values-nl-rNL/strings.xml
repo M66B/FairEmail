@@ -163,6 +163,7 @@
     <string name="title_advanced_threading_hint">Groepeer gerelateerde berichten</string>
     <string name="title_advanced_name_email_hint">Indien uitgeschakeld, worden alleen namen weergegeven als deze beschikbaar zijn</string>
     <string name="title_advanced_flags_hint">Merk op dat berichten met een ster altijd lokaal worden bewaard</string>
+    <string name="title_advanced_tracking_hint">Het uitschakelen van deze optie zet mogelijk onveilige scripts aan</string>
     <string name="title_advanced_autoexpand_hint">Bericht automatisch openen als er slechts één bericht of slechts één ongelezen bericht in een gesprek is</string>
     <string name="title_advanced_autocollapse_hint">Meerdere uitgeklapte berichten worden altijd gesloten bij \'terug\'</string>
     <string name="title_advanced_autoclose_hint">Gesprekken automatisch sluiten wanneer alle berichten zijn gearchiveerd, verzonden of weggegooid</string>
