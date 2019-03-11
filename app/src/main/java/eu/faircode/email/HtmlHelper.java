@@ -87,9 +87,11 @@ public class HtmlHelper {
 
         // Remove Javascript
         for (Element e : document.select("*"))
-            for (Attribute a : e.attributes())
-                if (a.getValue().trim().toLowerCase().startsWith("javascript:"))
+            for (Attribute a : e.attributes()) {
+                String v = a.getValue();
+                if (v != null && v.trim().toLowerCase().startsWith("javascript:"))
                     e.removeAttr(a.getKey());
+            }
 
         // Remove scripts
         document.select("script").remove();
