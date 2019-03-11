@@ -153,7 +153,10 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             String expected = getResponse();
             if (expected.equals(response)) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-                prefs.edit().putBoolean("pro", true).apply();
+                prefs.edit()
+                        .putBoolean("pro", true)
+                        .putBoolean("play_store", false)
+                        .apply();
                 Log.i("Response valid");
                 Snackbar snackbar = Snackbar.make(getVisibleView(), R.string.title_pro_valid, Snackbar.LENGTH_LONG);
                 snackbar.setAction(R.string.title_check, new View.OnClickListener() {
@@ -236,7 +239,8 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         if (purchases != null) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             SharedPreferences.Editor editor = prefs.edit();
-            editor.remove("pro");
+            if (prefs.getBoolean("play_store", true))
+                editor.remove("pro");
 
             for (Purchase purchase : purchases)
                 try {
