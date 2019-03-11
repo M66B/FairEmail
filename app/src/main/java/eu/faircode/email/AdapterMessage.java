@@ -1445,6 +1445,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
             settings.setAllowFileAccess(false);
 
+            // Set default font
+            int px = Math.round(TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_PX, textSize,
+                    context.getResources().getDisplayMetrics()));
+            settings.setDefaultFontSize(px);
+            settings.setStandardFontFamily("monospace");
+
             webView.setWebViewClient(new WebViewClient() {
                 public boolean shouldOverrideUrlLoading(WebView view, String url) {
                     onOpenLink(Uri.parse(url));
