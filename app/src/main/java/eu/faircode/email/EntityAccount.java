@@ -95,20 +95,6 @@ public class EntityAccount implements Serializable {
         return "imap" + (starttls ? "" : "s");
     }
 
-    String getPassword() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-            return this.password;
-        else
-            return Helper.decryptPassword(this.password);
-    }
-
-    void setPassword(String plain) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-            this.password = plain;
-        else
-            this.password = Helper.encryptPassword(plain);
-    }
-
     static String getNotificationChannelName(long account) {
         return "notification" + (account == 0 ? "" : "." + account);
     }
@@ -138,7 +124,7 @@ public class EntityAccount implements Serializable {
         json.put("insecure", insecure);
         json.put("port", port);
         json.put("user", user);
-        json.put("password", getPassword());
+        json.put("password", password);
         json.put("realm", realm);
 
         json.put("name", name);
@@ -170,7 +156,7 @@ public class EntityAccount implements Serializable {
         account.insecure = (json.has("insecure") && json.getBoolean("insecure"));
         account.port = json.getInt("port");
         account.user = json.getString("user");
-        account.setPassword(json.getString("password"));
+        account.password = json.getString("password");
         if (json.has("realm"))
             account.realm = json.getString("realm");
 
@@ -208,7 +194,7 @@ public class EntityAccount implements Serializable {
                     this.insecure == other.insecure &&
                     this.port.equals(other.port) &&
                     this.user.equals(other.user) &&
-                    this.getPassword().equals(other.getPassword()) &&
+                    this.password.equals(other.password) &&
                     Objects.equals(this.realm, other.realm) &&
                     Objects.equals(this.name, other.name) &&
                     Objects.equals(this.color, other.color) &&

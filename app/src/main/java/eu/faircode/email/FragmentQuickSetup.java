@@ -335,7 +335,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     account.insecure = false;
                     account.port = provider.imap_port;
                     account.user = user;
-                    account.setPassword(password);
+                    account.password = password;
 
                     account.name = provider.name;
                     account.color = null;
@@ -389,7 +389,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     identity.insecure = false;
                     identity.port = provider.smtp_port;
                     identity.user = user;
-                    identity.setPassword(password);
+                    identity.password = password;
                     identity.synchronize = true;
                     identity.primary = true;
 

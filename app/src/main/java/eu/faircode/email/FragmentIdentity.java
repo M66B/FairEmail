@@ -237,7 +237,7 @@ public class FragmentIdentity extends FragmentBase {
                 etEmail.setText(account.user);
                 etUser.setTag(auth_type == Helper.AUTH_TYPE_PASSWORD ? null : account.user);
                 etUser.setText(account.user);
-                tilPassword.getEditText().setText(account.getPassword());
+                tilPassword.getEditText().setText(account.password);
                 etRealm.setText(account.realm);
                 tilPassword.setEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
                 etRealm.setEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
@@ -589,7 +589,7 @@ public class FragmentIdentity extends FragmentBase {
                 boolean check = (synchronize && (identity == null ||
                         auth_type != identity.auth_type ||
                         !host.equals(identity.host) || Integer.parseInt(port) != identity.port ||
-                        !user.equals(identity.user) || !password.equals(identity.getPassword()) ||
+                        !user.equals(identity.user) || !password.equals(identity.password) ||
                         !Objects.equals(realm, identityRealm) ||
                         use_ip != identity.use_ip));
                 boolean reload = (identity == null || identity.synchronize != synchronize || check);
@@ -655,7 +655,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.insecure = insecure;
                     identity.port = Integer.parseInt(port);
                     identity.user = user;
-                    identity.setPassword(password);
+                    identity.password = password;
                     identity.realm = realm;
                     identity.use_ip = use_ip;
                     identity.synchronize = synchronize;
@@ -759,7 +759,7 @@ public class FragmentIdentity extends FragmentBase {
                     etPort.setText(identity == null ? null : Long.toString(identity.port));
                     etUser.setTag(identity == null || auth_type == Helper.AUTH_TYPE_PASSWORD ? null : identity.user);
                     etUser.setText(identity == null ? null : identity.user);
-                    tilPassword.getEditText().setText(identity == null ? null : identity.getPassword());
+                    tilPassword.getEditText().setText(identity == null ? null : identity.password);
                     etRealm.setText(identity == null ? null : identity.realm);
                     cbUseIp.setChecked(identity == null ? true : identity.use_ip);
                     cbSynchronize.setChecked(identity == null ? true : identity.synchronize);
@@ -864,7 +864,7 @@ public class FragmentIdentity extends FragmentBase {
                                     spAccount.setSelection(pos);
                                     // OAuth token could be updated
                                     if (pos > 0 && accounts.get(pos).auth_type != Helper.AUTH_TYPE_PASSWORD)
-                                        tilPassword.getEditText().setText(accounts.get(pos).getPassword());
+                                        tilPassword.getEditText().setText(accounts.get(pos).password);
                                     break;
                                 }
                             }
