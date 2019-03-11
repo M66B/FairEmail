@@ -1543,7 +1543,7 @@ public class FragmentMessages extends FragmentBase {
                             unseen += folder.unseen;
                             if (folder.synchronize)
                                 sync = true;
-                            if (folder.error != null || folder.accountError != null)
+                            if (folder.error != null)
                                 errors = true;
                         }
 
@@ -1603,11 +1603,8 @@ public class FragmentMessages extends FragmentBase {
                             rvMessage.scrollToPosition(0);
                         }
 
-                        String error = null;
-                        if (folder != null)
-                            error = (folder.error == null ? folder.accountError : folder.error);
-                        if (error != null && !refreshing && swipeRefresh.isRefreshing())
-                            Snackbar.make(view, error, Snackbar.LENGTH_LONG).show();
+                        if (folder != null && folder.error != null && !refreshing && swipeRefresh.isRefreshing())
+                            Snackbar.make(view, folder.error, Snackbar.LENGTH_LONG).show();
 
                         refresh = (folder != null);
                         swipeRefresh.setEnabled(pull && refresh);
