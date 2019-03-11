@@ -702,10 +702,8 @@ Long version:
 <a name="faq37"></a>
 **(37) How are passwords stored?**
 
-Providers require passwords in plain text, so the background service that takes care of synchronizing messages needs to send passwords in plain text.
-Since encrypting passwords would require a secret and the background service needs to know this secret, this could only be done by storing that secret.
-Storing a secret together with encrypted passwords would not add anything, so passwords are stored in plain text in a safe, inaccessible place.
-Recent Android versions encrypt all user data anyway.
+All supported Android versions [encrypt all user data](https://source.android.com/security/encryption/full-disk.html),
+so all data, including usernames, passwords, messages, etc, is stored encrypted.
 
 <br />
 
