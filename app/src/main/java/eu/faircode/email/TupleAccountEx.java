@@ -21,13 +21,15 @@ package eu.faircode.email;
 
 public class TupleAccountEx extends EntityAccount {
     public int unseen;
+    public int operations;
 
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof TupleAccountEx) {
             TupleAccountEx other = (TupleAccountEx) obj;
             return (super.equals(obj) &&
-                    this.unseen == other.unseen);
+                    this.unseen == other.unseen &&
+                    this.operations == other.operations);
         } else
             return false;
     }

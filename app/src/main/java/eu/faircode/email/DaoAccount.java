@@ -44,7 +44,7 @@ public interface DaoAccount {
     @Query("SELECT * FROM account WHERE synchronize")
     LiveData<List<EntityAccount>> liveSynchronizingAccounts();
 
-    @Query("SELECT *" +
+    @Query("SELECT account.*, COUNT(operation.id) AS operations" +
             ", (SELECT COUNT(message.id)" +
             "    FROM message" +
             "    JOIN folder ON folder.id = message.folder" +
@@ -56,7 +56,9 @@ public interface DaoAccount {
             "    AND NOT ui_seen" +
             "    AND NOT ui_hide) AS unseen" +
             " FROM account" +
-            " WHERE synchronize")
+            " LEFT JOIN operation ON operation.account = account.id" +
+            " WHERE synchronize" +
+            " GROUP BY account.id")
     LiveData<List<TupleAccountEx>> liveAccountsEx();
 
     @Query("SELECT * FROM account WHERE id = :id")

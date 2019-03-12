@@ -17,7 +17,7 @@ public class DrawerItem {
         this.layout = R.layout.item_drawer_separator;
     }
 
-    DrawerItem(long id, int resid, int icon) {
+    DrawerItem(long id, int icon, int resid) {
         this.id = id;
         this.menu = resid;
         this.layout = R.layout.item_drawer;
@@ -25,7 +25,16 @@ public class DrawerItem {
         this.resid = resid;
     }
 
-    DrawerItem(long id, int icon, Integer color, String title, boolean highlight) {
+    DrawerItem(long id, int menu, int icon, String title, boolean highlight) {
+        this.id = id;
+        this.menu = menu;
+        this.layout = R.layout.item_drawer;
+        this.icon = icon;
+        this.title = title;
+        this.highlight = highlight;
+    }
+
+    DrawerItem(long id, int icon, String title, Integer color, boolean highlight) {
         this.id = id;
         this.layout = R.layout.item_drawer;
         this.icon = icon;

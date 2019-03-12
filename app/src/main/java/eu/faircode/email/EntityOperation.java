@@ -56,6 +56,7 @@ public class EntityOperation {
 
     @PrimaryKey(autoGenerate = true)
     public Long id;
+    public Long account; // performance
     @NonNull
     public Long folder;
     public Long message;
@@ -201,6 +202,7 @@ public class EntityOperation {
         }
 
         EntityOperation operation = new EntityOperation();
+        operation.account = message.account;
         operation.folder = folder;
         operation.message = message.id;
         operation.name = name;
@@ -228,6 +230,7 @@ public class EntityOperation {
 
         if (db.operation().getOperationCount(fid, EntityOperation.SYNC) == 0) {
             EntityOperation operation = new EntityOperation();
+            operation.account = folder.account;
             operation.folder = folder.id;
             operation.message = null;
             operation.name = SYNC;

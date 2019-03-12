@@ -211,34 +211,34 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
         PackageManager pm = getPackageManager();
         if (getIntentExport().resolveActivity(pm) != null)
-            items.add(new DrawerItem(-1, R.string.title_setup_export, R.drawable.baseline_archive_24));
+            items.add(new DrawerItem(-1, R.drawable.baseline_archive_24, R.string.title_setup_export));
         if (getIntentImport().resolveActivity(pm) != null)
-            items.add(new DrawerItem(-2, R.string.title_setup_import, R.drawable.baseline_unarchive_24));
+            items.add(new DrawerItem(-2, R.drawable.baseline_unarchive_24, R.string.title_setup_import));
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String theme = prefs.getString("theme", "system");
         if ("light".equals(theme))
-            items.add(new DrawerItem(-3, R.string.title_setup_dark_theme, R.drawable.baseline_palette_24));
+            items.add(new DrawerItem(-3, R.drawable.baseline_palette_24, R.string.title_setup_dark_theme));
         else if ("dark".equals(theme))
-            items.add(new DrawerItem(-4, R.string.title_setup_black_theme, R.drawable.baseline_palette_24));
+            items.add(new DrawerItem(-4, R.drawable.baseline_palette_24, R.string.title_setup_black_theme));
         else if ("black".equals(theme))
-            items.add(new DrawerItem(-5, R.string.title_setup_system_theme, R.drawable.baseline_palette_24));
+            items.add(new DrawerItem(-5, R.drawable.baseline_palette_24, R.string.title_setup_system_theme));
         else
-            items.add(new DrawerItem(-6, R.string.title_setup_light_theme, R.drawable.baseline_palette_24));
+            items.add(new DrawerItem(-6, R.drawable.baseline_palette_24, R.string.title_setup_light_theme));
 
         if (getIntentNotifications(this).resolveActivity(pm) != null)
-            items.add(new DrawerItem(-7, R.string.title_setup_notifications, R.drawable.baseline_notifications_24));
+            items.add(new DrawerItem(-7, R.drawable.baseline_notifications_24, R.string.title_setup_notifications));
 
-        items.add(new DrawerItem(-8, R.string.title_setup_advanced, R.drawable.baseline_settings_applications_24));
+        items.add(new DrawerItem(-8, R.drawable.baseline_settings_applications_24, R.string.title_setup_advanced));
 
         items.add(new DrawerItem(-9));
 
-        items.add(new DrawerItem(-10, R.string.menu_legend, R.drawable.baseline_help_24));
+        items.add(new DrawerItem(-10, R.drawable.baseline_help_24, R.string.menu_legend));
         if (Helper.getIntentFAQ().resolveActivity(getPackageManager()) != null)
-            items.add(new DrawerItem(-11, R.string.menu_faq, R.drawable.baseline_question_answer_24));
+            items.add(new DrawerItem(-11, R.drawable.baseline_question_answer_24, R.string.menu_faq));
         if (Helper.getIntentPrivacy().resolveActivity(getPackageManager()) != null)
-            items.add(new DrawerItem(-12, R.string.menu_privacy, R.drawable.baseline_account_box_24));
-        items.add(new DrawerItem(-13, R.string.menu_about, R.drawable.baseline_info_24));
+            items.add(new DrawerItem(-12, R.drawable.baseline_account_box_24, R.string.menu_privacy));
+        items.add(new DrawerItem(-13, R.drawable.baseline_info_24, R.string.menu_about));
 
         drawerArray.set(items);
 
