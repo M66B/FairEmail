@@ -29,18 +29,20 @@
 -keep class androidx.appcompat.app.AppCompatViewInflater {<init>(...);}
 -keepclassmembers class * implements android.os.Parcelable {static ** CREATOR;}
 #android.os.BadParcelableException: Parcelable protocol requires a Parcelable.Creator object called CREATOR on class androidx...
+-keepnames class androidx.** {*;}
 
 #IAB
 -keep class com.android.vending.billing.** {*;}
+-keepnames class com.android.vending.billing.** {*;}
 
 #JavaMail
-#-dontshrink
 -keep class javax.** {*;}
 -keep class com.sun.** {*;}
 -keep class myjava.** {*;}
 -keep class org.apache.harmony.** {*;}
 -keep class mailcap.** {*;}
 -keep class mimetypes.** {*;}
+-keepnames class com.sun.mail.** {*;}
 
 -dontwarn java.awt.**
 -dontwarn java.beans.Beans
@@ -56,7 +58,10 @@
 
 #dnsjava
 -keep class org.xbill.DNS.** {*;}
+-keepnames class org.xbill.DNS.** {*;}
+
 -dontwarn sun.net.spi.nameservice.**
 
 #OpenPGP
 -keep class org.openintents.openpgp.** {*;}
+-keepnames class org.openintents.openpgp.** {*;}
