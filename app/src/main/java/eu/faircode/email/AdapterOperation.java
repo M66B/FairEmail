@@ -56,7 +56,6 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View itemView;
         private TextView tvFolder;
-        private TextView tvMessage;
         private TextView tvOperation;
         private TextView tvTime;
         private TextView tvError;
@@ -66,7 +65,6 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
             this.itemView = itemView.findViewById(R.id.clItem);
             tvFolder = itemView.findViewById(R.id.tvFolder);
-            tvMessage = itemView.findViewById(R.id.tvMessage);
             tvOperation = itemView.findViewById(R.id.tvOperation);
             tvTime = itemView.findViewById(R.id.tvTime);
             tvError = itemView.findViewById(R.id.tvError);
@@ -101,7 +99,6 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                     (operation.accountName == null ? "" : operation.accountName + "/") + operation.folderName;
 
             tvFolder.setText(folderName);
-            tvMessage.setText(operation.message == null ? null : Long.toString(operation.message));
             tvOperation.setText(sb.toString());
             tvTime.setText(DateUtils.getRelativeTimeSpanString(context, operation.created));
             tvError.setText(operation.error);
