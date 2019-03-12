@@ -136,6 +136,7 @@
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
     <string name="title_advanced_addresses">Mostra i dettagli dell\'indirizzo per impostazione predefinita</string>
     <string name="title_advanced_html">Mostra automaticamente il messaggio originale per i contatti conosciuti</string>
+    <string name="title_advanced_tracking">Tentativo di rimuovere il tracciamento dai messaggi originali</string>
     <string name="title_advanced_images">Mostra automaticamente le immagini per i contatti conosciuti</string>
     <string name="title_advanced_actionbar">Barra di azione di conversazione</string>
     <string name="title_advanced_pull_refresh">Trascina in basso per aggiornare</string>
@@ -162,6 +163,7 @@
     <string name="title_advanced_threading_hint">Messaggi di gruppo relazionati a vicenda</string>
     <string name="title_advanced_name_email_hint">Quando disabilitati saranno mostrati solo i nomi quando disponibili</string>
     <string name="title_advanced_flags_hint">Nota che i messaggi preferiti saranno sempre conservati localmente</string>
+    <string name="title_advanced_tracking_hint">Disabilitando questa opzione è possibile attivare script non sicuri</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando c\'è un solo messaggio o solo un messaggio da leggere in una conversazione</string>
     <string name="title_advanced_autocollapse_hint">Più messaggi estesi verranno sempre chiusi con \'indietro\'</string>
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni raggruppate quando tutti i messaggi sono archiviati, inviati o cestinati</string>
@@ -456,6 +458,7 @@
     <string name="title_hint_message_actions">Scorri a sinistra per cestinare; scorri a destra per archiviare (se disponibile)</string>
     <string name="title_hint_message_selection">Premi a lungo un messaggio per iniziare a selezionare più messaggi</string>
     <string name="title_hint_sync">Scaricare i messaggi può richiedere molto tempo, a seconda della velocità del provider, della connessione internet e del dispositivo e dal numero di messaggi. Durante il download l\'app potrebbe funzionare più lentamente.</string>
+    <string name="title_hint_tracking_image">Immagine di monitoraggio</string>
     <string name="title_open_link">Apri collegamento</string>
     <string name="title_show_organization">Mostra organizzazione</string>
     <string name="title_insecure_link">Questo link non è sicuro</string>

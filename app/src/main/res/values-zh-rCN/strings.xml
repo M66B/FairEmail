@@ -128,6 +128,7 @@
     <string name="title_advanced_preview">显示邮件预览</string>
     <string name="title_advanced_addresses">默认显示地址详情</string>
     <string name="title_advanced_html">自动显示已知联系人的原始消息</string>
+    <string name="title_advanced_tracking">尝试从原始消息中删除跟踪</string>
     <string name="title_advanced_images">自动显示来自已知联系人邮件中的图片</string>
     <string name="title_advanced_actionbar">对话操作栏</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
@@ -154,6 +155,7 @@
     <string name="title_advanced_threading_hint">对相互关联的邮件进行分组</string>
     <string name="title_advanced_name_email_hint">禁用该选项，将仅显示名称（如果可用）</string>
     <string name="title_advanced_flags_hint">请注意, 加星消息将始终保存在本地</string>
+    <string name="title_advanced_tracking_hint">禁用此选项将允许潜在的不安全脚本</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
     <string name="title_advanced_autocollapse_hint">App将在您按下“返回”键时关闭多条展开的消息</string>
     <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>
@@ -447,6 +449,7 @@
     <string name="title_hint_message_actions">向左滑至垃圾箱；向右滑归档(如果可用)</string>
     <string name="title_hint_message_selection">长按一则邮件以开始选择多则邮件</string>
     <string name="title_hint_sync">下载邮件可能需要一些时间, 具体取决于提供商的速度、网络连接、设备以及邮件数量。在下载邮件时, 应用的响应速度可能会变慢。</string>
+    <string name="title_hint_tracking_image">跟踪图像</string>
     <string name="title_open_link">打开链接</string>
     <string name="title_show_organization">显示组织</string>
     <string name="title_insecure_link">此链接不安全</string>
