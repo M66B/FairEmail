@@ -341,7 +341,6 @@
     <string name="title_legend_trash">سطل آشغال</string>
     <string name="title_legend_junk">هرزنامه</string>
     <string name="title_legend_notify">آگاه‌سازی از پیام‌های جدید</string>
-    <string name="title_legend_unified">صندوق دریافت یکپارچه</string>
     <string name="title_legend_primary_disconnected">اتصال حساب قطع شده است</string>
     <string name="title_legend_primary_connected">اتصال حساب برقرار شده است</string>
     <string name="title_legend_thread">گفتگو</string>

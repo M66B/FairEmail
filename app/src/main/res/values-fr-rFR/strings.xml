@@ -410,7 +410,7 @@
     <string name="title_legend_trash">Corbeille</string>
     <string name="title_legend_junk">Courrier indésirable</string>
     <string name="title_legend_notify">Notification pour les nouveaux messages</string>
-    <string name="title_legend_unified">Boite de réception unifiée</string>
+    <string name="title_legend_unified">Boîte de réception unifiée / compte primaire</string>
     <string name="title_legend_primary_disconnected">Compte déconnecté</string>
     <string name="title_legend_primary_connected">Compte connecté</string>
     <string name="title_legend_thread">Fil de discussion</string>

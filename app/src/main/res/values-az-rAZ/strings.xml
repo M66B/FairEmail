@@ -348,7 +348,6 @@
     <string name="title_legend_archive">Arxiv</string>
     <string name="title_legend_trash">Tullantı</string>
     <string name="title_legend_notify">Yeni mesajları bildir</string>
-    <string name="title_legend_unified">Birləşmiş gələn qutusu</string>
     <string name="title_legend_primary_disconnected">Hesab bağlantısı kəsildi</string>
     <string name="title_legend_primary_connected">Hesab bağlantısı quruldu</string>
     <string name="title_legend_thread">Söhbət</string>

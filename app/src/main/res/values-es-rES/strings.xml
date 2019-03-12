@@ -409,7 +409,7 @@
     <string name="title_legend_trash">Papelera</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_notify">Notificar nuevos mensajes</string>
-    <string name="title_legend_unified">Bandeja de entrada unificada</string>
+    <string name="title_legend_unified">Bandeja de entrada unificada / Cuenta principal</string>
     <string name="title_legend_primary_disconnected">Cuenta desconectada</string>
     <string name="title_legend_primary_connected">Cuenta conectada</string>
     <string name="title_legend_thread">Conversación</string>

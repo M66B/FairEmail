@@ -389,7 +389,6 @@
     <string name="title_legend_trash">Papperskorg</string>
     <string name="title_legend_junk">Skräppost</string>
     <string name="title_legend_notify">Notifiera för nya meddelanden</string>
-    <string name="title_legend_unified">Samlad inkorg</string>
     <string name="title_legend_primary_disconnected">Kontot frånkopplat</string>
     <string name="title_legend_primary_connected">Kontot anslutet</string>
     <string name="title_legend_thread">Konversation</string>

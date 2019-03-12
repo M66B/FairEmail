@@ -407,7 +407,6 @@
     <string name="title_legend_trash">Корзина</string>
     <string name="title_legend_junk">Спам</string>
     <string name="title_legend_notify">Уведомлять о новых сообщениях</string>
-    <string name="title_legend_unified">Единый почтовый ящик</string>
     <string name="title_legend_primary_disconnected">Учетная запись отключена</string>
     <string name="title_legend_primary_connected">Учетная запись подключена</string>
     <string name="title_legend_thread">Диалог</string>

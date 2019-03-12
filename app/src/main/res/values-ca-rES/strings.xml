@@ -169,7 +169,6 @@
     <string name="title_legend_inbox">Safata d\'entrada</string>
     <string name="title_legend_archive">Arxiu</string>
     <string name="title_legend_trash">Paperera</string>
-    <string name="title_legend_unified">Safata d\'entrada unificada</string>
     <string name="title_legend_primary_disconnected">Compte desconnectat</string>
     <string name="title_legend_primary_connected">Compte connectat</string>
     <string name="title_legend_thread">Conversació</string>

@@ -401,7 +401,6 @@
     <string name="title_legend_trash">垃圾箱</string>
     <string name="title_legend_junk">垃圾邮件</string>
     <string name="title_legend_notify">通知新邮件</string>
-    <string name="title_legend_unified">聚合收件箱</string>
     <string name="title_legend_primary_disconnected">帐户已断开连接</string>
     <string name="title_legend_primary_connected">帐户已连接</string>
     <string name="title_legend_thread">对话</string>

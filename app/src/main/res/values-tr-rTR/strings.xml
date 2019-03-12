@@ -409,7 +409,6 @@
     <string name="title_legend_trash">Çöp Kutusu</string>
     <string name="title_legend_junk">İstenmeyen posta</string>
     <string name="title_legend_notify">Yeni iletileri bildir</string>
-    <string name="title_legend_unified">Birleştirilmiş gelen kutusu</string>
     <string name="title_legend_primary_disconnected">Hesap bağlantısı kesildi</string>
     <string name="title_legend_primary_connected">Hesap bağlantısı kuruldu</string>
     <string name="title_legend_thread">Söyleşi</string>
