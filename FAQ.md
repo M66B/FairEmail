@@ -494,7 +494,7 @@ The messages *... Couldn't connect to host ...*, *... Connection refused ...* or
 mean that FairEmail was not able to connect to the email server.
 
 The message *... Software caused connection abort ...*
-means that the email server or something between FairEmail and the email server actively aborted an existing connection.
+means that the email server or something between FairEmail and the email server actively terminated an existing connection.
 This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
 Possible causes are:
