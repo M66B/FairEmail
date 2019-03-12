@@ -38,6 +38,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
+import org.jsoup.safety.Cleaner;
 import org.jsoup.safety.Whitelist;
 import org.jsoup.select.NodeTraversor;
 import org.jsoup.select.NodeVisitor;
@@ -100,12 +101,16 @@ public class HtmlHelper {
     }
 
     static String sanitize(Context context, String html, boolean showQuotes) {
-        final Document document = Jsoup.parse(Jsoup.clean(html, Whitelist
-                .relaxed()
+        Document parsed = Jsoup.parse(html);
+        Whitelist whitelist = Whitelist.relaxed()
                 .addTags("hr")
                 .removeTags("col", "colgroup", "thead", "tbody")
+                .removeAttributes("table", "width")
+                .removeAttributes("td", "colspan", "rowspan", "width")
+                .removeAttributes("th", "colspan", "rowspan", "width")
                 .addProtocols("img", "src", "cid")
-                .addProtocols("img", "src", "data")));
+                .addProtocols("img", "src", "data");
+        final Document document = new Cleaner(whitelist).clean(parsed);
 
         // Quotes
         if (!showQuotes)
@@ -115,12 +120,12 @@ public class HtmlHelper {
         // Tables
         for (Element col : document.select("th,td")) {
             // prevent line breaks
-            col.select("br").tagName("span").html(" ");
+            col.select("br").tagName("span").html("&nbsp;");
             col.select("div").tagName("span");
 
             // separate columns by a space
             if (col.nextElementSibling() != null)
-                col.append(" ");
+                col.append("&nbsp;");
 
             if ("th".equals(col.tagName()))
                 col.tagName("strong");
@@ -180,6 +185,7 @@ public class HtmlHelper {
         for (Element img : document.select("img")) {
             String src = img.attr("src");
             String alt = img.attr("alt");
+            String title = img.attr("title");
             String height = img.attr("height").trim();
             String width = img.attr("width").trim();
 
@@ -210,6 +216,10 @@ public class HtmlHelper {
                 div.appendElement("br");
                 div.appendElement("em").text(alt);
             }
+            if (!TextUtils.isEmpty(title)) {
+                div.appendElement("br");
+                div.appendElement("em").text(title);
+            }
 
             // Tracking image
             if ("1".equals(height) && "1".equals(width) && !TextUtils.isEmpty(src)) {
@@ -226,51 +236,59 @@ public class HtmlHelper {
             public void head(Node node, int depth) {
                 if (node instanceof TextNode) {
                     TextNode tnode = (TextNode) node;
-                    Element span = document.createElement("span");
 
-                    int pos = 0;
                     String text = tnode.text();
                     Matcher matcher = PatternsCompat.WEB_URL.matcher(text);
-                    while (matcher.find()) {
-                        boolean linked = false;
-                        Node parent = tnode.parent();
-                        while (parent != null) {
-                            if ("a".equals(parent.nodeName())) {
-                                linked = true;
-                                break;
+                    if (matcher.matches()) {
+                        Element span = document.createElement("span");
+
+                        int pos = 0;
+                        while (matcher.find()) {
+                            boolean linked = false;
+                            Node parent = tnode.parent();
+                            while (parent != null) {
+                                if ("a".equals(parent.nodeName())) {
+                                    linked = true;
+                                    break;
+                                }
+                                parent = parent.parent();
                             }
-                            parent = parent.parent();
+
+                            String scheme = Uri.parse(matcher.group()).getScheme();
+
+                            if (BuildConfig.DEBUG)
+                                Log.i("Web url=" + matcher.group() + " linked=" + linked + " scheme=" + scheme);
+
+                            if (linked || scheme == null)
+                                span.appendText(text.substring(pos, matcher.end()));
+                            else {
+                                span.appendText(text.substring(pos, matcher.start()));
+
+                                Element a = document.createElement("a");
+                                a.attr("href", matcher.group());
+                                a.text(matcher.group());
+                                span.appendChild(a);
+                            }
+
+                            pos = matcher.end();
                         }
+                        span.appendText(text.substring(pos));
 
-                        String scheme = Uri.parse(matcher.group()).getScheme();
-
-                        if (BuildConfig.DEBUG)
-                            Log.i("Web url=" + matcher.group() + " linked=" + linked + " scheme=" + scheme);
-
-                        if (linked || scheme == null)
-                            span.appendText(text.substring(pos, matcher.end()));
-                        else {
-                            span.appendText(text.substring(pos, matcher.start()));
-
-                            Element a = document.createElement("a");
-                            a.attr("href", matcher.group());
-                            a.text(matcher.group());
-                            span.appendChild(a);
-                        }
-
-                        pos = matcher.end();
+                        tnode.before(span);
+                        tnode.text("");
                     }
-                    span.appendText(text.substring(pos));
-
-                    tnode.before(span);
-                    tnode.text("");
                 }
             }
 
             @Override
             public void tail(Node node, int depth) {
             }
-        }, document.body());
+        }, document);
+
+        // Remove block elements displaying nothing
+        for (Element e : document.select("*"))
+            if (e.isBlock() && !e.hasText() && e.select("img").size() == 0)
+                e.remove();
 
         return document.body().html();
     }

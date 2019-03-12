@@ -1667,7 +1667,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final boolean show_quotes = properties.getValue("quotes", message.id);
             final boolean show_images = properties.getValue("images", message.id);
 
-            return HtmlHelper.fromHtml(HtmlHelper.sanitize(context, body, show_quotes), new Html.ImageGetter() {
+            String html = HtmlHelper.sanitize(context, body, show_quotes);
+            if (debug)
+                html += "<pre>" + Html.escapeHtml(html) + "</pre>";
+
+            return HtmlHelper.fromHtml(html, new Html.ImageGetter() {
                 @Override
                 public Drawable getDrawable(String source) {
                     Drawable image = HtmlHelper.decodeImage(source, context, message.id, show_images);
