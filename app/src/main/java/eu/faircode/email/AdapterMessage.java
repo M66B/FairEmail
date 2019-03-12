@@ -47,7 +47,6 @@ import android.print.PrintDocumentAdapter;
 import android.print.PrintManager;
 import android.provider.ContactsContract;
 import android.provider.Settings;
-import android.text.Editable;
 import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
@@ -89,7 +88,6 @@ import com.google.android.material.snackbar.Snackbar;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.xml.sax.XMLReader;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -1678,13 +1676,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     return image;
                 }
-            }, new Html.TagHandler() {
-                @Override
-                public void handleTag(boolean opening, String tag, Editable output, XMLReader xmlReader) {
-                    //if (BuildConfig.DEBUG)
-                    //    Log.i("HTML tag=" + tag + " opening=" + opening);
-                }
-            });
+            }, null);
         }
 
         private class UrlHandler extends ArrowKeyMovementMethod {

@@ -59,7 +59,6 @@ import android.text.TextWatcher;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.StyleSpan;
-import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.util.TypedValue;
@@ -92,7 +91,6 @@ import org.jsoup.nodes.Element;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
-import org.xml.sax.XMLReader;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
@@ -2486,42 +2484,6 @@ public class FragmentCompose extends FragmentBase {
                 lld.setLevel(1); // image place holder
 
             return lld;
-        }
-    };
-
-    private Html.TagHandler tagHandler = new Html.TagHandler() {
-        @Override
-        public void handleTag(boolean opening, String tag, Editable output, XMLReader xmlReader) {
-            if (tag.equalsIgnoreCase("tt"))
-                processTt(opening, output);
-        }
-
-        private void processTt(boolean opening, Editable output) {
-            Log.i("Handling tt");
-            int len = output.length();
-            if (opening)
-                output.setSpan(new TypefaceSpan("monospace"), len, len, Spannable.SPAN_MARK_MARK);
-            else {
-                Object span = getLast(output, TypefaceSpan.class);
-                if (span != null) {
-                    int pos = output.getSpanStart(span);
-                    output.removeSpan(span);
-                    if (pos != len)
-                        output.setSpan(new TypefaceSpan("monospace"), pos, len, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                }
-            }
-        }
-
-        private Object getLast(Editable text, Class kind) {
-            Object[] spans = text.getSpans(0, text.length(), kind);
-            if (spans.length == 0)
-                return null;
-
-            for (int i = spans.length; i > 0; i--)
-                if (text.getSpanFlags(spans[i - 1]) == Spannable.SPAN_MARK_MARK)
-                    return spans[i - 1];
-
-            return null;
         }
     };
 
