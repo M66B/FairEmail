@@ -207,14 +207,15 @@ public class HtmlHelper {
                     }
 
                 if (linked)
-                    div.appendChild(img);
+                    div.appendChild(img.clone());
                 else {
                     Element a = document.createElement("a");
                     a.attr("href", uri.toString());
                     a.appendChild(img.clone());
                     div.appendChild(a);
                 }
-            }
+            } else
+                div.appendChild(img.clone());
 
             if (!TextUtils.isEmpty(alt)) {
                 div.appendElement("br");
