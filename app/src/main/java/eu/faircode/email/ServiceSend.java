@@ -194,16 +194,20 @@ public class ServiceSend extends LifecycleService {
 
                                     db.operation().deleteOperation(op.id);
                                 } catch (Throwable ex) {
-                                    Log.e(ex);
+                                    Log.e(outbox.name, ex);
+                                    Core.reportError(ServiceSend.this, null, outbox, ex);
 
+                                    db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
                                     if (message != null)
                                         db.message().setMessageError(message.id, Helper.formatThrowable(ex));
 
                                     if (ex instanceof MessageRemovedException ||
                                             ex instanceof SendFailedException ||
-                                            ex instanceof IllegalArgumentException)
+                                            ex instanceof IllegalArgumentException) {
+                                        Log.w("Unrecoverable");
                                         db.operation().deleteOperation(op.id);
-                                    else
+                                        continue;
+                                    } else
                                         throw ex;
                                 } finally {
                                     Log.i(outbox.name + " end op=" + op.id + "/" + op.name);

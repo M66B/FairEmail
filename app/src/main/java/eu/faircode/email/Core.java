@@ -210,7 +210,6 @@ class Core {
                         // Operation succeeded
                         db.operation().deleteOperation(op.id);
                     } catch (Throwable ex) {
-                        // TODO: SMTP response codes: https://www.ietf.org/rfc/rfc821.txt
                         Log.e(folder.name, ex);
                         reportError(context, account, folder, ex);
 
