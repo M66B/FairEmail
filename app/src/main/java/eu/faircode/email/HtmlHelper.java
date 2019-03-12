@@ -290,7 +290,8 @@ public class HtmlHelper {
             if (e.isBlock() && !e.hasText() && e.select("img").size() == 0)
                 e.remove();
 
-        return document.body().html();
+        Element body = document.body();
+        return (body == null ? "" : body.html());
     }
 
     static Drawable decodeImage(String source, Context context, long id, boolean show) {
