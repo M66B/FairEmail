@@ -164,11 +164,13 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             ivNotify.setVisibility(folder.notify ? View.VISIBLE : View.GONE);
 
-            StringBuilder n = new StringBuilder();
-            n.append(folder.getDisplayName(context));
             if (folder.unseen > 0)
-                n.append(" (").append(nf.format(folder.unseen)).append(")");
-            tvName.setText(n.toString());
+                tvName.setText(context.getString(R.string.title_name_count,
+                        folder.getDisplayName(context),
+                        nf.format(folder.unseen)));
+            else
+                tvName.setText(folder.getDisplayName(context));
+
             tvName.setTypeface(null, folder.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
             tvName.setTextColor(folder.unseen > 0 ? colorUnread : textColorSecondary);
 

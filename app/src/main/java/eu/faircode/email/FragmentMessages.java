@@ -1547,11 +1547,12 @@ public class FragmentMessages extends FragmentBase {
                                 errors = true;
                         }
 
-                        StringBuilder sb = new StringBuilder();
-                        sb.append(getString(R.string.title_folder_unified));
                         if (unseen > 0)
-                            sb.append(" (").append(nf.format(unseen)).append(")");
-                        setSubtitle(sb.toString());
+                            setSubtitle(getString(R.string.title_name_count,
+                                    getString(R.string.title_folder_unified),
+                                    nf.format(unseen)));
+                        else
+                            setSubtitle(getString(R.string.title_folder_unified));
 
                         boolean refreshing = false;
                         for (TupleFolderEx folder : folders)
@@ -1583,11 +1584,12 @@ public class FragmentMessages extends FragmentBase {
                         if (folder == null)
                             setSubtitle(null);
                         else {
-                            StringBuilder sb = new StringBuilder();
-                            sb.append(folder.getDisplayName(getContext()));
                             if (folder.unseen > 0)
-                                sb.append(" (").append(nf.format(folder.unseen)).append(")");
-                            setSubtitle(sb.toString());
+                                setSubtitle(getString(R.string.title_name_count,
+                                        folder.getDisplayName(getContext()),
+                                        nf.format(folder.unseen)));
+                            else
+                                setSubtitle(folder.getDisplayName(getContext()));
 
                             boolean outbox = EntityFolder.OUTBOX.equals(folder.type);
                             if (FragmentMessages.this.outbox != outbox) {

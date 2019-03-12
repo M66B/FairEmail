@@ -62,6 +62,8 @@
     <string name="title_notification_sending">Sending messages</string>
     <string name="title_notification_failed">\'%1$s\' failed</string>
 
+    <string name="title_name_count">%1$s (%2$s)</string>
+
     <string name="menu_answers">Templates</string>
     <string name="menu_operations">Operations</string>
     <string name="menu_setup">Setup</string>
