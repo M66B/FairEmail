@@ -171,7 +171,6 @@
     <string name="title_advanced_threading_hint">Grupează mesajele asociate</string>
     <string name="title_advanced_name_email_hint">Dacă este dezactivată, doar numele va fi afișat atunci când este disponibil</string>
     <string name="title_advanced_flags_hint">Rețineți că mesajele marcate vor fi păstrate întotdeauna la nivel local</string>
-    <string name="title_advanced_tracking_hint">Dezactivând opțiunea se permit scripturi potențial periculoase</string>
     <string name="title_advanced_autoexpand_hint">Atunci când este doar un mesaj sau doar un mesaj necitit într-o conversație</string>
     <string name="title_advanced_autocollapse_hint">Mesajele multiple vor fi mereu plate când se apasă \'înapoi\'</string>
     <string name="title_advanced_autoclose_hint">Atunci când toate mesajele sunt arhivate, trimise sau mutate la gunoi</string>
@@ -418,6 +417,7 @@
     <string name="title_legend_trash">Gunoi</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_notify">Notificare la mesaje noi</string>
+    <string name="title_legend_unified">Inbox unificat / cont primar</string>
     <string name="title_legend_primary_disconnected">Cont deconectat</string>
     <string name="title_legend_primary_connected">Cont conectat</string>
     <string name="title_legend_thread">Conversație</string>
@@ -465,7 +465,6 @@
     <string name="title_hint_message_actions">Glisare spre stânga trimite la gunoi iar glisare spre dreapta la arhivă (dacă este disponibilă)</string>
     <string name="title_hint_message_selection">Apăsați lung un mesaj pentru a selecta multiple</string>
     <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcție de viteza furnizorului, conexiunea la internet, de dispozitiv precum și de numărul de mesaje. În timpul descărcării mesajelor aplicația ar putea răspunde mai lent.</string>
-    <string name="title_hint_tracking_image">Imagine folosită la urmărire</string>
     <string name="title_open_link">Deschide legătura</string>
     <string name="title_show_organization">Arată organizația</string>
     <string name="title_insecure_link">Această legătură este nesigură</string>

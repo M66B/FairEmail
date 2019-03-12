@@ -228,7 +228,9 @@ public class HtmlHelper {
             // Tracking pixel
             if (tracking) {
                 div.appendElement("br");
-                div.appendElement("strong").text(context.getString(R.string.title_hint_tracking_image));
+                div.appendElement("strong").text(
+                        context.getString(R.string.title_hint_tracking_image,
+                                img.attr("width"), img.attr("height")));
             }
 
             img.replaceWith(div);

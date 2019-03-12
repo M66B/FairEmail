@@ -47,6 +47,7 @@
     <string name="title_ask_spam_who">Rapport bericht van %1$s als spam?</string>
     <string name="title_notification_sending">Berichten verzenden</string>
     <string name="title_notification_failed">\'%1$s\' is mislukt</string>
+    <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_answers">Sjablonen</string>
     <string name="menu_operations">Bewerkingen</string>
     <string name="menu_setup">Instellingen</string>
@@ -163,7 +164,6 @@
     <string name="title_advanced_threading_hint">Groepeer gerelateerde berichten</string>
     <string name="title_advanced_name_email_hint">Indien uitgeschakeld, worden alleen namen weergegeven als deze beschikbaar zijn</string>
     <string name="title_advanced_flags_hint">Merk op dat berichten met een ster altijd lokaal worden bewaard</string>
-    <string name="title_advanced_tracking_hint">Het uitschakelen van deze optie zet mogelijk onveilige scripts aan</string>
     <string name="title_advanced_autoexpand_hint">Bericht automatisch openen als er slechts één bericht of slechts één ongelezen bericht in een gesprek is</string>
     <string name="title_advanced_autocollapse_hint">Meerdere uitgeklapte berichten worden altijd gesloten bij \'terug\'</string>
     <string name="title_advanced_autoclose_hint">Gesprekken automatisch sluiten wanneer alle berichten zijn gearchiveerd, verzonden of weggegooid</string>
@@ -458,7 +458,7 @@
     <string name="title_hint_message_actions">Veeg naar links om weg te gooien; veeg naar rechts om te archiveren (indien beschikbaar)</string>
     <string name="title_hint_message_selection">Druk lang op een bericht om te beginnen met het selecteren van meerdere berichten</string>
     <string name="title_hint_sync">Het downloaden van berichten kan enige tijd duren, afhankelijk van de snelheid van de provider, de internet-verbinding en het apparaat en van het aantal berichten. Tijdens het downloaden van berichten kan de app trager reageren.</string>
-    <string name="title_hint_tracking_image">Tracking afbeelding</string>
+    <string name="title_hint_tracking_image">Tracking afbeelding %1$sx%2$s</string>
     <string name="title_open_link">Link openen</string>
     <string name="title_show_organization">Toon organisatie</string>
     <string name="title_insecure_link">Deze link is onveilig</string>

@@ -163,7 +163,6 @@
     <string name="title_advanced_threading_hint">Agrupe as mensagens relacionadas entre si</string>
     <string name="title_advanced_name_email_hint">Quando desativado apenas os nomes serão exibidos quando disponíveis</string>
     <string name="title_advanced_flags_hint">Observe que as mensagens favoritadas serão sempre mantidas localmente</string>
-    <string name="title_advanced_tracking_hint">Desabilitar esta opção permite scripts potencialmente inseguros</string>
     <string name="title_advanced_autoexpand_hint">Abrir automaticamente a mensagem quando há apenas uma mensagem ou uma mensagem não-lida em uma conversa</string>
     <string name="title_advanced_autocollapse_hint">Várias mensagens expandidas serão sempre fechadas ao \'voltar\'</string>
     <string name="title_advanced_autoclose_hint">Fechar automaticamente conversas quando todas as mensagens estiverem arquivadas, enviadas ou na lixeira</string>
@@ -410,6 +409,7 @@
     <string name="title_legend_trash">Lixeira</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_notify">Notificar novas mensagens</string>
+    <string name="title_legend_unified">Caixa de entrada unificada / conta principal</string>
     <string name="title_legend_primary_disconnected">Conta desconectada</string>
     <string name="title_legend_primary_connected">Conta conectada</string>
     <string name="title_legend_thread">Conversação</string>
@@ -457,7 +457,6 @@
     <string name="title_hint_message_actions">Deslize para a esquerda para mandar para lixeira; deslize para a direita para arquivar (se disponível)</string>
     <string name="title_hint_message_selection">Pressione longamente uma mensagem para começar a selecionar várias mensagens</string>
     <string name="title_hint_sync">Baixar mensagens pode levar algum tempo, dependendo da velocidade do provedor, da conexão de internet e do dispositivo, e o número de mensagens. Enquanto estiver baixando as mensagens o app pode responder mais devagar.</string>
-    <string name="title_hint_tracking_image">Imagem de rastreamento</string>
     <string name="title_open_link">Abrir link</string>
     <string name="title_show_organization">Mostrar organização</string>
     <string name="title_insecure_link">Este link é inseguro</string>
