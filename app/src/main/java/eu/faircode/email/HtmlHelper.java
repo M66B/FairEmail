@@ -216,7 +216,7 @@ public class HtmlHelper {
                 div.appendElement("br");
                 div.appendElement("em").text(alt);
             }
-            if (!TextUtils.isEmpty(title)) {
+            if (!TextUtils.isEmpty(title) && !title.equals(alt)) {
                 div.appendElement("br");
                 div.appendElement("em").text(title);
             }
