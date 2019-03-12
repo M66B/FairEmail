@@ -47,6 +47,7 @@
     <string name="title_ask_spam_who">Segnalare messaggio da %1$s come spam?</string>
     <string name="title_notification_sending">Invio messaggi in corso</string>
     <string name="title_notification_failed">\'%1$s\' fallito</string>
+    <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_answers">Modelli</string>
     <string name="menu_operations">Operazioni</string>
     <string name="menu_setup">Configurazione</string>
@@ -409,6 +410,7 @@
     <string name="title_legend_trash">Cestino</string>
     <string name="title_legend_junk">Posta indesiderata</string>
     <string name="title_legend_notify">Notifica nuovi messaggi</string>
+    <string name="title_legend_unified">Posta in arrivo unificata / account principale</string>
     <string name="title_legend_primary_disconnected">Account disconnesso</string>
     <string name="title_legend_primary_connected">Account connesso</string>
     <string name="title_legend_thread">Conversazione</string>
@@ -456,6 +458,7 @@
     <string name="title_hint_message_actions">Scorri a sinistra per cestinare; scorri a destra per archiviare (se disponibile)</string>
     <string name="title_hint_message_selection">Premi a lungo un messaggio per iniziare a selezionare più messaggi</string>
     <string name="title_hint_sync">Scaricare i messaggi può richiedere molto tempo, a seconda della velocità del provider, della connessione internet e del dispositivo e dal numero di messaggi. Durante il download l\'app potrebbe funzionare più lentamente.</string>
+    <string name="title_hint_tracking_image">Immagine di tracciamento %1$sx%2$s</string>
     <string name="title_open_link">Apri collegamento</string>
     <string name="title_show_organization">Mostra organizzazione</string>
     <string name="title_insecure_link">Questo link non è sicuro</string>
