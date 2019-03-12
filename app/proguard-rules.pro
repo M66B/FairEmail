@@ -49,6 +49,7 @@
 
 #jsoup
 -keeppackagenames org.jsoup.nodes
+-keepnames class org.jsoup.** {*;}
 
 #JCharset
 -keep class net.freeutils.charset.** {*;}
