@@ -316,11 +316,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 for (TupleAccountEx account : accounts) {
                     StringBuilder sb = new StringBuilder();
-                    sb.append(account);
+                    sb.append(account.name);
                     if (account.unseen > 0)
                         sb.append(" (").append(nf.format(account.unseen)).append(")");
                     items.add(new DrawerItem(account.id,
-                            "connected".equals(account.state) ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24,
+                            "connected".equals(account.state)
+                                    ? account.primary ? R.drawable.baseline_folder_special_24 : R.drawable.baseline_folder_24
+                                    : R.drawable.baseline_folder_open_24,
                             account.color, sb.toString(), account.unseen > 0));
                 }
 

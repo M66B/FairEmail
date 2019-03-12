@@ -1760,7 +1760,9 @@ public class FragmentMessages extends FragmentBase {
                 viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
 
         menu.findItem(R.id.menu_folders).setVisible(primary >= 0);
-        menu.findItem(R.id.menu_folders).setIcon(connected ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24);
+        menu.findItem(R.id.menu_folders).setIcon(connected
+                ? R.drawable.baseline_folder_special_24
+                : R.drawable.baseline_folder_open_24);
 
         menu.findItem(R.id.menu_sort_on).setVisible(!selection &&
                 (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER));
