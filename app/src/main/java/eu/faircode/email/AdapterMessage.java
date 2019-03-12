@@ -1400,7 +1400,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .show();
         }
 
-        //@SuppressLint({"SetJavaScriptEnabled"})
         private void onShowHtmlConfirmed(final TupleMessageEx message) {
             properties.setValue("html", message.id, true);
             btnHtml.setVisibility(View.GONE);
@@ -1432,7 +1431,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             webView.loadUrl("about:blank");
 
             WebSettings settings = webView.getSettings();
-            //settings.setJavaScriptEnabled(true);
             settings.setUseWideViewPort(true);
             settings.setLoadWithOverviewMode(true);
             settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
