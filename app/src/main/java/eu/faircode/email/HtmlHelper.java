@@ -66,6 +66,7 @@ import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
 public class HtmlHelper {
     static final int PREVIEW_SIZE = 250;
 
+    private static final int TRACKING_PIXEL_SURFACE = 25;
     private static final List<String> heads = Arrays.asList("h1", "h2", "h3", "h4", "h5", "h6", "p", "table", "ol", "ul", "br", "hr");
     private static final List<String> tails = Arrays.asList("h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "li");
 
@@ -78,13 +79,9 @@ public class HtmlHelper {
         Document document = Jsoup.parse(html);
 
         // Remove tracking pixels
-        for (Element img : document.select("img")) {
-            String src = img.attr("src");
-            String height = img.attr("height").trim();
-            String width = img.attr("width").trim();
-            if ("1".equals(height) && "1".equals(width) && !TextUtils.isEmpty(src))
+        for (Element img : document.select("img"))
+            if (isTrackingPixel(img))
                 img.removeAttr("src");
-        }
 
         // Remove Javascript
         for (Element e : document.select("*"))
@@ -186,13 +183,17 @@ public class HtmlHelper {
             String src = img.attr("src");
             String alt = img.attr("alt");
             String title = img.attr("title");
-            String height = img.attr("height").trim();
-            String width = img.attr("width").trim();
+
+            boolean tracking = isTrackingPixel(img);
 
             Element div = document.createElement("div");
 
             Uri uri = Uri.parse(src);
             if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme())) {
+                // Remove link tracking pixel
+                if (tracking)
+                    img.removeAttr("src");
+
                 boolean linked = false;
                 for (Element parent : img.parents())
                     if ("a".equals(parent.tagName())) {
@@ -221,8 +222,8 @@ public class HtmlHelper {
                 div.appendElement("em").text(title);
             }
 
-            // Tracking image
-            if ("1".equals(height) && "1".equals(width) && !TextUtils.isEmpty(src)) {
+            // Tracking pixel
+            if (tracking) {
                 div.appendElement("br");
                 div.appendElement("strong").text(context.getString(R.string.title_hint_tracking_image));
             }
@@ -511,6 +512,23 @@ public class HtmlHelper {
         sb.append("\n");
 
         return sb.toString();
+    }
+
+    static boolean isTrackingPixel(Element img) {
+        String src = img.attr("src");
+        String width = img.attr("width").trim();
+        String height = img.attr("height").trim();
+
+        if (TextUtils.isEmpty(src))
+            return false;
+        if (TextUtils.isEmpty(width) || TextUtils.isEmpty(height))
+            return false;
+
+        try {
+            return (Integer.parseInt(width) * Integer.parseInt(height) <= TRACKING_PIXEL_SURFACE);
+        } catch (NumberFormatException ignored) {
+            return false;
+        }
     }
 
     static void trimEnd(StringBuilder sb) {
