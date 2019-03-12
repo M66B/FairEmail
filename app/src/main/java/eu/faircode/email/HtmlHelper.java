@@ -100,7 +100,7 @@ public class HtmlHelper {
     static String sanitize(Context context, String html, boolean showQuotes) {
         Document parsed = Jsoup.parse(html);
         Whitelist whitelist = Whitelist.relaxed()
-                .addTags("hr")
+                .addTags("hr", "abbr")
                 .removeTags("col", "colgroup", "thead", "tbody")
                 .removeAttributes("table", "width")
                 .removeAttributes("td", "colspan", "rowspan", "width")
@@ -177,6 +177,9 @@ public class HtmlHelper {
             dd.tagName("em");
             dd.appendElement("br").appendElement("br");
         }
+
+        // Abbreviations
+        document.select("abbr").tagName("u");
 
         // Images
         for (Element img : document.select("img")) {
