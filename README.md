@@ -30,7 +30,7 @@ This app starts a foreground service with a low priority status bar notification
 * Move across accounts
 * Battery friendly
 * Low data usage
-* Small (<6 MB)
+* Small (~6 MB)
 * Material design
 
 ## Pro features
