@@ -440,20 +440,6 @@
             app:layout_constraintTop_toBottomOf="@id/tvHtmlHint"
             app:switchPadding="12dp" />
 
-        <TextView
-            android:id="@+id/tvTrackingHint"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="60dp"
-            android:text="@string/title_advanced_tracking_hint"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swTracking" />
-
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swImages"
             android:layout_width="match_parent"
@@ -463,7 +449,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_images"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTrackingHint"
+            app:layout_constraintTop_toBottomOf="@id/swTracking"
             app:switchPadding="12dp" />
 
         <TextView
