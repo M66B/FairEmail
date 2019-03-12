@@ -250,13 +250,6 @@ class Core {
                             }
 
                             continue;
-                        } else if (ex instanceof MessagingException) {
-                            // Socket timeout is a recoverable condition (send message)
-                            if (ex.getCause() instanceof SocketTimeoutException) {
-                                Log.w("Recoverable");
-                                // No need to inform user
-                                return;
-                            }
                         }
 
                         throw ex;
