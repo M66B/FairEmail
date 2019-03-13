@@ -142,6 +142,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(79) How do I use synchronize on demand (manual)?](#user-content-faq79)
 * [(80) How can I fix 'Unable to load BODYSTRUCTURE'?](#user-content-faq80)
 * [(81) Can you make the background of the original message dark in the dark theme?](#user-content-faq81)
+* [(82) What is a tracking image?](#user-content-faq82)
 
 [I have another question.](#support)
 
@@ -455,8 +456,7 @@ The right question is "*why are there so many taxes and fees?*":
 
 So, what is left for the developer is just a fraction of what you pay.
 
-Note that only some convenience and advanced features, like the dark/black theme, need to be purchased,
-which means that FairEmail is basically free to use.
+Note that only some convenience and advanced features need to be purchased which means that FairEmail is basically free to use.
 
 Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported,
 and that free apps may have a catch, like sending privacy sensitive information to the internet.
@@ -1334,6 +1334,18 @@ The original message is shown as the sender has sent it, including all colors.
 Changing the background color would not only make the original view not original anymore, it can also result in unreadable messages.
 
 <br />
+
+<a name="faq82"></a>
+**(82) What is a tracking image?**
+
+Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a tracking image exactly is.
+In short tracking images keep track if you opened a message.
+
+FairEmail automatically recognizes images with a surface of less than or equal to 25 pixels as tracking images.
+FairEmail automatically removes the link of such images, which makes such images appear as broken, and adds a remark about this below the image.
+
+<br />
+
 
 ## Support
 
