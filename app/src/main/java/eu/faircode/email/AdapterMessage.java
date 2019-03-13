@@ -1446,7 +1446,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             webView.setWebViewClient(new WebViewClient() {
                 public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                    onOpenLink(Uri.parse(url));
+                    Log.i("Open url=" + url);
+
+                    Uri uri = Uri.parse(url);
+                    if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
+                        return false;
+
+                    onOpenLink(uri);
                     return true;
                 }
             });
