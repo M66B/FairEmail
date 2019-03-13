@@ -459,6 +459,7 @@
     <string name="title_hint_message_actions">Balayer à gauche pour supprimer, balayer à droite pour archiver (si disponible)</string>
     <string name="title_hint_message_selection">Appuyer longtemps sur un message pour commencer à en sélectionner plusieurs</string>
     <string name="title_hint_sync">Le téléchargement des messages peut prendre un certain temps selon la vitesse du fournisseur d\'accès, la connexion internet et le périphérique et selon le nombre de messages. Lors du téléchargement des messages, l\'application peut répondre plus lentement.</string>
+    <string name="title_hint_image_link">Lien de l\'image</string>
     <string name="title_hint_tracking_image">Image de suivi %1$sx%2$s</string>
     <string name="title_open_link">Ouvrir le lien</string>
     <string name="title_show_organization">Afficher l\'organisation</string>
