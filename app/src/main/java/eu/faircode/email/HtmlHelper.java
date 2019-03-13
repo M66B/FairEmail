@@ -244,12 +244,14 @@ public class HtmlHelper {
                 if (node instanceof TextNode) {
                     TextNode tnode = (TextNode) node;
 
-                    String text = tnode.text();
-                    Matcher matcher = PatternsCompat.WEB_URL.matcher(text);
+                    Matcher matcher = PatternsCompat.WEB_URL.matcher(tnode.text());
                     if (matcher.matches()) {
                         Element span = document.createElement("span");
 
                         int pos = 0;
+                        String text = tnode.text();
+
+                        matcher.reset();
                         while (matcher.find()) {
                             boolean linked = false;
                             Node parent = tnode.parent();
