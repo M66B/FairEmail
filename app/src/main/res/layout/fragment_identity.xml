@@ -274,16 +274,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHost" />
 
-        <!-- STARTTLS -->
+        <!-- SSL/STARTTLS -->
 
-        <CheckBox
-            android:id="@+id/cbStartTls"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/rgEncryption"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/title_starttls"
+            android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etHost" />
+            app:layout_constraintTop_toBottomOf="@id/etHost">
+
+            <RadioButton
+                android:id="@+id/radio_ssl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_ssl" />
+
+            <RadioButton
+                android:id="@+id/radio_starttls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/title_starttls" />
+        </RadioGroup>
 
         <CheckBox
             android:id="@+id/cbInsecure"
@@ -292,7 +306,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_allow_insecure"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbStartTls" />
+            app:layout_constraintTop_toBottomOf="@id/rgEncryption" />
 
         <!-- port -->
 
@@ -594,7 +608,7 @@
             app:constraint_referenced_ids="
             tvProvider,spProvider,
             tvDomain,tvDomainHint,etDomain,btnAutoConfig,
-            tvSmtp,tvHost,etHost,cbStartTls,cbInsecure,tvPort,etPort,
+            tvSmtp,tvHost,etHost,rgEncryption,cbInsecure,tvPort,etPort,
             tvUser,etUser,tvPassword,tilPassword,
             tvRealm,etRealm,
             cbUseIp,tvUseIpHint,

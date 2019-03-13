@@ -53,6 +53,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -95,7 +96,7 @@ public class FragmentAccount extends FragmentBase {
 
     private Button btnAuthorize;
     private EditText etHost;
-    private CheckBox cbStartTls;
+    private RadioGroup rgEncryption;
     private CheckBox cbInsecure;
     private EditText etPort;
     private EditText etUser;
@@ -173,7 +174,7 @@ public class FragmentAccount extends FragmentBase {
         btnAuthorize = view.findViewById(R.id.btnAuthorize);
         etHost = view.findViewById(R.id.etHost);
         etPort = view.findViewById(R.id.etPort);
-        cbStartTls = view.findViewById(R.id.cbStartTls);
+        rgEncryption = view.findViewById(R.id.rgEncryption);
         cbInsecure = view.findViewById(R.id.cbInsecure);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
@@ -247,7 +248,7 @@ public class FragmentAccount extends FragmentBase {
 
                 etHost.setText(provider.imap_host);
                 etPort.setText(provider.imap_host == null ? null : Integer.toString(provider.imap_port));
-                cbStartTls.setChecked(provider.imap_starttls);
+                rgEncryption.check(provider.imap_starttls ? R.id.radio_starttls : R.id.radio_ssl);
 
                 etUser.setTag(null);
                 etUser.setText(null);
@@ -290,10 +291,10 @@ public class FragmentAccount extends FragmentBase {
             }
         });
 
-        cbStartTls.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        rgEncryption.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                etPort.setHint(checked ? "143" : "993");
+            public void onCheckedChanged(RadioGroup group, int id) {
+                etPort.setHint(id == R.id.radio_starttls ? "143" : "993");
             }
         });
 
@@ -433,7 +434,7 @@ public class FragmentAccount extends FragmentBase {
         btnAutoConfig.setEnabled(false);
 
         btnAuthorize.setVisibility(View.GONE);
-        cbStartTls.setVisibility(View.GONE);
+        rgEncryption.setVisibility(View.GONE);
         cbInsecure.setVisibility(View.GONE);
         tilPassword.setPasswordVisibilityToggleEnabled(id < 0);
 
@@ -485,7 +486,7 @@ public class FragmentAccount extends FragmentBase {
             protected void onExecuted(Bundle args, EmailProvider provider) {
                 etHost.setText(provider.imap_host);
                 etPort.setText(Integer.toString(provider.imap_port));
-                cbStartTls.setChecked(provider.imap_starttls);
+                rgEncryption.check(provider.imap_starttls ? R.id.radio_starttls : R.id.radio_ssl);
             }
 
             @Override
@@ -503,7 +504,7 @@ public class FragmentAccount extends FragmentBase {
         args.putLong("id", id);
         args.putInt("auth_type", auth_type);
         args.putString("host", etHost.getText().toString());
-        args.putBoolean("starttls", cbStartTls.isChecked());
+        args.putBoolean("starttls", rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls);
         args.putBoolean("insecure", cbInsecure.isChecked());
         args.putString("port", etPort.getText().toString());
         args.putString("user", etUser.getText().toString());
@@ -741,7 +742,7 @@ public class FragmentAccount extends FragmentBase {
 
         args.putInt("auth_type", auth_type);
         args.putString("host", etHost.getText().toString());
-        args.putBoolean("starttls", cbStartTls.isChecked());
+        args.putBoolean("starttls", rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls);
         args.putBoolean("insecure", cbInsecure.isChecked());
         args.putString("port", etPort.getText().toString());
         args.putString("user", etUser.getText().toString());
@@ -1130,7 +1131,7 @@ public class FragmentAccount extends FragmentBase {
                         etPort.setText(Long.toString(account.port));
                     }
 
-                    cbStartTls.setChecked(account == null ? false : account.starttls);
+                    rgEncryption.check(account != null && account.starttls ? R.id.radio_starttls : R.id.radio_ssl);
                     cbInsecure.setChecked(account == null ? false : account.insecure);
 
                     etUser.setTag(account == null || auth_type == Helper.AUTH_TYPE_PASSWORD ? null : account.user);

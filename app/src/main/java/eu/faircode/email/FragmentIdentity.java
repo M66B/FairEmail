@@ -43,6 +43,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -90,7 +91,7 @@ public class FragmentIdentity extends FragmentBase {
     private EditText etDomain;
     private Button btnAutoConfig;
     private EditText etHost;
-    private CheckBox cbStartTls;
+    private RadioGroup rgEncryption;
     private CheckBox cbInsecure;
     private EditText etPort;
     private EditText etUser;
@@ -159,7 +160,7 @@ public class FragmentIdentity extends FragmentBase {
         btnAutoConfig = view.findViewById(R.id.btnAutoConfig);
 
         etHost = view.findViewById(R.id.etHost);
-        cbStartTls = view.findViewById(R.id.cbStartTls);
+        rgEncryption = view.findViewById(R.id.rgEncryption);
         cbInsecure = view.findViewById(R.id.cbInsecure);
         etPort = view.findViewById(R.id.etPort);
         etUser = view.findViewById(R.id.etUser);
@@ -224,7 +225,7 @@ public class FragmentIdentity extends FragmentBase {
                             // This is needed because the spinner might be invisible
                             etHost.setText(provider.smtp_host);
                             etPort.setText(Integer.toString(provider.smtp_port));
-                            cbStartTls.setChecked(provider.smtp_starttls);
+                            rgEncryption.check(provider.smtp_starttls ? R.id.radio_starttls : R.id.radio_ssl);
 
                             break;
                         }
@@ -347,7 +348,7 @@ public class FragmentIdentity extends FragmentBase {
                 // Set associated host/port/starttls
                 etHost.setText(provider.smtp_host);
                 etPort.setText(position == 0 ? null : Integer.toString(provider.smtp_port));
-                cbStartTls.setChecked(provider.smtp_starttls);
+                rgEncryption.check(provider.smtp_starttls ? R.id.radio_starttls : R.id.radio_ssl);
             }
 
             @Override
@@ -377,10 +378,10 @@ public class FragmentIdentity extends FragmentBase {
             }
         });
 
-        cbStartTls.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        rgEncryption.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                etPort.setHint(checked ? "587" : "465");
+            public void onCheckedChanged(RadioGroup group, int id) {
+                etPort.setHint(id == R.id.radio_starttls ? "587" : "465");
             }
         });
 
@@ -446,7 +447,7 @@ public class FragmentIdentity extends FragmentBase {
             protected void onExecuted(Bundle args, EmailProvider provider) {
                 etHost.setText(provider.smtp_host);
                 etPort.setText(Integer.toString(provider.smtp_port));
-                cbStartTls.setChecked(provider.smtp_starttls);
+                rgEncryption.check(provider.smtp_starttls ? R.id.radio_starttls : R.id.radio_ssl);
             }
 
             @Override
@@ -484,7 +485,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putLong("account", account == null ? -1 : account.id);
         args.putInt("auth_type", auth_type);
         args.putString("host", etHost.getText().toString());
-        args.putBoolean("starttls", cbStartTls.isChecked());
+        args.putBoolean("starttls", rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls);
         args.putBoolean("insecure", cbInsecure.isChecked());
         args.putString("port", etPort.getText().toString());
         args.putString("user", etUser.getText().toString());
@@ -754,7 +755,7 @@ public class FragmentIdentity extends FragmentBase {
                             TextUtils.isEmpty(identity.signature) ? null : HtmlHelper.fromHtml(identity.signature));
 
                     etHost.setText(identity == null ? null : identity.host);
-                    cbStartTls.setChecked(identity == null ? false : identity.starttls);
+                    rgEncryption.check(identity != null && identity.starttls ? R.id.radio_starttls : R.id.radio_ssl);
                     cbInsecure.setChecked(identity == null ? false : identity.insecure);
                     etPort.setText(identity == null ? null : Long.toString(identity.port));
                     etUser.setTag(identity == null || auth_type == Helper.AUTH_TYPE_PASSWORD ? null : identity.user);

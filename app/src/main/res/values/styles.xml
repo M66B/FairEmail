@@ -27,6 +27,7 @@
         <item name="android:buttonStyle">@style/buttonStyle</item>
         <item name="android:buttonStyleSmall">@style/buttonStyleSmall</item>
         <item name="android:buttonStyleToggle">@style/buttonStyleToggle</item>
+        <item name="android:radioButtonStyle">@style/radioButtonStyle</item>
     </style>
 
     <style name="AppThemeDark" parent="Base.Theme.AppCompat">
@@ -49,6 +50,7 @@
         <item name="android:buttonStyle">@style/buttonStyle</item>
         <item name="android:buttonStyleSmall">@style/buttonStyleSmall</item>
         <item name="android:buttonStyleToggle">@style/buttonStyleToggle</item>
+        <item name="android:radioButtonStyle">@style/radioButtonStyle</item>
     </style>
 
     <style name="AppThemeBlack" parent="AppThemeDark">
@@ -88,5 +90,10 @@
 
     <style name="buttonStyleToggle" parent="Base.Widget.AppCompat.Button">
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+    </style>
+
+    <style name="radioButtonStyle" parent="Base.Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
 </resources>
