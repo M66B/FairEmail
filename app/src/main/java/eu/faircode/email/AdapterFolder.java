@@ -343,29 +343,43 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     }.execute(context, owner, args, "folder:sync");
                 }
 
-                private void OnActionDeleteLocal(boolean browsed) {
-                    Bundle args = new Bundle();
-                    args.putLong("id", folder.id);
-                    args.putBoolean("browsed", browsed);
+                private void OnActionDeleteLocal(final boolean browsed) {
+                    View dview = LayoutInflater.from(context).inflate(R.layout.dialog_message, null);
+                    TextView tvMessage = dview.findViewById(R.id.tvMessage);
 
-                    new SimpleTask<Void>() {
-                        @Override
-                        protected Void onExecute(Context context, Bundle args) {
-                            long id = args.getLong("id");
-                            boolean browsed = args.getBoolean("browsed");
-                            Log.i("Delete local messages browsed=" + browsed);
-                            if (browsed)
-                                DB.getInstance(context).message().deleteBrowsedMessages(id);
-                            else
-                                DB.getInstance(context).message().deleteLocalMessages(id);
-                            return null;
-                        }
+                    tvMessage.setText(context.getText(R.string.title_ask_delete_local));
 
-                        @Override
-                        public void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(context, owner, ex);
-                        }
-                    }.execute(context, owner, args, "folder:delete:local");
+                    new DialogBuilderLifecycle(context, owner)
+                            .setView(dview)
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Bundle args = new Bundle();
+                                    args.putLong("id", folder.id);
+                                    args.putBoolean("browsed", browsed);
+
+                                    new SimpleTask<Void>() {
+                                        @Override
+                                        protected Void onExecute(Context context, Bundle args) {
+                                            long id = args.getLong("id");
+                                            boolean browsed = args.getBoolean("browsed");
+                                            Log.i("Delete local messages browsed=" + browsed);
+                                            if (browsed)
+                                                DB.getInstance(context).message().deleteBrowsedMessages(id);
+                                            else
+                                                DB.getInstance(context).message().deleteLocalMessages(id);
+                                            return null;
+                                        }
+
+                                        @Override
+                                        public void onException(Bundle args, Throwable ex) {
+                                            Helper.unexpectedError(context, owner, ex);
+                                        }
+                                    }.execute(context, owner, args, "folder:delete:local");
+                                }
+                            })
+                            .setNegativeButton(android.R.string.cancel, null)
+                            .show();
                 }
 
                 private void onActionEmptyTrash() {
