@@ -328,6 +328,7 @@
     <string name="title_ask_show_html">Het originele bericht tonen kan privacy gevoelige informatie lekken</string>
     <string name="title_ask_show_image">Afbeeldingen tonen kan privacy gevoelige informatie lekken</string>
     <string name="title_ask_edit_ref">Bewerk opnieuw geformatteerde beantwoorde/doorgestuurde berichttekst?</string>
+    <string name="title_ask_delete_local">Verwijder lokale berichten die ook op de externe server zijn opgeslagen?</string>
     <string name="title_compose">Opstellen</string>
     <string name="title_from">Van:</string>
     <string name="title_to">Aan:</string>

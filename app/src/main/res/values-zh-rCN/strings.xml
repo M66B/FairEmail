@@ -39,6 +39,7 @@
     <string name="title_ask_spam_who">将来自%1$s的消息举报为垃圾邮件?</string>
     <string name="title_notification_sending">正发送消息</string>
     <string name="title_notification_failed">“%1$s”失败</string>
+    <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_answers">模板</string>
     <string name="menu_operations">操作</string>
     <string name="menu_setup">设置</string>
@@ -400,6 +401,7 @@
     <string name="title_legend_trash">垃圾箱</string>
     <string name="title_legend_junk">垃圾邮件</string>
     <string name="title_legend_notify">通知新邮件</string>
+    <string name="title_legend_unified">统一收件箱/主账户</string>
     <string name="title_legend_primary_disconnected">帐户已断开连接</string>
     <string name="title_legend_primary_connected">帐户已连接</string>
     <string name="title_legend_thread">对话</string>
@@ -447,6 +449,7 @@
     <string name="title_hint_message_actions">向左滑至垃圾箱；向右滑归档(如果可用)</string>
     <string name="title_hint_message_selection">长按一则邮件以开始选择多则邮件</string>
     <string name="title_hint_sync">下载邮件可能需要一些时间, 具体取决于提供商的速度、网络连接、设备以及邮件数量。在下载邮件时, 应用的响应速度可能会变慢。</string>
+    <string name="title_hint_tracking_image">跟踪图像%1$sx%2$s</string>
     <string name="title_open_link">打开链接</string>
     <string name="title_show_organization">显示组织</string>
     <string name="title_insecure_link">此链接不安全</string>

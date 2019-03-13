@@ -47,6 +47,7 @@
     <string name="title_ask_spam_who">¿Reportar mensaje de %1$s como spam?</string>
     <string name="title_notification_sending">Enviando mensajes</string>
     <string name="title_notification_failed">\'%1$s\' falló</string>
+    <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_answers">Plantillas</string>
     <string name="menu_operations">Operaciones</string>
     <string name="menu_setup">Configuración</string>
@@ -457,6 +458,7 @@
     <string name="title_hint_message_actions">Deslice a la izquierda para eliminar; deslice a la derecha para archivar (si está disponible)</string>
     <string name="title_hint_message_selection">Mantenga presionado un mensaje para empezar a seleccionar múltiples mensajes</string>
     <string name="title_hint_sync">Descargar mensajes puede llevar algún tiempo, dependiendo de la velocidad del proveedor, la conexión a internet, dispositivo y el número de mensajes. Mientras se descargan mensajes, la aplicación puede responder más lentamente.</string>
+    <string name="title_hint_tracking_image">Imagen de seguimiento %1$sx%2$s</string>
     <string name="title_open_link">Abrir enlace</string>
     <string name="title_show_organization">Mostrar organización</string>
     <string name="title_insecure_link">Este enlace es inseguro</string>

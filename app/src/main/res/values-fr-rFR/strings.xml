@@ -328,6 +328,7 @@
     <string name="title_ask_show_html">Afficher le message original peut divulguer des informations sensibles privées</string>
     <string name="title_ask_show_image">Afficher les images peut divulguer des informations sensibles privées</string>
     <string name="title_ask_edit_ref">Modifier le texte du message reformaté et répondu/transféré ?</string>
+    <string name="title_ask_delete_local">Supprimer les messages locaux qui sont également stockés sur le serveur distant ?</string>
     <string name="title_compose">Rédiger</string>
     <string name="title_from">De :</string>
     <string name="title_to">À :</string>
@@ -458,7 +459,7 @@
     <string name="title_hint_message_actions">Balayer à gauche pour supprimer, balayer à droite pour archiver (si disponible)</string>
     <string name="title_hint_message_selection">Appuyer longtemps sur un message pour commencer à en sélectionner plusieurs</string>
     <string name="title_hint_sync">Le téléchargement des messages peut prendre un certain temps selon la vitesse du fournisseur d\'accès, la connexion internet et le périphérique et selon le nombre de messages. Lors du téléchargement des messages, l\'application peut répondre plus lentement.</string>
-    <string name="title_hint_tracking_image">Suivi de l’image %1$sx%2$s</string>
+    <string name="title_hint_tracking_image">Image de suivi %1$sx%2$s</string>
     <string name="title_open_link">Ouvrir le lien</string>
     <string name="title_show_organization">Afficher l\'organisation</string>
     <string name="title_insecure_link">Ce lien n’est pas sécurisé</string>
