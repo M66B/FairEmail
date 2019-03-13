@@ -183,50 +183,36 @@ public class HtmlHelper {
 
         // Images
         for (Element img : document.select("img")) {
+            // Get image attributes
             String src = img.attr("src");
             String alt = img.attr("alt");
             String title = img.attr("title");
-
             boolean tracking = isTrackingPixel(img);
 
+            // Create image container
             Element div = document.createElement("div");
 
-            Uri uri = Uri.parse(src);
-            if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme())) {
-                // Remove link tracking pixel
-                if (tracking)
-                    img.removeAttr("src");
+            // Remove link tracking pixel
+            if (tracking)
+                img.removeAttr("src");
 
-                boolean linked = false;
-                for (Element parent : img.parents())
-                    if ("a".equals(parent.tagName())) {
-                        if (TextUtils.isEmpty(parent.attr("href")))
-                            parent.attr("href", uri.toString());
-                        linked = true;
-                        break;
-                    }
+            // Link image to source
+            Element a = document.createElement("a");
+            a.attr("href", src);
+            a.appendChild(img.clone());
+            div.appendChild(a);
 
-                if (linked)
-                    div.appendChild(img.clone());
-                else {
-                    Element a = document.createElement("a");
-                    a.attr("href", uri.toString());
-                    a.appendChild(img.clone());
-                    div.appendChild(a);
-                }
-            } else
-                div.appendChild(img.clone());
-
+            // Show image title
+            if (!TextUtils.isEmpty(title)) {
+                div.appendElement("br");
+                div.appendElement("em").text(title);
+            }
             if (!TextUtils.isEmpty(alt)) {
                 div.appendElement("br");
                 div.appendElement("em").text(alt);
             }
-            if (!TextUtils.isEmpty(title) && !title.equals(alt)) {
-                div.appendElement("br");
-                div.appendElement("em").text(title);
-            }
 
-            // Tracking pixel
+            // Show when tracking pixel
             if (tracking) {
                 div.appendElement("br");
                 div.appendElement("strong").text(
@@ -234,7 +220,30 @@ public class HtmlHelper {
                                 img.attr("width"), img.attr("height")));
             }
 
-            img.replaceWith(div);
+            // Split parent link and linked image
+            boolean linked = false;
+            for (Element parent : img.parents())
+                if ("a".equals(parent.tagName()) && !TextUtils.isEmpty(parent.attr("href"))) {
+                    String text = parent.attr("title").trim();
+                    if (TextUtils.isEmpty(text))
+                        text = parent.attr("alt").trim();
+                    if (TextUtils.isEmpty(text))
+                        text = context.getString(R.string.title_hint_image_link);
+
+                    img.remove();
+                    parent.appendText(text);
+
+                    Element span = document.createElement("span");
+                    span.appendChild(parent.clone());
+                    span.appendChild(div);
+                    parent.replaceWith(span);
+                    linked = true;
+
+                    break;
+                }
+
+            if (!linked)
+                img.replaceWith(div);
         }
 
         // Autolink
