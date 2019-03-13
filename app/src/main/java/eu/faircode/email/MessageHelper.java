@@ -644,7 +644,13 @@ public class MessageHelper {
             List<EntityAttachment> result = new ArrayList<>();
 
             for (AttachmentPart apart : attachments) {
-                ContentType ct = new ContentType(apart.part.getContentType());
+                ContentType ct;
+                try {
+                    ct = new ContentType(apart.part.getContentType());
+                } catch (ParseException ex) {
+                    Log.w(ex);
+                    ct = new ContentType("application/octet-stream");
+                }
                 String[] cid = apart.part.getHeader("Content-ID");
 
                 EntityAttachment attachment = new EntityAttachment();
