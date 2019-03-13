@@ -1397,6 +1397,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .show();
         }
 
+        @SuppressLint("ClickableViewAccessibility")
         private void onShowHtmlConfirmed(final TupleMessageEx message) {
             properties.setValue("html", message.id, true);
             btnHtml.setVisibility(View.GONE);
