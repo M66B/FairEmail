@@ -27,6 +27,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.DeadSystemException;
 import android.os.RemoteException;
+import android.webkit.CookieManager;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -62,6 +63,7 @@ public class ApplicationEx extends Application {
         });
 
         createNotificationChannels();
+        CookieManager.getInstance().setAcceptCookie(false);
         MessageHelper.setSystemProperties();
         Core.init(this);
     }
