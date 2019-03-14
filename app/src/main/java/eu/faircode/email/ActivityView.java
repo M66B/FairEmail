@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -37,6 +38,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Icon;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ParcelFileDescriptor;
@@ -781,74 +783,93 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.N_MR1)
             return;
 
-        ShortcutManager sm = (ShortcutManager) getSystemService(Context.SHORTCUT_SERVICE);
+        new SimpleTask<List<ShortcutInfo>>() {
+            @Override
+            @TargetApi(Build.VERSION_CODES.N_MR1)
+            protected List<ShortcutInfo> onExecute(Context context, Bundle args) {
+                ShortcutManager sm = (ShortcutManager) getSystemService(Context.SHORTCUT_SERVICE);
+                int count = sm.getMaxShortcutCountPerActivity() - sm.getManifestShortcuts().size();
+                Log.i("Shortcuts count=" + count +
+                        " app=" + sm.getMaxShortcutCountPerActivity() +
+                        " manifest=" + sm.getManifestShortcuts().size());
 
-        List<ShortcutInfo> shortcuts = new ArrayList<>();
+                List<ShortcutInfo> shortcuts = new ArrayList<>();
 
-        if (hasPermission(Manifest.permission.READ_CONTACTS)) {
-            // https://developer.android.com/guide/topics/providers/contacts-provider#ObsoleteData
-            try (Cursor cursor = getContentResolver().query(
-                    ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                    new String[]{
-                            ContactsContract.RawContacts._ID,
-                            ContactsContract.Contacts.LOOKUP_KEY,
-                            ContactsContract.Contacts.DISPLAY_NAME,
-                            ContactsContract.CommonDataKinds.Email.DATA,
-                            ContactsContract.Contacts.STARRED,
-                            ContactsContract.Contacts.TIMES_CONTACTED,
-                            ContactsContract.Contacts.LAST_TIME_CONTACTED
-                    },
-                    ContactsContract.CommonDataKinds.Email.DATA + " <> ''",
-                    null,
-                    ContactsContract.Contacts.STARRED + " DESC" +
-                            ", " + ContactsContract.Contacts.TIMES_CONTACTED + " DESC" +
-                            ", " + ContactsContract.Contacts.LAST_TIME_CONTACTED + " DESC")) {
-                while (cursor != null && cursor.moveToNext())
-                    try {
-                        long id = cursor.getLong(cursor.getColumnIndex(ContactsContract.RawContacts._ID));
-                        String name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-                        String email = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA));
-                        int starred = cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.STARRED));
-                        int times = cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.TIMES_CONTACTED));
-                        long last = cursor.getLong(cursor.getColumnIndex(ContactsContract.Contacts.LAST_TIME_CONTACTED));
+                if (hasPermission(Manifest.permission.READ_CONTACTS)) {
+                    // https://developer.android.com/guide/topics/providers/contacts-provider#ObsoleteData
+                    try (Cursor cursor = getContentResolver().query(
+                            ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                            new String[]{
+                                    ContactsContract.RawContacts._ID,
+                                    ContactsContract.Contacts.LOOKUP_KEY,
+                                    ContactsContract.Contacts.DISPLAY_NAME,
+                                    ContactsContract.CommonDataKinds.Email.DATA,
+                                    ContactsContract.Contacts.STARRED,
+                                    ContactsContract.Contacts.TIMES_CONTACTED,
+                                    ContactsContract.Contacts.LAST_TIME_CONTACTED
+                            },
+                            ContactsContract.CommonDataKinds.Email.DATA + " <> ''",
+                            null,
+                            ContactsContract.Contacts.STARRED + " DESC" +
+                                    ", " + ContactsContract.Contacts.TIMES_CONTACTED + " DESC" +
+                                    ", " + ContactsContract.Contacts.LAST_TIME_CONTACTED + " DESC")) {
+                        while (cursor != null && cursor.moveToNext() && shortcuts.size() < count)
+                            try {
+                                long id = cursor.getLong(cursor.getColumnIndex(ContactsContract.RawContacts._ID));
+                                String name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+                                String email = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA));
+                                int starred = cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.STARRED));
+                                int times = cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.TIMES_CONTACTED));
+                                long last = cursor.getLong(cursor.getColumnIndex(ContactsContract.Contacts.LAST_TIME_CONTACTED));
 
-                        Log.i("Shortcut id=" + id + " email=" + email +
-                                " starred=" + starred + " times=" + times + " last=" + last);
+                                Log.i("Shortcut id=" + id + " email=" + email +
+                                        " starred=" + starred + " times=" + times + " last=" + last);
 
-                        if (starred == 0 && times == 0 && last == 0)
-                            continue;
+                                if (starred == 0 && times == 0 && last == 0)
+                                    continue;
 
-                        Uri uri = ContactsContract.Contacts.getLookupUri(
-                                cursor.getLong(cursor.getColumnIndex(ContactsContract.RawContacts._ID)),
-                                cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY)));
-                        InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
-                                getContentResolver(), uri);
-                        Bitmap bitmap = BitmapFactory.decodeStream(is);
-                        Icon icon = (bitmap == null
-                                ? Icon.createWithResource(this, R.drawable.ic_shortcut_email)
-                                : Icon.createWithBitmap(bitmap));
+                                Uri uri = ContactsContract.Contacts.getLookupUri(
+                                        cursor.getLong(cursor.getColumnIndex(ContactsContract.RawContacts._ID)),
+                                        cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY)));
+                                InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
+                                        getContentResolver(), uri);
+                                Bitmap bitmap = BitmapFactory.decodeStream(is);
+                                Icon icon = (bitmap == null
+                                        ? Icon.createWithResource(context, R.drawable.ic_shortcut_email)
+                                        : Icon.createWithBitmap(bitmap));
 
-                        Intent intent = new Intent(this, ActivityCompose.class);
-                        intent.setAction(Intent.ACTION_SEND);
-                        intent.setData(Uri.parse("mailto:" + email));
+                                Intent intent = new Intent(context, ActivityCompose.class);
+                                intent.setAction(Intent.ACTION_SEND);
+                                intent.setData(Uri.parse("mailto:" + email));
 
-                        shortcuts.add(
-                                new ShortcutInfo.Builder(this, Long.toString(id))
-                                        .setIcon(icon)
-                                        .setRank(shortcuts.size() + 1)
-                                        .setShortLabel(name)
-                                        .setIntent(intent)
-                                        .build());
-
-                        if (sm.getManifestShortcuts().size() + shortcuts.size() >= sm.getMaxShortcutCountPerActivity())
-                            break;
-                    } catch (Throwable ex) {
-                        Log.e(ex);
+                                shortcuts.add(
+                                        new ShortcutInfo.Builder(context, Long.toString(id))
+                                                .setIcon(icon)
+                                                .setRank(shortcuts.size() + 1)
+                                                .setShortLabel(name)
+                                                .setIntent(intent)
+                                                .build());
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
                     }
-            }
-        }
+                }
 
-        sm.setDynamicShortcuts(shortcuts);
+                return shortcuts;
+            }
+
+            @Override
+            @TargetApi(Build.VERSION_CODES.N_MR1)
+            protected void onExecuted(Bundle args, List<ShortcutInfo> shortcuts) {
+                ShortcutManager sm = (ShortcutManager) getSystemService(Context.SHORTCUT_SERVICE);
+                sm.setDynamicShortcuts(shortcuts);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
+            }
+        }.execute(this, this, new Bundle(), "shortcuts:get");
     }
 
     private Intent getIntentInvite() {
