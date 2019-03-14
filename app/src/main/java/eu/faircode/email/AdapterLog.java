@@ -45,14 +45,12 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
     private static final DateFormat DF = SimpleDateFormat.getTimeInstance();
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        View itemView;
-        TextView tvTime;
-        TextView tvData;
+        private TextView tvTime;
+        private TextView tvData;
 
         ViewHolder(View itemView) {
             super(itemView);
 
-            this.itemView = itemView;
             tvTime = itemView.findViewById(R.id.tvTime);
             tvData = itemView.findViewById(R.id.tvData);
         }
