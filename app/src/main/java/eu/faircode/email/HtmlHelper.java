@@ -337,8 +337,9 @@ public class HtmlHelper {
 
         // Embedded images
         if (embedded) {
+            DB db = DB.getInstance(context);
             String cid = "<" + source.substring(4) + ">";
-            EntityAttachment attachment = DB.getInstance(context).attachment().getAttachment(id, cid);
+            EntityAttachment attachment = db.attachment().getAttachment(id, cid);
             if (attachment == null) {
                 Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
                 d.setBounds(0, 0, px, px);
@@ -348,8 +349,7 @@ public class HtmlHelper {
                 d.setBounds(0, 0, px, px);
                 return d;
             } else {
-                Bitmap bm = Helper.decodeImage(
-                        EntityAttachment.getFile(context, attachment.id),
+                Bitmap bm = Helper.decodeImage(attachment.getFile(context),
                         context.getResources().getDisplayMetrics().widthPixels);
                 if (bm == null) {
                     Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());

@@ -1156,7 +1156,7 @@ public class FragmentCompose extends FragmentBase {
                             attachment1.encryption = EntityAttachment.PGP_MESSAGE;
                             attachment1.id = db.attachment().insertAttachment(attachment1);
 
-                            File file1 = EntityAttachment.getFile(context, attachment1.id);
+                            File file1 = attachment1.getFile(context);
 
                             byte[] bytes1 = encrypted.toByteArray();
                             try (OutputStream os1 = new BufferedOutputStream(new FileOutputStream(file1))) {
@@ -1173,7 +1173,7 @@ public class FragmentCompose extends FragmentBase {
                             attachment2.encryption = EntityAttachment.PGP_SIGNATURE;
                             attachment2.id = db.attachment().insertAttachment(attachment2);
 
-                            File file2 = EntityAttachment.getFile(context, attachment2.id);
+                            File file2 = attachment2.getFile(context);
 
                             byte[] bytes2 = key.getByteArrayExtra(OpenPgpApi.RESULT_DETACHED_SIGNATURE);
                             try (OutputStream os2 = new BufferedOutputStream(new FileOutputStream(file2))) {
@@ -1323,7 +1323,7 @@ public class FragmentCompose extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, final EntityAttachment attachment) {
                 if (image) {
-                    File file = EntityAttachment.getFile(getContext(), attachment.id);
+                    File file = attachment.getFile(getContext());
                     Drawable d = Drawable.createFromPath(file.getAbsolutePath());
                     d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
 
@@ -1459,7 +1459,7 @@ public class FragmentCompose extends FragmentBase {
 
         long size = 0;
         try {
-            File file = EntityAttachment.getFile(context, attachment.id);
+            File file = attachment.getFile(context);
 
             InputStream is = null;
             OutputStream os = null;
@@ -1769,14 +1769,14 @@ public class FragmentCompose extends FragmentBase {
                         for (EntityAttachment attachment : attachments)
                             if (attachment.available &&
                                     ("forward".equals(action) || attachment.isInline())) {
-                                long orig = attachment.id;
+                                File source = attachment.getFile(context);
+
                                 attachment.id = null;
                                 attachment.message = draft.id;
                                 attachment.sequence = ++sequence;
                                 attachment.id = db.attachment().insertAttachment(attachment);
 
-                                File source = EntityAttachment.getFile(context, orig);
-                                File target = EntityAttachment.getFile(context, attachment.id);
+                                File target = attachment.getFile(context);
                                 Helper.copy(source, target);
                             }
                     }
@@ -2448,7 +2448,7 @@ public class FragmentCompose extends FragmentBase {
                                 if (attachment == null)
                                     return null;
 
-                                File file = EntityAttachment.getFile(getContext(), attachment.id);
+                                File file = attachment.getFile(context);
                                 return Drawable.createFromPath(file.getAbsolutePath());
                             }
 

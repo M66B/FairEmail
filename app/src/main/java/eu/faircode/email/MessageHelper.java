@@ -234,7 +234,7 @@ public class MessageHelper {
             for (EntityAttachment attachment : attachments)
                 if (attachment.available && EntityAttachment.PGP_SIGNATURE.equals(attachment.encryption)) {
                     InternetAddress from = (InternetAddress) message.from[0];
-                    File file = EntityAttachment.getFile(context, attachment.id);
+                    File file = attachment.getFile(context);
                     StringBuilder sb = new StringBuilder();
                     try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                         String line;
@@ -257,7 +257,7 @@ public class MessageHelper {
                 BodyPart bpAttachment = new MimeBodyPart();
                 bpAttachment.setFileName(attachment.name);
 
-                File file = EntityAttachment.getFile(context, attachment.id);
+                File file = attachment.getFile(context);
                 FileDataSource dataSource = new FileDataSource(file);
                 dataSource.setFileTypeMap(new FileTypeMap() {
                     @Override
@@ -351,7 +351,7 @@ public class MessageHelper {
                     BodyPart bpAttachment = new MimeBodyPart();
                     bpAttachment.setFileName(attachment.name);
 
-                    File file = EntityAttachment.getFile(context, attachment.id);
+                    File file = attachment.getFile(context);
                     FileDataSource dataSource = new FileDataSource(file);
                     dataSource.setFileTypeMap(new FileTypeMap() {
                         @Override
@@ -705,12 +705,16 @@ public class MessageHelper {
                 return false;
             }
 
+            DB db = DB.getInstance(context);
+
             // Get data
             AttachmentPart apart = attachments.get(index);
-            File file = EntityAttachment.getFile(context, id);
+            EntityAttachment attachment = db.attachment().getAttachment(id);
+            if (attachment == null)
+                return false;
+            File file = attachment.getFile(context);
 
             // Download attachment
-            DB db = DB.getInstance(context);
             db.attachment().setProgress(id, null);
             try (InputStream is = apart.part.getInputStream()) {
                 long size = 0;

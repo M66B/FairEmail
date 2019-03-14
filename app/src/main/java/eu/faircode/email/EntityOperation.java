@@ -172,7 +172,7 @@ public class EntityOperation {
                             db.message().setMessageContent(tmpid, false, null, null);
                         }
 
-                    EntityAttachment.copy(context, db, message.id, tmpid);
+                    EntityAttachment.copy(context, message.id, tmpid);
                 }
 
                 // Cross account move

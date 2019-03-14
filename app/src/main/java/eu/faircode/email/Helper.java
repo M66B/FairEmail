@@ -495,7 +495,7 @@ public class Helper {
         attachment.progress = 0;
         attachment.id = db.attachment().insertAttachment(attachment);
 
-        File file = EntityAttachment.getFile(context, attachment.id);
+        File file = attachment.getFile(context);
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
 
             long size = 0;
@@ -521,7 +521,7 @@ public class Helper {
         attachment.progress = 0;
         attachment.id = db.attachment().insertAttachment(attachment);
 
-        File file = EntityAttachment.getFile(context, attachment.id);
+        File file = attachment.getFile(context);
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
 
             long size = 0;
@@ -543,16 +543,16 @@ public class Helper {
     private static void attachLog(Context context, long id, int sequence) throws IOException {
         DB db = DB.getInstance(context);
 
-        EntityAttachment log = new EntityAttachment();
-        log.message = id;
-        log.sequence = sequence;
-        log.name = "log.txt";
-        log.type = "text/plain";
-        log.size = null;
-        log.progress = 0;
-        log.id = db.attachment().insertAttachment(log);
+        EntityAttachment attachment = new EntityAttachment();
+        attachment.message = id;
+        attachment.sequence = sequence;
+        attachment.name = "log.txt";
+        attachment.type = "text/plain";
+        attachment.size = null;
+        attachment.progress = 0;
+        attachment.id = db.attachment().insertAttachment(attachment);
 
-        File file = EntityAttachment.getFile(context, log.id);
+        File file = attachment.getFile(context);
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
 
             long size = 0;
@@ -562,7 +562,7 @@ public class Helper {
             for (EntityLog entry : db.log().getLogs(from))
                 size += write(os, String.format("%s %s\r\n", DF.format(entry.time), entry.data));
 
-            db.attachment().setDownloaded(log.id, size);
+            db.attachment().setDownloaded(attachment.id, size);
         }
     }
 
@@ -578,7 +578,7 @@ public class Helper {
         attachment.progress = 0;
         attachment.id = db.attachment().insertAttachment(attachment);
 
-        File file = EntityAttachment.getFile(context, attachment.id);
+        File file = attachment.getFile(context);
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
 
             long size = 0;
@@ -609,7 +609,7 @@ public class Helper {
         attachment.id = db.attachment().insertAttachment(attachment);
 
         Process proc = null;
-        File file = EntityAttachment.getFile(context, attachment.id);
+        File file = attachment.getFile(context);
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
 
             String[] cmd = new String[]{"logcat",

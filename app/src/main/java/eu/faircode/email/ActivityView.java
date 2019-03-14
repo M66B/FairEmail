@@ -1252,7 +1252,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         if (!attachment.available)
                             throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
 
-                        File file = EntityAttachment.getFile(context, attachment.id);
+                        File file = attachment.getFile(context);
                         encrypted = new BufferedInputStream(new FileInputStream(file));
                         break;
                     }
@@ -1491,7 +1491,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
                 }
 
-                File file = EntityAttachment.getFile(context, id);
+                DB db = DB.getInstance(context);
+                EntityAttachment attachment = db.attachment().getAttachment(id);
+                if (attachment == null)
+                    return null;
+                File file = attachment.getFile(context);
 
                 ParcelFileDescriptor pfd = null;
                 OutputStream os = null;
@@ -1557,8 +1561,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 DB db = DB.getInstance(context);
                 DocumentFile tree = DocumentFile.fromTreeUri(context, uri);
-                for (EntityAttachment attachment : db.attachment().getAttachments(id)) {
-                    File file = EntityAttachment.getFile(context, attachment.id);
+                List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                for (EntityAttachment attachment : attachments) {
+                    File file = attachment.getFile(context);
 
                     String name = attachment.name;
                     if (TextUtils.isEmpty(name))

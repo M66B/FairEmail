@@ -49,6 +49,10 @@ public interface DaoAttachment {
     List<EntityAttachment> getAttachments(long message);
 
     @Query("SELECT * FROM attachment" +
+            " WHERE id = :id")
+    EntityAttachment getAttachment(long id);
+
+    @Query("SELECT * FROM attachment" +
             " WHERE message = :message" +
             " AND sequence = :sequence")
     EntityAttachment getAttachment(long message, int sequence);

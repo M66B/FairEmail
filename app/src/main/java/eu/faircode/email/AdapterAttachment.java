@@ -171,8 +171,16 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             new SimpleTask<Void>() {
                 @Override
                 protected Void onExecute(Context context, Bundle args) {
-                    DB.getInstance(context).attachment().deleteAttachment(attachment.id);
-                    EntityAttachment.getFile(context, attachment.id).delete();
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    EntityAttachment attachment = db.attachment().getAttachment(id);
+                    if (attachment == null)
+                        return null;
+                    db.attachment().setDownloaded(id, null);
+                    attachment.getFile(context).delete();
+                    db.attachment().deleteAttachment(id);
+
                     return null;
                 }
 
@@ -194,7 +202,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
         private void onShare(EntityAttachment attachment) {
             // Build file name
-            File file = EntityAttachment.getFile(context, attachment.id);
+            File file = attachment.getFile(context);
 
             // https://developer.android.com/reference/android/support/v4/content/FileProvider
             final Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);

@@ -75,30 +75,33 @@ public class EntityAttachment {
         return (disposition != null && disposition.equalsIgnoreCase(Part.INLINE));
     }
 
-    static File getFile(Context context, Long id) {
+    File getFile(Context context) {
         File dir = new File(context.getFilesDir(), "attachments");
         if (!dir.exists())
             dir.mkdir();
         return new File(dir, Long.toString(id));
     }
 
-    static void copy(Context context, DB db, long oldid, long newid) {
+    static void copy(Context context, long oldid, long newid) {
+        DB db = DB.getInstance(context);
         List<EntityAttachment> attachments = db.attachment().getAttachments(oldid);
         for (EntityAttachment attachment : attachments) {
-            long aid = attachment.id;
+            File source = attachment.getFile(context);
+
             attachment.id = null;
             attachment.message = newid;
             attachment.progress = null;
             attachment.id = db.attachment().insertAttachment(attachment);
-            if (attachment.available)
+
+            if (attachment.available) {
+                File target = attachment.getFile(context);
                 try {
-                    Helper.copy(
-                            EntityAttachment.getFile(context, aid),
-                            EntityAttachment.getFile(context, attachment.id));
+                    Helper.copy(source, target);
                 } catch (IOException ex) {
                     Log.e(ex);
                     db.attachment().setProgress(attachment.id, null);
                 }
+            }
         }
     }
 

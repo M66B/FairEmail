@@ -78,8 +78,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
 
         private void bindTo(EntityAttachment attachment) {
             if (attachment.available) {
-                Bitmap bm = Helper.decodeImage(
-                        EntityAttachment.getFile(context, attachment.id),
+                Bitmap bm = Helper.decodeImage(attachment.getFile(context),
                         context.getResources().getDisplayMetrics().widthPixels / 2);
                 if (bm == null)
                     image.setImageResource(R.drawable.baseline_broken_image_24);
@@ -101,7 +100,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
             EntityAttachment attachment = filtered.get(pos);
             if (attachment.available) {
                 // Build file name
-                File file = EntityAttachment.getFile(context, attachment.id);
+                File file = attachment.getFile(context);
 
                 // https://developer.android.com/reference/android/support/v4/content/FileProvider
                 final Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);

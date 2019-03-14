@@ -2882,14 +2882,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private String getHtmlEmbedded(long id) throws IOException {
             String html = Helper.readText(EntityMessage.getFile(context, id));
 
+            DB db = DB.getInstance(context);
+
             Document doc = Jsoup.parse(html);
             for (Element img : doc.select("img")) {
                 String src = img.attr("src");
                 if (src.startsWith("cid:")) {
                     String cid = '<' + src.substring(4) + '>';
-                    EntityAttachment attachment = DB.getInstance(context).attachment().getAttachment(id, cid);
+                    EntityAttachment attachment = db.attachment().getAttachment(id, cid);
                     if (attachment != null && attachment.available) {
-                        File file = EntityAttachment.getFile(context, attachment.id);
+                        File file = attachment.getFile(context);
                         try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
                             byte[] bytes = new byte[(int) file.length()];
                             if (is.read(bytes) != bytes.length)
