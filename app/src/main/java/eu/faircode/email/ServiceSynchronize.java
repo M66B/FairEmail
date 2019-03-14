@@ -211,9 +211,9 @@ public class ServiceSynchronize extends LifecycleService {
             lastStats = stats;
 
         // Build pending intent
-        Intent intent = new Intent(this, ServiceUI.class);
-        intent.setAction("why");
-        PendingIntent pi = PendingIntent.getService(this, ServiceUI.PI_WHY, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent why = new Intent(this, ActivityView.class);
+        why.setAction("why");
+        PendingIntent piWhy = PendingIntent.getActivity(this, ActivityView.REQUEST_WHY, why, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Build notification
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "service");
@@ -222,7 +222,7 @@ public class ServiceSynchronize extends LifecycleService {
                 .setSmallIcon(R.drawable.baseline_compare_arrows_white_24)
                 .setContentTitle(getResources().getQuantityString(
                         R.plurals.title_notification_synchronizing, lastStats.accounts, lastStats.accounts))
-                .setContentIntent(pi)
+                .setContentIntent(piWhy)
                 .setAutoCancel(false)
                 .setShowWhen(false)
                 .setPriority(NotificationCompat.PRIORITY_MIN)

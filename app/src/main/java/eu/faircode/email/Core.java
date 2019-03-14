@@ -1519,9 +1519,9 @@ class Core {
             messageContact.put(message, ContactInfo.get(context, message.from, false));
 
         // Build pending intents
-        Intent summary = new Intent(context, ServiceUI.class);
-        summary.setAction("summary");
-        PendingIntent piSummary = PendingIntent.getService(context, ServiceUI.PI_SUMMARY, summary, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent summary = new Intent(context, ActivityView.class);
+        summary.setAction("unified");
+        PendingIntent piSummary = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, summary, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Intent clear = new Intent(context, ServiceUI.class);
         clear.setAction("clear");

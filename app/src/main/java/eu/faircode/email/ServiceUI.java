@@ -2,22 +2,16 @@ package eu.faircode.email;
 
 import android.app.IntentService;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.preference.PreferenceManager;
 
 import androidx.annotation.Nullable;
 
 public class ServiceUI extends IntentService {
-    static final int PI_WHY = 1;
-    static final int PI_SUMMARY = 2;
-    static final int PI_CLEAR = 3;
-    static final int PI_SEEN = 4;
-    static final int PI_ARCHIVE = 5;
-    static final int PI_TRASH = 6;
-    static final int PI_IGNORED = 7;
-    static final int PI_SNOOZED = 8;
+    static final int PI_CLEAR = 1;
+    static final int PI_SEEN = 2;
+    static final int PI_ARCHIVE = 3;
+    static final int PI_TRASH = 4;
+    static final int PI_IGNORED = 5;
+    static final int PI_SNOOZED = 6;
 
     public ServiceUI() {
         this(ServiceUI.class.getName());
@@ -57,12 +51,6 @@ public class ServiceUI extends IntentService {
         long id = (parts.length > 1 ? Long.parseLong(parts[1]) : -1);
 
         switch (parts[0]) {
-            case "why":
-                onWhy();
-                break;
-            case "summary":
-                onSummary();
-                break;
             case "clear":
                 onClear();
                 break;
@@ -88,30 +76,6 @@ public class ServiceUI extends IntentService {
             default:
                 Log.w("Unknown action: " + parts[0]);
         }
-    }
-
-    private void onWhy() {
-        Intent why = new Intent(Intent.ACTION_VIEW);
-        why.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq2"));
-        why.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-        PackageManager pm = getPackageManager();
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (prefs.getBoolean("why", false) || why.resolveActivity(pm) == null) {
-            Intent view = new Intent(this, ActivityView.class);
-            view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(view);
-        } else {
-            prefs.edit().putBoolean("why", true).apply();
-            startActivity(why);
-        }
-    }
-
-    private void onSummary() {
-        Intent view = new Intent(this, ActivityView.class);
-        view.setAction("unified");
-        view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(view);
     }
 
     private void onClear() {

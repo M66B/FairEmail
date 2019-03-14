@@ -117,7 +117,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private static NumberFormat nf = NumberFormat.getNumberInstance();
 
     static final int REQUEST_UNIFIED = 1;
-    static final int REQUEST_THREAD = 2;
+    static final int REQUEST_WHY = 2;
+    static final int REQUEST_THREAD = 3;
 
     static final int REQUEST_RAW = 1;
     static final int REQUEST_ATTACHMENT = 2;
@@ -430,7 +431,22 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 if ("unified".equals(action))
                     init();
 
-                else if ("error".equals(action))
+                else if ("why".equals(action)) {
+                    init();
+
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityView.this);
+                    boolean why = prefs.getBoolean("why", false);
+                    if (!why) {
+                        prefs.edit().putBoolean("why", true).apply();
+
+                        Intent iwhy = new Intent(Intent.ACTION_VIEW);
+                        iwhy.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq2"));
+                        iwhy.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        if (iwhy.resolveActivity(getPackageManager()) != null)
+                            startActivity(iwhy);
+                    }
+
+                } else if ("error".equals(action))
                     onDebugInfo();
 
                 else if (action.startsWith("thread")) {
