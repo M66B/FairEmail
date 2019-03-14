@@ -23,6 +23,7 @@ import android.database.Cursor;
 
 import java.util.List;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -32,6 +33,10 @@ import androidx.room.Update;
 public interface DaoContact {
     @Query("SELECT * FROM contact")
     List<EntityContact> getContacts();
+
+    @Query("SELECT * FROM contact" +
+            " ORDER BY times_contacted DESC")
+    LiveData<List<EntityContact>> liveContacts();
 
     @Query("SELECT *" +
             " FROM contact" +

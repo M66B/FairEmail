@@ -23,8 +23,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
@@ -92,6 +94,21 @@ public class EntityContact implements Serializable {
             contact.last_contacted = json.getLong("last_contacted");
 
         return contact;
+    }
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        if (obj instanceof EntityContact) {
+            EntityContact other = (EntityContact) obj;
+            return (this.type == other.type &&
+                    this.email.equals(other.email) &&
+                    Objects.equals(this.name, other.name) &&
+                    Objects.equals(this.avatar, other.avatar) &&
+                    this.times_contacted == other.times_contacted &&
+                    Objects.equals(this.last_contacted, other.last_contacted));
+
+        } else
+            return false;
     }
 
     @NonNull
