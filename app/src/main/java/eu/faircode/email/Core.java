@@ -1234,20 +1234,21 @@ class Core {
                     for (Address reply : replies) {
                         String email = ((InternetAddress) reply).getAddress();
                         String name = ((InternetAddress) reply).getPersonal();
+                        Uri avatar = ContactInfo.getLookupUri(context, new Address[]{reply});
                         EntityContact contact = db.contact().getContact(EntityContact.TYPE_FROM, email);
                         if (contact == null) {
                             contact = new EntityContact();
                             contact.type = EntityContact.TYPE_FROM;
                             contact.email = email;
                             contact.name = name;
-                            contact.avatar = message.avatar;
+                            contact.avatar = (avatar == null ? null : avatar.toString());
                             contact.times_contacted = 1;
                             contact.last_contacted = message.received;
                             contact.id = db.contact().insertContact(contact);
                             Log.i("Inserted sender contact=" + contact);
                         } else {
                             contact.name = name;
-                            contact.avatar = message.avatar;
+                            contact.avatar = (avatar == null ? null : avatar.toString());
                             contact.times_contacted++;
                             contact.last_contacted = message.received;
                             db.contact().updateContact(contact);
