@@ -477,8 +477,6 @@
     <string name="title_fix">Oplossen</string>
     <string name="title_enable">Inschakelen</string>
     <string name="title_no_ask_again">Dit niet meer vragen</string>
-    <string name="title_no_adobe">Adobe Acrobat reader kan veilig gedeelde bestanden niet openen, zie de FAQ voor meer informatie</string>
-    <string name="title_no_microsoft">Microsoft apps kunnen veilig gedeelde bestanden niet openen, zie de FAQ voor meer informatie</string>
     <string name="title_no_body">Geen berichttekst gevonden</string>
     <string name="title_no_charset">Codering niet ondersteund: %1$s</string>
     <string name="title_via">Via: %1$s</string>

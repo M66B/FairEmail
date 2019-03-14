@@ -430,8 +430,6 @@
     <string name="title_fix">Popraw</string>
     <string name="title_enable">Włącz</string>
     <string name="title_no_ask_again">Nie pytaj ponownie</string>
-    <string name="title_no_adobe">Adobe Acrobat Reader nie może bezpiecznie otworzyć udostępnionych plików, po więcej informacji zajrzyj do FAQ</string>
-    <string name="title_no_microsoft">Aplikacje Microsoft nie mogą bezpiecznie otwierać udostępnionych plików, po więcej informacji zajrzyj do FAQ</string>
     <string name="title_no_body">Nie znaleziono tekstu wiadomości</string>
     <string name="title_no_charset">Nieobsługiwane kodowanie: %1$s</string>
     <string name="title_via">Przez: %1$s</string>

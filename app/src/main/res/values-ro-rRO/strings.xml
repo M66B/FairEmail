@@ -55,6 +55,7 @@
     <string name="title_ask_spam_who">Raportează mesajul de la %1$s ca spam?</string>
     <string name="title_notification_sending">Se trimit mesaje</string>
     <string name="title_notification_failed">\'%1$s\' a eșuat</string>
+    <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_answers">Șabloane</string>
     <string name="menu_operations">Operaţii</string>
     <string name="menu_setup">Setări</string>
@@ -335,6 +336,7 @@
     <string name="title_ask_show_html">Vizualizarea mesajului original poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_edit_ref">Se editează textul mesajului rescris ca răspuns/redirecționat?</string>
+    <string name="title_ask_delete_local">Şterge mesajele locale care sunt stocate și pe serverul local?</string>
     <string name="title_compose">Compune</string>
     <string name="title_from">De la:</string>
     <string name="title_to">Către:</string>
@@ -465,6 +467,8 @@
     <string name="title_hint_message_actions">Glisare spre stânga trimite la gunoi iar glisare spre dreapta la arhivă (dacă este disponibilă)</string>
     <string name="title_hint_message_selection">Apăsați lung un mesaj pentru a selecta multiple</string>
     <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcție de viteza furnizorului, conexiunea la internet, de dispozitiv precum și de numărul de mesaje. În timpul descărcării mesajelor aplicația ar putea răspunde mai lent.</string>
+    <string name="title_hint_image_link">Link</string>
+    <string name="title_hint_tracking_image">Imagine de urmărire %1$sx%2$s</string>
     <string name="title_open_link">Deschide legătura</string>
     <string name="title_show_organization">Arată organizația</string>
     <string name="title_insecure_link">Această legătură este nesigură</string>
@@ -481,8 +485,6 @@
     <string name="title_fix">Remediere</string>
     <string name="title_enable">Activează</string>
     <string name="title_no_ask_again">Nu mai întreba din nou</string>
-    <string name="title_no_adobe">Aplicația Adobe Acrobat reader nu poate deschide în siguranță fișierele, aflați mai multe în secțiunea de întrebări și răspunsuri</string>
-    <string name="title_no_microsoft">Aplicațiile Microsoft nu pot deschide în siguranță fișierele partajate, aflați mai multe în secțiunea de întrebări și răspunsuri</string>
     <string name="title_no_body">Nu a fost găsit textul mesajului</string>
     <string name="title_no_charset">Codare nesuportată: %1$s</string>
     <string name="title_via">Via: %1$s</string>

@@ -328,6 +328,7 @@
     <string name="title_ask_show_html">Mostrare il messaggio originale rende possibile una fuga di informazioni personali sensibili</string>
     <string name="title_ask_show_image">Mostrare le immagini rende possibile una fuga di informazioni personali sensibili</string>
     <string name="title_ask_edit_ref">Modificare il testo del messaggio inviato/inoltrato riformattato?</string>
+    <string name="title_ask_delete_local">Eliminare i messaggi locali che sono memorizzati anche sul server remoto?</string>
     <string name="title_compose">Scrivi</string>
     <string name="title_from">Da:</string>
     <string name="title_to">A:</string>
@@ -458,6 +459,7 @@
     <string name="title_hint_message_actions">Scorri a sinistra per cestinare; scorri a destra per archiviare (se disponibile)</string>
     <string name="title_hint_message_selection">Premi a lungo un messaggio per iniziare a selezionare più messaggi</string>
     <string name="title_hint_sync">Scaricare i messaggi può richiedere molto tempo, a seconda della velocità del provider, della connessione internet e del dispositivo e dal numero di messaggi. Durante il download l\'app potrebbe funzionare più lentamente.</string>
+    <string name="title_hint_image_link">Link Immagine</string>
     <string name="title_hint_tracking_image">Immagine di tracciamento %1$sx%2$s</string>
     <string name="title_open_link">Apri collegamento</string>
     <string name="title_show_organization">Mostra organizzazione</string>
@@ -475,8 +477,6 @@
     <string name="title_fix">Correggi</string>
     <string name="title_enable">Attiva</string>
     <string name="title_no_ask_again">Non chiedere di nuovo</string>
-    <string name="title_no_adobe">Adobe Acrobat Reader non può aprire file condivisi in modo sicuro, consultare le domande frequenti per ulteriori informazioni</string>
-    <string name="title_no_microsoft">Le app Microsoft non possono aprire in sicurezza i file condivisi, guarda le FAQ per maggiori informazioni</string>
     <string name="title_no_body">Nessun messaggio di testo trovato</string>
     <string name="title_no_charset">Codifica non supportata: %1$s</string>
     <string name="title_via">Tramite: %1$s</string>

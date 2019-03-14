@@ -320,6 +320,7 @@
     <string name="title_ask_show_html">显示原件可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
     <string name="title_ask_edit_ref">编辑格式已更改的回复/转发消息文本？</string>
+    <string name="title_ask_delete_local">删除同样存储在远程服务器上的本地消息？</string>
     <string name="title_compose">撰写</string>
     <string name="title_from">发件人：</string>
     <string name="title_to">收件人：</string>
@@ -466,8 +467,6 @@
     <string name="title_fix">修复</string>
     <string name="title_enable">启用</string>
     <string name="title_no_ask_again">别再询问</string>
-    <string name="title_no_adobe">Adobe Acrobat 阅读器无法安全打开共享的文件，请参阅FAQ 以获取更多信息</string>
-    <string name="title_no_microsoft">Microsoft 应用无法安全打开共享文件，请查看FAQ 以获取更多信息</string>
     <string name="title_no_body">没有找到消息文本</string>
     <string name="title_no_charset">不支持的编码: %1$s</string>
     <string name="title_via">通过: %1$s</string>

@@ -477,8 +477,6 @@
     <string name="title_fix">Corriger</string>
     <string name="title_enable">Activer</string>
     <string name="title_no_ask_again">Ne plus me le demander</string>
-    <string name="title_no_adobe">Adobe Acrobat reader ne peut pas ouvrir les fichiers partagés de façon sécurisée, voir la FAQ plus d\'information</string>
-    <string name="title_no_microsoft">Les applications Microsoft ne peuvent pas ouvrir de fichiers partagés en toute sécurité, voir la FAQ pour plus d\'information</string>
     <string name="title_no_body">Aucun texte de message trouvé</string>
     <string name="title_no_charset">Format d\'encodage non pris en charge : %1$s</string>
     <string name="title_via">Via : %1$s</string>

@@ -466,7 +466,6 @@
     <string name="title_fix">Исправить</string>
     <string name="title_enable">Включить</string>
     <string name="title_no_ask_again">Больше не спрашивать</string>
-    <string name="title_no_adobe">Adobe Acrobat Reader не открывает файлы безопасно, смотрите FAQ для более детального описания</string>
     <string name="title_no_body">В сообщении нет текста</string>
     <string name="title_no_charset">Кодировка не поддерживается: %1$s</string>
     <string name="title_via">Через: %1$s</string>

@@ -398,7 +398,6 @@
     <string name="title_report">گزارش</string>
     <string name="title_fix">تعمیر</string>
     <string name="title_no_ask_again">دیگر نپرس</string>
-    <string name="title_no_adobe">ادوبی آکروبات ریدر نمی‌تواند به صورت امن فایل اشتراک گذاری شده را باز کند. برای اطلاعات بیشتر به قسمت پرسش و پاسخ مراجعه کنید</string>
     <string name="title_no_body">هیچ پیام متنی یافت نشد</string>
     <string name="title_no_charset">رمزگذاری پشتیبانی نشده: %1$s</string>
     <string name="title_via">از طریق: %1$s</string>

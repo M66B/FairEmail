@@ -328,6 +328,7 @@
     <string name="title_ask_show_html">Mostrar el mensaje original puede filtrar información privada sensible</string>
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
     <string name="title_ask_edit_ref">¿Editar texto reformateado de mensaje respondido/reenviado?</string>
+    <string name="title_ask_delete_local">¿Eliminar mensajes locales que también están almacenados en el servidor remoto?</string>
     <string name="title_compose">Redactar</string>
     <string name="title_from">De:</string>
     <string name="title_to">A:</string>
@@ -458,6 +459,7 @@
     <string name="title_hint_message_actions">Deslice a la izquierda para eliminar; deslice a la derecha para archivar (si está disponible)</string>
     <string name="title_hint_message_selection">Mantenga presionado un mensaje para empezar a seleccionar múltiples mensajes</string>
     <string name="title_hint_sync">Descargar mensajes puede llevar algún tiempo, dependiendo de la velocidad del proveedor, la conexión a internet, dispositivo y el número de mensajes. Mientras se descargan mensajes, la aplicación puede responder más lentamente.</string>
+    <string name="title_hint_image_link">Enlace de imagen</string>
     <string name="title_hint_tracking_image">Imagen de seguimiento %1$sx%2$s</string>
     <string name="title_open_link">Abrir enlace</string>
     <string name="title_show_organization">Mostrar organización</string>
@@ -475,8 +477,6 @@
     <string name="title_fix">Reparar</string>
     <string name="title_enable">Activar</string>
     <string name="title_no_ask_again">No volver a preguntar</string>
-    <string name="title_no_adobe">Adobe Acrobat Reader no puede abrir archivos compartidos de forma segura, consulte las Preguntas Frecuentes para más información</string>
-    <string name="title_no_microsoft">Las aplicaciones de Microsoft no pueden abrir archivos compartidos de forma segura, vea las Preguntas Frecuentes para más información</string>
     <string name="title_no_body">No se encontró texto en el mensaje</string>
     <string name="title_no_charset">Codificación no soportada: %1$s</string>
     <string name="title_via">Vía: %1$s</string>

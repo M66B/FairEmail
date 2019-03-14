@@ -475,8 +475,6 @@
     <string name="title_fix">Corrigir</string>
     <string name="title_enable">Habilitar</string>
     <string name="title_no_ask_again">Não perguntar novamente</string>
-    <string name="title_no_adobe">O leitor Adobe Acrobat não pode abrir arquivos compartilhados com segurança, ver o FAQ para mais informações</string>
-    <string name="title_no_microsoft">Aplicativos Microsoft não podem abrir arquivos compartilhados com segurança, ver o FAQ para mais informações</string>
     <string name="title_no_body">Texto da mensagem não encontrado</string>
     <string name="title_no_charset">Codificação não suportada: %1$s</string>
     <string name="title_via">Via: %1$s</string>

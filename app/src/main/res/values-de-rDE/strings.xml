@@ -477,8 +477,6 @@
     <string name="title_fix">Problem beheben</string>
     <string name="title_enable">Aktivieren</string>
     <string name="title_no_ask_again">Dies nicht mehr anzeigen</string>
-    <string name="title_no_adobe">Adobe Acrobat Reader kann freigegebene Dateien nicht sicher öffnen, schauen Sie bitte in die FAQ für weitere Informationen</string>
-    <string name="title_no_microsoft">Microsoft Apps können nicht sicher freigegebene Dateien öffnen, siehe FAQ für weitere Informationen</string>
     <string name="title_no_body">Kein Nachrichtentext gefunden</string>
     <string name="title_no_charset">Nicht unterstützte Codierung: %1$s</string>
     <string name="title_via">über %1$s</string>
