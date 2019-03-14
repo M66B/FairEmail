@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.Manifest;
 import android.content.Context;
 import android.net.Uri;
 import android.text.format.DateUtils;
@@ -28,6 +29,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,9 +41,12 @@ import androidx.recyclerview.widget.RecyclerView;
 public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHolder> {
     private Context context;
     private LayoutInflater inflater;
+    private boolean contacts;
 
     private List<EntityContact> all = new ArrayList<>();
     private List<EntityContact> filtered = new ArrayList<>();
+
+    private static NumberFormat nf = NumberFormat.getNumberInstance();
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private View itemView;
@@ -72,16 +77,15 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             else
                 ivType.setImageDrawable(null);
 
-            if (contact.avatar == null)
+            if (contact.avatar == null || !contacts)
                 ivAvatar.setImageDrawable(null);
             else
                 ivAvatar.setImageURI(Uri.parse(contact.avatar + "/photo"));
 
-            tvName.setText(contact.name);
+            tvName.setText(contact.name == null ? contact.email : contact.name);
             tvEmail.setText(contact.email);
-            tvTimes.setText(Integer.toString(contact.times_contacted));
-            tvLast.setText(contact.last_contacted == null
-                    ? null
+            tvTimes.setText(nf.format(contact.times_contacted));
+            tvLast.setText(contact.last_contacted == null ? null
                     : DateUtils.getRelativeTimeSpanString(context, contact.last_contacted));
         }
     }
@@ -89,6 +93,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     AdapterContact(Context context) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
+        this.contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
         setHasStableIds(true);
     }
 
