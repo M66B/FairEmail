@@ -141,11 +141,11 @@ public class EntityIdentity {
         // id
         identity.name = json.getString("name");
         identity.email = json.getString("email");
-        if (json.has("display"))
+        if (json.has("display") && !json.isNull("display"))
             identity.display = json.getString("display");
         if (json.has("color"))
             identity.color = json.getInt("color");
-        if (json.has("signature"))
+        if (json.has("signature") && !json.isNull("signature"))
             identity.signature = json.getString("signature");
 
         identity.auth_type = json.getInt("auth_type");
@@ -155,7 +155,7 @@ public class EntityIdentity {
         identity.port = json.getInt("port");
         identity.user = json.getString("user");
         identity.password = json.getString("password");
-        if (json.has("realm"))
+        if (json.has("realm") && !json.isNull("realm"))
             identity.realm = json.getString("realm");
         if (json.has("use_ip"))
             identity.use_ip = json.getBoolean("use_ip");
@@ -163,9 +163,9 @@ public class EntityIdentity {
         identity.synchronize = json.getBoolean("synchronize");
         identity.primary = json.getBoolean("primary");
 
-        if (json.has("replyto"))
+        if (json.has("replyto") && !json.isNull("replyto"))
             identity.replyto = json.getString("replyto");
-        if (json.has("bcc"))
+        if (json.has("bcc") && !json.isNull("bcc"))
             identity.bcc = json.getString("bcc");
 
         if (json.has("plain_only"))

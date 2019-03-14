@@ -322,7 +322,7 @@ public class EntityFolder implements Serializable {
         else
             folder.keep_days = folder.sync_days;
 
-        if (json.has("display"))
+        if (json.has("display") && !json.isNull("display"))
             folder.display = json.getString("display");
 
         if (json.has("hide"))

@@ -162,7 +162,7 @@ public class EntityAccount implements Serializable {
         if (json.has("realm"))
             account.realm = json.getString("realm");
 
-        if (json.has("name"))
+        if (json.has("name") && !json.isNull("name"))
             account.name = json.getString("name");
         if (json.has("color"))
             account.color = json.getInt("color");
@@ -180,7 +180,7 @@ public class EntityAccount implements Serializable {
             account.swipe_right = json.getLong("swipe_right");
 
         account.poll_interval = json.getInt("poll_interval");
-        if (json.has("prefix"))
+        if (json.has("prefix") && !json.isNull("prefix"))
             account.prefix = json.getString("prefix");
 
         return account;
