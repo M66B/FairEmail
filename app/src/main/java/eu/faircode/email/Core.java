@@ -423,7 +423,7 @@ class Core {
                 imessage.setFlag(Flags.Flag.DRAFT, true);
 
         // Add message
-        long uid = append(istore, ifolder, imessage);
+        long uid = append(ifolder, imessage);
         Log.i(folder.name + " appended id=" + message.id + " uid=" + uid);
         db.message().setMessageUid(message.id, uid);
 
@@ -526,11 +526,7 @@ class Core {
                         icopy.setFlag(Flags.Flag.DRAFT, true);
 
                 // Append target
-                long uid = append(istore, itarget, (MimeMessage) icopy);
-
-                // Fixed timing issue of at least Courier based servers
-                itarget.close(false);
-                itarget.open(Folder.READ_WRITE);
+                long uid = append(itarget, (MimeMessage) icopy);
 
                 // Some providers, like Gmail, don't honor the appended seen flag
                 if (itarget.getPermanentFlags().contains(Flags.Flag.SEEN)) {
@@ -669,12 +665,20 @@ class Core {
         parts.downloadAttachment(context, sequence - 1, attachment.id);
     }
 
-    private static long append(IMAPStore istore, IMAPFolder ifolder, MimeMessage imessage) throws MessagingException {
+    private static long append(IMAPFolder ifolder, MimeMessage imessage) throws MessagingException {
+        String msgid = imessage.getMessageID();
+        if (msgid == null)
+            throw new IllegalArgumentException("Message ID missing");
+
         ifolder.appendMessages(new Message[]{imessage});
 
-        long uid = -1;
-        String msgid = imessage.getMessageID();
+        // Fixed timing issue of at least Courier based servers
+        ifolder.close(false);
+        ifolder.open(Folder.READ_WRITE);
+
         Log.i("Searching for appended msgid=" + msgid);
+
+        long uid = -1;
         Message[] messages = ifolder.search(new MessageIDTerm(msgid));
         if (messages != null)
             for (Message iappended : messages) {
