@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.text.TextUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -79,7 +80,10 @@ public class EntityAttachment {
         File dir = new File(context.getFilesDir(), "attachments");
         if (!dir.exists())
             dir.mkdir();
-        return new File(dir, Long.toString(id));
+        String filename = Long.toString(id);
+        if (!TextUtils.isEmpty(name))
+            filename += "." + Helper.sanitizeFilename(name);
+        return new File(dir, filename);
     }
 
     static void copy(Context context, long oldid, long newid) {

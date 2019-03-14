@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -49,7 +50,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 53,
+        version = 54,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -565,6 +566,37 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `operation` ADD COLUMN `account` INTEGER");
+                    }
+                })
+                .addMigrations(new Migration(53, 54) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        File folder = new File(context.getFilesDir(), "attachments");
+                        File[] attachments = folder.listFiles();
+                        if (attachments != null)
+                            for (File source : attachments) {
+                                long id = Long.parseLong(source.getName().split("\\.")[0]);
+                                Cursor cursor = null;
+                                try {
+                                    cursor = db.query("SELECT name FROM attachment WHERE id = ?", new Object[]{id});
+                                    if (cursor != null && cursor.moveToNext()) {
+                                        String name = cursor.getString(0);
+                                        if (!TextUtils.isEmpty(name)) {
+                                            File target = new File(folder, id + "." + Helper.sanitizeFilename(name));
+                                            if (source.renameTo(target))
+                                                Log.i("Renamed attachment=" + target.getName());
+                                            else {
+                                                Log.i("Unavailable attachment=" + source.getName());
+                                                db.execSQL("UPDATE attachment SET available = 0 WHERE id = ?", new Object[]{id});
+                                            }
+                                        }
+                                    }
+                                } catch (Throwable ex) {
+                                    if (cursor != null)
+                                        cursor.close();
+                                }
+                            }
                     }
                 })
                 .build();

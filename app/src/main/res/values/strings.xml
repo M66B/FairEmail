@@ -544,8 +544,6 @@
     <string name="title_fix">Fix</string>
     <string name="title_enable">Enable</string>
     <string name="title_no_ask_again">Do not ask this again</string>
-    <string name="title_no_adobe">Adobe Acrobat reader cannot safely open shared files, see the FAQ for more information</string>
-    <string name="title_no_microsoft">Microsoft apps cannot safely open shared files, see the FAQ for more information</string>
     <string name="title_no_body">No message text found</string>
     <string name="title_no_charset">Unsupported encoding: %1$s</string>
     <string name="title_via">Via: %1$s</string>

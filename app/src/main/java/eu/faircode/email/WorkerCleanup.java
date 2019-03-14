@@ -92,7 +92,7 @@ public class WorkerCleanup extends Worker {
             File[] attachments = new File(context.getFilesDir(), "attachments").listFiles();
             if (attachments != null)
                 for (File file : attachments) {
-                    long id = Long.parseLong(file.getName());
+                    long id = Long.parseLong(file.getName().split("\\.")[0]);
                     if (db.attachment().countAttachment(id) == 0) {
                         Log.i("Deleting " + file);
                         if (!file.delete())

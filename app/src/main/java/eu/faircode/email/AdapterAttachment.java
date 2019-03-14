@@ -32,10 +32,8 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,7 +47,6 @@ import java.util.Comparator;
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.FileProvider;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -203,10 +200,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         }
 
         private void onShare(EntityAttachment attachment) {
-            // Build file name
-            File file = attachment.getFile(context);
-
             // https://developer.android.com/reference/android/support/v4/content/FileProvider
+            File file = attachment.getFile(context);
             final Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
             Log.i("uri=" + uri);
 
@@ -216,60 +211,20 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             if (!TextUtils.isEmpty(attachment.name))
                 intent.putExtra(Intent.EXTRA_TITLE, Helper.sanitizeFilename(attachment.name));
-            Log.i("Sharing " + file + " type=" + attachment.type);
-            Log.i("Intent=" + intent);
+            Log.i("Intent=" + intent + " type=" + attachment.type);
 
             // Get targets
             PackageManager pm = context.getPackageManager();
-            List<NameResolveInfo> targets = new ArrayList<>();
             List<ResolveInfo> ris = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
             for (ResolveInfo ri : ris) {
-                if ("com.adobe.reader".equals(ri.activityInfo.packageName))
-                    Toast.makeText(context, R.string.title_no_adobe, Toast.LENGTH_LONG).show();
-                if (ri.activityInfo.packageName.startsWith("com.microsoft.office."))
-                    Toast.makeText(context, R.string.title_no_microsoft, Toast.LENGTH_LONG).show();
-
                 Log.i("Target=" + ri);
                 context.grantUriPermission(ri.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                targets.add(new NameResolveInfo(
-                        pm.getApplicationIcon(ri.activityInfo.applicationInfo),
-                        pm.getApplicationLabel(ri.activityInfo.applicationInfo).toString(),
-                        ri));
             }
 
             // Check if viewer available
-            if (ris.size() == 0) {
+            if (ris.size() == 0)
                 Toast.makeText(context, context.getString(R.string.title_no_viewer, attachment.type), Toast.LENGTH_LONG).show();
-                return;
-            }
-
-            if (false) {
-                View dview = LayoutInflater.from(context).inflate(R.layout.dialog_attachment, null);
-                final AlertDialog dialog = new DialogBuilderLifecycle(context, owner)
-                        .setView(dview)
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .create();
-
-                TextView tvName = dview.findViewById(R.id.tvName);
-                TextView tvType = dview.findViewById(R.id.tvType);
-                ListView lvApp = dview.findViewById(R.id.lvApp);
-
-                tvName.setText(attachment.name);
-                tvType.setText(attachment.type);
-
-                lvApp.setAdapter(new TargetAdapter(context, R.layout.item_target, targets));
-                lvApp.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        NameResolveInfo selected = (NameResolveInfo) parent.getItemAtPosition(position);
-                        intent.setPackage(selected.info.activityInfo.packageName);
-                        context.startActivity(intent);
-                        dialog.dismiss();
-                    }
-                });
-
-                dialog.show();
-            } else
+            else
                 context.startActivity(intent);
         }
 
