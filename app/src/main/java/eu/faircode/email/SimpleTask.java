@@ -52,19 +52,19 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private static ExecutorService executor = Executors.newFixedThreadPool(
             Runtime.getRuntime().availableProcessors(), Helper.backgroundThreadFactory);
 
-    public void execute(Context context, LifecycleOwner owner, Bundle args, String name) {
+    public void execute(Context context, LifecycleOwner owner, @NonNull Bundle args, @NonNull String name) {
         run(context, owner, args, name);
     }
 
-    public void execute(LifecycleService service, Bundle args, String name) {
+    public void execute(LifecycleService service, @NonNull Bundle args, @NonNull String name) {
         run(service, service, args, name);
     }
 
-    public void execute(AppCompatActivity activity, Bundle args, String name) {
+    public void execute(AppCompatActivity activity, @NonNull Bundle args, @NonNull String name) {
         run(activity, activity, args, name);
     }
 
-    public void execute(final Fragment fragment, Bundle args, String name) {
+    public void execute(final Fragment fragment, @NonNull Bundle args, @NonNull String name) {
         try {
             run(fragment.getContext(), fragment.getViewLifecycleOwner(), args, name);
         } catch (IllegalStateException ex) {
