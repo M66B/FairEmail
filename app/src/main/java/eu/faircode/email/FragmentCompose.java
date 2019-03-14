@@ -1747,6 +1747,8 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                     draft.sender = MessageHelper.getSortKey(draft.from);
+                    Uri lookupUri = ContactInfo.getLookupUri(context, draft.from);
+                    draft.avatar = (lookupUri == null ? null : lookupUri.toString());
 
                     draft.received = new Date().getTime();
 
@@ -2093,13 +2095,17 @@ public class FragmentCompose extends FragmentBase {
                     // Update draft
                     draft.identity = ident;
                     draft.extra = extra;
-                    draft.sender = MessageHelper.getSortKey(afrom);
                     draft.from = afrom;
                     draft.to = ato;
                     draft.cc = acc;
                     draft.bcc = abcc;
                     draft.subject = subject;
                     draft.received = new Date().getTime();
+
+                    draft.sender = MessageHelper.getSortKey(draft.from);
+                    Uri lookupUri = ContactInfo.getLookupUri(context, draft.from);
+                    draft.avatar = (lookupUri == null ? null : lookupUri.toString());
+
                     db.message().updateMessage(draft);
                     Helper.writeText(draft.getFile(context), body);
                     db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body), null);

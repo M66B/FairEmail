@@ -1167,7 +1167,6 @@ class Core {
             message.inreplyto = helper.getInReplyTo();
             message.deliveredto = helper.getDeliveredTo();
             message.thread = helper.getThreadId(uid);
-            message.sender = MessageHelper.getSortKey(helper.getFrom());
             message.from = helper.getFrom();
             message.to = helper.getTo();
             message.cc = helper.getCc();
@@ -1191,6 +1190,7 @@ class Core {
             message.ui_ignored = seen;
             message.ui_browsed = browsed;
 
+            message.sender = MessageHelper.getSortKey(message.from);
             Uri lookupUri = ContactInfo.getLookupUri(context, message.from);
             message.avatar = (lookupUri == null ? null : lookupUri.toString());
 

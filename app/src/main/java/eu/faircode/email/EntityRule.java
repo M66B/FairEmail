@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.net.Uri;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -217,8 +218,12 @@ public class EntityRule {
         if (cc)
             reply.cc = message.cc;
         reply.subject = context.getString(R.string.title_subject_reply, message.subject == null ? "" : message.subject);
-        reply.sender = MessageHelper.getSortKey(reply.from);
         reply.received = new Date().getTime();
+
+        reply.sender = MessageHelper.getSortKey(reply.from);
+        Uri lookupUri = ContactInfo.getLookupUri(context, reply.from);
+        reply.avatar = (lookupUri == null ? null : lookupUri.toString());
+
         reply.id = db.message().insertMessage(reply);
         Helper.writeText(reply.getFile(context), body);
         db.message().setMessageContent(reply.id, true, HtmlHelper.getPreview(body), null);
