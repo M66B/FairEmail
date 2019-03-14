@@ -1234,14 +1234,14 @@ class Core {
                             contact.name = name;
                             contact.avatar = message.avatar;
                             contact.times_contacted = 1;
-                            contact.last_contacted = new Date().getTime();
+                            contact.last_contacted = message.received;
                             contact.id = db.contact().insertContact(contact);
                             Log.i("Inserted sender contact=" + contact);
                         } else {
                             contact.name = name;
                             contact.avatar = message.avatar;
                             contact.times_contacted++;
-                            contact.last_contacted = new Date().getTime();
+                            contact.last_contacted = message.received;
                             db.contact().updateContact(contact);
                             Log.i("Updated sender contact=" + contact);
                         }

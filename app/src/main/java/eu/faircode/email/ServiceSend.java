@@ -314,6 +314,7 @@ public class ServiceSend extends LifecycleService {
             // Send message
             Address[] to = imessage.getAllRecipients();
             itransport.sendMessage(imessage, to);
+            long time = new Date().getTime();
             EntityLog.log(this, "Sent via " + ident.host + "/" + ident.user +
                     " to " + TextUtils.join(", ", to));
 
@@ -328,7 +329,7 @@ public class ServiceSend extends LifecycleService {
             try {
                 db.beginTransaction();
 
-                db.message().setMessageSent(message.id, imessage.getSentDate().getTime());
+                db.message().setMessageSent(message.id, time);
                 db.message().setMessageSeen(message.id, true);
                 db.message().setMessageUiSeen(message.id, true);
                 db.message().setMessageError(message.id, null);
@@ -373,14 +374,14 @@ public class ServiceSend extends LifecycleService {
                         contact.name = name;
                         contact.avatar = message.avatar;
                         contact.times_contacted = 1;
-                        contact.last_contacted = new Date().getTime();
+                        contact.last_contacted = time;
                         contact.id = db.contact().insertContact(contact);
                         Log.i("Inserted recipient contact=" + contact);
                     } else {
                         contact.name = name;
                         contact.avatar = message.avatar;
                         contact.times_contacted++;
-                        contact.last_contacted = new Date().getTime();
+                        contact.last_contacted = time;
                         db.contact().updateContact(contact);
                         Log.i("Updated recipient contact=" + contact);
                     }
