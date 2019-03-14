@@ -175,7 +175,7 @@ public class FragmentMessages extends FragmentBase {
     private static final int UNDO_TIMEOUT = 5000; // milliseconds
     private static final int SWIPE_DISABLE_SELECT_DURATION = 1500; // milliseconds
 
-    private static final List<String> DUPLICATE_ORDER = Arrays.asList(
+    private static final List<String> DUPLICATE_ORDER = Collections.unmodifiableList(Arrays.asList(
             EntityFolder.INBOX,
             EntityFolder.OUTBOX,
             EntityFolder.DRAFTS,
@@ -185,7 +185,7 @@ public class FragmentMessages extends FragmentBase {
             EntityFolder.SYSTEM,
             EntityFolder.USER,
             EntityFolder.ARCHIVE
-    );
+    ));
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

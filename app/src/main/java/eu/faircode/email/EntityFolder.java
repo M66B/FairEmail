@@ -110,7 +110,7 @@ public class EntityFolder implements Serializable {
     static final String USER = "User";
 
     // https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml
-    private static final List<String> SYSTEM_FOLDER_ATTR = Arrays.asList(
+    private static final List<String> SYSTEM_FOLDER_ATTR = Collections.unmodifiableList(Arrays.asList(
             "All",
             "Archive",
             "Drafts",
@@ -119,8 +119,8 @@ public class EntityFolder implements Serializable {
             "Sent",
             "Important",
             "Flagged"
-    );
-    private static final List<String> SYSTEM_FOLDER_TYPE = Arrays.asList(
+    ));
+    private static final List<String> SYSTEM_FOLDER_TYPE = Collections.unmodifiableList(Arrays.asList(
             ARCHIVE, // All
             ARCHIVE,
             DRAFTS,
@@ -129,9 +129,9 @@ public class EntityFolder implements Serializable {
             SENT,
             SYSTEM, // Important
             SYSTEM // Flagged
-    ); // MUST match SYSTEM_FOLDER_ATTR
+    )); // MUST match SYSTEM_FOLDER_ATTR
 
-    static final List<String> FOLDER_SORT_ORDER = Arrays.asList(
+    static final List<String> FOLDER_SORT_ORDER = Collections.unmodifiableList(Arrays.asList(
             INBOX,
             OUTBOX,
             DRAFTS,
@@ -141,28 +141,28 @@ public class EntityFolder implements Serializable {
             JUNK,
             SYSTEM,
             USER
-    );
+    ));
 
     static final int DEFAULT_INIT = 14; // days
     static final int DEFAULT_SYNC = 7; // days
     static final int DEFAULT_KEEP = 30; // days
 
-    static final List<String> SYSTEM_FOLDER_SYNC = Arrays.asList(
+    static final List<String> SYSTEM_FOLDER_SYNC = Collections.unmodifiableList(Arrays.asList(
             INBOX,
             DRAFTS,
             SENT,
             ARCHIVE,
             TRASH,
             JUNK
-    );
-    static final List<Boolean> SYSTEM_FOLDER_DOWNLOAD = Arrays.asList(
+    ));
+    static final List<Boolean> SYSTEM_FOLDER_DOWNLOAD = Collections.unmodifiableList(Arrays.asList(
             true, // inbox
             true, // drafts
             false, // sent
             false, // archive
             false, // trash
             false // junk
-    ); // MUST match SYSTEM_FOLDER_SYNC
+    )); // MUST match SYSTEM_FOLDER_SYNC
 
     public EntityFolder() {
     }

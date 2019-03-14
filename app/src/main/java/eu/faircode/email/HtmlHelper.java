@@ -52,6 +52,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 
@@ -67,8 +68,10 @@ public class HtmlHelper {
     static final int PREVIEW_SIZE = 250;
 
     private static final int TRACKING_PIXEL_SURFACE = 25;
-    private static final List<String> heads = Arrays.asList("h1", "h2", "h3", "h4", "h5", "h6", "p", "table", "ol", "ul", "br", "hr");
-    private static final List<String> tails = Arrays.asList("h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "li");
+    private static final List<String> heads = Collections.unmodifiableList(Arrays.asList(
+            "h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "table", "br", "hr"));
+    private static final List<String> tails = Collections.unmodifiableList(Arrays.asList(
+            "h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "li"));
 
     static String removeTracking(Context context, String html) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
