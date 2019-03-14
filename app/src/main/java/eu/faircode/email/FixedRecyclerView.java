@@ -25,6 +25,20 @@ public class FixedRecyclerView extends RecyclerView {
     public boolean onTouchEvent(MotionEvent e) {
         try {
             return super.onTouchEvent(e);
+        } catch (NullPointerException ex) {
+            /*
+                java.lang.NullPointerException: Attempt to invoke virtual method 'int android.view.View.getTop()' on a null object reference
+                java.lang.NullPointerException: Attempt to invoke virtual method 'int android.view.View.getTop()' on a null object reference
+                at androidx.recyclerview.selection.GestureSelectionHelper$RecyclerViewDelegate.getLastGlidedItemPosition(SourceFile:287)
+                at androidx.recyclerview.selection.GestureSelectionHelper.handleMoveEvent(SourceFile:202)
+                at androidx.recyclerview.selection.GestureSelectionHelper.handleTouch(SourceFile:151)
+                at androidx.recyclerview.selection.GestureSelectionHelper.onInterceptTouchEvent(SourceFile:118)
+                at androidx.recyclerview.selection.TouchEventRouter.onInterceptTouchEvent(SourceFile:91)
+                at androidx.recyclerview.widget.RecyclerView.dispatchOnItemTouch(SourceFile:2962)
+                at androidx.recyclerview.widget.RecyclerView.onTouchEvent(SourceFile:3090)
+             */
+            Log.w(ex);
+            return false;
         } catch (IllegalStateException ex) {
             // Range start point not set
             Log.w(ex);
@@ -42,4 +56,5 @@ public class FixedRecyclerView extends RecyclerView {
             return false;
         }
     }
+
 }
