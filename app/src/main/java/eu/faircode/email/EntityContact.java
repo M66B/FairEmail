@@ -53,6 +53,11 @@ public class EntityContact implements Serializable {
     @NonNull
     public String email;
     public String name;
+    public String avatar;
+
+    @NonNull
+    public Integer times_contacted;
+    public Long last_contacted;
 
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
@@ -60,6 +65,9 @@ public class EntityContact implements Serializable {
         json.put("type", type);
         json.put("email", email);
         json.put("name", name);
+        json.put("avatar", avatar);
+        json.put("times_contacted", times_contacted);
+        json.put("last_contacted", last_contacted);
         return json;
     }
 
@@ -68,8 +76,21 @@ public class EntityContact implements Serializable {
         // id
         contact.type = json.getInt("type");
         contact.email = json.getString("email");
-        if (json.has("name"))
+
+        if (json.has("name") && !json.isNull("name"))
             contact.name = json.getString("name");
+
+        if (json.has("avatar") && !json.isNull("avatar"))
+            contact.avatar = json.getString("avatar");
+
+        if (json.has("times_contacted"))
+            contact.times_contacted = json.getInt("times_contacted");
+        else
+            contact.times_contacted = 1;
+
+        if (json.has("last_contacted") && !json.isNull("last_contacted"))
+            contact.last_contacted = json.getLong("last_contacted");
+
         return contact;
     }
 

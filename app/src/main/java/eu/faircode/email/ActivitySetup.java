@@ -714,7 +714,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     for (int c = 0; c < jcontacts.length(); c++) {
                         JSONObject jcontact = (JSONObject) jcontacts.get(c);
                         EntityContact contact = EntityContact.fromJSON(jcontact);
-                        if (db.contact().getContacts(contact.type, contact.email).size() == 0) {
+                        if (db.contact().getContact(contact.type, contact.email) == null) {
                             contact.id = db.contact().insertContact(contact);
                             Log.i("Imported contact=" + contact);
                         }

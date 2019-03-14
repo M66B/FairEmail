@@ -37,7 +37,7 @@ public interface DaoContact {
             " FROM contact" +
             " WHERE email = :email" +
             " AND (:type IS NULL OR type = :type)")
-    List<EntityContact> getContacts(Integer type, String email);
+    EntityContact getContact(Integer type, String email);
 
     @Query("SELECT id AS _id, name, email" +
             ", CASE type" +

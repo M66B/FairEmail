@@ -1219,6 +1219,34 @@ class Core {
                 attachment.sequence = sequence++;
                 attachment.id = db.attachment().insertAttachment(attachment);
             }
+
+            if (!folder.isOutgoing() && !EntityFolder.ARCHIVE.equals(folder.type)) {
+                Address[] replies = (message.reply != null ? message.reply : message.from);
+                if (replies != null)
+                    for (Address reply : replies) {
+                        String email = ((InternetAddress) reply).getAddress();
+                        String name = ((InternetAddress) reply).getPersonal();
+                        EntityContact contact = db.contact().getContact(EntityContact.TYPE_FROM, email);
+                        if (contact == null) {
+                            contact = new EntityContact();
+                            contact.type = EntityContact.TYPE_FROM;
+                            contact.email = email;
+                            contact.name = name;
+                            contact.avatar = message.avatar;
+                            contact.times_contacted = 1;
+                            contact.last_contacted = new Date().getTime();
+                            contact.id = db.contact().insertContact(contact);
+                            Log.i("Inserted sender contact=" + contact);
+                        } else {
+                            contact.name = name;
+                            contact.avatar = message.avatar;
+                            contact.times_contacted++;
+                            contact.last_contacted = new Date().getTime();
+                            db.contact().updateContact(contact);
+                            Log.i("Updated sender contact=" + contact);
+                        }
+                    }
+            }
         } else {
             boolean update = false;
 
@@ -1288,31 +1316,6 @@ class Core {
                 db.message().updateMessage(message);
             else if (BuildConfig.DEBUG)
                 Log.i(folder.name + " unchanged uid=" + uid);
-        }
-
-        if (!folder.isOutgoing() && !EntityFolder.ARCHIVE.equals(folder.type)) {
-            Address[] senders = (message.reply != null ? message.reply : message.from);
-            if (senders != null)
-                for (Address sender : senders) {
-                    String email = ((InternetAddress) sender).getAddress();
-                    String name = ((InternetAddress) sender).getPersonal();
-                    List<EntityContact> contacts = db.contact().getContacts(EntityContact.TYPE_FROM, email);
-                    if (contacts.size() == 0) {
-                        EntityContact contact = new EntityContact();
-                        contact.type = EntityContact.TYPE_FROM;
-                        contact.email = email;
-                        contact.name = name;
-                        contact.id = db.contact().insertContact(contact);
-                        Log.i("Inserted sender contact=" + contact);
-                    } else {
-                        EntityContact contact = contacts.get(0);
-                        if (name != null && !name.equals(contact.name)) {
-                            contact.name = name;
-                            db.contact().updateContact(contact);
-                            Log.i("Updated sender contact=" + contact);
-                        }
-                    }
-                }
         }
 
         List<String> fkeywords = new ArrayList<>(Arrays.asList(folder.keywords));
