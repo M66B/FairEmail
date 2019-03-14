@@ -395,7 +395,7 @@ class Core {
                     identity == null ? false : identity.plain_only);
         } else {
             // Cross account move
-            File file = EntityMessage.getRawFile(context, message.id);
+            File file = message.getRawFile(context);
             if (!file.exists())
                 throw new IllegalArgumentException("raw message file not found");
 
@@ -605,8 +605,7 @@ class Core {
             if (imessage == null)
                 throw new MessageRemovedException();
 
-            File file = EntityMessage.getRawFile(context, message.id);
-
+            File file = message.getRawFile(context);
             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                 imessage.writeTo(os);
                 db.message().setMessageRaw(message.id, true);
@@ -643,7 +642,7 @@ class Core {
         MessageHelper helper = new MessageHelper((MimeMessage) imessage);
         MessageHelper.MessageParts parts = helper.getMessageParts();
         String body = parts.getHtml(context);
-        Helper.writeText(EntityMessage.getFile(context, message.id), body);
+        Helper.writeText(message.getFile(context), body);
         db.message().setMessageContent(message.id, true,
                 HtmlHelper.getPreview(body), parts.getWarnings(message.warning));
     }
@@ -1393,7 +1392,7 @@ class Core {
             if (!message.content) {
                 if (!metered || (message.size != null && message.size < maxSize)) {
                     String body = parts.getHtml(context);
-                    Helper.writeText(EntityMessage.getFile(context, message.id), body);
+                    Helper.writeText(message.getFile(context), body);
                     db.message().setMessageContent(message.id, true,
                             HtmlHelper.getPreview(body), parts.getWarnings(message.warning));
                     Log.i(folder.name + " downloaded message id=" + message.id + " size=" + message.size);
@@ -1678,7 +1677,7 @@ class Core {
 
                 if (message.content && preview)
                     try {
-                        String body = Helper.readText(EntityMessage.getFile(context, message.id));
+                        String body = Helper.readText(message.getFile(context));
                         StringBuilder sb = new StringBuilder();
                         if (!TextUtils.isEmpty(message.subject))
                             sb.append(message.subject).append("<br>");

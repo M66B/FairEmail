@@ -150,21 +150,21 @@ public class EntityMessage implements Serializable {
         return sb.toString();
     }
 
-    static File getFile(Context context, Long id) {
+    File getFile(Context context) {
         File dir = new File(context.getFilesDir(), "messages");
         if (!dir.exists())
             dir.mkdir();
         return new File(dir, id.toString());
     }
 
-    static File getRefFile(Context context, Long id) {
+    File getRefFile(Context context) {
         File dir = new File(context.getFilesDir(), "references");
         if (!dir.exists())
             dir.mkdir();
         return new File(dir, id.toString());
     }
 
-    static File getRawFile(Context context, Long id) {
+    File getRawFile(Context context) {
         File dir = new File(context.getFilesDir(), "raw");
         if (!dir.exists())
             dir.mkdir();

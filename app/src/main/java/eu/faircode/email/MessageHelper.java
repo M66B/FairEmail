@@ -289,7 +289,7 @@ public class MessageHelper {
         DB db = DB.getInstance(context);
 
         StringBuilder body = new StringBuilder();
-        body.append(Helper.readText(EntityMessage.getFile(context, message.id)));
+        body.append(Helper.readText(message.getFile(context)));
 
         if (message.identity != null) {
             EntityIdentity identity = db.identity().getIdentity(message.identity);
@@ -297,7 +297,7 @@ public class MessageHelper {
                 body.append(identity.signature);
         }
 
-        File refFile = EntityMessage.getRefFile(context, message.id);
+        File refFile = message.getRefFile(context);
         if (refFile.exists())
             body.append(Helper.readText(refFile));
 

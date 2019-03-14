@@ -26,6 +26,7 @@ import android.preference.PreferenceManager;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
@@ -140,6 +141,8 @@ public class EntityOperation {
                         target.synchronize &&
                         message.received > cal_keep.getTimeInMillis() &&
                         db.message().countMessageByMsgId(target.id, message.msgid) == 0) {
+                    File msource = message.getFile(context);
+
                     // Copy message to target folder
                     long id = message.id;
                     long uid = message.uid;
@@ -153,7 +156,9 @@ public class EntityOperation {
                         message.seen = true;
                         message.ui_seen = true;
                     }
-                    tmpid = db.message().insertMessage(message);
+                    message.id = db.message().insertMessage(message);
+                    File mtarget = message.getFile(context);
+                    tmpid = message.id;
 
                     message.id = id;
                     message.account = source.account;
@@ -164,9 +169,7 @@ public class EntityOperation {
 
                     if (message.content)
                         try {
-                            Helper.copy(
-                                    EntityMessage.getFile(context, id),
-                                    EntityMessage.getFile(context, tmpid));
+                            Helper.copy(msource, mtarget);
                         } catch (IOException ex) {
                             Log.e(ex);
                             db.message().setMessageContent(tmpid, false, null, null);

@@ -1259,7 +1259,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 if (encrypted == null) {
                     EntityMessage message = db.message().getMessage(id);
-                    String body = Helper.readText(EntityMessage.getFile(context, message.id));
+                    String body = Helper.readText(message.getFile(context));
 
                     // https://tools.ietf.org/html/rfc4880#section-6.2
                     int begin = body.indexOf(PGP_BEGIN_MESSAGE);
@@ -1296,7 +1296,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                                 // Write decrypted body
                                 EntityMessage m = db.message().getMessage(id);
-                                Helper.writeText(EntityMessage.getFile(context, m.id), decrypted.toString());
+                                Helper.writeText(m.getFile(context), decrypted.toString());
 
                                 db.message().setMessageStored(id, new Date().getTime());
 
@@ -1319,7 +1319,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                                 // Write decrypted body
                                 EntityMessage m = db.message().getMessage(id);
-                                Helper.writeText(EntityMessage.getFile(context, m.id), parts.getHtml(context));
+                                Helper.writeText(m.getFile(context), parts.getHtml(context));
 
                                 // Remove previously decrypted attachments
                                 for (EntityAttachment a : attachments)
@@ -1421,7 +1421,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
                 }
 
-                File file = EntityMessage.getRawFile(context, id);
+                DB db = DB.getInstance(context);
+                EntityMessage message = db.message().getMessage(id);
+                if (message == null)
+                    return null;
+                File file = message.getRawFile(context);
                 Log.i("Raw file=" + file);
 
                 ParcelFileDescriptor pfd = null;

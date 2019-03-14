@@ -415,7 +415,7 @@ public class Helper {
             draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " debug info";
             draft.received = new Date().getTime();
             draft.id = db.message().insertMessage(draft);
-            writeText(EntityMessage.getFile(context, draft.id), body);
+            writeText(draft.getFile(context), body);
             db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body), null);
 
             attachSettings(context, draft.id, 1);

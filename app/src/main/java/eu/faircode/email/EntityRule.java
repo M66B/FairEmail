@@ -220,7 +220,7 @@ public class EntityRule {
         reply.sender = MessageHelper.getSortKey(reply.from);
         reply.received = new Date().getTime();
         reply.id = db.message().insertMessage(reply);
-        Helper.writeText(EntityMessage.getFile(context, reply.id), body);
+        Helper.writeText(reply.getFile(context), body);
         db.message().setMessageContent(reply.id, true, HtmlHelper.getPreview(body), null);
 
         EntityOperation.queue(context, db, reply, EntityOperation.SEND);

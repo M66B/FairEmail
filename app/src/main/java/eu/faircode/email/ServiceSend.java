@@ -319,11 +319,11 @@ public class ServiceSend extends LifecycleService {
 
             // Append replied/forwarded text
             StringBuilder sb = new StringBuilder();
-            sb.append(Helper.readText(EntityMessage.getFile(this, message.id)));
-            File refFile = EntityMessage.getRefFile(this, message.id);
+            sb.append(Helper.readText(message.getFile(this)));
+            File refFile = message.getRefFile(this);
             if (refFile.exists())
                 sb.append(Helper.readText(refFile));
-            Helper.writeText(EntityMessage.getFile(this, message.id), sb.toString());
+            Helper.writeText(message.getFile(this), sb.toString());
 
             try {
                 db.beginTransaction();
