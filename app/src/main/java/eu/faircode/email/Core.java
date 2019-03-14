@@ -18,6 +18,7 @@ import android.text.TextUtils;
 
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.iap.Response;
+import com.sun.mail.imap.AppendUID;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
@@ -423,7 +424,7 @@ class Core {
                 imessage.setFlag(Flags.Flag.DRAFT, true);
 
         // Add message
-        long uid = append(ifolder, imessage);
+        long uid = append(istore, ifolder, imessage);
         Log.i(folder.name + " appended id=" + message.id + " uid=" + uid);
         db.message().setMessageUid(message.id, uid);
 
@@ -467,96 +468,86 @@ class Core {
         if (imessage == null)
             throw new MessageRemovedException();
 
-        // Get target folder
+        // Get arguments
         long id = jargs.getLong(0);
+        boolean autoread = (jargs.length() > 1 && jargs.getBoolean(1));
+        Long newid = (jargs.length() > 2 && !jargs.isNull(2) ? jargs.getLong(2) : null);
+
+        // Get target folder
         EntityFolder target = db.folder().getFolder(id);
         if (target == null)
             throw new FolderNotFoundException();
         IMAPFolder itarget = (IMAPFolder) istore.getFolder(target.name);
 
-        boolean autoread = (jargs.length() > 1 && jargs.getBoolean(1));
+        // Serialize source message
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        imessage.writeTo(bos);
 
-        if (!copy &&
-                istore.hasCapability("MOVE") &&
-                !EntityFolder.DRAFTS.equals(folder.type) &&
-                !EntityFolder.DRAFTS.equals(target.type)) {
-            // Autoread
-            if (ifolder.getPermanentFlags().contains(Flags.Flag.SEEN))
-                if (autoread && !imessage.isSet(Flags.Flag.SEEN))
-                    imessage.setFlag(Flags.Flag.SEEN, true);
+        // Deserialize target message
+        ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+        Message icopy = new MimeMessage(isession, bis);
 
-            // Move message to target folder
-            ifolder.moveMessages(new Message[]{imessage}, itarget);
-        } else {
-            if (!copy)
-                Log.w(folder.name + " MOVE by DELETE/APPEND");
+        // Make sure the message has a message ID
+        if (copy || message.msgid == null) {
+            String msgid = EntityMessage.generateMessageId();
+            Log.i(target.name + " generated message id=" + msgid);
+            icopy.setHeader("Message-ID", msgid);
+        }
 
-            // Serialize source message
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            imessage.writeTo(bos);
+        try {
+            // Needed to read flags
+            itarget.open(Folder.READ_WRITE);
 
-            // Deserialize target message
-            ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
-            Message icopy = new MimeMessage(isession, bis);
+            // Auto read
+            if (itarget.getPermanentFlags().contains(Flags.Flag.SEEN))
+                if (autoread && !icopy.isSet(Flags.Flag.SEEN))
+                    icopy.setFlag(Flags.Flag.SEEN, true);
 
-            // Make sure the message has a message ID
-            if (copy || message.msgid == null) {
-                String msgid = EntityMessage.generateMessageId();
-                Log.i(target.name + " generated message id=" + msgid);
-                icopy.setHeader("Message-ID", msgid);
+            // Move from drafts
+            if (EntityFolder.DRAFTS.equals(folder.type))
+                if (itarget.getPermanentFlags().contains(Flags.Flag.DRAFT))
+                    icopy.setFlag(Flags.Flag.DRAFT, false);
+
+            // Move to drafts
+            if (EntityFolder.DRAFTS.equals(target.type))
+                if (itarget.getPermanentFlags().contains(Flags.Flag.DRAFT))
+                    icopy.setFlag(Flags.Flag.DRAFT, true);
+
+            // Append target
+            long uid = append(istore, itarget, (MimeMessage) icopy);
+            if (newid != null) {
+                Log.i("Moved id=" + newid + " uid=" + uid);
+                db.message().setMessageUid(newid, uid);
             }
 
-            try {
-                // Needed to read flags
-                itarget.open(Folder.READ_WRITE);
-
-                // Auto read
-                if (itarget.getPermanentFlags().contains(Flags.Flag.SEEN))
-                    if (autoread && !icopy.isSet(Flags.Flag.SEEN))
-                        icopy.setFlag(Flags.Flag.SEEN, true);
-
-                // Move from drafts
-                if (EntityFolder.DRAFTS.equals(folder.type))
-                    if (itarget.getPermanentFlags().contains(Flags.Flag.DRAFT))
-                        icopy.setFlag(Flags.Flag.DRAFT, false);
-
-                // Move to drafts
-                if (EntityFolder.DRAFTS.equals(target.type))
-                    if (itarget.getPermanentFlags().contains(Flags.Flag.DRAFT))
-                        icopy.setFlag(Flags.Flag.DRAFT, true);
-
-                // Append target
-                long uid = append(itarget, (MimeMessage) icopy);
-
-                // Some providers, like Gmail, don't honor the appended seen flag
-                if (itarget.getPermanentFlags().contains(Flags.Flag.SEEN)) {
-                    boolean seen = (autoread || message.ui_seen);
-                    icopy = itarget.getMessageByUID(uid);
-                    if (seen != icopy.isSet(Flags.Flag.SEEN)) {
-                        Log.i(target.name + " Fixing id=" + message.id + " seen=" + seen);
-                        icopy.setFlag(Flags.Flag.SEEN, seen);
-                    }
+            // Some providers, like Gmail, don't honor the appended seen flag
+            if (itarget.getPermanentFlags().contains(Flags.Flag.SEEN)) {
+                boolean seen = (autoread || message.ui_seen);
+                icopy = itarget.getMessageByUID(uid);
+                if (seen != icopy.isSet(Flags.Flag.SEEN)) {
+                    Log.i(target.name + " Fixing id=" + message.id + " seen=" + seen);
+                    icopy.setFlag(Flags.Flag.SEEN, seen);
                 }
-
-                // This is not based on an actual case, so this is just a safeguard
-                if (itarget.getPermanentFlags().contains(Flags.Flag.DRAFT)) {
-                    boolean draft = EntityFolder.DRAFTS.equals(target.type);
-                    icopy = itarget.getMessageByUID(uid);
-                    if (draft != icopy.isSet(Flags.Flag.DRAFT)) {
-                        Log.i(target.name + " Fixing id=" + message.id + " draft=" + draft);
-                        icopy.setFlag(Flags.Flag.DRAFT, draft);
-                    }
-                }
-
-                // Delete source
-                if (!copy) {
-                    imessage.setFlag(Flags.Flag.DELETED, true);
-                    ifolder.expunge();
-                }
-            } finally {
-                if (itarget.isOpen())
-                    itarget.close();
             }
+
+            // This is not based on an actual case, so this is just a safeguard
+            if (itarget.getPermanentFlags().contains(Flags.Flag.DRAFT)) {
+                boolean draft = EntityFolder.DRAFTS.equals(target.type);
+                icopy = itarget.getMessageByUID(uid);
+                if (draft != icopy.isSet(Flags.Flag.DRAFT)) {
+                    Log.i(target.name + " Fixing id=" + message.id + " draft=" + draft);
+                    icopy.setFlag(Flags.Flag.DRAFT, draft);
+                }
+            }
+
+            // Delete source
+            if (!copy) {
+                imessage.setFlag(Flags.Flag.DELETED, true);
+                ifolder.expunge();
+            }
+        } finally {
+            if (itarget.isOpen())
+                itarget.close();
         }
     }
 
@@ -665,12 +656,19 @@ class Core {
         parts.downloadAttachment(context, sequence - 1, attachment.id);
     }
 
-    private static long append(IMAPFolder ifolder, MimeMessage imessage) throws MessagingException {
+    private static long append(IMAPStore istore, IMAPFolder ifolder, MimeMessage imessage) throws MessagingException {
         String msgid = imessage.getMessageID();
         if (msgid == null)
             throw new IllegalArgumentException("Message ID missing");
 
-        ifolder.appendMessages(new Message[]{imessage});
+        if (istore.hasCapability("UIDPLUS")) {
+            AppendUID[] uids = ifolder.appendUIDMessages(new Message[]{imessage});
+            if (uids != null && uids.length > 0) {
+                Log.i("Appended uid=" + uids[0].uid);
+                return uids[0].uid;
+            }
+        } else
+            ifolder.appendMessages(new Message[]{imessage});
 
         // Fixed timing issue of at least Courier based servers
         ifolder.close(false);
