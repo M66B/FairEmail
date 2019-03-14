@@ -44,6 +44,8 @@ import androidx.room.PrimaryKey;
 public class EntityAccount implements Serializable {
     static final String TABLE_NAME = "account";
 
+    static final int DEFAULT_KEEP_ALIVE_INTERVAL = 9; // minutes
+
     @PrimaryKey(autoGenerate = true)
     public Long id;
 

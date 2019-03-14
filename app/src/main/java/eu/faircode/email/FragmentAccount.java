@@ -825,7 +825,7 @@ public class FragmentAccount extends FragmentBase {
                 if (synchronize && TextUtils.isEmpty(password) && !insecure)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
                 if (TextUtils.isEmpty(interval))
-                    interval = "19";
+                    interval = Integer.toString(EntityAccount.DEFAULT_KEEP_ALIVE_INTERVAL);
 
                 if (TextUtils.isEmpty(realm))
                     realm = null;
