@@ -561,7 +561,7 @@ public class FragmentCompose extends FragmentBase {
                 DB db = DB.getInstance(context);
                 EntityMessage draft = db.message().getMessage(id);
                 if (draft == null)
-                    return null;
+                    throw new FileNotFoundException();
 
                 File file = draft.getFile(context);
                 File refFile = draft.getRefFile(context);

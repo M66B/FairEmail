@@ -41,6 +41,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -170,13 +172,13 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
             new SimpleTask<Void>() {
                 @Override
-                protected Void onExecute(Context context, Bundle args) {
+                protected Void onExecute(Context context, Bundle args) throws IOException {
                     long id = args.getLong("id");
 
                     DB db = DB.getInstance(context);
                     EntityAttachment attachment = db.attachment().getAttachment(id);
                     if (attachment == null)
-                        return null;
+                        throw new FileNotFoundException();
                     db.attachment().setDownloaded(id, null);
                     attachment.getFile(context).delete();
                     db.attachment().deleteAttachment(id);

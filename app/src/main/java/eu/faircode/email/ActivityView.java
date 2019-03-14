@@ -64,6 +64,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
@@ -1424,7 +1425,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 DB db = DB.getInstance(context);
                 EntityMessage message = db.message().getMessage(id);
                 if (message == null)
-                    return null;
+                    throw new FileNotFoundException();
                 File file = message.getRawFile(context);
                 Log.i("Raw file=" + file);
 
@@ -1498,7 +1499,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 DB db = DB.getInstance(context);
                 EntityAttachment attachment = db.attachment().getAttachment(id);
                 if (attachment == null)
-                    return null;
+                    throw new FileNotFoundException();
                 File file = attachment.getFile(context);
 
                 ParcelFileDescriptor pfd = null;
