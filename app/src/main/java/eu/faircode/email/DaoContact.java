@@ -38,6 +38,11 @@ public interface DaoContact {
             " ORDER BY times_contacted DESC, last_contacted DESC")
     LiveData<List<EntityContact>> liveContacts();
 
+    @Query("SELECT * FROM contact" +
+            " ORDER BY times_contacted DESC, last_contacted DESC" +
+            " LIMIT :count")
+    List<EntityContact> getFrequentlyContacted(int count);
+
     @Query("SELECT *" +
             " FROM contact" +
             " WHERE email = :email" +

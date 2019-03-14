@@ -33,7 +33,6 @@ import android.content.SharedPreferences;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.content.res.Configuration;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Icon;
@@ -798,64 +797,34 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         " manifest=" + sm.getManifestShortcuts().size());
 
                 List<ShortcutInfo> shortcuts = new ArrayList<>();
+                if (count > 0) {
+                    DB db = DB.getInstance(context);
+                    List<EntityContact> frequently = db.contact().getFrequentlyContacted(count);
+                    for (EntityContact contact : frequently) {
+                        Intent intent = new Intent(context, ActivityCompose.class);
+                        intent.setAction(Intent.ACTION_SEND);
+                        intent.setData(Uri.parse("mailto:" + contact.email));
 
-                if (hasPermission(Manifest.permission.READ_CONTACTS)) {
-                    // https://developer.android.com/guide/topics/providers/contacts-provider#ObsoleteData
-                    try (Cursor cursor = getContentResolver().query(
-                            ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                            new String[]{
-                                    ContactsContract.RawContacts._ID,
-                                    ContactsContract.Contacts.LOOKUP_KEY,
-                                    ContactsContract.Contacts.DISPLAY_NAME,
-                                    ContactsContract.CommonDataKinds.Email.DATA,
-                                    ContactsContract.Contacts.STARRED,
-                                    ContactsContract.Contacts.TIMES_CONTACTED,
-                                    ContactsContract.Contacts.LAST_TIME_CONTACTED
-                            },
-                            ContactsContract.CommonDataKinds.Email.DATA + " <> ''",
-                            null,
-                            ContactsContract.Contacts.STARRED + " DESC" +
-                                    ", " + ContactsContract.Contacts.TIMES_CONTACTED + " DESC" +
-                                    ", " + ContactsContract.Contacts.LAST_TIME_CONTACTED + " DESC")) {
-                        while (cursor != null && cursor.moveToNext() && shortcuts.size() < count)
-                            try {
-                                long id = cursor.getLong(cursor.getColumnIndex(ContactsContract.RawContacts._ID));
-                                String name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-                                String email = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA));
-                                int starred = cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.STARRED));
-                                int times = cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.TIMES_CONTACTED));
-                                long last = cursor.getLong(cursor.getColumnIndex(ContactsContract.Contacts.LAST_TIME_CONTACTED));
+                        Icon icon = null;
+                        if (contact.avatar != null &&
+                                Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
+                            // Create icon from bitmap because launcher might not have contacts permission
+                            InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
+                                    getContentResolver(), Uri.parse(contact.avatar));
+                            Bitmap bitmap = BitmapFactory.decodeStream(is);
+                            if (bitmap != null)
+                                icon = Icon.createWithBitmap(bitmap);
+                        }
+                        if (icon == null)
+                            icon = Icon.createWithResource(context, R.drawable.ic_shortcut_email);
 
-                                Log.i("Shortcut id=" + id + " email=" + email +
-                                        " starred=" + starred + " times=" + times + " last=" + last);
-
-                                if (starred == 0 && times == 0 && last == 0)
-                                    continue;
-
-                                Uri uri = ContactsContract.Contacts.getLookupUri(
-                                        cursor.getLong(cursor.getColumnIndex(ContactsContract.RawContacts._ID)),
-                                        cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY)));
-                                InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
-                                        getContentResolver(), uri);
-                                Bitmap bitmap = BitmapFactory.decodeStream(is);
-                                Icon icon = (bitmap == null
-                                        ? Icon.createWithResource(context, R.drawable.ic_shortcut_email)
-                                        : Icon.createWithBitmap(bitmap));
-
-                                Intent intent = new Intent(context, ActivityCompose.class);
-                                intent.setAction(Intent.ACTION_SEND);
-                                intent.setData(Uri.parse("mailto:" + email));
-
-                                shortcuts.add(
-                                        new ShortcutInfo.Builder(context, Long.toString(id))
-                                                .setIcon(icon)
-                                                .setRank(shortcuts.size() + 1)
-                                                .setShortLabel(name)
-                                                .setIntent(intent)
-                                                .build());
-                            } catch (Throwable ex) {
-                                Log.e(ex);
-                            }
+                        shortcuts.add(
+                                new ShortcutInfo.Builder(context, Long.toString(contact.id))
+                                        .setIcon(icon)
+                                        .setRank(shortcuts.size() + 1)
+                                        .setShortLabel(contact.name == null ? contact.email : contact.name)
+                                        .setIntent(intent)
+                                        .build());
                     }
                 }
 
