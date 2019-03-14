@@ -1335,7 +1335,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                     a.message = id;
                                     a.sequence = ++sequence;
                                     a.id = db.attachment().insertAttachment(a);
-                                    parts.downloadAttachment(context, index, a.id);
+                                    try {
+                                        parts.downloadAttachment(context, index, a.id);
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                    }
                                 }
 
                                 db.message().setMessageStored(id, new Date().getTime());

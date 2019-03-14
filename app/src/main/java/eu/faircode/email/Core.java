@@ -1402,8 +1402,11 @@ class Core {
             for (EntityAttachment attachment : attachments)
                 if (!attachment.available)
                     if (!metered || (attachment.size != null && attachment.size < maxSize))
-                        if (!parts.downloadAttachment(context, attachment.sequence - 1, attachment.id))
-                            break;
+                        try {
+                            parts.downloadAttachment(context, attachment.sequence - 1, attachment.id);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
         }
     }
 

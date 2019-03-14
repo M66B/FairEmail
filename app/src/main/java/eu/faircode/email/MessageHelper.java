@@ -27,6 +27,7 @@ import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
@@ -697,12 +698,12 @@ public class MessageHelper {
             return result;
         }
 
-        boolean downloadAttachment(Context context, int index, long id) {
+        void downloadAttachment(Context context, int index, long id) throws MessagingException, IOException {
             Log.i("downloading attchment id=" + id + " seq=" + index);
             // Attachments of drafts might not have been uploaded yet
             if (index > attachments.size()) {
                 Log.w("Attachment unavailable sequence=" + index + " size=" + attachments.size());
-                return false;
+                return;
             }
 
             DB db = DB.getInstance(context);
@@ -711,7 +712,7 @@ public class MessageHelper {
             AttachmentPart apart = attachments.get(index);
             EntityAttachment attachment = db.attachment().getAttachment(id);
             if (attachment == null)
-                return false;
+                throw new FileNotFoundException();
             File file = attachment.getFile(context);
 
             // Download attachment
@@ -736,12 +737,10 @@ public class MessageHelper {
                 db.attachment().setDownloaded(id, size);
 
                 Log.i("Downloaded attachment size=" + size);
-                return true;
             } catch (Throwable ex) {
-                Log.w(ex);
                 // Reset progress on failure
                 db.attachment().setError(id, Helper.formatThrowable(ex));
-                return false;
+                throw ex;
             }
         }
 
