@@ -28,6 +28,18 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Office365"
+        link="https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040">
+        <imap
+            host="outlook.office365.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.office365.com"
+            port="587"
+            starttls="true" />
+    </provider>
     <!-- needs subscription -->
     <provider
         name="mailbox.org"
