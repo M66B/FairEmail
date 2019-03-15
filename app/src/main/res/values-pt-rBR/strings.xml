@@ -50,6 +50,7 @@
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_answers">Modelos</string>
     <string name="menu_operations">Operações</string>
+    <string name="menu_contacts">Contatos locais</string>
     <string name="menu_setup">Configurar</string>
     <string name="menu_legend">Legenda</string>
     <string name="menu_faq">Suporte</string>
@@ -242,6 +243,7 @@
     <string name="title_edit_rules">Editar regras</string>
     <string name="title_empty_trash_ask">Excluir todas as mensagens na lixeira permanentemente?</string>
     <string name="title_delete_operation">Excluir operações com uma mensagem de erro?</string>
+    <string name="title_delete_contacts">Excluir todos os contatos locais?</string>
     <string name="title_no_operations">Nenhuma operação pendente</string>
     <string name="title_folder_name">Nome da pasta</string>
     <string name="title_display_name">Nome de exibição</string>

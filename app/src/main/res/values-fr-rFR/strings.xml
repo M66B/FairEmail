@@ -50,6 +50,7 @@
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_answers">Modèles</string>
     <string name="menu_operations">Opérations</string>
+    <string name="menu_contacts">Contacts locaux</string>
     <string name="menu_setup">Configuration</string>
     <string name="menu_legend">Légende</string>
     <string name="menu_faq">Assistance</string>
@@ -242,6 +243,7 @@
     <string name="title_edit_rules">Modifier les règles</string>
     <string name="title_empty_trash_ask">Supprimer définitivement tous les messages de la corbeille ?</string>
     <string name="title_delete_operation">Supprimer les opérations avec un message d\'erreur ?</string>
+    <string name="title_delete_contacts">Supprimer tous les contacts locaux ?</string>
     <string name="title_no_operations">Aucune opération en attente</string>
     <string name="title_folder_name">Nom du dossier</string>
     <string name="title_display_name">Nom</string>

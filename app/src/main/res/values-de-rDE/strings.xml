@@ -50,6 +50,7 @@
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_answers">Vorlagen</string>
     <string name="menu_operations">Vorgänge</string>
+    <string name="menu_contacts">Lokale Kontakte</string>
     <string name="menu_setup">Einstellungen</string>
     <string name="menu_legend">Legende</string>
     <string name="menu_faq">Hilfe</string>
@@ -242,6 +243,7 @@
     <string name="title_edit_rules">Regel bearbeiten</string>
     <string name="title_empty_trash_ask">Alle E-Mails im Papierkorb unwiderruflich löschen?</string>
     <string name="title_delete_operation">Lösche Operationen mit einer Fehlermeldung?</string>
+    <string name="title_delete_contacts">Alle lokale Kontakte löschen?</string>
     <string name="title_no_operations">Keine weiteren Vorgänge</string>
     <string name="title_folder_name">Ordnername</string>
     <string name="title_display_name">Name</string>

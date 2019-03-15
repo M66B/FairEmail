@@ -50,6 +50,7 @@
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_answers">Plantillas</string>
     <string name="menu_operations">Operaciones</string>
+    <string name="menu_contacts">Contactos locales</string>
     <string name="menu_setup">Configuración</string>
     <string name="menu_legend">Leyenda</string>
     <string name="menu_faq">Soporte</string>

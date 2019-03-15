@@ -50,6 +50,7 @@
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_answers">Sjablonen</string>
     <string name="menu_operations">Bewerkingen</string>
+    <string name="menu_contacts">Lokale contacten</string>
     <string name="menu_setup">Instellingen</string>
     <string name="menu_legend">Legenda</string>
     <string name="menu_faq">Ondersteuning</string>
@@ -242,6 +243,7 @@
     <string name="title_edit_rules">Bewerk regels</string>
     <string name="title_empty_trash_ask">Alle weggegooide berichten permanent verwijderen?</string>
     <string name="title_delete_operation">Bewerkingen met een foutmelding verwijderen?</string>
+    <string name="title_delete_contacts">Verwijder alle lokale contacten?</string>
     <string name="title_no_operations">Geen openstaande bewerkingen</string>
     <string name="title_folder_name">Mapnaam</string>
     <string name="title_display_name">Weergavenaam</string>
