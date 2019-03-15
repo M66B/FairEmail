@@ -60,6 +60,8 @@ public class EntityContact implements Serializable {
     @NonNull
     public Integer times_contacted;
     public Long last_contacted;
+    @NonNull
+    public Boolean favorite = false;
 
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
@@ -70,6 +72,7 @@ public class EntityContact implements Serializable {
         json.put("avatar", avatar);
         json.put("times_contacted", times_contacted);
         json.put("last_contacted", last_contacted);
+        json.put("favorite", favorite);
         return json;
     }
 
@@ -93,6 +96,9 @@ public class EntityContact implements Serializable {
         if (json.has("last_contacted") && !json.isNull("last_contacted"))
             contact.last_contacted = json.getLong("last_contacted");
 
+        if (json.has("favorite"))
+            contact.favorite = json.getBoolean("favorite");
+
         return contact;
     }
 
@@ -105,7 +111,8 @@ public class EntityContact implements Serializable {
                     Objects.equals(this.name, other.name) &&
                     Objects.equals(this.avatar, other.avatar) &&
                     this.times_contacted == other.times_contacted &&
-                    Objects.equals(this.last_contacted, other.last_contacted));
+                    Objects.equals(this.last_contacted, other.last_contacted) &&
+                    this.favorite == other.favorite);
 
         } else
             return false;

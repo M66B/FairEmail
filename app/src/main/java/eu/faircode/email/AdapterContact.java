@@ -21,7 +21,9 @@ package eu.faircode.email;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.net.Uri;
+import android.os.Bundle;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,21 +36,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHolder> {
     private Context context;
+    private LifecycleOwner owner;
     private LayoutInflater inflater;
     private boolean contacts;
+    private int colorAccent;
+    private int textColorSecondary;
 
     private List<EntityContact> all = new ArrayList<>();
     private List<EntityContact> filtered = new ArrayList<>();
 
     private static NumberFormat nf = NumberFormat.getNumberInstance();
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private View itemView;
         private ImageView ivType;
         private ImageView ivAvatar;
@@ -56,6 +62,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
         private TextView tvEmail;
         private TextView tvTimes;
         private TextView tvLast;
+        private ImageView ivFavorite;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -67,6 +74,15 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             tvEmail = itemView.findViewById(R.id.tvEmail);
             tvTimes = itemView.findViewById(R.id.tvTimes);
             tvLast = itemView.findViewById(R.id.tvLast);
+            ivFavorite = itemView.findViewById(R.id.ivFavorite);
+        }
+
+        private void wire() {
+            itemView.setOnClickListener(this);
+        }
+
+        private void unwire() {
+            itemView.setOnClickListener(null);
         }
 
         private void bindTo(EntityContact contact) {
@@ -87,13 +103,55 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             tvTimes.setText(nf.format(contact.times_contacted));
             tvLast.setText(contact.last_contacted == null ? null
                     : DateUtils.getRelativeTimeSpanString(context, contact.last_contacted));
+
+            ivFavorite.setImageResource(contact.favorite ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
+            ivFavorite.setImageTintList(ColorStateList.valueOf(contact.favorite ? colorAccent : textColorSecondary));
+        }
+
+        @Override
+        public void onClick(View view) {
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return;
+
+            EntityContact contact = filtered.get(pos);
+
+            Bundle args = new Bundle();
+            args.putLong("id", contact.id);
+            args.putBoolean("favorite", !contact.favorite);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+                    boolean favorite = args.getBoolean("favorite");
+
+                    DB db = DB.getInstance(context);
+                    db.contact().setContactFavorite(id, favorite);
+
+                    return null;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Void data) {
+                    Shortcuts.update(context, owner);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, owner, ex);
+                }
+            }.execute(context, owner, args, "contact:favorite");
         }
     }
 
-    AdapterContact(Context context) {
+    AdapterContact(Context context, LifecycleOwner owner) {
         this.context = context;
+        this.owner = owner;
         this.inflater = LayoutInflater.from(context);
         this.contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
+        this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
         setHasStableIds(true);
     }
 
@@ -183,7 +241,9 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.unwire();
         EntityContact contact = filtered.get(position);
         holder.bindTo(contact);
+        holder.wire();
     }
 }
