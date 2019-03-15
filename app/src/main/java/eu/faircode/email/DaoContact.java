@@ -35,10 +35,14 @@ public interface DaoContact {
     List<EntityContact> getContacts();
 
     @Query("SELECT * FROM contact" +
-            " ORDER BY favorite DESC, times_contacted DESC, last_contacted DESC")
+            " ORDER BY" +
+            " CASE WHEN favorite = 1 THEN 0 ELSE 1 END" +
+            ", times_contacted DESC" +
+            ", last_contacted DESC")
     LiveData<List<EntityContact>> liveContacts();
 
     @Query("SELECT * FROM contact" +
+            " WHERE favorite <> 2" +
             " ORDER BY favorite DESC, times_contacted DESC, last_contacted DESC" +
             " LIMIT :count")
     List<EntityContact> getFrequentlyContacted(int count);
@@ -66,8 +70,8 @@ public interface DaoContact {
     @Update
     int updateContact(EntityContact contact);
 
-    @Query("UPDATE contact SET favorite = :favorite WHERE id = :id")
-    int setContactFavorite(long id, boolean favorite);
+    @Query("UPDATE contact SET favorite = :state WHERE id = :id")
+    int setContactState(long id, int state);
 
     @Query("DELETE FROM contact WHERE id= :id")
     int deleteContact(long id);

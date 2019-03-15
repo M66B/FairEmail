@@ -49,13 +49,12 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     private int colorAccent;
     private int textColorSecondary;
 
-    private List<EntityContact> all = new ArrayList<>();
-    private List<EntityContact> filtered = new ArrayList<>();
+    private List<EntityContact> items = new ArrayList<>();
 
     private static NumberFormat nf = NumberFormat.getNumberInstance();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        private View itemView;
+        private View view;
         private ImageView ivType;
         private ImageView ivAvatar;
         private TextView tvName;
@@ -67,7 +66,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
         ViewHolder(View itemView) {
             super(itemView);
 
-            this.itemView = itemView;
+            view = itemView.findViewById(R.id.clItem);
             ivType = itemView.findViewById(R.id.ivType);
             ivAvatar = itemView.findViewById(R.id.ivAvatar);
             tvName = itemView.findViewById(R.id.tvName);
@@ -78,16 +77,18 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
         }
 
         private void wire() {
-            itemView.setOnClickListener(this);
-            itemView.setOnLongClickListener(this);
+            view.setOnClickListener(this);
+            view.setOnLongClickListener(this);
         }
 
         private void unwire() {
-            itemView.setOnClickListener(null);
-            itemView.setOnLongClickListener(null);
+            view.setOnClickListener(null);
+            view.setOnLongClickListener(null);
         }
 
         private void bindTo(EntityContact contact) {
+            view.setAlpha(contact.state == 2 ? Helper.LOW_LIGHT : 1.0f);
+
             if (contact.type == EntityContact.TYPE_FROM)
                 ivType.setImageResource(R.drawable.baseline_mail_24);
             else if (contact.type == EntityContact.TYPE_TO)
@@ -106,8 +107,10 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             tvLast.setText(contact.last_contacted == null ? null
                     : DateUtils.getRelativeTimeSpanString(context, contact.last_contacted));
 
-            ivFavorite.setImageResource(contact.favorite ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
-            ivFavorite.setImageTintList(ColorStateList.valueOf(contact.favorite ? colorAccent : textColorSecondary));
+            ivFavorite.setImageResource(contact.state == 1 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
+            ivFavorite.setImageTintList(ColorStateList.valueOf(contact.state == 1 ? colorAccent : textColorSecondary));
+
+            view.requestLayout();
         }
 
         @Override
@@ -116,20 +119,22 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             if (pos == RecyclerView.NO_POSITION)
                 return;
 
-            EntityContact contact = filtered.get(pos);
+            EntityContact contact = items.get(pos);
+            contact.state = ++contact.state % 3;
+            notifyItemChanged(pos);
 
             Bundle args = new Bundle();
             args.putLong("id", contact.id);
-            args.putBoolean("favorite", !contact.favorite);
+            args.putInt("state", contact.state);
 
             new SimpleTask<Void>() {
                 @Override
                 protected Void onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
-                    boolean favorite = args.getBoolean("favorite");
+                    int state = args.getInt("state");
 
                     DB db = DB.getInstance(context);
-                    db.contact().setContactFavorite(id, favorite);
+                    db.contact().setContactState(id, state);
 
                     return null;
                 }
@@ -143,7 +148,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                 protected void onException(Bundle args, Throwable ex) {
                     Helper.unexpectedError(context, owner, ex);
                 }
-            }.execute(context, owner, args, "contact:favorite");
+            }.execute(context, owner, args, "contact:state");
         }
 
         @Override
@@ -152,7 +157,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             if (pos == RecyclerView.NO_POSITION)
                 return false;
 
-            EntityContact contact = filtered.get(pos);
+            EntityContact contact = items.get(pos);
 
             Bundle args = new Bundle();
             args.putLong("id", contact.id);
@@ -196,13 +201,11 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     public void set(@NonNull List<EntityContact> contacts) {
         Log.i("Set contacts=" + contacts.size());
 
-        all = contacts;
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, contacts));
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(filtered, all));
+        items = contacts;
 
-        filtered.clear();
-        filtered.addAll(all);
-
+        diff.dispatchUpdatesTo(this);
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
             public void onInserted(int position, int count) {
@@ -224,16 +227,15 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                 Log.i("Changed @" + position + " #" + count);
             }
         });
-        diff.dispatchUpdatesTo(this);
     }
 
     private class DiffCallback extends DiffUtil.Callback {
-        private List<EntityContact> prev;
-        private List<EntityContact> next;
+        private List<EntityContact> prev = new ArrayList<>();
+        private List<EntityContact> next = new ArrayList<>();
 
         DiffCallback(List<EntityContact> prev, List<EntityContact> next) {
-            this.prev = prev;
-            this.next = next;
+            this.prev.addAll(prev);
+            this.next.addAll(next);
         }
 
         @Override
@@ -263,12 +265,12 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
     @Override
     public long getItemId(int position) {
-        return filtered.get(position).id;
+        return items.get(position).id;
     }
 
     @Override
     public int getItemCount() {
-        return filtered.size();
+        return items.size();
     }
 
     @Override
@@ -280,7 +282,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
-        EntityContact contact = filtered.get(position);
+        EntityContact contact = items.get(position);
         holder.bindTo(contact);
         holder.wire();
     }

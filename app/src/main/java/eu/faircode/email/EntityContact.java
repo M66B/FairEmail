@@ -27,6 +27,7 @@ import java.util.Objects;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
@@ -64,7 +65,8 @@ public class EntityContact implements Serializable {
     public Integer times_contacted;
     public Long last_contacted;
     @NonNull
-    public Boolean favorite = false;
+    @ColumnInfo(name = "favorite")
+    public Integer state = 0;
 
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
@@ -75,7 +77,7 @@ public class EntityContact implements Serializable {
         json.put("avatar", avatar);
         json.put("times_contacted", times_contacted);
         json.put("last_contacted", last_contacted);
-        json.put("favorite", favorite);
+        json.put("state", state);
         return json;
     }
 
@@ -100,7 +102,9 @@ public class EntityContact implements Serializable {
             contact.last_contacted = json.getLong("last_contacted");
 
         if (json.has("favorite"))
-            contact.favorite = json.getBoolean("favorite");
+            contact.state = (json.getBoolean("favorite") ? 1 : 0);
+        if (json.has("state"))
+            contact.state = json.getInt("state");
 
         return contact;
     }
@@ -113,9 +117,9 @@ public class EntityContact implements Serializable {
                     this.email.equals(other.email) &&
                     Objects.equals(this.name, other.name) &&
                     Objects.equals(this.avatar, other.avatar) &&
-                    this.times_contacted == other.times_contacted &&
+                    this.times_contacted.equals(other.times_contacted) &&
                     Objects.equals(this.last_contacted, other.last_contacted) &&
-                    this.favorite == other.favorite);
+                    this.state.equals(other.state));
 
         } else
             return false;

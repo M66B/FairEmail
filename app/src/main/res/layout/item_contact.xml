@@ -1,89 +1,93 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="3dp">
+    android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/ivType"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/baseline_mail_24"
-        app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ivAvatar" />
-
-    <ImageView
-        android:id="@+id/ivAvatar"
-        android:layout_width="42dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="6dp"
-        android:padding="3dp"
-        android:src="@drawable/baseline_person_24"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintStart_toEndOf="@id/ivType"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clItem"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="6dp"
-        android:ellipsize="middle"
-        android:singleLine="true"
-        android:text="Name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/tvTimes"
-        app:layout_constraintStart_toEndOf="@+id/ivAvatar"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:padding="3dp">
 
-    <TextView
-        android:id="@+id/tvEmail"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="6dp"
-        android:ellipsize="middle"
-        android:singleLine="true"
-        android:text="Email"
-        android:textAppearance="@android:style/TextAppearance.Small"
-        app:layout_constraintEnd_toStartOf="@+id/tvLast"
-        app:layout_constraintStart_toEndOf="@id/ivAvatar"
-        app:layout_constraintTop_toBottomOf="@id/tvName" />
+        <ImageView
+            android:id="@+id/ivType"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/baseline_mail_24"
+            app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivAvatar" />
 
-    <TextView
-        android:id="@+id/tvTimes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
-        android:text="123"
-        android:textAppearance="@android:style/TextAppearance.Small"
-        app:layout_constraintEnd_toStartOf="@+id/ivFavorite"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="42dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="6dp"
+            android:padding="3dp"
+            android:src="@drawable/baseline_person_24"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@id/ivType"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvLast"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="6dp"
-        android:text="12:34:56"
-        android:textAppearance="@android:style/TextAppearance.Small"
-        app:layout_constraintEnd_toStartOf="@+id/ivFavorite"
-        app:layout_constraintTop_toBottomOf="@+id/tvTimes" />
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:ellipsize="middle"
+            android:singleLine="true"
+            android:text="Name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tvTimes"
+            app:layout_constraintStart_toEndOf="@+id/ivAvatar"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/ivFavorite"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/baseline_star_24"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ivAvatar" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="6dp"
+            android:ellipsize="middle"
+            android:singleLine="true"
+            android:text="Email"
+            android:textAppearance="@android:style/TextAppearance.Small"
+            app:layout_constraintEnd_toStartOf="@+id/tvLast"
+            app:layout_constraintStart_toEndOf="@id/ivAvatar"
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+        <TextView
+            android:id="@+id/tvTimes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:text="123"
+            android:textAppearance="@android:style/TextAppearance.Small"
+            app:layout_constraintEnd_toStartOf="@+id/ivFavorite"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvLast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="6dp"
+            android:text="12:34:56"
+            android:textAppearance="@android:style/TextAppearance.Small"
+            app:layout_constraintEnd_toStartOf="@+id/ivFavorite"
+            app:layout_constraintTop_toBottomOf="@+id/tvTimes" />
+
+        <ImageView
+            android:id="@+id/ivFavorite"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/baseline_star_24"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivAvatar" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
