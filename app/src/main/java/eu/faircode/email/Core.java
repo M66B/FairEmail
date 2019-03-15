@@ -661,11 +661,12 @@ class Core {
         if (msgid == null)
             throw new IllegalArgumentException("Message ID missing");
 
+        long uid = -1;
         if (istore.hasCapability("UIDPLUS")) {
             AppendUID[] uids = ifolder.appendUIDMessages(new Message[]{imessage});
             if (uids != null && uids.length > 0) {
                 Log.i("Appended uid=" + uids[0].uid);
-                return uids[0].uid;
+                uid = uids[0].uid;
             }
         } else
             ifolder.appendMessages(new Message[]{imessage});
@@ -674,20 +675,20 @@ class Core {
         ifolder.close(false);
         ifolder.open(Folder.READ_WRITE);
 
-        Log.i("Searching for appended msgid=" + msgid);
+        if (uid <= 0) {
+            Log.i("Searching for appended msgid=" + msgid);
+            Message[] messages = ifolder.search(new MessageIDTerm(msgid));
+            if (messages != null)
+                for (Message iappended : messages) {
+                    long muid = ifolder.getUID(iappended);
+                    Log.i("Found appended uid=" + muid);
+                    // RFC3501: Unique identifiers are assigned in a strictly ascending fashion
+                    if (muid > uid)
+                        uid = muid;
+                }
+        }
 
-        long uid = -1;
-        Message[] messages = ifolder.search(new MessageIDTerm(msgid));
-        if (messages != null)
-            for (Message iappended : messages) {
-                long muid = ifolder.getUID(iappended);
-                Log.i("Found appended uid=" + muid);
-                // RFC3501: Unique identifiers are assigned in a strictly ascending fashion
-                if (muid > uid)
-                    uid = muid;
-            }
-
-        if (uid < 0)
+        if (uid <= 0)
             throw new IllegalArgumentException("uid not found");
 
         return uid;
