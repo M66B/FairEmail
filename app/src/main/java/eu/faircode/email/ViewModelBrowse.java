@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
 import com.sun.mail.iap.Argument;
 import com.sun.mail.iap.Response;
@@ -56,6 +55,7 @@ import javax.mail.search.SearchTerm;
 import javax.mail.search.SubjectTerm;
 
 import androidx.lifecycle.ViewModel;
+import androidx.preference.PreferenceManager;
 
 public class ViewModelBrowse extends ViewModel {
     private State currentState = null;

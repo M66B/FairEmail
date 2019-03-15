@@ -13,7 +13,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
 import com.sun.mail.iap.ConnectionException;
@@ -86,6 +85,7 @@ import javax.net.ssl.SSLException;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
+import androidx.preference.PreferenceManager;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 

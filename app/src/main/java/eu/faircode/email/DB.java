@@ -3,7 +3,6 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
 import org.json.JSONArray;
@@ -19,6 +18,7 @@ import java.util.concurrent.Executors;
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
 
+import androidx.preference.PreferenceManager;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;

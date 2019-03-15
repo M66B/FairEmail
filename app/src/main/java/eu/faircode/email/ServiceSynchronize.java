@@ -34,7 +34,6 @@ import android.net.NetworkRequest;
 import android.os.Build;
 import android.os.Handler;
 import android.os.PowerManager;
-import android.preference.PreferenceManager;
 
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
@@ -79,6 +78,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleService;
 import androidx.lifecycle.Observer;
+import androidx.preference.PreferenceManager;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 

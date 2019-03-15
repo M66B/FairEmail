@@ -4,10 +4,10 @@ import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.IBinder;
-import android.preference.PreferenceManager;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import androidx.preference.PreferenceManager;
 
 public class ServiceExternal extends Service {
     private final static String ACTION_ENABLE = "eu.faircode.email.ENABLE";

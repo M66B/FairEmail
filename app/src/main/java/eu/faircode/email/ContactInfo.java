@@ -8,7 +8,6 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 
 import java.io.InputStream;
@@ -18,6 +17,8 @@ import java.util.Map;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
+
+import androidx.preference.PreferenceManager;
 
 public class ContactInfo {
     private String email;
