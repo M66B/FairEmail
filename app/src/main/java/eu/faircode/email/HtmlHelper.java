@@ -226,7 +226,8 @@ public class HtmlHelper {
             // Split parent link and linked image
             boolean linked = false;
             for (Element parent : img.parents())
-                if ("a".equals(parent.tagName()) && !TextUtils.isEmpty(parent.attr("href"))) {
+                if ("a".equals(parent.tagName()) &&
+                        !TextUtils.isEmpty(parent.attr("href"))) {
                     String text = parent.attr("title").trim();
                     if (TextUtils.isEmpty(text))
                         text = parent.attr("alt").trim();
@@ -235,18 +236,20 @@ public class HtmlHelper {
 
                     img.remove();
                     parent.appendText(text);
+                    String outer = parent.outerHtml();
 
-                    Element span = document.createElement("span");
-                    span.appendChild(parent.clone());
-                    span.appendChild(div);
-                    parent.replaceWith(span);
+                    parent.tagName("span");
+                    parent.html(outer);
+                    parent.appendChild(div);
+
                     linked = true;
-
                     break;
                 }
 
-            if (!linked)
-                img.replaceWith(div);
+            if (!linked) {
+                img.tagName("div");
+                img.html(div.html());
+            }
         }
 
         // Autolink
