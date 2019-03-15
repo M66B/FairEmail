@@ -1213,7 +1213,10 @@ class Core {
                 attachment.id = db.attachment().insertAttachment(attachment);
             }
 
-            if (!folder.isOutgoing() && !EntityFolder.ARCHIVE.equals(folder.type)) {
+            if (!folder.isOutgoing() &&
+                    !EntityFolder.ARCHIVE.equals(folder.type) &&
+                    !EntityFolder.TRASH.equals(folder.type) &&
+                    !EntityFolder.JUNK.equals(folder.type)) {
                 Address[] replies = (message.reply != null ? message.reply : message.from);
                 if (replies != null) {
                     // Check if from self
