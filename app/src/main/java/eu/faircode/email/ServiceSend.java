@@ -26,6 +26,7 @@ import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
+import android.net.Uri;
 import android.os.PowerManager;
 import android.text.TextUtils;
 
@@ -366,20 +367,21 @@ public class ServiceSend extends LifecycleService {
                 for (Address recipient : message.to) {
                     String email = ((InternetAddress) recipient).getAddress();
                     String name = ((InternetAddress) recipient).getPersonal();
+                    Uri avatar = ContactInfo.getLookupUri(this, new Address[]{recipient});
                     EntityContact contact = db.contact().getContact(EntityContact.TYPE_TO, email);
                     if (contact == null) {
                         contact = new EntityContact();
                         contact.type = EntityContact.TYPE_TO;
                         contact.email = email;
                         contact.name = name;
-                        contact.avatar = message.avatar;
+                        contact.avatar = (avatar == null ? null : avatar.toString());
                         contact.times_contacted = 1;
                         contact.last_contacted = time;
                         contact.id = db.contact().insertContact(contact);
                         Log.i("Inserted recipient contact=" + contact);
                     } else {
                         contact.name = name;
-                        contact.avatar = message.avatar;
+                        contact.avatar = (avatar == null ? null : avatar.toString());
                         contact.times_contacted++;
                         contact.last_contacted = time;
                         db.contact().updateContact(contact);
