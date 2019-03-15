@@ -1776,7 +1776,7 @@ public class FragmentCompose extends FragmentBase {
                         List<EntityAttachment> attachments = db.attachment().getAttachments(ref.id);
                         for (EntityAttachment attachment : attachments)
                             if (attachment.available &&
-                                    !EntityAttachment.PGP_MESSAGE.equals(attachment.encryption) &&
+                                    attachment.encryption == null &&
                                     ("forward".equals(action) || attachment.isInline())) {
                                 File source = attachment.getFile(context);
 
