@@ -52,28 +52,27 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
     private LayoutInflater inflater;
     private LifecycleOwner owner;
 
-    private List<EntityAttachment> all = new ArrayList<>();
-    private List<EntityAttachment> filtered = new ArrayList<>();
+    private List<EntityAttachment> items = new ArrayList<>();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        View itemView;
+        View view;
         ImageView image;
         TextView caption;
 
         ViewHolder(View itemView) {
             super(itemView);
 
-            this.itemView = itemView.findViewById(R.id.clItem);
+            view = itemView.findViewById(R.id.clItem);
             image = itemView.findViewById(R.id.image);
             caption = itemView.findViewById(R.id.caption);
         }
 
         private void wire() {
-            itemView.setOnClickListener(this);
+            view.setOnClickListener(this);
         }
 
         private void unwire() {
-            itemView.setOnClickListener(null);
+            view.setOnClickListener(null);
         }
 
         private void bindTo(EntityAttachment attachment) {
@@ -97,7 +96,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
             if (pos == RecyclerView.NO_POSITION)
                 return;
 
-            EntityAttachment attachment = filtered.get(pos);
+            EntityAttachment attachment = items.get(pos);
             if (attachment.available) {
                 // Build file name
                 File file = attachment.getFile(context);
@@ -188,12 +187,9 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
             }
         });
 
-        all = attachments;
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, attachments), false);
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(filtered, all));
-
-        filtered.clear();
-        filtered.addAll(all);
+        items = attachments;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
@@ -220,12 +216,12 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
     }
 
     private class DiffCallback extends DiffUtil.Callback {
-        private List<EntityAttachment> prev;
-        private List<EntityAttachment> next;
+        private List<EntityAttachment> prev = new ArrayList<>();
+        private List<EntityAttachment> next = new ArrayList<>();
 
         DiffCallback(List<EntityAttachment> prev, List<EntityAttachment> next) {
-            this.prev = prev;
-            this.next = next;
+            this.prev.addAll(prev);
+            this.next.addAll(next);
         }
 
         @Override
@@ -255,12 +251,12 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
 
     @Override
     public long getItemId(int position) {
-        return filtered.get(position).id;
+        return items.get(position).id;
     }
 
     @Override
     public int getItemCount() {
-        return filtered.size();
+        return items.size();
     }
 
     @Override
@@ -273,7 +269,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
 
-        EntityAttachment attachment = filtered.get(position);
+        EntityAttachment attachment = items.get(position);
         holder.bindTo(attachment);
 
         holder.wire();

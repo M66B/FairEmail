@@ -46,30 +46,29 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
     private LifecycleOwner owner;
     private LayoutInflater inflater;
 
-    private List<EntityAnswer> all = new ArrayList<>();
-    private List<EntityAnswer> filtered = new ArrayList<>();
+    private List<EntityAnswer> items = new ArrayList<>();
 
     private boolean primary = false;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        private View itemView;
+        private View view;
         private TextView tvName;
 
         ViewHolder(View itemView) {
             super(itemView);
 
-            this.itemView = itemView.findViewById(R.id.clItem);
+            view = itemView.findViewById(R.id.clItem);
             tvName = itemView.findViewById(R.id.tvName);
         }
 
         private void wire() {
-            itemView.setOnClickListener(this);
-            itemView.setOnLongClickListener(this);
+            view.setOnClickListener(this);
+            view.setOnLongClickListener(this);
         }
 
         private void unwire() {
-            itemView.setOnClickListener(null);
-            itemView.setOnLongClickListener(null);
+            view.setOnClickListener(null);
+            view.setOnLongClickListener(null);
         }
 
         private void bindTo(EntityAnswer answer) {
@@ -82,7 +81,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             if (pos == RecyclerView.NO_POSITION)
                 return;
 
-            EntityAnswer answer = filtered.get(pos);
+            EntityAnswer answer = items.get(pos);
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
@@ -99,7 +98,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             if (pos == RecyclerView.NO_POSITION)
                 return false;
 
-            EntityAnswer answer = filtered.get(pos);
+            EntityAnswer answer = items.get(pos);
 
             context.startActivity(new Intent(context, ActivityCompose.class)
                     .putExtra("action", "new")
@@ -142,16 +141,16 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
         Collections.sort(answers, new Comparator<EntityAnswer>() {
             @Override
             public int compare(EntityAnswer a1, EntityAnswer a2) {
-                return collator.compare(a1.name, a2.name);
+                int n = collator.compare(a1.name, a2.name);
+                if (n != 0)
+                    return n;
+                return a1.id.compareTo(a2.id);
             }
         });
 
-        all = answers;
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, answers), false);
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(filtered, all));
-
-        filtered.clear();
-        filtered.addAll(all);
+        items = answers;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
@@ -178,12 +177,12 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
     }
 
     private class DiffCallback extends DiffUtil.Callback {
-        private List<EntityAnswer> prev;
-        private List<EntityAnswer> next;
+        private List<EntityAnswer> prev = new ArrayList<>();
+        private List<EntityAnswer> next = new ArrayList<>();
 
         DiffCallback(List<EntityAnswer> prev, List<EntityAnswer> next) {
-            this.prev = prev;
-            this.next = next;
+            this.prev.addAll(prev);
+            this.next.addAll(next);
         }
 
         @Override
@@ -213,12 +212,12 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
 
     @Override
     public long getItemId(int position) {
-        return filtered.get(position).id;
+        return items.get(position).id;
     }
 
     @Override
     public int getItemCount() {
-        return filtered.size();
+        return items.size();
     }
 
     @Override
@@ -230,7 +229,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
-        EntityAnswer answer = filtered.get(position);
+        EntityAnswer answer = items.get(position);
         holder.bindTo(answer);
         holder.wire();
     }

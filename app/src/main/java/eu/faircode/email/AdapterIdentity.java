@@ -47,13 +47,12 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
     private Context context;
     private LayoutInflater inflater;
 
-    private List<TupleIdentityEx> all = new ArrayList<>();
-    private List<TupleIdentityEx> filtered = new ArrayList<>();
+    private List<TupleIdentityEx> items = new ArrayList<>();
 
     private static final DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        View itemView;
+        View view;
         View vwColor;
         ImageView ivPrimary;
         TextView tvName;
@@ -68,7 +67,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         ViewHolder(View itemView) {
             super(itemView);
 
-            this.itemView = itemView.findViewById(R.id.clItem);
+            view = itemView.findViewById(R.id.clItem);
             vwColor = itemView.findViewById(R.id.vwColor);
             ivPrimary = itemView.findViewById(R.id.ivPrimary);
             tvName = itemView.findViewById(R.id.tvName);
@@ -82,15 +81,15 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         }
 
         private void wire() {
-            itemView.setOnClickListener(this);
+            view.setOnClickListener(this);
         }
 
         private void unwire() {
-            itemView.setOnClickListener(null);
+            view.setOnClickListener(null);
         }
 
         private void bindTo(TupleIdentityEx identity) {
-            itemView.setActivated(identity.tbd != null);
+            view.setActivated(identity.tbd != null);
             vwColor.setBackgroundColor(identity.color == null ? Color.TRANSPARENT : identity.color);
             ivPrimary.setVisibility(identity.primary ? View.VISIBLE : View.INVISIBLE);
             tvName.setText(identity.getDisplayName());
@@ -120,7 +119,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             if (pos == RecyclerView.NO_POSITION)
                 return;
 
-            TupleIdentityEx identity = filtered.get(pos);
+            TupleIdentityEx identity = items.get(pos);
             if (identity.tbd != null)
                 return;
 
@@ -146,16 +145,19 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         Collections.sort(identities, new Comparator<TupleIdentityEx>() {
             @Override
             public int compare(TupleIdentityEx i1, TupleIdentityEx i2) {
-                return collator.compare(i1.host, i2.host);
+                int n = collator.compare(i1.getDisplayName(), i2.getDisplayName());
+                if (n != 0)
+                    return n;
+                int e = collator.compare(i1.email, i2.email);
+                if (e != 0)
+                    return e;
+                return i1.id.compareTo(i2.id);
             }
         });
 
-        all = identities;
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, identities), false);
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(filtered, all));
-
-        filtered.clear();
-        filtered.addAll(all);
+        items = identities;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
@@ -182,12 +184,12 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
     }
 
     private class DiffCallback extends DiffUtil.Callback {
-        private List<TupleIdentityEx> prev;
-        private List<TupleIdentityEx> next;
+        private List<TupleIdentityEx> prev = new ArrayList<>();
+        private List<TupleIdentityEx> next = new ArrayList<>();
 
         DiffCallback(List<TupleIdentityEx> prev, List<TupleIdentityEx> next) {
-            this.prev = prev;
-            this.next = next;
+            this.prev.addAll(prev);
+            this.next.addAll(next);
         }
 
         @Override
@@ -217,12 +219,12 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
     @Override
     public long getItemId(int position) {
-        return filtered.get(position).id;
+        return items.get(position).id;
     }
 
     @Override
     public int getItemCount() {
-        return filtered.size();
+        return items.size();
     }
 
     @Override
@@ -235,7 +237,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
 
-        TupleIdentityEx identity = filtered.get(position);
+        TupleIdentityEx identity = items.get(position);
         holder.bindTo(identity);
 
         holder.wire();

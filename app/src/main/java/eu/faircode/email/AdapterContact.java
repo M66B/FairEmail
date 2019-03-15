@@ -201,11 +201,10 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     public void set(@NonNull List<EntityContact> contacts) {
         Log.i("Set contacts=" + contacts.size());
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, contacts));
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, contacts), false);
 
         items = contacts;
 
-        diff.dispatchUpdatesTo(this);
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
             public void onInserted(int position, int count) {
@@ -227,6 +226,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                 Log.i("Changed @" + position + " #" + count);
             }
         });
+        diff.dispatchUpdatesTo(this);
     }
 
     private class DiffCallback extends DiffUtil.Callback {

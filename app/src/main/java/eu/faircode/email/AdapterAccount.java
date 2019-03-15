@@ -47,13 +47,12 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     private Context context;
     private LayoutInflater inflater;
 
-    private List<EntityAccount> all = new ArrayList<>();
-    private List<EntityAccount> filtered = new ArrayList<>();
+    private List<EntityAccount> items = new ArrayList<>();
 
     private static final DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        View itemView;
+        View view;
         View vwColor;
         ImageView ivPrimary;
         TextView tvName;
@@ -67,7 +66,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         ViewHolder(View itemView) {
             super(itemView);
 
-            this.itemView = itemView.findViewById(R.id.clItem);
+            view = itemView.findViewById(R.id.clItem);
             vwColor = itemView.findViewById(R.id.vwColor);
             ivPrimary = itemView.findViewById(R.id.ivPrimary);
             tvName = itemView.findViewById(R.id.tvName);
@@ -80,15 +79,15 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         }
 
         private void wire() {
-            itemView.setOnClickListener(this);
+            view.setOnClickListener(this);
         }
 
         private void unwire() {
-            itemView.setOnClickListener(null);
+            view.setOnClickListener(null);
         }
 
         private void bindTo(EntityAccount account) {
-            itemView.setActivated(account.tbd != null);
+            view.setActivated(account.tbd != null);
             vwColor.setBackgroundColor(account.color == null ? Color.TRANSPARENT : account.color);
             ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.INVISIBLE);
             tvName.setText(account.name);
@@ -119,7 +118,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             if (pos == RecyclerView.NO_POSITION)
                 return;
 
-            EntityAccount account = filtered.get(pos);
+            EntityAccount account = items.get(pos);
             if (account.tbd != null)
                 return;
 
@@ -146,16 +145,19 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         Collections.sort(accounts, new Comparator<EntityAccount>() {
             @Override
             public int compare(EntityAccount a1, EntityAccount a2) {
-                return collator.compare(a1.host, a2.host);
+                int n = collator.compare(a1.name, a2.name);
+                if (n != 0)
+                    return n;
+                int e = collator.compare(a1.user, a2.user);
+                if (e != 0)
+                    return e;
+                return a1.id.compareTo(a2.id);
             }
         });
 
-        all = accounts;
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, accounts), false);
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(filtered, all));
-
-        filtered.clear();
-        filtered.addAll(all);
+        items = accounts;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
@@ -182,12 +184,12 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     }
 
     private class DiffCallback extends DiffUtil.Callback {
-        private List<EntityAccount> prev;
-        private List<EntityAccount> next;
+        private List<EntityAccount> prev = new ArrayList<>();
+        private List<EntityAccount> next = new ArrayList<>();
 
         DiffCallback(List<EntityAccount> prev, List<EntityAccount> next) {
-            this.prev = prev;
-            this.next = next;
+            this.prev.addAll(prev);
+            this.next.addAll(next);
         }
 
         @Override
@@ -217,12 +219,12 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
     @Override
     public long getItemId(int position) {
-        return filtered.get(position).id;
+        return items.get(position).id;
     }
 
     @Override
     public int getItemCount() {
-        return filtered.size();
+        return items.size();
     }
 
     @Override
@@ -235,7 +237,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
 
-        EntityAccount account = filtered.get(position);
+        EntityAccount account = items.get(position);
         holder.bindTo(account);
 
         holder.wire();

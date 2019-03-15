@@ -70,7 +70,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private static NumberFormat nf = NumberFormat.getNumberInstance();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        private View itemView;
+        private View view;
         private View vwColor;
         private View vwLevel;
         private ImageView ivState;
@@ -95,7 +95,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         ViewHolder(View itemView) {
             super(itemView);
 
-            this.itemView = itemView.findViewById(R.id.clItem);
+            view = itemView.findViewById(R.id.clItem);
             vwColor = itemView.findViewById(R.id.vwColor);
             vwLevel = itemView.findViewById(R.id.vwLevel);
             ivState = itemView.findViewById(R.id.ivState);
@@ -112,18 +112,18 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
 
         private void wire() {
-            itemView.setOnClickListener(this);
-            itemView.setOnLongClickListener(this);
+            view.setOnClickListener(this);
+            view.setOnLongClickListener(this);
         }
 
         private void unwire() {
-            itemView.setOnClickListener(null);
-            itemView.setOnLongClickListener(null);
+            view.setOnClickListener(null);
+            view.setOnLongClickListener(null);
         }
 
         private void bindTo(TupleFolderEx folder) {
-            itemView.setActivated(folder.tbc != null || folder.tbd != null);
-            itemView.setAlpha(folder.hide ? 0.5f : 1.0f);
+            view.setActivated(folder.tbc != null || folder.tbd != null);
+            view.setAlpha(folder.hide ? 0.5f : 1.0f);
 
             if (textSize != 0)
                 tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
@@ -256,7 +256,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (folder.tbd != null)
                 return false;
 
-            PopupMenu popupMenu = new PopupMenu(context, itemView);
+            PopupMenu popupMenu = new PopupMenu(context, view);
 
             popupMenu.getMenu().add(Menu.NONE, action_synchronize_now, 1, R.string.title_synchronize_now);
 
@@ -336,7 +336,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
                             if (ex instanceof IllegalArgumentException)
-                                Snackbar.make(itemView, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                                Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                             else
                                 Helper.unexpectedError(context, owner, ex);
                         }
@@ -490,10 +490,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (!folder.hide || showAll)
                 shown.add((TupleFolderEx) folder);
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(filtered, shown));
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(filtered, shown), false);
 
-        filtered.clear();
-        filtered.addAll(shown);
+        filtered = shown;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
@@ -520,12 +519,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     }
 
     private class DiffCallback extends DiffUtil.Callback {
-        private List<TupleFolderEx> prev;
-        private List<TupleFolderEx> next;
+        private List<TupleFolderEx> prev = new ArrayList<>();
+        private List<TupleFolderEx> next = new ArrayList<>();
 
         DiffCallback(List<TupleFolderEx> prev, List<TupleFolderEx> next) {
-            this.prev = prev;
-            this.next = next;
+            this.prev.addAll(prev);
+            this.next.addAll(next);
         }
 
         @Override

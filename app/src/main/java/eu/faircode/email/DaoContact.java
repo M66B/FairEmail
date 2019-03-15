@@ -36,7 +36,10 @@ public interface DaoContact {
 
     @Query("SELECT * FROM contact" +
             " ORDER BY" +
-            " CASE WHEN favorite = 1 THEN 0 ELSE 1 END" +
+            " CASE" +
+            "  WHEN favorite = 1 THEN 0" +
+            "  WHEN favorite = 2 THEN 2" +
+            "  ELSE 1 END" +
             ", times_contacted DESC" +
             ", last_contacted DESC")
     LiveData<List<EntityContact>> liveContacts();

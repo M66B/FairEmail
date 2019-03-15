@@ -39,8 +39,7 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
     private Context context;
     private LayoutInflater inflater;
 
-    private List<EntityLog> all = new ArrayList<>();
-    private List<EntityLog> filtered = new ArrayList<>();
+    private List<EntityLog> items = new ArrayList<>();
 
     private static final DateFormat DF = SimpleDateFormat.getTimeInstance();
 
@@ -71,12 +70,9 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
     public void set(@NonNull List<EntityLog> logs) {
         Log.i("Set logs=" + logs.size());
 
-        all = logs;
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, logs), false);
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(filtered, all));
-
-        filtered.clear();
-        filtered.addAll(all);
+        items = logs;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
@@ -103,12 +99,12 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
     }
 
     private class DiffCallback extends DiffUtil.Callback {
-        private List<EntityLog> prev;
-        private List<EntityLog> next;
+        private List<EntityLog> prev = new ArrayList<>();
+        private List<EntityLog> next = new ArrayList<>();
 
         DiffCallback(List<EntityLog> prev, List<EntityLog> next) {
-            this.prev = prev;
-            this.next = next;
+            this.prev.addAll(prev);
+            this.next.addAll(next);
         }
 
         @Override
@@ -138,12 +134,12 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
 
     @Override
     public long getItemId(int position) {
-        return filtered.get(position).id;
+        return items.get(position).id;
     }
 
     @Override
     public int getItemCount() {
-        return filtered.size();
+        return items.size();
     }
 
     @Override
@@ -154,7 +150,7 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        EntityLog log = filtered.get(position);
+        EntityLog log = items.get(position);
         holder.bindTo(log);
     }
 }

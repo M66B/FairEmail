@@ -37,7 +37,7 @@ public interface DaoRule {
     @Query("SELECT * FROM rule" +
             " WHERE folder = :folder" +
             " AND enabled" +
-            " ORDER BY `order`")
+            " ORDER BY `order`, name")
     List<EntityRule> getEnabledRules(long folder);
 
     @Query("SELECT rule.*, folder.account, folder.name AS folderName, account.name AS accountName FROM rule" +

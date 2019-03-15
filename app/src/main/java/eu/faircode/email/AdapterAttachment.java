@@ -62,11 +62,10 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     private boolean readonly;
     private boolean debug;
 
-    private List<EntityAttachment> all = new ArrayList<>();
-    private List<EntityAttachment> filtered = new ArrayList<>();
+    private List<EntityAttachment> items = new ArrayList<>();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        View itemView;
+        View view;
         ImageView ivDelete;
         TextView tvName;
         TextView tvType;
@@ -79,7 +78,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         ViewHolder(View itemView) {
             super(itemView);
 
-            this.itemView = itemView.findViewById(R.id.clItem);
+            view = itemView.findViewById(R.id.clItem);
             ivDelete = itemView.findViewById(R.id.ivDelete);
             tvName = itemView.findViewById(R.id.tvName);
             tvType = itemView.findViewById(R.id.tvType);
@@ -91,19 +90,19 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         }
 
         private void wire() {
-            itemView.setOnClickListener(this);
+            view.setOnClickListener(this);
             ivDelete.setOnClickListener(this);
             ivSave.setOnClickListener(this);
         }
 
         private void unwire() {
-            itemView.setOnClickListener(null);
+            view.setOnClickListener(null);
             ivDelete.setOnClickListener(null);
             ivSave.setOnClickListener(null);
         }
 
         private void bindTo(EntityAttachment attachment) {
-            itemView.setAlpha(attachment.isInline() ? Helper.LOW_LIGHT : 1.0f);
+            view.setAlpha(attachment.isInline() ? Helper.LOW_LIGHT : 1.0f);
 
             ivDelete.setVisibility(readonly ? View.GONE : attachment.isInline() ? View.INVISIBLE : View.VISIBLE);
             tvName.setText(attachment.name);
@@ -147,7 +146,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             int pos = getAdapterPosition();
             if (pos == RecyclerView.NO_POSITION)
                 return;
-            final EntityAttachment attachment = filtered.get(pos);
+            final EntityAttachment attachment = items.get(pos);
 
             if (view.getId() == R.id.ivDelete)
                 onDelete(attachment);
@@ -320,12 +319,9 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             }
         });
 
-        all = attachments;
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, attachments), false);
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(filtered, all));
-
-        filtered.clear();
-        filtered.addAll(all);
+        items = attachments;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
@@ -352,12 +348,12 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     }
 
     private class DiffCallback extends DiffUtil.Callback {
-        private List<EntityAttachment> prev;
-        private List<EntityAttachment> next;
+        private List<EntityAttachment> prev = new ArrayList<>();
+        private List<EntityAttachment> next = new ArrayList<>();
 
         DiffCallback(List<EntityAttachment> prev, List<EntityAttachment> next) {
-            this.prev = prev;
-            this.next = next;
+            this.prev.addAll(prev);
+            this.next.addAll(next);
         }
 
         @Override
@@ -387,12 +383,12 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
     @Override
     public long getItemId(int position) {
-        return filtered.get(position).id;
+        return items.get(position).id;
     }
 
     @Override
     public int getItemCount() {
-        return filtered.size();
+        return items.size();
     }
 
     @Override
@@ -405,7 +401,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
 
-        EntityAttachment attachment = filtered.get(position);
+        EntityAttachment attachment = items.get(position);
         holder.bindTo(attachment);
 
         holder.wire();

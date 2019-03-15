@@ -46,11 +46,10 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
     private LifecycleOwner owner;
     private LayoutInflater inflater;
 
-    private List<TupleRuleEx> all = new ArrayList<>();
-    private List<TupleRuleEx> filtered = new ArrayList<>();
+    private List<TupleRuleEx> items = new ArrayList<>();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private View itemView;
+        private View view;
         private TextView tvName;
         private TextView tvOrder;
         private ImageView ivStop;
@@ -58,22 +57,22 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         ViewHolder(View itemView) {
             super(itemView);
 
-            this.itemView = itemView.findViewById(R.id.clItem);
+            view = itemView.findViewById(R.id.clItem);
             tvName = itemView.findViewById(R.id.tvName);
             tvOrder = itemView.findViewById(R.id.tvOrder);
             ivStop = itemView.findViewById(R.id.ivStop);
         }
 
         private void wire() {
-            itemView.setOnClickListener(this);
+            view.setOnClickListener(this);
         }
 
         private void unwire() {
-            itemView.setOnClickListener(null);
+            view.setOnClickListener(null);
         }
 
         private void bindTo(TupleRuleEx rule) {
-            itemView.setActivated(!rule.enabled);
+            view.setActivated(!rule.enabled);
             tvName.setText(rule.name);
             tvOrder.setText(Integer.toString(rule.order));
             ivStop.setVisibility(rule.stop ? View.VISIBLE : View.INVISIBLE);
@@ -85,7 +84,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             if (pos == RecyclerView.NO_POSITION)
                 return;
 
-            TupleRuleEx rule = filtered.get(pos);
+            TupleRuleEx rule = items.get(pos);
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
@@ -112,12 +111,6 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         Collections.sort(rules, new Comparator<TupleRuleEx>() {
             @Override
             public int compare(TupleRuleEx r1, TupleRuleEx r2) {
-                int a = collator.compare(r1.accountName, r2.accountName);
-                if (a != 0)
-                    return a;
-                int f = collator.compare(r1.folderName, r2.folderName);
-                if (f != 0)
-                    return f;
                 int o = ((Integer) r1.order).compareTo(r2.order);
                 if (o != 0)
                     return 0;
@@ -125,12 +118,9 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             }
         });
 
-        all = rules;
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, rules), false);
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(filtered, all));
-
-        filtered.clear();
-        filtered.addAll(all);
+        items = rules;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
@@ -157,12 +147,12 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
     }
 
     private class DiffCallback extends DiffUtil.Callback {
-        private List<TupleRuleEx> prev;
-        private List<TupleRuleEx> next;
+        private List<TupleRuleEx> prev = new ArrayList<>();
+        private List<TupleRuleEx> next = new ArrayList<>();
 
         DiffCallback(List<TupleRuleEx> prev, List<TupleRuleEx> next) {
-            this.prev = prev;
-            this.next = next;
+            this.prev.addAll(prev);
+            this.next.addAll(next);
         }
 
         @Override
@@ -192,12 +182,12 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
     @Override
     public long getItemId(int position) {
-        return filtered.get(position).id;
+        return items.get(position).id;
     }
 
     @Override
     public int getItemCount() {
-        return filtered.size();
+        return items.size();
     }
 
     @Override
@@ -209,7 +199,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
-        TupleRuleEx rule = filtered.get(position);
+        TupleRuleEx rule = items.get(position);
         holder.bindTo(rule);
         holder.wire();
     }

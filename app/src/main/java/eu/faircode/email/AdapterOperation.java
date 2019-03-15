@@ -50,11 +50,10 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
     private boolean debug;
 
-    private List<TupleOperationEx> all = new ArrayList<>();
-    private List<TupleOperationEx> filtered = new ArrayList<>();
+    private List<TupleOperationEx> items = new ArrayList<>();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        private View itemView;
+        private View view;
         private TextView tvFolder;
         private TextView tvOperation;
         private TextView tvTime;
@@ -63,7 +62,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
         ViewHolder(View itemView) {
             super(itemView);
 
-            this.itemView = itemView.findViewById(R.id.clItem);
+            view = itemView.findViewById(R.id.clItem);
             tvFolder = itemView.findViewById(R.id.tvFolder);
             tvOperation = itemView.findViewById(R.id.tvOperation);
             tvTime = itemView.findViewById(R.id.tvTime);
@@ -71,19 +70,19 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
         }
 
         private void wire() {
-            itemView.setOnClickListener(this);
+            view.setOnClickListener(this);
             if (BuildConfig.DEBUG || debug)
-                itemView.setOnLongClickListener(this);
+                view.setOnLongClickListener(this);
         }
 
         private void unwire() {
-            itemView.setOnClickListener(null);
+            view.setOnClickListener(null);
             if (BuildConfig.DEBUG || debug)
-                itemView.setOnLongClickListener(null);
+                view.setOnLongClickListener(null);
         }
 
         private void bindTo(TupleOperationEx operation) {
-            itemView.setAlpha(operation.synchronize ? 1.0f : Helper.LOW_LIGHT);
+            view.setAlpha(operation.synchronize ? 1.0f : Helper.LOW_LIGHT);
 
             StringBuilder sb = new StringBuilder();
             sb.append(operation.name);
@@ -111,7 +110,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
             if (pos == RecyclerView.NO_POSITION)
                 return;
 
-            TupleOperationEx operation = filtered.get(pos);
+            TupleOperationEx operation = items.get(pos);
             if (operation == null)
                 return;
 
@@ -176,7 +175,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
             if (pos == RecyclerView.NO_POSITION)
                 return false;
 
-            TupleOperationEx operation = filtered.get(pos);
+            TupleOperationEx operation = items.get(pos);
             if (operation == null)
                 return false;
 
@@ -219,12 +218,9 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
     public void set(@NonNull List<TupleOperationEx> operations) {
         Log.i("Set operations=" + operations.size());
 
-        all = operations;
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, operations), false);
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(filtered, all));
-
-        filtered.clear();
-        filtered.addAll(all);
+        items = operations;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
@@ -251,12 +247,12 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
     }
 
     private class DiffCallback extends DiffUtil.Callback {
-        private List<TupleOperationEx> prev;
-        private List<TupleOperationEx> next;
+        private List<TupleOperationEx> prev = new ArrayList<>();
+        private List<TupleOperationEx> next = new ArrayList<>();
 
         DiffCallback(List<TupleOperationEx> prev, List<TupleOperationEx> next) {
-            this.prev = prev;
-            this.next = next;
+            this.prev.addAll(prev);
+            this.next.addAll(next);
         }
 
         @Override
@@ -286,12 +282,12 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
     @Override
     public long getItemId(int position) {
-        return filtered.get(position).id;
+        return items.get(position).id;
     }
 
     @Override
     public int getItemCount() {
-        return filtered.size();
+        return items.size();
     }
 
     @Override
@@ -304,7 +300,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
 
-        TupleOperationEx operation = filtered.get(position);
+        TupleOperationEx operation = items.get(position);
         holder.bindTo(operation);
 
         holder.wire();
