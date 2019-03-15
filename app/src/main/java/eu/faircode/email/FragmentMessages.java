@@ -2279,7 +2279,8 @@ public class FragmentMessages extends FragmentBase {
                     return;
                 }
 
-                getFragmentManager().popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                    getFragmentManager().popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
                 getArguments().putBoolean("fade", true);
 
