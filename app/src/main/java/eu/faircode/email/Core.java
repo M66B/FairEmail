@@ -532,7 +532,7 @@ class Core {
             if (itarget.getPermanentFlags().contains(Flags.Flag.SEEN)) {
                 boolean seen = (autoread || message.ui_seen);
                 icopy = itarget.getMessageByUID(uid);
-                if (seen != icopy.isSet(Flags.Flag.SEEN)) {
+                if (icopy != null && seen != icopy.isSet(Flags.Flag.SEEN)) {
                     Log.i(target.name + " Fixing id=" + message.id + " seen=" + seen);
                     icopy.setFlag(Flags.Flag.SEEN, seen);
                 }
@@ -542,7 +542,7 @@ class Core {
             if (itarget.getPermanentFlags().contains(Flags.Flag.DRAFT)) {
                 boolean draft = EntityFolder.DRAFTS.equals(target.type);
                 icopy = itarget.getMessageByUID(uid);
-                if (draft != icopy.isSet(Flags.Flag.DRAFT)) {
+                if (icopy != null && draft != icopy.isSet(Flags.Flag.DRAFT)) {
                     Log.i(target.name + " Fixing id=" + message.id + " draft=" + draft);
                     icopy.setFlag(Flags.Flag.DRAFT, draft);
                 }
