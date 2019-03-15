@@ -82,7 +82,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(19) Why are the pro features so expensive?](#user-content-faq19)
 * [(20) Can I get a refund?](#user-content-faq20)
 * [(21) How do I enable the notification light?](#user-content-faq21)
-* [(22) What do 'Couldn't connect to host', 'Connection refused', 'Network unreachable' and 'Software caused connection abort' mean?](#user-content-faq22)
+* [(22) What do 'Couldn't connect to host', 'Connection refused', 'Network unreachable', 'Software caused connection abort' and 'Connection reset by peer' mean?](#user-content-faq22)
 * [(23) Why do I get 'Too many simultaneous connections' ?](#user-content-faq23)
 * [(24) What is browse messages on the server?](#user-content-faq24)
 * [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
@@ -489,7 +489,7 @@ Note that apps cannot change notification settings, including the notification l
 <br />
 
 <a name="faq22"></a>
-**(22) What do 'Couldn't connect to host', 'Connection refused', 'Network unreachable' and 'Software caused connection abort' mean?**
+**(22) What do 'Couldn't connect to host', 'Connection refused', 'Network unreachable', 'Software caused connection abort' and 'Connection reset by peer' mean?**
 
 The messages *... Couldn't connect to host ...*, *... Connection refused ...* or *... Network unreachable ...*
 mean that FairEmail was not able to connect to the email server.
@@ -498,12 +498,15 @@ The message *... Software caused connection abort ...*
 means that the email server or something between FairEmail and the email server actively terminated an existing connection.
 This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
+The message *... Connection reset by peer ...* means that the email server actively terminated an existing connection.
+
 Possible causes are:
 
 * A firewall or router is blocking connections to the server
-* The email server is refusing to accept the connection
 * The host name or port number is invalid
 * The are problems with the internet connection
+* The email server is refusing to accept connections
+* There are too many connections to the server, see also the next question
 
 If you are using a VPN, the VPN provider might block the connection because it is too aggressively trying to prevent spam.
 
