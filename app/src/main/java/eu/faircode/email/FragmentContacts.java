@@ -19,10 +19,16 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +51,7 @@ public class FragmentContacts extends FragmentBase {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.menu_contacts);
+        setHasOptionsMenu(true);
 
         View view = inflater.inflate(R.layout.fragment_contacts, container, false);
 
@@ -86,5 +93,53 @@ public class FragmentContacts extends FragmentBase {
                 grpReady.setVisibility(View.VISIBLE);
             }
         });
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_contacts, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_delete:
+                onDelete();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onDelete() {
+        final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_message, null);
+        final TextView tvMessage = dview.findViewById(R.id.tvMessage);
+
+        tvMessage.setText(getText(R.string.title_delete_contacts));
+
+        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                .setView(dview)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onExecute(Context context, Bundle args) {
+                                int count = DB.getInstance(context).contact().clearContacts();
+                                Log.i("Cleared contacts=" + count);
+                                return null;
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                            }
+                        }.execute(getContext(), getViewLifecycleOwner(), new Bundle(), "setup:privacy");
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 }
