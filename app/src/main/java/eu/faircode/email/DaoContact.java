@@ -72,6 +72,12 @@ public interface DaoContact {
     @Query("DELETE FROM contact WHERE id= :id")
     int deleteContact(long id);
 
+    @Query("DELETE FROM contact" +
+            " WHERE last_contacted IS NOT NULL" +
+            " AND last_contacted < :before" +
+            " AND NOT favorite")
+    int deleteContacts(long before);
+
     @Query("DELETE FROM contact")
     int clearContacts();
 }

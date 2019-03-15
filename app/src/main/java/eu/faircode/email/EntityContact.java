@@ -40,6 +40,9 @@ import androidx.room.PrimaryKey;
         indices = {
                 @Index(value = {"email", "type"}, unique = true),
                 @Index(value = {"name", "type"}),
+                @Index(value = {"times_contacted"}),
+                @Index(value = {"last_contacted"}),
+                @Index(value = {"favorite"})
         }
 )
 public class EntityContact implements Serializable {
