@@ -633,7 +633,7 @@ The usage of settings tiles is explained [here](https://support.google.com/andro
 
 There are shortcuts available to:
 
-* compose a message
+* compose a new message to a favorite contact
 * setup accounts, identities, etc
 
 Shortcuts require Android 7.1 Nougat or later.
@@ -1041,6 +1041,8 @@ but even Google's Chrome cannot handle this.
 * Did you know that you can long press, hold and swipe to select a range of messages?
 * Did you know that you can retry sending messages by using pull-down-to-refresh in the outbox?
 * Did you know that you can swipe a conversation left or right to go to the next or previous conversation?
+* Did you know that you can tap on an image to see where it will be downloaded from?
+* Did you know that you can long press the bell icon to delete the notification channel for the email address?
 
 <br />
 
