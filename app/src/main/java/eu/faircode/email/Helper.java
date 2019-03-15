@@ -747,19 +747,20 @@ public class Helper {
         if (log)
             EntityLog.log(context, "isMetered: active caps=" + caps);
 
-        if (!caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
+        if (!caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) { // 21
             if (log)
                 EntityLog.log(context, "isMetered: no internet");
             return null;
         }
 
-        if (!caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_RESTRICTED)) {
+        if (!caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_RESTRICTED)) { // 21
             if (log)
                 EntityLog.log(context, "isMetered: active restricted");
             return null;
         }
 
-        if (!caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_FOREGROUND)) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
+                !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_FOREGROUND)) { // 28
             if (log)
                 EntityLog.log(context, "isMetered: active background");
             return null;
@@ -805,7 +806,8 @@ public class Helper {
                     continue;
                 }
 
-                if (!caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_FOREGROUND)) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
+                        !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_FOREGROUND)) {
                     if (log)
                         EntityLog.log(context, "isMetered: underlying background");
                     continue;
