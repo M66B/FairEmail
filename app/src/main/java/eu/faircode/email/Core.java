@@ -464,20 +464,29 @@ class Core {
         // Move message
         DB db = DB.getInstance(context);
 
-        Message imessage = ifolder.getMessageByUID(message.uid);
-        if (imessage == null)
-            throw new MessageRemovedException();
-
         // Get arguments
         long id = jargs.getLong(0);
         boolean autoread = (jargs.length() > 1 && jargs.getBoolean(1));
         Long newid = (jargs.length() > 2 && !jargs.isNull(2) ? jargs.getLong(2) : null);
+
+        // Get source message
+        Message imessage = ifolder.getMessageByUID(message.uid);
+        if (imessage == null)
+            throw new MessageRemovedException();
 
         // Get target folder
         EntityFolder target = db.folder().getFolder(id);
         if (target == null)
             throw new FolderNotFoundException();
         IMAPFolder itarget = (IMAPFolder) istore.getFolder(target.name);
+
+        // Get message ID
+        String msgid;
+        if (copy || message.msgid == null) {
+            msgid = EntityMessage.generateMessageId();
+            Log.i(target.name + " generated message id=" + msgid);
+        } else
+            msgid = message.msgid;
 
         // Serialize source message
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -486,13 +495,6 @@ class Core {
         // Deserialize target message
         ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
         Message icopy = new MimeMessage(isession, bis);
-
-        // Make sure the message has a message ID
-        if (copy || message.msgid == null) {
-            String msgid = EntityMessage.generateMessageId();
-            Log.i(target.name + " generated message id=" + msgid);
-            icopy.setHeader("Message-ID", msgid);
-        }
 
         try {
             // Needed to read flags
@@ -513,12 +515,18 @@ class Core {
                 if (itarget.getPermanentFlags().contains(Flags.Flag.DRAFT))
                     icopy.setFlag(Flags.Flag.DRAFT, true);
 
+            icopy.setHeader("Message-ID", msgid);
+
             // Append target
             long uid = append(istore, itarget, (MimeMessage) icopy);
             if (newid != null) {
                 Log.i("Moved id=" + newid + " uid=" + uid);
                 db.message().setMessageUid(newid, uid);
             }
+
+            // Fixed timing issue of at least Courier based servers
+            itarget.close(false);
+            itarget.open(Folder.READ_WRITE);
 
             // Some providers, like Gmail, don't honor the appended seen flag
             if (itarget.getPermanentFlags().contains(Flags.Flag.SEEN)) {
@@ -670,10 +678,6 @@ class Core {
             }
         } else
             ifolder.appendMessages(new Message[]{imessage});
-
-        // Fixed timing issue of at least Courier based servers
-        ifolder.close(false);
-        ifolder.open(Folder.READ_WRITE);
 
         if (uid <= 0) {
             Log.i("Searching for appended msgid=" + msgid);
