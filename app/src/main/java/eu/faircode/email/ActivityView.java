@@ -19,8 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.Manifest;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -30,19 +28,12 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
-import android.content.pm.ShortcutInfo;
-import android.content.pm.ShortcutManager;
 import android.content.res.Configuration;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Icon;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ParcelFileDescriptor;
 import android.preference.PreferenceManager;
-import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -404,7 +395,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         pgpService = new OpenPgpServiceConnection(this, "org.sufficientlysecure.keychain");
         pgpService.bindToService();
 
-        updateShortcuts();
+        Shortcuts.update(this, this);
     }
 
     private void init() {
@@ -780,69 +771,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
             }
         }.execute(this, args, "update:check");
-    }
-
-    private void updateShortcuts() {
-        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.N_MR1)
-            return;
-
-        new SimpleTask<List<ShortcutInfo>>() {
-            @Override
-            @TargetApi(Build.VERSION_CODES.N_MR1)
-            protected List<ShortcutInfo> onExecute(Context context, Bundle args) {
-                ShortcutManager sm = (ShortcutManager) getSystemService(Context.SHORTCUT_SERVICE);
-                int count = sm.getMaxShortcutCountPerActivity() - sm.getManifestShortcuts().size();
-                Log.i("Shortcuts count=" + count +
-                        " app=" + sm.getMaxShortcutCountPerActivity() +
-                        " manifest=" + sm.getManifestShortcuts().size());
-
-                List<ShortcutInfo> shortcuts = new ArrayList<>();
-                if (count > 0) {
-                    DB db = DB.getInstance(context);
-                    List<EntityContact> frequently = db.contact().getFrequentlyContacted(count);
-                    for (EntityContact contact : frequently) {
-                        Intent intent = new Intent(context, ActivityCompose.class);
-                        intent.setAction(Intent.ACTION_SEND);
-                        intent.setData(Uri.parse("mailto:" + contact.email));
-
-                        Icon icon = null;
-                        if (contact.avatar != null &&
-                                Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
-                            // Create icon from bitmap because launcher might not have contacts permission
-                            InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
-                                    getContentResolver(), Uri.parse(contact.avatar));
-                            Bitmap bitmap = BitmapFactory.decodeStream(is);
-                            if (bitmap != null)
-                                icon = Icon.createWithBitmap(bitmap);
-                        }
-                        if (icon == null)
-                            icon = Icon.createWithResource(context, R.drawable.ic_shortcut_email);
-
-                        shortcuts.add(
-                                new ShortcutInfo.Builder(context, Long.toString(contact.id))
-                                        .setIcon(icon)
-                                        .setRank(shortcuts.size() + 1)
-                                        .setShortLabel(contact.name == null ? contact.email : contact.name)
-                                        .setIntent(intent)
-                                        .build());
-                    }
-                }
-
-                return shortcuts;
-            }
-
-            @Override
-            @TargetApi(Build.VERSION_CODES.N_MR1)
-            protected void onExecuted(Bundle args, List<ShortcutInfo> shortcuts) {
-                ShortcutManager sm = (ShortcutManager) getSystemService(Context.SHORTCUT_SERVICE);
-                sm.setDynamicShortcuts(shortcuts);
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
-            }
-        }.execute(this, this, new Bundle(), "shortcuts:get");
     }
 
     private Intent getIntentInvite() {

@@ -93,6 +93,8 @@ public class FragmentContacts extends FragmentBase {
                 grpReady.setVisibility(View.VISIBLE);
             }
         });
+
+        Shortcuts.update(getContext(), getViewLifecycleOwner());
     }
 
     @Override
