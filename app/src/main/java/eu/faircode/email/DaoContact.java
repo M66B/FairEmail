@@ -69,6 +69,9 @@ public interface DaoContact {
     @Query("UPDATE contact SET favorite = :favorite WHERE id = :id")
     int setContactFavorite(long id, boolean favorite);
 
-    @Query("DELETE from contact")
+    @Query("DELETE FROM contact WHERE id= :id")
+    int deleteContact(long id);
+
+    @Query("DELETE FROM contact")
     int clearContacts();
 }

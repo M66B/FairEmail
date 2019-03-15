@@ -54,7 +54,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
     private static NumberFormat nf = NumberFormat.getNumberInstance();
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View itemView;
         private ImageView ivType;
         private ImageView ivAvatar;
@@ -79,10 +79,12 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
         private void wire() {
             itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
         }
 
         private void unwire() {
             itemView.setOnClickListener(null);
+            itemView.setOnLongClickListener(null);
         }
 
         private void bindTo(EntityContact contact) {
@@ -142,6 +144,42 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                     Helper.unexpectedError(context, owner, ex);
                 }
             }.execute(context, owner, args, "contact:favorite");
+        }
+
+        @Override
+        public boolean onLongClick(View view) {
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return false;
+
+            EntityContact contact = filtered.get(pos);
+
+            Bundle args = new Bundle();
+            args.putLong("id", contact.id);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    db.contact().deleteContact(id);
+
+                    return null;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Void data) {
+                    Shortcuts.update(context, owner);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, owner, ex);
+                }
+            }.execute(context, owner, args, "contact:delete");
+
+            return true;
         }
     }
 
