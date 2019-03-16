@@ -528,7 +528,7 @@ Possible causes are:
 * The previous connection was terminated abruptly for example by abruptly losing internet connectivity, for example when turning on flight mode
 
 If only FairEmail is connecting to the email server, first try to wait half an hour to see if the problem resolves itself,
-else enable the folder settings '*Poll instead of synchronize*' for some folders.
+else enable the folder setting '*Poll instead of synchronize*' for some folders.
 The poll interval can be configured in the account settings.
 
 The maximum number of simultaneous folder connections for Gmail is 15,
