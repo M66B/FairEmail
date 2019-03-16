@@ -26,7 +26,6 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
-import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Patterns;
@@ -124,6 +123,7 @@ public class FragmentIdentity extends FragmentBase {
     private boolean saving = false;
     private int auth_type = Helper.AUTH_TYPE_PASSWORD;
     private int color = Color.TRANSPARENT;
+    private String signature = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -300,20 +300,39 @@ public class FragmentIdentity extends FragmentBase {
             }
         });
 
+        etSignature.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (etSignature.getTag() == null)
+                    signature = HtmlHelper.toHtml(s);
+                else
+                    etSignature.setTag(null);
+            }
+        });
+
         btnHtml.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_html, null);
                 final EditText etHtml = dview.findViewById(R.id.etHtml);
-                etHtml.setText(HtmlHelper.toHtml(etSignature.getText()));
+                etHtml.setText(signature);
 
                 new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                         .setView(dview)
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Spanned html = HtmlHelper.fromHtml(etHtml.getText().toString());
-                                etSignature.setText(html);
+                                signature = etHtml.getText().toString();
+                                etSignature.setTag(true);
+                                etSignature.setText(HtmlHelper.fromHtml(signature));
                             }
                         })
                         .show();
@@ -493,7 +512,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("realm", etRealm.getText().toString());
         args.putBoolean("use_ip", cbUseIp.isChecked());
         args.putInt("color", color);
-        args.putString("signature", HtmlHelper.toHtml(etSignature.getText()));
+        args.putString("signature", signature);
         args.putBoolean("synchronize", cbSynchronize.isChecked());
         args.putBoolean("primary", cbPrimary.isChecked());
 
@@ -581,6 +600,8 @@ public class FragmentIdentity extends FragmentBase {
 
                 if (Color.TRANSPARENT == color)
                     color = null;
+                if (TextUtils.isEmpty(signature))
+                    signature = null;
 
                 DB db = DB.getInstance(context);
                 EntityIdentity identity = db.identity().getIdentity(id);
@@ -751,8 +772,10 @@ public class FragmentIdentity extends FragmentBase {
                     etEmail.setText(identity == null ? null : identity.email);
 
                     etDisplay.setText(identity == null ? null : identity.display);
-                    etSignature.setText(identity == null ||
-                            TextUtils.isEmpty(identity.signature) ? null : HtmlHelper.fromHtml(identity.signature));
+
+                    signature = (identity == null ? null : identity.signature);
+                    etSignature.setTag(true);
+                    etSignature.setText(TextUtils.isEmpty(signature) ? null : HtmlHelper.fromHtml(signature));
 
                     etHost.setText(identity == null ? null : identity.host);
                     rgEncryption.check(identity != null && identity.starttls ? R.id.radio_starttls : R.id.radio_ssl);
