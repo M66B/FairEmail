@@ -470,7 +470,6 @@ class Core {
         // Get arguments
         long id = jargs.getLong(0);
         boolean autoread = (jargs.length() > 1 && jargs.getBoolean(1));
-        Long newid = (jargs.length() > 2 && !jargs.isNull(2) ? jargs.getLong(2) : null);
 
         // Get source message
         Message imessage = ifolder.getMessageByUID(message.uid);
@@ -522,10 +521,14 @@ class Core {
 
             // Append target
             long uid = append(istore, itarget, (MimeMessage) icopy);
-            if (newid != null) {
-                Log.i(folder.name + " moved newid=" + newid + " uid=" + uid);
-                db.message().setMessageUid(newid, uid);
-            }
+
+            // This won't work properly when deleting the same message in multiple folders
+            // For example Gmail's inbox/archive
+            //Long newid = (jargs.length() > 2 && !jargs.isNull(2) ? jargs.getLong(2) : null);
+            //if (newid != null) {
+            //    Log.i(folder.name + " moved newid=" + newid + " uid=" + uid);
+            //    db.message().setMessageUid(newid, uid);
+            //}
 
             // Fixed timing issue of at least Courier based servers
             itarget.close(false);
