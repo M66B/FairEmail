@@ -463,6 +463,7 @@
     <string name="title_hint_sync">Het downloaden van berichten kan enige tijd duren, afhankelijk van de snelheid van de provider, de internet-verbinding en het apparaat en van het aantal berichten. Tijdens het downloaden van berichten kan de app trager reageren.</string>
     <string name="title_hint_image_link">Afbeeldingskoppeling</string>
     <string name="title_hint_tracking_image">Tracking afbeelding %1$sx%2$s</string>
+    <string name="title_hint_ignore_contact">Druk lang op een contact om het nooit als een favoriet te beschouwen</string>
     <string name="title_open_link">Link openen</string>
     <string name="title_show_organization">Toon organisatie</string>
     <string name="title_insecure_link">Deze link is onveilig</string>
