@@ -21,6 +21,9 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -144,18 +147,31 @@ public class FragmentContacts extends FragmentBase {
     }
 
     @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        PackageManager pm = getContext().getPackageManager();
+        menu.findItem(R.id.menu_help).setVisible(getIntentHelp().resolveActivity(pm) != null);
+        super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_delete:
-                onDelete();
+            case R.id.menu_help:
+                onMenuHelp();
                 return true;
-
+            case R.id.menu_delete:
+                onMenuDelete();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private void onDelete() {
+    private void onMenuHelp() {
+        startActivity(getIntentHelp());
+    }
+
+    private void onMenuDelete() {
         final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_message, null);
         final TextView tvMessage = dview.findViewById(R.id.tvMessage);
 
@@ -183,5 +199,11 @@ public class FragmentContacts extends FragmentBase {
                 })
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();
+    }
+
+    private static Intent getIntentHelp() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq84"));
+        return intent;
     }
 }
