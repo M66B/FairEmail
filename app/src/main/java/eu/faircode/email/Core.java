@@ -520,7 +520,7 @@ class Core {
             // Append target
             long uid = append(istore, itarget, (MimeMessage) icopy);
             if (newid != null) {
-                Log.i("Moved id=" + newid + " uid=" + uid);
+                Log.i(folder.name + " moved newid=" + newid + " uid=" + uid);
                 db.message().setMessageUid(newid, uid);
             }
 
