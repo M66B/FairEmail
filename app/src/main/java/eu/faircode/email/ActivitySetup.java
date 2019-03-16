@@ -161,6 +161,9 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     case R.string.title_setup_advanced:
                         onMenuOptions();
                         break;
+                    case R.string.menu_contacts:
+                        onMenuContacts();
+                        break;
                     case R.string.menu_legend:
                         onMenuLegend();
                         break;
@@ -202,15 +205,16 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
             items.add(new DrawerItem(-7, R.drawable.baseline_notifications_24, R.string.title_setup_notifications));
 
         items.add(new DrawerItem(-8, R.drawable.baseline_settings_applications_24, R.string.title_setup_advanced));
+        items.add(new DrawerItem(-9, R.drawable.baseline_person_24, R.string.menu_contacts));
 
-        items.add(new DrawerItem(-9));
+        items.add(new DrawerItem(-10));
 
-        items.add(new DrawerItem(-10, R.drawable.baseline_help_24, R.string.menu_legend));
+        items.add(new DrawerItem(-11, R.drawable.baseline_help_24, R.string.menu_legend));
         if (Helper.getIntentFAQ().resolveActivity(getPackageManager()) != null)
-            items.add(new DrawerItem(-11, R.drawable.baseline_question_answer_24, R.string.menu_faq));
+            items.add(new DrawerItem(-12, R.drawable.baseline_question_answer_24, R.string.menu_faq));
         if (Helper.getIntentPrivacy().resolveActivity(getPackageManager()) != null)
-            items.add(new DrawerItem(-12, R.drawable.baseline_account_box_24, R.string.menu_privacy));
-        items.add(new DrawerItem(-13, R.drawable.baseline_info_24, R.string.menu_about));
+            items.add(new DrawerItem(-13, R.drawable.baseline_account_box_24, R.string.menu_privacy));
+        items.add(new DrawerItem(-14, R.drawable.baseline_info_24, R.string.menu_about));
 
         drawerArray.set(items);
 
@@ -399,6 +403,15 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentOptions()).addToBackStack("options");
+        fragmentTransaction.commit();
+    }
+
+    private void onMenuContacts() {
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+            getSupportFragmentManager().popBackStack("contacts", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentContacts()).addToBackStack("contacts");
         fragmentTransaction.commit();
     }
 
