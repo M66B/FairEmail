@@ -78,12 +78,14 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
         private void wire() {
             view.setOnClickListener(this);
-            view.setOnLongClickListener(this);
+            if (BuildConfig.DEBUG)
+                view.setOnLongClickListener(this);
         }
 
         private void unwire() {
             view.setOnClickListener(null);
-            view.setOnLongClickListener(null);
+            if (BuildConfig.DEBUG)
+                view.setOnLongClickListener(null);
         }
 
         private void bindTo(EntityContact contact) {
