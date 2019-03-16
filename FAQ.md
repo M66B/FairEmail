@@ -1368,10 +1368,11 @@ So, double check the password or reduce the number of folders to synchronize.
 <a name="faq84"></a>
 **(84) What are local contacts for?**
 
-The main use of the local contacts storage is to offer auto completion when no contacts permission is of can be granted to FairEmail.
+The main use of the local contacts storage is to offer auto completion when no contacts permission is or can be granted to FairEmail.
 
 Another use is to generate [shortcuts](#user-content-faq31) on recent Android versions to quickly send a message to frequently contacted people.
-This is also why the number of times contacted and the last time contacted is recorded and why you can make a contact a favorite or exclude it by long pressing it.
+This is also why the number of times contacted and the last time contacted is recorded
+and why you can make a contact a favorite or exclude from favorites by long pressing it.
 
 The list of contacts is sorted on number of times contacted and the last time contacted.
 
