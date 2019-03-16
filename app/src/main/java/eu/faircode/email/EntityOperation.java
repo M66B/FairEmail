@@ -111,7 +111,6 @@ public class EntityOperation {
                 // 0: target folder id
                 // 1: allow auto read
                 // 2: temporary target message id
-                // 3: wait operation id
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean autoread = prefs.getBoolean("autoread", false);
