@@ -1270,53 +1270,88 @@ public class FragmentMessages extends FragmentBase {
     }
 
     private void onActionDeleteSelection() {
-        int count = selectionTracker.getSelection().size();
-        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setMessage(getResources().getQuantityString(R.plurals.title_deleting_messages, count, count))
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Bundle args = new Bundle();
-                        args.putLongArray("ids", getSelection());
+        Bundle args = new Bundle();
+        args.putLongArray("selected", getSelection());
 
-                        selectionTracker.clearSelection();
+        new SimpleTask<List<Long>>() {
+            @Override
+            protected List<Long> onExecute(Context context, Bundle args) {
+                long[] selected = args.getLongArray("selected");
+                List<Long> ids = new ArrayList<>();
 
-                        new SimpleTask<Void>() {
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    for (long id : selected) {
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message != null) {
+                            List<EntityMessage> messages = db.message().getMessageByThread(
+                                    message.account, message.thread, threading ? null : id, message.folder);
+                            for (EntityMessage threaded : messages)
+                                ids.add(threaded.id);
+                        }
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return ids;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, final List<Long> ids) {
+                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                        .setMessage(getResources().getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()))
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
-                            protected Void onExecute(Context context, Bundle args) {
-                                long[] ids = args.getLongArray("ids");
+                            public void onClick(DialogInterface dialog, int which) {
+                                Bundle args = new Bundle();
+                                args.putLongArray("ids", Helper.toLongArray(ids));
 
-                                DB db = DB.getInstance(context);
-                                try {
-                                    db.beginTransaction();
+                                selectionTracker.clearSelection();
 
-                                    for (long id : ids) {
-                                        EntityMessage message = db.message().getMessage(id);
-                                        if (message != null) {
-                                            List<EntityMessage> messages = db.message().getMessageByThread(
-                                                    message.account, message.thread, threading ? null : id, message.folder);
-                                            for (EntityMessage threaded : messages)
-                                                EntityOperation.queue(context, db, threaded, EntityOperation.DELETE);
+                                new SimpleTask<Void>() {
+                                    @Override
+                                    protected Void onExecute(Context context, Bundle args) {
+                                        long[] ids = args.getLongArray("ids");
+
+                                        DB db = DB.getInstance(context);
+                                        try {
+                                            db.beginTransaction();
+
+                                            for (long id : ids) {
+                                                EntityMessage message = db.message().getMessage(id);
+                                                if (message != null)
+                                                    EntityOperation.queue(context, db, message, EntityOperation.DELETE);
+                                            }
+
+                                            db.setTransactionSuccessful();
+                                        } finally {
+                                            db.endTransaction();
                                         }
+
+                                        return null;
                                     }
 
-                                    db.setTransactionSuccessful();
-                                } finally {
-                                    db.endTransaction();
-                                }
-
-                                return null;
+                                    @Override
+                                    protected void onException(Bundle args, Throwable ex) {
+                                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                                    }
+                                }.execute(FragmentMessages.this, args, "messages:delete:execute");
                             }
+                        })
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show();
+            }
 
-                            @Override
-                            protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                            }
-                        }.execute(FragmentMessages.this, args, "messages:delete");
-                    }
-                })
-                .setNegativeButton(android.R.string.cancel, null)
-                .show();
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(FragmentMessages.this, args, "messages:delete:ask");
     }
 
     private void onActionJunkSelection() {
