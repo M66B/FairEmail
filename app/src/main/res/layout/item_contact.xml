@@ -13,7 +13,7 @@
             android:id="@+id/ivType"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/baseline_mail_24"
+            android:src="@drawable/baseline_call_received_24"
             app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/ivAvatar" />

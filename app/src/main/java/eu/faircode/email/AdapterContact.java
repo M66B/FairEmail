@@ -92,9 +92,9 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             view.setAlpha(contact.state == 2 ? Helper.LOW_LIGHT : 1.0f);
 
             if (contact.type == EntityContact.TYPE_FROM)
-                ivType.setImageResource(R.drawable.baseline_mail_24);
+                ivType.setImageResource(R.drawable.baseline_call_received_24);
             else if (contact.type == EntityContact.TYPE_TO)
-                ivType.setImageResource(R.drawable.baseline_send_24);
+                ivType.setImageResource(R.drawable.baseline_call_made_24);
             else
                 ivType.setImageDrawable(null);
 
