@@ -424,8 +424,9 @@ class Core {
                 imessage.setFlag(Flags.Flag.DRAFT, true);
 
         // Add message
+        Log.i(folder.name + " ADD appending id=" + message.id);
         long uid = append(istore, ifolder, imessage);
-        Log.i(folder.name + " appended id=" + message.id + " uid=" + uid);
+        Log.i(folder.name + " ADD appended id=" + message.id + " uid=" + uid);
         db.message().setMessageUid(message.id, uid);
 
         if (folder.id.equals(message.folder)) {
@@ -434,9 +435,9 @@ class Core {
             for (Message idelete : ideletes) {
                 long duid = ifolder.getUID(idelete);
                 if (duid == uid)
-                    Log.i(folder.name + " append confirmed uid=" + duid);
+                    Log.i(folder.name + " ADD append confirmed uid=" + duid);
                 else {
-                    Log.i(folder.name + " deleting uid=" + duid + " msgid=" + message.msgid);
+                    Log.i(folder.name + " ADD deleting uid=" + duid + " msgid=" + message.msgid);
                     idelete.setFlag(Flags.Flag.DELETED, true);
                 }
             }
@@ -480,14 +481,6 @@ class Core {
             throw new FolderNotFoundException();
         IMAPFolder itarget = (IMAPFolder) istore.getFolder(target.name);
 
-        // Get message ID
-        String msgid;
-        if (copy || message.msgid == null) {
-            msgid = EntityMessage.generateMessageId();
-            Log.i(target.name + " generated message id=" + msgid);
-        } else
-            msgid = message.msgid;
-
         // Serialize source message
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         imessage.writeTo(bos);
@@ -515,12 +508,14 @@ class Core {
                 if (itarget.getPermanentFlags().contains(Flags.Flag.DRAFT))
                     icopy.setFlag(Flags.Flag.DRAFT, true);
 
-            icopy.setHeader("Message-ID", msgid);
+            // Generate new ID
+            icopy.setHeader("Message-ID", EntityMessage.generateMessageId());
 
             // Append target
+            Log.i(folder.name + " MOVE appending id=" + message.id);
             long uid = append(istore, itarget, (MimeMessage) icopy);
             if (newid != null) {
-                Log.i("Moved id=" + newid + " uid=" + uid);
+                Log.i(folder.name + " MOVE moved id=" + newid + " uid=" + uid);
                 db.message().setMessageUid(newid, uid);
             }
 
