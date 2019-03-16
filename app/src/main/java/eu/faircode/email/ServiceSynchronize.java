@@ -83,6 +83,7 @@ import androidx.preference.PreferenceManager;
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class ServiceSynchronize extends LifecycleService {
+    private Helper.NetworkState networkState = new Helper.NetworkState();
     private Core.State state;
     private boolean started = false;
     private int queued = 0;
@@ -284,7 +285,7 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void queue_reload(final boolean start, final String reason) {
         final boolean doStop = started;
-        final boolean doStart = (start && isEnabled() && Helper.suitableNetwork(this, true));
+        final boolean doStart = (start && isEnabled() && networkState.isSuitable());
 
         EntityLog.log(this, "Queue reload" +
                 " doStop=" + doStop + " doStart=" + doStart + " queued=" + queued + " " + reason);
@@ -355,7 +356,7 @@ public class ServiceSynchronize extends LifecycleService {
     private void start() {
         EntityLog.log(this, "Main start");
 
-        state = new Core.State();
+        state = new Core.State(networkState);
         state.runnable(new Runnable() {
             PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
             PowerManager.WakeLock wl = pm.newWakeLock(
@@ -390,7 +391,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 account.deleteNotificationChannel(ServiceSynchronize.this);
 
                         Log.i(account.host + "/" + account.user + " run");
-                        final Core.State astate = new Core.State();
+                        final Core.State astate = new Core.State(state);
                         astate.runnable(new Runnable() {
                             @Override
                             public void run() {
@@ -678,7 +679,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                 if (db.folder().getFolderDownload(folder.id))
                                                     Core.downloadMessage(ServiceSynchronize.this,
                                                             folder, (IMAPFolder) ifolder,
-                                                            (IMAPMessage) imessage, message.id);
+                                                            (IMAPMessage) imessage, message.id, state);
                                             } catch (MessageRemovedException ex) {
                                                 Log.w(folder.name, ex);
                                             } catch (FolderClosedException ex) {
@@ -767,7 +768,7 @@ public class ServiceSynchronize extends LifecycleService {
                                             if (db.folder().getFolderDownload(folder.id))
                                                 Core.downloadMessage(ServiceSynchronize.this,
                                                         folder, (IMAPFolder) ifolder,
-                                                        (IMAPMessage) e.getMessage(), message.id);
+                                                        (IMAPMessage) e.getMessage(), message.id, state);
                                         } catch (MessageRemovedException ex) {
                                             Log.w(folder.name, ex);
                                         } catch (FolderClosedException ex) {
@@ -1087,12 +1088,14 @@ public class ServiceSynchronize extends LifecycleService {
     ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
         @Override
         public void onAvailable(Network network) {
+            networkState.update(Helper.getNetworkState(ServiceSynchronize.this));
+
             synchronized (ServiceSynchronize.this) {
                 try {
                     ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                     EntityLog.log(ServiceSynchronize.this, "Available " + network + " " + cm.getNetworkInfo(network));
 
-                    if (!started && Helper.suitableNetwork(ServiceSynchronize.this, true))
+                    if (!started && networkState.isSuitable())
                         queue_reload(true, "connect " + network);
                 } catch (Throwable ex) {
                     Log.e(ex);
@@ -1102,11 +1105,13 @@ public class ServiceSynchronize extends LifecycleService {
 
         @Override
         public void onCapabilitiesChanged(Network network, NetworkCapabilities capabilities) {
+            networkState.update(Helper.getNetworkState(ServiceSynchronize.this));
+
             synchronized (ServiceSynchronize.this) {
                 try {
                     if (!started) {
                         EntityLog.log(ServiceSynchronize.this, "Network " + network + " capabilities " + capabilities);
-                        if (Helper.suitableNetwork(ServiceSynchronize.this, true))
+                        if (networkState.isSuitable())
                             queue_reload(true, "capabilities " + network);
                     }
                 } catch (Throwable ex) {
@@ -1117,11 +1122,13 @@ public class ServiceSynchronize extends LifecycleService {
 
         @Override
         public void onLost(Network network) {
+            networkState.update(Helper.getNetworkState(ServiceSynchronize.this));
+
             synchronized (ServiceSynchronize.this) {
                 try {
                     EntityLog.log(ServiceSynchronize.this, "Lost " + network);
 
-                    if (started && !Helper.suitableNetwork(ServiceSynchronize.this, true)) {
+                    if (started && !networkState.isSuitable()) {
                         lastLost = new Date().getTime();
                         queue_reload(false, "disconnect " + network);
                     }

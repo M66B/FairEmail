@@ -144,7 +144,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean subject_italic;
     private int zoom;
     private String sort;
-    private boolean internet;
+    private boolean suitable;
     private IProperties properties;
 
     private boolean date;
@@ -778,8 +778,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             grpHeaders.setVisibility(show_headers ? View.VISIBLE : View.GONE);
             if (show_headers && message.headers == null) {
-                pbHeaders.setVisibility(internet ? View.VISIBLE : View.GONE);
-                tvNoInternetHeaders.setVisibility(internet ? View.GONE : View.VISIBLE);
+                pbHeaders.setVisibility(suitable ? View.VISIBLE : View.GONE);
+                tvNoInternetHeaders.setVisibility(suitable ? View.GONE : View.VISIBLE);
             } else {
                 pbHeaders.setVisibility(View.GONE);
                 tvNoInternetHeaders.setVisibility(View.GONE);
@@ -967,8 +967,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, sargs, "message:actions");
 
             // Message text
-            pbBody.setVisibility(internet || message.content ? View.VISIBLE : View.GONE);
-            tvNoInternetBody.setVisibility(internet || message.content ? View.GONE : View.VISIBLE);
+            pbBody.setVisibility(suitable || message.content ? View.VISIBLE : View.GONE);
+            tvNoInternetBody.setVisibility(suitable || message.content ? View.GONE : View.VISIBLE);
 
             if (message.content)
                 if (show_html)
@@ -1016,9 +1016,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             cbInline.setOnCheckedChangeListener(null);
             cbInline.setChecked(show_inline);
             cbInline.setVisibility(has_inline ? View.VISIBLE : View.GONE);
-            btnDownloadAttachments.setVisibility(download && internet ? View.VISIBLE : View.GONE);
+            btnDownloadAttachments.setVisibility(download && suitable ? View.VISIBLE : View.GONE);
             btnSaveAttachments.setVisibility(save ? View.VISIBLE : View.GONE);
-            tvNoInternetAttachments.setVisibility(downloading && !internet ? View.VISIBLE : View.GONE);
+            tvNoInternetAttachments.setVisibility(downloading && !suitable ? View.VISIBLE : View.GONE);
 
             cbInline.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
@@ -2398,7 +2398,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             properties.setValue("headers", data.message.id, show_headers);
             if (show_headers && data.message.headers == null) {
                 grpHeaders.setVisibility(View.VISIBLE);
-                if (internet)
+                if (suitable)
                     pbHeaders.setVisibility(View.VISIBLE);
                 else
                     tvNoInternetHeaders.setVisibility(View.VISIBLE);
@@ -2939,7 +2939,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.subject_italic = prefs.getBoolean("subject_italic", true);
         this.zoom = zoom;
         this.sort = sort;
-        this.internet = Helper.suitableNetwork(context, false);
+        this.suitable = Helper.getNetworkState(context).isSuitable();
         this.properties = properties;
 
 
@@ -3021,9 +3021,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     void checkInternet() {
-        boolean internet = Helper.suitableNetwork(context, false);
-        if (this.internet != internet) {
-            this.internet = internet;
+        boolean suitable = Helper.getNetworkState(context).isSuitable();
+        if (this.suitable != suitable) {
+            this.suitable = suitable;
             notifyDataSetChanged();
         }
     }

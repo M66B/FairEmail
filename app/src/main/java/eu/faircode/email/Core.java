@@ -1037,7 +1037,7 @@ class Core {
                                 downloadMessage(
                                         context,
                                         folder, ifolder,
-                                        (IMAPMessage) isub[j], ids[from + j]);
+                                        (IMAPMessage) isub[j], ids[from + j], state);
                         } catch (FolderClosedException ex) {
                             throw ex;
                         } catch (FolderClosedIOException ex) {
@@ -1380,7 +1380,7 @@ class Core {
     static void downloadMessage(
             Context context,
             EntityFolder folder, IMAPFolder ifolder,
-            IMAPMessage imessage, long id) throws MessagingException, IOException {
+            IMAPMessage imessage, long id, State state) throws MessagingException, IOException {
         DB db = DB.getInstance(context);
         EntityMessage message = db.message().getMessage(id);
         if (message == null)
@@ -1393,18 +1393,16 @@ class Core {
 
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
         MessageHelper helper = new MessageHelper(imessage);
-        Boolean isMetered = Helper.isMetered(context, false);
-        boolean metered = (isMetered == null || isMetered);
 
         boolean fetch = false;
         if (!message.content)
-            if (!metered || (message.size != null && message.size < maxSize))
+            if (state.getNetworkState().isUnmetered() || (message.size != null && message.size < maxSize))
                 fetch = true;
 
         if (!fetch)
             for (EntityAttachment attachment : attachments)
                 if (!attachment.available)
-                    if (!metered || (attachment.size != null && attachment.size < maxSize)) {
+                    if (state.getNetworkState().isUnmetered() || (attachment.size != null && attachment.size < maxSize)) {
                         fetch = true;
                         break;
                     }
@@ -1425,7 +1423,7 @@ class Core {
             MessageHelper.MessageParts parts = helper.getMessageParts();
 
             if (!message.content) {
-                if (!metered || (message.size != null && message.size < maxSize)) {
+                if (state.getNetworkState().isUnmetered() || (message.size != null && message.size < maxSize)) {
                     String body = parts.getHtml(context);
                     Helper.writeText(message.getFile(context), body);
                     db.message().setMessageContent(message.id, true,
@@ -1436,7 +1434,7 @@ class Core {
 
             for (EntityAttachment attachment : attachments)
                 if (!attachment.available)
-                    if (!metered || (attachment.size != null && attachment.size < maxSize))
+                    if (state.getNetworkState().isUnmetered() || (attachment.size != null && attachment.size < maxSize))
                         try {
                             parts.downloadAttachment(context, attachment.sequence - 1, attachment.id);
                         } catch (Throwable ex) {
@@ -1854,9 +1852,22 @@ class Core {
     }
 
     static class State {
+        private Helper.NetworkState networkState;
         private Thread thread;
         private Semaphore semaphore = new Semaphore(0);
         private boolean running = true;
+
+        State(Helper.NetworkState networkState) {
+            this.networkState = networkState;
+        }
+
+        State(State parent) {
+            this(parent.networkState);
+        }
+
+        Helper.NetworkState getNetworkState() {
+            return networkState;
+        }
 
         void runnable(Runnable runnable, String name) {
             thread = new Thread(runnable, name);

@@ -515,7 +515,7 @@ public class FragmentMessages extends FragmentBase {
             protected Void onExecute(Context context, Bundle args) {
                 long fid = args.getLong("folder");
 
-                if (!Helper.suitableNetwork(context, false))
+                if (!Helper.getNetworkState(context).isSuitable())
                     throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
 
 
@@ -2096,8 +2096,7 @@ public class FragmentMessages extends FragmentBase {
                     if (download == 0)
                         download = Long.MAX_VALUE;
 
-                    Boolean isMetered = Helper.isMetered(getContext(), false);
-                    boolean metered = (isMetered == null || isMetered);
+                    boolean unmetered = Helper.getNetworkState(getContext()).isUnmetered();
 
                     int count = 0;
                     int unseen = 0;
@@ -2139,7 +2138,7 @@ public class FragmentMessages extends FragmentBase {
                             expand = messages.get(0);
 
                         if (expand != null &&
-                                (expand.content || !metered || (expand.size != null && expand.size < download))) {
+                                (expand.content || unmetered || (expand.size != null && expand.size < download))) {
                             if (!values.containsKey("expanded"))
                                 values.put("expanded", new ArrayList<Long>());
                             values.get("expanded").add(expand.id);

@@ -157,7 +157,7 @@ public class ViewModelBrowse extends ViewModel {
 
             try {
                 // Check connectivity
-                if (!Helper.suitableNetwork(state.context, false))
+                if (!Helper.getNetworkState(state.context).isSuitable())
                     throw new IllegalArgumentException(state.context.getString(R.string.title_no_internet));
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(state.context);

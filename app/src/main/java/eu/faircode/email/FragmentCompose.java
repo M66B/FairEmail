@@ -714,13 +714,13 @@ public class FragmentCompose extends FragmentBase {
     };
 
     private void checkInternet() {
-        boolean internet = Helper.suitableNetwork(getContext(), false);
+        boolean suitable = Helper.getNetworkState(getContext()).isSuitable();
 
         Boolean content = (Boolean) tvNoInternet.getTag();
-        tvNoInternet.setVisibility(!internet && content != null && !content ? View.VISIBLE : View.GONE);
+        tvNoInternet.setVisibility(!suitable && content != null && !content ? View.VISIBLE : View.GONE);
 
         Boolean downloading = (Boolean) rvAttachment.getTag();
-        tvNoInternetAttachments.setVisibility(!internet && downloading != null && downloading ? View.VISIBLE : View.GONE);
+        tvNoInternetAttachments.setVisibility(!suitable && downloading != null && downloading ? View.VISIBLE : View.GONE);
     }
 
     @Override

@@ -687,11 +687,10 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             @Override
             public void run() {
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
-                    Boolean metered = Helper.isMetered(getContext(), false);
+                    Helper.NetworkState networkState = Helper.getNetworkState(getContext());
 
-                    tvConnectionType.setVisibility(metered == null ? View.GONE : View.VISIBLE);
-                    if (metered != null)
-                        tvConnectionType.setText(metered ? R.string.title_legend_metered : R.string.title_legend_unmetered);
+                    tvConnectionType.setText(networkState.isUnmetered() ? R.string.title_legend_unmetered : R.string.title_legend_metered);
+                    tvConnectionType.setVisibility(networkState.isConnected() ? View.VISIBLE : View.GONE);
                 }
             }
         });

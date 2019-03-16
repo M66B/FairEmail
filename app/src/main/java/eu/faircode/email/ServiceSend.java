@@ -147,7 +147,7 @@ public class ServiceSend extends LifecycleService {
         }
 
         private void check() {
-            if (!Helper.suitableNetwork(ServiceSend.this, false))
+            if (!Helper.getNetworkState(ServiceSend.this).isSuitable())
                 return;
 
             if (thread != null && thread.isAlive())
@@ -215,7 +215,7 @@ public class ServiceSend extends LifecycleService {
                                     Log.i(outbox.name + " end op=" + op.id + "/" + op.name);
                                 }
 
-                                if (!Helper.suitableNetwork(ServiceSend.this, false))
+                                if (!Helper.getNetworkState(ServiceSend.this).isSuitable())
                                     break;
                             }
 

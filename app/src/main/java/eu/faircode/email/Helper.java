@@ -700,17 +700,42 @@ public class Helper {
         return filename.substring(index + 1);
     }
 
-    static boolean suitableNetwork(Context context, boolean log) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean metered = prefs.getBoolean("metered", true);
-        Boolean isMetered = isMetered(context, log);
-        boolean suitable = (isMetered != null && (metered || !isMetered));
-        if (log)
-            EntityLog.log(context, "suitable=" + suitable + " metered=" + metered + " isMetered=" + isMetered);
-        return suitable;
+    static class NetworkState {
+        private Boolean connected = null;
+        private Boolean suitable = null;
+        private Boolean unmetered = null;
+
+        boolean isConnected() {
+            return (connected != null && connected);
+        }
+
+        boolean isSuitable() {
+            return (suitable != null && suitable);
+        }
+
+        boolean isUnmetered() {
+            return (unmetered != null && unmetered);
+        }
+
+        public void update(NetworkState newState) {
+            suitable = newState.suitable;
+            unmetered = newState.unmetered;
+        }
     }
 
-    static Boolean isMetered(Context context, boolean log) {
+    static NetworkState getNetworkState(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean metered = prefs.getBoolean("metered", true);
+
+        NetworkState state = new NetworkState();
+        Boolean isMetered = isMetered(context, false);
+        state.connected = (isMetered != null);
+        state.unmetered = (isMetered != null && !isMetered);
+        state.suitable = (isMetered != null && (metered || !isMetered));
+        return state;
+    }
+
+    private static Boolean isMetered(Context context, boolean log) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
