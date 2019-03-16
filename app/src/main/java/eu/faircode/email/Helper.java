@@ -718,8 +718,9 @@ public class Helper {
         }
 
         public void update(NetworkState newState) {
-            suitable = newState.suitable;
+            connected = newState.connected;
             unmetered = newState.unmetered;
+            suitable = newState.suitable;
         }
     }
 

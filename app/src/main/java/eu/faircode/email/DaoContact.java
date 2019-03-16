@@ -35,7 +35,7 @@ public interface DaoContact {
     List<EntityContact> getContacts();
 
     @Query("SELECT * FROM contact" +
-            " ORDER BY  times_contacted DESC, last_contacted DESC")
+            " ORDER BY times_contacted DESC, last_contacted DESC")
     LiveData<List<EntityContact>> liveContacts();
 
     @Query("SELECT * FROM contact" +
