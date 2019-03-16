@@ -437,7 +437,10 @@ class Core {
                     Log.i(folder.name + " append confirmed uid=" + duid);
                 else {
                     Log.i(folder.name + " deleting uid=" + duid + " msgid=" + message.msgid);
-                    idelete.setFlag(Flags.Flag.DELETED, true);
+                    try {
+                        idelete.setFlag(Flags.Flag.DELETED, true);
+                    } catch (MessageRemovedException ignored) {
+                    }
                 }
             }
             ifolder.expunge();
@@ -550,7 +553,10 @@ class Core {
 
             // Delete source
             if (!copy) {
-                imessage.setFlag(Flags.Flag.DELETED, true);
+                try {
+                    imessage.setFlag(Flags.Flag.DELETED, true);
+                } catch (MessageRemovedException ignored) {
+                }
                 ifolder.expunge();
             }
         } finally {
@@ -569,7 +575,10 @@ class Core {
         Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
         for (Message imessage : imessages) {
             Log.i(folder.name + " deleting uid=" + message.uid + " msgid=" + message.msgid);
-            imessage.setFlag(Flags.Flag.DELETED, true);
+            try {
+                imessage.setFlag(Flags.Flag.DELETED, true);
+            } catch (MessageRemovedException ignored) {
+            }
         }
         ifolder.expunge();
 
