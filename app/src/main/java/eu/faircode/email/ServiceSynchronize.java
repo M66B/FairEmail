@@ -1093,7 +1093,7 @@ public class ServiceSynchronize extends LifecycleService {
             synchronized (ServiceSynchronize.this) {
                 try {
                     ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-                    EntityLog.log(ServiceSynchronize.this, "Available " + network + " " + cm.getNetworkInfo(network));
+                    EntityLog.log(ServiceSynchronize.this, "Available " + network + " capabilities " + cm.getNetworkCapabilities(network));
 
                     if (!started && networkState.isSuitable())
                         queue_reload(true, "connect " + network);
