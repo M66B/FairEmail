@@ -729,14 +729,14 @@ public class Helper {
         boolean metered = prefs.getBoolean("metered", true);
 
         NetworkState state = new NetworkState();
-        Boolean isMetered = isMetered(context, false);
+        Boolean isMetered = isMetered(context);
         state.connected = (isMetered != null);
         state.unmetered = (isMetered != null && !isMetered);
         state.suitable = (isMetered != null && (metered || !isMetered));
         return state;
     }
 
-    private static Boolean isMetered(Context context, boolean log) {
+    private static Boolean isMetered(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
@@ -748,45 +748,38 @@ public class Helper {
 
         Network active = cm.getActiveNetwork();
         if (active == null) {
-            if (log)
-                EntityLog.log(context, "isMetered: no active network");
+            Log.i("isMetered: no active network");
             return null;
         }
 
         NetworkCapabilities caps = cm.getNetworkCapabilities(active);
         if (caps == null) {
-            if (log)
-                EntityLog.log(context, "isMetered: active no caps");
+            Log.i("isMetered: active no caps");
             return null; // network unknown
         }
 
-        if (log)
-            EntityLog.log(context, "isMetered: active caps=" + caps);
+        Log.i("isMetered: active caps=" + caps);
 
         if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN) &&
                 !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
-            if (log)
-                EntityLog.log(context, "isMetered: no internet");
+            Log.i("isMetered: no internet");
             return null;
         }
 
         if (!caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_RESTRICTED)) {
-            if (log)
-                EntityLog.log(context, "isMetered: active restricted");
+            Log.i("isMetered: active restricted");
             return null;
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
                 !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_FOREGROUND)) {
-            if (log)
-                EntityLog.log(context, "isMetered: active background");
+            Log.i("isMetered: active background");
             return null;
         }
 
         if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
             boolean unmetered = caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED);
-            if (log)
-                EntityLog.log(context, "isMetered: active not VPN unmetered=" + unmetered);
+            Log.i("isMetered: active not VPN unmetered=" + unmetered);
             return !unmetered;
         }
 
@@ -798,54 +791,46 @@ public class Helper {
             for (Network network : networks) {
                 caps = cm.getNetworkCapabilities(network);
                 if (caps == null) {
-                    if (log)
-                        EntityLog.log(context, "isMetered: no underlying caps");
+                    Log.i("isMetered: no underlying caps");
                     continue; // network unknown
                 }
 
-                if (log)
-                    Log.i("isMetered: underlying caps=" + caps);
+                Log.i("isMetered: underlying caps=" + caps);
 
                 if (!caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
-                    if (log)
-                        EntityLog.log(context, "isMetered: underlying no internet");
+                    Log.i("isMetered: underlying no internet");
                     continue;
                 }
 
                 if (!caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_RESTRICTED)) {
-                    if (log)
-                        EntityLog.log(context, "isMetered: underlying restricted");
+                    Log.i("isMetered: underlying restricted");
                     continue;
                 }
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
                         !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_FOREGROUND)) {
-                    if (log)
-                        EntityLog.log(context, "isMetered: underlying background");
+                    Log.i("isMetered: underlying background");
                     continue;
                 }
 
                 if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
                     underlying = true;
-                    if (log)
-                        Log.i("isMetered: underlying is connected");
+                    Log.i("isMetered: underlying is connected");
 
                     if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED)) {
-                        if (log)
-                            EntityLog.log(context, "isMetered: underlying is unmetered");
+                        Log.i("isMetered: underlying is unmetered");
                         return false;
                     }
                 }
             }
 
         if (!underlying) {
-            EntityLog.log(context, "isMetered: no underlying network");
+            Log.i("isMetered: no underlying network");
             return null;
         }
 
-        if (log)
-            EntityLog.log(context, "isMetered: underlying assume metered");
         // Assume metered
+        Log.i("isMetered: underlying assume metered");
         return true;
     }
 
