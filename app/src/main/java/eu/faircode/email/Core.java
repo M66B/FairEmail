@@ -1229,50 +1229,54 @@ class Core {
                 attachment.id = db.attachment().insertAttachment(attachment);
             }
 
-            if (!folder.isOutgoing() &&
-                    !EntityFolder.ARCHIVE.equals(folder.type) &&
+            if (!EntityFolder.ARCHIVE.equals(folder.type) &&
                     !EntityFolder.TRASH.equals(folder.type) &&
                     !EntityFolder.JUNK.equals(folder.type)) {
-                Address[] replies = (message.reply != null ? message.reply : message.from);
-                if (replies != null) {
+                int type = (folder.isOutgoing() ? EntityContact.TYPE_TO : EntityContact.TYPE_FROM);
+                Address[] recipients = (type == EntityContact.TYPE_TO
+                        ? message.to
+                        : (message.reply != null ? message.reply : message.from));
+                if (recipients != null) {
                     // Check if from self
-                    boolean me = true;
-                    for (Address reply : replies) {
-                        String email = ((InternetAddress) reply).getAddress();
-                        String canonical = Helper.canonicalAddress(email);
-                        if (!TextUtils.isEmpty(email) &&
-                                db.identity().getIdentity(folder.account, email.toLowerCase()) == null &&
-                                (canonical.equals(email) ||
-                                        db.identity().getIdentity(folder.account, canonical) == null)) {
-                            me = false;
-                            break;
+                    if (type == EntityContact.TYPE_FROM) {
+                        boolean me = true;
+                        for (Address reply : recipients) {
+                            String email = ((InternetAddress) reply).getAddress();
+                            String canonical = Helper.canonicalAddress(email);
+                            if (!TextUtils.isEmpty(email) &&
+                                    db.identity().getIdentity(folder.account, email.toLowerCase()) == null &&
+                                    (canonical.equals(email) ||
+                                            db.identity().getIdentity(folder.account, canonical) == null)) {
+                                me = false;
+                                break;
+                            }
                         }
+                        if (me)
+                            recipients = message.to;
                     }
-                    if (me)
-                        replies = message.to;
 
-                    for (Address reply : replies) {
-                        String email = ((InternetAddress) reply).getAddress();
-                        String name = ((InternetAddress) reply).getPersonal();
-                        Uri avatar = ContactInfo.getLookupUri(context, new Address[]{reply});
-                        EntityContact contact = db.contact().getContact(EntityContact.TYPE_FROM, email);
+                    for (Address recipient : recipients) {
+                        String email = ((InternetAddress) recipient).getAddress();
+                        String name = ((InternetAddress) recipient).getPersonal();
+                        Uri avatar = ContactInfo.getLookupUri(context, new Address[]{recipient});
+                        EntityContact contact = db.contact().getContact(type, email);
                         if (contact == null) {
                             contact = new EntityContact();
-                            contact.type = EntityContact.TYPE_FROM;
+                            contact.type = type;
                             contact.email = email;
                             contact.name = name;
                             contact.avatar = (avatar == null ? null : avatar.toString());
                             contact.times_contacted = 1;
                             contact.last_contacted = message.received;
                             contact.id = db.contact().insertContact(contact);
-                            Log.i("Inserted sender contact=" + contact);
+                            Log.i("Inserted contact=" + contact + " type=" + type);
                         } else {
                             contact.name = name;
                             contact.avatar = (avatar == null ? null : avatar.toString());
                             contact.times_contacted++;
                             contact.last_contacted = message.received;
                             db.contact().updateContact(contact);
-                            Log.i("Updated sender contact=" + contact);
+                            Log.i("Updated contact=" + contact + " type=" + type);
                         }
                     }
                 }
