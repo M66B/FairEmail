@@ -78,18 +78,16 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
         private void wire() {
             view.setOnClickListener(this);
-            if (BuildConfig.DEBUG)
-                view.setOnLongClickListener(this);
+            view.setOnLongClickListener(this);
         }
 
         private void unwire() {
             view.setOnClickListener(null);
-            if (BuildConfig.DEBUG)
-                view.setOnLongClickListener(null);
+            view.setOnLongClickListener(null);
         }
 
         private void bindTo(EntityContact contact) {
-            view.setAlpha(contact.state == 2 ? Helper.LOW_LIGHT : 1.0f);
+            view.setAlpha(contact.state == EntityContact.STATE_IGNORE ? Helper.LOW_LIGHT : 1.0f);
 
             if (contact.type == EntityContact.TYPE_FROM)
                 ivType.setImageResource(R.drawable.baseline_call_received_24);
@@ -109,8 +107,10 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             tvLast.setText(contact.last_contacted == null ? null
                     : DateUtils.getRelativeTimeSpanString(context, contact.last_contacted));
 
-            ivFavorite.setImageResource(contact.state == 1 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
-            ivFavorite.setImageTintList(ColorStateList.valueOf(contact.state == 1 ? colorAccent : textColorSecondary));
+            ivFavorite.setImageResource(contact.state == EntityContact.STATE_FAVORITE
+                    ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
+            ivFavorite.setImageTintList(ColorStateList.valueOf(
+                    contact.state == EntityContact.STATE_FAVORITE ? colorAccent : textColorSecondary));
 
             view.requestLayout();
         }
@@ -122,7 +122,11 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                 return;
 
             EntityContact contact = items.get(pos);
-            contact.state = ++contact.state % 3;
+            if (contact.state == EntityContact.STATE_DEFAULT)
+                contact.state = EntityContact.STATE_FAVORITE;
+            else
+                contact.state = EntityContact.STATE_DEFAULT;
+
             notifyItemChanged(pos);
 
             Bundle args = new Bundle();
@@ -170,7 +174,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                     long id = args.getLong("id");
 
                     DB db = DB.getInstance(context);
-                    db.contact().deleteContact(id);
+                    db.contact().setContactState(id, EntityContact.STATE_IGNORE);
 
                     return null;
                 }

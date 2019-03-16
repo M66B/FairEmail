@@ -52,6 +52,10 @@ public class EntityContact implements Serializable {
     static final int TYPE_TO = 0;
     static final int TYPE_FROM = 1;
 
+    static final int STATE_DEFAULT = 0;
+    static final int STATE_FAVORITE = 1;
+    static final int STATE_IGNORE = 2;
+
     @PrimaryKey(autoGenerate = true)
     public Long id;
     @NonNull
@@ -66,7 +70,7 @@ public class EntityContact implements Serializable {
     public Long last_contacted;
     @NonNull
     @ColumnInfo(name = "favorite")
-    public Integer state = 0;
+    public Integer state = STATE_DEFAULT;
 
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
