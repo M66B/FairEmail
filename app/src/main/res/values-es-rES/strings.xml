@@ -243,6 +243,7 @@
     <string name="title_edit_rules">Editar reglas</string>
     <string name="title_empty_trash_ask">¿Eliminar todos los mensajes borrados permanentemente?</string>
     <string name="title_delete_operation">¿Eliminar operaciones con un mensaje de error?</string>
+    <string name="title_delete_contacts">¿Eliminar todos los contactos locales?</string>
     <string name="title_no_operations">No hay operaciones pendientes</string>
     <string name="title_folder_name">Nombre de carpeta</string>
     <string name="title_display_name">Nombre para mostrar</string>

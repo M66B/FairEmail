@@ -58,6 +58,7 @@
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_answers">Șabloane</string>
     <string name="menu_operations">Operaţii</string>
+    <string name="menu_contacts">Contacte locale</string>
     <string name="menu_setup">Setări</string>
     <string name="menu_legend">Legendă</string>
     <string name="menu_faq">Suport tehnic</string>
@@ -250,6 +251,7 @@
     <string name="title_edit_rules">Editare reguli</string>
     <string name="title_empty_trash_ask">Şterge permanent toate mesajele din coșul de gunoi?</string>
     <string name="title_delete_operation">Se șterg operațiunile cu mesaj de eroare?</string>
+    <string name="title_delete_contacts">Șterge-ți toate contactele locale?</string>
     <string name="title_no_operations">Nici o operațiune în așteptare</string>
     <string name="title_folder_name">Nume dosar</string>
     <string name="title_display_name">Nume afișat</string>

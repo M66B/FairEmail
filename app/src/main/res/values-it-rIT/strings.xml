@@ -50,6 +50,7 @@
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_answers">Modelli</string>
     <string name="menu_operations">Operazioni</string>
+    <string name="menu_contacts">Contatti locali</string>
     <string name="menu_setup">Configurazione</string>
     <string name="menu_legend">Legenda</string>
     <string name="menu_faq">Supporto</string>
@@ -242,6 +243,7 @@
     <string name="title_edit_rules">Modifica regole</string>
     <string name="title_empty_trash_ask">Eliminare definitivamente tutti i messaggi cestinati?</string>
     <string name="title_delete_operation">Eliminare le operazioni con un messaggio di errore?</string>
+    <string name="title_delete_contacts">Eliminare tutti i contatti locali?</string>
     <string name="title_no_operations">Nessuna operazione in sospeso</string>
     <string name="title_folder_name">Nome cartella</string>
     <string name="title_display_name">Nome visualizzato</string>
