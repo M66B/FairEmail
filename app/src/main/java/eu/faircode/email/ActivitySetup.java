@@ -549,9 +549,8 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                         OutputStream cout = new CipherOutputStream(raw, cipher);
                         cout.write(jexport.toString(2).getBytes());
                         cout.flush();
+                        raw.write(cipher.doFinal());
                     }
-
-                    raw.flush();
 
                     Log.i("Exported data");
                 }
