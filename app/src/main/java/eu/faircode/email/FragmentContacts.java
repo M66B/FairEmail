@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -35,6 +36,7 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -45,6 +47,7 @@ public class FragmentContacts extends FragmentBase {
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
+    private String search = null;
     private AdapterContact adapter;
 
     @Override
@@ -80,6 +83,11 @@ public class FragmentContacts extends FragmentBase {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        if (savedInstanceState != null) {
+            search = savedInstanceState.getString("fair:search");
+            adapter.search(search);
+        }
+
         DB db = DB.getInstance(getContext());
         db.contact().liveContacts().observe(getViewLifecycleOwner(), new Observer<List<EntityContact>>() {
             @Override
@@ -98,8 +106,40 @@ public class FragmentContacts extends FragmentBase {
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("fair:search", search);
+    }
+
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_contacts, menu);
+
+        MenuItem menuSearch = menu.findItem(R.id.menu_search);
+        SearchView searchView = (SearchView) menuSearch.getActionView();
+
+        if (!TextUtils.isEmpty(search)) {
+            menuSearch.expandActionView();
+            searchView.setQuery(search, true);
+            searchView.clearFocus();
+        }
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                search = query;
+                adapter.search(query);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                search = newText;
+                adapter.search(newText);
+                return true;
+            }
+        });
+
         super.onCreateOptionsMenu(menu, inflater);
     }
 

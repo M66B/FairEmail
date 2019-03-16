@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,7 +50,9 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     private int colorAccent;
     private int textColorSecondary;
 
-    private List<EntityContact> items = new ArrayList<>();
+    private String search = null;
+    private List<EntityContact> all = new ArrayList<>();
+    private List<EntityContact> selected = new ArrayList<>();
 
     private static NumberFormat nf = NumberFormat.getNumberInstance();
 
@@ -121,7 +124,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             if (pos == RecyclerView.NO_POSITION)
                 return;
 
-            EntityContact contact = items.get(pos);
+            EntityContact contact = selected.get(pos);
             if (contact.state == EntityContact.STATE_DEFAULT)
                 contact.state = EntityContact.STATE_FAVORITE;
             else
@@ -163,7 +166,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             if (pos == RecyclerView.NO_POSITION)
                 return false;
 
-            EntityContact contact = items.get(pos);
+            EntityContact contact = selected.get(pos);
 
             Bundle args = new Bundle();
             args.putLong("id", contact.id);
@@ -207,9 +210,23 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     public void set(@NonNull List<EntityContact> contacts) {
         Log.i("Set contacts=" + contacts.size());
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, contacts), false);
+        all = contacts;
 
-        items = contacts;
+        List<EntityContact> items;
+        if (TextUtils.isEmpty(search))
+            items = all;
+        else {
+            items = new ArrayList<>();
+            String query = search.toLowerCase().trim();
+            for (EntityContact contact : contacts)
+                if (contact.email.toLowerCase().contains(query) ||
+                        (contact.name != null && contact.name.toLowerCase().contains(query)))
+                    items.add(contact);
+        }
+
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(selected, items), false);
+
+        selected = items;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
@@ -233,6 +250,11 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             }
         });
         diff.dispatchUpdatesTo(this);
+    }
+
+    public void search(String query) {
+        search = query;
+        set(all);
     }
 
     private class DiffCallback extends DiffUtil.Callback {
@@ -271,12 +293,12 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
     @Override
     public long getItemId(int position) {
-        return items.get(position).id;
+        return selected.get(position).id;
     }
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return selected.size();
     }
 
     @Override
@@ -288,7 +310,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
-        EntityContact contact = items.get(position);
+        EntityContact contact = selected.get(position);
         holder.bindTo(contact);
         holder.wire();
     }
