@@ -24,18 +24,34 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.DeadSystemException;
 import android.os.RemoteException;
 import android.webkit.CookieManager;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
+
+import androidx.annotation.RequiresApi;
 
 public class ApplicationEx extends Application {
     private Thread.UncaughtExceptionHandler prev = null;
+
+    private static final List<String> DEFAULT_CHANNEL_NAMES = Collections.unmodifiableList(Arrays.asList(
+            "service", "notification", "warning", "error"
+    ));
 
     @Override
     public void onCreate() {
@@ -101,6 +117,81 @@ public class ApplicationEx extends Application {
                     NotificationManager.IMPORTANCE_HIGH);
             error.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
             nm.createNotificationChannel(error);
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public JSONArray channelsToJSON() throws JSONException {
+        JSONArray jchannels = new JSONArray();
+
+        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        for (NotificationChannel channel : nm.getNotificationChannels())
+            if (!DEFAULT_CHANNEL_NAMES.contains(channel.getId())) {
+                JSONObject jchannel = new JSONObject();
+
+                jchannel.put("id", channel.getId());
+                jchannel.put("group", channel.getGroup());
+                jchannel.put("name", channel.getName());
+                jchannel.put("description", channel.getDescription());
+
+                jchannel.put("importance", channel.getImportance());
+                jchannel.put("dnd", channel.canBypassDnd());
+                jchannel.put("visibility", channel.getLockscreenVisibility());
+                jchannel.put("badge", channel.canShowBadge());
+
+                Uri sound = channel.getSound();
+                if (sound != null)
+                    jchannel.put("sound", sound.toString());
+                // audio attributes
+
+                jchannel.put("light", channel.shouldShowLights());
+                // color
+
+                jchannel.put("vibrate", channel.shouldVibrate());
+                // pattern
+
+                jchannels.put(jchannel);
+            }
+
+        return jchannels;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void channelsFromJSON(JSONArray jchannels) throws JSONException {
+        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        for (int c = 0; c < jchannels.length(); c++) {
+            JSONObject jchannel = (JSONObject) jchannels.get(c);
+
+            String id = jchannel.getString("id");
+            if (nm.getNotificationChannel(id) == null) {
+                NotificationChannel channel = new NotificationChannel(
+                        id,
+                        jchannel.getString("name"),
+                        jchannel.getInt("importance"));
+
+                if (jchannel.has("group") && !jchannel.isNull("group"))
+                    channel.setGroup(jchannel.getString("group"));
+
+                if (jchannel.has("description") && !jchannel.isNull("description"))
+                    channel.setDescription(jchannel.getString("description"));
+
+                channel.setBypassDnd(jchannel.getBoolean("dnd"));
+                channel.setLockscreenVisibility(jchannel.getInt("visibility"));
+                channel.setShowBadge(jchannel.getBoolean("badge"));
+
+                if (jchannel.has("sound") && !jchannel.isNull("sound")) {
+                    Uri uri = Uri.parse(jchannel.getString("sound"));
+                    Ringtone ringtone = RingtoneManager.getRingtone(this, uri);
+                    if (ringtone != null)
+                        channel.setSound(uri, Notification.AUDIO_ATTRIBUTES_DEFAULT);
+                }
+
+                channel.enableLights(jchannel.getBoolean("light"));
+                channel.enableVibration(jchannel.getBoolean("vibrate"));
+
+                Log.i("Creating channel=" + channel);
+                nm.createNotificationChannel(channel);
+            }
         }
     }
 
