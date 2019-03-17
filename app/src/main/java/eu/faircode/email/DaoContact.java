@@ -68,7 +68,10 @@ public interface DaoContact {
             " WHERE (:account IS NULL OR account = :account)" +
             " AND (:type IS NULL OR type = :type)" +
             " AND (email LIKE :query COLLATE NOCASE OR name LIKE :query COLLATE NOCASE)" +
-            " AND state <> " + EntityContact.STATE_IGNORE)
+            " AND state <> " + EntityContact.STATE_IGNORE +
+            " ORDER BY" +
+            " CASE WHEN name IS NULL THEN 1 ELSE 0 END" +
+            ", name COLLATE NOCASE, email COLLATE NOCASE")
     Cursor searchContacts(Long account, Integer type, String query);
 
     @Insert
