@@ -1259,14 +1259,16 @@ class Core {
                         String email = ((InternetAddress) recipient).getAddress();
                         String name = ((InternetAddress) recipient).getPersonal();
                         Uri avatar = ContactInfo.getLookupUri(context, new Address[]{recipient});
-                        EntityContact contact = db.contact().getContact(type, email);
+                        EntityContact contact = db.contact().getContact(folder.account, type, email);
                         if (contact == null) {
                             contact = new EntityContact();
+                            contact.account = folder.account;
                             contact.type = type;
                             contact.email = email;
                             contact.name = name;
                             contact.avatar = (avatar == null ? null : avatar.toString());
                             contact.times_contacted = 1;
+                            contact.first_contacted = message.received;
                             contact.last_contacted = message.received;
                             contact.id = db.contact().insertContact(contact);
                             Log.i("Inserted contact=" + contact + " type=" + type);
@@ -1274,6 +1276,7 @@ class Core {
                             contact.name = name;
                             contact.avatar = (avatar == null ? null : avatar.toString());
                             contact.times_contacted++;
+                            contact.first_contacted = Math.min(contact.first_contacted, message.received);
                             contact.last_contacted = message.received;
                             db.contact().updateContact(contact);
                             Log.i("Updated contact=" + contact + " type=" + type);

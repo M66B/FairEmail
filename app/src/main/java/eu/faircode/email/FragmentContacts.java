@@ -92,9 +92,9 @@ public class FragmentContacts extends FragmentBase {
         }
 
         DB db = DB.getInstance(getContext());
-        db.contact().liveContacts().observe(getViewLifecycleOwner(), new Observer<List<EntityContact>>() {
+        db.contact().liveContacts().observe(getViewLifecycleOwner(), new Observer<List<TupleContactEx>>() {
             @Override
-            public void onChanged(List<EntityContact> contacts) {
+            public void onChanged(List<TupleContactEx> contacts) {
                 if (contacts == null)
                     contacts = new ArrayList<>();
 

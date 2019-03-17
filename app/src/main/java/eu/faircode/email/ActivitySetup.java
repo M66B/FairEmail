@@ -509,13 +509,14 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     }
                     jaccount.put("folders", jfolders);
 
+                    // Contacts
+                    JSONArray jcontacts = new JSONArray();
+                    for (EntityContact contact : db.contact().getContacts(account.id))
+                        jcontacts.put(contact.toJSON());
+                    jaccount.put("contacts", jcontacts);
+
                     jaccounts.put(jaccount);
                 }
-
-                // Contacts
-                JSONArray jcontacts = new JSONArray();
-                for (EntityContact contact : db.contact().getContacts())
-                    jcontacts.put(contact.toJSON());
 
                 // Answers
                 JSONArray janswers = new JSONArray();
@@ -535,7 +536,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
                 JSONObject jexport = new JSONObject();
                 jexport.put("accounts", jaccounts);
-                jexport.put("contacts", jcontacts);
                 jexport.put("answers", janswers);
                 jexport.put("settings", jsettings);
 
@@ -700,19 +700,20 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                             Log.i("Imported folder=" + folder.name);
                         }
 
+                        // Contacts
+                        JSONArray jcontacts = jaccount.getJSONArray("contacts");
+                        for (int c = 0; c < jcontacts.length(); c++) {
+                            JSONObject jcontact = (JSONObject) jcontacts.get(c);
+                            EntityContact contact = EntityContact.fromJSON(jcontact);
+                            contact.account = account.id;
+                            if (db.contact().getContact(contact.account, contact.type, contact.email) == null) {
+                                contact.id = db.contact().insertContact(contact);
+                                Log.i("Imported contact=" + contact);
+                            }
+                        }
+
                         // Update swipe left/right
                         db.account().updateAccount(account);
-                    }
-
-                    // Contacts
-                    JSONArray jcontacts = jimport.getJSONArray("contacts");
-                    for (int c = 0; c < jcontacts.length(); c++) {
-                        JSONObject jcontact = (JSONObject) jcontacts.get(c);
-                        EntityContact contact = EntityContact.fromJSON(jcontact);
-                        if (db.contact().getContact(contact.type, contact.email) == null) {
-                            contact.id = db.contact().insertContact(contact);
-                            Log.i("Imported contact=" + contact);
-                        }
                     }
 
                     // Answers

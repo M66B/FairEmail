@@ -473,7 +473,7 @@ public class FragmentCompose extends FragmentBase {
                 @Override
                 public Cursor runQuery(CharSequence typed) {
                     Log.i("Searching local contact=" + typed);
-                    return db.contact().searchContacts(null, "%" + typed + "%");
+                    return db.contact().searchContacts(null, null, "%" + typed + "%");
                 }
             });
 

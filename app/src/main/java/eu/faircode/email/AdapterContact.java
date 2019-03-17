@@ -51,8 +51,8 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     private int textColorSecondary;
 
     private String search = null;
-    private List<EntityContact> all = new ArrayList<>();
-    private List<EntityContact> selected = new ArrayList<>();
+    private List<TupleContactEx> all = new ArrayList<>();
+    private List<TupleContactEx> selected = new ArrayList<>();
 
     private static NumberFormat nf = NumberFormat.getNumberInstance();
 
@@ -89,7 +89,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             view.setOnLongClickListener(null);
         }
 
-        private void bindTo(EntityContact contact) {
+        private void bindTo(TupleContactEx contact) {
             view.setAlpha(contact.state == EntityContact.STATE_IGNORE ? Helper.LOW_LIGHT : 1.0f);
 
             if (contact.type == EntityContact.TYPE_FROM)
@@ -105,7 +105,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                 ivAvatar.setImageURI(Uri.parse(contact.avatar + "/photo"));
 
             tvName.setText(contact.name == null ? contact.email : contact.name);
-            tvEmail.setText(contact.email);
+            tvEmail.setText(contact.accountName + "/" + contact.email);
             tvTimes.setText(nf.format(contact.times_contacted));
             tvLast.setText(contact.last_contacted == null ? null
                     : DateUtils.getRelativeTimeSpanString(context, contact.last_contacted));
@@ -124,7 +124,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             if (pos == RecyclerView.NO_POSITION)
                 return;
 
-            EntityContact contact = selected.get(pos);
+            TupleContactEx contact = selected.get(pos);
             if (contact.state == EntityContact.STATE_DEFAULT)
                 contact.state = EntityContact.STATE_FAVORITE;
             else
@@ -166,7 +166,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             if (pos == RecyclerView.NO_POSITION)
                 return false;
 
-            EntityContact contact = selected.get(pos);
+            TupleContactEx contact = selected.get(pos);
 
             Bundle args = new Bundle();
             args.putLong("id", contact.id);
@@ -207,18 +207,18 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
         setHasStableIds(true);
     }
 
-    public void set(@NonNull List<EntityContact> contacts) {
+    public void set(@NonNull List<TupleContactEx> contacts) {
         Log.i("Set contacts=" + contacts.size());
 
         all = contacts;
 
-        List<EntityContact> items;
+        List<TupleContactEx> items;
         if (TextUtils.isEmpty(search))
             items = all;
         else {
             items = new ArrayList<>();
             String query = search.toLowerCase().trim();
-            for (EntityContact contact : contacts)
+            for (TupleContactEx contact : contacts)
                 if (contact.email.toLowerCase().contains(query) ||
                         (contact.name != null && contact.name.toLowerCase().contains(query)))
                     items.add(contact);
@@ -258,10 +258,10 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     }
 
     private class DiffCallback extends DiffUtil.Callback {
-        private List<EntityContact> prev = new ArrayList<>();
-        private List<EntityContact> next = new ArrayList<>();
+        private List<TupleContactEx> prev = new ArrayList<>();
+        private List<TupleContactEx> next = new ArrayList<>();
 
-        DiffCallback(List<EntityContact> prev, List<EntityContact> next) {
+        DiffCallback(List<TupleContactEx> prev, List<TupleContactEx> next) {
             this.prev.addAll(prev);
             this.next.addAll(next);
         }
@@ -278,15 +278,15 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
         @Override
         public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-            EntityContact c1 = prev.get(oldItemPosition);
-            EntityContact c2 = next.get(newItemPosition);
+            TupleContactEx c1 = prev.get(oldItemPosition);
+            TupleContactEx c2 = next.get(newItemPosition);
             return c1.id.equals(c2.id);
         }
 
         @Override
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
-            EntityContact c1 = prev.get(oldItemPosition);
-            EntityContact c2 = next.get(newItemPosition);
+            TupleContactEx c1 = prev.get(oldItemPosition);
+            TupleContactEx c2 = next.get(newItemPosition);
             return c1.equals(c2);
         }
     }
@@ -310,7 +310,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
-        EntityContact contact = selected.get(position);
+        TupleContactEx contact = selected.get(position);
         holder.bindTo(contact);
         holder.wire();
     }

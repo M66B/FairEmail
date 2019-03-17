@@ -50,7 +50,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 57,
+        version = 58,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -622,6 +622,30 @@ public abstract class DB extends RoomDatabase {
                         db.execSQL("CREATE INDEX `index_contact_times_contacted` ON `contact` (`times_contacted`)");
                         db.execSQL("CREATE INDEX `index_contact_last_contacted` ON `contact` (`last_contacted`)");
                         db.execSQL("CREATE INDEX `index_contact_favorite` ON `contact` (`favorite`)");
+                    }
+                })
+                .addMigrations(new Migration(57, 58) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("DROP TABLE `contact`");
+                        db.execSQL("CREATE TABLE IF NOT EXISTS `contact`" +
+                                " (`id` INTEGER PRIMARY KEY AUTOINCREMENT" +
+                                ", `account` INTEGER NOT NULL" +
+                                ", `type` INTEGER NOT NULL" +
+                                ", `email` TEXT NOT NULL" +
+                                ", `name` TEXT, `avatar` TEXT" +
+                                ", `times_contacted` INTEGER NOT NULL" +
+                                ", `first_contacted` INTEGER NOT NULL" +
+                                ", `last_contacted` INTEGER NOT NULL" +
+                                ", `state` INTEGER NOT NULL" +
+                                ", FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
+                        db.execSQL("CREATE UNIQUE INDEX `index_contact_account_type_email` ON `contact` (`account`, `type`, `email`)");
+                        db.execSQL("CREATE  INDEX `index_contact_email` ON `contact` (`email`)");
+                        db.execSQL("CREATE  INDEX `index_contact_name` ON `contact` (`name`)");
+                        db.execSQL("CREATE  INDEX `index_contact_times_contacted` ON `contact` (`times_contacted`)");
+                        db.execSQL("CREATE  INDEX `index_contact_last_contacted` ON `contact` (`last_contacted`)");
+                        db.execSQL("CREATE  INDEX `index_contact_state` ON `contact` (`state`)");
                     }
                 })
                 .build();
