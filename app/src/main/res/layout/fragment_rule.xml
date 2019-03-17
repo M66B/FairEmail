@@ -422,6 +422,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/title_rule_automation_hint"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textIsSelectable="true"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cbCc" />
 
