@@ -34,9 +34,9 @@ public class TupleFolderEx extends EntityFolder {
         if (obj instanceof TupleFolderEx) {
             TupleFolderEx other = (TupleFolderEx) obj;
             return (super.equals(obj) &&
-                    Objects.equals(accountName, other.accountName) &&
+                    Objects.equals(this.accountName, other.accountName) &&
                     Objects.equals(this.accountColor, other.accountColor) &&
-                    Objects.equals(accountState, other.accountState) &&
+                    Objects.equals(this.accountState, other.accountState) &&
                     this.messages == other.messages &&
                     this.content == other.content &&
                     this.unseen == other.unseen);
