@@ -28,6 +28,7 @@ public class TupleFolderEx extends EntityFolder {
     public int messages;
     public int content;
     public int unseen;
+    public int childs;
 
     @Override
     public boolean equals(Object obj) {
@@ -39,7 +40,8 @@ public class TupleFolderEx extends EntityFolder {
                     Objects.equals(this.accountState, other.accountState) &&
                     this.messages == other.messages &&
                     this.content == other.content &&
-                    this.unseen == other.unseen);
+                    this.unseen == other.unseen &&
+                    this.childs == other.childs);
         } else
             return false;
     }

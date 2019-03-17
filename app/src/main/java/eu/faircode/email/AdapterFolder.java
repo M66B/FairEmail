@@ -50,9 +50,11 @@ import java.util.Locale;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -70,12 +72,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
     private List<TupleFolderEx> all = new ArrayList<>();
     private List<TupleFolderEx> filtered = new ArrayList<>();
+    private List<Long> collapsed = new ArrayList<>();
 
     private static NumberFormat nf = NumberFormat.getNumberInstance();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
         private View vwColor;
+        private ImageView ivExpander;
         private View vwLevel;
         private ImageView ivState;
         private ImageView ivNotify;
@@ -88,6 +92,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private ImageView ivSync;
         private TextView tvKeywords;
         private TextView tvError;
+        private RecyclerView rvChilds;
+
+        private AdapterFolder childs;
+        private TwoStateOwner cowner = new TwoStateOwner(owner);
 
         private final static int action_synchronize_now = 1;
         private final static int action_delete_local = 2;
@@ -101,6 +109,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             view = itemView.findViewById(R.id.clItem);
             vwColor = itemView.findViewById(R.id.vwColor);
+            ivExpander = itemView.findViewById(R.id.ivExpander);
             vwLevel = itemView.findViewById(R.id.vwLevel);
             ivState = itemView.findViewById(R.id.ivState);
             ivNotify = itemView.findViewById(R.id.ivNotify);
@@ -113,15 +122,25 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ivSync = itemView.findViewById(R.id.ivSync);
             tvKeywords = itemView.findViewById(R.id.tvKeywords);
             tvError = itemView.findViewById(R.id.tvError);
+
+            rvChilds = itemView.findViewById(R.id.rvChilds);
+            LinearLayoutManager llm = new LinearLayoutManager(context);
+            rvChilds.setLayoutManager(llm);
+            rvChilds.setNestedScrollingEnabled(false);
+
+            childs = new AdapterFolder(context, owner);
+            rvChilds.setAdapter(childs);
         }
 
         private void wire() {
             view.setOnClickListener(this);
+            ivExpander.setOnClickListener(this);
             view.setOnLongClickListener(this);
         }
 
         private void unwire() {
             view.setOnClickListener(null);
+            ivExpander.setOnClickListener(null);
             view.setOnLongClickListener(null);
         }
 
@@ -134,6 +153,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             vwColor.setBackgroundColor(folder.accountColor == null ? Color.TRANSPARENT : folder.accountColor);
             vwColor.setVisibility(account < 0 ? View.VISIBLE : View.GONE);
+
+            ivExpander.setImageResource(collapsed.contains(folder.id)
+                    ? R.drawable.baseline_expand_more_24 : R.drawable.baseline_expand_less_24);
+            ivExpander.setVisibility(folder.childs > 0 ? View.VISIBLE : View.INVISIBLE);
 
             if (account > 0) {
                 ViewGroup.LayoutParams lp = vwLevel.getLayoutParams();
@@ -231,6 +254,21 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             tvError.setText(folder.error);
             tvError.setVisibility(folder.error != null ? View.VISIBLE : View.GONE);
+
+            rvChilds.setVisibility(collapsed.contains(folder.id) ? View.GONE : View.VISIBLE);
+
+            cowner.restart();
+            if (folder.childs > 0) {
+                DB db = DB.getInstance(context);
+                cowner.start();
+                db.folder().liveFolders(folder.account, folder.id).observe(cowner, new Observer<List<TupleFolderEx>>() {
+                    @Override
+                    public void onChanged(List<TupleFolderEx> folders) {
+                        childs.set(account, true, folders);
+                    }
+                });
+            } else
+                childs.set(account, true, new ArrayList<TupleFolderEx>());
         }
 
         @Override
@@ -243,11 +281,26 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (folder.tbd != null)
                 return;
 
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(
-                    new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                            .putExtra("account", folder.account)
-                            .putExtra("folder", folder.id));
+            if (view.getId() == R.id.ivExpander) {
+                if (collapsed.contains(folder.id))
+                    collapsed.remove(folder.id);
+                else
+                    collapsed.add(folder.id);
+
+                boolean expanded = !collapsed.contains(folder.id);
+                Log.i("Expanded=" + expanded);
+
+                ivExpander.setImageResource(collapsed.contains(folder.id)
+                        ? R.drawable.baseline_expand_more_24 : R.drawable.baseline_expand_less_24);
+                rvChilds.setVisibility(collapsed.contains(folder.id) ? View.GONE : View.VISIBLE);
+                //notifyItemChanged(pos);
+            } else {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                .putExtra("account", folder.account)
+                                .putExtra("folder", folder.id));
+            }
         }
 
         @Override

@@ -21,6 +21,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            android:id="@+id/ivExpander"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:src="@drawable/baseline_expand_less_24"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/vSeparator"
+            app:layout_constraintStart_toEndOf="@+id/vwColor"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
             android:id="@+id/ivState"
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -28,7 +42,7 @@
             android:layout_marginEnd="6dp"
             android:src="@drawable/baseline_cloud_off_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvName"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintStart_toEndOf="@id/ivExpander"
             app:layout_constraintTop_toTopOf="@+id/tvName" />
 
         <ImageView
@@ -38,7 +52,7 @@
             android:layout_marginStart="12dp"
             android:src="@drawable/baseline_folder_special_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvType"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintStart_toEndOf="@id/ivExpander"
             app:layout_constraintTop_toTopOf="@+id/tvType" />
 
         <View
@@ -162,7 +176,7 @@
             android:textColor="?attr/colorWarning"
             android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintStart_toEndOf="@id/ivExpander"
             app:layout_constraintTop_toBottomOf="@id/tvKeywords" />
 
         <View
@@ -173,5 +187,13 @@
             android:background="?attr/colorSeparator"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvError" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvChilds"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vSeparator" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
