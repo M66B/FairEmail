@@ -496,7 +496,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                     if (f1.accountName == null || f2.accountName == null)
                         return 0;
-                    return f1.accountName.compareTo(f2.accountName);
+                    return collator.compare(f1.accountName, f2.accountName);
 
                 } else {
                     int i1 = EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type);
