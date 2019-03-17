@@ -63,6 +63,7 @@ public class EntityFolder implements Serializable {
     @PrimaryKey(autoGenerate = true)
     public Long id;
     public Long account; // Outbox = null
+    public Long parent;
     @NonNull
     public String name;
     @NonNull
@@ -237,6 +238,19 @@ public class EntityFolder implements Serializable {
         }
 
         return level;
+    }
+
+    String getParentName(Character separator) {
+        if (separator == null)
+            return null;
+        else {
+            int p = name.lastIndexOf(separator);
+            if (p < 0)
+                return null;
+            else
+                return name.substring(0, p);
+        }
+
     }
 
     @Override

@@ -155,6 +155,9 @@ public interface DaoFolder {
     @Query("UPDATE folder SET level = :level WHERE id = :id")
     int setFolderLevel(long id, int level);
 
+    @Query("UPDATE folder SET parent = :parent WHERE id = :id")
+    int setFolderParent(long id, Long parent);
+
     @Query("UPDATE folder" +
             " SET type = '" + EntityFolder.USER + "'" +
             " WHERE account = :account" +

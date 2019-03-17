@@ -742,6 +742,8 @@ class Core {
             Folder[] ifolders = defaultFolder.list("*");
             Log.i("Remote folder count=" + ifolders.length + " separator=" + separator);
 
+            Map<String, EntityFolder> nameFolder = new HashMap<>();
+            Map<String, List<EntityFolder>> parentFolders = new HashMap<>();
             for (Folder ifolder : ifolders) {
                 String fullName = ifolder.getFullName();
                 String[] attrs = ((IMAPFolder) ifolder).getAttributes();
@@ -803,6 +805,18 @@ class Core {
                                 db.folder().setFolderType(folder.id, type);
                         }
                     }
+
+                    nameFolder.put(folder.name, folder);
+                    String parentName = folder.getParentName(separator);
+                    if (!parentFolders.containsKey(parentName))
+                        parentFolders.put(parentName, new ArrayList<EntityFolder>());
+                    parentFolders.get(parentName).add(folder);
+                }
+
+                for (String parentName : parentFolders.keySet()) {
+                    EntityFolder parent = nameFolder.get(parentName);
+                    for (EntityFolder child : parentFolders.get(parentName))
+                        db.folder().setFolderParent(child.id, parent == null ? null : parent.id);
                 }
             }
 
