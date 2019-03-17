@@ -117,7 +117,6 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.paging.AsyncPagedListDiffer;
@@ -258,8 +257,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private AdapterAttachment adapterAttachment;
         private AdapterImage adapterImage;
-        private LiveData<List<EntityAttachment>> liveAttachments = null;
-        private Observer<List<EntityAttachment>> observerAttachments = null;
+        private TwoStateOwner cowner = new TwoStateOwner(owner);
 
         private WebView printWebView = null;
 
@@ -890,14 +888,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Attachments
             bindAttachments(message, idAttachments.get(message.id));
-            observerAttachments = new Observer<List<EntityAttachment>>() {
+            cowner.restart();
+            db.attachment().liveAttachments(message.id).observe(cowner, new Observer<List<EntityAttachment>>() {
                 @Override
                 public void onChanged(@Nullable List<EntityAttachment> attachments) {
                     bindAttachments(message, attachments);
                 }
-            };
-            liveAttachments = db.attachment().liveAttachments(message.id);
-            liveAttachments.observe(owner, observerAttachments);
+            });
 
             // Setup actions
             Bundle sargs = new Bundle();
@@ -1024,8 +1021,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     properties.setValue("inline", message.id, isChecked);
-                    liveAttachments.removeObserver(observerAttachments);
-                    liveAttachments.observe(owner, observerAttachments);
+                    cowner.restart();
+                    DB.getInstance(context).attachment().liveAttachments(message.id).observe(cowner, new Observer<List<EntityAttachment>>() {
+                        @Override
+                        public void onChanged(@Nullable List<EntityAttachment> attachments) {
+                            bindAttachments(message, attachments);
+                        }
+                    });
                 }
             });
 
@@ -1041,13 +1043,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Bundle args = new Bundle();
                 args.putSerializable("message", message);
                 bodyTask.execute(context, owner, args, "message:body");
-            }
-        }
-
-        void unbind() {
-            if (liveAttachments != null) {
-                liveAttachments.removeObserver(observerAttachments);
-                liveAttachments = null;
             }
         }
 
@@ -3062,7 +3057,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.unbind();
         holder.unwire();
 
         TupleMessageEx message = differ.getItem(position);
@@ -3072,11 +3066,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             holder.bindTo(message);
             holder.wire();
         }
-    }
-
-    @Override
-    public void onViewRecycled(@NonNull ViewHolder holder) {
-        holder.unbind();
     }
 
     void setSelectionTracker(SelectionTracker<Long> selectionTracker) {
