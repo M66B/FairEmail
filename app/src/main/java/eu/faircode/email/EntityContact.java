@@ -45,6 +45,7 @@ import static androidx.room.ForeignKey.CASCADE;
                 @Index(value = {"account", "type", "email"}, unique = true),
                 @Index(value = {"email"}),
                 @Index(value = {"name"}),
+                @Index(value = {"avatar"}),
                 @Index(value = {"times_contacted"}),
                 @Index(value = {"last_contacted"}),
                 @Index(value = {"state"})

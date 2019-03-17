@@ -45,6 +45,7 @@ public interface DaoContact {
             " WHERE state <> " + EntityContact.STATE_IGNORE +
             " ORDER BY" +
             " CASE WHEN state = " + EntityContact.STATE_FAVORITE + " THEN 0 ELSE 1 END" +
+            ", CASE WHEN avatar IS NULL THEN 1 ELSE 0 END" +
             ", times_contacted DESC" +
             ", last_contacted DESC" +
             " LIMIT :count")
