@@ -21,8 +21,6 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.net.Uri;
 
 import org.json.JSONException;
@@ -43,7 +41,6 @@ import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
@@ -282,18 +279,11 @@ public class EntityRule {
         automation.putExtra(EXTRA_SENDER, sender);
         automation.putExtra(EXTRA_SUBJECT, message.subject);
 
-        PackageManager pm = context.getPackageManager();
-        ResolveInfo ri = pm.resolveService(automation, 0);
-        if (ri == null)
-            Log.w("Unable to resolve " + automation);
-        else {
-            automation.setPackage(ri.serviceInfo.packageName);
-            Log.i("Sending " + automation);
-            try {
-                ContextCompat.startForegroundService(context, automation);
-            } catch (Throwable ex) {
-                Log.e(ex);
-            }
+        Log.i("Sending " + automation);
+        try {
+            context.sendBroadcast(automation);
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
     }
 
