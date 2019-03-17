@@ -26,8 +26,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import javax.mail.Address;
@@ -83,6 +86,7 @@ public class EntityRule {
         try {
             JSONObject jcondition = new JSONObject(condition);
 
+            // Sender
             JSONObject jsender = jcondition.optJSONObject("sender");
             if (jsender != null) {
                 String value = jsender.getString("value");
@@ -98,6 +102,31 @@ public class EntityRule {
                             matches = true;
                             break;
                         }
+                    }
+                }
+                if (!matches)
+                    return false;
+            }
+
+            // Recipient
+            JSONObject jrecipient = jcondition.optJSONObject("recipient");
+            if (jrecipient != null) {
+                String value = jrecipient.getString("value");
+                boolean regex = jrecipient.getBoolean("regex");
+
+                boolean matches = false;
+                List<Address> recipients = new ArrayList<>();
+                if (message.to != null)
+                    recipients.addAll(Arrays.asList(message.to));
+                if (message.cc != null)
+                    recipients.addAll(Arrays.asList(message.cc));
+                for (Address recipient : recipients) {
+                    InternetAddress ia = (InternetAddress) recipient;
+                    String personal = ia.getPersonal();
+                    String formatted = ((personal == null ? "" : personal + " ") + "<" + ia.getAddress() + ">");
+                    if (matches(context, value, formatted, regex)) {
+                        matches = true;
+                        break;
                     }
                 }
                 if (!matches)
@@ -133,7 +162,7 @@ public class EntityRule {
             }
 
             // Safeguard
-            if (jsender == null && jsubject == null && jheader == null)
+            if (jsender == null && jrecipient == null && jsubject == null && jheader == null)
                 return false;
         } catch (JSONException ex) {
             Log.e(ex);

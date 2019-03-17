@@ -62,26 +62,37 @@ public class FragmentRule extends FragmentBase {
     private ViewGroup view;
     private ScrollView scroll;
     private ConstraintLayout content;
+
     private TextView tvFolder;
     private EditText etName;
     private EditText etOrder;
     private CheckBox cbEnabled;
     private CheckBox cbStop;
+
     private EditText etSender;
     private CheckBox cbSender;
     private ImageView ivSender;
+
+    private EditText etRecipient;
+    private CheckBox cbRecipient;
+    private ImageView ivRecipient;
+
     private EditText etSubject;
     private CheckBox cbSubject;
+
     private EditText etHeader;
     private CheckBox cbHeader;
+
     private Spinner spAction;
     private TextView tvActionRemark;
     private Spinner spTarget;
     private Spinner spIdent;
     private Spinner spAnswer;
     private CheckBox cbCc;
+
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
+
     private Group grpReady;
     private Group grpMove;
     private Group grpAnswer;
@@ -116,26 +127,37 @@ public class FragmentRule extends FragmentBase {
         // Get controls
         scroll = view.findViewById(R.id.scroll);
         content = view.findViewById(R.id.content);
+
         tvFolder = view.findViewById(R.id.tvFolder);
         etName = view.findViewById(R.id.etName);
         etOrder = view.findViewById(R.id.etOrder);
         cbEnabled = view.findViewById(R.id.cbEnabled);
         cbStop = view.findViewById(R.id.cbStop);
+
         etSender = view.findViewById(R.id.etSender);
         cbSender = view.findViewById(R.id.cbSender);
         ivSender = view.findViewById(R.id.ivSender);
+
+        etRecipient = view.findViewById(R.id.etRecipient);
+        cbRecipient = view.findViewById(R.id.cbRecipient);
+        ivRecipient = view.findViewById(R.id.ivRecipient);
+
         etSubject = view.findViewById(R.id.etSubject);
         cbSubject = view.findViewById(R.id.cbSubject);
+
         etHeader = view.findViewById(R.id.etHeader);
         cbHeader = view.findViewById(R.id.cbHeader);
+
         spAction = view.findViewById(R.id.spAction);
         tvActionRemark = view.findViewById(R.id.tvActionRemark);
         spTarget = view.findViewById(R.id.spTarget);
         spIdent = view.findViewById(R.id.spIdent);
         spAnswer = view.findViewById(R.id.spAnswer);
         cbCc = view.findViewById(R.id.cbCc);
+
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
+
         grpReady = view.findViewById(R.id.grpReady);
         grpMove = view.findViewById(R.id.grpMove);
         grpAnswer = view.findViewById(R.id.grpAnswer);
@@ -148,6 +170,17 @@ public class FragmentRule extends FragmentBase {
                     Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
                 else
                     startActivityForResult(Helper.getChooser(getContext(), pick), ActivityView.REQUEST_SENDER);
+            }
+        });
+
+        ivRecipient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
+                if (pick.resolveActivity(getContext().getPackageManager()) == null)
+                    Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
+                else
+                    startActivityForResult(Helper.getChooser(getContext(), pick), ActivityView.REQUEST_RECIPIENT);
             }
         });
 
@@ -295,14 +328,14 @@ public class FragmentRule extends FragmentBase {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.i("Request=" + requestCode + " result=" + resultCode + " data=" + data);
         if (resultCode == RESULT_OK) {
-            if (requestCode == ActivityView.REQUEST_SENDER) {
-                if (data != null)
-                    handlePickContact(data);
-            }
+            if (data != null && requestCode == ActivityView.REQUEST_SENDER)
+                handlePickContact(data, true);
+            if (data != null && requestCode == ActivityView.REQUEST_RECIPIENT)
+                handlePickContact(data, false);
         }
     }
 
-    private void handlePickContact(Intent data) {
+    private void handlePickContact(Intent data, boolean sender) {
         Uri uri = data.getData();
         if (uri == null) return;
         try (Cursor cursor = getContext().getContentResolver().query(uri,
@@ -311,7 +344,10 @@ public class FragmentRule extends FragmentBase {
                 },
                 null, null, null)) {
             if (cursor != null && cursor.moveToFirst())
-                etSender.setText(cursor.getString(0));
+                if (sender)
+                    etSender.setText(cursor.getString(0));
+                else
+                    etRecipient.setText(cursor.getString(0));
         } catch (Throwable ex) {
             Log.e(ex);
             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
@@ -338,6 +374,7 @@ public class FragmentRule extends FragmentBase {
                     JSONObject jaction = (rule == null ? new JSONObject() : new JSONObject(rule.action));
 
                     JSONObject jsender = jcondition.optJSONObject("sender");
+                    JSONObject jrecipient = jcondition.optJSONObject("recipient");
                     JSONObject jsubject = jcondition.optJSONObject("subject");
                     JSONObject jheader = jcondition.optJSONObject("header");
 
@@ -345,10 +382,16 @@ public class FragmentRule extends FragmentBase {
                     etOrder.setText(rule == null ? null : Integer.toString(rule.order));
                     cbEnabled.setChecked(rule == null || rule.enabled);
                     cbStop.setChecked(rule != null && rule.stop);
+
                     etSender.setText(jsender == null ? args.getString("sender") : jsender.getString("value"));
                     cbSender.setChecked(jsender != null && jsender.getBoolean("regex"));
+
+                    etRecipient.setText(jrecipient == null ? null : jrecipient.getString("value"));
+                    cbRecipient.setChecked(jrecipient != null && jrecipient.getBoolean("regex"));
+
                     etSubject.setText(jsubject == null ? args.getString("subject") : jsubject.getString("value"));
                     cbSubject.setChecked(jsubject != null && jsubject.getBoolean("regex"));
+
                     etHeader.setText(jheader == null ? null : jheader.getString("value"));
                     cbHeader.setChecked(jheader != null && jheader.getBoolean("regex"));
 
@@ -507,10 +550,11 @@ public class FragmentRule extends FragmentBase {
 
                     JSONObject jcondition = new JSONObject(condition);
                     JSONObject jsender = jcondition.optJSONObject("sender");
+                    JSONObject jrecipient = jcondition.optJSONObject("recipient");
                     JSONObject jsubject = jcondition.optJSONObject("subject");
                     JSONObject jheader = jcondition.optJSONObject("header");
 
-                    if (jsender == null && jsubject == null && jheader == null)
+                    if (jsender == null && jrecipient == null && jsubject == null && jheader == null)
                         throw new IllegalArgumentException(context.getString(R.string.title_rule_condition_missing));
 
                     if (TextUtils.isEmpty(order))
@@ -574,6 +618,14 @@ public class FragmentRule extends FragmentBase {
             jsender.put("value", sender);
             jsender.put("regex", cbSender.isChecked());
             jcondition.put("sender", jsender);
+        }
+
+        String recipient = etRecipient.getText().toString();
+        if (!TextUtils.isEmpty(recipient)) {
+            JSONObject jrecipient = new JSONObject();
+            jrecipient.put("value", recipient);
+            jrecipient.put("regex", cbRecipient.isChecked());
+            jcondition.put("recipient", jrecipient);
         }
 
         String subject = etSubject.getText().toString();

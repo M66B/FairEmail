@@ -143,7 +143,7 @@
                 app:layout_constraintTop_toTopOf="@id/etSender" />
 
             <TextView
-                android:id="@+id/tvAndSubject"
+                android:id="@+id/tvAndSender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -155,12 +155,75 @@
                 app:layout_constraintTop_toBottomOf="@+id/etSender" />
 
             <View
+                android:id="@+id/vSeparatorRecipient"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/colorSeparator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAndSender" />
+
+            <TextView
+                android:id="@+id/tvRecipient"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/title_rule_recipient"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintBottom_toBottomOf="@+id/cbRecipient"
+                app:layout_constraintEnd_toStartOf="@+id/cbRecipient"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/cbRecipient" />
+
+            <CheckBox
+                android:id="@+id/cbRecipient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_rule_regex"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorRecipient" />
+
+            <EditText
+                android:id="@+id/etRecipient"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/title_optional"
+                android:inputType="textEmailAddress"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toStartOf="@+id/ivRecipient"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cbRecipient" />
+
+            <ImageView
+                android:id="@+id/ivRecipient"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:src="@drawable/baseline_person_24"
+                app:layout_constraintBottom_toBottomOf="@id/etRecipient"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/etRecipient" />
+
+            <TextView
+                android:id="@+id/tvAndRecipient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/title_rule_and"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="?android:attr/textColorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etRecipient" />
+
+            <View
                 android:id="@+id/vSeparatorSubject"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="?attr/colorSeparator"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvAndSubject" />
+                app:layout_constraintTop_toBottomOf="@id/tvAndRecipient" />
 
             <TextView
                 android:id="@+id/tvSubject"
@@ -195,7 +258,7 @@
                 app:layout_constraintTop_toBottomOf="@id/cbSubject" />
 
             <TextView
-                android:id="@+id/tvAndHeader"
+                android:id="@+id/tvAndSubject"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -212,7 +275,7 @@
                 android:layout_height="1dp"
                 android:background="?attr/colorSeparator"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvAndHeader" />
+                app:layout_constraintTop_toBottomOf="@id/tvAndSubject" />
 
             <TextView
                 android:id="@+id/tvHeader"
@@ -358,9 +421,10 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="
-                tvName,etName,tvOrder,etOrder,cbEnabled,cbStop,
-                vSeparatorSender,tvSender,cbSender,etSender,ivSender,tvAndSubject,
-                vSeparatorSubject,tvSubject,cbSubject,etSubject,tvAndHeader,
+                tvFolder,tvName,etName,tvOrder,etOrder,cbEnabled,cbStop,
+                vSeparatorSender,tvSender,cbSender,etSender,ivSender,tvAndSender,
+                vSeparatorRecipient,tvRecipient,cbRecipient,etRecipient,ivRecipient,tvAndRecipient,
+                vSeparatorSubject,tvSubject,cbSubject,etSubject,tvAndSubject,
                 vSeparatorHeader,tvHeader,cbHeader,etHeader,
                 vSeparatorAction,tvAction,spAction,tvActionRemark,
                 vSeparatorParameters" />

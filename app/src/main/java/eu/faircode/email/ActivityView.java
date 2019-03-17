@@ -117,6 +117,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final int REQUEST_ATTACHMENTS = 3;
     static final int REQUEST_DECRYPT = 4;
     static final int REQUEST_SENDER = 5;
+    static final int REQUEST_RECIPIENT = 6;
 
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
     static final String ACTION_VIEW_THREAD = BuildConfig.APPLICATION_ID + ".VIEW_THREAD";
