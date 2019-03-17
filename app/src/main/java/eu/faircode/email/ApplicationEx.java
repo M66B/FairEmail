@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.app.Application;
 import android.app.Notification;
 import android.app.NotificationChannel;
+import android.app.NotificationChannelGroup;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.media.Ringtone;
@@ -117,6 +118,11 @@ public class ApplicationEx extends Application {
                     NotificationManager.IMPORTANCE_HIGH);
             error.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
             nm.createNotificationChannel(error);
+
+            NotificationChannelGroup group = new NotificationChannelGroup(
+                    "contacts",
+                    getString(R.string.channel_group_contacts));
+            nm.createNotificationChannelGroup(group);
         }
     }
 
@@ -171,6 +177,8 @@ public class ApplicationEx extends Application {
 
                 if (jchannel.has("group") && !jchannel.isNull("group"))
                     channel.setGroup(jchannel.getString("group"));
+                else
+                    channel.setGroup("contacts");
 
                 if (jchannel.has("description") && !jchannel.isNull("description"))
                     channel.setDescription(jchannel.getString("description"));

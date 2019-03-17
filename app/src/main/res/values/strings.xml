@@ -10,6 +10,7 @@
     <string name="channel_notification">Notifications</string>
     <string name="channel_warning">Warnings</string>
     <string name="channel_error">Errors</string>
+    <string name="channel_group_contacts">Contacts</string>
 
     <string name="tile_synchronize">Synchronize</string>
     <string name="tile_unseen">New messages</string>
