@@ -61,7 +61,7 @@ public interface DaoFolder {
             " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
             " WHERE CASE WHEN :account IS NULL" +
             "  THEN folder.unified AND account.synchronize" +
-            "  ELSE folder.account = :account OR folder.account IS NULL" +
+            "  ELSE (folder.account = :account AND account.synchronize) OR folder.account IS NULL" +
             " END" +
             " GROUP BY folder.id")
     LiveData<List<TupleFolderEx>> liveFolders(Long account);
