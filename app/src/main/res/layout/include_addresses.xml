@@ -33,6 +33,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="ivSearchContact,ivNotifyContact,ivAddContact" />
+
     <TextView
         android:id="@+id/tvFromExTitle"
         android:layout_width="wrap_content"
@@ -40,7 +47,7 @@
         android:text="@string/title_from"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivAddContact" />
+        app:layout_constraintTop_toBottomOf="@id/barrier_action" />
 
     <TextView
         android:id="@+id/tvFromEx"
@@ -52,7 +59,7 @@
         android:textIsSelectable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/barrier_addresses"
-        app:layout_constraintTop_toBottomOf="@id/ivAddContact" />
+        app:layout_constraintTop_toBottomOf="@id/barrier_action" />
 
     <TextView
         android:id="@+id/tvToTitle"
