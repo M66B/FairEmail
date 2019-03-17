@@ -1683,7 +1683,7 @@ class Core {
                     channelName = channel.getId();
             }
             if (channelName == null)
-                channelName = EntityAccount.getNotificationChannelName(message.accountNotify ? message.account : 0);
+                channelName = EntityAccount.getNotificationChannelId(message.accountNotify ? message.account : 0);
 
             // Get folder name
             String folderName = message.folderDisplay == null

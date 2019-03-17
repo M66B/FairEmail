@@ -314,7 +314,7 @@ public class ServiceSynchronize extends LifecycleService {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                         for (EntityAccount account : db.account().getAccountsTbd())
-                            nm.deleteNotificationChannel(EntityAccount.getNotificationChannelName(account.id));
+                            nm.deleteNotificationChannel(EntityAccount.getNotificationChannelId(account.id));
                     }
 
                     int accounts = db.account().deleteAccountsTbd();

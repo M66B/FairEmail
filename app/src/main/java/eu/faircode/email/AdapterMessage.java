@@ -1230,10 +1230,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
             InternetAddress from = (InternetAddress) message.from[0];
-            String channelName = "notification." + from.getAddress().toLowerCase();
+            String channelId = "notification." + from.getAddress().toLowerCase();
 
             NotificationChannel channel = new NotificationChannel(
-                    channelName, from.getAddress(),
+                    channelId, from.getAddress(),
                     NotificationManager.IMPORTANCE_HIGH);
             channel.setGroup("contacts");
             channel.setDescription(from.getPersonal());
@@ -1242,7 +1242,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             Intent intent = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
                     .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName())
-                    .putExtra(Settings.EXTRA_CHANNEL_ID, channelName);
+                    .putExtra(Settings.EXTRA_CHANNEL_ID, channelId);
             context.startActivity(intent);
         }
 

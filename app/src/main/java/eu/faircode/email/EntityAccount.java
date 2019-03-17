@@ -97,7 +97,7 @@ public class EntityAccount implements Serializable {
         return "imap" + (starttls ? "" : "s");
     }
 
-    static String getNotificationChannelName(long account) {
+    static String getNotificationChannelId(long account) {
         return "notification" + (account == 0 ? "" : "." + account);
     }
 
@@ -105,7 +105,7 @@ public class EntityAccount implements Serializable {
     void createNotificationChannel(Context context) {
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationChannel channel = new NotificationChannel(
-                getNotificationChannelName(id), name,
+                getNotificationChannelId(id), name,
                 NotificationManager.IMPORTANCE_HIGH);
         channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
         nm.createNotificationChannel(channel);
@@ -114,7 +114,7 @@ public class EntityAccount implements Serializable {
     @RequiresApi(api = Build.VERSION_CODES.O)
     void deleteNotificationChannel(Context context) {
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        nm.deleteNotificationChannel(getNotificationChannelName(id));
+        nm.deleteNotificationChannel(getNotificationChannelId(id));
     }
 
     public JSONObject toJSON() throws JSONException {
