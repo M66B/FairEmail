@@ -10,8 +10,8 @@ import androidx.core.app.NotificationCompat;
 import androidx.preference.PreferenceManager;
 
 public class ServiceExternal extends Service {
-    private final static String ACTION_ENABLE = "eu.faircode.email.ENABLE";
-    private final static String ACTION_DISABLE = "eu.faircode.email.DISABLE";
+    private static final String ACTION_ENABLE = BuildConfig.APPLICATION_ID + ".ENABLE";
+    private static final String ACTION_DISABLE = BuildConfig.APPLICATION_ID + ".DISABLE";
 
     // adb shell am startservice -a eu.faircode.email.ENABLE
     // adb shell am startservice -a eu.faircode.email.DISABLE
