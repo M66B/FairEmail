@@ -540,7 +540,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 jexport.put("answers", janswers);
                 jexport.put("settings", jsettings);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                    jexport.put("channels", ((ApplicationEx) getApplication()).channelsToJSON());
+                    jexport.put("channels", ApplicationEx.channelsToJSON(context));
 
                 ContentResolver resolver = context.getContentResolver();
                 DocumentFile file = DocumentFile.fromSingleUri(context, uri);
@@ -755,7 +755,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                         if (jimport.has("channels")) {
                             JSONArray jchannels = jimport.getJSONArray("channels");
-                            ((ApplicationEx) getApplication()).channelsFromJSON(jchannels);
+                            ApplicationEx.channelsFromJSON(context, jchannels);
                         }
 
                     db.setTransactionSuccessful();

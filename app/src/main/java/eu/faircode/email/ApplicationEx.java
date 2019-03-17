@@ -127,10 +127,10 @@ public class ApplicationEx extends Application {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public JSONArray channelsToJSON() throws JSONException {
+    static JSONArray channelsToJSON(Context context) throws JSONException {
         JSONArray jchannels = new JSONArray();
 
-        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         for (NotificationChannel channel : nm.getNotificationChannels())
             if (!DEFAULT_CHANNEL_NAMES.contains(channel.getId())) {
                 JSONObject jchannel = new JSONObject();
@@ -163,8 +163,8 @@ public class ApplicationEx extends Application {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void channelsFromJSON(JSONArray jchannels) throws JSONException {
-        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+    static void channelsFromJSON(Context context, JSONArray jchannels) throws JSONException {
+        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         for (int c = 0; c < jchannels.length(); c++) {
             JSONObject jchannel = (JSONObject) jchannels.get(c);
 
@@ -189,7 +189,7 @@ public class ApplicationEx extends Application {
 
                 if (jchannel.has("sound") && !jchannel.isNull("sound")) {
                     Uri uri = Uri.parse(jchannel.getString("sound"));
-                    Ringtone ringtone = RingtoneManager.getRingtone(this, uri);
+                    Ringtone ringtone = RingtoneManager.getRingtone(context, uri);
                     if (ringtone != null)
                         channel.setSound(uri, Notification.AUDIO_ATTRIBUTES_DEFAULT);
                 }
