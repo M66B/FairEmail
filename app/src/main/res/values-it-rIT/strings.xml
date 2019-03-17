@@ -463,6 +463,7 @@
     <string name="title_hint_sync">Scaricare i messaggi può richiedere molto tempo, a seconda della velocità del provider, della connessione internet e del dispositivo e dal numero di messaggi. Durante il download l\'app potrebbe funzionare più lentamente.</string>
     <string name="title_hint_image_link">Link Immagine</string>
     <string name="title_hint_tracking_image">Immagine di tracciamento %1$sx%2$s</string>
+    <string name="title_hint_ignore_contact">Tieni premuto un contatto per non considerarlo un preferito</string>
     <string name="title_open_link">Apri collegamento</string>
     <string name="title_show_organization">Mostra organizzazione</string>
     <string name="title_insecure_link">Questo link non è sicuro</string>

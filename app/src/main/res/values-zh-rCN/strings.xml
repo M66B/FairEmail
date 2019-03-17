@@ -384,6 +384,7 @@
     <string name="title_rule_enabled">已启用</string>
     <string name="title_rule_stop">执行此规则后停止处理规则</string>
     <string name="title_rule_sender">发件人包含</string>
+    <string name="title_rule_recipient">收件人包含</string>
     <string name="title_rule_subject">主题包含</string>
     <string name="title_rule_header">邮件头包含</string>
     <string name="title_rule_regex">正则表达式</string>
@@ -396,6 +397,7 @@
     <string name="title_rule_cc">回信给邮件抄送地址</string>
     <string name="title_rule_name_missing">缺少规则名称</string>
     <string name="title_rule_condition_missing">条件缺失</string>
+    <string name="title_rule_automation">自动化</string>
     <string name="title_action_seen">标记为已读</string>
     <string name="title_action_archive">存档</string>
     <string name="title_action_trash">垃圾箱</string>
@@ -454,6 +456,7 @@
     <string name="title_hint_sync">下载邮件可能需要一些时间, 具体取决于提供商的速度、网络连接、设备以及邮件数量。在下载邮件时, 应用的响应速度可能会变慢。</string>
     <string name="title_hint_image_link">图片链接</string>
     <string name="title_hint_tracking_image">跟踪图像%1$sx%2$s</string>
+    <string name="title_hint_ignore_contact">长按以忽略联系人</string>
     <string name="title_open_link">打开链接</string>
     <string name="title_show_organization">显示组织</string>
     <string name="title_insecure_link">此链接不安全</string>

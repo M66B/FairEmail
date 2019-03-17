@@ -393,6 +393,7 @@
     <string name="title_rule_enabled">Ingeschakeld</string>
     <string name="title_rule_stop">Stop verwerking van regels na het uitvoeren van deze regel</string>
     <string name="title_rule_sender">Afzender bevat</string>
+    <string name="title_rule_recipient">Ontvanger bevat</string>
     <string name="title_rule_subject">Onderwerp bevat</string>
     <string name="title_rule_header">De kop bevat</string>
     <string name="title_rule_regex">Regex</string>
@@ -405,6 +406,8 @@
     <string name="title_rule_cc">Antwoord op CC adressen</string>
     <string name="title_rule_name_missing">Regelnaam ontbreekt</string>
     <string name="title_rule_condition_missing">Voorwaarde ontbreekt</string>
+    <string name="title_rule_automation">Automatisering</string>
+    <string name="title_rule_automation_hint">Dit zal de intent \'%1$s\' sturen met de extra\'s \'%2$s\'</string>
     <string name="title_action_seen">Gelezen</string>
     <string name="title_action_archive">Archiveren</string>
     <string name="title_action_trash">Weggooien</string>

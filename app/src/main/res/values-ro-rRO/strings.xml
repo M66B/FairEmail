@@ -401,6 +401,7 @@
     <string name="title_rule_enabled">Activată</string>
     <string name="title_rule_stop">Oprește procesarea regulilor după ce se execută acesta</string>
     <string name="title_rule_sender">Expeditorul conține</string>
+    <string name="title_rule_recipient">Recipientul conține</string>
     <string name="title_rule_subject">Subiectul conține</string>
     <string name="title_rule_header">Antetul conține</string>
     <string name="title_rule_regex">Expresie regulată (regex)</string>

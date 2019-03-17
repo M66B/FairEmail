@@ -393,6 +393,7 @@
     <string name="title_rule_enabled">Activé</string>
     <string name="title_rule_stop">Arrêter le traitement des règles après avoir exécuté cette règle</string>
     <string name="title_rule_sender">L\'expéditeur contient</string>
+    <string name="title_rule_recipient">Le destinataire contient</string>
     <string name="title_rule_subject">L’objet contient</string>
     <string name="title_rule_header">L’en-tête contient</string>
     <string name="title_rule_regex">Expression régulière</string>
@@ -405,6 +406,8 @@
     <string name="title_rule_cc">Répondre aux adresses CC</string>
     <string name="title_rule_name_missing">Nom de règle manquant</string>
     <string name="title_rule_condition_missing">Condition manquante</string>
+    <string name="title_rule_automation">Automatisation</string>
+    <string name="title_rule_automation_hint">Ceci enverra l\'intent \'%1$s\' avec les extras \'%2$s\'</string>
     <string name="title_action_seen">Marquer comme lu</string>
     <string name="title_action_archive">Archiver</string>
     <string name="title_action_trash">Supprimer</string>

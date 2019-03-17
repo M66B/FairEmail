@@ -393,6 +393,7 @@
     <string name="title_rule_enabled">Aktiviert</string>
     <string name="title_rule_stop">Regeln nach der Ausführung dieser Regel beenden</string>
     <string name="title_rule_sender">Absender enthält</string>
+    <string name="title_rule_recipient">Empfänger enthält</string>
     <string name="title_rule_subject">Betreff enthält</string>
     <string name="title_rule_header">Kopfzeile enthält</string>
     <string name="title_rule_regex">Regex</string>
@@ -405,6 +406,8 @@
     <string name="title_rule_cc">Den CC-Adressen antworten</string>
     <string name="title_rule_name_missing">Regelname fehlt</string>
     <string name="title_rule_condition_missing">Voraussetzung fehlt</string>
+    <string name="title_rule_automation">Automatisierung</string>
+    <string name="title_rule_automation_hint">Dies sendet de Intent \'%1$s\' mit den Extras \'%2$s\'</string>
     <string name="title_action_seen">Gelesen</string>
     <string name="title_action_archive">Archivieren</string>
     <string name="title_action_trash">Löschen</string>
