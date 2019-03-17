@@ -416,6 +416,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/spAnswer" />
 
+            <TextView
+                android:id="@+id/tvAutomation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_rule_automation_hint"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cbCc" />
+
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpReady"
                 android:layout_width="0dp"
@@ -442,6 +451,12 @@
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="
                 tvAnswerIdentity,spIdent,tvAnswerTemplate,spAnswer,cbCc" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpAutomation"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="tvAutomation" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

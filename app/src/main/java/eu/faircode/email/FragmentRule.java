@@ -89,6 +89,7 @@ public class FragmentRule extends FragmentBase {
     private Spinner spIdent;
     private Spinner spAnswer;
     private CheckBox cbCc;
+    private TextView tvAutomation;
 
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
@@ -96,6 +97,7 @@ public class FragmentRule extends FragmentBase {
     private Group grpReady;
     private Group grpMove;
     private Group grpAnswer;
+    private Group grpAutomation;
 
     private ArrayAdapter<Action> adapterAction;
     private ArrayAdapter<EntityFolder> adapterTarget;
@@ -154,6 +156,7 @@ public class FragmentRule extends FragmentBase {
         spIdent = view.findViewById(R.id.spIdent);
         spAnswer = view.findViewById(R.id.spAnswer);
         cbCc = view.findViewById(R.id.cbCc);
+        tvAutomation = view.findViewById(R.id.tvAutomation);
 
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
@@ -161,6 +164,7 @@ public class FragmentRule extends FragmentBase {
         grpReady = view.findViewById(R.id.grpReady);
         grpMove = view.findViewById(R.id.grpMove);
         grpAnswer = view.findViewById(R.id.grpAnswer);
+        grpAutomation = view.findViewById(R.id.grpAutomation);
 
         ivSender.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -205,6 +209,7 @@ public class FragmentRule extends FragmentBase {
         actions.add(new Action(EntityRule.TYPE_UNSEEN, getString(R.string.title_unseen)));
         actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_move)));
         actions.add(new Action(EntityRule.TYPE_ANSWER, getString(R.string.title_answer_reply)));
+        actions.add(new Action(EntityRule.TYPE_AUTOMATION, getString(R.string.title_rule_automation)));
         adapterAction.addAll(actions);
 
         spAction.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -237,6 +242,13 @@ public class FragmentRule extends FragmentBase {
 
         tvActionRemark.setVisibility(View.GONE);
 
+        tvAutomation.setText(getString(R.string.title_rule_automation_hint,
+                EntityRule.ACTION_AUTOMATION,
+                TextUtils.join(",", new String[]{
+                        EntityRule.EXTRA_RULE,
+                        EntityRule.EXTRA_SENDER,
+                        EntityRule.EXTRA_SUBJECT})));
+
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -259,6 +271,7 @@ public class FragmentRule extends FragmentBase {
         grpReady.setVisibility(View.GONE);
         grpMove.setVisibility(View.GONE);
         grpAnswer.setVisibility(View.GONE);
+        grpAutomation.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
         return view;
@@ -607,6 +620,7 @@ public class FragmentRule extends FragmentBase {
     private void showActionParameters(int type) {
         grpMove.setVisibility(type == EntityRule.TYPE_MOVE ? View.VISIBLE : View.GONE);
         grpAnswer.setVisibility(type == EntityRule.TYPE_ANSWER ? View.VISIBLE : View.GONE);
+        grpAutomation.setVisibility(type == EntityRule.TYPE_AUTOMATION ? View.VISIBLE : View.GONE);
     }
 
     private JSONObject getCondition() throws JSONException {

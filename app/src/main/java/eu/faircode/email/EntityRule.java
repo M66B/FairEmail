@@ -20,6 +20,9 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 
 import org.json.JSONException;
@@ -40,6 +43,7 @@ import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
@@ -81,6 +85,12 @@ public class EntityRule {
     static final int TYPE_UNSEEN = 2;
     static final int TYPE_MOVE = 3;
     static final int TYPE_ANSWER = 4;
+    static final int TYPE_AUTOMATION = 5;
+
+    static final String ACTION_AUTOMATION = BuildConfig.APPLICATION_ID + ".AUTOMATION";
+    static final String EXTRA_RULE = "rule";
+    static final String EXTRA_SENDER = "sender";
+    static final String EXTRA_SUBJECT = "subject";
 
     boolean matches(Context context, EntityMessage message, Message imessage) throws MessagingException {
         try {
@@ -205,6 +215,9 @@ public class EntityRule {
                 case TYPE_ANSWER:
                     onActionAnswer(context, db, message, jargs);
                     break;
+                case TYPE_AUTOMATION:
+                    onActionAutomation(context, db, message, jargs);
+                    break;
             }
         } catch (JSONException ex) {
             Log.e(ex);
@@ -258,6 +271,30 @@ public class EntityRule {
         db.message().setMessageContent(reply.id, true, HtmlHelper.getPreview(body), null);
 
         EntityOperation.queue(context, db, reply, EntityOperation.SEND);
+    }
+
+    private void onActionAutomation(Context context, DB db, EntityMessage message, JSONObject jargs) throws JSONException {
+        String sender = (message.from == null || message.from.length == 0
+                ? null : ((InternetAddress) message.from[0]).getAddress());
+
+        Intent automation = new Intent(ACTION_AUTOMATION);
+        automation.putExtra(EXTRA_RULE, name);
+        automation.putExtra(EXTRA_SENDER, sender);
+        automation.putExtra(EXTRA_SUBJECT, message.subject);
+
+        PackageManager pm = context.getPackageManager();
+        ResolveInfo ri = pm.resolveService(automation, 0);
+        if (ri == null)
+            Log.w("Unable to resolve " + automation);
+        else {
+            automation.setPackage(ri.serviceInfo.packageName);
+            Log.i("Sending " + automation);
+            try {
+                ContextCompat.startForegroundService(context, automation);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+        }
     }
 
     @Override
