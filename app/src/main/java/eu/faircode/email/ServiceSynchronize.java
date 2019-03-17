@@ -1153,14 +1153,6 @@ public class ServiceSynchronize extends LifecycleService {
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         prefs.edit().remove("oneshot").apply();
 
-                        for (EntityAccount account : db.account().getAccounts())
-                            db.account().setAccountState(account.id, null);
-
-                        for (EntityFolder folder : db.folder().getFolders()) {
-                            db.folder().setFolderState(folder.id, null);
-                            db.folder().setFolderSyncState(folder.id, null);
-                        }
-
                         // Restore snooze timers
                         for (EntityMessage message : db.message().getSnoozed())
                             EntityMessage.snooze(context, message.id, message.ui_snoozed);
@@ -1175,6 +1167,15 @@ public class ServiceSynchronize extends LifecycleService {
                             ContextCompat.startForegroundService(context,
                                     new Intent(context, ServiceSynchronize.class)
                                             .setAction("init"));
+                        else {
+                            for (EntityAccount account : db.account().getAccounts())
+                                db.account().setAccountState(account.id, null);
+
+                            for (EntityFolder folder : db.folder().getFolders()) {
+                                db.folder().setFolderState(folder.id, null);
+                                db.folder().setFolderSyncState(folder.id, null);
+                            }
+                        }
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
