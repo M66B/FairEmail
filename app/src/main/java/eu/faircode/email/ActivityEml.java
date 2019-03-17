@@ -40,9 +40,9 @@ public class ActivityEml extends ActivityBase {
         final TextView tvHtml = findViewById(R.id.tvHtml);
         final TextView tvEml = findViewById(R.id.tvEml);
         final ContentLoadingProgressBar pbWait = findViewById(R.id.pbWait);
-        final Group grpEml = findViewById(R.id.grpEml);
+        final Group grpReady = findViewById(R.id.grpReady);
 
-        grpEml.setVisibility(View.GONE);
+        grpReady.setVisibility(View.GONE);
 
         Uri uri = getIntent().getData();
         if (uri == null) {
@@ -125,7 +125,7 @@ public class ActivityEml extends ActivityBase {
                 tvBody.setText(result.body);
                 tvHtml.setText(result.html);
                 tvEml.setText(result.eml.substring(0, Math.min(10 * 1024, result.eml.length()))); // prevent ANR
-                grpEml.setVisibility(View.VISIBLE);
+                grpReady.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -135,7 +135,7 @@ public class ActivityEml extends ActivityBase {
                 else
                     Helper.unexpectedError(ActivityEml.this, ActivityEml.this, ex);
             }
-        }.execute(this, args, "eml");
+        }.execute(this, args, "eml:decode");
     }
 
     private class Result {
