@@ -190,17 +190,17 @@ public class EntityMessage implements Serializable {
         if (obj instanceof EntityMessage) {
             EntityMessage other = (EntityMessage) obj;
             return (true &&
-                    //(this.account == null ? other.account == null : this.account.equals(other.account)) &&
-                    //this.folder.equals(other.folder) &&
-                    //(this.identity == null ? other.identity == null : this.identity.equals(other.identity)) &&
-                    //(this.replying == null ? other.replying == null : this.replying.equals(other.replying)) &&
-                    //(this.forwarding == null ? other.forwarding == null : this.forwarding.equals(other.forwarding)) &&
+                    // account
+                    // folder
+                    Objects.equals(this.identity, other.identity) && // via
                     Objects.equals(this.uid, other.uid) &&
                     Objects.equals(this.msgid, other.msgid) && // debug info
-                    //(this.references == null ? other.references == null : this.references.equals(other.references)) &&
-                    //(this.deliveredto == null ? other.deliveredto == null : this.deliveredto.equals(other.deliveredto)) &&
-                    //(this.inreplyto == null ? other.inreplyto == null : this.inreplyto.equals(other.inreplyto)) &&
+                    // references
+                    // deliveredto
+                    // inreplyto
                     Objects.equals(this.thread, other.thread) &&
+                    Objects.equals(this.avatar, other.avatar) &&
+                    // sender
                     MessageHelper.equal(this.from, other.from) &&
                     MessageHelper.equal(this.to, other.to) &&
                     MessageHelper.equal(this.cc, other.cc) &&
@@ -212,12 +212,12 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.size, other.size) &&
                     this.content == other.content &&
                     Objects.equals(this.preview, other.preview) &&
-                    //(this.sent == null ? other.sent == null : this.sent.equals(other.sent)) &&
+                    // sent
                     this.received.equals(other.received) &&
                     this.stored.equals(other.stored) && // updated after decryption
-                    //this.seen.equals(other.seen) &&
-                    //this.answered.equals(other.answered) &&
-                    //this.flagged.equals(other.flagged) &&
+                    // seen
+                    // answered
+                    // flagged
                     (!BuildConfig.DEBUG || Objects.equals(this.flags, other.flags)) &&
                     Helper.equal(this.keywords, other.keywords) &&
                     this.ui_seen.equals(other.ui_seen) &&
@@ -230,6 +230,7 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.ui_snoozed, other.ui_snoozed) &&
                     Objects.equals(this.warning, other.warning) &&
                     Objects.equals(this.error, other.error) &&
+                    // last_attempt
                     this.day == other.day);
         }
         return false;
