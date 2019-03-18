@@ -149,6 +149,8 @@ public class FragmentMessages extends FragmentBase {
     private int autoCloseCount = 0;
     private boolean autoExpanded = true;
     private Map<String, List<Long>> values = new HashMap<>();
+    private LongSparseArray<Spanned> bodies = new LongSparseArray<>();
+    private LongSparseArray<String> html = new LongSparseArray<>();
     private LongSparseArray<TupleAccountSwipes> accountSwipes = new LongSparseArray<>();
 
     private BoundaryCallbackMessages boundaryCallback = null;
@@ -553,9 +555,6 @@ public class FragmentMessages extends FragmentBase {
     }
 
     private AdapterMessage.IProperties iProperties = new AdapterMessage.IProperties() {
-        private LongSparseArray<Spanned> bodies = new LongSparseArray<>();
-        private LongSparseArray<String> html = new LongSparseArray<>();
-
         @Override
         public void setValue(String name, long id, boolean enabled) {
             if (!values.containsKey(name))
