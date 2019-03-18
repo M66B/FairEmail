@@ -150,7 +150,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         private void bindTo(final TupleFolderEx folder) {
             view.setActivated(folder.tbc != null || folder.tbd != null);
-            view.setAlpha(folder.hide ? 0.5f : 1.0f);
 
             if (textSize != 0)
                 tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
@@ -341,7 +340,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (folder.tbd != null)
                 return false;
 
-            PopupMenu popupMenu = new PopupMenu(context, tvName);
+            PopupMenu popupMenu = new PopupMenu(context, vwRipple);
 
             popupMenu.getMenu().add(Menu.NONE, action_synchronize_now, 1, R.string.title_synchronize_now);
 
