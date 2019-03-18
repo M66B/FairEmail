@@ -147,6 +147,7 @@ public class EntityOperation {
                     long uid = message.uid;
                     boolean seen = message.seen;
                     boolean ui_seen = message.ui_seen;
+                    boolean ui_browsed = message.ui_browsed;
                     message.id = null;
                     message.account = target.account;
                     message.folder = target.id;
@@ -155,6 +156,7 @@ public class EntityOperation {
                         message.seen = true;
                         message.ui_seen = true;
                     }
+                    message.ui_browsed = false;
                     message.id = db.message().insertMessage(message);
                     File mtarget = message.getFile(context);
                     tmpid = message.id;
@@ -165,6 +167,7 @@ public class EntityOperation {
                     message.uid = uid;
                     message.seen = seen;
                     message.ui_seen = ui_seen;
+                    message.ui_browsed = ui_browsed;
 
                     if (message.content)
                         try {

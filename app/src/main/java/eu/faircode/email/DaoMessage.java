@@ -297,9 +297,6 @@ public interface DaoMessage {
     @Query("UPDATE message SET ui_hide = :ui_hide WHERE id = :id")
     int setMessageUiHide(long id, boolean ui_hide);
 
-    @Query("UPDATE message SET ui_browsed = :ui_browsed WHERE id = :id")
-    int setMessageUiBrowsed(long id, boolean ui_browsed);
-
     @Query("UPDATE message SET ui_ignored = :ui_ignored WHERE id = :id")
     int setMessageUiIgnored(long id, boolean ui_ignored);
 
@@ -363,7 +360,6 @@ public interface DaoMessage {
     @Query("DELETE FROM message" +
             " WHERE folder = :folder" +
             " AND uid IS NULL" +
-            " AND NOT ui_browsed" +
             " AND NOT EXISTS" +
             "  (SELECT * FROM operation" +
             "  WHERE operation.message = message.id" +
