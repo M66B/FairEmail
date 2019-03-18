@@ -668,7 +668,8 @@ public class ServiceSynchronize extends LifecycleService {
                                                     db.beginTransaction();
                                                     message = Core.synchronizeMessage(
                                                             ServiceSynchronize.this,
-                                                            folder, (IMAPFolder) ifolder, (IMAPMessage) imessage,
+                                                            account, folder,
+                                                            (IMAPFolder) ifolder, (IMAPMessage) imessage,
                                                             false,
                                                             db.rule().getEnabledRules(folder.id));
                                                     db.setTransactionSuccessful();
@@ -757,7 +758,8 @@ public class ServiceSynchronize extends LifecycleService {
                                                 db.beginTransaction();
                                                 message = Core.synchronizeMessage(
                                                         ServiceSynchronize.this,
-                                                        folder, (IMAPFolder) ifolder, (IMAPMessage) e.getMessage(),
+                                                        account, folder,
+                                                        (IMAPFolder) ifolder, (IMAPMessage) e.getMessage(),
                                                         false,
                                                         db.rule().getEnabledRules(folder.id));
                                                 db.setTransactionSuccessful();

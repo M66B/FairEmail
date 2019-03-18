@@ -985,7 +985,8 @@ class Core {
                         db.beginTransaction();
                         EntityMessage message = synchronizeMessage(
                                 context,
-                                folder, ifolder, (IMAPMessage) isub[j],
+                                account, folder,
+                                ifolder, (IMAPMessage) isub[j],
                                 false,
                                 rules);
                         ids[from + j] = message.id;
@@ -1075,7 +1076,8 @@ class Core {
 
     static EntityMessage synchronizeMessage(
             Context context,
-            EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage,
+            EntityAccount account, EntityFolder folder,
+            IMAPFolder ifolder, IMAPMessage imessage,
             boolean browsed,
             List<EntityRule> rules) throws MessagingException, IOException {
         long uid = ifolder.getUID(imessage);
@@ -1239,7 +1241,8 @@ class Core {
                 attachment.id = db.attachment().insertAttachment(attachment);
             }
 
-            if (!EntityFolder.ARCHIVE.equals(folder.type) &&
+            if (message.received > account.created &&
+                    !EntityFolder.ARCHIVE.equals(folder.type) &&
                     !EntityFolder.TRASH.equals(folder.type) &&
                     !EntityFolder.JUNK.equals(folder.type)) {
                 int type = (folder.isOutgoing() ? EntityContact.TYPE_TO : EntityContact.TYPE_FROM);

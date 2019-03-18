@@ -151,9 +151,11 @@ public class ViewModelBrowse extends ViewModel {
         final EntityFolder folder = db.folder().getBrowsableFolder(state.fid, state.search != null);
         if (folder == null)
             return local;
+        EntityAccount account = db.account().getAccount(folder.account);
+        if (account == null)
+            return local;
 
         if (state.imessages == null) {
-            EntityAccount account = db.account().getAccount(folder.account);
 
             try {
                 // Check connectivity
@@ -323,7 +325,8 @@ public class ViewModelBrowse extends ViewModel {
                         EntityMessage message = db.message().getMessageByUid(folder.id, uid);
                         if (message == null) {
                             message = Core.synchronizeMessage(state.context,
-                                    folder, state.ifolder, (IMAPMessage) isub[j],
+                                    account, folder,
+                                    state.ifolder, (IMAPMessage) isub[j],
                                     true,
                                     new ArrayList<EntityRule>());
                             remote++;
