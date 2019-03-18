@@ -69,7 +69,7 @@ public class EntityFolder implements Serializable {
     @NonNull
     public String type;
     @NonNull
-    public Integer level;
+    public Integer level = 0; // obsolete
     @NonNull
     public Boolean synchronize;
     @NonNull
@@ -83,6 +83,8 @@ public class EntityFolder implements Serializable {
     public String display;
     @NonNull
     public Boolean hide = false;
+    @NonNull
+    public Boolean collapsed = false;
     @NonNull
     public Boolean unified = false;
     @NonNull
@@ -200,6 +202,13 @@ public class EntityFolder implements Serializable {
         return (display == null ? Helper.localizeFolderName(context, name) : display);
     }
 
+    String getDisplayName(Context context, EntityFolder parent) {
+        String n = name;
+        if (parent != null && name.startsWith(parent.name))
+            n = n.substring(parent.name.length() + 1);
+        return (display == null ? Helper.localizeFolderName(context, n) : display);
+    }
+
     boolean isOutgoing() {
         return isOutgoing(this.type);
     }
@@ -227,19 +236,6 @@ public class EntityFolder implements Serializable {
         return USER;
     }
 
-    static int getLevel(Character separator, String name) {
-        int level = 0;
-        if (separator != null) {
-            for (int i = 0; i < name.length(); i++)
-                if (name.charAt(i) == separator)
-                    level++;
-            if (name.startsWith("INBOX" + separator))
-                level--;
-        }
-
-        return level;
-    }
-
     String getParentName(Character separator) {
         if (separator == null)
             return null;
@@ -250,7 +246,6 @@ public class EntityFolder implements Serializable {
             else
                 return name.substring(0, p);
         }
-
     }
 
     @Override
@@ -261,7 +256,6 @@ public class EntityFolder implements Serializable {
                     Objects.equals(this.account, other.account) &&
                     this.name.equals(other.name) &&
                     this.type.equals(other.type) &&
-                    this.level.equals(other.level) &&
                     this.synchronize.equals(other.synchronize) &&
                     this.poll.equals(other.poll) &&
                     this.download.equals(other.download) &&
@@ -269,6 +263,7 @@ public class EntityFolder implements Serializable {
                     this.keep_days.equals(other.keep_days) &&
                     Objects.equals(this.display, other.display) &&
                     this.hide == other.hide &&
+                    this.collapsed == other.collapsed &&
                     this.unified == other.unified &&
                     this.notify == other.notify &&
                     Objects.equals(this.total, other.total) &&
@@ -292,7 +287,6 @@ public class EntityFolder implements Serializable {
         json.put("id", id);
         json.put("name", name);
         json.put("type", type);
-        json.put("level", level);
         json.put("synchronize", synchronize);
         json.put("poll", poll);
         json.put("download", download);
@@ -300,6 +294,7 @@ public class EntityFolder implements Serializable {
         json.put("keep_days", keep_days);
         json.put("display", display);
         json.put("hide", hide);
+        json.put("collapsed", collapsed);
         json.put("unified", unified);
         json.put("notify", notify);
         return json;
@@ -312,11 +307,6 @@ public class EntityFolder implements Serializable {
 
         folder.name = json.getString("name");
         folder.type = json.getString("type");
-
-        if (json.has("level"))
-            folder.level = json.getInt("level");
-        else
-            folder.level = 0;
 
         folder.synchronize = json.getBoolean("synchronize");
 
@@ -341,6 +331,8 @@ public class EntityFolder implements Serializable {
 
         if (json.has("hide"))
             folder.hide = json.getBoolean("hide");
+        if (json.has("collapsed"))
+            folder.collapsed = json.getBoolean("collapsed");
 
         folder.unified = json.getBoolean("unified");
 

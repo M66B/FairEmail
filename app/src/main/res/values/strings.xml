@@ -289,9 +289,7 @@
 
     <string name="title_folder_name">Folder name</string>
     <string name="title_display_name">Display name</string>
-    <string name="title_hide_folders">Hide hidden folders</string>
-    <string name="title_show_folders">Show hidden folders</string>
-    <string name="title_hide_folder">Hide from list</string>
+    <string name="title_hide_folder">Hide from menus</string>
     <string name="title_unified_folder">Show in unified inbox</string>
     <string name="title_synchronize_folder">Synchronize (receive messages)</string>
     <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>

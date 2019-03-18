@@ -213,7 +213,6 @@ public class FragmentFolder extends FragmentBase {
                         EntityFolder create = new EntityFolder();
                         create.account = aid;
                         create.name = name;
-                        create.level = 0;
                         create.display = display;
                         create.hide = hide;
                         create.type = EntityFolder.USER;

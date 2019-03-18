@@ -8,10 +8,4 @@
         android:title="@string/title_search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="collapseActionView|always" />
-
-    <item
-        android:id="@+id/menu_show_hidden"
-        android:icon="@drawable/baseline_visibility_24"
-        android:title="@string/title_show_folders"
-        app:showAsAction="always" />
 </menu>

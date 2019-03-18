@@ -755,7 +755,6 @@ class Core {
                 if (type != null) {
                     names.remove(fullName);
 
-                    int level = EntityFolder.getLevel(separator, fullName);
                     String display = null;
                     if (account.prefix != null && fullName.startsWith(account.prefix + separator))
                         display = fullName.substring(account.prefix.length() + 1);
@@ -767,7 +766,6 @@ class Core {
                         folder.name = fullName;
                         folder.display = display;
                         folder.type = (EntityFolder.SYSTEM.equals(type) ? type : EntityFolder.USER);
-                        folder.level = level;
                         folder.synchronize = false;
                         folder.poll = ("imap.gmail.com".equals(account.host));
                         folder.sync_days = EntityFolder.DEFAULT_SYNC;
@@ -790,8 +788,6 @@ class Core {
                                         " restored prefix display=" + folder.display + " separator=" + separator);
                             }
                         }
-
-                        db.folder().setFolderLevel(folder.id, level);
 
                         // Compatibility
                         if ("Inbox_sub".equals(folder.type))

@@ -1013,7 +1013,6 @@ public class FragmentAccount extends FragmentBase {
                     db.folder().setFoldersUser(account.id);
 
                     for (EntityFolder folder : folders) {
-                        folder.level = EntityFolder.getLevel(separator, folder.name);
                         if (account.prefix != null && folder.name.startsWith(account.prefix + separator))
                             folder.display = folder.name.substring(account.prefix.length() + 1);
 
@@ -1025,7 +1024,6 @@ public class FragmentAccount extends FragmentBase {
                         } else {
                             EntityLog.log(context, "Updated folder=" + folder.name + " type=" + folder.type);
                             db.folder().setFolderType(existing.id, folder.type);
-                            db.folder().setFolderLevel(existing.id, folder.level);
                         }
                     }
 

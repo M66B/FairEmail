@@ -21,39 +21,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/ivExpander"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:paddingStart="6dp"
-            android:paddingEnd="6dp"
-            android:src="@drawable/baseline_expand_less_24"
-            android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/vSeparator"
-            app:layout_constraintStart_toEndOf="@+id/vwColor"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
             android:id="@+id/ivState"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="6dp"
+            android:layout_marginStart="6dp"
             android:src="@drawable/baseline_cloud_off_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvName"
-            app:layout_constraintStart_toEndOf="@id/ivExpander"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
             app:layout_constraintTop_toTopOf="@+id/tvName" />
-
-        <ImageView
-            android:id="@+id/ivUnified"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="12dp"
-            android:src="@drawable/baseline_folder_special_24"
-            app:layout_constraintBottom_toBottomOf="@+id/tvType"
-            app:layout_constraintStart_toEndOf="@id/ivExpander"
-            app:layout_constraintTop_toTopOf="@+id/tvType" />
 
         <View
             android:id="@+id/vwLevel"
@@ -64,20 +39,42 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/ivNotify"
-            android:layout_width="24dp"
+            android:id="@+id/ivExpander"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:src="@drawable/baseline_expand_less_24"
+            app:layout_constraintBottom_toTopOf="@+id/vSeparator"
+            app:layout_constraintStart_toEndOf="@+id/vwLevel"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivUnified"
+            android:layout_width="30dp"
             android:layout_height="24dp"
-            android:layout_marginStart="6dp"
+            android:paddingEnd="6dp"
+            android:src="@drawable/baseline_folder_special_24"
+            app:layout_constraintBottom_toBottomOf="@+id/tvType"
+            app:layout_constraintStart_toEndOf="@id/ivExpander"
+            app:layout_constraintTop_toTopOf="@+id/tvType" />
+
+        <ImageView
+            android:id="@+id/ivNotify"
+            android:layout_width="30dp"
+            android:layout_height="24dp"
+            android:paddingEnd="6dp"
             android:src="@drawable/baseline_notifications_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvName"
-            app:layout_constraintStart_toEndOf="@id/vwLevel"
+            app:layout_constraintStart_toEndOf="@id/ivExpander"
             app:layout_constraintTop_toTopOf="@+id/tvName" />
 
         <TextView
             android:id="@+id/tvName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
             android:layout_marginTop="6dp"
             android:layout_marginEnd="6dp"
             android:ellipsize="end"
@@ -116,7 +113,6 @@
             android:id="@+id/tvType"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
             android:layout_marginTop="6dp"
             android:layout_marginEnd="6dp"
             android:gravity="center_vertical"
@@ -125,7 +121,7 @@
             android:textAppearance="@android:style/TextAppearance.Small"
             android:textStyle="italic"
             app:layout_constraintEnd_toStartOf="@+id/tvAfter"
-            app:layout_constraintStart_toEndOf="@id/vwLevel"
+            app:layout_constraintStart_toEndOf="@id/ivUnified"
             app:layout_constraintTop_toBottomOf="@id/tvName" />
 
         <TextView
@@ -154,21 +150,19 @@
             android:id="@+id/tvKeywords"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
             android:layout_marginTop="6dp"
             android:layout_marginEnd="12dp"
             android:gravity="center_vertical"
             android:text="Keywords"
             android:textAppearance="@android:style/TextAppearance.Small"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/vwLevel"
+            app:layout_constraintStart_toEndOf="@id/ivExpander"
             app:layout_constraintTop_toBottomOf="@id/tvType" />
 
         <TextView
             android:id="@+id/tvError"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
             android:layout_marginTop="6dp"
             android:layout_marginEnd="12dp"
             android:text="error"

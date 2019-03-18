@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.LongSparseArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -35,6 +36,7 @@ import android.widget.ImageButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -65,7 +67,7 @@ public class FragmentFolders extends FragmentBase {
     private boolean searching = false;
     private AdapterFolder adapter;
 
-    private Boolean show_hidden = null;
+    private static LongSparseArray<List<TupleFolderEx>> parentChilds = new LongSparseArray<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -128,7 +130,18 @@ public class FragmentFolders extends FragmentBase {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvFolder.setLayoutManager(llm);
 
-        adapter = new AdapterFolder(getContext(), getViewLifecycleOwner());
+        adapter = new AdapterFolder(getContext(), getViewLifecycleOwner(), new AdapterFolder.IProperties() {
+            @Override
+            public void setChilds(long parent, List<TupleFolderEx> childs) {
+                parentChilds.put(parent, childs);
+            }
+
+            @Override
+            public List<TupleFolderEx> getChilds(long parent) {
+                List<TupleFolderEx> childs = parentChilds.get(parent);
+                return (childs == null ? new ArrayList<TupleFolderEx>() : childs);
+            }
+        });
         rvFolder.setAdapter(adapter);
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -189,20 +202,8 @@ public class FragmentFolders extends FragmentBase {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        if (show_hidden != null)
-            outState.putBoolean("fair:show_hidden", show_hidden);
-    }
-
-    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        if (savedInstanceState != null) {
-            show_hidden = (Boolean) savedInstanceState.get("fair:show_hidden");
-            getActivity().invalidateOptionsMenu();
-        }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         grpHintActions.setVisibility(prefs.getBoolean("folder_actions", false) ? View.GONE : View.VISIBLE);
@@ -247,26 +248,7 @@ public class FragmentFolders extends FragmentBase {
                     return;
                 }
 
-                boolean has_hidden = false;
-                for (TupleFolderEx folder : folders)
-                    if (folder.hide) {
-                        has_hidden = true;
-                        break;
-                    }
-
-                if (has_hidden) {
-                    if (show_hidden == null) {
-                        show_hidden = false;
-                        getActivity().invalidateOptionsMenu();
-                    }
-                } else {
-                    if (show_hidden != null) {
-                        show_hidden = null;
-                        getActivity().invalidateOptionsMenu();
-                    }
-                }
-
-                adapter.set(account, show_hidden == null || show_hidden, folders);
+                adapter.set(account, null, 0, folders);
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
@@ -367,39 +349,5 @@ public class FragmentFolders extends FragmentBase {
         });
 
         super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.menu_search).setVisible(account < 0);
-
-        MenuItem item = menu.findItem(R.id.menu_show_hidden);
-        if (show_hidden != null) {
-            item.setTitle(show_hidden ? R.string.title_hide_folders : R.string.title_show_folders);
-            item.setIcon(show_hidden ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_visibility_24);
-        }
-        item.setVisible(show_hidden != null);
-
-        super.onPrepareOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_show_hidden:
-                onMenuShowHidden();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    private void onMenuShowHidden() {
-        if (show_hidden == null)
-            show_hidden = false;
-        else
-            show_hidden = !show_hidden;
-        getActivity().invalidateOptionsMenu();
-        adapter.showHidden(show_hidden);
     }
 }
