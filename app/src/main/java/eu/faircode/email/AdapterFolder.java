@@ -94,6 +94,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private ImageView ivSync;
         private TextView tvKeywords;
         private TextView tvError;
+        private View vwRipple;
         private RecyclerView rvChilds;
 
         private AdapterFolder childs;
@@ -124,6 +125,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ivSync = itemView.findViewById(R.id.ivSync);
             tvKeywords = itemView.findViewById(R.id.tvKeywords);
             tvError = itemView.findViewById(R.id.tvError);
+            vwRipple = itemView.findViewById(R.id.vwRipple);
 
             rvChilds = itemView.findViewById(R.id.rvChilds);
             LinearLayoutManager llm = new LinearLayoutManager(context);
@@ -294,6 +296,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (view.getId() == R.id.ivExpander)
                 onCollapse(folder);
             else {
+                vwRipple.setPressed(true);
+                vwRipple.setPressed(false);
+
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                 lbm.sendBroadcast(
                         new Intent(ActivityView.ACTION_VIEW_MESSAGES)

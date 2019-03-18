@@ -8,8 +8,7 @@
         android:id="@+id/clItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/activatableItemBackground"
-        android:foreground="?attr/selectableItemBackground">
+        android:background="?attr/activatableItemBackground">
 
         <View
             android:id="@+id/vwColor"
@@ -181,6 +180,16 @@
             android:background="?attr/colorSeparator"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvError" />
+
+        <View
+            android:id="@+id/vwRipple"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="?android:attr/selectableItemBackground"
+            app:layout_constraintBottom_toTopOf="@id/vSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvChilds"
