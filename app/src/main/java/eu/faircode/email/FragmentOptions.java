@@ -107,6 +107,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swUpdates;
     private SwitchCompat swDebug;
 
+    private Group grpSearchLocal;
     private Group grpNotification;
 
     static String[] OPTIONS_RESTART = new String[]{
@@ -182,6 +183,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swUpdates = view.findViewById(R.id.swUpdates);
         swDebug = view.findViewById(R.id.swDebug);
 
+        grpSearchLocal = view.findViewById(R.id.grpSearchLocal);
         grpNotification = view.findViewById(R.id.grpNotification);
 
         // Wire controls
@@ -613,7 +615,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swUpdates.setVisibility(Helper.isPlayStoreInstall(getContext()) ? View.GONE : View.VISIBLE);
         swDebug.setChecked(prefs.getBoolean("debug", false));
 
-        grpNotification.setVisibility(BuildConfig.DEBUG || Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
+        grpSearchLocal.setVisibility(Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.M ? View.GONE : View.VISIBLE);
+        grpNotification.setVisibility(Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
     }
 
     private String formatHour(int minutes) {

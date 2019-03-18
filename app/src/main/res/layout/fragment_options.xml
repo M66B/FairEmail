@@ -816,6 +816,12 @@
             app:switchPadding="12dp" />
 
         <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpSearchLocal"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="swSearchLocal,tvSearchLocalHint" />
+
+        <androidx.constraintlayout.widget.Group
             android:id="@+id/grpNotification"
             android:layout_width="0dp"
             android:layout_height="0dp"
