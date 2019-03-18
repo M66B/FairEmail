@@ -66,6 +66,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private long account;
     private int level;
     private EntityFolder parent;
+    private boolean collapsable;
     private IProperties properties;
     private boolean debug;
     private int dp12;
@@ -181,12 +182,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             ? View.VISIBLE : View.INVISIBLE);
 
             ViewGroup.LayoutParams lp = vwLevel.getLayoutParams();
-            lp.width = (account < 0 ? 1 : level) * dp12;
+            lp.width = (account < 0 || !collapsable ? 1 : level) * dp12;
             vwLevel.setLayoutParams(lp);
 
             ivExpander.setImageResource(folder.collapsed
                     ? R.drawable.baseline_expand_more_24 : R.drawable.baseline_expand_less_24);
-            ivExpander.setVisibility(account < 0 ? View.GONE : (folder.childs > 0 ? View.VISIBLE : View.INVISIBLE));
+            ivExpander.setVisibility(account < 0 || !collapsable ? View.GONE : (folder.childs > 0 ? View.VISIBLE : View.INVISIBLE));
 
             ivNotify.setVisibility(folder.notify ? View.VISIBLE : View.GONE);
 
@@ -554,6 +555,17 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         this.account = account;
         this.parent = parent;
         this.level = level;
+
+        if (parent == null) {
+            this.collapsable = false;
+            for (TupleFolderEx folder : folders)
+                if (folder.childs > 0) {
+                    this.collapsable = true;
+                    break;
+                }
+
+        } else
+            this.collapsable = true;
 
         final Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
