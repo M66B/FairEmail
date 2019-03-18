@@ -120,8 +120,8 @@ public class HtmlHelper {
         // Tables
         for (Element col : document.select("th,td")) {
             // prevent line breaks
-            col.select("br").tagName("span").html("&nbsp;");
-            col.select("div").tagName("span");
+            //col.select("br").tagName("span").html("&nbsp;");
+            //col.select("div").tagName("span");
 
             // separate columns by a space
             if (col.nextElementSibling() != null)
@@ -167,7 +167,7 @@ public class HtmlHelper {
         // Lines
         for (Element hr : document.select("hr")) {
             hr.tagName("div");
-            hr.text("--------------------");
+            hr.text("----------------------------------------");
         }
 
         // Descriptions
