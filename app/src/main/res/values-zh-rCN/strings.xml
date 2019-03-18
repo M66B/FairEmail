@@ -8,6 +8,7 @@
     <string name="channel_notification">通知</string>
     <string name="channel_warning">警告</string>
     <string name="channel_error">错误</string>
+    <string name="channel_group_contacts">联系人</string>
     <string name="tile_synchronize">同步</string>
     <string name="tile_unseen">新邮件</string>
     <string name="shortcut_compose">撰写</string>
@@ -239,6 +240,7 @@
     <string name="title_no_operations">没有待执行操作</string>
     <string name="title_folder_name">文件夹名</string>
     <string name="title_display_name">显示昵称</string>
+    <string name="title_hide_folder">从菜单中隐藏</string>
     <string name="title_unified_folder">在统一的收件箱中显示</string>
     <string name="title_synchronize_folder">同步文件夹（接收）</string>
     <string name="title_poll_folder">定期检查而非持续同步</string>
