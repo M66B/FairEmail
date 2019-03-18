@@ -55,6 +55,13 @@ public interface DaoAccount {
             "    AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
             "    AND NOT ui_seen" +
             "    AND NOT ui_hide) AS unseen" +
+            ", (SELECT COUNT(message.id)" +
+            "    FROM message" +
+            "    JOIN folder ON folder.id = message.folder" +
+            "    WHERE message.account = account.id" +
+            "    AND folder.type = '" + EntityFolder.OUTBOX + "'" +
+            "    AND NOT ui_seen" +
+            "    AND NOT ui_hide) AS unsent" +
             " FROM account" +
             " LEFT JOIN operation ON operation.account = account.id" +
             " WHERE synchronize" +

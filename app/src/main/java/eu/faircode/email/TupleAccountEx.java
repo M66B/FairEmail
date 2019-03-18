@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 public class TupleAccountEx extends EntityAccount {
     public int unseen;
+    public int unsent;
     public int operations;
 
     @Override
@@ -29,6 +30,7 @@ public class TupleAccountEx extends EntityAccount {
             TupleAccountEx other = (TupleAccountEx) obj;
             return (super.equals(obj) &&
                     this.unseen == other.unseen &&
+                    this.unsent == other.unsent &&
                     this.operations == other.operations);
         } else
             return false;

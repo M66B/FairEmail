@@ -178,6 +178,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 DrawerItem item = drawerArray.getItem(position);
                 if (item == null)
                     return;
+                Log.i("Navigation id=" + item.getId() + " menu=" + item.getMenuId());
 
                 switch (item.getMenuId()) {
                     case R.string.menu_answers:
@@ -220,6 +221,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         long account = item.getId();
                         if (account > 0)
                             onMenuFolders(account);
+                        else
+                            onMenuOutbox();
                 }
 
                 drawerLayout.closeDrawer(drawerList);
@@ -296,6 +299,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                 !Objects.equals(account.color, other.color) ||
                                 !Objects.equals(account.state, other.state) ||
                                 account.unseen != other.unseen ||
+                                account.unsent != other.unsent ||
                                 account.operations != other.operations) {
                             changed = true;
                             break;
@@ -310,7 +314,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 List<DrawerItem> items = new ArrayList<>();
 
-                int operations = 0;
+                int unsent = 0;
+                int pending = 0;
                 for (TupleAccountEx account : accounts) {
                     String title;
                     if (account.unseen > 0)
@@ -322,35 +327,44 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                     ? account.primary ? R.drawable.baseline_folder_special_24 : R.drawable.baseline_folder_24
                                     : R.drawable.baseline_folder_open_24,
                             title, account.color, account.unseen > 0));
-                    operations += account.operations;
+                    unsent += account.unsent;
+                    pending += account.operations;
                 }
 
                 items.add(new DrawerItem(-1));
-                items.add(new DrawerItem(-2, R.drawable.baseline_reply_24, R.string.menu_answers));
 
-                String title;
-                if (operations == 0)
-                    title = getString(R.string.menu_operations);
+                String outbox;
+                if (unsent > 0)
+                    outbox = getString(R.string.title_name_count, getString(R.string.title_folder_outbox), nf.format(unsent));
                 else
-                    title = getString(R.string.title_name_count,
-                            getString(R.string.menu_operations),
-                            nf.format(operations));
-                items.add(new DrawerItem(-3, R.string.menu_operations, R.drawable.baseline_list_24, title, operations > 0));
+                    outbox = getString(R.string.title_folder_outbox);
+                items.add(new DrawerItem(-2, R.drawable.baseline_send_24, outbox, null, unsent > 0));
 
-                items.add(new DrawerItem(-4, R.drawable.baseline_settings_applications_24, R.string.menu_setup));
-                items.add(new DrawerItem(-5));
-                items.add(new DrawerItem(-6, R.drawable.baseline_help_24, R.string.menu_legend));
+                items.add(new DrawerItem(-3, R.drawable.baseline_reply_24, R.string.menu_answers));
+
+                String operations;
+                if (pending == 0)
+                    operations = getString(R.string.menu_operations);
+                else
+                    operations = getString(R.string.title_name_count,
+                            getString(R.string.menu_operations),
+                            nf.format(pending));
+                items.add(new DrawerItem(-4, R.string.menu_operations, R.drawable.baseline_list_24, operations, pending > 0));
+
+                items.add(new DrawerItem(-5, R.drawable.baseline_settings_applications_24, R.string.menu_setup));
+                items.add(new DrawerItem(-6));
+                items.add(new DrawerItem(-7, R.drawable.baseline_help_24, R.string.menu_legend));
 
                 if (Helper.getIntentFAQ().resolveActivity(getPackageManager()) != null)
-                    items.add(new DrawerItem(-7, R.drawable.baseline_question_answer_24, R.string.menu_faq));
+                    items.add(new DrawerItem(-8, R.drawable.baseline_question_answer_24, R.string.menu_faq));
 
                 if (BuildConfig.BETA_RELEASE)
-                    items.add(new DrawerItem(-8, R.drawable.baseline_report_problem_24, R.string.menu_issue));
+                    items.add(new DrawerItem(-9, R.drawable.baseline_report_problem_24, R.string.menu_issue));
 
                 if (Helper.getIntentPrivacy().resolveActivity(getPackageManager()) != null)
-                    items.add(new DrawerItem(-9, R.drawable.baseline_account_box_24, R.string.menu_privacy));
+                    items.add(new DrawerItem(-10, R.drawable.baseline_account_box_24, R.string.menu_privacy));
 
-                items.add(new DrawerItem(-10, R.drawable.baseline_info_24, R.string.menu_about));
+                items.add(new DrawerItem(-11, R.drawable.baseline_info_24, R.string.menu_about));
 
                 boolean pro = (getIntentPro() == null || getIntentPro().resolveActivity(getPackageManager()) != null);
                 boolean invite = (getIntentInvite().resolveActivity(getPackageManager()) != null);
@@ -358,19 +372,19 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 boolean other = (getIntentOtherApps().resolveActivity(getPackageManager()) != null);
 
                 if (pro || invite || rate || other)
-                    items.add(new DrawerItem(-11));
+                    items.add(new DrawerItem(-12));
 
                 if (pro)
-                    items.add(new DrawerItem(-12, R.drawable.baseline_monetization_on_24, R.string.menu_pro));
+                    items.add(new DrawerItem(-13, R.drawable.baseline_monetization_on_24, R.string.menu_pro));
 
                 if (invite)
-                    items.add(new DrawerItem(-13, R.drawable.baseline_people_24, R.string.menu_invite));
+                    items.add(new DrawerItem(-14, R.drawable.baseline_people_24, R.string.menu_invite));
 
                 if (rate)
-                    items.add(new DrawerItem(-14, R.drawable.baseline_star_24, R.string.menu_rate));
+                    items.add(new DrawerItem(-15, R.drawable.baseline_star_24, R.string.menu_rate));
 
                 if (other)
-                    items.add(new DrawerItem(-15, R.drawable.baseline_get_app_24, R.string.menu_other));
+                    items.add(new DrawerItem(-16, R.drawable.baseline_get_app_24, R.string.menu_other));
 
                 drawerArray.set(items);
             }
@@ -834,6 +848,36 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 lbm.sendBroadcast(
                         new Intent(ActivityView.ACTION_VIEW_MESSAGES)
                                 .putExtra("account", account)
+                                .putExtra("folder", folder));
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
+            }
+        }.execute(this, args, "menu:inbox");
+    }
+
+    private void onMenuOutbox() {
+        Bundle args = new Bundle();
+
+        new SimpleTask<Long>() {
+            @Override
+            protected Long onExecute(Context context, Bundle args) {
+                DB db = DB.getInstance(context);
+                EntityFolder outbox = db.folder().getOutbox();
+                return (outbox == null ? -1 : outbox.id);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Long folder) {
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                    getSupportFragmentManager().popBackStack("unified", 0);
+
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ActivityView.this);
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                .putExtra("account", -1)
                                 .putExtra("folder", folder));
             }
 
