@@ -336,7 +336,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (folder.tbd != null)
                 return false;
 
-            PopupMenu popupMenu = new PopupMenu(context, view);
+            PopupMenu popupMenu = new PopupMenu(context, tvName);
 
             popupMenu.getMenu().add(Menu.NONE, action_synchronize_now, 1, R.string.title_synchronize_now);
 
