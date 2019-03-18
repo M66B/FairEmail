@@ -19,9 +19,10 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class TupleFolderEx extends EntityFolder {
+public class TupleFolderEx extends EntityFolder implements Serializable {
     public String accountName;
     public Integer accountColor;
     public String accountState;

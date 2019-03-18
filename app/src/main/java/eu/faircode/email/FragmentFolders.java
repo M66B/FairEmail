@@ -24,7 +24,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.LongSparseArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -37,7 +36,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -67,7 +68,7 @@ public class FragmentFolders extends FragmentBase {
     private boolean searching = false;
     private AdapterFolder adapter;
 
-    private static LongSparseArray<List<TupleFolderEx>> parentChilds = new LongSparseArray<>();
+    private Map<Long, List<TupleFolderEx>> parentChilds = new HashMap<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -79,9 +80,32 @@ public class FragmentFolders extends FragmentBase {
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putLongArray("fair:parents", Helper.toLongArray(parentChilds.keySet()));
+        for (Long parent : parentChilds.keySet()) {
+            List<TupleFolderEx> childs = parentChilds.get(parent);
+            outState.putInt("fair:childs:" + parent + ":count", childs.size());
+            for (int i = 0; i < childs.size(); i++)
+                outState.putSerializable("fair:childs:" + parent + ":" + i, childs.get(i));
+        }
+    }
+
+    @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
+
+        if (savedInstanceState != null) {
+            for (long parent : savedInstanceState.getLongArray("fair:parents")) {
+                int count = savedInstanceState.getInt("fair:childs:" + parent + ":count");
+                List<TupleFolderEx> childs = new ArrayList<>(count);
+                for (int i = 0; i < count; i++)
+                    childs.add((TupleFolderEx) savedInstanceState.getSerializable("fair:childs:" + parent + ":" + i));
+                parentChilds.put(parent, childs);
+            }
+        }
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_folders, container, false);
 
