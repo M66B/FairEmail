@@ -149,8 +149,8 @@ public class FragmentMessages extends FragmentBase {
     private int autoCloseCount = 0;
     private boolean autoExpanded = true;
     private Map<String, List<Long>> values = new HashMap<>();
-    private LongSparseArray<Spanned> bodies = new LongSparseArray<>();
-    private LongSparseArray<String> html = new LongSparseArray<>();
+    private Map<Long, Spanned> bodies = new HashMap<>();
+    private Map<Long, String> html = new HashMap<>();
     private LongSparseArray<TupleAccountSwipes> accountSwipes = new LongSparseArray<>();
 
     private BoundaryCallbackMessages boundaryCallback = null;
@@ -1485,12 +1485,21 @@ public class FragmentMessages extends FragmentBase {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+
         outState.putBoolean("fair:autoExpanded", autoExpanded);
         outState.putInt("fair:autoCloseCount", autoCloseCount);
 
         outState.putStringArray("fair:values", values.keySet().toArray(new String[0]));
         for (String name : values.keySet())
             outState.putLongArray("fair:name:" + name, Helper.toLongArray(values.get(name)));
+
+        outState.putLongArray("fair:bodies", Helper.toLongArray(bodies.keySet()));
+        for (Long key : bodies.keySet())
+            outState.putString("fair:bodies:" + key, HtmlHelper.toHtml(bodies.get(key)));
+
+        outState.putLongArray("fair:html", Helper.toLongArray(html.keySet()));
+        for (Long key : html.keySet())
+            outState.putString("fair:html:" + key, html.get(key));
 
         if (rvMessage != null) {
             Parcelable rv = rvMessage.getLayoutManager().onSaveInstanceState();
@@ -1509,12 +1518,17 @@ public class FragmentMessages extends FragmentBase {
             autoExpanded = savedInstanceState.getBoolean("fair:autoExpanded");
             autoCloseCount = savedInstanceState.getInt("fair:autoCloseCount");
 
-            String[] names = savedInstanceState.getStringArray("fair:values");
-            for (String name : names) {
+            for (String name : savedInstanceState.getStringArray("fair:values")) {
                 values.put(name, new ArrayList<Long>());
                 for (Long value : savedInstanceState.getLongArray("fair:name:" + name))
                     values.get(name).add(value);
             }
+
+            for (long id : savedInstanceState.getLongArray("fair:bodies"))
+                bodies.put(id, HtmlHelper.fromHtml(savedInstanceState.getString("fair:bodies:" + id)));
+
+            for (long id : savedInstanceState.getLongArray("fair:html"))
+                html.put(id, savedInstanceState.getString("fair:html:" + id));
 
             if (rvMessage != null) {
                 Parcelable rv = savedInstanceState.getBundle("fair:rv");

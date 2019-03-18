@@ -88,6 +88,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.concurrent.ThreadFactory;
 
 import javax.mail.Address;
@@ -999,6 +1000,14 @@ public class Helper {
         long[] result = new long[list.size()];
         for (int i = 0; i < list.size(); i++)
             result[i] = list.get(i);
+        return result;
+    }
+
+    static long[] toLongArray(Set<Long> set) {
+        long[] result = new long[set.size()];
+        int i = 0;
+        for (Long value : set)
+            result[i++] = value;
         return result;
     }
 
