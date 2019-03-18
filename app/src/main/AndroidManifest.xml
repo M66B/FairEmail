@@ -173,7 +173,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <data android:scheme="content" />
+                <data android:mimeType="message/delivery-status" />
                 <data android:mimeType="message/disposition-notification" />
+                <data android:mimeType="text/rfc822-headers" />
                 <data android:host="*" />
             </intent-filter>
         </activity>
