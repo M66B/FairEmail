@@ -186,9 +186,6 @@
     <string name="title_no_operations">عملیاتی در انتظار وجود ندارد </string>
     <string name="title_folder_name">نام پوشه</string>
     <string name="title_display_name">نامی که نمایش داده می شود</string>
-    <string name="title_hide_folders">مخفی کردن پوشه‌های مخفی</string>
-    <string name="title_show_folders">نمایش پوشه‌های مخفی</string>
-    <string name="title_hide_folder">پنهان کردن از لیست</string>
     <string name="title_unified_folder">نمایش در صندوق دریافت یکپارچه</string>
     <string name="title_synchronize_folder">همگام سازی (دریافت پیام‌ها)</string>
     <string name="title_poll_folder">بررسی دوره‌ای به جای همگام سازی پیوسته</string>

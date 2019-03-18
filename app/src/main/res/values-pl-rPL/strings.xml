@@ -244,9 +244,6 @@
     <string name="title_no_operations">Nie ma oczekujących operacji</string>
     <string name="title_folder_name">Nazwa folderu</string>
     <string name="title_display_name">Nazwa wyświetlana</string>
-    <string name="title_hide_folders">Nie pokazuj ukrytych folderów</string>
-    <string name="title_show_folders">Pokaż ukryte foldery</string>
-    <string name="title_hide_folder">Ukryj z listy</string>
     <string name="title_unified_folder">Pokaż we wspólnej skrzynce odbiorczej</string>
     <string name="title_synchronize_folder">Synchronizuj (odbierz wiadomości)</string>
     <string name="title_poll_folder">Sprawdzaj cyklicznie zamiast ciągłej synchronizacji</string>

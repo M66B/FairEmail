@@ -8,6 +8,7 @@
     <string name="channel_notification">Meldingen</string>
     <string name="channel_warning">Waarschuwingen</string>
     <string name="channel_error">Foutmeldingen</string>
+    <string name="channel_group_contacts">Contacten</string>
     <string name="tile_synchronize">Synchroniseren</string>
     <string name="tile_unseen">Nieuwe berichten</string>
     <string name="shortcut_compose">Opstellen</string>
@@ -247,9 +248,7 @@
     <string name="title_no_operations">Geen openstaande bewerkingen</string>
     <string name="title_folder_name">Mapnaam</string>
     <string name="title_display_name">Weergavenaam</string>
-    <string name="title_hide_folders">Verberg verborgen mappen</string>
-    <string name="title_show_folders">Toon verborgen mappen</string>
-    <string name="title_hide_folder">Verberg in de lijst</string>
+    <string name="title_hide_folder">Verbergen in menu\'s</string>
     <string name="title_unified_folder">Toon in het gecombineerde postvak in</string>
     <string name="title_synchronize_folder">Synchroniseren (ontvang berichten)</string>
     <string name="title_poll_folder">Controleer periodiek in plaats van continu synchroniseren</string>

@@ -8,6 +8,7 @@
     <string name="channel_notification">Notifications</string>
     <string name="channel_warning">Avertissements</string>
     <string name="channel_error">Erreurs</string>
+    <string name="channel_group_contacts">Contacts</string>
     <string name="tile_synchronize">Synchroniser</string>
     <string name="tile_unseen">Nouveaux messages</string>
     <string name="shortcut_compose">Rédiger</string>
@@ -247,9 +248,7 @@
     <string name="title_no_operations">Aucune opération en attente</string>
     <string name="title_folder_name">Nom du dossier</string>
     <string name="title_display_name">Nom</string>
-    <string name="title_hide_folders">Masquer les dossiers cachés</string>
-    <string name="title_show_folders">Afficher les dossiers cachés</string>
-    <string name="title_hide_folder">Masquer dans la liste</string>
+    <string name="title_hide_folder">Cacher dans les menus</string>
     <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
     <string name="title_synchronize_folder">Synchroniser (recevoir des messages)</string>
     <string name="title_poll_folder">Vérifier périodiquement au lieu de synchroniser en continu</string>

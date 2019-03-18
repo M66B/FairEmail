@@ -210,9 +210,6 @@
     <string name="title_delete_operation">Bir xəta mesajı ilə əməliyyatlar silinsin?</string>
     <string name="title_folder_name">Qovluq adı</string>
     <string name="title_display_name">Ekran adı</string>
-    <string name="title_hide_folders">Gizli qovluqları gizlət</string>
-    <string name="title_show_folders">Gizli qovluqları göstər</string>
-    <string name="title_hide_folder">Siyahıdan gizlət</string>
     <string name="title_unified_folder">Birləşmiş gələn qutusunda göstər</string>
     <string name="title_synchronize_folder">Eyniləşdir (mesajları al)</string>
     <string name="title_poll_folder">Davamlı eyniləşdirmə əvəzinə vaxtaşırı yoxlayın</string>

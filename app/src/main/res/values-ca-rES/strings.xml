@@ -98,9 +98,6 @@
     <string name="title_edit_properties">Edita les propietats</string>
     <string name="title_folder_name">Nom de carpeta</string>
     <string name="title_display_name">Mostrar el nom</string>
-    <string name="title_hide_folders">Amaga les carpetes ocultes</string>
-    <string name="title_show_folders">Mostra les carpetes ocultes</string>
-    <string name="title_hide_folder">Amagar de la llista</string>
     <string name="title_unified_folder">Mostra en la safata d\'entrada unificada</string>
     <string name="title_synchronize_folder">Sincronitza (rebre missatges)</string>
     <string name="title_folder_exists">La carpeta %1$s existeix</string>

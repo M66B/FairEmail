@@ -8,6 +8,7 @@
     <string name="channel_notification">Benachrichtigungen</string>
     <string name="channel_warning">Warnungen</string>
     <string name="channel_error">Fehler</string>
+    <string name="channel_group_contacts">Kontakte</string>
     <string name="tile_synchronize">Synchronisieren</string>
     <string name="tile_unseen">Neue Nachrichten</string>
     <string name="shortcut_compose">Verfassen</string>
@@ -247,9 +248,7 @@
     <string name="title_no_operations">Keine weiteren Vorgänge</string>
     <string name="title_folder_name">Ordnername</string>
     <string name="title_display_name">Name</string>
-    <string name="title_hide_folders">Verstecke ausgeblendete Ordner</string>
-    <string name="title_show_folders">Zeige ausgeblendete Ordner</string>
-    <string name="title_hide_folder">Ordner ausblenden</string>
+    <string name="title_hide_folder">Aus Menüs ausblenden</string>
     <string name="title_unified_folder">Im Sammeleingang anzeigen</string>
     <string name="title_synchronize_folder">Synchronisieren (E-Mails empfangen)</string>
     <string name="title_poll_folder">Periodisch überprüfen anstatt einer dauerhaften Synchronisierung</string>

@@ -247,9 +247,6 @@
     <string name="title_no_operations">Nessuna operazione in sospeso</string>
     <string name="title_folder_name">Nome cartella</string>
     <string name="title_display_name">Nome visualizzato</string>
-    <string name="title_hide_folders">Non mostrare cartelle nascoste</string>
-    <string name="title_show_folders">Mostra cartelle nascoste</string>
-    <string name="title_hide_folder">Nascondi dall\'elenco</string>
     <string name="title_unified_folder">Mostra in posta in arrivo unificata</string>
     <string name="title_synchronize_folder">Sincronizza (ricevi messaggi)</string>
     <string name="title_poll_folder">Controllare periodicamente anziché sincronizzare continuamente</string>

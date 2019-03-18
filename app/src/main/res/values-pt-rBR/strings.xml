@@ -8,6 +8,7 @@
     <string name="channel_notification">Notificações</string>
     <string name="channel_warning">Avisos</string>
     <string name="channel_error">Erros</string>
+    <string name="channel_group_contacts">Contatos</string>
     <string name="tile_synchronize">Sincronizar</string>
     <string name="tile_unseen">Novas mensagens</string>
     <string name="shortcut_compose">Escrever</string>
@@ -247,9 +248,6 @@
     <string name="title_no_operations">Nenhuma operação pendente</string>
     <string name="title_folder_name">Nome da pasta</string>
     <string name="title_display_name">Nome de exibição</string>
-    <string name="title_hide_folders">Ocultar pastas ocultas</string>
-    <string name="title_show_folders">Mostrar pastas ocultas</string>
-    <string name="title_hide_folder">Ocultar da lista</string>
     <string name="title_unified_folder">Mostrar na caixa de entrada unificada</string>
     <string name="title_synchronize_folder">Sincronizar (receber mensagens)</string>
     <string name="title_poll_folder">Verificar periodicamente ao invés da sincronização contínua</string>
@@ -330,6 +328,7 @@
     <string name="title_ask_show_html">Mostrar a mensagem original pode vazar informações confidenciais de privacidade</string>
     <string name="title_ask_show_image">Mostrar imagens pode vazar informações sensíveis à privacidade</string>
     <string name="title_ask_edit_ref">Editar texto reformatado de mensagem respondida/encaminhada?</string>
+    <string name="title_ask_delete_local">Excluir mensagens locais que são armazenadas também no servidor remoto?</string>
     <string name="title_compose">Escrever</string>
     <string name="title_from">De:</string>
     <string name="title_to">Para:</string>
@@ -392,6 +391,7 @@
     <string name="title_rule_enabled">Ativado</string>
     <string name="title_rule_stop">Parar o processamento de regras após a execução desta regra</string>
     <string name="title_rule_sender">Remetente contém</string>
+    <string name="title_rule_recipient">Destinatário contém</string>
     <string name="title_rule_subject">Assunto contém</string>
     <string name="title_rule_header">Cabeçalho contém</string>
     <string name="title_rule_regex">Regex</string>
@@ -404,6 +404,8 @@
     <string name="title_rule_cc">Resposta para endereços CC</string>
     <string name="title_rule_name_missing">Nome da regra faltando</string>
     <string name="title_rule_condition_missing">Condição faltando</string>
+    <string name="title_rule_automation">Automatização</string>
+    <string name="title_rule_automation_hint">Isto enviará a intenção \'%1$s\' com os extras \'%2$s\'</string>
     <string name="title_action_seen">Marcar como lida</string>
     <string name="title_action_archive">Arquivo</string>
     <string name="title_action_trash">Lixeira</string>
@@ -460,7 +462,9 @@
     <string name="title_hint_message_actions">Deslize para a esquerda para mandar para lixeira; deslize para a direita para arquivar (se disponível)</string>
     <string name="title_hint_message_selection">Pressione longamente uma mensagem para começar a selecionar várias mensagens</string>
     <string name="title_hint_sync">Baixar mensagens pode levar algum tempo, dependendo da velocidade do provedor, da conexão de internet e do dispositivo, e o número de mensagens. Enquanto estiver baixando as mensagens o app pode responder mais devagar.</string>
-    <string name="title_hint_tracking_image">Rastreamento de imagem %1$sx%2$s</string>
+    <string name="title_hint_image_link">Link da imagem</string>
+    <string name="title_hint_tracking_image">Imagem de rastreamento %1$sx%2$s</string>
+    <string name="title_hint_ignore_contact">Pressione e segure um contato para nunca considerá-lo como favorito</string>
     <string name="title_open_link">Abrir link</string>
     <string name="title_show_organization">Mostrar organização</string>
     <string name="title_insecure_link">Este link é inseguro</string>

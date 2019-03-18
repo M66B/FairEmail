@@ -250,9 +250,6 @@
     <string name="title_no_operations">Нет операций в очереди</string>
     <string name="title_folder_name">Название папки</string>
     <string name="title_display_name">Отображаемое имя</string>
-    <string name="title_hide_folders">Скрыть скрытые папки</string>
-    <string name="title_show_folders">Показать скрытые папки</string>
-    <string name="title_hide_folder">Скрыть из списка</string>
     <string name="title_unified_folder">Показать в единой папке Входящие</string>
     <string name="title_synchronize_folder">Синхронизировать (получать сообщения)</string>
     <string name="title_poll_folder">Периодическая проверка вместо непрерывной синхронизации</string>

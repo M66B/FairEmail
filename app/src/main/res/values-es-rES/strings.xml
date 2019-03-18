@@ -247,9 +247,6 @@
     <string name="title_no_operations">No hay operaciones pendientes</string>
     <string name="title_folder_name">Nombre de carpeta</string>
     <string name="title_display_name">Nombre para mostrar</string>
-    <string name="title_hide_folders">Ocultar carpetas ocultas</string>
-    <string name="title_show_folders">Mostrar carpetas ocultas</string>
-    <string name="title_hide_folder">Ocultar de la lista</string>
     <string name="title_unified_folder">Mostrar en bandeja de entrada unificada</string>
     <string name="title_synchronize_folder">Sincronizar (recibir mensajes)</string>
     <string name="title_poll_folder">Comprobar periódicamente en lugar de sincronizar continuamente</string>
@@ -463,7 +460,7 @@
     <string name="title_hint_sync">Descargar mensajes puede llevar algún tiempo, dependiendo de la velocidad del proveedor, la conexión a internet, dispositivo y el número de mensajes. Mientras se descargan mensajes, la aplicación puede responder más lentamente.</string>
     <string name="title_hint_image_link">Enlace de imagen</string>
     <string name="title_hint_tracking_image">Imagen de seguimiento %1$sx%2$s</string>
-    <string name="title_hint_ignore_contact">Deje pulsado sobre un contacto para nunca considerarlo como favorito</string>
+    <string name="title_hint_ignore_contact">Mantener pulsado un contacto para no considerarlo nunca como favorito</string>
     <string name="title_open_link">Abrir enlace</string>
     <string name="title_show_organization">Mostrar organización</string>
     <string name="title_insecure_link">Este enlace es inseguro</string>

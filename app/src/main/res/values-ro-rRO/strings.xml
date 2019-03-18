@@ -8,6 +8,7 @@
     <string name="channel_notification">Notificări</string>
     <string name="channel_warning">Atenționări</string>
     <string name="channel_error">Erori</string>
+    <string name="channel_group_contacts">Contacte</string>
     <string name="tile_synchronize">Sincronizare</string>
     <string name="tile_unseen">Mesaje noi</string>
     <string name="shortcut_compose">Compune</string>
@@ -251,13 +252,10 @@
     <string name="title_edit_rules">Editare reguli</string>
     <string name="title_empty_trash_ask">Şterge permanent toate mesajele din coșul de gunoi?</string>
     <string name="title_delete_operation">Se șterg operațiunile cu mesaj de eroare?</string>
-    <string name="title_delete_contacts">Șterge-ți toate contactele locale?</string>
+    <string name="title_delete_contacts">Ștergeți toate contactele locale?</string>
     <string name="title_no_operations">Nici o operațiune în așteptare</string>
     <string name="title_folder_name">Nume dosar</string>
     <string name="title_display_name">Nume afișat</string>
-    <string name="title_hide_folders">Ascunde dosarele ascunse</string>
-    <string name="title_show_folders">Arată dosarele ascunse</string>
-    <string name="title_hide_folder">Ascunde din listă</string>
     <string name="title_unified_folder">Arată în căsuța poștală comună</string>
     <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
     <string name="title_poll_folder">Verifică periodic în loc de a sincroniza în continuu</string>
@@ -338,7 +336,7 @@
     <string name="title_ask_show_html">Vizualizarea mesajului original poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_edit_ref">Se editează textul mesajului rescris ca răspuns/redirecționat?</string>
-    <string name="title_ask_delete_local">Şterge mesajele locale care sunt stocate și pe serverul local?</string>
+    <string name="title_ask_delete_local">Șterge mesajele locale care sunt stocate și pe serverul furnizorului?</string>
     <string name="title_compose">Compune</string>
     <string name="title_from">De la:</string>
     <string name="title_to">Către:</string>
@@ -401,7 +399,7 @@
     <string name="title_rule_enabled">Activată</string>
     <string name="title_rule_stop">Oprește procesarea regulilor după ce se execută acesta</string>
     <string name="title_rule_sender">Expeditorul conține</string>
-    <string name="title_rule_recipient">Recipientul conține</string>
+    <string name="title_rule_recipient">Destinatarul conține</string>
     <string name="title_rule_subject">Subiectul conține</string>
     <string name="title_rule_header">Antetul conține</string>
     <string name="title_rule_regex">Expresie regulată (regex)</string>
@@ -414,6 +412,8 @@
     <string name="title_rule_cc">Răspuns la adresa CC</string>
     <string name="title_rule_name_missing">Lipsește numele regulii</string>
     <string name="title_rule_condition_missing">Lipsește condiția</string>
+    <string name="title_rule_automation">Automatizare</string>
+    <string name="title_rule_automation_hint">Aceasta va trimite intenția \'%1$s\' și extra \'%2$s\'</string>
     <string name="title_action_seen">Marcare ca citit</string>
     <string name="title_action_archive">Arhivare</string>
     <string name="title_action_trash">Gunoi</string>
@@ -470,9 +470,9 @@
     <string name="title_hint_message_actions">Glisare spre stânga trimite la gunoi iar glisare spre dreapta la arhivă (dacă este disponibilă)</string>
     <string name="title_hint_message_selection">Apăsați lung un mesaj pentru a selecta multiple</string>
     <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcție de viteza furnizorului, conexiunea la internet, de dispozitiv precum și de numărul de mesaje. În timpul descărcării mesajelor aplicația ar putea răspunde mai lent.</string>
-    <string name="title_hint_image_link">Link</string>
+    <string name="title_hint_image_link">Legătură imagine</string>
     <string name="title_hint_tracking_image">Imagine de urmărire %1$sx%2$s</string>
-    <string name="title_hint_ignore_contact">Țineți apăsat un contact să nu i-a în considerare ca favorit</string>
+    <string name="title_hint_ignore_contact">Apăsați lung pe un contact pentru a nu-l lua niciodată în considerare ca favorit</string>
     <string name="title_open_link">Deschide legătura</string>
     <string name="title_show_organization">Arată organizația</string>
     <string name="title_insecure_link">Această legătură este nesigură</string>

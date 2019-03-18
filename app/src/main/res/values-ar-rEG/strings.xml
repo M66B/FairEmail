@@ -178,9 +178,6 @@
     <string name="title_edit_rules">تعديل القواعد</string>
     <string name="title_folder_name">إسم المجلد</string>
     <string name="title_display_name">الاسم المعروض</string>
-    <string name="title_hide_folders">اخفاء المجلدات المخفية</string>
-    <string name="title_show_folders">اظهار المجلدات المخفية</string>
-    <string name="title_hide_folder">اخفاء مِن القائمة</string>
     <string name="title_unified_folder">وتظهر في علبة موحد</string>
     <string name="title_notify_folder">أخبرني لدى ورود رسائل جديدة</string>
     <string name="title_keep_days">مدة الاحتفاظ (بالأيام)</string>
