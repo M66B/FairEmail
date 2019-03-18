@@ -838,9 +838,12 @@ The following information is needed:
 		starttls="false" />
 ```
 
-Connections *without* [STARTTLS](https://en.wikipedia.org/wiki/Opportunistic_TLS) are safer and therefore prefered.
+The EFF [writes](https://www.eff.org/nl/deeplinks/2018/06/announcing-starttls-everywhere-securing-hop-hop-email-delivery):
+"*Additionally, even if you configure STARTTLS perfectly and use a valid certificate, there’s still no guarantee your communication will be encrypted.*"
 
-Please make sure receiving and sending messages works properly.
+So, pure SSL connections are safer than using [STARTTLS](https://en.wikipedia.org/wiki/Opportunistic_TLS) and therefore preferred.
+
+Please make sure receiving and sending messages works properly before contacting me to add a provider.
 
 See below about how to contact me.
 
