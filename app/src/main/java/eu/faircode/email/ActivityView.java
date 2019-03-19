@@ -393,7 +393,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         });
 
-        if (getSupportFragmentManager().getFragments().size() == 0 && !getIntent().hasExtra(Intent.EXTRA_PROCESS_TEXT))
+        if (getSupportFragmentManager().getFragments().size() == 0 &&
+                !getIntent().hasExtra(Intent.EXTRA_PROCESS_TEXT))
             init();
 
         if (savedInstanceState != null)
@@ -452,11 +453,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 intent.setAction(null);
                 setIntent(intent);
 
-                if ("unified".equals(action))
-                    init();
+                if ("unified".equals(action)) {
+                    getSupportFragmentManager().popBackStack("unified", 0);
 
-                else if ("why".equals(action)) {
-                    init();
+                } else if ("why".equals(action)) {
+                    getSupportFragmentManager().popBackStack("unified", 0);
 
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityView.this);
                     boolean why = prefs.getBoolean("why", false);
