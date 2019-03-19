@@ -1810,7 +1810,8 @@ public class FragmentMessages extends FragmentBase {
         menu.findItem(R.id.menu_search).setVisible(
                 viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
 
-        menu.findItem(R.id.menu_folders).setVisible(primary >= 0);
+        menu.findItem(R.id.menu_folders).setVisible(
+                viewType == AdapterMessage.ViewType.UNIFIED && primary >= 0);
         menu.findItem(R.id.menu_folders).setIcon(connected
                 ? R.drawable.baseline_folder_special_24
                 : R.drawable.baseline_folder_open_24);
