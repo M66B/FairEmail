@@ -55,9 +55,9 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
     private List<EntityAttachment> items = new ArrayList<>();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        View view;
-        ImageView image;
-        TextView caption;
+        private View view;
+        private ImageView image;
+        private TextView caption;
 
         ViewHolder(View itemView) {
             super(itemView);
