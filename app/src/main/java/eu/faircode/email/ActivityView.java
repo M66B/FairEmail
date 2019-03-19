@@ -340,8 +340,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     outbox = getString(R.string.title_folder_outbox);
                 items.add(new DrawerItem(-2, R.drawable.baseline_send_24, outbox, null, unsent > 0));
 
-                items.add(new DrawerItem(-3, R.drawable.baseline_reply_24, R.string.menu_answers));
-
                 String operations;
                 if (pending == 0)
                     operations = getString(R.string.menu_operations);
@@ -349,7 +347,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     operations = getString(R.string.title_name_count,
                             getString(R.string.menu_operations),
                             nf.format(pending));
-                items.add(new DrawerItem(-4, R.string.menu_operations, R.drawable.baseline_list_24, operations, pending > 0));
+                items.add(new DrawerItem(-3, R.string.menu_operations, R.drawable.baseline_list_24, operations, pending > 0));
+
+                items.add(new DrawerItem(-4, R.drawable.baseline_reply_24, R.string.menu_answers));
 
                 items.add(new DrawerItem(-5, R.drawable.baseline_settings_applications_24, R.string.menu_setup));
                 items.add(new DrawerItem(-6));
