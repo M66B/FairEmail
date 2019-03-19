@@ -128,6 +128,7 @@
     <string name="title_advanced_metered">Usar conexión de datos</string>
     <string name="title_advanced_download">Descargar automáticamente mensajes y adjuntos usando conexión de datos hasta</string>
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
+    <string name="title_advanced_startup">Mostrar en pantalla de inicio</string>
     <string name="title_advanced_date_header">Agrupar por fecha</string>
     <string name="title_advanced_threading">Hilos de conversación</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
@@ -509,5 +510,10 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="startupNames">
+        <item>Bandeja de entrada unificada</item>
+        <item>Carpetas unificadas</item>
+        <item>Cuentas</item>
     </string-array>
 </resources>

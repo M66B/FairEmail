@@ -128,6 +128,7 @@
     <string name="title_advanced_metered">Usa connessioni a consumo</string>
     <string name="title_advanced_download">Scarica automaticamente i messaggi e gli allegati con una connessione a consumo fino a</string>
     <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
+    <string name="title_advanced_startup">Mostra nella schermata iniziale</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_threading">Thread di conversazione</string>
     <string name="title_advanced_avatars">Mostra foto del contatto</string>
@@ -509,5 +510,10 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="startupNames">
+        <item>Posta in arrivo unificata</item>
+        <item>Cartelle unificate</item>
+        <item>Account</item>
     </string-array>
 </resources>

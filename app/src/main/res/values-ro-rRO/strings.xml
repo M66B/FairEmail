@@ -136,6 +136,7 @@
     <string name="title_advanced_metered">Folosește conexiuni contorizate</string>
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
+    <string name="title_advanced_startup">Arată pe ecranul de start</string>
     <string name="title_advanced_date_header">Grupare după dată</string>
     <string name="title_advanced_threading">Aranjare mesaje în conversație</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
@@ -517,5 +518,10 @@
         <item>1 Mo</item>
         <item>2 Mo</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="startupNames">
+        <item>Inbox unificat</item>
+        <item>Dosare unificate</item>
+        <item>Conturi</item>
     </string-array>
 </resources>
