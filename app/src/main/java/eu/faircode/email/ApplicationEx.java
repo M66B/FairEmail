@@ -80,7 +80,8 @@ public class ApplicationEx extends Application {
         });
 
         createNotificationChannels();
-        CookieManager.getInstance().setAcceptCookie(false);
+        if (Helper.hasWebView(this))
+            CookieManager.getInstance().setAcceptCookie(false);
         MessageHelper.setSystemProperties();
         Core.init(this);
     }
