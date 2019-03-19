@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.text.TextUtils;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -61,7 +62,7 @@ public class Shortcuts {
                                 new ShortcutInfo.Builder(context, Long.toString(contact.id))
                                         .setIcon(icon)
                                         .setRank(shortcuts.size() + 1)
-                                        .setShortLabel(contact.name == null ? contact.email : contact.name)
+                                        .setShortLabel(TextUtils.isEmpty(contact.name) ? contact.email : contact.name)
                                         .setIntent(intent)
                                         .build());
                     }
