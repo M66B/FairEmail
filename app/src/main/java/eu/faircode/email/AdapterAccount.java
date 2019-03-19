@@ -63,6 +63,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         private View view;
         private View vwColor;
         private ImageView ivPrimary;
+        private ImageView ivNotify;
         private TextView tvName;
         private ImageView ivSync;
         private TextView tvUser;
@@ -79,6 +80,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             vwColor = itemView.findViewById(R.id.vwColor);
             ivSync = itemView.findViewById(R.id.ivSync);
             ivPrimary = itemView.findViewById(R.id.ivPrimary);
+            ivNotify = itemView.findViewById(R.id.ivNotify);
             tvName = itemView.findViewById(R.id.tvName);
             tvUser = itemView.findViewById(R.id.tvUser);
             ivState = itemView.findViewById(R.id.ivState);
@@ -103,6 +105,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             ivSync.setImageResource(account.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
 
             ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.GONE);
+            ivNotify.setVisibility(account.notify ? View.VISIBLE : View.GONE);
 
             if (settings)
                 tvName.setText(account.name);

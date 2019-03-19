@@ -34,6 +34,7 @@ public class TupleAccountEx extends EntityAccount {
                     Objects.equals(this.color, other.color) &&
                     this.synchronize.equals(other.synchronize) &&
                     this.primary.equals(other.primary) &&
+                    this.notify.equals(other.notify) &&
                     Objects.equals(this.tbd, other.tbd) &&
                     Objects.equals(this.state, other.state) &&
                     Objects.equals(this.error, other.error) &&
