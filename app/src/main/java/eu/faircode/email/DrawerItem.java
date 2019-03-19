@@ -51,6 +51,10 @@ public class DrawerItem {
         return this.id;
     }
 
+    boolean isEnabled() {
+        return (this.layout != R.layout.item_drawer_separator);
+    }
+
     int getMenuId() {
         return this.menu;
     }

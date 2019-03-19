@@ -78,6 +78,6 @@ public class DrawerAdapter extends ArrayAdapter<DrawerItem> {
     @Override
     public boolean isEnabled(int position) {
         DrawerItem item = getItem(position);
-        return (item != null && item.getId() != 0);
+        return (item != null && item.isEnabled());
     }
 }
