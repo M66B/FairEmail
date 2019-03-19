@@ -38,8 +38,9 @@ public interface DaoAccount {
     @Query("SELECT * FROM account WHERE tbd = 1")
     List<EntityAccount> getAccountsTbd();
 
-    @Query("SELECT * FROM account")
-    LiveData<List<EntityAccount>> liveAccounts();
+    @Query("SELECT * FROM account" +
+            " WHERE :all OR account.synchronize")
+    LiveData<List<EntityAccount>> liveAccounts(boolean all);
 
     @Query("SELECT * FROM account WHERE synchronize")
     LiveData<List<EntityAccount>> liveSynchronizingAccounts();

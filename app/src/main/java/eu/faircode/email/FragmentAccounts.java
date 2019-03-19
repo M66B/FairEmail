@@ -40,6 +40,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentAccounts extends FragmentBase {
+    private boolean settings;
     private RecyclerView rvAccount;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -47,6 +48,13 @@ public class FragmentAccounts extends FragmentBase {
     private ObjectAnimator animator;
 
     private AdapterAccount adapter;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Bundle args = getArguments();
+        settings = (args == null || args.getBoolean("settings", true));
+    }
 
     @Override
     @Nullable
@@ -67,7 +75,7 @@ public class FragmentAccounts extends FragmentBase {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvAccount.setLayoutManager(llm);
 
-        adapter = new AdapterAccount(getContext());
+        adapter = new AdapterAccount(getContext(), settings);
         rvAccount.setAdapter(adapter);
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -104,22 +112,23 @@ public class FragmentAccounts extends FragmentBase {
         super.onActivityCreated(savedInstanceState);
 
         // Observe accounts
-        DB.getInstance(getContext()).account().liveAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
-            @Override
-            public void onChanged(@Nullable List<EntityAccount> accounts) {
-                if (accounts == null)
-                    accounts = new ArrayList<>();
+        DB.getInstance(getContext()).account().liveAccounts(settings)
+                .observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
+                    @Override
+                    public void onChanged(@Nullable List<EntityAccount> accounts) {
+                        if (accounts == null)
+                            accounts = new ArrayList<>();
 
-                adapter.set(accounts);
+                        adapter.set(accounts);
 
-                pbWait.setVisibility(View.GONE);
-                grpReady.setVisibility(View.VISIBLE);
+                        pbWait.setVisibility(View.GONE);
+                        grpReady.setVisibility(View.VISIBLE);
 
-                if (accounts.size() == 0)
-                    animator.start();
-                else
-                    animator.end();
-            }
-        });
+                        if (accounts.size() == 0)
+                            animator.start();
+                        else
+                            animator.end();
+                    }
+                });
     }
 }

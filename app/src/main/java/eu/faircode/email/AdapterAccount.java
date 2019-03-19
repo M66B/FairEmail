@@ -45,6 +45,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHolder> {
     private Context context;
+    private boolean settings;
     private LayoutInflater inflater;
 
     private List<EntityAccount> items = new ArrayList<>();
@@ -92,6 +93,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.INVISIBLE);
             tvName.setText(account.name);
             ivSync.setImageResource(account.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
+            ivSync.setVisibility(settings ? View.VISIBLE : View.GONE);
+
             tvUser.setText(account.user);
 
             if ("connected".equals(account.state))
@@ -124,13 +127,14 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
-                    new Intent(ActivitySetup.ACTION_EDIT_ACCOUNT)
+                    new Intent(settings ? ActivitySetup.ACTION_EDIT_ACCOUNT : ActivityView.ACTION_VIEW_FOLDERS)
                             .putExtra("id", account.id));
         }
     }
 
-    AdapterAccount(Context context) {
+    AdapterAccount(Context context, boolean settings) {
         this.context = context;
+        this.settings = settings;
         this.inflater = LayoutInflater.from(context);
 
         setHasStableIds(true);

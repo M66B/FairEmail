@@ -22,6 +22,9 @@ package eu.faircode.email;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+
+import androidx.preference.PreferenceManager;
 
 public class ReceiverAutostart extends BroadcastReceiver {
     @Override
@@ -31,6 +34,13 @@ public class ReceiverAutostart extends BroadcastReceiver {
             Log.i("Received " + intent);
             ServiceSynchronize.boot(context);
             ServiceSend.boot(context);
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences.Editor editor = prefs.edit();
+            if (!prefs.getBoolean("unified", true))
+                editor.putString("startup", "folders");
+            editor.remove("unified");
+            editor.apply();
         }
     }
 }

@@ -72,7 +72,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swMetered;
     private Spinner spDownload;
 
-    private SwitchCompat swUnified;
+    private Spinner spStartup;
     private SwitchCompat swDate;
     private SwitchCompat swThreading;
     private SwitchCompat swAvatars;
@@ -111,7 +111,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private Group grpNotification;
 
     static String[] OPTIONS_RESTART = new String[]{
-            "unified", "date", "threading", "avatars", "identicons", "name_email", "subject_italic", "flags", "preview",
+            "startup", "date", "threading", "avatars", "identicons", "name_email", "subject_italic", "flags", "preview",
             "addresses", "autohtml", "autoimages", "actionbar",
             "pull", "swipenav", "autoexpand", "autoclose", "autonext",
             "debug"
@@ -120,7 +120,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private final static String[] ADVANCED_OPTIONS = new String[]{
             "enabled", "schedule_start", "schedule_end",
             "metered", "download",
-            "unified", "date", "threading", "avatars", "identicons", "name_email", "subject_italic", "flags", "preview",
+            "startup", "date", "threading", "avatars", "identicons", "name_email", "subject_italic", "flags", "preview",
             "addresses", "autohtml", "remove_tracking", "autoimages", "actionbar",
             "pull", "swipenav", "autoexpand", "autoclose", "autonext", "collapse", "autoread", "automove",
             "autoresize", "sender", "autosend",
@@ -148,7 +148,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swMetered = view.findViewById(R.id.swMetered);
         spDownload = view.findViewById(R.id.spDownload);
 
-        swUnified = view.findViewById(R.id.swUnified);
+        spStartup = view.findViewById(R.id.spStartup);
         swDate = view.findViewById(R.id.swDate);
         swThreading = view.findViewById(R.id.swThreading);
         swAvatars = view.findViewById(R.id.swAvatars);
@@ -278,10 +278,16 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             }
         });
 
-        swUnified.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        spStartup.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("unified", checked).apply();
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                String[] values = getResources().getStringArray(R.array.startupValues);
+                prefs.edit().putString("startup", values[position]).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("startup").apply();
             }
         });
 
@@ -568,9 +574,9 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swMetered.setChecked(prefs.getBoolean("metered", true));
 
         int download = prefs.getInt("download", 32768);
-        int[] values = getResources().getIntArray(R.array.downloadValues);
-        for (int pos = 0; pos < values.length; pos++)
-            if (values[pos] == download) {
+        int[] downloadValues = getResources().getIntArray(R.array.downloadValues);
+        for (int pos = 0; pos < downloadValues.length; pos++)
+            if (downloadValues[pos] == download) {
                 spDownload.setTag(pos);
                 spDownload.setSelection(pos);
                 break;
@@ -578,7 +584,14 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
 
         boolean compact = prefs.getBoolean("compact", false);
 
-        swUnified.setChecked(prefs.getBoolean("unified", true));
+        String startup = prefs.getString("startup", "unified");
+        String[] startupValues = getResources().getStringArray(R.array.startupValues);
+        for (int pos = 0; pos < startupValues.length; pos++)
+            if (startupValues[pos].equals(startup)) {
+                spStartup.setSelection(pos);
+                break;
+            }
+
         swDate.setChecked(prefs.getBoolean("date", true));
         swThreading.setChecked(prefs.getBoolean("threading", true));
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
