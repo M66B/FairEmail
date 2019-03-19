@@ -21,6 +21,8 @@ package eu.faircode.email;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +38,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -45,6 +48,7 @@ public class FragmentAccounts extends FragmentBase {
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
     private FloatingActionButton fab;
+    private FloatingActionButton fabCompose;
     private ObjectAnimator animator;
 
     private AdapterAccount adapter;
@@ -68,6 +72,7 @@ public class FragmentAccounts extends FragmentBase {
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
         fab = view.findViewById(R.id.fab);
+        fabCompose = view.findViewById(R.id.fabCompose);
 
         // Wire controls
 
@@ -89,6 +94,46 @@ public class FragmentAccounts extends FragmentBase {
             }
         });
 
+        fabCompose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ActivityCompose.class)
+                        .putExtra("action", "new")
+                        .putExtra("account", -1)
+                );
+            }
+        });
+
+        fabCompose.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Bundle args = new Bundle();
+
+                new SimpleTask<EntityFolder>() {
+                    @Override
+                    protected EntityFolder onExecute(Context context, Bundle args) {
+                        return DB.getInstance(context).folder().getPrimaryDrafts();
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, EntityFolder drafts) {
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                        lbm.sendBroadcast(
+                                new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                        .putExtra("account", drafts.account)
+                                        .putExtra("folder", drafts.id));
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                    }
+                }.execute(FragmentAccounts.this, args, "account:drafts");
+
+                return true;
+            }
+        });
+
         animator = ObjectAnimator.ofFloat(fab, "alpha", 0.5f, 1.0f);
         animator.setDuration(500L);
         animator.setRepeatCount(ValueAnimator.INFINITE);
@@ -101,6 +146,9 @@ public class FragmentAccounts extends FragmentBase {
         });
 
         // Initialize
+        if (!settings)
+            fab.hide();
+        fabCompose.hide();
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
@@ -111,8 +159,10 @@ public class FragmentAccounts extends FragmentBase {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        DB db = DB.getInstance(getContext());
+
         // Observe accounts
-        DB.getInstance(getContext()).account().liveAccountsEx(settings)
+        db.account().liveAccountsEx(settings)
                 .observe(getViewLifecycleOwner(), new Observer<List<TupleAccountEx>>() {
                     @Override
                     public void onChanged(@Nullable List<TupleAccountEx> accounts) {
@@ -130,5 +180,18 @@ public class FragmentAccounts extends FragmentBase {
                             animator.end();
                     }
                 });
+
+
+        if (!settings)
+            db.identity().liveComposableIdentities(null).observe(getViewLifecycleOwner(),
+                    new Observer<List<TupleIdentityEx>>() {
+                        @Override
+                        public void onChanged(List<TupleIdentityEx> identities) {
+                            if (identities == null || identities.size() == 0)
+                                fabCompose.hide();
+                            else
+                                fabCompose.show();
+                        }
+                    });
     }
 }
