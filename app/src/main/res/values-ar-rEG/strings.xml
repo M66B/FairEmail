@@ -105,7 +105,6 @@
     <string name="title_advanced_schedule">برمجة</string>
     <string name="title_advanced_metered">استخدام اتصالات أجهزة الاستنشاق</string>
     <string name="title_advanced_browse">تصفح الرسائل على الخادم</string>
-    <string name="title_advanced_unified">علبة البريد الوارد الموحدة</string>
     <string name="title_advanced_date_header">تجميع بحسب التاريخ</string>
     <string name="title_advanced_threading">مؤشر ترابط المحادثة</string>
     <string name="title_advanced_avatars">إظهار صور جهات الاتصال</string>

@@ -139,7 +139,6 @@
     <string name="title_advanced_metered">Использовать лимитированные подключения</string>
     <string name="title_advanced_download">Автоматически загружать сообщения и вложения для лимитного подключения до</string>
     <string name="title_advanced_browse">Просмотр сообщений на сервере</string>
-    <string name="title_advanced_unified">Единый почтовый ящик</string>
     <string name="title_advanced_date_header">Группировать по дате</string>
     <string name="title_advanced_threading">Связанные диалоги</string>
     <string name="title_advanced_avatars">Показать фотографии контакта</string>
@@ -170,7 +169,6 @@
     <string name="title_advanced_enabled_hint">Глобальное включение/отключение получения и отправки сообщений</string>
     <string name="title_advanced_metered_hint">Лимитированные подключения - это обычно мобильные сети или платные Wi-Fi</string>
     <string name="title_advanced_browse_hint">Получите больше сообщений при прокрутке вниз</string>
-    <string name="title_advanced_unified_hint">Показать отдельные папки \"Входящие\" или сообщения в единой папке</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
     <string name="title_advanced_name_email_hint">Если отключено, будут показаны только имена (при наличии)</string>
     <string name="title_advanced_autoexpand_hint">Автоматически открывать сообщение, когда оно только одно или только одно непрочитанное сообщение в диалоге</string>

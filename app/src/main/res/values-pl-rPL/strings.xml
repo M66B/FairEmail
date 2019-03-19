@@ -143,7 +143,6 @@
     <string name="title_advanced_metered">Użyj połączeń taryfowych</string>
     <string name="title_advanced_download">Automatycznie pobieraj wiadomości i załączniki przy połączeniach taryfowych do</string>
     <string name="title_advanced_browse">Przeglądaj wiadomości na serwerze</string>
-    <string name="title_advanced_unified">Wspólna skrzynka odbiorcza</string>
     <string name="title_advanced_date_header">Grupuj według dat</string>
     <string name="title_advanced_threading">Konwersacje w wątkach</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>

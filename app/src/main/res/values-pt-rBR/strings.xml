@@ -128,7 +128,6 @@
     <string name="title_advanced_metered">Usar conexões limitadas</string>
     <string name="title_advanced_download">Fazer download automático de mensagens e anexos em uma conexão limitada até</string>
     <string name="title_advanced_browse">Procurar mensagens no servidor</string>
-    <string name="title_advanced_unified">Caixa de entrada unificada</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
     <string name="title_advanced_threading">Encadeamento de conversas</string>
     <string name="title_advanced_avatars">Mostrar fotos de contatos</string>
@@ -162,7 +161,6 @@
     <string name="title_advanced_enabled_hint">Desative ou habilite o recebimento e envio de mensagens globalmente</string>
     <string name="title_advanced_metered_hint">Conexões limitadas são geralmente conexões móveis ou hotspots Wi-Fi pagos</string>
     <string name="title_advanced_browse_hint">Obter mais mensagens ao rolar para baixo</string>
-    <string name="title_advanced_unified_hint">Mostrar as pastas da caixa de entrada unificada ou as mensagens da caixa de entrada unificada</string>
     <string name="title_advanced_threading_hint">Agrupe as mensagens relacionadas entre si</string>
     <string name="title_advanced_name_email_hint">Quando desativado apenas os nomes serão exibidos quando disponíveis</string>
     <string name="title_advanced_flags_hint">Observe que as mensagens favoritadas serão sempre mantidas localmente</string>

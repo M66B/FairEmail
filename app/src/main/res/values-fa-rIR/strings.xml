@@ -89,7 +89,6 @@
     <string name="title_advanced_metered">استفاده از شبکه موبایل</string>
     <string name="title_advanced_download">دریافت خودکار پیام‌ها و پیوست‌ها روی شبکه موبایل</string>
     <string name="title_advanced_browse">مرور پیام‌های روی سرور</string>
-    <string name="title_advanced_unified">صندوق دریافت یکپارچه</string>
     <string name="title_advanced_date_header">گروه بندی بر اساس تاریخ</string>
     <string name="title_advanced_threading">دسته بندی مکالمه</string>
     <string name="title_advanced_avatars">نمایش تصویر مخاطبین</string>
@@ -117,7 +116,6 @@
     <string name="title_advanced_enabled_hint">فعال یا غیرفعال سازی جهانی دریافت و ارسال پیام‌ها</string>
     <string name="title_advanced_metered_hint">اتصال‌های حجمی عموما شبکه‌های موبایل یا یک هات اسپات غیر رایگان می‌باشند</string>
     <string name="title_advanced_browse_hint">گرفتن و دریافت پیام‌های بیشتر پیمایش به سمت پایین</string>
-    <string name="title_advanced_unified_hint">نمایش پوشه‌های صندوق دریافت یکپارچه یا صندوق دریافت یکپارچه پیام‌ها</string>
     <string name="title_advanced_threading_hint">پیام‌های گروهی مرتبط با یکدیگر</string>
     <string name="title_advanced_autoexpand_hint">باز کردن خودکار پیام وقتی فقط یک پیام یا فقط یک پیام خوانده نشده در مکالمه وجود دارد</string>
     <string name="title_advanced_autoclose_hint">بسته شدن خودکار مکالمات زمانی که همه پیام‌ها آرشیو شده، فرستاده شده و یا به به سطل آشغال فرستاده شده است</string>

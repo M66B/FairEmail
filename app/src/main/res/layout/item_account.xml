@@ -72,7 +72,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toStartOf="@+id/ivSync"
             app:layout_constraintStart_toEndOf="@+id/ivPrimary"
-            app:layout_constraintTop_toBottomOf="@id/ivSync" />
+            app:layout_constraintTop_toBottomOf="@id/ivPrimary" />
 
         <ImageView
             android:id="@+id/ivState"

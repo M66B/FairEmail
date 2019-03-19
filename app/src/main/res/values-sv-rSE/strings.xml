@@ -125,7 +125,6 @@
     <string name="title_advanced_metered">Använda uppmätta anslutningar</string>
     <string name="title_advanced_download">Automatiskt hämta meddelanden och bilagor på en uppmätt anslutning upp till</string>
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
-    <string name="title_advanced_unified">Samlad inkorg</string>
     <string name="title_advanced_date_header">Gruppera efter datum</string>
     <string name="title_advanced_threading">Konversationstrådar</string>
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
@@ -157,7 +156,6 @@
     <string name="title_advanced_enabled_hint">Inaktivera eller aktivera mottagning och sändning av meddelanden globalt</string>
     <string name="title_advanced_metered_hint">Uppmätta anslutningar är generellt mobila anslutningar eller betalda Wi-Fi-hotspots</string>
     <string name="title_advanced_browse_hint">Hämta fler meddelanden när du rullar ner</string>
-    <string name="title_advanced_unified_hint">Visa samlad inkorg eller kombinerade inkorgsmeddelanden</string>
     <string name="title_advanced_threading_hint">Gruppera meddelanden relaterade till varandra</string>
     <string name="title_advanced_name_email_hint">När inaktiverad visas endast namn när det är tillgängligt</string>
     <string name="title_advanced_flags_hint">Observera att stjärnmärkta meddelanden alltid kommer att lagras lokalt</string>

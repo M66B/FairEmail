@@ -218,30 +218,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSectionDisplay" />
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swUnified"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tvStartup"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="12dp"
-            android:text="@string/title_advanced_unified"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorDisplay"
-            app:switchPadding="12dp" />
-
-        <TextView
-            android:id="@+id/tvUnifiedHint"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="60dp"
-            android:text="@string/title_advanced_unified_hint"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
+            android:text="@string/title_advanced_startup"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swUnified" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorDisplay" />
+
+        <Spinner
+            android:id="@+id/spStartup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="6dp"
+            android:entries="@array/startupNames"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvStartup" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swDate"
@@ -252,7 +251,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_date_header"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvUnifiedHint"
+            app:layout_constraintTop_toBottomOf="@id/spStartup"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat

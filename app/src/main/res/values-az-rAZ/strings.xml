@@ -121,7 +121,6 @@
     <string name="title_advanced_metered">Ölçülmüş bağlantıları istifadə et</string>
     <string name="title_advanced_download">Mesajları və qoşmaları ölçülmüş bağlantıda avtomatik endir</string>
     <string name="title_advanced_browse">Serverdəki mesajlara nəzər yetir</string>
-    <string name="title_advanced_unified">Birləşmiş gələn qutusu</string>
     <string name="title_advanced_date_header">Tarixə görə qrup</string>
     <string name="title_advanced_threading">Danışıq sırası</string>
     <string name="title_advanced_avatars">Şəxs fotolarını göstər</string>
@@ -153,7 +152,6 @@
     <string name="title_advanced_debug">Sazlama rejimi</string>
     <string name="title_advanced_enabled_hint">Qlobal olaraq mesajların göndərilməsi və alınmasını fəallaşdır və ya ləğv et</string>
     <string name="title_advanced_metered_hint">Ümumiyyətlə ölçülmüş bağlantılar, mobil və ya ödənişli Wi-Fi bağlantılarıdır</string>
-    <string name="title_advanced_unified_hint">Birləşmiş gələn qutusu qovluqları və ya mesajlarını göstər</string>
     <string name="title_advanced_threading_hint">Bir-biri ilə əlaqəli qrup mesajları</string>
     <string name="title_advanced_autoclose_hint">Bütün mesajlar arxivlənəndə, göndəriləndə və tulantı qovluğuna atılanda danışıq mövzularını avtomatik olaraq bağla</string>
     <string name="title_advanced_sender_hint">Bir çox təchizatçı göndərən ünvanını dəyişdirməyə icazə vermir</string>

@@ -128,7 +128,7 @@
     <string name="title_advanced_metered">Gemeten verbindingen gebruiken</string>
     <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
     <string name="title_advanced_browse">Blader door berichten op de server</string>
-    <string name="title_advanced_unified">Gecombineerd postvak in</string>
+    <string name="title_advanced_startup">Toon op het startscherm</string>
     <string name="title_advanced_date_header">Op datum groeperen</string>
     <string name="title_advanced_threading">Gesprekken groeperen</string>
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
@@ -162,7 +162,6 @@
     <string name="title_advanced_enabled_hint">Globaal in- of uitschakelen van het ontvangen en verzenden van berichten</string>
     <string name="title_advanced_metered_hint">Gemeten verbindingen zijn over het algemeen mobiele verbindingen of betaalde Wi-Fi hotspots</string>
     <string name="title_advanced_browse_hint">Meer berichten ophalen bij het naar beneden scrollen</string>
-    <string name="title_advanced_unified_hint">Gecombineerd postvak in mappen of gecombineerd postvak in berichten weergeven</string>
     <string name="title_advanced_threading_hint">Groepeer gerelateerde berichten</string>
     <string name="title_advanced_name_email_hint">Indien uitgeschakeld, worden alleen namen weergegeven als deze beschikbaar zijn</string>
     <string name="title_advanced_flags_hint">Merk op dat berichten met een ster altijd lokaal worden bewaard</string>
@@ -511,5 +510,10 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="startupNames">
+        <item>Gecombineerd postvak in</item>
+        <item>Gecombineerde postvak in mappen</item>
+        <item>Accounts</item>
     </string-array>
 </resources>

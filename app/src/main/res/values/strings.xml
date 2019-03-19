@@ -156,7 +156,7 @@
     <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
     <string name="title_advanced_browse">Browse messages on the server</string>
 
-    <string name="title_advanced_unified">Unified inbox</string>
+    <string name="title_advanced_startup">Show on start screen</string>
     <string name="title_advanced_date_header">Group by date</string>
     <string name="title_advanced_threading">Conversation threading</string>
     <string name="title_advanced_avatars">Show contact photos</string>
@@ -193,7 +193,6 @@
     <string name="title_advanced_enabled_hint">Globally disable or enable receiving and sending of messages</string>
     <string name="title_advanced_metered_hint">Metered connections are generally mobile connections or paid Wi-Fi hotspots</string>
     <string name="title_advanced_browse_hint">Fetch more messages when scrolling down</string>
-    <string name="title_advanced_unified_hint">Show unified inbox folders or unified inbox messages</string>
     <string name="title_advanced_threading_hint">Group messages related to each other</string>
     <string name="title_advanced_name_email_hint">When disabled only names will be shown when available</string>
     <string name="title_advanced_flags_hint">Note that starred messages will always be kept locally</string>
@@ -583,6 +582,18 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
+    </string-array>
+
+    <string-array name="startupValues" translatable="false">
+        <item>unified</item>
+        <item>folders</item>
+        <item>accounts</item>
+    </string-array>
+
+    <string-array name="startupNames">
+        <item>Unified inbox</item>
+        <item>Unified folders</item>
+        <item>Accounts</item>
     </string-array>
 
     <integer-array name="downloadValues" translatable="false">

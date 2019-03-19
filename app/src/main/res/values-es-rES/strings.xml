@@ -8,6 +8,7 @@
     <string name="channel_notification">Notificaciones</string>
     <string name="channel_warning">Alertas</string>
     <string name="channel_error">Errores</string>
+    <string name="channel_group_contacts">Contactos</string>
     <string name="tile_synchronize">Sincronizar</string>
     <string name="tile_unseen">Nuevos mensajes</string>
     <string name="shortcut_compose">Redactar</string>
@@ -127,7 +128,6 @@
     <string name="title_advanced_metered">Usar conexión de datos</string>
     <string name="title_advanced_download">Descargar automáticamente mensajes y adjuntos usando conexión de datos hasta</string>
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
-    <string name="title_advanced_unified">Bandeja de entrada unificada</string>
     <string name="title_advanced_date_header">Agrupar por fecha</string>
     <string name="title_advanced_threading">Hilos de conversación</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
@@ -161,7 +161,6 @@
     <string name="title_advanced_enabled_hint">Desactivar o activar globalmente la recepción y envío de mensajes</string>
     <string name="title_advanced_metered_hint">Las conexiones medidas son generalmente conexiones móviles o puntos de acceso Wi-Fi de pago</string>
     <string name="title_advanced_browse_hint">Buscar más mensajes al desplazarse hacia abajo</string>
-    <string name="title_advanced_unified_hint">Mostrar carpetas de bandeja de entrada unificada o mensajes de bandeja de entrada unificada</string>
     <string name="title_advanced_threading_hint">Agrupar mensajes relacionados entre sí</string>
     <string name="title_advanced_name_email_hint">Si está desactivado, solo se mostrarán los nombres cuando estén disponibles</string>
     <string name="title_advanced_flags_hint">Tenga en cuenta que los mensajes destacados siempre se almacenarán localmente</string>
@@ -247,6 +246,7 @@
     <string name="title_no_operations">No hay operaciones pendientes</string>
     <string name="title_folder_name">Nombre de carpeta</string>
     <string name="title_display_name">Nombre para mostrar</string>
+    <string name="title_hide_folder">Ocultar en los menús</string>
     <string name="title_unified_folder">Mostrar en bandeja de entrada unificada</string>
     <string name="title_synchronize_folder">Sincronizar (recibir mensajes)</string>
     <string name="title_poll_folder">Comprobar periódicamente en lugar de sincronizar continuamente</string>
@@ -390,6 +390,7 @@
     <string name="title_rule_enabled">Activada</string>
     <string name="title_rule_stop">Detener procesamiento de reglas después de ejecutar esta regla</string>
     <string name="title_rule_sender">Remitente contiene</string>
+    <string name="title_rule_recipient">El destinatario contiene</string>
     <string name="title_rule_subject">Asunto contiene</string>
     <string name="title_rule_header">Encabezado contiene</string>
     <string name="title_rule_regex">Expresión regular</string>
@@ -402,6 +403,8 @@
     <string name="title_rule_cc">Responder a direcciones en CC</string>
     <string name="title_rule_name_missing">Falta nombre de regla</string>
     <string name="title_rule_condition_missing">Falta condición</string>
+    <string name="title_rule_automation">Automatización</string>
+    <string name="title_rule_automation_hint">Esto enviará el intento \'%1$s\' con los extras \'%2$s\'</string>
     <string name="title_action_seen">Marcar como leído</string>
     <string name="title_action_archive">Archivar</string>
     <string name="title_action_trash">Mover a Papelera</string>

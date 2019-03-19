@@ -93,7 +93,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
 public class ActivityView extends ActivityBilling implements FragmentManager.OnBackStackChangedListener {
-    private boolean unified;
+    private String startup;
 
     private View view;
     private DrawerLayout drawerLayout;
@@ -121,6 +121,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final int REQUEST_SENDER = 5;
     static final int REQUEST_RECIPIENT = 6;
 
+    static final String ACTION_VIEW_FOLDERS = BuildConfig.APPLICATION_ID + ".VIEW_FOLDERS";
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
     static final String ACTION_VIEW_THREAD = BuildConfig.APPLICATION_ID + ".VIEW_THREAD";
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
@@ -144,7 +145,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         super.onCreate(savedInstanceState);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        unified = prefs.getBoolean("unified", true);
+        startup = prefs.getString("startup", "unified");
 
         view = LayoutInflater.from(this).inflate(R.layout.activity_view, null);
         setContentView(view);
@@ -412,8 +413,22 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void init() {
-        FragmentBase fragment = (unified ? new FragmentMessages() : new FragmentFolders());
-        fragment.setArguments(new Bundle());
+        Bundle args = new Bundle();
+
+        FragmentBase fragment;
+        switch (startup) {
+            case "accounts":
+                fragment = new FragmentAccounts();
+                args.putBoolean("settings", false);
+                break;
+            case "folders":
+                fragment = new FragmentFolders();
+                break;
+            default:
+                fragment = new FragmentMessages();
+        }
+
+        fragment.setArguments(args);
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
@@ -545,6 +560,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         IntentFilter iff = new IntentFilter();
+        iff.addAction(ACTION_VIEW_FOLDERS);
         iff.addAction(ACTION_VIEW_MESSAGES);
         iff.addAction(ACTION_VIEW_THREAD);
         iff.addAction(ACTION_STORE_RAW);
@@ -1056,7 +1072,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
                 String action = intent.getAction();
 
-                if (ACTION_VIEW_MESSAGES.equals(action))
+                if (ACTION_VIEW_FOLDERS.equals(action))
+                    onViewFolders(intent);
+                else if (ACTION_VIEW_MESSAGES.equals(action))
                     onViewMessages(intent);
                 else if (ACTION_VIEW_THREAD.equals(action))
                     onViewThread(intent);
@@ -1083,6 +1101,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }
     };
+
+    private void onViewFolders(Intent intent) {
+        long account = intent.getLongExtra("id", -1);
+        onMenuFolders(account);
+    }
 
     private void onViewMessages(Intent intent) {
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
