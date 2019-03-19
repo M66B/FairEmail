@@ -28,15 +28,26 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            android:id="@+id/ivState"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:src="@drawable/baseline_cloud_off_24"
+            app:layout_constraintBottom_toBottomOf="@+id/tvName"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toTopOf="@+id/tvName" />
+
+        <ImageView
             android:id="@+id/ivPrimary"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="6dp"
             android:layout_marginEnd="6dp"
             android:src="@drawable/baseline_star_24"
-            android:visibility="visible"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
-            app:layout_constraintTop_toBottomOf="@id/marginTop" />
+            app:layout_constraintBottom_toBottomOf="@+id/tvName"
+            app:layout_constraintStart_toEndOf="@id/ivState"
+            app:layout_constraintTop_toTopOf="@+id/tvName" />
 
         <TextView
             android:id="@+id/tvName"
@@ -44,14 +55,15 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:layout_marginEnd="6dp"
-            android:ellipsize="end"
-            android:maxLines="1"
+            android:ellipsize="middle"
+            android:gravity="center_vertical"
+            android:minHeight="24dp"
+            android:singleLine="true"
             android:text="Name"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="@id/ivPrimary"
             app:layout_constraintEnd_toStartOf="@+id/ivSync"
             app:layout_constraintStart_toEndOf="@id/ivPrimary"
-            app:layout_constraintTop_toTopOf="@id/ivPrimary" />
+            app:layout_constraintTop_toBottomOf="@id/marginTop" />
 
         <ImageView
             android:id="@+id/ivSync"
@@ -59,8 +71,9 @@
             android:layout_height="24dp"
             android:layout_marginEnd="6dp"
             android:src="@drawable/baseline_sync_24"
+            app:layout_constraintBottom_toBottomOf="@+id/tvName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/marginTop" />
+            app:layout_constraintTop_toTopOf="@+id/tvName" />
 
         <TextView
             android:id="@+id/tvUser"
@@ -68,21 +81,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:layout_marginEnd="6dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:text="user"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toStartOf="@+id/ivSync"
-            app:layout_constraintStart_toEndOf="@+id/ivPrimary"
-            app:layout_constraintTop_toBottomOf="@id/ivPrimary" />
-
-        <ImageView
-            android:id="@+id/ivState"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
-            android:src="@drawable/baseline_cloud_off_24"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
-            app:layout_constraintTop_toBottomOf="@id/tvUser" />
+            app:layout_constraintStart_toEndOf="@+id/ivState"
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
 
         <TextView
             android:id="@+id/tvHost"
@@ -94,10 +99,9 @@
             android:maxLines="1"
             android:text="host"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintBottom_toBottomOf="@id/ivState"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivState"
-            app:layout_constraintTop_toTopOf="@id/ivState" />
+            app:layout_constraintStart_toEndOf="@+id/ivState"
+            app:layout_constraintTop_toBottomOf="@id/tvUser" />
 
         <TextView
             android:id="@+id/tvLast"
@@ -110,7 +114,7 @@
             android:text="Last connected time"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivState"
+            app:layout_constraintStart_toEndOf="@+id/ivState"
             app:layout_constraintTop_toBottomOf="@id/tvHost" />
 
         <TextView
@@ -141,5 +145,11 @@
             android:background="?attr/colorSeparator"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/marginBottom" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpSettings"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="ivSync,tvHost" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

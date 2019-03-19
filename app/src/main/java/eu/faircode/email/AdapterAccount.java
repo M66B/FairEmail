@@ -40,6 +40,7 @@ import java.util.List;
 import java.util.Locale;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.Group;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
@@ -59,30 +60,32 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     private static final DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        View view;
-        View vwColor;
-        ImageView ivPrimary;
-        TextView tvName;
-        ImageView ivSync;
-        TextView tvUser;
-        ImageView ivState;
-        TextView tvHost;
-        TextView tvLast;
-        TextView tvError;
+        private View view;
+        private View vwColor;
+        private ImageView ivPrimary;
+        private TextView tvName;
+        private ImageView ivSync;
+        private TextView tvUser;
+        private ImageView ivState;
+        private TextView tvHost;
+        private TextView tvLast;
+        private TextView tvError;
+        private Group grpSettings;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             view = itemView.findViewById(R.id.clItem);
             vwColor = itemView.findViewById(R.id.vwColor);
+            ivSync = itemView.findViewById(R.id.ivSync);
             ivPrimary = itemView.findViewById(R.id.ivPrimary);
             tvName = itemView.findViewById(R.id.tvName);
-            ivSync = itemView.findViewById(R.id.ivSync);
             tvUser = itemView.findViewById(R.id.tvUser);
             ivState = itemView.findViewById(R.id.ivState);
             tvHost = itemView.findViewById(R.id.tvHost);
             tvLast = itemView.findViewById(R.id.tvLast);
             tvError = itemView.findViewById(R.id.tvError);
+            grpSettings = itemView.findViewById(R.id.grpSettings);
         }
 
         private void wire() {
@@ -96,7 +99,10 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         private void bindTo(TupleAccountEx account) {
             view.setActivated(account.tbd != null);
             vwColor.setBackgroundColor(account.color == null ? Color.TRANSPARENT : account.color);
-            ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.INVISIBLE);
+
+            ivSync.setImageResource(account.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
+
+            ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.GONE);
 
             if (settings)
                 tvName.setText(account.name);
@@ -109,9 +115,6 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 tvName.setTypeface(null, account.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
                 tvName.setTextColor(account.unseen > 0 ? colorUnread : textColorSecondary);
             }
-
-            ivSync.setImageResource(account.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
-            ivSync.setVisibility(settings ? View.VISIBLE : View.GONE);
 
             tvUser.setText(account.user);
 
@@ -131,6 +134,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
             tvError.setText(account.error);
             tvError.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
+
+            grpSettings.setVisibility(settings ? View.VISIBLE : View.GONE);
         }
 
         @Override

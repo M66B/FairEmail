@@ -52,26 +52,26 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
     private static final DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        View view;
-        View vwColor;
-        ImageView ivPrimary;
-        TextView tvName;
-        ImageView ivSync;
-        TextView tvUser;
-        TextView tvHost;
-        ImageView ivState;
-        TextView tvAccount;
-        TextView tvLast;
-        TextView tvError;
+        private View view;
+        private View vwColor;
+        private ImageView ivSync;
+        private ImageView ivPrimary;
+        private TextView tvName;
+        private TextView tvUser;
+        private TextView tvHost;
+        private ImageView ivState;
+        private TextView tvAccount;
+        private TextView tvLast;
+        private TextView tvError;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             view = itemView.findViewById(R.id.clItem);
             vwColor = itemView.findViewById(R.id.vwColor);
+            ivSync = itemView.findViewById(R.id.ivSync);
             ivPrimary = itemView.findViewById(R.id.ivPrimary);
             tvName = itemView.findViewById(R.id.tvName);
-            ivSync = itemView.findViewById(R.id.ivSync);
             tvUser = itemView.findViewById(R.id.tvUser);
             tvHost = itemView.findViewById(R.id.tvHost);
             ivState = itemView.findViewById(R.id.ivState);
@@ -91,9 +91,11 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         private void bindTo(TupleIdentityEx identity) {
             view.setActivated(identity.tbd != null);
             vwColor.setBackgroundColor(identity.color == null ? Color.TRANSPARENT : identity.color);
-            ivPrimary.setVisibility(identity.primary ? View.VISIBLE : View.INVISIBLE);
-            tvName.setText(identity.getDisplayName());
+
             ivSync.setImageResource(identity.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
+
+            ivPrimary.setVisibility(identity.primary ? View.VISIBLE : View.GONE);
+            tvName.setText(identity.getDisplayName());
             tvUser.setText(identity.email);
 
             if ("connected".equals(identity.state))
