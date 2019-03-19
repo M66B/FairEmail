@@ -111,6 +111,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final int REQUEST_UNIFIED = 1;
     static final int REQUEST_WHY = 2;
     static final int REQUEST_THREAD = 3;
+    static final int REQUEST_OUTBOX = 4;
+    static final int REQUEST_ERROR = 5;
 
     static final int REQUEST_RAW = 1;
     static final int REQUEST_ATTACHMENT = 2;
@@ -453,7 +455,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             startActivity(iwhy);
                     }
 
-                } else if ("error".equals(action))
+                } else if ("outbox".equals(action))
+                    onMenuOutbox();
+
+                else if ("error".equals(action))
                     onDebugInfo();
 
                 else if (action.startsWith("thread")) {

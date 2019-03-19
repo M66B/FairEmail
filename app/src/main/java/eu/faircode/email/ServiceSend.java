@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -112,13 +113,21 @@ public class ServiceSend extends LifecycleService {
         if (unsent != null)
             lastUnsent = unsent;
 
+        // Build pending intent
+        Intent intent = new Intent(this, ActivityView.class);
+        intent.setAction("outbox");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        PendingIntent pi = PendingIntent.getActivity(
+                this, ActivityView.REQUEST_OUTBOX, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "service");
 
         builder
                 .setSmallIcon(R.drawable.baseline_send_24)
                 .setContentTitle(getString(R.string.title_notification_sending))
+                .setContentIntent(pi)
                 .setAutoCancel(false)
-                .setShowWhen(false)
+                .setShowWhen(true)
                 .setPriority(NotificationCompat.PRIORITY_MIN)
                 .setCategory(NotificationCompat.CATEGORY_STATUS)
                 .setVisibility(NotificationCompat.VISIBILITY_SECRET);
