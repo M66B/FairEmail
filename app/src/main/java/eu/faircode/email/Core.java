@@ -770,7 +770,7 @@ class Core {
                         folder.poll = ("imap.gmail.com".equals(account.host));
                         folder.sync_days = EntityFolder.DEFAULT_SYNC;
                         folder.keep_days = EntityFolder.DEFAULT_KEEP;
-                        db.folder().insertFolder(folder);
+                        folder.id = db.folder().insertFolder(folder);
                         Log.i(folder.name + " added type=" + folder.type);
                     } else {
                         Log.i(folder.name + " exists type=" + folder.type);
