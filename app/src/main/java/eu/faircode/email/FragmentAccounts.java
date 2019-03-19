@@ -112,10 +112,10 @@ public class FragmentAccounts extends FragmentBase {
         super.onActivityCreated(savedInstanceState);
 
         // Observe accounts
-        DB.getInstance(getContext()).account().liveAccounts(settings)
-                .observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
+        DB.getInstance(getContext()).account().liveAccountsEx(settings)
+                .observe(getViewLifecycleOwner(), new Observer<List<TupleAccountEx>>() {
                     @Override
-                    public void onChanged(@Nullable List<EntityAccount> accounts) {
+                    public void onChanged(@Nullable List<TupleAccountEx> accounts) {
                         if (accounts == null)
                             accounts = new ArrayList<>();
 

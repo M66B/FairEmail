@@ -38,10 +38,6 @@ public interface DaoAccount {
     @Query("SELECT * FROM account WHERE tbd = 1")
     List<EntityAccount> getAccountsTbd();
 
-    @Query("SELECT * FROM account" +
-            " WHERE :all OR account.synchronize")
-    LiveData<List<EntityAccount>> liveAccounts(boolean all);
-
     @Query("SELECT * FROM account WHERE synchronize")
     LiveData<List<EntityAccount>> liveSynchronizingAccounts();
 
@@ -65,9 +61,9 @@ public interface DaoAccount {
             "    AND NOT ui_hide) AS unsent" +
             " FROM account" +
             " LEFT JOIN operation ON operation.account = account.id" +
-            " WHERE synchronize" +
+            " WHERE :all OR account.synchronize" +
             " GROUP BY account.id")
-    LiveData<List<TupleAccountEx>> liveAccountsEx();
+    LiveData<List<TupleAccountEx>> liveAccountsEx(boolean all);
 
     @Query("SELECT * FROM account WHERE id = :id")
     EntityAccount getAccount(long id);

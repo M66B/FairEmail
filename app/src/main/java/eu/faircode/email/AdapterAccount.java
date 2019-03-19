@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ import android.widget.TextView;
 
 import java.text.Collator;
 import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -48,8 +50,12 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     private boolean settings;
     private LayoutInflater inflater;
 
-    private List<EntityAccount> items = new ArrayList<>();
+    private int colorUnread;
+    private int textColorSecondary;
 
+    private List<TupleAccountEx> items = new ArrayList<>();
+
+    private static NumberFormat nf = NumberFormat.getNumberInstance();
     private static final DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -87,11 +93,23 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             view.setOnClickListener(null);
         }
 
-        private void bindTo(EntityAccount account) {
+        private void bindTo(TupleAccountEx account) {
             view.setActivated(account.tbd != null);
             vwColor.setBackgroundColor(account.color == null ? Color.TRANSPARENT : account.color);
             ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.INVISIBLE);
-            tvName.setText(account.name);
+
+            if (settings)
+                tvName.setText(account.name);
+            else {
+                if (account.unseen > 0)
+                    tvName.setText(context.getString(R.string.title_name_count, account.name, nf.format(account.unseen)));
+                else
+                    tvName.setText(account.name);
+
+                tvName.setTypeface(null, account.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
+                tvName.setTextColor(account.unseen > 0 ? colorUnread : textColorSecondary);
+            }
+
             ivSync.setImageResource(account.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
             ivSync.setVisibility(settings ? View.VISIBLE : View.GONE);
 
@@ -121,7 +139,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             if (pos == RecyclerView.NO_POSITION)
                 return;
 
-            EntityAccount account = items.get(pos);
+            TupleAccountEx account = items.get(pos);
             if (account.tbd != null)
                 return;
 
@@ -137,18 +155,21 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         this.settings = settings;
         this.inflater = LayoutInflater.from(context);
 
+        this.colorUnread = Helper.resolveColor(context, R.attr.colorUnread);
+        this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
+
         setHasStableIds(true);
     }
 
-    public void set(@NonNull List<EntityAccount> accounts) {
+    public void set(@NonNull List<TupleAccountEx> accounts) {
         Log.i("Set accounts=" + accounts.size());
 
         final Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
 
-        Collections.sort(accounts, new Comparator<EntityAccount>() {
+        Collections.sort(accounts, new Comparator<TupleAccountEx>() {
             @Override
-            public int compare(EntityAccount a1, EntityAccount a2) {
+            public int compare(TupleAccountEx a1, TupleAccountEx a2) {
                 int n = collator.compare(a1.name, a2.name);
                 if (n != 0)
                     return n;
@@ -188,10 +209,10 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     }
 
     private class DiffCallback extends DiffUtil.Callback {
-        private List<EntityAccount> prev = new ArrayList<>();
-        private List<EntityAccount> next = new ArrayList<>();
+        private List<TupleAccountEx> prev = new ArrayList<>();
+        private List<TupleAccountEx> next = new ArrayList<>();
 
-        DiffCallback(List<EntityAccount> prev, List<EntityAccount> next) {
+        DiffCallback(List<TupleAccountEx> prev, List<TupleAccountEx> next) {
             this.prev.addAll(prev);
             this.next.addAll(next);
         }
@@ -208,15 +229,15 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
         @Override
         public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-            EntityAccount f1 = prev.get(oldItemPosition);
-            EntityAccount f2 = next.get(newItemPosition);
+            TupleAccountEx f1 = prev.get(oldItemPosition);
+            TupleAccountEx f2 = next.get(newItemPosition);
             return f1.id.equals(f2.id);
         }
 
         @Override
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
-            EntityAccount f1 = prev.get(oldItemPosition);
-            EntityAccount f2 = next.get(newItemPosition);
+            TupleAccountEx f1 = prev.get(oldItemPosition);
+            TupleAccountEx f2 = next.get(newItemPosition);
             return f1.equals(f2);
         }
     }
@@ -241,7 +262,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
 
-        EntityAccount account = items.get(position);
+        TupleAccountEx account = items.get(position);
         holder.bindTo(account);
 
         holder.wire();

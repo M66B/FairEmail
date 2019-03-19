@@ -274,7 +274,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         DB db = DB.getInstance(this);
 
-        db.account().liveAccountsEx().observe(this, new Observer<List<TupleAccountEx>>() {
+        db.account().liveAccountsEx(false).observe(this, new Observer<List<TupleAccountEx>>() {
             private List<TupleAccountEx> last = new ArrayList<>();
 
             @Override
