@@ -1724,9 +1724,6 @@ class Core {
                     .addAction(actionArchive.build())
                     .addAction(actionTrash.build());
 
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
-                mbuilder.setSound(null);
-
             if (pro) {
                 if (!TextUtils.isEmpty(message.subject))
                     mbuilder.setContentText(message.subject);
@@ -1765,7 +1762,10 @@ class Core {
                 }
             }
 
-            mbuilder.setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+                mbuilder.setSound(null);
+            else
+                mbuilder.setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
 
             notifications.add(mbuilder.build());
         }
