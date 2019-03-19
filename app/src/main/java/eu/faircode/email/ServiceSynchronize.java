@@ -398,7 +398,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 try {
                                     monitorAccount(account, astate);
                                 } catch (Throwable ex) {
-                                    Log.e(ex);
+                                    Log.e(account.name, ex);
                                     EntityLog.log(ServiceSynchronize.this, account.name + " " + Helper.formatThrowable(ex));
                                     db.account().setAccountError(account.id, Helper.formatThrowable(ex));
                                 }
@@ -500,6 +500,7 @@ public class ServiceSynchronize extends LifecycleService {
                             try {
                                 wlAccount.acquire();
                                 if (e.getMessageType() == StoreEvent.ALERT) {
+                                    Log.w(account.name + " alert: " + e.getMessage());
                                     db.account().setAccountError(account.id, e.getMessage());
                                     Core.reportError(
                                             ServiceSynchronize.this, account, null,
@@ -991,8 +992,6 @@ public class ServiceSynchronize extends LifecycleService {
                 } catch (Throwable ex) {
                     Log.e(account.name, ex);
                     Core.reportError(this, account, null, ex);
-
-                    EntityLog.log(this, account.name + " " + Helper.formatThrowable(ex));
                     db.account().setAccountError(account.id, Helper.formatThrowable(ex));
                 } finally {
                     // Stop watching for operations
