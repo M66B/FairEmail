@@ -128,6 +128,7 @@
     <string name="title_advanced_metered">Getaktete Verbindungen verwenden</string>
     <string name="title_advanced_download">Automatisches Herunterladen von E-Mails und Anhängen auf getakteten Verbindungen bis zu einer Größe von</string>
     <string name="title_advanced_browse">E-Mails auf dem Server durchsuchen</string>
+    <string name="title_advanced_startup">Auf Sperrbildschirm anzeigen</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
     <string name="title_advanced_threading">Konversationsansicht</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
@@ -509,5 +510,10 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="startupNames">
+        <item>Sammeleingang</item>
+        <item>Zusammengeführte Ordner</item>
+        <item>Accounts / Konten</item>
     </string-array>
 </resources>

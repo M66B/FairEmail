@@ -128,6 +128,7 @@
     <string name="title_advanced_metered">Utiliser des connexions limitées</string>
     <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes avec une connexion limitée jusqu\'à</string>
     <string name="title_advanced_browse">Lire directement les messages sur le serveur</string>
+    <string name="title_advanced_startup">Afficher sur l\'écran de déverrouillage</string>
     <string name="title_advanced_date_header">Grouper par date</string>
     <string name="title_advanced_threading">Fil de conversation</string>
     <string name="title_advanced_avatars">Afficher les photos des contacts</string>
@@ -509,5 +510,10 @@
         <item>1 Mo</item>
         <item>2 Mo</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="startupNames">
+        <item>Boite de réception unifiée</item>
+        <item>Dossiers unifiés</item>
+        <item>Comptes</item>
     </string-array>
 </resources>

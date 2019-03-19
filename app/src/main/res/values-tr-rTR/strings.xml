@@ -8,6 +8,7 @@
     <string name="channel_notification">Bildirimler</string>
     <string name="channel_warning">Uyarılar</string>
     <string name="channel_error">Hatalar</string>
+    <string name="channel_group_contacts">Rehber</string>
     <string name="tile_synchronize">Eşzamanlama</string>
     <string name="tile_unseen">Yeni iletiler</string>
     <string name="shortcut_compose">Eposta Oluştur</string>
@@ -47,8 +48,10 @@
     <string name="title_ask_spam_who">%1$s\' iletisi gereksiz posta olarak bildirilsin mi?</string>
     <string name="title_notification_sending">İletileri gönderiliyor</string>
     <string name="title_notification_failed">\'%1$s\' başarısız oldu</string>
+    <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_answers">Kalıplar</string>
     <string name="menu_operations">İşlemler</string>
+    <string name="menu_contacts">Yerel rehber</string>
     <string name="menu_setup">Kurulum</string>
     <string name="menu_legend">Simgelerin anlamları</string>
     <string name="menu_faq">Destek</string>
@@ -125,6 +128,7 @@
     <string name="title_advanced_metered">Ölçülü bağlantıları kullan</string>
     <string name="title_advanced_download">Mesajları ve ekleri ölçülü bir bağlantıya kadar otomatik olarak indir</string>
     <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
+    <string name="title_advanced_startup">Başlangıç ekranında göster</string>
     <string name="title_advanced_date_header">Tarihe göre grup</string>
     <string name="title_advanced_threading">İletişim iş parçacığı</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
@@ -239,9 +243,11 @@
     <string name="title_edit_rules">Kuralları düzenle</string>
     <string name="title_empty_trash_ask">Çöpe atılmış tüm iletiler kalıcı olarak silinsin mi?</string>
     <string name="title_delete_operation">Hata iletisi olan işlemler silinsin mi?</string>
+    <string name="title_delete_contacts">Tüm yerel rehber silinsin mi?</string>
     <string name="title_no_operations">Bekleyen işlem yok</string>
     <string name="title_folder_name">Klasör adı</string>
     <string name="title_display_name">Görünen ad</string>
+    <string name="title_hide_folder">Menülerden gizle</string>
     <string name="title_unified_folder">Birleşik gelen kutusunda göster</string>
     <string name="title_synchronize_folder">Eşzamanla (iletileri al)</string>
     <string name="title_poll_folder">Sürekli eşzamanlama yerine belirli aralıklarla bakın</string>
@@ -322,6 +328,7 @@
     <string name="title_ask_show_html">Özgün iletiyi göstermek gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_show_image">Resimlerin gösterilmesi gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_edit_ref">Yeniden biçimlendirilmiş yanıtlanmış/iletilmiş ileti metni düzenlensin mi?</string>
+    <string name="title_ask_delete_local">Uzak sunucuda depolanmış yerel iletiler de silinsin mi?</string>
     <string name="title_compose">Eposta Oluştur</string>
     <string name="title_from">Gönderen:</string>
     <string name="title_to">Alıcı:</string>
@@ -383,9 +390,10 @@
     <string name="title_rule_order">Sıralama</string>
     <string name="title_rule_enabled">Etkin</string>
     <string name="title_rule_stop">Bu kuralı yürüttükten sonra kuralları işlemeyi durdur</string>
-    <string name="title_rule_sender">Gönderen içeriyor</string>
-    <string name="title_rule_subject">Konu içeriyor</string>
-    <string name="title_rule_header">Başlık içeriyor</string>
+    <string name="title_rule_sender">Gönderici içeriği</string>
+    <string name="title_rule_recipient">Alıcı içeriği</string>
+    <string name="title_rule_subject">Konu içeriği</string>
+    <string name="title_rule_header">Başlık içeriği</string>
     <string name="title_rule_regex">Düzenli ifade</string>
     <string name="title_rule_and">VE</string>
     <string name="title_rule_action">Eylem</string>
@@ -396,6 +404,7 @@
     <string name="title_rule_cc">CC adreslerini yanıtlayın</string>
     <string name="title_rule_name_missing">Kural adı eksik</string>
     <string name="title_rule_condition_missing">Koşul kayıp</string>
+    <string name="title_rule_automation">Özdevinim</string>
     <string name="title_action_seen">Okundu işareti</string>
     <string name="title_action_archive">Arşiv</string>
     <string name="title_action_trash">Çöp kutusu</string>
@@ -404,6 +413,7 @@
     <string name="title_legend_trash">Çöp Kutusu</string>
     <string name="title_legend_junk">İstenmeyen posta</string>
     <string name="title_legend_notify">Yeni iletileri bildir</string>
+    <string name="title_legend_unified">Birleşik gelen kutusu / birincil hesap</string>
     <string name="title_legend_primary_disconnected">Hesap bağlantısı kesildi</string>
     <string name="title_legend_primary_connected">Hesap bağlantısı kuruldu</string>
     <string name="title_legend_thread">Söyleşi</string>
@@ -414,7 +424,7 @@
     <string name="title_legend_answered">Yanıtlandı</string>
     <string name="title_legend_attachment">Eki var</string>
     <string name="title_legend_flagged">Yıldızlı</string>
-    <string name="title_legend_contacts">Kişi rehberini yönet</string>
+    <string name="title_legend_contacts">Rehberi yönet</string>
     <string name="title_legend_view">İçeriği görüntüle</string>
     <string name="title_legend_hide">İçeriği gizle</string>
     <string name="title_legend_download">İçeriği indir</string>
@@ -451,6 +461,8 @@
     <string name="title_hint_message_actions">Çöp kutusu için sola kaydırın; arşivlemek için sağa kaydırın (eğer varsa)</string>
     <string name="title_hint_message_selection">Çoklu ileti seçmeye başlamak için bir mesaja uzun basın</string>
     <string name="title_hint_sync">Mesajların indirilmesi, sağlayıcının hızına, internet bağlantısına ve cihazın hızına ve mesaj sayısına bağlı olarak biraz zaman alabilir. Mesajları indirirken uygulama daha yavaş yanıt verebilir.</string>
+    <string name="title_hint_image_link">Görsel bağlantısı</string>
+    <string name="title_hint_tracking_image">İzlenen görsel %1$sx%2$s</string>
     <string name="title_open_link">Bağlantıyı aç</string>
     <string name="title_show_organization">Örgütleşimi göster</string>
     <string name="title_insecure_link">Bu bağlantı güvensiz</string>
@@ -496,5 +508,10 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="startupNames">
+        <item>Birleşik Gelen Kutusu</item>
+        <item>Birleşik klasörler</item>
+        <item>Hesaplar</item>
     </string-array>
 </resources>
