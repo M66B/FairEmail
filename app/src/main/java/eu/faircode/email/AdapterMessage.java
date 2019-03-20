@@ -512,7 +512,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             view.setActivated(selectionTracker != null && selectionTracker.isSelected(message.id));
             view.setAlpha(
                     message.uid == null &&
-                            !EntityFolder.OUTBOX.equals(message.folderType)
+                            !(EntityFolder.OUTBOX.equals(message.folderType) && !message.ui_seen)
                             ? Helper.LOW_LIGHT : 1.0f);
 
             // Duplicate

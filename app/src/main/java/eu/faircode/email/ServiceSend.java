@@ -349,8 +349,7 @@ public class ServiceSend extends LifecycleService {
                     db.message().setMessageFolder(message.id, sent.id);
                     message.folder = sent.id;
                     EntityOperation.queue(this, db, message, EntityOperation.ADD);
-                } else
-                    db.message().setMessageUiHide(message.id, true);
+                }
 
                 if (message.inreplyto != null) {
                     List<EntityMessage> replieds = db.message().getMessageByMsgId(message.account, message.inreplyto);
