@@ -222,7 +222,6 @@ public class FragmentAccounts extends FragmentBase {
         if (!TextUtils.isEmpty(searching)) {
             menuSearch.expandActionView();
             searchView.setQuery(searching, false);
-            searchView.clearFocus();
         }
 
         searchView.setQueryHint(getString(R.string.title_search_device));

@@ -124,7 +124,6 @@ public class FragmentContacts extends FragmentBase {
         if (!TextUtils.isEmpty(searching)) {
             menuSearch.expandActionView();
             searchView.setQuery(searching, true);
-            searchView.clearFocus();
         }
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
