@@ -134,7 +134,7 @@ public class FragmentMessages extends FragmentBase {
     private long primary;
     private boolean outbox = false;
     private boolean connected;
-    private boolean searching = false;
+    private String searching = null;
     private boolean refresh = false;
     private boolean manual = false;
     private AdapterMessage adapter;
@@ -1486,6 +1486,8 @@ public class FragmentMessages extends FragmentBase {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
+        outState.putString("fair:searching", searching);
+
         outState.putBoolean("fair:autoExpanded", autoExpanded);
         outState.putInt("fair:autoCloseCount", autoCloseCount);
 
@@ -1515,6 +1517,8 @@ public class FragmentMessages extends FragmentBase {
         super.onActivityCreated(savedInstanceState);
 
         if (savedInstanceState != null) {
+            searching = savedInstanceState.getString("fair:searching");
+
             autoExpanded = savedInstanceState.getBoolean("fair:autoExpanded");
             autoCloseCount = savedInstanceState.getInt("fair:autoCloseCount");
 
@@ -1765,36 +1769,27 @@ public class FragmentMessages extends FragmentBase {
         inflater.inflate(R.menu.menu_messages, menu);
 
         final MenuItem menuSearch = menu.findItem(R.id.menu_search);
-        menuSearch.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
-            @Override
-            public boolean onMenuItemActionExpand(MenuItem item) {
-                searching = true;
-                return true;
-            }
+        SearchView searchView = (SearchView) menuSearch.getActionView();
 
-            @Override
-            public boolean onMenuItemActionCollapse(MenuItem item) {
-                searching = false;
-                return true;
-            }
-        });
-        if (searching)
+        if (!TextUtils.isEmpty(searching)) {
             menuSearch.expandActionView();
+            searchView.setQuery(searching, false);
+        }
 
-        final SearchView searchView = (SearchView) menuSearch.getActionView();
         searchView.setQueryHint(getString(folder < 0 ? R.string.title_search_device : R.string.title_search_hint));
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                searching = false;
-                menuSearch.collapseActionView();
-                search(getContext(), getViewLifecycleOwner(), getFragmentManager(), folder, query);
+            public boolean onQueryTextChange(String newText) {
+                searching = newText;
                 return true;
             }
 
             @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
+            public boolean onQueryTextSubmit(String query) {
+                searching = null;
+                menuSearch.collapseActionView();
+                search(getContext(), getViewLifecycleOwner(), getFragmentManager(), folder, query);
+                return true;
             }
         });
 

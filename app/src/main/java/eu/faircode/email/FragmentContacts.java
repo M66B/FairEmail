@@ -50,7 +50,7 @@ public class FragmentContacts extends FragmentBase {
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
-    private String search = null;
+    private String searching = null;
     private AdapterContact adapter;
 
     @Override
@@ -83,12 +83,18 @@ public class FragmentContacts extends FragmentBase {
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("fair:searching", searching);
+    }
+
+    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
         if (savedInstanceState != null) {
-            search = savedInstanceState.getString("fair:search");
-            adapter.search(search);
+            searching = savedInstanceState.getString("fair:searching");
+            adapter.search(searching);
         }
 
         DB db = DB.getInstance(getContext());
@@ -109,36 +115,29 @@ public class FragmentContacts extends FragmentBase {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putString("fair:search", search);
-    }
-
-    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_contacts, menu);
 
         MenuItem menuSearch = menu.findItem(R.id.menu_search);
         SearchView searchView = (SearchView) menuSearch.getActionView();
 
-        if (!TextUtils.isEmpty(search)) {
+        if (!TextUtils.isEmpty(searching)) {
             menuSearch.expandActionView();
-            searchView.setQuery(search, true);
-            searchView.clearFocus();
+            searchView.setQuery(searching, true);
         }
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                search = query;
-                adapter.search(query);
+            public boolean onQueryTextChange(String newText) {
+                searching = newText;
+                adapter.search(newText);
                 return true;
             }
 
             @Override
-            public boolean onQueryTextChange(String newText) {
-                search = newText;
-                adapter.search(newText);
+            public boolean onQueryTextSubmit(String query) {
+                searching = query;
+                adapter.search(query);
                 return true;
             }
         });

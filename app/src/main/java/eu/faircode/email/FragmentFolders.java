@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -65,7 +66,7 @@ public class FragmentFolders extends FragmentBase {
     private FloatingActionButton fab;
 
     private long account;
-    private boolean searching = false;
+    private String searching = null;
     private AdapterFolder adapter;
 
     private Map<Long, List<TupleFolderEx>> parentChilds = new HashMap<>();
@@ -80,32 +81,9 @@ public class FragmentFolders extends FragmentBase {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        outState.putLongArray("fair:parents", Helper.toLongArray(parentChilds.keySet()));
-        for (Long parent : parentChilds.keySet()) {
-            List<TupleFolderEx> childs = parentChilds.get(parent);
-            outState.putInt("fair:childs:" + parent + ":count", childs.size());
-            for (int i = 0; i < childs.size(); i++)
-                outState.putSerializable("fair:childs:" + parent + ":" + i, childs.get(i));
-        }
-    }
-
-    @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-
-        if (savedInstanceState != null) {
-            for (long parent : savedInstanceState.getLongArray("fair:parents")) {
-                int count = savedInstanceState.getInt("fair:childs:" + parent + ":count");
-                List<TupleFolderEx> childs = new ArrayList<>(count);
-                for (int i = 0; i < count; i++)
-                    childs.add((TupleFolderEx) savedInstanceState.getSerializable("fair:childs:" + parent + ":" + i));
-                parentChilds.put(parent, childs);
-            }
-        }
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_folders, container, false);
 
@@ -226,8 +204,35 @@ public class FragmentFolders extends FragmentBase {
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putString("fair:searching", searching);
+
+        outState.putLongArray("fair:parents", Helper.toLongArray(parentChilds.keySet()));
+        for (Long parent : parentChilds.keySet()) {
+            List<TupleFolderEx> childs = parentChilds.get(parent);
+            outState.putInt("fair:childs:" + parent + ":count", childs.size());
+            for (int i = 0; i < childs.size(); i++)
+                outState.putSerializable("fair:childs:" + parent + ":" + i, childs.get(i));
+        }
+    }
+
+    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            searching = savedInstanceState.getString("fair:searching");
+
+            for (long parent : savedInstanceState.getLongArray("fair:parents")) {
+                int count = savedInstanceState.getInt("fair:childs:" + parent + ":count");
+                List<TupleFolderEx> childs = new ArrayList<>(count);
+                for (int i = 0; i < count; i++)
+                    childs.add((TupleFolderEx) savedInstanceState.getSerializable("fair:childs:" + parent + ":" + i));
+                parentChilds.put(parent, childs);
+            }
+        }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         grpHintActions.setVisibility(prefs.getBoolean("folder_actions", false) ? View.GONE : View.VISIBLE);
@@ -339,36 +344,27 @@ public class FragmentFolders extends FragmentBase {
         inflater.inflate(R.menu.menu_folders, menu);
 
         final MenuItem menuSearch = menu.findItem(R.id.menu_search);
-        menuSearch.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
-            @Override
-            public boolean onMenuItemActionExpand(MenuItem item) {
-                searching = true;
-                return true;
-            }
+        SearchView searchView = (SearchView) menuSearch.getActionView();
 
-            @Override
-            public boolean onMenuItemActionCollapse(MenuItem item) {
-                searching = false;
-                return true;
-            }
-        });
-        if (searching)
+        if (!TextUtils.isEmpty(searching)) {
             menuSearch.expandActionView();
+            searchView.setQuery(searching, false);
+        }
 
-        final SearchView searchView = (SearchView) menuSearch.getActionView();
         searchView.setQueryHint(getString(R.string.title_search_device));
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                searching = false;
-                menuSearch.collapseActionView();
-                FragmentMessages.search(getContext(), getViewLifecycleOwner(), getFragmentManager(), -1, query);
+            public boolean onQueryTextChange(String newText) {
+                searching = newText;
                 return true;
             }
 
             @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
+            public boolean onQueryTextSubmit(String query) {
+                searching = null;
+                menuSearch.collapseActionView();
+                FragmentMessages.search(getContext(), getViewLifecycleOwner(), getFragmentManager(), -1, query);
+                return true;
             }
         });
 
