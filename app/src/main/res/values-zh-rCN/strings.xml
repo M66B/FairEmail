@@ -120,6 +120,7 @@
     <string name="title_advanced_metered">使用按流量计费的连接</string>
     <string name="title_advanced_download">在计量的连接下自动下载邮件和附件, 最高可达</string>
     <string name="title_advanced_browse">浏览服务器上的消息</string>
+    <string name="title_advanced_startup">在启动屏幕上显示</string>
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_threading">会话线程</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
@@ -499,5 +500,10 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="startupNames">
+        <item>聚合收件箱</item>
+        <item>聚合文件夹</item>
+        <item>账户</item>
     </string-array>
 </resources>

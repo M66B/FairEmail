@@ -379,6 +379,7 @@
     <string name="title_address_unsent">Non envoyé :</string>
     <string name="title_address_invalid">Invalide :</string>
     <string name="title_snoozed">Différé</string>
+    <string name="title_duplicates">Afficher les doublons</string>
     <string name="title_previous">Précédent</string>
     <string name="title_next">Suivant</string>
     <string name="title_answer_reply">Modèle de réponse</string>

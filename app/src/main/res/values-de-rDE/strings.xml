@@ -379,6 +379,7 @@
     <string name="title_address_unsent">Nicht gesendet:</string>
     <string name="title_address_invalid">Ungültig:</string>
     <string name="title_snoozed">Zurückgestellt</string>
+    <string name="title_duplicates">Duplikate anzeigen</string>
     <string name="title_previous">Vorherige</string>
     <string name="title_next">Nächste</string>
     <string name="title_answer_reply">Antwortvorlage</string>

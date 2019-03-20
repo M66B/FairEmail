@@ -379,6 +379,7 @@
     <string name="title_address_unsent">Niet verzonden:</string>
     <string name="title_address_invalid">Ongeldig:</string>
     <string name="title_snoozed">Gesluimerd</string>
+    <string name="title_duplicates">Toon dubbele</string>
     <string name="title_previous">Vorige</string>
     <string name="title_next">Volgende</string>
     <string name="title_answer_reply">Antwoord sjabloon</string>
