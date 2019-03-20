@@ -2241,6 +2241,15 @@ public class FragmentMessages extends FragmentBase {
 
             Log.i("Submit messages=" + messages.size());
             adapter.submitList(messages);
+
+            // This is to workaround not drawing when the search is expanded
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    rvMessage.requestLayout();
+                }
+            });
+
             rvMessage.setTag(messages.size());
 
             if (boundaryCallback == null || !boundaryCallback.isLoading())
