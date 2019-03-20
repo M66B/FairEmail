@@ -259,7 +259,6 @@ public class FragmentQuickSetup extends FragmentBase {
 
                 String user = (provider.user == EmailProvider.UserType.EMAIL ? email : dparts[0]);
 
-                Character separator;
                 List<EntityFolder> folders = new ArrayList<>();
                 long now = new Date().getTime();
 
@@ -269,8 +268,6 @@ public class FragmentQuickSetup extends FragmentBase {
                     isession.setDebug(true);
                     try (IMAPStore istore = (IMAPStore) isession.getStore(provider.imap_starttls ? "imap" : "imaps")) {
                         istore.connect(provider.imap_host, provider.imap_port, user, password);
-
-                        separator = istore.getDefaultFolder().getSeparator();
 
                         boolean inbox = false;
                         boolean drafts = false;
