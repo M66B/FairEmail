@@ -1774,6 +1774,7 @@ public class FragmentMessages extends FragmentBase {
         if (!TextUtils.isEmpty(searching)) {
             menuSearch.expandActionView();
             searchView.setQuery(searching, false);
+            searchView.clearFocus();
         }
 
         searchView.setQueryHint(getString(folder < 0 ? R.string.title_search_device : R.string.title_search_hint));
