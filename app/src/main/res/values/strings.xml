@@ -433,6 +433,7 @@
     <string name="title_address_unsent">Unsent:</string>
     <string name="title_address_invalid">Invalid:</string>
     <string name="title_snoozed">Snoozed</string>
+    <string name="title_duplicates">Show duplicates</string>
 
     <string name="title_previous">Previous</string>
     <string name="title_next">Next</string>

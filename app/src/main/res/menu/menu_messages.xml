@@ -58,4 +58,10 @@
         android:checkable="true"
         android:title="@string/title_snoozed"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_duplicates"
+        android:checkable="true"
+        android:title="@string/title_duplicates"
+        app:showAsAction="never" />
 </menu>

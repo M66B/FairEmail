@@ -312,10 +312,11 @@ public class FragmentMessages extends FragmentBase {
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("zoom", compact ? 0 : 1);
         String sort = prefs.getString("sort", "time");
+        boolean duplicates = prefs.getBoolean("duplicates", true);
 
         adapter = new AdapterMessage(
                 getContext(), getViewLifecycleOwner(),
-                viewType, compact, zoom, sort, iProperties);
+                viewType, compact, zoom, sort, duplicates, iProperties);
 
         rvMessage.setAdapter(adapter);
 
@@ -1835,6 +1836,9 @@ public class FragmentMessages extends FragmentBase {
                 (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER));
         menu.findItem(R.id.menu_snoozed).setChecked(prefs.getBoolean("snoozed", false));
 
+        menu.findItem(R.id.menu_duplicates).setVisible(viewType == AdapterMessage.ViewType.THREAD);
+        menu.findItem(R.id.menu_duplicates).setChecked(prefs.getBoolean("duplicates", true));
+
         super.onPrepareOptionsMenu(menu);
     }
 
@@ -1881,6 +1885,10 @@ public class FragmentMessages extends FragmentBase {
 
             case R.id.menu_snoozed:
                 onMenuSnoozed();
+                return true;
+
+            case R.id.menu_duplicates:
+                onMenuDuplicates();
                 return true;
 
             default:
@@ -1937,6 +1945,13 @@ public class FragmentMessages extends FragmentBase {
         boolean snoozed = prefs.getBoolean("snoozed", false);
         prefs.edit().putBoolean("snoozed", !snoozed).apply();
         loadMessages();
+    }
+
+    private void onMenuDuplicates() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean duplicates = prefs.getBoolean("duplicates", true);
+        prefs.edit().putBoolean("duplicates", !duplicates).apply();
+        adapter.setDuplicates(!duplicates);
     }
 
     private void loadMessages() {
