@@ -89,6 +89,11 @@ public interface DaoFolder {
             " AND folder.type = '" + EntityFolder.DRAFTS + "'")
     LiveData<EntityFolder> livePrimaryDrafts();
 
+    @Query("SELECT COUNT(id) FROM folder" +
+            " WHERE sync_state = 'syncing'" +
+            " AND folder.type <> '" + EntityFolder.OUTBOX + "'")
+    LiveData<Integer> liveSynchronizing();
+
     @Query("SELECT folder.*" +
             ", account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +

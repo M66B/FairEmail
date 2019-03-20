@@ -128,7 +128,20 @@ public class ServiceSynchronize extends LifecycleService {
             }
         });
 
-        db.message().liveUnseenNotify().observe(this, new Observer<List<TupleMessageEx>>() {
+        final TwoStateOwner cowner = new TwoStateOwner(this);
+
+        db.folder().liveSynchronizing().observe(this, new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer count) {
+                Log.i("Synchronizing folders=" + count);
+                if (count == 0)
+                    cowner.start();
+                else
+                    cowner.stop();
+            }
+        });
+
+        db.message().liveUnseenNotify().observe(cowner, new Observer<List<TupleMessageEx>>() {
             @Override
             public void onChanged(List<TupleMessageEx> messages) {
                 Core.notifyMessages(ServiceSynchronize.this, messages);
