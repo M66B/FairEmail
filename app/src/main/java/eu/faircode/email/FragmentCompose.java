@@ -394,10 +394,11 @@ public class FragmentCompose extends FragmentBase {
 
         ((ActivityBase) getActivity()).addBackPressedListener(onBackPressedListener);
 
-        setHasOptionsMenu(true);
 
         // Initialize
         setSubtitle(R.string.title_compose);
+        setHasOptionsMenu(true);
+
         etExtra.setHint("");
         tvDomain.setText(null);
 
