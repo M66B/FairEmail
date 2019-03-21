@@ -25,6 +25,7 @@ For authorizing:
 
 * ~~A [bug in Android](https://issuetracker.google.com/issues/78495471) lets FairEmail occasionally crash on long pressing or swiping.~~
 * A [bug in Android](https://issuetracker.google.com/issues/119872129) lets FairEmail crash on some devices after updating FairEmail and tapping on a notification.
+* A [bug in Android 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format.
 
 ## Planned features
 
