@@ -76,7 +76,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
     private List<TupleFolderEx> items = new ArrayList<>();
 
-    private static NumberFormat nf = NumberFormat.getNumberInstance();
+    private NumberFormat nf = NumberFormat.getNumberInstance();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;

@@ -41,7 +41,7 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
 
     private List<EntityLog> items = new ArrayList<>();
 
-    private static final DateFormat DF = SimpleDateFormat.getTimeInstance();
+    private DateFormat DF = SimpleDateFormat.getTimeInstance();
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvTime;

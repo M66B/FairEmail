@@ -168,7 +168,7 @@ public class FragmentMessages extends FragmentBase {
     private final int action_junk = 9;
     private final int action_move = 10;
 
-    private static NumberFormat nf = NumberFormat.getNumberInstance();
+    private NumberFormat nf = NumberFormat.getNumberInstance();
 
     private static final int LOCAL_PAGE_SIZE = 100;
     private static final int REMOTE_PAGE_SIZE = 10;

@@ -106,7 +106,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private OpenPgpServiceConnection pgpService;
 
-    private static NumberFormat nf = NumberFormat.getNumberInstance();
+    private NumberFormat nf = NumberFormat.getNumberInstance();
 
     static final int REQUEST_UNIFIED = 1;
     static final int REQUEST_WHY = 2;

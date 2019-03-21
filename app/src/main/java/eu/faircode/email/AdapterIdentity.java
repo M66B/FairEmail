@@ -49,7 +49,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
     private List<TupleIdentityEx> items = new ArrayList<>();
 
-    private static final DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
+    private DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private View view;

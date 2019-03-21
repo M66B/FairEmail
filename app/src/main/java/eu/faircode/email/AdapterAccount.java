@@ -56,8 +56,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
     private List<TupleAccountEx> items = new ArrayList<>();
 
-    private static NumberFormat nf = NumberFormat.getNumberInstance();
-    private static final DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
+    private NumberFormat nf = NumberFormat.getNumberInstance();
+    private DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private View view;

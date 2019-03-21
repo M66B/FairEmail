@@ -54,7 +54,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     private List<TupleContactEx> all = new ArrayList<>();
     private List<TupleContactEx> selected = new ArrayList<>();
 
-    private static NumberFormat nf = NumberFormat.getNumberInstance();
+    private NumberFormat nf = NumberFormat.getNumberInstance();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;

@@ -172,9 +172,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     enum ViewType {UNIFIED, FOLDER, THREAD, SEARCH}
 
-    private static NumberFormat nf = NumberFormat.getNumberInstance();
-    private static DateFormat tf = SimpleDateFormat.getTimeInstance(SimpleDateFormat.SHORT);
-    private static DateFormat dtf = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
+    private NumberFormat nf = NumberFormat.getNumberInstance();
+    private DateFormat tf = SimpleDateFormat.getTimeInstance(SimpleDateFormat.SHORT);
+    private DateFormat dtf = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
             View.OnClickListener, View.OnLongClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
