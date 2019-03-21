@@ -51,6 +51,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
     private Context context;
     private LayoutInflater inflater;
     private LifecycleOwner owner;
+    private int dp48;
 
     private List<EntityAttachment> items = new ArrayList<>();
 
@@ -79,13 +80,18 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
             if (attachment.available) {
                 Bitmap bm = Helper.decodeImage(attachment.getFile(context),
                         context.getResources().getDisplayMetrics().widthPixels / 2);
-                if (bm == null)
+                if (bm == null) {
+                    image.setPadding(dp48, dp48, dp48, dp48);
                     image.setImageResource(R.drawable.baseline_broken_image_24);
-                else
+                } else {
+                    image.setPadding(0, 0, 0, 0);
                     image.setImageBitmap(bm);
-            } else
+                }
+            } else {
+                image.setPadding(dp48, dp48, dp48, dp48);
                 image.setImageResource(attachment.progress == null
                         ? R.drawable.baseline_image_24 : R.drawable.baseline_hourglass_empty_24);
+            }
 
             caption.setText(attachment.name);
         }
@@ -174,6 +180,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.owner = owner;
+        this.dp48 = Helper.dp2pixels(context, 48);
         setHasStableIds(true);
     }
 
