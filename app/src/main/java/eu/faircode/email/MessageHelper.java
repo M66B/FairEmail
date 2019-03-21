@@ -27,7 +27,6 @@ import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
@@ -712,7 +711,7 @@ public class MessageHelper {
             AttachmentPart apart = attachments.get(index);
             EntityAttachment attachment = db.attachment().getAttachment(id);
             if (attachment == null)
-                throw new FileNotFoundException();
+                return;
             File file = attachment.getFile(context);
 
             // Download attachment

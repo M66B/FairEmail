@@ -1530,7 +1530,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 DB db = DB.getInstance(context);
                 EntityAttachment attachment = db.attachment().getAttachment(id);
                 if (attachment == null)
-                    throw new FileNotFoundException();
+                    return null;
                 File file = attachment.getFile(context);
 
                 ParcelFileDescriptor pfd = null;
