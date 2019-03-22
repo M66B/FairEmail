@@ -20,11 +20,13 @@ package eu.faircode.email;
 */
 
 import android.content.SharedPreferences;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -38,8 +40,11 @@ public class FragmentEula extends FragmentBase {
 
         View view = inflater.inflate(R.layout.fragment_eula, container, false);
 
+        TextView tvLimitations = view.findViewById(R.id.tvLimitations);
         Button btnAgree = view.findViewById(R.id.btnOk);
         Button btnDisagree = view.findViewById(R.id.btnCancel);
+
+        tvLimitations.setPaintFlags(tvLimitations.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         btnAgree.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,9 +39,11 @@ public class FragmentAbout extends FragmentBase {
 
         View view = inflater.inflate(R.layout.fragment_about, container, false);
 
+        TextView tvLimitations = view.findViewById(R.id.tvLimitations);
         tvVersion = view.findViewById(R.id.tvVersion);
 
         tvVersion.setText(getString(R.string.title_version, BuildConfig.VERSION_NAME));
+        tvLimitations.setPaintFlags(tvLimitations.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         return view;
     }
