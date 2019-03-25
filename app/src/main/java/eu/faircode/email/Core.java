@@ -33,8 +33,6 @@ import org.jsoup.Jsoup;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -424,7 +422,33 @@ class Core {
                 imessage.setFlag(Flags.Flag.DRAFT, true);
 
         // Add message
-        long uid = append(istore, ifolder, imessage);
+        long uid = -1;
+        if (istore.hasCapability("UIDPLUS")) {
+            AppendUID[] uids = ifolder.appendUIDMessages(new Message[]{imessage});
+            if (uids != null && uids.length > 0) {
+                Log.i("Appended uid=" + uids[0].uid);
+                uid = uids[0].uid;
+            }
+        } else
+            ifolder.appendMessages(new Message[]{imessage});
+
+        // Lookup uid
+        if (uid <= 0) {
+            Log.i("Searching for appended msgid=" + message.msgid);
+            Message[] messages = ifolder.search(new MessageIDTerm(message.msgid));
+            if (messages != null)
+                for (Message iappended : messages) {
+                    long muid = ifolder.getUID(iappended);
+                    Log.i("Found appended uid=" + muid);
+                    // RFC3501: Unique identifiers are assigned in a strictly ascending fashion
+                    if (muid > uid)
+                        uid = muid;
+                }
+        }
+
+        if (uid <= 0)
+            throw new IllegalArgumentException("uid not found");
+
         Log.i(folder.name + " appended id=" + message.id + " uid=" + uid);
         db.message().setMessageUid(message.id, uid);
 
@@ -482,89 +506,15 @@ class Core {
             throw new FolderNotFoundException();
         IMAPFolder itarget = (IMAPFolder) istore.getFolder(target.name);
 
-        // Get message ID
-        String msgid;
-        if (copy || message.msgid == null) {
-            msgid = EntityMessage.generateMessageId();
-            Log.i(target.name + " generated message id=" + msgid);
-        } else
-            msgid = message.msgid;
+        ifolder.copyMessages(new Message[]{imessage}, itarget);
 
-        // Serialize source message
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        imessage.writeTo(bos);
-
-        // Deserialize target message
-        ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
-        Message icopy = new MimeMessage(isession, bis);
-
-        try {
-            // Needed to read flags
-            itarget.open(Folder.READ_WRITE);
-
-            // Auto read
-            if (itarget.getPermanentFlags().contains(Flags.Flag.SEEN))
-                if (autoread && !icopy.isSet(Flags.Flag.SEEN))
-                    icopy.setFlag(Flags.Flag.SEEN, true);
-
-            // Move from drafts
-            if (EntityFolder.DRAFTS.equals(folder.type))
-                if (itarget.getPermanentFlags().contains(Flags.Flag.DRAFT))
-                    icopy.setFlag(Flags.Flag.DRAFT, false);
-
-            // Move to drafts
-            if (EntityFolder.DRAFTS.equals(target.type))
-                if (itarget.getPermanentFlags().contains(Flags.Flag.DRAFT))
-                    icopy.setFlag(Flags.Flag.DRAFT, true);
-
-            icopy.setHeader("Message-ID", msgid);
-
-            // Append target
-            long uid = append(istore, itarget, (MimeMessage) icopy);
-
-            // This won't work properly when deleting the same message in multiple folders
-            // For example Gmail's inbox/archive
-            //Long newid = (jargs.length() > 2 && !jargs.isNull(2) ? jargs.getLong(2) : null);
-            //if (newid != null) {
-            //    Log.i(folder.name + " moved newid=" + newid + " uid=" + uid);
-            //    db.message().setMessageUid(newid, uid);
-            //}
-
-            // Fixed timing issue of at least Courier based servers
-            itarget.close(false);
-            itarget.open(Folder.READ_WRITE);
-
-            // Some providers, like Gmail, don't honor the appended seen flag
-            if (itarget.getPermanentFlags().contains(Flags.Flag.SEEN)) {
-                boolean seen = (autoread || message.ui_seen);
-                icopy = itarget.getMessageByUID(uid);
-                if (icopy != null && seen != icopy.isSet(Flags.Flag.SEEN)) {
-                    Log.i(target.name + " Fixing id=" + message.id + " seen=" + seen);
-                    icopy.setFlag(Flags.Flag.SEEN, seen);
-                }
+        // Delete source
+        if (!copy) {
+            try {
+                imessage.setFlag(Flags.Flag.DELETED, true);
+            } catch (MessageRemovedException ignored) {
             }
-
-            // This is not based on an actual case, so this is just a safeguard
-            if (itarget.getPermanentFlags().contains(Flags.Flag.DRAFT)) {
-                boolean draft = EntityFolder.DRAFTS.equals(target.type);
-                icopy = itarget.getMessageByUID(uid);
-                if (icopy != null && draft != icopy.isSet(Flags.Flag.DRAFT)) {
-                    Log.i(target.name + " Fixing id=" + message.id + " draft=" + draft);
-                    icopy.setFlag(Flags.Flag.DRAFT, draft);
-                }
-            }
-
-            // Delete source
-            if (!copy) {
-                try {
-                    imessage.setFlag(Flags.Flag.DELETED, true);
-                } catch (MessageRemovedException ignored) {
-                }
-                ifolder.expunge();
-            }
-        } finally {
-            if (itarget.isOpen())
-                itarget.close();
+            ifolder.expunge();
         }
     }
 
@@ -674,40 +624,6 @@ class Core {
         MessageHelper helper = new MessageHelper((MimeMessage) imessage);
         MessageHelper.MessageParts parts = helper.getMessageParts();
         parts.downloadAttachment(context, sequence - 1, attachment.id);
-    }
-
-    private static long append(IMAPStore istore, IMAPFolder ifolder, MimeMessage imessage) throws MessagingException {
-        String msgid = imessage.getMessageID();
-        if (msgid == null)
-            throw new IllegalArgumentException("Message ID missing");
-
-        long uid = -1;
-        if (istore.hasCapability("UIDPLUS")) {
-            AppendUID[] uids = ifolder.appendUIDMessages(new Message[]{imessage});
-            if (uids != null && uids.length > 0) {
-                Log.i("Appended uid=" + uids[0].uid);
-                uid = uids[0].uid;
-            }
-        } else
-            ifolder.appendMessages(new Message[]{imessage});
-
-        if (uid <= 0) {
-            Log.i("Searching for appended msgid=" + msgid);
-            Message[] messages = ifolder.search(new MessageIDTerm(msgid));
-            if (messages != null)
-                for (Message iappended : messages) {
-                    long muid = ifolder.getUID(iappended);
-                    Log.i("Found appended uid=" + muid);
-                    // RFC3501: Unique identifiers are assigned in a strictly ascending fashion
-                    if (muid > uid)
-                        uid = muid;
-                }
-        }
-
-        if (uid <= 0)
-            throw new IllegalArgumentException("uid not found");
-
-        return uid;
     }
 
     static void onSynchronizeFolders(Context context, EntityAccount account, Store istore, State state) throws MessagingException {
