@@ -19,7 +19,7 @@ public class TwoStateOwner implements LifecycleOwner {
         owner.getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroyed() {
-                registry.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY);
+                destroy();
             }
         });
     }
@@ -33,8 +33,13 @@ public class TwoStateOwner implements LifecycleOwner {
     }
 
     void restart() {
-        registry.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY);
+        stop();
         start();
+    }
+
+    void destroy() {
+        if (!registry.getCurrentState().equals(Lifecycle.State.DESTROYED))
+            registry.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY);
     }
 
     @NonNull

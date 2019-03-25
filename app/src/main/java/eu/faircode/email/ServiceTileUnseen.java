@@ -69,6 +69,7 @@ public class ServiceTileUnseen extends TileService {
 
     @Override
     public void onDestroy() {
+        owner.destroy();
         super.onDestroy();
     }
 
