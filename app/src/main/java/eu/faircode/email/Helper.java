@@ -481,6 +481,10 @@ public class Helper {
 
         sb.append("\r\n");
 
+        sb.append(new Date().toString()).append("\r\n");
+
+        sb.append("\r\n");
+
         return sb;
     }
 
