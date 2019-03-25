@@ -1734,6 +1734,7 @@ class Core {
                 !(ex instanceof IllegalStateException) &&
                 !(ex instanceof AuthenticationFailedException) && // Also: Too many simultaneous connections
                 !(ex instanceof StoreClosedException) &&
+                !(ex instanceof UnknownHostException) &&
                 !(ex instanceof MessageRemovedException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof UnknownHostException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof ConnectionException) &&
