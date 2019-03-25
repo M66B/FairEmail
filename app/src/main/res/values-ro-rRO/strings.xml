@@ -255,7 +255,7 @@
     <string name="title_no_operations">Nici o operațiune în așteptare</string>
     <string name="title_folder_name">Nume dosar</string>
     <string name="title_display_name">Nume afișat</string>
-    <string name="title_hide_folder">Ascundeți din meniuri</string>
+    <string name="title_hide_folder">Ascunde din meniuri</string>
     <string name="title_unified_folder">Arată în căsuța poștală comună</string>
     <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
     <string name="title_poll_folder">Verifică periodic în loc de a sincroniza în continuu</string>
@@ -302,7 +302,7 @@
     <string name="title_save_all">Salvează tot</string>
     <string name="title_show_html">Arată originalul</string>
     <string name="title_trash">Gunoi</string>
-    <string name="title_copy">Copiere %s&#8230;</string>
+    <string name="title_copy">Copiere &#8230;</string>
     <string name="title_delete">Şterge</string>
     <string name="title_more">Mai mult</string>
     <string name="title_spam">Spam</string>
@@ -387,6 +387,7 @@
     <string name="title_address_unsent">Netrimis:</string>
     <string name="title_address_invalid">Invalid:</string>
     <string name="title_snoozed">Amânată</string>
+    <string name="title_duplicates">Arată duplicate</string>
     <string name="title_previous">Precedent</string>
     <string name="title_next">Următor</string>
     <string name="title_answer_reply">Șablon răspuns</string>
@@ -520,7 +521,7 @@
         <item>&#8734;</item>
     </string-array>
     <string-array name="startupNames">
-        <item>Inbox unificat</item>
+        <item>Căsuță poștală comună</item>
         <item>Dosare unificate</item>
         <item>Conturi</item>
     </string-array>

@@ -8,6 +8,7 @@
     <string name="channel_notification">Powiadomienia</string>
     <string name="channel_warning">Ostrzeżenia</string>
     <string name="channel_error">Błędy</string>
+    <string name="channel_group_contacts">Kontakty</string>
     <string name="tile_synchronize">Synchronizuj</string>
     <string name="tile_unseen">Nowe wiadomości</string>
     <string name="shortcut_compose">Napisz</string>
@@ -143,6 +144,7 @@
     <string name="title_advanced_metered">Użyj połączeń taryfowych</string>
     <string name="title_advanced_download">Automatycznie pobieraj wiadomości i załączniki przy połączeniach taryfowych do</string>
     <string name="title_advanced_browse">Przeglądaj wiadomości na serwerze</string>
+    <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>
     <string name="title_advanced_date_header">Grupuj według dat</string>
     <string name="title_advanced_threading">Konwersacje w wątkach</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
@@ -174,17 +176,20 @@
     <string name="title_advanced_metered_hint">Połączeniu taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>
     <string name="title_advanced_browse_hint">Pobierz więcej wiadomości podczas przewijania w dół</string>
     <string name="title_advanced_threading_hint">Grupuj wiadomości powiązane ze sobą</string>
+    <string name="title_advanced_name_email_hint">Gdy wyłączone, tylko nazwy będą pokazywane, gdy dostępne</string>
     <string name="title_advanced_flags_hint">Pamiętaj, że wiadomości oznaczone gwiazdką zawsze będą przechowywane lokalnie</string>
     <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w rozmowie jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>
     <string name="title_advanced_autoclose_hint">Automatycznie zamykaj wątki rozmowy po zarchiwizowaniu, wysłaniu lub usunięciu wszystkich wiadomości</string>
     <string name="title_advanced_sender_hint">Większość dostawców nie akceptuje zmodyfikowanych adresów nadawcy</string>
     <string name="title_advanced_preview_hint">Dostępne tylko po pobraniu tekstu wiadomości</string>
+    <string name="title_advanced_search_local_hint">Zamiast przeszukiwać główny folder archiwum na serwerze</string>
     <string name="title_select">Wybierz &#8230;</string>
     <string name="title_identity_name">Twoja nazwa</string>
     <string name="title_identity_email">Twój adres e-mail</string>
     <string name="title_identity_reply_to">Odpowiedz na adres</string>
     <string name="title_identity_plain_text">Wyślij tylko zwykły tekst</string>
     <string name="title_identity_encrypt">Szyfruj domyślnie</string>
+    <string name="title_identity_use_ip_hint">W przypadku „nieprawidłowego powitania”, „wymaga prawidłowego adresu” lub podobnego błędu spróbuj zmienić to ustawienie</string>
     <string name="title_identity_read_receipt">Poproś o potwierdzenie odczytu</string>
     <string name="title_identity_delivery_receipt">Poproś o potwierdzenie dostarczenia</string>
     <string name="title_identity_receipt_remark">Większość dostawców ignoruje prośby otrzymania</string>
@@ -194,6 +199,7 @@
     <string name="title_account_linked">Połączone konto</string>
     <string name="title_account_name">Nazwa konta</string>
     <string name="title_account_name_hint">Używany do odróżnienia folderów</string>
+    <string name="title_account_prefix_hint">Używane do uproszczenia nazw folderów</string>
     <string name="title_account_signature">Tekst podpisu</string>
     <string name="title_account_color">Kolor</string>
     <string name="title_account_notify">Oddzielne powiadomienia</string>
@@ -208,6 +214,7 @@
     <string name="title_port">Numer portu</string>
     <string name="title_user">Nazwa użytkownika</string>
     <string name="title_password">Hasło</string>
+    <string name="title_realm">Realm</string>
     <string name="title_use_ip">Użyj lokalnego adresu IP zamiast nazwy hosta</string>
     <string name="title_authorize">Wybierz konto</string>
     <string name="title_authorizing">Autoryzowanie konta &#8230;</string>
@@ -228,21 +235,30 @@
     <string name="title_no_inbox">Nie znaleziono skrzynki odbiorczej</string>
     <string name="title_no_primary_drafts">Brak konta podstawowego lub brak folderu szkiców</string>
     <string name="title_no_idle">Ten dostawca nie obsługuje wiadomości push. To opóźni otrzymywanie nowych wiadomości i zwiększy zużycie baterii.</string>
+    <string name="title_no_move">Ten dostawca nie wspiera MOVE</string>
+    <string name="title_no_utf8">Ten dostawca nie wspiera UTF-8</string>
     <string name="title_no_sync">Błędy synchornizacji od %1$s</string>
+    <string name="title_sync_errors">Synchronizacja niektórych folderów nie powiodła się</string>
+    <string name="title_drafts_required">Folder szkiców jest wymagany do wysyłania wiadomości</string>
     <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
     <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
     <string name="title_edit_html">Edytuj jako HTML</string>
     <string name="title_last_connected">Ostatnio połączony: %1$s</string>
+    <string name="title_pop3_hint">POP3 ma znaczne ograniczenia, więc używaj IMAP, gdy tylko jest to możliwe</string>
+    <string name="title_pop3_support">POP3 nie jest wspierane, zobacz również FAQ</string>
     <string name="title_synchronize_now">Synchronizuj teraz</string>
     <string name="title_delete_local">Usuń wiadomości lokalne</string>
+    <string name="title_delete_browsed">Usuń przejrzane/przeszukane wiadomości</string>
     <string name="title_empty_trash">Opróżnij kosz</string>
     <string name="title_edit_properties">Edytuj właściwości</string>
     <string name="title_edit_rules">Edytuj reguły</string>
     <string name="title_empty_trash_ask">Trwale usunąć wszystkie wiadomości z kosza?</string>
     <string name="title_delete_operation">Usunąć działania z informacją o błędzie?</string>
+    <string name="title_delete_contacts">Usunąć wszystkie lokalne kontakty?</string>
     <string name="title_no_operations">Nie ma oczekujących operacji</string>
     <string name="title_folder_name">Nazwa folderu</string>
     <string name="title_display_name">Nazwa wyświetlana</string>
+    <string name="title_hide_folder">Ukryj z menu</string>
     <string name="title_unified_folder">Pokaż we wspólnej skrzynce odbiorczej</string>
     <string name="title_synchronize_folder">Synchronizuj (odbierz wiadomości)</string>
     <string name="title_poll_folder">Sprawdzaj cyklicznie zamiast ciągłej synchronizacji</string>
@@ -267,6 +283,7 @@
     <string name="title_folder_user">Użytkownik</string>
     <string name="title_folder_primary">Podstawowe konto folderów</string>
     <string name="title_folder_thread">Rozmowa %1$s</string>
+    <string name="title_folders_unified">Wspólne foldery odbiorcze</string>
     <string name="title_no_messages">Brak wiadomości</string>
     <string name="title_subject_reply">Odp: %1$s</string>
     <string name="title_subject_forward">Pd: %1$s</string>
@@ -302,6 +319,7 @@
     <string name="title_no_answers">Brak zdefiniowanych szablonów odpowiedzi</string>
     <string name="title_no_viewer">Brak aplikacji do podglądu %1$s</string>
     <string name="title_no_saf">Brak dostępu do plików</string>
+    <string name="title_no_internet">Brak lub brak odpowiedniego połączenia internetowego</string>
     <string name="title_no_folder">Folder nie istnieje</string>
     <string name="title_accross_remark">Wiadomości przenoszone pomiędzy kontami zostaną pobrane ponownie, wpływając na dodatkowe użycie danych</string>
     <string name="title_attachment_saved">Załącznik zapisany</string>
@@ -314,6 +332,7 @@
     <string name="title_ask_discard">Odrzucić szkic?</string>
     <string name="title_ask_show_html">Pokazywanie oryginalnej wiadomości może spowodować wyciek wrażliwych informacji</string>
     <string name="title_ask_show_image">Pokazywanie obrazów może spowodować wyciek wrażliwych informacji</string>
+    <string name="title_ask_delete_local">Usunąć lokalne wiadomości, które także są przechowywane na zdalnym serwerze?</string>
     <string name="title_compose">Napisz</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Do:</string>
@@ -355,7 +374,7 @@
     <string name="title_sort_on">Sortuj wg</string>
     <string name="title_sort_on_time">Czas</string>
     <string name="title_sort_on_unread">Nieprzeczytane</string>
-    <string name="title_sort_on_starred">Oznaczone</string>
+    <string name="title_sort_on_starred">Ulubione</string>
     <string name="title_sort_on_sender">Nadawca</string>
     <string name="title_sort_on_subject">Temat</string>
     <string name="title_compact">Widok kompaktowy</string>
@@ -364,6 +383,7 @@
     <string name="title_address_unsent">Niewysłane:</string>
     <string name="title_address_invalid">Nieprawidłowy:</string>
     <string name="title_snoozed">Uśpiony</string>
+    <string name="title_duplicates">Pokaż duplikaty</string>
     <string name="title_previous">Poprzedni</string>
     <string name="title_next">Następny</string>
     <string name="title_answer_reply">Szablon odpowiedzi</string>
@@ -374,17 +394,21 @@
     <string name="title_rule_name">Nazwa</string>
     <string name="title_rule_order">Kolejność</string>
     <string name="title_rule_enabled">Włączone</string>
+    <string name="title_rule_stop">Zatrzymaj przetwarzanie reguł po uruchomieniu tej reguły</string>
     <string name="title_rule_sender">Nadawca zawiera</string>
+    <string name="title_rule_recipient">Odbiorca zawiera</string>
     <string name="title_rule_subject">Tytuł zawiera</string>
     <string name="title_rule_header">Nagłówek zawiera</string>
     <string name="title_rule_and">I</string>
     <string name="title_rule_action">Akcja</string>
+    <string name="title_rule_action_remark">Ta akcja zostanie zastosowana do nowych wiadomości przychodzących do folderu %1$s</string>
     <string name="title_rule_folder">Folder</string>
     <string name="title_rule_identity">Tożsamość</string>
     <string name="title_rule_answer">Szablon odpowiedzi</string>
     <string name="title_rule_cc">Odpowiedz na adresy CC</string>
     <string name="title_rule_name_missing">Brak nazwy reguły</string>
     <string name="title_rule_condition_missing">Brak warunku</string>
+    <string name="title_rule_automation">Automatyzacja</string>
     <string name="title_action_seen">Oznacz przeczytane</string>
     <string name="title_action_archive">Archiwum</string>
     <string name="title_action_trash">Kosz</string>
@@ -393,17 +417,23 @@
     <string name="title_legend_trash">Kosz</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_notify">Powiadom o nowych wiadomościach</string>
+    <string name="title_legend_unified">Wspólna skrzynka odbiorcza / konto podstawowe</string>
     <string name="title_legend_primary_disconnected">Konto rozłączone</string>
     <string name="title_legend_primary_connected">Konto połączone</string>
     <string name="title_legend_thread">Konwersacja</string>
     <string name="title_legend_zoom">Zmień rozmiaru tekstu</string>
+    <string name="title_legend_draft">Posiada szkic</string>
     <string name="title_legend_snoozed">Jest uśpiony</string>
+    <string name="title_legend_browsed">Jest przeglądany lub przeszukiwany</string>
     <string name="title_legend_answered">Udzielono odpowiedzi</string>
     <string name="title_legend_attachment">Zawiera załącznik</string>
+    <string name="title_legend_flagged">Jest ulubiona</string>
     <string name="title_legend_contacts">Zarządzaj kontaktami</string>
     <string name="title_legend_view">Zobacz zawartość</string>
     <string name="title_legend_hide">Ukryj zawartość</string>
     <string name="title_legend_download">Pobierz zawartość</string>
+    <string name="title_legend_external_image">Zewnętrzny symbol zastępczy obrazu</string>
+    <string name="title_legend_embedded_image">Wbudowany symbol zastępczy obrazu</string>
     <string name="title_legend_broken_image">Uszkodzony obraz</string>
     <string name="title_legend_cc">Pokaż DW/UDW</string>
     <string name="title_legend_pick">Wybierz kontakt</string>
@@ -416,6 +446,7 @@
     <string name="title_legend_download_on">Automatycznie pobierz zawartość wiadomości</string>
     <string name="title_legend_synchronize_on">Synchronizacja włączona</string>
     <string name="title_legend_synchronize_off">Synchronizacja wyłączona</string>
+    <string name="title_legend_primary">Podstawowe</string>
     <string name="title_legend_disconnected">Rozłączony</string>
     <string name="title_legend_connecting">‎Łączenie</string>
     <string name="title_legend_connected">Połączony</string>
@@ -434,6 +465,9 @@
     <string name="title_hint_message_actions">Przesuń w lewo do kosza; przesuń w prawo do archiwum (jeśli dostępne)</string>
     <string name="title_hint_message_selection">Przytrzymaj wiadomość, aby zacząć zaznaczanie wielu wiadomości</string>
     <string name="title_hint_sync">Pobieranie wiadomości może trochę potrwać, zależnie od prędkości dostawcy, połączenie internetowego i urządzenia oraz liczby wiadomości. Podczas pobierania wiadomości aplikacja może odpowiadać wolniej.</string>
+    <string name="title_hint_image_link">Adres obrazka</string>
+    <string name="title_hint_tracking_image">Web beacon %1$sx%2$s</string>
+    <string name="title_hint_ignore_contact">Długo naciśnij kontakt, aby nigdy nie uznać go za ulubiony</string>
     <string name="title_open_link">Otwórz link</string>
     <string name="title_show_organization">Pokaż organizację</string>
     <string name="title_insecure_link">Ten link nie jest bezpieczny</string>
@@ -479,5 +513,10 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="startupNames">
+        <item>Wspólna skrzynka odbiorcza</item>
+        <item>Wspólne foldery</item>
+        <item>Konta</item>
     </string-array>
 </resources>
