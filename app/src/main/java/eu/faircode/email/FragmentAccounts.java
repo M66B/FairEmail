@@ -106,7 +106,7 @@ public class FragmentAccounts extends FragmentBase {
             public void onClick(View v) {
                 startActivity(new Intent(getContext(), ActivityCompose.class)
                         .putExtra("action", "new")
-                        .putExtra("account", -1)
+                        .putExtra("account", -1L)
                 );
             }
         });

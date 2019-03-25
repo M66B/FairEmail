@@ -903,7 +903,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ActivityView.this);
                 lbm.sendBroadcast(
                         new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                                .putExtra("account", -1)
+                                .putExtra("account", -1L)
                                 .putExtra("folder", folder));
             }
 
