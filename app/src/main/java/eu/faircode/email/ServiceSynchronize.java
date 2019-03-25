@@ -51,6 +51,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.RejectedExecutionException;
 
 import javax.mail.FetchProfile;
 import javax.mail.Folder;
@@ -155,15 +156,10 @@ public class ServiceSynchronize extends LifecycleService {
     @Override
     public void onDestroy() {
         Log.i("Service destroy");
+        EntityLog.log(this, "Service destroy");
 
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.unregisterNetworkCallback(networkCallback);
-
-        synchronized (this) {
-            EntityLog.log(this, "Service destroy");
-            if (started)
-                queue_reload(false, "service destroy");
-        }
 
         Widget.update(this, -1);
 
@@ -305,58 +301,64 @@ public class ServiceSynchronize extends LifecycleService {
 
         started = doStart;
 
-        queued++;
-        queue.submit(new Runnable() {
-            PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-            PowerManager.WakeLock wl = pm.newWakeLock(
-                    PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":manage");
+        try {
+            queued++;
+            queue.submit(new Runnable() {
+                PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+                PowerManager.WakeLock wl = pm.newWakeLock(
+                        PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":manage");
 
-            @Override
-            public void run() {
-                DB db = DB.getInstance(ServiceSynchronize.this);
+                @Override
+                public void run() {
+                    DB db = DB.getInstance(ServiceSynchronize.this);
 
-                try {
-                    wl.acquire();
+                    try {
+                        wl.acquire();
 
-                    EntityLog.log(ServiceSynchronize.this, "Reload" +
-                            " stop=" + doStop + " start=" + doStart + " queued=" + queued + " " + reason);
+                        EntityLog.log(ServiceSynchronize.this, "Reload" +
+                                " stop=" + doStop + " start=" + doStart + " queued=" + queued + " " + reason);
 
-                    if (doStop)
-                        stop();
+                        if (doStop)
+                            stop();
 
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                        for (EntityAccount account : db.account().getAccountsTbd())
-                            nm.deleteNotificationChannel(EntityAccount.getNotificationChannelId(account.id));
-                    }
-
-                    int accounts = db.account().deleteAccountsTbd();
-                    int identities = db.identity().deleteIdentitiesTbd();
-                    if (accounts > 0 || identities > 0)
-                        Log.i("Deleted accounts=" + accounts + " identities=" + identities);
-
-                    if (doStart)
-                        start();
-
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                } finally {
-                    queued--;
-                    EntityLog.log(ServiceSynchronize.this, "Reload done queued=" + queued);
-
-                    if (queued == 0 && !isEnabled()) {
-                        try {
-                            Thread.sleep(STOP_DELAY);
-                        } catch (InterruptedException ignored) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                            for (EntityAccount account : db.account().getAccountsTbd())
+                                nm.deleteNotificationChannel(EntityAccount.getNotificationChannelId(account.id));
                         }
-                        if (queued == 0 && !isEnabled())
-                            stopService();
-                    }
 
-                    wl.release();
+                        int accounts = db.account().deleteAccountsTbd();
+                        int identities = db.identity().deleteIdentitiesTbd();
+                        if (accounts > 0 || identities > 0)
+                            Log.i("Deleted accounts=" + accounts + " identities=" + identities);
+
+                        if (doStart)
+                            start();
+
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    } finally {
+                        queued--;
+                        EntityLog.log(ServiceSynchronize.this, "Reload done queued=" + queued);
+
+                        if (!doStart && queued == 0 && !isEnabled()) {
+                            try {
+                                Thread.sleep(STOP_DELAY);
+                            } catch (InterruptedException ignored) {
+                            }
+                            if (!doStart && queued == 0 && !isEnabled()) {
+                                queue.shutdownNow();
+                                stopService();
+                            }
+                        }
+
+                        wl.release();
+                    }
                 }
-            }
-        });
+            });
+        } catch (RejectedExecutionException ex) {
+            Log.w(ex);
+        }
     }
 
     private boolean isEnabled() {
