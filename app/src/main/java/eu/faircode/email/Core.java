@@ -835,6 +835,10 @@ class Core {
             IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
         final DB db = DB.getInstance(context);
         try {
+            // Legacy
+            if (jargs.length() == 0)
+                jargs = folder.getSyncArgs();
+
             int sync_days = jargs.getInt(0);
             int keep_days = jargs.getInt(1);
             boolean download = jargs.getBoolean(2);
