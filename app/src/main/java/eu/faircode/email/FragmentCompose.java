@@ -1589,42 +1589,6 @@ public class FragmentCompose extends FragmentBase {
                             drafts = db.folder().getPrimaryDrafts();
                         if (drafts == null)
                             throw new IllegalArgumentException(context.getString(R.string.title_no_primary_drafts));
-
-                        // Reply to recipient, not to known self
-                        if (ref.reply != null && ref.reply.length > 0) {
-                            String reply = Helper.canonicalAddress(((InternetAddress) ref.reply[0]).getAddress());
-                            for (EntityIdentity identity : identities) {
-                                String email = Helper.canonicalAddress(identity.email);
-                                if (reply.equals(email)) {
-                                    ref.reply = null;
-                                    break;
-                                }
-                            }
-                        }
-
-                        if (ref.deliveredto != null && (ref.to == null || ref.to.length == 0)) {
-                            try {
-                                Log.i("Setting delivered to=" + ref.deliveredto);
-                                ref.to = InternetAddress.parse(ref.deliveredto);
-                            } catch (AddressException ex) {
-                                Log.w(ex);
-                            }
-                        }
-
-                        if (ref.from != null && ref.from.length > 0) {
-                            String from = Helper.canonicalAddress(((InternetAddress) ref.from[0]).getAddress());
-                            Log.i("From=" + from + " to=" + MessageHelper.formatAddressesShort(ref.to));
-                            for (EntityIdentity identity : identities) {
-                                String email = Helper.canonicalAddress(identity.email);
-                                if (from.equals(email)) {
-                                    Log.i("Swapping from/to");
-                                    Address[] tmp = ref.to;
-                                    ref.to = ref.from;
-                                    ref.from = tmp;
-                                    break;
-                                }
-                            }
-                        }
                     }
 
                     String body = "";
