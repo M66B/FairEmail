@@ -380,6 +380,20 @@ class Core {
         if (TextUtils.isEmpty(message.msgid))
             throw new IllegalArgumentException("Message ID missing");
 
+        // Delete previous message(s) with same ID
+        if (folder.id.equals(message.folder)) {
+            Message[] ideletes = ifolder.search(new MessageIDTerm(message.msgid));
+            for (Message idelete : ideletes) {
+                long uid = ifolder.getUID(idelete);
+                Log.i(folder.name + " deleting previous uid=" + uid + " msgid=" + message.msgid);
+                try {
+                    idelete.setFlag(Flags.Flag.DELETED, true);
+                } catch (MessageRemovedException ignored) {
+                }
+            }
+            ifolder.expunge();
+        }
+
         // Get message
         MimeMessage imessage;
         if (folder.id.equals(message.folder)) {
@@ -452,23 +466,7 @@ class Core {
         Log.i(folder.name + " appended id=" + message.id + " uid=" + uid);
         db.message().setMessageUid(message.id, uid);
 
-        if (folder.id.equals(message.folder)) {
-            // Delete previous message
-            Message[] ideletes = ifolder.search(new MessageIDTerm(message.msgid));
-            for (Message idelete : ideletes) {
-                long duid = ifolder.getUID(idelete);
-                if (duid == uid)
-                    Log.i(folder.name + " append confirmed uid=" + duid);
-                else {
-                    Log.i(folder.name + " deleting uid=" + duid + " msgid=" + message.msgid);
-                    try {
-                        idelete.setFlag(Flags.Flag.DELETED, true);
-                    } catch (MessageRemovedException ignored) {
-                    }
-                }
-            }
-            ifolder.expunge();
-        } else
+        if (!folder.id.equals(message.folder))
             try {
                 db.beginTransaction();
 
