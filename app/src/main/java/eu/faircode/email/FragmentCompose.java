@@ -2152,16 +2152,15 @@ public class FragmentCompose extends FragmentBase {
                         });
                     }
                 } else if (action == R.id.action_save || action == R.id.menu_encrypt) {
-                    if (!BuildConfig.DEBUG || dirty) {
+                    if (BuildConfig.DEBUG || dirty)
                         EntityOperation.queue(context, db, draft, EntityOperation.ADD);
 
-                        Handler handler = new Handler(context.getMainLooper());
-                        handler.post(new Runnable() {
-                            public void run() {
-                                Toast.makeText(context, R.string.title_draft_saved, Toast.LENGTH_LONG).show();
-                            }
-                        });
-                    }
+                    Handler handler = new Handler(context.getMainLooper());
+                    handler.post(new Runnable() {
+                        public void run() {
+                            Toast.makeText(context, R.string.title_draft_saved, Toast.LENGTH_LONG).show();
+                        }
+                    });
 
                 } else if (action == R.id.action_send) {
                     // Check data
