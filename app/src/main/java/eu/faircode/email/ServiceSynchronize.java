@@ -839,7 +839,7 @@ public class ServiceSynchronize extends LifecycleService {
                         } else
                             folders.put(folder, null);
 
-                        final TwoStateOwner owner = new TwoStateOwner();
+                        final TwoStateOwner owner = new TwoStateOwner(ServiceSynchronize.this);
 
                         new Handler(getMainLooper()).post(new Runnable() {
                             @Override
