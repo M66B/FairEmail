@@ -941,6 +941,8 @@ class Core {
                     orphan.folder = folder.id;
                     db.message().updateMessage(orphan);
                     EntityOperation.queue(context, db, orphan, EntityOperation.ADD);
+
+                    db.identity().setIdentityStoreSent(orphan.identity, true);
                 }
             }
 
