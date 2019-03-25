@@ -35,9 +35,11 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.PowerManager;
 
+import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
+import com.sun.mail.imap.protocol.IMAPProtocol;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -504,7 +506,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                 final IMAPStore istore = (IMAPStore) isession.getStore(account.getProtocol());
 
-                final Map<EntityFolder, Folder> folders = new HashMap<>();
+                final Map<EntityFolder, IMAPFolder> folders = new HashMap<>();
                 List<Thread> idlers = new ArrayList<>();
                 List<TwoStateOwner> owners = new ArrayList<>();
                 try {
@@ -636,7 +638,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                             db.folder().setFolderState(folder.id, "connecting");
 
-                            final Folder ifolder = istore.getFolder(folder.name);
+                            final IMAPFolder ifolder = (IMAPFolder) istore.getFolder(folder.name);
                             try {
                                 ifolder.open(Folder.READ_WRITE);
                             } catch (MessagingException ex) {
@@ -685,7 +687,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                     message = Core.synchronizeMessage(
                                                             ServiceSynchronize.this,
                                                             account, folder,
-                                                            (IMAPFolder) ifolder, (IMAPMessage) imessage,
+                                                            ifolder, (IMAPMessage) imessage,
                                                             false,
                                                             db.rule().getEnabledRules(folder.id));
                                                     db.setTransactionSuccessful();
@@ -695,7 +697,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                                                 if (db.folder().getFolderDownload(folder.id))
                                                     Core.downloadMessage(ServiceSynchronize.this,
-                                                            folder, (IMAPFolder) ifolder,
+                                                            folder, ifolder,
                                                             (IMAPMessage) imessage, message.id, state);
                                             } catch (MessageRemovedException ex) {
                                                 Log.w(folder.name, ex);
@@ -730,7 +732,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         Log.i(folder.name + " messages removed");
                                         for (Message imessage : e.getMessages())
                                             try {
-                                                long uid = ((IMAPFolder) ifolder).getUID(imessage);
+                                                long uid = ifolder.getUID(imessage);
 
                                                 DB db = DB.getInstance(ServiceSynchronize.this);
                                                 int count = db.message().deleteMessage(folder.id, uid);
@@ -775,7 +777,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                 message = Core.synchronizeMessage(
                                                         ServiceSynchronize.this,
                                                         account, folder,
-                                                        (IMAPFolder) ifolder, (IMAPMessage) e.getMessage(),
+                                                        ifolder, (IMAPMessage) e.getMessage(),
                                                         false,
                                                         db.rule().getEnabledRules(folder.id));
                                                 db.setTransactionSuccessful();
@@ -785,7 +787,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                                             if (db.folder().getFolderDownload(folder.id))
                                                 Core.downloadMessage(ServiceSynchronize.this,
-                                                        folder, (IMAPFolder) ifolder,
+                                                        folder, ifolder,
                                                         (IMAPMessage) e.getMessage(), message.id, state);
                                         } catch (MessageRemovedException ex) {
                                             Log.w(folder.name, ex);
@@ -819,7 +821,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         Log.i(folder.name + " start idle");
                                         while (state.running()) {
                                             Log.i(folder.name + " do idle");
-                                            ((IMAPFolder) ifolder).idle(false);
+                                            ifolder.idle(false);
                                         }
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
@@ -952,16 +954,25 @@ public class ServiceSynchronize extends LifecycleService {
                     AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                     try {
                         while (state.running()) {
-                            if (!istore.isConnected())
+                            if (!istore.isConnected()) // Sends store NOOP
                                 throw new StoreClosedException(istore);
 
                             for (EntityFolder folder : folders.keySet())
                                 if (folder.synchronize)
                                     if (!folder.poll && capIdle) {
-                                        if (!folders.get(folder).isOpen())
+                                        if (!folders.get(folder).isOpen()) // Sends folder NOOP
                                             throw new FolderClosedException(folders.get(folder));
-                                    } else
+                                    } else {
+                                        folders.get(folder).doCommand(new IMAPFolder.ProtocolCommand() {
+                                            @Override
+                                            public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
+                                                protocol.noop();
+                                                return null;
+                                            }
+                                        });
+
                                         EntityOperation.sync(this, folder.id, false);
+                                    }
 
                             // Successfully connected: reset back off time
                             backoff = CONNECT_BACKOFF_START;
