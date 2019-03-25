@@ -81,10 +81,8 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                         context.getResources().getDisplayMetrics().widthPixels / 2);
                 if (bm == null)
                     image.setImageResource(R.drawable.baseline_broken_image_24);
-                else {
-                    image.setPadding(0, 0, 0, 0);
+                else
                     image.setImageBitmap(bm);
-                }
             } else
                 image.setImageResource(attachment.progress == null
                         ? R.drawable.baseline_image_24 : R.drawable.baseline_hourglass_empty_24);
