@@ -35,11 +35,9 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.PowerManager;
 
-import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
-import com.sun.mail.imap.protocol.IMAPProtocol;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -962,17 +960,8 @@ public class ServiceSynchronize extends LifecycleService {
                                     if (!folder.poll && capIdle) {
                                         if (!folders.get(folder).isOpen()) // Sends folder NOOP
                                             throw new FolderClosedException(folders.get(folder));
-                                    } else {
-                                        folders.get(folder).doCommand(new IMAPFolder.ProtocolCommand() {
-                                            @Override
-                                            public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
-                                                protocol.noop();
-                                                return null;
-                                            }
-                                        });
-
+                                    } else
                                         EntityOperation.sync(this, folder.id, false);
-                                    }
 
                             // Successfully connected: reset back off time
                             backoff = CONNECT_BACKOFF_START;
