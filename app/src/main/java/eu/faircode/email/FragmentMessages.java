@@ -1496,6 +1496,8 @@ public class FragmentMessages extends FragmentBase {
         for (String name : values.keySet())
             outState.putLongArray("fair:name:" + name, Helper.toLongArray(values.get(name)));
 
+        // Saving bodies and html will result in a TransactionTooLargeException
+/*
         outState.putLongArray("fair:bodies", Helper.toLongArray(bodies.keySet()));
         for (Long key : bodies.keySet())
             outState.putString("fair:bodies:" + key, HtmlHelper.toHtml(bodies.get(key)));
@@ -1503,7 +1505,7 @@ public class FragmentMessages extends FragmentBase {
         outState.putLongArray("fair:html", Helper.toLongArray(html.keySet()));
         for (Long key : html.keySet())
             outState.putString("fair:html:" + key, html.get(key));
-
+*/
         if (rvMessage != null) {
             Parcelable rv = rvMessage.getLayoutManager().onSaveInstanceState();
             outState.putParcelable("fair:rv", rv);
@@ -1528,13 +1530,13 @@ public class FragmentMessages extends FragmentBase {
                 for (Long value : savedInstanceState.getLongArray("fair:name:" + name))
                     values.get(name).add(value);
             }
-
+/*
             for (long id : savedInstanceState.getLongArray("fair:bodies"))
                 bodies.put(id, HtmlHelper.fromHtml(savedInstanceState.getString("fair:bodies:" + id)));
 
             for (long id : savedInstanceState.getLongArray("fair:html"))
                 html.put(id, savedInstanceState.getString("fair:html:" + id));
-
+*/
             if (rvMessage != null) {
                 Parcelable rv = savedInstanceState.getBundle("fair:rv");
                 rvMessage.getLayoutManager().onRestoreInstanceState(rv);
