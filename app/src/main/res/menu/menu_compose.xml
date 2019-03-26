@@ -19,6 +19,12 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/menu_style_toolbar"
+        android:checkable="true"
+        android:title="@string/title_style_toolbar"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_encrypt"
         android:checkable="true"
         android:title="@string/title_encrypt"

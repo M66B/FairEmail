@@ -175,6 +175,7 @@ public class FragmentCompose extends FragmentBase {
     private boolean autosave = false;
     private boolean busy = false;
 
+    private boolean style = true;
     private boolean encrypt = false;
     private OpenPgpServiceConnection pgpService;
 
@@ -185,6 +186,9 @@ public class FragmentCompose extends FragmentBase {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pro = Helper.isPro(getContext());
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        style = prefs.getBoolean("style_toolbar", true);
     }
 
     @Override
@@ -733,9 +737,11 @@ public class FragmentCompose extends FragmentBase {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
+
         menu.findItem(R.id.menu_addresses).setVisible(working >= 0);
         menu.findItem(R.id.menu_zoom).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_clear).setVisible(state == State.LOADED);
+        menu.findItem(R.id.menu_style_toolbar).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_encrypt).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_send_after).setVisible(state == State.LOADED);
 
@@ -743,6 +749,8 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_clear).setEnabled(!busy);
         menu.findItem(R.id.menu_encrypt).setEnabled(!busy);
         menu.findItem(R.id.menu_send_after).setEnabled(!busy);
+
+        menu.findItem(R.id.menu_style_toolbar).setChecked(style);
 
         menu.findItem(R.id.menu_encrypt).setChecked(encrypt);
         bottom_navigation.getMenu().findItem(R.id.action_send)
@@ -765,9 +773,11 @@ public class FragmentCompose extends FragmentBase {
             case R.id.menu_clear:
                 onMenuStyle(item.getItemId());
                 return true;
+            case R.id.menu_style_toolbar:
+                onMenuStyleToolbar();
+                return true;
             case R.id.menu_encrypt:
-                encrypt = !encrypt;
-                getActivity().invalidateOptionsMenu();
+                onMenuEncrypt();
                 return true;
             case R.id.menu_send_after:
                 onMenuSendAfter();
@@ -877,6 +887,19 @@ public class FragmentCompose extends FragmentBase {
 
         etBody.setText(ss);
         etBody.setSelection(end);
+    }
+
+    private void onMenuStyleToolbar() {
+        style = !style;
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putBoolean("style_toolbar", style).apply();
+        getActivity().invalidateOptionsMenu();
+        edit_bar.setVisibility(style ? View.VISIBLE : View.GONE);
+    }
+
+    private void onMenuEncrypt() {
+        encrypt = !encrypt;
+        getActivity().invalidateOptionsMenu();
     }
 
     private void onMenuSendAfter() {
@@ -2310,7 +2333,7 @@ public class FragmentCompose extends FragmentBase {
                 autosave = true;
 
                 pbWait.setVisibility(View.GONE);
-                edit_bar.setVisibility(View.VISIBLE);
+                edit_bar.setVisibility(style ? View.VISIBLE : View.GONE);
                 bottom_navigation.setVisibility(View.VISIBLE);
                 Helper.setViewsEnabled(view, true);
 
