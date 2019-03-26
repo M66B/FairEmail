@@ -500,6 +500,10 @@ class Core {
         if (imessage == null)
             throw new MessageRemovedException();
 
+        // Auto read
+        if (autoread && ifolder.getPermanentFlags().contains(Flags.Flag.SEEN))
+            imessage.setFlag(Flags.Flag.SEEN, true);
+
         // Get target folder
         EntityFolder target = db.folder().getFolder(id);
         if (target == null)
