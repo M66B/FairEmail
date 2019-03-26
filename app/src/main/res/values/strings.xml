@@ -166,6 +166,7 @@
     <string name="title_advanced_flags">Show stars (favorites)</string>
     <string name="title_advanced_preview">Show message preview</string>
     <string name="title_advanced_addresses">Show address details by default</string>
+    <string name="title_advanced_monospaced">Use monospaced font for message text</string>
     <string name="title_advanced_html">Automatically show original message for known contacts</string>
     <string name="title_advanced_tracking">Attempt to remove tracking from original messages</string>
     <string name="title_advanced_images">Automatically show images for known contacts</string>

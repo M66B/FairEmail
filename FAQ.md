@@ -248,6 +248,7 @@ In the display section of the advanced options you can enable or disable:
 * *Show stars*: to hide stars (favorites)
 * *Show message preview*: to show two lines of the message text
 * *Show address details by default*: to collapse the addresses section by default
+* *Use monospaced font for message text*: to change the typeface of the message text
 * *Conversation action bar*: to disable the bottom navigation bar
 * *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
 * *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)

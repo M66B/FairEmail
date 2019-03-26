@@ -403,6 +403,18 @@
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swMonospaced"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:text="@string/title_advanced_monospaced"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swAddresses"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swHtml"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -411,7 +423,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_html"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swAddresses"
+            app:layout_constraintTop_toBottomOf="@id/swMonospaced"
             app:switchPadding="12dp" />
 
         <TextView
