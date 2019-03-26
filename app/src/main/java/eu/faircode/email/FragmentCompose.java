@@ -1682,7 +1682,7 @@ public class FragmentCompose extends FragmentBase {
                             draft.subject = context.getString(R.string.title_subject_forward,
                                     ref.subject == null ? "" : ref.subject);
 
-                        if (answer > 0 && ("reply".equals(action) || "reply_all".equals(action)))
+                        if (answer > 0)
                             body = EntityAnswer.getAnswerText(db, answer, draft.to) + body;
                     }
 
