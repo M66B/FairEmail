@@ -608,6 +608,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             bindFlagged(message);
 
             // Message text preview
+            tvPreview.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT, Typeface.ITALIC);
             tvPreview.setText(message.preview);
             tvPreview.setVisibility(preview && !TextUtils.isEmpty(message.preview) ? View.VISIBLE : View.GONE);
 
@@ -1446,7 +1447,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     TypedValue.COMPLEX_UNIT_PX, textSize,
                     context.getResources().getDisplayMetrics()));
             settings.setDefaultFontSize(px);
-            settings.setStandardFontFamily("monospace");
+            if (monospaced)
+                settings.setStandardFontFamily("monospace");
 
             webView.setWebViewClient(new WebViewClient() {
                 public boolean shouldOverrideUrlLoading(WebView view, String url) {
