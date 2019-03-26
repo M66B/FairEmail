@@ -138,6 +138,7 @@
     <string name="title_advanced_flags">Montrer les messages suivis (favoris)</string>
     <string name="title_advanced_preview">Afficher l\'aperçu du message</string>
     <string name="title_advanced_addresses">Afficher par défaut les détails de l\'adresse</string>
+    <string name="title_advanced_monospaced">Utiliser la police mono-espacée pour le texte du message</string>
     <string name="title_advanced_html">Afficher automatiquement le message initial pour les contacts connus</string>
     <string name="title_advanced_tracking">Tenter de supprimer le suivi des messages originaux</string>
     <string name="title_advanced_images">Afficher automatiquement les images des contacts connus</string>

@@ -138,6 +138,7 @@
     <string name="title_advanced_flags">Toon sterren (favorieten)</string>
     <string name="title_advanced_preview">Toon berichtvoorbeeld</string>
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
+    <string name="title_advanced_monospaced">Gebruik monospaced lettertype voor berichttekst</string>
     <string name="title_advanced_html">Automatisch originele bericht weergeven voor bekende contacten</string>
     <string name="title_advanced_tracking">Probeer om tracking uit originele berichten te verwijderen</string>
     <string name="title_advanced_images">Automatisch afbeeldingen weergeven voor bekende contacten</string>

@@ -130,6 +130,7 @@
     <string name="title_advanced_flags">显示加星邮件(收藏)</string>
     <string name="title_advanced_preview">显示邮件预览</string>
     <string name="title_advanced_addresses">默认显示地址详情</string>
+    <string name="title_advanced_monospaced">对邮件文本使用单间距字体</string>
     <string name="title_advanced_html">自动显示已知联系人的原始消息</string>
     <string name="title_advanced_tracking">尝试从原始消息中删除跟踪</string>
     <string name="title_advanced_images">自动显示来自已知联系人邮件中的图片</string>
