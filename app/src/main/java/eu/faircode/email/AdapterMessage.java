@@ -1596,6 +1596,35 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Bundle args = new Bundle();
             args.putSerializable("message", message);
             bodyTask.execute(context, owner, args, "message:body");
+
+            // Download inline images
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
+
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
+                        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+                        for (EntityAttachment attachment : attachments)
+                            if (!attachment.available && !TextUtils.isEmpty(attachment.cid))
+                                EntityOperation.queue(context, db, message, EntityOperation.ATTACHMENT, attachment.sequence);
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, owner, ex);
+                }
+            }.execute(context, owner, args, "show:images");
         }
 
         private SimpleTask<SpannableStringBuilder> bodyTask = new SimpleTask<SpannableStringBuilder>() {
