@@ -566,7 +566,15 @@ public class HtmlHelper {
     }
 
     static Spanned fromHtml(@NonNull String html, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
-        return HtmlCompat.fromHtml(html, FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM, imageGetter, tagHandler);
+        Spanned spanned = HtmlCompat.fromHtml(html, FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM, imageGetter, tagHandler);
+
+        int i = spanned.length();
+        while (i > 1 && spanned.charAt(i - 2) == '\n' && spanned.charAt(i - 1) == '\n')
+            i--;
+        if (i != spanned.length())
+            spanned = (Spanned) spanned.subSequence(0, i);
+
+        return spanned;
     }
 
     static String toHtml(Spanned spanned) {
