@@ -702,14 +702,16 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                         }
 
                         // Contacts
-                        JSONArray jcontacts = jaccount.getJSONArray("contacts");
-                        for (int c = 0; c < jcontacts.length(); c++) {
-                            JSONObject jcontact = (JSONObject) jcontacts.get(c);
-                            EntityContact contact = EntityContact.fromJSON(jcontact);
-                            contact.account = account.id;
-                            if (db.contact().getContact(contact.account, contact.type, contact.email) == null) {
-                                contact.id = db.contact().insertContact(contact);
-                                Log.i("Imported contact=" + contact);
+                        if (jaccount.has("contacts")) {
+                            JSONArray jcontacts = jaccount.getJSONArray("contacts");
+                            for (int c = 0; c < jcontacts.length(); c++) {
+                                JSONObject jcontact = (JSONObject) jcontacts.get(c);
+                                EntityContact contact = EntityContact.fromJSON(jcontact);
+                                contact.account = account.id;
+                                if (db.contact().getContact(contact.account, contact.type, contact.email) == null) {
+                                    contact.id = db.contact().insertContact(contact);
+                                    Log.i("Imported contact=" + contact);
+                                }
                             }
                         }
 
