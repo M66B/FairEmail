@@ -340,10 +340,10 @@ public class FragmentCompose extends FragmentBase {
                         onMenuStyle(item.getItemId());
                         return true;
                     case R.id.menu_image:
-                        onMenuImage();
+                        onActionImage();
                         return true;
                     case R.id.menu_attachment:
-                        onMenuAttachment();
+                        onActionAttachment();
                         return true;
                     default:
                         return false;
@@ -787,6 +787,34 @@ public class FragmentCompose extends FragmentBase {
         }
     }
 
+    private void onMenuAddresses() {
+        grpAddresses.setVisibility(grpAddresses.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+    }
+
+    private void onMenuZoom() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean compact = prefs.getBoolean("compact", false);
+        int zoom = prefs.getInt("zoom", compact ? 0 : 1);
+        zoom = ++zoom % 3;
+        prefs.edit().putInt("zoom", zoom).apply();
+        setZoom();
+    }
+
+    private void setZoom() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean compact = prefs.getBoolean("compact", false);
+        int zoom = prefs.getInt("zoom", compact ? 0 : 1);
+        setZoom(zoom);
+    }
+
+    private void setZoom(int zoom) {
+        float textSize = Helper.getTextSize(getContext(), zoom);
+        if (textSize != 0) {
+            etBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+            tvReference.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+        }
+    }
+
     private void onMenuStyle(int id) {
         int s = etBody.getSelectionStart();
         int e = etBody.getSelectionEnd();
@@ -942,31 +970,7 @@ public class FragmentCompose extends FragmentBase {
                 });
     }
 
-    private void onMenuZoom() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean compact = prefs.getBoolean("compact", false);
-        int zoom = prefs.getInt("zoom", compact ? 0 : 1);
-        zoom = ++zoom % 3;
-        prefs.edit().putInt("zoom", zoom).apply();
-        setZoom();
-    }
-
-    private void setZoom() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean compact = prefs.getBoolean("compact", false);
-        int zoom = prefs.getInt("zoom", compact ? 0 : 1);
-        setZoom(zoom);
-    }
-
-    private void setZoom(int zoom) {
-        float textSize = Helper.getTextSize(getContext(), zoom);
-        if (textSize != 0) {
-            etBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
-            tvReference.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
-        }
-    }
-
-    private void onMenuImage() {
+    private void onActionImage() {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("image/*");
@@ -977,7 +981,7 @@ public class FragmentCompose extends FragmentBase {
             startActivityForResult(Helper.getChooser(getContext(), intent), ActivityCompose.REQUEST_IMAGE);
     }
 
-    private void onMenuAttachment() {
+    private void onActionAttachment() {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
@@ -987,10 +991,6 @@ public class FragmentCompose extends FragmentBase {
             Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
         else
             startActivityForResult(Helper.getChooser(getContext(), intent), ActivityCompose.REQUEST_ATTACHMENT);
-    }
-
-    private void onMenuAddresses() {
-        grpAddresses.setVisibility(grpAddresses.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
     }
 
     private void onActionDelete() {
