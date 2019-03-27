@@ -23,12 +23,14 @@ public class TupleAccountEx extends EntityAccount {
     public int unseen;
     public int unsent;
     public int operations;
+    public boolean drafts;
 
     public boolean uiEquals(Object obj) {
         if (obj instanceof TupleAccountEx) {
             TupleAccountEx other = (TupleAccountEx) obj;
             return (super.equals(obj) &&
-                    this.unseen == other.unseen);
+                    this.unseen == other.unseen &&
+                    this.drafts == other.drafts);
         } else
             return false;
     }
@@ -40,7 +42,8 @@ public class TupleAccountEx extends EntityAccount {
             return (super.equals(obj) &&
                     this.unseen == other.unseen &&
                     this.unsent == other.unsent &&
-                    this.operations == other.operations);
+                    this.operations == other.operations &&
+                    this.drafts == other.drafts);
         } else
             return false;
     }

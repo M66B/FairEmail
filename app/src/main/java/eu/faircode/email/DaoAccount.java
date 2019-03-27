@@ -59,8 +59,10 @@ public interface DaoAccount {
             "    AND folder.type = '" + EntityFolder.OUTBOX + "'" +
             "    AND NOT ui_seen" +
             "    AND NOT ui_hide) AS unsent" +
+            ", CASE WHEN drafts.id IS NULL THEN 0 ELSE 1 END AS drafts" +
             " FROM account" +
             " LEFT JOIN operation ON operation.account = account.id" +
+            " LEFT JOIN folder AS drafts ON drafts.account = account.id AND drafts.type = '" + EntityFolder.DRAFTS + "'" +
             " WHERE :all OR account.synchronize" +
             " GROUP BY account.id")
     LiveData<List<TupleAccountEx>> liveAccountsEx(boolean all);
