@@ -146,6 +146,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(82) What is a tracking image?](#user-content-faq82)
 * [(83) What does 'User is authenticated but not connected' mean?](#user-content-faq83)
 * [(84) What are local contacts for?](#user-content-faq84)
+* [(85) How are identities selected?](#user-content-faq85)
 
 [I have another question.](#support)
 
@@ -1382,6 +1383,13 @@ and why you can make a contact a favorite or exclude from favorites by long pres
 The list of contacts is sorted on number of times contacted and the last time contacted.
 
 <br />
+
+<a name="faq84"></a>
+**(84) How are identities selected?**
+
+
+<br />
+
 
 ## Support
 

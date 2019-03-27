@@ -1757,6 +1757,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         new Intent(ActivityView.ACTION_ACTIVATE_PRO)
                                 .putExtra("uri", uri));
             } else {
+                if ("cid".equals(uri.getScheme()))
+                    return;
+
                 final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
                 View view = LayoutInflater.from(context).inflate(R.layout.dialog_link, null);
