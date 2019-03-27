@@ -10,8 +10,11 @@ import androidx.lifecycle.OnLifecycleEvent;
 public class TwoStateOwner implements LifecycleOwner {
     private LifecycleRegistry registry;
 
+    // https://developer.android.com/topic/libraries/architecture/lifecycle#lc
+
     TwoStateOwner() {
         registry = new LifecycleRegistry(this);
+        registry.handleLifecycleEvent(Lifecycle.Event.ON_CREATE);
     }
 
     TwoStateOwner(LifecycleOwner owner) {
