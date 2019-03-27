@@ -146,7 +146,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(82) What is a tracking image?](#user-content-faq82)
 * [(83) What does 'User is authenticated but not connected' mean?](#user-content-faq83)
 * [(84) What are local contacts for?](#user-content-faq84)
-* [(85) How are identities selected?](#user-content-faq85)
+* [(85) Why is an identity not available?](#user-content-faq85)
 
 [I have another question.](#support)
 
@@ -1384,9 +1384,16 @@ The list of contacts is sorted on number of times contacted and the last time co
 
 <br />
 
-<a name="faq84"></a>
-**(84) How are identities selected?**
+<a name="faq85"></a>
+**(85) Why is an identity not available?**
 
+An identity is available for sending a new message or replying or forwarding an existing message only if:
+
+* the identity is set to synchronize (send messages)
+* the associated account is set to synchronize (receive messages)
+* the associated account has a drafts folder
+
+FairEmail will try to select the best identity based on the *to* address of the message replied to / being forwarded.
 
 <br />
 
