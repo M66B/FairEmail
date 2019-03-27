@@ -383,7 +383,8 @@ class Core {
 
         // Delete previous message(s) with same ID
         if (folder.id.equals(message.folder)) {
-            db.message().setMessageUid(message.id, null);
+            // Prevent deleting message
+            db.message().setMessageUid(message.id, -1L);
 
             Message[] ideletes = ifolder.search(new MessageIDTerm(message.msgid));
             for (Message idelete : ideletes) {
