@@ -148,6 +148,7 @@ FairEmail uses:
 * [Android SQLite support library](https://github.com/requery/sqlite-android). Copyright (C) 2017 requery.io. [Apache License 2.0](https://github.com/requery/sqlite-android/blob/master/LICENSE).
 * [App shortcut icon generator](https://romannurik.github.io/AndroidAssetStudio/icons-app-shortcut.html). Copyright ???. [Apache License 2.0](https://github.com/romannurik/AndroidAssetStudio/blob/master/LICENSE).
 * [Mozilla ISPDB](https://developer.mozilla.org/en-US/docs/Mozilla/Thunderbird/Autoconfiguration#ISPDB). *Free to use for any client.*
+* [ShortcutBadger](https://github.com/leolin310148/ShortcutBadger). Copyright 2014 Leo Lin. [Apache license](https://github.com/leolin310148/ShortcutBadger/blob/master/LICENSE).
 
 ## License
 

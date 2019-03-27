@@ -80,6 +80,7 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleService;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
+import me.leolin.shortcutbadger.ShortcutBadger;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
@@ -162,6 +163,7 @@ public class ServiceSynchronize extends LifecycleService {
         cm.unregisterNetworkCallback(networkCallback);
 
         Widget.update(this, -1);
+        ShortcutBadger.applyCount(this, 0);
 
         WorkerCleanup.cancel();
 

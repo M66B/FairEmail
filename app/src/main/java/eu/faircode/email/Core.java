@@ -84,6 +84,7 @@ import javax.net.ssl.SSLException;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.preference.PreferenceManager;
+import me.leolin.shortcutbadger.ShortcutBadger;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
@@ -1393,6 +1394,7 @@ class Core {
         Log.i("Notify messages=" + messages.size());
 
         Widget.update(context, messages.size());
+        ShortcutBadger.applyCount(context, messages.size());
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
