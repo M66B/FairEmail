@@ -802,6 +802,31 @@
             app:layout_constraintTop_toBottomOf="@id/swLight" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swEnglish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:text="@string/title_advanced_english"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSound"
+            app:switchPadding="12dp" />
+
+        <TextView
+            android:id="@+id/tvEnglishHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="60dp"
+            android:text="@string/title_advanced_english_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swEnglish" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swUpdates"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -810,7 +835,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_updates"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnSound"
+            app:layout_constraintTop_toBottomOf="@id/tvEnglishHint"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat

@@ -25,12 +25,15 @@ import android.app.NotificationChannel;
 import android.app.NotificationChannelGroup;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.DeadSystemException;
 import android.os.RemoteException;
+import android.preference.PreferenceManager;
 import android.webkit.CookieManager;
 
 import org.json.JSONArray;
@@ -44,6 +47,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import androidx.annotation.RequiresApi;
 
@@ -53,6 +57,11 @@ public class ApplicationEx extends Application {
     private static final List<String> DEFAULT_CHANNEL_NAMES = Collections.unmodifiableList(Arrays.asList(
             "service", "notification", "warning", "error"
     ));
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(getLocalizedContext(base));
+    }
 
     @Override
     public void onCreate() {
@@ -84,6 +93,18 @@ public class ApplicationEx extends Application {
             CookieManager.getInstance().setAcceptCookie(false);
         MessageHelper.setSystemProperties();
         Core.init(this);
+    }
+
+    static Context getLocalizedContext(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean english = prefs.getBoolean("english", false);
+
+        if (english) {
+            Configuration config = new Configuration(context.getResources().getConfiguration());
+            config.setLocale(Locale.US);
+            return context.createConfigurationContext(config);
+        } else
+            return context;
     }
 
     private void createNotificationChannels() {

@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -37,6 +38,11 @@ import androidx.preference.PreferenceManager;
 
 abstract class ActivityBase extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     private boolean contacts;
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(ApplicationEx.getLocalizedContext(base));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

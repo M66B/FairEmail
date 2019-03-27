@@ -188,6 +188,7 @@
     <string name="title_advanced_search_local">External search on device</string>
     <string name="title_advanced_light">Use notification light</string>
     <string name="title_advanced_sound">Select notification sound</string>
+    <string name="title_advanced_english">Force English language</string>
     <string name="title_advanced_updates">Check for updates</string>
     <string name="title_advanced_debug">Debug mode</string>
 
@@ -204,6 +205,7 @@
     <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
     <string name="title_advanced_preview_hint">Only available when message text was downloaded</string>
     <string name="title_advanced_search_local_hint">Instead of searching in the primary archive folder on the server</string>
+    <string name="title_advanced_english_hint">This will restart the app</string>
 
     <string name="title_select">Select &#8230;</string>
     <string name="title_identity_name">Your name</string>
