@@ -189,7 +189,7 @@ public class FragmentCompose extends FragmentBase {
         pro = Helper.isPro(getContext());
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        monospaced = prefs.getBoolean("monospaced", true);
+        monospaced = prefs.getBoolean("monospaced", false);
         style = prefs.getBoolean("style_toolbar", true);
     }
 

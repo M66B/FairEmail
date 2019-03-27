@@ -2975,7 +2975,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.compact = compact;
         this.name_email = prefs.getBoolean("name_email", !compact);
         this.subject_italic = prefs.getBoolean("subject_italic", true);
-        this.monospaced = prefs.getBoolean("monospaced", true);
+        this.monospaced = prefs.getBoolean("monospaced", false);
         this.zoom = zoom;
         this.sort = sort;
         this.duplicates = duplicates;

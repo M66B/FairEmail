@@ -610,7 +610,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swFlags.setChecked(prefs.getBoolean("flags", true));
         swPreview.setChecked(prefs.getBoolean("preview", false));
         swAddresses.setChecked(prefs.getBoolean("addresses", true));
-        swMonospaced.setChecked(prefs.getBoolean("monospaced", true));
+        swMonospaced.setChecked(prefs.getBoolean("monospaced", false));
         swHtml.setChecked(prefs.getBoolean("autohtml", false));
         swTracking.setChecked(prefs.getBoolean("remove_tracking", true));
         swImages.setChecked(prefs.getBoolean("autoimages", false));
