@@ -175,6 +175,7 @@ public class FragmentCompose extends FragmentBase {
     private boolean autosave = false;
     private boolean busy = false;
 
+    private boolean monospaced = false;
     private boolean style = true;
     private boolean encrypt = false;
     private OpenPgpServiceConnection pgpService;
@@ -188,6 +189,7 @@ public class FragmentCompose extends FragmentBase {
         pro = Helper.isPro(getContext());
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        monospaced = prefs.getBoolean("monospaced", true);
         style = prefs.getBoolean("style_toolbar", true);
     }
 
@@ -327,6 +329,8 @@ public class FragmentCompose extends FragmentBase {
                 onReferenceImages();
             }
         });
+
+        etBody.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
 
         edit_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
