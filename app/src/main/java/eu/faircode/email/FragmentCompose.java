@@ -744,12 +744,16 @@ public class FragmentCompose extends FragmentBase {
 
         menu.findItem(R.id.menu_addresses).setVisible(working >= 0);
         menu.findItem(R.id.menu_zoom).setVisible(state == State.LOADED);
-        menu.findItem(R.id.menu_clear).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_style_toolbar).setVisible(state == State.LOADED);
+        menu.findItem(R.id.menu_image).setVisible(state == State.LOADED && !style);
+        menu.findItem(R.id.menu_attachment).setVisible(state == State.LOADED && !style);
+        menu.findItem(R.id.menu_clear).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_encrypt).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_send_after).setVisible(state == State.LOADED);
 
         menu.findItem(R.id.menu_zoom).setEnabled(!busy);
+        menu.findItem(R.id.menu_image).setEnabled(!busy);
+        menu.findItem(R.id.menu_attachment).setEnabled(!busy);
         menu.findItem(R.id.menu_clear).setEnabled(!busy);
         menu.findItem(R.id.menu_encrypt).setEnabled(!busy);
         menu.findItem(R.id.menu_send_after).setEnabled(!busy);
@@ -774,11 +778,17 @@ public class FragmentCompose extends FragmentBase {
             case R.id.menu_zoom:
                 onMenuZoom();
                 return true;
-            case R.id.menu_clear:
-                onMenuStyle(item.getItemId());
-                return true;
             case R.id.menu_style_toolbar:
                 onMenuStyleToolbar();
+                return true;
+            case R.id.menu_image:
+                onActionImage();
+                return true;
+            case R.id.menu_attachment:
+                onActionAttachment();
+                return true;
+            case R.id.menu_clear:
+                onMenuStyle(item.getItemId());
                 return true;
             case R.id.menu_encrypt:
                 onMenuEncrypt();
@@ -817,6 +827,14 @@ public class FragmentCompose extends FragmentBase {
             etBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
             tvReference.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
         }
+    }
+
+    private void onMenuStyleToolbar() {
+        style = !style;
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putBoolean("style_toolbar", style).apply();
+        getActivity().invalidateOptionsMenu();
+        edit_bar.setVisibility(style ? View.VISIBLE : View.GONE);
     }
 
     private void onMenuStyle(int id) {
@@ -919,14 +937,6 @@ public class FragmentCompose extends FragmentBase {
 
         etBody.setText(ss);
         etBody.setSelection(end);
-    }
-
-    private void onMenuStyleToolbar() {
-        style = !style;
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        prefs.edit().putBoolean("style_toolbar", style).apply();
-        getActivity().invalidateOptionsMenu();
-        edit_bar.setVisibility(style ? View.VISIBLE : View.GONE);
     }
 
     private void onMenuEncrypt() {
