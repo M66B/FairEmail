@@ -1551,7 +1551,7 @@ public class FragmentCompose extends FragmentBase {
                         options.outHeight / factor > REDUCED_IMAGE_SIZE)
                     factor *= 2;
 
-                Matrix rotation = getImageRotation(file);
+                Matrix rotation = ("image/jpeg".equals(attachment.type) ? getImageRotation(file) : null);
 
                 if (factor > 1 || rotation != null) {
                     options.inJustDecodeBounds = false;
