@@ -2336,7 +2336,7 @@ public class FragmentCompose extends FragmentBase {
                 DB db = DB.getInstance(context);
 
                 EntityMessage draft = db.message().getMessage(id);
-                if (!draft.content)
+                if (draft == null || !draft.content)
                     return null;
 
                 List<EntityAttachment> attachments = db.attachment().getAttachments(id);
