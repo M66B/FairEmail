@@ -158,6 +158,7 @@
     <string name="title_advanced_search_local">Recherche externe sur l\'appareil</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
+    <string name="title_advanced_english">Forcer la langue anglaise</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
     <string name="title_advanced_debug">Débogage</string>
     <string name="title_advanced_enabled_hint">Désactiver ou activer globalement la réception et l\'envoi de messages</string>
@@ -172,6 +173,7 @@
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n\'autorisent pas les adresses d\'expéditeur modifiées</string>
     <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
     <string name="title_advanced_search_local_hint">Au lieu de chercher dans le dossier de l’archive principale sur le serveur</string>
+    <string name="title_advanced_english_hint">Cela va redémarrer l’application</string>
     <string name="title_select">Sélectionner &#8230;</string>
     <string name="title_identity_name">Votre nom</string>
     <string name="title_identity_email">Votre adresse e-mail</string>
