@@ -158,6 +158,7 @@
     <string name="title_advanced_search_local">Pesquisa externa no dispositivo</string>
     <string name="title_advanced_light">Usar luz de notificação</string>
     <string name="title_advanced_sound">Selecionar som de notificação</string>
+    <string name="title_advanced_english">Forçar em inglês</string>
     <string name="title_advanced_updates">Procurar por atualizações</string>
     <string name="title_advanced_debug">Modo de depuração</string>
     <string name="title_advanced_enabled_hint">Desative ou habilite o recebimento e envio de mensagens globalmente</string>
@@ -172,6 +173,7 @@
     <string name="title_advanced_sender_hint">A maioria dos provedores não permite endereços de remetente modificados</string>
     <string name="title_advanced_preview_hint">Somente disponível quando o texto da mensagem for baixado</string>
     <string name="title_advanced_search_local_hint">Ao invés de pesquisar na pasta principal do arquivo no servidor</string>
+    <string name="title_advanced_english_hint">Isto irá reiniciar o app</string>
     <string name="title_select">Selecionar &#8230;</string>
     <string name="title_identity_name">Seu nome</string>
     <string name="title_identity_email">Seu endereço de e-mail</string>

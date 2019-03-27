@@ -166,6 +166,7 @@
     <string name="title_advanced_search_local">Căutare externă pe dispozitiv</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
     <string name="title_advanced_sound">Selectare sunet de notificare</string>
+    <string name="title_advanced_english">Forțează folosirea limbii Engleze</string>
     <string name="title_advanced_updates">Verificare actualizări aplicație</string>
     <string name="title_advanced_debug">Depanare</string>
     <string name="title_advanced_enabled_hint">Control global pentru recepția și trimiterea mesajelor</string>
@@ -180,6 +181,7 @@
     <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
     <string name="title_advanced_preview_hint">Disponibil doar atunci când a fost descarcat textul mesajului</string>
     <string name="title_advanced_search_local_hint">În loc să se caute în dosarul arhivă primar de pe server</string>
+    <string name="title_advanced_english_hint">Acest lucru va reseta aplicația</string>
     <string name="title_select">Selectaţi &#8230;</string>
     <string name="title_identity_name">Numele dumneavoastră</string>
     <string name="title_identity_email">Adresa dvs. de e-mail</string>

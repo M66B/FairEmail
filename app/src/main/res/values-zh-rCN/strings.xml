@@ -150,6 +150,7 @@
     <string name="title_advanced_search_local">外部搜索</string>
     <string name="title_advanced_light">使用指示灯</string>
     <string name="title_advanced_sound">选择通知提示音</string>
+    <string name="title_advanced_english">强制使用英语</string>
     <string name="title_advanced_updates">检查更新</string>
     <string name="title_advanced_debug">调试模式</string>
     <string name="title_advanced_enabled_hint">全局禁用或启用邮件的接收和发送</string>
@@ -164,6 +165,7 @@
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_search_local_hint">不在服务器上的主存档文件夹中搜索</string>
+    <string name="title_advanced_english_hint">这将重新启动应用程序</string>
     <string name="title_select">选择 &#8230;</string>
     <string name="title_identity_name">姓名</string>
     <string name="title_identity_email">电子邮件地址</string>
@@ -372,6 +374,7 @@
     <string name="title_address_unsent">未发送:</string>
     <string name="title_address_invalid">无效：</string>
     <string name="title_snoozed">已暂停</string>
+    <string name="title_duplicates">显示重复项</string>
     <string name="title_previous">上一则</string>
     <string name="title_next">下一则</string>
     <string name="title_answer_reply">回复模板</string>
