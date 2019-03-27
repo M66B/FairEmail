@@ -259,7 +259,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private AdapterAttachment adapterAttachment;
         private AdapterImage adapterImage;
-        private TwoStateOwner cowner = new TwoStateOwner(owner);
+        private TwoStateOwner cowner = new TwoStateOwner(owner, "AdapterMessage");
 
         private WebView printWebView = null;
 

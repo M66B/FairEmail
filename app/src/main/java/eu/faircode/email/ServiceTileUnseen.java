@@ -33,7 +33,7 @@ import androidx.lifecycle.Observer;
 
 @TargetApi(Build.VERSION_CODES.N)
 public class ServiceTileUnseen extends TileService {
-    private TwoStateOwner owner = new TwoStateOwner();
+    private TwoStateOwner owner = new TwoStateOwner("ServiceTileUnseen");
 
     @Override
     public void onCreate() {

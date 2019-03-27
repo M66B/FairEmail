@@ -98,7 +98,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private RecyclerView rvChilds;
 
         private AdapterFolder childs;
-        private TwoStateOwner cowner = new TwoStateOwner(owner);
+        private TwoStateOwner cowner = new TwoStateOwner(owner, "AdapterFolder");
 
         private final static int action_synchronize_now = 1;
         private final static int action_delete_local = 2;

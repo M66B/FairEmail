@@ -130,7 +130,7 @@ public class ServiceSynchronize extends LifecycleService {
             }
         });
 
-        final TwoStateOwner cowner = new TwoStateOwner(this);
+        final TwoStateOwner cowner = new TwoStateOwner(this, "liveUnseenNotify");
 
         db.folder().liveSynchronizing().observe(this, new Observer<Integer>() {
             @Override
@@ -841,7 +841,7 @@ public class ServiceSynchronize extends LifecycleService {
                         } else
                             folders.put(folder, null);
 
-                        final TwoStateOwner owner = new TwoStateOwner(ServiceSynchronize.this);
+                        final TwoStateOwner owner = new TwoStateOwner(ServiceSynchronize.this, folder.name);
 
                         new Handler(getMainLooper()).post(new Runnable() {
                             @Override
