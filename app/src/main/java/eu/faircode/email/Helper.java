@@ -30,6 +30,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -468,7 +469,10 @@ public class Helper {
         Display display = wm.getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
-        sb.append(String.format("Resolution: %dx%d\r\n", size.x, size.y));
+        float density = context.getResources().getDisplayMetrics().density;
+        sb.append(String.format("Resolution: %.2f x %.2f dp %b\r\n",
+                size.x / density, size.y / density,
+                context.getResources().getConfiguration().isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL)));
 
         PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         boolean ignoring = true;

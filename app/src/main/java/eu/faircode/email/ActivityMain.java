@@ -22,10 +22,9 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Point;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.Display;
 
 import java.util.List;
 
@@ -75,11 +74,8 @@ public class ActivityMain extends AppCompatActivity implements FragmentManager.O
                 }
             }.execute(this, new Bundle(), "main:accounts");
         } else {
-            // Enable compact view on narrow screens
-            Display display = getWindowManager().getDefaultDisplay();
-            Point size = new Point();
-            display.getSize(size);
-            if (size.x < 1080)
+            // Enable compact view on small screens
+            if (!getResources().getConfiguration().isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL))
                 prefs.edit().putBoolean("compact", true).apply();
 
             setTheme(R.style.AppThemeLight);
