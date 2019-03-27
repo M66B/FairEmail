@@ -1591,8 +1591,6 @@ public class FragmentCompose extends FragmentBase {
                     if ("edit".equals(action))
                         throw new IllegalStateException("Draft not found hide=" + (draft != null));
 
-                    List<TupleIdentityEx> identities = db.identity().getComposableIdentities(null);
-
                     EntityFolder drafts;
                     EntityMessage ref = db.message().getMessage(reference);
                     if (ref == null) {
@@ -1677,6 +1675,7 @@ public class FragmentCompose extends FragmentBase {
                             }
 
                             if ("reply_all".equals(action)) {
+                                // Remove self from cc
                                 List<Address> addresses = new ArrayList<>();
                                 if (ref.to != null)
                                     addresses.addAll(Arrays.asList(ref.to));
@@ -1684,6 +1683,7 @@ public class FragmentCompose extends FragmentBase {
                                     addresses.addAll(Arrays.asList(ref.cc));
                                 for (Address address : new ArrayList<>(addresses)) {
                                     String cc = Helper.canonicalAddress(((InternetAddress) address).getAddress());
+                                    List<TupleIdentityEx> identities = db.identity().getComposableIdentities(ref.account);
                                     for (EntityIdentity identity : identities) {
                                         String email = Helper.canonicalAddress(identity.email);
                                         if (cc.equals(email))
@@ -1713,6 +1713,7 @@ public class FragmentCompose extends FragmentBase {
                     int icount = 0;
                     EntityIdentity first = null;
                     EntityIdentity primary = null;
+                    List<TupleIdentityEx> identities = db.identity().getComposableIdentities(null);
 
                     int iindex = -1;
                     do {
