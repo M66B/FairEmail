@@ -930,6 +930,7 @@ public class FragmentAccount extends FragmentBase {
                     if (!update)
                         account.created = now;
 
+                    account.warning = null;
                     account.error = null;
                     account.last_connected = last_connected;
 
