@@ -16,9 +16,11 @@ public class TwoStateOwner implements LifecycleOwner {
     TwoStateOwner(String aname) {
         name = aname;
 
+        // Initialize registry
         registry = new LifecycleRegistry(this);
         registry.handleLifecycleEvent(Lifecycle.Event.ON_CREATE);
 
+        // Logging
         registry.addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
             public void onAny() {
@@ -30,6 +32,8 @@ public class TwoStateOwner implements LifecycleOwner {
 
     TwoStateOwner(LifecycleOwner owner, String aname) {
         this(aname);
+
+        // Destroy when parent destroyed
         owner.getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroyed() {
@@ -54,7 +58,12 @@ public class TwoStateOwner implements LifecycleOwner {
     }
 
     void destroy() {
-        if (!registry.getCurrentState().equals(Lifecycle.State.DESTROYED))
+        Lifecycle.State state = registry.getCurrentState();
+        if (state.equals(Lifecycle.State.INITIALIZED))
+            registry.handleLifecycleEvent(Lifecycle.Event.ON_CREATE);
+        if (state.equals(Lifecycle.State.STARTED))
+            registry.handleLifecycleEvent(Lifecycle.Event.ON_STOP); // transition to created
+        if (!state.equals(Lifecycle.State.DESTROYED))
             registry.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY);
     }
 
