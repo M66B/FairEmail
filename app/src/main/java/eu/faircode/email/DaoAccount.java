@@ -108,6 +108,9 @@ public interface DaoAccount {
     @Query("UPDATE account SET password = :password WHERE id = :id")
     int setAccountPassword(long id, String password);
 
+    @Query("UPDATE account SET warning = :warning WHERE id = :id")
+    int setAccountWarning(long id, String warning);
+
     @Query("UPDATE account SET error = :error WHERE id = :id")
     int setAccountError(long id, String error);
 

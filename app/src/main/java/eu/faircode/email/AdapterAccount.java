@@ -70,6 +70,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         private ImageView ivState;
         private TextView tvHost;
         private TextView tvLast;
+        private TextView tvWarning;
         private TextView tvError;
         private Group grpSettings;
 
@@ -86,6 +87,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             ivState = itemView.findViewById(R.id.ivState);
             tvHost = itemView.findViewById(R.id.tvHost);
             tvLast = itemView.findViewById(R.id.tvLast);
+            tvWarning = itemView.findViewById(R.id.tvWarning);
             tvError = itemView.findViewById(R.id.tvError);
             grpSettings = itemView.findViewById(R.id.grpSettings);
         }
@@ -134,6 +136,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             tvHost.setText(String.format("%s:%d", account.host, account.port));
             tvLast.setText(context.getString(R.string.title_last_connected,
                     account.last_connected == null ? "-" : df.format(account.last_connected)));
+
+            tvWarning.setText(account.warning);
+            tvWarning.setVisibility(account.warning == null || !settings ? View.GONE : View.VISIBLE);
 
             tvError.setText(account.error);
             tvError.setVisibility(account.error == null ? View.GONE : View.VISIBLE);

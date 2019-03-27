@@ -90,6 +90,7 @@ public class EntityAccount implements Serializable {
     public Long created;
     public Boolean tbd;
     public String state;
+    public String warning;
     public String error;
     public Long last_connected;
 
@@ -211,6 +212,7 @@ public class EntityAccount implements Serializable {
                     Objects.equals(this.created, other.created) &&
                     Objects.equals(this.tbd, other.tbd) &&
                     Objects.equals(this.state, other.state) &&
+                    Objects.equals(this.warning, other.warning) &&
                     Objects.equals(this.error, other.error) &&
                     Objects.equals(this.last_connected, other.last_connected));
         } else

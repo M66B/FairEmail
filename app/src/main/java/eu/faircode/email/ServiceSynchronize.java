@@ -970,7 +970,7 @@ public class ServiceSynchronize extends LifecycleService {
                             account.last_connected = new Date().getTime();
                             EntityLog.log(this, account.name + " set last_connected=" + new Date(account.last_connected));
                             db.account().setAccountConnected(account.id, account.last_connected);
-                            db.account().setAccountError(account.id, capIdle ? null : getString(R.string.title_no_idle));
+                            db.account().setAccountWarning(account.id, capIdle ? null : getString(R.string.title_no_idle));
 
                             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                             nm.cancel("receive", account.id.intValue());
