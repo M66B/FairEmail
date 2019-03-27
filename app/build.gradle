@@ -111,7 +111,7 @@ dependencies {
     def room_version = "2.0.0"
     def paging_version = "2.1.0"
     def preference_version = "1.0.0"
-    def work_version = "1.0.0"
+    def work_version = "2.0.0"
     def exif_version = "1.0.0"
     def billingclient_version = "1.2.2"
     def javamail_version = "1.6.3"
@@ -121,7 +121,7 @@ dependencies {
     def requery_version = "3.27.1"
     def badge_version = "1.1.22"
 
-    // https://developer.android.com/jetpack/docs/release-notes
+    // https://developer.android.com/jetpack/androidx/releases/
 
     // https://mvnrepository.com/artifact/androidx.appcompat/appcompat
     implementation "androidx.appcompat:appcompat:$appcompat_version"
@@ -157,7 +157,7 @@ dependencies {
     implementation "androidx.preference:preference:$preference_version"
 
     // https://mvnrepository.com/artifact/android.arch.work/work-runtime
-    implementation "android.arch.work:work-runtime:$work_version"
+    implementation "androidx.work:work-runtime:$work_version"
 
     // https://mvnrepository.com/artifact/androidx.exifinterface/exifinterface
     implementation "androidx.exifinterface:exifinterface:$exif_version"
