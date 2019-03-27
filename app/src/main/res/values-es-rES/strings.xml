@@ -138,6 +138,7 @@
     <string name="title_advanced_flags">Mostrar estrellas (destacados)</string>
     <string name="title_advanced_preview">Mostrar vista previa de mensajes</string>
     <string name="title_advanced_addresses">Mostrar detalles de dirección por defecto</string>
+    <string name="title_advanced_monospaced">Usar fuente monoespaciada para texto de mensaje</string>
     <string name="title_advanced_html">Mostrar mensaje original automáticamente para contactos conocidos</string>
     <string name="title_advanced_tracking">Intentar eliminar el seguimiento de los mensajes originales</string>
     <string name="title_advanced_images">Mostrar imágenes automáticamente para contactos conocidos</string>

@@ -351,6 +351,7 @@
     <string name="title_style_clear">Effacer la mise en forme</string>
     <string name="title_style_link">Insérer un lien</string>
     <string name="title_style_image">Insérer une image</string>
+    <string name="title_style_toolbar">Barre d\'outils de style</string>
     <string name="title_add_attachment">Ajouter une pièce jointe</string>
     <string name="title_show_addresses">Afficher Cc/Cci</string>
     <string name="title_from_missing">Expéditeur manquant</string>

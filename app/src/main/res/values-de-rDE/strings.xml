@@ -138,6 +138,7 @@
     <string name="title_advanced_flags">Sterne / Favoriten anzeigen</string>
     <string name="title_advanced_preview">Nachrichtenvorschau anzeigen</string>
     <string name="title_advanced_addresses">Adressdetails standardmäßig anzeigen</string>
+    <string name="title_advanced_monospaced">Unproportionale Schriftart für Nachrichtentext verwenden</string>
     <string name="title_advanced_html">Für bekannte Kontakte Mails automatisch im Original-Format anzeigen</string>
     <string name="title_advanced_tracking">Versuche das Tracking von Originalnachrichten zu entfernen</string>
     <string name="title_advanced_images">Für bekannte Kontakte Bilder automatisch anzeigen</string>
@@ -350,6 +351,7 @@
     <string name="title_style_clear">Formatierung entfernen</string>
     <string name="title_style_link">Link einfügen</string>
     <string name="title_style_image">Bild einfügen</string>
+    <string name="title_style_toolbar">Symbolleistenstil</string>
     <string name="title_add_attachment">Anhang hinzufügen</string>
     <string name="title_show_addresses">CC/BCC anzeigen</string>
     <string name="title_from_missing">Absender fehlt</string>

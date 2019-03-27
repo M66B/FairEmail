@@ -342,6 +342,7 @@
     <string name="title_style_clear">清除格式</string>
     <string name="title_style_link">插入链接</string>
     <string name="title_style_image">插入图片</string>
+    <string name="title_style_toolbar">样式工具栏</string>
     <string name="title_add_attachment">添加附件</string>
     <string name="title_show_addresses">显示抄送和密送</string>
     <string name="title_from_missing">缺少发件人</string>

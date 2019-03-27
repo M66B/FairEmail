@@ -138,7 +138,7 @@
     <string name="title_advanced_flags">Toon sterren (favorieten)</string>
     <string name="title_advanced_preview">Toon berichtvoorbeeld</string>
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
-    <string name="title_advanced_monospaced">Gebruik monospaced lettertype voor berichttekst</string>
+    <string name="title_advanced_monospaced">Gebruik vaste breedte lettertype voor berichttekst</string>
     <string name="title_advanced_html">Automatisch originele bericht weergeven voor bekende contacten</string>
     <string name="title_advanced_tracking">Probeer om tracking uit originele berichten te verwijderen</string>
     <string name="title_advanced_images">Automatisch afbeeldingen weergeven voor bekende contacten</string>
@@ -351,6 +351,7 @@
     <string name="title_style_clear">Opmaak wissen</string>
     <string name="title_style_link">Link invoegen</string>
     <string name="title_style_image">Afbeelding invoegen</string>
+    <string name="title_style_toolbar">Stijl werkbalk</string>
     <string name="title_add_attachment">Bijlage toevoegen</string>
     <string name="title_show_addresses">Toon CC/BCC</string>
     <string name="title_from_missing">Zender ontbreekt</string>

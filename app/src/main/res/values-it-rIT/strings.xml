@@ -138,6 +138,7 @@
     <string name="title_advanced_flags">Mostra stelle (preferiti)</string>
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
     <string name="title_advanced_addresses">Mostra i dettagli dell\'indirizzo per impostazione predefinita</string>
+    <string name="title_advanced_monospaced">Usa il carattere monospaziale per il testo del messaggio</string>
     <string name="title_advanced_html">Mostra automaticamente il messaggio originale per i contatti conosciuti</string>
     <string name="title_advanced_tracking">Tentativo di rimuovere il tracciamento dai messaggi originali</string>
     <string name="title_advanced_images">Mostra automaticamente le immagini per i contatti conosciuti</string>
@@ -350,6 +351,7 @@
     <string name="title_style_clear">Cancella formattazione</string>
     <string name="title_style_link">Inserisci collegamento</string>
     <string name="title_style_image">Inserisci immagine</string>
+    <string name="title_style_toolbar">Stile Barra strumenti</string>
     <string name="title_add_attachment">Aggiungi allegato</string>
     <string name="title_show_addresses">Mostra CC/CCN</string>
     <string name="title_from_missing">Mittente mancante</string>

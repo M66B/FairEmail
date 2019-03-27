@@ -146,6 +146,7 @@
     <string name="title_advanced_flags">Arată marcate (favorite)</string>
     <string name="title_advanced_preview">Arată previzualizare mesaj</string>
     <string name="title_advanced_addresses">Implicit arată detaliile adreselor</string>
+    <string name="title_advanced_monospaced">Folosește fontul monospaced pentru a trimite un mesaj</string>
     <string name="title_advanced_html">Arată în mod automat imaginile originale pentru contactele cunoscute</string>
     <string name="title_advanced_tracking">Se încearcă înlăturarea elementelor de urmărire din mesajele originale</string>
     <string name="title_advanced_images">Arată în mod automat imaginile pentru contactele cunoscute</string>

@@ -138,6 +138,7 @@
     <string name="title_advanced_flags">Mostrar estrelas (favoritos)</string>
     <string name="title_advanced_preview">Mostrar pré-visualização da mensagem</string>
     <string name="title_advanced_addresses">Mostrar detalhes do endereço por padrão</string>
+    <string name="title_advanced_monospaced">Usar fonte mono-espaçada para o texto da mensagem</string>
     <string name="title_advanced_html">Mostrar automaticamente a mensagem original para contatos conhecidos</string>
     <string name="title_advanced_tracking">Tentativa de remover o rastreamento de mensagens originais</string>
     <string name="title_advanced_images">Mostrar automaticamente imagens para contatos conhecidos</string>
@@ -350,6 +351,7 @@
     <string name="title_style_clear">Limpar formatação</string>
     <string name="title_style_link">Inserir link</string>
     <string name="title_style_image">Inserir imagem</string>
+    <string name="title_style_toolbar">Barra de estilo</string>
     <string name="title_add_attachment">Adicionar anexo</string>
     <string name="title_show_addresses">Mostrar CC/CCO</string>
     <string name="title_from_missing">Remetente faltante</string>
@@ -379,6 +381,7 @@
     <string name="title_address_unsent">Não enviado:</string>
     <string name="title_address_invalid">Inválido:</string>
     <string name="title_snoozed">Adiado</string>
+    <string name="title_duplicates">Mostrar duplicados</string>
     <string name="title_previous">Voltar</string>
     <string name="title_next">Avançar</string>
     <string name="title_answer_reply">Modelo de resposta</string>
