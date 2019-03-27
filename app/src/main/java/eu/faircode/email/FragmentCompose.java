@@ -34,6 +34,7 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LevelListDrawable;
@@ -123,6 +124,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
+import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
@@ -1549,13 +1551,21 @@ public class FragmentCompose extends FragmentBase {
                         options.outHeight / factor > REDUCED_IMAGE_SIZE)
                     factor *= 2;
 
-                if (factor > 1) {
+                Matrix rotation = getImageRotation(file);
+
+                if (factor > 1 || rotation != null) {
                     options.inJustDecodeBounds = false;
                     options.inSampleSize = factor;
 
                     Bitmap scaled = BitmapFactory.decodeFile(file.getAbsolutePath(), options);
                     if (scaled != null) {
-                        Log.i("Image target size=" + scaled.getWidth() + "x" + scaled.getHeight());
+                        Log.i("Image target size=" + scaled.getWidth() + "x" + scaled.getHeight() + " rotation=" + rotation);
+
+                        if (rotation != null) {
+                            Bitmap rotated = Bitmap.createBitmap(scaled, 0, 0, scaled.getWidth(), scaled.getHeight(), rotation, true);
+                            scaled.recycle();
+                            scaled = rotated;
+                        }
 
                         try (OutputStream out = new BufferedOutputStream(new FileOutputStream(file))) {
                             scaled.compress("image/jpeg".equals(attachment.type)
@@ -1581,6 +1591,43 @@ public class FragmentCompose extends FragmentBase {
         }
 
         return attachment;
+    }
+
+    private static Matrix getImageRotation(File file) throws IOException {
+        ExifInterface exif = new ExifInterface(file.getAbsolutePath());
+        int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
+
+        Matrix matrix = new Matrix();
+        switch (orientation) {
+            case ExifInterface.ORIENTATION_NORMAL:
+                return null;
+            case ExifInterface.ORIENTATION_FLIP_HORIZONTAL:
+                matrix.setScale(-1, 1);
+                return matrix;
+            case ExifInterface.ORIENTATION_FLIP_VERTICAL:
+                matrix.setRotate(180);
+                matrix.postScale(-1, 1);
+                return matrix;
+            case ExifInterface.ORIENTATION_TRANSPOSE:
+                matrix.setRotate(90);
+                matrix.postScale(-1, 1);
+                return matrix;
+            case ExifInterface.ORIENTATION_TRANSVERSE:
+                matrix.setRotate(-90);
+                matrix.postScale(-1, 1);
+                return matrix;
+            case ExifInterface.ORIENTATION_ROTATE_90:
+                matrix.setRotate(90);
+                return matrix;
+            case ExifInterface.ORIENTATION_ROTATE_180:
+                matrix.setRotate(180);
+                return matrix;
+            case ExifInterface.ORIENTATION_ROTATE_270:
+                matrix.setRotate(-90);
+                return matrix;
+            default:
+                return null;
+        }
     }
 
     private SimpleTask<EntityMessage> draftLoader = new SimpleTask<EntityMessage>() {
