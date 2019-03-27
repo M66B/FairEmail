@@ -1044,7 +1044,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (attachment.type.startsWith("image/"))
                     images.add(attachment);
             adapterImage.set(images);
-            rvImage.setVisibility(images.size() > 0 ? View.VISIBLE : View.GONE);
 
             boolean show_html = properties.getValue("html", message.id);
             if (message.content && !show_html) {
@@ -1409,6 +1408,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibQuotes.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
             tvBody.setVisibility(View.GONE);
+            rvImage.setVisibility(View.GONE);
 
             // For performance reasons the WebView is created when needed only
             if (!(vwBody instanceof WebView)) {
@@ -1685,6 +1685,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvBody.setMovementMethod(new UrlHandler());
                 tvBody.setVisibility(show_expanded ? View.VISIBLE : View.GONE);
                 pbBody.setVisibility(View.GONE);
+                rvImage.setVisibility(adapterImage.getItemCount() > 0 ? View.VISIBLE : View.GONE);
             }
 
             @Override
