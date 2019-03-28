@@ -1281,13 +1281,11 @@ class Core {
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " unbrowse");
             }
 
-            if (message.avatar == null) {
-                Uri lookupUri = ContactInfo.getLookupUri(context, message.from);
-                if (lookupUri != null) {
-                    update = true;
-                    message.avatar = lookupUri.toString();
-                    Log.i(folder.name + " updated id=" + message.id + " lookup=" + lookupUri);
-                }
+            Uri lookupUri = ContactInfo.getLookupUri(context, message.from);
+            if ((message.avatar == null) == (lookupUri != null)) {
+                update = true;
+                message.avatar = (lookupUri == null ? null : lookupUri.toString());
+                Log.i(folder.name + " updated id=" + message.id + " lookup=" + lookupUri);
             }
 
             if (update)
