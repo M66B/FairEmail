@@ -1426,6 +1426,70 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             setMeasuredDimension(getMeasuredWidth(), tvBody.getMinHeight());
                     }
                 };
+
+                webView.setWebViewClient(new WebViewClient() {
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                        Log.i("Open url=" + url);
+
+                        Uri uri = Uri.parse(url);
+                        if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
+                            return false;
+
+                        onOpenLink(uri);
+                        return true;
+                    }
+                });
+
+                webView.setDownloadListener(new DownloadListener() {
+                    public void onDownloadStart(
+                            String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+                        Log.i("Download url=" + url + " mime type=" + mimetype);
+                        Uri uri = Uri.parse(url);
+                        Helper.view(context, owner, uri, true);
+                    }
+                });
+
+                webView.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View view) {
+                        WebView.HitTestResult result = ((WebView) view).getHitTestResult();
+                        if (result.getType() == WebView.HitTestResult.IMAGE_TYPE ||
+                                result.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
+                            Log.i("Long press url=" + result.getExtra());
+
+                            Uri uri = Uri.parse(result.getExtra());
+                            Helper.view(context, owner, uri, true);
+
+                            return true;
+                        }
+                        return false;
+                    }
+                });
+
+                // Fix zooming
+                webView.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent me) {
+                        if (me.getPointerCount() == 2) {
+                            ConstraintLayout cl = (ConstraintLayout) view;
+                            switch (me.getAction()) {
+                                case MotionEvent.ACTION_DOWN:
+                                    cl.requestDisallowInterceptTouchEvent(true);
+                                    break;
+
+                                case MotionEvent.ACTION_MOVE:
+                                    cl.requestDisallowInterceptTouchEvent(true);
+                                    break;
+
+                                case MotionEvent.ACTION_UP:
+                                    cl.requestDisallowInterceptTouchEvent(false);
+                                    break;
+                            }
+                        }
+                        return false;
+                    }
+                });
+
                 webView.setId(vwBody.getId());
                 webView.setVisibility(vwBody.getVisibility());
 
@@ -1456,69 +1520,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             settings.setDefaultFontSize(px);
             if (monospaced)
                 settings.setStandardFontFamily("monospace");
-
-            webView.setWebViewClient(new WebViewClient() {
-                public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                    Log.i("Open url=" + url);
-
-                    Uri uri = Uri.parse(url);
-                    if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
-                        return false;
-
-                    onOpenLink(uri);
-                    return true;
-                }
-            });
-
-            webView.setDownloadListener(new DownloadListener() {
-                public void onDownloadStart(
-                        String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
-                    Log.i("Download url=" + url + " mime type=" + mimetype);
-                    Uri uri = Uri.parse(url);
-                    Helper.view(context, owner, uri, true);
-                }
-            });
-
-            webView.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View view) {
-                    WebView.HitTestResult result = ((WebView) view).getHitTestResult();
-                    if (result.getType() == WebView.HitTestResult.IMAGE_TYPE ||
-                            result.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
-                        Log.i("Long press url=" + result.getExtra());
-
-                        Uri uri = Uri.parse(result.getExtra());
-                        Helper.view(context, owner, uri, true);
-
-                        return true;
-                    }
-                    return false;
-                }
-            });
-
-            // Fix zooming
-            webView.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent me) {
-                    if (me.getPointerCount() == 2) {
-                        ConstraintLayout cl = (ConstraintLayout) view;
-                        switch (me.getAction()) {
-                            case MotionEvent.ACTION_DOWN:
-                                cl.requestDisallowInterceptTouchEvent(true);
-                                break;
-
-                            case MotionEvent.ACTION_MOVE:
-                                cl.requestDisallowInterceptTouchEvent(true);
-                                break;
-
-                            case MotionEvent.ACTION_UP:
-                                cl.requestDisallowInterceptTouchEvent(false);
-                                break;
-                        }
-                    }
-                    return false;
-                }
-            });
 
             String html = properties.getHtml(message.id);
             if (TextUtils.isEmpty(html)) {
