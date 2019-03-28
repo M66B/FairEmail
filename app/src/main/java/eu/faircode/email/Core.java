@@ -1727,7 +1727,9 @@ class Core {
 
         EntityLog.log(context, title + " " + Helper.formatThrowable(ex));
 
-        if ((ex instanceof SendFailedException) || (ex instanceof AlertException)) {
+        if (ex instanceof AuthenticationFailedException || // Also: Too many simultaneous connections
+                ex instanceof AlertException ||
+                ex instanceof SendFailedException) {
             NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             nm.notify(tag, 1, getNotificationError(context, title, ex).build());
         }
@@ -1739,7 +1741,6 @@ class Core {
                 !(ex instanceof MailConnectException) &&
                 !(ex instanceof FolderClosedException) &&
                 !(ex instanceof IllegalStateException) &&
-                !(ex instanceof AuthenticationFailedException) && // Also: Too many simultaneous connections
                 !(ex instanceof StoreClosedException) &&
                 !(ex instanceof UnknownHostException) &&
                 !(ex instanceof MessageRemovedException) &&
