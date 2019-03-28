@@ -1046,11 +1046,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             adapterImage.set(images);
 
             boolean show_html = properties.getValue("html", message.id);
-            if (message.content && !show_html) {
-                Bundle args = new Bundle();
-                args.putSerializable("message", message);
-                bodyTask.execute(context, owner, args, "message:body");
-            }
+            if (message.content)
+                if (show_html)
+                    onShowHtmlConfirmed(message);
+                else {
+                    Bundle args = new Bundle();
+                    args.putSerializable("message", message);
+                    bodyTask.execute(context, owner, args, "message:body");
+                }
         }
 
         private TupleMessageEx getMessage() {
@@ -1404,9 +1407,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         @SuppressLint("ClickableViewAccessibility")
         private void onShowHtmlConfirmed(final TupleMessageEx message) {
             properties.setValue("html", message.id, true);
+
+            boolean show_images = properties.getValue("images", message.id);
+
             btnHtml.setVisibility(View.GONE);
             ibQuotes.setVisibility(View.GONE);
-            ibImages.setVisibility(View.GONE);
+            ibImages.setVisibility(show_images ? View.GONE : View.VISIBLE);
             tvBody.setVisibility(View.GONE);
             rvImage.setVisibility(View.GONE);
 
@@ -1441,6 +1447,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             settings.setDisplayZoomControls(false);
             settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
             settings.setAllowFileAccess(false);
+            settings.setLoadsImagesAutomatically(show_images);
 
             // Set default font
             int px = Math.round(TypedValue.applyDimension(
@@ -1591,11 +1598,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onShowImagesConfirmed(final TupleMessageEx message) {
             properties.setValue("images", message.id, true);
-            ibImages.setEnabled(false);
 
             Bundle args = new Bundle();
             args.putSerializable("message", message);
-            bodyTask.execute(context, owner, args, "message:body");
+
+            boolean show_html = properties.getValue("html", message.id);
+            if (show_html)
+                onShowHtmlConfirmed(message);
+            else {
+                ibImages.setEnabled(false);
+                bodyTask.execute(context, owner, args, "message:body");
+            }
 
             // Download inline images
             new SimpleTask<Void>() {
