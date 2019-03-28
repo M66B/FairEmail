@@ -1006,6 +1006,8 @@ public class ServiceSynchronize extends LifecycleService {
                     }
 
                     Log.i(account.name + " done state=" + state);
+                } catch (StoreClosedException ex) {
+                    Log.w(ex);
                 } catch (Throwable ex) {
                     Log.e(account.name, ex);
                     Core.reportError(this, account, null, ex);
