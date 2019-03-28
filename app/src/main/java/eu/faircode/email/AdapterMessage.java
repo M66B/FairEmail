@@ -1315,10 +1315,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else {
                 boolean expanded = !properties.getValue("expanded", message.id);
                 properties.setValue("expanded", message.id, expanded);
-                if (!expanded) {
-                    properties.setValue("quotes", message.id, false);
-                    properties.setValue("images", message.id, false);
-                }
 
                 int pos = getAdapterPosition();
                 notifyItemChanged(pos);
