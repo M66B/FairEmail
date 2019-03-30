@@ -681,19 +681,12 @@ public class ServiceSynchronize extends LifecycleService {
 
                                         for (Message imessage : e.getMessages())
                                             try {
-                                                EntityMessage message;
-                                                try {
-                                                    db.beginTransaction();
-                                                    message = Core.synchronizeMessage(
-                                                            ServiceSynchronize.this,
-                                                            account, folder,
-                                                            ifolder, (IMAPMessage) imessage,
-                                                            false,
-                                                            db.rule().getEnabledRules(folder.id));
-                                                    db.setTransactionSuccessful();
-                                                } finally {
-                                                    db.endTransaction();
-                                                }
+                                                EntityMessage message = Core.synchronizeMessage(
+                                                        ServiceSynchronize.this,
+                                                        account, folder,
+                                                        ifolder, (IMAPMessage) imessage,
+                                                        false,
+                                                        db.rule().getEnabledRules(folder.id));
 
                                                 if (db.folder().getFolderDownload(folder.id))
                                                     Core.downloadMessage(ServiceSynchronize.this,
@@ -771,19 +764,12 @@ public class ServiceSynchronize extends LifecycleService {
                                             fp.add(IMAPFolder.FetchProfileItem.FLAGS);
                                             ifolder.fetch(new Message[]{e.getMessage()}, fp);
 
-                                            EntityMessage message;
-                                            try {
-                                                db.beginTransaction();
-                                                message = Core.synchronizeMessage(
-                                                        ServiceSynchronize.this,
-                                                        account, folder,
-                                                        ifolder, (IMAPMessage) e.getMessage(),
-                                                        false,
-                                                        db.rule().getEnabledRules(folder.id));
-                                                db.setTransactionSuccessful();
-                                            } finally {
-                                                db.endTransaction();
-                                            }
+                                            EntityMessage message = Core.synchronizeMessage(
+                                                    ServiceSynchronize.this,
+                                                    account, folder,
+                                                    ifolder, (IMAPMessage) e.getMessage(),
+                                                    false,
+                                                    db.rule().getEnabledRules(folder.id));
 
                                             if (db.folder().getFolderDownload(folder.id))
                                                 Core.downloadMessage(ServiceSynchronize.this,

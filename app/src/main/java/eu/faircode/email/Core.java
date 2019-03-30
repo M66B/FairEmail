@@ -922,7 +922,6 @@ class Core {
 
                 for (int j = isub.length - 1; j >= 0 && state.running(); j--)
                     try {
-                        db.beginTransaction();
                         EntityMessage message = synchronizeMessage(
                                 context,
                                 account, folder,
@@ -930,7 +929,6 @@ class Core {
                                 false,
                                 rules);
                         ids[from + j] = message.id;
-                        db.setTransactionSuccessful();
                     } catch (MessageRemovedException ex) {
                         Log.w(folder.name, ex);
                     } catch (FolderClosedException ex) {
@@ -945,7 +943,6 @@ class Core {
                         Log.e(folder.name, ex);
                         db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
                     } finally {
-                        db.endTransaction();
                         // Reduce memory usage
                         ((IMAPMessage) isub[j]).invalidateHeaders();
                     }
@@ -1039,6 +1036,7 @@ class Core {
         boolean flagged = helper.getFlagged();
         String flags = helper.getFlags();
         String[] keywords = helper.getKeywords();
+        boolean update = false;
         boolean filter = false;
 
         DB db = DB.getInstance(context);
@@ -1076,7 +1074,7 @@ class Core {
                     dup.msgid = msgid;
                     dup.thread = thread;
                     dup.error = null;
-                    db.message().updateMessage(dup);
+                    update = true;
                     message = dup;
                 }
             }
@@ -1122,6 +1120,8 @@ class Core {
                         break;
                 }
             }
+
+            MessageHelper.MessageParts parts = helper.getMessageParts();
 
             message = new EntityMessage();
             message.account = folder.account;
@@ -1173,80 +1173,87 @@ class Core {
                     message.warning = context.getString(R.string.title_via, s[1]);
             }
 
-            message.id = db.message().insertMessage(message);
+            try {
+                db.beginTransaction();
 
-            Log.i(folder.name + " added id=" + message.id + " uid=" + message.uid);
+                message.id = db.message().insertMessage(message);
+                Log.i(folder.name + " added id=" + message.id + " uid=" + message.uid);
 
-            int sequence = 1;
-            MessageHelper.MessageParts parts = helper.getMessageParts();
-            for (EntityAttachment attachment : parts.getAttachments()) {
-                Log.i(folder.name + " attachment seq=" + sequence +
-                        " name=" + attachment.name + " type=" + attachment.type +
-                        " cid=" + attachment.cid + " pgp=" + attachment.encryption);
-                attachment.message = message.id;
-                attachment.sequence = sequence++;
-                attachment.id = db.attachment().insertAttachment(attachment);
-            }
+                int sequence = 1;
+                for (EntityAttachment attachment : parts.getAttachments()) {
+                    Log.i(folder.name + " attachment seq=" + sequence +
+                            " name=" + attachment.name + " type=" + attachment.type +
+                            " cid=" + attachment.cid + " pgp=" + attachment.encryption);
+                    attachment.message = message.id;
+                    attachment.sequence = sequence++;
+                    attachment.id = db.attachment().insertAttachment(attachment);
+                }
 
-            if (message.received > account.created &&
-                    !EntityFolder.ARCHIVE.equals(folder.type) &&
-                    !EntityFolder.TRASH.equals(folder.type) &&
-                    !EntityFolder.JUNK.equals(folder.type)) {
-                int type = (folder.isOutgoing() ? EntityContact.TYPE_TO : EntityContact.TYPE_FROM);
-                Address[] recipients = (type == EntityContact.TYPE_TO
-                        ? message.to
-                        : (message.reply != null ? message.reply : message.from));
-                if (recipients != null) {
-                    // Check if from self
-                    if (type == EntityContact.TYPE_FROM) {
-                        boolean me = true;
-                        for (Address reply : recipients) {
-                            String email = ((InternetAddress) reply).getAddress();
-                            String canonical = Helper.canonicalAddress(email);
-                            if (!TextUtils.isEmpty(email) &&
-                                    db.identity().getIdentity(folder.account, email.toLowerCase()) == null &&
-                                    (canonical.equals(email) ||
-                                            db.identity().getIdentity(folder.account, canonical) == null)) {
-                                me = false;
-                                break;
+                if (message.received > account.created &&
+                        !EntityFolder.ARCHIVE.equals(folder.type) &&
+                        !EntityFolder.TRASH.equals(folder.type) &&
+                        !EntityFolder.JUNK.equals(folder.type)) {
+                    int type = (folder.isOutgoing() ? EntityContact.TYPE_TO : EntityContact.TYPE_FROM);
+                    Address[] recipients = (type == EntityContact.TYPE_TO
+                            ? message.to
+                            : (message.reply != null ? message.reply : message.from));
+                    if (recipients != null) {
+                        // Check if from self
+                        if (type == EntityContact.TYPE_FROM) {
+                            boolean me = true;
+                            for (Address reply : recipients) {
+                                String email = ((InternetAddress) reply).getAddress();
+                                String canonical = Helper.canonicalAddress(email);
+                                if (!TextUtils.isEmpty(email) &&
+                                        db.identity().getIdentity(folder.account, email.toLowerCase()) == null &&
+                                        (canonical.equals(email) ||
+                                                db.identity().getIdentity(folder.account, canonical) == null)) {
+                                    me = false;
+                                    break;
+                                }
                             }
+                            if (me)
+                                recipients = message.to;
                         }
-                        if (me)
-                            recipients = message.to;
-                    }
 
-                    for (Address recipient : recipients) {
-                        String email = ((InternetAddress) recipient).getAddress();
-                        String name = ((InternetAddress) recipient).getPersonal();
-                        Uri avatar = ContactInfo.getLookupUri(context, new Address[]{recipient});
-                        EntityContact contact = db.contact().getContact(folder.account, type, email);
-                        if (contact == null) {
-                            contact = new EntityContact();
-                            contact.account = folder.account;
-                            contact.type = type;
-                            contact.email = email;
-                            contact.name = name;
-                            contact.avatar = (avatar == null ? null : avatar.toString());
-                            contact.times_contacted = 1;
-                            contact.first_contacted = message.received;
-                            contact.last_contacted = message.received;
-                            contact.id = db.contact().insertContact(contact);
-                            Log.i("Inserted contact=" + contact + " type=" + type);
-                        } else {
-                            contact.name = name;
-                            contact.avatar = (avatar == null ? null : avatar.toString());
-                            contact.times_contacted++;
-                            contact.first_contacted = Math.min(contact.first_contacted, message.received);
-                            contact.last_contacted = message.received;
-                            db.contact().updateContact(contact);
-                            Log.i("Updated contact=" + contact + " type=" + type);
+                        for (Address recipient : recipients) {
+                            String email = ((InternetAddress) recipient).getAddress();
+                            String name = ((InternetAddress) recipient).getPersonal();
+                            Uri avatar = ContactInfo.getLookupUri(context, new Address[]{recipient});
+                            EntityContact contact = db.contact().getContact(folder.account, type, email);
+                            if (contact == null) {
+                                contact = new EntityContact();
+                                contact.account = folder.account;
+                                contact.type = type;
+                                contact.email = email;
+                                contact.name = name;
+                                contact.avatar = (avatar == null ? null : avatar.toString());
+                                contact.times_contacted = 1;
+                                contact.first_contacted = message.received;
+                                contact.last_contacted = message.received;
+                                contact.id = db.contact().insertContact(contact);
+                                Log.i("Inserted contact=" + contact + " type=" + type);
+                            } else {
+                                contact.name = name;
+                                contact.avatar = (avatar == null ? null : avatar.toString());
+                                contact.times_contacted++;
+                                contact.first_contacted = Math.min(contact.first_contacted, message.received);
+                                contact.last_contacted = message.received;
+                                db.contact().updateContact(contact);
+                                Log.i("Updated contact=" + contact + " type=" + type);
+                            }
                         }
                     }
                 }
+
+
+                runRules(context, imessage, message, rules);
+
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
             }
         } else {
-            boolean update = false;
-
             if (!message.seen.equals(seen) || !message.seen.equals(message.ui_seen)) {
                 update = true;
                 message.seen = seen;
@@ -1301,14 +1308,26 @@ class Core {
             }
 
             Uri lookupUri = ContactInfo.getLookupUri(context, message.from);
-            if ((message.avatar == null) == (lookupUri != null)) {
+            if ((message.avatar == null) != (lookupUri == null)) {
                 update = true;
                 message.avatar = (lookupUri == null ? null : lookupUri.toString());
                 Log.i(folder.name + " updated id=" + message.id + " lookup=" + lookupUri);
             }
 
             if (update)
-                db.message().updateMessage(message);
+                try {
+                    db.beginTransaction();
+
+                    db.message().updateMessage(message);
+
+                    if (filter)
+                        runRules(context, imessage, message, rules);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
             else if (BuildConfig.DEBUG)
                 Log.i(folder.name + " unchanged uid=" + uid);
         }
@@ -1326,20 +1345,25 @@ class Core {
             db.folder().setFolderKeywords(folder.id, DB.Converters.fromStringArray(fkeywords.toArray(new String[0])));
         }
 
-        if (filter && Helper.isPro(context))
-            try {
-                for (EntityRule rule : rules)
-                    if (rule.matches(context, message, imessage)) {
-                        rule.execute(context, db, message);
-                        if (rule.stop)
-                            break;
-                    }
-            } catch (Throwable ex) {
-                Log.e(ex);
-                db.message().setMessageError(message.id, Helper.formatThrowable(ex));
-            }
-
         return message;
+    }
+
+    private static void runRules(Context context, IMAPMessage imessage, EntityMessage message, List<EntityRule> rules) {
+        if (!Helper.isPro(context))
+            return;
+
+        DB db = DB.getInstance(context);
+        try {
+            for (EntityRule rule : rules)
+                if (rule.matches(context, message, imessage)) {
+                    rule.execute(context, db, message);
+                    if (rule.stop)
+                        break;
+                }
+        } catch (Throwable ex) {
+            Log.e(ex);
+            db.message().setMessageError(message.id, Helper.formatThrowable(ex));
+        }
     }
 
     static void downloadMessage(
