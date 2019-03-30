@@ -625,6 +625,8 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.i(account.name + " idle=" + capIdle);
 
                     db.account().setAccountState(account.id, "connected");
+                    db.account().setAccountError(account.id, null);
+                    db.account().setAccountWarning(account.id, null);
                     EntityLog.log(this, account.name + " connected");
 
                     // Update folder list
