@@ -138,6 +138,7 @@
     <string name="title_advanced_flags">Sık Kullanılanları göster</string>
     <string name="title_advanced_preview">İleti önizlemesini göster</string>
     <string name="title_advanced_addresses">Öntanımlı olarak adres ayrıntılarını göster</string>
+    <string name="title_advanced_monospaced">İleti metni için tek aralıklı yazı tipi kullan</string>
     <string name="title_advanced_html">Bilinen kişilerden gelen özgün iletileri otomatik olarak göster</string>
     <string name="title_advanced_tracking">İzlemeyi özgün iletilerden kaldırmaya çalış</string>
     <string name="title_advanced_images">Bilinen kişiler için görselleri otomatik olarak göster</string>
@@ -153,11 +154,13 @@
     <string name="title_advanced_autoresize">Ekranda görüntülemek için görselleri otomatik olarak yeniden boyutlandır</string>
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
     <string name="title_advanced_autosend">İleti göndermeyi onayla</string>
+    <string name="title_advanced_badge">Yeni ileti sayısını başlatıcıdaki simgede göster</string>
     <string name="title_advanced_notify_preview">Bildirimlerde ileti önizlemesini göster</string>
     <string name="title_advanced_search_local">Aygıtta harici arama</string>
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
     <string name="title_advanced_english">İngilizce Diline Zorla</string>
+    <string name="title_advanced_paranoid">Fazladan gizlilik özellikleri</string>
     <string name="title_advanced_updates">Güncellemelere bak</string>
     <string name="title_advanced_debug">Hata ayıklama</string>
     <string name="title_advanced_enabled_hint">İletileri alma ve göndermeyi toptan devre dışı bırakın veya etkinleştirin</string>
@@ -170,6 +173,7 @@
     <string name="title_advanced_autocollapse_hint">Çoklu genişletilmiş mesajlar her zaman \'geri\' komutuyla kapatılacak</string>
     <string name="title_advanced_autoclose_hint">Tüm iletiler arşivlendiğinde veya çöpe gittiğinde bu iletişim kutusunu otomatik olarak kapat</string>
     <string name="title_advanced_sender_hint">Çoğu sağlayıcı değiştirilmiş gönderici adreslerine izin vermiyor</string>
+    <string name="title_advanced_badge_hint">Yalnızca desteklenen aygıtlarda kullanılabilir</string>
     <string name="title_advanced_preview_hint">Yalnızca ileti metni indirildiğinde kullanılabilir</string>
     <string name="title_advanced_search_local_hint">Sunucudaki birincil arşiv klasöründe arama yapmaktansa</string>
     <string name="title_advanced_english_hint">Bu app yeniden başlatılır</string>
@@ -467,6 +471,7 @@
     <string name="title_hint_sync">Mesajların indirilmesi, sağlayıcının hızına, internet bağlantısına ve cihazın hızına ve mesaj sayısına bağlı olarak biraz zaman alabilir. Mesajları indirirken uygulama daha yavaş yanıt verebilir.</string>
     <string name="title_hint_image_link">Görsel bağlantısı</string>
     <string name="title_hint_tracking_image">İzlenen görsel %1$sx%2$s</string>
+    <string name="title_hint_ignore_contact">Bir kişiyi sık kullanılanlarda istemiyorsanız uzun basın</string>
     <string name="title_open_link">Bağlantıyı aç</string>
     <string name="title_show_organization">Örgütleşimi göster</string>
     <string name="title_insecure_link">Bu bağlantı güvensiz</string>
