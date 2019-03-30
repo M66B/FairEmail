@@ -146,6 +146,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(83) What does 'User is authenticated but not connected' mean?](#user-content-faq83)
 * [(84) What are local contacts for?](#user-content-faq84)
 * [(85) Why is an identity not available?](#user-content-faq85)
+* [(86) What are 'extra privacy features'?](#user-content-faq86)
 
 [I have another question.](#support)
 
@@ -1395,6 +1396,16 @@ An identity is available for sending a new message or replying or forwarding an 
 * the associated account has a drafts folder
 
 FairEmail will try to select the best identity based on the *to* address of the message replied to / being forwarded.
+
+<br />
+
+<a name="faq86"></a>
+**(86) What are 'extra privacy features'?**
+
+The advanced option *extra privacy features* enables:
+
+* Detection and removal of [tracking images](#user-content-faq82)
+* Splitting linked images into an image and a link
 
 <br />
 

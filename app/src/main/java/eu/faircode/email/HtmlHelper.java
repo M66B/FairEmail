@@ -75,8 +75,8 @@ public class HtmlHelper {
 
     static String removeTracking(Context context, String html) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean remove_tracking = prefs.getBoolean("remove_tracking", true);
-        if (!remove_tracking)
+        boolean paranoid = prefs.getBoolean("paranoid", true);
+        if (!paranoid)
             return html;
 
         Document document = Jsoup.parse(html);
@@ -101,6 +101,9 @@ public class HtmlHelper {
     }
 
     static String sanitize(Context context, String html, boolean showQuotes) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean paranoid = prefs.getBoolean("paranoid", true);
+
         Document parsed = Jsoup.parse(html);
         Whitelist whitelist = Whitelist.relaxed()
                 .addTags("hr", "abbr")
@@ -190,7 +193,7 @@ public class HtmlHelper {
             String src = img.attr("src");
             String alt = img.attr("alt");
             String title = img.attr("title");
-            boolean tracking = isTrackingPixel(img);
+            boolean tracking = (paranoid && isTrackingPixel(img));
 
             // Create image container
             Element div = document.createElement("div");
@@ -225,26 +228,27 @@ public class HtmlHelper {
 
             // Split parent link and linked image
             boolean linked = false;
-            for (Element parent : img.parents())
-                if ("a".equals(parent.tagName()) &&
-                        !TextUtils.isEmpty(parent.attr("href"))) {
-                    String text = parent.attr("title").trim();
-                    if (TextUtils.isEmpty(text))
-                        text = parent.attr("alt").trim();
-                    if (TextUtils.isEmpty(text))
-                        text = context.getString(R.string.title_hint_image_link);
+            if (paranoid)
+                for (Element parent : img.parents())
+                    if ("a".equals(parent.tagName()) &&
+                            !TextUtils.isEmpty(parent.attr("href"))) {
+                        String text = parent.attr("title").trim();
+                        if (TextUtils.isEmpty(text))
+                            text = parent.attr("alt").trim();
+                        if (TextUtils.isEmpty(text))
+                            text = context.getString(R.string.title_hint_image_link);
 
-                    img.remove();
-                    parent.appendText(text);
-                    String outer = parent.outerHtml();
+                        img.remove();
+                        parent.appendText(text);
+                        String outer = parent.outerHtml();
 
-                    parent.tagName("span");
-                    parent.html(outer);
-                    parent.appendChild(div);
+                        parent.tagName("span");
+                        parent.html(outer);
+                        parent.appendChild(div);
 
-                    linked = true;
-                    break;
-                }
+                        linked = true;
+                        break;
+                    }
 
             if (!linked) {
                 img.tagName("div");

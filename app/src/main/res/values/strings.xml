@@ -168,7 +168,6 @@
     <string name="title_advanced_addresses">Show address details by default</string>
     <string name="title_advanced_monospaced">Use monospaced font for message text</string>
     <string name="title_advanced_html">Automatically show original message for known contacts</string>
-    <string name="title_advanced_tracking">Attempt to remove tracking from original messages</string>
     <string name="title_advanced_images">Automatically show images for known contacts</string>
     <string name="title_advanced_actionbar">Conversation action bar</string>
 
@@ -190,6 +189,7 @@
     <string name="title_advanced_light">Use notification light</string>
     <string name="title_advanced_sound">Select notification sound</string>
     <string name="title_advanced_english">Force English language</string>
+    <string name="title_advanced_paranoid">Extra privacy features</string>
     <string name="title_advanced_updates">Check for updates</string>
     <string name="title_advanced_debug">Debug mode</string>
 
