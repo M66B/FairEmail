@@ -1398,11 +1398,13 @@ class Core {
     static void notifyMessages(Context context, List<TupleMessageEx> messages) {
         Log.i("Notify messages=" + messages.size());
 
-        Widget.update(context, messages.size());
-        ShortcutBadger.applyCount(context, messages.size());
-
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
+
+        boolean badge = prefs.getBoolean("badge", true);
+
+        Widget.update(context, messages.size());
+        ShortcutBadger.applyCount(context, badge ? messages.size() : 0);
 
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 

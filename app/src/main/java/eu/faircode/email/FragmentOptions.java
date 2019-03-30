@@ -100,6 +100,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swSender;
     private SwitchCompat swAutoSend;
 
+    private SwitchCompat swBadge;
     private SwitchCompat swNotifyPreview;
     private SwitchCompat swSearchLocal;
     private SwitchCompat swLight;
@@ -178,6 +179,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swSender = view.findViewById(R.id.swSender);
         swAutoSend = view.findViewById(R.id.swAutoSend);
 
+        swBadge = view.findViewById(R.id.swBadge);
         swNotifyPreview = view.findViewById(R.id.swNotifyPreview);
         swSearchLocal = view.findViewById(R.id.swSearchLocal);
         swLight = view.findViewById(R.id.swLight);
@@ -486,6 +488,14 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             }
         });
 
+        swBadge.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("badge", checked).apply();
+                ServiceSynchronize.reload(getContext(), "badge");
+            }
+        });
+
         swNotifyPreview.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -644,6 +654,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swSender.setChecked(prefs.getBoolean("sender", false));
         swAutoSend.setChecked(!prefs.getBoolean("autosend", false));
 
+        swBadge.setChecked(prefs.getBoolean("badge", true));
         swNotifyPreview.setChecked(prefs.getBoolean("notify_preview", true));
         swNotifyPreview.setEnabled(Helper.isPro(getContext()));
         swSearchLocal.setChecked(prefs.getBoolean("search_local", false));
