@@ -71,6 +71,7 @@ import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.StoreClosedException;
 import javax.mail.UIDFolder;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.search.ComparisonTerm;
@@ -1080,7 +1081,12 @@ class Core {
             // Build ordered list of addresses
             List<Address> addresses = new ArrayList<>();
             if (delivered != null)
-                addresses.add(new InternetAddress(delivered));
+                try {
+                    addresses.add(new InternetAddress(delivered));
+                } catch (AddressException ex) {
+                    // Local address contains control or whitespace in string ``mailing list someone@example.org''
+                    Log.w(ex);
+                }
             if (tos != null)
                 addresses.addAll(Arrays.asList(tos));
             if (ccs != null)
