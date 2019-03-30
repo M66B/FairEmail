@@ -333,6 +333,7 @@ public class FragmentCompose extends FragmentBase {
         });
 
         etBody.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
+        tvReference.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
 
         edit_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
