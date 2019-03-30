@@ -1720,12 +1720,15 @@ public class FragmentCompose extends FragmentBase {
                             if (BuildConfig.DEBUG) {
                                 String from = null;
                                 String to = null;
+                                String delivered = Helper.canonicalAddress(ref.deliveredto);
                                 String me = Helper.canonicalAddress(Helper.myAddress().getAddress());
+
                                 if (ref.from != null && ref.from.length > 0)
                                     from = Helper.canonicalAddress(((InternetAddress) ref.from[0]).getAddress());
                                 if (ref.to != null && ref.to.length > 0)
                                     to = Helper.canonicalAddress(((InternetAddress) ref.to[0]).getAddress());
-                                if (from != null && from.equals(me)) {
+
+                                if (delivered.equals(me) && from != null && from.equals(me)) {
                                     if (to != null && to.equals(me))
                                         draft.to = ref.reply;
                                     else
