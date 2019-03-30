@@ -508,7 +508,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                 final Map<EntityFolder, IMAPFolder> folders = new HashMap<>();
                 List<Thread> idlers = new ArrayList<>();
-                List<TwoStateOwner> owners = new ArrayList<>();
+                final List<TwoStateOwner> cowners = new ArrayList<>();
                 try {
                     // Listen for store events
                     istore.addStoreListener(new StoreListener() {
@@ -841,12 +841,12 @@ public class ServiceSynchronize extends LifecycleService {
                         } else
                             folders.put(folder, null);
 
-                        final TwoStateOwner owner = new TwoStateOwner(ServiceSynchronize.this, folder.name);
+                        final TwoStateOwner cowner = new TwoStateOwner(ServiceSynchronize.this, folder.name);
 
                         new Handler(getMainLooper()).post(new Runnable() {
                             @Override
                             public void run() {
-                                db.operation().liveOperations(folder.id).observe(owner, new Observer<List<EntityOperation>>() {
+                                db.operation().liveOperations(folder.id).observe(cowner, new Observer<List<EntityOperation>>() {
                                     private List<Long> handling = new ArrayList<>();
                                     private final ExecutorService folderExecutor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
                                     private final PowerManager.WakeLock wlFolder = pm.newWakeLock(
@@ -928,11 +928,11 @@ public class ServiceSynchronize extends LifecycleService {
                                         }
                                     }
                                 });
+                                cowner.start();
                             }
                         });
 
-                        owner.start();
-                        owners.add(owner);
+                        cowners.add(cowner);
                     }
 
                     // Keep alive alarm receiver
@@ -1014,10 +1014,15 @@ public class ServiceSynchronize extends LifecycleService {
                     db.account().setAccountError(account.id, Helper.formatThrowable(ex));
                 } finally {
                     // Stop watching for operations
-                    for (TwoStateOwner owner : owners)
-                        owner.stop();
-                    owners.clear();
+                    new Handler(getMainLooper()).post(new Runnable() {
+                        @Override
+                        public void run() {
+                            for (TwoStateOwner owner : cowners)
+                                owner.stop();
+                        }
+                    });
 
+                    // Update state
                     EntityLog.log(this, account.name + " closing");
                     db.account().setAccountState(account.id, "closing");
                     for (EntityFolder folder : folders.keySet())
@@ -1041,6 +1046,7 @@ public class ServiceSynchronize extends LifecycleService {
                         state.join(idler);
                     idlers.clear();
 
+                    // Update state
                     for (EntityFolder folder : folders.keySet())
                         if (folder.synchronize && !folder.poll)
                             db.folder().setFolderState(folder.id, null);
