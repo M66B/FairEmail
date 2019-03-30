@@ -48,6 +48,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -755,7 +756,7 @@ class Core {
     private static void onSynchronizeMessages(
             Context context, JSONArray jargs,
             EntityAccount account, final EntityFolder folder,
-            IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
+            final IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
         final DB db = DB.getInstance(context);
         try {
             // Legacy
@@ -823,6 +824,18 @@ class Core {
 
             long fetch = SystemClock.elapsedRealtime();
             Log.i(folder.name + " remote fetched=" + (SystemClock.elapsedRealtime() - fetch) + " ms");
+
+            // Sort for finding references messages
+            Arrays.sort(imessages, new Comparator<Message>() {
+                @Override
+                public int compare(Message m1, Message m2) {
+                    try {
+                        return Long.compare(ifolder.getUID(m1), ifolder.getUID(m2));
+                    } catch (MessagingException ex) {
+                        return 0;
+                    }
+                }
+            });
 
             for (int i = 0; i < imessages.length && state.running(); i++)
                 try {
@@ -1047,7 +1060,7 @@ class Core {
 
                 if (dup.folder.equals(folder.id) ||
                         (EntityFolder.OUTBOX.equals(dfolder.type) && EntityFolder.SENT.equals(folder.type))) {
-                    String thread = helper.getThreadId(uid);
+                    String thread = helper.getThreadId(context, account.id, uid);
                     Log.i(folder.name + " found as id=" + dup.id +
                             " uid=" + dup.uid + "/" + uid +
                             " msgid=" + msgid + " thread=" + thread);
@@ -1123,7 +1136,7 @@ class Core {
             message.references = TextUtils.join(" ", helper.getReferences());
             message.inreplyto = helper.getInReplyTo();
             message.deliveredto = delivered;
-            message.thread = helper.getThreadId(uid);
+            message.thread = helper.getThreadId(context, account.id, uid);
             message.from = froms;
             message.to = tos;
             message.cc = ccs;

@@ -428,14 +428,26 @@ public class MessageHelper {
         return imessage.getHeader("In-Reply-To", null);
     }
 
-    String getThreadId(long uid) throws MessagingException {
+    String getThreadId(Context context, long account, long uid) throws MessagingException {
+        List<String> refs = new ArrayList<>();
+
         for (String ref : getReferences())
             if (!TextUtils.isEmpty(ref))
-                return ref;
+                refs.add(ref);
 
         String inreplyto = getInReplyTo();
-        if (inreplyto != null)
-            return inreplyto;
+        if (!TextUtils.isEmpty(inreplyto) && !refs.contains(inreplyto))
+            refs.add(inreplyto);
+
+        DB db = DB.getInstance(context);
+        for (String ref : refs) {
+            List<EntityMessage> messages = db.message().getMessageByMsgId(account, ref);
+            if (messages.size() > 0)
+                return messages.get(0).thread;
+        }
+
+        if (refs.size() > 0)
+            return refs.get(0);
 
         String msgid = getMessageID();
         return (TextUtils.isEmpty(msgid) ? Long.toString(uid) : msgid);
