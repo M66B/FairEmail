@@ -260,14 +260,13 @@ public class HtmlHelper {
                     TextNode tnode = (TextNode) node;
 
                     Matcher matcher = PatternsCompat.WEB_URL.matcher(tnode.text());
-                    if (matcher.matches()) {
+                    if (matcher.find()) {
                         Element span = document.createElement("span");
 
                         int pos = 0;
                         String text = tnode.text();
 
-                        matcher.reset();
-                        while (matcher.find()) {
+                        do {
                             boolean linked = false;
                             Node parent = tnode.parent();
                             while (parent != null) {
@@ -295,7 +294,7 @@ public class HtmlHelper {
                             }
 
                             pos = matcher.end();
-                        }
+                        } while (matcher.find());
                         span.appendText(text.substring(pos));
 
                         tnode.before(span);
