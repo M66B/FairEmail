@@ -1408,8 +1408,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             btnHtml.setVisibility(View.GONE);
             ibQuotes.setVisibility(View.GONE);
-            ibImages.setVisibility(show_images ? View.GONE : View.VISIBLE);
-            tvBody.setVisibility(View.GONE);
+            ibImages.setVisibility(show_images ? View.GONE : View.INVISIBLE);
             rvImage.setVisibility(View.GONE);
 
             // For performance reasons the WebView is created when needed only
@@ -1522,26 +1521,45 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Bundle args = new Bundle();
                 args.putLong("id", message.id);
 
-                new SimpleTask<String>() {
+                new SimpleTask<OriginalMessage>() {
                     @Override
-                    protected String onExecute(Context context, Bundle args) throws IOException {
+                    protected OriginalMessage onExecute(Context context, Bundle args) throws IOException {
                         long id = args.getLong("id");
-                        return HtmlHelper.removeTracking(context, getHtmlEmbedded(id));
+
+                        OriginalMessage original = new OriginalMessage();
+                        original.html = HtmlHelper.removeTracking(context, getHtmlEmbedded(id));
+
+                        Document doc = Jsoup.parse(original.html);
+                        for (Element img : doc.select("img")) {
+                            Uri uri = Uri.parse(img.attr("src"));
+                            if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme())) {
+                                original.has_images = true;
+                                break;
+                            }
+                        }
+
+                        return original;
                     }
 
                     @Override
-                    protected void onExecuted(Bundle args, String html) {
+                    protected void onExecuted(Bundle args, OriginalMessage original) {
                         long id = args.getLong("id");
-                        properties.setHtml(id, html);
+                        properties.setHtml(id, original.html);
+                        if (!original.has_images)
+                            properties.setValue("images", id, true);
 
                         TupleMessageEx amessage = getMessage();
                         if (amessage == null || !amessage.id.equals(id))
                             return;
 
-                        webView.loadDataWithBaseURL("email://", html, "text/html", "UTF-8", null);
+                        boolean show_images = properties.getValue("images", id);
+                        ibImages.setVisibility(show_images ? View.GONE : View.VISIBLE);
+
+                        webView.loadDataWithBaseURL("email://", original.html, "text/html", "UTF-8", null);
 
                         boolean expanded = properties.getValue("expanded", id);
                         pbBody.setVisibility(View.GONE);
+                        tvBody.setVisibility(View.GONE);
                         webView.setVisibility(expanded ? View.VISIBLE : View.GONE);
                     }
 
@@ -1555,6 +1573,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 pbBody.setVisibility(View.GONE);
                 webView.setVisibility(View.VISIBLE);
             }
+        }
+
+        private class OriginalMessage {
+            String html;
+            boolean has_images;
         }
 
         private void onShowQuotes(final TupleMessageEx message) {
