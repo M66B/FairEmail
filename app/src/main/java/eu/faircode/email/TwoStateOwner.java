@@ -1,8 +1,5 @@
 package eu.faircode.email;
 
-import android.os.Handler;
-import android.os.Looper;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -13,7 +10,6 @@ import androidx.lifecycle.OnLifecycleEvent;
 public class TwoStateOwner implements LifecycleOwner {
     private String name;
     private LifecycleRegistry registry;
-    private Handler handler;
 
     // https://developer.android.com/topic/libraries/architecture/lifecycle#lc
 
@@ -22,8 +18,7 @@ public class TwoStateOwner implements LifecycleOwner {
 
         // Initialize
         registry = new LifecycleRegistry(this);
-        handler = new Handler(Looper.getMainLooper());
-        transition(Lifecycle.State.CREATED);
+        registry.markState(Lifecycle.State.CREATED);
 
         // Logging
         registry.addObserver(new LifecycleObserver() {
@@ -50,11 +45,11 @@ public class TwoStateOwner implements LifecycleOwner {
     }
 
     void start() {
-        transition(Lifecycle.State.STARTED);
+        registry.markState(Lifecycle.State.STARTED);
     }
 
     void stop() {
-        transition(Lifecycle.State.CREATED);
+        registry.markState(Lifecycle.State.CREATED);
     }
 
     void restart() {
@@ -63,35 +58,11 @@ public class TwoStateOwner implements LifecycleOwner {
     }
 
     void destroy() {
-        if (Looper.myLooper() == Looper.getMainLooper())
-            _destroy();
-        else
-            handler.post(new Runnable() {
-                @Override
-                public void run() {
-                    _destroy();
-                }
-            });
-    }
-
-    void _destroy() {
         Lifecycle.State state = registry.getCurrentState();
         if (!state.equals(Lifecycle.State.CREATED))
             registry.markState(Lifecycle.State.CREATED);
         if (!state.equals(Lifecycle.State.DESTROYED))
             registry.markState(Lifecycle.State.DESTROYED);
-    }
-
-    private void transition(final Lifecycle.State state) {
-        if (Looper.myLooper() == Looper.getMainLooper())
-            registry.markState(state);
-        else
-            handler.post(new Runnable() {
-                @Override
-                public void run() {
-                    registry.markState(state);
-                }
-            });
     }
 
     @NonNull
