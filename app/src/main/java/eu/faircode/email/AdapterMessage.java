@@ -1137,12 +1137,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onToggleFlag(TupleMessageEx message) {
-            Log.i("Set message id=" + message.id +
-                    " flagged=" + message.ui_flagged + " " + message.unflagged + "/" + message.count);
+            int flagged = (message.count - message.unflagged);
+            Log.i("Set message id=" + message.id + " flagged=" + flagged);
 
             Bundle args = new Bundle();
             args.putLong("id", message.id);
-            args.putBoolean("flagged", !message.ui_flagged);
+            args.putBoolean("flagged", flagged == 0);
             args.putBoolean("thread", viewType != ViewType.THREAD);
 
             message.unflagged = message.ui_flagged ? message.count : 0;
@@ -1165,7 +1165,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return null;
 
                         List<EntityMessage> messages = db.message().getMessageByThread(
-                                message.account, message.thread, threading && thread ? null : id, message.folder);
+                                message.account, message.thread, threading && thread ? null : id, null);
                         for (EntityMessage threaded : messages)
                             EntityOperation.queue(context, db, threaded, EntityOperation.FLAG, flagged);
 
