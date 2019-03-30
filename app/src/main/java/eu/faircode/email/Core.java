@@ -813,7 +813,16 @@ class Core {
                 searchTerm = new OrTerm(searchTerm, new FlagTerm(new Flags(Flags.Flag.FLAGGED), true));
 
             long search = SystemClock.elapsedRealtime();
-            Message[] imessages = ifolder.search(searchTerm);
+            Message[] imessages;
+            try {
+                imessages = ifolder.search(searchTerm);
+            } catch (MessagingException ex) {
+                if (ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED)) {
+                    Log.w(ex.getMessage());
+                    imessages = ifolder.search(new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time)));
+                } else
+                    throw ex;
+            }
             Log.i(folder.name + " remote count=" + imessages.length +
                     " search=" + (SystemClock.elapsedRealtime() - search) + " ms");
 
