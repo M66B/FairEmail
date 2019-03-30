@@ -828,6 +828,7 @@ public class ServiceSynchronize extends LifecycleService {
                             folders.put(folder, null);
 
                         final TwoStateOwner cowner = new TwoStateOwner(ServiceSynchronize.this, folder.name);
+                        cowner.start();
 
                         new Handler(getMainLooper()).post(new Runnable() {
                             @Override
@@ -914,7 +915,6 @@ public class ServiceSynchronize extends LifecycleService {
                                         }
                                     }
                                 });
-                                cowner.start();
                             }
                         });
 
@@ -1000,13 +1000,8 @@ public class ServiceSynchronize extends LifecycleService {
                     db.account().setAccountError(account.id, Helper.formatThrowable(ex));
                 } finally {
                     // Stop watching for operations
-                    new Handler(getMainLooper()).post(new Runnable() {
-                        @Override
-                        public void run() {
-                            for (TwoStateOwner owner : cowners)
-                                owner.stop();
-                        }
-                    });
+                    for (TwoStateOwner owner : cowners)
+                        owner.destroy();
 
                     // Update state
                     EntityLog.log(this, account.name + " closing");

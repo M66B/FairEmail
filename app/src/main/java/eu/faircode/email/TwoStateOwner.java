@@ -1,5 +1,8 @@
 package eu.faircode.email;
 
+import android.os.Handler;
+import android.os.Looper;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -10,15 +13,17 @@ import androidx.lifecycle.OnLifecycleEvent;
 public class TwoStateOwner implements LifecycleOwner {
     private String name;
     private LifecycleRegistry registry;
+    private Handler handler;
 
     // https://developer.android.com/topic/libraries/architecture/lifecycle#lc
 
     TwoStateOwner(String aname) {
         name = aname;
 
-        // Initialize registry
+        // Initialize
         registry = new LifecycleRegistry(this);
-        registry.handleLifecycleEvent(Lifecycle.Event.ON_CREATE);
+        handler = new Handler(Looper.getMainLooper());
+        transition(Lifecycle.State.CREATED);
 
         // Logging
         registry.addObserver(new LifecycleObserver() {
@@ -45,11 +50,11 @@ public class TwoStateOwner implements LifecycleOwner {
     }
 
     void start() {
-        registry.handleLifecycleEvent(Lifecycle.Event.ON_START);
+        transition(Lifecycle.State.STARTED);
     }
 
     void stop() {
-        registry.handleLifecycleEvent(Lifecycle.Event.ON_STOP);
+        transition(Lifecycle.State.CREATED);
     }
 
     void restart() {
@@ -58,13 +63,35 @@ public class TwoStateOwner implements LifecycleOwner {
     }
 
     void destroy() {
+        if (Looper.myLooper() == Looper.getMainLooper())
+            _destroy();
+        else
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    _destroy();
+                }
+            });
+    }
+
+    void _destroy() {
         Lifecycle.State state = registry.getCurrentState();
-        if (state.equals(Lifecycle.State.INITIALIZED))
-            registry.handleLifecycleEvent(Lifecycle.Event.ON_CREATE);
-        if (state.equals(Lifecycle.State.STARTED))
-            registry.handleLifecycleEvent(Lifecycle.Event.ON_STOP); // transition to created
+        if (!state.equals(Lifecycle.State.CREATED))
+            registry.markState(Lifecycle.State.CREATED);
         if (!state.equals(Lifecycle.State.DESTROYED))
-            registry.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY);
+            registry.markState(Lifecycle.State.DESTROYED);
+    }
+
+    private void transition(final Lifecycle.State state) {
+        if (Looper.myLooper() == Looper.getMainLooper())
+            registry.markState(state);
+        else
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    registry.markState(state);
+                }
+            });
     }
 
     @NonNull
