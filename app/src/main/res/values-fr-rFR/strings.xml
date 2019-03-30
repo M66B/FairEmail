@@ -140,7 +140,6 @@
     <string name="title_advanced_addresses">Afficher par défaut les détails de l\'adresse</string>
     <string name="title_advanced_monospaced">Utiliser la police mono-espacée pour le texte du message</string>
     <string name="title_advanced_html">Afficher automatiquement le message initial pour les contacts connus</string>
-    <string name="title_advanced_tracking">Tenter de supprimer le suivi des messages originaux</string>
     <string name="title_advanced_images">Afficher automatiquement les images des contacts connus</string>
     <string name="title_advanced_actionbar">Barre d\'action de conversation</string>
     <string name="title_advanced_pull_refresh">Tirer vers le bas pour actualiser</string>
@@ -230,7 +229,6 @@
     <string name="title_no_inbox">Boîte de réception introuvable</string>
     <string name="title_no_primary_drafts">Pas de compte principal ou pas de dossier Brouillons</string>
     <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Cela va retarder la réception de nouveaux messages et augmenter l\'utilisation de la batterie.</string>
-    <string name="title_no_move">Ce fournisseur ne prend pas en charge MOVE</string>
     <string name="title_no_utf8">Ce fournisseur ne prend pas en charge l\'UTF-8</string>
     <string name="title_no_sync">Erreurs de synchronisation depuis %1$s</string>
     <string name="title_sync_errors">La synchronisation de certains dossiers a échoué</string>

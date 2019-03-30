@@ -132,7 +132,6 @@
     <string name="title_advanced_addresses">默认显示地址详情</string>
     <string name="title_advanced_monospaced">对邮件文本使用单间距字体</string>
     <string name="title_advanced_html">自动显示已知联系人的原始消息</string>
-    <string name="title_advanced_tracking">尝试从原始消息中删除跟踪</string>
     <string name="title_advanced_images">自动显示来自已知联系人邮件中的图片</string>
     <string name="title_advanced_actionbar">对话操作栏</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
@@ -219,7 +218,6 @@
     <string name="title_no_inbox">未找到收件箱</string>
     <string name="title_no_primary_drafts">没有主帐户或草稿文件夹</string>
     <string name="title_no_idle">该提供商不支持消息推送，这将延迟新消息的接收并增加电池用量</string>
-    <string name="title_no_move">该邮件服务供应商不支持MOVE扩展</string>
     <string name="title_no_utf8">该邮件服务供应商不支持UTF-8字符集</string>
     <string name="title_no_sync">从 %1$s 开始同步错误</string>
     <string name="title_sync_errors">一些文件夹同步失败</string>

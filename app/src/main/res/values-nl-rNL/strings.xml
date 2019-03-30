@@ -140,7 +140,6 @@
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
     <string name="title_advanced_monospaced">Gebruik vaste breedte lettertype voor berichttekst</string>
     <string name="title_advanced_html">Automatisch originele bericht weergeven voor bekende contacten</string>
-    <string name="title_advanced_tracking">Probeer om tracking uit originele berichten te verwijderen</string>
     <string name="title_advanced_images">Automatisch afbeeldingen weergeven voor bekende contacten</string>
     <string name="title_advanced_actionbar">Actiebalk gesprek</string>
     <string name="title_advanced_pull_refresh">Omlaag schuiven om te verversen</string>
@@ -230,7 +229,6 @@
     <string name="title_no_inbox">Postvak in niet gevonden</string>
     <string name="title_no_primary_drafts">Geen primair account of geen map voor concepten</string>
     <string name="title_no_idle">Deze provider biedt geen ondersteuning voor push-berichten. Dit zal het ontvangen van nieuwe berichten vertragen en het gebruik van de batterij te verhogen.</string>
-    <string name="title_no_move">Deze provider ondersteunt geen MOVE</string>
     <string name="title_no_utf8">Deze provider ondersteunt geen UTF-8</string>
     <string name="title_no_sync">Synchronisatiefouten sinds %1$s</string>
     <string name="title_sync_errors">Synchroniseren van sommige mappen mislukt</string>

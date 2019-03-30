@@ -138,7 +138,6 @@
     <string name="title_advanced_preview">Förhandsvisning av meddelande</string>
     <string name="title_advanced_addresses">Visa adressuppgifter som standard</string>
     <string name="title_advanced_html">Visa automatiskt originalmeddelande för kända kontakter</string>
-    <string name="title_advanced_tracking">Försök att ta bort spårning från originalmeddelanden</string>
     <string name="title_advanced_images">Visa bilder automatiskt för kända kontakter</string>
     <string name="title_advanced_actionbar">Konversationens åtgärdsfält</string>
     <string name="title_advanced_pull_refresh">Dra ner för att uppdatera</string>
@@ -219,7 +218,6 @@
     <string name="title_no_inbox">Inkorgen hittades inte</string>
     <string name="title_no_primary_drafts">Inget primärt konto eller ingen utkastmapp</string>
     <string name="title_no_idle">Leverantören stöder inte push-meddelanden. Detta kommer att fördröja mottagning av nya meddelanden och öka batterianvändningen.</string>
-    <string name="title_no_move">Denna leverantör stöder inte MOVE</string>
     <string name="title_no_utf8">Denna leverantör stöder inte UTF-8</string>
     <string name="title_no_sync">Synkroniseringsfel sedan %1$s</string>
     <string name="title_sync_errors">Synkronisering av vissa mappar misslyckades</string>

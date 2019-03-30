@@ -140,7 +140,6 @@
     <string name="title_advanced_addresses">Mostrar detalhes do endereço por padrão</string>
     <string name="title_advanced_monospaced">Usar fonte mono-espaçada para o texto da mensagem</string>
     <string name="title_advanced_html">Mostrar automaticamente a mensagem original para contatos conhecidos</string>
-    <string name="title_advanced_tracking">Tentativa de remover o rastreamento de mensagens originais</string>
     <string name="title_advanced_images">Mostrar automaticamente imagens para contatos conhecidos</string>
     <string name="title_advanced_actionbar">Barra de ação de conversa</string>
     <string name="title_advanced_pull_refresh">Puxe para baixo para atualizar</string>
@@ -227,7 +226,6 @@
     <string name="title_no_inbox">Caixa de entrada não encontrada</string>
     <string name="title_no_primary_drafts">Nenhuma conta primária ou pasta de rascunhos</string>
     <string name="title_no_idle">Este provedor não suporta mensagens push. Isso irá atrasar o recebimento de novas mensagens e aumentar o uso da bateria.</string>
-    <string name="title_no_move">Este provedor de e-mail não dá suporte a opção MOVER</string>
     <string name="title_no_utf8">Este provedor de e-mail não suporta UTF-8</string>
     <string name="title_no_sync">Erros de sincronização desde %1$s</string>
     <string name="title_sync_errors">Falha ao sincronizar algumas pastas</string>
