@@ -243,6 +243,8 @@ public class HtmlHelper {
                         String outer = parent.outerHtml();
 
                         parent.tagName("span");
+                        for (Attribute attr : parent.attributes().asList())
+                            parent.attributes().remove(attr.getKey());
                         parent.html(outer);
                         parent.appendChild(div);
 
@@ -252,6 +254,8 @@ public class HtmlHelper {
 
             if (!linked) {
                 img.tagName("div");
+                for (Attribute attr : img.attributes().asList())
+                    img.attributes().remove(attr.getKey());
                 img.html(div.html());
             }
         }
