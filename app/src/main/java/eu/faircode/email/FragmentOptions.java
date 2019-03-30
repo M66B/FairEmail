@@ -385,7 +385,6 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("autohtml", checked).apply();
-                swImages.setEnabled(!checked);
             }
         });
 
@@ -638,7 +637,6 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swHtml.setChecked(prefs.getBoolean("autohtml", false));
         swTracking.setChecked(prefs.getBoolean("remove_tracking", true));
         swImages.setChecked(prefs.getBoolean("autoimages", false));
-        swImages.setEnabled(!swHtml.isChecked());
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
 
         swPull.setChecked(prefs.getBoolean("pull", true));

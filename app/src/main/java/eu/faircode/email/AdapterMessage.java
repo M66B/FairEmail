@@ -3027,7 +3027,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.flags = prefs.getBoolean("flags", true);
         this.preview = prefs.getBoolean("preview", false);
         this.autohtml = prefs.getBoolean("autohtml", false);
-        this.autoimages = (!this.autohtml && prefs.getBoolean("autoimages", false));
+        this.autoimages = prefs.getBoolean("autoimages", false);
         this.debug = prefs.getBoolean("debug", false);
 
         this.textSize = Helper.getTextSize(context, zoom);
