@@ -154,11 +154,13 @@
     <string name="title_advanced_autoresize">Wijzig afbeeldingen automatisch van formaat voor weergave op schermen</string>
     <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
     <string name="title_advanced_autosend">Bevestig het verzenden van berichten</string>
+    <string name="title_advanced_badge">Toon opstartpictogram met aantal nieuwe berichten</string>
     <string name="title_advanced_notify_preview">Toon berichtvoorbeeld in meldingen</string>
     <string name="title_advanced_search_local">Extern zoeken op apparaat</string>
     <string name="title_advanced_light">Gebruik meldingslicht</string>
     <string name="title_advanced_sound">Selecteer meldingsgeluid</string>
     <string name="title_advanced_english">Forceer Engelse taal</string>
+    <string name="title_advanced_paranoid">Extra privacy functies</string>
     <string name="title_advanced_updates">Controleren op updates</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
     <string name="title_advanced_enabled_hint">Globaal in- of uitschakelen van het ontvangen en verzenden van berichten</string>
@@ -171,6 +173,7 @@
     <string name="title_advanced_autocollapse_hint">Meerdere uitgeklapte berichten worden altijd gesloten bij \'terug\'</string>
     <string name="title_advanced_autoclose_hint">Gesprekken automatisch sluiten wanneer alle berichten zijn gearchiveerd, verzonden of weggegooid</string>
     <string name="title_advanced_sender_hint">De meeste providers staan gemodificeerde verzendadressen niet toe</string>
+    <string name="title_advanced_badge_hint">Alleen beschikbaar op ondersteunde apparaten</string>
     <string name="title_advanced_preview_hint">Alleen beschikbaar wanneer de berichttekst werd gedownload</string>
     <string name="title_advanced_search_local_hint">In plaats van zoeken in de primaire archiefmap op de server</string>
     <string name="title_advanced_english_hint">Dit zal de app herstarten</string>

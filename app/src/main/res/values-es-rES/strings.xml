@@ -158,6 +158,7 @@
     <string name="title_advanced_search_local">Búsqueda externa en dispositivo</string>
     <string name="title_advanced_light">Usar luz de notificación</string>
     <string name="title_advanced_sound">Seleccionar sonido de notificación</string>
+    <string name="title_advanced_english">Forzar idioma inglés</string>
     <string name="title_advanced_updates">Buscar actualizaciones</string>
     <string name="title_advanced_debug">Modo de depuración</string>
     <string name="title_advanced_enabled_hint">Desactivar o activar globalmente la recepción y envío de mensajes</string>
@@ -172,6 +173,7 @@
     <string name="title_advanced_sender_hint">La mayoría de los proveedores no permiten direcciones de remitente modificadas</string>
     <string name="title_advanced_preview_hint">Sólo disponible cuando el texto del mensaje fue descargado</string>
     <string name="title_advanced_search_local_hint">En lugar de buscar en la carpeta de archivo principal en el servidor</string>
+    <string name="title_advanced_english_hint">Esto reiniciará la app</string>
     <string name="title_select">Seleccione &#8230;</string>
     <string name="title_identity_name">Su nombre</string>
     <string name="title_identity_email">Su dirección de correo electrónico</string>
@@ -351,6 +353,7 @@
     <string name="title_style_clear">Borrar formato</string>
     <string name="title_style_link">Insertar enlace</string>
     <string name="title_style_image">Insertar imagen</string>
+    <string name="title_style_toolbar">Estilizar barra de herramientas</string>
     <string name="title_add_attachment">Agregar adjunto</string>
     <string name="title_show_addresses">Mostrar CC/CCO</string>
     <string name="title_from_missing">Falta remitente</string>

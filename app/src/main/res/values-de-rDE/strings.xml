@@ -158,6 +158,7 @@
     <string name="title_advanced_search_local">Externe Suche auf Gerät</string>
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
     <string name="title_advanced_sound">Benachrichtigungston auswählen</string>
+    <string name="title_advanced_english">Englische Sprache erzwingen</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
     <string name="title_advanced_debug">Debugmodus</string>
     <string name="title_advanced_enabled_hint">Vollständiges de-/aktivieren der Empfangs- und Versandfunktion von E-Mails</string>
@@ -172,6 +173,7 @@
     <string name="title_advanced_sender_hint">Die meisten Anbieter erlauben keine veränderten Absenderadressen</string>
     <string name="title_advanced_preview_hint">Nur verfügbar, wenn der E-Mail-Text heruntergeladen wurde</string>
     <string name="title_advanced_search_local_hint">Anstatt im primären Archiv-Ordner auf dem Server zu suchen</string>
+    <string name="title_advanced_english_hint">Dies wird die App neu starten</string>
     <string name="title_select">Wählen Sie &#8230;</string>
     <string name="title_identity_name">Ihr Name</string>
     <string name="title_identity_email">Ihre E-Mail-Adresse</string>

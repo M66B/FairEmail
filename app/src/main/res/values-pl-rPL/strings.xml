@@ -160,6 +160,7 @@
     <string name="title_advanced_pull_refresh">Pociągnij w dół, aby odświeżyć</string>
     <string name="title_advanced_swipenav">Przesuń w lewo/prawo, aby przejść do następnej/poprzedniej konwersacji</string>
     <string name="title_advanced_autoexpand">Automatycznie rozwijaj wiadomości</string>
+    <string name="title_advanced_collapse">Zwiń wiadomości w konwersacji przy \'cofnij\'</string>
     <string name="title_advanced_autoclose">Automatycznie zamykaj konwersacje</string>
     <string name="title_advanced_autonext">Automatycznie przejdź do następnej rozmowy przy zamykaniu rozmowy</string>
     <string name="title_advanced_autoread">Automatycznie oznacz wiadomość jako przeczytaną przy przenoszeniu</string>
@@ -167,9 +168,11 @@
     <string name="title_advanced_autoresize">Automatycznie zmień rozmiar obrazów do wyświetlania na ekranach</string>
     <string name="title_advanced_sender">Zezwól na edycję adresu nadawcy</string>
     <string name="title_advanced_autosend">Potwierdź wysłanie wiadomości</string>
+    <string name="title_advanced_badge">Pokaż liczbę nowych wiadomości na ikonie launchera</string>
     <string name="title_advanced_notify_preview">Pokaż podgląd wiadomości w powiadomieniach</string>
     <string name="title_advanced_light">Użyj diody powiadomień</string>
     <string name="title_advanced_sound">Wybierz dźwięk powiadomienia</string>
+    <string name="title_advanced_english">Wymuś język angielski</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
     <string name="title_advanced_debug">Debuguj</string>
     <string name="title_advanced_enabled_hint">Globalnie wyłącz lub włącz odbieranie i wysyłanie wiadomości</string>
@@ -181,8 +184,10 @@
     <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w rozmowie jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>
     <string name="title_advanced_autoclose_hint">Automatycznie zamykaj wątki rozmowy po zarchiwizowaniu, wysłaniu lub usunięciu wszystkich wiadomości</string>
     <string name="title_advanced_sender_hint">Większość dostawców nie akceptuje zmodyfikowanych adresów nadawcy</string>
+    <string name="title_advanced_badge_hint">Dostępne tylko na wspieranych urządzeniach</string>
     <string name="title_advanced_preview_hint">Dostępne tylko po pobraniu tekstu wiadomości</string>
     <string name="title_advanced_search_local_hint">Zamiast przeszukiwać główny folder archiwum na serwerze</string>
+    <string name="title_advanced_english_hint">To zrestartuje aplikację</string>
     <string name="title_select">Wybierz &#8230;</string>
     <string name="title_identity_name">Twoja nazwa</string>
     <string name="title_identity_email">Twój adres e-mail</string>
@@ -399,6 +404,7 @@
     <string name="title_rule_recipient">Odbiorca zawiera</string>
     <string name="title_rule_subject">Tytuł zawiera</string>
     <string name="title_rule_header">Nagłówek zawiera</string>
+    <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">I</string>
     <string name="title_rule_action">Akcja</string>
     <string name="title_rule_action_remark">Ta akcja zostanie zastosowana do nowych wiadomości przychodzących do folderu %1$s</string>

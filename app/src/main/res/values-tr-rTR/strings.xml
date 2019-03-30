@@ -157,6 +157,7 @@
     <string name="title_advanced_search_local">Aygıtta harici arama</string>
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
+    <string name="title_advanced_english">İngilizce Diline Zorla</string>
     <string name="title_advanced_updates">Güncellemelere bak</string>
     <string name="title_advanced_debug">Hata ayıklama</string>
     <string name="title_advanced_enabled_hint">İletileri alma ve göndermeyi toptan devre dışı bırakın veya etkinleştirin</string>
@@ -171,6 +172,7 @@
     <string name="title_advanced_sender_hint">Çoğu sağlayıcı değiştirilmiş gönderici adreslerine izin vermiyor</string>
     <string name="title_advanced_preview_hint">Yalnızca ileti metni indirildiğinde kullanılabilir</string>
     <string name="title_advanced_search_local_hint">Sunucudaki birincil arşiv klasöründe arama yapmaktansa</string>
+    <string name="title_advanced_english_hint">Bu app yeniden başlatılır</string>
     <string name="title_select">Seçin &#8230;</string>
     <string name="title_identity_name">Adınız</string>
     <string name="title_identity_email">E-posta adresiniz</string>
@@ -350,6 +352,7 @@
     <string name="title_style_clear">Biçimlendirmeyi temizle</string>
     <string name="title_style_link">Bağlantı ekle</string>
     <string name="title_style_image">Resim Ekle</string>
+    <string name="title_style_toolbar">Stil araç çubuğu</string>
     <string name="title_add_attachment">Ek ekle</string>
     <string name="title_show_addresses">CC/BCC göster</string>
     <string name="title_from_missing">Gönderici Eksik</string>
@@ -379,6 +382,7 @@
     <string name="title_address_unsent">Gönderilmemiş:</string>
     <string name="title_address_invalid">Geçersiz:</string>
     <string name="title_snoozed">Ertelendi</string>
+    <string name="title_duplicates">Kopyaları göster</string>
     <string name="title_previous">Önceki</string>
     <string name="title_next">Sonraki</string>
     <string name="title_answer_reply">Yanıt kalıbı</string>

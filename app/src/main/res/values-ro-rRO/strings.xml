@@ -146,7 +146,7 @@
     <string name="title_advanced_flags">Arată marcate (favorite)</string>
     <string name="title_advanced_preview">Arată previzualizare mesaj</string>
     <string name="title_advanced_addresses">Implicit arată detaliile adreselor</string>
-    <string name="title_advanced_monospaced">Folosește fontul monospaced pentru a trimite un mesaj</string>
+    <string name="title_advanced_monospaced">Folosește fontul proporțional pentru textul mesajului</string>
     <string name="title_advanced_html">Arată în mod automat imaginile originale pentru contactele cunoscute</string>
     <string name="title_advanced_tracking">Se încearcă înlăturarea elementelor de urmărire din mesajele originale</string>
     <string name="title_advanced_images">Arată în mod automat imaginile pentru contactele cunoscute</string>
@@ -162,6 +162,7 @@
     <string name="title_advanced_autoresize">Se reduce automat mărimea imaginilor pentru a fi afișate pe ecran</string>
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_advanced_autosend">Confirmă trimiterea mesajelor</string>
+    <string name="title_advanced_badge">Afişeaza pictograma lansatorului cu numãrul de mesaje noi</string>
     <string name="title_advanced_notify_preview">Arată previzualizare mesaj în notificare</string>
     <string name="title_advanced_search_local">Căutare externă pe dispozitiv</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
@@ -179,9 +180,10 @@
     <string name="title_advanced_autocollapse_hint">Mesajele multiple vor fi mereu plate când se apasă \'înapoi\'</string>
     <string name="title_advanced_autoclose_hint">Atunci când toate mesajele sunt arhivate, trimise sau mutate la gunoi</string>
     <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
+    <string name="title_advanced_badge_hint">Disponibil doar pe dispozitive acceptate</string>
     <string name="title_advanced_preview_hint">Disponibil doar atunci când a fost descarcat textul mesajului</string>
     <string name="title_advanced_search_local_hint">În loc să se caute în dosarul arhivă primar de pe server</string>
-    <string name="title_advanced_english_hint">Acest lucru va reseta aplicația</string>
+    <string name="title_advanced_english_hint">Aplicația se va restarta</string>
     <string name="title_select">Selectaţi &#8230;</string>
     <string name="title_identity_name">Numele dumneavoastră</string>
     <string name="title_identity_email">Adresa dvs. de e-mail</string>
@@ -361,6 +363,7 @@
     <string name="title_style_clear">Elimină toate formatările</string>
     <string name="title_style_link">Inserare legătură</string>
     <string name="title_style_image">Inserare imagine</string>
+    <string name="title_style_toolbar">Bara de stil</string>
     <string name="title_add_attachment">Adaugă ataşament</string>
     <string name="title_show_addresses">Arată CC/BCC</string>
     <string name="title_from_missing">Expeditor lipsă</string>
