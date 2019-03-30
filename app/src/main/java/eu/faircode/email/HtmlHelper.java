@@ -190,7 +190,7 @@ public class HtmlHelper {
             // Show when tracking pixel
             if (tracking) {
                 div.appendElement("br");
-                div.appendElement("strong").text(
+                div.appendElement("em").text(
                         context.getString(R.string.title_hint_tracking_image,
                                 img.attr("width"), img.attr("height")));
             }
