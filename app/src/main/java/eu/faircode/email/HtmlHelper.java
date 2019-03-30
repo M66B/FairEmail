@@ -215,7 +215,7 @@ public class HtmlHelper {
                         for (Attribute attr : parent.attributes().asList())
                             parent.attributes().remove(attr.getKey());
                         parent.html(outer);
-                        parent.appendChild(div);
+                        parent.prependChild(div);
 
                         linked = true;
                         break;
