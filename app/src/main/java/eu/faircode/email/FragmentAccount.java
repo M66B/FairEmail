@@ -119,7 +119,6 @@ public class FragmentAccount extends FragmentBase {
     private Button btnCheck;
     private ContentLoadingProgressBar pbCheck;
     private TextView tvIdle;
-    private TextView tvMove;
     private TextView tvUtf8;
 
     private ArrayAdapter<EntityFolder> adapter;
@@ -196,7 +195,6 @@ public class FragmentAccount extends FragmentBase {
         pbCheck = view.findViewById(R.id.pbCheck);
 
         tvIdle = view.findViewById(R.id.tvIdle);
-        tvMove = view.findViewById(R.id.tvMove);
         tvUtf8 = view.findViewById(R.id.tvUtf8);
 
         spDrafts = view.findViewById(R.id.spDrafts);
@@ -235,7 +233,6 @@ public class FragmentAccount extends FragmentBase {
 
                 btnCheck.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 tvIdle.setVisibility(View.GONE);
-                tvMove.setVisibility(View.GONE);
                 tvUtf8.setVisibility(View.GONE);
 
                 Object tag = adapterView.getTag();
@@ -440,7 +437,6 @@ public class FragmentAccount extends FragmentBase {
         btnAdvanced.setVisibility(View.GONE);
 
         tvIdle.setVisibility(View.GONE);
-        tvMove.setVisibility(View.GONE);
         tvUtf8.setVisibility(View.GONE);
 
         btnCheck.setVisibility(View.GONE);
@@ -518,7 +514,6 @@ public class FragmentAccount extends FragmentBase {
                 Helper.setViewsEnabled(view, false);
                 pbCheck.setVisibility(View.VISIBLE);
                 tvIdle.setVisibility(View.GONE);
-                tvMove.setVisibility(View.GONE);
                 tvUtf8.setVisibility(View.GONE);
                 grpFolders.setVisibility(View.GONE);
                 tvError.setVisibility(View.GONE);
@@ -578,7 +573,6 @@ public class FragmentAccount extends FragmentBase {
                     }
 
                     result.idle = ((IMAPStore) istore).hasCapability("IDLE");
-                    result.move = ((IMAPStore) istore).hasCapability("MOVE");
 
                     boolean inbox = false;
                     boolean archive = false;
@@ -678,7 +672,6 @@ public class FragmentAccount extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, CheckResult result) {
                 tvIdle.setVisibility(result.idle ? View.GONE : View.VISIBLE);
-                tvMove.setVisibility(result.move ? View.GONE : View.VISIBLE);
                 tvUtf8.setVisibility(result.utf8 == null || result.utf8 ? View.GONE : View.VISIBLE);
 
                 setFolders(result.folders, result.account);
@@ -1447,7 +1440,6 @@ public class FragmentAccount extends FragmentBase {
         EntityAccount account;
         List<EntityFolder> folders;
         boolean idle;
-        boolean move;
         Boolean utf8;
     }
 }
