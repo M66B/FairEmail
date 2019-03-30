@@ -325,7 +325,11 @@ public class HtmlHelper {
     }
 
     static Drawable decodeImage(String source, Context context, long id, boolean show) {
-        int px = Helper.dp2pixels(context, 48);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean compact = prefs.getBoolean("compact", false);
+        int zoom = prefs.getInt("zoom", compact ? 0 : 1);
+
+        int px = Helper.dp2pixels(context, (zoom + 1) * 24);
 
         if (TextUtils.isEmpty(source)) {
             Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
