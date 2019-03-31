@@ -1717,28 +1717,19 @@ public class FragmentCompose extends FragmentBase {
                             draft.inreplyto = ref.msgid;
                             draft.thread = ref.thread;
 
-                            // Special case
-                            if (BuildConfig.DEBUG) {
-                                String from = null;
-                                String to = null;
-                                String delivered = Helper.canonicalAddress(ref.deliveredto);
-                                String me = Helper.canonicalAddress(Helper.myAddress().getAddress());
+                            // Prevent replying to self
+                            String from = null;
+                            String via = null;
+                            if (ref.from != null && ref.from.length > 0)
+                                from = Helper.canonicalAddress(((InternetAddress) ref.from[0]).getAddress());
+                            if (ref.identity != null) {
+                                EntityIdentity v = db.identity().getIdentity(ref.identity);
+                                via = Helper.canonicalAddress(v.email);
+                            }
 
-                                if (ref.from != null && ref.from.length > 0)
-                                    from = Helper.canonicalAddress(((InternetAddress) ref.from[0]).getAddress());
-                                if (ref.to != null && ref.to.length > 0)
-                                    to = Helper.canonicalAddress(((InternetAddress) ref.to[0]).getAddress());
-
-                                if (delivered.equals(me) && from != null && from.equals(me)) {
-                                    if (to != null && to.equals(me))
-                                        draft.to = ref.reply;
-                                    else
-                                        draft.to = ref.to;
-                                    draft.from = ref.from;
-                                } else {
-                                    draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
-                                    draft.from = ref.to;
-                                }
+                            if (from != null && from.equals(via)) {
+                                draft.to = ref.to;
+                                draft.from = ref.from;
                             } else {
                                 draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
                                 draft.from = ref.to;

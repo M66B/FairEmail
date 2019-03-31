@@ -72,7 +72,6 @@ import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.StoreClosedException;
 import javax.mail.UIDFolder;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.search.ComparisonTerm;
@@ -1096,23 +1095,22 @@ class Core {
             Address[] froms = helper.getFrom();
             Address[] tos = helper.getTo();
             Address[] ccs = helper.getCc();
-            String delivered = helper.getDeliveredTo();
 
             // Build ordered list of addresses
             List<Address> addresses = new ArrayList<>();
-            if (delivered != null)
-                try {
-                    addresses.add(new InternetAddress(delivered));
-                } catch (AddressException ex) {
-                    // Local address contains control or whitespace in string ``mailing list someone@example.org''
-                    Log.w(ex);
+            if (folder.isOutgoing()) {
+                if (froms != null)
+                    addresses.addAll(Arrays.asList(froms));
+            } else {
+                if (tos != null)
+                    addresses.addAll(Arrays.asList(tos));
+                if (ccs != null)
+                    addresses.addAll(Arrays.asList(ccs));
+                if (EntityFolder.ARCHIVE.equals(folder.type)) {
+                    if (froms != null)
+                        addresses.addAll(Arrays.asList(froms));
                 }
-            if (tos != null)
-                addresses.addAll(Arrays.asList(tos));
-            if (ccs != null)
-                addresses.addAll(Arrays.asList(ccs));
-            if (froms != null)
-                addresses.addAll(Arrays.asList(froms));
+            }
 
             // Search for matching identity
             EntityIdentity identity = null;
@@ -1144,7 +1142,8 @@ class Core {
 
             message.references = TextUtils.join(" ", helper.getReferences());
             message.inreplyto = helper.getInReplyTo();
-            message.deliveredto = delivered;
+            // Local address contains control or whitespace in string ``mailing list someone@example.org''
+            message.deliveredto = helper.getDeliveredTo();
             message.thread = helper.getThreadId(context, account.id, uid);
             message.from = froms;
             message.to = tos;

@@ -678,12 +678,11 @@ Note that this is independent of receiving messages.
 <a name="faq34"></a>
 **(34) How are identities matched?**
 
-Identities are matched on e-mail address in this order:
+Identities are as expected matched by account.
+For incoming messages the *to* and *cc* address will be checked and for outgoing messages the *from* addresses will be checked.
+Archived messages will be considered as incoming messages, but additionally the *from* address will be checked.
 
-1. *Delivered-To* header address
-1. *To* header address
-1. *Cc* header address
-1. *From* header address
+The matched address will be shown as *via* in the addresses section.
 
 Matched identities can be used to color code messages.
 The identity color takes precedence over the account color.

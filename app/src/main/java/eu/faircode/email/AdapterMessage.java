@@ -851,8 +851,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvBcc.setVisibility(show_addresses && !TextUtils.isEmpty(bcc) ? View.VISIBLE : View.GONE);
             tvBcc.setText(bcc);
 
-            tvIdentityTitle.setVisibility(show_addresses && debug && via != null ? View.VISIBLE : View.GONE);
-            tvIdentity.setVisibility(show_addresses && debug && via != null ? View.VISIBLE : View.GONE);
+            tvIdentityTitle.setVisibility(show_addresses && via != null ? View.VISIBLE : View.GONE);
+            tvIdentity.setVisibility(show_addresses && via != null ? View.VISIBLE : View.GONE);
             tvIdentity.setText(via == null ? null : MessageHelper.formatAddresses(new Address[]{via}));
 
             tvTimeExTitle.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
