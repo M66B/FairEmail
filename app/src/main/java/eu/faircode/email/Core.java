@@ -1304,6 +1304,24 @@ class Core {
         return message;
     }
 
+    private static void runRules(Context context, IMAPMessage imessage, EntityMessage message, List<EntityRule> rules) {
+        if (!Helper.isPro(context))
+            return;
+
+        DB db = DB.getInstance(context);
+        try {
+            for (EntityRule rule : rules)
+                if (rule.matches(context, message, imessage)) {
+                    rule.execute(context, db, message);
+                    if (rule.stop)
+                        break;
+                }
+        } catch (Throwable ex) {
+            Log.e(ex);
+            db.message().setMessageError(message.id, Helper.formatThrowable(ex));
+        }
+    }
+
     private static void updateContactInfo(Context context, EntityFolder folder, EntityMessage message) {
         DB db = DB.getInstance(context);
 
@@ -1357,24 +1375,6 @@ class Core {
                     Log.i("Updated contact=" + contact + " type=" + type);
                 }
             }
-        }
-    }
-
-    private static void runRules(Context context, IMAPMessage imessage, EntityMessage message, List<EntityRule> rules) {
-        if (!Helper.isPro(context))
-            return;
-
-        DB db = DB.getInstance(context);
-        try {
-            for (EntityRule rule : rules)
-                if (rule.matches(context, message, imessage)) {
-                    rule.execute(context, db, message);
-                    if (rule.stop)
-                        break;
-                }
-        } catch (Throwable ex) {
-            Log.e(ex);
-            db.message().setMessageError(message.id, Helper.formatThrowable(ex));
         }
     }
 
