@@ -101,7 +101,6 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    def archcore_version = "2.0.1"
     def appcompat_version = "1.0.2"
     def recyclerview_version = "1.0.0"
     def coordinatorlayout_version = "1.0.0"
@@ -123,8 +122,12 @@ dependencies {
     def badge_version = "1.1.22"
 
     // https://developer.android.com/jetpack/androidx/releases/
-    implementation "androidx.arch.core:core-common:$archcore_version"
-    implementation "androidx.arch.core:core-runtime:$archcore_version"
+
+    // temporary
+    implementation "androidx.arch.core:core-common:2.0.1"
+    implementation "androidx.arch.core:core-runtime:2.0.1"
+    implementation "androidx.sqlite:sqlite:2.0.1"
+    implementation "androidx.sqlite:sqlite-framework:2.0.1"
 
     // https://mvnrepository.com/artifact/androidx.appcompat/appcompat
     implementation "androidx.appcompat:appcompat:$appcompat_version"
