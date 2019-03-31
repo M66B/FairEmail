@@ -96,9 +96,9 @@ public abstract class DB extends RoomDatabase {
         if (sInstance == null) {
             sInstance = migrate(context, getBuilder(context));
 
-            Log.i("sqlite version=" + exec(sInstance, "SELECT sqlite_version() AS sqlite_version"));
-            Log.i("sqlite sync=" + exec(sInstance, "PRAGMA synchronous"));
-            Log.i("sqlite journal=" + exec(sInstance, "PRAGMA journal_mode"));
+            Log.i("SQLite version=" + exec(sInstance, "SELECT sqlite_version() AS sqlite_version"));
+            Log.i("SQLite sync=" + exec(sInstance, "PRAGMA synchronous"));
+            Log.i("SQLite journal=" + exec(sInstance, "PRAGMA journal_mode"));
         }
 
         return sInstance;
@@ -681,7 +681,7 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("DROP INDEX index_message_msgid_folder");
-                        db.execSQL("CREATE  INDEX `index_message_msgid` ON `message` (`msgid`)");
+                        db.execSQL("CREATE INDEX `index_message_msgid` ON `message` (`msgid`)");
                     }
                 })
                 .build();
