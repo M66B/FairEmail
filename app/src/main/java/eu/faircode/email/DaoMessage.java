@@ -261,6 +261,11 @@ public interface DaoMessage {
     @Query("SELECT * FROM message WHERE NOT ui_snoozed IS NULL")
     List<EntityMessage> getSnoozed();
 
+    @Query("SELECT id, `from`, avatar FROM message" +
+            " WHERE folder = :folder" +
+            " AND received >= :before")
+    List<TupleMessageLookup> getAvatars(long folder, long before);
+
     @Insert
     long insertMessage(EntityMessage message);
 
@@ -302,6 +307,9 @@ public interface DaoMessage {
 
     @Query("UPDATE message SET sent = :sent WHERE id = :id")
     int setMessageSent(long id, Long sent);
+
+    @Query("UPDATE message SET avatar = :avatar WHERE id = :id")
+    int setMessageAvatar(long id, String avatar);
 
     @Query("UPDATE message SET error = :error WHERE id = :id")
     int setMessageError(long id, String error);

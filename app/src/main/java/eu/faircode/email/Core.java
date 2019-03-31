@@ -1169,7 +1169,7 @@ class Core {
             message.ui_browsed = browsed;
 
             message.sender = MessageHelper.getSortKey(message.from);
-            Uri lookupUri = ContactInfo.getLookupUri(context, message.from);
+            Uri lookupUri = ContactInfo.getLookupUri(context, message.from, true);
             message.avatar = (lookupUri == null ? null : lookupUri.toString());
 
             Address sender = helper.getSender(); // header
@@ -1263,13 +1263,6 @@ class Core {
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " unbrowse");
             }
 
-            Uri lookupUri = ContactInfo.getLookupUri(context, message.from);
-            if ((message.avatar == null) != (lookupUri == null)) {
-                update = true;
-                message.avatar = (lookupUri == null ? null : lookupUri.toString());
-                Log.i(folder.name + " updated id=" + message.id + " lookup=" + lookupUri);
-            }
-
             if (update)
                 try {
                     db.beginTransaction();
@@ -1351,7 +1344,7 @@ class Core {
             for (Address recipient : recipients) {
                 String email = ((InternetAddress) recipient).getAddress();
                 String name = ((InternetAddress) recipient).getPersonal();
-                Uri avatar = ContactInfo.getLookupUri(context, new Address[]{recipient});
+                Uri avatar = ContactInfo.getLookupUri(context, new Address[]{recipient}, true);
                 EntityContact contact = db.contact().getContact(folder.account, type, email);
                 if (contact == null) {
                     contact = new EntityContact();

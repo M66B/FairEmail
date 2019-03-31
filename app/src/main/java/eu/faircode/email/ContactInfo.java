@@ -27,9 +27,11 @@ public class ContactInfo {
     private Uri lookupUri;
     private long time;
 
+    private static Map<String, LookupInfo> emailLookupInfo = new HashMap<>();
     private static Map<String, ContactInfo> emailContactInfo = new HashMap<>();
 
-    private static final long CACHE_DURATION = 60 * 1000L;
+    private static final long CACHE_LOOKUP_DURATION = 120 * 60 * 1000L;
+    private static final long CACHE_CONTACT_DURATION = 60 * 1000L;
 
     private ContactInfo() {
     }
@@ -60,10 +62,13 @@ public class ContactInfo {
     }
 
     private boolean isExpired() {
-        return (new Date().getTime() - time > CACHE_DURATION);
+        return (new Date().getTime() - time > CACHE_CONTACT_DURATION);
     }
 
     static void clearCache() {
+        synchronized (emailLookupInfo) {
+            emailLookupInfo.clear();
+        }
         synchronized (emailContactInfo) {
             emailContactInfo.clear();
         }
@@ -146,13 +151,20 @@ public class ContactInfo {
         return info;
     }
 
-    static Uri getLookupUri(Context context, Address[] addresses) {
+    static Uri getLookupUri(Context context, Address[] addresses, boolean useCache) {
+        if (!Helper.hasPermission(context, Manifest.permission.READ_CONTACTS))
+            return null;
+
         if (addresses == null || addresses.length == 0)
             return null;
         InternetAddress address = (InternetAddress) addresses[0];
 
-        if (!Helper.hasPermission(context, Manifest.permission.READ_CONTACTS))
-            return null;
+        if (useCache)
+            synchronized (emailLookupInfo) {
+                LookupInfo info = emailLookupInfo.get(address.getAddress());
+                if (info != null && !info.isExpired())
+                    return info.uri;
+            }
 
         try {
             ContentResolver resolver = context.getContentResolver();
@@ -166,19 +178,39 @@ public class ContactInfo {
                             address.getAddress()
                     }, null)) {
 
+                Uri uri = null;
                 if (cursor != null && cursor.moveToNext()) {
                     int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
                     int colLookupKey = cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY);
 
                     long contactId = cursor.getLong(colContactId);
                     String lookupKey = cursor.getString(colLookupKey);
-                    return ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
-                } else
-                    return null;
+
+                    uri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
+                }
+
+                LookupInfo info = new LookupInfo();
+                info.uri = uri;
+                info.time = new Date().getTime();
+
+                synchronized (emailLookupInfo) {
+                    emailLookupInfo.put(address.getAddress(), info);
+                }
+
+                return info.uri;
             }
         } catch (Throwable ex) {
             Log.e(ex);
             return null;
+        }
+    }
+
+    private static class LookupInfo {
+        private Uri uri;
+        private long time;
+
+        private boolean isExpired() {
+            return (new Date().getTime() - time > CACHE_LOOKUP_DURATION);
         }
     }
 }

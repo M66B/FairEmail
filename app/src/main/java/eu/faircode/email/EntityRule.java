@@ -260,7 +260,7 @@ public class EntityRule {
         reply.received = new Date().getTime();
 
         reply.sender = MessageHelper.getSortKey(reply.from);
-        Uri lookupUri = ContactInfo.getLookupUri(context, reply.from);
+        Uri lookupUri = ContactInfo.getLookupUri(context, reply.from, true);
         reply.avatar = (lookupUri == null ? null : lookupUri.toString());
 
         reply.id = db.message().insertMessage(reply);

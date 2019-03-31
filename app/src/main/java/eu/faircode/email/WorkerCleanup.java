@@ -1,6 +1,7 @@
 package eu.faircode.email;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Build;
 
 import java.io.File;
@@ -9,6 +10,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 import androidx.annotation.NonNull;
@@ -120,6 +122,32 @@ public class WorkerCleanup extends Worker {
             Log.i("Cleanup log");
             int logs = db.log().deleteLogs(now - KEEP_LOG_DURATION);
             Log.i("Deleted logs=" + logs);
+
+            Log.i("Update lookup URIs");
+            List<EntityFolder> folders = db.folder().getSynchronizingFolders();
+            for (EntityFolder folder : folders) {
+                Calendar cal = Calendar.getInstance();
+                cal.add(Calendar.DAY_OF_MONTH, -folder.sync_days);
+                cal.set(Calendar.HOUR_OF_DAY, 0);
+                cal.set(Calendar.MINUTE, 0);
+                cal.set(Calendar.SECOND, 0);
+                cal.set(Calendar.MILLISECOND, 0);
+                long sync_time = cal.getTimeInMillis();
+                if (sync_time < 0)
+                    sync_time = 0;
+                Log.i("Update lookup URIs " + folder.name + " before " + new Date(sync_time));
+
+                List<TupleMessageLookup> avatars = db.message().getAvatars(folder.id, sync_time);
+                for (TupleMessageLookup message : avatars) {
+                    Uri uri = (message.avatar == null ? null : Uri.parse(message.avatar));
+                    Uri lookup = ContactInfo.getLookupUri(context, message.from, false);
+                    if (!Objects.equals(uri, lookup)) {
+                        Log.i("Updating email=" + MessageHelper.formatAddresses(message.from) + " uri=" + lookup);
+                        db.message().setMessageAvatar(message.id, lookup == null ? null : lookup.toString());
+                    }
+                }
+            }
+            Log.i("Updated lookup URIs");
 
             db.setTransactionSuccessful();
         } catch (Throwable ex) {
