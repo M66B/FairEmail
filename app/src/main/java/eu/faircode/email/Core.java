@@ -1070,20 +1070,18 @@ class Core {
                     Log.i(folder.name + " found as id=" + dup.id +
                             " uid=" + dup.uid + "/" + uid +
                             " msgid=" + msgid + " thread=" + thread);
-                    dup.folder = folder.id; // outbox to sent
 
                     if (dup.uid == null) {
                         Log.i(folder.name + " set uid=" + uid);
+                        dup.folder = folder.id; // outbox to sent
                         dup.uid = uid;
+                        dup.msgid = msgid;
+                        dup.thread = thread;
+                        dup.error = null;
+                        message = dup;
+                        update = true;
                         filter = true;
-                    } else
-                        Log.w(folder.name + " changed uid=" + dup.uid + " -> " + uid);
-
-                    dup.msgid = msgid;
-                    dup.thread = thread;
-                    dup.error = null;
-                    update = true;
-                    message = dup;
+                    }
                 }
             }
 
