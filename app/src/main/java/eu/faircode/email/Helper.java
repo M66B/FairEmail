@@ -443,13 +443,14 @@ public class Helper {
 
         // Get version info
         String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
-        sb.append(String.format("%s: %s/%s %s/%s%s%s\r\n",
+        sb.append(String.format("%s: %s/%s %s/%s%s%s%s\r\n",
                 context.getString(R.string.app_name),
                 BuildConfig.APPLICATION_ID,
                 installer,
                 BuildConfig.VERSION_NAME,
                 hasValidFingerprint(context) ? "1" : "3",
                 BuildConfig.PLAY_STORE_RELEASE ? "p" : "",
+                BuildConfig.DEBUG ? "d" : "",
                 isPro(context) ? "+" : ""));
         sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
         sb.append("\r\n");
