@@ -101,7 +101,7 @@
     <string name="title_setup_identity">Ställ in identiteter</string>
     <string name="title_setup_identity_remark">Skicka e-post</string>
     <string name="title_setup_permissions">Bevilja behörigheter</string>
-    <string name="title_setup_permissions_remark">Få tillgång till kontaktinformation (frivillig)</string>
+    <string name="title_setup_permissions_remark">Få tillgång till kontaktinformation (valfritt)</string>
     <string name="title_setup_doze">Ställ in batterioptimering</string>
     <string name="title_setup_doze_remark">Kontinuerligt ta emot e-post (valfritt)</string>
     <string name="title_setup_doze_instructions">I nästa dialogruta, välj ”Alla appar” högst upp, välj denna app och välj och bekräfta ”Optimera inte”</string>
@@ -137,6 +137,7 @@
     <string name="title_advanced_flags">Visa stjärnor (favoriter)</string>
     <string name="title_advanced_preview">Förhandsvisning av meddelande</string>
     <string name="title_advanced_addresses">Visa adressuppgifter som standard</string>
+    <string name="title_advanced_monospaced">Använd monospace-typsnitt för meddelandetexten</string>
     <string name="title_advanced_html">Visa automatiskt originalmeddelande för kända kontakter</string>
     <string name="title_advanced_images">Visa bilder automatiskt för kända kontakter</string>
     <string name="title_advanced_actionbar">Konversationens åtgärdsfält</string>
@@ -155,6 +156,8 @@
     <string name="title_advanced_search_local">Extern sökning på enheten</string>
     <string name="title_advanced_light">Använda aviseringslampan</string>
     <string name="title_advanced_sound">Välj aviseringsljud</string>
+    <string name="title_advanced_english">Tvinga användning av engelska</string>
+    <string name="title_advanced_paranoid">Extra sekretessfunktioner</string>
     <string name="title_advanced_updates">Sök efter uppdateringar</string>
     <string name="title_advanced_debug">Felsökningsläge</string>
     <string name="title_advanced_enabled_hint">Inaktivera eller aktivera mottagning och sändning av meddelanden globalt</string>
@@ -167,8 +170,10 @@
     <string name="title_advanced_autocollapse_hint">Flera utökade meddelanden kommer alltid att stängas på \"Tillbaka\"</string>
     <string name="title_advanced_autoclose_hint">Stäng automatiskt konversationstrådar när alla meddelanden arkiveras, skickas eller kastas</string>
     <string name="title_advanced_sender_hint">De flesta leverantörer tillåter inte ändrade avsändaradresser</string>
+    <string name="title_advanced_badge_hint">Endast tillgänglig på enheter som stöds</string>
     <string name="title_advanced_preview_hint">Endast tillgängligt när meddelandetexten hämtades</string>
     <string name="title_advanced_search_local_hint">Istället för att söka i den primära arkivmappen på servern</string>
+    <string name="title_advanced_english_hint">Detta startar om appen</string>
     <string name="title_select">Välj &#8230;</string>
     <string name="title_identity_name">Ditt namn</string>
     <string name="title_identity_email">Din e-postadress</string>
@@ -436,6 +441,7 @@
     <string name="title_legend_waiting">Väntar på nästa synkronisering</string>
     <string name="title_legend_stop">Sluta bearbeta regler</string>
     <string name="title_legend_sync_keep">Antal dagar att synkronisera / för att behålla meddelanden</string>
+    <string name="title_legend_download_fetch">Antal hämtade meddelandetexter / rubriker hämtade / på servern</string>
     <string name="title_legend_metered">Uppmätt anslutning</string>
     <string name="title_legend_unmetered">Icke-uppmätt anslutning</string>
     <string name="title_hint_folder_actions">Långtryck för inställningar</string>

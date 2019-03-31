@@ -153,11 +153,13 @@
     <string name="title_advanced_autoresize">Redimensionar as imagens automaticamente para exibir em telas</string>
     <string name="title_advanced_sender">Permitir editar o endereço do remetente</string>
     <string name="title_advanced_autosend">Confirmar o envio de mensagens</string>
+    <string name="title_advanced_badge">Mostrar ícone no launcher com número de novas mensagens</string>
     <string name="title_advanced_notify_preview">Mostrar pré-visualização de mensagem nas notificações</string>
     <string name="title_advanced_search_local">Pesquisa externa no dispositivo</string>
     <string name="title_advanced_light">Usar luz de notificação</string>
     <string name="title_advanced_sound">Selecionar som de notificação</string>
     <string name="title_advanced_english">Forçar em inglês</string>
+    <string name="title_advanced_paranoid">Recursos extra de privacidade</string>
     <string name="title_advanced_updates">Procurar por atualizações</string>
     <string name="title_advanced_debug">Modo de depuração</string>
     <string name="title_advanced_enabled_hint">Desative ou habilite o recebimento e envio de mensagens globalmente</string>
@@ -170,6 +172,7 @@
     <string name="title_advanced_autocollapse_hint">Várias mensagens expandidas serão sempre fechadas ao \'voltar\'</string>
     <string name="title_advanced_autoclose_hint">Fechar automaticamente conversas quando todas as mensagens estiverem arquivadas, enviadas ou na lixeira</string>
     <string name="title_advanced_sender_hint">A maioria dos provedores não permite endereços de remetente modificados</string>
+    <string name="title_advanced_badge_hint">Disponível somente em dispositivos suportados</string>
     <string name="title_advanced_preview_hint">Somente disponível quando o texto da mensagem for baixado</string>
     <string name="title_advanced_search_local_hint">Ao invés de pesquisar na pasta principal do arquivo no servidor</string>
     <string name="title_advanced_english_hint">Isto irá reiniciar o app</string>
