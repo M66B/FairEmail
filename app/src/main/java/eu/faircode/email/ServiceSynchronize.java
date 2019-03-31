@@ -518,15 +518,17 @@ public class ServiceSynchronize extends LifecycleService {
                         public void notification(StoreEvent e) {
                             try {
                                 wlAccount.acquire();
+                                String message = e.getMessage();
                                 if (e.getMessageType() == StoreEvent.ALERT) {
-                                    Log.w(account.name + " alert: " + e.getMessage());
-                                    db.account().setAccountError(account.id, e.getMessage());
-                                    Core.reportError(
-                                            ServiceSynchronize.this, account, null,
-                                            new Core.AlertException(e.getMessage()));
+                                    Log.w(account.name + " alert: " + message);
+                                    db.account().setAccountError(account.id, message);
+                                    if (BuildConfig.DEBUG ||
+                                            (message != null && !message.startsWith("Too many simultaneous connections")))
+                                        Core.reportError(ServiceSynchronize.this, account, null,
+                                                new Core.AlertException(message));
                                     state.error();
                                 } else
-                                    Log.i(account.name + " notice: " + e.getMessage());
+                                    Log.i(account.name + " notice: " + message);
                             } finally {
                                 wlAccount.release();
                             }
@@ -623,7 +625,7 @@ public class ServiceSynchronize extends LifecycleService {
                         throw ex;
                     }
 
-                    final boolean capIdle = ((IMAPStore) istore).hasCapability("IDLE");
+                    final boolean capIdle = istore.hasCapability("IDLE");
                     Log.i(account.name + " idle=" + capIdle);
 
                     db.account().setAccountState(account.id, "connected");
