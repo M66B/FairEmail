@@ -229,6 +229,16 @@ public class FragmentFolder extends FragmentBase {
                         reload = (!folder.synchronize.equals(synchronize) ||
                                 !folder.poll.equals(poll));
 
+                        Log.i("Updating folder=" + name);
+                        db.folder().setFolderProperties(id,
+                                display, unified, notify, hide,
+                                synchronize, poll, download,
+                                sync_days, keep_days);
+                        db.folder().setFolderError(id, null);
+
+                        if (keep_days == sync_days)
+                            keep_days++;
+
                         Calendar cal_keep = Calendar.getInstance();
                         cal_keep.add(Calendar.DAY_OF_MONTH, -keep_days);
                         cal_keep.set(Calendar.HOUR_OF_DAY, 12);
@@ -239,13 +249,6 @@ public class FragmentFolder extends FragmentBase {
                         long keep_time = cal_keep.getTimeInMillis();
                         if (keep_time < 0)
                             keep_time = 0;
-
-                        Log.i("Updating folder=" + name);
-                        db.folder().setFolderProperties(id,
-                                display, unified, notify, hide,
-                                synchronize, poll, download,
-                                sync_days, keep_days);
-                        db.folder().setFolderError(id, null);
 
                         db.message().deleteMessagesBefore(id, keep_time);
 
