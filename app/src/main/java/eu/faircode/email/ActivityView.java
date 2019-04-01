@@ -404,8 +404,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         checkFirst();
         checkCrash();
-        if (!Helper.isPlayStoreInstall(this))
-            checkUpdate(false);
 
         pgpService = new OpenPgpServiceConnection(this, "org.sufficientlysecure.keychain");
         pgpService.bindToService();
@@ -582,6 +580,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         if (!pgpService.isBound())
             pgpService.bindToService();
+
+        checkUpdate(false);
     }
 
     @Override
@@ -708,6 +708,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void checkUpdate(boolean always) {
+        if (Helper.isPlayStoreInstall(this))
+            return;
+
         long now = new Date().getTime();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (!always && !prefs.getBoolean("updates", true))
