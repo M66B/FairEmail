@@ -145,11 +145,13 @@
     <string name="title_advanced_autoresize">自动调整屏幕显示的图像大小</string>
     <string name="title_advanced_sender">允许编辑发件人地址</string>
     <string name="title_advanced_autosend">确认发送邮件</string>
+    <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
     <string name="title_advanced_notify_preview">通知中显示消息预览</string>
     <string name="title_advanced_search_local">外部搜索</string>
     <string name="title_advanced_light">使用指示灯</string>
     <string name="title_advanced_sound">选择通知提示音</string>
     <string name="title_advanced_english">强制使用英语</string>
+    <string name="title_advanced_paranoid">额外隐私功能</string>
     <string name="title_advanced_updates">检查更新</string>
     <string name="title_advanced_debug">调试模式</string>
     <string name="title_advanced_enabled_hint">全局禁用或启用邮件的接收和发送</string>
@@ -162,6 +164,7 @@
     <string name="title_advanced_autocollapse_hint">App将在您按下“返回”键时关闭多条展开的消息</string>
     <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
+    <string name="title_advanced_badge_hint">仅在受支持的设备中可用</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_search_local_hint">不在服务器上的主存档文件夹中搜索</string>
     <string name="title_advanced_english_hint">这将重新启动应用程序</string>
