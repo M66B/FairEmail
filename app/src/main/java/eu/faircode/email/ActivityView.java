@@ -34,6 +34,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -794,8 +795,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             protected void onExecuted(Bundle args, UpdateInfo info) {
                 if (info == null) {
-                    if (args.getBoolean("always"))
-                        Toast.makeText(ActivityView.this, BuildConfig.VERSION_NAME, Toast.LENGTH_LONG).show();
+                    if (args.getBoolean("always")) {
+                        Toast toast = Toast.makeText(ActivityView.this, BuildConfig.VERSION_NAME, Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.show();
+                    }
                     return;
                 }
 
