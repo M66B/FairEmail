@@ -31,7 +31,6 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -272,28 +271,6 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 this.icon = icon;
                 this.name = name;
                 this.info = info;
-            }
-        }
-
-        public class TargetAdapter extends ArrayAdapter<NameResolveInfo> {
-            private Context context;
-
-            TargetAdapter(Context context, int resid, List<NameResolveInfo> items) {
-                super(context, resid, items);
-                this.context = context;
-            }
-
-            public View getView(int position, View convertView, ViewGroup parent) {
-                NameResolveInfo item = getItem(position);
-
-                View view = LayoutInflater.from(context).inflate(R.layout.item_target, null);
-                ImageView ivIcon = view.findViewById(R.id.ivIcon);
-                TextView tvName = view.findViewById(R.id.tvName);
-
-                ivIcon.setImageDrawable(item.icon);
-                tvName.setText(item.name);
-
-                return view;
             }
         }
     }
