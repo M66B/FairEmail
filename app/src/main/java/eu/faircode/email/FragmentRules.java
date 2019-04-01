@@ -34,6 +34,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -79,6 +80,10 @@ public class FragmentRules extends FragmentBase {
 
         adapter = new AdapterRule(getContext(), getViewLifecycleOwner());
         rvRule.setAdapter(adapter);
+
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
+        rvRule.addItemDecoration(itemDecorator);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

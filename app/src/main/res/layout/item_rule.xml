@@ -9,13 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/activatableItemBackground"
-        android:foreground="?attr/selectableItemBackground">
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="6dp">
 
         <TextView
             android:id="@+id/tvName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
             android:layout_marginEnd="6dp"
             android:ellipsize="end"
             android:maxLines="1"
@@ -42,20 +42,8 @@
             android:id="@+id/ivStop"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="6dp"
             android:src="@drawable/baseline_stop_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:id="@+id/vSeparator"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="6dp"
-            android:background="?attr/colorSeparator"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivStop" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
