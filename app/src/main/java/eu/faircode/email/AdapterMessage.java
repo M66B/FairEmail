@@ -372,7 +372,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             for (int i = 0; i < group.getChildCount(); i++) {
                 View child = group.getChildAt(i);
                 int id = child.getId();
-                if (id != R.id.tvDay && id != R.id.vSeparatorDay && id != R.id.vSeparator)
+                if (id != R.id.tvDay && id != R.id.vSeparatorDay)
                     child.setTranslationX(dx);
             }
         }

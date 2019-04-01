@@ -49,6 +49,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -131,6 +132,10 @@ public class FragmentFolders extends FragmentBase {
         rvFolder.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvFolder.setLayoutManager(llm);
+
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
+        rvFolder.addItemDecoration(itemDecorator);
 
         adapter = new AdapterFolder(getContext(), getViewLifecycleOwner(), new AdapterFolder.IProperties() {
             @Override

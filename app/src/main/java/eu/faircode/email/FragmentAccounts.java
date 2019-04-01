@@ -44,6 +44,7 @@ import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -86,6 +87,10 @@ public class FragmentAccounts extends FragmentBase {
         rvAccount.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvAccount.setLayoutManager(llm);
+
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
+        rvAccount.addItemDecoration(itemDecorator);
 
         adapter = new AdapterAccount(getContext(), settings);
         rvAccount.setAdapter(adapter);

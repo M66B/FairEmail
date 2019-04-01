@@ -15,7 +15,7 @@
             android:layout_width="6dp"
             android:layout_height="0dp"
             android:background="@color/colorAccent"
-            app:layout_constraintBottom_toTopOf="@+id/vSeparator"
+            app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,7 +46,7 @@
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:src="@drawable/baseline_expand_less_24"
-            app:layout_constraintBottom_toTopOf="@+id/vSeparator"
+            app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
             app:layout_constraintStart_toEndOf="@+id/vwLevel"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -173,11 +173,10 @@
             app:layout_constraintTop_toBottomOf="@id/tvKeywords" />
 
         <View
-            android:id="@+id/vSeparator"
+            android:id="@+id/paddingBottom"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="6dp"
-            android:background="?attr/colorSeparator"
+            android:layout_height="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvError" />
 
@@ -186,10 +185,18 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="?android:attr/selectableItemBackground"
-            app:layout_constraintBottom_toTopOf="@id/vSeparator"
+            app:layout_constraintBottom_toBottomOf="@id/paddingBottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/vSeparatorChilds"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/paddingBottom" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvChilds"
@@ -197,6 +204,12 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorChilds" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpChilds"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="vSeparatorChilds,rvChilds" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -49,11 +49,13 @@ import java.util.Locale;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
@@ -96,6 +98,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private TextView tvError;
         private View vwRipple;
         private RecyclerView rvChilds;
+        private Group grpChilds;
 
         private AdapterFolder childs;
         private TwoStateOwner cowner = new TwoStateOwner(owner, "AdapterFolder");
@@ -126,11 +129,16 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             tvKeywords = itemView.findViewById(R.id.tvKeywords);
             tvError = itemView.findViewById(R.id.tvError);
             vwRipple = itemView.findViewById(R.id.vwRipple);
+            grpChilds = itemView.findViewById(R.id.grpChilds);
 
             rvChilds = itemView.findViewById(R.id.rvChilds);
             LinearLayoutManager llm = new LinearLayoutManager(context);
             rvChilds.setLayoutManager(llm);
             rvChilds.setNestedScrollingEnabled(false);
+
+            DividerItemDecoration itemDecorator = new DividerItemDecoration(context, DividerItemDecoration.VERTICAL);
+            itemDecorator.setDrawable(context.getDrawable(R.drawable.divider));
+            rvChilds.addItemDecoration(itemDecorator);
 
             childs = new AdapterFolder(context, owner, properties);
             rvChilds.setAdapter(childs);
@@ -259,12 +267,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             cowner.restart();
             if (account > 0 && folder.childs > 0) {
                 if (folder.collapsed) {
-                    rvChilds.setVisibility(View.GONE);
+                    grpChilds.setVisibility(View.GONE);
                     childs.set(account, folder, level + 1, new ArrayList<TupleFolderEx>());
                 } else {
                     DB db = DB.getInstance(context);
                     cowner.start();
-                    rvChilds.setVisibility(View.VISIBLE);
+                    grpChilds.setVisibility(View.VISIBLE);
                     childs.set(folder.account, folder, level + 1, properties.getChilds(folder.id));
                     db.folder().liveFolders(folder.account, folder.id).observe(cowner, new Observer<List<TupleFolderEx>>() {
                         @Override
@@ -277,7 +285,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     });
                 }
             } else {
-                rvChilds.setVisibility(View.GONE);
+                grpChilds.setVisibility(View.GONE);
                 childs.set(account, null, 0, new ArrayList<TupleFolderEx>());
             }
         }

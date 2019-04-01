@@ -90,6 +90,7 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.selection.Selection;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.selection.StorageStrategy;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -308,6 +309,10 @@ public class FragmentMessages extends FragmentBase {
         //rvMessage.getRecycledViewPool().setMaxRecycledViews(0, 10);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvMessage.setLayoutManager(llm);
+
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
+        rvMessage.addItemDecoration(itemDecorator);
 
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("zoom", compact ? 0 : 1);

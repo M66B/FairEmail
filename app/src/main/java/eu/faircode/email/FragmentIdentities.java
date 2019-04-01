@@ -36,6 +36,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -66,6 +67,10 @@ public class FragmentIdentities extends FragmentBase {
         rvIdentity.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvIdentity.setLayoutManager(llm);
+
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
+        rvIdentity.addItemDecoration(itemDecorator);
 
         adapter = new AdapterIdentity(getContext());
         rvIdentity.setAdapter(adapter);

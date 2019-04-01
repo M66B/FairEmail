@@ -175,14 +175,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvError" />
 
-        <View
-            android:id="@+id/vSeparator"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?attr/colorSeparator"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/marginBottom" />
-
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpSettings"
             android:layout_width="0dp"
