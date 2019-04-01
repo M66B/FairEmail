@@ -1718,16 +1718,17 @@ public class FragmentCompose extends FragmentBase {
                             draft.thread = ref.thread;
 
                             // Prevent replying to self
-                            String from = null;
+                            String to = null;
                             String via = null;
-                            if (ref.from != null && ref.from.length > 0)
-                                from = Helper.canonicalAddress(((InternetAddress) ref.from[0]).getAddress());
+                            Address[] recipient = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
+                            if (recipient != null && recipient.length > 0)
+                                to = Helper.canonicalAddress(((InternetAddress) recipient[0]).getAddress());
                             if (ref.identity != null) {
                                 EntityIdentity v = db.identity().getIdentity(ref.identity);
                                 via = Helper.canonicalAddress(v.email);
                             }
 
-                            if (from != null && from.equals(via)) {
+                            if (to != null && to.equals(via)) {
                                 draft.to = ref.to;
                                 draft.from = ref.from;
                             } else {
