@@ -744,6 +744,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     while ((line = br.readLine()) != null)
                         response.append(line);
 
+                    if (status == HttpsURLConnection.HTTP_FORBIDDEN) {
+                        // {"message":"API rate limit exceeded for ...","documentation_url":"https://developer.github.com/v3/#rate-limiting"}
+                        JSONObject jmessage = new JSONObject(response.toString());
+                        if (jmessage.has("message"))
+                            throw new IllegalArgumentException(jmessage.getString("message"));
+                        throw new IOException("HTTP " + status + ": " + response.toString());
+                    }
                     if (status != HttpsURLConnection.HTTP_OK)
                         throw new IOException("HTTP " + status + ": " + response.toString());
 
@@ -808,7 +815,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (args.getBoolean("always"))
-                    Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
+                    if (ex instanceof IllegalArgumentException)
+                        Snackbar.make(getVisibleView(), ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                    else
+                        Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
             }
         }.execute(this, args, "update:check");
     }
