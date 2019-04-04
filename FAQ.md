@@ -147,6 +147,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(84) What are local contacts for?](#user-content-faq84)
 * [(85) Why is an identity not available?](#user-content-faq85)
 * [(86) What are 'extra privacy features'?](#user-content-faq86)
+* [(87) What does 'invalid credentials' mean?](#user-content-faq87)
 
 [I have another question.](#support)
 
@@ -1408,6 +1409,20 @@ The advanced option *extra privacy features* enables:
 * Splitting linked images into an image and a link
 
 <br />
+
+<a name="faq87"></a>
+**(87) What does 'invalid credentials' mean?**
+
+The error message *invalid credentials* means either that the user name and/or password is incorrect,
+for example because the password was changed or expired, or that the account authorization has expired.
+
+If the password is incorrect/expired, you will have to update the password in the account and/or identity settings.
+
+If the account authorization has expired, you will have to select the account again.
+You will likely need to save the associated identity again as well.
+
+<br />
+
 
 
 ## Support
