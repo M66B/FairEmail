@@ -967,6 +967,24 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuIssue() {
+        new DialogBuilderLifecycle(this, this)
+                .setMessage(R.string.title_issue_type)
+                .setPositiveButton(R.string.title_issue_question, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Helper.view(ActivityView.this, ActivityView.this, Helper.getIntentFAQ());
+                    }
+                })
+                .setNegativeButton(R.string.title_issue_problem, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        onReportIssue();
+                    }
+                })
+                .show();
+    }
+
+    void onReportIssue() {
         try {
             String version = BuildConfig.VERSION_NAME + "/" +
                     (Helper.hasValidFingerprint(this) ? "1" : "3") +

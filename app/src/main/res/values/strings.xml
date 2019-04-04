@@ -81,6 +81,10 @@
     <string name="menu_rate">Rate this app</string>
     <string name="menu_other">Other apps</string>
 
+    <string name="title_issue_type">Do you have a question or problem?</string>
+    <string name="title_issue_question">Question</string>
+    <string name="title_issue_problem">Problem</string>
+
     <string name="title_welcome">Welcome</string>
     <string name="title_eula">End-user license agreement</string>
     <string name="title_agree">I agree</string>
