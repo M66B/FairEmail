@@ -63,6 +63,9 @@ import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MailConnectException;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -424,10 +427,11 @@ public class Helper {
             db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body), null);
 
             attachSettings(context, draft.id, 1);
-            attachNetworkInfo(context, draft.id, 2);
-            attachLog(context, draft.id, 3);
-            attachOperations(context, draft.id, 4);
-            attachLogcat(context, draft.id, 5);
+            attachAccounts(context, draft.id, 2);
+            attachNetworkInfo(context, draft.id, 3);
+            attachLog(context, draft.id, 4);
+            attachOperations(context, draft.id, 5);
+            attachLogcat(context, draft.id, 6);
 
             EntityOperation.queue(context, db, draft, EntityOperation.ADD);
 
@@ -523,6 +527,51 @@ public class Helper {
             Map<String, ?> settings = prefs.getAll();
             for (String key : settings.keySet())
                 size += write(os, key + "=" + settings.get(key) + "\r\n");
+
+            db.attachment().setDownloaded(attachment.id, size);
+        }
+    }
+
+    private static void attachAccounts(Context context, long id, int sequence) throws IOException {
+        DB db = DB.getInstance(context);
+
+        EntityAttachment attachment = new EntityAttachment();
+        attachment.message = id;
+        attachment.sequence = sequence;
+        attachment.name = "accounts.txt";
+        attachment.type = "text/plain";
+        attachment.size = null;
+        attachment.progress = 0;
+        attachment.id = db.attachment().insertAttachment(attachment);
+
+        File file = attachment.getFile(context);
+        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+
+            long size = 0;
+
+            List<EntityAccount> accounts = db.account().getAccounts();
+            for (EntityAccount account : accounts)
+                try {
+                    JSONObject jaccount = account.toJSON();
+                    jaccount.remove("user");
+                    jaccount.remove("password");
+                    size += write(os, "==========\r\n");
+                    size += write(os, jaccount.toString(2) + "\r\n");
+
+                    List<EntityIdentity> identities = db.identity().getIdentities(account.id);
+                    for (EntityIdentity identity : identities)
+                        try {
+                            JSONObject jidentity = identity.toJSON();
+                            jidentity.remove("user");
+                            jidentity.remove("password");
+                            size += write(os, "----------\r\n");
+                            size += write(os, jidentity.toString(2) + "\r\n");
+                        } catch (JSONException ex) {
+                            size += write(os, ex.toString() + "\r\n");
+                        }
+                } catch (JSONException ex) {
+                    size += write(os, ex.toString() + "\r\n");
+                }
 
             db.attachment().setDownloaded(attachment.id, size);
         }
