@@ -73,6 +73,7 @@ public interface DaoMessage {
             "  WHEN 'starred' = :sort THEN COUNT(message.id) - " + unflagged_unified + " = 0" +
             "  WHEN 'sender' = :sort THEN LOWER(message.sender)" +
             "  WHEN 'subject' = :sort THEN LOWER(message.subject)" +
+            "  WHEN 'size' = :sort THEN -SUM(message.size)" +
             "  ELSE 0" +
             " END, message.received DESC")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
@@ -115,6 +116,7 @@ public interface DaoMessage {
             "  WHEN 'starred' = :sort THEN COUNT(message.id) - " + unflagged_folder + " = 0" +
             "  WHEN 'sender' = :sort THEN LOWER(message.sender)" +
             "  WHEN 'subject' = :sort THEN LOWER(message.subject)" +
+            "  WHEN 'size' = :sort THEN -SUM(message.size)" +
             "  ELSE 0" +
             " END, message.received DESC")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)

@@ -37,6 +37,9 @@
                 <item
                     android:id="@+id/menu_sort_on_subject"
                     android:title="@string/title_sort_on_subject" />
+                <item
+                    android:id="@+id/menu_sort_on_size"
+                    android:title="@string/title_sort_on_size" />
             </group>
         </menu>
     </item>

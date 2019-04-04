@@ -432,6 +432,7 @@
     <string name="title_sort_on_starred">Starred</string>
     <string name="title_sort_on_sender">Sender</string>
     <string name="title_sort_on_subject">Subject</string>
+    <string name="title_sort_on_size">Size</string>
 
     <string name="title_compact">Compact view</string>
     <string name="title_zoom">Text size</string>
