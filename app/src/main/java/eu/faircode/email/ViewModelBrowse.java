@@ -371,12 +371,6 @@ public class ViewModelBrowse extends ViewModel {
                 state.istore.close();
         } catch (Throwable ex) {
             Log.e("Boundary", ex);
-        } finally {
-            state.context = null;
-            state.messages = null;
-            state.istore = null;
-            state.ifolder = null;
-            state.imessages = null;
         }
     }
 }
