@@ -214,9 +214,11 @@ class Core {
                         Log.e(folder.name, ex);
                         reportError(context, account, folder, ex);
 
-                        db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
-                        if (message != null)
-                            db.message().setMessageError(message.id, Helper.formatThrowable(ex, true));
+                        if (!(ex instanceof FolderClosedException)) {
+                            db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
+                            if (message != null)
+                                db.message().setMessageError(message.id, Helper.formatThrowable(ex, true));
+                        }
 
                         if (ex instanceof MessageRemovedException ||
                                 ex instanceof FolderNotFoundException ||
