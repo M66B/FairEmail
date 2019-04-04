@@ -1819,6 +1819,8 @@ public class FragmentCompose extends FragmentBase {
                     draft.avatar = (lookupUri == null ? null : lookupUri.toString());
 
                     draft.received = new Date().getTime();
+                    draft.seen = true;
+                    draft.ui_seen = true;
 
                     draft.id = db.message().insertMessage(draft);
                     Helper.writeText(draft.getFile(context), body);
