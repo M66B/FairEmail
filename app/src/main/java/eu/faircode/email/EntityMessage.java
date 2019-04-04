@@ -35,7 +35,6 @@ import javax.mail.Address;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
-import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
@@ -137,9 +136,6 @@ public class EntityMessage implements Serializable {
     public String error; // volatile
     public Long last_attempt; // send
 
-    @Ignore
-    boolean day = false;
-
     static String generateMessageId() {
         StringBuilder sb = new StringBuilder();
         sb.append('<')
@@ -229,9 +225,9 @@ public class EntityMessage implements Serializable {
                     this.ui_browsed.equals(other.ui_browsed) &&
                     Objects.equals(this.ui_snoozed, other.ui_snoozed) &&
                     Objects.equals(this.warning, other.warning) &&
-                    Objects.equals(this.error, other.error) &&
+                    Objects.equals(this.error, other.error)
                     // last_attempt
-                    this.day == other.day);
+            );
         }
         return false;
     }

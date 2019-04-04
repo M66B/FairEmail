@@ -13,29 +13,6 @@
         android:focusable="true"
         android:focusableInTouchMode="true">
 
-        <TextView
-            android:id="@+id/tvDay"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="?android:attr/windowBackground"
-            android:gravity="center_horizontal"
-            android:padding="6dp"
-            android:text="Today"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:id="@+id/vSeparatorDay"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:background="?attr/colorSeparator"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDay" />
-
         <View
             android:id="@+id/vwColor"
             android:layout_width="6dp"
@@ -43,7 +20,7 @@
             android:background="@color/colorAccent"
             app:layout_constraintBottom_toTopOf="@+id/vSeparatorAddress"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorDay" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:id="@+id/paddingTop"
@@ -51,7 +28,7 @@
             android:layout_height="3dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorDay" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/ivExpander"
@@ -297,7 +274,7 @@
             app:layout_constraintBottom_toTopOf="@+id/vSeparatorAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorDay" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:id="@+id/vwRipple"
@@ -307,7 +284,7 @@
             app:layout_constraintBottom_toTopOf="@+id/vSeparatorAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorDay" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:id="@+id/vSeparatorAddress"
@@ -572,12 +549,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vwBody" />
-
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/grpDay"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:constraint_referenced_ids="tvDay,vSeparatorDay" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpHeaders"

@@ -101,7 +101,6 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -128,10 +127,6 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-
-import static android.text.format.DateUtils.DAY_IN_MILLIS;
-import static android.text.format.DateUtils.FORMAT_SHOW_DATE;
-import static android.text.format.DateUtils.FORMAT_SHOW_WEEKDAY;
 
 public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHolder> {
     private Context context;
@@ -180,7 +175,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder implements
             View.OnClickListener, View.OnLongClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
         private View view;
-        private TextView tvDay;
         private View vwColor;
         private ImageView ivExpander;
         private ImageView ivFlagged;
@@ -252,7 +246,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private RecyclerView rvImage;
 
-        private Group grpDay;
         private Group grpHeaders;
         private Group grpAttachments;
         private Group grpExpanded;
@@ -267,7 +260,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             super(itemView);
 
             view = itemView.findViewById(R.id.clItem);
-            tvDay = itemView.findViewById(R.id.tvDay);
             vwColor = itemView.findViewById(R.id.vwColor);
             ivExpander = itemView.findViewById(R.id.ivExpander);
             ivFlagged = itemView.findViewById(R.id.ivFlagged);
@@ -353,7 +345,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             adapterImage = new AdapterImage(context, owner);
             rvImage.setAdapter(adapterImage);
 
-            grpDay = itemView.findViewById(R.id.grpDay);
             grpHeaders = itemView.findViewById(R.id.grpHeaders);
             grpAttachments = itemView.findViewById(R.id.grpAttachments);
             grpExpanded = itemView.findViewById(R.id.grpExpanded);
@@ -365,16 +356,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     super.itemView.getBottom() - vwColor.getHeight(),
                     super.itemView.getRight(),
                     super.itemView.getBottom());
-        }
-
-        void setDisplacement(float dx) {
-            ViewGroup group = (ViewGroup) view;
-            for (int i = 0; i < group.getChildCount(); i++) {
-                View child = group.getChildAt(i);
-                int id = child.getId();
-                if (id != R.id.tvDay && id != R.id.vSeparatorDay)
-                    child.setTranslationX(dx);
-            }
         }
 
         private void wire() {
@@ -455,13 +436,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbLoading.setVisibility(View.VISIBLE);
 
             clearExpanded();
-
-            grpDay.setVisibility(View.GONE);
         }
 
         @SuppressLint("WrongConstant")
         private void bindTo(final TupleMessageEx message) {
-            setDisplacement(0);
             pbLoading.setVisibility(View.GONE);
 
             if (viewType == ViewType.THREAD)
@@ -469,7 +447,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Text size
             if (textSize != 0) {
-                tvDay.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
                 tvFrom.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
                 tvSubject.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
                 tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
@@ -487,31 +464,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ivAvatar.requestLayout();
                 }
             }
-
-            // Date header
-            if (message.day) {
-                Calendar cal = Calendar.getInstance();
-                cal.setTime(new Date());
-                cal.set(Calendar.HOUR_OF_DAY, 0);
-                cal.set(Calendar.MINUTE, 0);
-                cal.set(Calendar.SECOND, 0);
-                cal.set(Calendar.MILLISECOND, 0);
-                cal.add(Calendar.DAY_OF_MONTH, -2);
-                if (message.received <= cal.getTimeInMillis())
-                    tvDay.setText(
-                            DateUtils.formatDateRange(
-                                    context,
-                                    message.received,
-                                    message.received,
-                                    FORMAT_SHOW_WEEKDAY | FORMAT_SHOW_DATE));
-                else
-                    tvDay.setText(
-                            DateUtils.getRelativeTimeSpanString(
-                                    message.received,
-                                    new Date().getTime(),
-                                    DAY_IN_MILLIS, 0));
-            }
-            grpDay.setVisibility(message.day ? View.VISIBLE : View.GONE);
 
             // Selected / disabled
             view.setActivated(selectionTracker != null && selectionTracker.isSelected(message.id));
@@ -3040,28 +2992,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     void submitList(PagedList<TupleMessageEx> list) {
-        if (date && "time".equals(sort)) {
-            TupleMessageEx prev = null;
-            for (int i = 0; i < list.size(); i++) {
-                TupleMessageEx message = list.get(i);
-                if (message != null)
-                    if (i == 0)
-                        message.day = true;
-                    else if (prev != null) {
-                        Calendar cal0 = Calendar.getInstance();
-                        Calendar cal1 = Calendar.getInstance();
-                        cal0.setTimeInMillis(prev.received);
-                        cal1.setTimeInMillis(message.received);
-                        int year0 = cal0.get(Calendar.YEAR);
-                        int year1 = cal1.get(Calendar.YEAR);
-                        int day0 = cal0.get(Calendar.DAY_OF_YEAR);
-                        int day1 = cal1.get(Calendar.DAY_OF_YEAR);
-                        message.day = (year0 != year1 || day0 != day1);
-                    }
-                prev = message;
-            }
-        }
-
         differ.submitList(list);
     }
 
@@ -3086,11 +3016,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
     }
 
+    int getZoom() {
+        return this.zoom;
+    }
+
     void setSort(String sort) {
         if (!sort.equals(this.sort)) {
             this.sort = sort;
             // loadMessages will be called
         }
+    }
+
+    String getSort() {
+        return this.sort;
     }
 
     void setDuplicates(boolean duplicates) {
