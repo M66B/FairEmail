@@ -159,8 +159,8 @@ public class FragmentMessages extends FragmentBase {
     private int autoCloseCount = 0;
     private boolean autoExpanded = true;
     private Map<String, List<Long>> values = new HashMap<>();
-    private Map<Long, Spanned> bodies = new HashMap<>();
-    private Map<Long, String> html = new HashMap<>();
+    private LongSparseArray<Spanned> bodies = new LongSparseArray<>();
+    private LongSparseArray<String> html = new LongSparseArray<>();
     private LongSparseArray<List<EntityAttachment>> attachments = new LongSparseArray<>();
     private LongSparseArray<TupleAccountSwipes> accountSwipes = new LongSparseArray<>();
 
@@ -2121,7 +2121,7 @@ public class FragmentMessages extends FragmentBase {
 
         if (viewType == AdapterMessage.ViewType.FOLDER || viewType == AdapterMessage.ViewType.SEARCH)
             if (boundaryCallback == null)
-                boundaryCallback = new BoundaryCallbackMessages(this, modelBrowse,
+                boundaryCallback = new BoundaryCallbackMessages(getViewLifecycleOwner(), modelBrowse,
                         new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
                             @Override
                             public void onLoading() {
