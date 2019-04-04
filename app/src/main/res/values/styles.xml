@@ -1,4 +1,5 @@
 <resources>
+    <attr name="themeName" format="string" />
     <attr name="colorUnread" format="reference" />
     <attr name="colorSeparator" format="reference" />
     <attr name="colorWarning" format="reference" />
@@ -8,6 +9,7 @@
     <attr name="activatableItemBackground" format="reference" />
 
     <style name="AppThemeLight" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <item name="themeName">light</item>
         <item name="android:windowDisablePreview">true</item>
 
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -31,6 +33,7 @@
     </style>
 
     <style name="AppThemeDark" parent="Base.Theme.AppCompat">
+        <item name="themeName">dark</item>
         <item name="android:windowDisablePreview">true</item>
 
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -54,6 +57,7 @@
     </style>
 
     <style name="AppThemeBlack" parent="AppThemeDark">
+        <item name="themeName">black</item>
         <item name="colorPrimary">@color/blackPrimary</item>
         <item name="colorPrimaryDark">@color/blackPrimaryDark</item>
         <item name="colorAccent">@color/blackAccent</item>

@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.ContactsContract;
+import android.util.TypedValue;
 
 import java.io.InputStream;
 import java.util.Date;
@@ -134,9 +135,10 @@ public class ContactInfo {
         if (info.bitmap == null) {
             boolean identicons = prefs.getBoolean("identicons", false);
             if (identicons) {
-                String theme = prefs.getString("theme", "light");
+                TypedValue tv = new TypedValue();
+                context.getTheme().resolveAttribute(R.attr.themeName, tv, true);
                 int dp = Helper.dp2pixels(context, 48);
-                info.bitmap = Identicon.generate(key, dp, 5, "light".equals(theme));
+                info.bitmap = Identicon.generate(key, dp, 5, !"light".equals(tv.string));
             }
         }
 

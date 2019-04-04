@@ -396,6 +396,8 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 prefs.edit().putString("theme", "system").apply();
                 break;
         }
+
+        ContactInfo.clearCache();
     }
 
     private void onMenuOptions() {

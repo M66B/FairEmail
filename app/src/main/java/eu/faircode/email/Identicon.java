@@ -40,7 +40,7 @@ class Identicon {
         }
 
         int color = Color.argb(255, hash[0], hash[1], hash[2]);
-        color = ColorUtils.blendARGB(color, dark ? Color.BLACK : Color.WHITE, 0.2f);
+        color = ColorUtils.blendARGB(color, dark ? Color.WHITE : Color.BLACK, 0.2f);
 
         Paint paint = new Paint();
         paint.setColor(color);
