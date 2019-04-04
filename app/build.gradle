@@ -193,6 +193,7 @@ dependencies {
     implementation "io.requery:sqlite-android:$requery_version"
 
     // https://github.com/leolin310148/ShortcutBadger
+    // https://mvnrepository.com/artifact/me.leolin/ShortcutBadger
     implementation "me.leolin:ShortcutBadger:$badge_version"
 
     // git clone https://android.googlesource.com/platform/frameworks/opt/colorpicker
