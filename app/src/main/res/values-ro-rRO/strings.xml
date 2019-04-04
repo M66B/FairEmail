@@ -161,7 +161,7 @@
     <string name="title_advanced_autoresize">Se reduce automat mărimea imaginilor pentru a fi afișate pe ecran</string>
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_advanced_autosend">Confirmă trimiterea mesajelor</string>
-    <string name="title_advanced_badge">Afişeaza pictograma lansatorului cu numãrul de mesaje noi</string>
+    <string name="title_advanced_badge">Afișează iconița lansatorului cu numărul de mesaje noi</string>
     <string name="title_advanced_notify_preview">Arată previzualizare mesaj în notificare</string>
     <string name="title_advanced_search_local">Căutare externă pe dispozitiv</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
@@ -180,7 +180,7 @@
     <string name="title_advanced_autocollapse_hint">Mesajele multiple vor fi mereu plate când se apasă \'înapoi\'</string>
     <string name="title_advanced_autoclose_hint">Atunci când toate mesajele sunt arhivate, trimise sau mutate la gunoi</string>
     <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
-    <string name="title_advanced_badge_hint">Disponibil doar pe dispozitive acceptate</string>
+    <string name="title_advanced_badge_hint">Disponibil doar pe dispozitivele suportate</string>
     <string name="title_advanced_preview_hint">Disponibil doar atunci când a fost descarcat textul mesajului</string>
     <string name="title_advanced_search_local_hint">În loc să se caute în dosarul arhivă primar de pe server</string>
     <string name="title_advanced_english_hint">Aplicația se va restarta</string>
@@ -259,7 +259,6 @@
     <string name="title_no_operations">Nici o operațiune în așteptare</string>
     <string name="title_folder_name">Nume dosar</string>
     <string name="title_display_name">Nume afișat</string>
-    <string name="title_hide_folder">Ascunde din meniuri</string>
     <string name="title_unified_folder">Arată în căsuța poștală comună</string>
     <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
     <string name="title_poll_folder">Verifică periodic în loc de a sincroniza în continuu</string>

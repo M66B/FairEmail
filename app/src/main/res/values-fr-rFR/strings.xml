@@ -251,7 +251,8 @@
     <string name="title_no_operations">Aucune opération en attente</string>
     <string name="title_folder_name">Nom du dossier</string>
     <string name="title_display_name">Nom</string>
-    <string name="title_hide_folder">Cacher dans les menus</string>
+    <string name="title_show_folders">Afficher les dossiers cachés</string>
+    <string name="title_hide_folder">Masquer le dossier</string>
     <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
     <string name="title_synchronize_folder">Synchroniser (recevoir des messages)</string>
     <string name="title_poll_folder">Vérifier périodiquement au lieu de synchroniser en continu</string>
@@ -378,6 +379,7 @@
     <string name="title_sort_on_starred">Suivis</string>
     <string name="title_sort_on_sender">Expéditeur</string>
     <string name="title_sort_on_subject">Objet</string>
+    <string name="title_sort_on_size">Taille</string>
     <string name="title_compact">Vue compacte</string>
     <string name="title_zoom">Taille du texte</string>
     <string name="title_address_sent">Envoyé :</string>

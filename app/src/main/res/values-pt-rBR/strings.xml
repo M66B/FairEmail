@@ -251,7 +251,8 @@
     <string name="title_no_operations">Nenhuma operação pendente</string>
     <string name="title_folder_name">Nome da pasta</string>
     <string name="title_display_name">Nome de exibição</string>
-    <string name="title_hide_folder">Esconder dos menus</string>
+    <string name="title_show_folders">Mostrar pastas ocultas</string>
+    <string name="title_hide_folder">Ocultar pasta</string>
     <string name="title_unified_folder">Mostrar na caixa de entrada unificada</string>
     <string name="title_synchronize_folder">Sincronizar (receber mensagens)</string>
     <string name="title_poll_folder">Verificar periodicamente ao invés da sincronização contínua</string>

@@ -243,7 +243,8 @@
     <string name="title_no_operations">没有待执行操作</string>
     <string name="title_folder_name">文件夹名</string>
     <string name="title_display_name">显示昵称</string>
-    <string name="title_hide_folder">从菜单中隐藏</string>
+    <string name="title_show_folders">显示隐藏文件夹</string>
+    <string name="title_hide_folder">隐藏文件夹</string>
     <string name="title_unified_folder">在统一的收件箱中显示</string>
     <string name="title_synchronize_folder">同步文件夹（接收）</string>
     <string name="title_poll_folder">定期检查而非持续同步</string>
@@ -369,6 +370,7 @@
     <string name="title_sort_on_starred">星标记</string>
     <string name="title_sort_on_sender">发件人</string>
     <string name="title_sort_on_subject">主题</string>
+    <string name="title_sort_on_size">大小</string>
     <string name="title_compact">紧凑视图</string>
     <string name="title_zoom">文本大小</string>
     <string name="title_address_sent">发送：</string>

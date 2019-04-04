@@ -3,7 +3,10 @@
 <resources>
     <string name="channel_service">Service</string>
     <string name="channel_notification">Notifikationer</string>
+    <string name="channel_warning">Advarsler</string>
     <string name="channel_error">Fejl</string>
+    <string name="channel_group_contacts">Kontakter</string>
+    <string name="tile_synchronize">Synkronisér</string>
     <string name="tile_unseen">Nye beskeder</string>
     <string name="shortcut_setup">Opsætning</string>
     <plurals name="title_notification_synchronizing">
@@ -27,11 +30,13 @@
         <item quantity="other">%1$d ny</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' mislykkedes</string>
+    <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_answers">Skabeloner</string>
     <string name="menu_operations">Aktiviteter</string>
     <string name="menu_setup">Opsætning</string>
     <string name="menu_legend">Forklaring</string>
     <string name="menu_faq">Support</string>
+    <string name="menu_issue">Rapportér problem</string>
     <string name="menu_privacy">Privatliv</string>
     <string name="menu_about">Om</string>
     <string name="menu_pro">Pro funktioner</string>
@@ -49,21 +54,29 @@
     <string name="title_edit_identity">Rediger identitet</string>
     <string name="title_edit_folder">Rediger mappe</string>
     <string name="title_setup">Opsætning</string>
+    <string name="title_setup_help">Hjælp</string>
     <string name="title_setup_export">Eksportér indstillinger</string>
     <string name="title_setup_import">Importér indstillinger</string>
     <string name="title_setup_password">Adgangskode</string>
     <string name="title_setup_password_repeat">Gentag adgangskode</string>
     <string name="title_setup_password_missing">Adgangskode mangler</string>
     <string name="title_setup_password_invalid">Password ugyldig</string>
+    <string name="title_setup_manage">Administrér</string>
     <string name="title_setup_account_remark">Til at modtage email</string>
     <string name="title_setup_identity_remark">At sende email</string>
+    <string name="title_setup_inbox">Læs beskeder</string>
     <string name="title_setup_notifications">Administrer notifikationer</string>
     <string name="title_setup_to_do">Gøremål</string>
     <string name="title_setup_done">Udført</string>
     <string name="title_setup_light_theme">Lyst tema</string>
     <string name="title_setup_dark_theme">Mørkt tema</string>
+    <string name="title_setup_black_theme">Sort tema</string>
+    <string name="title_setup_options">Muligheder</string>
     <string name="title_advanced">Avancerede indstillinger</string>
+    <string name="title_advanced_section_general">Generelt</string>
+    <string name="title_advanced_section_display">Vis</string>
     <string name="title_advanced_enabled">Synkronisér</string>
+    <string name="title_advanced_updates">Søg efter opdateringer</string>
     <string name="title_advanced_debug">Debug</string>
     <string name="title_select">Vælg &#8230;</string>
     <string name="title_identity_name">Dit navn</string>
@@ -99,6 +112,7 @@
     <string name="title_no_password">Adgangskode mangler</string>
     <string name="title_account_delete">Slet denne konto permanent?</string>
     <string name="title_identity_delete">Slet denne identitet permanent?</string>
+    <string name="title_edit_rules">Rediger regler</string>
     <string name="title_folder_name">Mappenavn</string>
     <string name="title_display_name">Visningsnavn</string>
     <string name="title_synchronize_folder">Synkronisér (modtag meddelelser)</string>
@@ -121,6 +135,8 @@
     <string name="title_flag">Tilføj stjernemarkering</string>
     <string name="title_unflag">Fjern stjernemarkering</string>
     <string name="title_forward">Videresend</string>
+    <string name="title_share">Del</string>
+    <string name="title_print">Udskriv</string>
     <string name="title_manage_keywords">Håndter nøgleord</string>
     <string name="title_download_all">Download alle</string>
     <string name="title_save_all">Gem alt</string>
@@ -132,6 +148,9 @@
     <string name="title_move">Flyt</string>
     <string name="title_archive">Arkivér</string>
     <string name="title_reply">Besvar</string>
+    <string name="title_reply_to_sender">Afsender</string>
+    <string name="title_reply_to_all">Alle</string>
+    <string name="title_reply_template">Skabelon</string>
     <string name="title_moving">Flytter til %1$s</string>
     <string name="title_open_with">Åbn med</string>
     <string name="title_no_viewer">Ingen viewer app til rådighed for %1$s</string>
@@ -173,14 +192,22 @@
     <string name="title_address_invalid">Ugyldig:</string>
     <string name="title_previous">Forrige</string>
     <string name="title_next">Næste</string>
+    <string name="title_rule_name">Navn</string>
+    <string name="title_rule_order">Rækkefølge</string>
     <string name="title_action_seen">Markér som læst</string>
     <string name="title_action_archive">Arkivér</string>
     <string name="title_action_trash">Papirkurv</string>
     <string name="title_legend_inbox">Indbakke</string>
     <string name="title_legend_archive">Arkivér</string>
     <string name="title_legend_trash">Papirkurv</string>
+    <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary_connected">Konto forbundet</string>
     <string name="title_legend_thread">Samtale</string>
+    <string name="title_legend_hide">Skjul indhold</string>
+    <string name="title_legend_download">Download indhold</string>
+    <string name="title_legend_link">Indsæt link</string>
+    <string name="title_legend_picture">Indsæt billede</string>
+    <string name="title_legend_file">Vedhæft fil</string>
     <string name="title_legend_disconnected">Afbrudt</string>
     <string name="title_legend_connecting">Tilslutter</string>
     <string name="title_legend_connected">Tilsluttet</string>
@@ -195,8 +222,10 @@
     <string name="title_no">Nej</string>
     <string name="title_undo">Fortryd</string>
     <string name="title_add">Tilføj</string>
+    <string name="title_info">Info</string>
     <string name="title_report">Rapportér</string>
     <string name="title_fix">Ret</string>
+    <string name="title_enable">Aktivér</string>
     <string name="title_no_ask_again">Vis ikke igen</string>
     <string name="title_pro_feature">Dette er en pro funktion</string>
     <string name="title_pro_list">Liste over pro funktioner</string>
@@ -218,5 +247,10 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="startupNames">
+        <item>Unified inbox</item>
+        <item>Unified folders</item>
+        <item>Kontoer</item>
     </string-array>
 </resources>

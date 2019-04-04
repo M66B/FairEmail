@@ -245,7 +245,6 @@
     <string name="title_no_operations">Inga pågående operationer</string>
     <string name="title_folder_name">Mappnamn</string>
     <string name="title_display_name">Visningsnamn</string>
-    <string name="title_hide_folder">Dölj från menyer</string>
     <string name="title_unified_folder">Visa i en samlad inkorg</string>
     <string name="title_synchronize_folder">Synkronisera (hämta meddelanden)</string>
     <string name="title_poll_folder">Kontrollera regelbundet istället för kontinuerlig synkronisering</string>
