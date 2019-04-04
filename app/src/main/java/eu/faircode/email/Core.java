@@ -1126,7 +1126,7 @@ class Core {
                         addresses.addAll(Arrays.asList(tos));
                     if (ccs != null)
                         addresses.addAll(Arrays.asList(ccs));
-                    if (EntityFolder.ARCHIVE.equals(folder.type)) {
+                    if (EntityFolder.ARCHIVE.equals(folder.type) || BuildConfig.DEBUG) {
                         if (froms != null)
                             addresses.addAll(Arrays.asList(froms));
                     }
