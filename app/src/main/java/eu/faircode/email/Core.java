@@ -166,7 +166,22 @@ class Core {
                                 break;
 
                             case EntityOperation.ADD:
-                                onAdd(context, jargs, folder, message, isession, (IMAPStore) istore, (IMAPFolder) ifolder);
+                                boolean squash = false;
+                                for (int j = i + 1; j < ops.size(); j++) {
+                                    EntityOperation next = ops.get(j);
+                                    if (next.message != null && next.message.equals(op.message) &&
+                                            (EntityOperation.ADD.equals(next.name) || EntityOperation.DELETE.equals(next.name))) {
+                                        squash = true;
+                                        break;
+                                    }
+                                }
+                                if (squash)
+                                    Log.i(folder.name +
+                                            " squashing op=" + op.id + "/" + op.name +
+                                            " msg=" + op.message +
+                                            " args=" + op.args);
+                                else
+                                    onAdd(context, jargs, folder, message, isession, (IMAPStore) istore, (IMAPFolder) ifolder);
                                 break;
 
                             case EntityOperation.MOVE:
