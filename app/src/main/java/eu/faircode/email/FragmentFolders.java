@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -67,6 +68,7 @@ public class FragmentFolders extends FragmentBase {
     private FloatingActionButton fab;
 
     private long account;
+    private boolean show_hidden = false;
     private String searching = null;
     private AdapterFolder adapter;
 
@@ -133,11 +135,19 @@ public class FragmentFolders extends FragmentBase {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvFolder.setLayoutManager(llm);
 
-        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                if (view.findViewById(R.id.clItem).getVisibility() == View.GONE)
+                    outRect.setEmpty();
+                else
+                    super.getItemOffsets(outRect, view, parent, state);
+            }
+        };
         itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
         rvFolder.addItemDecoration(itemDecorator);
 
-        adapter = new AdapterFolder(getContext(), getViewLifecycleOwner(), new AdapterFolder.IProperties() {
+        adapter = new AdapterFolder(getContext(), getViewLifecycleOwner(), show_hidden, new AdapterFolder.IProperties() {
             @Override
             public void setChilds(long parent, List<TupleFolderEx> childs) {
                 parentChilds.put(parent, childs);
@@ -374,5 +384,29 @@ public class FragmentFolders extends FragmentBase {
         });
 
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.menu_show_hidden).setChecked(show_hidden);
+        super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_show_hidden:
+                onMenuShowHidden();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuShowHidden() {
+        show_hidden = !show_hidden;
+        parentChilds.clear();
+        getActivity().invalidateOptionsMenu();
+        adapter.setShowHidden(show_hidden);
     }
 }
