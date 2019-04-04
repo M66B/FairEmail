@@ -59,7 +59,6 @@ import android.text.style.QuoteSpan;
 import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
 import android.util.Base64;
-import android.util.LongSparseArray;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -164,7 +163,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     private SelectionTracker<Long> selectionTracker = null;
     private AsyncPagedListDiffer<TupleMessageEx> differ = new AsyncPagedListDiffer<>(this, DIFF_CALLBACK);
-    private LongSparseArray<List<EntityAttachment>> idAttachments = new LongSparseArray<>();
 
     enum ViewType {UNIFIED, FOLDER, THREAD, SEARCH}
 
@@ -847,7 +845,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvHeaders.setText(null);
 
             // Attachments
-            bindAttachments(message, idAttachments.get(message.id));
+            bindAttachments(message, properties.getAttachments(message.id));
             cowner.restart();
             db.attachment().liveAttachments(message.id).observe(cowner, new Observer<List<EntityAttachment>>() {
                 @Override
@@ -944,7 +942,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void bindAttachments(final TupleMessageEx message, @Nullable List<EntityAttachment> attachments) {
             if (attachments == null)
                 attachments = new ArrayList<>();
-            idAttachments.put(message.id, attachments);
+            properties.setAttchments(message.id, attachments);
 
             boolean show_inline = properties.getValue("inline", message.id);
             Log.i("Show inline=" + show_inline);
@@ -3154,6 +3152,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void setHtml(long id, String html);
 
         String getHtml(long id);
+
+        void setAttchments(long id, List<EntityAttachment> attachments);
+
+        List<EntityAttachment> getAttachments(long id);
 
         void scrollTo(int pos, int dy);
 

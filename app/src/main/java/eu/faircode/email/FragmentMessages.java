@@ -161,6 +161,7 @@ public class FragmentMessages extends FragmentBase {
     private Map<String, List<Long>> values = new HashMap<>();
     private Map<Long, Spanned> bodies = new HashMap<>();
     private Map<Long, String> html = new HashMap<>();
+    private LongSparseArray<List<EntityAttachment>> attachments = new LongSparseArray<>();
     private LongSparseArray<TupleAccountSwipes> accountSwipes = new LongSparseArray<>();
 
     private BoundaryCallbackMessages boundaryCallback = null;
@@ -711,6 +712,16 @@ public class FragmentMessages extends FragmentBase {
         @Override
         public String getHtml(long id) {
             return html.get(id);
+        }
+
+        @Override
+        public void setAttchments(long id, List<EntityAttachment> list) {
+            attachments.put(id, list);
+        }
+
+        @Override
+        public List<EntityAttachment> getAttachments(long id) {
+            return attachments.get(id);
         }
 
         @Override
