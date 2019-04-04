@@ -23,11 +23,13 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
 import android.os.PowerManager;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
 import java.io.File;
@@ -254,6 +256,9 @@ public class ServiceSend extends LifecycleService {
             db.message().setMessageLastAttempt(message.id, message.last_attempt);
         }
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean debug = debug = prefs.getBoolean("debug", false);
+
         EntityIdentity ident = db.identity().getIdentity(message.identity);
         String protocol = ident.getProtocol();
 
@@ -275,7 +280,7 @@ public class ServiceSend extends LifecycleService {
 
         // Create session
         final Session isession = Session.getInstance(props, null);
-        isession.setDebug(true);
+        isession.setDebug(debug);
 
         // Create message
         MimeMessage imessage = MessageHelper.from(this, message, isession, ident.plain_only);
@@ -349,6 +354,9 @@ public class ServiceSend extends LifecycleService {
                     db.message().setMessageFolder(message.id, sent.id);
                     message.folder = sent.id;
                     EntityOperation.queue(this, db, message, EntityOperation.ADD);
+                } else {
+                    if (!BuildConfig.DEBUG && !debug)
+                        db.message().setMessageUiHide(message.id, true);
                 }
 
                 if (message.inreplyto != null) {
