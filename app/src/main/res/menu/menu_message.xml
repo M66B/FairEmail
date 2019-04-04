@@ -29,6 +29,10 @@
         android:title="@string/title_decrypt" />
 
     <item
+        android:id="@+id/menu_resync"
+        android:title="@string/title_resync" />
+
+    <item
         android:id="@+id/menu_create_rule"
         android:title="@string/title_create_rule" />
 

@@ -355,6 +355,8 @@ You can enable *Encrypt by default* in the identity settings.
 
 Encryption is [Autocrypt](https://autocrypt.org/) compatible. For security reasons received messages are not decrypted automatically.
 
+The decrypted message text and decrypted attachments are stored. If you want to undo this, you can use the *resync* message 'more' menu.
+
 Inline PGP in received messages is supported, but inline PGP in outgoing messages is not supported,
 see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about why not.
 

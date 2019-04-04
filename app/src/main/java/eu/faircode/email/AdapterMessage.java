@@ -2149,6 +2149,41 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .putExtra("id", data.message.id));
         }
 
+        private void onMenuResync(ActionData data) {
+            Bundle args = new Bundle();
+            args.putLong("id", data.message.id);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null || message.uid == null)
+                            return null;
+                        db.message().deleteMessage(id);
+
+                        EntityOperation.sync(context, message.folder, true);
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, owner, ex);
+                }
+            }.execute(context, owner, args, "message:share");
+        }
+
         private void onMenuCreateRule(ActionData data) {
             Intent rule = new Intent(ActivityView.ACTION_EDIT_RULE);
             rule.putExtra("account", data.message.account);
@@ -2535,6 +2570,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_decrypt).setEnabled(
                     data.message.content && data.message.to != null && data.message.to.length > 0);
 
+            popupMenu.getMenu().findItem(R.id.menu_resync).setEnabled(data.message.uid != null);
+
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem target) {
@@ -2560,6 +2597,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_decrypt:
                             onMenuDecrypt(data);
+                            return true;
+                        case R.id.menu_resync:
+                            onMenuResync(data);
                             return true;
                         case R.id.menu_create_rule:
                             onMenuCreateRule(data);
