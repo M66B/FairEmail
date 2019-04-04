@@ -81,7 +81,7 @@ public class FragmentRules extends FragmentBase {
         adapter = new AdapterRule(getContext(), getViewLifecycleOwner());
         rvRule.setAdapter(adapter);
 
-        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());
         itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
         rvRule.addItemDecoration(itemDecorator);
 

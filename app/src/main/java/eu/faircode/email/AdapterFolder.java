@@ -136,7 +136,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             rvChilds.setLayoutManager(llm);
             rvChilds.setNestedScrollingEnabled(false);
 
-            DividerItemDecoration itemDecorator = new DividerItemDecoration(context, DividerItemDecoration.VERTICAL);
+            DividerItemDecoration itemDecorator = new DividerItemDecoration(context, llm.getOrientation());
             itemDecorator.setDrawable(context.getDrawable(R.drawable.divider));
             rvChilds.addItemDecoration(itemDecorator);
 

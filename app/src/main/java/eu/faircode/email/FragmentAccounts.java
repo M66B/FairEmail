@@ -88,7 +88,7 @@ public class FragmentAccounts extends FragmentBase {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvAccount.setLayoutManager(llm);
 
-        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());
         itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
         rvAccount.addItemDecoration(itemDecorator);
 

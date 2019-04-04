@@ -66,7 +66,7 @@ public class FragmentAnswers extends FragmentBase {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvAnswer.setLayoutManager(llm);
 
-        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());
         itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
         rvAnswer.addItemDecoration(itemDecorator);
 

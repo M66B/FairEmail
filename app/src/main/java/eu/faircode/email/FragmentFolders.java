@@ -133,7 +133,7 @@ public class FragmentFolders extends FragmentBase {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvFolder.setLayoutManager(llm);
 
-        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());
         itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
         rvFolder.addItemDecoration(itemDecorator);
 

@@ -68,7 +68,7 @@ public class FragmentIdentities extends FragmentBase {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvIdentity.setLayoutManager(llm);
 
-        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());
         itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
         rvIdentity.addItemDecoration(itemDecorator);
 
