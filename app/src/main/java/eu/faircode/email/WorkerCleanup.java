@@ -21,6 +21,8 @@ import androidx.work.WorkManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
+import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
+
 public class WorkerCleanup extends Worker {
     private static final int CLEANUP_INTERVAL = 4; // hours
     private static final long CACHE_IMAGE_DURATION = 3 * 24 * 3600 * 1000L; // milliseconds
@@ -41,6 +43,7 @@ public class WorkerCleanup extends Worker {
     static void cleanup(Context context, boolean manual) {
         DB db = DB.getInstance(context);
         try {
+            Thread.currentThread().setPriority(THREAD_PRIORITY_BACKGROUND);
             Log.i("Start cleanup manual=" + manual);
 
             // Cleanup folders
