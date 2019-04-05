@@ -353,7 +353,8 @@ Similarly, to decrypt a received message, just select the menu *Decrypt* in the 
 
 You can enable *Encrypt by default* in the identity settings.
 
-Encryption is [Autocrypt](https://autocrypt.org/) compatible. For security reasons received messages are not decrypted automatically.
+Encryption is [Autocrypt](https://autocrypt.org/) compatible.
+Received messages are not decrypted automatically because of security reasons and because often manual interaction is required.
 
 The decrypted message text and decrypted attachments are stored. If you want to undo this, you can use the *resync* message 'more' menu.
 
