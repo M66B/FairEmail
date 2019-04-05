@@ -1623,6 +1623,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 } catch (IOException ex) {
                     Log.e(ex);
                     db.message().setMessageContent(message.id, false, null, null);
+                    db.message().setMessageSize(message.id, null);
                     return null;
                 }
 
