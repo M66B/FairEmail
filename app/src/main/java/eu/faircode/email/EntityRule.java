@@ -267,6 +267,8 @@ public class EntityRule {
         Helper.writeText(reply.getFile(context), body);
         db.message().setMessageContent(reply.id, true, HtmlHelper.getPreview(body), null);
 
+        Core.updateMessageSize(context, reply.id);
+
         EntityOperation.queue(context, db, reply, EntityOperation.SEND);
     }
 

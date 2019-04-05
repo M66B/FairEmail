@@ -626,6 +626,8 @@ class Core {
         Helper.writeText(message.getFile(context), body);
         db.message().setMessageContent(message.id, true,
                 HtmlHelper.getPreview(body), parts.getWarnings(message.warning));
+
+        updateMessageSize(context, message.id);
     }
 
     private static void onAttachment(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws JSONException, MessagingException, IOException {
@@ -648,6 +650,8 @@ class Core {
         MessageHelper helper = new MessageHelper((MimeMessage) imessage);
         MessageHelper.MessageParts parts = helper.getMessageParts();
         parts.downloadAttachment(context, sequence - 1, attachment.id);
+
+        updateMessageSize(context, message.id);
     }
 
     static void onSynchronizeFolders(Context context, EntityAccount account, Store istore, State state) throws MessagingException {
@@ -1462,7 +1466,7 @@ class Core {
         }
     }
 
-    private static void updateMessageSize(Context context, long id) {
+    static void updateMessageSize(Context context, long id) {
         DB db = DB.getInstance(context);
 
         EntityMessage message = db.message().getMessage(id);

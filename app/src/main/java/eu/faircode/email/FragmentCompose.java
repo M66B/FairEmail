@@ -1827,6 +1827,8 @@ public class FragmentCompose extends FragmentBase {
 
                     db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body), null);
 
+                    Core.updateMessageSize(context, draft.id);
+
                     // Write reference text
                     if (ref != null && ref.content) {
                         String refBody = String.format("<p>%s %s:</p>\n<blockquote>%s</blockquote>",
@@ -2180,6 +2182,8 @@ public class FragmentCompose extends FragmentBase {
                     db.message().updateMessage(draft);
                     Helper.writeText(draft.getFile(context), body);
                     db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body), null);
+
+                    Core.updateMessageSize(context, draft.id);
                 }
 
                 // Remove unused inline images

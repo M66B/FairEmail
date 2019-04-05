@@ -433,6 +433,8 @@ public class Helper {
             attachOperations(context, draft.id, 5);
             attachLogcat(context, draft.id, 6);
 
+            Core.updateMessageSize(context, draft.id);
+
             EntityOperation.queue(context, db, draft, EntityOperation.ADD);
 
             db.setTransactionSuccessful();
