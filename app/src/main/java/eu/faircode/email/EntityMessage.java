@@ -100,7 +100,7 @@ public class EntityMessage implements Serializable {
     public String headers;
     public Boolean raw;
     public String subject;
-    public Integer size;
+    public Long size;
     @NonNull
     public Boolean content = false;
     public String preview;
