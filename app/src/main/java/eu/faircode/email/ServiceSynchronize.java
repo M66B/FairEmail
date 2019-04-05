@@ -163,7 +163,11 @@ public class ServiceSynchronize extends LifecycleService {
         cm.unregisterNetworkCallback(networkCallback);
 
         Widget.update(this, -1);
-        ShortcutBadger.applyCount(this, 0);
+        try {
+            ShortcutBadger.applyCount(this, 0);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
 
         WorkerCleanup.cancel();
 

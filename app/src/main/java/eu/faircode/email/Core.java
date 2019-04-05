@@ -1500,7 +1500,11 @@ class Core {
         boolean badge = prefs.getBoolean("badge", true);
 
         Widget.update(context, messages.size());
-        ShortcutBadger.applyCount(context, badge ? messages.size() : 0);
+        try {
+            ShortcutBadger.applyCount(context, badge ? messages.size() : 0);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
 
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
