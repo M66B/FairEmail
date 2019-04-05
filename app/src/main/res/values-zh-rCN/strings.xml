@@ -54,6 +54,9 @@
     <string name="menu_invite">邀请好友</string>
     <string name="menu_rate">给这个应用打分</string>
     <string name="menu_other">其他应用</string>
+    <string name="title_issue_type">您有问题或疑问吗？</string>
+    <string name="title_issue_question">问题</string>
+    <string name="title_issue_problem">问题</string>
     <string name="title_welcome">欢迎</string>
     <string name="title_eula">最终用户许可协议</string>
     <string name="title_agree">我同意</string>

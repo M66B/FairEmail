@@ -78,6 +78,9 @@
     <string name="menu_invite">Пригласить</string>
     <string name="menu_rate">Оцените приложение</string>
     <string name="menu_other">Другие приложения</string>
+    <string name="title_issue_type">У вас есть вопрос или проблема?</string>
+    <string name="title_issue_question">Вопрос</string>
+    <string name="title_issue_problem">Проблема</string>
     <string name="title_welcome">Добро пожаловать</string>
     <string name="title_eula">Пользовательское соглашение</string>
     <string name="title_agree">Принимаю</string>
@@ -383,6 +386,7 @@
     <string name="title_queued">Отправка сообщения</string>
     <string name="title_encrypt">Шифрование</string>
     <string name="title_decrypt">Расшифровать</string>
+    <string name="title_resync">Синхронизировать заново</string>
     <string name="title_no_openpgp">OpenKeychain не доступно</string>
     <string name="title_not_encrypted">Сообщение не зашифровано</string>
     <string name="title_search">Поиск</string>

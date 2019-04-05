@@ -62,6 +62,9 @@
     <string name="menu_invite">Davet et</string>
     <string name="menu_rate">Bu uygulamaya puan verin</string>
     <string name="menu_other">Diğer uygulamalar</string>
+    <string name="title_issue_type">Bir soru ya da sorun var mı?</string>
+    <string name="title_issue_question">Soru</string>
+    <string name="title_issue_problem">Sorun</string>
     <string name="title_welcome">Hoşgeldiniz</string>
     <string name="title_eula">Son Kullanıcı Lisans Sözleşmesi</string>
     <string name="title_agree">Kabul ediyorum</string>
@@ -251,6 +254,8 @@
     <string name="title_no_operations">Bekleyen işlem yok</string>
     <string name="title_folder_name">Klasör adı</string>
     <string name="title_display_name">Görünen ad</string>
+    <string name="title_show_folders">Gizli klasörleri göster</string>
+    <string name="title_hide_folder">Klasörü gizle</string>
     <string name="title_unified_folder">Birleşik gelen kutusunda göster</string>
     <string name="title_synchronize_folder">Eşzamanla (iletileri al)</string>
     <string name="title_poll_folder">Sürekli eşzamanlama yerine belirli aralıklarla bakın</string>
@@ -377,6 +382,7 @@
     <string name="title_sort_on_starred">Yıldızlı</string>
     <string name="title_sort_on_sender">Gönderen</string>
     <string name="title_sort_on_subject">Konu</string>
+    <string name="title_sort_on_size">Boyut</string>
     <string name="title_compact">Derlitoplu görünüm</string>
     <string name="title_zoom">Metin boyutu</string>
     <string name="title_address_sent">Gönderilen:</string>

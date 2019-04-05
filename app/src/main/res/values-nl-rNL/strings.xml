@@ -370,6 +370,7 @@
     <string name="title_queued">Bericht wordt verzonden</string>
     <string name="title_encrypt">Versleutelen</string>
     <string name="title_decrypt">Ontsleutelen</string>
+    <string name="title_resync">Resync</string>
     <string name="title_no_openpgp">OpenKeychain niet gevonden</string>
     <string name="title_not_encrypted">Bericht is niet versleuteld</string>
     <string name="title_search">Zoek</string>

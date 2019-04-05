@@ -62,6 +62,9 @@
     <string name="menu_invite">Inviter</string>
     <string name="menu_rate">Noter cette application</string>
     <string name="menu_other">Autres applications</string>
+    <string name="title_issue_type">Avez-vous une question ou un problème ?</string>
+    <string name="title_issue_question">Question</string>
+    <string name="title_issue_problem">Problème</string>
     <string name="title_welcome">Bienvenue</string>
     <string name="title_eula">Contrat de licence d\'utilisateur final</string>
     <string name="title_agree">J\'accepte</string>
@@ -367,6 +370,7 @@
     <string name="title_queued">Envoi du message</string>
     <string name="title_encrypt">Chiffrer</string>
     <string name="title_decrypt">Déchiffrer</string>
+    <string name="title_resync">Resynchroniser</string>
     <string name="title_no_openpgp">OpenKeychain introuvable</string>
     <string name="title_not_encrypted">Le message n\'est pas chiffré</string>
     <string name="title_search">Rechercher</string>

@@ -62,6 +62,9 @@
     <string name="menu_invite">Convidar</string>
     <string name="menu_rate">Avalie este aplicativo</string>
     <string name="menu_other">Outros aplicativos</string>
+    <string name="title_issue_type">Você está com alguma dúvida ou algum problema?</string>
+    <string name="title_issue_question">Pergunta</string>
+    <string name="title_issue_problem">Problema</string>
     <string name="title_welcome">Bem-vindo(a)</string>
     <string name="title_eula">Contrato de Licença de Usuário Final</string>
     <string name="title_agree">Eu concordo</string>
@@ -367,6 +370,7 @@
     <string name="title_queued">Enviando mensagem</string>
     <string name="title_encrypt">Criptografar</string>
     <string name="title_decrypt">Descriptografar</string>
+    <string name="title_resync">Resincronizar</string>
     <string name="title_no_openpgp">OpenKeychain não encontrado</string>
     <string name="title_not_encrypted">Mensagem não criptografada</string>
     <string name="title_search">Pesquisar</string>
@@ -379,6 +383,7 @@
     <string name="title_sort_on_starred">Com estrela</string>
     <string name="title_sort_on_sender">Remetente</string>
     <string name="title_sort_on_subject">Assunto</string>
+    <string name="title_sort_on_size">Tamanho</string>
     <string name="title_compact">Visualização compacta</string>
     <string name="title_zoom">Tamanho do texto</string>
     <string name="title_address_sent">Enviado:</string>

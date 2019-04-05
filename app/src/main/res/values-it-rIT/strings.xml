@@ -62,6 +62,9 @@
     <string name="menu_invite">Invita</string>
     <string name="menu_rate">Valuta questa app</string>
     <string name="menu_other">Altre app</string>
+    <string name="title_issue_type">Hai una domanda o un problema?</string>
+    <string name="title_issue_question">Domanda</string>
+    <string name="title_issue_problem">Problema</string>
     <string name="title_welcome">Benvenuti</string>
     <string name="title_eula">Contratto di licenza con l\'utente finale</string>
     <string name="title_agree">Accetto</string>
@@ -251,6 +254,8 @@
     <string name="title_no_operations">Nessuna operazione in sospeso</string>
     <string name="title_folder_name">Nome cartella</string>
     <string name="title_display_name">Nome visualizzato</string>
+    <string name="title_show_folders">Mostra cartelle nascoste</string>
+    <string name="title_hide_folder">Nascondi cartella</string>
     <string name="title_unified_folder">Mostra in posta in arrivo unificata</string>
     <string name="title_synchronize_folder">Sincronizza (ricevi messaggi)</string>
     <string name="title_poll_folder">Controllare periodicamente anziché sincronizzare continuamente</string>
@@ -365,6 +370,7 @@
     <string name="title_queued">Invio messaggio in corso</string>
     <string name="title_encrypt">Crittografare</string>
     <string name="title_decrypt">Decifra</string>
+    <string name="title_resync">Risincronizza</string>
     <string name="title_no_openpgp">OpenKeychain non trovato</string>
     <string name="title_not_encrypted">Il messaggio non è cifrato</string>
     <string name="title_search">Cerca</string>
@@ -377,6 +383,7 @@
     <string name="title_sort_on_starred">Stellati</string>
     <string name="title_sort_on_sender">Mittente</string>
     <string name="title_sort_on_subject">Soggetto</string>
+    <string name="title_sort_on_size">Dimensioni</string>
     <string name="title_compact">Vista compatta</string>
     <string name="title_zoom">Dimensione testo</string>
     <string name="title_address_sent">Inviati:</string>

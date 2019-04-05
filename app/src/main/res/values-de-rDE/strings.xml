@@ -370,6 +370,7 @@
     <string name="title_queued">Nachricht senden\u2026</string>
     <string name="title_encrypt">Verschlüsseln</string>
     <string name="title_decrypt">Entschlüsseln</string>
+    <string name="title_resync">Neu synchronisieren</string>
     <string name="title_no_openpgp">OpenKeychain wurde nicht gefunden</string>
     <string name="title_not_encrypted">E-Mail ist nicht verschlüsselt</string>
     <string name="title_search">Suche</string>
