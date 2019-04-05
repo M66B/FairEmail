@@ -153,7 +153,7 @@ public class ContactInfo {
         return info;
     }
 
-    static Uri getLookupUri(Context context, Address[] addresses, boolean useCache) {
+    static Uri getLookupUri(Context context, Address[] addresses) {
         if (!Helper.hasPermission(context, Manifest.permission.READ_CONTACTS))
             return null;
 
@@ -161,12 +161,11 @@ public class ContactInfo {
             return null;
         InternetAddress address = (InternetAddress) addresses[0];
 
-        if (useCache)
-            synchronized (emailLookupInfo) {
-                LookupInfo info = emailLookupInfo.get(address.getAddress());
-                if (info != null && !info.isExpired())
-                    return info.uri;
-            }
+        synchronized (emailLookupInfo) {
+            LookupInfo info = emailLookupInfo.get(address.getAddress());
+            if (info != null && !info.isExpired())
+                return info.uri;
+        }
 
         try {
             ContentResolver resolver = context.getContentResolver();

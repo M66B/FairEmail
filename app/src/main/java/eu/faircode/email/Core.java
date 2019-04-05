@@ -1189,7 +1189,7 @@ class Core {
                 message.ui_browsed = browsed;
 
                 message.sender = MessageHelper.getSortKey(message.from);
-                Uri lookupUri = ContactInfo.getLookupUri(context, message.from, true);
+                Uri lookupUri = ContactInfo.getLookupUri(context, message.from);
                 message.avatar = (lookupUri == null ? null : lookupUri.toString());
 
                 Address sender = helper.getSender(); // header
@@ -1365,7 +1365,7 @@ class Core {
             for (Address recipient : recipients) {
                 String email = ((InternetAddress) recipient).getAddress();
                 String name = ((InternetAddress) recipient).getPersonal();
-                Uri avatar = ContactInfo.getLookupUri(context, new Address[]{recipient}, true);
+                Uri avatar = ContactInfo.getLookupUri(context, new Address[]{recipient});
                 EntityContact contact = db.contact().getContact(folder.account, type, email);
                 if (contact == null) {
                     contact = new EntityContact();

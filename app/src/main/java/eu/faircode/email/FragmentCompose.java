@@ -1815,7 +1815,7 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                     draft.sender = MessageHelper.getSortKey(draft.from);
-                    Uri lookupUri = ContactInfo.getLookupUri(context, draft.from, true);
+                    Uri lookupUri = ContactInfo.getLookupUri(context, draft.from);
                     draft.avatar = (lookupUri == null ? null : lookupUri.toString());
 
                     draft.received = new Date().getTime();
@@ -2174,7 +2174,7 @@ public class FragmentCompose extends FragmentBase {
                     draft.received = new Date().getTime();
 
                     draft.sender = MessageHelper.getSortKey(draft.from);
-                    Uri lookupUri = ContactInfo.getLookupUri(context, draft.from, true);
+                    Uri lookupUri = ContactInfo.getLookupUri(context, draft.from);
                     draft.avatar = (lookupUri == null ? null : lookupUri.toString());
 
                     db.message().updateMessage(draft);

@@ -125,6 +125,7 @@ public class WorkerCleanup extends Worker {
             Log.i("Deleted logs=" + logs);
 
             Log.i("Update lookup URIs");
+            ContactInfo.clearCache();
             List<EntityFolder> folders = db.folder().getSynchronizingFolders();
             for (EntityFolder folder : folders) {
                 Calendar cal = Calendar.getInstance();
@@ -141,7 +142,7 @@ public class WorkerCleanup extends Worker {
                 List<TupleMessageLookup> avatars = db.message().getAvatars(folder.id, sync_time);
                 for (TupleMessageLookup message : avatars) {
                     Uri uri = (message.avatar == null ? null : Uri.parse(message.avatar));
-                    Uri lookup = ContactInfo.getLookupUri(context, message.from, false);
+                    Uri lookup = ContactInfo.getLookupUri(context, message.from);
                     if (!Objects.equals(uri, lookup)) {
                         Log.i("Updating email=" + MessageHelper.formatAddresses(message.from) + " uri=" + lookup);
                         db.message().setMessageAvatar(message.id, lookup == null ? null : lookup.toString());
