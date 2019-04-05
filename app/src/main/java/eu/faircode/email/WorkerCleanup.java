@@ -41,8 +41,6 @@ public class WorkerCleanup extends Worker {
     static void cleanup(Context context, boolean manual) {
         DB db = DB.getInstance(context);
         try {
-            db.beginTransaction();
-
             Log.i("Start cleanup manual=" + manual);
 
             // Cleanup folders
@@ -148,12 +146,9 @@ public class WorkerCleanup extends Worker {
                 }
             }
             Log.i("Updated lookup URIs");
-
-            db.setTransactionSuccessful();
         } catch (Throwable ex) {
             Log.e(ex);
         } finally {
-            db.endTransaction();
             Log.i("End cleanup");
         }
     }
