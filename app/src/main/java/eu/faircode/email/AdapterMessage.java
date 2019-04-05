@@ -2431,13 +2431,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         @Override
                         public void onPageFinished(WebView view, String url) {
-                            PrintManager printManager = (PrintManager) context.getSystemService(Context.PRINT_SERVICE);
-                            String jobName = context.getString(R.string.app_name);
-                            if (!TextUtils.isEmpty(data.message.subject))
-                                jobName += " - " + data.message.subject;
-                            PrintDocumentAdapter adapter = printWebView.createPrintDocumentAdapter(jobName);
-                            printManager.print(jobName, adapter, new PrintAttributes.Builder().build());
-                            printWebView = null;
+                            try {
+                                PrintManager printManager = (PrintManager) context.getSystemService(Context.PRINT_SERVICE);
+                                String jobName = context.getString(R.string.app_name);
+                                if (!TextUtils.isEmpty(data.message.subject))
+                                    jobName += " - " + data.message.subject;
+                                PrintDocumentAdapter adapter = printWebView.createPrintDocumentAdapter(jobName);
+                                printManager.print(jobName, adapter, new PrintAttributes.Builder().build());
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            } finally {
+                                printWebView = null;
+                            }
                         }
                     });
 
@@ -2557,6 +2562,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_share).setEnabled(data.message.content);
             popupMenu.getMenu().findItem(R.id.menu_print).setEnabled(hasWebView && data.message.content);
+            popupMenu.getMenu().findItem(R.id.menu_print).setVisible(Helper.canPrint(context));
 
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setChecked(show_headers);
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(data.message.uid != null);

@@ -1035,6 +1035,11 @@ public class Helper {
             return false;
     }
 
+    static boolean canPrint(Context context) {
+        PackageManager pm = context.getPackageManager();
+        return pm.hasSystemFeature("android.software.print");
+    }
+
     public static String getFingerprint(Context context) {
         try {
             PackageManager pm = context.getPackageManager();
