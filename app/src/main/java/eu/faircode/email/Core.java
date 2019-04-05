@@ -1099,6 +1099,8 @@ class Core {
                             dup.uid = uid;
                             dup.msgid = msgid;
                             dup.thread = thread;
+                            if (dup.size == null)
+                                dup.size = helper.getSize();
                             dup.error = null;
                             message = dup;
                             update = true;
