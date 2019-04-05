@@ -1473,7 +1473,7 @@ class Core {
         if (message == null || !message.content)
             return;
 
-        int size = (int) message.getFile(context).length();
+        long size = message.getFile(context).length();
         if (size == 0)
             return;
 
