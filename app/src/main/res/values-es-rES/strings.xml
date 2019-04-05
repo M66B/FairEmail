@@ -62,6 +62,9 @@
     <string name="menu_invite">Invitar</string>
     <string name="menu_rate">Calificar esta app</string>
     <string name="menu_other">Otras apps</string>
+    <string name="title_issue_type">¿Tiene alguna pregunta o problema?</string>
+    <string name="title_issue_question">Pregunta</string>
+    <string name="title_issue_problem">Problema</string>
     <string name="title_welcome">Bienvenido</string>
     <string name="title_eula">Acuerdo de licencia de usuario</string>
     <string name="title_agree">Acepto</string>
@@ -153,13 +156,13 @@
     <string name="title_advanced_autoresize">Redimensionar imágenes automáticamente para mostrar en pantallas</string>
     <string name="title_advanced_sender">Permitir editar dirección del remitente</string>
     <string name="title_advanced_autosend">Confirmar enviar mensajes</string>
-    <string name="title_advanced_badge">Mostrar icono en el launcher con el número de mensajes nuevos</string>
+    <string name="title_advanced_badge">Mostrar icono del lanzador con el número de mensajes nuevos</string>
     <string name="title_advanced_notify_preview">Mostrar vista previa del mensaje en notificaciones</string>
     <string name="title_advanced_search_local">Búsqueda externa en dispositivo</string>
     <string name="title_advanced_light">Usar luz de notificación</string>
     <string name="title_advanced_sound">Seleccionar sonido de notificación</string>
     <string name="title_advanced_english">Forzar idioma inglés</string>
-    <string name="title_advanced_paranoid">Características de privacidad extra</string>
+    <string name="title_advanced_paranoid">Características de privacidad adicionales</string>
     <string name="title_advanced_updates">Buscar actualizaciones</string>
     <string name="title_advanced_debug">Modo de depuración</string>
     <string name="title_advanced_enabled_hint">Desactivar o activar globalmente la recepción y envío de mensajes</string>
@@ -172,7 +175,7 @@
     <string name="title_advanced_autocollapse_hint">Múltiples mensajes expandidos siempre se cerrarán con \'atrás\'</string>
     <string name="title_advanced_autoclose_hint">Cerrar automáticamente hilos de conversación cuando todos los mensajes son archivados, enviados o eliminados</string>
     <string name="title_advanced_sender_hint">La mayoría de los proveedores no permiten direcciones de remitente modificadas</string>
-    <string name="title_advanced_badge_hint">Sólo disponible en dispositivos soportados</string>
+    <string name="title_advanced_badge_hint">Solo disponible en dispositivos soportados</string>
     <string name="title_advanced_preview_hint">Sólo disponible cuando el texto del mensaje fue descargado</string>
     <string name="title_advanced_search_local_hint">En lugar de buscar en la carpeta de archivo principal en el servidor</string>
     <string name="title_advanced_english_hint">Esto reiniciará la app</string>
@@ -251,6 +254,8 @@
     <string name="title_no_operations">No hay operaciones pendientes</string>
     <string name="title_folder_name">Nombre de carpeta</string>
     <string name="title_display_name">Nombre para mostrar</string>
+    <string name="title_show_folders">Mostrar carpetas ocultas</string>
+    <string name="title_hide_folder">Ocultar carpeta</string>
     <string name="title_unified_folder">Mostrar en bandeja de entrada unificada</string>
     <string name="title_synchronize_folder">Sincronizar (recibir mensajes)</string>
     <string name="title_poll_folder">Comprobar periódicamente en lugar de sincronizar continuamente</string>
@@ -353,7 +358,7 @@
     <string name="title_style_clear">Borrar formato</string>
     <string name="title_style_link">Insertar enlace</string>
     <string name="title_style_image">Insertar imagen</string>
-    <string name="title_style_toolbar">Estilizar barra de herramientas</string>
+    <string name="title_style_toolbar">Barra de herramientas de estilo</string>
     <string name="title_add_attachment">Agregar adjunto</string>
     <string name="title_show_addresses">Mostrar CC/CCO</string>
     <string name="title_from_missing">Falta remitente</string>
@@ -365,6 +370,7 @@
     <string name="title_queued">Enviando mensaje</string>
     <string name="title_encrypt">Cifrar</string>
     <string name="title_decrypt">Descifrar</string>
+    <string name="title_resync">Resincronizar</string>
     <string name="title_no_openpgp">OpenKeychain no encontrado</string>
     <string name="title_not_encrypted">El mensaje no está cifrado</string>
     <string name="title_search">Buscar</string>
@@ -377,6 +383,7 @@
     <string name="title_sort_on_starred">Destacado</string>
     <string name="title_sort_on_sender">Remitente</string>
     <string name="title_sort_on_subject">Asunto</string>
+    <string name="title_sort_on_size">Tamaño</string>
     <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Tamaño del texto</string>
     <string name="title_address_sent">Enviado/s:</string>

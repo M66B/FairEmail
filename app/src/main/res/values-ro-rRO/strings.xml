@@ -262,8 +262,8 @@
     <string name="title_no_operations">Nici o operațiune în așteptare</string>
     <string name="title_folder_name">Nume dosar</string>
     <string name="title_display_name">Nume afișat</string>
-    <string name="title_show_folders">Arată folderele ascunse</string>
-    <string name="title_hide_folder">Ascunde folderul</string>
+    <string name="title_show_folders">Arată dosarele ascunse</string>
+    <string name="title_hide_folder">Ascunde dosarul</string>
     <string name="title_unified_folder">Arată în căsuța poștală comună</string>
     <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
     <string name="title_poll_folder">Verifică periodic în loc de a sincroniza în continuu</string>
@@ -378,7 +378,7 @@
     <string name="title_queued">Expediere mesaj</string>
     <string name="title_encrypt">Criptare</string>
     <string name="title_decrypt">Decriptare</string>
-    <string name="title_resync">Resincronizați</string>
+    <string name="title_resync">Resincronizare</string>
     <string name="title_no_openpgp">OpenKeychain nu a fost găsit</string>
     <string name="title_not_encrypted">Mesajul nu este criptat</string>
     <string name="title_search">Caută</string>
