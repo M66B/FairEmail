@@ -39,6 +39,7 @@ public class TupleMessageEx extends EntityMessage {
     public int attachments;
     public int drafts;
     public int visible;
+    public Long totalSize;
     @Ignore
     public boolean duplicate;
 
@@ -62,6 +63,7 @@ public class TupleMessageEx extends EntityMessage {
                     this.attachments == other.attachments &&
                     this.drafts == other.drafts &&
                     this.visible == other.visible &&
+                    Objects.equals(this.totalSize, other.totalSize) &&
                     this.duplicate == other.duplicate);
         }
         return false;
@@ -83,6 +85,7 @@ public class TupleMessageEx extends EntityMessage {
                     this.unflagged == other.unflagged &&
                     this.attachments == other.attachments &&
                     this.visible == other.visible &&
+                    Objects.equals(this.totalSize, other.totalSize) &&
                     this.duplicate == other.duplicate);
         }
         return false;

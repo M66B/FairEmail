@@ -517,8 +517,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ivExpander.setVisibility(View.GONE);
 
             // Line 1
-            tvSize.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
-            tvSize.setVisibility(message.size == null || message.content ? View.GONE : View.VISIBLE);
+            Long size = ("size".equals(sort) ? message.totalSize : message.size);
+            tvSize.setText(size == null ? null : Helper.humanReadableByteCount(size, true));
+            tvSize.setVisibility(size == null || (message.content && !"size".equals(sort)) ? View.GONE : View.VISIBLE);
             tvTime.setText(date && "time".equals(sort)
                     ? tf.format(message.received)
                     : DateUtils.getRelativeTimeSpanString(context, message.received));
@@ -3060,7 +3061,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     void setSort(String sort) {
         if (!sort.equals(this.sort)) {
+            boolean update = ("size".equals(this.sort) || "size".equals(sort));
             this.sort = sort;
+            if (update)
+                notifyDataSetChanged();
             // loadMessages will be called
         }
     }

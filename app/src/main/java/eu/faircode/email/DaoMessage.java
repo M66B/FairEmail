@@ -56,6 +56,7 @@ public interface DaoMessage {
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", SUM(CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END) AS drafts" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
+            ", SUM(message.size) AS totalSize" +
             ", MAX(CASE WHEN :found OR folder.unified THEN message.received ELSE 0 END) AS dummy" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
@@ -98,6 +99,7 @@ public interface DaoMessage {
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", SUM(CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END) AS drafts" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
+            ", SUM(message.size) AS totalSize" +
             ", MAX(CASE WHEN folder.id = :folder THEN message.received ELSE 0 END) AS dummy" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
@@ -132,6 +134,7 @@ public interface DaoMessage {
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END AS drafts" +
             ", 1 AS visible" +
+            ", message.size AS totalSize" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
@@ -204,6 +207,7 @@ public interface DaoMessage {
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END AS drafts" +
             ", 1 AS visible" +
+            ", message.size AS totalSize" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
@@ -221,6 +225,7 @@ public interface DaoMessage {
             ", 0 AS attachments" +
             ", 0 AS drafts" +
             ", 1 AS visible" +
+            ", message.size AS totalSize" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
