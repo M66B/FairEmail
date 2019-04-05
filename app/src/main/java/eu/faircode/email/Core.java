@@ -1457,7 +1457,36 @@ class Core {
                         } catch (Throwable ex) {
                             Log.e(ex);
                         }
+
+            updateMessageSize(context, message.id);
         }
+    }
+
+    private static void updateMessageSize(Context context, long id) {
+        DB db = DB.getInstance(context);
+
+        EntityMessage message = db.message().getMessage(id);
+        if (message == null || !message.content)
+            return;
+
+        int size = (int) message.getFile(context).length();
+        if (size == 0)
+            return;
+
+        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+        for (EntityAttachment attachment : attachments) {
+            if (!attachment.available)
+                return;
+
+            long asize = attachment.getFile(context).length();
+            if (asize == 0)
+                return;
+
+            size += asize;
+        }
+
+        Log.i("Setting message=" + id + " size=" + message.size + "/" + size);
+        db.message().setMessageSize(message.id, size);
     }
 
     static void notifyMessages(Context context, List<TupleMessageEx> messages) {

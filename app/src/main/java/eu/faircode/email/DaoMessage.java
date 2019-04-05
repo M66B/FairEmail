@@ -324,6 +324,9 @@ public interface DaoMessage {
     @Query("UPDATE message SET content = :content, preview = :preview, warning = :warning WHERE id = :id")
     int setMessageContent(long id, boolean content, String preview, String warning);
 
+    @Query("UPDATE message SET size = :size WHERE id = :id")
+    int setMessageSize(long id, Integer size);
+
     @Query("UPDATE message SET headers = :headers WHERE id = :id")
     int setMessageHeaders(long id, String headers);
 
