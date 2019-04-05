@@ -705,6 +705,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private class UpdateInfo {
         String tag_name; // version
+        boolean prerelease;
         String html_url;
     }
 
@@ -767,6 +768,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     // Get update info
                     UpdateInfo info = new UpdateInfo();
                     info.tag_name = jroot.getString("tag_name");
+                    info.prerelease = jroot.getBoolean("prerelease");
                     info.html_url = jroot.getString("html_url");
 
                     // Check if new release
@@ -776,7 +778,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         if (jasset.has("name")) {
                             String name = jasset.getString("name");
                             if (name != null && name.endsWith(".apk")) {
-                                Log.i("Latest version=" + info.tag_name);
+                                Log.i("Latest version=" + info.tag_name + " prerelease=" + info.prerelease);
                                 if (BuildConfig.VERSION_NAME.equals(info.tag_name))
                                     return null;
                                 else
@@ -794,14 +796,18 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             protected void onExecuted(Bundle args, UpdateInfo info) {
+                boolean always = args.getBoolean("always");
                 if (info == null) {
-                    if (args.getBoolean("always")) {
+                    if (always) {
                         Toast toast = Toast.makeText(ActivityView.this, BuildConfig.VERSION_NAME, Toast.LENGTH_LONG);
                         toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
                     }
                     return;
                 }
+
+                if (!always && info.prerelease)
+                    return;
 
                 final Intent update = new Intent(Intent.ACTION_VIEW, Uri.parse(info.html_url));
                 if (update.resolveActivity(getPackageManager()) != null)
