@@ -59,16 +59,12 @@ public interface DaoContact {
     EntityContact getContact(long account, int type, String email);
 
     @Query("SELECT id AS _id, name, email" +
-            ", CASE type" +
-            "  WHEN " + EntityContact.TYPE_TO + " THEN '>'" +
-            "  WHEN " + EntityContact.TYPE_FROM + " THEN '<'" +
-            "  ELSE '?'" +
-            " END AS type" +
             " FROM contact" +
             " WHERE (:account IS NULL OR account = :account)" +
             " AND (:type IS NULL OR type = :type)" +
             " AND (email LIKE :query COLLATE NOCASE OR name LIKE :query COLLATE NOCASE)" +
             " AND state <> " + EntityContact.STATE_IGNORE +
+            " GROUP BY name, email" +
             " ORDER BY" +
             " CASE WHEN name IS NULL THEN 1 ELSE 0 END" +
             ", name COLLATE NOCASE, email COLLATE NOCASE")

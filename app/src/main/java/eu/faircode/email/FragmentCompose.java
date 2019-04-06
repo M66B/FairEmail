@@ -440,16 +440,9 @@ public class FragmentCompose extends FragmentBase {
                 contacts
                         ? new String[]{
                         ContactsContract.Contacts.DISPLAY_NAME,
-                        ContactsContract.CommonDataKinds.Email.DATA
-                }
-                        : new String[]{
-                        "name",
-                        "email",
-                        "type"
-                },
-                contacts
-                        ? new int[]{android.R.id.text1, android.R.id.text2}
-                        : new int[]{android.R.id.text1, android.R.id.text2, R.id.tvType},
+                        ContactsContract.CommonDataKinds.Email.DATA}
+                        : new String[]{"name", "email"},
+                new int[]{android.R.id.text1, android.R.id.text2},
                 0);
 
         etTo.setAdapter(cadapter);
