@@ -41,9 +41,6 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.print.PrintAttributes;
-import android.print.PrintDocumentAdapter;
-import android.print.PrintManager;
 import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.text.Html;
@@ -58,7 +55,6 @@ import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
-import android.util.Base64;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -87,12 +83,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.text.Collator;
 import java.text.DateFormat;
@@ -251,8 +244,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private AdapterAttachment adapterAttachment;
         private AdapterImage adapterImage;
         private TwoStateOwner cowner = new TwoStateOwner(owner, "AdapterMessage");
-
-        private WebView printWebView = null;
 
         ViewHolder(final View itemView) {
             super(itemView);
@@ -1477,8 +1468,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     protected OriginalMessage onExecute(Context context, Bundle args) throws IOException {
                         long id = args.getLong("id");
 
+                        DB db = DB.getInstance(context);
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null)
+                            throw new FileNotFoundException();
+
                         OriginalMessage original = new OriginalMessage();
-                        original.html = HtmlHelper.removeTracking(context, getHtmlEmbedded(id));
+                        original.html = Helper.readText(message.getFile(context));
+                        original.html = HtmlHelper.getHtmlEmbedded(context, id, original.html);
+                        original.html = HtmlHelper.removeTracking(context, original.html);
 
                         Document doc = Jsoup.parse(original.html);
                         for (Element img : doc.select("img")) {
@@ -2381,7 +2379,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onMenuPrint(final ActionData data) {
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             if (prefs.getBoolean("print_html_confirmed", false)) {
-                onMenuPrintConfirmed(data);
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_PRINT)
+                                .putExtra("id", data.message.id));
                 return;
             }
 
@@ -2398,62 +2399,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         public void onClick(DialogInterface dialog, int which) {
                             if (cbNotAgain.isChecked())
                                 prefs.edit().putBoolean("print_html_confirmed", true).apply();
-                            onMenuPrintConfirmed(data);
+                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                            lbm.sendBroadcast(
+                                    new Intent(ActivityView.ACTION_PRINT)
+                                            .putExtra("id", data.message.id));
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
                     .show();
-        }
-
-        private void onMenuPrintConfirmed(final ActionData data) {
-            Bundle args = new Bundle();
-            args.putLong("id", data.message.id);
-
-            new SimpleTask<String>() {
-                @Override
-                protected String onExecute(Context context, Bundle args) throws IOException {
-                    long id = args.getLong("id");
-                    return HtmlHelper.removeTracking(context, getHtmlEmbedded(id));
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, String html) {
-                    // https://developer.android.com/training/printing/html-docs.html
-                    printWebView = new WebView(context);
-                    WebSettings settings = printWebView.getSettings();
-                    settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-                    settings.setAllowFileAccess(false);
-
-                    printWebView.setWebViewClient(new WebViewClient() {
-                        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                            return false;
-                        }
-
-                        @Override
-                        public void onPageFinished(WebView view, String url) {
-                            try {
-                                PrintManager printManager = (PrintManager) context.getSystemService(Context.PRINT_SERVICE);
-                                String jobName = context.getString(R.string.app_name);
-                                if (!TextUtils.isEmpty(data.message.subject))
-                                    jobName += " - " + data.message.subject;
-                                PrintDocumentAdapter adapter = printWebView.createPrintDocumentAdapter(jobName);
-                                printManager.print(jobName, adapter, new PrintAttributes.Builder().build());
-                            } catch (Throwable ex) {
-                                Log.e(ex);
-                            } finally {
-                                printWebView = null;
-                            }
-                        }
-                    });
-
-                    printWebView.loadDataWithBaseURL("email://", html, "text/html", "UTF-8", null);
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
-                }
-            }.execute(context, owner, args, "message:print");
         }
 
         private void onMenuShowHeaders(ActionData data) {
@@ -2948,42 +2901,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Helper.unexpectedError(context, owner, ex);
                 }
             }.execute(context, owner, new Bundle(), "message:answer");
-        }
-
-        private String getHtmlEmbedded(long id) throws IOException {
-            DB db = DB.getInstance(context);
-
-            EntityMessage message = db.message().getMessage(id);
-            if (message == null)
-                throw new FileNotFoundException();
-            String html = Helper.readText(message.getFile(context));
-
-            Document doc = Jsoup.parse(html);
-            for (Element img : doc.select("img")) {
-                String src = img.attr("src");
-                if (src.startsWith("cid:")) {
-                    String cid = '<' + src.substring(4) + '>';
-                    EntityAttachment attachment = db.attachment().getAttachment(id, cid);
-                    if (attachment != null && attachment.available) {
-                        File file = attachment.getFile(context);
-                        try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
-                            byte[] bytes = new byte[(int) file.length()];
-                            if (is.read(bytes) != bytes.length)
-                                throw new IOException("length");
-
-                            StringBuilder sb = new StringBuilder();
-                            sb.append("data:");
-                            sb.append(attachment.type);
-                            sb.append(";base64,");
-                            sb.append(Base64.encodeToString(bytes, Base64.DEFAULT));
-
-                            img.attr("src", sb.toString());
-                        }
-                    }
-                }
-            }
-
-            return doc.html();
         }
 
         ItemDetailsLookup.ItemDetails<Long> getItemDetails(@NonNull MotionEvent motionEvent) {

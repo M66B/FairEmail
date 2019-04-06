@@ -42,8 +42,10 @@ import org.jsoup.safety.Whitelist;
 import org.jsoup.select.NodeTraversor;
 import org.jsoup.select.NodeVisitor;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -547,7 +549,38 @@ public class HtmlHelper {
         return sb.toString();
     }
 
-    static boolean isTrackingPixel(Element img) {
+    static String getHtmlEmbedded(Context context, long id, String html) throws IOException {
+        DB db = DB.getInstance(context);
+
+        Document doc = Jsoup.parse(html);
+        for (Element img : doc.select("img")) {
+            String src = img.attr("src");
+            if (src.startsWith("cid:")) {
+                String cid = '<' + src.substring(4) + '>';
+                EntityAttachment attachment = db.attachment().getAttachment(id, cid);
+                if (attachment != null && attachment.available) {
+                    File file = attachment.getFile(context);
+                    try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
+                        byte[] bytes = new byte[(int) file.length()];
+                        if (is.read(bytes) != bytes.length)
+                            throw new IOException("length");
+
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("data:");
+                        sb.append(attachment.type);
+                        sb.append(";base64,");
+                        sb.append(Base64.encodeToString(bytes, Base64.DEFAULT));
+
+                        img.attr("src", sb.toString());
+                    }
+                }
+            }
+        }
+
+        return doc.html();
+    }
+
+    private static boolean isTrackingPixel(Element img) {
         String src = img.attr("src");
         String width = img.attr("width").trim();
         String height = img.attr("height").trim();
@@ -564,7 +597,7 @@ public class HtmlHelper {
         }
     }
 
-    static void trimEnd(StringBuilder sb) {
+    private static void trimEnd(StringBuilder sb) {
         int length = sb.length();
         while (length > 0 && sb.charAt(length - 1) == ' ')
             length--;

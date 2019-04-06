@@ -33,11 +33,17 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ParcelFileDescriptor;
+import android.print.PrintAttributes;
+import android.print.PrintDocumentAdapter;
+import android.print.PrintManager;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -105,6 +111,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private long message = -1;
     private long attachment = -1;
 
+    private WebView printWebView = null;
     private OpenPgpServiceConnection pgpService;
 
     private NumberFormat nf = NumberFormat.getNumberInstance();
@@ -133,6 +140,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_EDIT_RULE = BuildConfig.APPLICATION_ID + ".EDIT_RULE";
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
     static final String ACTION_STORE_ATTACHMENTS = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENTS";
+    static final String ACTION_PRINT = BuildConfig.APPLICATION_ID + ".PRINT";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
     static final String ACTION_SHOW_PRO = BuildConfig.APPLICATION_ID + ".SHOW_PRO";
 
@@ -575,6 +583,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_EDIT_RULE);
         iff.addAction(ACTION_STORE_ATTACHMENT);
         iff.addAction(ACTION_STORE_ATTACHMENTS);
+        iff.addAction(ACTION_PRINT);
         iff.addAction(ACTION_DECRYPT);
         iff.addAction(ACTION_SHOW_PRO);
         lbm.registerReceiver(receiver, iff);
@@ -1140,6 +1149,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     onStoreAttachment(intent);
                 else if (ACTION_STORE_ATTACHMENTS.equals(action))
                     onStoreAttachments(intent);
+                else if (ACTION_PRINT.equals(action))
+                    onPrint(intent);
                 else if (ACTION_DECRYPT.equals(action))
                     onDecrypt(intent);
                 else if (ACTION_SHOW_PRO.equals(action))
@@ -1268,6 +1279,69 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             Snackbar.make(getVisibleView(), R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
         else
             startActivityForResult(Helper.getChooser(this, tree), REQUEST_ATTACHMENTS);
+    }
+
+    private void onPrint(Intent intent) {
+        long id = intent.getLongExtra("id", -1);
+
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleTask<String[]>() {
+            @Override
+            protected String[] onExecute(Context context, Bundle args) throws IOException {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+                EntityMessage message = db.message().getMessage(id);
+                if (message == null)
+                    throw new FileNotFoundException();
+
+                String html = Helper.readText(message.getFile(context));
+                html = HtmlHelper.getHtmlEmbedded(context, id, html);
+                html = HtmlHelper.removeTracking(context, html);
+
+                return new String[]{message.subject, html};
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, final String[] data) {
+                // https://developer.android.com/training/printing/html-docs.html
+                printWebView = new WebView(ActivityView.this);
+                WebSettings settings = printWebView.getSettings();
+                settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+                settings.setAllowFileAccess(false);
+
+                printWebView.setWebViewClient(new WebViewClient() {
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                        return false;
+                    }
+
+                    @Override
+                    public void onPageFinished(WebView view, String url) {
+                        try {
+                            PrintManager printManager = (PrintManager) getSystemService(Context.PRINT_SERVICE);
+                            String jobName = getString(R.string.app_name);
+                            if (!TextUtils.isEmpty(data[0]))
+                                jobName += " - " + data[0];
+                            PrintDocumentAdapter adapter = printWebView.createPrintDocumentAdapter(jobName);
+                            printManager.print(jobName, adapter, new PrintAttributes.Builder().build());
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        } finally {
+                            printWebView = null;
+                        }
+                    }
+                });
+
+                printWebView.loadDataWithBaseURL("email://", data[1], "text/html", "UTF-8", null);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
+            }
+        }.execute(ActivityView.this, args, "message:print");
     }
 
     private void onDecrypt(Intent intent) {
