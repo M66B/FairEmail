@@ -42,7 +42,7 @@ This app starts a foreground service with a low priority status bar notification
 * Notification sound per sender (requires Android 8 Oreo or later)
 * Snooze messages ([instructions](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq67))
 * Send messages after selected time
-* Synchronization schedules ([instructions](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq78))
+* Synchronization scheduling ([instructions](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq78))
 * Reply templates
 * Filter rules ([instructions](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq71))
 * Search on device or server ([instructions](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq13))
