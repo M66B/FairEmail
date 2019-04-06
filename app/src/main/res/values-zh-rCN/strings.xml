@@ -55,7 +55,7 @@
     <string name="menu_rate">给这个应用打分</string>
     <string name="menu_other">其他应用</string>
     <string name="title_issue_type">您有问题或疑问吗？</string>
-    <string name="title_issue_question">问题</string>
+    <string name="title_issue_question">疑问</string>
     <string name="title_issue_problem">问题</string>
     <string name="title_welcome">欢迎</string>
     <string name="title_eula">最终用户许可协议</string>
@@ -343,6 +343,7 @@
     <string name="title_discard">舍弃</string>
     <string name="title_save">保存</string>
     <string name="title_send">发送</string>
+    <string name="title_send_at">发送于 &#8230;</string>
     <string name="title_no_selection">未选中任何内容</string>
     <string name="title_style_bold">粗体</string>
     <string name="title_style_italic">斜体</string>
@@ -361,6 +362,7 @@
     <string name="title_queued">正在发送邮件</string>
     <string name="title_encrypt">加密</string>
     <string name="title_decrypt">解密</string>
+    <string name="title_resync">重新同步</string>
     <string name="title_no_openpgp">OpenKeychain 未找到</string>
     <string name="title_not_encrypted">邮件未加密</string>
     <string name="title_search">搜索</string>
@@ -407,6 +409,7 @@
     <string name="title_rule_name_missing">缺少规则名称</string>
     <string name="title_rule_condition_missing">条件缺失</string>
     <string name="title_rule_automation">自动化</string>
+    <string name="title_rule_automation_hint">将使用参数 \'%2$s\' 发送 \'%1$s\' 的 intent</string>
     <string name="title_action_seen">标记为已读</string>
     <string name="title_action_archive">存档</string>
     <string name="title_action_trash">垃圾箱</string>
