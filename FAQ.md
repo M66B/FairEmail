@@ -27,6 +27,7 @@ For authorizing:
 * A [bug in Android](https://issuetracker.google.com/issues/119872129) "*Bad notification posted ...*" lets FairEmail crash on some devices after updating FairEmail and tapping on a notification.
 * A [bug in Android 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format.
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) "*ActivityRecord not found for ...*" sometimes causes a crash after updating FairEmail.
+* A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty.
 
 ## Planned features
 
