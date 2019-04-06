@@ -785,11 +785,14 @@ Disabling the folder option *Automatically download message texts and attachment
 will result in less network traffic and thus less battery usage.
 You could disable this option for example for the sent folder and the archive.
 
+Synchronizing messages at night is mostly not useful, so you can save on battery usage by not synchronizing at night.
+In the advanced options you can set a schedule for message synchronization (this is a pro feature). See also [this FAQ](#user-content-faq78).
+
 If you got the message *This provider does not support push messages* while configuring an account,
 consider switching to a modern provider which supports push messages (IMAP IDLE) to reduce battery usage.
 
 If your device has an [AMOLED](https://en.wikipedia.org/wiki/AMOLED) screen,
-you can save battery usage while viewing messages by switching to the black theme (this is a pro feature).
+you can save battery usage while viewing messages by switching to the black theme.
 
 <br />
 
@@ -1113,7 +1116,13 @@ The most natural thing to do when swiping a list entry left or right is to remov
 The most natural action in the context of an email app is moving the message out of the folder to another folder.
 You can select the folder to move to in the account settings.
 Other actions, like marking messages read and snoozing messages are available via multiple selection.
-You can long press a message to start multiple selection.
+You can long press a message to start multiple selection. See also [this question](#user-content-faq55).
+
+Swiping left or right to mark a message read or unread is unnatural because the message first goes away and later comes back in a different shape.
+Note that there is an advanced option to mark messages automatically read on moving,
+which is in most cases a perfect replacement for the sequence mark read and move to some folder.
+
+If you want to read a message later, you can hide it until a specific time by using the *snooze* menu.
 
 <br />
 
