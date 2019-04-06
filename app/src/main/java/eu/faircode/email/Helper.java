@@ -1024,7 +1024,7 @@ public class Helper {
 
     static boolean hasWebView(Context context) {
         PackageManager pm = context.getPackageManager();
-        if (pm.hasSystemFeature("android.software.webview"))
+        if (pm.hasSystemFeature(PackageManager.FEATURE_WEBVIEW))
             try {
                 new WebView(context);
                 return true;
@@ -1037,7 +1037,7 @@ public class Helper {
 
     static boolean canPrint(Context context) {
         PackageManager pm = context.getPackageManager();
-        return pm.hasSystemFeature("android.software.print");
+        return pm.hasSystemFeature(PackageManager.FEATURE_PRINTING);
     }
 
     public static String getFingerprint(Context context) {
