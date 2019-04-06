@@ -1367,7 +1367,7 @@ class Core {
             }
 
             for (Address recipient : recipients) {
-                String email = ((InternetAddress) recipient).getAddress();
+                String email = ((InternetAddress) recipient).getAddress().toLowerCase();
                 String name = ((InternetAddress) recipient).getPersonal();
                 Uri avatar = ContactInfo.getLookupUri(context, new Address[]{recipient});
                 EntityContact contact = db.contact().getContact(folder.account, type, email);
