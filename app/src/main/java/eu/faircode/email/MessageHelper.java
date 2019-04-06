@@ -468,51 +468,57 @@ public class MessageHelper {
         if (address == null || address.length == 0)
             return null;
 
+        try {
+            address[0].setPersonal(decodeMime(address[0].getPersonal()));
+            address[0].setAddress(decodeMime(address[0].getAddress()));
+        } catch (UnsupportedEncodingException ex) {
+            Log.w(ex);
+        }
+
         return address[0];
     }
 
     Address[] getFrom() throws MessagingException {
-        return imessage.getFrom();
+        return fix(imessage.getFrom());
     }
 
     Address[] getTo() throws MessagingException {
-        return imessage.getRecipients(Message.RecipientType.TO);
+        return fix(imessage.getRecipients(Message.RecipientType.TO));
     }
 
     Address[] getCc() throws MessagingException {
-        return imessage.getRecipients(Message.RecipientType.CC);
+        return fix(imessage.getRecipients(Message.RecipientType.CC));
     }
 
     Address[] getBcc() throws MessagingException {
-        return imessage.getRecipients(Message.RecipientType.BCC);
+        return fix(imessage.getRecipients(Message.RecipientType.BCC));
     }
 
     Address[] getReply() throws MessagingException {
         String[] headers = imessage.getHeader("Reply-To");
         if (headers != null && headers.length > 0)
-            return imessage.getReplyTo();
+            return fix(imessage.getReplyTo());
         else
             return null;
     }
 
-    String getSubject() throws MessagingException, UnsupportedEncodingException {
+    private static Address[] fix(Address[] addresses) {
+        if (addresses != null)
+            for (int i = 0; i < addresses.length; i++)
+                try {
+                    ((InternetAddress) addresses[i]).setPersonal(
+                            decodeMime(((InternetAddress) addresses[i]).getPersonal()));
+                    ((InternetAddress) addresses[i]).setAddress(
+                            decodeMime(((InternetAddress) addresses[i]).getAddress()));
+                } catch (UnsupportedEncodingException ex) {
+                    Log.w(ex);
+                }
+        return addresses;
+    }
+
+    String getSubject() throws MessagingException {
         String subject = imessage.getSubject();
-        if (subject == null)
-            return subject;
-
-        int i = 0;
-        int s = subject.indexOf("=?", i);
-        int e = subject.indexOf("?=", i);
-        while (s >= 0 && e >= 0 && i < subject.length()) {
-            String decode = subject.substring(s, e + 2);
-            String decoded = MimeUtility.decodeText(decode);
-            subject = subject.substring(0, i) + decoded + subject.substring(e + 2);
-            i += decoded.length();
-            s = subject.indexOf("=?", i);
-            e = subject.indexOf("?=", i);
-        }
-
-        return subject;
+        return decodeMime(subject);
     }
 
     Long getSize() throws MessagingException {
@@ -566,7 +572,7 @@ public class MessageHelper {
                 InternetAddress a = (InternetAddress) address;
                 String personal = a.getPersonal();
                 if (TextUtils.isEmpty(personal))
-                    formatted.add(address.toString());
+                    formatted.add(a.getAddress());
                 else {
                     if (compose) {
                         boolean quote = false;
@@ -587,6 +593,29 @@ public class MessageHelper {
             } else
                 formatted.add(address.toString());
         return TextUtils.join(", ", formatted);
+    }
+
+    private static String decodeMime(String text) {
+        if (text == null)
+            return null;
+
+        int i = 0;
+        int s = text.indexOf("=?", i);
+        int e = text.indexOf("?=", i);
+        while (s >= 0 && e >= 0 && i < text.length()) {
+            String decode = text.substring(s, e + 2);
+            try {
+                String decoded = MimeUtility.decodeText(decode);
+                text = text.substring(0, i) + decoded + text.substring(e + 2);
+                i += decoded.length();
+            } catch (UnsupportedEncodingException ex) {
+                Log.w(ex);
+                i += decode.length();
+            }
+            s = text.indexOf("=?", i);
+            e = text.indexOf("?=", i);
+        }
+        return text;
     }
 
     static String getSortKey(Address[] addresses) {
