@@ -500,7 +500,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                 // Debug
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-                boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
+                boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.DEBUG);
                 //System.setProperty("mail.socket.debug", Boolean.toString(debug));
 
                 // Get properties
