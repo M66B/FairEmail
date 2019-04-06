@@ -253,7 +253,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         onShowLog();
                         break;
                     case R.string.menu_setup:
-                        onReload();
+                        onReset();
                         break;
                     case R.string.menu_faq:
                         onDebugInfo();
@@ -1068,8 +1068,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         Helper.view(this, this, getIntentOtherApps());
     }
 
-    private void onReload() {
-        ServiceSynchronize.reload(this, "manual reload");
+    private void onReset() {
+        ServiceSynchronize.reset(this);
     }
 
     private void onDebugInfo() {
