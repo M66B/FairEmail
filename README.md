@@ -2,7 +2,7 @@
 
 *Open source, privacy friendly email app for Android*
 
-This email app might be for you if your current email app:
+This open source, privacy friendly email app might be for you if your current email app:
 
 * takes long to receive or to show messages
 * can manage only one email address
