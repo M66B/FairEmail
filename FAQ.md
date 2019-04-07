@@ -48,8 +48,8 @@ Anything on this list is in random order and *might* be added in the near future
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
 * Open links without confirmation
-* Show original messages from unknown senders without confirmation
-* Direct file/folder access: for security/privacy reasons (other) apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider), see also [this FAQ](#user-content-faq49) and [this FAQ](#user-content-faq68)
+* Show original messages from unknown senders without confirmation, see also [this FAQ](#user-content-faq35)
+* Direct file/folder access: for security/privacy reasons (other) apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider), see also [this FAQ](#user-content-faq49)
 
 Confirmation is just one tap, which is just a small price for better privacy.
 Note that your contacts could unknowingly send malicious messages if they got infected with malware.
@@ -706,6 +706,10 @@ that might not only cause privacy sensitive information to leak, but can also be
 
 Note that your contacts could unknowingly send malicious messages if they got infected with malware.
 
+The Gmail app shows images by default by downloading the images through a Google proxy server.
+Since the images are downloaded from the source server [in real-time](https://blog.filippo.io/how-the-new-gmail-image-proxy-works-and-what-this-means-for-you/),
+this is even less secure because Google is involved too without providing much benefit.
+
 <br />
 
 <a name="faq36"></a>
@@ -927,8 +931,10 @@ or an outdated app which assumes all apps still have storage permissions.
 For security and privacy reasons modern apps like FairEmail have no full access to all files anymore.
 This can result into the error message *An outdated app sent a file path instead of a file stream*
 if a file name instead of a file stream is being shared with FairEmail because FairEmail cannot randomly open files.
+
 You can fix this by switching to an up-to-date file manager or an app designed for recent Android versions.
 Alternatively, you can grant FairEmail read access to the storage space on your device in the Android app settings.
+Note that this workaround [won't work on Android Q](https://developer.android.com/preview/privacy/scoped-storage) anymore.
 
 See also [question 25](#user-content-faq25)
 and [what Google writes about it](https://developer.android.com/training/secure-file-sharing/share-file#RespondToRequest).
