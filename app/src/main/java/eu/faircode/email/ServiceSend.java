@@ -257,7 +257,7 @@ public class ServiceSend extends LifecycleService {
         }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean debug = debug = prefs.getBoolean("debug", false);
+        boolean debug = prefs.getBoolean("debug", false);
 
         EntityIdentity ident = db.identity().getIdentity(message.identity);
         String protocol = ident.getProtocol();
