@@ -470,12 +470,7 @@ public class MessageHelper {
         if (address == null || address.length == 0)
             return null;
 
-        try {
-            address[0].setPersonal(decodeMime(address[0].getPersonal()));
-            address[0].setAddress(decodeMime(address[0].getAddress()));
-        } catch (UnsupportedEncodingException ex) {
-            Log.w(ex);
-        }
+        fix(address[0]);
 
         return address[0];
     }
@@ -507,15 +502,29 @@ public class MessageHelper {
     private static Address[] fix(Address[] addresses) {
         if (addresses != null)
             for (int i = 0; i < addresses.length; i++)
-                try {
-                    ((InternetAddress) addresses[i]).setPersonal(
-                            decodeMime(((InternetAddress) addresses[i]).getPersonal()));
-                    ((InternetAddress) addresses[i]).setAddress(
-                            decodeMime(((InternetAddress) addresses[i]).getAddress()));
-                } catch (UnsupportedEncodingException ex) {
-                    Log.w(ex);
-                }
+                fix((InternetAddress) addresses[i]);
         return addresses;
+    }
+
+    private static void fix(InternetAddress address) {
+        try {
+            String email = decodeMime(address.getAddress());
+            String personal = decodeMime(address.getPersonal());
+            try {
+                InternetAddress[] a = InternetAddress.parse(email);
+                if (a.length < 1)
+                    throw new AddressException("empty");
+                String p = a[0].getPersonal();
+                address.setAddress(a[0].getAddress());
+                address.setPersonal(TextUtils.isEmpty(personal) ? p : personal + (p == null ? "" : " " + p));
+            } catch (AddressException ex) {
+                Log.w(ex);
+                address.setAddress(email);
+                address.setPersonal(personal);
+            }
+        } catch (UnsupportedEncodingException ex) {
+            Log.w(ex);
+        }
     }
 
     String getSubject() throws MessagingException {
