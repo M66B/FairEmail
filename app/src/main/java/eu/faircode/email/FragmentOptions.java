@@ -605,7 +605,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
 
         swMetered.setChecked(prefs.getBoolean("metered", true));
 
-        int download = prefs.getInt("download", 32768);
+        int download = prefs.getInt("download", MessageHelper.DEFAULT_ATTACHMENT_DOWNLOAD_SIZE);
         int[] downloadValues = getResources().getIntArray(R.array.downloadValues);
         for (int pos = 0; pos < downloadValues.length; pos++)
             if (downloadValues[pos] == download) {

@@ -71,6 +71,7 @@ public class MessageHelper {
     private final static int POOL_TIMEOUT = 45 * 1000; // milliseconds, default 45 sec
 
     static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
+    static final int DEFAULT_ATTACHMENT_DOWNLOAD_SIZE = 65536; // bytes
 
     static void setSystemProperties() {
         System.setProperty("mail.mime.decodetext.strict", "false");

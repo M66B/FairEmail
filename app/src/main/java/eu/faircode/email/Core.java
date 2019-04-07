@@ -1406,7 +1406,7 @@ class Core {
             return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        long maxSize = prefs.getInt("download", 32768);
+        long maxSize = prefs.getInt("download", MessageHelper.DEFAULT_ATTACHMENT_DOWNLOAD_SIZE);
         if (maxSize == 0)
             maxSize = Long.MAX_VALUE;
 
