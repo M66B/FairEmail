@@ -270,8 +270,11 @@ public class ServiceSend extends LifecycleService {
             InetAddress addr = InetAddress.getByName(ident.host);
             if (addr instanceof Inet4Address)
                 haddr = "[" + Inet4Address.getLocalHost().getHostAddress() + "]";
-            else
-                haddr = "[IPv6:" + Inet6Address.getLocalHost().getHostAddress() + "]";
+            else {
+                // Inet6Address.getLocalHost() will return the IPv6 local host
+                byte[] LOOPBACK = new byte[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1};
+                haddr = "[IPv6:" + Inet6Address.getByAddress("ip6-localhost", LOOPBACK, 0).getHostAddress() + "]";
+            }
         } else
             haddr = ident.host;
 
