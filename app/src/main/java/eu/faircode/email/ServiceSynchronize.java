@@ -498,6 +498,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             int backoff = CONNECT_BACKOFF_START;
             while (state.running()) {
+                state.reset();
                 Log.i(account.name + " run");
 
                 Handler handler = new Handler(getMainLooper());
@@ -535,7 +536,7 @@ public class ServiceSynchronize extends LifecycleService {
                                             (message != null && !message.startsWith("Too many simultaneous connections")))
                                         Core.reportError(ServiceSynchronize.this, account, null,
                                                 new Core.AlertException(message));
-                                    state.error();
+                                    state.error(null);
                                 } else
                                     Log.i(account.name + " notice: " + message);
                             } finally {
@@ -727,7 +728,7 @@ public class ServiceSynchronize extends LifecycleService {
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
                                         Core.reportError(ServiceSynchronize.this, account, folder, ex);
-                                        state.error();
+                                        state.error(ex);
                                     } finally {
                                         wlAccount.release();
                                     }
@@ -756,7 +757,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         Log.e(folder.name, ex);
                                         Core.reportError(ServiceSynchronize.this, account, folder, ex);
                                         db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
-                                        state.error();
+                                        state.error(ex);
                                     } finally {
                                         wlAccount.release();
                                     }
@@ -807,7 +808,7 @@ public class ServiceSynchronize extends LifecycleService {
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
                                         Core.reportError(ServiceSynchronize.this, account, folder, ex);
-                                        state.error();
+                                        state.error(ex);
                                     } finally {
                                         wlAccount.release();
                                     }
@@ -828,7 +829,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         Log.e(folder.name, ex);
                                         Core.reportError(ServiceSynchronize.this, account, folder, ex);
                                         db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
-                                        state.error();
+                                        state.error(ex);
                                     } finally {
                                         Log.i(folder.name + " end idle");
                                     }
@@ -906,7 +907,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                             Log.e(folder.name, ex);
                                                             Core.reportError(ServiceSynchronize.this, account, folder, ex);
                                                             db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
-                                                            state.error();
+                                                            state.error(ex);
                                                         } finally {
                                                             if (shouldClose) {
                                                                 if (ifolder != null && ifolder.isOpen()) {
@@ -954,8 +955,10 @@ public class ServiceSynchronize extends LifecycleService {
                     AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                     try {
                         while (state.running()) {
+                            if (!state.recoverable())
+                                throw new StoreClosedException(istore, "Unrecoverable");
                             if (!istore.isConnected()) // Sends store NOOP
-                                throw new StoreClosedException(istore);
+                                throw new StoreClosedException(istore, "NOOP");
 
                             for (EntityFolder folder : folders.keySet())
                                 if (folder.synchronize)

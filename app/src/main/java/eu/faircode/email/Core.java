@@ -1913,6 +1913,7 @@ class Core {
         private Thread thread;
         private Semaphore semaphore = new Semaphore(0);
         private boolean running = true;
+        private boolean recoverable = true;
 
         State(Helper.NetworkState networkState) {
             this.networkState = networkState;
@@ -1944,9 +1945,14 @@ class Core {
             return semaphore.tryAcquire(milliseconds, TimeUnit.MILLISECONDS);
         }
 
-        void error() {
+        void error(Throwable ex) {
+            recoverable = !(ex instanceof FolderClosedException);
             thread.interrupt();
             yield();
+        }
+
+        void reset() {
+            recoverable = true;
         }
 
         private void yield() {
@@ -1972,6 +1978,10 @@ class Core {
 
         boolean running() {
             return running;
+        }
+
+        boolean recoverable() {
+            return recoverable;
         }
 
         void join(Thread thread) {
