@@ -81,6 +81,7 @@ import javax.mail.Store;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -398,6 +399,13 @@ public class FragmentAccount extends FragmentBase {
                 }
             }
         });
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            ConstraintLayout.LayoutParams lparam = (ConstraintLayout.LayoutParams) cbNotify.getLayoutParams();
+            lparam.width = 0;
+            lparam.height = 0;
+            lparam.setMargins(0, 0, 0, 0);
+            cbNotify.setLayoutParams(lparam);
+        }
 
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
