@@ -61,6 +61,7 @@ public class FragmentSetup extends FragmentBase {
 
     private TextView tvIdentityDone;
     private Button btnIdentity;
+    private TextView tvNoIdentities;
 
     private TextView tvPermissionsDone;
     private Button btnPermissions;
@@ -102,6 +103,7 @@ public class FragmentSetup extends FragmentBase {
 
         tvIdentityDone = view.findViewById(R.id.tvIdentityDone);
         btnIdentity = view.findViewById(R.id.btnIdentity);
+        tvNoIdentities = view.findViewById(R.id.tvNoIdentities);
 
         tvPermissionsDone = view.findViewById(R.id.tvPermissionsDone);
         btnPermissions = view.findViewById(R.id.btnPermissions);
@@ -208,6 +210,7 @@ public class FragmentSetup extends FragmentBase {
         tvIdentityDone.setText(null);
         tvIdentityDone.setCompoundDrawables(null, null, null, null);
         btnIdentity.setEnabled(false);
+        tvNoIdentities.setVisibility(View.GONE);
 
         tvPermissionsDone.setText(null);
         tvPermissionsDone.setCompoundDrawables(null, null, null, null);
@@ -300,6 +303,7 @@ public class FragmentSetup extends FragmentBase {
                 tvIdentityDone.setText(done ? R.string.title_setup_done : R.string.title_setup_to_do);
                 tvIdentityDone.setTextColor(done ? textColorPrimary : colorWarning);
                 tvIdentityDone.setCompoundDrawablesWithIntrinsicBounds(done ? check : null, null, null, null);
+                tvNoIdentities.setVisibility(done ? View.GONE : View.VISIBLE);
             }
         });
 
