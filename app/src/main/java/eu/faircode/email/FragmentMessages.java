@@ -1307,6 +1307,8 @@ public class FragmentMessages extends FragmentBase {
                     @Override
                     public void onDurationSelected(long duration, long time) {
                         if (Helper.isPro(getContext())) {
+                            selectionTracker.clearSelection();
+
                             Bundle args = new Bundle();
                             args.putLongArray("ids", getSelection());
                             args.putLong("wakeup", duration == 0 ? -1 : time);
@@ -1358,7 +1360,6 @@ public class FragmentMessages extends FragmentBase {
 
                     @Override
                     public void onDismiss() {
-                        selectionTracker.clearSelection();
                     }
                 });
     }
@@ -1509,8 +1510,6 @@ public class FragmentMessages extends FragmentBase {
         args.putString("type", type);
         args.putLongArray("ids", getSelection());
 
-        selectionTracker.clearSelection();
-
         new SimpleTask<ArrayList<MessageTarget>>() {
             @Override
             protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
@@ -1563,8 +1562,6 @@ public class FragmentMessages extends FragmentBase {
         Bundle args = new Bundle();
         args.putLongArray("ids", getSelection());
         args.putLong("target", target);
-
-        selectionTracker.clearSelection();
 
         new SimpleTask<ArrayList<MessageTarget>>() {
             @Override
@@ -2591,6 +2588,9 @@ public class FragmentMessages extends FragmentBase {
     }
 
     private void moveAskConfirmed(ArrayList<MessageTarget> result) {
+        if (selectionTracker != null)
+            selectionTracker.clearSelection();
+
         Bundle args = new Bundle();
         args.putParcelableArrayList("result", result);
 
