@@ -1725,6 +1725,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (link.length != 0) {
                         String url = link[0].getURL();
                         Uri uri = Uri.parse(url);
+                        if (uri.getScheme() == null)
+                            uri = Uri.parse("https://" + url);
                         onOpenLink(uri);
                         return true;
                     }
@@ -1768,11 +1770,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 @Override
                                 protected String onExecute(Context context, Bundle args) throws Throwable {
                                     Uri uri = args.getParcelable("uri");
-                                    String host;
-                                    if (TextUtils.isEmpty(uri.getScheme()))
-                                        host = Uri.parse("https://" + uri.toString()).getHost();
-                                    else
-                                        host = uri.getHost();
+                                    String host = uri.getHost();
                                     return (TextUtils.isEmpty(host) ? null : Helper.getOrganization(host));
                                 }
 

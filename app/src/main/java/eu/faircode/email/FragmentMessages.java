@@ -630,7 +630,6 @@ public class FragmentMessages extends FragmentBase {
                 if (!Helper.getNetworkState(context).isSuitable())
                     throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
 
-
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
