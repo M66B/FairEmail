@@ -19,7 +19,7 @@ For authorizing:
 * Gmail / G suite: see [question 6](#user-content-faq6)
 * Outlook / Hotmail: see [question 14](#user-content-faq14)
 * Microsoft Exchange: see [question 8](#user-content-faq8)
-
+* Yahoo!: see [question 88](#user-content-faq88)
 
 ## Known problems
 
@@ -149,6 +149,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(85) Why is an identity not available?](#user-content-faq85)
 * [(86) What are 'extra privacy features'?](#user-content-faq86)
 * [(87) What does 'invalid credentials' mean?](#user-content-faq87)
+* [(88) How can I use a Yahoo! account?](#user-content-faq88)
 
 [I have another question.](#support)
 
@@ -1442,6 +1443,17 @@ You will likely need to save the associated identity again as well.
 
 <br />
 
+<a name="faq88"></a>
+**(88) How can I use a Yahoo! account?**
+
+For the correct settings, see [here](https://help.yahoo.com/kb/SLN4075.html).
+
+You might need to enable "less secure sign in" for "outdated" apps,
+see [here](https://help.yahoo.com/kb/grant-temporary-access-outdated-apps-account-settings-sln27791.html).
+
+Note that FairEmail is using the standard [IMAP protocol](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol), which is not outdated.
+
+<br />
 
 
 ## Support
