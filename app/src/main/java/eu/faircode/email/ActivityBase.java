@@ -69,6 +69,16 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        int before = Helper.getSize(outState);
+        super.onSaveInstanceState(outState);
+        int after = Helper.getSize(outState);
+        Log.i("Saved instance " + this + " size=" + before + "/" + after);
+        for (String key : outState.keySet())
+            Log.i("Saved " + key + "=" + outState.get(key));
+    }
+
+    @Override
     protected void onResume() {
         Log.i("Resume " + this.getClass().getName());
 

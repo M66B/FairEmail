@@ -42,6 +42,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcel;
 import android.os.PowerManager;
 import android.text.TextUtils;
 import android.view.Display;
@@ -1152,5 +1153,11 @@ public class Helper {
             }
             return organization;
         }
+    }
+
+    static int getSize(Bundle bundle) {
+        Parcel p = Parcel.obtain();
+        bundle.writeToParcel(p, 0);
+        return p.dataSize();
     }
 }
