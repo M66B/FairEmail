@@ -2989,11 +2989,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     void setSort(String sort) {
         if (!sort.equals(this.sort)) {
-            boolean update = ("size".equals(this.sort) || "size".equals(sort));
             this.sort = sort;
-            if (update)
-                notifyDataSetChanged();
-            // loadMessages will be called
+            notifyDataSetChanged();
+            // Needed to redraw item decorators / add/remove size
         }
     }
 
