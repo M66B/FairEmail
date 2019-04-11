@@ -740,13 +740,13 @@ public class FragmentIdentity extends FragmentBase {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
         outState.putInt("fair:account", spAccount.getSelectedItemPosition());
         outState.putInt("fair:provider", spProvider.getSelectedItemPosition());
         outState.putInt("fair:auth_type", auth_type);
         outState.putString("fair:password", tilPassword.getEditText().getText().toString());
         outState.putInt("fair:advanced", grpAdvanced.getVisibility());
         outState.putInt("fair:color", color);
+        super.onSaveInstanceState(outState);
     }
 
     @Override

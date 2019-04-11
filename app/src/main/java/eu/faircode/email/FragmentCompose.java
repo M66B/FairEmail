@@ -617,9 +617,9 @@ public class FragmentCompose extends FragmentBase {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
         outState.putLong("fair:working", working);
         outState.putBoolean("fair:show_images", show_images);
+        super.onSaveInstanceState(outState);
     }
 
     @Override

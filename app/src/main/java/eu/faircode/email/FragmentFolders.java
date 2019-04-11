@@ -220,8 +220,6 @@ public class FragmentFolders extends FragmentBase {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
         outState.putString("fair:searching", searching);
 
         outState.putLongArray("fair:parents", Helper.toLongArray(parentChilds.keySet()));
@@ -231,6 +229,8 @@ public class FragmentFolders extends FragmentBase {
             for (int i = 0; i < childs.size(); i++)
                 outState.putSerializable("fair:childs:" + parent + ":" + i, childs.get(i));
         }
+
+        super.onSaveInstanceState(outState);
     }
 
     @Override

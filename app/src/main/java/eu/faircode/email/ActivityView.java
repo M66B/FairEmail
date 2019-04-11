@@ -549,8 +549,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
         outState.putBoolean("fair:toggle", drawerToggle.isDrawerIndicatorEnabled());
+        super.onSaveInstanceState(outState);
     }
 
     @Override

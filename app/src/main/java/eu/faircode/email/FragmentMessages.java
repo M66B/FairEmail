@@ -1620,8 +1620,6 @@ public class FragmentMessages extends FragmentBase {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
         outState.putString("fair:searching", searching);
 
         outState.putBoolean("fair:autoExpanded", autoExpanded);
@@ -1648,6 +1646,8 @@ public class FragmentMessages extends FragmentBase {
 
         if (selectionTracker != null)
             selectionTracker.onSaveInstanceState(outState);
+
+        super.onSaveInstanceState(outState);
     }
 
     @Override

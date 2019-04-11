@@ -75,7 +75,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         int after = Helper.getSize(outState);
         Log.i("Saved instance " + this + " size=" + before + "/" + after);
         for (String key : outState.keySet())
-            Log.i("Saved " + key + "=" + outState.get(key));
+            Log.i("Saved " + this + " " + key + "=" + outState.get(key));
     }
 
     @Override

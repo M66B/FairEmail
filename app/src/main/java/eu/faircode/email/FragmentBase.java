@@ -55,14 +55,13 @@ public class FragmentBase extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         Log.i("Save instance " + this);
-        int base = Helper.getSize(outState);
-        super.onSaveInstanceState(outState);
         int before = Helper.getSize(outState);
         outState.putString("fair:subtitle", subtitle);
+        super.onSaveInstanceState(outState);
         int after = Helper.getSize(outState);
-        Log.i("Saved instance " + this + " base=" + base + " size=" + before + "/" + after);
+        Log.i("Saved instance " + this + " size=" + before + "/" + after);
         for (String key : outState.keySet())
-            Log.i("Saved " + key + "=" + outState.get(key));
+            Log.i("Saved " + this + " " + key + "=" + outState.get(key));
     }
 
     @Override

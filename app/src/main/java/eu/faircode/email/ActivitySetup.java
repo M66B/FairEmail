@@ -240,8 +240,8 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
         outState.putBoolean("fair:toggle", drawerToggle.isDrawerIndicatorEnabled());
+        super.onSaveInstanceState(outState);
     }
 
     @Override

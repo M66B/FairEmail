@@ -84,8 +84,8 @@ public class FragmentContacts extends FragmentBase {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
         outState.putString("fair:searching", searching);
+        super.onSaveInstanceState(outState);
     }
 
     @Override
