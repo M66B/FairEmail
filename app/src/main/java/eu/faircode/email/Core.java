@@ -544,10 +544,15 @@ class Core {
         // Delete message
         DB db = DB.getInstance(context);
 
+        Message[] imessages;
         if (TextUtils.isEmpty(message.msgid))
-            throw new IllegalArgumentException("Message ID missing");
+            if (message.uid == null)
+                throw new IllegalArgumentException("Delete without ID");
+            else
+                imessages = new Message[]{ifolder.getMessageByUID(message.uid)};
+        else
+            imessages = ifolder.search(new MessageIDTerm(message.msgid));
 
-        Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
         for (Message imessage : imessages) {
             Log.i(folder.name + " deleting uid=" + message.uid + " msgid=" + message.msgid);
             try {
@@ -555,6 +560,7 @@ class Core {
             } catch (MessageRemovedException ignored) {
             }
         }
+
         ifolder.expunge();
 
         db.message().deleteMessage(message.id);
