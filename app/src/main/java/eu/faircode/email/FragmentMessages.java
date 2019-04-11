@@ -630,6 +630,8 @@ public class FragmentMessages extends FragmentBase {
                 if (!Helper.getNetworkState(context).isSuitable())
                     throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
 
+                boolean now = true;
+
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
@@ -642,12 +644,25 @@ public class FragmentMessages extends FragmentBase {
                         if (folder != null)
                             folders.add(folder);
                     }
-                    for (EntityFolder folder : folders)
+
+                    for (EntityFolder folder : folders) {
                         EntityOperation.sync(context, folder.id, true);
+
+                        if (folder.account != null) {
+                            EntityAccount account = db.account().getAccount(folder.account);
+                            if (account != null && !"connected".equals(account.state))
+                                now = false;
+                        }
+                    }
 
                     db.setTransactionSuccessful();
                 } finally {
                     db.endTransaction();
+                }
+
+                if (!now) {
+                    ServiceSynchronize.reset(context);
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
                 }
 
                 return null;
@@ -1732,7 +1747,7 @@ public class FragmentMessages extends FragmentBase {
 
                         boolean refreshing = false;
                         for (TupleFolderEx folder : folders)
-                            if (folder.sync_state != null) {
+                            if (folder.sync_state != null && (folder.account == null || "connected".equals(folder.accountState))) {
                                 refreshing = true;
                                 break;
                             }
