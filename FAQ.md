@@ -152,6 +152,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(88) How can I use a Yahoo! account?](#user-content-faq88)
 * [(89) How can I send plain text only messages?](#user-content-faq89)
 * [(90) Why are some texts linked while not being a link?](#user-content-faq90)
+* [(91) Can you add periodical synchronization to save battery power?](#user-content-faq91)
 
 [I have another question.](#support)
 
@@ -1473,6 +1474,14 @@ FairEmail will automatically link not linked web [IRI](https://nl.wikipedia.org/
 However, texts and links are not easily distinguished,
 especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words.
 This is why texts are sometimes recognized as links, which is better than not recognizing some links.
+
+<br />
+
+<a name="faq91"></a>
+**(91) Can you add periodical synchronization to save battery power?**
+
+Synchronizing messages is an expensive proces because the local and remote messages need to be compared,
+so periodically synchronizing messages will not result in saving battery power, more likely the contrary.
 
 <br />
 
