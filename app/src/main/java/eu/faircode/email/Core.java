@@ -1946,7 +1946,7 @@ class Core {
         }
 
         void error(Throwable ex) {
-            recoverable = !(ex instanceof FolderClosedException);
+            recoverable = (recoverable && !(ex instanceof FolderClosedException));
             thread.interrupt();
             yield();
         }
