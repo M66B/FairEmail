@@ -62,6 +62,9 @@
     <string name="menu_invite">Bjud in</string>
     <string name="menu_rate">Betygsätt denna app</string>
     <string name="menu_other">Andra appar</string>
+    <string name="title_issue_type">Har du en fråga eller problem?</string>
+    <string name="title_issue_question">Fråga</string>
+    <string name="title_issue_problem">Problem</string>
     <string name="title_welcome">Välkommen</string>
     <string name="title_eula">Licensavtal för slutanvändare</string>
     <string name="title_agree">Jag godkänner</string>
@@ -134,6 +137,7 @@
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
     <string name="title_advanced_identicons">Visa identicons</string>
     <string name="title_advanced_name_email">Visa namn och e-postadresser</string>
+    <string name="title_advanced_subject_italic">Visa ämnet kursivt</string>
     <string name="title_advanced_flags">Visa stjärnor (favoriter)</string>
     <string name="title_advanced_preview">Förhandsvisning av meddelande</string>
     <string name="title_advanced_addresses">Visa adressuppgifter som standard</string>
@@ -245,6 +249,8 @@
     <string name="title_no_operations">Inga pågående operationer</string>
     <string name="title_folder_name">Mappnamn</string>
     <string name="title_display_name">Visningsnamn</string>
+    <string name="title_show_folders">Visa dolda mappar</string>
+    <string name="title_hide_folder">Dölj mapp</string>
     <string name="title_unified_folder">Visa i en samlad inkorg</string>
     <string name="title_synchronize_folder">Synkronisera (hämta meddelanden)</string>
     <string name="title_poll_folder">Kontrollera regelbundet istället för kontinuerlig synkronisering</string>
@@ -352,6 +358,7 @@
     <string name="title_queued">Skickar meddelande</string>
     <string name="title_encrypt">Kryptera</string>
     <string name="title_decrypt">Dekryptera</string>
+    <string name="title_resync">Synkronisera om</string>
     <string name="title_no_openpgp">OpenKeychain hittades inte</string>
     <string name="title_not_encrypted">Meddelandet är inte krypterat</string>
     <string name="title_search">Sök</string>
@@ -364,6 +371,7 @@
     <string name="title_sort_on_starred">Stjärnmärkta</string>
     <string name="title_sort_on_sender">Avsändaren</string>
     <string name="title_sort_on_subject">Ämne</string>
+    <string name="title_sort_on_size">Storlek</string>
     <string name="title_compact">Kompakt vy</string>
     <string name="title_zoom">Textstorlek</string>
     <string name="title_address_sent">Skickat:</string>
@@ -381,6 +389,7 @@
     <string name="title_rule_name">Namn</string>
     <string name="title_rule_order">Ordning</string>
     <string name="title_rule_enabled">Aktiverad</string>
+    <string name="title_rule_stop">Stoppa bearbetningsregler efter att ha utfört denna regel</string>
     <string name="title_rule_sender">Avsändaren innehåller</string>
     <string name="title_rule_recipient">Mottagare innehåller</string>
     <string name="title_rule_subject">Ämnet innehåller</string>

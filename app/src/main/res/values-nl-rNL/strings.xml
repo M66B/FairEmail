@@ -18,23 +18,23 @@
         <item quantity="other">Synchroniseren: %1$d accounts</item>
     </plurals>
     <plurals name="title_notification_operations">
-        <item quantity="one">Één opstaande bewerking</item>
+        <item quantity="one">Eén openstaande bewerking</item>
         <item quantity="other">%1$d openstaande bewerkingen</item>
     </plurals>
     <plurals name="title_notification_unseen">
-        <item quantity="one">Één nieuw bericht</item>
+        <item quantity="one">Eén nieuw bericht</item>
         <item quantity="other">%1$d nieuwe berichten</item>
     </plurals>
     <plurals name="title_notification_unsent">
-        <item quantity="one">Één niet verzonden bericht</item>
+        <item quantity="one">Eén niet verzonden bericht</item>
         <item quantity="other">%1$d niet verzonden berichten</item>
     </plurals>
     <plurals name="title_tile_unseen">
-        <item quantity="one">Één nieuw</item>
+        <item quantity="one">Eén nieuw</item>
         <item quantity="other">%1$d nieuw</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="one">Één bericht verplaatsen naar %2$s ?</item>
+        <item quantity="one">Eén bericht verplaatsen naar %2$s ?</item>
         <item quantity="other">%1$d berichten verplaatsen naar %2$s?</item>
     </plurals>
     <plurals name="title_deleting_messages">
@@ -231,6 +231,7 @@
     <string name="title_no_password">Wachtwoord ontbreekt</string>
     <string name="title_no_inbox">Postvak in niet gevonden</string>
     <string name="title_no_primary_drafts">Geen primair account of geen map voor concepten</string>
+    <string name="title_no_identities">Verzenden van e-mails vereist ten minste één identiteit</string>
     <string name="title_no_idle">Deze provider biedt geen ondersteuning voor push-berichten. Dit zal het ontvangen van nieuwe berichten vertragen en het gebruik van de batterij te verhogen.</string>
     <string name="title_no_utf8">Deze provider ondersteunt geen UTF-8</string>
     <string name="title_no_sync">Synchronisatiefouten sinds %1$s</string>

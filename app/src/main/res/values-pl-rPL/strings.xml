@@ -78,6 +78,9 @@
     <string name="menu_invite">Zaproś</string>
     <string name="menu_rate">Oceń aplikację</string>
     <string name="menu_other">Inne aplikacje</string>
+    <string name="title_issue_type">Czy masz pytanie lub problem?</string>
+    <string name="title_issue_question">Pytanie</string>
+    <string name="title_issue_problem">Problem</string>
     <string name="title_welcome">Witaj</string>
     <string name="title_eula">Umowa licencyjna użytkownika końcowego</string>
     <string name="title_agree">Zgadzam się</string>
@@ -172,6 +175,7 @@
     <string name="title_advanced_light">Użyj diody powiadomień</string>
     <string name="title_advanced_sound">Wybierz dźwięk powiadomienia</string>
     <string name="title_advanced_english">Wymuś język angielski</string>
+    <string name="title_advanced_paranoid">Dodatkowe funkcje prywatności</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
     <string name="title_advanced_debug">Debuguj</string>
     <string name="title_advanced_enabled_hint">Globalnie wyłącz lub włącz odbieranie i wysyłanie wiadomości</string>
@@ -261,6 +265,8 @@
     <string name="title_no_operations">Nie ma oczekujących operacji</string>
     <string name="title_folder_name">Nazwa folderu</string>
     <string name="title_display_name">Nazwa wyświetlana</string>
+    <string name="title_show_folders">Pokaż ukryte foldery</string>
+    <string name="title_hide_folder">Ukryj folder</string>
     <string name="title_unified_folder">Pokaż we wspólnej skrzynce odbiorczej</string>
     <string name="title_synchronize_folder">Synchronizuj (odbierz wiadomości)</string>
     <string name="title_poll_folder">Sprawdzaj cyklicznie zamiast ciągłej synchronizacji</string>
@@ -367,6 +373,7 @@
     <string name="title_queued">Wysyłanie wiadomości</string>
     <string name="title_encrypt">Zaszyfruj</string>
     <string name="title_decrypt">Odszyfruj</string>
+    <string name="title_resync">Resynchronizuj</string>
     <string name="title_no_openpgp">Nie znaleziono OpenKeychain</string>
     <string name="title_not_encrypted">Wiadomość nie jest zaszyfrowana</string>
     <string name="title_search">Szukaj</string>
@@ -379,6 +386,7 @@
     <string name="title_sort_on_starred">Ulubione</string>
     <string name="title_sort_on_sender">Nadawca</string>
     <string name="title_sort_on_subject">Temat</string>
+    <string name="title_sort_on_size">Rozmiar</string>
     <string name="title_compact">Widok kompaktowy</string>
     <string name="title_zoom">Rozmiar tekstu</string>
     <string name="title_address_sent">Wysłane:</string>
