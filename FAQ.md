@@ -153,6 +153,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(89) How can I send plain text only messages?](#user-content-faq89)
 * [(90) Why are some texts linked while not being a link?](#user-content-faq90)
 * [(91) Can you add periodical synchronization to save battery power?](#user-content-faq91)
+* [(92) Can you add verification of the DKIM signature and SPF authorization?](#user-content-faq92)
 
 [I have another question.](#support)
 
@@ -1482,6 +1483,14 @@ This is why texts are sometimes recognized as links, which is better than not re
 
 Synchronizing messages is an expensive proces because the local and remote messages need to be compared,
 so periodically synchronizing messages will not result in saving battery power, more likely the contrary.
+
+<br />
+
+<a name="faq92"></a>
+**(92) Can you add verification of the DKIM signature and SPF authorization?**
+
+Verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature
+and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client.
 
 <br />
 
