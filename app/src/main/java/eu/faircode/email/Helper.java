@@ -423,6 +423,8 @@ public class Helper {
             draft.to = new Address[]{myAddress()};
             draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " debug info";
             draft.received = new Date().getTime();
+            draft.seen = true;
+            draft.ui_seen = true;
             draft.id = db.message().insertMessage(draft);
             writeText(draft.getFile(context), body);
             db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body), null);
