@@ -150,6 +150,8 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(86) What are 'extra privacy features'?](#user-content-faq86)
 * [(87) What does 'invalid credentials' mean?](#user-content-faq87)
 * [(88) How can I use a Yahoo! account?](#user-content-faq88)
+* [(89) How can I send plain text only messages?](#user-content-faq89)
+* [(90) Why are some texts linked while not being a link?](#user-content-faq90)
 
 [I have another question.](#support)
 
@@ -1452,6 +1454,25 @@ You might need to enable "*less secure sign in*" for "*outdated*" apps,
 see [here](https://help.yahoo.com/kb/grant-temporary-access-outdated-apps-account-settings-sln27791.html).
 
 Note that FairEmail is using the standard [IMAP protocol](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol), which is really not outdated.
+
+<br />
+
+<a name="faq89"></a>
+**(89) How can I send plain text only messages?**
+
+By default FairEmail sends each message both as plain text and as HTML formatted text because almost every receiver expects formatted messages these days.
+If you want/need to send plain text messages only, you can enable this in the advanced identity options.
+You might want to create a new identity for this if you want/need to select sending plain text messages on a case-by-case basis.
+
+<br />
+
+<a name="faq90"></a>
+**(90) Why are some texts linked while not being a link?**
+
+FairEmail will automatically link not linked web [IRI](https://nl.wikipedia.org/wiki/Internationalized_resource_identifier)s for your convenience.
+However, texts and links are not easily distinguished,
+especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words.
+This is why texts are sometimes recognized as links, which is better than not recognizing some links.
 
 <br />
 
