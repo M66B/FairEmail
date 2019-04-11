@@ -744,7 +744,8 @@ public class ServiceSynchronize extends LifecycleService {
                                                 long uid = ifolder.getUID(imessage);
 
                                                 DB db = DB.getInstance(ServiceSynchronize.this);
-                                                int count = db.message().deleteMessage(folder.id, uid);
+                                                int count = db.message().setMessageUiHide(folder.id, uid, true);
+                                                // Will be deleted on next sync
 
                                                 Log.i(folder.name + " deleted uid=" + uid + " count=" + count);
                                             } catch (MessageRemovedException ex) {

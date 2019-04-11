@@ -147,6 +147,12 @@ public interface DaoMessage {
             ", CASE WHEN folder.type = '" + EntityFolder.ARCHIVE + "' THEN 1 ELSE 0 END")
     DataSource.Factory<Integer, TupleMessageEx> pagedThread(long account, String thread, Long id, boolean debug);
 
+    @Query("SELECT id FROM message" +
+            " WHERE account = :account" +
+            " AND thread = :thread" +
+            " AND ui_hide")
+    LiveData<List<Long>> liveHidden(long account, String thread);
+
     @Query("SELECT COUNT(id)" +
             " FROM message" +
             " WHERE id = :id")
@@ -308,6 +314,9 @@ public interface DaoMessage {
 
     @Query("UPDATE message SET ui_hide = :ui_hide WHERE id = :id")
     int setMessageUiHide(long id, boolean ui_hide);
+
+    @Query("UPDATE message SET ui_hide = :ui_hide WHERE folder = :folder AND uid = :uid")
+    int setMessageUiHide(long folder, long uid, boolean ui_hide);
 
     @Query("UPDATE message SET ui_ignored = :ui_ignored WHERE id = :id")
     int setMessageUiIgnored(long id, boolean ui_ignored);

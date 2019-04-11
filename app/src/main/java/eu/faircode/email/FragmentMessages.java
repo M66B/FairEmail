@@ -1798,6 +1798,20 @@ public class FragmentMessages extends FragmentBase {
                         setSubtitle(getString(R.string.title_folder_thread, account == null ? "" : account.name));
                     }
                 });
+                db.message().liveHidden(account, thread).observe(getViewLifecycleOwner(), new Observer<List<Long>>() {
+                    @Override
+                    public void onChanged(List<Long> ids) {
+                        if (ids != null)
+                            for (long id : ids) {
+                                Log.i("Hidden id=" + id);
+                                for (String key : values.keySet())
+                                    values.get(key).remove(id);
+                                bodies.remove(id);
+                                html.remove(id);
+                                attachments.remove(id);
+                            }
+                    }
+                });
                 break;
 
             case SEARCH:
