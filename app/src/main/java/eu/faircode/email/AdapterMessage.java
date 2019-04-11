@@ -3102,7 +3102,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     return message;
                 }
             }
-        Log.i("Item=" + null + " @Key" + key);
+        Log.i("Item=" + null + " @Key=" + key);
         return null;
     }
 
