@@ -1768,7 +1768,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 @Override
                                 protected String onExecute(Context context, Bundle args) throws Throwable {
                                     Uri uri = args.getParcelable("uri");
-                                    String host = uri.getHost();
+                                    String host;
+                                    if (TextUtils.isEmpty(uri.getScheme()))
+                                        host = Uri.parse("https://" + uri.toString()).getHost();
+                                    else
+                                        host = uri.getHost();
                                     return (TextUtils.isEmpty(host) ? null : Helper.getOrganization(host));
                                 }
 

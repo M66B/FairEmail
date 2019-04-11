@@ -291,7 +291,7 @@ public class HtmlHelper {
                             if (BuildConfig.DEBUG)
                                 Log.i("Web url=" + matcher.group() + " linked=" + linked + " scheme=" + scheme);
 
-                            if (linked || scheme == null)
+                            if (linked)
                                 span.appendText(text.substring(pos, matcher.end()));
                             else {
                                 span.appendText(text.substring(pos, matcher.start()));

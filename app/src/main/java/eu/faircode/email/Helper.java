@@ -1140,6 +1140,7 @@ public class Helper {
         }
         InetAddress address = InetAddress.getByName(host);
         URL url = new URL("https://ipinfo.io/" + address.getHostAddress() + "/org");
+        Log.i("GET " + url);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         connection.setReadTimeout(15 * 1000);
