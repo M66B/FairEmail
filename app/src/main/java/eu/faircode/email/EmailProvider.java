@@ -129,14 +129,17 @@ public class EmailProvider {
 
     static EmailProvider fromDomain(Context context, String domain) throws IOException {
         try {
+            Log.i("Provider from ISPDB domain=" + domain);
             return addSpecials(context, fromISPDB(domain));
         } catch (Throwable ex) {
             Log.w(ex);
             try {
+                Log.i("Provider from DNS domain=" + domain);
                 return addSpecials(context, fromDNS(domain));
             } catch (UnknownHostException ex1) {
                 Log.w(ex1);
-                throw new UnknownHostException(context.getString(R.string.title_setup_no_settings, domain));
+                Log.i("Provider from template domain=" + domain);
+                return addSpecials(context, fromTemplate(domain));
             }
         }
     }
@@ -332,6 +335,19 @@ public class EmailProvider {
         provider.smtp_host = smtp.getTarget().toString(true);
         provider.smtp_port = smtp.getPort();
         provider.smtp_starttls = (provider.smtp_port == 587);
+
+        return provider;
+    }
+
+    private static EmailProvider fromTemplate(String domain) {
+        EmailProvider provider = new EmailProvider(domain);
+        provider.imap_host = "imap." + domain;
+        provider.imap_port = 993;
+        provider.imap_starttls = false;
+
+        provider.smtp_host = "smtp." + domain;
+        provider.smtp_port = 587;
+        provider.smtp_starttls = true;
 
         return provider;
     }
