@@ -1493,6 +1493,9 @@ so periodically synchronizing messages will not result in saving battery power, 
 Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature
 and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client.
 
+However, FairEmail will show a small vertical warning stripe to the right of the message header
+if DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server.
+
 <br />
 
 <a name="faq93"></a>
