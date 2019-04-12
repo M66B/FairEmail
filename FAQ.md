@@ -154,6 +154,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(90) Why are some texts linked while not being a link?](#user-content-faq90)
 * [(91) Can you add periodical synchronization to save battery power?](#user-content-faq91)
 * [(92) Can you add verification of the DKIM signature and SPF authorization?](#user-content-faq92)
+* [(93) Can you allow installation on external storage?](#user-content-faq92)
 
 [I have another question.](#support)
 
@@ -1491,6 +1492,14 @@ so periodically synchronizing messages will not result in saving battery power, 
 
 Verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature
 and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client.
+
+<br />
+
+<a name="faq93"></a>
+**(93) Can you allow installation on external storage?**
+
+FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so this is not possible.
+See also [here](https://developer.android.com/guide/topics/data/install-location).
 
 <br />
 
