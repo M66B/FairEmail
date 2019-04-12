@@ -373,6 +373,11 @@ public class EmailProvider {
                     "https://www.google.com/settings/security/lesssecureapps",
                     context.getString(R.string.title_setup_setting_gmail));
 
+        if (provider.imap_host.endsWith("yahoo.com"))
+            addDocumentation(provider,
+                    "https://login.yahoo.com/account/security#less-secure-apps",
+                    context.getString(R.string.title_setup_setting_yahoo));
+
         return provider;
     }
 
