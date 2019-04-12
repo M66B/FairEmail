@@ -86,6 +86,7 @@
     <string name="title_setup_quick_smtp">发送消息的SMTP服务器</string>
     <string name="title_setup_go">转到</string>
     <string name="title_setup_setting_gmail">启用对 \"安全性较低\" 的应用的访问</string>
+    <string name="title_setup_setting_yahoo">允许 \"安全性较低\" 的应用的访问</string>
     <string name="title_setup_no_settings">找不到 \"%1$s\" 的设置</string>
     <string name="title_setup_quick_success">已成功添加了一个账户和身份</string>
     <string name="title_setup_quick_failed">您也可以尝试在下方配置一个账户和身份</string>

@@ -94,6 +94,7 @@
     <string name="title_setup_quick_smtp">Serveur SMTP pour envoyer des messages</string>
     <string name="title_setup_go">Aller</string>
     <string name="title_setup_setting_gmail">Activer l\'accès pour les applications « moins sûres »</string>
+    <string name="title_setup_setting_yahoo">Activer l\'accès pour les applications « moins sûres »</string>
     <string name="title_setup_no_settings">Aucun paramètre trouvé pour %1$s</string>
     <string name="title_setup_quick_success">Un compte et une identité ont été ajoutés avec succès</string>
     <string name="title_setup_quick_failed">Vous pouvez essayer de configurer un compte et une identité ci-dessous</string>

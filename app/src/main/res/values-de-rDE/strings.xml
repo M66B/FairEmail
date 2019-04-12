@@ -94,6 +94,7 @@
     <string name="title_setup_quick_smtp">SMTP-Server zum Senden von Nachrichten</string>
     <string name="title_setup_go">Los</string>
     <string name="title_setup_setting_gmail">Zugriff für \"unsichere\" Apps aktivieren</string>
+    <string name="title_setup_setting_yahoo">Zugriff für \"weniger sichere\" Apps aktivieren</string>
     <string name="title_setup_no_settings">Keine Einstellungen gefunden für \'%1$s\'</string>
     <string name="title_setup_quick_success">Ein Konto und eine Identität wurden erfolgreich hinzugefügt</string>
     <string name="title_setup_quick_failed">Sie können unten versuchen, ein Konto und eine Identität zu konfigurieren</string>
