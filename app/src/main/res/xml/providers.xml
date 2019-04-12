@@ -259,7 +259,7 @@
     <!-- no IMAP IDLE -->
     <provider
         name="Onet"
-        link="http://m.poczta.onet.pl/pomoc/android.html">
+        link="https://m.poczta.onet.pl/pomoc/android.html">
         <imap
             host="imap.poczta.onet.pl"
             port="993"
