@@ -1118,7 +1118,7 @@ will automatically be resized for displaying on screens.
 This is because email messages are limited in size, depending on the provider mostly between 10 and 50 MB.
 Image will be resized to a maximum width and height of about 1280 pixels and saved with a compression ratio of 90 out of 100.
 Images are scaled down using whole number factors to reduce memory usage and to retain image quality.
-There is an advanced option to disable automatically resizing of image attachments.
+There is an advanced option to disable automatically resizing of image attachments. Inline (embedded) images will always be resized.
 
 <br />
 
