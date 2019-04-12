@@ -143,6 +143,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean preview;
     private boolean autohtml;
     private boolean autoimages;
+    private boolean paranoid;
     private boolean debug;
 
     private float textSize;
@@ -506,7 +507,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             Boolean.FALSE.equals(message.spf) ||
                             Boolean.FALSE.equals(message.dmarc)
                             ? colorWarning : Color.TRANSPARENT);
-            vwStatus.setVisibility(View.VISIBLE);
+            vwStatus.setVisibility(paranoid ? View.VISIBLE : View.GONE);
 
             // Expander
             boolean expanded = (viewType == ViewType.THREAD && properties.getValue("expanded", message.id));
@@ -2948,6 +2949,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.preview = prefs.getBoolean("preview", false);
         this.autohtml = prefs.getBoolean("autohtml", false);
         this.autoimages = prefs.getBoolean("autoimages", false);
+        this.paranoid = prefs.getBoolean("paranoid", true);
         this.debug = prefs.getBoolean("debug", false);
 
         this.textSize = Helper.getTextSize(context, zoom);

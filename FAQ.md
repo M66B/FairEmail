@@ -154,7 +154,8 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(90) Why are some texts linked while not being a link?](#user-content-faq90)
 * [(91) Can you add periodical synchronization to save battery power?](#user-content-faq91)
 * [(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?](#user-content-faq92)
-* [(93) Can you allow installation on external storage?](#user-content-faq92)
+* [(93) Can you allow installation on external storage?](#user-content-faq93)
+* [(94) What does the red/orange stripe at the end of the header mean?](#user-content-faq94)
 
 [I have another question.](#support)
 
@@ -1432,6 +1433,7 @@ The advanced option *extra privacy features* enables:
 
 * Detection and removal of [tracking images](#user-content-faq82)
 * Splitting linked images into an image and a link
+* Showing the [DKIM, SPF and DMARC authentication result](#user-content-faq92)
 
 <br />
 
@@ -1493,8 +1495,9 @@ so periodically synchronizing messages will not result in saving battery power, 
 Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature
 and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client.
 
-However, FairEmail will show a small vertical warning stripe to the right of the message header
-if DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server.
+However, FairEmail will show a small vertical warning stripe at the end of the message header
+if DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server
+and the [extra privacy features](#user-content-faq86) are enabled.
 
 <br />
 
@@ -1503,6 +1506,14 @@ if DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication fail
 
 FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so this is not possible.
 See also [here](https://developer.android.com/guide/topics/data/install-location).
+
+<br />
+
+<a name="faq94"></a>
+**(94) What does the red/orange stripe at the end of the header mean?**
+
+The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed.
+See also [this FAQ](#user-content-faq92).
 
 <br />
 
