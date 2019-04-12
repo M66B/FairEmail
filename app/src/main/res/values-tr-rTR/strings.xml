@@ -231,6 +231,7 @@
     <string name="title_no_password">Parola Eksik</string>
     <string name="title_no_inbox">Gelen kutusu bulunamadı</string>
     <string name="title_no_primary_drafts">Birincil hesap veya taslak klasörü yok</string>
+    <string name="title_no_identities">E-posta göndermek için en az bir kimlik gereklidir</string>
     <string name="title_no_idle">Bu sağlayıcı anlık mesajları desteklemiyor. Bu, yeni mesajların alınmasını geciktirecek ve pil kullanımını artıracaktır.</string>
     <string name="title_no_utf8">Bu sağlayıcı UTF-8\'i desteklemiyor</string>
     <string name="title_no_sync">%1$s\'den beri eşzamanlama hataları</string>
@@ -370,6 +371,7 @@
     <string name="title_queued">İleti gönderiliyor</string>
     <string name="title_encrypt">Şifrele</string>
     <string name="title_decrypt">Şifreyi çöz</string>
+    <string name="title_resync">Yeniden eşzamanla</string>
     <string name="title_no_openpgp">OpenKeychain bulunamadı</string>
     <string name="title_not_encrypted">İleti şifreli değil</string>
     <string name="title_search">Ara</string>
@@ -416,6 +418,7 @@
     <string name="title_rule_name_missing">Kural adı eksik</string>
     <string name="title_rule_condition_missing">Koşul kayıp</string>
     <string name="title_rule_automation">Özdevinim</string>
+    <string name="title_rule_automation_hint">%1$s gönderme isteğinizi %2$s ekleyerek gönderecek</string>
     <string name="title_action_seen">Okundu işareti</string>
     <string name="title_action_archive">Arşiv</string>
     <string name="title_action_trash">Çöp kutusu</string>

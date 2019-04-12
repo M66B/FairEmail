@@ -231,6 +231,7 @@
     <string name="title_no_password">Senha faltante</string>
     <string name="title_no_inbox">Caixa de entrada não encontrada</string>
     <string name="title_no_primary_drafts">Nenhuma conta primária ou pasta de rascunhos</string>
+    <string name="title_no_identities">O envio de e-mails requer pelo menos uma identidade</string>
     <string name="title_no_idle">Este provedor não suporta mensagens push. Isso irá atrasar o recebimento de novas mensagens e aumentar o uso da bateria.</string>
     <string name="title_no_utf8">Este provedor de e-mail não suporta UTF-8</string>
     <string name="title_no_sync">Erros de sincronização desde %1$s</string>
@@ -322,6 +323,7 @@
     <string name="title_no_stream">Um aplicativo desatualizado enviou um caminho de arquivo em vez de um fluxo de arquivo</string>
     <string name="title_no_contacts">Seletor de contato não está disponível</string>
     <string name="title_no_internet">Não ou nenhuma conexão de internet adequada</string>
+    <string name="title_no_connection">A sincronização será realizada na próxima conexão de conta</string>
     <string name="title_no_folder">A pasta não existe</string>
     <string name="title_accross_remark">Mensagens movidas entre contas serão baixadas novamente, resultando em uso extra de dados</string>
     <string name="title_raw_saved">Mensagem bruta salva</string>

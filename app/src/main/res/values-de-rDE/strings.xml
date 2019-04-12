@@ -231,7 +231,7 @@
     <string name="title_no_password">Passwort fehlt</string>
     <string name="title_no_inbox">Posteingang nicht gefunden</string>
     <string name="title_no_primary_drafts">Kein Hauptkonto oder kein Entwürfe-Ordner</string>
-    <string name="title_no_identities">Das Senden von E-Mails erfordert mindestens eine konfigurierte Identität</string>
+    <string name="title_no_identities">Senden von E-Mails erfordert mindestens eine konfigurierte Identität</string>
     <string name="title_no_idle">Dieser Anbieter unterstützt keine Pushnachrichten. Dies verzögert den Empfang neuer E-Mails und erhöht den Akkuverbrauch.</string>
     <string name="title_no_utf8">Dieser Anbieter unterstützt UTF-8 nicht</string>
     <string name="title_no_sync">Synchronisationsfehler seit %1$s</string>
@@ -323,6 +323,7 @@
     <string name="title_no_stream">Eine veraltete App verschickte den Dateinamen anstelle des Datenstroms</string>
     <string name="title_no_contacts">Kontaktauswahl nicht verfügbar</string>
     <string name="title_no_internet">Keine oder keine passende Internetverbindung</string>
+    <string name="title_no_connection">Synchronisation wird bei der nächsten Kontoverbindung ausgeführt</string>
     <string name="title_no_folder">Ordner nicht vorhanden</string>
     <string name="title_accross_remark">E-Mails, die über unterschiedliche Konten verschoben werden, werden erneut heruntergeladen, was zu einem erhöhtem Datenverbrauch führt</string>
     <string name="title_raw_saved">Rohdaten gespeichert</string>

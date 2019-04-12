@@ -323,6 +323,7 @@
     <string name="title_no_stream">Een verouderde app verzond een bestandsnaam in plaats van een bestandsstroom</string>
     <string name="title_no_contacts">Contact kiezer niet beschikbaar</string>
     <string name="title_no_internet">Geen of geen geschikte internet-verbinding</string>
+    <string name="title_no_connection">Synchronisatie zal worden uitgevoerd bij de volgende accountverbinding</string>
     <string name="title_no_folder">Map bestaat niet</string>
     <string name="title_accross_remark">Berichten die worden verplaatst tussen accounts worden opnieuw gedownload en veroorzaken extra dataverbruik</string>
     <string name="title_raw_saved">Ruw bericht opgeslagen</string>

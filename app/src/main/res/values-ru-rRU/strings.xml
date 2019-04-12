@@ -339,6 +339,7 @@
     <string name="title_no_stream">Устаревшее приложение послало путь к файлу вместо файлового потока</string>
     <string name="title_no_contacts">Выбор контакта недоступен</string>
     <string name="title_no_internet">Нет или нет подходящего интернет-соединения</string>
+    <string name="title_no_connection">Будет синхронизировано при следующем подключении к учетной записи</string>
     <string name="title_no_folder">Папка не существует</string>
     <string name="title_accross_remark">Сообщения, перемещаемые между учётными записями, будут загружены заново, порождая дополнительный трафик</string>
     <string name="title_raw_saved">Оригинал сообщения сохранён</string>

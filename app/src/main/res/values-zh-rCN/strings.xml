@@ -223,6 +223,7 @@
     <string name="title_no_password">缺少密码</string>
     <string name="title_no_inbox">未找到收件箱</string>
     <string name="title_no_primary_drafts">没有主帐户或草稿文件夹</string>
+    <string name="title_no_identities">发送邮件至少需要一个身份</string>
     <string name="title_no_idle">该提供商不支持消息推送，这将延迟新消息的接收并增加电池用量</string>
     <string name="title_no_utf8">该邮件服务供应商不支持UTF-8字符集</string>
     <string name="title_no_sync">从 %1$s 开始同步错误</string>
@@ -314,6 +315,7 @@
     <string name="title_no_stream">过时的应用发送的是文件路径, 而不是文件流</string>
     <string name="title_no_contacts">联系选择器不可用</string>
     <string name="title_no_internet">没有或没有合适的互联网连接</string>
+    <string name="title_no_connection">将在下次账户连接时进行同步</string>
     <string name="title_no_folder">文件夹不存在</string>
     <string name="title_accross_remark">App会再次下载在不同账户间移动的消息，这将导致额外的数据使用</string>
     <string name="title_raw_saved">原始消息已保存</string>
