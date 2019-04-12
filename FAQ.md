@@ -153,7 +153,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(89) How can I send plain text only messages?](#user-content-faq89)
 * [(90) Why are some texts linked while not being a link?](#user-content-faq90)
 * [(91) Can you add periodical synchronization to save battery power?](#user-content-faq91)
-* [(92) Can you add verification of the DKIM signature and SPF authorization?](#user-content-faq92)
+* [(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?](#user-content-faq92)
 * [(93) Can you allow installation on external storage?](#user-content-faq92)
 
 [I have another question.](#support)
@@ -1475,7 +1475,7 @@ You might want to create a new identity for this if you want/need to select send
 FairEmail will automatically link not linked web [IRI](https://nl.wikipedia.org/wiki/Internationalized_resource_identifier)s for your convenience.
 However, texts and links are not easily distinguished,
 especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words.
-This is why texts are sometimes recognized as links, which is better than not recognizing some links.
+This is why texts with dots are sometimes incorrectly recognized as links, which is better than not recognizing some links.
 
 <br />
 
@@ -1488,9 +1488,9 @@ so periodically synchronizing messages will not result in saving battery power, 
 <br />
 
 <a name="faq92"></a>
-**(92) Can you add verification of the DKIM signature and SPF authorization?**
+**(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?**
 
-Verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature
+Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature
 and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client.
 
 <br />
