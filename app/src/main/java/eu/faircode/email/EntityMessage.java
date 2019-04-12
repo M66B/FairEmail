@@ -185,31 +185,6 @@ public class EntityMessage implements Serializable {
         }
     }
 
-    static Boolean getAuthentication(String type, String header) {
-        if (header == null)
-            return null;
-
-        // https://tools.ietf.org/html/rfc7601
-        Boolean result = null;
-        String[] part = header.split(";");
-        for (int i = 1; i < part.length; i++) {
-            String[] kv = part[i].split("=");
-            if (kv.length > 1) {
-                String key = kv[0].trim();
-                String[] val = kv[1].split(" ");
-                if (val.length > 0 && type.equals(key)) {
-                    if ("fail".equals(val[0]))
-                        result = false;
-                    else if ("pass".equals(val[0]))
-                        if (result == null)
-                            result = true;
-                }
-            }
-        }
-
-        return result;
-    }
-
     public boolean uiEquals(Object obj) {
         if (obj instanceof EntityMessage) {
             EntityMessage other = (EntityMessage) obj;
