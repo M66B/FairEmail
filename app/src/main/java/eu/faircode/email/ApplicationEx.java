@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.ActivityManager;
 import android.app.Application;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -66,6 +67,7 @@ public class ApplicationEx extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        logMemory("App create version=" + BuildConfig.VERSION_NAME);
 
         prev = Thread.getDefaultUncaughtExceptionHandler();
 
@@ -93,6 +95,27 @@ public class ApplicationEx extends Application {
             CookieManager.getInstance().setAcceptCookie(false);
         MessageHelper.setSystemProperties();
         Core.init(this);
+    }
+
+    @Override
+    public void onTrimMemory(int level) {
+        logMemory("Trim memory level=" + level);
+        super.onTrimMemory(level);
+    }
+
+    @Override
+    public void onLowMemory() {
+        logMemory("Low memory");
+        super.onLowMemory();
+    }
+
+    private void logMemory(String message) {
+        ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
+        ActivityManager activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+        activityManager.getMemoryInfo(mi);
+        int mb = Math.round(mi.availMem / 0x100000L);
+        int perc = Math.round(mi.availMem / (float) mi.totalMem * 100.0f);
+        Log.i(message + " " + mb + " MB" + " " + perc + " %");
     }
 
     static Context getLocalizedContext(Context context) {
