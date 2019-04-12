@@ -335,7 +335,7 @@ public class FragmentMessages extends FragmentBase {
 
         DividerItemDecoration dateDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
             @Override
-            public void onDrawOver(@NonNull Canvas canvas, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+            public void onDraw(@NonNull Canvas canvas, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
                 for (int i = 0; i < parent.getChildCount(); i++) {
                     View view = parent.getChildAt(i);
                     int pos = parent.getChildAdapterPosition(view);
