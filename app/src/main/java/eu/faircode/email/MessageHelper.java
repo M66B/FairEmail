@@ -455,6 +455,11 @@ public class MessageHelper {
         return (TextUtils.isEmpty(msgid) ? Long.toString(uid) : msgid);
     }
 
+    String getAuthentication() throws MessagingException {
+        String header = imessage.getHeader("Authentication-Results", "");
+        return (header == null ? null : header.replaceAll("\\r?\\n", ""));
+    }
+
     Address getSender() throws MessagingException {
         String sender = imessage.getHeader("Sender", null);
         if (sender == null)

@@ -167,6 +167,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             View.OnClickListener, View.OnLongClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
         private View view;
         private View vwColor;
+        private View vwStatus;
         private ImageView ivExpander;
         private ImageView ivFlagged;
         private ImageView ivAvatar;
@@ -250,6 +251,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             view = itemView.findViewById(R.id.clItem);
             vwColor = itemView.findViewById(R.id.vwColor);
+            vwStatus = itemView.findViewById(R.id.vwStatus);
             ivExpander = itemView.findViewById(R.id.ivExpander);
             ivFlagged = itemView.findViewById(R.id.ivFlagged);
             ivAvatar = itemView.findViewById(R.id.ivAvatar);
@@ -405,6 +407,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void clear() {
             vwColor.setVisibility(View.GONE);
+            vwStatus.setVisibility(View.GONE);
             ivExpander.setVisibility(View.GONE);
             ivFlagged.setVisibility(View.GONE);
             ivAvatar.setVisibility(View.GONE);
@@ -498,6 +501,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             // Account color
             vwColor.setBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
             vwColor.setVisibility(View.VISIBLE);
+
+            vwStatus.setBackgroundColor(
+                    Boolean.FALSE.equals(message.dkim) ||
+                            Boolean.FALSE.equals(message.spf) ||
+                            Boolean.FALSE.equals(message.dmarc)
+                            ? colorWarning : Color.TRANSPARENT);
+            vwStatus.setVisibility(View.VISIBLE);
 
             // Expander
             boolean expanded = (viewType == ViewType.THREAD && properties.getValue("expanded", message.id));

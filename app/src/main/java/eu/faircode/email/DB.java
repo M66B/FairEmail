@@ -50,7 +50,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 63,
+        version = 64,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -682,6 +682,15 @@ public abstract class DB extends RoomDatabase {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("DROP INDEX index_message_msgid_folder");
                         db.execSQL("CREATE INDEX `index_message_msgid` ON `message` (`msgid`)");
+                    }
+                })
+                .addMigrations(new Migration(63, 64) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("ALTER TABLE `message` ADD COLUMN `dkim` INTEGER");
+                        db.execSQL("ALTER TABLE `message` ADD COLUMN `spf` INTEGER");
+                        db.execSQL("ALTER TABLE `message` ADD COLUMN `dmarc` INTEGER");
                     }
                 })
                 .build();
