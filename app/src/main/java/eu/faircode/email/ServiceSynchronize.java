@@ -205,8 +205,7 @@ public class ServiceSynchronize extends LifecycleService {
                         break;
 
                     case "reset":
-                        lastLost = 0;
-                        onReload("reset");
+                        onReset();
                         break;
 
                     case "oneshot_start":
@@ -275,6 +274,11 @@ public class ServiceSynchronize extends LifecycleService {
                 Log.e(ex);
             }
         }
+    }
+
+    private void onReset() {
+        lastLost = 0;
+        onReload("reset");
     }
 
     private void onOneshot(boolean start) {
