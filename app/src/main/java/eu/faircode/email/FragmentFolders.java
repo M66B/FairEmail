@@ -350,10 +350,8 @@ public class FragmentFolders extends FragmentBase {
                     db.endTransaction();
                 }
 
-                if (!now) {
-                    ServiceSynchronize.reset(context);
+                if (!now)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
-                }
 
                 return null;
             }
