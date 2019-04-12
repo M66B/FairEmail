@@ -81,7 +81,6 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -1489,13 +1488,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         original.html = HtmlHelper.removeTracking(context, original.html);
 
                         Document doc = Jsoup.parse(original.html);
-                        for (Element img : doc.select("img")) {
-                            Uri uri = Uri.parse(img.attr("src"));
-                            if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme())) {
-                                original.has_images = true;
-                                break;
-                            }
-                        }
+                        original.has_images = (doc.select("img").size() > 0);
 
                         return original;
                     }
