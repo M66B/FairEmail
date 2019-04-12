@@ -182,8 +182,8 @@ public class FragmentCompose extends FragmentBase {
     private boolean encrypt = false;
     private OpenPgpServiceConnection pgpService;
 
-    private static final int REDUCED_IMAGE_SIZE = 1280;
-    private static final int REDUCED_IMAGE_QUALITY = 90;
+    private static final int REDUCED_IMAGE_SIZE = 1440; // pixels
+    private static final int REDUCED_IMAGE_QUALITY = 90; // percent
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
