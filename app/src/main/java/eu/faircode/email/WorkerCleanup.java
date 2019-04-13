@@ -174,7 +174,6 @@ public class WorkerCleanup extends Worker {
         Constraints.Builder constraints = new Constraints.Builder();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !BuildConfig.DEBUG)
             constraints.setRequiresDeviceIdle(true);
-        constraints.setRequiresBatteryNotLow(true);
 
         PeriodicWorkRequest workRequest =
                 new PeriodicWorkRequest.Builder(WorkerCleanup.class, CLEANUP_INTERVAL, TimeUnit.HOURS)
