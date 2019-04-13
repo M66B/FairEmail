@@ -291,7 +291,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             tvError.setVisibility(folder.error != null ? View.VISIBLE : View.GONE);
 
             childs.setShowHidden(show_hidden);
-            cowner.restart();
+            cowner.recreate();
             if (account > 0 && folder.childs > 0 && !folder.collapsed) {
                 DB db = DB.getInstance(context);
                 cowner.start();
@@ -735,6 +735,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(inflater.inflate(R.layout.item_folder, parent, false));
+    }
+
+    @Override
+    public void onViewRecycled(@NonNull ViewHolder holder) {
+        holder.cowner.stop();
     }
 
     @Override

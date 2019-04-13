@@ -15,19 +15,7 @@ public class TwoStateOwner implements LifecycleOwner {
 
     TwoStateOwner(String aname) {
         name = aname;
-
-        // Initialize
-        registry = new LifecycleRegistry(this);
-        registry.markState(Lifecycle.State.CREATED);
-
-        // Logging
-        registry.addObserver(new LifecycleObserver() {
-            @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
-            public void onAny() {
-                if (BuildConfig.DEBUG)
-                    Log.i("LifeCycle " + name + " state=" + registry.getCurrentState());
-            }
-        });
+        create();
     }
 
     TwoStateOwner(LifecycleOwner owner, String aname) {
@@ -44,6 +32,20 @@ public class TwoStateOwner implements LifecycleOwner {
         });
     }
 
+    private void create() {
+        // Initialize
+        registry = new LifecycleRegistry(this);
+        registry.addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
+            public void onAny() {
+                if (BuildConfig.DEBUG)
+                    Log.i("LifeCycle " + name + " state=" + registry.getCurrentState() + " " + registry);
+            }
+        });
+
+        registry.markState(Lifecycle.State.CREATED);
+    }
+
     void start() {
         registry.markState(Lifecycle.State.STARTED);
     }
@@ -55,6 +57,11 @@ public class TwoStateOwner implements LifecycleOwner {
     void restart() {
         stop();
         start();
+    }
+
+    void recreate() {
+        destroy();
+        create();
     }
 
     void destroy() {
