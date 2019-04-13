@@ -26,6 +26,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ScrollView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -137,8 +138,10 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     protected View getVisibleView() {
         for (Fragment fragment : getSupportFragmentManager().getFragments())
             if (fragment.getUserVisibleHint()) {
-                Log.i("Visible fragment=" + fragment.getClass().getName());
-                return fragment.getView();
+                View view = fragment.getView();
+                Log.i("Visible fragment=" + fragment.getClass().getName() + " view=" + view);
+                if (view != null && !(view instanceof ScrollView)) // Snackbar cannot be attached to ScrollView
+                    return view;
             }
 
         Log.i("Visible activity=" + this.getClass().getName());
