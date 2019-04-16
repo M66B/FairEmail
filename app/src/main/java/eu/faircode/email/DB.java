@@ -92,8 +92,9 @@ public abstract class DB extends RoomDatabase {
 
     private static final String DB_NAME = "fairemail";
 
-    public static synchronized DB getInstance(Context context) {
+    public static synchronized DB getInstance(Context ctx) {
         if (sInstance == null) {
+            Context context = ctx.getApplicationContext();
             sInstance = migrate(context, getBuilder(context));
 
             Log.i("SQLite version=" + exec(sInstance, "SELECT sqlite_version() AS sqlite_version"));
@@ -106,7 +107,7 @@ public abstract class DB extends RoomDatabase {
 
     private static RoomDatabase.Builder getBuilder(Context context) {
         return Room
-                .databaseBuilder(context.getApplicationContext(), DB.class, DB_NAME)
+                .databaseBuilder(context, DB.class, DB_NAME)
                 .openHelperFactory(new RequerySQLiteOpenHelperFactory())
                 .setQueryExecutor(executor)
                 .setJournalMode(JournalMode.WRITE_AHEAD_LOGGING);
