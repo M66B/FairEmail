@@ -435,7 +435,7 @@ public class FragmentCompose extends FragmentBase {
 
         SimpleCursorAdapter cadapter = new SimpleCursorAdapter(
                 getContext(),
-                R.layout.spinner_contact,
+                R.layout.spinner_item2_dropdown,
                 null,
                 contacts
                         ? new String[]{
