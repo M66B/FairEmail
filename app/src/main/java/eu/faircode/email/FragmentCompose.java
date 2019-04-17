@@ -177,6 +177,8 @@ public class FragmentCompose extends FragmentBase {
     private boolean autosave = false;
     private boolean busy = false;
 
+    private boolean sender_extra = false;
+    private boolean prefix_once = false;
     private boolean monospaced = false;
     private boolean style = true;
     private boolean encrypt = false;
@@ -191,6 +193,8 @@ public class FragmentCompose extends FragmentBase {
         pro = Helper.isPro(getContext());
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        sender_extra = prefs.getBoolean("sender", false);
+        prefix_once = prefs.getBoolean("prefix_once", false);
         monospaced = prefs.getBoolean("monospaced", false);
         style = prefs.getBoolean("style_toolbar", true);
     }
@@ -1755,12 +1759,20 @@ public class FragmentCompose extends FragmentBase {
                             draft.from = ref.to;
                         }
 
-                        if ("reply".equals(action) || "reply_all".equals(action))
-                            draft.subject = context.getString(R.string.title_subject_reply,
-                                    ref.subject == null ? "" : ref.subject);
-                        else if ("forward".equals(action))
-                            draft.subject = context.getString(R.string.title_subject_forward,
-                                    ref.subject == null ? "" : ref.subject);
+                        String subject = (ref.subject == null ? "" : ref.subject);
+                        if ("reply".equals(action) || "reply_all".equals(action)) {
+                            String re = context.getString(R.string.title_subject_reply, "");
+                            if (!prefix_once || !subject.startsWith(re))
+                                draft.subject = context.getString(R.string.title_subject_reply, subject);
+                            else
+                                draft.subject = ref.subject;
+                        } else if ("forward".equals(action)) {
+                            String fwd = context.getString(R.string.title_subject_forward, "");
+                            if (!prefix_once || !subject.startsWith(fwd))
+                                draft.subject = context.getString(R.string.title_subject_forward, subject);
+                            else
+                                draft.subject = ref.subject;
+                        }
 
                         if (answer > 0)
                             body = EntityAnswer.getAnswerText(db, answer, draft.to) + body;
@@ -1896,10 +1908,8 @@ public class FragmentCompose extends FragmentBase {
             etTo.setTag(reference < 0 ? "" : etTo.getText().toString());
             etSubject.setTag(reference < 0 ? "" : etSubject.getText().toString());
 
-            boolean sender = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("sender", false);
-
             grpHeader.setVisibility(View.VISIBLE);
-            grpExtra.setVisibility(sender ? View.VISIBLE : View.GONE);
+            grpExtra.setVisibility(sender_extra ? View.VISIBLE : View.GONE);
             grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
 
             getActivity().invalidateOptionsMenu();
