@@ -286,7 +286,7 @@ public class ServiceSend extends LifecycleService {
         isession.setDebug(debug);
 
         // Create message
-        MimeMessage imessage = MessageHelper.from(this, message, isession, ident.plain_only);
+        MimeMessage imessage = MessageHelper.from(this, message, ident, isession);
 
         // Add reply to
         if (ident.replyto != null)

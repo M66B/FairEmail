@@ -77,6 +77,8 @@ public class EntityIdentity {
     public Boolean synchronize;
     @NonNull
     public Boolean primary;
+    @NonNull
+    public boolean sender_extra = false;
     public String replyto;
     public String bcc;
     @NonNull

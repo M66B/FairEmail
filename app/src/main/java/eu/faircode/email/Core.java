@@ -424,8 +424,7 @@ class Core {
             EntityIdentity identity =
                     (message.identity == null ? null : db.identity().getIdentity(message.identity));
 
-            imessage = MessageHelper.from(context, message, isession,
-                    identity == null ? false : identity.plain_only);
+            imessage = MessageHelper.from(context, message, identity, isession);
         } else {
             // Cross account move
             File file = message.getRawFile(context);

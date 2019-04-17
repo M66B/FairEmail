@@ -101,6 +101,7 @@ public class FragmentIdentity extends FragmentBase {
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
 
+    private CheckBox cbSenderExtra;
     private EditText etReplyTo;
     private EditText etBcc;
     private CheckBox cbPlainOnly;
@@ -171,6 +172,7 @@ public class FragmentIdentity extends FragmentBase {
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
 
+        cbSenderExtra = view.findViewById(R.id.cbSenderExtra);
         etReplyTo = view.findViewById(R.id.etReplyTo);
         etBcc = view.findViewById(R.id.etBcc);
         cbPlainOnly = view.findViewById(R.id.cbPlainOnly);
@@ -494,6 +496,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("name", name);
         args.putString("email", etEmail.getText().toString().trim());
         args.putString("display", etDisplay.getText().toString());
+        args.putBoolean("sender_extra", cbSenderExtra.isChecked());
         args.putString("replyto", etReplyTo.getText().toString().trim());
         args.putString("bcc", etBcc.getText().toString().trim());
         args.putBoolean("plain_only", cbPlainOnly.isChecked());
@@ -557,6 +560,7 @@ public class FragmentIdentity extends FragmentBase {
                 boolean synchronize = args.getBoolean("synchronize");
                 boolean primary = args.getBoolean("primary");
 
+                boolean sender_extra = args.getBoolean("sender_extra");
                 String replyto = args.getString("replyto");
                 String bcc = args.getString("bcc");
                 boolean plain_only = args.getBoolean("plain_only");
@@ -683,6 +687,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.synchronize = synchronize;
                     identity.primary = (identity.synchronize && primary);
 
+                    identity.sender_extra = sender_extra;
                     identity.replyto = replyto;
                     identity.bcc = bcc;
                     identity.plain_only = plain_only;
@@ -789,6 +794,7 @@ public class FragmentIdentity extends FragmentBase {
                     cbSynchronize.setChecked(identity == null ? true : identity.synchronize);
                     cbPrimary.setChecked(identity == null ? true : identity.primary);
 
+                    cbSenderExtra.setChecked(identity != null && identity.sender_extra);
                     etReplyTo.setText(identity == null ? null : identity.replyto);
                     etBcc.setText(identity == null ? null : identity.bcc);
                     cbPlainOnly.setChecked(identity == null ? false : identity.plain_only);

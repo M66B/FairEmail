@@ -177,7 +177,6 @@ public class FragmentCompose extends FragmentBase {
     private boolean autosave = false;
     private boolean busy = false;
 
-    private boolean sender_extra = false;
     private boolean prefix_once = false;
     private boolean monospaced = false;
     private boolean style = true;
@@ -193,7 +192,6 @@ public class FragmentCompose extends FragmentBase {
         pro = Helper.isPro(getContext());
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        sender_extra = prefs.getBoolean("sender", false);
         prefix_once = prefs.getBoolean("prefix_once", false);
         monospaced = prefs.getBoolean("monospaced", false);
         style = prefs.getBoolean("style_toolbar", true);
@@ -246,6 +244,7 @@ public class FragmentCompose extends FragmentBase {
                 int at = (identity == null ? -1 : identity.email.indexOf('@'));
                 etExtra.setHint(at < 0 ? null : identity.email.substring(0, at));
                 tvDomain.setText(at < 0 ? null : identity.email.substring(at));
+                grpExtra.setVisibility(identity != null && identity.sender_extra ? View.VISIBLE : View.GONE);
 
                 Spanned signature = null;
                 if (pro) {
@@ -1157,7 +1156,7 @@ public class FragmentCompose extends FragmentBase {
                 Properties props = MessageHelper.getSessionProperties(Helper.AUTH_TYPE_PASSWORD, null, false);
                 Session isession = Session.getInstance(props, null);
                 MimeMessage imessage = new MimeMessage(isession);
-                MessageHelper.build(context, message, imessage, identity == null ? false : identity.plain_only);
+                MessageHelper.build(context, message, identity, imessage);
 
                 // Serialize message
                 ByteArrayOutputStream os = new ByteArrayOutputStream();
@@ -1712,6 +1711,13 @@ public class FragmentCompose extends FragmentBase {
                             body = EntityAnswer.getAnswerText(db, answer, null) + body;
                     } else {
                         if ("reply".equals(action) || "reply_all".equals(action)) {
+                            if (ref.to != null && ref.to.length > 0) {
+                                String to = ((InternetAddress) ref.to[0]).getAddress();
+                                int at = to.indexOf('@');
+                                if (at > 0)
+                                    draft.extra = to.substring(0, at);
+                            }
+
                             draft.references = (ref.references == null ? "" : ref.references + " ") + ref.msgid;
                             draft.inreplyto = ref.msgid;
                             draft.thread = ref.thread;
@@ -1909,7 +1915,6 @@ public class FragmentCompose extends FragmentBase {
             etSubject.setTag(reference < 0 ? "" : etSubject.getText().toString());
 
             grpHeader.setVisibility(View.VISIBLE);
-            grpExtra.setVisibility(sender_extra ? View.VISIBLE : View.GONE);
             grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
 
             getActivity().invalidateOptionsMenu();

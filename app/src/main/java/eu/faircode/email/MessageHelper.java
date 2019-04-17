@@ -189,7 +189,8 @@ public class MessageHelper {
         return props;
     }
 
-    static MimeMessageEx from(Context context, EntityMessage message, Session isession, boolean plainOnly) throws MessagingException, IOException {
+    static MimeMessageEx from(Context context, EntityMessage message, EntityIdentity identity, Session isession)
+            throws MessagingException, IOException {
         DB db = DB.getInstance(context);
         MimeMessageEx imessage = new MimeMessageEx(isession, message.msgid);
 
@@ -208,7 +209,7 @@ public class MessageHelper {
         if (message.from != null && message.from.length > 0) {
             String email = ((InternetAddress) message.from[0]).getAddress();
             String name = ((InternetAddress) message.from[0]).getPersonal();
-            if (email != null && !TextUtils.isEmpty(message.extra)) {
+            if (email != null && identity != null && identity.sender_extra && !TextUtils.isEmpty(message.extra)) {
                 int at = email.indexOf('@');
                 email = message.extra + email.substring(at);
                 Log.i("extra=" + email);
@@ -282,22 +283,19 @@ public class MessageHelper {
                 return imessage;
             }
 
-        build(context, message, imessage, plainOnly);
+        build(context, message, identity, imessage);
 
         return imessage;
     }
 
-    static void build(Context context, EntityMessage message, MimeMessage imessage, boolean plainOnly) throws IOException, MessagingException {
+    static void build(Context context, EntityMessage message, EntityIdentity identity, MimeMessage imessage) throws IOException, MessagingException {
         DB db = DB.getInstance(context);
 
         StringBuilder body = new StringBuilder();
         body.append(Helper.readText(message.getFile(context)));
 
-        if (message.identity != null) {
-            EntityIdentity identity = db.identity().getIdentity(message.identity);
-            if (!TextUtils.isEmpty(identity.signature))
-                body.append(identity.signature);
-        }
+        if (identity != null && !TextUtils.isEmpty(identity.signature))
+            body.append(identity.signature);
 
         File refFile = message.getRefFile(context);
         if (refFile.exists())
@@ -334,7 +332,7 @@ public class MessageHelper {
         Log.i("Attachments available=" + available);
 
         if (available == 0)
-            if (plainOnly)
+            if (identity != null && identity.plain_only)
                 imessage.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
             else
                 imessage.setContent(alternativePart);
@@ -342,7 +340,7 @@ public class MessageHelper {
             Multipart mixedPart = new MimeMultipart("mixed");
 
             BodyPart attachmentPart = new MimeBodyPart();
-            if (plainOnly)
+            if (identity != null && identity.plain_only)
                 attachmentPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
             else
                 attachmentPart.setContent(alternativePart);

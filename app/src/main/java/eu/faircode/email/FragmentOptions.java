@@ -97,7 +97,6 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swAutoResize;
     private Spinner spAutoResize;
     private TextView tvAutoResize;
-    private SwitchCompat swSender;
     private SwitchCompat swPrefixOnce;
     private SwitchCompat swAutoSend;
 
@@ -129,7 +128,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             "startup", "date", "threading", "avatars", "identicons", "name_email", "subject_italic", "flags", "preview",
             "addresses", "monospaced", "autohtml", "autoimages", "actionbar",
             "pull", "swipenav", "autoexpand", "autoclose", "autonext", "collapse", "autoread", "automove",
-            "autoresize", "resize", "sender", "prefix_once", "autosend",
+            "autoresize", "resize", "prefix_once", "autosend",
             "notify_preview", "search_local", "light", "sound",
             "authentication", "paranoid", "english", "updates", "debug",
             "first", "why", "last_update_check", "app_support", "message_swipe", "message_select", "folder_actions", "folder_sync",
@@ -180,7 +179,6 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swAutoResize = view.findViewById(R.id.swAutoResize);
         spAutoResize = view.findViewById(R.id.spAutoResize);
         tvAutoResize = view.findViewById(R.id.tvAutoResize);
-        swSender = view.findViewById(R.id.swSender);
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
         swAutoSend = view.findViewById(R.id.swAutoSend);
 
@@ -497,13 +495,6 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             }
         });
 
-        swSender.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("sender", checked).apply();
-            }
-        });
-
         swPrefixOnce.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -689,7 +680,6 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             }
         spAutoResize.setEnabled(swAutoResize.isChecked());
 
-        swSender.setChecked(prefs.getBoolean("sender", false));
         swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", false));
         swAutoSend.setChecked(!prefs.getBoolean("autosend", false));
 
