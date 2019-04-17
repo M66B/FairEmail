@@ -115,7 +115,7 @@ class Core {
             DB db = DB.getInstance(context);
             List<EntityOperation> ops = db.operation().getOperations(folder.id);
             Log.i(folder.name + " pending operations=" + ops.size());
-            for (int i = 0; i < ops.size() && state.running(); i++) {
+            for (int i = 0; i < ops.size() && state.running() && state.recoverable(); i++) {
                 EntityOperation op = ops.get(i);
                 try {
                     Log.i(folder.name +
@@ -874,7 +874,7 @@ class Core {
                 }
             });
 
-            for (int i = 0; i < imessages.length && state.running(); i++)
+            for (int i = 0; i < imessages.length && state.running() && state.recoverable(); i++)
                 try {
                     uids.remove(ifolder.getUID(imessages[i]));
                 } catch (MessageRemovedException ex) {
@@ -938,14 +938,14 @@ class Core {
             // Add/update local messages
             Long[] ids = new Long[imessages.length];
             Log.i(folder.name + " add=" + imessages.length);
-            for (int i = imessages.length - 1; i >= 0 && state.running(); i -= SYNC_BATCH_SIZE) {
+            for (int i = imessages.length - 1; i >= 0 && state.running() && state.recoverable(); i -= SYNC_BATCH_SIZE) {
                 int from = Math.max(0, i - SYNC_BATCH_SIZE + 1);
                 Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
 
                 // Full fetch new/changed messages only
                 List<Message> full = new ArrayList<>();
                 for (Message imessage : isub) {
-                    long uid = ifolder.getUID(imessage);
+                    long uid = ifolder.getUID(imessage); // already fetched
                     EntityMessage message = db.message().getMessageByUid(folder.id, uid);
                     if (message == null)
                         full.add(imessage);
@@ -957,7 +957,7 @@ class Core {
                             " " + (SystemClock.elapsedRealtime() - headers) + " ms");
                 }
 
-                for (int j = isub.length - 1; j >= 0 && state.running(); j--)
+                for (int j = isub.length - 1; j >= 0 && state.running() && state.recoverable(); j--)
                     try {
                         EntityMessage message = synchronizeMessage(
                                 context,
@@ -1010,13 +1010,13 @@ class Core {
 
                 // Download messages/attachments
                 Log.i(folder.name + " download=" + imessages.length);
-                for (int i = imessages.length - 1; i >= 0 && state.running(); i -= DOWNLOAD_BATCH_SIZE) {
+                for (int i = imessages.length - 1; i >= 0 && state.running() && state.recoverable(); i -= DOWNLOAD_BATCH_SIZE) {
                     int from = Math.max(0, i - DOWNLOAD_BATCH_SIZE + 1);
 
                     Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
                     // Fetch on demand
 
-                    for (int j = isub.length - 1; j >= 0 && state.running(); j--)
+                    for (int j = isub.length - 1; j >= 0 && state.running() && state.recoverable(); j--)
                         try {
                             if (ids[from + j] != null)
                                 downloadMessage(

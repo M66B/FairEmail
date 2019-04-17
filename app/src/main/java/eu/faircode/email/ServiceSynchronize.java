@@ -823,7 +823,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 public void run() {
                                     try {
                                         Log.i(folder.name + " start idle");
-                                        while (state.running()) {
+                                        while (state.running() && state.recoverable()) {
                                             Log.i(folder.name + " do idle");
                                             ifolder.idle(false);
                                         }
