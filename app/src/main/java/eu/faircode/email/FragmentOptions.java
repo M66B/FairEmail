@@ -129,7 +129,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             "startup", "date", "threading", "avatars", "identicons", "name_email", "subject_italic", "flags", "preview",
             "addresses", "monospaced", "autohtml", "autoimages", "actionbar",
             "pull", "swipenav", "autoexpand", "autoclose", "autonext", "collapse", "autoread", "automove",
-            "autoresize", "sender", "prefix_once", "autosend",
+            "autoresize", "resize", "sender", "prefix_once", "autosend",
             "notify_preview", "search_local", "light", "sound",
             "authentication", "paranoid", "english", "updates", "debug",
             "first", "why", "last_update_check", "app_support", "message_swipe", "message_select", "folder_actions", "folder_sync",
