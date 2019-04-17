@@ -39,6 +39,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -148,11 +149,8 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     case R.string.title_setup_import:
                         onMenuImport();
                         break;
-                    case R.string.title_setup_light_theme:
-                    case R.string.title_setup_dark_theme:
-                    case R.string.title_setup_black_theme:
-                    case R.string.title_setup_system_theme:
-                        onMenuTheme(item.getMenuId());
+                    case R.string.title_setup_theme:
+                        onMenuTheme();
                         break;
                     case R.string.title_setup_notifications:
                         onManageNotifications();
@@ -194,17 +192,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         if (getIntentNotifications(this).resolveActivity(pm) != null)
             items.add(new DrawerItem(-4, R.drawable.baseline_notifications_24, R.string.title_setup_notifications));
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String theme = prefs.getString("theme", "system");
-        if ("light".equals(theme))
-            items.add(new DrawerItem(-5, R.drawable.baseline_palette_24, R.string.title_setup_dark_theme));
-        else if ("dark".equals(theme))
-            items.add(new DrawerItem(-6, R.drawable.baseline_palette_24, R.string.title_setup_black_theme));
-        else if ("black".equals(theme))
-            items.add(new DrawerItem(-7, R.drawable.baseline_palette_24, R.string.title_setup_system_theme));
-        else
-            items.add(new DrawerItem(-8, R.drawable.baseline_palette_24, R.string.title_setup_light_theme));
-
+        items.add(new DrawerItem(-8, R.drawable.baseline_palette_24, R.string.title_setup_theme));
         items.add(new DrawerItem(-9, R.drawable.baseline_settings_applications_24, R.string.title_setup_advanced));
         items.add(new DrawerItem(-10, R.drawable.baseline_person_24, R.string.menu_contacts));
 
@@ -380,24 +368,50 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 .show();
     }
 
-    private void onMenuTheme(int id) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        switch (id) {
-            case R.string.title_setup_light_theme:
-                prefs.edit().putString("theme", "light").apply();
+    private void onMenuTheme() {
+        View dview = LayoutInflater.from(this).inflate(R.layout.dialog_theme, null);
+        final RadioGroup rgTheme = dview.findViewById(R.id.rgTheme);
+
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String theme = prefs.getString("theme", null);
+
+        switch (theme) {
+            case "dark":
+                rgTheme.check(R.id.rbThemeDark);
                 break;
-            case R.string.title_setup_dark_theme:
-                prefs.edit().putString("theme", "dark").apply();
+            case "black":
+                rgTheme.check(R.id.rbThemeBlack);
                 break;
-            case R.string.title_setup_black_theme:
-                prefs.edit().putString("theme", "black").apply();
+            case "system":
+                rgTheme.check(R.id.rbThemeSystem);
                 break;
-            case R.string.title_setup_system_theme:
-                prefs.edit().putString("theme", "system").apply();
-                break;
+            default:
+                rgTheme.check(R.id.rbThemeLight);
         }
 
-        ContactInfo.clearCache();
+        rgTheme.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.rbThemeLight:
+                        prefs.edit().putString("theme", "light").apply();
+                        break;
+                    case R.id.rbThemeDark:
+                        prefs.edit().putString("theme", "dark").apply();
+                        break;
+                    case R.id.rbThemeBlack:
+                        prefs.edit().putString("theme", "black").apply();
+                        break;
+                    case R.id.rbThemeSystem:
+                        prefs.edit().putString("theme", "system").apply();
+                        break;
+                }
+            }
+        });
+
+        new DialogBuilderLifecycle(this, this)
+                .setView(dview)
+                .show();
     }
 
     private void onMenuOptions() {
