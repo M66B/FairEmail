@@ -2576,7 +2576,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setChecked(show_headers);
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(data.message.uid != null);
 
-            popupMenu.getMenu().findItem(R.id.menu_raw).setVisible(show_headers);
             popupMenu.getMenu().findItem(R.id.menu_raw).setEnabled(
                     data.message.uid != null && (data.message.raw == null || data.message.raw));
             popupMenu.getMenu().findItem(R.id.menu_raw).setTitle(
