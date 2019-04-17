@@ -44,7 +44,7 @@ Anything on this list is in random order and *might* be added in the near future
 * *Rich text editor* / [Markdown](https://en.wikipedia.org/wiki/Markdown) support: besides that very few people would use this on a small mobile device, Android doesn't support a rich text editor and most rich text editor open source projects are abandoned. See [here](https://forum.xda-developers.com/showpost.php?p=79061829&postcount=4919) for some more details.
 * *Widget to read messages*: widgets can have limited user interaction only, so a widget to read e-mail would not be very useful. Moreover, it would be not very useful to duplicate functions which are already available in the app.
 * *Design*: the design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too.
-* *ActiveSync*: using the Exchange ActiveSync protocol requires [a license](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing), so this cannot be added. Moreover, the ActiveSync protocol is being phased out.
+* *ActiveSync*: using the Exchange ActiveSync protocol requires [a license](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing), so this cannot be added.
 
 The goal of the design is to be minimalistic and non distracting (so, no fancy colors and animations).
 All displayed things should be useful in one or another way and should be carefully positioned for easy usage.
