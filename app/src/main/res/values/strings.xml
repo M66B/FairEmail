@@ -201,7 +201,7 @@
 
     <string name="title_advanced_enabled_hint">Globally disable or enable receiving and sending of messages</string>
     <string name="title_advanced_metered_hint">Metered connections are generally mobile connections or paid Wi-Fi hotspots</string>
-    <string name="title_advanced_metered_warning">Disabling this option will disable receiving and sending message on mobile internet connections</string>
+    <string name="title_advanced_metered_warning">Disabling this option will disable receiving and sending messages on mobile internet connections</string>
     <string name="title_advanced_browse_hint">Fetch more messages when scrolling down</string>
     <string name="title_advanced_threading_hint">Group messages related to each other</string>
     <string name="title_advanced_name_email_hint">When disabled only names will be shown when available</string>
