@@ -506,7 +506,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Boolean.FALSE.equals(message.dkim) ||
                             Boolean.FALSE.equals(message.spf) ||
                             Boolean.FALSE.equals(message.dmarc)
-                            ? colorWarning : Color.TRANSPARENT);
+                            ? colorAccent : Color.TRANSPARENT);
             vwStatus.setVisibility(paranoid ? View.VISIBLE : View.GONE);
 
             // Expander
