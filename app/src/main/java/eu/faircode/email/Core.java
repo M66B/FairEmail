@@ -1535,8 +1535,16 @@ class Core {
 
         // Current
         for (TupleMessageEx message : messages) {
-            String group = Long.toString(message.accountNotify ? message.account : 0);
+            // Check if notification channel enabled
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O &&
+                    message.from != null && message.from.length > 0) {
+                InternetAddress from = (InternetAddress) message.from[0];
+                NotificationChannel channel = nm.getNotificationChannel("notification." + from.getAddress().toLowerCase());
+                if (channel != null && channel.getImportance() == NotificationManager.IMPORTANCE_NONE)
+                    continue;
+            }
 
+            String group = Long.toString(message.accountNotify ? message.account : 0);
             if (!groupMessages.containsKey(group)) {
                 groupMessages.put(group, new ArrayList<TupleMessageEx>());
                 if (!groupNotifying.containsKey(group))
@@ -1735,7 +1743,7 @@ class Core {
                     message.from != null && message.from.length > 0) {
                 InternetAddress from = (InternetAddress) message.from[0];
                 NotificationChannel channel = nm.getNotificationChannel("notification." + from.getAddress().toLowerCase());
-                if (channel != null && channel.getImportance() != NotificationManager.IMPORTANCE_NONE)
+                if (channel != null)
                     channelName = channel.getId();
             }
             if (channelName == null)
