@@ -200,7 +200,9 @@ public class ServiceSynchronize extends LifecycleService {
                         break;
 
                     case "reload":
-                        onReload(intent.getStringExtra("reason"));
+                        onReload(
+                                intent.getBooleanExtra("clear", false),
+                                intent.getStringExtra("reason"));
                         break;
 
                     case "reset":
@@ -262,13 +264,13 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void onAlarm() {
         schedule(this);
-        onReload("alarm");
+        onReload(true, "alarm");
     }
 
-    private void onReload(String reason) {
+    private void onReload(boolean clear, String reason) {
         synchronized (this) {
             try {
-                queue_reload(true, reason);
+                queue_reload(true, clear, reason);
             } catch (Throwable ex) {
                 Log.e(ex);
             }
@@ -277,7 +279,7 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void onReset() {
         lastLost = 0;
-        onReload("reset");
+        onReload(true, "reset");
     }
 
     private void onOneshot(boolean start) {
@@ -302,11 +304,11 @@ public class ServiceSynchronize extends LifecycleService {
         } else {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             prefs.edit().putBoolean("oneshot", false).apply();
-            queue_reload(true, "oneshot");
+            queue_reload(true, true, "oneshot");
         }
     }
 
-    private void queue_reload(final boolean start, final String reason) {
+    private void queue_reload(final boolean start, final boolean clear, final String reason) {
         final boolean doStop = started;
         final boolean doStart = (start && isEnabled() && networkState.isSuitable());
 
@@ -346,8 +348,11 @@ public class ServiceSynchronize extends LifecycleService {
                         if (accounts > 0 || identities > 0)
                             Log.i("Deleted accounts=" + accounts + " identities=" + identities);
 
-                        if (doStart)
+                        if (doStart) {
+                            if (clear)
+                                db.account().clearAccountConnected();
                             start();
+                        }
 
                     } catch (Throwable ex) {
                         Log.e(ex);
@@ -1127,7 +1132,7 @@ public class ServiceSynchronize extends LifecycleService {
                     EntityLog.log(ServiceSynchronize.this, "Available " + network + " capabilities " + cm.getNetworkCapabilities(network));
 
                     if (!started && networkState.isSuitable())
-                        queue_reload(true, "connect " + network);
+                        queue_reload(true, false, "connect " + network);
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
@@ -1143,7 +1148,7 @@ public class ServiceSynchronize extends LifecycleService {
                     if (!started) {
                         EntityLog.log(ServiceSynchronize.this, "Network " + network + " capabilities " + capabilities);
                         if (networkState.isSuitable())
-                            queue_reload(true, "capabilities " + network);
+                            queue_reload(true, false, "capabilities " + network);
                     }
                 } catch (Throwable ex) {
                     Log.e(ex);
@@ -1161,7 +1166,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                     if (started && !networkState.isSuitable()) {
                         lastLost = new Date().getTime();
-                        queue_reload(false, "disconnect " + network);
+                        queue_reload(false, false, "disconnect " + network);
                     }
                 } catch (Throwable ex) {
                     Log.e(ex);
@@ -1281,9 +1286,14 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     static void reload(Context context, String reason) {
+        reload(context, false, reason);
+    }
+
+    static void reload(Context context, boolean clear, String reason) {
         ContextCompat.startForegroundService(context,
                 new Intent(context, ServiceSynchronize.class)
                         .setAction("reload")
+                        .putExtra("clear", clear)
                         .putExtra("reason", reason));
     }
 

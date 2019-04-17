@@ -122,6 +122,9 @@ public interface DaoAccount {
     @Query("UPDATE account SET tbd = 1 WHERE id = :id")
     int setAccountTbd(long id);
 
+    @Query("UPDATE account SET last_connected = NULL")
+    int clearAccountConnected();
+
     @Query("DELETE FROM account WHERE tbd = 1")
     int deleteAccountsTbd();
 }
