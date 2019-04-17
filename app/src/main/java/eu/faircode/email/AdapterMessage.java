@@ -1271,18 +1271,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean expanded = !properties.getValue("expanded", message.id);
                 properties.setValue("expanded", message.id, expanded);
 
-                int pos = getAdapterPosition();
-                notifyItemChanged(pos);
-
-                if (expanded)
-                    properties.scrollTo(pos, 0);
+                if (expanded) {
+                    bindExpanded(message);
+                    properties.scrollTo(getAdapterPosition(), 0);
+                } else
+                    clearExpanded();
             }
         }
 
         private void onToggleAddresses(TupleMessageEx message) {
             boolean addresses = !properties.getValue("addresses", message.id);
             properties.setValue("addresses", message.id, addresses);
-            notifyItemChanged(getAdapterPosition());
+            bindExpanded(message);
         }
 
         private void onDownloadAttachments(final TupleMessageEx message) {
