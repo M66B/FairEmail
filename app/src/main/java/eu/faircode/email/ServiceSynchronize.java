@@ -428,8 +428,6 @@ public class ServiceSynchronize extends LifecycleService {
                                     monitorAccount(account, astate);
                                 } catch (Throwable ex) {
                                     Log.e(account.name, ex);
-                                    EntityLog.log(ServiceSynchronize.this, account.name + " " + Helper.formatThrowable(ex));
-                                    db.account().setAccountError(account.id, Helper.formatThrowable(ex));
                                 }
                             }
                         }, "sync.account." + account.id);
