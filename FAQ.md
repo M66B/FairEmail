@@ -1121,9 +1121,9 @@ If your provider requires an unsupported authentication method, you'll likely ge
 Large inline or attached [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) and [JPEG](https://en.wikipedia.org/wiki/JPEG) images
 will automatically be resized for displaying on screens.
 This is because email messages are limited in size, depending on the provider mostly between 10 and 50 MB.
-Image will be resized to a maximum width and height of about 1440 pixels and saved with a compression ratio of 90 %.
+Image will by default be resized to a maximum width and height of about 1440 pixels and saved with a compression ratio of 90 %.
 Images are scaled down using whole number factors to reduce memory usage and to retain image quality.
-There is an advanced option to disable automatically resizing of image attachments. Inline (embedded) images will always be resized.
+There is an advanced option to disable automatically resizing and to set the target image size.
 
 <br />
 

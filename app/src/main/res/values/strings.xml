@@ -185,6 +185,7 @@
     <string name="title_advanced_autoread">Automatically mark messages read on moving messages</string>
     <string name="title_advanced_automove">Confirm moving messages</string>
     <string name="title_advanced_autoresize">Automatically resize images for displaying on screens</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_sender">Allow editing sender address</string>
     <string name="title_advanced_autosend">Confirm sending messages</string>
 
@@ -591,18 +592,6 @@
     <string name="title_crash_info_remark">Please describe what you were doing when the app crashed:</string>
     <string name="title_issue_subject" translatable="false">FairEmail %1$s issue</string>
 
-    <string-array name="downloadNames">
-        <item>16 KB</item>
-        <item>32 KB</item>
-        <item>64 KB</item>
-        <item>128 KB</item>
-        <item>256 KB</item>
-        <item>512 KB</item>
-        <item>1 MB</item>
-        <item>2 MB</item>
-        <item>&#8734;</item>
-    </string-array>
-
     <string-array name="startupValues" translatable="false">
         <item>unified</item>
         <item>folders</item>
@@ -615,6 +604,18 @@
         <item>Accounts</item>
     </string-array>
 
+    <string-array name="downloadNames">
+        <item>16 KB</item>
+        <item>32 KB</item>
+        <item>64 KB</item>
+        <item>128 KB</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>&#8734;</item>
+    </string-array>
+
     <integer-array name="downloadValues" translatable="false">
         <item>16384</item>
         <item>32768</item>
@@ -625,6 +626,18 @@
         <item>1048576</item>
         <item>2097152</item>
         <item>0</item>
+    </integer-array>
+
+    <string-array name="resizeNames">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
+
+    <integer-array name="resizeValues" translatable="false">
+        <item>1080</item>
+        <item>1440</item>
+        <item>1920</item>
     </integer-array>
 
     <array name="colorPicker">

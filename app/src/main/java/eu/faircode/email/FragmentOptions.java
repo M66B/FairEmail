@@ -48,7 +48,6 @@ import android.widget.TimePicker;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Objects;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -96,6 +95,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swAutoRead;
     private SwitchCompat swAutoMove;
     private SwitchCompat swAutoResize;
+    private Spinner spAutoResize;
+    private TextView tvAutoResize;
     private SwitchCompat swSender;
     private SwitchCompat swAutoSend;
 
@@ -176,6 +177,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swAutoRead = view.findViewById(R.id.swAutoRead);
         swAutoMove = view.findViewById(R.id.swAutoMove);
         swAutoResize = view.findViewById(R.id.swAutoResize);
+        spAutoResize = view.findViewById(R.id.spAutoResize);
+        tvAutoResize = view.findViewById(R.id.tvAutoResize);
         swSender = view.findViewById(R.id.swSender);
         swAutoSend = view.findViewById(R.id.swAutoSend);
 
@@ -297,13 +300,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         spDownload.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                Integer prev = (Integer) adapterView.getTag();
-                if (!Objects.equals(prev, position)) {
-                    adapterView.setTag(position);
-
-                    int[] values = getResources().getIntArray(R.array.downloadValues);
-                    prefs.edit().putInt("download", values[position]).apply();
-                }
+                int[] values = getResources().getIntArray(R.array.downloadValues);
+                prefs.edit().putInt("download", values[position]).apply();
             }
 
             @Override
@@ -479,6 +477,21 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("autoresize", checked).apply();
+                spAutoResize.setEnabled(checked);
+            }
+        });
+
+        spAutoResize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                int[] values = getResources().getIntArray(R.array.resizeValues);
+                prefs.edit().putInt("resize", values[position]).apply();
+                tvAutoResize.setText(getString(R.string.title_advanced_resize_pixels, values[position]));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("resize").apply();
             }
         });
 
@@ -618,7 +631,6 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         int[] downloadValues = getResources().getIntArray(R.array.downloadValues);
         for (int pos = 0; pos < downloadValues.length; pos++)
             if (downloadValues[pos] == download) {
-                spDownload.setTag(pos);
                 spDownload.setSelection(pos);
                 break;
             }
@@ -657,6 +669,17 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swAutoRead.setChecked(prefs.getBoolean("autoread", false));
         swAutoMove.setChecked(!prefs.getBoolean("automove", false));
         swAutoResize.setChecked(prefs.getBoolean("autoresize", true));
+
+        int resize = prefs.getInt("resize", FragmentCompose.REDUCED_IMAGE_SIZE);
+        int[] resizeValues = getResources().getIntArray(R.array.resizeValues);
+        for (int pos = 0; pos < resizeValues.length; pos++)
+            if (resizeValues[pos] == resize) {
+                spAutoResize.setSelection(pos);
+                tvAutoResize.setText(getString(R.string.title_advanced_resize_pixels, resizeValues[pos]));
+                break;
+            }
+        spAutoResize.setEnabled(swAutoResize.isChecked());
+
         swSender.setChecked(prefs.getBoolean("sender", false));
         swAutoSend.setChecked(!prefs.getBoolean("autosend", false));
 

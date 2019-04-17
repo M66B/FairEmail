@@ -182,8 +182,8 @@ public class FragmentCompose extends FragmentBase {
     private boolean encrypt = false;
     private OpenPgpServiceConnection pgpService;
 
-    private static final int REDUCED_IMAGE_SIZE = 1440; // pixels
-    private static final int REDUCED_IMAGE_QUALITY = 90; // percent
+    static final int REDUCED_IMAGE_SIZE = 1280; // pixels
+    static final int REDUCED_IMAGE_QUALITY = 90; // percent
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -1534,15 +1534,17 @@ public class FragmentCompose extends FragmentBase {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean autoresize = prefs.getBoolean("autoresize", true);
 
-            if ((image || autoresize) &&
+            if (autoresize &&
                     ("image/jpeg".equals(attachment.type) || "image/png".equals(attachment.type))) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
                 BitmapFactory.decodeFile(file.getAbsolutePath(), options);
 
+                int resize = prefs.getInt("resize", REDUCED_IMAGE_SIZE);
+
                 int factor = 1;
-                while (options.outWidth / factor > REDUCED_IMAGE_SIZE ||
-                        options.outHeight / factor > REDUCED_IMAGE_SIZE)
+                while (options.outWidth / factor > resize ||
+                        options.outHeight / factor > resize)
                     factor *= 2;
 
                 Matrix rotation = ("image/jpeg".equals(attachment.type) ? getImageRotation(file) : null);
