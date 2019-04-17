@@ -1950,7 +1950,6 @@ public class FragmentCompose extends FragmentBase {
 
                     // Show identities
                     IdentityAdapter adapter = new IdentityAdapter(getContext(), identities);
-                    adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
                     spIdentity.setAdapter(adapter);
 
                     // Select identity
