@@ -238,7 +238,7 @@ public class FragmentMessages extends FragmentBase {
         autoexpand = prefs.getBoolean("autoexpand", true);
         autoclose = prefs.getBoolean("autoclose", true);
         autonext = (!autoclose && prefs.getBoolean("autonext", false));
-        addresses = prefs.getBoolean("addresses", true);
+        addresses = prefs.getBoolean("addresses", false);
     }
 
     @Override

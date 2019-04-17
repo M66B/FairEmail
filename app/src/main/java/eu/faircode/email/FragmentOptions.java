@@ -641,7 +641,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swSubjectItalic.setChecked(prefs.getBoolean("subject_italic", true));
         swFlags.setChecked(prefs.getBoolean("flags", true));
         swPreview.setChecked(prefs.getBoolean("preview", false));
-        swAddresses.setChecked(prefs.getBoolean("addresses", true));
+        swAddresses.setChecked(prefs.getBoolean("addresses", false));
         swMonospaced.setChecked(prefs.getBoolean("monospaced", false));
         swHtml.setChecked(prefs.getBoolean("autohtml", false));
         swImages.setChecked(prefs.getBoolean("autoimages", false));
