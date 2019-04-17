@@ -88,12 +88,12 @@
     <string name="title_setup_exported">Inställningar exporterade</string>
     <string name="title_setup_imported">Inställningar importerade</string>
     <string name="title_setup_quick">Snabbinstallation</string>
-    <string name="title_setup_quick_remark">För att snabbt konfigurera ett konto och identitet för de flesta större leverantörer</string>
     <string name="title_setup_quick_hint">Snabbinställningen hämtar konfigurationsinformation från autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-server för att ta emot meddelanden</string>
     <string name="title_setup_quick_smtp">SMTP-server för att skicka meddelanden</string>
     <string name="title_setup_go">Kör</string>
     <string name="title_setup_setting_gmail">Aktivera åtkomst för ”mindre säkra” appar</string>
+    <string name="title_setup_setting_yahoo">Aktivera åtkomst för \"mindre säkra\" appar</string>
     <string name="title_setup_no_settings">Inga inställningar hittades för \"%1$s\"</string>
     <string name="title_setup_quick_success">Ett konto och en identitet har lagts till</string>
     <string name="title_setup_quick_failed">Du kan prova att konfigurera ett konto och en identitet nedan också</string>
@@ -496,6 +496,11 @@
     <string name="title_debug_info">Felsökningsinformation</string>
     <string name="title_debug_info_remark">Beskriv problemet och ange tidpunkten för problemet:</string>
     <string name="title_crash_info_remark">Beskriv vad du gjorde när appen kraschade:</string>
+    <string-array name="startupNames">
+        <item>Samlad inkorg</item>
+        <item>Samlade mappar</item>
+        <item>Konton</item>
+    </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>
         <item>32 KB</item>
@@ -506,10 +511,5 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
-    </string-array>
-    <string-array name="startupNames">
-        <item>Samlad inkorg</item>
-        <item>Samlade mappar</item>
-        <item>Konton</item>
     </string-array>
 </resources>

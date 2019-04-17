@@ -104,7 +104,7 @@
     <string name="title_setup_exported">Настройки экспортированы</string>
     <string name="title_setup_imported">Настройки импортированы</string>
     <string name="title_setup_quick">Быстрая настройка</string>
-    <string name="title_setup_quick_remark">Быстрая настройка учётных записей и идентификаторов для большинства основных провайдеров</string>
+    <string name="title_setup_quick_remark">Быстрая настройка учётной записи и идентификатора для большинства провайдеров</string>
     <string name="title_setup_quick_hint">Быстрая настройка считывает информацию о конфигурации с autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP сервер для получения сообщений</string>
     <string name="title_setup_quick_smtp">SMTP сервер для отправки сообщений</string>
@@ -130,6 +130,7 @@
     <string name="title_setup_notifications">Настроить уведомления</string>
     <string name="title_setup_to_do">Выполнить</string>
     <string name="title_setup_done">Готово</string>
+    <string name="title_setup_theme">Выбрать тему</string>
     <string name="title_setup_light_theme">Светлая тема</string>
     <string name="title_setup_dark_theme">Тёмная тема</string>
     <string name="title_setup_black_theme">Чёрная тема</string>
@@ -171,7 +172,9 @@
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
     <string name="title_advanced_automove">Подтверждать перемещение сообщений</string>
     <string name="title_advanced_autoresize">Автоматически масштабировать изображения к размеру экрана</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d пикселей</string>
     <string name="title_advanced_sender">Разрешить редактирование адреса отправителя</string>
+    <string name="title_advanced_prefix_once">Добавлять только один префикс темы при ответе или пересылке</string>
     <string name="title_advanced_autosend">Подтверждать отправку сообщений</string>
     <string name="title_advanced_badge">Показать значок запуска с числом новых сообщений</string>
     <string name="title_advanced_notify_preview">Предпросмотр сообщений в уведомлениях</string>
@@ -179,11 +182,13 @@
     <string name="title_advanced_light">Использовать индикатор уведомлений</string>
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
     <string name="title_advanced_english">Принудительно использовать английский язык</string>
+    <string name="title_advanced_authentication">Показывать предупреждение, когда сервер не может аутентифицировать сообщение</string>
     <string name="title_advanced_paranoid">Дополнительные возможности конфиденциальности</string>
     <string name="title_advanced_updates">Проверить наличие обновлений</string>
     <string name="title_advanced_debug">Режим отладки</string>
     <string name="title_advanced_enabled_hint">Глобальное включение/отключение получения и отправки сообщений</string>
     <string name="title_advanced_metered_hint">Лимитированные подключения - это обычно мобильные сети или платные Wi-Fi</string>
+    <string name="title_advanced_metered_warning">Отключение этой опции отключит получение и отправку сообщений при мобильном подключении к интернету</string>
     <string name="title_advanced_browse_hint">Получите больше сообщений при прокрутке вниз</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
     <string name="title_advanced_name_email_hint">Если отключено, будут показаны только имена (при наличии)</string>
@@ -531,6 +536,11 @@
     <string name="title_debug_info">Отладочная информация</string>
     <string name="title_debug_info_remark">Пожалуйста, опишите проблему и укажите момент возникновения проблемы:</string>
     <string name="title_crash_info_remark">Пожалуйста, опишите, что Вы делали, когда приложение падало:</string>
+    <string-array name="startupNames">
+        <item>Единый почтовый ящик</item>
+        <item>Унифицированные папки</item>
+        <item>Учётные записи</item>
+    </string-array>
     <string-array name="downloadNames">
         <item>16 КБ</item>
         <item>32 КБ</item>
@@ -542,9 +552,9 @@
         <item>%2 MB</item>
         <item>&#8734;</item>
     </string-array>
-    <string-array name="startupNames">
-        <item>Единый почтовый ящик</item>
-        <item>Унифицированные папки</item>
-        <item>Учётные записи</item>
+    <string-array name="resizeNames">
+        <item>Маленький</item>
+        <item>Средний</item>
+        <item>Большой</item>
     </string-array>
 </resources>

@@ -104,7 +104,6 @@
     <string name="title_setup_exported">Ustawienia wyeksportowane</string>
     <string name="title_setup_imported">Ustawienia zaimportowane</string>
     <string name="title_setup_quick">Szybkie ustawienia</string>
-    <string name="title_setup_quick_remark">Ustaw konto i tożsamość dla większości głównych dostawców poczty</string>
     <string name="title_setup_quick_hint">Szybka konfiguracja pobierze informacje o ustawieniach z autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Serwer IMAP do odbierania wiadomości</string>
     <string name="title_setup_quick_smtp">Serwer SMTP do wysyłania wiadomości</string>
@@ -515,6 +514,11 @@
     <string name="title_debug_info">Info debugowania</string>
     <string name="title_debug_info_remark">Opisz proszę problem i wskaż moment jego wystąpienia:</string>
     <string name="title_crash_info_remark">Opisz proszę, co robisz, w momencie awarii aplikacji:</string>
+    <string-array name="startupNames">
+        <item>Wspólna skrzynka odbiorcza</item>
+        <item>Wspólne foldery</item>
+        <item>Konta</item>
+    </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>
         <item>32 KB</item>
@@ -525,10 +529,5 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
-    </string-array>
-    <string-array name="startupNames">
-        <item>Wspólna skrzynka odbiorcza</item>
-        <item>Wspólne foldery</item>
-        <item>Konta</item>
     </string-array>
 </resources>

@@ -80,7 +80,7 @@
     <string name="title_setup_exported">设置已导出！</string>
     <string name="title_setup_imported">设置已导入！</string>
     <string name="title_setup_quick">快速设置</string>
-    <string name="title_setup_quick_remark">为大多数主要邮件服务提供商快速设置账户和身份</string>
+    <string name="title_setup_quick_remark">为大多数邮件服务提供商快速设置账户和身份</string>
     <string name="title_setup_quick_hint">快速设置将从autoconfig.thunderbird.net 获取配置信息</string>
     <string name="title_setup_quick_imap">接收消息的IMAP 服务器</string>
     <string name="title_setup_quick_smtp">发送消息的SMTP服务器</string>
@@ -147,6 +147,7 @@
     <string name="title_advanced_autoread">将移动的邮件自动标记为已读</string>
     <string name="title_advanced_automove">确认移动邮件</string>
     <string name="title_advanced_autoresize">自动调整屏幕显示的图像大小</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d 像素</string>
     <string name="title_advanced_sender">允许编辑发件人地址</string>
     <string name="title_advanced_autosend">确认发送邮件</string>
     <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
@@ -155,11 +156,13 @@
     <string name="title_advanced_light">使用指示灯</string>
     <string name="title_advanced_sound">选择通知提示音</string>
     <string name="title_advanced_english">强制使用英语</string>
+    <string name="title_advanced_authentication">当接收服务器无法验证消息时显示警告</string>
     <string name="title_advanced_paranoid">额外隐私功能</string>
     <string name="title_advanced_updates">检查更新</string>
     <string name="title_advanced_debug">调试模式</string>
     <string name="title_advanced_enabled_hint">全局禁用或启用邮件的接收和发送</string>
     <string name="title_advanced_metered_hint">计量连接通常是指移动连接或付费WiFi热点</string>
+    <string name="title_advanced_metered_warning">禁用此选项将禁止在使用移动互联网连接时接收和发送消息</string>
     <string name="title_advanced_browse_hint">向下滚动时拉取更多邮件</string>
     <string name="title_advanced_threading_hint">对相互关联的邮件进行分组</string>
     <string name="title_advanced_name_email_hint">禁用该选项，将仅显示名称（如果可用）</string>
@@ -507,6 +510,11 @@
     <string name="title_debug_info">调试信息</string>
     <string name="title_debug_info_remark">请描述问题及问题发生的时间：</string>
     <string name="title_crash_info_remark">请描述应用崩溃时您的操作</string>
+    <string-array name="startupNames">
+        <item>聚合收件箱</item>
+        <item>聚合文件夹</item>
+        <item>账户</item>
+    </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>
         <item>32 KB</item>
@@ -518,9 +526,9 @@
         <item>2 MB</item>
         <item>&#8734;</item>
     </string-array>
-    <string-array name="startupNames">
-        <item>聚合收件箱</item>
-        <item>聚合文件夹</item>
-        <item>账户</item>
+    <string-array name="resizeNames">
+        <item>小</item>
+        <item>中等</item>
+        <item>大</item>
     </string-array>
 </resources>

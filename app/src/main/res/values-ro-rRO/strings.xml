@@ -96,12 +96,12 @@
     <string name="title_setup_exported">Setări exportate</string>
     <string name="title_setup_imported">Setări importate</string>
     <string name="title_setup_quick">Configurare rapidă</string>
-    <string name="title_setup_quick_remark">Permite setarea rapidă a unui cont și a unei identități pentru furnizorii comuni</string>
     <string name="title_setup_quick_hint">Se vor descărca informațiile necesare de pe autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Server IMAP pentru primire mesaje</string>
     <string name="title_setup_quick_smtp">Server SMTP pentru trimitere mesaje</string>
     <string name="title_setup_go">Start</string>
     <string name="title_setup_setting_gmail">Permite accesul pentru applicații \"mai puţin sigure\"</string>
+    <string name="title_setup_setting_yahoo">Permite accesul pentru aplicații \"mai puțin sigure\"</string>
     <string name="title_setup_no_settings">Nu s-au gasit setări pentru \'%1$s\'</string>
     <string name="title_setup_quick_success">Un cont şi o identitate au fost adăugate cu succes</string>
     <string name="title_setup_quick_failed">Puteţi încerca de asemenea să configurați un cont şi o identitate mai jos</string>
@@ -239,7 +239,7 @@
     <string name="title_no_password">Lipsește parola</string>
     <string name="title_no_inbox">Căsuța poștală nu a fost găsită</string>
     <string name="title_no_primary_drafts">Nici un cont principal sau nici un dosar pentru ciorne</string>
-    <string name="title_no_identities">Trimiterea email-uri necesită cel puțin o identitate</string>
+    <string name="title_no_identities">Trimiterea de email-uri necesită cel puțin o identitate</string>
     <string name="title_no_idle">Acest furnizor de servicii e-mail nu suporta mesaje push. Acest fapt va duce la întârzierea recepției mesajelor și un consum mai mare al bateriei.</string>
     <string name="title_no_utf8">Acest furnizor nu suportă UTF-8</string>
     <string name="title_no_sync">Erori de sincronizare începând cu %1$s</string>
@@ -522,6 +522,11 @@
     <string name="title_debug_info">Depanare</string>
     <string name="title_debug_info_remark">Va rog sa descrieți problema și să indicați momentul când s-a produs:</string>
     <string name="title_crash_info_remark">Vă rugăm să descrieți ce făceați atunci când aplicația s-a oprit:</string>
+    <string-array name="startupNames">
+        <item>Căsuță poștală comună</item>
+        <item>Dosare unificate</item>
+        <item>Conturi</item>
+    </string-array>
     <string-array name="downloadNames">
         <item>16 Ko</item>
         <item>32 Ko</item>
@@ -532,10 +537,5 @@
         <item>1 Mo</item>
         <item>2 Mo</item>
         <item>&#8734;</item>
-    </string-array>
-    <string-array name="startupNames">
-        <item>Căsuță poștală comună</item>
-        <item>Dosare unificate</item>
-        <item>Conturi</item>
     </string-array>
 </resources>

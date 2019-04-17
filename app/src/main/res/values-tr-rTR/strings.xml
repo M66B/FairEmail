@@ -88,12 +88,12 @@
     <string name="title_setup_exported">Ayarlar dışa aktarıldı</string>
     <string name="title_setup_imported">Ayarlar içe aktarıldı</string>
     <string name="title_setup_quick">Hızlı Kurulum</string>
-    <string name="title_setup_quick_remark">Çoğu büyük sağlayıcı için bir hesap kimlik hızlı kurulumu</string>
     <string name="title_setup_quick_hint">Hızlı kurulum, yapılandırma bilgilerini autoconfig.thunderbird.net adresinden alır</string>
     <string name="title_setup_quick_imap">İleti almak için IMAP sunucusu</string>
     <string name="title_setup_quick_smtp">İleti göndermek için SMTP sunucusu</string>
     <string name="title_setup_go">Git</string>
     <string name="title_setup_setting_gmail">\"Daha az güvenli\" uygulamalara erişimi etkinleştir</string>
+    <string name="title_setup_setting_yahoo">\"Daha az güvenli\" uygulamalara erişimi etkinleştir</string>
     <string name="title_setup_no_settings">%1$s için ayar bulunamadı</string>
     <string name="title_setup_quick_success">Bir hesap ve bir kimlik başarıyla eklendi</string>
     <string name="title_setup_quick_failed">Bir hesap ve kimlik yapılandırmayı aşağıdan da deneyebilirsiniz</string>
@@ -323,6 +323,7 @@
     <string name="title_no_stream">Eski bir uygulama bir dosya akışı yerine dosya yolu gönderdi</string>
     <string name="title_no_contacts">Kişi seçici mevcut değil</string>
     <string name="title_no_internet">Uygun internet bağlantısı veya internet yok</string>
+    <string name="title_no_connection">Eşitleme sonraki hesap bağlantı üzerinde gerçekleştir</string>
     <string name="title_no_folder">Klasör yok</string>
     <string name="title_accross_remark">Hesaplar arasında taşınan iletiler daha fazla veri kullanımıyla sonuçlanacak şekilde tekrar indirilecek</string>
     <string name="title_raw_saved">Ham ileti kaydedildi</string>
@@ -513,6 +514,11 @@
     <string name="title_debug_info">Hata ayıklama bilgisi</string>
     <string name="title_debug_info_remark">Lütfen sorunu açıklayın ve sorunun zamanını belirtin:</string>
     <string name="title_crash_info_remark">Lütfen uygulama çöktüğü sırada ne yaptığınızı açıklayın:</string>
+    <string-array name="startupNames">
+        <item>Birleşik Gelen Kutusu</item>
+        <item>Birleşik klasörler</item>
+        <item>Hesaplar</item>
+    </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>
         <item>32 KB</item>
@@ -523,10 +529,5 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
-    </string-array>
-    <string-array name="startupNames">
-        <item>Birleşik Gelen Kutusu</item>
-        <item>Birleşik klasörler</item>
-        <item>Hesaplar</item>
     </string-array>
 </resources>

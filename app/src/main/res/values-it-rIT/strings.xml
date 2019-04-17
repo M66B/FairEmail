@@ -88,12 +88,12 @@
     <string name="title_setup_exported">Impostazioni esportate</string>
     <string name="title_setup_imported">Impostazioni importate</string>
     <string name="title_setup_quick">Configurazione rapida</string>
-    <string name="title_setup_quick_remark">Per configurare rapidamente un account e un\'identità per i principali fornitori</string>
     <string name="title_setup_quick_hint">La configurazione rapida recupererà le informazioni di configurazione da autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Server IMAP per ricevere messaggi</string>
     <string name="title_setup_quick_smtp">Server SMTP per inviare messaggi</string>
     <string name="title_setup_go">Vai</string>
     <string name="title_setup_setting_gmail">Abilitare l\'accesso per le applicazioni \"meno sicure\"</string>
+    <string name="title_setup_setting_yahoo">Abilita l\'accesso per le app \"meno sicure\"</string>
     <string name="title_setup_no_settings">Nessuna impostazione trovata per \'%1$s\'</string>
     <string name="title_setup_quick_success">Un account e un\'identità sono stati aggiunti con successo</string>
     <string name="title_setup_quick_failed">Puoi provare a configurare un account e un\'identità qui sotto</string>
@@ -514,6 +514,11 @@
     <string name="title_debug_info">Informazioni di debug</string>
     <string name="title_debug_info_remark">Si prega di descrivere il problema ed indicare il momento in cui è avvenuto:</string>
     <string name="title_crash_info_remark">Descrivi cosa stavi facendo quando l\'app si è interrotta:</string>
+    <string-array name="startupNames">
+        <item>Posta in arrivo unificata</item>
+        <item>Cartelle unificate</item>
+        <item>Account</item>
+    </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>
         <item>32 KB</item>
@@ -524,10 +529,5 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
-    </string-array>
-    <string-array name="startupNames">
-        <item>Posta in arrivo unificata</item>
-        <item>Cartelle unificate</item>
-        <item>Account</item>
     </string-array>
 </resources>

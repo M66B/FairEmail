@@ -88,7 +88,7 @@
     <string name="title_setup_exported">Einstellungen exportiert</string>
     <string name="title_setup_imported">Einstellungen importiert</string>
     <string name="title_setup_quick">Schnelleinrichtung</string>
-    <string name="title_setup_quick_remark">Um schnell ein Konto und eine Identität bei bekannteren Providern einzurichten</string>
+    <string name="title_setup_quick_remark">Um schnell ein Konto und eine Identität für die meisten Anbieter einzurichten</string>
     <string name="title_setup_quick_hint">Die Schnelleinrichtung wird Konfigurationsinformationen von autoconfig.thunderbird.net laden</string>
     <string name="title_setup_quick_imap">IMAP-Server für das Empfangen von Nachrichten</string>
     <string name="title_setup_quick_smtp">SMTP-Server zum Senden von Nachrichten</string>
@@ -114,6 +114,7 @@
     <string name="title_setup_notifications">Benachrichtigungen</string>
     <string name="title_setup_to_do">Nicht erledigt</string>
     <string name="title_setup_done">Erledigt</string>
+    <string name="title_setup_theme">Theme auswählen</string>
     <string name="title_setup_light_theme">Helles Thema</string>
     <string name="title_setup_dark_theme">Dunkles Thema</string>
     <string name="title_setup_black_theme">Schwarzes Design</string>
@@ -155,7 +156,9 @@
     <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen markieren</string>
     <string name="title_advanced_automove">Verschieben von Nachrichten bestätigen</string>
     <string name="title_advanced_autoresize">Bildgröße automatisch für das Anzeigen auf Displays ändern</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d Pixel</string>
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
+    <string name="title_advanced_prefix_once">Betreff nur einmal beim Antworten oder Weiterleiten voranstellen</string>
     <string name="title_advanced_autosend">Senden von E-Mails bestätigen</string>
     <string name="title_advanced_badge">Startsymbol mit der Anzahl der neuen Nachrichten anzeigen</string>
     <string name="title_advanced_notify_preview">Zeige die Nachrichten-Vorschau in den Benachrichtigungen</string>
@@ -163,11 +166,13 @@
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
     <string name="title_advanced_sound">Benachrichtigungston auswählen</string>
     <string name="title_advanced_english">Englische Sprache erzwingen</string>
+    <string name="title_advanced_authentication">Warnung anzeigen, wenn der empfangene Server die Nachricht nicht authentifizieren konnte</string>
     <string name="title_advanced_paranoid">Zusätzliche Datenschutzfunktionen</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
     <string name="title_advanced_debug">Debugmodus</string>
     <string name="title_advanced_enabled_hint">Vollständiges de-/aktivieren der Empfangs- und Versandfunktion von E-Mails</string>
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte Wi-Fi Hotspots</string>
+    <string name="title_advanced_metered_warning">Das Deaktivieren dieser Option deaktiviert das Empfangen und Senden von Nachrichten über mobile Internetverbindungen</string>
     <string name="title_advanced_browse_hint">Durch herunterscrollen weitere E-Mails laden</string>
     <string name="title_advanced_threading_hint">E-Mails gruppieren, die miteinander verwandt sind</string>
     <string name="title_advanced_name_email_hint">Wenn deaktiviert, werden nur Namen angezeigt, sofern verfügbar</string>
@@ -515,6 +520,11 @@
     <string name="title_debug_info">Debuginformationen</string>
     <string name="title_debug_info_remark">Bitte beschreiben Sie das Problem und zu welchem Zeitpunkt es aufgetreten ist:</string>
     <string name="title_crash_info_remark">Bitte beschreiben Sie, was Sie getan haben, während die App abgestürzt ist:</string>
+    <string-array name="startupNames">
+        <item>Sammeleingang</item>
+        <item>Zusammengeführte Ordner</item>
+        <item>Accounts / Konten</item>
+    </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>
         <item>32 KB</item>
@@ -526,9 +536,9 @@
         <item>2 MB</item>
         <item>&#8734;</item>
     </string-array>
-    <string-array name="startupNames">
-        <item>Sammeleingang</item>
-        <item>Zusammengeführte Ordner</item>
-        <item>Accounts / Konten</item>
+    <string-array name="resizeNames">
+        <item>Klein</item>
+        <item>Mittel</item>
+        <item>Groß</item>
     </string-array>
 </resources>

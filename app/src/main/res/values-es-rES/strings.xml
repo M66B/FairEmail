@@ -88,12 +88,13 @@
     <string name="title_setup_exported">Ajustes exportados</string>
     <string name="title_setup_imported">Ajustes importados</string>
     <string name="title_setup_quick">Configuración rápida</string>
-    <string name="title_setup_quick_remark">Para configurar rápidamente una cuenta y una identidad para la mayoría de los principales proveedores</string>
+    <string name="title_setup_quick_remark">Para configurar rápidamente una cuenta y una identidad para la mayoría de los proveedores</string>
     <string name="title_setup_quick_hint">La configuración rápida obtendrá información de configuración de autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Servidor IMAP para recibir mensajes</string>
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensajes</string>
     <string name="title_setup_go">Ir</string>
     <string name="title_setup_setting_gmail">Habilitar acceso para aplicaciones \"menos seguras\"</string>
+    <string name="title_setup_setting_yahoo">Habilitar acceso para apps \"menos seguras\"</string>
     <string name="title_setup_no_settings">No se encontraron ajustes para \'%1$s\'</string>
     <string name="title_setup_quick_success">Una cuenta y una identidad han sido añadidas con éxito</string>
     <string name="title_setup_quick_failed">Puede intentar configurar una cuenta y una identidad a continuación también</string>
@@ -154,6 +155,7 @@
     <string name="title_advanced_autoread">Marcar mensaje como leído automáticamente al moverlo</string>
     <string name="title_advanced_automove">Confirmar mover mensajes</string>
     <string name="title_advanced_autoresize">Redimensionar imágenes automáticamente para mostrar en pantallas</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d píxeles</string>
     <string name="title_advanced_sender">Permitir editar dirección del remitente</string>
     <string name="title_advanced_autosend">Confirmar enviar mensajes</string>
     <string name="title_advanced_badge">Mostrar icono del lanzador con el número de mensajes nuevos</string>
@@ -162,11 +164,13 @@
     <string name="title_advanced_light">Usar luz de notificación</string>
     <string name="title_advanced_sound">Seleccionar sonido de notificación</string>
     <string name="title_advanced_english">Forzar idioma inglés</string>
+    <string name="title_advanced_authentication">Mostrar una advertencia cuando el servidor receptor no pudo autenticar el mensaje</string>
     <string name="title_advanced_paranoid">Características de privacidad adicionales</string>
     <string name="title_advanced_updates">Buscar actualizaciones</string>
     <string name="title_advanced_debug">Modo de depuración</string>
     <string name="title_advanced_enabled_hint">Desactivar o activar globalmente la recepción y envío de mensajes</string>
     <string name="title_advanced_metered_hint">Las conexiones medidas son generalmente conexiones móviles o puntos de acceso Wi-Fi de pago</string>
+    <string name="title_advanced_metered_warning">Desactivar esta opción desactivará la recepción y envío de mensajes en conexiones móviles a Internet</string>
     <string name="title_advanced_browse_hint">Buscar más mensajes al desplazarse hacia abajo</string>
     <string name="title_advanced_threading_hint">Agrupar mensajes relacionados entre sí</string>
     <string name="title_advanced_name_email_hint">Si está desactivado, solo se mostrarán los nombres cuando estén disponibles</string>
@@ -231,6 +235,7 @@
     <string name="title_no_password">Falta contraseña</string>
     <string name="title_no_inbox">Bandeja de entrada no encontrada</string>
     <string name="title_no_primary_drafts">No hay cuenta primaria o no hay carpeta de borradores</string>
+    <string name="title_no_identities">Enviar correos electrónicos requiere al menos una identidad</string>
     <string name="title_no_idle">Este proveedor no es compatible con mensajes push. Esto retrasará la recepción de nuevos mensajes y aumentará el uso de batería.</string>
     <string name="title_no_utf8">Este proveedor no es compatible con UTF-8</string>
     <string name="title_no_sync">Errores de sincronización desde %1$s</string>
@@ -322,6 +327,7 @@
     <string name="title_no_stream">Una app obsoleta ha enviado la ruta a un archivo en lugar de una secuencia de archivos</string>
     <string name="title_no_contacts">Selector de contactos no disponible</string>
     <string name="title_no_internet">No o ninguna conexión adecuada de Internet</string>
+    <string name="title_no_connection">La sincronización se realizará en la próxima conexión de la cuenta</string>
     <string name="title_no_folder">La carpeta no existe</string>
     <string name="title_accross_remark">Los mensajes movidos a otras cuentas serán descargados nuevamente causando uso adicional de datos</string>
     <string name="title_raw_saved">Mensaje raw guardado</string>
@@ -512,6 +518,11 @@
     <string name="title_debug_info">Información de depuración</string>
     <string name="title_debug_info_remark">Por favor describa el problema e indique el momento del mismo:</string>
     <string name="title_crash_info_remark">Por favor describa que estaba haciendo cuando la app falló:</string>
+    <string-array name="startupNames">
+        <item>Bandeja de entrada unificada</item>
+        <item>Carpetas unificadas</item>
+        <item>Cuentas</item>
+    </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>
         <item>32 KB</item>
@@ -523,9 +534,9 @@
         <item>2 MB</item>
         <item>&#8734;</item>
     </string-array>
-    <string-array name="startupNames">
-        <item>Bandeja de entrada unificada</item>
-        <item>Carpetas unificadas</item>
-        <item>Cuentas</item>
+    <string-array name="resizeNames">
+        <item>Pequeño</item>
+        <item>Medio</item>
+        <item>Grande</item>
     </string-array>
 </resources>

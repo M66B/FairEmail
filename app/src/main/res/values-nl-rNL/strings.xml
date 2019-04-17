@@ -88,7 +88,7 @@
     <string name="title_setup_exported">Instellingen geëxporteerd</string>
     <string name="title_setup_imported">Instellingen geïmporteerd</string>
     <string name="title_setup_quick">Snel instellen</string>
-    <string name="title_setup_quick_remark">Voor het snel instellen van een account en een identiteit voor de meeste grote providers</string>
+    <string name="title_setup_quick_remark">Voor het snel instellen van een account en een identiteit voor de meeste providers</string>
     <string name="title_setup_quick_hint">De snelle instelling zal configuratie informatie ophalen van autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-server om berichten te ontvangen</string>
     <string name="title_setup_quick_smtp">SMTP-server om berichten te verzenden</string>
@@ -114,6 +114,7 @@
     <string name="title_setup_notifications">Beheer meldingen</string>
     <string name="title_setup_to_do">Te doen</string>
     <string name="title_setup_done">Gedaan</string>
+    <string name="title_setup_theme">Selecteer thema</string>
     <string name="title_setup_light_theme">Licht thema</string>
     <string name="title_setup_dark_theme">Donker thema</string>
     <string name="title_setup_black_theme">Zwart thema</string>
@@ -155,7 +156,9 @@
     <string name="title_advanced_autoread">Markeer berichten automatisch als gelezen bij het verplaatsen van berichten</string>
     <string name="title_advanced_automove">Bevestig het verplaatsen van berichten</string>
     <string name="title_advanced_autoresize">Wijzig afbeeldingen automatisch van formaat voor weergave op schermen</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
+    <string name="title_advanced_prefix_once">Prefix onderwerp slechts één keer bij beantwoorden of doorsturen</string>
     <string name="title_advanced_autosend">Bevestig het verzenden van berichten</string>
     <string name="title_advanced_badge">Toon opstartpictogram met aantal nieuwe berichten</string>
     <string name="title_advanced_notify_preview">Toon berichtvoorbeeld in meldingen</string>
@@ -163,11 +166,13 @@
     <string name="title_advanced_light">Gebruik meldingslicht</string>
     <string name="title_advanced_sound">Selecteer meldingsgeluid</string>
     <string name="title_advanced_english">Forceer Engelse taal</string>
+    <string name="title_advanced_authentication">Toon een waarschuwing wanneer de ontvangende server het bericht niet kon verifiëren</string>
     <string name="title_advanced_paranoid">Extra privacy functies</string>
     <string name="title_advanced_updates">Controleren op updates</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
     <string name="title_advanced_enabled_hint">Globaal in- of uitschakelen van het ontvangen en verzenden van berichten</string>
     <string name="title_advanced_metered_hint">Gemeten verbindingen zijn over het algemeen mobiele verbindingen of betaalde Wi-Fi hotspots</string>
+    <string name="title_advanced_metered_warning">Uitschakelen van deze optie zal het ontvangen en verzenden van berichten op mobiele internetverbindingen uitschakelen</string>
     <string name="title_advanced_browse_hint">Meer berichten ophalen bij het naar beneden scrollen</string>
     <string name="title_advanced_threading_hint">Groepeer gerelateerde berichten</string>
     <string name="title_advanced_name_email_hint">Indien uitgeschakeld, worden alleen namen weergegeven als deze beschikbaar zijn</string>
@@ -515,6 +520,11 @@
     <string name="title_debug_info">Foutopsporing</string>
     <string name="title_debug_info_remark">Beschrijf alstublieft het probleem en de tijd van het probleem:</string>
     <string name="title_crash_info_remark">Beschrijf alstublieft wat u aan het doen was toen de app crashte:</string>
+    <string-array name="startupNames">
+        <item>Gecombineerd postvak in</item>
+        <item>Gecombineerde postvak in mappen</item>
+        <item>Accounts</item>
+    </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>
         <item>32 KB</item>
@@ -526,9 +536,9 @@
         <item>2 MB</item>
         <item>&#8734;</item>
     </string-array>
-    <string-array name="startupNames">
-        <item>Gecombineerd postvak in</item>
-        <item>Gecombineerde postvak in mappen</item>
-        <item>Accounts</item>
+    <string-array name="resizeNames">
+        <item>Klein</item>
+        <item>Gemiddeld</item>
+        <item>Groot</item>
     </string-array>
 </resources>

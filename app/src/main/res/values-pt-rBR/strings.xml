@@ -88,12 +88,12 @@
     <string name="title_setup_exported">Configurações exportadas</string>
     <string name="title_setup_imported">Configurações importadas</string>
     <string name="title_setup_quick">Configuração rápida</string>
-    <string name="title_setup_quick_remark">Configurar rapidamente uma conta e uma identidade para a maioria dos principais serviços/provedores</string>
     <string name="title_setup_quick_hint">A configuração rápida irá buscar informações de configuração a partir de autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Servidor IMAP para receber mensagens</string>
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensagens</string>
     <string name="title_setup_go">Iniciar</string>
     <string name="title_setup_setting_gmail">Permitir o acesso para apps \"menos seguros\"</string>
+    <string name="title_setup_setting_yahoo">Habilitar acesso a apps \"menos seguros\"</string>
     <string name="title_setup_no_settings">Nenhuma configuração encontrada para \'%1$s\'</string>
     <string name="title_setup_quick_success">Uma conta e uma identidade foram adicionados com sucesso</string>
     <string name="title_setup_quick_failed">Você também pode tentar configurar uma conta e uma identidade abaixo</string>
@@ -514,6 +514,11 @@
     <string name="title_debug_info">Informações de depuração</string>
     <string name="title_debug_info_remark">Por favor, descreva o problema e indique o momento em que ocorrera:</string>
     <string name="title_crash_info_remark">Por favor, descreva o que você estava fazendo quando o aplicativo falhou:</string>
+    <string-array name="startupNames">
+        <item>Caixa de entrada unificada</item>
+        <item>Pastas unificadas</item>
+        <item>Contas</item>
+    </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>
         <item>32 KB</item>
@@ -524,10 +529,5 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
-    </string-array>
-    <string-array name="startupNames">
-        <item>Caixa de entrada unificada</item>
-        <item>Pastas unificadas</item>
-        <item>Contas</item>
     </string-array>
 </resources>
