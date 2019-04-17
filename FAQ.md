@@ -1438,6 +1438,7 @@ The advanced option *extra privacy features* enables:
 * Detection and removal of [tracking images](#user-content-faq82)
 * Splitting linked images into an image and a link
 * Showing the [DKIM, SPF and DMARC authentication result](#user-content-faq92)
+* Removal of [Urchin Tracking Module (UTM) parameters](https://en.wikipedia.org/wiki/UTM_parameters)
 
 <br />
 

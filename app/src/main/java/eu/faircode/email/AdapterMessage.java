@@ -163,6 +163,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private DateFormat tf = SimpleDateFormat.getTimeInstance(SimpleDateFormat.SHORT);
     private DateFormat dtf = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
 
+    private static final List<String> PARANOID_QUERY = Collections.unmodifiableList(Arrays.asList(
+            "utm_source",
+            "utm_medium",
+            "utm_campaign",
+            "utm_term",
+            "utm_content"
+    ));
+
     public class ViewHolder extends RecyclerView.ViewHolder implements
             View.OnClickListener, View.OnLongClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
         private View view;
@@ -1757,6 +1765,38 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     return;
 
                 final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean paranoid = prefs.getBoolean("paranoid", true);
+
+                final Uri _uri;
+                if (paranoid) {
+                    // https://en.wikipedia.org/wiki/UTM_parameters
+                    Uri.Builder builder = new Uri.Builder();
+
+                    String scheme = uri.getScheme();
+                    if (!TextUtils.isEmpty(scheme))
+                        builder.scheme(scheme);
+
+                    String authority = uri.getAuthority();
+                    if (!TextUtils.isEmpty(authority))
+                        builder.authority(authority);
+
+                    String path = uri.getPath();
+                    if (!TextUtils.isEmpty(path))
+                        builder.path(path);
+
+                    for (String key : uri.getQueryParameterNames()) {
+                        Log.i("Query " + key + "=" + uri.getQueryParameter(key));
+                        if (!PARANOID_QUERY.contains(key.toLowerCase()))
+                            builder.appendQueryParameter(key, uri.getQueryParameter(key));
+                    }
+
+                    String fragment = uri.getFragment();
+                    if (!TextUtils.isEmpty(fragment))
+                        builder.fragment(fragment);
+
+                    _uri = builder.build();
+                } else
+                    _uri = uri;
 
                 View view = LayoutInflater.from(context).inflate(R.layout.dialog_link, null);
                 final EditText etLink = view.findViewById(R.id.etLink);
@@ -1769,7 +1809,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         prefs.edit().putBoolean("show_organization", isChecked).apply();
                         if (isChecked) {
                             Bundle args = new Bundle();
-                            args.putParcelable("uri", uri);
+                            args.putParcelable("uri", _uri);
 
                             new SimpleTask<String>() {
                                 @Override
@@ -1799,9 +1839,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 });
 
-                etLink.setText(uri.toString());
+                etLink.setText(_uri.toString());
                 cbOrganization.setChecked(prefs.getBoolean("show_organization", true));
-                tvInsecure.setVisibility("http".equals(uri.getScheme()) ? View.VISIBLE : View.GONE);
+                tvInsecure.setVisibility("http".equals(_uri.getScheme()) ? View.VISIBLE : View.GONE);
 
                 new DialogBuilderLifecycle(context, owner)
                         .setView(view)
@@ -1822,7 +1862,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         .setNegativeButton(R.string.title_no, null)
                         .show();
             }
-
         }
 
         private class ActionData {
