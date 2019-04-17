@@ -105,6 +105,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swLight;
     private Button btnSound;
 
+    private SwitchCompat swAuthentication;
     private SwitchCompat swParanoid;
     private SwitchCompat swEnglish;
     private SwitchCompat swUpdates;
@@ -117,7 +118,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             "startup", "date", "threading", "avatars", "identicons", "name_email", "subject_italic", "flags", "preview",
             "addresses", "monospaced", "autohtml", "autoimages", "actionbar",
             "pull", "swipenav", "autoexpand", "autoclose", "autonext",
-            "debug"
+            "authentication", "debug"
     };
 
     private final static String[] ADVANCED_OPTIONS = new String[]{
@@ -128,7 +129,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             "pull", "swipenav", "autoexpand", "autoclose", "autonext", "collapse", "autoread", "automove",
             "autoresize", "sender", "autosend",
             "notify_preview", "search_local", "light", "sound",
-            "paranoid", "english", "updates", "debug",
+            "authentication", "paranoid", "english", "updates", "debug",
             "first", "why", "last_update_check", "app_support", "message_swipe", "message_select", "folder_actions", "folder_sync",
             "edit_ref_confirmed", "show_html_confirmed", "show_images_confirmed", "print_html_confirmed", "show_organization", "style_toolbar"
     };
@@ -184,6 +185,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swLight = view.findViewById(R.id.swLight);
         btnSound = view.findViewById(R.id.btnSound);
 
+        swAuthentication = view.findViewById(R.id.swAuthentication);
         swParanoid = view.findViewById(R.id.swParanoid);
         swEnglish = view.findViewById(R.id.swEnglish);
         swUpdates = view.findViewById(R.id.swUpdates);
@@ -248,6 +250,13 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
                 DialogFragment timePicker = new TimePickerFragment();
                 timePicker.setArguments(args);
                 timePicker.show(getFragmentManager(), "timePicker");
+            }
+        });
+
+        swAuthentication.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("authentication", checked).apply();
             }
         });
 
@@ -656,6 +665,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swNotifyPreview.setEnabled(Helper.isPro(getContext()));
         swSearchLocal.setChecked(prefs.getBoolean("search_local", false));
         swLight.setChecked(prefs.getBoolean("light", false));
+        swAuthentication.setChecked(prefs.getBoolean("authentication", false));
         swParanoid.setChecked(prefs.getBoolean("paranoid", true));
         swEnglish.setChecked(prefs.getBoolean("english", false));
         swUpdates.setChecked(prefs.getBoolean("updates", true));

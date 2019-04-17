@@ -854,6 +854,18 @@
             app:layout_constraintTop_toBottomOf="@id/swEnglish" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swAuthentication"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:text="@string/title_advanced_authentication"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvEnglishHint"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swParanoid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -862,7 +874,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_paranoid"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvEnglishHint"
+            app:layout_constraintTop_toBottomOf="@id/swAuthentication"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat

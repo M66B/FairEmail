@@ -194,6 +194,7 @@
     <string name="title_advanced_light">Use notification light</string>
     <string name="title_advanced_sound">Select notification sound</string>
     <string name="title_advanced_english">Force English language</string>
+    <string name="title_advanced_authentication">Show a warning when the receiving server could not authenticate the message</string>
     <string name="title_advanced_paranoid">Extra privacy features</string>
     <string name="title_advanced_updates">Check for updates</string>
     <string name="title_advanced_debug">Debug mode</string>
