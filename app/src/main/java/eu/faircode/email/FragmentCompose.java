@@ -406,8 +406,7 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
-        ((ActivityBase) getActivity()).addBackPressedListener(onBackPressedListener);
-
+        addBackPressedListener(onBackPressedListener);
 
         // Initialize
         setSubtitle(R.string.title_compose);
@@ -612,8 +611,6 @@ public class FragmentCompose extends FragmentBase {
 
         if (pgpService != null)
             pgpService.unbindFromService();
-
-        ((ActivityBase) getActivity()).removeBackPressedListener(onBackPressedListener);
 
         super.onDestroyView();
     }

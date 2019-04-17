@@ -511,7 +511,7 @@ public class FragmentMessages extends FragmentBase {
             }
         });
 
-        ((ActivityBase) getActivity()).addBackPressedListener(onBackPressedListener);
+        addBackPressedListener(onBackPressedListener);
 
         // Initialize
         swipeRefresh.setEnabled(false);
@@ -1605,12 +1605,6 @@ public class FragmentMessages extends FragmentBase {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.execute(FragmentMessages.this, args, "messages:move");
-    }
-
-    @Override
-    public void onDestroyView() {
-        ((ActivityBase) getActivity()).removeBackPressedListener(onBackPressedListener);
-        super.onDestroyView();
     }
 
     @Override

@@ -148,4 +148,8 @@ public class FragmentBase extends Fragment {
             return false;
         return activity.hasPermission(name);
     }
+
+    void addBackPressedListener(ActivityBase.IBackPressedListener listener) {
+        ((ActivityBase) getActivity()).addBackPressedListener(listener, getViewLifecycleOwner());
+    }
 }

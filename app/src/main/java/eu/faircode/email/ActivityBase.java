@@ -35,10 +35,15 @@ import java.util.List;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.preference.PreferenceManager;
 
 abstract class ActivityBase extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     private boolean contacts;
+    private List<IBackPressedListener> backPressedListeners = new ArrayList<>();
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -148,14 +153,17 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         return findViewById(android.R.id.content);
     }
 
-    private List<IBackPressedListener> backPressedListeners = new ArrayList<>();
+    void addBackPressedListener(final IBackPressedListener listener, LifecycleOwner owner) {
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroyed() {
+                Log.i("Removing back listener=" + listener);
+                backPressedListeners.remove(listener);
+            }
+        });
 
-    public void addBackPressedListener(IBackPressedListener listener) {
+        Log.i("Adding back listener=" + listener);
         backPressedListeners.add(listener);
-    }
-
-    public void removeBackPressedListener(IBackPressedListener listener) {
-        backPressedListeners.remove(listener);
     }
 
     @Override
