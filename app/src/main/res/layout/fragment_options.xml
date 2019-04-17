@@ -175,6 +175,20 @@
             app:layout_constraintTop_toBottomOf="@id/swMetered" />
 
         <TextView
+            android:id="@+id/tvMeteredWarning"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="60dp"
+            android:text="@string/title_advanced_metered_warning"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMeteredHint" />
+
+        <TextView
             android:id="@+id/tvDownload"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -186,7 +200,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvMeteredHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvMeteredWarning" />
 
         <Spinner
             android:id="@+id/spDownload"
