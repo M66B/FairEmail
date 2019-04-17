@@ -32,15 +32,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHolder> {
     private Context context;

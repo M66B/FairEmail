@@ -32,6 +32,11 @@ import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
+import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
+import androidx.lifecycle.LifecycleService;
+import androidx.lifecycle.Observer;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.Inet4Address;
@@ -53,11 +58,6 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
-import androidx.core.app.NotificationCompat;
-import androidx.core.content.ContextCompat;
-import androidx.lifecycle.LifecycleService;
-import androidx.lifecycle.Observer;
 
 public class ServiceSend extends LifecycleService {
     private int lastUnsent = 0;
@@ -348,6 +348,7 @@ public class ServiceSend extends LifecycleService {
                 db.beginTransaction();
 
                 db.message().setMessageSent(message.id, time);
+                db.message().setMessageReceiptRequested(message.id, ident.delivery_receipt || ident.read_receipt);
                 db.message().setMessageSeen(message.id, true);
                 db.message().setMessageUiSeen(message.id, true);
                 db.message().setMessageError(message.id, null);

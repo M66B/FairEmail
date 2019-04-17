@@ -31,6 +31,12 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Base64;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.text.HtmlCompat;
+import androidx.core.util.PatternsCompat;
+import androidx.preference.PreferenceManager;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Document;
@@ -56,12 +62,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.text.HtmlCompat;
-import androidx.core.util.PatternsCompat;
-import androidx.preference.PreferenceManager;
 
 import static androidx.core.text.HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM;
 import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;

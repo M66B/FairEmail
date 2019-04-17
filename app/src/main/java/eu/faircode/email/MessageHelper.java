@@ -453,6 +453,11 @@ public class MessageHelper {
         return (TextUtils.isEmpty(msgid) ? Long.toString(uid) : msgid);
     }
 
+    boolean getReceiptRequested() throws MessagingException {
+        return (imessage.getHeader("Return-Receipt-To") != null ||
+                imessage.getHeader("Disposition-Notification-To") != null);
+    }
+
     String getAuthentication() throws MessagingException {
         String header = imessage.getHeader("Authentication-Results", "");
         return (header == null ? null : header.replaceAll("\\r?\\n", ""));

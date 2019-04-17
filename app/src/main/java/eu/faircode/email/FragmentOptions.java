@@ -46,9 +46,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
@@ -58,6 +55,9 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import static android.app.Activity.RESULT_OK;
 

@@ -25,16 +25,16 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Build;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.Objects;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
 @Entity(
         tableName = EntityAccount.TABLE_NAME,

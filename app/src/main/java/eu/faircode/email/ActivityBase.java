@@ -28,10 +28,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ScrollView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -40,6 +36,10 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.preference.PreferenceManager;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 abstract class ActivityBase extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     private boolean contacts;

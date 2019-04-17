@@ -35,6 +35,13 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.PowerManager;
 
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
+import androidx.lifecycle.LifecycleService;
+import androidx.lifecycle.Observer;
+import androidx.preference.PreferenceManager;
+
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
@@ -74,12 +81,6 @@ import javax.mail.event.MessageCountEvent;
 import javax.mail.event.StoreEvent;
 import javax.mail.event.StoreListener;
 
-import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
-import androidx.core.content.ContextCompat;
-import androidx.lifecycle.LifecycleService;
-import androidx.lifecycle.Observer;
-import androidx.preference.PreferenceManager;
 import me.leolin.shortcutbadger.ShortcutBadger;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;

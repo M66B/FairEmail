@@ -25,10 +25,10 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 
+import androidx.core.graphics.ColorUtils;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
-import androidx.core.graphics.ColorUtils;
 
 class Identicon {
     static Bitmap generate(String email, int size, int pixels, boolean dark) {

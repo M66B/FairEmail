@@ -8,13 +8,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.Group;
+
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-
-import androidx.constraintlayout.widget.Group;
 
 public class ActivityDSN extends ActivityBase {
     @Override

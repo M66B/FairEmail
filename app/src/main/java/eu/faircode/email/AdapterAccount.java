@@ -29,6 +29,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.Group;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListUpdateCallback;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.text.Collator;
 import java.text.DateFormat;
 import java.text.NumberFormat;
@@ -38,13 +45,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
-
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.Group;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import androidx.recyclerview.widget.DiffUtil;
-import androidx.recyclerview.widget.ListUpdateCallback;
-import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHolder> {
     private Context context;

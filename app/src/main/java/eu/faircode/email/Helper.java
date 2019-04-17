@@ -58,6 +58,13 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.core.content.ContextCompat;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.preference.PreferenceManager;
+
 import com.android.billingclient.api.BillingClient;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.sun.mail.imap.IMAPStore;
@@ -106,13 +113,6 @@ import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 import javax.net.ssl.HttpsURLConnection;
-
-import androidx.annotation.NonNull;
-import androidx.browser.customtabs.CustomTabsIntent;
-import androidx.core.content.ContextCompat;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.preference.PreferenceManager;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION;

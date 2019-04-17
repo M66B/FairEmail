@@ -35,12 +35,12 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Calendar;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class FragmentFolder extends FragmentBase {
     private ViewGroup view;

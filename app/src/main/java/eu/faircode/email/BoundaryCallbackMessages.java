@@ -21,13 +21,13 @@ package eu.faircode.email;
 
 import android.os.Handler;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import androidx.lifecycle.GenericLifecycleObserver;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.paging.PagedList;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMessageEx> {
     private ViewModelBrowse model;

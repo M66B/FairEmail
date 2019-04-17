@@ -19,9 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import java.util.Objects;
-
 import androidx.room.Ignore;
+
+import java.util.Objects;
 
 public class TupleMessageEx extends EntityMessage {
     public String accountName;

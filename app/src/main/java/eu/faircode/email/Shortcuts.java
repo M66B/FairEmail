@@ -15,11 +15,11 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 
+import androidx.lifecycle.LifecycleOwner;
+
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.lifecycle.LifecycleOwner;
 
 public class Shortcuts {
     static void update(final Context context, final LifecycleOwner owner) {

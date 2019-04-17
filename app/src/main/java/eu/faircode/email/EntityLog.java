@@ -21,14 +21,14 @@ package eu.faircode.email;
 
 import android.content.Context;
 
-import java.util.Date;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
+
+import java.util.Date;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Entity(
         tableName = EntityLog.TABLE_NAME,

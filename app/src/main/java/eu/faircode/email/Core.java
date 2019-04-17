@@ -15,6 +15,10 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.preference.PreferenceManager;
+
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.iap.Response;
 import com.sun.mail.imap.AppendUID;
@@ -82,9 +86,6 @@ import javax.mail.search.ReceivedDateTerm;
 import javax.mail.search.SearchTerm;
 import javax.net.ssl.SSLException;
 
-import androidx.annotation.NonNull;
-import androidx.core.app.NotificationCompat;
-import androidx.preference.PreferenceManager;
 import me.leolin.shortcutbadger.ShortcutBadger;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
@@ -1173,6 +1174,7 @@ class Core {
                 // Local address contains control or whitespace in string ``mailing list someone@example.org''
                 message.deliveredto = helper.getDeliveredTo();
                 message.thread = helper.getThreadId(context, account.id, uid);
+                message.receipt_request = helper.getReceiptRequested();
                 message.dkim = MessageHelper.getAuthentication("dkim", authentication);
                 message.spf = MessageHelper.getAuthentication("spf", authentication);
                 message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);

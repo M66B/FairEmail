@@ -19,6 +19,10 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,10 +30,6 @@ import java.io.Serializable;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
-
-import androidx.annotation.NonNull;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
 // https://developer.android.com/training/data-storage/room/defining-data
 

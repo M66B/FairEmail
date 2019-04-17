@@ -23,6 +23,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Index;
+import androidx.room.PrimaryKey;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -39,12 +45,6 @@ import javax.mail.Header;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
-
-import androidx.annotation.NonNull;
-import androidx.room.Entity;
-import androidx.room.ForeignKey;
-import androidx.room.Index;
-import androidx.room.PrimaryKey;
 
 import static androidx.room.ForeignKey.CASCADE;
 

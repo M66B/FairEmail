@@ -22,6 +22,13 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Index;
+import androidx.room.PrimaryKey;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -30,13 +37,6 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
-
-import androidx.annotation.NonNull;
-import androidx.preference.PreferenceManager;
-import androidx.room.Entity;
-import androidx.room.ForeignKey;
-import androidx.room.Index;
-import androidx.room.PrimaryKey;
 
 import static androidx.room.ForeignKey.CASCADE;
 

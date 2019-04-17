@@ -36,13 +36,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 import androidx.lifecycle.LifecycleOwner;
@@ -51,6 +44,13 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.ViewHolder> {
     private Context context;

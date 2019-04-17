@@ -27,9 +27,9 @@ import android.os.IBinder;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 
-import java.util.List;
-
 import androidx.lifecycle.Observer;
+
+import java.util.List;
 
 @TargetApi(Build.VERSION_CODES.N)
 public class ServiceTileUnseen extends TileService {

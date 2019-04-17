@@ -47,6 +47,11 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.android.colorpicker.ColorPickerDialog;
 import com.android.colorpicker.ColorPickerSwatch;
 import com.google.android.material.snackbar.Snackbar;
@@ -64,11 +69,6 @@ import java.util.Properties;
 import javax.mail.AuthenticationFailedException;
 import javax.mail.Session;
 import javax.mail.Transport;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.Group;
-import androidx.fragment.app.FragmentTransaction;
 
 public class FragmentIdentity extends FragmentBase {
     private ViewGroup view;

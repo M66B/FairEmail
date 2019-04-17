@@ -27,6 +27,11 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.view.MenuItem;
 
+import androidx.core.app.TaskStackBuilder;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Lifecycle;
+
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
 
@@ -34,11 +39,6 @@ import java.util.ArrayList;
 
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
-
-import androidx.core.app.TaskStackBuilder;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Lifecycle;
 
 public class ActivityCompose extends ActivityBilling implements FragmentManager.OnBackStackChangedListener {
     static final int REQUEST_CONTACT_TO = 1;

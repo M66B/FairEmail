@@ -28,11 +28,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class FragmentAnswer extends FragmentBase {
     private ViewGroup view;

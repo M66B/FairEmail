@@ -11,6 +11,8 @@ import android.net.Uri;
 import android.provider.ContactsContract;
 import android.util.TypedValue;
 
+import androidx.preference.PreferenceManager;
+
 import java.io.InputStream;
 import java.util.Date;
 import java.util.HashMap;
@@ -18,8 +20,6 @@ import java.util.Map;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
-
-import androidx.preference.PreferenceManager;
 
 public class ContactInfo {
     private String email;

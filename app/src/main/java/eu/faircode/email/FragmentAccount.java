@@ -58,6 +58,12 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.android.colorpicker.ColorPickerDialog;
 import com.android.colorpicker.ColorPickerSwatch;
 import com.google.android.material.snackbar.Snackbar;
@@ -78,12 +84,6 @@ import javax.mail.AuthenticationFailedException;
 import javax.mail.Folder;
 import javax.mail.Session;
 import javax.mail.Store;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.Group;
-import androidx.fragment.app.FragmentTransaction;
 
 import static android.accounts.AccountManager.newChooseAccountIntent;
 

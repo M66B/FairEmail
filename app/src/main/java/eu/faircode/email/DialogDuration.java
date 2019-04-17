@@ -9,12 +9,12 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import androidx.lifecycle.LifecycleOwner;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
-import androidx.lifecycle.LifecycleOwner;
 
 public class DialogDuration {
     static void show(Context context, LifecycleOwner owner, int title, final IDialogDuration intf) {

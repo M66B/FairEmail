@@ -23,9 +23,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -34,6 +31,9 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleService;
 import androidx.lifecycle.OnLifecycleEvent;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 //
 // This simple task is simple to use, but it is also simple to cause bugs that can easily lead to crashes

@@ -37,6 +37,8 @@ import android.os.RemoteException;
 import android.preference.PreferenceManager;
 import android.webkit.CookieManager;
 
+import androidx.annotation.RequiresApi;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -49,8 +51,6 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
-import androidx.annotation.RequiresApi;
 
 public class ApplicationEx extends Application {
     private Thread.UncaughtExceptionHandler prev = null;

@@ -9,6 +9,8 @@ import android.text.Spanned;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.Group;
+
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.BufferedInputStream;
@@ -18,8 +20,6 @@ import java.util.Properties;
 
 import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
-
-import androidx.constraintlayout.widget.Group;
 
 public class ActivityEml extends ActivityBase {
     @Override

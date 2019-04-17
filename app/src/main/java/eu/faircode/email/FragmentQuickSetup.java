@@ -50,6 +50,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.Group;
+
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.sun.mail.imap.IMAPFolder;
@@ -64,10 +68,6 @@ import java.util.Properties;
 import javax.mail.Folder;
 import javax.mail.Session;
 import javax.mail.Transport;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.Group;
 
 import static android.accounts.AccountManager.newChooseAccountIntent;
 import static android.app.Activity.RESULT_OK;

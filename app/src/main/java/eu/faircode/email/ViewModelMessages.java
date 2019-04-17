@@ -19,9 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import java.util.HashMap;
-import java.util.Map;
-
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -30,6 +27,9 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.lifecycle.ViewModel;
 import androidx.paging.PagedList;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ViewModelMessages extends ViewModel {
     private Map<AdapterMessage.ViewType, LiveData<PagedList<TupleMessageEx>>> messages = new HashMap<>();
