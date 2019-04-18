@@ -2017,7 +2017,7 @@ class Core {
         @NonNull
         @Override
         public String toString() {
-            return "[running=" + running + "]";
+            return "[running=" + running + ",recoverable=" + recoverable + "]";
         }
     }
 }
