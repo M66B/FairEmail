@@ -1781,25 +1781,27 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (!TextUtils.isEmpty(scheme))
                         builder.scheme(scheme);
 
-                    String authority = uri.getAuthority();
+                    String authority = uri.getEncodedAuthority();
                     if (!TextUtils.isEmpty(authority))
-                        builder.authority(authority);
+                        builder.encodedAuthority(authority);
 
-                    String path = uri.getPath();
+                    String path = uri.getEncodedPath();
                     if (!TextUtils.isEmpty(path))
-                        builder.path(path);
+                        builder.encodedPath(path);
 
-                    for (String key : uri.getQueryParameterNames()) {
-                        Log.i("Query " + key + "=" + uri.getQueryParameter(key));
+                    for (String key : uri.getQueryParameterNames())
                         if (!PARANOID_QUERY.contains(key.toLowerCase()))
-                            builder.appendQueryParameter(key, uri.getQueryParameter(key));
-                    }
+                            for (String value : uri.getQueryParameters(key))
+                                builder.appendQueryParameter(key, value);
 
-                    String fragment = uri.getFragment();
+                    String fragment = uri.getEncodedFragment();
                     if (!TextUtils.isEmpty(fragment))
-                        builder.fragment(fragment);
+                        builder.encodedFragment(fragment);
 
                     _uri = builder.build();
+
+                    Log.i("Source uri=" + uri);
+                    Log.i("Target uri=" + _uri);
                 } else
                     _uri = uri;
 
