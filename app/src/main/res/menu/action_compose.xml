@@ -14,8 +14,7 @@
     <item
         android:id="@+id/action_undo"
         android:icon="@drawable/baseline_undo_24"
-        android:title="@string/title_undo"
-        android:visible="false" />
+        android:title="@string/title_undo" />
 
     <item
         android:id="@+id/action_send"

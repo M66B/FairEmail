@@ -136,6 +136,7 @@ public class EntityMessage implements Serializable {
     @NonNull
     public Boolean ui_browsed = false;
     public Long ui_snoozed;
+    public Integer revision; // compose
     public String warning; // persistent
     public String error; // volatile
     public Long last_attempt; // send
@@ -155,6 +156,13 @@ public class EntityMessage implements Serializable {
         if (!dir.exists())
             dir.mkdir();
         return new File(dir, id.toString());
+    }
+
+    File getFile(Context context, int revision) {
+        File dir = new File(context.getFilesDir(), "revision");
+        if (!dir.exists())
+            dir.mkdir();
+        return new File(dir, id + "." + revision);
     }
 
     File getRefFile(Context context) {

@@ -70,11 +70,14 @@ public class WorkerCleanup extends Worker {
 
             List<File> files = new ArrayList<>();
             File[] messages = new File(context.getFilesDir(), "messages").listFiles();
+            File[] revision = new File(context.getFilesDir(), "revision").listFiles();
             File[] references = new File(context.getFilesDir(), "references").listFiles();
             File[] raws = new File(context.getFilesDir(), "raw").listFiles();
 
             if (messages != null)
                 files.addAll(Arrays.asList(messages));
+            if (revision != null)
+                files.addAll(Arrays.asList(revision));
             if (references != null)
                 files.addAll(Arrays.asList(references));
             if (raws != null)
@@ -83,7 +86,7 @@ public class WorkerCleanup extends Worker {
             // Cleanup message files
             Log.i("Cleanup message files");
             for (File file : files) {
-                long id = Long.parseLong(file.getName());
+                long id = Long.parseLong(file.getName().split("\\.")[0]);
                 if (db.message().countMessage(id) == 0) {
                     Log.i("Deleting " + file);
                     if (!file.delete())

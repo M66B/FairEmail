@@ -1914,6 +1914,8 @@ public class FragmentCompose extends FragmentBase {
             grpHeader.setVisibility(View.VISIBLE);
             grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
 
+            bottom_navigation.getMenu().findItem(R.id.action_undo).setEnabled(draft.revision != null);
+
             getActivity().invalidateOptionsMenu();
 
             new SimpleTask<List<TupleIdentityEx>>() {
@@ -2165,8 +2167,7 @@ public class FragmentCompose extends FragmentBase {
                         !MessageHelper.equal(draft.cc, acc) ||
                         !MessageHelper.equal(draft.bcc, abcc) ||
                         !Objects.equals(draft.subject, subject) ||
-                        last_available != available ||
-                        !body.equals(Helper.readText(draft.getFile(context))));
+                        last_available != available);
 
                 last_available = available;
 
@@ -2180,13 +2181,35 @@ public class FragmentCompose extends FragmentBase {
                     draft.bcc = abcc;
                     draft.subject = subject;
                     draft.received = new Date().getTime();
-
                     draft.sender = MessageHelper.getSortKey(draft.from);
                     Uri lookupUri = ContactInfo.getLookupUri(context, draft.from);
                     draft.avatar = (lookupUri == null ? null : lookupUri.toString());
-
                     db.message().updateMessage(draft);
+                }
+
+                String previous = Helper.readText(draft.getFile(context));
+                if (!body.equals(previous) || action == R.id.action_undo) {
+                    dirty = true;
+
+                    if (action == R.id.action_undo) {
+                        body = Helper.readText(draft.getFile(context, draft.revision));
+
+                        if (draft.revision > 1)
+                            draft.revision--;
+                        else
+                            draft.revision = null;
+                    } else {
+                        if (draft.revision == null)
+                            draft.revision = 1;
+                        else
+                            draft.revision++;
+
+                        Helper.writeText(draft.getFile(context, draft.revision), previous);
+                    }
+
                     Helper.writeText(draft.getFile(context), body);
+
+                    db.message().setMessageRevision(draft.id, draft.revision);
                     db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body), null);
 
                     Core.updateMessageSize(context, draft.id);
@@ -2230,7 +2253,7 @@ public class FragmentCompose extends FragmentBase {
                             }
                         });
                     }
-                } else if (action == R.id.action_save || action == R.id.menu_encrypt) {
+                } else if (action == R.id.action_save || action == R.id.action_undo || action == R.id.menu_encrypt) {
                     if (BuildConfig.DEBUG || dirty)
                         EntityOperation.queue(context, db, draft, EntityOperation.ADD);
 
@@ -2310,9 +2333,14 @@ public class FragmentCompose extends FragmentBase {
             etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));
             etBcc.setText(MessageHelper.formatAddressesCompose(draft.bcc));
 
+            bottom_navigation.getMenu().findItem(R.id.action_undo).setEnabled(draft.revision != null);
+
             if (action == R.id.action_delete) {
                 autosave = false;
                 finish();
+
+            } else if (action == R.id.action_undo) {
+                showDraft(draft);
 
             } else if (action == R.id.action_save) {
                 // Do nothing
@@ -2396,7 +2424,7 @@ public class FragmentCompose extends FragmentBase {
         }.execute(FragmentCompose.this, args, "compose:show");
     }
 
-    private void showDraft(EntityMessage draft) {
+    private void showDraft(final EntityMessage draft) {
         Bundle args = new Bundle();
         args.putLong("id", draft.id);
         args.putBoolean("show_images", show_images);
@@ -2411,6 +2439,7 @@ public class FragmentCompose extends FragmentBase {
                 edit_bar.setVisibility(style ? View.VISIBLE : View.GONE);
                 bottom_navigation.setVisibility(View.VISIBLE);
                 Helper.setViewsEnabled(view, true);
+                bottom_navigation.getMenu().findItem(R.id.action_undo).setEnabled(draft.revision != null);
 
                 getActivity().invalidateOptionsMenu();
             }
@@ -2419,7 +2448,6 @@ public class FragmentCompose extends FragmentBase {
             protected Spanned[] onExecute(final Context context, Bundle args) throws Throwable {
                 final long id = args.getLong("id");
                 final boolean show_images = args.getBoolean("show_images", false);
-
 
                 DB db = DB.getInstance(context);
                 EntityMessage draft = db.message().getMessage(id);
