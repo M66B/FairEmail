@@ -258,52 +258,6 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             }
         });
 
-        swAuthentication.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("authentication", checked).apply();
-            }
-        });
-
-        swParanoid.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("paranoid", checked).apply();
-            }
-        });
-
-        final Intent faq = new Intent(Intent.ACTION_VIEW);
-        faq.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq86"));
-        faq.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        if (faq.resolveActivity(getContext().getPackageManager()) != null) {
-            tvParanoidHint.getPaint().setUnderlineText(true);
-            tvParanoidHint.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(faq);
-                }
-            });
-        }
-
-        swEnglish.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("english", checked).commit(); // apply won't work here
-
-                Intent intent = new Intent(getContext(), ActivityMain.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                Runtime.getRuntime().exit(0);
-            }
-        });
-
-        swUpdates.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("updates", checked).apply();
-            }
-        });
-
         swMetered.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -564,6 +518,52 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
                 intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_SILENT, false);
                 intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, sound == null ? null : Uri.parse(sound));
                 startActivityForResult(Helper.getChooser(getContext(), intent), ActivitySetup.REQUEST_SOUND);
+            }
+        });
+
+        swAuthentication.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("authentication", checked).apply();
+            }
+        });
+
+        swParanoid.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("paranoid", checked).apply();
+            }
+        });
+
+        final Intent faq = new Intent(Intent.ACTION_VIEW);
+        faq.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq86"));
+        faq.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        if (faq.resolveActivity(getContext().getPackageManager()) != null) {
+            tvParanoidHint.getPaint().setUnderlineText(true);
+            tvParanoidHint.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(faq);
+                }
+            });
+        }
+
+        swEnglish.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("english", checked).commit(); // apply won't work here
+
+                Intent intent = new Intent(getContext(), ActivityMain.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                Runtime.getRuntime().exit(0);
+            }
+        });
+
+        swUpdates.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("updates", checked).apply();
             }
         });
 
