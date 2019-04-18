@@ -16,6 +16,7 @@
             android:id="@+id/fast"
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:contentDescription="@string/title_setup_quick"
             android:src="@drawable/baseline_fast_forward_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -68,6 +69,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
+            android:contentDescription="1"
             android:src="@drawable/baseline_looks_one_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorAccount" />
@@ -144,6 +146,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
+            android:contentDescription="2"
             android:src="@drawable/baseline_looks_two_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorIdentity" />
@@ -220,6 +223,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
+            android:contentDescription="3"
             android:src="@drawable/baseline_looks_3_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorPermissions" />
@@ -284,6 +288,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
+            android:contentDescription="4"
             android:src="@drawable/baseline_looks_4_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorDoze" />
@@ -363,6 +368,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
+            android:contentDescription="5"
             android:src="@drawable/baseline_looks_5_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorInbox" />

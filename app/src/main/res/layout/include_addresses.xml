@@ -20,6 +20,7 @@
         android:layout_height="21dp"
         android:layout_marginEnd="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_legend_notify"
         android:src="@drawable/baseline_notifications_24"
         app:layout_constraintEnd_toStartOf="@+id/ivAddContact"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,6 +30,7 @@
         android:layout_width="21dp"
         android:layout_height="21dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_legend_contacts"
         android:src="@drawable/baseline_import_contacts_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

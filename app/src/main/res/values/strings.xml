@@ -546,6 +546,20 @@
     <string name="title_legend_metered">Connection is metered</string>
     <string name="title_legend_unmetered">Connection is unmetered</string>
 
+    <string name="title_legend_expander">Expander</string>
+    <string name="title_legend_avatar">Avatar</string>
+    <string name="title_legend_show_quotes">Show quotes</string>
+    <string name="title_legend_show_images">Show images</string>
+    <string name="title_legend_edit">Edit</string>
+    <string name="title_legend_default_color">Default color</string>
+    <string name="title_legend_close_hint">Close hint</string>
+    <string name="title_legend_connection_state">Connection state</string>
+    <string name="title_legend_sync_state">Synchronization state</string>
+    <string name="title_legend_download_state">Download state</string>
+    <string name="title_legend_save">Save</string>
+    <string name="title_legend_delete">Delete</string>
+    <string name="title_legend_count">Count</string>
+
     <string name="title_hint_folder_actions">Long press for options</string>
     <string name="title_hint_folder_sync">To limit battery and network usage not all folders and not all messages will be synchronized by default</string>
     <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>

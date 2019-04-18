@@ -12,6 +12,7 @@
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
         android:layout_weight="1"
+        android:contentDescription="@string/title_legend_count"
         android:src="@drawable/baseline_mail_24"
         android:tint="@color/colorWidgetForeground" />
 
@@ -21,7 +22,7 @@
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
         android:layout_weight="1"
-        android:text="?"
+        android:text="\?"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorWidgetForeground"
         android:textSize="18dp"
