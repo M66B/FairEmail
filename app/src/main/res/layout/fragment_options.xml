@@ -883,6 +883,19 @@
             app:layout_constraintTop_toBottomOf="@id/swAuthentication"
             app:switchPadding="12dp" />
 
+        <TextView
+            android:id="@+id/tvParanoidHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="60dp"
+            android:text="@string/title_advanced_paranoid_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swParanoid" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swUpdates"
             android:layout_width="match_parent"
@@ -892,7 +905,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_updates"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swParanoid"
+            app:layout_constraintTop_toBottomOf="@id/tvParanoidHint"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat

@@ -108,6 +108,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
 
     private SwitchCompat swAuthentication;
     private SwitchCompat swParanoid;
+    private TextView tvParanoidHint;
     private SwitchCompat swEnglish;
     private SwitchCompat swUpdates;
     private SwitchCompat swDebug;
@@ -190,6 +191,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
 
         swAuthentication = view.findViewById(R.id.swAuthentication);
         swParanoid = view.findViewById(R.id.swParanoid);
+        tvParanoidHint = view.findViewById(R.id.tvParanoidHint);
         swEnglish = view.findViewById(R.id.swEnglish);
         swUpdates = view.findViewById(R.id.swUpdates);
         swDebug = view.findViewById(R.id.swDebug);
@@ -269,6 +271,19 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
                 prefs.edit().putBoolean("paranoid", checked).apply();
             }
         });
+
+        final Intent faq = new Intent(Intent.ACTION_VIEW);
+        faq.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq86"));
+        faq.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        if (faq.resolveActivity(getContext().getPackageManager()) != null) {
+            tvParanoidHint.getPaint().setUnderlineText(true);
+            tvParanoidHint.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(faq);
+                }
+            });
+        }
 
         swEnglish.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
