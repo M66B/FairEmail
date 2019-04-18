@@ -27,8 +27,8 @@ For authorizing:
 * A [bug in Android](https://issuetracker.google.com/issues/119872129) "*... Bad notification posted ...*" lets FairEmail crash on some devices after updating FairEmail and tapping on a notification.
 * A [bug in Android 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue.
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) "*... ActivityRecord not found for ...*" sometimes causes a crash after updating FairEmail.
-* A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty.
-* "*... Couldn't read row ...*" causes sometimes a crash. This could be caused by a bug in the [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room) or indicate a corrupt database.
+* ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty.~~
+* "*... Couldn't read row ...*" causes sometimes a crash. This could be caused by a bug in the [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room) but more likely indicates a corrupt database.
 
 ## Planned features
 
@@ -43,10 +43,10 @@ Anything on this list is in random order and *might* be added in the near future
 
 * *Rich text editor* / [Markdown](https://en.wikipedia.org/wiki/Markdown) support: besides that very few people would use this on a small mobile device, Android doesn't support a rich text editor and most rich text editor open source projects are abandoned. See [here](https://forum.xda-developers.com/showpost.php?p=79061829&postcount=4919) for some more details.
 * *Widget to read messages*: widgets can have limited user interaction only, so a widget to read e-mail would not be very useful. Moreover, it would be not very useful to duplicate functions which are already available in the app.
-* *Design*: the design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too.
+* *Design*: the design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. See below for the design goals.
 * *ActiveSync*: using the Exchange ActiveSync protocol requires [a license](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing), so this cannot be added.
 
-The goal of the design is to be minimalistic and non distracting (so, no fancy colors and animations).
+The goal of the design is to be minimalistic and non distracting (so, no fancy colors, animations, etc).
 All displayed things should be useful in one or another way and should be carefully positioned for easy usage.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
@@ -58,7 +58,7 @@ Since FairEmail is meant to be privacy friendly, the following will not be added
 Confirmation is just one tap, which is just a small price for better privacy.
 Note that your contacts could unknowingly send malicious messages if they got infected with malware.
 
-Stripped and reformatted messages are often better readable than original messages because the margins are removed and font sizes are standardized.
+Stripped and reformatted messages are often better readable than original messages because the margins are removed, and font colors and sizes are standardized.
 
 FairEmail does not allow other apps access to your messages and attachments without your approval.
 
