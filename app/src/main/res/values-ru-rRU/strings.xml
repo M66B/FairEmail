@@ -201,6 +201,7 @@
     <string name="title_advanced_preview_hint">Доступно только когда был загружен текст сообщения</string>
     <string name="title_advanced_search_local_hint">Вместо поиска в основной папке архива на сервере</string>
     <string name="title_advanced_english_hint">Это перезапустит приложение</string>
+    <string name="title_advanced_paranoid_hint">Подробнее смотрите FAQ</string>
     <string name="title_select">Выбор &#8230;</string>
     <string name="title_identity_name">Ваше имя</string>
     <string name="title_identity_email">Ваш эл. адрес</string>
@@ -511,6 +512,7 @@
     <string name="title_yes">Да</string>
     <string name="title_no">Нет</string>
     <string name="title_undo">Отменить</string>
+    <string name="title_redo">Восстановить</string>
     <string name="title_add">Добавить</string>
     <string name="title_browse">Обзор</string>
     <string name="title_info">Инфо</string>

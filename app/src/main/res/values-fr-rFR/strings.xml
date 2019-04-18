@@ -54,7 +54,7 @@
     <string name="menu_contacts">Contacts locaux</string>
     <string name="menu_setup">Configuration</string>
     <string name="menu_legend">Légende</string>
-    <string name="menu_faq">Assistance</string>
+    <string name="menu_faq">Support</string>
     <string name="menu_issue">Signaler un problème</string>
     <string name="menu_privacy">Confidentialité</string>
     <string name="menu_about">À propos</string>
@@ -185,6 +185,7 @@
     <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
     <string name="title_advanced_search_local_hint">Au lieu de chercher dans le dossier de l’archive principale sur le serveur</string>
     <string name="title_advanced_english_hint">Cela va redémarrer l’application</string>
+    <string name="title_advanced_paranoid_hint">Voir la FAQ pour les détails</string>
     <string name="title_select">Sélectionner &#8230;</string>
     <string name="title_identity_name">Votre nom</string>
     <string name="title_identity_email">Votre adresse e-mail</string>
@@ -495,6 +496,7 @@
     <string name="title_yes">Oui</string>
     <string name="title_no">Non</string>
     <string name="title_undo">Annuler</string>
+    <string name="title_redo">Recommencer</string>
     <string name="title_add">Ajouter</string>
     <string name="title_browse">Parcourir</string>
     <string name="title_info">Info</string>

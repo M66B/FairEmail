@@ -495,7 +495,8 @@
     <string name="title_issue">Heeft u een vraag of probleem?</string>
     <string name="title_yes">Ja</string>
     <string name="title_no">Nee</string>
-    <string name="title_undo">Ongedaan maken</string>
+    <string name="title_undo">Herstel</string>
+    <string name="title_redo">Opnieuw</string>
     <string name="title_add">Toevoegen</string>
     <string name="title_browse">Bladeren</string>
     <string name="title_info">Info</string>

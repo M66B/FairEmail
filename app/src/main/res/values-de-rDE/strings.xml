@@ -185,6 +185,7 @@
     <string name="title_advanced_preview_hint">Nur verfügbar, wenn der E-Mail-Text heruntergeladen wurde</string>
     <string name="title_advanced_search_local_hint">Anstatt im primären Archiv-Ordner auf dem Server zu suchen</string>
     <string name="title_advanced_english_hint">Dies wird die App neu starten</string>
+    <string name="title_advanced_paranoid_hint">Details finden Sie in der FAQ</string>
     <string name="title_select">Wählen Sie &#8230;</string>
     <string name="title_identity_name">Ihr Name</string>
     <string name="title_identity_email">Ihre E-Mail-Adresse</string>
@@ -495,6 +496,7 @@
     <string name="title_yes">Ja</string>
     <string name="title_no">Nein</string>
     <string name="title_undo">Rückgängig</string>
+    <string name="title_redo">Rückgängig</string>
     <string name="title_add">Hinzufügen</string>
     <string name="title_browse">Browser</string>
     <string name="title_info">Info</string>
