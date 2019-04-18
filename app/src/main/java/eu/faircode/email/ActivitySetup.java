@@ -373,7 +373,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         final RadioGroup rgTheme = dview.findViewById(R.id.rgTheme);
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String theme = prefs.getString("theme", null);
+        String theme = prefs.getString("theme", "light");
 
         switch (theme) {
             case "dark":
