@@ -12,6 +12,12 @@
         android:title="@string/title_save" />
 
     <item
+        android:id="@+id/action_undo"
+        android:icon="@drawable/baseline_undo_24"
+        android:title="@string/title_undo"
+        android:visible="false" />
+
+    <item
         android:id="@+id/action_send"
         android:icon="@drawable/baseline_send_24"
         android:title="@string/title_send" />
