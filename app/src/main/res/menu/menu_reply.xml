@@ -9,6 +9,10 @@
         android:title="@string/title_reply_to_all" />
 
     <item
+        android:id="@+id/menu_reply_receipt"
+        android:title="@string/title_reply_receipt" />
+
+    <item
         android:id="@+id/menu_reply_template"
         android:title="@string/title_reply_template" />
 </menu>

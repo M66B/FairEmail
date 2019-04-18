@@ -302,13 +302,15 @@ public class ServiceSend extends LifecycleService {
             imessage.setRecipients(Message.RecipientType.BCC, bcc.toArray(new Address[0]));
         }
 
-        // defacto standard
-        if (ident.delivery_receipt)
-            imessage.addHeader("Return-Receipt-To", ident.replyto == null ? ident.email : ident.replyto);
+        if (message.receipt_request == null || !message.receipt_request) {
+            // defacto standard
+            if (ident.delivery_receipt)
+                imessage.addHeader("Return-Receipt-To", ident.replyto == null ? ident.email : ident.replyto);
 
-        // https://tools.ietf.org/html/rfc3798
-        if (ident.read_receipt)
-            imessage.addHeader("Disposition-Notification-To", ident.replyto == null ? ident.email : ident.replyto);
+            // https://tools.ietf.org/html/rfc3798
+            if (ident.read_receipt)
+                imessage.addHeader("Disposition-Notification-To", ident.replyto == null ? ident.email : ident.replyto);
+        }
 
         // Create transport
         // TODO: cache transport?

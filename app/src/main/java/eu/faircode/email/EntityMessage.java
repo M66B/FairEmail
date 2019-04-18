@@ -91,6 +91,7 @@ public class EntityMessage implements Serializable {
     public String inreplyto;
     public String thread; // compose = null
     public Boolean receipt_request;
+    public Address[] receipt_to;
     public Boolean dkim;
     public Boolean spf;
     public Boolean dmarc;

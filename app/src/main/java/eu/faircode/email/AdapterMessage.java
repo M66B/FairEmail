@@ -2828,16 +2828,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             View anchor = bnvActions.findViewById(R.id.action_reply);
             PopupMenu popupMenu = new PopupMenu(context, anchor);
             popupMenu.inflate(R.menu.menu_reply);
+            popupMenu.getMenu().findItem(R.id.menu_reply_receipt).setVisible(data.message.receipt_to != null);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem target) {
                     switch (target.getItemId()) {
                         case R.id.menu_reply_to_sender:
-                            onMenuReply(data, false);
+                            onMenuReply(data, "reply");
                             return true;
                         case R.id.menu_reply_to_all:
-                            onMenuReply(data, true);
+                            onMenuReply(data, "reply_all");
+                            return true;
+                        case R.id.menu_reply_receipt:
+                            onMenuReply(data, "receipt");
                             return true;
                         case R.id.menu_reply_template:
                             onMenuAnswer(data);
@@ -2851,9 +2855,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         }
 
-        private void onMenuReply(final ActionData data, final boolean all) {
+        private void onMenuReply(final ActionData data, String action) {
             Bundle args = new Bundle();
             args.putLong("id", data.message.id);
+            args.putString("action", action);
 
             new SimpleTask<Boolean>() {
                 @Override
@@ -2869,7 +2874,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 protected void onExecuted(Bundle args, Boolean available) {
                     final Intent reply = new Intent(context, ActivityCompose.class)
-                            .putExtra("action", all ? "reply_all" : "reply")
+                            .putExtra("action", args.getString("action"))
                             .putExtra("reference", data.message.id);
                     if (available)
                         context.startActivity(reply);

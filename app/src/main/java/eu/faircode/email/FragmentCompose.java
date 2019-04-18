@@ -30,6 +30,7 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -121,6 +122,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Properties;
 
@@ -1707,7 +1709,7 @@ public class FragmentCompose extends FragmentBase {
                         if (answer > 0)
                             body = EntityAnswer.getAnswerText(db, answer, null) + body;
                     } else {
-                        if ("reply".equals(action) || "reply_all".equals(action)) {
+                        if ("reply".equals(action) || "reply_all".equals(action) || "receipt".equals(action)) {
                             if (ref.to != null && ref.to.length > 0) {
                                 String to = ((InternetAddress) ref.to[0]).getAddress();
                                 int at = to.indexOf('@');
@@ -1719,23 +1721,28 @@ public class FragmentCompose extends FragmentBase {
                             draft.inreplyto = ref.msgid;
                             draft.thread = ref.thread;
 
-                            // Prevent replying to self
-                            String to = null;
-                            String via = null;
-                            Address[] recipient = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
-                            if (recipient != null && recipient.length > 0)
-                                to = Helper.canonicalAddress(((InternetAddress) recipient[0]).getAddress());
-                            if (ref.identity != null) {
-                                EntityIdentity v = db.identity().getIdentity(ref.identity);
-                                via = Helper.canonicalAddress(v.email);
-                            }
-
-                            if (to != null && to.equals(via)) {
-                                draft.to = ref.to;
-                                draft.from = ref.from;
-                            } else {
-                                draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
+                            if ("receipt".equals(action) && ref.receipt_to != null) {
+                                draft.to = ref.receipt_to;
                                 draft.from = ref.to;
+                            } else {
+                                // Prevent replying to self
+                                String to = null;
+                                String via = null;
+                                Address[] recipient = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
+                                if (recipient != null && recipient.length > 0)
+                                    to = Helper.canonicalAddress(((InternetAddress) recipient[0]).getAddress());
+                                if (ref.identity != null) {
+                                    EntityIdentity v = db.identity().getIdentity(ref.identity);
+                                    via = Helper.canonicalAddress(v.email);
+                                }
+
+                                if (to != null && to.equals(via)) {
+                                    draft.to = ref.to;
+                                    draft.from = ref.from;
+                                } else {
+                                    draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
+                                    draft.from = ref.to;
+                                }
                             }
 
                             if ("reply_all".equals(action)) {
@@ -1755,6 +1762,8 @@ public class FragmentCompose extends FragmentBase {
                                     }
                                 }
                                 draft.cc = addresses.toArray(new Address[0]);
+                            } else if ("receipt".equals(action)) {
+                                draft.receipt_request = true;
                             }
 
                         } else if ("forward".equals(action)) {
@@ -1769,6 +1778,15 @@ public class FragmentCompose extends FragmentBase {
                                 draft.subject = context.getString(R.string.title_subject_reply, subject);
                             else
                                 draft.subject = ref.subject;
+                        } else if ("receipt".equals(action)) {
+                            draft.subject = context.getString(R.string.title_receipt_subject, subject);
+
+                            Configuration configuration = new Configuration(context.getResources().getConfiguration());
+                            configuration.setLocale(new Locale("en"));
+                            Resources res = context.createConfigurationContext(configuration).getResources();
+
+                            body = "<p>" + context.getString(R.string.title_receipt_text) + "</p>";
+                            body += "<p>" + res.getString(R.string.title_receipt_text) + "</p>";
                         } else if ("forward".equals(action)) {
                             String fwd = context.getString(R.string.title_subject_forward, "");
                             if (!prefix_once || !subject.startsWith(fwd))
@@ -1840,7 +1858,7 @@ public class FragmentCompose extends FragmentBase {
                     Core.updateMessageSize(context, draft.id);
 
                     // Write reference text
-                    if (ref != null && ref.content) {
+                    if (ref != null && ref.content && !"receipt".equals(action)) {
                         String refBody = String.format("<p>%s %s:</p>\n<blockquote>%s</blockquote>",
                                 Html.escapeHtml(new Date(ref.received).toString()),
                                 Html.escapeHtml(MessageHelper.formatAddresses(ref.from)),

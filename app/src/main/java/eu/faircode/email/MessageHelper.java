@@ -189,6 +189,7 @@ public class MessageHelper {
         return props;
     }
 
+
     static MimeMessageEx from(Context context, EntityMessage message, EntityIdentity identity, Session isession)
             throws MessagingException, IOException {
         DB db = DB.getInstance(context);
@@ -290,6 +291,30 @@ public class MessageHelper {
 
     static void build(Context context, EntityMessage message, EntityIdentity identity, MimeMessage imessage) throws IOException, MessagingException {
         DB db = DB.getInstance(context);
+
+        if (message.receipt_request != null && message.receipt_request) {
+            // https://www.ietf.org/rfc/rfc3798.txt
+            Multipart report = new MimeMultipart("report; report-type=disposition-notification");
+
+            String plainContent = HtmlHelper.getText(Helper.readText(message.getFile(context)));
+
+            BodyPart plainPart = new MimeBodyPart();
+            plainPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
+            report.addBodyPart(plainPart);
+
+            BodyPart dnsPart = new MimeBodyPart();
+            dnsPart.setContent("", "message/disposition-notification; name=\"MDNPart2.txt\"");
+            dnsPart.setDisposition(Part.INLINE);
+            report.addBodyPart(dnsPart);
+
+            //BodyPart headersPart = new MimeBodyPart();
+            //headersPart.setContent("", "text/rfc822-headers; name=\"MDNPart3.txt\"");
+            //headersPart.setDisposition(Part.INLINE);
+            //report.addBodyPart(headersPart);
+
+            imessage.setContent(report);
+            return;
+        }
 
         StringBuilder body = new StringBuilder();
         body.append(Helper.readText(message.getFile(context)));
@@ -456,6 +481,26 @@ public class MessageHelper {
     boolean getReceiptRequested() throws MessagingException {
         return (imessage.getHeader("Return-Receipt-To") != null ||
                 imessage.getHeader("Disposition-Notification-To") != null);
+    }
+
+    Address[] getReceiptTo() throws MessagingException {
+        String to = imessage.getHeader("Disposition-Notification-To", null);
+        if (to == null)
+            return null;
+
+        InternetAddress[] address = null;
+        try {
+            address = InternetAddress.parse(to);
+        } catch (AddressException ex) {
+            Log.w(ex);
+        }
+
+        if (address == null || address.length == 0)
+            return null;
+
+        fix(address[0]);
+
+        return new Address[]{address[0]};
     }
 
     String getAuthentication() throws MessagingException {
