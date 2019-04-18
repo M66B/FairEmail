@@ -181,10 +181,11 @@
     <string name="title_advanced_autocollapse_hint">Meerdere uitgeklapte berichten worden altijd gesloten bij \'terug\'</string>
     <string name="title_advanced_autoclose_hint">Gesprekken automatisch sluiten wanneer alle berichten zijn gearchiveerd, verzonden of weggegooid</string>
     <string name="title_advanced_sender_hint">De meeste providers staan gemodificeerde verzendadressen niet toe</string>
-    <string name="title_advanced_badge_hint">Alleen beschikbaar op ondersteunde apparaten</string>
+    <string name="title_advanced_badge_hint">Alleen beschikbaar op ondersteunde launchers</string>
     <string name="title_advanced_preview_hint">Alleen beschikbaar wanneer de berichttekst werd gedownload</string>
     <string name="title_advanced_search_local_hint">In plaats van zoeken in de primaire archiefmap op de server</string>
     <string name="title_advanced_english_hint">Dit zal de app herstarten</string>
+    <string name="title_advanced_paranoid_hint">Zie de FAQ voor details</string>
     <string name="title_select">Selecteer &#8230;</string>
     <string name="title_identity_name">Uw naam</string>
     <string name="title_identity_email">Uw e-mailadres</string>
@@ -443,6 +444,7 @@
     <string name="title_legend_snoozed">Is gesluimerd</string>
     <string name="title_legend_browsed">Is gebladerd of gezocht</string>
     <string name="title_legend_answered">Is beantwoord</string>
+    <string name="title_legend_receipt">Ontvangstbevestiging werd gevraagd</string>
     <string name="title_legend_attachment">Heeft bijlagen</string>
     <string name="title_legend_flagged">Heeft een star</string>
     <string name="title_legend_contacts">Contacten beheren</string>

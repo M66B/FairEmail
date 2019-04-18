@@ -106,6 +106,7 @@
     <string name="title_setup_notifications">通知管理</string>
     <string name="title_setup_to_do">未设置</string>
     <string name="title_setup_done">完成</string>
+    <string name="title_setup_theme">选择主题</string>
     <string name="title_setup_light_theme">亮色主题</string>
     <string name="title_setup_dark_theme">暗色主题</string>
     <string name="title_setup_black_theme">黑色主题</string>
@@ -149,6 +150,7 @@
     <string name="title_advanced_autoresize">自动调整屏幕显示的图像大小</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d 像素</string>
     <string name="title_advanced_sender">允许编辑发件人地址</string>
+    <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
     <string name="title_advanced_autosend">确认发送邮件</string>
     <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
     <string name="title_advanced_notify_preview">通知中显示消息预览</string>
@@ -171,7 +173,7 @@
     <string name="title_advanced_autocollapse_hint">App将在您按下“返回”键时关闭多条展开的消息</string>
     <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
-    <string name="title_advanced_badge_hint">仅在受支持的设备中可用</string>
+    <string name="title_advanced_badge_hint">仅可用于支持的启动器</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_search_local_hint">不在服务器上的主存档文件夹中搜索</string>
     <string name="title_advanced_english_hint">这将重新启动应用程序</string>
@@ -433,6 +435,7 @@
     <string name="title_legend_snoozed">已暂停</string>
     <string name="title_legend_browsed">已浏览或搜索</string>
     <string name="title_legend_answered">已回复</string>
+    <string name="title_legend_receipt">请求收据</string>
     <string name="title_legend_attachment">有附件</string>
     <string name="title_legend_flagged">已标星</string>
     <string name="title_legend_contacts">管理联系人</string>

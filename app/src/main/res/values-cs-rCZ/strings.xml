@@ -13,6 +13,36 @@
     <string name="tile_unseen">Nové zprávy</string>
     <string name="shortcut_compose">Napsat</string>
     <string name="shortcut_setup">Nastavení</string>
+    <plurals name="title_notification_synchronizing">
+        <item quantity="one">Synchronizuji %1$d účet</item>
+        <item quantity="few">Synchronizuji %1$d účty</item>
+        <item quantity="many">Synchronizuji %1$d účtů</item>
+        <item quantity="other">Synchronizuji %1$d účtů</item>
+    </plurals>
+    <plurals name="title_notification_operations">
+        <item quantity="one">Probíhá %1$d operace</item>
+        <item quantity="few">Probíhají %1$d operace</item>
+        <item quantity="many">Probíhá %1$d operací</item>
+        <item quantity="other">Probíhá %1$d operací</item>
+    </plurals>
+    <plurals name="title_notification_unseen">
+        <item quantity="one">%1$d nová zpráva</item>
+        <item quantity="few">%1$d nové zprávy</item>
+        <item quantity="many">%1$d nových zpráv</item>
+        <item quantity="other">%1$d nových zpráv</item>
+    </plurals>
+    <plurals name="title_notification_unsent">
+        <item quantity="one">%1$d neodeslaná zpráva</item>
+        <item quantity="few">%1$d neodeslané zprávy</item>
+        <item quantity="many">%1$d neodeslaných zpráv</item>
+        <item quantity="other">%1$d neodeslaných zpráv</item>
+    </plurals>
+    <plurals name="title_tile_unseen">
+        <item quantity="one">%1$d nová</item>
+        <item quantity="few">%1$d nové</item>
+        <item quantity="many">%1$d nových</item>
+        <item quantity="other">%1$d nových</item>
+    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Přesunout %1$d zprávu do %2$s?</item>
         <item quantity="few">Přesunout %1$d zprávy do %2$s?</item>
@@ -63,8 +93,8 @@
     <string name="title_edit_folder">Upravit složku</string>
     <string name="title_setup">Nastavení</string>
     <string name="title_setup_help">Nápověda</string>
-    <string name="title_setup_export">Exportovat nastavení</string>
-    <string name="title_setup_import">Importovat nastavení</string>
+    <string name="title_setup_export">Export nastavení</string>
+    <string name="title_setup_import">Import nastavení</string>
     <string name="title_setup_import_do">Importované účty budou doplněny, nikoliv přepsány</string>
     <string name="title_setup_password">Heslo</string>
     <string name="title_setup_password_repeat">Zopakujte heslo</string>
@@ -95,6 +125,8 @@
     <string name="title_setup_data">Zakázat spořič dat</string>
     <string name="title_setup_inbox">Číst zprávy</string>
     <string name="title_setup_done">Hotovo</string>
+    <string name="title_setup_theme">Vybrat motiv</string>
+    <string name="title_setup_light_theme">Světlý motiv</string>
     <string name="title_setup_dark_theme">Tmavý motiv</string>
     <string name="title_setup_black_theme">Černý motiv</string>
     <string name="title_setup_system_theme">Motiv systému</string>
@@ -104,6 +136,7 @@
     <string name="title_advanced_section_general">Obecné</string>
     <string name="title_advanced_section_display">Zobrazení</string>
     <string name="title_advanced_section_behavior">Chování</string>
+    <string name="title_advanced_section_misc">Ostatní</string>
     <string name="title_advanced_schedule">Naplánovat</string>
     <string name="title_advanced_schedule_hint">Dotkněte se času pro jeho nastavení</string>
     <string name="title_advanced_metered">Používat účtovaná připojení</string>
@@ -127,10 +160,22 @@
     <string name="title_advanced_autoexpand">Automaticky rozbalovat zprávy</string>
     <string name="title_advanced_collapse">Sbalit zprávy v konverzacích při pohybu zpět</string>
     <string name="title_advanced_autoclose">Automaticky zavírat konverzace</string>
-    <string name="title_advanced_autoread">Při přesunu automaticky označit zprávy jako přečtené</string>
-    <string name="title_advanced_automove">Potvrdit přesunutí zpráv</string>
+    <string name="title_advanced_autoread">Automaticky označit zprávy jako přečtené při přesunu</string>
+    <string name="title_advanced_automove">Potvrzovat přesun zpráv</string>
+    <string name="title_advanced_autoresize">Automaticky upravit velikost obrázků pro zobrazení na obrazovce</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d pixelů</string>
+    <string name="title_advanced_sender">Umožnit úpravu adresy odesílatele</string>
+    <string name="title_advanced_autosend">Potvrzovat odesílání zpráv</string>
+    <string name="title_advanced_badge">Zobrazit počet nových zpráv na ikoně aplikace</string>
+    <string name="title_advanced_notify_preview">Zobrazit náhled zprávy v oznámení</string>
+    <string name="title_advanced_search_local">Externí hledání na zařízení</string>
+    <string name="title_advanced_light">Použít oznamovací LED</string>
+    <string name="title_advanced_sound">Vybrat zvuk oznámení</string>
+    <string name="title_advanced_english">Vynutit anglický jazyk</string>
     <string name="title_advanced_authentication">Zobrazit upozornění, pokud přijímající server nemůže zprávu ověřit</string>
+    <string name="title_advanced_paranoid">Doplňující funkce ochrany soukromí</string>
     <string name="title_advanced_updates">Vyhledat aktualizace</string>
+    <string name="title_advanced_debug">Režim ladění</string>
     <string name="title_advanced_enabled_hint">Globálně zakázat nebo povolit přijímání a odesílání zpráv</string>
     <string name="title_advanced_metered_hint">Účtovaná připojení jsou obecně mobilní připojení nebo placené Wi-Fi hotspoty</string>
     <string name="title_advanced_metered_warning">Deaktivace této volby zakáže přijímání a odesílání zpráv při mobilních datových přenosech</string>
@@ -141,8 +186,10 @@
     <string name="title_advanced_autoexpand_hint">Automaticky otevřít zprávu pokud je v konverzaci pouze jediná zpráva nebo jediná nepřečtená</string>
     <string name="title_advanced_autocollapse_hint">Vícero rozbalených zpráv bude vždy sbaleno při pohybu zpět</string>
     <string name="title_advanced_autoclose_hint">Automaticky zavřít konverzace když jsou všechny zprávy archivovány, odeslány nebo v koši</string>
-    <string name="title_advanced_badge_hint">K dispozici pouze na podporovaných zařízeních</string>
+    <string name="title_advanced_sender_hint">Většina poskytovatelů nepovoluje pozměněné adresy odesílatele</string>
     <string name="title_advanced_preview_hint">K dispozici pouze pokud byl stažen text zprávy</string>
+    <string name="title_advanced_search_local_hint">Namísto vyhledávání v hlavní složce archivu na serveru</string>
+    <string name="title_advanced_english_hint">Restartuje aplikaci</string>
     <string name="title_identity_name">Vaše jméno</string>
     <string name="title_identity_email">Vaše e-mailová adresa</string>
     <string name="title_identity_reply_to">Adresa pro odpověď</string>
@@ -175,7 +222,7 @@
     <string name="title_realm">Sféra</string>
     <string name="title_use_ip">Použít lokální IP adresu namísto názvu hostitele</string>
     <string name="title_authorize">Vybrat účet</string>
-    <string name="title_setup_advanced">Další nastavení</string>
+    <string name="title_setup_advanced">Rozšířené</string>
     <string name="title_synchronize_account">Synchronizovat (přijímat zprávy)</string>
     <string name="title_synchronize_identity">Synchronizovat (odesílat zprávy)</string>
     <string name="title_primary_account">Hlavní (výchozí účet)</string>
@@ -203,9 +250,11 @@
     <string name="title_delete_contacts">Odstranit všechny místní kontakty?</string>
     <string name="title_display_name">Zobrazované jméno</string>
     <string name="title_hide_folder">Skrýt složku</string>
+    <string name="title_unified_folder">Zobrazit ve sjednocené doručené poště</string>
     <string name="title_synchronize_folder">Synchronizovat (přijímat zprávy)</string>
     <string name="title_notify_folder">Oznamovat nové zprávy</string>
     <string name="title_folder_delete">Trvale odstranit tuto složku a všechny její zprávy?</string>
+    <string name="title_folder_unified">Sjednocená doručená pošta</string>
     <string name="title_folder_outbox">Odeslaná pošta</string>
     <string name="title_folder_all">Archiv</string>
     <string name="title_folder_drafts">Koncepty</string>
@@ -213,6 +262,7 @@
     <string name="title_folder_junk">Nevyžádaná</string>
     <string name="title_folder_sent">Odeslaná pošta</string>
     <string name="title_folder_thread">Konverzace %1$s</string>
+    <string name="title_folders_unified">Složky sjednocené doručené pošty</string>
     <string name="title_no_messages">Žádné zprávy</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
@@ -226,6 +276,8 @@
     <string name="title_reply_template">Šablona</string>
     <string name="title_open_with">Otevřít v aplikaci</string>
     <string name="title_no_answers">Nebyly definovány žádné šablony odpovědi</string>
+    <string name="title_no_contacts">Výběr kontaktů není k dispozici</string>
+    <string name="title_no_connection">Synchronizace bude provedena při příštím připojení k účtu</string>
     <string name="title_no_folder">Složka neexistuje</string>
     <string name="title_attachment_saved">Příloha uložena</string>
     <string name="title_attachments_saved">Přílohy uloženy</string>
@@ -245,7 +297,10 @@
     <string name="title_show_addresses">Zobrazit kopii/skrytou kopii</string>
     <string name="title_draft_deleted">Koncept zahozen</string>
     <string name="title_draft_saved">Koncept uložen</string>
+    <string name="title_zoom">Velikost textu</string>
     <string name="title_answer_reply">Šablona odpovědi</string>
+    <string name="title_answer_template_name">$name$ bude nahrazeno celým jménem odesílatele</string>
+    <string name="title_answer_template_email">$email$ bude nahrazeno e-mailovou adresou odesílatele</string>
     <string name="title_rule_regex">Regulární výraz</string>
     <string name="title_rule_answer">Šablona odpovědi</string>
     <string name="title_action_seen">Označit přečtené</string>
@@ -260,11 +315,26 @@
     <string name="title_legend_primary_disconnected">Účet odpojen</string>
     <string name="title_legend_primary_connected">Účet připojen</string>
     <string name="title_legend_thread">Konverzace</string>
+    <string name="title_legend_zoom">Změnit velikost textu</string>
+    <string name="title_legend_draft">Má koncept</string>
+    <string name="title_legend_contacts">Správa kontaktů</string>
     <string name="title_legend_cc">Zobrazit kopii/skrytou kopii</string>
+    <string name="title_legend_pick">Vybrat kontakt</string>
     <string name="title_legend_link">Vložit odkaz</string>
     <string name="title_legend_picture">Vložit obrázek</string>
     <string name="title_legend_metered">Připojení je účtované</string>
     <string name="title_legend_unmetered">Připojení není omezené</string>
     <string name="title_hint_folder_actions">Dlouze podržet pro více možností</string>
     <string name="title_hint_message_actions">Tažením doleva hodit do koše; tažením doprava archivovat (pokud je k dispozici)</string>
+    <string name="title_hint_ignore_contact">Dlouhý stisk kontaktu = nikdy jej nepovažovat za oblíbený</string>
+    <string name="title_pro_feature">Toto je Pro funkce</string>
+    <string name="title_pro_hint">Zakoupení Pro funkcí vám umožní využívat všechny současné i budoucí Pro funkce a zachová tuto aplikaci udržovanou a podporovanou</string>
+    <string name="title_pro_price">Pro informace o ceně Pro funkcí si prosím přečtěte <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">časté dotazy</a></string>
+    <string name="title_debug_info">Ladící Informace</string>
+    <string name="title_debug_info_remark">Prosím, popište problém a uveďte čas kdy k němu došlo:</string>
+    <string-array name="startupNames">
+        <item>Sjednocená doručená pošta</item>
+        <item>Sjednocené složky</item>
+        <item>Accounts</item>
+    </string-array>
 </resources>

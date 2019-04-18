@@ -179,7 +179,6 @@
     <string name="title_advanced_autocollapse_hint">Múltiples mensajes expandidos siempre se cerrarán con \'atrás\'</string>
     <string name="title_advanced_autoclose_hint">Cerrar automáticamente hilos de conversación cuando todos los mensajes son archivados, enviados o eliminados</string>
     <string name="title_advanced_sender_hint">La mayoría de los proveedores no permiten direcciones de remitente modificadas</string>
-    <string name="title_advanced_badge_hint">Solo disponible en dispositivos soportados</string>
     <string name="title_advanced_preview_hint">Sólo disponible cuando el texto del mensaje fue descargado</string>
     <string name="title_advanced_search_local_hint">En lugar de buscar en la carpeta de archivo principal en el servidor</string>
     <string name="title_advanced_english_hint">Esto reiniciará la app</string>

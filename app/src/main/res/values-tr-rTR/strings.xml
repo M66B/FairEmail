@@ -175,7 +175,6 @@
     <string name="title_advanced_autocollapse_hint">Çoklu genişletilmiş mesajlar her zaman \'geri\' komutuyla kapatılacak</string>
     <string name="title_advanced_autoclose_hint">Tüm iletiler arşivlendiğinde veya çöpe gittiğinde bu iletişim kutusunu otomatik olarak kapat</string>
     <string name="title_advanced_sender_hint">Çoğu sağlayıcı değiştirilmiş gönderici adreslerine izin vermiyor</string>
-    <string name="title_advanced_badge_hint">Yalnızca desteklenen aygıtlarda kullanılabilir</string>
     <string name="title_advanced_preview_hint">Yalnızca ileti metni indirildiğinde kullanılabilir</string>
     <string name="title_advanced_search_local_hint">Sunucudaki birincil arşiv klasöründe arama yapmaktansa</string>
     <string name="title_advanced_english_hint">Bu app yeniden başlatılır</string>

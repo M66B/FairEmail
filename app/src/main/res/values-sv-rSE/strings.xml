@@ -174,7 +174,6 @@
     <string name="title_advanced_autocollapse_hint">Flera utökade meddelanden kommer alltid att stängas på \"Tillbaka\"</string>
     <string name="title_advanced_autoclose_hint">Stäng automatiskt konversationstrådar när alla meddelanden arkiveras, skickas eller kastas</string>
     <string name="title_advanced_sender_hint">De flesta leverantörer tillåter inte ändrade avsändaradresser</string>
-    <string name="title_advanced_badge_hint">Endast tillgänglig på enheter som stöds</string>
     <string name="title_advanced_preview_hint">Endast tillgängligt när meddelandetexten hämtades</string>
     <string name="title_advanced_search_local_hint">Istället för att söka i den primära arkivmappen på servern</string>
     <string name="title_advanced_english_hint">Detta startar om appen</string>

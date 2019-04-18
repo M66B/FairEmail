@@ -197,7 +197,7 @@
     <string name="title_advanced_autocollapse_hint">Несколько развёрнутых сообщений всегда будут закрыты по кнопке \'назад\'</string>
     <string name="title_advanced_autoclose_hint">Автоматически закрывать диалог, если все сообщения удалены, отправлены или помещены в архив</string>
     <string name="title_advanced_sender_hint">Большинство провайдеров не разрешают изменять адреса отправителей</string>
-    <string name="title_advanced_badge_hint">Доступно только на поддерживаемых устройствах</string>
+    <string name="title_advanced_badge_hint">Доступно только на поддерживаемых лаунчерах</string>
     <string name="title_advanced_preview_hint">Доступно только когда был загружен текст сообщения</string>
     <string name="title_advanced_search_local_hint">Вместо поиска в основной папке архива на сервере</string>
     <string name="title_advanced_english_hint">Это перезапустит приложение</string>
@@ -459,6 +459,7 @@
     <string name="title_legend_snoozed">Отложено</string>
     <string name="title_legend_browsed">Сообщение на сервере</string>
     <string name="title_legend_answered">Был дан ответ</string>
+    <string name="title_legend_receipt">Уведомление запрошено</string>
     <string name="title_legend_attachment">Имеет вложение</string>
     <string name="title_legend_flagged">Отмечено</string>
     <string name="title_legend_contacts">Управление контактами</string>
