@@ -21,13 +21,12 @@ This app starts a foreground service with a low priority status bar notification
 ## Main features
 
 * 100 % [open source](https://github.com/M66B/open-source-email/blob/master/LICENSE)
-* Multiple accounts (inboxes)
-* Multiple identities (outboxes)
+* Multiple accounts
+* Multiple email addresses
 * Unified inbox
 * Flat [conversation threading](https://en.wikipedia.org/wiki/Conversation_threading)
 * Two way synchronization
 * Offline storage and operations
-* Move across accounts
 * Battery friendly
 * Low data usage
 * Small (~6 MB)
