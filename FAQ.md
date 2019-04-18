@@ -48,6 +48,7 @@ Anything on this list is in random order and *might* be added in the near future
 
 The goal of the design is to be minimalistic and non distracting (so, no fancy colors, animations, etc).
 All displayed things should be useful in one or another way and should be carefully positioned for easy usage.
+Fonts, sizes, colors, etc should be material design wherever possible.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
