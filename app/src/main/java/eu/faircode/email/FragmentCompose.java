@@ -2254,11 +2254,8 @@ public class FragmentCompose extends FragmentBase {
                     EntityFolder trash = db.folder().getFolderByType(draft.account, EntityFolder.TRASH);
                     if (empty || trash == null)
                         EntityOperation.queue(context, db, draft, EntityOperation.DELETE);
-                    else {
-                        EntityOperation.queue(context, db, draft, EntityOperation.SEEN, true);
-                        draft.ui_seen = true;
+                    else
                         EntityOperation.queue(context, db, draft, EntityOperation.MOVE, trash.id);
-                    }
 
                     if (!empty) {
                         Handler handler = new Handler(context.getMainLooper());
