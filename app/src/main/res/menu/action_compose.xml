@@ -17,6 +17,11 @@
         android:title="@string/title_undo" />
 
     <item
+        android:id="@+id/action_redo"
+        android:icon="@drawable/baseline_redo_24"
+        android:title="@string/title_redo" />
+
+    <item
         android:id="@+id/action_send"
         android:icon="@drawable/baseline_send_24"
         android:title="@string/title_send" />

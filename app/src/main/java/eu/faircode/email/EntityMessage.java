@@ -137,6 +137,7 @@ public class EntityMessage implements Serializable {
     public Boolean ui_browsed = false;
     public Long ui_snoozed;
     public Integer revision; // compose
+    public Integer revisions; // compose
     public String warning; // persistent
     public String error; // volatile
     public Long last_attempt; // send

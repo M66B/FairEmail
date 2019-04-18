@@ -1914,7 +1914,8 @@ public class FragmentCompose extends FragmentBase {
             grpHeader.setVisibility(View.VISIBLE);
             grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
 
-            bottom_navigation.getMenu().findItem(R.id.action_undo).setEnabled(draft.revision != null);
+            bottom_navigation.getMenu().findItem(R.id.action_undo).setEnabled(draft.revision != null && draft.revision > 1);
+            bottom_navigation.getMenu().findItem(R.id.action_redo).setEnabled(draft.revision != null && !draft.revision.equals(draft.revisions));
 
             getActivity().invalidateOptionsMenu();
 
@@ -2187,32 +2188,46 @@ public class FragmentCompose extends FragmentBase {
                     db.message().updateMessage(draft);
                 }
 
-                String previous = Helper.readText(draft.getFile(context));
-                if (!body.equals(previous) || action == R.id.action_undo) {
-                    dirty = true;
+                if (action == R.id.action_undo || action == R.id.action_redo) {
+                    if (draft.revision != null && draft.revisions != null) {
+                        dirty = true;
 
-                    if (action == R.id.action_undo) {
+                        if (action == R.id.action_undo) {
+                            if (draft.revision > 1)
+                                draft.revision--;
+                        } else {
+                            if (draft.revision < draft.revisions)
+                                draft.revision++;
+                        }
+
                         body = Helper.readText(draft.getFile(context, draft.revision));
+                        Helper.writeText(draft.getFile(context), body);
 
-                        if (draft.revision > 1)
-                            draft.revision--;
-                        else
-                            draft.revision = null;
-                    } else {
-                        if (draft.revision == null)
-                            draft.revision = 1;
-                        else
-                            draft.revision++;
+                        db.message().setMessageRevision(draft.id, draft.revision);
 
-                        Helper.writeText(draft.getFile(context, draft.revision), previous);
+                        db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body), null);
+                        Core.updateMessageSize(context, draft.id);
                     }
+                } else {
+                    String previous = Helper.readText(draft.getFile(context));
+                    if (!body.equals(previous)) {
+                        dirty = true;
 
-                    Helper.writeText(draft.getFile(context), body);
+                        if (draft.revisions == null)
+                            draft.revisions = 1;
+                        else
+                            draft.revisions++;
+                        draft.revision = draft.revisions;
 
-                    db.message().setMessageRevision(draft.id, draft.revision);
-                    db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body), null);
+                        Helper.writeText(draft.getFile(context), body);
+                        Helper.writeText(draft.getFile(context, draft.revisions), body);
 
-                    Core.updateMessageSize(context, draft.id);
+                        db.message().setMessageRevision(draft.id, draft.revision);
+                        db.message().setMessageRevisions(draft.id, draft.revisions);
+
+                        db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body), null);
+                        Core.updateMessageSize(context, draft.id);
+                    }
                 }
 
                 // Remove unused inline images
@@ -2253,7 +2268,10 @@ public class FragmentCompose extends FragmentBase {
                             }
                         });
                     }
-                } else if (action == R.id.action_save || action == R.id.action_undo || action == R.id.menu_encrypt) {
+                } else if (action == R.id.action_save ||
+                        action == R.id.action_undo ||
+                        action == R.id.action_redo ||
+                        action == R.id.menu_encrypt) {
                     if (BuildConfig.DEBUG || dirty)
                         EntityOperation.queue(context, db, draft, EntityOperation.ADD);
 
@@ -2333,13 +2351,14 @@ public class FragmentCompose extends FragmentBase {
             etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));
             etBcc.setText(MessageHelper.formatAddressesCompose(draft.bcc));
 
-            bottom_navigation.getMenu().findItem(R.id.action_undo).setEnabled(draft.revision != null);
+            bottom_navigation.getMenu().findItem(R.id.action_undo).setEnabled(draft.revision != null && draft.revision > 1);
+            bottom_navigation.getMenu().findItem(R.id.action_redo).setEnabled(draft.revision != null && !draft.revision.equals(draft.revisions));
 
             if (action == R.id.action_delete) {
                 autosave = false;
                 finish();
 
-            } else if (action == R.id.action_undo) {
+            } else if (action == R.id.action_undo || action == R.id.action_redo) {
                 showDraft(draft);
 
             } else if (action == R.id.action_save) {
@@ -2439,7 +2458,8 @@ public class FragmentCompose extends FragmentBase {
                 edit_bar.setVisibility(style ? View.VISIBLE : View.GONE);
                 bottom_navigation.setVisibility(View.VISIBLE);
                 Helper.setViewsEnabled(view, true);
-                bottom_navigation.getMenu().findItem(R.id.action_undo).setEnabled(draft.revision != null);
+                bottom_navigation.getMenu().findItem(R.id.action_undo).setEnabled(draft.revision != null && draft.revision > 1);
+                bottom_navigation.getMenu().findItem(R.id.action_redo).setEnabled(draft.revision != null && !draft.revision.equals(draft.revisions));
 
                 getActivity().invalidateOptionsMenu();
             }
