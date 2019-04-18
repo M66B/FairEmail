@@ -113,6 +113,7 @@
     <string name="title_setup_notifications">Bildirimleri yönet</string>
     <string name="title_setup_to_do">Yapılacak</string>
     <string name="title_setup_done">Bitti</string>
+    <string name="title_setup_theme">Tema Seç</string>
     <string name="title_setup_light_theme">Aydınlık tema</string>
     <string name="title_setup_dark_theme">Koyu Tema</string>
     <string name="title_setup_black_theme">Siyah tema</string>
@@ -154,6 +155,7 @@
     <string name="title_advanced_autoread">İleti taşındığında otomatik olarak okundu diye işaretle</string>
     <string name="title_advanced_automove">İletileri taşımayı onaylayın</string>
     <string name="title_advanced_autoresize">Ekranda görüntülemek için görselleri otomatik olarak yeniden boyutlandır</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d piksel</string>
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
     <string name="title_advanced_autosend">İleti göndermeyi onayla</string>
     <string name="title_advanced_badge">Yeni ileti sayısını başlatıcıdaki simgede göster</string>
@@ -175,9 +177,11 @@
     <string name="title_advanced_autocollapse_hint">Çoklu genişletilmiş mesajlar her zaman \'geri\' komutuyla kapatılacak</string>
     <string name="title_advanced_autoclose_hint">Tüm iletiler arşivlendiğinde veya çöpe gittiğinde bu iletişim kutusunu otomatik olarak kapat</string>
     <string name="title_advanced_sender_hint">Çoğu sağlayıcı değiştirilmiş gönderici adreslerine izin vermiyor</string>
+    <string name="title_advanced_badge_hint">Yalnızca desteklenen launcherlar üzerinde kullanılabilir</string>
     <string name="title_advanced_preview_hint">Yalnızca ileti metni indirildiğinde kullanılabilir</string>
     <string name="title_advanced_search_local_hint">Sunucudaki birincil arşiv klasöründe arama yapmaktansa</string>
     <string name="title_advanced_english_hint">Bu app yeniden başlatılır</string>
+    <string name="title_advanced_paranoid_hint">Ayrıntılı bilgi için SSS bölümüne bakın</string>
     <string name="title_select">Seçin &#8230;</string>
     <string name="title_identity_name">Adınız</string>
     <string name="title_identity_email">E-posta adresiniz</string>
@@ -469,6 +473,19 @@
     <string name="title_legend_download_fetch">Sunucudaki / getirilmiş başlıklar / indirilmiş ileti gövdeleri sayısı</string>
     <string name="title_legend_metered">Bağlantı ölçülü</string>
     <string name="title_legend_unmetered">Bağlantı ölçüsüz</string>
+    <string name="title_legend_expander">Genişletici</string>
+    <string name="title_legend_avatar">Profil resmi</string>
+    <string name="title_legend_show_quotes">Alıntıları Göster</string>
+    <string name="title_legend_show_images">Resimleri göster</string>
+    <string name="title_legend_edit">Düzenle</string>
+    <string name="title_legend_default_color">Varsayılan renk</string>
+    <string name="title_legend_close_hint">Ipucuları kapat</string>
+    <string name="title_legend_connection_state">Bağlantı durumu</string>
+    <string name="title_legend_sync_state">Eşitleme durumu</string>
+    <string name="title_legend_download_state">Yükleme durumu</string>
+    <string name="title_legend_save">Kaydet</string>
+    <string name="title_legend_delete">Sil</string>
+    <string name="title_legend_count">Sayı</string>
     <string name="title_hint_folder_actions">Seçenekler için uzun basın</string>
     <string name="title_hint_folder_sync">Pil ve ağ kullanımını sınırlamak için, öntanımlı olarak tüm klasörler ve tüm iletilere eşzamanlama yapılmayacak</string>
     <string name="title_hint_support">Bir soru ya da bir probleminiz varsa, lütfen yardım almak için destek menüsünü kullanın</string>
@@ -487,6 +504,7 @@
     <string name="title_yes">Evet</string>
     <string name="title_no">Hayır</string>
     <string name="title_undo">Geri Al</string>
+    <string name="title_redo">Yinele</string>
     <string name="title_add">Ekle</string>
     <string name="title_browse">Göz at</string>
     <string name="title_info">Bilgi</string>
@@ -528,5 +546,10 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Küçük</item>
+        <item>Orta</item>
+        <item>Büyük</item>
     </string-array>
 </resources>

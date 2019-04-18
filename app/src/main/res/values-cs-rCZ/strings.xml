@@ -105,7 +105,7 @@
     <string name="title_setup_imported">Nastavení importována</string>
     <string name="title_setup_quick">Rychlé nastavení</string>
     <string name="title_setup_quick_remark">Chcete-li rychle nastavit účet a identitu pro většinu poskytovatelů</string>
-    <string name="title_setup_quick_hint">Rychlé nastavení načte informace o konfiguraci z autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_hint">Rychlé nastavení načte konfigurační údaje z autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP server pro příjem zpráv</string>
     <string name="title_setup_quick_smtp">SMTP server pro odesílání zpráv</string>
     <string name="title_setup_go">Přejít</string>
@@ -143,6 +143,7 @@
     <string name="title_advanced_section_display">Zobrazení</string>
     <string name="title_advanced_section_behavior">Chování</string>
     <string name="title_advanced_section_misc">Ostatní</string>
+    <string name="title_advanced_enabled">Synchronizovat</string>
     <string name="title_advanced_schedule">Naplánovat</string>
     <string name="title_advanced_schedule_hint">Dotkněte se času pro jeho nastavení</string>
     <string name="title_advanced_metered">Používat účtovaná připojení</string>
@@ -184,7 +185,7 @@
     <string name="title_advanced_debug">Režim ladění</string>
     <string name="title_advanced_enabled_hint">Globálně zakázat nebo povolit přijímání a odesílání zpráv</string>
     <string name="title_advanced_metered_hint">Účtovaná připojení jsou obecně mobilní připojení nebo placené Wi-Fi hotspoty</string>
-    <string name="title_advanced_metered_warning">Deaktivace této volby zakáže přijímání a odesílání zpráv při mobilních datových přenosech</string>
+    <string name="title_advanced_metered_warning">Vypnutí této volby zakáže přijímání a odesílání zpráv při mobilních datových přenosech</string>
     <string name="title_advanced_browse_hint">Načíst další zprávy při posouvání dolů</string>
     <string name="title_advanced_threading_hint">Seskupit zprávy které spolu souvisí</string>
     <string name="title_advanced_name_email_hint">Při deaktivaci se zobrazí pouze jména, pokud budou k dispozici</string>
@@ -193,6 +194,7 @@
     <string name="title_advanced_autocollapse_hint">Vícero rozbalených zpráv bude vždy sbaleno při pohybu zpět</string>
     <string name="title_advanced_autoclose_hint">Automaticky zavřít konverzace když jsou všechny zprávy archivovány, odeslány nebo v koši</string>
     <string name="title_advanced_sender_hint">Většina poskytovatelů nepovoluje pozměněné adresy odesílatele</string>
+    <string name="title_advanced_badge_hint">K dispozici pouze v podporovaných spouštěčích aplikací</string>
     <string name="title_advanced_preview_hint">K dispozici pouze pokud byl stažen text zprávy</string>
     <string name="title_advanced_search_local_hint">Namísto vyhledávání v hlavní složce archivu na serveru</string>
     <string name="title_advanced_english_hint">Restartuje aplikaci</string>
@@ -201,6 +203,7 @@
     <string name="title_identity_email">Vaše e-mailová adresa</string>
     <string name="title_identity_reply_to">Adresa pro odpověď</string>
     <string name="title_identity_plain_text">Odeslat pouze prostý text</string>
+    <string name="title_identity_encrypt">Šifrovat ve výchozím stavu</string>
     <string name="title_identity_use_ip_hint">V případě \"neplatného pozdravu\", \"vyžadování platné adresy\" či podobné chyby zkuste změnit toto nastavení</string>
     <string name="title_identity_read_receipt">Požadovat potvrzení o přečtení</string>
     <string name="title_identity_delivery_receipt">Požadovat potvrzení doručení</string>
@@ -222,7 +225,7 @@
     <string name="title_provider">Poskytovatel</string>
     <string name="title_custom">Vlastní</string>
     <string name="title_host">Název hostitele</string>
-    <string name="title_allow_insecure">Povolit nezabezpečená připojení</string>
+    <string name="title_allow_insecure">Povolit nezabezpečené připojení</string>
     <string name="title_port">Číslo portu</string>
     <string name="title_user">Uživatelské jméno</string>
     <string name="title_password">Heslo</string>
@@ -238,18 +241,24 @@
     <string name="title_check">Zkontrolovat</string>
     <string name="title_no_name">Chybí jméno</string>
     <string name="title_no_email">Chybí e-mailová adresa</string>
+    <string name="title_email_invalid">E-mailová adresa je neplatná</string>
+    <string name="title_no_account">Chybí účet</string>
     <string name="title_no_host">Chybí název hostitele</string>
+    <string name="title_no_user">Chybí uživatelské jméno</string>
     <string name="title_no_password">Chybí heslo</string>
+    <string name="title_no_inbox">Doručená pošta nenalezena</string>
     <string name="title_no_primary_drafts">Žádný hlavní účet nebo žádná složka konceptů</string>
     <string name="title_no_identities">Odesílání e-mailů vyžaduje alespoň jednu identitu</string>
     <string name="title_no_idle">Tento poskytovatel nepodporuje okamžitá oznámení zpráv. Následkem bude opožděný příjem nových zpráv a zvýšená spotřeba baterie.</string>
     <string name="title_no_utf8">Tento poskytovatel nepodporuje UTF-8</string>
     <string name="title_no_sync">Chyby synchronizace od %1$s</string>
+    <string name="title_sync_errors">Synchronizace některých složek selhala</string>
     <string name="title_drafts_required">Složka konceptů je vyžadována pro odesílání zpráv</string>
     <string name="title_account_delete">Trvale odstranit tento účet?</string>
     <string name="title_identity_delete">Trvale odstranit tuto identitu?</string>
     <string name="title_edit_html">Upravit jako HTML</string>
     <string name="title_last_connected">Poslední připojení: %1$s</string>
+    <string name="title_pop3_hint">POP3 má významná omezení, proto používejte IMAP kdekoliv je to možné</string>
     <string name="title_pop3_support">POP3 není podpodováno, viz. časté dotazy</string>
     <string name="title_synchronize_now">Synchronizovat nyní</string>
     <string name="title_empty_trash">Vysypat koš</string>
@@ -257,41 +266,71 @@
     <string name="title_edit_rules">Upravit pravidla</string>
     <string name="title_empty_trash_ask">Trvale odstranit všechny zprávy v koši?</string>
     <string name="title_delete_contacts">Odstranit všechny místní kontakty?</string>
+    <string name="title_no_operations">Žádné probíhající operace</string>
+    <string name="title_folder_name">Název složky</string>
     <string name="title_display_name">Zobrazované jméno</string>
+    <string name="title_show_folders">Zobrazit skryté složky</string>
     <string name="title_hide_folder">Skrýt složku</string>
     <string name="title_unified_folder">Zobrazit ve sjednocené doručené poště</string>
     <string name="title_synchronize_folder">Synchronizovat (přijímat zprávy)</string>
+    <string name="title_poll_folder">Kontrolovat pravidelně namísto průběžné synchronizace</string>
+    <string name="title_download_folder">Automaticky stahovat obsah a přílohy zpráv</string>
     <string name="title_notify_folder">Oznamovat nové zprávy</string>
+    <string name="title_sync_days">Synchronizace zpráv (dny)</string>
+    <string name="title_sync_days_remark">Navýšení této hodnoty zvýší využití baterie a spotřebu dat</string>
+    <string name="title_keep_days">Uchovávat zprávy (dny)</string>
+    <string name="title_keep_all">Uchovávat všechny zprávy</string>
+    <string name="title_folder_name_missing">Chybí název složky</string>
+    <string name="title_folder_exists">Složka %1$s již existuje</string>
     <string name="title_folder_delete">Trvale odstranit tuto složku a všechny její zprávy?</string>
     <string name="title_folder_unified">Sjednocená doručená pošta</string>
+    <string name="title_folder_inbox">Doručená pošta</string>
     <string name="title_folder_outbox">Odeslaná pošta</string>
     <string name="title_folder_all">Archiv</string>
     <string name="title_folder_drafts">Koncepty</string>
     <string name="title_folder_trash">Koš</string>
     <string name="title_folder_junk">Nevyžádaná</string>
     <string name="title_folder_sent">Odeslaná pošta</string>
+    <string name="title_folder_system">Systémová</string>
+    <string name="title_folder_user">Uživatelská</string>
     <string name="title_folder_primary">Hlavní účet složky</string>
     <string name="title_folder_thread">Konverzace %1$s</string>
     <string name="title_folders_unified">Složky sjednocené doručené pošty</string>
     <string name="title_no_messages">Žádné zprávy</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_seen">Označit jako přečtené</string>
+    <string name="title_unseen">Označit jako nepřečtené</string>
     <string name="title_flag">Přidat hvězdičku</string>
     <string name="title_unflag">Odebrat hvězdičku</string>
+    <string name="title_forward">Přeposlat</string>
+    <string name="title_create_rule">Vytvořit pravidlo &#8230;</string>
+    <string name="title_share">Sdílet</string>
+    <string name="title_print">Tisk</string>
+    <string name="title_show_headers">Zobrazit hlavičku</string>
+    <string name="title_manage_keywords">Správa klíčových slov</string>
+    <string name="title_add_keyword">Přidat klíčové slovo</string>
+    <string name="title_show_inline">Zobrazit vložené přílohy</string>
+    <string name="title_download_all">Stáhnout vše</string>
     <string name="title_save_all">Uložit vše</string>
     <string name="title_show_html">Zobrazit původní</string>
     <string name="title_trash">Koš</string>
+    <string name="title_copy">Kopírovat &#8230;</string>
     <string name="title_delete">Odstranit</string>
     <string name="title_more">Více</string>
     <string name="title_spam">Nevyžádaná</string>
     <string name="title_move">Přesunout</string>
     <string name="title_move_to">Přesunout do %1$s</string>
     <string name="title_snooze">Odložit &#8230;</string>
+    <string name="title_archive">Archiv</string>
     <string name="title_reply">Odpověděť</string>
     <string name="title_reply_to_sender">Odesílatel</string>
     <string name="title_reply_to_all">Všichni</string>
     <string name="title_reply_template">Šablona</string>
+    <string name="title_moving">Přesouvám do %1$s</string>
     <string name="title_open_with">Otevřít v aplikaci</string>
     <string name="title_no_answers">Nebyly definovány žádné šablony odpovědi</string>
+    <string name="title_no_viewer">Není k dispozici žádná aplikace prohlížeče pro %1$s</string>
+    <string name="title_no_saf">Rozhraní přístupu k úložišti není k dispozici</string>
     <string name="title_no_stream">Zastaralá aplikace poslala cestu k souboru namísto datového proudu</string>
     <string name="title_no_contacts">Výběr kontaktů není k dispozici</string>
     <string name="title_no_internet">Žádné nebo nevyhovující internetové připojení</string>
@@ -301,6 +340,7 @@
     <string name="title_attachments_saved">Přílohy uloženy</string>
     <string name="title_ask_delete">Trvale odstranit zprávu?</string>
     <string name="title_ask_delete_answer">Trvale odstranit šablonu odpovědi?</string>
+    <string name="title_ask_delete_rule">Trvale odstranit pravidlo?</string>
     <string name="title_ask_discard">Zahodit koncept?</string>
     <string name="title_ask_show_html">Zobrazením původní zprávy může dojít k úniku citlivých informací</string>
     <string name="title_ask_show_image">Zobrazením obrázků může dojít k úniku citlivých informací</string>
@@ -321,13 +361,19 @@
     <string name="title_style_clear">Vymazat formátování</string>
     <string name="title_style_link">Vložit odkaz</string>
     <string name="title_style_image">Vložit obrázek</string>
+    <string name="title_style_toolbar">Panel formátování</string>
+    <string name="title_add_attachment">Přidat přílohu</string>
     <string name="title_show_addresses">Zobrazit kopii/skrytou kopii</string>
     <string name="title_from_missing">Chybí odesílatel</string>
+    <string name="title_to_missing">Chybí příjemce</string>
+    <string name="title_attachments_missing">Nebyly staženy všechny přílohy</string>
     <string name="title_draft_deleted">Koncept zahozen</string>
     <string name="title_draft_saved">Koncept uložen</string>
     <string name="title_ask_send_via">Odeslat zprávu na %1$s přes %2$s?</string>
     <string name="title_queued">Odesílám zprávu</string>
+    <string name="title_encrypt">Šifrovat</string>
     <string name="title_no_openpgp">OpenKeychain nenalezena</string>
+    <string name="title_not_encrypted">Zpráva není šifrována</string>
     <string name="title_search">Hledat</string>
     <string name="title_search_hint">Hledat na serveru</string>
     <string name="title_search_device">Hledat v zařízení</string>
@@ -348,9 +394,21 @@
     <string name="title_answer_text">Text šablony</string>
     <string name="title_answer_template_name">$name$ bude nahrazeno celým jménem odesílatele</string>
     <string name="title_answer_template_email">$email$ bude nahrazeno e-mailovou adresou odesílatele</string>
+    <string name="title_rule_order">Pořadí</string>
+    <string name="title_rule_enabled">Zapnuto</string>
+    <string name="title_rule_stop">Zastavit zpracování pravidel po provedení toto pravidla</string>
+    <string name="title_rule_sender">Odesílatel obsahuje</string>
+    <string name="title_rule_recipient">Příjemce obsahuje</string>
+    <string name="title_rule_subject">Předmět obsahuje</string>
+    <string name="title_rule_header">Hlavička obsahuje</string>
     <string name="title_rule_regex">Regulární výraz</string>
+    <string name="title_rule_action">Akce</string>
+    <string name="title_rule_action_remark">Tato akce bude použita na nové zprávy přijaté do složky %1$s</string>
+    <string name="title_rule_folder">Složka</string>
+    <string name="title_rule_identity">Identita</string>
     <string name="title_rule_answer">Šablona odpovědi</string>
     <string name="title_rule_cc">Odpovědět na adresy kopie</string>
+    <string name="title_rule_automation">Automatizace</string>
     <string name="title_action_seen">Označit přečtené</string>
     <string name="title_action_archive">Archivovat</string>
     <string name="title_action_trash">Koš</string>
@@ -401,24 +459,44 @@
     <string name="title_legend_download_fetch">Počet stažených zpráv / načtených hlaviček / na serveru</string>
     <string name="title_legend_metered">Připojení je účtované</string>
     <string name="title_legend_unmetered">Připojení není omezené</string>
+    <string name="title_legend_avatar">Avatar</string>
+    <string name="title_legend_show_images">Zobrazit obrázky</string>
     <string name="title_hint_folder_actions">Dlouze podržet pro více možností</string>
+    <string name="title_hint_support">Máte-li dotaz nebo problém, použijte prosím menu podpory pro získání pomoci</string>
     <string name="title_hint_message_actions">Tažením doleva hodit do koše; tažením doprava archivovat (pokud je k dispozici)</string>
     <string name="title_hint_image_link">Odkaz obrázku</string>
     <string name="title_hint_ignore_contact">Dlouhý stisk kontaktu = nikdy jej nepovažovat za oblíbený</string>
     <string name="title_issue">Máte dotaz nebo problém?</string>
     <string name="title_yes">Ano</string>
     <string name="title_no">Ne</string>
+    <string name="title_fix">Opravit</string>
+    <string name="title_enable">Zapnout</string>
     <string name="title_no_ask_again">Znovu se neptat</string>
     <string name="title_no_charset">Nepodporované kódování: %1$s</string>
+    <string name="title_try">Vyzkoušej FairEmail, e-mailový klient pro Android s otevřeným zdrojovým kódem, respektujícím soukromí</string>
     <string name="title_pro_feature">Toto je Pro funkce</string>
+    <string name="title_pro_list">Seznam Pro funkcí</string>
+    <string name="title_pro_purchase">Koupit</string>
     <string name="title_pro_hint">Zakoupení Pro funkcí vám umožní využívat všechny současné i budoucí Pro funkce a zachová tuto aplikaci udržovanou a podporovanou</string>
     <string name="title_pro_price">Pro informace o ceně Pro funkcí si prosím přečtěte <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">časté dotazy</a></string>
     <string name="title_pro_support">FairEmail potřebuje vaši pomoc. Stiskněte pro zakoupení Pro funkcí a zajistění pokračování projektu.</string>
+    <string name="title_log">Záznam</string>
     <string name="title_debug_info">Ladící Informace</string>
     <string name="title_debug_info_remark">Prosím, popište problém a uveďte čas kdy k němu došlo:</string>
     <string-array name="startupNames">
         <item>Sjednocená doručená pošta</item>
         <item>Sjednocené složky</item>
         <item>Účty</item>
+    </string-array>
+    <string-array name="downloadNames">
+        <item>16 KB</item>
+        <item>32 KB</item>
+        <item>64 KB</item>
+        <item>128 KB</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>&#8734;</item>
     </string-array>
 </resources>
