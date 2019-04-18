@@ -215,7 +215,7 @@
     <string name="title_advanced_autoclose_hint">Automatically close conversations when all messages are archived, sent or trashed</string>
     <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
 
-    <string name="title_advanced_badge_hint">Only available on supported devices</string>
+    <string name="title_advanced_badge_hint">Only available on supported launchers</string>
     <string name="title_advanced_preview_hint">Only available when message text was downloaded</string>
     <string name="title_advanced_search_local_hint">Instead of searching in the primary archive folder on the server</string>
     <string name="title_advanced_english_hint">This will restart the app</string>
