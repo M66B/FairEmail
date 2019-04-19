@@ -1566,6 +1566,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 pbBody.setVisibility(View.GONE);
                 webView.setVisibility(View.VISIBLE);
             }
+
+            rvImage.setVisibility(adapterImage.getItemCount() > 0 ? View.VISIBLE : View.GONE);
         }
 
         private class OriginalMessage {
