@@ -168,7 +168,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     }
 
     private static class Result {
-        Throwable ex;
-        Object data;
+        private Throwable ex;
+        private Object data;
     }
 }
