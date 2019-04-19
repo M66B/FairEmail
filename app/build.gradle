@@ -112,6 +112,7 @@ dependencies {
     def preference_version = "1.0.0"
     def work_version = "2.0.1"
     def exif_version = "1.0.0"
+    def emoji_version = "1.0.0"
     def billingclient_version = "1.2.2"
     def javamail_version = "1.6.3"
     def jsoup_version = "1.11.3"
@@ -168,6 +169,10 @@ dependencies {
 
     // https://mvnrepository.com/artifact/androidx.exifinterface/exifinterface
     implementation "androidx.exifinterface:exifinterface:$exif_version"
+
+    // https://mvnrepository.com/artifact/androidx.emoji
+    implementation "androidx.emoji:emoji:$emoji_version"
+    implementation "androidx.emoji:emoji-bundled:$emoji_version"
 
     // https://developer.android.com/google/play/billing/billing_library_releases_notes
     implementation "com.android.billingclient:billing:$billingclient_version"
