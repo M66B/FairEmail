@@ -1786,7 +1786,8 @@ public class FragmentCompose extends FragmentBase {
                             Resources res = context.createConfigurationContext(configuration).getResources();
 
                             body = "<p>" + context.getString(R.string.title_receipt_text) + "</p>";
-                            body += "<p>" + res.getString(R.string.title_receipt_text) + "</p>";
+                            if (!Locale.getDefault().getLanguage().equals("en"))
+                                body += "<p>" + res.getString(R.string.title_receipt_text) + "</p>";
                         } else if ("forward".equals(action)) {
                             String fwd = context.getString(R.string.title_subject_forward, "");
                             if (!prefix_once || !subject.startsWith(fwd))
