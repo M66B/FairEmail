@@ -780,6 +780,7 @@ public class Helper {
         private Boolean connected = null;
         private Boolean suitable = null;
         private Boolean unmetered = null;
+        private Boolean roaming = null;
 
         boolean isConnected() {
             return (connected != null && connected);
@@ -791,6 +792,10 @@ public class Helper {
 
         boolean isUnmetered() {
             return (unmetered != null && unmetered);
+        }
+
+        boolean isRoaming() {
+            return (roaming != null && roaming);
         }
 
         public void update(NetworkState newState) {
@@ -809,6 +814,23 @@ public class Helper {
         state.connected = (isMetered != null);
         state.unmetered = (isMetered != null && !isMetered);
         state.suitable = (isMetered != null && (metered || !isMetered));
+
+        if (state.connected) {
+            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                NetworkInfo ani = cm.getActiveNetworkInfo();
+                if (ani != null)
+                    state.roaming = ani.isRoaming();
+            } else {
+                Network active = cm.getActiveNetwork();
+                if (active != null) {
+                    NetworkCapabilities caps = cm.getNetworkCapabilities(active);
+                    if (caps != null)
+                        state.roaming = !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_ROAMING);
+                }
+            }
+        }
+
         return state;
     }
 

@@ -550,6 +550,7 @@
 
     <string name="title_legend_metered">Connection is metered</string>
     <string name="title_legend_unmetered">Connection is unmetered</string>
+    <string name="title_legend_roaming">Roaming</string>
 
     <string name="title_legend_expander">Expander</string>
     <string name="title_legend_avatar">Avatar</string>

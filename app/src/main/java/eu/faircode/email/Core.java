@@ -1417,6 +1417,9 @@ class Core {
             Context context,
             EntityFolder folder, IMAPFolder ifolder,
             IMAPMessage imessage, long id, State state) throws MessagingException, IOException {
+        if (state.getNetworkState().isRoaming())
+            return;
+
         DB db = DB.getInstance(context);
         EntityMessage message = db.message().getMessage(id);
         if (message == null)

@@ -68,6 +68,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private TextView tvScheduleEnd;
 
     private TextView tvConnectionType;
+    private TextView tvConnectionRoaming;
     private SwitchCompat swMetered;
     private Spinner spDownload;
 
@@ -151,6 +152,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         tvScheduleEnd = view.findViewById(R.id.tvScheduleEnd);
 
         tvConnectionType = view.findViewById(R.id.tvConnectionType);
+        tvConnectionRoaming = view.findViewById(R.id.tvConnectionRoaming);
         swMetered = view.findViewById(R.id.swMetered);
         spDownload = view.findViewById(R.id.spDownload);
 
@@ -789,6 +791,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
 
                     tvConnectionType.setText(networkState.isUnmetered() ? R.string.title_legend_unmetered : R.string.title_legend_metered);
                     tvConnectionType.setVisibility(networkState.isConnected() ? View.VISIBLE : View.GONE);
+                    tvConnectionRoaming.setVisibility(networkState.isRoaming() ? View.VISIBLE : View.GONE);
                 }
             }
         });
