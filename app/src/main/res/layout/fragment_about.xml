@@ -27,6 +27,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvVersion" />
 
+        <Button
+            android:id="@+id/btnChangelog"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/app_changelog"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCopyright" />
+
         <include
             android:id="@+id/inEula"
             layout="@layout/include_eula"
@@ -34,6 +46,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCopyright" />
+            app:layout_constraintTop_toBottomOf="@id/btnChangelog" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -19,31 +19,50 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Intent;
 import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class FragmentAbout extends FragmentBase {
-    private TextView tvVersion;
-
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.menu_about);
 
+        Intent changelog = null;
+        if (!Helper.isPlayStoreInstall(getContext())) {
+            changelog = new Intent(Intent.ACTION_VIEW);
+            changelog.setData(Uri.parse(BuildConfig.CHANGELOG));
+            if (changelog.resolveActivity(getContext().getPackageManager()) == null)
+                changelog = null;
+        }
+
         View view = inflater.inflate(R.layout.fragment_about, container, false);
 
+        TextView tvVersion = view.findViewById(R.id.tvVersion);
+        Button btnChangelog = view.findViewById(R.id.btnChangelog);
         TextView tvLimitations = view.findViewById(R.id.tvLimitations);
-        tvVersion = view.findViewById(R.id.tvVersion);
 
         tvVersion.setText(getString(R.string.title_version, BuildConfig.VERSION_NAME));
+        btnChangelog.setVisibility(changelog == null ? View.GONE : View.VISIBLE);
         tvLimitations.setPaintFlags(tvLimitations.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
+        final Intent intent = changelog;
+        btnChangelog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
