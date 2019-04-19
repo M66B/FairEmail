@@ -2054,7 +2054,7 @@ public class FragmentCompose extends FragmentBase {
         }
     };
 
-    void handleFileShare() {
+    private void handleFileShare() {
         final Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq49"));
