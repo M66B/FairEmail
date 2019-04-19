@@ -213,7 +213,8 @@ public class ServiceSend extends LifecycleService {
                                     if (message != null)
                                         db.message().setMessageError(message.id, Helper.formatThrowable(ex));
 
-                                    if (ex instanceof MessageRemovedException ||
+                                    if (ex instanceof OutOfMemoryError ||
+                                            ex instanceof MessageRemovedException ||
                                             ex instanceof SendFailedException ||
                                             ex instanceof IllegalArgumentException) {
                                         Log.w("Unrecoverable");

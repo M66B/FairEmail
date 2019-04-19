@@ -234,7 +234,8 @@ class Core {
                         if (message != null)
                             db.message().setMessageError(message.id, Helper.formatThrowable(ex, true));
 
-                        if (ex instanceof MessageRemovedException ||
+                        if (ex instanceof OutOfMemoryError ||
+                                ex instanceof MessageRemovedException ||
                                 ex instanceof FolderNotFoundException ||
                                 ex instanceof IllegalArgumentException) {
                             Log.w("Unrecoverable");
