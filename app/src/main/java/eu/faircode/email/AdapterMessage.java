@@ -36,6 +36,8 @@ import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -139,6 +141,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean suitable;
     private IProperties properties;
 
+    private boolean dark;
     private boolean date;
     private boolean threading;
     private boolean contacts;
@@ -1397,6 +1400,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             setMeasuredDimension(getMeasuredWidth(), tvBody.getMinHeight());
                     }
                 };
+
+                if (dark) {
+                    float[] NEGATIVE = new float[]{
+                            -1, 0, 0, 0, 255, // red
+                            0, -1, 0, 0, 255, // green
+                            0, 0, -1, 0, 255, // blue
+                            0, 0, 0, 1, 0 // alpha
+                    };
+
+                    Paint paint = new Paint();
+                    paint.setColorFilter(new ColorMatrixColorFilter(NEGATIVE));
+                    webView.setLayerType(View.LAYER_TYPE_HARDWARE, paint);
+                }
 
                 webView.setWebViewClient(new WebViewClient() {
                     public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -3033,6 +3049,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.suitable = Helper.getNetworkState(context).isSuitable();
         this.properties = properties;
 
+        TypedValue tv = new TypedValue();
+        context.getTheme().resolveAttribute(R.attr.themeName, tv, true);
+        this.dark = !"light".equals(tv.string);
 
         this.date = prefs.getBoolean("date", true);
         this.threading = prefs.getBoolean("threading", true);

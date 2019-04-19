@@ -147,7 +147,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(78) How do I use schedules?](#user-content-faq78)
 * [(79) How do I use synchronize on demand (manual)?](#user-content-faq79)
 * [(80) How can I fix 'Unable to load BODYSTRUCTURE'?](#user-content-faq80)
-* [(81) Can you make the background of the original message dark in the dark theme?](#user-content-faq81)
+* [~~(81) Can you make the background of the original message dark in the dark theme?~~](#user-content-faq81)
 * [(82) What is a tracking image?](#user-content-faq82)
 * [(83) What does 'User is authenticated but not connected' mean?](#user-content-faq83)
 * [(84) What are local contacts for?](#user-content-faq84)
@@ -1375,10 +1375,12 @@ FairEmail already tries to workaround these bugs, but if this fail you'll need t
 <br />
 
 <a name="faq81"></a>
-**(81) Can you make the background of the original message dark in the dark theme?**
+**~~(81) Can you make the background of the original message dark in the dark theme?~~**
 
-The original message is shown as the sender has sent it, including all colors.
-Changing the background color would not only make the original view not original anymore, it can also result in unreadable messages.
+~~The original message is shown as the sender has sent it, including all colors.~~
+~~Changing the background color would not only make the original view not original anymore, it can also result in unreadable messages.~~
+
+Recent versions of FairEmail will invert all colors of the original message when using a dark or black theme.
 
 <br />
 
