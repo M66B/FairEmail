@@ -329,9 +329,12 @@
     <string name="title_reply">Răspunde</string>
     <string name="title_reply_to_sender">Expeditor</string>
     <string name="title_reply_to_all">Toate</string>
+    <string name="title_reply_receipt">Confirmare de citire</string>
     <string name="title_reply_template">Șablon</string>
     <string name="title_moving">Mutare în %1$s</string>
     <string name="title_open_with">Deschide cu</string>
+    <string name="title_receipt_subject">Confirmare de citire: %1$s</string>
+    <string name="title_receipt_text">Confirmarea de citire doar arată că mesajul a fost afișat. Nu există garanția că destinatarul a citit conținutul mesajului.</string>
     <string name="title_no_answers">Nici un șablon de răspuns definit</string>
     <string name="title_no_viewer">Nici o aplicație nu poate deschide %1$s</string>
     <string name="title_no_saf">Nu se poate accesa stocarea locală</string>
