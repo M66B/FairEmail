@@ -114,6 +114,7 @@
     <string name="title_setup_notifications">Administrar notificaciones</string>
     <string name="title_setup_to_do">Pendiente</string>
     <string name="title_setup_done">Hecho</string>
+    <string name="title_setup_theme">Seleccionar tema</string>
     <string name="title_setup_light_theme">Tema claro</string>
     <string name="title_setup_dark_theme">Tema oscuro</string>
     <string name="title_setup_black_theme">Tema negro</string>
@@ -157,6 +158,7 @@
     <string name="title_advanced_autoresize">Redimensionar imágenes automáticamente para mostrar en pantallas</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d píxeles</string>
     <string name="title_advanced_sender">Permitir editar dirección del remitente</string>
+    <string name="title_advanced_prefix_once">Agregar un solo prefijo en el asunto al responder o reenviar</string>
     <string name="title_advanced_autosend">Confirmar enviar mensajes</string>
     <string name="title_advanced_badge">Mostrar icono del lanzador con el número de mensajes nuevos</string>
     <string name="title_advanced_notify_preview">Mostrar vista previa del mensaje en notificaciones</string>
@@ -179,9 +181,11 @@
     <string name="title_advanced_autocollapse_hint">Múltiples mensajes expandidos siempre se cerrarán con \'atrás\'</string>
     <string name="title_advanced_autoclose_hint">Cerrar automáticamente hilos de conversación cuando todos los mensajes son archivados, enviados o eliminados</string>
     <string name="title_advanced_sender_hint">La mayoría de los proveedores no permiten direcciones de remitente modificadas</string>
+    <string name="title_advanced_badge_hint">Sólo disponible en lanzadores soportados</string>
     <string name="title_advanced_preview_hint">Sólo disponible cuando el texto del mensaje fue descargado</string>
     <string name="title_advanced_search_local_hint">En lugar de buscar en la carpeta de archivo principal en el servidor</string>
     <string name="title_advanced_english_hint">Esto reiniciará la app</string>
+    <string name="title_advanced_paranoid_hint">Vea las Preguntas Frecuentes para más detalles</string>
     <string name="title_select">Seleccione &#8230;</string>
     <string name="title_identity_name">Su nombre</string>
     <string name="title_identity_email">Su dirección de correo electrónico</string>
@@ -317,9 +321,12 @@
     <string name="title_reply">Responder</string>
     <string name="title_reply_to_sender">Remitente</string>
     <string name="title_reply_to_all">Todos</string>
+    <string name="title_reply_receipt">Confirmación de lectura</string>
     <string name="title_reply_template">Plantilla</string>
     <string name="title_moving">Moviendo a %1$s</string>
     <string name="title_open_with">Abrir con</string>
+    <string name="title_receipt_subject">Confirmación de lectura: %1$s</string>
+    <string name="title_receipt_text">Esta confirmación de lectura sólo afirma que el mensaje fue mostrado. No hay garantía de que el destinatario haya leído el contenido del mensaje.</string>
     <string name="title_no_answers">No hay plantillas de respuesta definidas</string>
     <string name="title_no_viewer">No hay app disponible para visualizar %1$s</string>
     <string name="title_no_saf">Framework de acceso a almacenamiento no disponible</string>
@@ -440,6 +447,7 @@
     <string name="title_legend_snoozed">Está postergado</string>
     <string name="title_legend_browsed">Está navegado o buscado</string>
     <string name="title_legend_answered">Ha sido respondido</string>
+    <string name="title_legend_receipt">Se solicitó confirmación de lectura</string>
     <string name="title_legend_attachment">Tiene adjunto</string>
     <string name="title_legend_flagged">Está destacado</string>
     <string name="title_legend_contacts">Administrar contactos</string>
@@ -473,6 +481,19 @@
     <string name="title_legend_download_fetch">Número de cuerpos de mensaje descargados / cabeceras obtenidas / en el servidor</string>
     <string name="title_legend_metered">Conexión medida</string>
     <string name="title_legend_unmetered">Conexión no medida</string>
+    <string name="title_legend_expander">Expansor</string>
+    <string name="title_legend_avatar">Avatar</string>
+    <string name="title_legend_show_quotes">Mostrar citas</string>
+    <string name="title_legend_show_images">Mostrar imágenes</string>
+    <string name="title_legend_edit">Editar</string>
+    <string name="title_legend_default_color">Color por defecto</string>
+    <string name="title_legend_close_hint">Cerrar pista</string>
+    <string name="title_legend_connection_state">Estado de conexión</string>
+    <string name="title_legend_sync_state">Estado de sincronización</string>
+    <string name="title_legend_download_state">Estado de descarga</string>
+    <string name="title_legend_save">Guardar</string>
+    <string name="title_legend_delete">Eliminar</string>
+    <string name="title_legend_count">Cuenta</string>
     <string name="title_hint_folder_actions">Mantenga pulsado para opciones</string>
     <string name="title_hint_folder_sync">Para limitar el uso de batería y redes, no todas las carpetas y mensajes serán sincronizados por defecto</string>
     <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de soporte para obtener ayuda</string>
@@ -491,6 +512,7 @@
     <string name="title_yes">Sí</string>
     <string name="title_no">No</string>
     <string name="title_undo">Deshacer</string>
+    <string name="title_redo">Rehacer</string>
     <string name="title_add">Agregar</string>
     <string name="title_browse">Explorar</string>
     <string name="title_info">Información</string>

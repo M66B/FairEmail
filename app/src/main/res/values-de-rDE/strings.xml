@@ -321,11 +321,11 @@
     <string name="title_reply">Antworten</string>
     <string name="title_reply_to_sender">Nur dem Absender antworten</string>
     <string name="title_reply_to_all">Allen Empfängern antworten</string>
-    <string name="title_reply_receipt">Bestätigung lesen</string>
+    <string name="title_reply_receipt">Lesebestätigung</string>
     <string name="title_reply_template">Für die Antwort eine Vorlage verwenden</string>
     <string name="title_moving">Verschiebe nach %1$s</string>
     <string name="title_open_with">Öffnen mit</string>
-    <string name="title_receipt_subject">Bestätigung lesen: %1$s</string>
+    <string name="title_receipt_subject">Lesebestätigung: %1$s</string>
     <string name="title_receipt_text">Diese Lesebestätigung bestätigt nur, dass die Nachricht angezeigt wurde. Es gibt keine Garantie, dass der Empfänger den Nachrichteninhalt gelesen hat.</string>
     <string name="title_no_answers">Keine Antwortvorlagen definiert</string>
     <string name="title_no_viewer">Keine App zum Betrachten von %1$s</string>
@@ -447,7 +447,7 @@
     <string name="title_legend_snoozed">Schlummert</string>
     <string name="title_legend_browsed">Gesehen oder gesucht</string>
     <string name="title_legend_answered">Wurde beantwortet</string>
-    <string name="title_legend_receipt">Empfangsbestätigung wurde angefordert</string>
+    <string name="title_legend_receipt">Lesebestätigung wurde angefordert</string>
     <string name="title_legend_attachment">Anhang vorhanden</string>
     <string name="title_legend_flagged">Als wichtig markiert</string>
     <string name="title_legend_contacts">Kontakte verwalten</string>
@@ -490,7 +490,7 @@
     <string name="title_legend_close_hint">Hinweis schließen</string>
     <string name="title_legend_connection_state">Verbindungsstatus</string>
     <string name="title_legend_sync_state">Synchronisationsstatus</string>
-    <string name="title_legend_download_state">Download-Status</string>
+    <string name="title_legend_download_state">Downloadstatus</string>
     <string name="title_legend_save">Speichern</string>
     <string name="title_legend_delete">Löschen</string>
     <string name="title_legend_count">Zählen</string>

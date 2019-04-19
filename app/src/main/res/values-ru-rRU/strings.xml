@@ -337,9 +337,12 @@
     <string name="title_reply">Ответить</string>
     <string name="title_reply_to_sender">Отправителю</string>
     <string name="title_reply_to_all">Всем</string>
+    <string name="title_reply_receipt">Уведомление о прочтении</string>
     <string name="title_reply_template">Шаблон</string>
     <string name="title_moving">Переместить в %1$s</string>
     <string name="title_open_with">Открыть с помощью</string>
+    <string name="title_receipt_subject">Отчеты о прочтении: %1$s</string>
+    <string name="title_receipt_text">Это уведомление о прочтении подтверждает только тот факт, что сообщение было открыто. Нет гарантии, что получатель прочёл содержимое сообщения.</string>
     <string name="title_no_answers">Шаблоны ответов не определены</string>
     <string name="title_no_viewer">Нет приложения для просмотра %1$s</string>
     <string name="title_no_saf">Нет структуры доступа к хранилищу</string>
