@@ -396,114 +396,119 @@ class Core {
         // Add message
         DB db = DB.getInstance(context);
 
-        if (TextUtils.isEmpty(message.msgid))
-            throw new IllegalArgumentException("Message ID missing");
+        try {
+            if (TextUtils.isEmpty(message.msgid))
+                throw new IllegalArgumentException("Message ID missing");
 
-        // Delete previous message(s) with same ID
-        if (folder.id.equals(message.folder)) {
-            // Prevent adding/deleting message
-            db.message().setMessageUid(message.id, -1L);
+            // Delete previous message(s) with same ID
+            if (folder.id.equals(message.folder)) {
+                // Prevent adding/deleting message
+                db.message().setMessageUid(message.id, -1L);
 
-            Message[] ideletes = ifolder.search(new MessageIDTerm(message.msgid));
-            for (Message idelete : ideletes) {
-                long uid = ifolder.getUID(idelete);
-                Log.i(folder.name + " deleting previous uid=" + uid + " msgid=" + message.msgid);
-                try {
-                    idelete.setFlag(Flags.Flag.DELETED, true);
-                } catch (MessageRemovedException ignored) {
+                Message[] ideletes = ifolder.search(new MessageIDTerm(message.msgid));
+                for (Message idelete : ideletes) {
+                    long uid = ifolder.getUID(idelete);
+                    Log.i(folder.name + " deleting previous uid=" + uid + " msgid=" + message.msgid);
+                    try {
+                        idelete.setFlag(Flags.Flag.DELETED, true);
+                    } catch (MessageRemovedException ignored) {
+                    }
                 }
+                ifolder.expunge();
             }
-            ifolder.expunge();
-        }
 
-        // Get message
-        MimeMessage imessage;
-        if (folder.id.equals(message.folder)) {
-            // Pre flight checks
-            if (!message.content)
-                throw new IllegalArgumentException("Message body missing");
+            // Get message
+            MimeMessage imessage;
+            if (folder.id.equals(message.folder)) {
+                // Pre flight checks
+                if (!message.content)
+                    throw new IllegalArgumentException("Message body missing");
 
-            EntityIdentity identity =
-                    (message.identity == null ? null : db.identity().getIdentity(message.identity));
+                EntityIdentity identity =
+                        (message.identity == null ? null : db.identity().getIdentity(message.identity));
 
-            imessage = MessageHelper.from(context, message, identity, isession);
-        } else {
-            // Cross account move
-            File file = message.getRawFile(context);
-            if (!file.exists())
-                throw new IllegalArgumentException("raw message file not found");
-
-            Log.i(folder.name + " reading " + file);
-            try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
-                imessage = new MimeMessage(isession, is);
-            }
-        }
-
-        // Handle auto read
-        boolean autoread = false;
-        if (jargs.length() > 1) {
-            autoread = jargs.getBoolean(1);
-            if (ifolder.getPermanentFlags().contains(Flags.Flag.SEEN)) {
-                if (autoread && !imessage.isSet(Flags.Flag.SEEN)) {
-                    Log.i(folder.name + " autoread");
-                    imessage.setFlag(Flags.Flag.SEEN, true);
-                }
-            }
-        }
-
-        // Handle draft
-        if (EntityFolder.DRAFTS.equals(folder.type))
-            if (ifolder.getPermanentFlags().contains(Flags.Flag.DRAFT))
-                imessage.setFlag(Flags.Flag.DRAFT, true);
-
-        // Add message
-        long uid = -1;
-        if (istore.hasCapability("UIDPLUS")) {
-            AppendUID[] uids = ifolder.appendUIDMessages(new Message[]{imessage});
-            if (uids != null && uids.length > 0) {
-                Log.i("Appended uid=" + uids[0].uid);
-                uid = uids[0].uid;
-            }
-        } else
-            ifolder.appendMessages(new Message[]{imessage});
-
-        // Lookup uid
-        if (uid <= 0) {
-            Log.i("Searching for appended msgid=" + message.msgid);
-            Message[] messages = ifolder.search(new MessageIDTerm(message.msgid));
-            if (messages != null)
-                for (Message iappended : messages) {
-                    long muid = ifolder.getUID(iappended);
-                    Log.i("Found appended uid=" + muid);
-                    // RFC3501: Unique identifiers are assigned in a strictly ascending fashion
-                    if (muid > uid)
-                        uid = muid;
-                }
-        }
-
-        if (uid <= 0)
-            throw new IllegalArgumentException("uid not found");
-
-        Log.i(folder.name + " appended id=" + message.id + " uid=" + uid);
-        db.message().setMessageUid(message.id, uid);
-
-        if (!folder.id.equals(message.folder))
-            try {
-                db.beginTransaction();
-
+                imessage = MessageHelper.from(context, message, identity, isession);
+            } else {
                 // Cross account move
-                if (autoread) {
-                    Log.i(folder.name + " queuing SEEN id=" + message.id);
-                    EntityOperation.queue(context, db, message, EntityOperation.SEEN, true);
+                File file = message.getRawFile(context);
+                if (!file.exists())
+                    throw new IllegalArgumentException("raw message file not found");
+
+                Log.i(folder.name + " reading " + file);
+                try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
+                    imessage = new MimeMessage(isession, is);
                 }
-
-                Log.i(folder.name + " queuing DELETE id=" + message.id);
-                EntityOperation.queue(context, db, message, EntityOperation.DELETE);
-
-                db.setTransactionSuccessful();
-            } finally {
-                db.endTransaction();
             }
+
+            // Handle auto read
+            boolean autoread = false;
+            if (jargs.length() > 1) {
+                autoread = jargs.getBoolean(1);
+                if (ifolder.getPermanentFlags().contains(Flags.Flag.SEEN)) {
+                    if (autoread && !imessage.isSet(Flags.Flag.SEEN)) {
+                        Log.i(folder.name + " autoread");
+                        imessage.setFlag(Flags.Flag.SEEN, true);
+                    }
+                }
+            }
+
+            // Handle draft
+            if (EntityFolder.DRAFTS.equals(folder.type))
+                if (ifolder.getPermanentFlags().contains(Flags.Flag.DRAFT))
+                    imessage.setFlag(Flags.Flag.DRAFT, true);
+
+            // Add message
+            long uid = -1;
+            if (istore.hasCapability("UIDPLUS")) {
+                AppendUID[] uids = ifolder.appendUIDMessages(new Message[]{imessage});
+                if (uids != null && uids.length > 0) {
+                    Log.i("Appended uid=" + uids[0].uid);
+                    uid = uids[0].uid;
+                }
+            } else
+                ifolder.appendMessages(new Message[]{imessage});
+
+            // Lookup uid
+            if (uid <= 0) {
+                Log.i("Searching for appended msgid=" + message.msgid);
+                Message[] messages = ifolder.search(new MessageIDTerm(message.msgid));
+                if (messages != null)
+                    for (Message iappended : messages) {
+                        long muid = ifolder.getUID(iappended);
+                        Log.i("Found appended uid=" + muid);
+                        // RFC3501: Unique identifiers are assigned in a strictly ascending fashion
+                        if (muid > uid)
+                            uid = muid;
+                    }
+            }
+
+            if (uid <= 0)
+                throw new IllegalArgumentException("uid not found");
+
+            Log.i(folder.name + " appended id=" + message.id + " uid=" + uid);
+            db.message().setMessageUid(message.id, uid);
+
+            if (!folder.id.equals(message.folder))
+                try {
+                    db.beginTransaction();
+
+                    // Cross account move
+                    if (autoread) {
+                        Log.i(folder.name + " queuing SEEN id=" + message.id);
+                        EntityOperation.queue(context, db, message, EntityOperation.SEEN, true);
+                    }
+
+                    Log.i(folder.name + " queuing DELETE id=" + message.id);
+                    EntityOperation.queue(context, db, message, EntityOperation.DELETE);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+        } catch (Throwable ex) {
+            db.message().setMessageUid(message.id, null);
+            throw ex;
+        }
     }
 
     private static void onMove(Context context, JSONArray jargs, boolean copy, EntityFolder folder, EntityMessage message, Session isession, IMAPStore istore, IMAPFolder ifolder) throws JSONException, MessagingException, IOException {
