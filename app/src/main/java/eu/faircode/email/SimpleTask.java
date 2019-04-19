@@ -72,16 +72,6 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         }
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    public void onStart() {
-        Log.i("Start task " + this);
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-    public void onStop() {
-        Log.i("Stop task " + this);
-    }
-
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     public void onResume() {
         Log.i("Resume task " + this);
@@ -97,11 +87,6 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     public void onPause() {
         Log.i("Pause task " + this);
         paused = true;
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    public void onCreated() {
-        Log.i("Created task " + this);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
