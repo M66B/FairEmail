@@ -115,8 +115,8 @@
     <string name="title_setup_to_do">Nicht erledigt</string>
     <string name="title_setup_done">Erledigt</string>
     <string name="title_setup_theme">Design auswählen</string>
-    <string name="title_setup_light_theme">Helles Thema</string>
-    <string name="title_setup_dark_theme">Dunkles Thema</string>
+    <string name="title_setup_light_theme">Helles Design</string>
+    <string name="title_setup_dark_theme">Dunkles Design</string>
     <string name="title_setup_black_theme">Schwarzes Design</string>
     <string name="title_setup_system_theme">System Design</string>
     <string name="title_setup_defaults">Auf Standard zurücksetzen</string>
@@ -321,7 +321,7 @@
     <string name="title_reply">Antworten</string>
     <string name="title_reply_to_sender">Nur dem Absender antworten</string>
     <string name="title_reply_to_all">Allen Empfängern antworten</string>
-    <string name="title_reply_receipt">Lesebestätigung</string>
+    <string name="title_reply_receipt">Nur Lesebestätigung als Entwurf</string>
     <string name="title_reply_template">Für die Antwort eine Vorlage verwenden</string>
     <string name="title_moving">Verschiebe nach %1$s</string>
     <string name="title_open_with">Öffnen mit</string>
