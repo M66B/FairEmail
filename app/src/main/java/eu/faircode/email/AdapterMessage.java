@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -81,8 +82,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.paging.AsyncPagedListDiffer;
 import androidx.paging.PagedList;
@@ -94,6 +98,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.github.chrisbanes.photoview.PhotoView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -1010,7 +1015,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             List<EntityAttachment> images = new ArrayList<>();
             for (EntityAttachment attachment : attachments)
-                if (attachment.type.startsWith("image/"))
+                if (!attachment.isInline() && attachment.type.startsWith("image/"))
                     images.add(attachment);
             adapterImage.set(images);
 
@@ -1688,7 +1693,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvBody.setText(body);
                 tvBody.setTextIsSelectable(false);
                 tvBody.setTextIsSelectable(true);
-                tvBody.setMovementMethod(new UrlHandler());
+                tvBody.setMovementMethod(new TouchHandler(message.id));
                 tvBody.setVisibility(show_expanded ? View.VISIBLE : View.GONE);
                 pbBody.setVisibility(View.GONE);
                 rvImage.setVisibility(adapterImage.getItemCount() > 0 ? View.VISIBLE : View.GONE);
@@ -1727,7 +1732,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }, null);
         }
 
-        private class UrlHandler extends ArrowKeyMovementMethod {
+        private class TouchHandler extends ArrowKeyMovementMethod {
+            private long id;
+
+            TouchHandler(long id) {
+                this.id = id;
+            }
+
             @Override
             public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -1744,14 +1755,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     int line = layout.getLineForVertical(y);
                     int off = layout.getOffsetForHorizontal(line, x);
 
-                    URLSpan[] link = buffer.getSpans(off, off, URLSpan.class);
-                    if (link.length != 0) {
-                        String url = link[0].getURL();
-                        Uri uri = Uri.parse(url);
-                        if (uri.getScheme() == null)
-                            uri = Uri.parse("https://" + url);
-                        onOpenLink(uri);
-                        return true;
+                    boolean show_images = properties.getValue("images", id);
+
+                    if (show_images) {
+                        ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
+                        if (image.length > 0) {
+                            onOpenImage(image[0].getDrawable(), image[0].getSource());
+                            return true;
+                        }
+                    } else {
+                        URLSpan[] link = buffer.getSpans(off, off, URLSpan.class);
+                        if (link.length > 0) {
+                            String url = link[0].getURL();
+                            Uri uri = Uri.parse(url);
+                            if (uri.getScheme() == null)
+                                uri = Uri.parse("https://" + url);
+                            onOpenLink(uri);
+                            return true;
+                        }
                     }
                 }
 
@@ -1869,6 +1890,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         .setNegativeButton(R.string.title_no, null)
                         .show();
             }
+        }
+
+        private void onOpenImage(Drawable drawable, String source) {
+            PhotoView pv = new PhotoView(context);
+            pv.setImageDrawable(drawable);
+
+            final Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+            dialog.setContentView(pv);
+
+            owner.getLifecycle().addObserver(new LifecycleObserver() {
+                @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+                public void onCreate() {
+                    dialog.show();
+                }
+
+                @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+                public void onDestroyed() {
+                    dialog.dismiss();
+                }
+            });
         }
 
         private class ActionData {
