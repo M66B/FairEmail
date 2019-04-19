@@ -240,6 +240,20 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvSignature" />
 
             <TextView
+                android:id="@+id/tvReferenceHint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="6dp"
+                android:text="@string/title_no_format"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toStartOf="@id/ibReferenceEdit"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorSignature" />
+
+            <TextView
                 android:id="@+id/tvReference"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -250,7 +264,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textIsSelectable="true"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorSignature" />
+                app:layout_constraintTop_toBottomOf="@id/tvReferenceHint" />
 
             <ImageButton
                 android:id="@+id/ibReferenceEdit"
@@ -260,7 +274,7 @@
                 android:contentDescription="@string/title_legend_edit"
                 android:src="@drawable/baseline_edit_24"
                 app:layout_constraintEnd_toStartOf="@+id/ibReferenceImages"
-                app:layout_constraintTop_toTopOf="@id/tvReference" />
+                app:layout_constraintTop_toTopOf="@id/tvReferenceHint" />
 
             <ImageButton
                 android:id="@+id/ibReferenceImages"
@@ -270,7 +284,7 @@
                 android:contentDescription="@string/title_legend_show_images"
                 android:src="@drawable/baseline_image_24"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvReference" />
+                app:layout_constraintTop_toTopOf="@id/tvReferenceHint" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpHeader"
@@ -312,7 +326,7 @@
                 android:id="@+id/grpReference"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:constraint_referenced_ids="tvReference" />
+                app:constraint_referenced_ids="tvReferenceHint,tvReference" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
