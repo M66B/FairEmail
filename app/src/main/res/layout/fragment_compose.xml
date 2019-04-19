@@ -239,7 +239,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvSignature" />
 
-            <androidx.emoji.widget.EmojiTextView
+            <TextView
                 android:id="@+id/tvReference"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

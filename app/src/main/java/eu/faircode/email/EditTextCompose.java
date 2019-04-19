@@ -4,9 +4,9 @@ import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
 
-import androidx.emoji.widget.EmojiEditText;
+import androidx.appcompat.widget.AppCompatEditText;
 
-public class EditTextCompose extends EmojiEditText {
+public class EditTextCompose extends AppCompatEditText {
     public EditTextCompose(Context context) {
         super(context);
     }

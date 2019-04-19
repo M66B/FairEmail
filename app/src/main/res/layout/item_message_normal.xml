@@ -548,7 +548,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/barrier_body" />
 
-        <androidx.emoji.widget.EmojiTextView
+        <TextView
             android:id="@+id/tvBody"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

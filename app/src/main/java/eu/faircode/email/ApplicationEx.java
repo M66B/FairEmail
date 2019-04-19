@@ -38,8 +38,6 @@ import android.preference.PreferenceManager;
 import android.webkit.CookieManager;
 
 import androidx.annotation.RequiresApi;
-import androidx.emoji.bundled.BundledEmojiCompatConfig;
-import androidx.emoji.text.EmojiCompat;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -93,15 +91,9 @@ public class ApplicationEx extends Application {
         });
 
         createNotificationChannels();
-
-        EmojiCompat.Config config = new BundledEmojiCompatConfig(this);
-        EmojiCompat.init(config);
-
         if (Helper.hasWebView(this))
             CookieManager.getInstance().setAcceptCookie(false);
-
         MessageHelper.setSystemProperties();
-
         Core.init(this);
     }
 
