@@ -637,8 +637,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swEnabled.setChecked(prefs.getBoolean("enabled", true));
         swSchedule.setChecked(prefs.getBoolean("schedule", false));
 
-        tvScheduleStart.setText(formatHour(prefs.getInt("schedule_start", 0)));
-        tvScheduleEnd.setText(formatHour(prefs.getInt("schedule_end", 0)));
+        tvScheduleStart.setText(formatHour(getContext(), prefs.getInt("schedule_start", 0)));
+        tvScheduleEnd.setText(formatHour(getContext(), prefs.getInt("schedule_end", 0)));
 
         swMetered.setChecked(prefs.getBoolean("metered", true));
 
@@ -714,13 +714,13 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         grpNotification.setVisibility(Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
     }
 
-    private String formatHour(int minutes) {
+    private String formatHour(Context context, int minutes) {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.HOUR_OF_DAY, minutes / 60);
         cal.set(Calendar.MINUTE, minutes % 60);
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.MILLISECOND, 0);
-        return SimpleDateFormat.getTimeInstance(SimpleDateFormat.SHORT).format(cal.getTime());
+        return Helper.getTimeInstance(context, SimpleDateFormat.SHORT).format(cal.getTime());
     }
 
     public static class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
@@ -819,8 +819,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         else if ("schedule".equals(key))
             swSchedule.setChecked(prefs.getBoolean(key, false));
         else if ("schedule_start".equals(key))
-            tvScheduleStart.setText(formatHour(prefs.getInt(key, 0)));
+            tvScheduleStart.setText(formatHour(getContext(), prefs.getInt(key, 0)));
         else if ("schedule_end".equals(key))
-            tvScheduleEnd.setText(formatHour(prefs.getInt(key, 0)));
+            tvScheduleEnd.setText(formatHour(getContext(), prefs.getInt(key, 0)));
     }
 }

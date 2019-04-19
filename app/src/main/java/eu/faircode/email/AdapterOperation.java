@@ -23,7 +23,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -99,7 +98,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
             tvFolder.setText(folderName);
             tvOperation.setText(sb.toString());
-            tvTime.setText(DateUtils.getRelativeTimeSpanString(context, operation.created));
+            tvTime.setText(Helper.getRelativeTimeSpanString(context, operation.created));
             tvError.setText(operation.error);
             tvError.setVisibility(operation.error == null ? View.GONE : View.VISIBLE);
         }

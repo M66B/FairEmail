@@ -25,7 +25,6 @@ import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -108,7 +107,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             tvEmail.setText(contact.accountName + "/" + contact.email);
             tvTimes.setText(nf.format(contact.times_contacted));
             tvLast.setText(contact.last_contacted == null ? null
-                    : DateUtils.getRelativeTimeSpanString(context, contact.last_contacted));
+                    : Helper.getRelativeTimeSpanString(context, contact.last_contacted));
 
             ivFavorite.setImageResource(contact.state == EntityContact.STATE_FAVORITE
                     ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);

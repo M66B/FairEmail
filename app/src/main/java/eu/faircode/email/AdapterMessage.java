@@ -52,7 +52,6 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.format.DateUtils;
 import android.text.method.ArrowKeyMovementMethod;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
@@ -167,9 +166,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     enum ViewType {UNIFIED, FOLDER, THREAD, SEARCH}
 
-    private NumberFormat nf = NumberFormat.getNumberInstance();
-    private DateFormat tf = SimpleDateFormat.getTimeInstance(SimpleDateFormat.SHORT);
-    private DateFormat dtf = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
+    private NumberFormat NF = NumberFormat.getNumberInstance();
+    private DateFormat TF;
+    private DateFormat DTF = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
 
     private static final List<String> PARANOID_QUERY = Collections.unmodifiableList(Arrays.asList(
             "utm_source",
@@ -543,8 +542,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSize.setText(size == null ? null : Helper.humanReadableByteCount(size, true));
             tvSize.setVisibility(size == null || (message.content && !"size".equals(sort)) ? View.GONE : View.VISIBLE);
             tvTime.setText(date && "time".equals(sort)
-                    ? tf.format(message.received)
-                    : DateUtils.getRelativeTimeSpanString(context, message.received));
+                    ? TF.format(message.received)
+                    : Helper.getRelativeTimeSpanString(context, message.received));
 
             // Line 2
             tvSubject.setText(message.subject);
@@ -574,7 +573,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvCount.setVisibility(View.GONE);
                 ivThread.setVisibility(View.GONE);
             } else {
-                tvCount.setText(nf.format(message.visible));
+                tvCount.setText(NF.format(message.visible));
                 ivThread.setVisibility(View.VISIBLE);
             }
 
@@ -596,7 +595,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (debug) {
                 String text = "error=" + error +
-                        "\nuid=" + message.uid + " id=" + message.id + " " + dtf.format(new Date(message.received)) +
+                        "\nuid=" + message.uid + " id=" + message.id + " " + DTF.format(new Date(message.received)) +
                         "\n" + (message.ui_hide ? "HIDDEN " : "") +
                         "seen=" + message.seen + "/" + message.ui_seen +
                         " unseen=" + message.unseen +
@@ -833,7 +832,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvTimeExTitle.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
             tvTimeEx.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
-            tvTimeEx.setText(dtf.format(message.received));
+            tvTimeEx.setText(DTF.format(message.received));
 
             if (!message.duplicate)
                 tvSizeEx.setAlpha(message.content ? 1.0f : Helper.LOW_LIGHT);
@@ -3036,6 +3035,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     AdapterMessage(Context context, LifecycleOwner owner,
                    ViewType viewType, boolean compact, int zoom, String sort, boolean duplicates, IProperties properties) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        this.TF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
 
         this.context = context;
         this.owner = owner;
