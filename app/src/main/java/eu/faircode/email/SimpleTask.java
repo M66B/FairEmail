@@ -32,6 +32,8 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleService;
 import androidx.lifecycle.OnLifecycleEvent;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -42,9 +44,9 @@ import java.util.concurrent.Executors;
 //
 
 public abstract class SimpleTask<T> implements LifecycleObserver {
-    private Handler handler = new Handler();
+    private static final List<SimpleTask> tasks = new ArrayList<>();
 
-    private static ExecutorService executor = Executors.newFixedThreadPool(
+    private static final ExecutorService executor = Executors.newFixedThreadPool(
             Runtime.getRuntime().availableProcessors(), Helper.backgroundThreadFactory);
 
     public void execute(Context context, LifecycleOwner owner, @NonNull Bundle args, @NonNull String name) {
@@ -68,6 +70,13 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     }
 
     private void run(final Context context, final LifecycleOwner owner, final Bundle args, final String name) {
+        final Handler handler = new Handler();
+
+        // prevent garbage collection
+        synchronized (tasks) {
+            tasks.add(this);
+        }
+
         try {
             onPreExecute(args);
         } catch (Throwable ex) {
@@ -92,22 +101,27 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                     @Override
                     public void run() {
                         Lifecycle.State state = owner.getLifecycle().getCurrentState();
-                        if (state.isAtLeast(Lifecycle.State.RESUMED)) {
+                        if (state.equals(Lifecycle.State.DESTROYED))
+                            cleanup();
+                        else if (state.isAtLeast(Lifecycle.State.RESUMED)) {
                             Log.i("Deliver task " + name);
                             deliver(result, args);
-                        } else if (!state.equals(Lifecycle.State.DESTROYED))
+                            cleanup();
+                        } else
                             owner.getLifecycle().addObserver(new LifecycleObserver() {
                                 @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
                                 public void onResume() {
-                                    deliver(result, args);
                                     Log.i("Resume task " + name);
                                     owner.getLifecycle().removeObserver(this);
+                                    deliver(result, args);
+                                    cleanup();
                                 }
 
                                 @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
                                 public void onDestroyed() {
                                     Log.i("Destroy task " + name);
                                     owner.getLifecycle().removeObserver(this);
+                                    cleanup();
                                 }
                             });
                     }
@@ -130,6 +144,13 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             } catch (Throwable ex) {
                 Log.e(ex);
             }
+        }
+    }
+
+    private void cleanup() {
+        synchronized (tasks) {
+            tasks.remove(this);
+            Log.i("Remaining tasks=" + tasks.size());
         }
     }
 
