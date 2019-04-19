@@ -321,7 +321,7 @@
     <string name="title_reply">Antworten</string>
     <string name="title_reply_to_sender">Nur dem Absender antworten</string>
     <string name="title_reply_to_all">Allen Empfängern antworten</string>
-    <string name="title_reply_receipt">Nur Lesebestätigung als Entwurf</string>
+    <string name="title_reply_receipt">Lesebestätigung</string>
     <string name="title_reply_template">Für die Antwort eine Vorlage verwenden</string>
     <string name="title_moving">Verschiebe nach %1$s</string>
     <string name="title_open_with">Öffnen mit</string>
