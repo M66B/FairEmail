@@ -808,6 +808,7 @@ public class Helper {
     static NetworkState getNetworkState(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean metered = prefs.getBoolean("metered", true);
+        boolean roaming = prefs.getBoolean("roaming", true);
 
         NetworkState state = new NetworkState();
         Boolean isMetered = isMetered(context);
@@ -815,7 +816,7 @@ public class Helper {
         state.unmetered = (isMetered != null && !isMetered);
         state.suitable = (isMetered != null && (metered || !isMetered));
 
-        if (state.connected) {
+        if (state.connected && !roaming) {
             ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
                 NetworkInfo ani = cm.getActiveNetworkInfo();

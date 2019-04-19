@@ -71,6 +71,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private TextView tvConnectionRoaming;
     private SwitchCompat swMetered;
     private Spinner spDownload;
+    private SwitchCompat swRoaming;
 
     private Spinner spStartup;
     private SwitchCompat swDate;
@@ -126,7 +127,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
 
     private final static String[] ADVANCED_OPTIONS = new String[]{
             "enabled", "schedule_start", "schedule_end",
-            "metered", "download",
+            "metered", "download", "roaming",
             "startup", "date", "threading", "avatars", "identicons", "name_email", "subject_italic", "flags", "preview",
             "addresses", "monospaced", "autohtml", "autoimages", "actionbar",
             "pull", "swipenav", "autoexpand", "autoclose", "autonext", "collapse", "autoread", "automove",
@@ -155,6 +156,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         tvConnectionRoaming = view.findViewById(R.id.tvConnectionRoaming);
         swMetered = view.findViewById(R.id.swMetered);
         spDownload = view.findViewById(R.id.spDownload);
+        swRoaming = view.findViewById(R.id.swRoaming);
 
         spStartup = view.findViewById(R.id.spStartup);
         swDate = view.findViewById(R.id.swDate);
@@ -278,6 +280,14 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("download").apply();
+            }
+        });
+
+        swRoaming.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("roaming", checked).apply();
+                ServiceSynchronize.reload(getContext(), "roaming=" + checked);
             }
         });
 
@@ -651,6 +661,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
                 spDownload.setSelection(pos);
                 break;
             }
+
+        swRoaming.setChecked(prefs.getBoolean("roaming", true));
 
         boolean compact = prefs.getBoolean("compact", false);
 
