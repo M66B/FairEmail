@@ -42,12 +42,7 @@ import java.util.concurrent.Executors;
 //
 
 public abstract class SimpleTask<T> implements LifecycleObserver {
-    private LifecycleOwner owner;
-    private boolean paused;
-    private boolean destroyed;
-    private Bundle args;
-    private String name;
-    private Result stored;
+    private Handler handler = new Handler();
 
     private static ExecutorService executor = Executors.newFixedThreadPool(
             Runtime.getRuntime().availableProcessors(), Helper.backgroundThreadFactory);
@@ -72,57 +67,19 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         }
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    public void onResume() {
-        Log.i("Resume task " + this);
-        paused = false;
-        if (stored != null) {
-            Log.i("Deferred delivery task " + this);
-            deliver(args, stored);
-            stored = null;
-        }
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    public void onPause() {
-        Log.i("Pause task " + this);
-        paused = true;
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    public void onDestroyed() {
-        Log.i("Destroy task " + this);
-        owner.getLifecycle().removeObserver(this);
-        owner = null;
-        destroyed = true;
-        args = null;
-        stored = null;
-    }
-
-    private void run(final Context context, LifecycleOwner owner, final Bundle args, String name) {
-        this.owner = owner;
-        this.paused = false;
-        this.destroyed = false;
-        this.args = null;
-        this.name = name;
-        this.stored = null;
-
-        owner.getLifecycle().addObserver(this);
-
+    private void run(final Context context, final LifecycleOwner owner, final Bundle args, final String name) {
         try {
             onPreExecute(args);
         } catch (Throwable ex) {
             Log.e(ex);
         }
 
-        final Handler handler = new Handler();
-
         // Run in background thread
         executor.submit(new Runnable() {
+            private Result result = new Result();
+
             @Override
             public void run() {
-                final Result result = new Result();
-
                 try {
                     result.data = onExecute(context, args);
                 } catch (Throwable ex) {
@@ -134,25 +91,32 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        deliver(args, result);
+                        Lifecycle.State state = owner.getLifecycle().getCurrentState();
+                        if (state.isAtLeast(Lifecycle.State.RESUMED)) {
+                            Log.i("Deliver task " + name);
+                            deliver(result, args);
+                        } else if (!state.equals(Lifecycle.State.DESTROYED))
+                            owner.getLifecycle().addObserver(new LifecycleObserver() {
+                                @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+                                public void onResume() {
+                                    deliver(result, args);
+                                    Log.i("Resume task " + name);
+                                    owner.getLifecycle().removeObserver(this);
+                                }
+
+                                @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+                                public void onDestroyed() {
+                                    Log.i("Destroy task " + name);
+                                    owner.getLifecycle().removeObserver(this);
+                                }
+                            });
                     }
                 });
             }
         });
     }
 
-    private void deliver(Bundle args, Result result) {
-        if (destroyed)
-            return;
-
-        if (paused) {
-            Log.i("Deferring delivery task " + this);
-            this.args = args;
-            this.stored = result;
-            return;
-        }
-
-        Log.i("Delivery task " + this);
+    private void deliver(Result result, Bundle args) {
         try {
             onPostExecute(args);
         } catch (Throwable ex) {
@@ -166,7 +130,6 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             } catch (Throwable ex) {
                 Log.e(ex);
             }
-            onDestroyed();
         }
     }
 
@@ -186,11 +149,5 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private static class Result {
         Throwable ex;
         Object data;
-    }
-
-    @NonNull
-    @Override
-    public String toString() {
-        return (name == null ? super.toString() : name);
     }
 }
