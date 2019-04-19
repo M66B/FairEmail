@@ -44,7 +44,7 @@ import java.util.Objects;
 public class EntityAccount implements Serializable {
     static final String TABLE_NAME = "account";
 
-    static final int DEFAULT_KEEP_ALIVE_INTERVAL = 9; // minutes
+    static final int DEFAULT_KEEP_ALIVE_INTERVAL = 19; // minutes
 
     @PrimaryKey(autoGenerate = true)
     public Long id;
