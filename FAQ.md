@@ -189,7 +189,7 @@ only suggesting contacts won't work without contacts permissions.
 <a name="faq2"></a>
 **(2) Why is there a permanent notification shown?**
 
-A permanent status bar notification with the number of accounts being synchronized, the number of messages to send and the number of operations pending (see next question) is shown
+A permanent status bar notification with the number of accounts being synchronized and the number of operations pending (see next question) is shown
 to prevent Android from killing the service that takes care of receiving and sending email.
 
 Most, if not all, other email apps don't show a notification
@@ -262,11 +262,11 @@ In the display section of the advanced options you can enable or disable:
 * *Show subject italic*: to show the message subject as normal text
 * *Show stars*: to hide stars (favorites)
 * *Show message preview*: to show two lines of the message text
-* *Show address details by default*: to collapse the addresses section by default
+* *Show address details by default*: to expand the addresses section by default
 * *Use monospaced font for message text*: to use a fixed width typeface for message texts
-* *Conversation action bar*: to disable the bottom navigation bar
 * *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
 * *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
+* *Conversation action bar*: to disable the bottom navigation bar
 
 Note that messages can be previewed only when the message text was downloaded.
 Larger message texts are not downloaded by default on metered (generally mobile) networks.
@@ -354,6 +354,8 @@ See also [what Google writes about it](https://support.google.com/mail/answer/71
 
 For example [Gmail can import messages](https://support.google.com/mail/answer/21289) from another POP account,
 which can be used as a workaround for when your provider doesn't support IMAP.
+
+tl;dr; consider to switch to IMAP.
 
 <br />
 
@@ -886,10 +888,10 @@ FairEmail does and will not alter this in any way.
 <br />
 
 <a name="faq44"></a>
-**(44) Can you show contact photos / identicons in the sent folder?**
+**~~(44) Can you show contact photos / identicons in the sent folder?~~**
 
-Contact photos and identicons are always shown for the sender because this is necessary for conversation threads.
-Getting contact photos for both the sender and receiver is not really an option because getting contact photo is an expensive operation.
+~~Contact photos and identicons are always shown for the sender because this is necessary for conversation threads.~~
+~~Getting contact photos for both the sender and receiver is not really an option because getting contact photo is an expensive operation.~~
 
 <br />
 
@@ -986,13 +988,16 @@ Trying to reconnect to an account while the account connection was terminated fo
 like [too many simultaneous connections](#user-content-faq23) or even the account being blocked.
 To prevent such problems, FairEmail waits 90 seconds until trying to reconnect again.
 
+You can long press *Settings* in the navigation menu to reconnect immediately.
+
 <br />
 
 <a name="faq53"></a>
 **(53) Can you stick the message action bar to the top/bottom?**
 
-The message action bar works on a message and the bottom action bar works on the conversation.
+The message action bar works on a single message and the bottom action bar works on all the messages in the conversation.
 Since there is often more than one message in a conversation, this is not possible.
+Moreover, there are quite some message specific actions, like forwarding.
 
 <br />
 
@@ -1024,7 +1029,7 @@ Then use the three dot action button to execute the desired action.
 **(56) Can you add support for JMAP?**
 
 There are almost no providers offering the [JMAP](https://jmap.io/) protocol,
-so it is not worth to add support for this to FairEmail.
+so it is not worth a lot of effort to add support for this to FairEmail.
 
 <br />
 
@@ -1035,9 +1040,11 @@ Yes, you can use HTML in signatures if you paste HTML formatted text into the si
 
 See [here](https://stackoverflow.com/questions/44410675/supported-html-tags-on-android-textview) for which HTML tags are supported.
 
-You can for example past this into the signature field:
+You can for example paste this into the signature field:
 
 This is *italic*, this is *bold* and this is [a link](https://example.org).
+
+Alternatively, you can use the button *Edit as HTML*.
 
 <br />
 
@@ -1106,7 +1113,7 @@ The following authentication methods are supported and used in this order:
 * LOGIN
 * PLAIN
 * NTLM (untested)
-* XOAUTH2 (used when an account was selected)
+* XOAUTH2 (used when a Google account is selected)
 
 SASL authentication methods, like CRAM-MD5, are not supported
 because [JavaMail for Android](https://javaee.github.io/javamail/Android) does not support SASL authentication.
@@ -1236,6 +1243,7 @@ You can select one of these actions to apply to matching messages:
 * Mark as unread
 * Move
 * Reply template
+* Automation
 
 Filter rules are applied direct after the message header has been fetched, before the message text has been downloaded,
 so it is not possible to apply filter rules to the message text.
@@ -1280,14 +1288,15 @@ FairEmail shows all these messages, except for one, dimmed, to indicate that the
 Gmail allows one message to have multiple labels, which are presented to FairEmail as folders.
 This means that messages with multiple labels will be shown multiple times as well.
 
-Since there is not really an original message because it is in fact just the same message, it is not really possible to show just one message.
+You can hide duplicate messages by disabling *Show duplicates* in the three dots overflow menu.
 
 <br />
 
 <a name="faq75"></a>
 **(75) Can you make an iOS, Windows, etc version?**
 
-I develop apps for Android only.
+A lot of knowledge and experience is required to successfully develop an app for a specific platform,
+which is why I develop apps for Android only.
 
 <br />
 
@@ -1361,6 +1370,7 @@ Normally, FairEmail maintains a connection to the configured email servers whene
 If you don't want this, for example to not be disturbed or to save on battery usage, just disable synchronization in the advanced options.
 This will stop the background service which takes care of automatic synchronization and will remove the associated status bar notification.
 You can use pull-down-to-refresh in a folder or use the folder menu *Synchronize now* to manually synchronize messages.
+This will start the synchronization service for 90 seconds.
 
 <br />
 
@@ -1440,8 +1450,7 @@ The advanced option *extra privacy features* enables:
 
 * Detection and removal of [tracking images](#user-content-faq82)
 * Splitting linked images into an image and a link
-* Showing the [DKIM, SPF and DMARC authentication result](#user-content-faq92)
-* Removal of [Urchin Tracking Module (UTM) parameters](https://en.wikipedia.org/wiki/UTM_parameters)
+* Removal of [Urchin Tracking Module (UTM) parameters](https://en.wikipedia.org/wiki/UTM_parameters) from links
 
 <br />
 
@@ -1503,9 +1512,9 @@ so periodically synchronizing messages will not result in saving battery power, 
 Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature
 and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client.
 
-However, FairEmail will show a small vertical warning stripe at the end of the message header
-if DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server
-and the [extra privacy features](#user-content-faq86) are enabled.
+However, FairEmail can show a small vertical warning stripe at the end of the message header
+if DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server.
+You can enable this in the advanced options.
 
 <br />
 
