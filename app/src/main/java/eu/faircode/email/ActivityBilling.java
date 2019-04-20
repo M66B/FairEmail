@@ -42,6 +42,9 @@ import com.android.billingclient.api.BillingClientStateListener;
 import com.android.billingclient.api.BillingFlowParams;
 import com.android.billingclient.api.Purchase;
 import com.android.billingclient.api.PurchasesUpdatedListener;
+import com.android.billingclient.api.SkuDetails;
+import com.android.billingclient.api.SkuDetailsParams;
+import com.android.billingclient.api.SkuDetailsResponseListener;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.security.KeyFactory;
@@ -49,13 +52,19 @@ import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
 import java.security.Signature;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedListener {
     private BillingClient billingClient = null;
+    private Map<String, SkuDetails> skuDetails = new HashMap<>();
 
     static final String ACTION_PURCHASE = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE";
     static final String ACTION_ACTIVATE_PRO = BuildConfig.APPLICATION_ID + ".ACTIVATE_PRO";
+
+    private static final String SKU_PRO = BuildConfig.APPLICATION_ID + ".pro";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,11 +139,16 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
 
     private void onPurchase(Intent intent) {
         if (Helper.isPlayStoreInstall(this)) {
-            BillingFlowParams flowParams = BillingFlowParams.newBuilder()
-                    .setSku(BuildConfig.APPLICATION_ID + ".pro")
-                    .setType(BillingClient.SkuType.INAPP)
-                    .build();
-            int responseCode = billingClient.launchBillingFlow(this, flowParams);
+            BillingFlowParams.Builder flowParams = BillingFlowParams.newBuilder();
+            if (skuDetails.containsKey(SKU_PRO)) {
+                Log.i("IAB purchase SKU=" + skuDetails.get(SKU_PRO));
+                flowParams.setSkuDetails(skuDetails.get(SKU_PRO));
+            } else {
+                Log.i("IAB purchase SKU=" + SKU_PRO);
+                flowParams.setSku(SKU_PRO).setType(BillingClient.SkuType.INAPP);
+            }
+
+            int responseCode = billingClient.launchBillingFlow(this, flowParams.build());
             String text = Helper.getBillingResponseText(responseCode);
             Log.i("IAB launch billing flow response=" + text);
             if (responseCode != BillingClient.BillingResponse.OK)
@@ -192,6 +206,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             if (responseCode == BillingClient.BillingResponse.OK) {
                 backoff = 4;
                 queryPurchases();
+                querySkuDetails();
             } else
                 Snackbar.make(getVisibleView(), text, Snackbar.LENGTH_LONG).show();
         }
@@ -235,6 +250,27 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             Snackbar.make(getVisibleView(), text, Snackbar.LENGTH_LONG).show();
     }
 
+    private void querySkuDetails() {
+        Log.i("IAB query SKUs");
+        SkuDetailsParams.Builder builder = SkuDetailsParams.newBuilder();
+        builder.setSkusList(Arrays.asList(SKU_PRO));
+        builder.setType(BillingClient.SkuType.INAPP);
+        billingClient.querySkuDetailsAsync(builder.build(),
+                new SkuDetailsResponseListener() {
+                    @Override
+                    public void onSkuDetailsResponse(int responseCode, List<SkuDetails> skuDetailsList) {
+                        String text = Helper.getBillingResponseText(responseCode);
+                        Log.i("IAB query SKUs response=" + text);
+                        if (responseCode == BillingClient.BillingResponse.OK) {
+                            for (SkuDetails skuDetail : skuDetailsList) {
+                                Log.i("IAB SKU detail=" + skuDetail);
+                                skuDetails.put(skuDetail.getSku(), skuDetail);
+                            }
+                        }
+                    }
+                });
+    }
+
     private void checkPurchases(List<Purchase> purchases) {
         if (purchases != null) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -253,7 +289,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                     sig.initVerify(publicKey);
                     sig.update(purchase.getOriginalJson().getBytes());
                     if (sig.verify(Base64.decode(purchase.getSignature(), Base64.DEFAULT))) {
-                        if ((BuildConfig.APPLICATION_ID + ".pro").equals(purchase.getSku())) {
+                        if (SKU_PRO.equals(purchase.getSku())) {
                             editor.putBoolean("pro", true);
                             Log.i("IAB pro features activated");
                         }
