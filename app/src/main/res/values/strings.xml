@@ -157,7 +157,6 @@
 
     <string name="title_advanced_enabled">Synchronize</string>
     <string name="title_advanced_schedule">Schedule</string>
-    <string name="title_advanced_schedule_hint">Tap on a time to set a time</string>
 
     <string name="title_advanced_metered">Use metered connections</string>
     <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
@@ -206,12 +205,16 @@
     <string name="title_advanced_debug">Debug mode</string>
 
     <string name="title_advanced_enabled_hint">Globally disable or enable receiving and sending of messages</string>
+    <string name="title_advanced_schedule_hint">Tap on a time to set a time</string>
     <string name="title_advanced_metered_hint">Metered connections are generally mobile connections or paid Wi-Fi hotspots</string>
     <string name="title_advanced_metered_warning">Disabling this option will disable receiving and sending messages on mobile internet connections</string>
+
     <string name="title_advanced_browse_hint">Fetch more messages when scrolling down</string>
     <string name="title_advanced_threading_hint">Group messages related to each other</string>
     <string name="title_advanced_name_email_hint">When disabled only names will be shown when available</string>
     <string name="title_advanced_flags_hint">Note that starred messages will always be kept locally</string>
+    <string name="title_advanced_preview_hint">Only available when message text was downloaded</string>
+    <string name="title_advanced_crash_hint">Enabling this option can cause crashes</string>
 
     <string name="title_advanced_autoexpand_hint">Automatically open message when there is just one message or just one unread message in a conversation</string>
     <string name="title_advanced_autocollapse_hint">Multiple expanded messages will always be closed on \'back\'</string>
@@ -219,7 +222,6 @@
     <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
 
     <string name="title_advanced_badge_hint">Only available on supported launchers</string>
-    <string name="title_advanced_preview_hint">Only available when message text was downloaded</string>
     <string name="title_advanced_search_local_hint">Instead of searching in the primary archive folder on the server</string>
     <string name="title_advanced_english_hint">This will restart the app</string>
     <string name="title_advanced_paranoid_hint">See the FAQ for details</string>
