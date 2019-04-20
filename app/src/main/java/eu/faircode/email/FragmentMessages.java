@@ -1305,11 +1305,11 @@ public class FragmentMessages extends FragmentBase {
                     @Override
                     public void onDurationSelected(long duration, long time) {
                         if (Helper.isPro(getContext())) {
-                            selectionTracker.clearSelection();
-
                             Bundle args = new Bundle();
                             args.putLongArray("ids", getSelection());
                             args.putLong("wakeup", duration == 0 ? -1 : time);
+
+                            selectionTracker.clearSelection();
 
                             new SimpleTask<Void>() {
                                 @Override
