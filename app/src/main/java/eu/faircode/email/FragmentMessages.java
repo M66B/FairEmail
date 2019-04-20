@@ -1941,19 +1941,15 @@ public class FragmentMessages extends FragmentBase {
     public void onPrepareOptionsMenu(Menu menu) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        boolean selection = (selectionTracker != null && selectionTracker.hasSelection());
-
         menu.findItem(R.id.menu_search).setVisible(
                 viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
 
-        menu.findItem(R.id.menu_folders).setVisible(
-                viewType == AdapterMessage.ViewType.UNIFIED && primary >= 0);
+        menu.findItem(R.id.menu_folders).setVisible(viewType == AdapterMessage.ViewType.UNIFIED && primary >= 0);
         menu.findItem(R.id.menu_folders).setIcon(connected
-                ? R.drawable.baseline_folder_special_24
-                : R.drawable.baseline_folder_open_24);
+                ? R.drawable.baseline_folder_special_24 : R.drawable.baseline_folder_open_24);
 
-        menu.findItem(R.id.menu_sort_on).setVisible(!selection &&
-                (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER));
+        menu.findItem(R.id.menu_sort_on).setVisible(
+                viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
 
         String sort = prefs.getString("sort", "time");
         if ("time".equals(sort))
@@ -1969,12 +1965,9 @@ public class FragmentMessages extends FragmentBase {
         else if ("size".equals(sort))
             menu.findItem(R.id.menu_sort_on_size).setChecked(true);
 
-        menu.findItem(R.id.menu_zoom).setVisible(!selection);
-
-        menu.findItem(R.id.menu_compact).setVisible(!selection);
         menu.findItem(R.id.menu_compact).setChecked(prefs.getBoolean("compact", false));
 
-        menu.findItem(R.id.menu_snoozed).setVisible(!selection && !outbox &&
+        menu.findItem(R.id.menu_snoozed).setVisible(!outbox &&
                 (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER));
         menu.findItem(R.id.menu_snoozed).setChecked(prefs.getBoolean("snoozed", false));
 
