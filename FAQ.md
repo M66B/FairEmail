@@ -161,6 +161,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?](#user-content-faq92)
 * [(93) Can you allow installation on external storage?](#user-content-faq93)
 * [(94) What does the red/orange stripe at the end of the header mean?](#user-content-faq94)
+* [(95) Why are not all apps shown when selecting an attachment or image?](#user-content-faq95)
 
 [I have another question.](#support)
 
@@ -1534,6 +1535,17 @@ See also [this FAQ](#user-content-faq92).
 
 <br />
 
+<a name="faq95"></a>
+**(95) Why are not all apps shown when selecting an attachment or image?**
+
+For privacy and security reasons FairEmail does not have permissions to directly access files,
+instead the Storage Access Framework, available and recommended since Android 4.4 KitKat (released in 2013), is used to select files.
+If an app is listed depends on if the app implements a [document provider](https://developer.android.com/guide/topics/providers/document-provider).
+
+Android Q will make it harder and maybe even impossible to directly access files,
+see [here](https://developer.android.com/preview/privacy/scoped-storage) for more details.
+
+<br />
 
 ## Support
 
