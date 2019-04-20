@@ -133,7 +133,7 @@
     <string name="title_advanced_schedule_hint">Tippe auf eine Zeit, um eine Zeit zu setzen</string>
     <string name="title_advanced_metered">Getaktete Verbindungen verwenden</string>
     <string name="title_advanced_download">Automatisches Herunterladen von E-Mails und Anhängen auf getakteten Verbindungen bis zu einer Größe von</string>
-    <string name="title_advanced_roaming">Nachrichten und Anhänge beim Roaming herunterladen</string>
+    <string name="title_advanced_roaming">Nachrichten und Anhänge bei Roaming herunterladen</string>
     <string name="title_advanced_browse">E-Mails auf dem Server durchsuchen</string>
     <string name="title_advanced_startup">Zum Start anzeigen</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
