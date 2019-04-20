@@ -35,11 +35,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.ColorFilter;
-import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -1396,44 +1392,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             // For performance reasons the WebView is created when needed only
             if (!(vwBody instanceof WebView)) {
                 WebView webView = new WebView(context) {
-                    private Bitmap bm;
-                    private Canvas cc;
-                    private Paint paint = new Paint();
-                    private ColorFilter cf = new ColorMatrixColorFilter(new ColorMatrix(Helper.NEGATIVE));
-
                     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
                         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
                         int height = getMeasuredHeight();
                         if (height < tvBody.getMinHeight())
                             setMeasuredDimension(getMeasuredWidth(), tvBody.getMinHeight());
                     }
-
-                    @Override
-                    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-                        super.onSizeChanged(w, h, oldw, oldh);
-                        bm = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
-                        cc = new Canvas(bm);
-                    }
-
-                    @Override
-                    protected void onDraw(Canvas canvas) {
-                        if (dark) {
-                            super.onDraw(cc);
-                            paint.setColorFilter(cf);
-                            canvas.drawBitmap(bm, 0, 0, paint);
-                        } else
-                            super.onDraw(canvas);
-                    }
                 };
 
-                /*
-                // https://bugs.chromium.org/p/chromium/issues/detail?id=578150
                 if (dark) {
+                    float[] NEGATIVE = new float[]{
+                            -1, 0, 0, 0, 255, // red
+                            0, -1, 0, 0, 255, // green
+                            0, 0, -1, 0, 255, // blue
+                            0, 0, 0, 1, 0 // alpha
+                    };
+
                     Paint paint = new Paint();
-                    paint.setColorFilter(new ColorMatrixColorFilter(Helper.NEGATIVE));
+                    paint.setColorFilter(new ColorMatrixColorFilter(NEGATIVE));
                     webView.setLayerType(View.LAYER_TYPE_HARDWARE, paint);
                 }
-                */
 
                 webView.setWebViewClient(new WebViewClient() {
                     public boolean shouldOverrideUrlLoading(WebView view, String url) {

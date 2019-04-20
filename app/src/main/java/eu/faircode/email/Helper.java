@@ -132,13 +132,6 @@ public class Helper {
 
     static final float LOW_LIGHT = 0.6f;
 
-    static final float[] NEGATIVE = new float[]{
-            -1, 0, 0, 0, 255, // red
-            0, -1, 0, 0, 255, // green
-            0, 0, -1, 0, 255, // blue
-            0, 0, 0, 1, 0 // alpha
-    };
-
     static final String FAQ_URI = "https://github.com/M66B/open-source-email/blob/master/FAQ.md";
 
     static ThreadFactory backgroundThreadFactory = new ThreadFactory() {
