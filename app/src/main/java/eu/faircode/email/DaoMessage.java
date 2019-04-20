@@ -183,6 +183,15 @@ public interface DaoMessage {
             " ORDER BY message.received DESC")
     List<Long> getMessageIdsByFolder(Long folder);
 
+    @Query("SELECT message.id" +
+            " FROM folder" +
+            " JOIN message ON message.folder = folder.id" +
+            " WHERE CASE WHEN :folder IS NULL THEN folder.unified ELSE folder.id = :folder END" +
+            " AND NOT ui_hide" +
+            " AND (ui_snoozed IS NULL OR :snoozed)" +
+            " ORDER BY message.received DESC")
+    List<Long> getMessageAll(Long folder, boolean snoozed);
+
     @Query("SELECT *" +
             " FROM message" +
             " WHERE account = :account" +

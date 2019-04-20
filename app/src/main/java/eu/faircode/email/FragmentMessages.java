@@ -1981,6 +1981,9 @@ public class FragmentMessages extends FragmentBase {
         menu.findItem(R.id.menu_duplicates).setVisible(viewType == AdapterMessage.ViewType.THREAD);
         menu.findItem(R.id.menu_duplicates).setChecked(prefs.getBoolean("duplicates", true));
 
+        menu.findItem(R.id.menu_select_all).setVisible(!outbox &&
+                (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER));
+
         super.onPrepareOptionsMenu(menu);
     }
 
@@ -2036,6 +2039,10 @@ public class FragmentMessages extends FragmentBase {
 
             case R.id.menu_duplicates:
                 onMenuDuplicates();
+                return true;
+
+            case R.id.menu_select_all:
+                onMenuSelectAll();
                 return true;
 
             default:
@@ -2099,6 +2106,37 @@ public class FragmentMessages extends FragmentBase {
         boolean duplicates = prefs.getBoolean("duplicates", true);
         prefs.edit().putBoolean("duplicates", !duplicates).apply();
         adapter.setDuplicates(!duplicates);
+    }
+
+    private void onMenuSelectAll() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean snoozed = prefs.getBoolean("snoozed", false);
+
+        Bundle args = new Bundle();
+        args.putLong("id", folder);
+        args.putBoolean("snoozed", snoozed);
+
+        new SimpleTask<List<Long>>() {
+            @Override
+            protected List<Long> onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+                boolean snoozed = args.getBoolean("snoozed");
+
+                DB db = DB.getInstance(context);
+                return db.message().getMessageAll(id < 0 ? null : id, snoozed);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, List<Long> ids) {
+                for (long id : ids)
+                    selectionTracker.select(id);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(this, args, "messages:all");
     }
 
     private void loadMessages() {

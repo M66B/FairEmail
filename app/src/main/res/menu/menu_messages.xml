@@ -67,4 +67,10 @@
         android:checkable="true"
         android:title="@string/title_duplicates"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_select_all"
+        android:icon="@drawable/baseline_format_size_24"
+        android:title="@string/title_select_all"
+        app:showAsAction="never" />
 </menu>
