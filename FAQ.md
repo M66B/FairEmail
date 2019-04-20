@@ -1391,7 +1391,9 @@ FairEmail already tries to workaround these bugs, but if this fail you'll need t
 ~~The original message is shown as the sender has sent it, including all colors.~~
 ~~Changing the background color would not only make the original view not original anymore, it can also result in unreadable messages.~~
 
-Recent versions of FairEmail will invert all colors of the original message when using a dark or black theme.
+Recent versions of FairEmail can invert all colors of the original message when using a dark or black theme.
+You can turn this on the advanced settings.
+Be aware that this can cause [crashes](https://bugs.chromium.org/p/chromium/issues/detail?id=578150) on some devices.
 
 <br />
 

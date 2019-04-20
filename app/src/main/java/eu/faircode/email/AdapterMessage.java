@@ -1400,16 +1400,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 };
 
-                if (dark) {
-                    float[] NEGATIVE = new float[]{
-                            -1, 0, 0, 0, 255, // red
-                            0, -1, 0, 0, 255, // green
-                            0, 0, -1, 0, 255, // blue
-                            0, 0, 0, 1, 0 // alpha
-                    };
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean invert = prefs.getBoolean("invert", false);
 
+                if (dark && invert) {
+                    // https://bugs.chromium.org/p/chromium/issues/detail?id=578150
                     Paint paint = new Paint();
-                    paint.setColorFilter(new ColorMatrixColorFilter(NEGATIVE));
+                    paint.setColorFilter(new ColorMatrixColorFilter(Helper.MATRIX_NEGATIVE));
                     webView.setLayerType(View.LAYER_TYPE_HARDWARE, paint);
                 }
 
