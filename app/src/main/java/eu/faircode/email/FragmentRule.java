@@ -305,7 +305,7 @@ public class FragmentRule extends FragmentBase {
                 EntityFolder.sort(context, data.folders, true);
 
                 data.identities = db.identity().getIdentities(aid);
-                data.answers = db.answer().getAnswers();
+                data.answers = db.answer().getAnswers(false);
 
                 return data;
             }

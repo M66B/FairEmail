@@ -535,7 +535,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
                 // Answers
                 JSONArray janswers = new JSONArray();
-                for (EntityAnswer answer : db.answer().getAnswers())
+                for (EntityAnswer answer : db.answer().getAnswers(true))
                     janswers.put(answer.toJSON());
 
                 // Settings

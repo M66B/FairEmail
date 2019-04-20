@@ -48,6 +48,8 @@ public class EntityAnswer implements Serializable {
     @NonNull
     public String name;
     @NonNull
+    public Boolean hide;
+    @NonNull
     public String text;
 
     static String getAnswerText(DB db, long id, Address[] from) {
@@ -88,6 +90,7 @@ public class EntityAnswer implements Serializable {
         JSONObject json = new JSONObject();
         json.put("id", id);
         json.put("name", name);
+        json.put("hide", hide);
         json.put("text", text);
         return json;
     }
@@ -96,6 +99,7 @@ public class EntityAnswer implements Serializable {
         EntityAnswer answer = new EntityAnswer();
         // id
         answer.name = json.getString("name");
+        answer.hide = (json.has("hide") && json.getBoolean("hide"));
         answer.text = json.getString("text");
         return answer;
     }
@@ -105,6 +109,7 @@ public class EntityAnswer implements Serializable {
         if (obj instanceof EntityAnswer) {
             EntityAnswer other = (EntityAnswer) obj;
             return (this.name.equals(other.name) &&
+                    this.hide.equals(other.hide) &&
                     this.text.equals(other.text)
             );
         }

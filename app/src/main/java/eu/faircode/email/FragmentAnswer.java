@@ -26,6 +26,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
@@ -37,6 +38,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class FragmentAnswer extends FragmentBase {
     private ViewGroup view;
     private EditText etName;
+    private CheckBox cbHide;
     private EditText etText;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
@@ -62,7 +64,7 @@ public class FragmentAnswer extends FragmentBase {
 
         // Get controls
         etName = view.findViewById(R.id.etName);
-        etText = view.findViewById(R.id.etText);
+        cbHide = view.findViewById(R.id.cbHide);
         etText = view.findViewById(R.id.etText);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
@@ -108,6 +110,7 @@ public class FragmentAnswer extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, EntityAnswer answer) {
                 etName.setText(answer == null ? null : answer.name);
+                cbHide.setChecked(answer == null ? false : answer.hide);
                 etText.setText(answer == null ? null : HtmlHelper.fromHtml(answer.text));
                 bottom_navigation.findViewById(R.id.action_delete).setVisibility(answer == null ? View.GONE : View.VISIBLE);
 
@@ -169,6 +172,7 @@ public class FragmentAnswer extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("id", id);
         args.putString("name", etName.getText().toString());
+        args.putBoolean("hide", cbHide.isChecked());
         args.putString("text", HtmlHelper.toHtml(etText.getText()));
 
         new SimpleTask<Void>() {
@@ -186,17 +190,20 @@ public class FragmentAnswer extends FragmentBase {
             protected Void onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
                 String name = args.getString("name");
+                boolean hide = args.getBoolean("hide");
                 String text = args.getString("text");
 
                 DB db = DB.getInstance(context);
                 if (id < 0) {
                     EntityAnswer answer = new EntityAnswer();
                     answer.name = name;
+                    answer.hide = hide;
                     answer.text = text;
                     answer.id = db.answer().insertAnswer(answer);
                 } else {
                     EntityAnswer answer = db.answer().getAnswer(id);
                     answer.name = name;
+                    answer.hide = hide;
                     answer.text = text;
                     db.answer().updateAnswer(answer);
                 }

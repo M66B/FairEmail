@@ -72,6 +72,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
         }
 
         private void bindTo(EntityAnswer answer) {
+            view.setAlpha(answer.hide ? Helper.LOW_LIGHT : 1.0f);
             tvName.setText(answer.name);
         }
 

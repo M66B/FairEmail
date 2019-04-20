@@ -2960,7 +2960,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             new SimpleTask<List<EntityAnswer>>() {
                 @Override
                 protected List<EntityAnswer> onExecute(Context context, Bundle args) {
-                    return DB.getInstance(context).answer().getAnswers();
+                    return DB.getInstance(context).answer().getAnswers(false);
                 }
 
                 @Override

@@ -29,8 +29,9 @@ import java.util.List;
 
 @Dao
 public interface DaoAnswer {
-    @Query("SELECT * FROM answer")
-    List<EntityAnswer> getAnswers();
+    @Query("SELECT * FROM answer" +
+            " WHERE :all OR NOT hide")
+    List<EntityAnswer> getAnswers(boolean all);
 
     @Query("SELECT * FROM answer WHERE id = :id")
     EntityAnswer getAnswer(long id);
