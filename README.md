@@ -93,6 +93,8 @@ One line command to display certificate fingerprints:
 
 ```unzip -p fairemail.apk META-INF/CERT.RSA | keytool -printcert```
 
+* [F-Droid](https://f-droid.org/en/packages/eu.faircode.email/)
+
 ## Privacy
 
 Please see [here](https://github.com/M66B/open-source-email/blob/master/PRIVACY.md#fairemail) for the privacy policy.
