@@ -162,6 +162,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(93) Can you allow installation on external storage?](#user-content-faq93)
 * [(94) What does the red/orange stripe at the end of the header mean?](#user-content-faq94)
 * [(95) Why are not all apps shown when selecting an attachment or image?](#user-content-faq95)
+* [(96) Where can I find the IMAP and SMTP settings?](#user-content-faq96)
 
 [I have another question.](#support)
 
@@ -1548,6 +1549,14 @@ Android Q will make it harder and maybe even impossible to directly access files
 see [here](https://developer.android.com/preview/privacy/scoped-storage) for more details.
 
 <br />
+
+<a name="faq96"></a>
+**(96) Where can I find the IMAP and SMTP settings?**
+
+The IMAP settings are part of the (custom) account settings and the SMTP settings are part of the identity settings.
+
+<br />
+
 
 ## Support
 
