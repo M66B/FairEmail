@@ -239,6 +239,7 @@
     <string name="title_identity_store_sent">Store sent messages</string>
     <string name="title_identity_store_sent_remark">Enable this only if your provider does not automatically stores sent messages</string>
     <string name="title_optional">Optional</string>
+    <string name="title_recommended">Recommended</string>
     <string name="title_account_linked">Linked account</string>
     <string name="title_account_name">Account name</string>
     <string name="title_account_name_hint">Used to differentiate folders</string>
