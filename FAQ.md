@@ -29,6 +29,7 @@ For authorizing:
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) "*... ActivityRecord not found for ...*" sometimes causes a crash after updating FairEmail.
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty.~~
 * "*... Couldn't read row ...*" causes sometimes a crash. This could be caused by a bug in the [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room) but more likely indicates a corrupt database.
+* "*... Unable to create layer ...*" causes a crash on some devices when inverting the colors of an original message due to a [bug in AndroidX](https://bugs.chromium.org/p/chromium/issues/detail?id=578150)
 
 ## Planned features
 
