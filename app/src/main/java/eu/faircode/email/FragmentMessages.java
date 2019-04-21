@@ -1754,6 +1754,14 @@ public class FragmentMessages extends FragmentBase {
                         swipeRefresh.setRefreshing(refreshing);
                     }
                 });
+                db.message().liveHidden(null).observe(getViewLifecycleOwner(), new Observer<List<Long>>() {
+                    @Override
+                    public void onChanged(List<Long> ids) {
+                        if (ids != null && selectionTracker != null)
+                            for (long id : ids)
+                                selectionTracker.deselect(id);
+                    }
+                });
                 break;
 
             case FOLDER:
@@ -1791,6 +1799,14 @@ public class FragmentMessages extends FragmentBase {
                         refresh = (folder != null);
                         swipeRefresh.setEnabled(pull && refresh);
                         swipeRefresh.setRefreshing(refreshing);
+                    }
+                });
+                db.message().liveHidden(folder).observe(getViewLifecycleOwner(), new Observer<List<Long>>() {
+                    @Override
+                    public void onChanged(List<Long> ids) {
+                        if (ids != null && selectionTracker != null)
+                            for (long id : ids)
+                                selectionTracker.deselect(id);
                     }
                 });
                 break;
