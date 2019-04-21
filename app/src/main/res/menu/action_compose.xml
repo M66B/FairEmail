@@ -7,11 +7,6 @@
         android:title="@string/title_discard" />
 
     <item
-        android:id="@+id/action_save"
-        android:icon="@drawable/baseline_save_alt_24"
-        android:title="@string/title_save" />
-
-    <item
         android:id="@+id/action_undo"
         android:icon="@drawable/baseline_undo_24"
         android:title="@string/title_undo" />
@@ -20,6 +15,11 @@
         android:id="@+id/action_redo"
         android:icon="@drawable/baseline_redo_24"
         android:title="@string/title_redo" />
+
+    <item
+        android:id="@+id/action_save"
+        android:icon="@drawable/baseline_save_alt_24"
+        android:title="@string/title_save" />
 
     <item
         android:id="@+id/action_send"
