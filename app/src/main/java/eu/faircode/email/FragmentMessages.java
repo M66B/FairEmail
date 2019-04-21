@@ -2107,6 +2107,8 @@ public class FragmentMessages extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean snoozed = prefs.getBoolean("snoozed", false);
         prefs.edit().putBoolean("snoozed", !snoozed).apply();
+        if (selectionTracker != null)
+            selectionTracker.clearSelection();
         loadMessages();
     }
 
