@@ -116,10 +116,10 @@
     <string name="title_advanced_metered_hint">اتصال‌های حجمی عموما شبکه‌های موبایل یا یک هات اسپات غیر رایگان می‌باشند</string>
     <string name="title_advanced_browse_hint">گرفتن و دریافت پیام‌های بیشتر پیمایش به سمت پایین</string>
     <string name="title_advanced_threading_hint">پیام‌های گروهی مرتبط با یکدیگر</string>
+    <string name="title_advanced_preview_hint">فقط زمانی در دسترس است که متن پیام دانلود شده باشد</string>
     <string name="title_advanced_autoexpand_hint">باز کردن خودکار پیام وقتی فقط یک پیام یا فقط یک پیام خوانده نشده در مکالمه وجود دارد</string>
     <string name="title_advanced_autoclose_hint">بسته شدن خودکار مکالمات زمانی که همه پیام‌ها آرشیو شده، فرستاده شده و یا به به سطل آشغال فرستاده شده است</string>
     <string name="title_advanced_sender_hint">اکثر سرویس دهندگان اجازه اصلاح یا تغییر آدرس فرستنده را نمی‌دهند</string>
-    <string name="title_advanced_preview_hint">فقط زمانی در دسترس است که متن پیام دانلود شده باشد</string>
     <string name="title_select">انتخاب &#8230;</string>
     <string name="title_identity_name">نام شما</string>
     <string name="title_identity_email">آدرس ایمیل شما</string>
@@ -301,10 +301,10 @@
     <string name="title_sort_on_sender">فرستنده</string>
     <string name="title_compact">نمایش فشرده</string>
     <string name="title_zoom">اندازه متن</string>
+    <string name="title_snoozed">به تعویق افتاده</string>
     <string name="title_address_sent">ارسال شده:</string>
     <string name="title_address_unsent">فرستاده نشده:</string>
     <string name="title_address_invalid">نامعتبر:</string>
-    <string name="title_snoozed">به تعویق افتاده</string>
     <string name="title_previous">پیشین</string>
     <string name="title_next">بعدی</string>
     <string name="title_answer_reply">الگوی پاسخ</string>

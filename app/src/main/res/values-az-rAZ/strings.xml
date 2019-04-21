@@ -117,7 +117,6 @@
     <string name="title_advanced_section_misc">Qarışıq</string>
     <string name="title_advanced_enabled">Eyniləşdirmə</string>
     <string name="title_advanced_schedule">Cədvəl</string>
-    <string name="title_advanced_schedule_hint">Bir vaxt tənzimləmək üçün vaxta toxun</string>
     <string name="title_advanced_metered">Ölçülmüş bağlantıları istifadə et</string>
     <string name="title_advanced_download">Mesajları və qoşmaları ölçülmüş bağlantıda avtomatik endir</string>
     <string name="title_advanced_browse">Serverdəki mesajlara nəzər yetir</string>
@@ -151,6 +150,7 @@
     <string name="title_advanced_updates">Yeniləmələri yoxla</string>
     <string name="title_advanced_debug">Sazlama rejimi</string>
     <string name="title_advanced_enabled_hint">Qlobal olaraq mesajların göndərilməsi və alınmasını fəallaşdır və ya ləğv et</string>
+    <string name="title_advanced_schedule_hint">Bir vaxt tənzimləmək üçün vaxta toxun</string>
     <string name="title_advanced_metered_hint">Ümumiyyətlə ölçülmüş bağlantılar, mobil və ya ödənişli Wi-Fi bağlantılarıdır</string>
     <string name="title_advanced_threading_hint">Bir-biri ilə əlaqəli qrup mesajları</string>
     <string name="title_advanced_autoclose_hint">Bütün mesajlar arxivlənəndə, göndəriləndə və tulantı qovluğuna atılanda danışıq mövzularını avtomatik olaraq bağla</string>
@@ -316,10 +316,10 @@
     <string name="title_sort_on_subject">Mövzu</string>
     <string name="title_compact">Yığcam baxış</string>
     <string name="title_zoom">Mətn həcmi</string>
+    <string name="title_snoozed">Ertələndi</string>
     <string name="title_address_sent">Göndərildi:</string>
     <string name="title_address_unsent">Göndərilmədi:</string>
     <string name="title_address_invalid">Etibarsız:</string>
-    <string name="title_snoozed">Ertələndi</string>
     <string name="title_previous">Əvvəlki</string>
     <string name="title_next">Növbəti</string>
     <string name="title_answer_reply">Cavab şablonu</string>
