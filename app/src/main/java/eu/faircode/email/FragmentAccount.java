@@ -96,6 +96,7 @@ public class FragmentAccount extends FragmentBase {
     private Button btnAutoConfig;
 
     private Button btnAuthorize;
+    private TextView tvAuthorizeOptional;
     private EditText etHost;
     private RadioGroup rgEncryption;
     private CheckBox cbInsecure;
@@ -171,6 +172,7 @@ public class FragmentAccount extends FragmentBase {
         btnAutoConfig = view.findViewById(R.id.btnAutoConfig);
 
         btnAuthorize = view.findViewById(R.id.btnAuthorize);
+        tvAuthorizeOptional = view.findViewById(R.id.tvAuthorizeOptional);
         etHost = view.findViewById(R.id.etHost);
         etPort = view.findViewById(R.id.etPort);
         rgEncryption = view.findViewById(R.id.rgEncryption);
@@ -227,6 +229,7 @@ public class FragmentAccount extends FragmentBase {
                 grpAuthorize.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
 
                 btnAuthorize.setVisibility(provider.type == null ? View.GONE : View.VISIBLE);
+                tvAuthorizeOptional.setVisibility(provider.type == null ? View.GONE : View.VISIBLE);
 
                 btnAdvanced.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 if (position == 0)
@@ -438,6 +441,7 @@ public class FragmentAccount extends FragmentBase {
         btnAutoConfig.setEnabled(false);
 
         btnAuthorize.setVisibility(View.GONE);
+        tvAuthorizeOptional.setVisibility(View.GONE);
         rgEncryption.setVisibility(View.GONE);
         cbInsecure.setVisibility(View.GONE);
         tilPassword.setPasswordVisibilityToggleEnabled(id < 0);
