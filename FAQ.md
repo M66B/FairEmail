@@ -231,7 +231,7 @@ See also [this FAQ](#user-content-faq16).
 <a name="faq4"></a>
 **(4) How can I use an invalid security certificate / IMAP STARTTLS / an empty password?**
 
-Invalid security certificate: you should try to fix this by contacting your provider or by getting a valid security certificate
+Invalid security certificate (*Can't verify identity of server*): you should try to fix this by contacting your provider or by getting a valid security certificate
 because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack).
 If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
 
