@@ -1213,6 +1213,8 @@ class Core {
                 Uri lookupUri = ContactInfo.getLookupUri(context, message.from);
                 message.avatar = (lookupUri == null ? null : lookupUri.toString());
 
+                /*
+                // Authentication is more reliable
                 Address sender = helper.getSender(); // header
                 if (sender != null) {
                     String[] s = ((InternetAddress) sender).getAddress().split("@");
@@ -1221,6 +1223,7 @@ class Core {
                     if (s.length > 1 && (f == null || (f.length > 1 && !s[1].equals(f[1]))))
                         message.warning = context.getString(R.string.title_via, s[1]);
                 }
+                */
 
                 try {
                     db.beginTransaction();
