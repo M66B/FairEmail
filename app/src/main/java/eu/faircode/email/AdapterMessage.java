@@ -1808,7 +1808,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean paranoid = prefs.getBoolean("paranoid", true);
 
                 final Uri _uri;
-                if (paranoid) {
+                if (paranoid && !uri.isOpaque()) {
                     // https://en.wikipedia.org/wiki/UTM_parameters
                     Uri.Builder builder = new Uri.Builder();
 
