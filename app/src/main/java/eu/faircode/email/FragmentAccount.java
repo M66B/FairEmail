@@ -89,6 +89,7 @@ import static android.accounts.AccountManager.newChooseAccountIntent;
 
 public class FragmentAccount extends FragmentBase {
     private ViewGroup view;
+    private ScrollView scroll;
 
     private Spinner spProvider;
 
@@ -164,6 +165,7 @@ public class FragmentAccount extends FragmentBase {
         setHasOptionsMenu(true);
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_account, container, false);
+        scroll = view.findViewById(R.id.scroll);
 
         // Get controls
         spProvider = view.findViewById(R.id.spProvider);
@@ -377,7 +379,7 @@ public class FragmentAccount extends FragmentBase {
                     new Handler().post(new Runnable() {
                         @Override
                         public void run() {
-                            ((ScrollView) view).smoothScrollTo(0, btnAdvanced.getTop());
+                            scroll.smoothScrollTo(0, btnAdvanced.getTop());
                         }
                     });
             }
@@ -691,7 +693,7 @@ public class FragmentAccount extends FragmentBase {
                 new Handler().post(new Runnable() {
                     @Override
                     public void run() {
-                        ((ScrollView) view).smoothScrollTo(0, btnSave.getBottom());
+                        scroll.smoothScrollTo(0, btnSave.getBottom());
                     }
                 });
             }
@@ -709,7 +711,7 @@ public class FragmentAccount extends FragmentBase {
                     new Handler().post(new Runnable() {
                         @Override
                         public void run() {
-                            ((ScrollView) view).smoothScrollTo(0, tvError.getBottom());
+                            scroll.smoothScrollTo(0, tvError.getBottom());
                         }
                     });
                 }
@@ -1067,7 +1069,7 @@ public class FragmentAccount extends FragmentBase {
                     new Handler().post(new Runnable() {
                         @Override
                         public void run() {
-                            ((ScrollView) view).smoothScrollTo(0, tvError.getBottom());
+                            scroll.smoothScrollTo(0, tvError.getBottom());
                         }
                     });
                 }

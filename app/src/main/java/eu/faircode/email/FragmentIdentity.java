@@ -72,6 +72,7 @@ import javax.mail.Transport;
 
 public class FragmentIdentity extends FragmentBase {
     private ViewGroup view;
+    private ScrollView scroll;
 
     private EditText etName;
     private EditText etEmail;
@@ -142,6 +143,7 @@ public class FragmentIdentity extends FragmentBase {
         setHasOptionsMenu(true);
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_identity, container, false);
+        scroll = view.findViewById(R.id.scroll);
 
         // Get controls
         etName = view.findViewById(R.id.etName);
@@ -350,7 +352,7 @@ public class FragmentIdentity extends FragmentBase {
                     new Handler().post(new Runnable() {
                         @Override
                         public void run() {
-                            ((ScrollView) view).smoothScrollTo(0, btnAdvanced.getTop());
+                            scroll.smoothScrollTo(0, btnAdvanced.getTop());
                         }
                     });
             }
@@ -735,7 +737,7 @@ public class FragmentIdentity extends FragmentBase {
                     new Handler().post(new Runnable() {
                         @Override
                         public void run() {
-                            ((ScrollView) view).smoothScrollTo(0, tvError.getBottom());
+                            scroll.smoothScrollTo(0, tvError.getBottom());
                         }
                     });
                 }
