@@ -219,6 +219,7 @@
     <string name="title_identity_store_sent">Сохранять отправленные сообщения</string>
     <string name="title_identity_store_sent_remark">Включите это, только если ваш провайдер не сохраняет отправленные сообщения автоматически</string>
     <string name="title_optional">Необязательно</string>
+    <string name="title_recommended">Рекомендуется</string>
     <string name="title_account_linked">Связанная учётная запись</string>
     <string name="title_account_name">Название учётной записи</string>
     <string name="title_account_name_hint">Используется для разграничения папок</string>

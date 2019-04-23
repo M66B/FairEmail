@@ -203,6 +203,7 @@
     <string name="title_identity_store_sent">Gesendete E-Mails speichern</string>
     <string name="title_identity_store_sent_remark">Aktivieren Sie diese Option nur, wenn Ihr Provider gesendete E-Mails nicht automatisch speichert</string>
     <string name="title_optional">Optional</string>
+    <string name="title_recommended">Empfohlen</string>
     <string name="title_account_linked">Verknüpftes Konto</string>
     <string name="title_account_name">Kontobezeichnung</string>
     <string name="title_account_name_hint">Wird verwendet, um Ordner zu unterscheiden</string>

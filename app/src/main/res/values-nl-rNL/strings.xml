@@ -203,6 +203,7 @@
     <string name="title_identity_store_sent">Sla verzonden berichten op</string>
     <string name="title_identity_store_sent_remark">Dit alleen inschakelen als uw provider niet automatisch verzonden berichten opslaat</string>
     <string name="title_optional">Optioneel</string>
+    <string name="title_recommended">Aanbevolen</string>
     <string name="title_account_linked">Gekoppeld account</string>
     <string name="title_account_name">Accountnaam</string>
     <string name="title_account_name_hint">Wordt gebruikt voor het onderscheiden van mappen</string>

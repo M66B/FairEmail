@@ -203,6 +203,7 @@
     <string name="title_identity_store_sent">Memorizza messaggi inviati</string>
     <string name="title_identity_store_sent_remark">Abilitalo solo se il tuo provider non memorizza automaticamente i messaggi inviati</string>
     <string name="title_optional">Facoltativo</string>
+    <string name="title_recommended">Consigliati</string>
     <string name="title_account_linked">Account collegato</string>
     <string name="title_account_name">Nome account</string>
     <string name="title_account_name_hint">Usato per differenziare le cartelle</string>

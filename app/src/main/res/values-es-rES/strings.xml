@@ -203,6 +203,7 @@
     <string name="title_identity_store_sent">Almacenar mensajes enviados</string>
     <string name="title_identity_store_sent_remark">Active esto solo si su proveedor no almacena automáticamente los mensajes enviados</string>
     <string name="title_optional">Opcional</string>
+    <string name="title_recommended">Recomendado</string>
     <string name="title_account_linked">Cuenta vinculada</string>
     <string name="title_account_name">Nombre de cuenta</string>
     <string name="title_account_name_hint">Usado para diferenciar carpetas</string>

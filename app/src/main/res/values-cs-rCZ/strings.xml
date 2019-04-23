@@ -219,6 +219,7 @@
     <string name="title_identity_store_sent">Ukládat odeslané zprávy</string>
     <string name="title_identity_store_sent_remark">Povolte pouze pokud váš poskytovatel neukládá odchozí zprávy automaticky</string>
     <string name="title_optional">Nepovinné</string>
+    <string name="title_recommended">Doporučeno</string>
     <string name="title_account_linked">Připojený účet</string>
     <string name="title_account_name">Název účtu</string>
     <string name="title_account_name_hint">Použito k odlišení složek</string>
@@ -256,7 +257,7 @@
     <string name="title_no_host">Chybí název hostitele</string>
     <string name="title_no_user">Chybí uživatelské jméno</string>
     <string name="title_no_password">Chybí heslo</string>
-    <string name="title_no_inbox">Doručená pošta nenalezena</string>
+    <string name="title_no_inbox">Složka \"Doručené\" nenalezena</string>
     <string name="title_no_primary_drafts">Žádný hlavní účet nebo žádná složka konceptů</string>
     <string name="title_no_identities">Odesílání e-mailů vyžaduje alespoň jednu identitu</string>
     <string name="title_no_idle">Tento poskytovatel nepodporuje okamžitá oznámení zpráv. Následkem bude opožděný příjem nových zpráv a zvýšená spotřeba baterie.</string>
@@ -302,7 +303,7 @@
     <string name="title_folder_all">Archiv</string>
     <string name="title_folder_drafts">Koncepty</string>
     <string name="title_folder_trash">Koš</string>
-    <string name="title_folder_junk">Nevyžádaná</string>
+    <string name="title_folder_junk">Nevyžádané</string>
     <string name="title_folder_sent">Odeslané</string>
     <string name="title_folder_system">Systém</string>
     <string name="title_folder_user">Uživatel</string>
@@ -321,8 +322,8 @@
     <string name="title_share">Sdílet</string>
     <string name="title_print">Tisk</string>
     <string name="title_show_headers">Zobrazit hlavičku</string>
-    <string name="title_raw_download">Stáhnout původní zprávu</string>
-    <string name="title_raw_save">Uložit původní zprávu</string>
+    <string name="title_raw_download">Stáhnout zdrojovou zprávu</string>
+    <string name="title_raw_save">Uložit zdrojovou zprávu</string>
     <string name="title_manage_keywords">Správa klíčových slov</string>
     <string name="title_add_keyword">Přidat klíčové slovo</string>
     <string name="title_show_inline">Zobrazit vložené přílohy</string>
@@ -333,7 +334,7 @@
     <string name="title_copy">Kopírovat &#8230;</string>
     <string name="title_delete">Smazat</string>
     <string name="title_more">Více</string>
-    <string name="title_spam">Nevyžádaná</string>
+    <string name="title_spam">Nevyžádané</string>
     <string name="title_move">Přesunout</string>
     <string name="title_move_to">Přesunout do %1$s</string>
     <string name="title_snooze">Odložit &#8230;</string>
@@ -357,7 +358,7 @@
     <string name="title_no_folder">Složka neexistuje</string>
     <string name="title_no_format">Původní zpráva bude zahrnuta</string>
     <string name="title_accross_remark">Zprávy přesunuté napříč účty budou opětovně staženy, což povede ke spotřebě dat navíc</string>
-    <string name="title_raw_saved">Původní zpráva uložena</string>
+    <string name="title_raw_saved">Zdrojová zpráva uložena</string>
     <string name="title_attachment_saved">Příloha uložena</string>
     <string name="title_attachments_saved">Přílohy uloženy</string>
     <string name="title_attachment_unavailable">Některé přílohy nejsou staženy a nebudou zahrnuty. Pokračovat?</string>

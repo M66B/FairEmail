@@ -195,6 +195,7 @@
     <string name="title_identity_store_sent">存储已发送消息</string>
     <string name="title_identity_store_sent_remark">仅当您的电邮供应商不自动存储已发送消息时才启用此选项</string>
     <string name="title_optional">可选</string>
+    <string name="title_recommended">推荐</string>
     <string name="title_account_linked">已绑定的账户</string>
     <string name="title_account_name">账户名</string>
     <string name="title_account_name_hint">用于区分文件夹</string>

@@ -203,6 +203,7 @@
     <string name="title_identity_store_sent">Enregistrer les messages envoyés</string>
     <string name="title_identity_store_sent_remark">Activer ceci seulement si votre fournisseur n\'enregistre pas automatiquement les messages envoyés</string>
     <string name="title_optional">Facultatif</string>
+    <string name="title_recommended">Recommandé</string>
     <string name="title_account_linked">Compte associé</string>
     <string name="title_account_name">Nom du compte</string>
     <string name="title_account_name_hint">Utilisé pour différencier les dossiers</string>

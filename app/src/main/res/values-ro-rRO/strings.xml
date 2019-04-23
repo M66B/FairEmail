@@ -140,7 +140,7 @@
     <string name="title_advanced_schedule">Programat</string>
     <string name="title_advanced_metered">Folosește conexiuni contorizate</string>
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
-    <string name="title_advanced_roaming">Descărcarea mesajelor și atașărilor în roaming</string>
+    <string name="title_advanced_roaming">Descărcarea mesajelor și a atașamentelor prin conexiuni roaming</string>
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
     <string name="title_advanced_startup">Arată pe ecranul de start</string>
     <string name="title_advanced_date_header">Grupare după dată</string>
@@ -155,6 +155,7 @@
     <string name="title_advanced_monospaced">Folosește fontul proporțional pentru textul mesajului</string>
     <string name="title_advanced_html">Arată în mod automat imaginile originale pentru contactele cunoscute</string>
     <string name="title_advanced_images">Arată în mod automat imaginile pentru contactele cunoscute</string>
+    <string name="title_advanced_invert">Inversarea culorilor mesajului original atunci când este folosită tema întunecată</string>
     <string name="title_advanced_actionbar">Bara de acțiuni conversație</string>
     <string name="title_advanced_pull_refresh">Trageți în jos pentru a actualiza</string>
     <string name="title_advanced_swipenav">Glisați stânga/dreapta pentru a merge la conversația următoare/anterioară</string>
@@ -188,6 +189,7 @@
     <string name="title_advanced_name_email_hint">Dacă este dezactivată, doar numele va fi afișat atunci când este disponibil</string>
     <string name="title_advanced_flags_hint">Rețineți că mesajele marcate vor fi păstrate întotdeauna la nivel local</string>
     <string name="title_advanced_preview_hint">Disponibil doar atunci când a fost descarcat textul mesajului</string>
+    <string name="title_advanced_crash_hint">Activarea acestei opțiuni poate cauza erori de funcționare</string>
     <string name="title_advanced_autoexpand_hint">Atunci când este doar un mesaj sau doar un mesaj necitit într-o conversație</string>
     <string name="title_advanced_autocollapse_hint">Mesajele multiple vor fi mereu plate când se apasă \'înapoi\'</string>
     <string name="title_advanced_autoclose_hint">Atunci când toate mesajele sunt arhivate, trimise sau mutate la gunoi</string>
@@ -209,6 +211,7 @@
     <string name="title_identity_store_sent">Stochează mesajele trimise</string>
     <string name="title_identity_store_sent_remark">Activați doar dacă furnizorul nu stochează în mod automat mesajele trimise</string>
     <string name="title_optional">Opțional</string>
+    <string name="title_recommended">Recomandat</string>
     <string name="title_account_linked">Cont asociat</string>
     <string name="title_account_name">Nume cont</string>
     <string name="title_account_name_hint">Folosit la diferențierea dosarelor</string>
@@ -419,7 +422,7 @@
     <string name="title_next">Următor</string>
     <string name="title_answer_reply">Șablon răspuns</string>
     <string name="title_answer_name">Nume șablon</string>
-    <string name="title_answer_hide">Ascunde de meniuri</string>
+    <string name="title_answer_hide">Ascunde din meniuri</string>
     <string name="title_answer_text">Text șablon</string>
     <string name="title_answer_template_name">$name$ va fi înlocuit cu numele expeditorului</string>
     <string name="title_answer_template_email">$email$ va fi înlocuit cu adresa de e-mail a expeditorului</string>
