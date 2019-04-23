@@ -146,7 +146,6 @@
     <string name="title_advanced_monospaced">İleti metni için tek aralıklı yazı tipi kullan</string>
     <string name="title_advanced_html">Bilinen kişilerden gelen özgün iletileri otomatik olarak göster</string>
     <string name="title_advanced_images">Bilinen kişiler için görselleri otomatik olarak göster</string>
-    <string name="title_advanced_invert">Koyu tema kullanırken özgün iletinin renklerini ters çevir</string>
     <string name="title_advanced_actionbar">İletişim etkinlik çubuğu</string>
     <string name="title_advanced_pull_refresh">Yenilemek için aşağıya çekin</string>
     <string name="title_advanced_swipenav">Sonraki / önceki sohbete gitmek için sola / sağa kaydırın</string>
@@ -179,7 +178,6 @@
     <string name="title_advanced_name_email_hint">Devre dışı bırakıldığında, yalnızca adlar mevcut olduğunda gösterilecektir</string>
     <string name="title_advanced_flags_hint">Not yıldızlı iletileri her zaman yerel olarak tutulacaktır</string>
     <string name="title_advanced_preview_hint">Yalnızca ileti metni indirildiğinde kullanılabilir</string>
-    <string name="title_advanced_crash_hint">Bu seçeneği etkinleştirmek çökmelere neden olabilir</string>
     <string name="title_advanced_autoexpand_hint">Bir sohbette yalnızca bir ileti veya yalnızca bir okunmamış ileti olduğunda iletiyi otomatik olarak aç</string>
     <string name="title_advanced_autocollapse_hint">Çoklu genişletilmiş mesajlar her zaman \'geri\' komutuyla kapatılacak</string>
     <string name="title_advanced_autoclose_hint">Tüm iletiler arşivlendiğinde veya çöpe gittiğinde bu iletişim kutusunu otomatik olarak kapat</string>

@@ -88,7 +88,7 @@
     <string name="title_disagree">Не принимаю</string>
     <string name="title_version">Версия %1$s</string>
     <string name="title_list_accounts">Учётные записи</string>
-    <string name="title_list_identities">Идентификация</string>
+    <string name="title_list_identities">Идентификаторы</string>
     <string name="title_edit_account">Изменить учетную запись</string>
     <string name="title_edit_identity">Изменить идентификацию</string>
     <string name="title_edit_folder">Редактировать папку</string>
@@ -163,7 +163,6 @@
     <string name="title_advanced_monospaced">Использовать моноширинный шрифт для текста сообщения</string>
     <string name="title_advanced_html">Автоматически показывать исходное сообщение для известных контактов</string>
     <string name="title_advanced_images">Автоматически показывать изображения для известных контактов</string>
-    <string name="title_advanced_invert">Инвертировать цвета исходного сообщения при использовании темной темы</string>
     <string name="title_advanced_actionbar">Панель управления диалогами</string>
     <string name="title_advanced_pull_refresh">Потяните вниз, для обновления</string>
     <string name="title_advanced_swipenav">Свайп влево/вправо, чтобы перейти к следующему/предыдущему диплогу</string>
@@ -197,7 +196,6 @@
     <string name="title_advanced_name_email_hint">Если отключено, будут показаны только имена (при наличии)</string>
     <string name="title_advanced_flags_hint">Обратите внимание, что отмеченные сообщения всегда будут сохранены локально</string>
     <string name="title_advanced_preview_hint">Доступно только когда был загружен текст сообщения</string>
-    <string name="title_advanced_crash_hint">Включение этой опции может вызывать сбои</string>
     <string name="title_advanced_autoexpand_hint">Автоматически открывать сообщение, когда оно только одно или только одно непрочитанное сообщение в диалоге</string>
     <string name="title_advanced_autocollapse_hint">Несколько развёрнутых сообщений всегда будут закрыты по кнопке \'назад\'</string>
     <string name="title_advanced_autoclose_hint">Автоматически закрывать диалог, если все сообщения удалены, отправлены или помещены в архив</string>
@@ -342,6 +340,7 @@
     <string name="title_reply">Ответить</string>
     <string name="title_reply_to_sender">Отправителю</string>
     <string name="title_reply_to_all">Всем</string>
+    <string name="title_reply_list">Список</string>
     <string name="title_reply_receipt">Уведомление о прочтении</string>
     <string name="title_reply_template">Шаблон</string>
     <string name="title_moving">Переместить в %1$s</string>

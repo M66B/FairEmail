@@ -147,7 +147,6 @@
     <string name="title_advanced_monospaced">Usa il carattere monospaziale per il testo del messaggio</string>
     <string name="title_advanced_html">Mostra automaticamente il messaggio originale per i contatti conosciuti</string>
     <string name="title_advanced_images">Mostra automaticamente le immagini per i contatti conosciuti</string>
-    <string name="title_advanced_invert">Inverti i colori del messaggio originale quando si utilizza un tema scuro</string>
     <string name="title_advanced_actionbar">Barra di azione di conversazione</string>
     <string name="title_advanced_pull_refresh">Trascina in basso per aggiornare</string>
     <string name="title_advanced_swipenav">Scorri a sinistra/destra per andare alla conversazione successiva/precedente</string>
@@ -181,7 +180,6 @@
     <string name="title_advanced_name_email_hint">Quando disabilitati saranno mostrati solo i nomi quando disponibili</string>
     <string name="title_advanced_flags_hint">Nota che i messaggi preferiti saranno sempre conservati localmente</string>
     <string name="title_advanced_preview_hint">Disponibile solo quando è stato scaricato il testo del messaggio</string>
-    <string name="title_advanced_crash_hint">Abilitare questa opzione può causare crash</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando c\'è un solo messaggio o solo un messaggio da leggere in una conversazione</string>
     <string name="title_advanced_autocollapse_hint">Più messaggi estesi verranno sempre chiusi con \'indietro\'</string>
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni raggruppate quando tutti i messaggi sono archiviati, inviati o cestinati</string>

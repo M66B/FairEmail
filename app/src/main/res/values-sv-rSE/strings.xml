@@ -147,7 +147,6 @@
     <string name="title_advanced_monospaced">Använd monospace-typsnitt för meddelandetexten</string>
     <string name="title_advanced_html">Visa automatiskt originalmeddelande för kända kontakter</string>
     <string name="title_advanced_images">Visa bilder automatiskt för kända kontakter</string>
-    <string name="title_advanced_invert">Invertera färger av ursprungliga meddelandet när du använder ett mörkt tema</string>
     <string name="title_advanced_actionbar">Konversationens åtgärdsfält</string>
     <string name="title_advanced_pull_refresh">Dra ner för att uppdatera</string>
     <string name="title_advanced_swipenav">Svep vänster/höger för att gå till nästa/föregående konversation</string>
@@ -179,7 +178,6 @@
     <string name="title_advanced_name_email_hint">När inaktiverad visas endast namn när det är tillgängligt</string>
     <string name="title_advanced_flags_hint">Observera att stjärnmärkta meddelanden alltid kommer att lagras lokalt</string>
     <string name="title_advanced_preview_hint">Endast tillgängligt när meddelandetexten hämtades</string>
-    <string name="title_advanced_crash_hint">Aktivera det här alternativet kan orsaka krascher</string>
     <string name="title_advanced_autoexpand_hint">Öppna automatiskt meddelandet när det bara finns ett meddelande eller bara ett oläst meddelande i en konversation</string>
     <string name="title_advanced_autocollapse_hint">Flera utökade meddelanden kommer alltid att stängas på \"Tillbaka\"</string>
     <string name="title_advanced_autoclose_hint">Stäng automatiskt konversationstrådar när alla meddelanden arkiveras, skickas eller kastas</string>
