@@ -150,6 +150,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean preview;
     private boolean autohtml;
     private boolean autoimages;
+    private boolean invert;
     private boolean authentication;
     private boolean debug;
 
@@ -1399,9 +1400,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             setMeasuredDimension(getMeasuredWidth(), tvBody.getMinHeight());
                     }
                 };
-
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean invert = prefs.getBoolean("invert", false);
 
                 if (dark && invert) {
                     // https://bugs.chromium.org/p/chromium/issues/detail?id=578150
@@ -3066,6 +3064,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.autohtml = prefs.getBoolean("autohtml", false);
         this.autoimages = prefs.getBoolean("autoimages", false);
         this.authentication = prefs.getBoolean("authentication", false);
+        this.invert = prefs.getBoolean("invert", false);
         this.debug = prefs.getBoolean("debug", false);
 
         this.textSize = Helper.getTextSize(context, zoom);
