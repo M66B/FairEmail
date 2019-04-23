@@ -176,7 +176,6 @@
     <string name="title_advanced_monospaced">Use monospaced font for message text</string>
     <string name="title_advanced_html">Automatically show original message for known contacts</string>
     <string name="title_advanced_images">Automatically show images for known contacts</string>
-    <string name="title_advanced_invert">Invert colors of original message when using a dark theme</string>
     <string name="title_advanced_actionbar">Conversation action bar</string>
 
     <string name="title_advanced_pull_refresh">Pull down to refresh</string>
@@ -214,7 +213,6 @@
     <string name="title_advanced_name_email_hint">When disabled only names will be shown when available</string>
     <string name="title_advanced_flags_hint">Note that starred messages will always be kept locally</string>
     <string name="title_advanced_preview_hint">Only available when message text was downloaded</string>
-    <string name="title_advanced_crash_hint">Enabling this option can cause crashes</string>
 
     <string name="title_advanced_autoexpand_hint">Automatically open message when there is just one message or just one unread message in a conversation</string>
     <string name="title_advanced_autocollapse_hint">Multiple expanded messages will always be closed on \'back\'</string>

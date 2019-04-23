@@ -29,7 +29,6 @@ For authorizing:
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) "*... ActivityRecord not found for ...*" sometimes causes a crash after updating FairEmail.
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty.~~
 * "*... Couldn't read row ...*" causes sometimes a crash. This could be caused by a bug in the [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room) but more likely indicates a corrupt database.
-* "*... Unable to create layer ...*" causes a crash on some devices when inverting the colors of an original message due to a [bug in AndroidX](https://bugs.chromium.org/p/chromium/issues/detail?id=578150)
 
 ## Planned features
 
@@ -1392,10 +1391,6 @@ FairEmail already tries to workaround these bugs, but if this fail you'll need t
 
 ~~The original message is shown as the sender has sent it, including all colors.~~
 ~~Changing the background color would not only make the original view not original anymore, it can also result in unreadable messages.~~
-
-Recent versions of FairEmail can invert all colors of the original message when using a dark or black theme.
-You can turn this on the advanced settings.
-Be aware that this can cause [crashes](https://bugs.chromium.org/p/chromium/issues/detail?id=578150) on some devices.
 
 <br />
 

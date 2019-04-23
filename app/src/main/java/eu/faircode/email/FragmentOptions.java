@@ -86,7 +86,6 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swMonospaced;
     private SwitchCompat swHtml;
     private SwitchCompat swImages;
-    private SwitchCompat swInvert;
     private SwitchCompat swActionbar;
 
     private SwitchCompat swPull;
@@ -121,7 +120,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
 
     static String[] OPTIONS_RESTART = new String[]{
             "startup", "date", "threading", "avatars", "identicons", "name_email", "subject_italic", "flags", "preview",
-            "addresses", "monospaced", "autohtml", "autoimages", "invert", "actionbar",
+            "addresses", "monospaced", "autohtml", "autoimages", "actionbar",
             "pull", "swipenav", "autoexpand", "autoclose", "autonext",
             "authentication", "debug"
     };
@@ -130,7 +129,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             "enabled", "schedule_start", "schedule_end",
             "metered", "download", "roaming",
             "startup", "date", "threading", "avatars", "identicons", "name_email", "subject_italic", "flags", "preview",
-            "addresses", "monospaced", "autohtml", "autoimages", "invert", "actionbar",
+            "addresses", "monospaced", "autohtml", "autoimages", "actionbar",
             "pull", "swipenav", "autoexpand", "autoclose", "autonext", "collapse", "autoread", "automove",
             "autoresize", "resize", "prefix_once", "autosend",
             "notify_preview", "search_local", "light", "sound",
@@ -172,7 +171,6 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swMonospaced = view.findViewById(R.id.swMonospaced);
         swHtml = view.findViewById(R.id.swHtml);
         swImages = view.findViewById(R.id.swImages);
-        swInvert = view.findViewById(R.id.swInvert);
         swActionbar = view.findViewById(R.id.swActionbar);
 
         swPull = view.findViewById(R.id.swPull);
@@ -389,13 +387,6 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("autoimages", checked).apply();
-            }
-        });
-
-        swInvert.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("invert", checked).apply();
             }
         });
 
@@ -695,7 +686,6 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swMonospaced.setChecked(prefs.getBoolean("monospaced", false));
         swHtml.setChecked(prefs.getBoolean("autohtml", false));
         swImages.setChecked(prefs.getBoolean("autoimages", false));
-        swInvert.setChecked(prefs.getBoolean("invert", false));
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
 
         swPull.setChecked(prefs.getBoolean("pull", true));

@@ -36,8 +36,6 @@ import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.graphics.Color;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -150,7 +148,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean preview;
     private boolean autohtml;
     private boolean autoimages;
-    private boolean invert;
     private boolean authentication;
     private boolean debug;
 
@@ -1402,13 +1399,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 };
 
-                if (dark && invert) {
-                    // https://bugs.chromium.org/p/chromium/issues/detail?id=578150
-                    Paint paint = new Paint();
-                    paint.setColorFilter(new ColorMatrixColorFilter(Helper.MATRIX_NEGATIVE));
-                    webView.setLayerType(View.LAYER_TYPE_HARDWARE, paint);
-                }
-
                 webView.setWebViewClient(new WebViewClient() {
                     public boolean shouldOverrideUrlLoading(WebView view, String url) {
                         Log.i("Open url=" + url);
@@ -1484,6 +1474,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             final WebView webView = (WebView) vwBody;
             webView.loadUrl("about:blank");
+            webView.setBackgroundColor(Color.TRANSPARENT);
 
             WebSettings settings = webView.getSettings();
             settings.setUseWideViewPort(true);
@@ -1507,11 +1498,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (TextUtils.isEmpty(html)) {
                 Bundle args = new Bundle();
                 args.putLong("id", message.id);
+                args.putBoolean("dark", dark);
 
                 new SimpleTask<OriginalMessage>() {
                     @Override
                     protected OriginalMessage onExecute(Context context, Bundle args) throws IOException {
                         long id = args.getLong("id");
+                        boolean dark = args.getBoolean("dark");
 
                         DB db = DB.getInstance(context);
                         EntityMessage message = db.message().getMessage(id);
@@ -1522,6 +1515,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         original.html = Helper.readText(message.getFile(context));
                         original.html = HtmlHelper.getHtmlEmbedded(context, id, original.html);
                         original.html = HtmlHelper.removeTracking(context, original.html);
+
+                        if (dark)
+                            original.html = "<style type=\"text/css\">" +
+                                    "* { background: #000000 !important; color: #FFFFFF !important }" +
+                                    "</style>" + original.html;
 
                         Document doc = Jsoup.parse(original.html);
                         original.has_images = (doc.select("img").size() > 0);
@@ -3069,7 +3067,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.autohtml = prefs.getBoolean("autohtml", false);
         this.autoimages = prefs.getBoolean("autoimages", false);
         this.authentication = prefs.getBoolean("authentication", false);
-        this.invert = prefs.getBoolean("invert", false);
         this.debug = prefs.getBoolean("debug", false);
 
         this.textSize = Helper.getTextSize(context, zoom);
