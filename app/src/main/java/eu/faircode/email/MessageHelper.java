@@ -533,26 +533,6 @@ public class MessageHelper {
         return result;
     }
 
-    Address getSender() throws MessagingException {
-        String sender = imessage.getHeader("Sender", null);
-        if (sender == null)
-            return null;
-
-        InternetAddress[] address = null;
-        try {
-            address = InternetAddress.parse(sender);
-        } catch (AddressException ex) {
-            Log.w(ex);
-        }
-
-        if (address == null || address.length == 0)
-            return null;
-
-        fix(address[0]);
-
-        return address[0];
-    }
-
     Address[] getFrom() throws MessagingException {
         return fix(imessage.getFrom());
     }
@@ -575,6 +555,27 @@ public class MessageHelper {
             return fix(imessage.getReplyTo());
         else
             return null;
+    }
+
+    Address[] getListPost() throws MessagingException {
+        // https://www.ietf.org/rfc/rfc2369.txt
+        String list = imessage.getHeader("List-Post", null);
+        if (list == null || "NO".equals(list))
+            return null;
+
+        InternetAddress[] address = null;
+        try {
+            address = InternetAddress.parse(list);
+        } catch (AddressException ex) {
+            Log.w(ex);
+        }
+
+        if (address == null || address.length == 0)
+            return null;
+
+        fix(address[0]);
+
+        return new Address[]{address[0]};
     }
 
     private static Address[] fix(Address[] addresses) {

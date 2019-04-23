@@ -1709,7 +1709,8 @@ public class FragmentCompose extends FragmentBase {
                         if (answer > 0)
                             body = EntityAnswer.getAnswerText(db, answer, null) + body;
                     } else {
-                        if ("reply".equals(action) || "reply_all".equals(action) || "receipt".equals(action)) {
+                        if ("reply".equals(action) || "reply_all".equals(action) ||
+                                "list".equals(action) || "receipt".equals(action)) {
                             if (ref.to != null && ref.to.length > 0) {
                                 String to = ((InternetAddress) ref.to[0]).getAddress();
                                 int at = to.indexOf('@');
@@ -1721,7 +1722,10 @@ public class FragmentCompose extends FragmentBase {
                             draft.inreplyto = ref.msgid;
                             draft.thread = ref.thread;
 
-                            if ("receipt".equals(action) && ref.receipt_to != null) {
+                            if ("list".equals(action) && ref.list_post != null) {
+                                draft.to = ref.list_post;
+                                draft.from = ref.to;
+                            } else if ("receipt".equals(action) && ref.receipt_to != null) {
                                 draft.to = ref.receipt_to;
                                 draft.from = ref.to;
                             } else {
@@ -1778,6 +1782,8 @@ public class FragmentCompose extends FragmentBase {
                                 draft.subject = context.getString(R.string.title_subject_reply, subject);
                             else
                                 draft.subject = ref.subject;
+                        } else if ("list".equals(action)) {
+                            draft.subject = ref.subject;
                         } else if ("receipt".equals(action)) {
                             draft.subject = context.getString(R.string.title_receipt_subject, subject);
 
@@ -1859,7 +1865,7 @@ public class FragmentCompose extends FragmentBase {
                     Core.updateMessageSize(context, draft.id);
 
                     // Write reference text
-                    if (ref != null && ref.content && !"receipt".equals(action)) {
+                    if (ref != null && ref.content && !"list".equals(action) && !"receipt".equals(action)) {
                         String refBody = String.format("<p>%s %s:</p>\n<blockquote>%s</blockquote>",
                                 Html.escapeHtml(new Date(ref.received).toString()),
                                 Html.escapeHtml(MessageHelper.formatAddresses(ref.from)),

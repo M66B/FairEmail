@@ -102,6 +102,7 @@ public class EntityMessage implements Serializable {
     public Address[] cc;
     public Address[] bcc;
     public Address[] reply;
+    public Address[] list_post;
     public String headers;
     public Boolean raw;
     public String subject;

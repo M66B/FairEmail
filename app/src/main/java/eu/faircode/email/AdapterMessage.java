@@ -2882,6 +2882,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             View anchor = bnvActions.findViewById(R.id.action_reply);
             PopupMenu popupMenu = new PopupMenu(context, anchor);
             popupMenu.inflate(R.menu.menu_reply);
+            popupMenu.getMenu().findItem(R.id.menu_reply_list).setVisible(data.message.list_post != null);
             popupMenu.getMenu().findItem(R.id.menu_reply_receipt).setVisible(data.message.receipt_to != null);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -2893,6 +2894,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_reply_to_all:
                             onMenuReply(data, "reply_all");
+                            return true;
+                        case R.id.menu_reply_list:
+                            onMenuReply(data, "list");
                             return true;
                         case R.id.menu_reply_receipt:
                             onMenuReply(data, "receipt");

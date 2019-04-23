@@ -1191,6 +1191,7 @@ class Core {
                 message.cc = ccs;
                 message.bcc = helper.getBcc();
                 message.reply = helper.getReply();
+                message.list_post = helper.getListPost();
                 message.subject = helper.getSubject();
                 message.size = helper.getSize();
                 message.content = false;
