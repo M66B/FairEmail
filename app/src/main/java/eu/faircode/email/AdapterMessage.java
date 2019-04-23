@@ -1395,9 +1395,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 WebView webView = new WebView(context) {
                     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
                         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-                        setMeasuredDimension(
-                                getMeasuredWidth(),
-                                Math.max(tvBody.getMinHeight(), getMeasuredHeight()));
+                        int w = getMeasuredWidth();
+                        int h = getMeasuredHeight();
+                        Log.i("WebView " + w + "x" + h);
+                        setMeasuredDimension(w, Math.max(tvBody.getMinHeight(), h));
                     }
                 };
 
