@@ -1499,6 +1499,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Bundle args = new Bundle();
                 args.putLong("id", message.id);
                 args.putBoolean("dark", dark);
+                args.putInt("color", textColorSecondary);
 
                 new SimpleTask<OriginalMessage>() {
                     @Override
@@ -1516,10 +1517,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         original.html = HtmlHelper.getHtmlEmbedded(context, id, original.html);
                         original.html = HtmlHelper.removeTracking(context, original.html);
 
-                        if (dark)
+                        if (dark) {
+                            String color = String.format("#%06X", (args.getInt("color") & 0xFFFFFF));
                             original.html = "<style type=\"text/css\">" +
-                                    "* { background: #000000 !important; color: #FFFFFF !important }" +
+                                    "* { background: transparent !important; color: " + color + " !important }" +
                                     "</style>" + original.html;
+                        }
 
                         Document doc = Jsoup.parse(original.html);
                         original.has_images = (doc.select("img").size() > 0);
