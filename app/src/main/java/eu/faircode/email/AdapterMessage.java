@@ -1395,9 +1395,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 WebView webView = new WebView(context) {
                     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
                         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-                        int height = getMeasuredHeight();
-                        if (height < tvBody.getMinHeight())
-                            setMeasuredDimension(getMeasuredWidth(), tvBody.getMinHeight());
+                        setMeasuredDimension(
+                                getMeasuredWidth(),
+                                Math.max(tvBody.getMinHeight(), getMeasuredHeight()));
                     }
                 };
 
