@@ -6,6 +6,7 @@
     <string name="channel_notification">الاشعارات</string>
     <string name="channel_warning">التحذيرات</string>
     <string name="channel_error">الأخطاء</string>
+    <string name="channel_group_contacts">المُراسِلون</string>
     <string name="tile_synchronize">المزامنة</string>
     <string name="tile_unseen">رسائل جديدة</string>
     <string name="shortcut_compose">تحرير</string>
@@ -47,6 +48,8 @@
     <string name="menu_invite">دعوة</string>
     <string name="menu_rate">قيّم هذا التطبيق</string>
     <string name="menu_other">تطبيقات أخرى</string>
+    <string name="title_issue_question">سؤال</string>
+    <string name="title_issue_problem">مشكلة</string>
     <string name="title_welcome">مرحباً</string>
     <string name="title_eula">اتفاقية ترخيص المستخدم النهائي</string>
     <string name="title_agree">أنا أوافق</string>
@@ -136,6 +139,7 @@
     <string name="title_identity_delivery_receipt">طلب إيصال بالقراءة</string>
     <string name="title_identity_store_sent">الإحتفاظ بالرسائل المبعوثة</string>
     <string name="title_optional">اختياري</string>
+    <string name="title_recommended">موصى به</string>
     <string name="title_account_linked">الحساب المرتبط</string>
     <string name="title_account_name">اسم الحساب</string>
     <string name="title_account_signature">نص التوقيع</string>
@@ -177,6 +181,7 @@
     <string name="title_edit_rules">تعديل القواعد</string>
     <string name="title_folder_name">إسم المجلد</string>
     <string name="title_display_name">الاسم المعروض</string>
+    <string name="title_hide_folder">إخفاء المجلد</string>
     <string name="title_unified_folder">وتظهر في علبة موحد</string>
     <string name="title_notify_folder">أخبرني لدى ورود رسائل جديدة</string>
     <string name="title_keep_days">مدة الاحتفاظ (بالأيام)</string>
@@ -204,6 +209,7 @@
     <string name="title_unflag">إزالة نجمة</string>
     <string name="title_forward">إعادة توجيه</string>
     <string name="title_share">مشاركة</string>
+    <string name="title_print">طباعة</string>
     <string name="title_show_headers">عرض العنوان الرأسي</string>
     <string name="title_manage_keywords">إدارة الكلمات المفتاحية</string>
     <string name="title_add_keyword">إضافة كلمة مفتاحية</string>
@@ -213,11 +219,13 @@
     <string name="title_trash">سلة المهملات</string>
     <string name="title_delete">حذف</string>
     <string name="title_more">المزيد</string>
-    <string name="title_spam">رسائل غير مرغوب بها</string>
+    <string name="title_spam">البريد المزعج</string>
     <string name="title_move">نقل</string>
     <string name="title_move_to">انقل إلى %1$s</string>
     <string name="title_archive">أرشيف</string>
     <string name="title_reply">رد</string>
+    <string name="title_reply_to_sender">المُرسِل</string>
+    <string name="title_reply_to_all">الكل</string>
     <string name="title_moving">جارٍ النقل إلى %1$s</string>
     <string name="title_open_with">افتح باستخدام</string>
     <string name="title_no_viewer">لا يوجد عارض التطبيق متاح ل %1$s</string>
@@ -229,10 +237,10 @@
     <string name="title_ask_delete_rule">حذف القاعدة بشكل دائم؟</string>
     <string name="title_ask_discard">إلغاء المسودة؟</string>
     <string name="title_compose">تحرير</string>
-    <string name="title_from">من:</string>
+    <string name="title_from">مِن:</string>
     <string name="title_to">إلى:</string>
     <string name="title_reply_to">الرد على:</string>
-    <string name="title_cc">نسخة:</string>
+    <string name="title_cc">نسخة كربونية:</string>
     <string name="title_bcc">نسخة مخفية:</string>
     <string name="title_via_identity">عبر:</string>
     <string name="title_received">تاريخ الاستلام:</string>
@@ -269,7 +277,10 @@
     <string name="title_sort_on_unread">غير مقروءة</string>
     <string name="title_sort_on_starred">مميّزة بنجمة</string>
     <string name="title_sort_on_sender">المُرسِل</string>
+    <string name="title_sort_on_subject">الموضوع</string>
+    <string name="title_sort_on_size">الحجم</string>
     <string name="title_zoom">حجم النص</string>
+    <string name="title_select_all">اختيار الكل</string>
     <string name="title_previous">السابق</string>
     <string name="title_next">التالي</string>
     <string name="title_answer_reply">نموذج الرد</string>
@@ -302,6 +313,7 @@
     <string name="title_legend_attachment">لها مرفق</string>
     <string name="title_legend_contacts">إدارة المُراسِلون</string>
     <string name="title_legend_view">عرض المحتوى</string>
+    <string name="title_legend_hide">إخفاء المحتوى</string>
     <string name="title_legend_download">تنزيل المحتوى</string>
     <string name="title_legend_cc">عرض CC/BCC</string>
     <string name="title_legend_pick">اختيار جهة اتصال</string>
@@ -322,7 +334,12 @@
     <string name="title_legend_waiting">في انتظار المزامنة اللاحقة</string>
     <string name="title_legend_metered">الشبكة مقاسة</string>
     <string name="title_legend_unmetered">الشبكة غير مقاسة</string>
+    <string name="title_legend_edit">تعديل</string>
+    <string name="title_legend_default_color">اللون الافتراضي</string>
+    <string name="title_legend_save">حفظ</string>
+    <string name="title_legend_delete">حذف</string>
     <string name="title_hint_folder_actions">اضغط مطولاً للمزيد من الخيارات</string>
+    <string name="title_hint_image_link">رابط الصورة</string>
     <string name="title_open_link">افتح الرابط</string>
     <string name="title_select_app">اختر تطبيقا</string>
     <string name="title_updated">هناك إصدار جديد متوفر %1$s</string>
@@ -348,6 +365,11 @@
     <string name="title_unexpected_error">لقد حدث خطأ غير متوقع</string>
     <string name="title_log">السجل</string>
     <string name="title_auto_scroll">تمرير تلقائي</string>
+    <string-array name="startupNames">
+        <item>Unified inbox</item>
+        <item>Unified folders</item>
+        <item>الحسابات</item>
+    </string-array>
     <string-array name="downloadNames">
         <item>16 كيلوبايت</item>
         <item>32 كيلوبايت</item>

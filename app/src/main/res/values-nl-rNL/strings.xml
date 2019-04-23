@@ -326,6 +326,7 @@
     <string name="title_reply">Beantwoorden</string>
     <string name="title_reply_to_sender">Afzender</string>
     <string name="title_reply_to_all">Iedereen</string>
+    <string name="title_reply_list">Lijst</string>
     <string name="title_reply_receipt">Leesbevestiging</string>
     <string name="title_reply_template">Sjabloon</string>
     <string name="title_moving">Verplaatsen naar %1$s</string>
