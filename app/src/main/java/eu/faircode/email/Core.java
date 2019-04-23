@@ -704,12 +704,10 @@ class Core {
             Map<String, List<EntityFolder>> parentFolders = new HashMap<>();
             for (Folder ifolder : ifolders) {
                 String fullName = ifolder.getFullName();
-                boolean subscribed = ifolder.isSubscribed();
                 String[] attr = attrs.get(ifolder);
                 String type = EntityFolder.getType(attr, fullName);
 
                 EntityLog.log(context, account.name + ":" + fullName +
-                        " subscribed=" + subscribed +
                         " attrs=" + TextUtils.join(" ", attr) + " type=" + type);
 
                 if (type != null) {
@@ -726,7 +724,7 @@ class Core {
                         folder.name = fullName;
                         folder.display = display;
                         folder.type = (EntityFolder.SYSTEM.equals(type) ? type : EntityFolder.USER);
-                        folder.synchronize = subscribed;
+                        folder.synchronize = false;
                         folder.poll = ("imap.gmail.com".equals(account.host));
                         folder.sync_days = EntityFolder.DEFAULT_SYNC;
                         folder.keep_days = EntityFolder.DEFAULT_KEEP;
@@ -734,14 +732,6 @@ class Core {
                         Log.i(folder.name + " added type=" + folder.type);
                     } else {
                         Log.i(folder.name + " exists type=" + folder.type);
-
-                        if (folder.synchronize && !subscribed)
-                            try {
-                                Log.i(folder.name + " subscribe=" + folder.synchronize);
-                                ifolder.setSubscribed(folder.synchronize);
-                            } catch (MessagingException ex) {
-                                Log.w(ex);
-                            }
 
                         if (folder.display == null) {
                             if (display != null) {
