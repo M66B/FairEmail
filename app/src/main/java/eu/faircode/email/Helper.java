@@ -1217,4 +1217,11 @@ public class Helper {
         else
             return DateUtils.getRelativeTimeSpanString(context, millis);
     }
+
+    static String ellipsize(String text, int maxLen) {
+        if (text == null || text.length() < maxLen) {
+            return text;
+        }
+        return text.substring(0, maxLen) + "...";
+    }
 }

@@ -188,6 +188,8 @@ public class FragmentCompose extends FragmentBase {
     static final int REDUCED_IMAGE_SIZE = 1440; // pixels
     static final int REDUCED_IMAGE_QUALITY = 90; // percent
 
+    private static final int ADDRESS_ELLIPSIZE = 50;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -2169,13 +2171,37 @@ public class FragmentCompose extends FragmentBase {
                 InternetAddress abcc[] = null;
 
                 if (!TextUtils.isEmpty(to))
-                    ato = InternetAddress.parse(to);
+                    try {
+                        ato = InternetAddress.parse(to);
+                        if (action == R.id.action_send)
+                            for (InternetAddress address : ato)
+                                address.validate();
+                    } catch (AddressException ex) {
+                        throw new AddressException(context.getString(R.string.title_address_parse_error,
+                                Helper.ellipsize(to, ADDRESS_ELLIPSIZE), ex.getMessage()));
+                    }
 
                 if (!TextUtils.isEmpty(cc))
-                    acc = InternetAddress.parse(cc);
+                    try {
+                        acc = InternetAddress.parse(cc);
+                        if (action == R.id.action_send)
+                            for (InternetAddress address : acc)
+                                address.validate();
+                    } catch (AddressException ex) {
+                        throw new AddressException(context.getString(R.string.title_address_parse_error,
+                                Helper.ellipsize(cc, ADDRESS_ELLIPSIZE), ex.getMessage()));
+                    }
 
                 if (!TextUtils.isEmpty(bcc))
-                    abcc = InternetAddress.parse(bcc);
+                    try {
+                        abcc = InternetAddress.parse(bcc);
+                        if (action == R.id.action_send)
+                            for (InternetAddress address : abcc)
+                                address.validate();
+                    } catch (AddressException ex) {
+                        throw new AddressException(context.getString(R.string.title_address_parse_error,
+                                Helper.ellipsize(bcc, ADDRESS_ELLIPSIZE), ex.getMessage()));
+                    }
 
                 if (TextUtils.isEmpty(extra))
                     extra = null;
