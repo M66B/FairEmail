@@ -1675,11 +1675,10 @@ class Core {
             if (light)
                 builder.setLights(Color.GREEN, 1000, 1000);
 
-            if (sound == null) {
-                Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-                builder.setSound(uri);
-            } else
-                builder.setSound(Uri.parse(sound));
+            Uri uri = (sound == null ? null : Uri.parse(sound));
+            if (uri == null || "file".equals(uri.getScheme()))
+                uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            builder.setSound(uri);
 
             builder.setOnlyAlertOnce(true);
         } else

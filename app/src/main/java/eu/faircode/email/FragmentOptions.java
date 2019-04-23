@@ -828,6 +828,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             if (resultCode == RESULT_OK) {
                 Uri uri = data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI);
                 Log.i("Selected ringtone=" + uri);
+                if (uri != null && "file".equals(uri.getScheme()))
+                    uri = null;
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                 if (uri == null)
