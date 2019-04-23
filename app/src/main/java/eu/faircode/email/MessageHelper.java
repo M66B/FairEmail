@@ -284,12 +284,12 @@ public class MessageHelper {
                 return imessage;
             }
 
-        build(context, message, identity, imessage);
+        build(context, message, attachments, identity, imessage);
 
         return imessage;
     }
 
-    static void build(Context context, EntityMessage message, EntityIdentity identity, MimeMessage imessage) throws IOException, MessagingException {
+    static void build(Context context, EntityMessage message, List<EntityAttachment> attachments, EntityIdentity identity, MimeMessage imessage) throws IOException, MessagingException {
         DB db = DB.getInstance(context);
 
         if (message.receipt_request != null && message.receipt_request) {
@@ -350,7 +350,6 @@ public class MessageHelper {
         alternativePart.addBodyPart(htmlPart);
 
         int available = 0;
-        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
         for (EntityAttachment attachment : attachments)
             if (attachment.available)
                 available++;
