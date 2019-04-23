@@ -95,6 +95,11 @@ One line command to display certificate fingerprints:
 
 * [F-Droid](https://f-droid.org/en/packages/eu.faircode.email/)
 
+Note that F-Droid builds new versions irregularly.
+To get updates in a timely fashion you are advised to use the GitHub release.
+The GitHib release will automatically check for updates on GitHub.
+You can turn this off in the advanced options.
+
 ## Privacy
 
 Please see [here](https://github.com/M66B/open-source-email/blob/master/PRIVACY.md#fairemail) for the privacy policy.
