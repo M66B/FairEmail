@@ -1099,11 +1099,9 @@ public class FragmentCompose extends FragmentBase {
                     for (int i = 0; i < ato.length; i++)
                         tos[i] = ato[i].getAddress();
 
-                    Intent data = new Intent();
-                    data.setAction(OpenPgpApi.ACTION_SIGN_AND_ENCRYPT);
+                    Intent data = new Intent(OpenPgpApi.ACTION_SIGN_AND_ENCRYPT);
                     data.putExtra(OpenPgpApi.EXTRA_USER_IDS, tos);
                     data.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
-
                     encrypt(data, false);
                 } catch (Throwable ex) {
                     if (ex instanceof IllegalArgumentException)
@@ -1220,10 +1218,9 @@ public class FragmentCompose extends FragmentBase {
                             return null; // send message
                         else {
                             // Sign message
-                            Intent signRequest = new Intent();
-                            signRequest.setAction(OpenPgpApi.ACTION_DETACHED_SIGN);
-                            signRequest.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, data.getLongExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, -1));
-                            return signRequest;
+                            Intent intent = new Intent(OpenPgpApi.ACTION_DETACHED_SIGN);
+                            intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, data.getLongExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, -1));
+                            return intent;
                         }
 
                     case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED:
@@ -1296,13 +1293,18 @@ public class FragmentCompose extends FragmentBase {
                 }
             } else if (requestCode == ActivityCompose.REQUEST_ENCRYPT) {
                 if (data != null) {
-                    data.setAction(OpenPgpApi.ACTION_SIGN_AND_ENCRYPT);
-                    encrypt(data, false);
+                    Intent intent = new Intent(OpenPgpApi.ACTION_SIGN_AND_ENCRYPT);
+                    if (data.hasExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID))
+                        intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, data.getLongExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, -1));
+                    intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
+                    encrypt(intent, false);
                 }
             } else if (requestCode == ActivityCompose.REQUEST_SIGN) {
                 if (data != null) {
-                    data.setAction(OpenPgpApi.ACTION_DETACHED_SIGN);
-                    encrypt(data, true);
+                    Intent intent = new Intent(OpenPgpApi.ACTION_DETACHED_SIGN);
+                    if (data.hasExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID))
+                        intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, data.getLongExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, -1));
+                    encrypt(intent, true);
                 }
             } else {
                 if (data != null)
