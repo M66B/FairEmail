@@ -1368,25 +1368,26 @@ class Core {
         Address[] recipients = (type == EntityContact.TYPE_TO
                 ? message.to
                 : (message.reply != null ? message.reply : message.from));
-        if (recipients != null) {
-            // Check if from self
-            if (type == EntityContact.TYPE_FROM) {
-                boolean me = true;
-                for (Address reply : recipients) {
-                    String email = ((InternetAddress) reply).getAddress();
-                    String canonical = Helper.canonicalAddress(email);
-                    if (!TextUtils.isEmpty(email) &&
-                            db.identity().getIdentity(folder.account, email) == null &&
-                            (canonical.equals(email) ||
-                                    db.identity().getIdentity(folder.account, canonical) == null)) {
-                        me = false;
-                        break;
-                    }
-                }
-                if (me)
-                    recipients = message.to;
-            }
 
+        // Check if from self
+        if (type == EntityContact.TYPE_FROM && recipients != null && recipients.length > 0) {
+            boolean me = true;
+            for (Address reply : recipients) {
+                String email = ((InternetAddress) reply).getAddress();
+                String canonical = Helper.canonicalAddress(email);
+                if (!TextUtils.isEmpty(email) &&
+                        db.identity().getIdentity(folder.account, email) == null &&
+                        (canonical.equals(email) ||
+                                db.identity().getIdentity(folder.account, canonical) == null)) {
+                    me = false;
+                    break;
+                }
+            }
+            if (me)
+                recipients = message.to;
+        }
+
+        if (recipients != null) {
             for (Address recipient : recipients) {
                 String email = ((InternetAddress) recipient).getAddress();
                 String name = ((InternetAddress) recipient).getPersonal();
