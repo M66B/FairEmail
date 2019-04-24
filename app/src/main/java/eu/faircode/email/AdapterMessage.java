@@ -1782,7 +1782,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean show_images = properties.getValue("images", id);
                     if (show_images) {
                         ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
-                        if (image.length > 0) {
+                        if (image.length > 0 && image[0].getSource() != null) {
                             onOpenImage(image[0].getDrawable(), image[0].getSource());
                             return true;
                         }
