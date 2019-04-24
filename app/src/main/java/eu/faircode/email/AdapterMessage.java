@@ -1769,22 +1769,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     int line = layout.getLineForVertical(y);
                     int off = layout.getOffsetForHorizontal(line, x);
 
-                    boolean show_images = properties.getValue("images", id);
+                    URLSpan[] link = buffer.getSpans(off, off, URLSpan.class);
+                    if (link.length > 0) {
+                        String url = link[0].getURL();
+                        Uri uri = Uri.parse(url);
+                        if (uri.getScheme() == null)
+                            uri = Uri.parse("https://" + url);
+                        onOpenLink(uri);
+                        return true;
+                    }
 
+                    boolean show_images = properties.getValue("images", id);
                     if (show_images) {
                         ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
                         if (image.length > 0) {
                             onOpenImage(image[0].getDrawable(), image[0].getSource());
-                            return true;
-                        }
-                    } else {
-                        URLSpan[] link = buffer.getSpans(off, off, URLSpan.class);
-                        if (link.length > 0) {
-                            String url = link[0].getURL();
-                            Uri uri = Uri.parse(url);
-                            if (uri.getScheme() == null)
-                                uri = Uri.parse("https://" + url);
-                            onOpenLink(uri);
                             return true;
                         }
                     }
