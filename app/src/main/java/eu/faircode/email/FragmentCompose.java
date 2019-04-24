@@ -1315,18 +1315,13 @@ public class FragmentCompose extends FragmentBase {
                         intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, data.getLongExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, -1));
                         intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
                         encrypt(intent);
-                    } else {
-                        data.removeExtra(OpenPgpApi.EXTRA_CALL_UUID1);
-                        data.removeExtra(OpenPgpApi.EXTRA_CALL_UUID2);
+                    } else
                         encrypt(data);
-                    }
                 }
             } else if (requestCode == ActivityCompose.REQUEST_ENCRYPT || requestCode == ActivityCompose.REQUEST_SIGN) {
                 if (data != null) {
                     if (BuildConfig.BETA_RELEASE)
                         Log.logExtras(data);
-                    data.removeExtra(OpenPgpApi.EXTRA_CALL_UUID1);
-                    data.removeExtra(OpenPgpApi.EXTRA_CALL_UUID2);
                     encrypt(data);
                 }
             } else {
