@@ -170,6 +170,7 @@ public class FragmentCompose extends FragmentBase {
     private Group grpSignature;
     private Group grpReference;
 
+    private ContentResolver resolver;
     private AdapterAttachment adapter;
 
     private boolean pro;
@@ -236,6 +237,8 @@ public class FragmentCompose extends FragmentBase {
         grpBody = view.findViewById(R.id.grpBody);
         grpSignature = view.findViewById(R.id.grpSignature);
         grpReference = view.findViewById(R.id.grpReference);
+
+        resolver = getContext().getContentResolver();
 
         // Wire controls
         spIdentity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -452,6 +455,23 @@ public class FragmentCompose extends FragmentBase {
                 new int[]{android.R.id.text1, android.R.id.text2},
                 0);
 
+        cadapter.setCursorToStringConverter(new SimpleCursorAdapter.CursorToStringConverter() {
+            public CharSequence convertToString(Cursor cursor) {
+                int colName = cursor.getColumnIndex(contacts ? ContactsContract.Contacts.DISPLAY_NAME : "name");
+                int colEmail = cursor.getColumnIndex(contacts ? ContactsContract.CommonDataKinds.Email.DATA : "email");
+                String name = cursor.getString(colName);
+                String email = cursor.getString(colEmail);
+                StringBuilder sb = new StringBuilder();
+                if (name == null)
+                    sb.append(email);
+                else {
+                    sb.append("\"").append(name).append("\" ");
+                    sb.append("<").append(email).append(">");
+                }
+                return sb.toString();
+            }
+        });
+
         etTo.setAdapter(cadapter);
         etCc.setAdapter(cadapter);
         etBcc.setAdapter(cadapter);
@@ -460,8 +480,7 @@ public class FragmentCompose extends FragmentBase {
         etCc.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
         etBcc.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
 
-        if (contacts) {
-            final ContentResolver resolver = getContext().getContentResolver();
+        if (contacts)
             cadapter.setFilterQueryProvider(new FilterQueryProvider() {
                 public Cursor runQuery(CharSequence typed) {
                     Log.i("Searching provided contact=" + typed);
@@ -481,7 +500,7 @@ public class FragmentCompose extends FragmentBase {
                                     ", " + ContactsContract.CommonDataKinds.Email.DATA + " COLLATE NOCASE");
                 }
             });
-        } else
+        else
             cadapter.setFilterQueryProvider(new FilterQueryProvider() {
                 @Override
                 public Cursor runQuery(CharSequence typed) {
@@ -489,23 +508,6 @@ public class FragmentCompose extends FragmentBase {
                     return db.contact().searchContacts(null, null, "%" + typed + "%");
                 }
             });
-
-        cadapter.setCursorToStringConverter(new SimpleCursorAdapter.CursorToStringConverter() {
-            public CharSequence convertToString(Cursor cursor) {
-                int colName = cursor.getColumnIndex(contacts ? ContactsContract.Contacts.DISPLAY_NAME : "name");
-                int colEmail = cursor.getColumnIndex(contacts ? ContactsContract.CommonDataKinds.Email.DATA : "email");
-                String name = cursor.getString(colName);
-                String email = cursor.getString(colEmail);
-                StringBuilder sb = new StringBuilder();
-                if (name == null)
-                    sb.append(email);
-                else {
-                    sb.append("\"").append(name).append("\" ");
-                    sb.append("<").append(email).append(">");
-                }
-                return sb.toString();
-            }
-        });
 
         rvAttachment.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
@@ -1330,7 +1332,7 @@ public class FragmentCompose extends FragmentBase {
         try {
             Uri uri = data.getData();
             if (uri != null)
-                cursor = getContext().getContentResolver().query(uri,
+                cursor = resolver.query(uri,
                         new String[]{
                                 ContactsContract.CommonDataKinds.Email.ADDRESS,
                                 ContactsContract.Contacts.DISPLAY_NAME
