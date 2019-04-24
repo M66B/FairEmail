@@ -188,6 +188,7 @@ dependencies {
 
     // https://www.sqlite.org/changes.html
     // https://github.com/requery/sqlite-android/
+    // https://mvnrepository.com/artifact/io.requery/sqlite-android?repo=jcenter
     implementation "io.requery:sqlite-android:$requery_version"
 
     // https://github.com/leolin310148/ShortcutBadger
