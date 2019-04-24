@@ -1520,7 +1520,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (dark) {
                             String color = String.format("#%06X", (args.getInt("color") & 0xFFFFFF));
                             original.html = "<style type=\"text/css\">" +
-                                    "* { background: transparent !important; color: " + color + " !important }" +
+                                    "* { background: black !important; color: " + color + " !important }" +
                                     "</style>" + original.html;
                         }
 
