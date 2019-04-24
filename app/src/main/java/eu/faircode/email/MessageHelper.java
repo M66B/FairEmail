@@ -66,7 +66,9 @@ import javax.mail.internet.ParseException;
 public class MessageHelper {
     private MimeMessage imessage;
 
-    private final static int NETWORK_TIMEOUT = 20 * 1000; // milliseconds
+    private final static int CONNECT_TIMEOUT = 20 * 1000; // milliseconds
+    private final static int WRITE_TIMEOUT = 40 * 1000; // milliseconds
+    private final static int READ_TIMEOUT = 40 * 1000; // milliseconds
     private final static int FETCH_SIZE = 1024 * 1024; // bytes, default 16K
     private final static int POOL_TIMEOUT = 45 * 1000; // milliseconds, default 45 sec
 
@@ -103,9 +105,9 @@ public class MessageHelper {
             props.put("mail.imaps.auth.ntlm.domain", realm);
 
         // TODO: make timeouts configurable?
-        props.put("mail.imaps.connectiontimeout", Integer.toString(NETWORK_TIMEOUT));
-        props.put("mail.imaps.timeout", Integer.toString(NETWORK_TIMEOUT));
-        props.put("mail.imaps.writetimeout", Integer.toString(NETWORK_TIMEOUT)); // one thread overhead
+        props.put("mail.imaps.connectiontimeout", Integer.toString(CONNECT_TIMEOUT));
+        props.put("mail.imaps.writetimeout", Integer.toString(WRITE_TIMEOUT)); // one thread overhead
+        props.put("mail.imaps.timeout", Integer.toString(READ_TIMEOUT));
 
         props.put("mail.imaps.connectionpool.debug", "true");
         props.put("mail.imaps.connectionpooltimeout", Integer.toString(POOL_TIMEOUT));
@@ -128,9 +130,9 @@ public class MessageHelper {
         if (realm != null)
             props.put("mail.imap.auth.ntlm.domain", realm);
 
-        props.put("mail.imap.connectiontimeout", Integer.toString(NETWORK_TIMEOUT));
-        props.put("mail.imap.timeout", Integer.toString(NETWORK_TIMEOUT));
-        props.put("mail.imap.writetimeout", Integer.toString(NETWORK_TIMEOUT)); // one thread overhead
+        props.put("mail.imap.connectiontimeout", Integer.toString(CONNECT_TIMEOUT));
+        props.put("mail.imap.writetimeout", Integer.toString(WRITE_TIMEOUT)); // one thread overhead
+        props.put("mail.imap.timeout", Integer.toString(READ_TIMEOUT));
 
         props.put("mail.imap.connectionpool.debug", "true");
         props.put("mail.imap.connectionpooltimeout", Integer.toString(POOL_TIMEOUT));
@@ -151,9 +153,9 @@ public class MessageHelper {
         if (realm != null)
             props.put("mail.smtps.auth.ntlm.domain", realm);
 
-        props.put("mail.smtps.connectiontimeout", Integer.toString(NETWORK_TIMEOUT));
-        props.put("mail.smtps.writetimeout", Integer.toString(NETWORK_TIMEOUT)); // one thread overhead
-        props.put("mail.smtps.timeout", Integer.toString(NETWORK_TIMEOUT));
+        props.put("mail.smtps.connectiontimeout", Integer.toString(CONNECT_TIMEOUT));
+        props.put("mail.smtps.writetimeout", Integer.toString(WRITE_TIMEOUT)); // one thread overhead
+        props.put("mail.smtps.timeout", Integer.toString(READ_TIMEOUT));
 
         props.put("mail.smtp.ssl.checkserveridentity", checkserveridentity);
         props.put("mail.smtp.ssl.trust", "*");
@@ -164,9 +166,9 @@ public class MessageHelper {
         if (realm != null)
             props.put("mail.smtp.auth.ntlm.domain", realm);
 
-        props.put("mail.smtp.connectiontimeout", Integer.toString(NETWORK_TIMEOUT));
-        props.put("mail.smtp.writetimeout", Integer.toString(NETWORK_TIMEOUT)); // one thread overhead
-        props.put("mail.smtp.timeout", Integer.toString(NETWORK_TIMEOUT));
+        props.put("mail.smtp.connectiontimeout", Integer.toString(CONNECT_TIMEOUT));
+        props.put("mail.smtp.writetimeout", Integer.toString(WRITE_TIMEOUT)); // one thread overhead
+        props.put("mail.smtp.timeout", Integer.toString(READ_TIMEOUT));
 
         // MIME
         props.put("mail.mime.allowutf8", "false"); // SMTPTransport, MimeMessage
