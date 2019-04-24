@@ -24,6 +24,7 @@ import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -459,11 +460,12 @@ public class FragmentCompose extends FragmentBase {
         etCc.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
         etBcc.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
 
-        if (contacts)
+        if (contacts) {
+            final ContentResolver resolver = getContext().getContentResolver();
             cadapter.setFilterQueryProvider(new FilterQueryProvider() {
                 public Cursor runQuery(CharSequence typed) {
                     Log.i("Searching provided contact=" + typed);
-                    return getContext().getContentResolver().query(
+                    return resolver.query(
                             ContactsContract.CommonDataKinds.Email.CONTENT_URI,
                             new String[]{
                                     ContactsContract.RawContacts._ID,
@@ -479,7 +481,7 @@ public class FragmentCompose extends FragmentBase {
                                     ", " + ContactsContract.CommonDataKinds.Email.DATA + " COLLATE NOCASE");
                 }
             });
-        else
+        } else
             cadapter.setFilterQueryProvider(new FilterQueryProvider() {
                 @Override
                 public Cursor runQuery(CharSequence typed) {
