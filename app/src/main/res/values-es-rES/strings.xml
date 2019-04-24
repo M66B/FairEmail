@@ -26,6 +26,10 @@
         <item quantity="one">%1$d nuevo mensaje</item>
         <item quantity="other">%1$d nuevos mensajes</item>
     </plurals>
+    <plurals name="title_notification_unsent">
+        <item quantity="one">%1$d mensaje por enviar</item>
+        <item quantity="other">%1$d mensajes por enviar</item>
+    </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$d nuevo</item>
         <item quantity="other">%1$d nuevos</item>

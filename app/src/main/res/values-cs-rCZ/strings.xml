@@ -32,6 +32,12 @@
         <item quantity="many">%1$d nových zpráv</item>
         <item quantity="other">%1$d nových zpráv</item>
     </plurals>
+    <plurals name="title_notification_unsent">
+        <item quantity="one">%1$d zpráva k odeslání</item>
+        <item quantity="few">%1$d zprávy k odeslání</item>
+        <item quantity="many">%1$d zpráv k odeslání</item>
+        <item quantity="other">%1$d zpráv k odeslání</item>
+    </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$d nová</item>
         <item quantity="few">%1$d nové</item>
