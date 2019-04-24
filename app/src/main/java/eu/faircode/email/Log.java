@@ -23,6 +23,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 
+import java.lang.reflect.Array;
 import java.util.Set;
 
 public class Log {
@@ -69,13 +70,24 @@ public class Log {
             Set<String> keys = data.keySet();
             StringBuilder stringBuilder = new StringBuilder();
             for (String key : keys) {
-                Object value = data.get(key);
-                if (value instanceof String[])
-                    value = TextUtils.join(", ", (String[]) value);
+                Object v = data.get(key);
+
+                Object value = v;
+                if (v != null && v.getClass().isArray()) {
+                    int length = Array.getLength(v);
+                    if (length <= 10) {
+                        String[] elements = new String[length];
+                        for (int i = 0; i < length; i++) {
+                            Object element = Array.get(v, i);
+                            elements[i] = (element == null ? null : element.toString());
+                        }
+                        value = TextUtils.join(",", elements);
+                    }
+                }
                 stringBuilder.append(key)
                         .append("=")
                         .append(value)
-                        .append(value == null ? "" : " (" + data.get(key).getClass().getSimpleName() + ")")
+                        .append(value == null ? "" : " (" + v.getClass().getSimpleName() + ")")
                         .append("\r\n");
             }
             i(stringBuilder.toString());
