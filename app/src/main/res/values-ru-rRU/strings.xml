@@ -33,10 +33,10 @@
         <item quantity="other">%1$d новых сообщений</item>
     </plurals>
     <plurals name="title_notification_unsent">
-        <item quantity="one">%1$d новое сообщение</item>
-        <item quantity="few">%1$d новых сообщений</item>
-        <item quantity="many">%1$d неотправленных сообщений</item>
-        <item quantity="other">%1$d неотправленных сообщений</item>
+        <item quantity="one">%1$d сообщение для отправки</item>
+        <item quantity="few">%1$d сообщения для отправки</item>
+        <item quantity="many">%1$d сообщений для отправки</item>
+        <item quantity="other">%1$d сообщений для отправки</item>
     </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$d новое</item>
@@ -251,6 +251,7 @@
     <string name="title_no_name">Отсутствует имя</string>
     <string name="title_no_email">Адрес электронной почты отсутствует</string>
     <string name="title_email_invalid">Некорректный адрес электронной почты</string>
+    <string name="title_address_parse_error">Адрес \'%1$s\' неверный: %2$s</string>
     <string name="title_no_account">Учетная запись отсутствует</string>
     <string name="title_no_host">Отсутствует имя хоста</string>
     <string name="title_no_user">Отсутствует имя пользователя</string>

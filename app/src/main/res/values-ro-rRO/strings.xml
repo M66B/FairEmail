@@ -29,11 +29,6 @@
         <item quantity="few">%1$d mesaje noi</item>
         <item quantity="other">%1$d de mesaje noi</item>
     </plurals>
-    <plurals name="title_notification_unsent">
-        <item quantity="one">%1$d mesaj netrimis</item>
-        <item quantity="few">%1$d mesaje netrimise</item>
-        <item quantity="other">%1$d de mesaje netrimise</item>
-    </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$d nou</item>
         <item quantity="few">%1$d noi</item>

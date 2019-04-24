@@ -24,7 +24,7 @@
         <item quantity="other">%1$d条新消息</item>
     </plurals>
     <plurals name="title_notification_unsent">
-        <item quantity="other">%1$d条消息未发送</item>
+        <item quantity="other">%1$d 消息要发送</item>
     </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="other">%1$d则新邮件</item>
@@ -227,6 +227,7 @@
     <string name="title_no_name">缺少名称</string>
     <string name="title_no_email">缺少邮箱地址</string>
     <string name="title_email_invalid">邮件地址无效</string>
+    <string name="title_address_parse_error">地址 \'%1$s\' 无效: %2$s</string>
     <string name="title_no_account">缺少账户</string>
     <string name="title_no_host">缺少主机名称</string>
     <string name="title_no_user">缺少用户名</string>
@@ -316,6 +317,7 @@
     <string name="title_reply">回复</string>
     <string name="title_reply_to_sender">发件人</string>
     <string name="title_reply_to_all">全部</string>
+    <string name="title_reply_list">列表</string>
     <string name="title_reply_receipt">已读回执</string>
     <string name="title_reply_template">模板</string>
     <string name="title_moving">移动到%1$s</string>

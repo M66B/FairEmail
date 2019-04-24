@@ -27,8 +27,8 @@
         <item quantity="other">%1$d nouveaux messages</item>
     </plurals>
     <plurals name="title_notification_unsent">
-        <item quantity="one">%1$d message non envoyé</item>
-        <item quantity="other">%1$d messages non envoyés</item>
+        <item quantity="one">%1$d message à envoyer</item>
+        <item quantity="other">%1$d messages à envoyer</item>
     </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$d nouveau</item>
@@ -235,6 +235,7 @@
     <string name="title_no_name">Nom manquant</string>
     <string name="title_no_email">Adresse e-mail manquante</string>
     <string name="title_email_invalid">Adresse e-mail invalide</string>
+    <string name="title_address_parse_error">Adresse \'%1$s\' invalide : %2$s</string>
     <string name="title_no_account">Compte manquant</string>
     <string name="title_no_host">Nom d\'hôte manquant</string>
     <string name="title_no_user">Nom d\'utilisateur manquant</string>

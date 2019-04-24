@@ -26,10 +26,6 @@
         <item quantity="one">%1$d nuevo mensaje</item>
         <item quantity="other">%1$d nuevos mensajes</item>
     </plurals>
-    <plurals name="title_notification_unsent">
-        <item quantity="one">%1$d mensaje no enviado</item>
-        <item quantity="other">%1$d mensajes no enviados</item>
-    </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$d nuevo</item>
         <item quantity="other">%1$d nuevos</item>
@@ -235,6 +231,7 @@
     <string name="title_no_name">Falta nombre</string>
     <string name="title_no_email">Falta dirección de correo electrónico</string>
     <string name="title_email_invalid">Dirección de correo electrónico inválida</string>
+    <string name="title_address_parse_error">Dirección \'%1$s\' inválida: %2$s</string>
     <string name="title_no_account">Falta cuenta</string>
     <string name="title_no_host">Falta nombre de host</string>
     <string name="title_no_user">Falta nombre de usuario</string>
@@ -324,6 +321,7 @@
     <string name="title_reply">Responder</string>
     <string name="title_reply_to_sender">Remitente</string>
     <string name="title_reply_to_all">Todos</string>
+    <string name="title_reply_list">Lista</string>
     <string name="title_reply_receipt">Confirmación de lectura</string>
     <string name="title_reply_template">Plantilla</string>
     <string name="title_moving">Moviendo a %1$s</string>

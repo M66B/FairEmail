@@ -22,10 +22,6 @@
         <item quantity="one">%1$d yeni mesaj</item>
         <item quantity="other">%1$d yeni mesaj</item>
     </plurals>
-    <plurals name="title_notification_unsent">
-        <item quantity="one">%1$d göndərilməmiş mesaj</item>
-        <item quantity="other">%1$d göndərilməmiş mesaj</item>
-    </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$d yeni</item>
         <item quantity="other">%1$d yeni</item>

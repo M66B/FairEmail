@@ -27,8 +27,8 @@
         <item quantity="other">%1$d neue Nachrichten</item>
     </plurals>
     <plurals name="title_notification_unsent">
-        <item quantity="one">%1$d nicht gesendete Nachricht</item>
-        <item quantity="other">%1$d nicht gesendete Nachrichten</item>
+        <item quantity="one">%1$d Nachricht noch zu senden</item>
+        <item quantity="other">%1$d Nachricht(en) noch zu senden</item>
     </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$d neue</item>
@@ -47,7 +47,7 @@
         <item quantity="other">Melde %1$d E-Mails als Spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Nachricht von %1$s als Spam markieren?</string>
-    <string name="title_notification_sending">Nachrichten senden</string>
+    <string name="title_notification_sending">Nachrichten werden gesendet</string>
     <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_answers">Vorlagen</string>
@@ -235,6 +235,7 @@
     <string name="title_no_name">Name fehlt</string>
     <string name="title_no_email">E-Mail-Adresse fehlt</string>
     <string name="title_email_invalid">E-Mail-Adresse ungültig</string>
+    <string name="title_address_parse_error">Adresse \'%1$s\' ungültig: %2$s</string>
     <string name="title_no_account">Konto fehlt</string>
     <string name="title_no_host">Hostname fehlt</string>
     <string name="title_no_user">Benutzername fehlt</string>
@@ -384,7 +385,7 @@
     <string name="title_draft_deleted">Entwurf gelöscht</string>
     <string name="title_draft_saved">Entwurf gespeichert</string>
     <string name="title_ask_send_via">Sende E-Mail zu %1$s über %2$s?</string>
-    <string name="title_queued">Nachricht senden\u2026</string>
+    <string name="title_queued">Nachricht wird gesendet</string>
     <string name="title_encrypt">Verschlüsseln</string>
     <string name="title_decrypt">Entschlüsseln</string>
     <string name="title_resync">Neu synchronisieren</string>

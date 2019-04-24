@@ -19,14 +19,6 @@
         <item quantity="many">%1$d رسائل جديدة</item>
         <item quantity="other">%1$d رسائل جديدة</item>
     </plurals>
-    <plurals name="title_notification_unsent">
-        <item quantity="zero">%1$d رسالة غير مبعوثة</item>
-        <item quantity="one">%1$d رسالة غير مبعوثة</item>
-        <item quantity="two">%1$d رسالتين غير مبعوثتين</item>
-        <item quantity="few">%1$d رسالة غير مبعوثة</item>
-        <item quantity="many">%1$d رسائل غير مبعوثة</item>
-        <item quantity="other">%1$d رسائل غير مبعوثة</item>
-    </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="zero">%1$d جديدة</item>
         <item quantity="one">%1$d جديدة</item>

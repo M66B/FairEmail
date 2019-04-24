@@ -31,12 +31,6 @@
         <item quantity="many">%1$d nowych wiadomość</item>
         <item quantity="other">%1$d nowych wiadomość</item>
     </plurals>
-    <plurals name="title_notification_unsent">
-        <item quantity="one">%1$d niewysłana wiadomość</item>
-        <item quantity="few">%1$d niewysłanych wiadomości</item>
-        <item quantity="many">%1$d niewysłanych wiadomości</item>
-        <item quantity="other">%1$d niewysłanych wiadomości</item>
-    </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$d nowa</item>
         <item quantity="few">%1$d nowe</item>

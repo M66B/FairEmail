@@ -26,10 +26,6 @@
         <item quantity="one">%1$d nova mensagem</item>
         <item quantity="other">%1$d novas mensagens</item>
     </plurals>
-    <plurals name="title_notification_unsent">
-        <item quantity="one">%1$d mensagem não lida</item>
-        <item quantity="other">%1$d mensagens não lidas</item>
-    </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$d nova</item>
         <item quantity="other">%1$d novas</item>
@@ -201,6 +197,7 @@
     <string name="title_identity_store_sent">Armazenar mensagens enviadas</string>
     <string name="title_identity_store_sent_remark">Habilitar isso somente se seu provedor não armazena automaticamente mensagens enviadas</string>
     <string name="title_optional">Opcional</string>
+    <string name="title_recommended">Recomendado</string>
     <string name="title_account_linked">Conta vinculada</string>
     <string name="title_account_name">Nome da conta</string>
     <string name="title_account_name_hint">Usada para diferenciar pastas</string>
@@ -234,6 +231,7 @@
     <string name="title_no_name">Nome ausente</string>
     <string name="title_no_email">Endereço de e-mail ausente</string>
     <string name="title_email_invalid">Endereço de e-mail inválido</string>
+    <string name="title_address_parse_error">Endereço \'%1$s\' inválido: %2$s</string>
     <string name="title_no_account">Conta ausente</string>
     <string name="title_no_host">Nome do servidor faltante</string>
     <string name="title_no_user">Nome do usuário faltante</string>
@@ -323,6 +321,7 @@
     <string name="title_reply">Responder</string>
     <string name="title_reply_to_sender">Remetente</string>
     <string name="title_reply_to_all">Todos</string>
+    <string name="title_reply_list">Lista</string>
     <string name="title_reply_receipt">Confirmação de leitura</string>
     <string name="title_reply_template">Modelo</string>
     <string name="title_moving">Movendo para %1$s</string>
