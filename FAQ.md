@@ -1451,7 +1451,6 @@ FairEmail will try to select the best identity based on the *to* address of the 
 The advanced option *extra privacy features* enables:
 
 * Detection and removal of [tracking images](#user-content-faq82)
-* Splitting linked images into an image and a link
 * Removal of [Urchin Tracking Module (UTM) parameters](https://en.wikipedia.org/wiki/UTM_parameters) from links
 
 <br />

@@ -194,18 +194,6 @@ public class HtmlHelper {
                 a.appendText(context.getString(R.string.title_hint_tracking_image,
                         img.attr("width"), img.attr("height")));
                 span.appendChild(a);
-            } else if (paranoid) {
-                // Image link
-                for (Element parent : img.parents())
-                    if ("a".equals(parent.tagName()) &&
-                            !TextUtils.isEmpty(parent.attr("href"))) {
-                        span.appendElement("br");
-                        Element a = document.createElement("a");
-                        a.attr("href", src);
-                        a.appendText(context.getString(R.string.title_hint_image_link));
-                        span.appendChild(a);
-                        break;
-                    }
             }
 
             // Replace img by span containing img
