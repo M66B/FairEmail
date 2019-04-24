@@ -1376,7 +1376,7 @@ class Core {
                     String email = ((InternetAddress) reply).getAddress();
                     String canonical = Helper.canonicalAddress(email);
                     if (!TextUtils.isEmpty(email) &&
-                            db.identity().getIdentity(folder.account, email.toLowerCase()) == null &&
+                            db.identity().getIdentity(folder.account, email) == null &&
                             (canonical.equals(email) ||
                                     db.identity().getIdentity(folder.account, canonical) == null)) {
                         me = false;
@@ -1388,7 +1388,7 @@ class Core {
             }
 
             for (Address recipient : recipients) {
-                String email = ((InternetAddress) recipient).getAddress().toLowerCase();
+                String email = ((InternetAddress) recipient).getAddress();
                 String name = ((InternetAddress) recipient).getPersonal();
                 Uri avatar = ContactInfo.getLookupUri(context, new Address[]{recipient});
                 EntityContact contact = db.contact().getContact(folder.account, type, email);

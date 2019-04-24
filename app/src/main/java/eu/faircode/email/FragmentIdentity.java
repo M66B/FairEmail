@@ -586,8 +586,6 @@ public class FragmentIdentity extends FragmentBase {
                 if (synchronize && TextUtils.isEmpty(password) && !insecure)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
 
-                email = email.toLowerCase();
-
                 if (TextUtils.isEmpty(display))
                     display = null;
 
@@ -596,13 +594,9 @@ public class FragmentIdentity extends FragmentBase {
 
                 if (TextUtils.isEmpty(replyto))
                     replyto = null;
-                else
-                    replyto = replyto.toLowerCase();
 
                 if (TextUtils.isEmpty(bcc))
                     bcc = null;
-                else
-                    bcc = bcc.toLowerCase();
 
                 if (Color.TRANSPARENT == color)
                     color = null;
