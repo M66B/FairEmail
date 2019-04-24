@@ -75,7 +75,7 @@ public class Log {
                 stringBuilder.append(key)
                         .append("=")
                         .append(value)
-                        .append(value == null ? "" : " (" + value.getClass().getSimpleName() + ")")
+                        .append(value == null ? "" : " (" + data.get(key).getClass().getSimpleName() + ")")
                         .append("\r\n");
             }
             i(stringBuilder.toString());
