@@ -79,11 +79,16 @@ public class Log {
                         String[] elements = new String[length];
                         for (int i = 0; i < length; i++) {
                             Object element = Array.get(v, i);
-                            elements[i] = (element == null ? null : element.toString());
+                            if (element instanceof Long)
+                                elements[i] = "0x" + Long.toHexString((Long) element);
+                            else
+                                elements[i] = (element == null ? null : element.toString());
                         }
                         value = TextUtils.join(",", elements);
                     }
-                }
+                } else if (v instanceof Long)
+                    value = "0x" + Long.toHexString((Long) v);
+
                 stringBuilder.append(key)
                         .append("=")
                         .append(value)
