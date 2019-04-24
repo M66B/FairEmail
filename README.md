@@ -100,6 +100,9 @@ To get updates in a timely fashion you are advised to use the GitHub release.
 The GitHib release will automatically check for updates on GitHub.
 You can turn this off in the advanced options.
 
+Because F-Droid builds and GitHub releases are signed differently,
+an F-Droid build needs to be uninstalled first to be able to update to a GitHub release.
+
 ## Privacy
 
 Please see [here](https://github.com/M66B/open-source-email/blob/master/PRIVACY.md#fairemail) for the privacy policy.
