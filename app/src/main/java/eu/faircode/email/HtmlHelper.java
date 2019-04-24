@@ -166,69 +166,53 @@ public class HtmlHelper {
             String title = img.attr("title");
             boolean tracking = (paranoid && isTrackingPixel(img));
 
-            // Create image container
-            Element div = document.createElement("div");
-
             // Remove link tracking pixel
             if (tracking)
                 img.removeAttr("src");
 
-            // Link image to source
-            Element a = document.createElement("a");
-            a.attr("href", src);
-            a.appendChild(img.clone());
-            div.appendChild(a);
+            // Create image container
+            Element span = document.createElement("span");
+            span.appendElement("br");
+            span.appendChild(img.clone());
+            span.appendElement("br");
 
             // Show image title
             if (!TextUtils.isEmpty(title)) {
-                div.appendElement("br");
-                div.appendElement("em").text(title);
+                span.appendElement("br");
+                span.appendElement("em").text(title);
             }
             if (!TextUtils.isEmpty(alt)) {
-                div.appendElement("br");
-                div.appendElement("em").text(alt);
+                span.appendElement("br");
+                span.appendElement("em").text(alt);
             }
 
-            // Show when tracking pixel
             if (tracking) {
-                div.appendElement("br");
-                div.appendElement("em").text(
-                        context.getString(R.string.title_hint_tracking_image,
-                                img.attr("width"), img.attr("height")));
-            }
-
-            // Split parent link and linked image
-            boolean linked = false;
-            if (paranoid)
+                // Tracking pixel link
+                span.appendElement("br");
+                Element a = document.createElement("a");
+                a.attr("href", src);
+                a.appendText(context.getString(R.string.title_hint_tracking_image,
+                        img.attr("width"), img.attr("height")));
+                span.appendChild(a);
+            } else if (paranoid) {
+                // Image link
                 for (Element parent : img.parents())
                     if ("a".equals(parent.tagName()) &&
                             !TextUtils.isEmpty(parent.attr("href"))) {
-                        String text = parent.attr("title").trim();
-                        if (TextUtils.isEmpty(text))
-                            text = parent.attr("alt").trim();
-                        if (TextUtils.isEmpty(text))
-                            text = context.getString(R.string.title_hint_image_link);
-
-                        img.remove();
-                        parent.appendText(text);
-                        String outer = parent.outerHtml();
-
-                        parent.tagName("span");
-                        for (Attribute attr : parent.attributes().asList())
-                            parent.attributes().remove(attr.getKey());
-                        parent.html(outer);
-                        parent.prependChild(div);
-
-                        linked = true;
+                        span.appendElement("br");
+                        Element a = document.createElement("a");
+                        a.attr("href", src);
+                        a.appendText(context.getString(R.string.title_hint_image_link));
+                        span.appendChild(a);
                         break;
                     }
-
-            if (!linked) {
-                img.tagName("div");
-                for (Attribute attr : img.attributes().asList())
-                    img.attributes().remove(attr.getKey());
-                img.html(div.html());
             }
+
+            // Replace img by span containing img
+            img.tagName("span");
+            for (Attribute attr : img.attributes().asList())
+                img.attributes().remove(attr.getKey());
+            img.html(span.html());
         }
 
         // Tables
