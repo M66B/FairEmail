@@ -186,6 +186,8 @@ public class FragmentCompose extends FragmentBase {
     private boolean style = true;
     private boolean encrypt = false;
     private OpenPgpServiceConnection pgpService;
+    private long[] pgpKeyIds;
+    private long pgpSignKeyId;
 
     static final int REDUCED_IMAGE_SIZE = 1440; // pixels
     static final int REDUCED_IMAGE_QUALITY = 90; // percent
@@ -1103,9 +1105,9 @@ public class FragmentCompose extends FragmentBase {
                     for (int i = 0; i < ato.length; i++)
                         tos[i] = ato[i].getAddress();
 
-                    Intent intent = new Intent(OpenPgpApi.ACTION_GET_SIGN_KEY_ID);
+                    Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY_IDS);
                     intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, tos);
-                    encrypt(intent);
+                    doPgp(intent);
                 } catch (Throwable ex) {
                     if (ex instanceof IllegalArgumentException)
                         Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
@@ -1130,7 +1132,7 @@ public class FragmentCompose extends FragmentBase {
         }
     }
 
-    private void encrypt(Intent data) {
+    private void doPgp(Intent data) {
         final Bundle args = new Bundle();
         args.putLong("id", working);
         args.putParcelable("data", data);
@@ -1146,11 +1148,13 @@ public class FragmentCompose extends FragmentBase {
 
                 // Get data
                 EntityMessage message = db.message().getMessage(id);
+                if (message == null)
+                    throw new MessageRemovedException();
 
                 List<EntityAttachment> attachments = db.attachment().getAttachments(id);
                 for (EntityAttachment attachment : new ArrayList<>(attachments))
                     if (attachment.encryption != null) {
-                        if (OpenPgpApi.ACTION_GET_SIGN_KEY_ID.equals(data.getAction()))
+                        if (OpenPgpApi.ACTION_GET_KEY_IDS.equals(data.getAction()))
                             db.attachment().deleteAttachment(attachment.id);
                         attachments.remove(attachment);
                     }
@@ -1189,7 +1193,8 @@ public class FragmentCompose extends FragmentBase {
                 switch (resultCode) {
                     case OpenPgpApi.RESULT_CODE_SUCCESS:
                         // Attach encrypted data / signature
-                        if (!OpenPgpApi.ACTION_GET_SIGN_KEY_ID.equals(data.getAction()))
+                        if (OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction()) ||
+                                OpenPgpApi.ACTION_DETACHED_SIGN.equals(data.getAction()))
                             try {
                                 db.beginTransaction();
 
@@ -1220,15 +1225,25 @@ public class FragmentCompose extends FragmentBase {
                                 db.endTransaction();
                             }
 
-                        if (OpenPgpApi.ACTION_GET_SIGN_KEY_ID.equals(data.getAction())) {
+                        if (OpenPgpApi.ACTION_GET_KEY_IDS.equals(data.getAction())) {
+                            pgpKeyIds = result.getLongArrayExtra(OpenPgpApi.EXTRA_KEY_IDS);
+
+                            // Encrypt message
+                            Intent intent = new Intent(OpenPgpApi.ACTION_GET_SIGN_KEY_ID);
+                            return intent;
+                        } else if (OpenPgpApi.ACTION_GET_SIGN_KEY_ID.equals(data.getAction())) {
+                            pgpSignKeyId = result.getLongExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, -1);
+
                             // Encrypt message
                             Intent intent = new Intent(OpenPgpApi.ACTION_SIGN_AND_ENCRYPT);
-                            intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, data.getLongExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, -1));
+                            intent.putExtra(OpenPgpApi.EXTRA_KEY_IDS, pgpKeyIds);
+                            intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, pgpSignKeyId);
+                            intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
                             return intent;
                         } else if (OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction())) {
                             // Sign message
                             Intent intent = new Intent(OpenPgpApi.ACTION_DETACHED_SIGN);
-                            intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, data.getLongExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, -1));
+                            intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, pgpSignKeyId);
                             return intent;
                         } else {
                             // send message
@@ -1240,7 +1255,10 @@ public class FragmentCompose extends FragmentBase {
 
                     case OpenPgpApi.RESULT_CODE_ERROR:
                         OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
-                        throw new IllegalArgumentException(error.getMessage());
+                        if (error == null)
+                            throw new IllegalArgumentException("Unknown error");
+                        else
+                            throw new IllegalArgumentException(error.getMessage());
 
                     default:
                         throw new IllegalArgumentException("Unknown result code=" + resultCode);
@@ -1253,7 +1271,7 @@ public class FragmentCompose extends FragmentBase {
                     onAction(R.id.action_send);
                 else if (result instanceof Intent) {
                     Intent intent = (Intent) result;
-                    encrypt(intent);
+                    doPgp(intent);
                 } else if (result instanceof PendingIntent)
                     try {
                         PendingIntent pi = (PendingIntent) result;
@@ -1306,19 +1324,7 @@ public class FragmentCompose extends FragmentBase {
                 if (data != null) {
                     if (BuildConfig.BETA_RELEASE)
                         Log.logExtras(data);
-
-                    String action = data.getAction();
-                    if (OpenPgpApi.ACTION_GET_SIGN_KEY_ID.equals(action))
-                        action = OpenPgpApi.ACTION_SIGN_AND_ENCRYPT;
-
-                    Intent intent = new Intent(action);
-                    if (data.hasExtra(OpenPgpApi.EXTRA_USER_IDS))
-                        intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, data.getStringArrayExtra(OpenPgpApi.EXTRA_USER_IDS));
-                    if (data.hasExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID))
-                        intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, data.getLongExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, -1));
-                    if (OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(action))
-                        intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
-                    encrypt(intent);
+                    doPgp(data);
                 }
             } else {
                 if (data != null)
