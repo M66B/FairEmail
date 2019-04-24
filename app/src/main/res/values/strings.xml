@@ -36,8 +36,8 @@
     </plurals>
 
     <plurals name="title_notification_unsent">
-        <item quantity="one">%1$d unsent message</item>
-        <item quantity="other">%1$d unsent messages</item>
+        <item quantity="one">%1$d message to be sent</item>
+        <item quantity="other">%1$d messages to be sent</item>
     </plurals>
 
     <plurals name="title_tile_unseen">
