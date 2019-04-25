@@ -223,6 +223,7 @@ The low priority status bar notification shows the number of pending operations,
 * *body*: download message text
 * *attachment*: download attachment
 * *sync*: synchronize local and remote messages
+* *subscribe*: subscribe to remote folder
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing.
 See also [this FAQ](#user-content-faq16).

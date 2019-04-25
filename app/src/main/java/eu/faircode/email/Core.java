@@ -132,7 +132,9 @@ class Core {
                     JSONArray jargs = new JSONArray(op.args);
 
                     try {
-                        if (message == null && !EntityOperation.SYNC.equals(op.name))
+                        if (message == null &&
+                                !EntityOperation.SYNC.equals(op.name) &&
+                                !EntityOperation.SUBSCRIBE.equals(op.name))
                             throw new MessageRemovedException();
 
                         db.operation().setOperationError(op.id, null);
@@ -144,7 +146,7 @@ class Core {
                                         EntityOperation.DELETE.equals(op.name) ||
                                         EntityOperation.SEND.equals(op.name) ||
                                         EntityOperation.SYNC.equals(op.name) ||
-                                        EntityOperation.WAIT.equals(op.name)))
+                                        EntityOperation.SUBSCRIBE.equals(op.name)))
                             throw new IllegalArgumentException(op.name + " without uid " + op.args);
 
                         // Operations should use database transaction when needed
@@ -217,7 +219,8 @@ class Core {
                                 onSynchronizeMessages(context, jargs, account, folder, (IMAPFolder) ifolder, state);
                                 break;
 
-                            case EntityOperation.WAIT:
+                            case EntityOperation.SUBSCRIBE:
+                                onSubscribeFolder(context, jargs, folder, (IMAPFolder) ifolder);
                                 break;
 
                             default:
@@ -790,6 +793,17 @@ class Core {
             db.endTransaction();
             Log.i("End sync folder");
         }
+    }
+
+    private static void onSubscribeFolder(Context context, JSONArray jargs, EntityFolder folder, IMAPFolder ifolder)
+            throws JSONException, MessagingException {
+        boolean subscribe = jargs.getBoolean(0);
+        ifolder.setSubscribed(subscribe);
+
+        DB db = DB.getInstance(context);
+        db.folder().setFolderSubscribed(folder.id, subscribe);
+
+        Log.i(folder.name + " subscribed=" + subscribe);
     }
 
     private static void onSynchronizeMessages(

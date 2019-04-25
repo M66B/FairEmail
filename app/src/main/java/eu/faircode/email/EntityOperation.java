@@ -83,7 +83,7 @@ public class EntityOperation {
     static final String BODY = "body";
     static final String ATTACHMENT = "attachment";
     static final String SYNC = "sync";
-    static final String WAIT = "wait";
+    static final String SUBSCRIBE = "subscribe";
 
     static void queue(Context context, DB db, EntityMessage message, String name, Object... values) {
         JSONArray jargs = new JSONArray();
@@ -254,6 +254,26 @@ public class EntityOperation {
             ServiceSend.start(context);
         else if (foreground)
             ServiceSynchronize.process(context);
+    }
+
+    static void subscribe(Context context, long fid, boolean subscribe) {
+        DB db = DB.getInstance(context);
+
+        EntityFolder folder = db.folder().getFolder(fid);
+
+        JSONArray jargs = new JSONArray();
+        jargs.put(subscribe);
+
+        EntityOperation operation = new EntityOperation();
+        operation.account = folder.account;
+        operation.folder = folder.id;
+        operation.message = null;
+        operation.name = SUBSCRIBE;
+        operation.args = jargs.toString();
+        operation.created = new Date().getTime();
+        operation.id = db.operation().insertOperation(operation);
+
+        Log.i("Queued subscribe=" + subscribe + " folder=" + folder);
     }
 
     @Override

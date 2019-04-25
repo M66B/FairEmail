@@ -553,7 +553,7 @@ public abstract class DB extends RoomDatabase {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
-                        db.execSQL("DELETE FROM operation WHERE name = '" + EntityOperation.WAIT + "'");
+                        db.execSQL("DELETE FROM operation WHERE name = 'wait'");
                     }
                 })
                 .addMigrations(new Migration(51, 52) {
