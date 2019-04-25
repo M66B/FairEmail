@@ -74,6 +74,17 @@
             app:layout_constraintStart_toEndOf="@id/ivExpander"
             app:layout_constraintTop_toTopOf="@+id/tvName" />
 
+        <ImageView
+            android:id="@+id/ivSubscribed"
+            android:layout_width="30dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/title_legend_notify"
+            android:paddingEnd="6dp"
+            android:src="@drawable/baseline_bookmark_24"
+            app:layout_constraintBottom_toBottomOf="@+id/tvName"
+            app:layout_constraintStart_toEndOf="@id/ivNotify"
+            app:layout_constraintTop_toTopOf="@+id/tvName" />
+
         <TextView
             android:id="@+id/tvName"
             android:layout_width="0dp"
@@ -87,7 +98,7 @@
             android:text="Name"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toStartOf="@+id/tvMessages"
-            app:layout_constraintStart_toEndOf="@id/ivNotify"
+            app:layout_constraintStart_toEndOf="@id/ivSubscribed"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView

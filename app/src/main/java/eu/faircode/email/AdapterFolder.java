@@ -90,6 +90,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private View vwLevel;
         private ImageView ivExpander;
         private ImageView ivNotify;
+        private ImageView ivSubscribed;
         private TextView tvName;
         private TextView tvMessages;
         private ImageView ivMessages;
@@ -121,6 +122,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             vwLevel = itemView.findViewById(R.id.vwLevel);
             ivExpander = itemView.findViewById(R.id.ivExpander);
             ivNotify = itemView.findViewById(R.id.ivNotify);
+            ivSubscribed = itemView.findViewById(R.id.ivSubscribed);
             tvName = itemView.findViewById(R.id.tvName);
             tvMessages = itemView.findViewById(R.id.tvMessages);
             ivMessages = itemView.findViewById(R.id.ivMessages);
@@ -225,6 +227,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ivExpander.setVisibility(account < 0 || !collapsable ? View.GONE : (folder.childs > 0 ? View.VISIBLE : View.INVISIBLE));
 
             ivNotify.setVisibility(folder.notify ? View.VISIBLE : View.GONE);
+            ivSubscribed.setVisibility(BuildConfig.DEBUG && folder.subscribed != null && folder.subscribed ? View.VISIBLE : View.GONE);
 
             if (folder.unseen > 0)
                 tvName.setText(context.getString(R.string.title_name_count,

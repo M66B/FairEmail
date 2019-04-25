@@ -513,6 +513,7 @@
     <string name="title_legend_trash">Trash</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_notify">Notify new messages</string>
+    <string name="title_legend_subscribed">Subscribed to</string>
     <string name="title_legend_unified">Unified inbox / primary account</string>
     <string name="title_legend_primary_disconnected">Account disconnected</string>
     <string name="title_legend_primary_connected">Account connected</string>
