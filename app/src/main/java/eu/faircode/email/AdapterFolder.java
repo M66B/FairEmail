@@ -101,6 +101,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private ImageView ivSync;
         private TextView tvKeywords;
         private TextView tvError;
+        private View vwHidden;
         private View vwRipple;
         private RecyclerView rvChilds;
 
@@ -133,6 +134,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ivSync = itemView.findViewById(R.id.ivSync);
             tvKeywords = itemView.findViewById(R.id.tvKeywords);
             tvError = itemView.findViewById(R.id.tvError);
+            vwHidden = itemView.findViewById(R.id.vwHidden);
             vwRipple = itemView.findViewById(R.id.vwRipple);
 
             rvChilds = itemView.findViewById(R.id.rvChilds);
@@ -184,10 +186,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
 
         private void bindTo(final TupleFolderEx folder) {
-            boolean hide = folder.isHidden(context);
-            view.setVisibility(hide && !show_hidden ? View.GONE : View.VISIBLE);
+            view.setVisibility(folder.isHidden(context) && !show_hidden ? View.GONE : View.VISIBLE);
             view.setActivated(folder.tbc != null || folder.tbd != null);
-            view.setAlpha(hide ? Helper.LOW_LIGHT : 1.0f);
+            vwHidden.setAlpha(folder.hide ? Helper.LOW_LIGHT : 0.0f);
 
             if (textSize != 0)
                 tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
