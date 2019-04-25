@@ -26,13 +26,14 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Typeface;
 
+import androidx.annotation.NonNull;
 import androidx.core.graphics.ColorUtils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 class Identicon {
-    static Bitmap icon(String email, int size, int pixels, boolean dark) {
+    static Bitmap icon(@NonNull String email, int size, int pixels, boolean dark) {
         byte[] hash = getHash(email);
 
         int color = Color.argb(255, hash[0], hash[1], hash[2]);
@@ -60,7 +61,18 @@ class Identicon {
         return bitmap;
     }
 
-    static Bitmap letter(String email, int size, boolean dark) {
+    static Bitmap letter(@NonNull String email, int size, boolean dark) {
+        String text = null;
+        for (int i = 0; i < email.length(); i++) {
+            char kar = email.charAt(i);
+            if (Character.isAlphabetic(kar)) {
+                text = email.substring(i, i + 1).toUpperCase();
+                break;
+            }
+        }
+        if (text == null)
+            return null;
+
         byte[] hash = getHash(email);
 
         int color = Color.argb(255, hash[0], hash[1], hash[2]);
@@ -76,7 +88,7 @@ class Identicon {
         paint.setColor(y < 128 ? Color.WHITE : Color.BLACK);
         paint.setTextSize(size / 2f);
         paint.setTypeface(Typeface.DEFAULT_BOLD);
-        String text = email.substring(0, 1).toUpperCase();
+
         canvas.drawText(
                 text,
                 size / 2f - paint.measureText(text) / 2,
