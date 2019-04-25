@@ -70,7 +70,6 @@ import androidx.preference.PreferenceManager;
 import com.android.billingclient.api.BillingClient;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.sun.mail.imap.IMAPStore;
-import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MailConnectException;
 
 import org.json.JSONException;
@@ -319,8 +318,6 @@ public class Helper {
             if (ex instanceof MessageRemovedException)
                 return null;
             if (ex instanceof FolderClosedException)
-                return null;
-            if (ex instanceof FolderClosedIOException)
                 return null;
             if (ex instanceof IllegalStateException)
                 // sync when store disconnected

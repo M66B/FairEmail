@@ -28,7 +28,6 @@ import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.FetchResponse;
 import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.imap.protocol.UID;
-import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MailConnectException;
 
 import org.json.JSONArray;
@@ -1049,8 +1048,6 @@ class Core {
                                         folder, ifolder,
                                         (IMAPMessage) isub[j], ids[from + j], state);
                         } catch (FolderClosedException ex) {
-                            throw ex;
-                        } catch (FolderClosedIOException ex) {
                             throw ex;
                         } catch (Throwable ex) {
                             Log.e(folder.name, ex);
