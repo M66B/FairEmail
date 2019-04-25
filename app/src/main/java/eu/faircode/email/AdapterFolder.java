@@ -519,19 +519,20 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                 public void onClick(DialogInterface dialog, int which) {
 
                                     Bundle args = new Bundle();
-                                    args.putLong("id", folder.id);
+                                    args.putLong("folder", folder.id);
 
                                     new SimpleTask<Void>() {
                                         @Override
                                         protected Void onExecute(Context context, Bundle args) {
-                                            long id = args.getLong("id");
+                                            long folder = args.getLong("folder");
 
                                             DB db = DB.getInstance(context);
                                             try {
                                                 db.beginTransaction();
 
-                                                for (Long mid : db.message().getMessageByFolder(id)) {
-                                                    EntityMessage message = db.message().getMessage(mid);
+                                                List<Long> ids = db.message().getMessageByFolder(folder);
+                                                for (Long id : ids) {
+                                                    EntityMessage message = db.message().getMessage(id);
                                                     EntityOperation.queue(context, db, message, EntityOperation.DELETE);
                                                 }
 
