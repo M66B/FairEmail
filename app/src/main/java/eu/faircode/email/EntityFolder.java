@@ -20,6 +20,8 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
@@ -197,6 +199,16 @@ public class EntityFolder implements Serializable {
         if (EntityFolder.JUNK.equals(type))
             return R.drawable.baseline_flag_24;
         return R.drawable.baseline_folder_24;
+    }
+
+    boolean isHidden(Context context) {
+        if (hide)
+            return true;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean subscriptions = prefs.getBoolean("subscriptions", false);
+
+        return (subscriptions && subscribed != null && !subscribed);
     }
 
     String getDisplayName(Context context) {

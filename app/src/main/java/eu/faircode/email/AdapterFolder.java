@@ -184,9 +184,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
 
         private void bindTo(final TupleFolderEx folder) {
-            view.setVisibility(folder.hide && !show_hidden ? View.GONE : View.VISIBLE);
+            boolean hide = folder.isHidden(context);
+            view.setVisibility(hide && !show_hidden ? View.GONE : View.VISIBLE);
             view.setActivated(folder.tbc != null || folder.tbd != null);
-            view.setAlpha(folder.hide ? Helper.LOW_LIGHT : 1.0f);
+            view.setAlpha(hide ? Helper.LOW_LIGHT : 1.0f);
 
             if (textSize != 0)
                 tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
