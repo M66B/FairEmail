@@ -73,6 +73,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private EntityFolder parent;
     private boolean collapsable;
     private IProperties properties;
+    private boolean subscriptions;
     private boolean debug;
     private int dp12;
     private float textSize;
@@ -227,7 +228,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ivExpander.setVisibility(account < 0 || !collapsable ? View.GONE : (folder.childs > 0 ? View.VISIBLE : View.INVISIBLE));
 
             ivNotify.setVisibility(folder.notify ? View.VISIBLE : View.GONE);
-            ivSubscribed.setVisibility(BuildConfig.DEBUG && folder.subscribed != null && folder.subscribed ? View.VISIBLE : View.GONE);
+            ivSubscribed.setVisibility(subscriptions && folder.subscribed != null && folder.subscribed ? View.VISIBLE : View.GONE);
 
             if (folder.unseen > 0)
                 tvName.setText(context.getString(R.string.title_name_count,
@@ -593,6 +594,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         if (zoom == 0)
             zoom = 1;
 
+        this.subscriptions = prefs.getBoolean("subscriptions", false);
         this.debug = prefs.getBoolean("debug", false);
 
         this.dp12 = Helper.dp2pixels(context, 12);

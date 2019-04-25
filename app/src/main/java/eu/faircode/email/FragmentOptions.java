@@ -104,6 +104,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swAutoSend;
 
     private SwitchCompat swBadge;
+    private SwitchCompat swSubscriptions;
     private SwitchCompat swNotifyPreview;
     private SwitchCompat swSearchLocal;
     private SwitchCompat swLight;
@@ -124,6 +125,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             "startup", "date", "threading", "avatars", "identicons", "circular", "name_email", "subject_italic", "flags", "preview",
             "addresses", "monospaced", "autohtml", "autoimages", "actionbar",
             "pull", "swipenav", "autoexpand", "autoclose", "autonext",
+            "subscriptions",
             "authentication", "debug"
     };
 
@@ -134,7 +136,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             "addresses", "monospaced", "autohtml", "autoimages", "actionbar",
             "pull", "swipenav", "autoexpand", "autoclose", "autonext", "collapse", "autoread", "automove",
             "autoresize", "resize", "prefix_once", "autosend",
-            "notify_preview", "search_local", "light", "sound",
+            "subscriptions", "notify_preview", "search_local", "light", "sound",
             "authentication", "paranoid", "english", "updates", "debug",
             "first", "why", "last_update_check", "app_support", "message_swipe", "message_select", "folder_actions", "folder_sync",
             "edit_ref_confirmed", "show_html_confirmed", "show_images_confirmed", "print_html_confirmed", "show_organization", "style_toolbar"
@@ -191,6 +193,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swAutoSend = view.findViewById(R.id.swAutoSend);
 
         swBadge = view.findViewById(R.id.swBadge);
+        swSubscriptions = view.findViewById(R.id.swSubscriptions);
         swNotifyPreview = view.findViewById(R.id.swNotifyPreview);
         swSearchLocal = view.findViewById(R.id.swSearchLocal);
         swLight = view.findViewById(R.id.swLight);
@@ -509,6 +512,13 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             }
         });
 
+        swSubscriptions.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("subscriptions", checked).apply();
+            }
+        });
+
         swNotifyPreview.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -731,6 +741,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swAutoSend.setChecked(!prefs.getBoolean("autosend", false));
 
         swBadge.setChecked(prefs.getBoolean("badge", true));
+        swSubscriptions.setChecked(prefs.getBoolean("subscriptions", false));
         swNotifyPreview.setChecked(prefs.getBoolean("notify_preview", true));
         swNotifyPreview.setEnabled(Helper.isPro(getContext()));
         swSearchLocal.setChecked(prefs.getBoolean("search_local", false));

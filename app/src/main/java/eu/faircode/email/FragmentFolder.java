@@ -21,8 +21,10 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -290,8 +292,11 @@ public class FragmentFolder extends FragmentBase {
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean subscriptions = prefs.getBoolean("subscriptions", false);
+
         menu.findItem(R.id.menu_subscribe).setChecked(subscribed != null && subscribed);
-        menu.findItem(R.id.menu_subscribe).setVisible(id > 0 && subscribed != null);
+        menu.findItem(R.id.menu_subscribe).setVisible(subscriptions && id > 0 && subscribed != null);
         menu.findItem(R.id.menu_delete).setVisible(id > 0 && !saving && deletable);
         super.onPrepareOptionsMenu(menu);
     }
