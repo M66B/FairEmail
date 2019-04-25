@@ -76,6 +76,7 @@ public class EntityFolder implements Serializable {
     public Boolean poll = false;
     @NonNull
     public Boolean download = true;
+    public Boolean subscribed;
     @NonNull
     public Integer sync_days;
     @NonNull
@@ -259,6 +260,7 @@ public class EntityFolder implements Serializable {
                     this.synchronize.equals(other.synchronize) &&
                     this.poll.equals(other.poll) &&
                     this.download.equals(other.download) &&
+                    Objects.equals(this.subscribed, other.subscribed) &&
                     this.sync_days.equals(other.sync_days) &&
                     this.keep_days.equals(other.keep_days) &&
                     Objects.equals(this.display, other.display) &&

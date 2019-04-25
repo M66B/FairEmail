@@ -155,6 +155,9 @@ public interface DaoFolder {
     @Query("UPDATE folder SET error = :error WHERE id = :id")
     int setFolderError(long id, String error);
 
+    @Query("UPDATE folder SET subscribed = :subscribed WHERE id = :id")
+    int setFolderSubscribed(long id, Boolean subscribed);
+
     @Query("UPDATE folder SET type = :type WHERE id = :id")
     int setFolderType(long id, String type);
 
