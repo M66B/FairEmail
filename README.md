@@ -10,7 +10,7 @@ This open source, privacy friendly email app might be for you if your current em
 * cannot show conversations
 * cannot work offline
 * looks outdated
-* is not maintained
+* is not maintained and supported
 * stores your email on their servers
 * is closed source, potentially violating your privacy
 
