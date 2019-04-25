@@ -24,6 +24,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 
 import androidx.core.graphics.ColorUtils;
 
@@ -74,13 +75,12 @@ class Identicon {
         Paint paint = new Paint();
         paint.setColor(y < 128 ? Color.WHITE : Color.BLACK);
         paint.setTextSize(size / 2f);
-        paint.setFakeBoldText(true);
-
+        paint.setTypeface(Typeface.DEFAULT_BOLD);
         String text = email.substring(0, 1).toUpperCase();
         canvas.drawText(
                 text,
                 size / 2f - paint.measureText(text) / 2,
-                size / 2f - ((paint.descent() + paint.ascent()) / 2), paint);
+                size / 2f - (paint.descent() + paint.ascent()) / 2, paint);
 
         return bitmap;
     }
