@@ -78,6 +78,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swThreading;
     private SwitchCompat swAvatars;
     private SwitchCompat swIdenticons;
+    private SwitchCompat swCircular;
     private SwitchCompat swNameEmail;
     private SwitchCompat swSubjectItalic;
     private SwitchCompat swFlags;
@@ -119,7 +120,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private Group grpNotification;
 
     static String[] OPTIONS_RESTART = new String[]{
-            "startup", "date", "threading", "avatars", "identicons", "name_email", "subject_italic", "flags", "preview",
+            "startup", "date", "threading", "avatars", "identicons", "circular", "name_email", "subject_italic", "flags", "preview",
             "addresses", "monospaced", "autohtml", "autoimages", "actionbar",
             "pull", "swipenav", "autoexpand", "autoclose", "autonext",
             "authentication", "debug"
@@ -128,7 +129,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private final static String[] ADVANCED_OPTIONS = new String[]{
             "enabled", "schedule_start", "schedule_end",
             "metered", "download", "roaming",
-            "startup", "date", "threading", "avatars", "identicons", "name_email", "subject_italic", "flags", "preview",
+            "startup", "date", "threading", "avatars", "identicons", "circular", "name_email", "subject_italic", "flags", "preview",
             "addresses", "monospaced", "autohtml", "autoimages", "actionbar",
             "pull", "swipenav", "autoexpand", "autoclose", "autonext", "collapse", "autoread", "automove",
             "autoresize", "resize", "prefix_once", "autosend",
@@ -163,6 +164,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swThreading = view.findViewById(R.id.swThreading);
         swAvatars = view.findViewById(R.id.swAvatars);
         swIdenticons = view.findViewById(R.id.swIdenticons);
+        swCircular = view.findViewById(R.id.swCircular);
         swNameEmail = view.findViewById(R.id.swNameEmail);
         swSubjectItalic = view.findViewById(R.id.swSubjectItalic);
         swFlags = view.findViewById(R.id.swFlags);
@@ -331,6 +333,13 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("identicons", checked).apply();
                 ContactInfo.clearCache();
+            }
+        });
+
+        swCircular.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("circular", checked).apply();
             }
         });
 
@@ -678,6 +687,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swThreading.setChecked(prefs.getBoolean("threading", true));
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
         swIdenticons.setChecked(prefs.getBoolean("identicons", false));
+        swCircular.setChecked(prefs.getBoolean("circular", false));
         swNameEmail.setChecked(prefs.getBoolean("name_email", !compact));
         swSubjectItalic.setChecked(prefs.getBoolean("subject_italic", true));
         swFlags.setChecked(prefs.getBoolean("flags", true));
