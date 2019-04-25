@@ -31,13 +31,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 class Identicon {
-    static Bitmap generate(String email, int size, int pixels, boolean dark) {
-        byte[] hash;
-        try {
-            hash = MessageDigest.getInstance("MD5").digest(email.getBytes());
-        } catch (NoSuchAlgorithmException ignored) {
-            hash = email.getBytes();
-        }
+    static Bitmap icon(String email, int size, int pixels, boolean dark) {
+        byte[] hash = getHash(email);
 
         int color = Color.argb(255, hash[0], hash[1], hash[2]);
         color = ColorUtils.blendARGB(color, dark ? Color.WHITE : Color.BLACK, 0.2f);
@@ -62,5 +57,41 @@ class Identicon {
         }
 
         return bitmap;
+    }
+
+    static Bitmap letter(String email, int size, boolean dark) {
+        byte[] hash = getHash(email);
+
+        int color = Color.argb(255, hash[0], hash[1], hash[2]);
+        color = ColorUtils.blendARGB(color, dark ? Color.WHITE : Color.BLACK, 0.2f);
+
+        Bitmap bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        canvas.drawColor(color);
+
+        Paint paint = new Paint();
+        paint.setColor(Color.argb(
+                Color.alpha(color),
+                (~Color.red(color)) & 0xff,
+                (~Color.green(color)) & 0xff,
+                (~Color.blue(color)) & 0xff));
+        paint.setTextSize(size / 2f);
+        paint.setFakeBoldText(true);
+
+        String text = email.substring(0, 1).toUpperCase();
+        canvas.drawText(
+                text,
+                size / 2f - paint.measureText(text) / 2,
+                size / 2f - ((paint.descent() + paint.ascent()) / 2), paint);
+
+        return bitmap;
+    }
+
+    private static byte[] getHash(String email) {
+        try {
+            return MessageDigest.getInstance("MD5").digest(email.getBytes());
+        } catch (NoSuchAlgorithmException ignored) {
+            return email.getBytes();
+        }
     }
 }

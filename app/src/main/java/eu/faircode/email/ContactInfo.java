@@ -133,13 +133,16 @@ public class ContactInfo {
             }
 
         if (info.bitmap == null) {
+            TypedValue tv = new TypedValue();
+            context.getTheme().resolveAttribute(R.attr.themeName, tv, true);
+            int dp = Helper.dp2pixels(context, 48);
+
+            boolean dark = !"light".equals(tv.string);
             boolean identicons = prefs.getBoolean("identicons", false);
-            if (identicons) {
-                TypedValue tv = new TypedValue();
-                context.getTheme().resolveAttribute(R.attr.themeName, tv, true);
-                int dp = Helper.dp2pixels(context, 48);
-                info.bitmap = Identicon.generate(key, dp, 5, !"light".equals(tv.string));
-            }
+            if (identicons)
+                info.bitmap = Identicon.icon(key, dp, 5, dark);
+            else
+                info.bitmap = Identicon.letter(key, dp, dark);
         }
 
         if (info.displayName == null)
