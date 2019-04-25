@@ -115,6 +115,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swEnglish;
     private SwitchCompat swUpdates;
     private SwitchCompat swDebug;
+    private TextView tvLastCleanup;
 
     private Group grpSearchLocal;
     private Group grpNotification;
@@ -201,6 +202,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swEnglish = view.findViewById(R.id.swEnglish);
         swUpdates = view.findViewById(R.id.swUpdates);
         swDebug = view.findViewById(R.id.swDebug);
+        tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
 
         grpSearchLocal = view.findViewById(R.id.grpSearchLocal);
         grpNotification = view.findViewById(R.id.grpNotification);
@@ -595,6 +597,12 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
                 ServiceSynchronize.reload(getContext(), "debug=" + checked);
             }
         });
+
+        long last_cleanup = prefs.getLong("last_cleanup", -1);
+        java.text.DateFormat df = SimpleDateFormat.getDateTimeInstance();
+        tvLastCleanup.setText(
+                getString(R.string.title_advanced_last_cleanup,
+                        last_cleanup < 0 ? "-" : df.format(last_cleanup)));
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 

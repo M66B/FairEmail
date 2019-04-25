@@ -1,8 +1,10 @@
 package eu.faircode.email;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
+import android.preference.PreferenceManager;
 
 import androidx.annotation.NonNull;
 import androidx.work.Constraints;
@@ -156,6 +158,10 @@ public class WorkerCleanup extends Worker {
             Log.e(ex);
         } finally {
             Log.i("End cleanup");
+            if (!manual) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                prefs.edit().putLong("last_cleanup", new Date().getTime()).apply();
+            }
         }
     }
 

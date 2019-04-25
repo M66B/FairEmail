@@ -203,6 +203,7 @@
     <string name="title_advanced_paranoid">Extra privacy features</string>
     <string name="title_advanced_updates">Check for updates</string>
     <string name="title_advanced_debug">Debug mode</string>
+    <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
 
     <string name="title_advanced_enabled_hint">Globally disable or enable receiving and sending of messages</string>
     <string name="title_advanced_schedule_hint">Tap on a time to set a time</string>
