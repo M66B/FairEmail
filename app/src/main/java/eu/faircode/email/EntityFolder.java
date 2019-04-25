@@ -268,6 +268,7 @@ public class EntityFolder implements Serializable {
                     this.collapsed == other.collapsed &&
                     this.unified == other.unified &&
                     this.notify == other.notify &&
+                    Objects.equals(this.subscribed, other.subscribed) &&
                     Objects.equals(this.total, other.total) &&
                     Helper.equal(this.keywords, other.keywords) &&
                     Objects.equals(this.tbd, other.tbd) &&
