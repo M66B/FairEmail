@@ -189,11 +189,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 Log.i("Navigation id=" + item.getId() + " menu=" + item.getMenuId());
 
                 switch (item.getMenuId()) {
-                    case R.string.menu_answers:
-                        onMenuAnswers();
-                        break;
                     case R.string.menu_operations:
                         onMenuOperations();
+                        break;
+                    case R.string.menu_answers:
+                        onMenuAnswers();
                         break;
                     case R.string.menu_setup:
                         onMenuSetup();
@@ -932,21 +932,21 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }.execute(this, args, "menu:inbox");
     }
 
-    private void onMenuAnswers() {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-            getSupportFragmentManager().popBackStack("answers", FragmentManager.POP_BACK_STACK_INCLUSIVE);
-
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new FragmentAnswers()).addToBackStack("answers");
-        fragmentTransaction.commit();
-    }
-
     private void onMenuOperations() {
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
             getSupportFragmentManager().popBackStack("operations", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentOperations()).addToBackStack("operations");
+        fragmentTransaction.commit();
+    }
+
+    private void onMenuAnswers() {
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+            getSupportFragmentManager().popBackStack("answers", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentAnswers()).addToBackStack("answers");
         fragmentTransaction.commit();
     }
 
