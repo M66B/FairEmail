@@ -35,7 +35,6 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.Typeface;
@@ -82,8 +81,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.graphics.drawable.RoundedBitmapDrawable;
-import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -147,7 +144,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean contacts;
     private boolean search;
     private boolean avatars;
-    private boolean circular;
     private boolean flags;
     private boolean preview;
     private boolean autohtml;
@@ -734,15 +730,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void bindContactInfo(ContactInfo info, TupleMessageEx message) {
-            if (info.hasPhoto()) {
-                Bitmap bm = info.getPhotoBitmap();
-                if (circular) {
-                    RoundedBitmapDrawable rounded = RoundedBitmapDrawableFactory.create(context.getResources(), bm);
-                    rounded.setCircular(true);
-                    ivAvatar.setImageDrawable(rounded);
-                } else
-                    ivAvatar.setImageBitmap(info.getPhotoBitmap());
-            } else
+            if (info.hasPhoto())
+                ivAvatar.setImageBitmap(info.getPhotoBitmap());
+            else
                 ivAvatar.setImageResource(R.drawable.baseline_person_24);
             ivAvatar.setVisibility(avatars ? View.VISIBLE : View.GONE);
             tvFrom.setText(info.getDisplayName(name_email));
@@ -3080,7 +3070,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED);
         this.avatars = (prefs.getBoolean("avatars", true) ||
                 prefs.getBoolean("identicons", false));
-        this.circular = prefs.getBoolean("circular", true);
         this.flags = prefs.getBoolean("flags", true);
         this.preview = prefs.getBoolean("preview", false);
         this.autohtml = prefs.getBoolean("autohtml", false);

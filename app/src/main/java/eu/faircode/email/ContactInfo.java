@@ -7,6 +7,13 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.util.TypedValue;
@@ -143,6 +150,38 @@ public class ContactInfo {
                 info.bitmap = Identicon.icon(key, dp, 5, dark);
             else
                 info.bitmap = Identicon.letter(key, dp, dark);
+        }
+
+        boolean circular = prefs.getBoolean("circular", true);
+        if (info.bitmap != null && circular) {
+            int w = info.bitmap.getWidth();
+            int h = info.bitmap.getHeight();
+
+            Rect source;
+            if (w > h) {
+                int off = (w - h) / 2;
+                source = new Rect(off, 0, w - off, h);
+            } else if (w < h) {
+                int off = (h - w) / 2;
+                source = new Rect(0, off, w, h - off);
+            } else
+                source = new Rect(0, 0, w, h);
+
+            Rect dest = new Rect(0, 0, source.width(), source.height());
+
+            Bitmap round = Bitmap.createBitmap(source.width(), source.height(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(round);
+
+            Paint paint = new Paint();
+            paint.setAntiAlias(true);
+            canvas.drawARGB(0, 0, 0, 0);
+            paint.setColor(Color.GRAY);
+            canvas.drawOval(new RectF(dest), paint);
+            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+            canvas.drawBitmap(info.bitmap, source, dest, paint);
+
+            info.bitmap.recycle();
+            info.bitmap = round;
         }
 
         if (info.displayName == null)

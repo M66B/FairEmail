@@ -345,6 +345,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("circular", checked).apply();
+                ContactInfo.clearCache();
             }
         });
 
