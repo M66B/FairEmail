@@ -70,6 +70,7 @@ public class EntityAccount implements Serializable {
     public String name;
     public String signature; // obsolete
     public Integer color;
+    public Integer order;
 
     @NonNull
     public Boolean synchronize;
@@ -132,6 +133,7 @@ public class EntityAccount implements Serializable {
 
         json.put("name", name);
         json.put("color", color);
+        json.put("order", order);
 
         json.put("synchronize", synchronize);
         json.put("primary", primary);
@@ -167,6 +169,8 @@ public class EntityAccount implements Serializable {
             account.name = json.getString("name");
         if (json.has("color"))
             account.color = json.getInt("color");
+        if (json.has("order"))
+            account.order = json.getInt("order");
 
         account.synchronize = json.getBoolean("synchronize");
         account.primary = json.getBoolean("primary");

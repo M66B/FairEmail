@@ -8,4 +8,9 @@
         android:title="@string/title_search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="collapseActionView|always" />
+
+    <item
+        android:id="@+id/menu_reset_order"
+        android:title="@string/title_reset_order"
+        app:showAsAction="never" />
 </menu>

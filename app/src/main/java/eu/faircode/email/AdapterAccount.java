@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,23 +32,22 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.Group;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.Collator;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 
 public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHolder> {
     private Context context;
+    private LifecycleOwner owner;
     private boolean settings;
     private LayoutInflater inflater;
 
@@ -167,8 +167,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         }
     }
 
-    AdapterAccount(Context context, boolean settings) {
+    AdapterAccount(Context context, LifecycleOwner owner, boolean settings) {
         this.context = context;
+        this.owner = owner;
         this.settings = settings;
         this.inflater = LayoutInflater.from(context);
 
@@ -180,22 +181,6 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
     public void set(@NonNull List<TupleAccountEx> accounts) {
         Log.i("Set accounts=" + accounts.size());
-
-        final Collator collator = Collator.getInstance(Locale.getDefault());
-        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-
-        Collections.sort(accounts, new Comparator<TupleAccountEx>() {
-            @Override
-            public int compare(TupleAccountEx a1, TupleAccountEx a2) {
-                int n = collator.compare(a1.name, a2.name);
-                if (n != 0)
-                    return n;
-                int e = collator.compare(a1.user, a2.user);
-                if (e != 0)
-                    return e;
-                return a1.id.compareTo(a2.id);
-            }
-        });
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, accounts), false);
 
@@ -267,6 +252,47 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     @Override
     public int getItemCount() {
         return items.size();
+    }
+
+    void onMove(int from, int to) {
+        if (from < to)
+            for (int i = from; i < to; i++)
+                Collections.swap(items, i, i + 1);
+        else
+            for (int i = from; i > to; i--)
+                Collections.swap(items, i, i - 1);
+        notifyItemMoved(from, to);
+
+        List<Long> order = new ArrayList<>();
+        for (int i = 0; i < items.size(); i++)
+            order.add(items.get(i).id);
+
+        Bundle args = new Bundle();
+        args.putLongArray("order", Helper.toLongArray(order));
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                final long[] order = args.getLongArray("order");
+
+                final DB db = DB.getInstance(context);
+                db.runInTransaction(new Runnable() {
+                    @Override
+                    public void run() {
+                        for (int i = 0; i < order.length; i++)
+                            db.account().setAccountOrder(order[i], i);
+                    }
+                });
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(context, owner, ex);
+
+            }
+        }.execute(context, owner, args, "accounts:order");
     }
 
     @Override

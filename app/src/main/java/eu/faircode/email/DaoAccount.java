@@ -64,7 +64,8 @@ public interface DaoAccount {
             " LEFT JOIN operation ON operation.account = account.id" +
             " LEFT JOIN folder AS drafts ON drafts.account = account.id AND drafts.type = '" + EntityFolder.DRAFTS + "'" +
             " WHERE :all OR account.synchronize" +
-            " GROUP BY account.id")
+            " GROUP BY account.id" +
+            " ORDER BY `order`, `primary` DESC, name COLLATE NOCASE")
     LiveData<List<TupleAccountEx>> liveAccountsEx(boolean all);
 
     @Query("SELECT * FROM account WHERE id = :id")
@@ -110,6 +111,9 @@ public interface DaoAccount {
     @Query("UPDATE account SET password = :password WHERE id = :id")
     int setAccountPassword(long id, String password);
 
+    @Query("UPDATE account SET `order` = :order WHERE id = :id")
+    int setAccountOrder(long id, Integer order);
+
     @Query("UPDATE account SET warning = :warning WHERE id = :id")
     int setAccountWarning(long id, String warning);
 
@@ -124,6 +128,9 @@ public interface DaoAccount {
 
     @Query("UPDATE account SET last_connected = NULL")
     int clearAccountConnected();
+
+    @Query("UPDATE account SET `order` = NULL")
+    int resetAccountOrder();
 
     @Query("DELETE FROM account WHERE tbd = 1")
     int deleteAccountsTbd();

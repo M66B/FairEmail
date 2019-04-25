@@ -451,6 +451,8 @@
     <string name="title_search_device">Search on device</string>
     <string name="title_searching">Searching \'%1$s\'</string>
 
+    <string name="title_reset_order">Reset order</string>
+
     <string name="title_sort_on">Sort on</string>
     <string name="title_sort_on_time">Time</string>
     <string name="title_sort_on_unread">Unread</string>
