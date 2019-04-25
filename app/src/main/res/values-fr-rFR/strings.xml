@@ -395,6 +395,7 @@
     <string name="title_search_hint">Rechercher sur le serveur</string>
     <string name="title_search_device">Rechercher sur l\'appareil</string>
     <string name="title_searching">Recherche de \'%1$s\'</string>
+    <string name="title_reset_order">Réinitialiser l’ordre</string>
     <string name="title_sort_on">Trier par</string>
     <string name="title_sort_on_time">Date</string>
     <string name="title_sort_on_unread">Non lu(s)</string>
