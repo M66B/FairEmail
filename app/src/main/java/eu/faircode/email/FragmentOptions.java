@@ -695,7 +695,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swThreading.setChecked(prefs.getBoolean("threading", true));
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
         swIdenticons.setChecked(prefs.getBoolean("identicons", false));
-        swCircular.setChecked(prefs.getBoolean("circular", false));
+        swCircular.setChecked(prefs.getBoolean("circular", true));
         swNameEmail.setChecked(prefs.getBoolean("name_email", !compact));
         swSubjectItalic.setChecked(prefs.getBoolean("subject_italic", true));
         swFlags.setChecked(prefs.getBoolean("flags", true));

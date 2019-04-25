@@ -3080,7 +3080,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED);
         this.avatars = (prefs.getBoolean("avatars", true) ||
                 prefs.getBoolean("identicons", false));
-        this.circular = prefs.getBoolean("circular", false);
+        this.circular = prefs.getBoolean("circular", true);
         this.flags = prefs.getBoolean("flags", true);
         this.preview = prefs.getBoolean("preview", false);
         this.autohtml = prefs.getBoolean("autohtml", false);
