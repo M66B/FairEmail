@@ -139,6 +139,7 @@
     <string name="title_advanced_threading">Thread di conversazione</string>
     <string name="title_advanced_avatars">Mostra foto del contatto</string>
     <string name="title_advanced_identicons">Visualizza identicon</string>
+    <string name="title_advanced_circular">Mostra icone rotonde</string>
     <string name="title_advanced_name_email">Mostra nomi e indirizzi email</string>
     <string name="title_advanced_subject_italic">Mostra soggetto in corsivo</string>
     <string name="title_advanced_flags">Mostra stelle (preferiti)</string>
@@ -395,6 +396,7 @@
     <string name="title_search_hint">Cerca sul server</string>
     <string name="title_search_device">Cerca nel dispositivo</string>
     <string name="title_searching">Ricerca di \'%1$s\'</string>
+    <string name="title_reset_order">Resetta ordine</string>
     <string name="title_sort_on">Ordina per</string>
     <string name="title_sort_on_time">Ora</string>
     <string name="title_sort_on_unread">Non letti</string>
