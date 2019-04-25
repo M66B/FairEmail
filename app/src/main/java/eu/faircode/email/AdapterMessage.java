@@ -737,9 +737,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (info.hasPhoto()) {
                 Bitmap bm = info.getPhotoBitmap();
                 if (circular) {
-                    RoundedBitmapDrawable d = RoundedBitmapDrawableFactory.create(context.getResources(), bm);
-                    d.setCircular(true);
-                    ivAvatar.setImageDrawable(d);
+                    RoundedBitmapDrawable rounded = RoundedBitmapDrawableFactory.create(context.getResources(), bm);
+                    rounded.setCircular(true);
+                    ivAvatar.setImageDrawable(rounded);
                 } else
                     ivAvatar.setImageBitmap(info.getPhotoBitmap());
             } else
