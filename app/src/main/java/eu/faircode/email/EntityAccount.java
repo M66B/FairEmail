@@ -205,6 +205,7 @@ public class EntityAccount implements Serializable {
                     Objects.equals(this.realm, other.realm) &&
                     Objects.equals(this.name, other.name) &&
                     Objects.equals(this.color, other.color) &&
+                    Objects.equals(this.order, other.order) &&
                     this.synchronize.equals(other.synchronize) &&
                     this.primary.equals(other.primary) &&
                     this.notify.equals(other.notify) &&

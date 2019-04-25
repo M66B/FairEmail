@@ -78,7 +78,7 @@ public class EntityIdentity {
     @NonNull
     public Boolean primary;
     @NonNull
-    public boolean sender_extra = false;
+    public Boolean sender_extra = false;
     public String replyto;
     public String bcc;
     @NonNull
@@ -124,6 +124,7 @@ public class EntityIdentity {
 
         json.put("synchronize", synchronize);
         json.put("primary", primary);
+        json.put("sender_extra", sender_extra);
 
         json.put("replyto", replyto);
         json.put("bcc", bcc);
@@ -164,6 +165,8 @@ public class EntityIdentity {
 
         identity.synchronize = json.getBoolean("synchronize");
         identity.primary = json.getBoolean("primary");
+        if (json.has("sender_extra"))
+            identity.sender_extra = json.getBoolean("sender_extra");
 
         if (json.has("replyto") && !json.isNull("replyto"))
             identity.replyto = json.getString("replyto");
@@ -206,6 +209,7 @@ public class EntityIdentity {
                     this.use_ip == other.use_ip &&
                     this.synchronize.equals(other.synchronize) &&
                     this.primary.equals(other.primary) &&
+                    this.sender_extra.equals(sender_extra) &&
                     Objects.equals(this.replyto, other.replyto) &&
                     Objects.equals(this.bcc, other.bcc) &&
                     this.plain_only.equals(other.plain_only) &&

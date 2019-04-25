@@ -260,11 +260,17 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.deliveredto, other.deliveredto) &&
                     Objects.equals(this.inreplyto, other.inreplyto) &&
                     Objects.equals(this.thread, other.thread) &&
+                    Objects.equals(this.receipt_request, other.receipt_request) &&
+                    MessageHelper.equal(this.receipt_to, other.receipt_to) &&
+                    Objects.equals(this.dkim, other.dkim) &&
+                    Objects.equals(this.spf, other.spf) &&
+                    Objects.equals(this.dmarc, other.dmarc) &&
                     MessageHelper.equal(this.from, other.from) &&
                     MessageHelper.equal(this.to, other.to) &&
                     MessageHelper.equal(this.cc, other.cc) &&
                     MessageHelper.equal(this.bcc, other.bcc) &&
                     MessageHelper.equal(this.reply, other.reply) &&
+                    MessageHelper.equal(this.list_post, other.list_post) &&
                     Objects.equals(this.headers, other.headers) &&
                     Objects.equals(this.raw, other.raw) &&
                     Objects.equals(this.subject, other.subject) &&
@@ -287,6 +293,8 @@ public class EntityMessage implements Serializable {
                     this.ui_ignored.equals(other.ui_ignored) &&
                     this.ui_browsed.equals(other.ui_browsed) &&
                     Objects.equals(this.ui_snoozed, other.ui_snoozed) &&
+                    Objects.equals(this.revision, other.revision) &&
+                    Objects.equals(this.revisions, other.revisions) &&
                     Objects.equals(this.warning, other.warning) &&
                     Objects.equals(this.error, other.error));
         }
