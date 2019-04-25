@@ -724,7 +724,7 @@ public class MessageHelper {
         private List<AttachmentPart> attachments = new ArrayList<>();
         private ArrayList<String> warnings = new ArrayList<>();
 
-        String getHtml(Context context) throws MessagingException {
+        String getHtml(Context context) throws MessagingException, IOException {
             if (plain == null && html == null) {
                 warnings.add(context.getString(R.string.title_no_body));
                 return null;
@@ -743,6 +743,12 @@ public class MessageHelper {
                     result = readStream((InputStream) content, "UTF-8");
                 else
                     result = content.toString();
+            } catch (MessagingException ex) {
+                // Including FolderClosedException
+                throw ex;
+            } catch (IOException ex) {
+                // Including FolderClosedIOException
+                throw ex;
             } catch (Throwable ex) {
                 Log.w(ex);
                 text = true;
