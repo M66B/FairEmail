@@ -119,8 +119,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -1979,20 +1977,6 @@ public class FragmentCompose extends FragmentBase {
                     List<TupleIdentityEx> identities = db.identity().getComposableIdentities(null);
                     if (identities == null)
                         identities = new ArrayList<>();
-
-                    // Sort identities
-                    Collections.sort(identities, new Comparator<TupleIdentityEx>() {
-                        @Override
-                        public int compare(TupleIdentityEx i1, TupleIdentityEx i2) {
-                            int a = i1.accountName.compareTo(i2.accountName);
-                            if (a != 0)
-                                return a;
-                            int d = i1.getDisplayName().compareTo(i2.getDisplayName());
-                            if (d != 0)
-                                return d;
-                            return i1.email.compareTo(i2.email);
-                        }
-                    });
 
                     return identities;
                 }
