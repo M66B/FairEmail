@@ -151,7 +151,7 @@ public class ServiceSynchronize extends LifecycleService {
             }
         });
 
-        WorkerCleanup.queue();
+        WorkerCleanup.queue(this);
     }
 
     @Override
@@ -169,7 +169,7 @@ public class ServiceSynchronize extends LifecycleService {
             Log.e(ex);
         }
 
-        WorkerCleanup.cancel();
+        WorkerCleanup.cancel(this);
 
         stopForeground(true);
 

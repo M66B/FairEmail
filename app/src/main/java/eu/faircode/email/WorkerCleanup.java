@@ -6,8 +6,8 @@ import android.os.Build;
 
 import androidx.annotation.NonNull;
 import androidx.work.Constraints;
+import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.PeriodicWorkRequest;
-import androidx.work.WorkInfo;
 import androidx.work.WorkManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
@@ -21,8 +21,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
-
 public class WorkerCleanup extends Worker {
     private static final int CLEANUP_INTERVAL = 4; // hours
     private static final long CACHE_IMAGE_DURATION = 3 * 24 * 3600 * 1000L; // milliseconds
@@ -31,11 +29,13 @@ public class WorkerCleanup extends Worker {
 
     public WorkerCleanup(@NonNull Context context, @NonNull WorkerParameters workerParams) {
         super(context, workerParams);
+        Log.i("Instance " + getName());
     }
 
     @NonNull
     @Override
     public Result doWork() {
+        Log.i("Running " + getName());
         cleanup(getApplicationContext(), false);
         return Result.success();
     }
@@ -43,7 +43,6 @@ public class WorkerCleanup extends Worker {
     static void cleanup(Context context, boolean manual) {
         DB db = DB.getInstance(context);
         try {
-            Thread.currentThread().setPriority(THREAD_PRIORITY_BACKGROUND);
             Log.i("Start cleanup manual=" + manual);
 
             // Cleanup folders
@@ -160,37 +159,30 @@ public class WorkerCleanup extends Worker {
         }
     }
 
-    static void queue() {
-        String tag = WorkerCleanup.class.getSimpleName();
-        Log.i("Queuing " + tag);
-
-        try {
-            for (WorkInfo info : WorkManager.getInstance().getWorkInfosByTag(tag).get())
-                if (!info.getState().isFinished()) {
-                    Log.i("Already queued " + tag);
-                    return;
-                }
-        } catch (Throwable ex) {
-            Log.w(ex);
-        }
+    static void queue(Context context) {
+        Log.i("Queuing " + getName());
 
         Constraints.Builder constraints = new Constraints.Builder();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !BuildConfig.DEBUG)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
             constraints.setRequiresDeviceIdle(true);
 
         PeriodicWorkRequest workRequest =
                 new PeriodicWorkRequest.Builder(WorkerCleanup.class, CLEANUP_INTERVAL, TimeUnit.HOURS)
-                        .addTag(tag)
                         .setConstraints(constraints.build())
                         .build();
-        WorkManager.getInstance().enqueue(workRequest);
+        WorkManager.getInstance(context)
+                .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.KEEP, workRequest);
 
-        Log.i("Queued " + tag);
+        Log.i("Queued " + getName());
     }
 
-    static void cancel() {
-        String tag = WorkerCleanup.class.getSimpleName();
-        Log.i("Cancelling " + tag);
-        WorkManager.getInstance().cancelAllWorkByTag(tag);
+    static void cancel(Context context) {
+        Log.i("Cancelling " + getName());
+        WorkManager.getInstance(context).cancelUniqueWork(getName());
+        Log.i("Cancelled " + getName());
+    }
+
+    private static String getName() {
+        return WorkerCleanup.class.getSimpleName();
     }
 }
