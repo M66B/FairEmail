@@ -131,6 +131,7 @@
     <string name="title_advanced_threading">会话线程</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
+    <string name="title_advanced_circular">使用圆形图标</string>
     <string name="title_advanced_name_email">显示名称和电子邮件地址</string>
     <string name="title_advanced_subject_italic">用斜体字显示邮件主题</string>
     <string name="title_advanced_flags">显示加星邮件(收藏)</string>
@@ -163,6 +164,7 @@
     <string name="title_advanced_paranoid">额外隐私功能</string>
     <string name="title_advanced_updates">检查更新</string>
     <string name="title_advanced_debug">调试模式</string>
+    <string name="title_advanced_last_cleanup">上次清理: %1$s</string>
     <string name="title_advanced_enabled_hint">全局禁用或启用邮件的接收和发送</string>
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
     <string name="title_advanced_metered_hint">计量连接通常是指移动连接或付费WiFi热点</string>
@@ -387,6 +389,7 @@
     <string name="title_search_hint">在服务器上搜索</string>
     <string name="title_search_device">搜索设备</string>
     <string name="title_searching">搜索 “%1$s”</string>
+    <string name="title_reset_order">重置顺序</string>
     <string name="title_sort_on">分类方式</string>
     <string name="title_sort_on_time">时间</string>
     <string name="title_sort_on_unread">未读</string>

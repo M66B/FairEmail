@@ -155,6 +155,7 @@
     <string name="title_advanced_threading">Связанные диалоги</string>
     <string name="title_advanced_avatars">Показать фотографии контакта</string>
     <string name="title_advanced_identicons">Показать идентификаторы</string>
+    <string name="title_advanced_circular">Использовать круглые иконки</string>
     <string name="title_advanced_name_email">Показывать имена и адреса электронной почты</string>
     <string name="title_advanced_subject_italic">Показывать тему курсивом</string>
     <string name="title_advanced_flags">Показывать звезды (избранное)</string>
@@ -187,6 +188,7 @@
     <string name="title_advanced_paranoid">Дополнительные возможности конфиденциальности</string>
     <string name="title_advanced_updates">Проверить наличие обновлений</string>
     <string name="title_advanced_debug">Режим отладки</string>
+    <string name="title_advanced_last_cleanup">Последняя очистка: %1$s</string>
     <string name="title_advanced_enabled_hint">Глобальное включение/отключение получения и отправки сообщений</string>
     <string name="title_advanced_schedule_hint">Нажмите на время, чтобы установить его</string>
     <string name="title_advanced_metered_hint">Лимитированные подключения - это обычно мобильные сети или платные Wi-Fi</string>
@@ -411,6 +413,7 @@
     <string name="title_search_hint">Поиск на сервере</string>
     <string name="title_search_device">Поиск на устройстве</string>
     <string name="title_searching">Поиск \'%1$s\'</string>
+    <string name="title_reset_order">Изменить порядок</string>
     <string name="title_sort_on">Сортировать по</string>
     <string name="title_sort_on_time">Время</string>
     <string name="title_sort_on_unread">Не прочитано</string>

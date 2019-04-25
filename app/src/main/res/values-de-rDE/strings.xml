@@ -139,6 +139,7 @@
     <string name="title_advanced_threading">Konversationsansicht</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
     <string name="title_advanced_identicons">Identicons als Kontaktbilder anzeigen</string>
+    <string name="title_advanced_circular">Runde Symbole benutzen</string>
     <string name="title_advanced_name_email">Namen und E-Mail-Adressen anzeigen</string>
     <string name="title_advanced_subject_italic">Betreff kursiv anzeigen</string>
     <string name="title_advanced_flags">Sterne / Favoriten anzeigen</string>
@@ -171,6 +172,7 @@
     <string name="title_advanced_paranoid">Zusätzliche Datenschutzfunktionen</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
     <string name="title_advanced_debug">Debugmodus</string>
+    <string name="title_advanced_last_cleanup">Letzte Bereinigung: %1$s</string>
     <string name="title_advanced_enabled_hint">Vollständiges de-/aktivieren der Empfangs- und Versandfunktion von E-Mails</string>
     <string name="title_advanced_schedule_hint">Tippe auf eine Zeit, um eine Zeit zu setzen</string>
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte Wi-Fi Hotspots</string>
@@ -395,6 +397,7 @@
     <string name="title_search_hint">Auf Server suchen</string>
     <string name="title_search_device">Auf dem Gerät suchen</string>
     <string name="title_searching">Suche „%1$s“</string>
+    <string name="title_reset_order">Standard-Reihenfolge</string>
     <string name="title_sort_on">Sortieren nach</string>
     <string name="title_sort_on_time">Uhrzeit</string>
     <string name="title_sort_on_unread">Ungelesen</string>

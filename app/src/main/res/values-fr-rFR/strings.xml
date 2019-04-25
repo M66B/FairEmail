@@ -139,6 +139,7 @@
     <string name="title_advanced_threading">Fil de conversation</string>
     <string name="title_advanced_avatars">Afficher les photos des contacts</string>
     <string name="title_advanced_identicons">Afficher les identicônes</string>
+    <string name="title_advanced_circular">Afficher des icônes rondes</string>
     <string name="title_advanced_name_email">Afficher les noms et les adresses e-mail</string>
     <string name="title_advanced_subject_italic">Afficher l\'objet en italique</string>
     <string name="title_advanced_flags">Montrer les messages suivis (favoris)</string>
@@ -171,6 +172,7 @@
     <string name="title_advanced_paranoid">Fonctions de confidentialité supplémentaires</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
     <string name="title_advanced_debug">Débogage</string>
+    <string name="title_advanced_last_cleanup">Dernier nettoyage : %1$s</string>
     <string name="title_advanced_enabled_hint">Désactiver ou activer globalement la réception et l\'envoi de messages</string>
     <string name="title_advanced_schedule_hint">Appuyez sur une heure pour définir une heure</string>
     <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>
