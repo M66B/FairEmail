@@ -100,7 +100,7 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int CONNECT_BACKOFF_MAX = 64; // seconds (totally 2 minutes)
     private static final int CONNECT_BACKOFF_AlARM = 15; // minutes
     private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
-    private static final int ACCOUNT_ERROR_AFTER = 90; // minutes
+    private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
     private static final long ONESHOT_DURATION = 60 * 1000L; // milliseconds
     private static final long STOP_DELAY = 5000L; // milliseconds
