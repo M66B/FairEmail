@@ -69,12 +69,10 @@ class Identicon {
         Canvas canvas = new Canvas(bitmap);
         canvas.drawColor(color);
 
+        float y = (299 * Color.red(color) + 587 * Color.green(color) + 114 * Color.blue(color)) / 1000f;
+
         Paint paint = new Paint();
-        paint.setColor(Color.argb(
-                Color.alpha(color),
-                (~Color.red(color)) & 0xff,
-                (~Color.green(color)) & 0xff,
-                (~Color.blue(color)) & 0xff));
+        paint.setColor(y < 128 ? Color.WHITE : Color.BLACK);
         paint.setTextSize(size / 2f);
         paint.setFakeBoldText(true);
 
