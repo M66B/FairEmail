@@ -473,7 +473,6 @@
     <string name="title_hint_tracking_image">Web beacon %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Długo naciśnij kontakt, aby nigdy nie uznać go za ulubiony</string>
     <string name="title_open_link">Otwórz link</string>
-    <string name="title_show_organization">Pokaż organizację</string>
     <string name="title_insecure_link">Ten link nie jest bezpieczny</string>
     <string name="title_select_app">Wybierz aplikację</string>
     <string name="title_updated">Jest dostępna aktualizacja do wersji %1$s</string>

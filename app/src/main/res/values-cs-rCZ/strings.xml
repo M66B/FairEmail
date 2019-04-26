@@ -155,6 +155,7 @@
     <string name="title_advanced_threading">Vlákna konverzací</string>
     <string name="title_advanced_avatars">Zobrazit fotografie kontaktů</string>
     <string name="title_advanced_identicons">Zobrazit identikony</string>
+    <string name="title_advanced_circular">Použít kulaté ikony</string>
     <string name="title_advanced_name_email">Zobrazit jména a e-mailové adresy</string>
     <string name="title_advanced_subject_italic">Zobrazit předmět kurzívou</string>
     <string name="title_advanced_flags">Zobrazit hvězdičky (oblíbené)</string>
@@ -178,6 +179,7 @@
     <string name="title_advanced_prefix_once">Přidat do předmětu pouze jednu předponu při odpovídání nebo přeposílání</string>
     <string name="title_advanced_autosend">Potvrzovat odesílání zpráv</string>
     <string name="title_advanced_badge">Zobrazit počet nových zpráv na ikoně aplikace</string>
+    <string name="title_advanced_subscriptions">Spravovat odběry složek</string>
     <string name="title_advanced_notify_preview">Zobrazit náhled zprávy v oznámení</string>
     <string name="title_advanced_search_local">Externí hledání na zařízení</string>
     <string name="title_advanced_light">Použít oznamovací LED</string>
@@ -187,6 +189,7 @@
     <string name="title_advanced_paranoid">Doplňující funkce ochrany soukromí</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace</string>
     <string name="title_advanced_debug">Režim ladění</string>
+    <string name="title_advanced_last_cleanup">Poslední čištění: %1$s</string>
     <string name="title_advanced_enabled_hint">Globálně zakáže nebo povolí přijímání a odesílání zpráv</string>
     <string name="title_advanced_schedule_hint">Dotkněte se času pro jeho změnu</string>
     <string name="title_advanced_metered_hint">Účtovaná připojení jsou obecně mobilní připojení nebo placené Wi-Fi hotspoty</string>
@@ -195,6 +198,7 @@
     <string name="title_advanced_threading_hint">Seskupit zprávy které spolu souvisí</string>
     <string name="title_advanced_name_email_hint">Při deaktivaci se zobrazí pouze jména, pokud budou k dispozici</string>
     <string name="title_advanced_flags_hint">Mějte na paměti, že zprávy s hvězdičkou budou vždy uchovávány lokálně</string>
+    <string name="title_advanced_subscriptions_hint">Složky bez přihlášeného odběru budou skryty</string>
     <string name="title_advanced_preview_hint">K dispozici pouze pokud byl stažen text zprávy</string>
     <string name="title_advanced_autoexpand_hint">Automaticky otevřít zprávu pokud je v konverzaci pouze jediná zpráva nebo jediná nepřečtená</string>
     <string name="title_advanced_autocollapse_hint">Vícero rozbalených zpráv bude vždy sbaleno při pohybu zpět</string>
@@ -331,6 +335,7 @@
     <string name="title_show_html">Zobrazit původní</string>
     <string name="title_trash">Koš</string>
     <string name="title_copy">Kopírovat &#8230;</string>
+    <string name="title_subscribe">Přihlásit odběr</string>
     <string name="title_delete">Smazat</string>
     <string name="title_more">Více</string>
     <string name="title_spam">Nevyžádané</string>
@@ -411,6 +416,7 @@
     <string name="title_search_hint">Hledat na serveru</string>
     <string name="title_search_device">Hledat v zařízení</string>
     <string name="title_searching">Hledám \"%1$s\"</string>
+    <string name="title_reset_order">Obnovit pořadí</string>
     <string name="title_sort_on">Řadit dle</string>
     <string name="title_sort_on_time">Čas</string>
     <string name="title_sort_on_unread">Nepřečteno</string>
@@ -462,6 +468,7 @@
     <string name="title_legend_trash">Koš</string>
     <string name="title_legend_junk">Nevyžádaná</string>
     <string name="title_legend_notify">Oznamovat nové zprávy</string>
+    <string name="title_legend_subscribed">Přihlášen k odběru</string>
     <string name="title_legend_unified">Sjednocené doručené / hlavní účet</string>
     <string name="title_legend_primary_disconnected">Účet odpojen</string>
     <string name="title_legend_primary_connected">Účet připojen</string>
@@ -529,7 +536,6 @@
     <string name="title_hint_tracking_image">Sledovací obrázek %1$sx%2$s px</string>
     <string name="title_hint_ignore_contact">Dlouhý stisk kontaktu = nikdy jej nepovažovat za oblíbený</string>
     <string name="title_open_link">Otevřít odkaz</string>
-    <string name="title_show_organization">Zobrazit organizaci</string>
     <string name="title_insecure_link">Tento odkaz není bezpečný</string>
     <string name="title_select_app">Vyberte aplikaci</string>
     <string name="title_updated">Je k dispozici aktualizace na verzi %1$s</string>

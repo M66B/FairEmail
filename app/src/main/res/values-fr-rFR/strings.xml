@@ -163,6 +163,7 @@
     <string name="title_advanced_prefix_once">Ne préfixer le sujet qu\'une seule fois lors de la réponse ou du transfert</string>
     <string name="title_advanced_autosend">Confirmer l\'envoi des messages</string>
     <string name="title_advanced_badge">Afficher l\'icône du lanceur avec le nombre de nouveaux messages</string>
+    <string name="title_advanced_subscriptions">Gérer les abonnements de dossier</string>
     <string name="title_advanced_notify_preview">Afficher l\'aperçu du message dans les notifications</string>
     <string name="title_advanced_search_local">Recherche externe sur l\'appareil</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
@@ -181,6 +182,7 @@
     <string name="title_advanced_threading_hint">Groupe de messages liés les uns aux autres</string>
     <string name="title_advanced_name_email_hint">Si désactivé, seuls les noms seront affichés si disponibles</string>
     <string name="title_advanced_flags_hint">Notez que les messages suivis seront toujours conservés localement</string>
+    <string name="title_advanced_subscriptions_hint">Les dossiers non abonnés seront cachés</string>
     <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
     <string name="title_advanced_autoexpand_hint">Ouvrir automatiquement le message lorsqu’il n’y a qu’un seul message ou seulement un message non lu dans une conversation</string>
     <string name="title_advanced_autocollapse_hint">Les messages étendus multiples seront toujours fermés par \'retour\'</string>
@@ -317,6 +319,7 @@
     <string name="title_show_html">Afficher l\'original</string>
     <string name="title_trash">Corbeille</string>
     <string name="title_copy">Copie de &#8230;</string>
+    <string name="title_subscribe">S\'abonner</string>
     <string name="title_delete">Supprimer</string>
     <string name="title_more">Plus</string>
     <string name="title_spam">Spam</string>
@@ -449,6 +452,7 @@
     <string name="title_legend_trash">Corbeille</string>
     <string name="title_legend_junk">Courrier indésirable</string>
     <string name="title_legend_notify">Notification pour les nouveaux messages</string>
+    <string name="title_legend_subscribed">Abonné à</string>
     <string name="title_legend_unified">Boîte de réception unifiée / compte primaire</string>
     <string name="title_legend_primary_disconnected">Compte déconnecté</string>
     <string name="title_legend_primary_connected">Compte connecté</string>
@@ -516,7 +520,7 @@
     <string name="title_hint_tracking_image">Image de suivi %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Appuyer longuement sur un contact pour ne jamais le considérer comme un favori</string>
     <string name="title_open_link">Ouvrir le lien</string>
-    <string name="title_show_organization">Afficher l\'organisation</string>
+    <string name="title_ip_owner">Adresse IP du propriétaire</string>
     <string name="title_insecure_link">Ce lien n’est pas sécurisé</string>
     <string name="title_select_app">Sélectionner une application</string>
     <string name="title_updated">Une mise à jour vers la version %1$s est disponible</string>

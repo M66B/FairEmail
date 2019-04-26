@@ -163,6 +163,7 @@
     <string name="title_advanced_prefix_once">Prefix onderwerp slechts één keer bij beantwoorden of doorsturen</string>
     <string name="title_advanced_autosend">Bevestig het verzenden van berichten</string>
     <string name="title_advanced_badge">Toon opstartpictogram met aantal nieuwe berichten</string>
+    <string name="title_advanced_subscriptions">Beheer map abonnementen</string>
     <string name="title_advanced_notify_preview">Toon berichtvoorbeeld in meldingen</string>
     <string name="title_advanced_search_local">Extern zoeken op apparaat</string>
     <string name="title_advanced_light">Gebruik meldingslicht</string>
@@ -181,6 +182,7 @@
     <string name="title_advanced_threading_hint">Groepeer gerelateerde berichten</string>
     <string name="title_advanced_name_email_hint">Indien uitgeschakeld, worden alleen namen weergegeven als deze beschikbaar zijn</string>
     <string name="title_advanced_flags_hint">Merk op dat berichten met een ster altijd lokaal worden bewaard</string>
+    <string name="title_advanced_subscriptions_hint">Mappen zonder abonnement worden verborgen</string>
     <string name="title_advanced_preview_hint">Alleen beschikbaar wanneer de berichttekst werd gedownload</string>
     <string name="title_advanced_autoexpand_hint">Bericht automatisch openen als er slechts één bericht of slechts één ongelezen bericht in een gesprek is</string>
     <string name="title_advanced_autocollapse_hint">Meerdere uitgeklapte berichten worden altijd gesloten bij \'terug\'</string>
@@ -317,6 +319,7 @@
     <string name="title_show_html">Toon origineel</string>
     <string name="title_trash">Weggooien</string>
     <string name="title_copy">Kopieer &#8230;</string>
+    <string name="title_subscribe">Abonneren</string>
     <string name="title_delete">Verwijder</string>
     <string name="title_more">Meer</string>
     <string name="title_spam">Spam</string>
@@ -449,6 +452,7 @@
     <string name="title_legend_trash">Prullenbak</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_notify">Melding bij nieuwe berichten</string>
+    <string name="title_legend_subscribed">Geabonneerd op</string>
     <string name="title_legend_unified">Gecombineerd postvak in / primaire account</string>
     <string name="title_legend_primary_disconnected">Account niet verbonden</string>
     <string name="title_legend_primary_connected">Account verbonden</string>
@@ -516,7 +520,7 @@
     <string name="title_hint_tracking_image">Tracking afbeelding %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Druk lang op een contact om het nooit als een favoriet te beschouwen</string>
     <string name="title_open_link">Link openen</string>
-    <string name="title_show_organization">Toon organisatie</string>
+    <string name="title_ip_owner">Eigenaar IP-adres</string>
     <string name="title_insecure_link">Deze link is onveilig</string>
     <string name="title_select_app">Selecteer app</string>
     <string name="title_updated">Er is een update naar versie %1$s beschikbaar</string>

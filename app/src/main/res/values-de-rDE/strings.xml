@@ -163,6 +163,7 @@
     <string name="title_advanced_prefix_once">Betreff nur einmal beim Antworten oder Weiterleiten voranstellen</string>
     <string name="title_advanced_autosend">Senden von E-Mails bestätigen</string>
     <string name="title_advanced_badge">Startsymbol mit der Anzahl der neuen Nachrichten anzeigen</string>
+    <string name="title_advanced_subscriptions">Ihre Abonnements verwalten</string>
     <string name="title_advanced_notify_preview">Zeige die Nachrichten-Vorschau in den Benachrichtigungen</string>
     <string name="title_advanced_search_local">Externe Suche auf Gerät</string>
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
@@ -181,6 +182,7 @@
     <string name="title_advanced_threading_hint">E-Mails gruppieren, die miteinander verwandt sind</string>
     <string name="title_advanced_name_email_hint">Wenn deaktiviert, werden nur Namen angezeigt, sofern verfügbar</string>
     <string name="title_advanced_flags_hint">Beachten Sie, dass markierte Nachrichten immer lokal gehalten werden</string>
+    <string name="title_advanced_subscriptions_hint">Ordner, die nicht abonniert sind, werden versteckt</string>
     <string name="title_advanced_preview_hint">Nur verfügbar, wenn der E-Mail-Text heruntergeladen wurde</string>
     <string name="title_advanced_autoexpand_hint">Eine (ungelesene) Nachricht wird automatisch geöffnet</string>
     <string name="title_advanced_autocollapse_hint">Mehrere erweiterte Nachrichten werden immer auf \'zurück\' geschlossen</string>
@@ -317,6 +319,7 @@
     <string name="title_show_html">Original anzeigen</string>
     <string name="title_trash">Löschen</string>
     <string name="title_copy">Kopiere &#8230;</string>
+    <string name="title_subscribe">Abonnieren</string>
     <string name="title_delete">Löschen</string>
     <string name="title_more">Mehr</string>
     <string name="title_spam">Spam</string>
@@ -449,6 +452,7 @@
     <string name="title_legend_trash">Papierkorb</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_notify">Eingangsbenachrichtigung</string>
+    <string name="title_legend_subscribed">Abonniert zu</string>
     <string name="title_legend_unified">Sammeleingang / primäres Konto</string>
     <string name="title_legend_primary_disconnected">Konto getrennt</string>
     <string name="title_legend_primary_connected">Konto verbunden</string>
@@ -516,7 +520,7 @@
     <string name="title_hint_tracking_image">Tracking-Bild %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Lange drücken einen Kontakt, um ihn nie als Favorit einzustufen</string>
     <string name="title_open_link">Link öffnen</string>
-    <string name="title_show_organization">Organisation anzeigen</string>
+    <string name="title_ip_owner">IP-Adresse des Eigentümers</string>
     <string name="title_insecure_link">Dieser Link ist unsicher</string>
     <string name="title_select_app">App auswählen</string>
     <string name="title_updated">Es ist ein Update auf Version %1$s verfügbar</string>

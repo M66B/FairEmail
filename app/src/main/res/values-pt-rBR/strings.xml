@@ -26,6 +26,10 @@
         <item quantity="one">%1$d nova mensagem</item>
         <item quantity="other">%1$d novas mensagens</item>
     </plurals>
+    <plurals name="title_notification_unsent">
+        <item quantity="one">%1$d mensagem a ser enviada</item>
+        <item quantity="other">%1$d mensagens a serem enviadas</item>
+    </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$d nova</item>
         <item quantity="other">%1$d novas</item>
@@ -135,6 +139,7 @@
     <string name="title_advanced_threading">Encadeamento de conversas</string>
     <string name="title_advanced_avatars">Mostrar fotos de contatos</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
+    <string name="title_advanced_circular">Mostrar ícones redondos</string>
     <string name="title_advanced_name_email">Mostrar os nomes e endereços de e-mail</string>
     <string name="title_advanced_subject_italic">Mostrar assunto em itálico</string>
     <string name="title_advanced_flags">Mostrar estrelas (favoritos)</string>
@@ -167,6 +172,7 @@
     <string name="title_advanced_paranoid">Recursos extra de privacidade</string>
     <string name="title_advanced_updates">Procurar por atualizações</string>
     <string name="title_advanced_debug">Modo de depuração</string>
+    <string name="title_advanced_last_cleanup">Última limpeza: %1$s</string>
     <string name="title_advanced_enabled_hint">Desative ou habilite o recebimento e envio de mensagens globalmente</string>
     <string name="title_advanced_schedule_hint">Toque uma vez para definir um tempo</string>
     <string name="title_advanced_metered_hint">Conexões limitadas são geralmente conexões móveis ou hotspots Wi-Fi pagos</string>
@@ -391,6 +397,7 @@
     <string name="title_search_hint">Pesquisar no servidor</string>
     <string name="title_search_device">Pesquisar no dispositivo</string>
     <string name="title_searching">Pesquisando \'%1$s\'</string>
+    <string name="title_reset_order">Redefinir ordem</string>
     <string name="title_sort_on">Ordenar por</string>
     <string name="title_sort_on_time">Data</string>
     <string name="title_sort_on_unread">Não lida</string>
@@ -509,7 +516,6 @@
     <string name="title_hint_tracking_image">Imagem de rastreamento %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Pressione e segure um contato para nunca considerá-lo como favorito</string>
     <string name="title_open_link">Abrir link</string>
-    <string name="title_show_organization">Mostrar organização</string>
     <string name="title_insecure_link">Este link é inseguro</string>
     <string name="title_select_app">Selecionar app</string>
     <string name="title_updated">Há uma atualização para a versão %1$s disponível</string>

@@ -163,6 +163,7 @@
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta per rispondere o inoltrare</string>
     <string name="title_advanced_autosend">Confermare l\'invio dei messaggi</string>
     <string name="title_advanced_badge">Mostra icona launcher con numero di nuovi messaggi</string>
+    <string name="title_advanced_subscriptions">Gestisci abbonamenti cartelle</string>
     <string name="title_advanced_notify_preview">Mostra anteprima messaggio nelle notifiche</string>
     <string name="title_advanced_search_local">Ricerca esterna sul dispositivo</string>
     <string name="title_advanced_light">Usa il led di notifica</string>
@@ -172,6 +173,7 @@
     <string name="title_advanced_paranoid">Caratteristiche aggiuntive della privacy</string>
     <string name="title_advanced_updates">Controlla aggiornamenti</string>
     <string name="title_advanced_debug">Debug</string>
+    <string name="title_advanced_last_cleanup">Ultima pulizia: %1$s</string>
     <string name="title_advanced_enabled_hint">Attiva o disattiva a livello globale la ricezione e l\'invio dei messaggi</string>
     <string name="title_advanced_schedule_hint">Tocca un orario per impostare un orario</string>
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>
@@ -180,6 +182,7 @@
     <string name="title_advanced_threading_hint">Messaggi di gruppo relazionati a vicenda</string>
     <string name="title_advanced_name_email_hint">Quando disabilitati saranno mostrati solo i nomi quando disponibili</string>
     <string name="title_advanced_flags_hint">Nota che i messaggi preferiti saranno sempre conservati localmente</string>
+    <string name="title_advanced_subscriptions_hint">Le cartelle a cui non sei iscritto verranno nascoste</string>
     <string name="title_advanced_preview_hint">Disponibile solo quando è stato scaricato il testo del messaggio</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando c\'è un solo messaggio o solo un messaggio da leggere in una conversazione</string>
     <string name="title_advanced_autocollapse_hint">Più messaggi estesi verranno sempre chiusi con \'indietro\'</string>
@@ -316,6 +319,7 @@
     <string name="title_show_html">Visualizza originale</string>
     <string name="title_trash">Cestino</string>
     <string name="title_copy">Copia &#8230;</string>
+    <string name="title_subscribe">Iscriviti</string>
     <string name="title_delete">Elimina</string>
     <string name="title_more">Altro</string>
     <string name="title_spam">Posta indesiderata</string>
@@ -448,6 +452,7 @@
     <string name="title_legend_trash">Cestino</string>
     <string name="title_legend_junk">Posta indesiderata</string>
     <string name="title_legend_notify">Notifica nuovi messaggi</string>
+    <string name="title_legend_subscribed">Iscritto a</string>
     <string name="title_legend_unified">Posta in arrivo unificata / account principale</string>
     <string name="title_legend_primary_disconnected">Account disconnesso</string>
     <string name="title_legend_primary_connected">Account connesso</string>
@@ -515,7 +520,7 @@
     <string name="title_hint_tracking_image">Immagine di tracciamento %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Tieni premuto un contatto per non considerarlo un preferito</string>
     <string name="title_open_link">Apri collegamento</string>
-    <string name="title_show_organization">Mostra organizzazione</string>
+    <string name="title_ip_owner">Indirizzo IP proprietario</string>
     <string name="title_insecure_link">Questo link non è sicuro</string>
     <string name="title_select_app">Seleziona app</string>
     <string name="title_updated">È disponibile un aggiornamento alla versione %1$s</string>

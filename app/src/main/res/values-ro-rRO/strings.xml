@@ -29,6 +29,11 @@
         <item quantity="few">%1$d mesaje noi</item>
         <item quantity="other">%1$d de mesaje noi</item>
     </plurals>
+    <plurals name="title_notification_unsent">
+        <item quantity="one">%1$d mesaj de trimis</item>
+        <item quantity="few">%1$d mesaje de trimis</item>
+        <item quantity="other">%1$d de mesaje de trimis</item>
+    </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$d nou</item>
         <item quantity="few">%1$d noi</item>
@@ -142,6 +147,7 @@
     <string name="title_advanced_threading">Aranjare mesaje în conversație</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
     <string name="title_advanced_identicons">Arată iconițe generate</string>
+    <string name="title_advanced_circular">Arată pictograme rotunde</string>
     <string name="title_advanced_name_email">Arată nume și adrese de e-mail</string>
     <string name="title_advanced_subject_italic">Arată subiectul cursiv</string>
     <string name="title_advanced_flags">Arată marcate (favorite)</string>
@@ -165,6 +171,7 @@
     <string name="title_advanced_prefix_once">Adaugă prefix la subiect o singură dată pentru răspuns sau redirecționare</string>
     <string name="title_advanced_autosend">Confirmă trimiterea mesajelor</string>
     <string name="title_advanced_badge">Afișează iconița lansatorului cu numărul de mesaje noi</string>
+    <string name="title_advanced_subscriptions">Gestionați abonările la dosare</string>
     <string name="title_advanced_notify_preview">Arată previzualizare mesaj în notificare</string>
     <string name="title_advanced_search_local">Căutare externă pe dispozitiv</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
@@ -174,6 +181,7 @@
     <string name="title_advanced_paranoid">Caracteristici de confidențialitate suplimentare</string>
     <string name="title_advanced_updates">Verificare actualizări aplicație</string>
     <string name="title_advanced_debug">Depanare</string>
+    <string name="title_advanced_last_cleanup">Ultima curățare: %1$s</string>
     <string name="title_advanced_enabled_hint">Control global pentru recepția și trimiterea mesajelor</string>
     <string name="title_advanced_schedule_hint">Atingeţi data pentru a seta un timp</string>
     <string name="title_advanced_metered_hint">Conexiunile contorizate sunt în general cele mobile sau punctele de acces Wi-Fi cu plată</string>
@@ -182,6 +190,7 @@
     <string name="title_advanced_threading_hint">Grupează mesajele asociate</string>
     <string name="title_advanced_name_email_hint">Dacă este dezactivată, doar numele va fi afișat atunci când este disponibil</string>
     <string name="title_advanced_flags_hint">Rețineți că mesajele marcate vor fi păstrate întotdeauna la nivel local</string>
+    <string name="title_advanced_subscriptions_hint">Dosarele fără abonări vor fi ascunse</string>
     <string name="title_advanced_preview_hint">Disponibil doar atunci când a fost descarcat textul mesajului</string>
     <string name="title_advanced_autoexpand_hint">Atunci când este doar un mesaj sau doar un mesaj necitit într-o conversație</string>
     <string name="title_advanced_autocollapse_hint">Mesajele multiple vor fi mereu plate când se apasă \'înapoi\'</string>
@@ -238,6 +247,7 @@
     <string name="title_no_name">Lipsește numele</string>
     <string name="title_no_email">Lipsește adresa de e-mail</string>
     <string name="title_email_invalid">Adresa de e-mail nu este validă</string>
+    <string name="title_address_parse_error">Adresa \'%1$s\' este invalidă: %2$s</string>
     <string name="title_no_account">Lipsește contul</string>
     <string name="title_no_host">Lipsește numele serverului</string>
     <string name="title_no_user">Lipsește numele de utilizator</string>
@@ -317,6 +327,7 @@
     <string name="title_show_html">Arată originalul</string>
     <string name="title_trash">Gunoi</string>
     <string name="title_copy">Copiere &#8230;</string>
+    <string name="title_subscribe">Abonare</string>
     <string name="title_delete">Şterge</string>
     <string name="title_more">Mai mult</string>
     <string name="title_spam">Spam</string>
@@ -327,6 +338,7 @@
     <string name="title_reply">Răspunde</string>
     <string name="title_reply_to_sender">Expeditor</string>
     <string name="title_reply_to_all">Toate</string>
+    <string name="title_reply_list">Listă</string>
     <string name="title_reply_receipt">Confirmare de citire</string>
     <string name="title_reply_template">Șablon</string>
     <string name="title_moving">Mutare în %1$s</string>
@@ -396,6 +408,7 @@
     <string name="title_search_hint">Căutare pe server</string>
     <string name="title_search_device">Căutare pe dispozitiv</string>
     <string name="title_searching">Se caută \'%1$s\'</string>
+    <string name="title_reset_order">Resetare ordine</string>
     <string name="title_sort_on">Sortare</string>
     <string name="title_sort_on_time">Dată</string>
     <string name="title_sort_on_unread">Necitit</string>
@@ -447,6 +460,7 @@
     <string name="title_legend_trash">Gunoi</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_notify">Notificare la mesaje noi</string>
+    <string name="title_legend_subscribed">Abonat la</string>
     <string name="title_legend_unified">Inbox unificat / cont primar</string>
     <string name="title_legend_primary_disconnected">Cont deconectat</string>
     <string name="title_legend_primary_connected">Cont conectat</string>
@@ -514,7 +528,6 @@
     <string name="title_hint_tracking_image">Imagine de urmărire %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Apăsați lung pe un contact pentru a nu-l lua niciodată în considerare ca favorit</string>
     <string name="title_open_link">Deschide legătura</string>
-    <string name="title_show_organization">Arată organizația</string>
     <string name="title_insecure_link">Această legătură este nesigură</string>
     <string name="title_select_app">Selectează aplicația</string>
     <string name="title_updated">Este disponibilă o actualizare la versiunea %1$s</string>
