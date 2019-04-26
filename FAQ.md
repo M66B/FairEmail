@@ -1513,6 +1513,9 @@ This is why texts with dots are sometimes incorrectly recognized as links, which
 Synchronizing messages is an expensive proces because the local and remote messages need to be compared,
 so periodically synchronizing messages will not result in saving battery power, more likely the contrary.
 
+See [this FAQ](#user-content-faq39) about optimizing battery usage.
+
+
 <br />
 
 <a name="faq92"></a>
