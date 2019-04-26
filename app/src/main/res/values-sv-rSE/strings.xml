@@ -485,7 +485,6 @@
     <string name="title_hint_ignore_contact">Långt tryck på en kontakt för att aldrig betrakta den som en favorit</string>
     <string name="title_open_link">Öppna länken</string>
     <string name="title_insecure_link">Denna länk är osäker</string>
-    <string name="title_select_app">Välj app</string>
     <string name="title_updated">Det finns en uppdatering till version %1$s tillgänglig</string>
     <string name="title_issue">Har du en fråga eller problem?</string>
     <string name="title_yes">Ja</string>

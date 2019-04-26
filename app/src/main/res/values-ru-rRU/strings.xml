@@ -538,7 +538,6 @@
     <string name="title_open_link">Открыть ссылку</string>
     <string name="title_ip_owner">IP адрес владельца</string>
     <string name="title_insecure_link">Эта ссылка небезопасна</string>
-    <string name="title_select_app">Выбрать приложение</string>
     <string name="title_updated">Доступно обновление до версии %1$s</string>
     <string name="title_issue">У вас есть вопрос или проблема?</string>
     <string name="title_yes">Да</string>
@@ -571,6 +570,13 @@
     <string name="title_debug_info">Отладочная информация</string>
     <string name="title_debug_info_remark">Пожалуйста, опишите проблему и укажите момент возникновения проблемы:</string>
     <string name="title_crash_info_remark">Пожалуйста, опишите, что Вы делали, когда приложение падало:</string>
+    <string-array name="pollIntervalNames">
+        <item>Всегда</item>
+        <item>Каждые полчаса</item>
+        <item>Каждый час</item>
+        <item>Каждые 2 часа</item>
+        <item>Каждые 4 часа</item>
+    </string-array>
     <string-array name="startupNames">
         <item>Единый почтовый ящик</item>
         <item>Унифицированные папки</item>

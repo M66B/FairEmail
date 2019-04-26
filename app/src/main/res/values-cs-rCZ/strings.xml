@@ -536,8 +536,8 @@
     <string name="title_hint_tracking_image">Sledovací obrázek %1$sx%2$s px</string>
     <string name="title_hint_ignore_contact">Dlouhý stisk kontaktu = nikdy jej nepovažovat za oblíbený</string>
     <string name="title_open_link">Otevřít odkaz</string>
+    <string name="title_ip_owner">IP adresa vlastníka</string>
     <string name="title_insecure_link">Tento odkaz není bezpečný</string>
-    <string name="title_select_app">Vyberte aplikaci</string>
     <string name="title_updated">Je k dispozici aktualizace na verzi %1$s</string>
     <string name="title_issue">Máte dotaz nebo problém?</string>
     <string name="title_yes">Ano</string>
@@ -570,6 +570,13 @@
     <string name="title_debug_info">Ladící Informace</string>
     <string name="title_debug_info_remark">Prosím, popište problém a uveďte čas kdy k němu došlo:</string>
     <string name="title_crash_info_remark">Popište prosím co jste dělali když došlo k pádu aplikace:</string>
+    <string-array name="pollIntervalNames">
+        <item>Vždy</item>
+        <item>Každou půlhodinu</item>
+        <item>Každou hodinu</item>
+        <item>Každé 2 hodiny</item>
+        <item>Každé 4 hodiny</item>
+    </string-array>
     <string-array name="startupNames">
         <item>Sjednocené doručené</item>
         <item>Sjednocené složky</item>

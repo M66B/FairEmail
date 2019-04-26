@@ -517,7 +517,6 @@
     <string name="title_hint_ignore_contact">Pressione e segure um contato para nunca considerá-lo como favorito</string>
     <string name="title_open_link">Abrir link</string>
     <string name="title_insecure_link">Este link é inseguro</string>
-    <string name="title_select_app">Selecionar app</string>
     <string name="title_updated">Há uma atualização para a versão %1$s disponível</string>
     <string name="title_issue">Você está com alguma dúvida ou algum problema?</string>
     <string name="title_yes">Sim</string>

@@ -514,7 +514,6 @@
     <string name="title_open_link">打开链接</string>
     <string name="title_ip_owner">所有者 IP 地址</string>
     <string name="title_insecure_link">此链接不安全</string>
-    <string name="title_select_app">选择应用</string>
     <string name="title_updated">有新的版本%1$s可用</string>
     <string name="title_issue">您要提问或有问题吗？</string>
     <string name="title_yes">是</string>
@@ -549,10 +548,10 @@
     <string name="title_crash_info_remark">请描述应用崩溃时您的操作</string>
     <string-array name="pollIntervalNames">
         <item>总是</item>
-        <item>半小时</item>
-        <item>小时</item>
-        <item>2 小时</item>
-        <item>4 小时</item>
+        <item>每半小时</item>
+        <item>每小时</item>
+        <item>每 2 小时</item>
+        <item>每 4 小时</item>
     </string-array>
     <string-array name="startupNames">
         <item>聚合收件箱</item>

@@ -365,7 +365,6 @@
     <string name="title_hint_message_selection">Bir neçə mesajı seçməyə başlamaq üçün bir mesaja uzun basın</string>
     <string name="title_hint_sync">Mesajların endirilməsi təchizatçınızın sürətindən, internet bağlantınızdan və mesaj sayından asılı olaraq biraz vaxt apara bilər. Mesajları endirərkən tətbiq yavaş cavab verə bilər.</string>
     <string name="title_open_link">Bağlantını aç</string>
-    <string name="title_select_app">Tətbiq seç</string>
     <string name="title_updated">%1$s versiyası üçün yeniləmə mövcuddur</string>
     <string name="title_issue">Sualınız və ya probleminiz var?</string>
     <string name="title_yes">Bəli</string>

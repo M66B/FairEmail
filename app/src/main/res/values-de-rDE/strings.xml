@@ -522,7 +522,6 @@
     <string name="title_open_link">Link öffnen</string>
     <string name="title_ip_owner">IP-Adresse des Eigentümers</string>
     <string name="title_insecure_link">Dieser Link ist unsicher</string>
-    <string name="title_select_app">App auswählen</string>
     <string name="title_updated">Es ist ein Update auf Version %1$s verfügbar</string>
     <string name="title_issue">Haben Sie eine Frage oder ein Problem?</string>
     <string name="title_yes">Ja</string>
@@ -557,10 +556,10 @@
     <string name="title_crash_info_remark">Bitte beschreiben Sie, was Sie getan haben, während die App abgestürzt ist:</string>
     <string-array name="pollIntervalNames">
         <item>Immer</item>
-        <item>Halbe Stunde</item>
-        <item>Eine Stunde</item>
-        <item>2 Stunden</item>
-        <item>4 Stunden</item>
+        <item>Jede halbe Stunde</item>
+        <item>Jede Stunde</item>
+        <item>Alle zwei Stunden</item>
+        <item>Alle vier Stunden</item>
     </string-array>
     <string-array name="startupNames">
         <item>Sammeleingang</item>

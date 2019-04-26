@@ -522,7 +522,6 @@
     <string name="title_open_link">Apri collegamento</string>
     <string name="title_ip_owner">Indirizzo IP proprietario</string>
     <string name="title_insecure_link">Questo link non è sicuro</string>
-    <string name="title_select_app">Seleziona app</string>
     <string name="title_updated">È disponibile un aggiornamento alla versione %1$s</string>
     <string name="title_issue">Hai una domanda o un problema?</string>
     <string name="title_yes">Sì</string>
@@ -555,6 +554,13 @@
     <string name="title_debug_info">Informazioni di debug</string>
     <string name="title_debug_info_remark">Si prega di descrivere il problema ed indicare il momento in cui è avvenuto:</string>
     <string name="title_crash_info_remark">Descrivi cosa stavi facendo quando l\'app si è interrotta:</string>
+    <string-array name="pollIntervalNames">
+        <item>Sempre</item>
+        <item>Ogni mezz\'ora</item>
+        <item>Ogni ora</item>
+        <item>Ogni 2 ore</item>
+        <item>Ogni 4 ore</item>
+    </string-array>
     <string-array name="startupNames">
         <item>Posta in arrivo unificata</item>
         <item>Cartelle unificate</item>
