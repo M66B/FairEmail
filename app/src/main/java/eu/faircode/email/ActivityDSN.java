@@ -65,7 +65,7 @@ public class ActivityDSN extends ActivityBase {
                     int length;
                     while ((length = is.read(buffer)) != -1)
                         bos.write(buffer, 0, length);
-                    result.headers = bos.toString("UTF-8");
+                    result.headers = MessageHelper.decodeMime(bos.toString("UTF-8"));
                 }
 
                 return result;
