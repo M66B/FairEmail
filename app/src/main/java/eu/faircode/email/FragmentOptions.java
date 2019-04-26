@@ -63,6 +63,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class FragmentOptions extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swEnabled;
+    private Spinner spPollInterval;
     private SwitchCompat swSchedule;
     private TextView tvScheduleStart;
     private TextView tvScheduleEnd;
@@ -130,7 +131,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     };
 
     private final static String[] ADVANCED_OPTIONS = new String[]{
-            "enabled", "schedule_start", "schedule_end",
+            "enabled", "poll_interval", "schedule", "schedule_start", "schedule_end",
             "metered", "download", "roaming",
             "startup", "date", "threading", "avatars", "identicons", "circular", "name_email", "subject_italic", "flags", "preview",
             "addresses", "monospaced", "autohtml", "autoimages", "actionbar",
@@ -152,6 +153,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
 
         // Get controls
         swEnabled = view.findViewById(R.id.swEnabled);
+        spPollInterval = view.findViewById(R.id.spPollInterval);
         swSchedule = view.findViewById(R.id.swSchedule);
         tvScheduleStart = view.findViewById(R.id.tvScheduleStart);
         tvScheduleEnd = view.findViewById(R.id.tvScheduleEnd);
@@ -220,7 +222,32 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("enabled", checked).apply();
+                spPollInterval.setEnabled(checked);
+                swSchedule.setEnabled(checked);
                 ServiceSynchronize.reload(getContext(), true, "enabled=" + checked);
+            }
+        });
+
+        spPollInterval.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                Object tag = adapterView.getTag();
+                int current = (tag == null ? 0 : (Integer) tag);
+                int[] values = getResources().getIntArray(R.array.pollIntervalValues);
+                int value = values[position];
+                if (value != current) {
+                    adapterView.setTag(value);
+                    prefs.edit().putInt("poll_interval", value).apply();
+                    WorkerPoll.init(getContext());
+                    ServiceSynchronize.reload(getContext(), "poll");
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("poll_interval").apply();
+                WorkerPoll.init(getContext());
+                ServiceSynchronize.reload(getContext(), "poll");
             }
         });
 
@@ -238,10 +265,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
                         fragmentTransaction.commit();
                     }
                 } else {
-                    SharedPreferences.Editor editor = prefs.edit();
-                    editor.putBoolean("schedule", false);
-                    editor.putBoolean("enabled", true);
-                    editor.apply();
+                    prefs.edit().putBoolean("schedule", false).apply();
                     ServiceSynchronize.reload(getContext(), "schedule=" + checked);
                 }
             }
@@ -675,8 +699,19 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swEnabled.setChecked(prefs.getBoolean("enabled", true));
-        swSchedule.setChecked(prefs.getBoolean("schedule", false));
+        spPollInterval.setEnabled(swEnabled.isChecked());
+        swSchedule.setEnabled(swEnabled.isChecked());
 
+        int pollInterval = prefs.getInt("poll_interval", 0);
+        int[] pollIntervalValues = getResources().getIntArray(R.array.pollIntervalValues);
+        for (int pos = 0; pos < pollIntervalValues.length; pos++)
+            if (pollIntervalValues[pos] == pollInterval) {
+                spPollInterval.setTag(pollInterval);
+                spPollInterval.setSelection(pos);
+                break;
+            }
+
+        swSchedule.setChecked(prefs.getBoolean("schedule", false));
         tvScheduleStart.setText(formatHour(getContext(), prefs.getInt("schedule_start", 0)));
         tvScheduleEnd.setText(formatHour(getContext(), prefs.getInt("schedule_end", 0)));
 

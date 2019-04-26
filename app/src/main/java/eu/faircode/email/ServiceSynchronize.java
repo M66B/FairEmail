@@ -384,8 +384,9 @@ public class ServiceSynchronize extends LifecycleService {
     private boolean isEnabled() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean enabled = prefs.getBoolean("enabled", true);
+        int pollInterval = prefs.getInt("poll_interval", 0);
         boolean oneshot = prefs.getBoolean("oneshot", false);
-        return (enabled || oneshot);
+        return ((enabled && pollInterval == 0) || oneshot);
     }
 
     private void start() {
@@ -1197,10 +1198,14 @@ public class ServiceSynchronize extends LifecycleService {
                         // Restore schedule
                         schedule(context);
 
+                        // Initialize polling
+                        WorkerPoll.init(context);
+
                         // Conditionally init service
                         boolean enabled = prefs.getBoolean("enabled", true);
+                        int pollInterval = prefs.getInt("poll_interval", 0);
                         int accounts = db.account().getSynchronizingAccounts().size();
-                        if (enabled && accounts > 0)
+                        if (enabled && pollInterval == 0 && accounts > 0)
                             ContextCompat.startForegroundService(context,
                                     new Intent(context, ServiceSynchronize.class)
                                             .setAction("init"));
@@ -1307,8 +1312,14 @@ public class ServiceSynchronize extends LifecycleService {
     static void process(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean enabled = prefs.getBoolean("enabled", true);
+        if (!enabled)
+            onshot(context);
+    }
+
+    static void onshot(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean oneshot = prefs.getBoolean("oneshot", false);
-        if (!enabled && !oneshot) {
+        if (!oneshot) {
             prefs.edit().putBoolean("oneshot", true).apply();
             ContextCompat.startForegroundService(context,
                     new Intent(context, ServiceSynchronize.class)

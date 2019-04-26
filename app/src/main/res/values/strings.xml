@@ -633,6 +633,22 @@
     <string name="title_crash_info_remark">Please describe what you were doing when the app crashed:</string>
     <string name="title_issue_subject" translatable="false">FairEmail %1$s issue</string>
 
+    <string-array name="pollIntervalNames">
+        <item>Always</item>
+        <item>Half hour</item>
+        <item>Hour</item>
+        <item>2 hours</item>
+        <item>4 hours</item>
+    </string-array>
+
+    <integer-array name="pollIntervalValues" translatable="false">
+        <item>0</item>
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+        <item>240</item>
+    </integer-array>
+
     <string-array name="startupValues" translatable="false">
         <item>unified</item>
         <item>folders</item>
