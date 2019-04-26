@@ -688,7 +688,7 @@ public class MessageHelper {
         return TextUtils.join(", ", formatted);
     }
 
-    private static String decodeMime(String text) {
+    static String decodeMime(String text) {
         if (text == null)
             return null;
 
@@ -699,7 +699,7 @@ public class MessageHelper {
             String decode = text.substring(s, e + 2);
             try {
                 String decoded = MimeUtility.decodeText(decode);
-                text = text.substring(0, i) + decoded + text.substring(e + 2);
+                text = text.substring(0, s) + decoded + text.substring(e + 2);
                 i += decoded.length();
             } catch (UnsupportedEncodingException ex) {
                 Log.w(ex);
