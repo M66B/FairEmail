@@ -1847,48 +1847,43 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 View view = LayoutInflater.from(context).inflate(R.layout.dialog_link, null);
                 final EditText etLink = view.findViewById(R.id.etLink);
-                final CheckBox cbOrganization = view.findViewById(R.id.cbOrganization);
                 TextView tvInsecure = view.findViewById(R.id.tvInsecure);
-
-                cbOrganization.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        prefs.edit().putBoolean("show_organization", isChecked).apply();
-                        if (isChecked) {
-                            Bundle args = new Bundle();
-                            args.putParcelable("uri", _uri);
-
-                            new SimpleTask<String>() {
-                                @Override
-                                protected void onPreExecute(Bundle args) {
-                                    cbOrganization.setText("…");
-                                }
-
-                                @Override
-                                protected String onExecute(Context context, Bundle args) throws Throwable {
-                                    Uri uri = args.getParcelable("uri");
-                                    String host = uri.getHost();
-                                    return (TextUtils.isEmpty(host) ? null : Helper.getOrganization(host));
-                                }
-
-                                @Override
-                                protected void onExecuted(Bundle args, String organization) {
-                                    cbOrganization.setText(organization == null ? "?" : organization);
-                                }
-
-                                @Override
-                                protected void onException(Bundle args, Throwable ex) {
-                                    cbOrganization.setText(ex.getMessage());
-                                }
-                            }.execute(context, owner, args, "link:domain");
-                        } else
-                            cbOrganization.setText(R.string.title_show_organization);
-                    }
-                });
+                final TextView tvOwner = view.findViewById(R.id.tvOwner);
+                Group grpOwner = view.findViewById(R.id.grpOwner);
 
                 etLink.setText(_uri.toString());
-                cbOrganization.setChecked(prefs.getBoolean("show_organization", true));
                 tvInsecure.setVisibility("http".equals(_uri.getScheme()) ? View.VISIBLE : View.GONE);
+                grpOwner.setVisibility(paranoid ? View.VISIBLE : View.GONE);
+
+                if (paranoid) {
+                    Bundle args = new Bundle();
+                    args.putParcelable("uri", _uri);
+
+                    new SimpleTask<String>() {
+                        @Override
+                        protected void onPreExecute(Bundle args) {
+                            tvOwner.setText("…");
+                        }
+
+                        @Override
+                        protected String onExecute(Context context, Bundle args) throws Throwable {
+                            Uri uri = args.getParcelable("uri");
+                            String host = uri.getHost();
+                            return (TextUtils.isEmpty(host) ? null : Helper.getOrganization(host));
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, String organization) {
+                            tvOwner.setText(organization == null ? "?" : organization);
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            tvOwner.setText(ex.getMessage());
+                        }
+                    }.execute(context, owner, args, "link:domain");
+                }
+
 
                 new DialogBuilderLifecycle(context, owner)
                         .setView(view)

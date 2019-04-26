@@ -28,15 +28,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvOpenLink" />
 
-    <CheckBox
-        android:id="@+id/cbOrganization"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:text="@string/title_show_organization"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etLink" />
-
     <TextView
         android:id="@+id/tvInsecure"
         android:layout_width="wrap_content"
@@ -47,5 +38,32 @@
         android:textColor="?attr/colorWarning"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cbOrganization" />
+        app:layout_constraintTop_toBottomOf="@id/etLink" />
+
+    <TextView
+        android:id="@+id/tvOwnerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:labelFor="@+id/etLink"
+        android:text="@string/title_ip_owner"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvInsecure" />
+
+    <TextView
+        android:id="@+id/tvOwner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/etLink"
+        android:text="Cloudflare"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvOwnerTitle" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpOwner"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="tvOwnerTitle,tvOwner" />
 </androidx.constraintlayout.widget.ConstraintLayout>
