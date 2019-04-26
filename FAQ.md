@@ -158,7 +158,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(88) How can I use a Yahoo! account?](#user-content-faq88)
 * [(89) How can I send plain text only messages?](#user-content-faq89)
 * [(90) Why are some texts linked while not being a link?](#user-content-faq90)
-* [(91) Can you add periodical synchronization to save battery power?](#user-content-faq91)
+* [~~(91) Can you add periodical synchronization to save battery power?~~](#user-content-faq91)
 * [(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?](#user-content-faq92)
 * [(93) Can you allow installation on external storage?](#user-content-faq93)
 * [(94) What does the red/orange stripe at the end of the header mean?](#user-content-faq94)
@@ -1511,12 +1511,12 @@ This is why texts with dots are sometimes incorrectly recognized as links, which
 <br />
 
 <a name="faq91"></a>
-**(91) Can you add periodical synchronization to save battery power?**
+**~~(91) Can you add periodical synchronization to save battery power?~~**
 
-Synchronizing messages is an expensive proces because the local and remote messages need to be compared,
-so periodically synchronizing messages will not result in saving battery power, more likely the contrary.
+~~Synchronizing messages is an expensive proces because the local and remote messages need to be compared,~~
+~~so periodically synchronizing messages will not result in saving battery power, more likely the contrary.~~
 
-See [this FAQ](#user-content-faq39) about optimizing battery usage.
+~~See [this FAQ](#user-content-faq39) about optimizing battery usage.~~
 
 
 <br />
