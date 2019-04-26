@@ -635,10 +635,10 @@
 
     <string-array name="pollIntervalNames">
         <item>Always</item>
-        <item>Half hour</item>
-        <item>Hour</item>
-        <item>2 hours</item>
-        <item>4 hours</item>
+        <item>Every half hour</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
     </string-array>
 
     <integer-array name="pollIntervalValues" translatable="false">
