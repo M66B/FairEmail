@@ -888,8 +888,10 @@ See below about how to contact me.
 <a name="faq43"></a>
 **(43) Can you show the original ... ?**
 
-Show original, shows the original message as the sender has sent it, including original margins, styling, etc.
-FairEmail does and will not alter this in any way.
+Show original, shows the original message as the sender has sent it, including original fonts, colors, margins, etc.
+FairEmail does and will not alter this in any way,
+except for requesting [TEXT_AUTOSIZING](https://developer.android.com/reference/android/webkit/WebSettings.LayoutAlgorithm),
+which will *attempt* to make small text more readable.
 
 <br />
 
