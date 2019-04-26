@@ -255,6 +255,10 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     }
 
     void onMove(int from, int to) {
+        if (from < 0 || from >= items.size() ||
+                to < 0 || to >= items.size())
+            return;
+
         if (from < to)
             for (int i = from; i < to; i++)
                 Collections.swap(items, i, i + 1);
