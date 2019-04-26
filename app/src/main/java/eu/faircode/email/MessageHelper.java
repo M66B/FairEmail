@@ -698,9 +698,12 @@ public class MessageHelper {
         while (s >= 0 && e >= 0 && i < text.length()) {
             String decode = text.substring(s, e + 2);
             try {
-                String decoded = MimeUtility.decodeText(decode);
+                String decoded = MimeUtility.decodeWord(decode);
                 text = text.substring(0, s) + decoded + text.substring(e + 2);
                 i += decoded.length();
+            } catch (ParseException ex) {
+                Log.w(ex);
+                i += decode.length();
             } catch (UnsupportedEncodingException ex) {
                 Log.w(ex);
                 i += decode.length();
@@ -708,6 +711,7 @@ public class MessageHelper {
             s = text.indexOf("=?", i);
             e = text.indexOf("?=", i);
         }
+
         return text;
     }
 
