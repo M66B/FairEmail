@@ -27,9 +27,9 @@ public class SwipeListener implements View.OnTouchListener {
                     if (Math.abs(dx) > MOVE_THRESHOLD && Math.abs(vx) > SPEED_THRESHOLD)
                         try {
                             if (dx > 0)
-                                consumed = listener.onSwipeRight();
+                                consumed = listener.onSwipeRight(me1);
                             else
-                                consumed = listener.onSwipeLeft();
+                                consumed = listener.onSwipeLeft(me1);
                         } catch (Throwable ex) {
                             Log.e(ex);
                         }
@@ -44,8 +44,8 @@ public class SwipeListener implements View.OnTouchListener {
     }
 
     interface ISwipeListener {
-        boolean onSwipeRight();
+        boolean onSwipeRight(MotionEvent me);
 
-        boolean onSwipeLeft();
+        boolean onSwipeLeft(MotionEvent me);
     }
 }
