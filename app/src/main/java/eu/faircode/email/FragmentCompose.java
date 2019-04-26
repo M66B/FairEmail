@@ -1332,47 +1332,92 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void handlePickContact(int requestCode, Intent data) {
-        Cursor cursor = null;
-        try {
-            Uri uri = data.getData();
-            if (uri != null)
-                cursor = resolver.query(uri,
+        Uri uri = data.getData();
+        if (uri == null)
+            return;
+
+        Bundle args = new Bundle();
+        args.putLong("id", working);
+        args.putInt("requestCode", requestCode);
+        args.putParcelable("uri", uri);
+
+        new SimpleTask<EntityMessage>() {
+            @Override
+            protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                int requestCode = args.getInt("requestCode");
+                Uri uri = args.getParcelable("uri");
+
+                EntityMessage draft = null;
+                DB db = DB.getInstance(context);
+
+                try (Cursor cursor = context.getContentResolver().query(
+                        uri,
                         new String[]{
                                 ContactsContract.CommonDataKinds.Email.ADDRESS,
                                 ContactsContract.Contacts.DISPLAY_NAME
                         },
-                        null, null, null);
-            if (cursor != null && cursor.moveToFirst()) {
-                int colEmail = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS);
-                int colName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
-                String email = cursor.getString(colEmail);
-                String name = cursor.getString(colName);
+                        null, null, null)) {
+                    if (cursor != null && cursor.moveToFirst()) {
+                        int colEmail = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS);
+                        int colName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
+                        String email = cursor.getString(colEmail);
+                        String name = cursor.getString(colName);
 
-                String text = null;
-                if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
-                    text = etTo.getText().toString();
-                else if (requestCode == ActivityCompose.REQUEST_CONTACT_CC)
-                    text = etCc.getText().toString();
-                else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
-                    text = etBcc.getText().toString();
+                        try {
+                            db.beginTransaction();
 
-                StringBuilder sb = new StringBuilder(text);
-                sb.append("\"").append(name).append("\" <").append(email).append(">, ");
+                            draft = db.message().getMessage(id);
+                            if (draft == null)
+                                return null;
 
-                if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
-                    etTo.setText(sb.toString());
-                else if (requestCode == ActivityCompose.REQUEST_CONTACT_CC)
-                    etCc.setText(sb.toString());
-                else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
-                    etBcc.setText(sb.toString());
+                            Address[] address = null;
+                            if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
+                                address = draft.to;
+                            else if (requestCode == ActivityCompose.REQUEST_CONTACT_CC)
+                                address = draft.cc;
+                            else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
+                                address = draft.bcc;
+
+                            List<Address> list = new ArrayList<>();
+                            if (address != null)
+                                list.addAll(Arrays.asList(address));
+
+                            list.add(new InternetAddress(email, name));
+
+                            if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
+                                draft.to = list.toArray(new Address[0]);
+                            else if (requestCode == ActivityCompose.REQUEST_CONTACT_CC)
+                                draft.cc = list.toArray(new Address[0]);
+                            else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
+                                draft.bcc = list.toArray(new Address[0]);
+
+                            db.message().updateMessage(draft);
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+                    }
+                }
+
+                return draft;
             }
-        } catch (Throwable ex) {
-            Log.e(ex);
-            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-        } finally {
-            if (cursor != null)
-                cursor.close();
-        }
+
+            @Override
+            protected void onExecuted(Bundle args, EntityMessage draft) {
+                if (draft != null) {
+                    etTo.setText(MessageHelper.formatAddressesCompose(draft.to));
+                    etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));
+                    etBcc.setText(MessageHelper.formatAddressesCompose(draft.bcc));
+                }
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(getContext(), getViewLifecycleOwner(), args, "compose:picked");
     }
 
     private void handleAddAttachment(Uri uri, final boolean image) {
