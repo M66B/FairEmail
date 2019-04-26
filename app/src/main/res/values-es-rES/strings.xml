@@ -549,6 +549,13 @@
     <string name="title_debug_info">Información de depuración</string>
     <string name="title_debug_info_remark">Por favor describa el problema e indique el momento del mismo:</string>
     <string name="title_crash_info_remark">Por favor describa que estaba haciendo cuando la app falló:</string>
+    <string-array name="pollIntervalNames">
+        <item>Siempre</item>
+        <item>Media hora</item>
+        <item>1 hora</item>
+        <item>2 horas</item>
+        <item>4 horas</item>
+    </string-array>
     <string-array name="startupNames">
         <item>Bandeja de entrada unificada</item>
         <item>Carpetas unificadas</item>

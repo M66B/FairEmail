@@ -555,6 +555,13 @@
     <string name="title_debug_info">Information de débogage</string>
     <string name="title_debug_info_remark">Veuillez décrire le problème et indiquer l\'heure à laquelle il est survenu :</string>
     <string name="title_crash_info_remark">Veuillez décrire ce que vous faisiez lorsque l\'application s\'est arrêtée :</string>
+    <string-array name="pollIntervalNames">
+        <item>Toujours</item>
+        <item>Une demi-heure</item>
+        <item>Heure</item>
+        <item>2 heures</item>
+        <item>4 heures</item>
+    </string-array>
     <string-array name="startupNames">
         <item>Boite de réception unifiée</item>
         <item>Dossiers unifiés</item>

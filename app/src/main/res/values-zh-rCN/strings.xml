@@ -547,6 +547,13 @@
     <string name="title_debug_info">调试信息</string>
     <string name="title_debug_info_remark">请描述问题及问题发生的时间：</string>
     <string name="title_crash_info_remark">请描述应用崩溃时您的操作</string>
+    <string-array name="pollIntervalNames">
+        <item>总是</item>
+        <item>半小时</item>
+        <item>小时</item>
+        <item>2 小时</item>
+        <item>4 小时</item>
+    </string-array>
     <string-array name="startupNames">
         <item>聚合收件箱</item>
         <item>聚合文件夹</item>
