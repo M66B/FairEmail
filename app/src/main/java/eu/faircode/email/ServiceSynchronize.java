@@ -1312,7 +1312,8 @@ public class ServiceSynchronize extends LifecycleService {
     static void process(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean enabled = prefs.getBoolean("enabled", true);
-        if (!enabled)
+        int pollInterval = prefs.getInt("poll_interval", 0);
+        if (!enabled || pollInterval > 0)
             onshot(context);
     }
 
