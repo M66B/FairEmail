@@ -558,7 +558,7 @@ public class FragmentMessages extends FragmentBase {
                 rvMessage.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
                     @Override
                     public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent ev) {
-                        swipeListener.onTouch(null, ev);
+                        swipeListener.onTouch(rv, ev);
                         return false;
                     }
 
