@@ -1981,6 +1981,21 @@ public class FragmentMessages extends FragmentBase {
             }
         });
 
+        menu.findItem(R.id.menu_folders).setActionView(R.layout.action_button);
+        ImageButton ib = (ImageButton) menu.findItem(R.id.menu_folders).getActionView();
+        ib.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMenuFolders();
+            }
+        });
+        ib.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                return true;
+            }
+        });
+
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -1992,7 +2007,8 @@ public class FragmentMessages extends FragmentBase {
                 viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
 
         menu.findItem(R.id.menu_folders).setVisible(viewType == AdapterMessage.ViewType.UNIFIED && primary >= 0);
-        menu.findItem(R.id.menu_folders).setIcon(connected
+        ImageButton ib = (ImageButton) menu.findItem(R.id.menu_folders).getActionView();
+        ib.setImageResource(connected
                 ? R.drawable.baseline_folder_special_24 : R.drawable.baseline_folder_open_24);
 
         menu.findItem(R.id.menu_sort_on).setVisible(
@@ -2031,8 +2047,8 @@ public class FragmentMessages extends FragmentBase {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_folders:
+                // Obsolete
                 onMenuFolders();
-                loadMessages();
                 return true;
 
             case R.id.menu_sort_on_time:
