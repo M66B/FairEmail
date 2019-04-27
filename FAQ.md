@@ -164,6 +164,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(94) What does the red/orange stripe at the end of the header mean?](#user-content-faq94)
 * [(95) Why are not all apps shown when selecting an attachment or image?](#user-content-faq95)
 * [(96) Where can I find the IMAP and SMTP settings?](#user-content-faq96)
+* [(97) What is 'cleanup' ?](#user-content-faq97)
 
 [I have another question.](#support)
 
@@ -1565,6 +1566,24 @@ see [here](https://developer.android.com/preview/privacy/scoped-storage) for mor
 **(96) Where can I find the IMAP and SMTP settings?**
 
 The IMAP settings are part of the (custom) account settings and the SMTP settings are part of the identity settings.
+
+<br />
+
+<a name="faq97"></a>
+**(97) What is 'cleanup' ?**
+
+About each four hours FairEmail runs a cleanup job that:
+
+* Removes old message texts
+* Removes old attachment files
+* Removes old image files
+* Removes old local contacts
+* Removes old log entries
+* Updates contact photos of messages
+
+You can see when the last cleanup was performed at the bottom of the advanced options.
+
+Note that the cleanup job will only run when the synchronize service is active.
 
 <br />
 
