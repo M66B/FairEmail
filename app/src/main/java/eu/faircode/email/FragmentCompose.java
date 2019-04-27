@@ -796,7 +796,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_attachment).setEnabled(!busy);
         menu.findItem(R.id.menu_clear).setEnabled(!busy);
         menu.findItem(R.id.menu_contact_group).setEnabled(!busy);
-        menu.findItem(R.id.menu_answer).setEnabled(!busy && Helper.isPro(getContext()));
+        menu.findItem(R.id.menu_answer).setEnabled(!busy);
         menu.findItem(R.id.menu_encrypt).setEnabled(!busy);
         menu.findItem(R.id.menu_send_after).setEnabled(!busy);
 
@@ -1130,6 +1130,12 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onMenuAnswer() {
+        if (!Helper.isPro(getContext())) {
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+            fragmentTransaction.commit();
+            return;
+        }
         new SimpleTask<Cursor>() {
             @Override
             protected Cursor onExecute(Context context, Bundle args) {
