@@ -70,6 +70,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         private ImageView ivState;
         private TextView tvHost;
         private TextView tvLast;
+        private TextView tvIdentity;
         private TextView tvDrafts;
         private TextView tvWarning;
         private TextView tvError;
@@ -88,6 +89,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             ivState = itemView.findViewById(R.id.ivState);
             tvHost = itemView.findViewById(R.id.tvHost);
             tvLast = itemView.findViewById(R.id.tvLast);
+            tvIdentity = itemView.findViewById(R.id.tvIdentity);
             tvDrafts = itemView.findViewById(R.id.tvDrafts);
             tvWarning = itemView.findViewById(R.id.tvWarning);
             tvError = itemView.findViewById(R.id.tvError);
@@ -139,6 +141,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             tvLast.setText(context.getString(R.string.title_last_connected,
                     account.last_connected == null ? "-" : df.format(account.last_connected)));
 
+            tvIdentity.setVisibility(account.identities > 0 || !settings ? View.GONE : View.VISIBLE);
             tvDrafts.setVisibility(account.drafts || !settings ? View.GONE : View.VISIBLE);
 
             tvWarning.setText(account.warning);

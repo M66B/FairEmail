@@ -23,6 +23,7 @@ public class TupleAccountEx extends EntityAccount {
     public int unseen;
     public int unsent;
     public int operations;
+    public int identities; // synchronizing
     public boolean drafts;
 
     public boolean uiEquals(Object obj) {
@@ -30,6 +31,7 @@ public class TupleAccountEx extends EntityAccount {
             TupleAccountEx other = (TupleAccountEx) obj;
             return (super.equals(obj) &&
                     this.unseen == other.unseen &&
+                    this.identities == other.identities &&
                     this.drafts == other.drafts);
         } else
             return false;
@@ -43,6 +45,7 @@ public class TupleAccountEx extends EntityAccount {
                     this.unseen == other.unseen &&
                     this.unsent == other.unsent &&
                     this.operations == other.operations &&
+                    this.identities == other.identities &&
                     this.drafts == other.drafts);
         } else
             return false;
