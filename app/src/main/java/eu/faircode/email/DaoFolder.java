@@ -106,7 +106,7 @@ public interface DaoFolder {
             " WHERE folder.id = :id")
     LiveData<TupleFolderEx> liveFolderEx(long id);
 
-    @Query("SELECT * FROM folder ORDER BY account, name")
+    @Query("SELECT * FROM folder ORDER BY account, name COLLATE NOCASE")
     List<EntityFolder> getFolders();
 
     @Query("SELECT * FROM folder" +
