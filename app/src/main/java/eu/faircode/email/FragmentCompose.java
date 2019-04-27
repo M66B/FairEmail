@@ -1620,7 +1620,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(getContext(), getViewLifecycleOwner(), args, "compose:picked");
+        }.execute(this, args, "compose:picked");
     }
 
     private void handleAddAttachment(Uri uri, final boolean image) {

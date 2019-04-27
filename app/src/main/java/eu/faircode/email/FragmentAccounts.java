@@ -284,7 +284,7 @@ public class FragmentAccounts extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(getContext(), getViewLifecycleOwner(), args, "accounts:reset");
+        }.execute(this, args, "accounts:reset");
     }
 
     private ItemTouchHelper.Callback touchHelper = new ItemTouchHelper.Callback() {

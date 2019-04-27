@@ -337,7 +337,7 @@ public class FragmentFolder extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(getContext(), getViewLifecycleOwner(), args, "folder:subscribe");
+        }.execute(this, args, "folder:subscribe");
     }
 
     private void onMenuDelete() {
