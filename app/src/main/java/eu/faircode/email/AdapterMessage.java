@@ -1399,7 +1399,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     @Override
                     public boolean onTouchEvent(MotionEvent event) {
-                        getParent().requestDisallowInterceptTouchEvent(true);
+                        if (event.getPointerCount() == 2)
+                            getParent().requestDisallowInterceptTouchEvent(true); // zoom
+                        else if (event.getAction() == MotionEvent.ACTION_MOVE) {
+                            int range = computeVerticalScrollRange() - computeVerticalScrollExtent();
+                            if (range > 0) // scroll
+                                getParent().requestDisallowInterceptTouchEvent(true);
+                        }
                         return super.onTouchEvent(event);
                     }
 
