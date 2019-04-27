@@ -75,7 +75,6 @@ import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.StoreClosedException;
 import javax.mail.UIDFolder;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.search.ComparisonTerm;
@@ -1144,7 +1143,6 @@ class Core {
             }
 
             if (message == null) {
-                String deliveredto = helper.getDeliveredTo();
                 Address[] froms = helper.getFrom();
                 Address[] tos = helper.getTo();
                 Address[] ccs = helper.getCc();
@@ -1155,13 +1153,6 @@ class Core {
                     if (froms != null)
                         addresses.addAll(Arrays.asList(froms));
                 } else {
-                    if (deliveredto != null)
-                        try {
-                            for (Address address : InternetAddress.parse(deliveredto))
-                                addresses.add(address);
-                        } catch (AddressException ex) {
-                            Log.w(ex);
-                        }
                     if (tos != null)
                         addresses.addAll(Arrays.asList(tos));
                     if (ccs != null)
@@ -1204,7 +1195,7 @@ class Core {
                 message.references = TextUtils.join(" ", helper.getReferences());
                 message.inreplyto = helper.getInReplyTo();
                 // Local address contains control or whitespace in string ``mailing list someone@example.org''
-                message.deliveredto = deliveredto;
+                message.deliveredto = helper.getDeliveredTo();
                 message.thread = helper.getThreadId(context, account.id, uid);
                 message.receipt_request = helper.getReceiptRequested();
                 message.receipt_to = helper.getReceiptTo();

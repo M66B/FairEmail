@@ -704,7 +704,7 @@ Note that this is independent of receiving messages.
 **(34) How are identities matched?**
 
 Identities are as expected matched by account.
-For incoming messages the (delivered) *to* and *cc* address will be checked and for outgoing messages the *from* addresses will be checked.
+For incoming messages the *to* and *cc* address will be checked and for outgoing messages the *from* addresses will be checked.
 Archived messages will be considered as incoming messages, but additionally the *from* address will be checked.
 
 The matched address will be shown as *via* in the addresses section.
