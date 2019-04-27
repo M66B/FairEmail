@@ -30,13 +30,15 @@ import java.util.List;
 @Dao
 public interface DaoAnswer {
     @Query("SELECT * FROM answer" +
-            " WHERE :all OR NOT hide")
+            " WHERE :all OR NOT hide" +
+            " ORDER BY name COLLATE NOCASE")
     List<EntityAnswer> getAnswers(boolean all);
 
     @Query("SELECT * FROM answer WHERE id = :id")
     EntityAnswer getAnswer(long id);
 
-    @Query("SELECT * FROM answer")
+    @Query("SELECT * FROM answer" +
+            " ORDER BY name COLLATE NOCASE")
     LiveData<List<EntityAnswer>> liveAnswers();
 
     @Insert

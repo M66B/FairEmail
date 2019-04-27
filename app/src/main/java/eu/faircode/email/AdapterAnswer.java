@@ -34,12 +34,8 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.Collator;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 
 public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder> {
     private Context context;
@@ -135,19 +131,6 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
 
     public void set(@NonNull List<EntityAnswer> answers) {
         Log.i("Set answers=" + answers.size());
-
-        final Collator collator = Collator.getInstance(Locale.getDefault());
-        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-
-        Collections.sort(answers, new Comparator<EntityAnswer>() {
-            @Override
-            public int compare(EntityAnswer a1, EntityAnswer a2) {
-                int n = collator.compare(a1.name, a2.name);
-                if (n != 0)
-                    return n;
-                return a1.id.compareTo(a2.id);
-            }
-        });
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, answers), false);
 

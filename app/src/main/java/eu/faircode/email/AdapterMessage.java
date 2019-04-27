@@ -108,17 +108,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.text.Collator;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -2979,16 +2976,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         });
                         snackbar.show();
                     } else {
-                        final Collator collator = Collator.getInstance(Locale.getDefault());
-                        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-
-                        Collections.sort(answers, new Comparator<EntityAnswer>() {
-                            @Override
-                            public int compare(EntityAnswer a1, EntityAnswer a2) {
-                                return collator.compare(a1.name, a2.name);
-                            }
-                        });
-
                         View anchor = bnvActions.findViewById(R.id.action_reply);
                         PopupMenu popupMenu = new PopupMenu(context, anchor);
 
