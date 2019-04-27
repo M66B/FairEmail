@@ -449,7 +449,10 @@ public class MessageHelper {
     }
 
     String getDeliveredTo() throws MessagingException {
-        return imessage.getHeader("Delivered-To", imessage.getHeader("X-Delivered-To", null));
+        String header = imessage.getHeader("Delivered-To", null);
+        if (header == null)
+            header = imessage.getHeader("X-Delivered-To", null);
+        return header;
     }
 
     String getInReplyTo() throws MessagingException {
