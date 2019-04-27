@@ -31,13 +31,13 @@ import java.util.List;
 public interface DaoRule {
     @Query("SELECT * FROM rule" +
             " WHERE folder = :folder" +
-            " ORDER BY `order`, name")
+            " ORDER BY `order`, name COLLATE NOCASE")
     List<EntityRule> getRules(long folder);
 
     @Query("SELECT * FROM rule" +
             " WHERE folder = :folder" +
             " AND enabled" +
-            " ORDER BY `order`, name")
+            " ORDER BY `order`, name COLLATE NOCASE")
     List<EntityRule> getEnabledRules(long folder);
 
     @Query("SELECT rule.*, folder.account, folder.name AS folderName, account.name AS accountName FROM rule" +
@@ -50,7 +50,7 @@ public interface DaoRule {
             " JOIN folder ON folder.id = rule.folder" +
             " JOIN account ON account.id = folder.account" +
             " WHERE rule.folder = :folder" +
-            " ORDER BY `order`, name")
+            " ORDER BY `order`, name COLLATE NOCASE")
     LiveData<List<TupleRuleEx>> liveRules(long folder);
 
     @Insert

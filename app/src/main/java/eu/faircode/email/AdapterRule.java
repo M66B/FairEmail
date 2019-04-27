@@ -34,12 +34,8 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.Collator;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 
 public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
     private Context context;
@@ -104,19 +100,6 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
     public void set(@NonNull List<TupleRuleEx> rules) {
         Log.i("Set rules=" + rules.size());
-
-        final Collator collator = Collator.getInstance(Locale.getDefault());
-        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-
-        Collections.sort(rules, new Comparator<TupleRuleEx>() {
-            @Override
-            public int compare(TupleRuleEx r1, TupleRuleEx r2) {
-                int o = ((Integer) r1.order).compareTo(r2.order);
-                if (o != 0)
-                    return 0;
-                return collator.compare(r1.name, r2.name);
-            }
-        });
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, rules), false);
 
