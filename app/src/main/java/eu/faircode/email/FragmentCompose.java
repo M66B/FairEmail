@@ -1157,6 +1157,7 @@ public class FragmentCompose extends FragmentBase {
                 lv.setAdapter(adapter);
 
                 final AlertDialog dialog = new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                        .setTitle(R.string.title_insert_template)
                         .setView(lv)
                         .create();
 
