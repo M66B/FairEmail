@@ -52,6 +52,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.webkit.WebView;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
@@ -1974,12 +1975,43 @@ public class FragmentMessages extends FragmentBase {
         ib.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onMenuFolders();
+                onMenuFolders(primary);
             }
         });
         ib.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                Bundle args = new Bundle();
+
+                new SimpleTask<List<EntityAccount>>() {
+                    @Override
+                    protected List<EntityAccount> onExecute(Context context, Bundle args) {
+                        DB db = DB.getInstance(context);
+                        return db.account().getSynchronizingAccounts();
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
+                        final ArrayAdapter<EntityAccount> adapter =
+                                new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, accounts);
+
+                        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                                .setAdapter(adapter, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                        EntityAccount account = adapter.getItem(which);
+                                        onMenuFolders(account.id);
+                                    }
+                                })
+                                .show();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                    }
+                }.execute(getContext(), getViewLifecycleOwner(), args, "messages:accounts");
                 return true;
             }
         });
@@ -2036,7 +2068,7 @@ public class FragmentMessages extends FragmentBase {
         switch (item.getItemId()) {
             case R.id.menu_folders:
                 // Obsolete
-                onMenuFolders();
+                onMenuFolders(primary);
                 return true;
 
             case R.id.menu_sort_on_time:
@@ -2094,12 +2126,12 @@ public class FragmentMessages extends FragmentBase {
         }
     }
 
-    private void onMenuFolders() {
+    private void onMenuFolders(long account) {
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
             getFragmentManager().popBackStack("unified", 0);
 
         Bundle args = new Bundle();
-        args.putLong("account", primary);
+        args.putLong("account", account);
 
         FragmentFolders fragment = new FragmentFolders();
         fragment.setArguments(args);
