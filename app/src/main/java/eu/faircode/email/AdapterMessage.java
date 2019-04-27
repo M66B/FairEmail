@@ -2898,7 +2898,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         case R.id.menu_reply_receipt:
                             onMenuReply(data, "receipt");
                             return true;
-                        case R.id.menu_reply_template:
+                        case R.id.menu_reply_answer:
                             onMenuAnswer(data);
                             return true;
                         default:

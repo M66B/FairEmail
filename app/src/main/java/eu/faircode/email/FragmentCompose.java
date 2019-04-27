@@ -755,7 +755,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_attachment).setVisible(state == State.LOADED && !style);
         menu.findItem(R.id.menu_clear).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_contact_group).setVisible(state == State.LOADED);
-        menu.findItem(R.id.menu_template).setVisible(state == State.LOADED);
+        menu.findItem(R.id.menu_answer).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_encrypt).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_send_after).setVisible(state == State.LOADED);
 
@@ -764,7 +764,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_attachment).setEnabled(!busy);
         menu.findItem(R.id.menu_clear).setEnabled(!busy);
         menu.findItem(R.id.menu_contact_group).setEnabled(!busy);
-        menu.findItem(R.id.menu_template).setEnabled(!busy && Helper.isPro(getContext()));
+        menu.findItem(R.id.menu_answer).setEnabled(!busy && Helper.isPro(getContext()));
         menu.findItem(R.id.menu_encrypt).setEnabled(!busy);
         menu.findItem(R.id.menu_send_after).setEnabled(!busy);
 
@@ -803,8 +803,8 @@ public class FragmentCompose extends FragmentBase {
             case R.id.menu_contact_group:
                 onMenuContactGroup();
                 return true;
-            case R.id.menu_template:
-                onMenuTemplate();
+            case R.id.menu_answer:
+                onMenuAnswer();
                 return true;
             case R.id.menu_encrypt:
                 onMenuEncrypt();
@@ -1097,7 +1097,7 @@ public class FragmentCompose extends FragmentBase {
         dialog.show();
     }
 
-    private void onMenuTemplate() {
+    private void onMenuAnswer() {
         new SimpleTask<Cursor>() {
             @Override
             protected Cursor onExecute(Context context, Bundle args) {
@@ -1143,7 +1143,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(this, new Bundle(), "compose:template");
+        }.execute(this, new Bundle(), "compose:answer");
     }
 
     private void onMenuEncrypt() {

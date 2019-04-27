@@ -40,7 +40,7 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/menu_template"
+        android:id="@+id/menu_answer"
         android:title="@string/title_insert_template"
         app:showAsAction="never" />
 
