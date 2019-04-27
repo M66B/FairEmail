@@ -35,6 +35,11 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/menu_contact_group"
+        android:title="@string/title_insert_contact_group"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_encrypt"
         android:checkable="true"
         android:title="@string/title_encrypt"

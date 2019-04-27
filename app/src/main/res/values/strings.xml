@@ -437,6 +437,7 @@
     <string name="title_style_toolbar">Style toolbar</string>
     <string name="title_add_attachment">Add attachment</string>
     <string name="title_show_addresses">Show CC/BCC</string>
+    <string name="title_insert_contact_group">Insert contact group</string>
 
     <string name="title_from_missing">Sender missing</string>
     <string name="title_to_missing">Recipient missing</string>
@@ -697,6 +698,12 @@
         <item>1440</item>
         <item>1920</item>
     </integer-array>
+
+    <string-array name="targetNames">
+        <item>To</item>
+        <item>Cc</item>
+        <item>Bcc</item>
+    </string-array>
 
     <array name="colorPicker">
         <item>@color/red</item>
