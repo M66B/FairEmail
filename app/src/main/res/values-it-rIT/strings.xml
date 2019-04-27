@@ -251,6 +251,7 @@
     <string name="title_no_utf8">Questo provider non supporta UTF-8</string>
     <string name="title_no_sync">Errori di sincronizzazione da %1$s</string>
     <string name="title_sync_errors">Sincronizzazione di alcune cartelle fallita</string>
+    <string name="title_identity_required">È necessaria un\'identità per inviare messaggi</string>
     <string name="title_drafts_required">Per inviare messaggi è necessaria una cartella bozze</string>
     <string name="title_account_delete">Eliminare questo account permanentemente?</string>
     <string name="title_identity_delete">Eliminare questa identità permanentemente?</string>
@@ -522,6 +523,7 @@
     <string name="title_open_link">Apri collegamento</string>
     <string name="title_ip_owner">Indirizzo IP proprietario</string>
     <string name="title_insecure_link">Questo link non è sicuro</string>
+    <string name="title_select_app">Seleziona app</string>
     <string name="title_updated">È disponibile un aggiornamento alla versione %1$s</string>
     <string name="title_issue">Hai una domanda o un problema?</string>
     <string name="title_yes">Sì</string>

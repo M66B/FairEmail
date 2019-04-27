@@ -251,6 +251,7 @@
     <string name="title_no_utf8">Ce fournisseur ne prend pas en charge l\'UTF-8</string>
     <string name="title_no_sync">Erreurs de synchronisation depuis %1$s</string>
     <string name="title_sync_errors">La synchronisation de certains dossiers a échoué</string>
+    <string name="title_identity_required">Une identité est nécessaire pour envoyer des messages</string>
     <string name="title_drafts_required">Un dossier brouillon est nécessaire pour envoyer des messages</string>
     <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
     <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
@@ -384,6 +385,8 @@
     <string name="title_style_toolbar">Barre d\'outils de style</string>
     <string name="title_add_attachment">Ajouter une pièce jointe</string>
     <string name="title_show_addresses">Afficher Cc/Cci</string>
+    <string name="title_insert_contact_group">Insérer un groupe de contacts</string>
+    <string name="title_insert_template">Insérer un modèle</string>
     <string name="title_from_missing">Expéditeur manquant</string>
     <string name="title_to_missing">Destinataire manquant</string>
     <string name="title_attachments_missing">Les pièces jointes ne sont pas toutes téléchargées</string>
@@ -582,5 +585,10 @@
         <item>Petit</item>
         <item>Moyen</item>
         <item>Grand</item>
+    </string-array>
+    <string-array name="targetNames">
+        <item>A</item>
+        <item>Cc</item>
+        <item>Cci</item>
     </string-array>
 </resources>

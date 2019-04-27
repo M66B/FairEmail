@@ -517,6 +517,7 @@
     <string name="title_hint_ignore_contact">Bir kişiyi sık kullanılanlarda istemiyorsanız uzun basın</string>
     <string name="title_open_link">Bağlantıyı aç</string>
     <string name="title_insecure_link">Bu bağlantı güvensiz</string>
+    <string name="title_select_app">Uygulama seçin</string>
     <string name="title_updated">Sürüm %1$s için bir güncelleme mevcut</string>
     <string name="title_issue">Bir sorunuz ya da probleminiz mi var?</string>
     <string name="title_yes">Evet</string>
@@ -549,6 +550,13 @@
     <string name="title_debug_info">Hata ayıklama bilgisi</string>
     <string name="title_debug_info_remark">Lütfen sorunu açıklayın ve sorunun zamanını belirtin:</string>
     <string name="title_crash_info_remark">Lütfen uygulama çöktüğü sırada ne yaptığınızı açıklayın:</string>
+    <string-array name="pollIntervalNames">
+        <item>Her Zaman</item>
+        <item>Her yarım saatte bir</item>
+        <item>Saatte bir</item>
+        <item>2 saatte bir</item>
+        <item>4 saatte bir</item>
+    </string-array>
     <string-array name="startupNames">
         <item>Birleşik Gelen Kutusu</item>
         <item>Birleşik klasörler</item>

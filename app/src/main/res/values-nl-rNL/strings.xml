@@ -251,6 +251,7 @@
     <string name="title_no_utf8">Deze provider ondersteunt geen UTF-8</string>
     <string name="title_no_sync">Synchronisatiefouten sinds %1$s</string>
     <string name="title_sync_errors">Synchroniseren van sommige mappen mislukt</string>
+    <string name="title_identity_required">Een identiteit is vereist om berichten te verzenden</string>
     <string name="title_drafts_required">Een concepten map is vereist om berichten te verzenden</string>
     <string name="title_account_delete">Verwijder dit account permanent?</string>
     <string name="title_identity_delete">Verwijder deze identiteit permanent?</string>
@@ -384,6 +385,8 @@
     <string name="title_style_toolbar">Stijl werkbalk</string>
     <string name="title_add_attachment">Bijlage toevoegen</string>
     <string name="title_show_addresses">Toon CC/BCC</string>
+    <string name="title_insert_contact_group">Contactgroep toevoegen</string>
+    <string name="title_insert_template">Sjabloon invoegen</string>
     <string name="title_from_missing">Zender ontbreekt</string>
     <string name="title_to_missing">Ontvanger ontbreekt</string>
     <string name="title_attachments_missing">Niet alle bijlagen zijn gedownload</string>
@@ -582,5 +585,10 @@
         <item>Klein</item>
         <item>Gemiddeld</item>
         <item>Groot</item>
+    </string-array>
+    <string-array name="targetNames">
+        <item>Aan</item>
+        <item>Cc</item>
+        <item>Bcc</item>
     </string-array>
 </resources>

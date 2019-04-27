@@ -267,6 +267,7 @@
     <string name="title_no_utf8">Этот провайдер не поддерживает UTF-8</string>
     <string name="title_no_sync">Ошибки синхронизации после %1$s</string>
     <string name="title_sync_errors">Синхронизация некоторых папок не удалась</string>
+    <string name="title_identity_required">Для отправки сообщений требуется идентификатор</string>
     <string name="title_drafts_required">Для отправки сообщений требуется папка черновиков</string>
     <string name="title_account_delete">Удалить эту учетную запись навсегда?</string>
     <string name="title_identity_delete">Удалить эту учетную запись навсегда?</string>
@@ -400,6 +401,8 @@
     <string name="title_style_toolbar">Панель стилей</string>
     <string name="title_add_attachment">Добавить вложение</string>
     <string name="title_show_addresses">Показать CC / BCC</string>
+    <string name="title_insert_contact_group">Добавить группу контактов</string>
+    <string name="title_insert_template">Вставить шаблон</string>
     <string name="title_from_missing">Отправитель отсутствует</string>
     <string name="title_to_missing">Получатель отсутствует</string>
     <string name="title_attachments_missing">Не все вложения загружены</string>
@@ -538,6 +541,7 @@
     <string name="title_open_link">Открыть ссылку</string>
     <string name="title_ip_owner">IP адрес владельца</string>
     <string name="title_insecure_link">Эта ссылка небезопасна</string>
+    <string name="title_select_app">Выберите приложение</string>
     <string name="title_updated">Доступно обновление до версии %1$s</string>
     <string name="title_issue">У вас есть вопрос или проблема?</string>
     <string name="title_yes">Да</string>
@@ -597,5 +601,10 @@
         <item>Маленький</item>
         <item>Средний</item>
         <item>Большой</item>
+    </string-array>
+    <string-array name="targetNames">
+        <item>Кому</item>
+        <item>Копия</item>
+        <item>Скрытая копия</item>
     </string-array>
 </resources>

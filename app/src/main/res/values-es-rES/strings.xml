@@ -163,6 +163,7 @@
     <string name="title_advanced_prefix_once">Prefijar el asunto solo una vez al responder o reenviar</string>
     <string name="title_advanced_autosend">Confirmar enviar mensajes</string>
     <string name="title_advanced_badge">Mostrar icono del lanzador con el número de mensajes nuevos</string>
+    <string name="title_advanced_subscriptions">Administrar suscripciones de carpeta</string>
     <string name="title_advanced_notify_preview">Mostrar vista previa del mensaje en notificaciones</string>
     <string name="title_advanced_search_local">Búsqueda externa en dispositivo</string>
     <string name="title_advanced_light">Usar luz de notificación</string>
@@ -172,6 +173,7 @@
     <string name="title_advanced_paranoid">Características de privacidad adicionales</string>
     <string name="title_advanced_updates">Buscar actualizaciones</string>
     <string name="title_advanced_debug">Modo de depuración</string>
+    <string name="title_advanced_last_cleanup">Última limpieza: %1$s</string>
     <string name="title_advanced_enabled_hint">Desactivar o activar globalmente la recepción y envío de mensajes</string>
     <string name="title_advanced_schedule_hint">Toque en una hora para establecer una hora</string>
     <string name="title_advanced_metered_hint">Las conexiones medidas son generalmente conexiones móviles o puntos de acceso Wi-Fi de pago</string>
@@ -180,6 +182,7 @@
     <string name="title_advanced_threading_hint">Agrupar mensajes relacionados entre sí</string>
     <string name="title_advanced_name_email_hint">Si está desactivado, solo se mostrarán los nombres cuando estén disponibles</string>
     <string name="title_advanced_flags_hint">Tenga en cuenta que los mensajes destacados siempre se almacenarán localmente</string>
+    <string name="title_advanced_subscriptions_hint">Las carpetas no suscritas se ocultarán</string>
     <string name="title_advanced_preview_hint">Sólo disponible cuando el texto del mensaje fue descargado</string>
     <string name="title_advanced_autoexpand_hint">Abrir mensaje automáticamente cuando haya solo un mensaje o uno no leído en una conversación</string>
     <string name="title_advanced_autocollapse_hint">Múltiples mensajes expandidos siempre se cerrarán con \'atrás\'</string>
@@ -248,6 +251,7 @@
     <string name="title_no_utf8">Este proveedor no es compatible con UTF-8</string>
     <string name="title_no_sync">Errores de sincronización desde %1$s</string>
     <string name="title_sync_errors">Error al sincronizar algunas carpetas</string>
+    <string name="title_identity_required">Se requiere una identidad para enviar mensajes</string>
     <string name="title_drafts_required">Una carpeta de borradores es necesaria para enviar mensajes</string>
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
     <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
@@ -316,6 +320,7 @@
     <string name="title_show_html">Mostrar original</string>
     <string name="title_trash">Papelera</string>
     <string name="title_copy">Copiar &#8230;</string>
+    <string name="title_subscribe">Subscribir</string>
     <string name="title_delete">Eliminar</string>
     <string name="title_more">Más</string>
     <string name="title_spam">Spam</string>
@@ -380,6 +385,7 @@
     <string name="title_style_toolbar">Barra de herramientas de estilo</string>
     <string name="title_add_attachment">Agregar adjunto</string>
     <string name="title_show_addresses">Mostrar CC/CCO</string>
+    <string name="title_insert_contact_group">Insertar grupo de contactos</string>
     <string name="title_from_missing">Falta remitente</string>
     <string name="title_to_missing">Falta destinatario</string>
     <string name="title_attachments_missing">No todos los adjuntos fueron descargados</string>
@@ -448,6 +454,7 @@
     <string name="title_legend_trash">Papelera</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_notify">Notificar nuevos mensajes</string>
+    <string name="title_legend_subscribed">Suscrito a</string>
     <string name="title_legend_unified">Bandeja de entrada unificada / Cuenta principal</string>
     <string name="title_legend_primary_disconnected">Cuenta desconectada</string>
     <string name="title_legend_primary_connected">Cuenta conectada</string>
@@ -515,7 +522,9 @@
     <string name="title_hint_tracking_image">Imagen de seguimiento %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Mantener pulsado un contacto para no considerarlo nunca como favorito</string>
     <string name="title_open_link">Abrir enlace</string>
+    <string name="title_ip_owner">Dirección IP del propietario</string>
     <string name="title_insecure_link">Este enlace es inseguro</string>
+    <string name="title_select_app">Seleccionar app</string>
     <string name="title_updated">Hay una actualización a la version %1$s disponible</string>
     <string name="title_issue">¿Tiene una pregunta o problema?</string>
     <string name="title_yes">Sí</string>
@@ -575,5 +584,10 @@
         <item>Pequeño</item>
         <item>Medio</item>
         <item>Grande</item>
+    </string-array>
+    <string-array name="targetNames">
+        <item>A</item>
+        <item>CC</item>
+        <item>CCO</item>
     </string-array>
 </resources>

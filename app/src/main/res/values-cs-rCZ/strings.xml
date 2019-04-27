@@ -267,6 +267,7 @@
     <string name="title_no_utf8">Tento poskytovatel nepodporuje UTF-8</string>
     <string name="title_no_sync">Chyby synchronizace od %1$s</string>
     <string name="title_sync_errors">Synchronizace některých složek selhala</string>
+    <string name="title_identity_required">Identita je vyžadována pro odesílání zpráv</string>
     <string name="title_drafts_required">Složka konceptů je vyžadována pro odesílání zpráv</string>
     <string name="title_account_delete">Trvale smazat tento účet?</string>
     <string name="title_identity_delete">Trvale smazat tuto identitu?</string>
@@ -400,6 +401,7 @@
     <string name="title_style_toolbar">Panel formátování</string>
     <string name="title_add_attachment">Přidat přílohu</string>
     <string name="title_show_addresses">Zobrazit kopii/skrytou kopii</string>
+    <string name="title_insert_contact_group">Vložit skupinu kontaktů</string>
     <string name="title_from_missing">Chybí odesílatel</string>
     <string name="title_to_missing">Chybí příjemce</string>
     <string name="title_attachments_missing">Nebyly staženy všechny přílohy</string>
@@ -538,6 +540,7 @@
     <string name="title_open_link">Otevřít odkaz</string>
     <string name="title_ip_owner">IP adresa vlastníka</string>
     <string name="title_insecure_link">Tento odkaz není bezpečný</string>
+    <string name="title_select_app">Vyberte aplikaci</string>
     <string name="title_updated">Je k dispozici aktualizace na verzi %1$s</string>
     <string name="title_issue">Máte dotaz nebo problém?</string>
     <string name="title_yes">Ano</string>
@@ -597,5 +600,10 @@
         <item>Malé</item>
         <item>Střední</item>
         <item>Velké</item>
+    </string-array>
+    <string-array name="targetNames">
+        <item>Komu</item>
+        <item>Kopie</item>
+        <item>Skrytá kopie</item>
     </string-array>
 </resources>

@@ -243,6 +243,7 @@
     <string name="title_no_utf8">该邮件服务供应商不支持UTF-8字符集</string>
     <string name="title_no_sync">从 %1$s 开始同步错误</string>
     <string name="title_sync_errors">一些文件夹同步失败</string>
+    <string name="title_identity_required">需要一个身份来发送消息</string>
     <string name="title_drafts_required">需要一个草稿文件夹来发送消息</string>
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
@@ -376,6 +377,8 @@
     <string name="title_style_toolbar">样式工具栏</string>
     <string name="title_add_attachment">添加附件</string>
     <string name="title_show_addresses">显示抄送和密送</string>
+    <string name="title_insert_contact_group">插入联系人组</string>
+    <string name="title_insert_template">插入模板</string>
     <string name="title_from_missing">缺少发件人</string>
     <string name="title_to_missing">缺少收件人</string>
     <string name="title_attachments_missing">没有下载全部附件</string>
@@ -514,6 +517,7 @@
     <string name="title_open_link">打开链接</string>
     <string name="title_ip_owner">所有者 IP 地址</string>
     <string name="title_insecure_link">此链接不安全</string>
+    <string name="title_select_app">选择应用</string>
     <string name="title_updated">有新的版本%1$s可用</string>
     <string name="title_issue">您要提问或有问题吗？</string>
     <string name="title_yes">是</string>
@@ -573,5 +577,10 @@
         <item>小</item>
         <item>中等</item>
         <item>大</item>
+    </string-array>
+    <string-array name="targetNames">
+        <item>发送至</item>
+        <item>抄送</item>
+        <item>密送</item>
     </string-array>
 </resources>
