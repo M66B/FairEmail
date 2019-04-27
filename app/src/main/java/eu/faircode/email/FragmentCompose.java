@@ -34,6 +34,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.database.CursorWrapper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -486,20 +487,50 @@ public class FragmentCompose extends FragmentBase {
             cadapter.setFilterQueryProvider(new FilterQueryProvider() {
                 public Cursor runQuery(CharSequence typed) {
                     Log.i("Searching provided contact=" + typed);
-                    return resolver.query(
+                    String wildcard = "%" + typed + "%";
+                    return new CursorWrapper(resolver.query(
                             ContactsContract.CommonDataKinds.Email.CONTENT_URI,
                             new String[]{
-                                    ContactsContract.RawContacts._ID,
+                                    ContactsContract.CommonDataKinds.Email.CONTACT_ID,
                                     ContactsContract.Contacts.DISPLAY_NAME,
                                     ContactsContract.CommonDataKinds.Email.DATA
                             },
                             ContactsContract.CommonDataKinds.Email.DATA + " <> ''" +
-                                    " AND (" + ContactsContract.Contacts.DISPLAY_NAME + " LIKE '%" + typed + "%'" +
-                                    " OR " + ContactsContract.CommonDataKinds.Email.DATA + " LIKE '%" + typed + "%')",
-                            null,
+                                    " AND (" + ContactsContract.Contacts.DISPLAY_NAME + " LIKE ?" +
+                                    " OR " + ContactsContract.CommonDataKinds.Email.DATA + " LIKE ?)",
+                            new String[]{wildcard, wildcard},
                             "CASE WHEN " + ContactsContract.Contacts.DISPLAY_NAME + " NOT LIKE '%@%' THEN 0 ELSE 1 END" +
-                                    ", " + ContactsContract.Contacts.DISPLAY_NAME +
-                                    ", " + ContactsContract.CommonDataKinds.Email.DATA + " COLLATE NOCASE");
+                                    ", " + ContactsContract.Contacts.DISPLAY_NAME + " COLLATE NOCASE" +
+                                    ", " + ContactsContract.CommonDataKinds.Email.DATA + " COLLATE NOCASE")) {
+
+                        @Override
+                        public String[] getColumnNames() {
+                            String[] names = super.getColumnNames();
+                            names[0] = "_id";
+                            return names;
+                        }
+
+                        @Override
+                        public String getColumnName(int index) {
+                            if (index == 0)
+                                return "_id";
+                            return super.getColumnName(index);
+                        }
+
+                        @Override
+                        public int getColumnIndex(String name) {
+                            if ("_id".equals(name))
+                                return 0;
+                            return super.getColumnIndex(name);
+                        }
+
+                        @Override
+                        public int getColumnIndexOrThrow(String name) throws IllegalArgumentException {
+                            if ("_id".equals(name))
+                                return 0;
+                            return super.getColumnIndexOrThrow(name);
+                        }
+                    };
                 }
             });
         else
@@ -507,7 +538,8 @@ public class FragmentCompose extends FragmentBase {
                 @Override
                 public Cursor runQuery(CharSequence typed) {
                     Log.i("Searching local contact=" + typed);
-                    return db.contact().searchContacts(null, null, "%" + typed + "%");
+                    String wildcard = "%" + typed + "%";
+                    return db.contact().searchContacts(null, null, wildcard);
                 }
             });
 
