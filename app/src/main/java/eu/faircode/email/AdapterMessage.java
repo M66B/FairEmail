@@ -1458,6 +1458,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 });
 
+                webView.setBackgroundColor(Color.TRANSPARENT);
+
+                WebSettings settings = webView.getSettings();
+                settings.setUseWideViewPort(true);
+                settings.setLoadWithOverviewMode(true);
+                settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
+                settings.setBuiltInZoomControls(true);
+                settings.setDisplayZoomControls(false);
+                settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+                settings.setAllowFileAccess(false);
+
+                // Set default font
+                int px = Math.round(TypedValue.applyDimension(
+                        TypedValue.COMPLEX_UNIT_PX, textSize,
+                        context.getResources().getDisplayMetrics()));
+                settings.setDefaultFontSize(px);
+                if (monospaced)
+                    settings.setStandardFontFamily("monospace");
+
                 webView.setId(vwBody.getId());
                 webView.setVisibility(vwBody.getVisibility());
 
@@ -1469,29 +1488,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             final WebView webView = (WebView) vwBody;
-            webView.loadUrl("about:blank");
-            webView.setBackgroundColor(Color.TRANSPARENT);
-
-            WebSettings settings = webView.getSettings();
-            settings.setUseWideViewPort(true);
-            settings.setLoadWithOverviewMode(true);
-            settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
-            settings.setBuiltInZoomControls(true);
-            settings.setDisplayZoomControls(false);
-            settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-            settings.setAllowFileAccess(false);
-            settings.setLoadsImagesAutomatically(show_images);
-
-            // Set default font
-            int px = Math.round(TypedValue.applyDimension(
-                    TypedValue.COMPLEX_UNIT_PX, textSize,
-                    context.getResources().getDisplayMetrics()));
-            settings.setDefaultFontSize(px);
-            if (monospaced)
-                settings.setStandardFontFamily("monospace");
+            webView.getSettings().setLoadsImagesAutomatically(show_images);
 
             String html = properties.getHtml(message.id);
             if (TextUtils.isEmpty(html)) {
+                webView.loadUrl("about:blank");
+
                 Bundle args = new Bundle();
                 args.putLong("id", message.id);
                 args.putBoolean("dark", dark);
