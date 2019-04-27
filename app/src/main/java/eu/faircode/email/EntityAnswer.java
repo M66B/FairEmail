@@ -77,10 +77,14 @@ public class EntityAnswer implements Serializable {
             }
         }
 
-        String text = answer.text;
-        text = text.replace("$name$", name == null ? "" : name);
-        text = text.replace("$firstname$", first == null ? "" : first);
-        text = text.replace("$lastname$", last == null ? "" : last);
+        return replacePlaceholders(answer.text, name, first, last, email);
+    }
+
+    static String replacePlaceholders(
+            String text, String fullName, String firstName, String lastName, String email) {
+        text = text.replace("$name$", fullName == null ? "" : fullName);
+        text = text.replace("$firstname$", firstName == null ? "" : firstName);
+        text = text.replace("$lastname$", lastName == null ? "" : lastName);
         text = text.replace("$email$", email == null ? "" : email);
 
         return text;

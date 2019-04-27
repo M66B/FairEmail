@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.database.Cursor;
+
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
@@ -29,6 +31,11 @@ import java.util.List;
 
 @Dao
 public interface DaoAnswer {
+    @Query("SELECT id AS _id, name, text FROM answer" +
+            " WHERE NOT hide" +
+            " ORDER BY name COLLATE NOCASE")
+    Cursor getAnswerList();
+
     @Query("SELECT * FROM answer" +
             " WHERE :all OR NOT hide" +
             " ORDER BY name COLLATE NOCASE")

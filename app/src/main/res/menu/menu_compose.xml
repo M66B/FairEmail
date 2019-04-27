@@ -40,6 +40,11 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/menu_template"
+        android:title="@string/title_insert_template"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_encrypt"
         android:checkable="true"
         android:title="@string/title_encrypt"

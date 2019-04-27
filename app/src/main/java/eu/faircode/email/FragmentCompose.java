@@ -755,6 +755,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_attachment).setVisible(state == State.LOADED && !style);
         menu.findItem(R.id.menu_clear).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_contact_group).setVisible(state == State.LOADED);
+        menu.findItem(R.id.menu_template).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_encrypt).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_send_after).setVisible(state == State.LOADED);
 
@@ -763,6 +764,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_attachment).setEnabled(!busy);
         menu.findItem(R.id.menu_clear).setEnabled(!busy);
         menu.findItem(R.id.menu_contact_group).setEnabled(!busy);
+        menu.findItem(R.id.menu_template).setEnabled(!busy && Helper.isPro(getContext()));
         menu.findItem(R.id.menu_encrypt).setEnabled(!busy);
         menu.findItem(R.id.menu_send_after).setEnabled(!busy);
 
@@ -800,6 +802,9 @@ public class FragmentCompose extends FragmentBase {
                 return true;
             case R.id.menu_contact_group:
                 onMenuContactGroup();
+                return true;
+            case R.id.menu_template:
+                onMenuTemplate();
                 return true;
             case R.id.menu_encrypt:
                 onMenuEncrypt();
@@ -1090,6 +1095,55 @@ public class FragmentCompose extends FragmentBase {
         });
 
         dialog.show();
+    }
+
+    private void onMenuTemplate() {
+        new SimpleTask<Cursor>() {
+            @Override
+            protected Cursor onExecute(Context context, Bundle args) {
+                DB db = DB.getInstance(getContext());
+                return db.answer().getAnswerList();
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Cursor cursor) {
+                ListView lv = new ListView(getContext());
+
+                final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
+                        getContext(),
+                        R.layout.spinner_item1_dropdown,
+                        cursor,
+                        new String[]{"name"},
+                        new int[]{android.R.id.text1},
+                        0);
+                lv.setAdapter(adapter);
+
+                final AlertDialog dialog = new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                        .setView(lv)
+                        .create();
+
+                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        dialog.dismiss();
+
+                        Cursor cursor = (Cursor) adapter.getItem(position);
+                        String text = cursor.getString(cursor.getColumnIndex("text"));
+                        text = EntityAnswer.replacePlaceholders(text, null, null, null, null);
+                        Spanned spanned = HtmlHelper.fromHtml(text);
+
+                        etBody.getText().insert(etBody.getSelectionStart(), spanned);
+                    }
+                });
+
+                dialog.show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(this, new Bundle(), "compose:template");
     }
 
     private void onMenuEncrypt() {
