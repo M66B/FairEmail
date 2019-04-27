@@ -1469,11 +1469,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
                 settings.setAllowFileAccess(false);
 
-                // Set default font
-                int px = Math.round(TypedValue.applyDimension(
-                        TypedValue.COMPLEX_UNIT_PX, textSize,
-                        context.getResources().getDisplayMetrics()));
-                settings.setDefaultFontSize(px);
                 if (monospaced)
                     settings.setStandardFontFamily("monospace");
 
