@@ -738,12 +738,21 @@ public class FragmentMessages extends FragmentBase {
         }
 
         @Override
-        public void scrollTo(final int pos, final int dy) {
+        public void scrollTo(final int pos) {
             new Handler().post(new Runnable() {
                 @Override
                 public void run() {
                     rvMessage.scrollToPosition(pos);
-                    rvMessage.scrollBy(0, dy);
+                }
+            });
+        }
+
+        @Override
+        public void scrollBy(final int dx, final int dy) {
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    rvMessage.scrollBy(dx, dy);
                 }
             });
         }

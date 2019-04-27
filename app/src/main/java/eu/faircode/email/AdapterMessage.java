@@ -1294,7 +1294,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 if (expanded) {
                     bindExpanded(message);
-                    properties.scrollTo(getAdapterPosition(), 0);
+                    properties.scrollTo(getAdapterPosition());
                 } else
                     clearExpanded();
             }
@@ -1392,10 +1392,30 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 WebView webView = new WebView(context) {
                     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
                         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-                        int w = getMeasuredWidth();
-                        int h = getMeasuredHeight();
-                        Log.i("WebView " + w + "x" + h);
-                        setMeasuredDimension(w, Math.max(tvBody.getMinHeight(), h));
+                        setMeasuredDimension(
+                                getMeasuredWidth(),
+                                Math.max(tvBody.getMinHeight(), getMeasuredHeight()));
+                    }
+
+                    @Override
+                    public boolean onTouchEvent(MotionEvent event) {
+                        getParent().requestDisallowInterceptTouchEvent(true);
+                        return super.onTouchEvent(event);
+                    }
+
+                    int dy = 0;
+
+                    @Override
+                    protected boolean overScrollBy(int deltaX, int deltaY, int scrollX, int scrollY, int scrollRangeX, int scrollRangeY, int maxOverScrollX, int maxOverScrollY, boolean isTouchEvent) {
+                        dy = deltaY;
+                        return super.overScrollBy(deltaX, deltaY, scrollX, scrollY, scrollRangeX, scrollRangeY, maxOverScrollX, maxOverScrollY, isTouchEvent);
+                    }
+
+                    @Override
+                    protected void onOverScrolled(int scrollX, int scrollY, boolean clampedX, boolean clampedY) {
+                        super.onOverScrolled(scrollX, scrollY, clampedX, clampedY);
+                        if (clampedY)
+                            properties.scrollBy(0, dy);
                     }
                 };
 
@@ -1433,30 +1453,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             Helper.view(context, owner, uri, true);
 
                             return true;
-                        }
-                        return false;
-                    }
-                });
-
-                // Fix zooming
-                webView.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent me) {
-                        if (me.getPointerCount() == 2) {
-                            ConstraintLayout cl = (ConstraintLayout) view;
-                            switch (me.getAction()) {
-                                case MotionEvent.ACTION_DOWN:
-                                    cl.requestDisallowInterceptTouchEvent(true);
-                                    break;
-
-                                case MotionEvent.ACTION_MOVE:
-                                    cl.requestDisallowInterceptTouchEvent(true);
-                                    break;
-
-                                case MotionEvent.ACTION_UP:
-                                    cl.requestDisallowInterceptTouchEvent(false);
-                                    break;
-                            }
                         }
                         return false;
                     }
@@ -3255,7 +3251,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         List<EntityAttachment> getAttachments(long id);
 
-        void scrollTo(int pos, int dy);
+        void scrollTo(int pos);
+
+        void scrollBy(int dx, int dy);
 
         void move(long id, String target, boolean type);
 
