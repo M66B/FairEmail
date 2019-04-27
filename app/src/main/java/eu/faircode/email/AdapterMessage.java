@@ -1458,6 +1458,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 });
 
+                // https://issuetracker.google.com/issues/36933699
+                webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
                 webView.setBackgroundColor(Color.TRANSPARENT);
 
                 WebSettings settings = webView.getSettings();
