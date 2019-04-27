@@ -29,10 +29,12 @@ import java.util.List;
 
 @Dao
 public interface DaoAccount {
-    @Query("SELECT * FROM account")
+    @Query("SELECT * FROM account" +
+            " ORDER BY `order`, `primary` DESC, name COLLATE NOCASE")
     List<EntityAccount> getAccounts();
 
-    @Query("SELECT * FROM account WHERE synchronize")
+    @Query("SELECT * FROM account WHERE synchronize" +
+            " ORDER BY `order`, `primary` DESC, name COLLATE NOCASE")
     List<EntityAccount> getSynchronizingAccounts();
 
     @Query("SELECT * FROM account WHERE tbd = 1")

@@ -1159,18 +1159,6 @@ public class FragmentMessages extends FragmentBase {
 
                 result.accounts = db.account().getSynchronizingAccounts();
 
-                final Collator collator = Collator.getInstance(Locale.getDefault());
-                collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-                Collections.sort(result.accounts, new Comparator<EntityAccount>() {
-                    @Override
-                    public int compare(EntityAccount a1, EntityAccount a2) {
-                        int p = -a1.primary.compareTo(a2.primary);
-                        if (p != 0)
-                            return p;
-                        return collator.compare(a1.name, a2.name);
-                    }
-                });
-
                 for (EntityAccount account : result.accounts) {
                     List<EntityFolder> targets = new ArrayList<>();
                     List<EntityFolder> folders = db.folder().getFolders(account.id);
