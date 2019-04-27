@@ -1012,7 +1012,6 @@ public class FragmentCompose extends FragmentBase {
         lvGroup.setAdapter(adapter);
 
         final AlertDialog dialog = new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setTitle(R.string.title_insert_contact_group)
                 .setView(dview)
                 .create();
 
