@@ -1198,9 +1198,6 @@ public class ServiceSynchronize extends LifecycleService {
                         // Restore schedule
                         schedule(context);
 
-                        // Initialize polling
-                        WorkerPoll.init(context);
-
                         // Conditionally init service
                         boolean enabled = prefs.getBoolean("enabled", true);
                         int pollInterval = prefs.getInt("poll_interval", 0);
@@ -1283,6 +1280,8 @@ public class ServiceSynchronize extends LifecycleService {
             am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, next, piAlarm);
         else
             am.set(AlarmManager.RTC_WAKEUP, next, piAlarm);
+
+        WorkerPoll.init(context);
     }
 
     static void reschedule(Context context) {
