@@ -1136,46 +1136,32 @@ public class FragmentCompose extends FragmentBase {
             fragmentTransaction.commit();
             return;
         }
-        new SimpleTask<Cursor>() {
+        new SimpleTask<List<EntityAnswer>>() {
             @Override
-            protected Cursor onExecute(Context context, Bundle args) {
+            protected List<EntityAnswer> onExecute(Context context, Bundle args) {
                 DB db = DB.getInstance(getContext());
-                return db.answer().getAnswerList();
+                return db.answer().getAnswers(false);
             }
 
             @Override
-            protected void onExecuted(Bundle args, Cursor cursor) {
-                ListView lv = new ListView(getContext());
+            protected void onExecuted(Bundle args, List<EntityAnswer> answers) {
+                final ArrayAdapter<EntityAnswer> adapter =
+                        new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, answers);
 
-                final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
-                        getContext(),
-                        R.layout.spinner_item1_dropdown,
-                        cursor,
-                        new String[]{"name"},
-                        new int[]{android.R.id.text1},
-                        0);
-                lv.setAdapter(adapter);
+                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                        .setAdapter(adapter, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                                EntityAnswer answer = adapter.getItem(which);
 
-                final AlertDialog dialog = new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                        .setTitle(R.string.title_insert_template)
-                        .setView(lv)
-                        .create();
+                                String text = EntityAnswer.replacePlaceholders(answer.text, null, null, null, null);
+                                Spanned spanned = HtmlHelper.fromHtml(text);
 
-                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        dialog.dismiss();
-
-                        Cursor cursor = (Cursor) adapter.getItem(position);
-                        String text = cursor.getString(cursor.getColumnIndex("text"));
-                        text = EntityAnswer.replacePlaceholders(text, null, null, null, null);
-                        Spanned spanned = HtmlHelper.fromHtml(text);
-
-                        etBody.getText().insert(etBody.getSelectionStart(), spanned);
-                    }
-                });
-
-                dialog.show();
+                                etBody.getText().insert(etBody.getSelectionStart(), spanned);
+                            }
+                        })
+                        .show();
             }
 
             @Override
