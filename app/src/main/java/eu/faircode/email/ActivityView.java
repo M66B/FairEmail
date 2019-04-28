@@ -82,7 +82,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -209,9 +208,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         break;
                     case R.string.menu_faq:
                         onMenuFAQ();
-                        break;
-                    case R.string.menu_issue:
-                        onMenuIssue();
                         break;
                     case R.string.menu_privacy:
                         onMenuPrivacy();
@@ -363,13 +359,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 if (Helper.getIntentFAQ().resolveActivity(getPackageManager()) != null)
                     items.add(new DrawerItem(-9, R.drawable.baseline_question_answer_24, R.string.menu_faq).setCollapsible());
 
-                if (BuildConfig.BETA_RELEASE)
-                    items.add(new DrawerItem(-10, R.drawable.baseline_report_problem_24, R.string.menu_issue).setCollapsible());
-
                 if (Helper.getIntentPrivacy().resolveActivity(getPackageManager()) != null)
-                    items.add(new DrawerItem(-11, R.drawable.baseline_account_box_24, R.string.menu_privacy).setCollapsible());
+                    items.add(new DrawerItem(-10, R.drawable.baseline_account_box_24, R.string.menu_privacy).setCollapsible());
 
-                items.add(new DrawerItem(-12, R.drawable.baseline_info_24, R.string.menu_about).setCollapsible());
+                items.add(new DrawerItem(-11, R.drawable.baseline_info_24, R.string.menu_about).setCollapsible());
 
                 boolean pro = (getIntentPro() == null || getIntentPro().resolveActivity(getPackageManager()) != null);
                 boolean invite = (getIntentInvite().resolveActivity(getPackageManager()) != null);
@@ -377,19 +370,19 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 boolean other = (getIntentOtherApps().resolveActivity(getPackageManager()) != null);
 
                 if (pro || invite || rate || other)
-                    items.add(new DrawerItem(-13).setCollapsible());
+                    items.add(new DrawerItem(-12).setCollapsible());
 
                 if (pro)
-                    items.add(new DrawerItem(-14, R.drawable.baseline_monetization_on_24, R.string.menu_pro).setCollapsible());
+                    items.add(new DrawerItem(-13, R.drawable.baseline_monetization_on_24, R.string.menu_pro).setCollapsible());
 
                 if (invite)
-                    items.add(new DrawerItem(-15, R.drawable.baseline_people_24, R.string.menu_invite).setCollapsible());
+                    items.add(new DrawerItem(-14, R.drawable.baseline_people_24, R.string.menu_invite).setCollapsible());
 
                 if (rate)
-                    items.add(new DrawerItem(-16, R.drawable.baseline_star_24, R.string.menu_rate).setCollapsible());
+                    items.add(new DrawerItem(-15, R.drawable.baseline_star_24, R.string.menu_rate).setCollapsible());
 
                 if (other)
-                    items.add(new DrawerItem(-17, R.drawable.baseline_get_app_24, R.string.menu_other).setCollapsible());
+                    items.add(new DrawerItem(-16, R.drawable.baseline_get_app_24, R.string.menu_other).setCollapsible());
 
                 drawerArray.set(items);
             }
@@ -980,40 +973,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private void onMenuFAQ() {
         Helper.view(this, this, Helper.getIntentFAQ());
-    }
-
-    private void onMenuIssue() {
-        new DialogBuilderLifecycle(this, this)
-                .setMessage(R.string.title_issue_type)
-                .setPositiveButton(R.string.title_issue_question, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Helper.view(ActivityView.this, ActivityView.this, Helper.getIntentFAQ());
-                    }
-                })
-                .setNegativeButton(R.string.title_issue_problem, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        onReportIssue();
-                    }
-                })
-                .show();
-    }
-
-    void onReportIssue() {
-        try {
-            String version = BuildConfig.VERSION_NAME + "/" +
-                    (Helper.hasValidFingerprint(this) ? "1" : "3") +
-                    (Helper.isPro(this) ? "+" : "");
-            Intent issue = new Intent(Intent.ACTION_SEND);
-            issue.setPackage(BuildConfig.APPLICATION_ID);
-            issue.setType("text/plain");
-            issue.putExtra(Intent.EXTRA_EMAIL, new String[]{Helper.myAddress().getAddress()});
-            issue.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.title_issue_subject, version));
-            startActivity(issue);
-        } catch (UnsupportedEncodingException ex) {
-            Helper.unexpectedError(this, this, ex);
-        }
     }
 
     private void onMenuPrivacy() {

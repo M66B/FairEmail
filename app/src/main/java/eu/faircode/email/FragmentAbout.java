@@ -20,50 +20,98 @@ package eu.faircode.email;
 */
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import java.io.UnsupportedEncodingException;
 
 public class FragmentAbout extends FragmentBase {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.menu_about);
-
-        Intent changelog = null;
-        if (!Helper.isPlayStoreInstall(getContext())) {
-            changelog = new Intent(Intent.ACTION_VIEW);
-            changelog.setData(Uri.parse(BuildConfig.CHANGELOG));
-            if (changelog.resolveActivity(getContext().getPackageManager()) == null)
-                changelog = null;
-        }
+        setHasOptionsMenu(true);
 
         View view = inflater.inflate(R.layout.fragment_about, container, false);
 
         TextView tvVersion = view.findViewById(R.id.tvVersion);
-        Button btnChangelog = view.findViewById(R.id.btnChangelog);
         TextView tvLimitations = view.findViewById(R.id.tvLimitations);
 
         tvVersion.setText(getString(R.string.title_version, BuildConfig.VERSION_NAME));
-        btnChangelog.setVisibility(changelog == null ? View.GONE : View.VISIBLE);
         tvLimitations.setPaintFlags(tvLimitations.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
-        final Intent intent = changelog;
-        btnChangelog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(intent);
-            }
-        });
-
         return view;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_about, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        PackageManager pm = getContext().getPackageManager();
+        menu.findItem(R.id.menu_changelog).setVisible(
+                !Helper.isPlayStoreInstall(getContext()) && getIntentChangelog().resolveActivity(pm) != null);
+        menu.findItem(R.id.menu_issue).setVisible(
+                BuildConfig.BETA_RELEASE && getIntentIssue().resolveActivity(pm) != null);
+        super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_changelog:
+                onMenuChangelog();
+                return true;
+            case R.id.menu_issue:
+                onMenuIssue();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuChangelog() {
+        startActivity(getIntentChangelog());
+    }
+
+    private void onMenuIssue() {
+        startActivity(getIntentIssue());
+    }
+
+    private Intent getIntentChangelog() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(BuildConfig.CHANGELOG));
+        return intent;
+    }
+
+    private Intent getIntentIssue() {
+        String version = BuildConfig.VERSION_NAME + "/" +
+                (Helper.hasValidFingerprint(getContext()) ? "1" : "3") +
+                (Helper.isPro(getContext()) ? "+" : "");
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setPackage(BuildConfig.APPLICATION_ID);
+        intent.setType("text/plain");
+        try {
+            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{Helper.myAddress().getAddress()});
+        } catch (UnsupportedEncodingException ex) {
+            Log.w(ex);
+        }
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.title_issue_subject, version));
+        return intent;
     }
 }
