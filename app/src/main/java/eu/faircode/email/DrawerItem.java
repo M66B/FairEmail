@@ -11,10 +11,17 @@ public class DrawerItem {
     private int resid;
     private String title;
     private boolean highlight;
+    private boolean collapsible = false;
 
     DrawerItem(long id) {
         this.id = id;
         this.layout = R.layout.item_drawer_separator;
+    }
+
+    DrawerItem(long id, int resid) {
+        this.id = id;
+        this.menu = resid;
+        this.layout = R.layout.item_drawer_expander;
     }
 
     DrawerItem(long id, int icon, int resid) {
@@ -41,6 +48,11 @@ public class DrawerItem {
         this.color = color;
         this.title = title;
         this.highlight = highlight;
+    }
+
+    DrawerItem setCollapsible() {
+        this.collapsible = true;
+        return this;
     }
 
     int getLayout() {
@@ -75,5 +87,9 @@ public class DrawerItem {
 
     boolean getHighlight() {
         return this.highlight;
+    }
+
+    boolean isCollapsible() {
+        return this.collapsible;
     }
 }

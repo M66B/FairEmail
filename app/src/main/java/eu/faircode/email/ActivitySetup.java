@@ -85,8 +85,9 @@ import javax.crypto.spec.PBEKeySpec;
 public class ActivitySetup extends ActivityBilling implements FragmentManager.OnBackStackChangedListener {
     private View view;
     private DrawerLayout drawerLayout;
-    private ListView drawerList;
     private ActionBarDrawerToggle drawerToggle;
+    private ListView drawerList;
+    private DrawerAdapter drawerArray;
 
     private boolean hasAccount;
     private String password;
@@ -132,7 +133,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
         drawerList = findViewById(R.id.drawer_list);
 
-        final DrawerAdapter drawerArray = new DrawerAdapter(this);
+        drawerArray = new DrawerAdapter(this, false);
         drawerList.setAdapter(drawerArray);
 
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {

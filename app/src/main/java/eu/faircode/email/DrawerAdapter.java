@@ -15,10 +15,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DrawerAdapter extends ArrayAdapter<DrawerItem> {
+    private boolean collapsed = false;
     private List<DrawerItem> items = new ArrayList<>();
 
-    DrawerAdapter(@NonNull Context context) {
+    DrawerAdapter(@NonNull Context context, boolean collapsed) {
         super(context, -1);
+        this.collapsed = collapsed;
     }
 
     @NonNull
@@ -28,6 +30,7 @@ public class DrawerAdapter extends ArrayAdapter<DrawerItem> {
 
         ImageView iv = row.findViewById(R.id.ivItem);
         TextView tv = row.findViewById(R.id.tvItem);
+        ImageView expander = row.findViewById(R.id.ivExpander);
 
         if (iv != null) {
             iv.setImageResource(item.getIcon());
@@ -42,7 +45,17 @@ public class DrawerAdapter extends ArrayAdapter<DrawerItem> {
                     item.getHighlight() ? R.attr.colorUnread : android.R.attr.textColorSecondary));
         }
 
+        if (expander != null)
+            expander.setImageLevel(collapsed ? 1 /* more */ : 0 /* less */);
+
+        row.setVisibility(item.isCollapsible() && collapsed ? View.GONE : View.VISIBLE);
+
         return row;
+    }
+
+    void set(boolean collapsed) {
+        this.collapsed = collapsed;
+        notifyDataSetChanged();
     }
 
     void set(List<DrawerItem> items) {
@@ -73,11 +86,5 @@ public class DrawerAdapter extends ArrayAdapter<DrawerItem> {
     public long getItemId(int position) {
         DrawerItem item = getItem(position);
         return (item == null ? 0 : item.getId());
-    }
-
-    @Override
-    public boolean isEnabled(int position) {
-        DrawerItem item = getItem(position);
-        return (item != null && item.isEnabled());
     }
 }

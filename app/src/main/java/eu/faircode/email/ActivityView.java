@@ -99,10 +99,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private String startup;
 
     private View view;
-    private DrawerLayout drawerLayout;
     private Group grpPane;
-    private ListView drawerList;
+    private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
+    private ListView drawerList;
+    private DrawerAdapter drawerArray;
 
     private long message = -1;
     private long attachment = -1;
@@ -157,10 +158,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        grpPane = findViewById(R.id.grpPane);
+
         drawerLayout = findViewById(R.id.drawer_layout);
         drawerLayout.setScrimColor(Helper.resolveColor(this, R.attr.colorDrawerScrim));
-
-        grpPane = findViewById(R.id.grpPane);
 
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.app_name, R.string.app_name) {
             public void onDrawerClosed(View view) {
@@ -177,7 +178,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         drawerList = findViewById(R.id.drawer_list);
 
-        final DrawerAdapter drawerArray = new DrawerAdapter(ActivityView.this);
+        boolean minimal = prefs.getBoolean("minimal", false);
+        drawerArray = new DrawerAdapter(this, minimal);
+
         drawerList.setAdapter(drawerArray);
 
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -198,6 +201,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     case R.string.menu_setup:
                         onMenuSetup();
                         break;
+                    case R.string.title_legend_expander:
+                        onMenuCollapse();
+                        return;
                     case R.string.menu_legend:
                         onMenuLegend();
                         break;
@@ -351,18 +357,19 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 items.add(new DrawerItem(-5, R.drawable.baseline_settings_applications_24, R.string.menu_setup));
                 items.add(new DrawerItem(-6));
-                items.add(new DrawerItem(-7, R.drawable.baseline_help_24, R.string.menu_legend));
+                items.add(new DrawerItem(-7, R.string.title_legend_expander));
+                items.add(new DrawerItem(-8, R.drawable.baseline_help_24, R.string.menu_legend).setCollapsible());
 
                 if (Helper.getIntentFAQ().resolveActivity(getPackageManager()) != null)
-                    items.add(new DrawerItem(-8, R.drawable.baseline_question_answer_24, R.string.menu_faq));
+                    items.add(new DrawerItem(-9, R.drawable.baseline_question_answer_24, R.string.menu_faq).setCollapsible());
 
                 if (BuildConfig.BETA_RELEASE)
-                    items.add(new DrawerItem(-9, R.drawable.baseline_report_problem_24, R.string.menu_issue));
+                    items.add(new DrawerItem(-10, R.drawable.baseline_report_problem_24, R.string.menu_issue).setCollapsible());
 
                 if (Helper.getIntentPrivacy().resolveActivity(getPackageManager()) != null)
-                    items.add(new DrawerItem(-10, R.drawable.baseline_account_box_24, R.string.menu_privacy));
+                    items.add(new DrawerItem(-11, R.drawable.baseline_account_box_24, R.string.menu_privacy).setCollapsible());
 
-                items.add(new DrawerItem(-11, R.drawable.baseline_info_24, R.string.menu_about));
+                items.add(new DrawerItem(-12, R.drawable.baseline_info_24, R.string.menu_about).setCollapsible());
 
                 boolean pro = (getIntentPro() == null || getIntentPro().resolveActivity(getPackageManager()) != null);
                 boolean invite = (getIntentInvite().resolveActivity(getPackageManager()) != null);
@@ -370,19 +377,19 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 boolean other = (getIntentOtherApps().resolveActivity(getPackageManager()) != null);
 
                 if (pro || invite || rate || other)
-                    items.add(new DrawerItem(-12));
+                    items.add(new DrawerItem(-13).setCollapsible());
 
                 if (pro)
-                    items.add(new DrawerItem(-13, R.drawable.baseline_monetization_on_24, R.string.menu_pro));
+                    items.add(new DrawerItem(-14, R.drawable.baseline_monetization_on_24, R.string.menu_pro).setCollapsible());
 
                 if (invite)
-                    items.add(new DrawerItem(-14, R.drawable.baseline_people_24, R.string.menu_invite));
+                    items.add(new DrawerItem(-15, R.drawable.baseline_people_24, R.string.menu_invite).setCollapsible());
 
                 if (rate)
-                    items.add(new DrawerItem(-15, R.drawable.baseline_star_24, R.string.menu_rate));
+                    items.add(new DrawerItem(-16, R.drawable.baseline_star_24, R.string.menu_rate).setCollapsible());
 
                 if (other)
-                    items.add(new DrawerItem(-16, R.drawable.baseline_get_app_24, R.string.menu_other));
+                    items.add(new DrawerItem(-17, R.drawable.baseline_get_app_24, R.string.menu_other).setCollapsible());
 
                 drawerArray.set(items);
             }
@@ -952,6 +959,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private void onMenuSetup() {
         startActivity(new Intent(ActivityView.this, ActivitySetup.class));
+    }
+
+    private void onMenuCollapse() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean minimal = !prefs.getBoolean("minimal", false);
+        prefs.edit().putBoolean("minimal", minimal).apply();
+        drawerArray.set(minimal);
+        drawerArray.notifyDataSetChanged();
     }
 
     private void onMenuLegend() {
