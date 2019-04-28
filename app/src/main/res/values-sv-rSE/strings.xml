@@ -59,9 +59,6 @@
     <string name="menu_invite">Bjud in</string>
     <string name="menu_rate">Betygsätt denna app</string>
     <string name="menu_other">Andra appar</string>
-    <string name="title_issue_type">Har du en fråga eller problem?</string>
-    <string name="title_issue_question">Fråga</string>
-    <string name="title_issue_problem">Problem</string>
     <string name="title_welcome">Välkommen</string>
     <string name="title_eula">Licensavtal för slutanvändare</string>
     <string name="title_agree">Jag godkänner</string>
@@ -135,6 +132,7 @@
     <string name="title_advanced_threading">Konversationstrådar</string>
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
     <string name="title_advanced_identicons">Visa identicons</string>
+    <string name="title_advanced_circular">Visa runda ikoner</string>
     <string name="title_advanced_name_email">Visa namn och e-postadresser</string>
     <string name="title_advanced_subject_italic">Visa ämnet kursivt</string>
     <string name="title_advanced_flags">Visa stjärnor (favoriter)</string>
@@ -165,6 +163,7 @@
     <string name="title_advanced_paranoid">Extra sekretessfunktioner</string>
     <string name="title_advanced_updates">Sök efter uppdateringar</string>
     <string name="title_advanced_debug">Felsökningsläge</string>
+    <string name="title_advanced_last_cleanup">Senaste rensning: %1$s</string>
     <string name="title_advanced_enabled_hint">Inaktivera eller aktivera mottagning och sändning av meddelanden globalt</string>
     <string name="title_advanced_schedule_hint">Tryck på en tid för att ställa in en tid</string>
     <string name="title_advanced_metered_hint">Uppmätta anslutningar är generellt mobila anslutningar eller betalda Wi-Fi-hotspots</string>
@@ -224,16 +223,19 @@
     <string name="title_no_name">Namn saknas</string>
     <string name="title_no_email">E-postadressen saknas</string>
     <string name="title_email_invalid">Ogiltig e-postadress</string>
+    <string name="title_address_parse_error">Adress \"%1$s\" ogiltig: %2$s</string>
     <string name="title_no_account">Konto saknas</string>
     <string name="title_no_host">Värdnamn saknas</string>
     <string name="title_no_user">Användarnamn saknas</string>
     <string name="title_no_password">Lösenord saknas</string>
     <string name="title_no_inbox">Inkorgen hittades inte</string>
     <string name="title_no_primary_drafts">Inget primärt konto eller ingen utkastmapp</string>
+    <string name="title_no_identities">Skicka e-post kräver minst en identitet</string>
     <string name="title_no_idle">Leverantören stöder inte push-meddelanden. Detta kommer att fördröja mottagning av nya meddelanden och öka batterianvändningen.</string>
     <string name="title_no_utf8">Denna leverantör stöder inte UTF-8</string>
     <string name="title_no_sync">Synkroniseringsfel sedan %1$s</string>
     <string name="title_sync_errors">Synkronisering av vissa mappar misslyckades</string>
+    <string name="title_identity_required">En identitet krävs för att skicka meddelanden</string>
     <string name="title_drafts_required">En mapp för utkast krävs för att skicka meddelanden</string>
     <string name="title_account_delete">Ta bort detta konto permanent?</string>
     <string name="title_identity_delete">Ta bort denna identitet permanent?</string>
@@ -309,6 +311,7 @@
     <string name="title_reply">Svara</string>
     <string name="title_reply_to_sender">Avsändare</string>
     <string name="title_reply_to_all">Alla</string>
+    <string name="title_reply_list">Lista</string>
     <string name="title_reply_receipt">Läs kvitto</string>
     <string name="title_reply_template">Mall</string>
     <string name="title_moving">Flyttar till %1$s</string>
@@ -474,6 +477,7 @@
     <string name="title_legend_download_state">Hämtningstillstånd</string>
     <string name="title_legend_save">Spara</string>
     <string name="title_legend_delete">Ta bort</string>
+    <string name="title_legend_count">Antal</string>
     <string name="title_hint_folder_actions">Långtryck för inställningar</string>
     <string name="title_hint_folder_sync">För att begränsa batteri- och nätverksanvändning synkroniseras inte alla mappar och inte alla meddelanden som standard</string>
     <string name="title_hint_support">Om du har en fråga eller ett problem, vänligen använd supportmenyn för att få hjälp</string>
@@ -484,7 +488,9 @@
     <string name="title_hint_tracking_image">Spårar bild %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Långt tryck på en kontakt för att aldrig betrakta den som en favorit</string>
     <string name="title_open_link">Öppna länken</string>
+    <string name="title_ip_owner">Ägarens IP-adress</string>
     <string name="title_insecure_link">Denna länk är osäker</string>
+    <string name="title_select_app">Välj app</string>
     <string name="title_updated">Det finns en uppdatering till version %1$s tillgänglig</string>
     <string name="title_issue">Har du en fråga eller problem?</string>
     <string name="title_yes">Ja</string>
@@ -517,6 +523,13 @@
     <string name="title_debug_info">Felsökningsinformation</string>
     <string name="title_debug_info_remark">Beskriv problemet och ange tidpunkten för problemet:</string>
     <string name="title_crash_info_remark">Beskriv vad du gjorde när appen kraschade:</string>
+    <string-array name="pollIntervalNames">
+        <item>Alltid</item>
+        <item>Varje halvtimme</item>
+        <item>Varje timme</item>
+        <item>Varannan timme</item>
+        <item>Var fjärde timme</item>
+    </string-array>
     <string-array name="startupNames">
         <item>Samlad inkorg</item>
         <item>Samlade mappar</item>
@@ -537,5 +550,10 @@
         <item>Liten</item>
         <item>Mellan</item>
         <item>Stor</item>
+    </string-array>
+    <string-array name="targetNames">
+        <item>Till</item>
+        <item>Cc</item>
+        <item>Bcc</item>
     </string-array>
 </resources>

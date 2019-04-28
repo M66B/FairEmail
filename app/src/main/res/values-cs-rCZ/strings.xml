@@ -79,9 +79,6 @@
     <string name="menu_invite">Pozvat</string>
     <string name="menu_rate">Ohodnotit aplikaci</string>
     <string name="menu_other">Další aplikace</string>
-    <string name="title_issue_type">Máte dotaz nebo problém?</string>
-    <string name="title_issue_question">Dotaz</string>
-    <string name="title_issue_problem">Problém</string>
     <string name="title_welcome">Vítejte</string>
     <string name="title_eula">Licenční ujednání s koncovým uživatelem</string>
     <string name="title_agree">Souhlasím</string>
@@ -402,6 +399,7 @@
     <string name="title_add_attachment">Přidat přílohu</string>
     <string name="title_show_addresses">Zobrazit kopii/skrytou kopii</string>
     <string name="title_insert_contact_group">Vložit skupinu kontaktů</string>
+    <string name="title_insert_template">Vložit šablonu</string>
     <string name="title_from_missing">Chybí odesílatel</string>
     <string name="title_to_missing">Chybí příjemce</string>
     <string name="title_attachments_missing">Nebyly staženy všechny přílohy</string>

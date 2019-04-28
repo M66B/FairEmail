@@ -63,9 +63,6 @@
     <string name="menu_invite">Uitnodigen</string>
     <string name="menu_rate">Beoordeel deze app</string>
     <string name="menu_other">Andere apps</string>
-    <string name="title_issue_type">Heeft u een vraag of probleem?</string>
-    <string name="title_issue_question">Vraag</string>
-    <string name="title_issue_problem">Probleem</string>
     <string name="title_welcome">Welkom</string>
     <string name="title_eula">Licentieovereenkomst voor eindgebruikers</string>
     <string name="title_agree">Ik ga akkoord</string>

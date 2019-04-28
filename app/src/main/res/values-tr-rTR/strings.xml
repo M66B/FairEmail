@@ -63,9 +63,6 @@
     <string name="menu_invite">Davet et</string>
     <string name="menu_rate">Bu uygulamaya puan verin</string>
     <string name="menu_other">Diğer uygulamalar</string>
-    <string name="title_issue_type">Bir soru ya da sorun var mı?</string>
-    <string name="title_issue_question">Soru</string>
-    <string name="title_issue_problem">Sorun</string>
     <string name="title_welcome">Hoşgeldiniz</string>
     <string name="title_eula">Son Kullanıcı Lisans Sözleşmesi</string>
     <string name="title_agree">Kabul ediyorum</string>

@@ -63,9 +63,6 @@
     <string name="menu_invite">Invita</string>
     <string name="menu_rate">Valuta questa app</string>
     <string name="menu_other">Altre app</string>
-    <string name="title_issue_type">Hai una domanda o un problema?</string>
-    <string name="title_issue_question">Domanda</string>
-    <string name="title_issue_problem">Problema</string>
     <string name="title_welcome">Benvenuti</string>
     <string name="title_eula">Contratto di licenza con l\'utente finale</string>
     <string name="title_agree">Accetto</string>
@@ -385,6 +382,8 @@
     <string name="title_style_toolbar">Stile Barra strumenti</string>
     <string name="title_add_attachment">Aggiungi allegato</string>
     <string name="title_show_addresses">Mostra CC/CCN</string>
+    <string name="title_insert_contact_group">Inserisci gruppo di contatto</string>
+    <string name="title_insert_template">Inserisci modello</string>
     <string name="title_from_missing">Mittente mancante</string>
     <string name="title_to_missing">Destinatario mancante</string>
     <string name="title_attachments_missing">Non tutti gli allegati sono stati scaricati</string>
@@ -583,5 +582,10 @@
         <item>Piccolo</item>
         <item>Medio</item>
         <item>Grande</item>
+    </string-array>
+    <string-array name="targetNames">
+        <item>A</item>
+        <item>Cc</item>
+        <item>Ccn</item>
     </string-array>
 </resources>

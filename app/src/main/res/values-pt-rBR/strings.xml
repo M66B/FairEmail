@@ -63,9 +63,6 @@
     <string name="menu_invite">Convidar</string>
     <string name="menu_rate">Avalie este aplicativo</string>
     <string name="menu_other">Outros aplicativos</string>
-    <string name="title_issue_type">Você está com alguma dúvida ou algum problema?</string>
-    <string name="title_issue_question">Pergunta</string>
-    <string name="title_issue_problem">Problema</string>
     <string name="title_welcome">Bem-vindo(a)</string>
     <string name="title_eula">Contrato de Licença de Usuário Final</string>
     <string name="title_agree">Eu concordo</string>
@@ -163,6 +160,7 @@
     <string name="title_advanced_prefix_once">Prefixo de assunto apenas uma vez na resposta ou encaminhamento</string>
     <string name="title_advanced_autosend">Confirmar o envio de mensagens</string>
     <string name="title_advanced_badge">Mostrar ícone no launcher com número de novas mensagens</string>
+    <string name="title_advanced_subscriptions">Gerenciar assinaturas de pastas</string>
     <string name="title_advanced_notify_preview">Mostrar pré-visualização de mensagem nas notificações</string>
     <string name="title_advanced_search_local">Pesquisa externa no dispositivo</string>
     <string name="title_advanced_light">Usar luz de notificação</string>
@@ -181,6 +179,7 @@
     <string name="title_advanced_threading_hint">Agrupe as mensagens relacionadas entre si</string>
     <string name="title_advanced_name_email_hint">Quando desativado apenas os nomes serão exibidos quando disponíveis</string>
     <string name="title_advanced_flags_hint">Observe que as mensagens favoritadas serão sempre mantidas localmente</string>
+    <string name="title_advanced_subscriptions_hint">Pastas que não inscritas serão ocultas</string>
     <string name="title_advanced_preview_hint">Somente disponível quando o texto da mensagem for baixado</string>
     <string name="title_advanced_autoexpand_hint">Abrir automaticamente a mensagem quando há apenas uma mensagem ou uma mensagem não-lida em uma conversa</string>
     <string name="title_advanced_autocollapse_hint">Várias mensagens expandidas serão sempre fechadas ao \'voltar\'</string>
@@ -249,6 +248,7 @@
     <string name="title_no_utf8">Este provedor de e-mail não suporta UTF-8</string>
     <string name="title_no_sync">Erros de sincronização desde %1$s</string>
     <string name="title_sync_errors">Falha ao sincronizar algumas pastas</string>
+    <string name="title_identity_required">Uma identidade é necessária para enviar mensagens</string>
     <string name="title_drafts_required">Uma pasta de rascunhos é necessário para enviar mensagens</string>
     <string name="title_account_delete">Excluir esta conta permanentemente?</string>
     <string name="title_identity_delete">Excluir esta identidade permanentemente?</string>
@@ -317,6 +317,7 @@
     <string name="title_show_html">Mostrar original</string>
     <string name="title_trash">Lixeira</string>
     <string name="title_copy">Copiar &#8230;</string>
+    <string name="title_subscribe">Inscreva-se</string>
     <string name="title_delete">Excluir</string>
     <string name="title_more">Mais</string>
     <string name="title_spam">Spam</string>
@@ -381,6 +382,8 @@
     <string name="title_style_toolbar">Barra de estilo</string>
     <string name="title_add_attachment">Adicionar anexo</string>
     <string name="title_show_addresses">Mostrar CC/CCO</string>
+    <string name="title_insert_contact_group">Inserir grupo de contato</string>
+    <string name="title_insert_template">Inserir modelo</string>
     <string name="title_from_missing">Remetente faltante</string>
     <string name="title_to_missing">Destinatário faltante</string>
     <string name="title_attachments_missing">Nem todos os anexos foram baixados</string>
@@ -449,6 +452,7 @@
     <string name="title_legend_trash">Lixeira</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_notify">Notificar novas mensagens</string>
+    <string name="title_legend_subscribed">Inscrito em</string>
     <string name="title_legend_unified">Caixa de entrada unificada / conta principal</string>
     <string name="title_legend_primary_disconnected">Conta desconectada</string>
     <string name="title_legend_primary_connected">Conta conectada</string>
@@ -516,7 +520,9 @@
     <string name="title_hint_tracking_image">Imagem de rastreamento %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Pressione e segure um contato para nunca considerá-lo como favorito</string>
     <string name="title_open_link">Abrir link</string>
+    <string name="title_ip_owner">Endereço IP do proprietário</string>
     <string name="title_insecure_link">Este link é inseguro</string>
+    <string name="title_select_app">Selecionar app</string>
     <string name="title_updated">Há uma atualização para a versão %1$s disponível</string>
     <string name="title_issue">Você está com alguma dúvida ou algum problema?</string>
     <string name="title_yes">Sim</string>
@@ -549,6 +555,13 @@
     <string name="title_debug_info">Informações de depuração</string>
     <string name="title_debug_info_remark">Por favor, descreva o problema e indique o momento em que ocorrera:</string>
     <string name="title_crash_info_remark">Por favor, descreva o que você estava fazendo quando o aplicativo falhou:</string>
+    <string-array name="pollIntervalNames">
+        <item>Sempre</item>
+        <item>Cada meia hora</item>
+        <item>A cada hora</item>
+        <item>A cada 2 horas</item>
+        <item>A cada 4 horas</item>
+    </string-array>
     <string-array name="startupNames">
         <item>Caixa de entrada unificada</item>
         <item>Pastas unificadas</item>
@@ -569,5 +582,10 @@
         <item>Pequeno</item>
         <item>Médio</item>
         <item>Grande</item>
+    </string-array>
+    <string-array name="targetNames">
+        <item>Para</item>
+        <item>Cc</item>
+        <item>Bcc</item>
     </string-array>
 </resources>

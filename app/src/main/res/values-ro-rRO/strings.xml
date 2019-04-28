@@ -71,9 +71,6 @@
     <string name="menu_invite">Invită</string>
     <string name="menu_rate">Evaluează această aplicație</string>
     <string name="menu_other">Alte aplicații</string>
-    <string name="title_issue_type">Aveți o întrebare sau o problemă?</string>
-    <string name="title_issue_question">Întrebare</string>
-    <string name="title_issue_problem">Problemă</string>
     <string name="title_welcome">Bine ați venit</string>
     <string name="title_eula">Licența de utilizare</string>
     <string name="title_agree">Sunt de acord</string>
@@ -259,6 +256,7 @@
     <string name="title_no_utf8">Acest furnizor nu suportă UTF-8</string>
     <string name="title_no_sync">Erori de sincronizare începând cu %1$s</string>
     <string name="title_sync_errors">Sincronizarea unor dosare a eșuat</string>
+    <string name="title_identity_required">O identitate este necesară pentru a trimite mesaje</string>
     <string name="title_drafts_required">Un dosar de ciorne este necesar pentru a trimite mesaje</string>
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
@@ -392,6 +390,8 @@
     <string name="title_style_toolbar">Bara de stil</string>
     <string name="title_add_attachment">Adaugă ataşament</string>
     <string name="title_show_addresses">Arată CC/BCC</string>
+    <string name="title_insert_contact_group">Introduceți grup de contacte</string>
+    <string name="title_insert_template">Introduceți șablonul</string>
     <string name="title_from_missing">Expeditor lipsă</string>
     <string name="title_to_missing">Destinatar lipsă</string>
     <string name="title_attachments_missing">Nu toate ataşamentele se descarcă</string>
@@ -530,6 +530,7 @@
     <string name="title_open_link">Deschide legătura</string>
     <string name="title_ip_owner">Adresă IP proprietar</string>
     <string name="title_insecure_link">Această legătură este nesigură</string>
+    <string name="title_select_app">Selectează aplicația</string>
     <string name="title_updated">Este disponibilă o actualizare la versiunea %1$s</string>
     <string name="title_issue">Aveți o întrebare sau problemă?</string>
     <string name="title_yes">Da</string>
@@ -589,5 +590,10 @@
         <item>Mic</item>
         <item>Mediu</item>
         <item>Mare</item>
+    </string-array>
+    <string-array name="targetNames">
+        <item>Către</item>
+        <item>Cc</item>
+        <item>Bcc</item>
     </string-array>
 </resources>

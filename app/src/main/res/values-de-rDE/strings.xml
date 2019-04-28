@@ -63,9 +63,6 @@
     <string name="menu_invite">Einladen</string>
     <string name="menu_rate">Bewerte die App</string>
     <string name="menu_other">Weitere Apps</string>
-    <string name="title_issue_type">Haben Sie eine Frage oder ein Problem?</string>
-    <string name="title_issue_question">Frage</string>
-    <string name="title_issue_problem">Problem</string>
     <string name="title_welcome">Willkommen</string>
     <string name="title_eula">Endbenutzer-Lizenzvereinbarung</string>
     <string name="title_agree">Ich stimme zu</string>

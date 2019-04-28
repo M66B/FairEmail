@@ -63,9 +63,6 @@
     <string name="menu_invite">Invitar</string>
     <string name="menu_rate">Calificar esta app</string>
     <string name="menu_other">Otras apps</string>
-    <string name="title_issue_type">¿Tiene alguna pregunta o problema?</string>
-    <string name="title_issue_question">Pregunta</string>
-    <string name="title_issue_problem">Problema</string>
     <string name="title_welcome">Bienvenido</string>
     <string name="title_eula">Acuerdo de licencia de usuario</string>
     <string name="title_agree">Acepto</string>
