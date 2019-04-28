@@ -217,7 +217,7 @@ public class EntityOperation {
         operation.id = db.operation().insertOperation(operation);
 
         Log.i("Queued op=" + operation.id + "/" + operation.name +
-                " msg=" + operation.folder + "/" + operation.message +
+                " folder=" + operation.folder + " msg=" + operation.message +
                 " args=" + operation.args);
 
         if (SEND.equals(name))

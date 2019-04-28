@@ -120,6 +120,7 @@ class Core {
                 try {
                     Log.i(folder.name +
                             " start op=" + op.id + "/" + op.name +
+                            " folder=" + op.folder +
                             " msg=" + op.message +
                             " args=" + op.args);
 
