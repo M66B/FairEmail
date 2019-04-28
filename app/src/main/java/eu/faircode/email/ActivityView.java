@@ -50,6 +50,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -101,7 +102,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private Group grpPane;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
-    private ListView drawerList;
+    private ConstraintLayout drawerContainer;
+    private ListView drawerMenu;
     private DrawerAdapter drawerArray;
 
     private long message = -1;
@@ -175,14 +177,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         };
         drawerLayout.addDrawerListener(drawerToggle);
 
-        drawerList = findViewById(R.id.drawer_list);
+        drawerContainer = findViewById(R.id.drawer_container);
+        drawerMenu = drawerContainer.findViewById(R.id.drawer_menu);
 
         boolean minimal = prefs.getBoolean("minimal", false);
         drawerArray = new DrawerAdapter(this, minimal);
 
-        drawerList.setAdapter(drawerArray);
+        drawerMenu.setAdapter(drawerArray);
 
-        drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        drawerMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 DrawerItem item = drawerArray.getItem(position);
@@ -235,11 +238,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             onMenuOutbox();
                 }
 
-                drawerLayout.closeDrawer(drawerList);
+                drawerLayout.closeDrawer(drawerContainer);
             }
         });
 
-        drawerList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        drawerMenu.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 DrawerItem item = drawerArray.getItem(position);
@@ -272,7 +275,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             onMenuInbox(account);
                 }
 
-                drawerLayout.closeDrawer(drawerList);
+                drawerLayout.closeDrawer(drawerContainer);
                 return true;
             }
         });
@@ -603,8 +606,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(drawerList))
-            drawerLayout.closeDrawer(drawerList);
+        if (drawerLayout.isDrawerOpen(drawerContainer))
+            drawerLayout.closeDrawer(drawerContainer);
         else
             super.onBackPressed();
     }
@@ -615,8 +618,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (count == 0)
             finish();
         else {
-            if (drawerLayout.isDrawerOpen(drawerList))
-                drawerLayout.closeDrawer(drawerList);
+            if (drawerLayout.isDrawerOpen(drawerContainer))
+                drawerLayout.closeDrawer(drawerContainer);
             drawerToggle.setDrawerIndicatorEnabled(count == 1);
 
             if (grpPane != null) {

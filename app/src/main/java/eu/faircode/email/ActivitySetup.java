@@ -43,6 +43,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
@@ -86,7 +87,8 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
     private View view;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
-    private ListView drawerList;
+    private ConstraintLayout drawerContainer;
+    private ListView drawerMenu;
     private DrawerAdapter drawerArray;
 
     private boolean hasAccount;
@@ -131,12 +133,13 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         };
         drawerLayout.addDrawerListener(drawerToggle);
 
-        drawerList = findViewById(R.id.drawer_list);
+        drawerContainer = findViewById(R.id.drawer_container);
+        drawerMenu = drawerContainer.findViewById(R.id.drawer_menu);
 
         drawerArray = new DrawerAdapter(this, false);
-        drawerList.setAdapter(drawerArray);
+        drawerMenu.setAdapter(drawerArray);
 
-        drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        drawerMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 DrawerItem item = drawerArray.getItem(position);
@@ -176,7 +179,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                         break;
                 }
 
-                drawerLayout.closeDrawer(drawerList);
+                drawerLayout.closeDrawer(drawerContainer);
             }
         });
 
@@ -264,8 +267,8 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(drawerList))
-            drawerLayout.closeDrawer(drawerList);
+        if (drawerLayout.isDrawerOpen(drawerContainer))
+            drawerLayout.closeDrawer(drawerContainer);
         else
             super.onBackPressed();
     }
@@ -278,8 +281,8 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 startActivity(new Intent(this, ActivityView.class));
             finish();
         } else {
-            if (drawerLayout.isDrawerOpen(drawerList))
-                drawerLayout.closeDrawer(drawerList);
+            if (drawerLayout.isDrawerOpen(drawerContainer))
+                drawerLayout.closeDrawer(drawerContainer);
             drawerToggle.setDrawerIndicatorEnabled(count == 1);
         }
     }
