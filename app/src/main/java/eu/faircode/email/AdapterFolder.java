@@ -225,8 +225,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             lp.width = (account < 0 || !collapsable ? 1 : level) * dp12;
             vwLevel.setLayoutParams(lp);
 
-            ivExpander.setImageResource(folder.collapsed
-                    ? R.drawable.baseline_expand_more_24 : R.drawable.baseline_expand_less_24);
+            ivExpander.setImageLevel(folder.collapsed ? 1 /* more */ : 0 /* less */);
             ivExpander.setVisibility(account < 0 || !collapsable ? View.GONE : (folder.childs > 0 ? View.VISIBLE : View.INVISIBLE));
 
             ivNotify.setVisibility(folder.notify ? View.VISIBLE : View.GONE);

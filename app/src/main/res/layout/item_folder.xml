@@ -47,7 +47,7 @@
             android:contentDescription="@string/title_legend_expander"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:src="@drawable/baseline_expand_less_24"
+            android:src="@drawable/expander"
             app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
             app:layout_constraintStart_toEndOf="@+id/vwLevel"
             app:layout_constraintTop_toTopOf="parent" />

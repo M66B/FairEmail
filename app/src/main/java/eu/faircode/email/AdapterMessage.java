@@ -526,7 +526,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Expander
             boolean expanded = (viewType == ViewType.THREAD && properties.getValue("expanded", message.id));
-            ivExpander.setImageResource(expanded ? R.drawable.baseline_expand_less_24 : R.drawable.baseline_expand_more_24);
+            ivExpander.setImageLevel(expanded ? 0 /* less */ : 1 /* more */);
             if (viewType == ViewType.THREAD && threading)
                 ivExpander.setVisibility(EntityFolder.DRAFTS.equals(message.folderType) ? View.INVISIBLE : View.VISIBLE);
             else
@@ -774,7 +774,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             vwBody.setVisibility(show_html ? View.INVISIBLE : View.GONE);
 
             // Addresses
-            ivExpanderAddress.setImageResource(show_addresses ? R.drawable.baseline_expand_less_24 : R.drawable.baseline_expand_more_24);
+            ivExpanderAddress.setImageLevel(show_addresses ? 0 /* less */ : 1 /* more */);
 
             String from = MessageHelper.formatAddresses(message.from);
             String to = MessageHelper.formatAddresses(message.to);
@@ -1287,7 +1287,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean expanded = !properties.getValue("expanded", message.id);
                 properties.setValue("expanded", message.id, expanded);
 
-                ivExpander.setImageResource(expanded ? R.drawable.baseline_expand_less_24 : R.drawable.baseline_expand_more_24);
+                ivExpander.setImageLevel(expanded ? 0 /* less*/ : 1 /* more */);
 
                 if (expanded) {
                     bindExpanded(message);
