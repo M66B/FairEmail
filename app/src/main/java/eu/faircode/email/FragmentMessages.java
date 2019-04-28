@@ -425,11 +425,11 @@ public class FragmentMessages extends FragmentBase {
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("zoom", compact ? 0 : 1);
         String sort = prefs.getString("sort", "time");
-        boolean duplicates = prefs.getBoolean("duplicates", true);
+        boolean filter_duplicates = prefs.getBoolean("filter_duplicates", false);
 
         adapter = new AdapterMessage(
                 getContext(), getViewLifecycleOwner(),
-                viewType, compact, zoom, sort, duplicates, iProperties);
+                viewType, compact, zoom, sort, filter_duplicates, iProperties);
 
         rvMessage.setAdapter(adapter);
 
@@ -2050,14 +2050,15 @@ public class FragmentMessages extends FragmentBase {
         else if ("size".equals(sort))
             menu.findItem(R.id.menu_sort_on_size).setChecked(true);
 
+        menu.findItem(R.id.menu_filter).setVisible(viewType != AdapterMessage.ViewType.SEARCH);
+        menu.findItem(R.id.menu_filter_seen).setVisible(viewType != AdapterMessage.ViewType.THREAD);
+        menu.findItem(R.id.menu_filter_snoozed).setVisible(viewType != AdapterMessage.ViewType.THREAD);
+        menu.findItem(R.id.menu_filter_duplicates).setVisible(viewType == AdapterMessage.ViewType.THREAD);
+        menu.findItem(R.id.menu_filter_seen).setChecked(prefs.getBoolean("filter_seen", false));
+        menu.findItem(R.id.menu_filter_snoozed).setChecked(prefs.getBoolean("filter_snoozed", true));
+        menu.findItem(R.id.menu_filter_duplicates).setChecked(prefs.getBoolean("filter_duplicates", false));
+
         menu.findItem(R.id.menu_compact).setChecked(prefs.getBoolean("compact", false));
-
-        menu.findItem(R.id.menu_snoozed).setVisible(!outbox &&
-                (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER));
-        menu.findItem(R.id.menu_snoozed).setChecked(prefs.getBoolean("snoozed", false));
-
-        menu.findItem(R.id.menu_duplicates).setVisible(viewType == AdapterMessage.ViewType.THREAD);
-        menu.findItem(R.id.menu_duplicates).setChecked(prefs.getBoolean("duplicates", true));
 
         menu.findItem(R.id.menu_select_all).setVisible(!outbox &&
                 (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER));
@@ -2103,20 +2104,24 @@ public class FragmentMessages extends FragmentBase {
                 onMenuSort("size");
                 return true;
 
+            case R.id.menu_filter_seen:
+                onMenuFilterRead(!item.isChecked());
+                return true;
+
+            case R.id.menu_filter_snoozed:
+                onMenuFilterSnoozed(!item.isChecked());
+                return true;
+
+            case R.id.menu_filter_duplicates:
+                onMenuFilterDuplicates(!item.isChecked());
+                return true;
+
             case R.id.menu_zoom:
                 onMenuZoom();
                 return true;
 
             case R.id.menu_compact:
                 onMenuCompact();
-                return true;
-
-            case R.id.menu_snoozed:
-                onMenuSnoozed();
-                return true;
-
-            case R.id.menu_duplicates:
-                onMenuDuplicates();
                 return true;
 
             case R.id.menu_select_all:
@@ -2150,6 +2155,31 @@ public class FragmentMessages extends FragmentBase {
         loadMessages();
     }
 
+    private void onMenuFilterRead(boolean filter) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putBoolean("filter_seen", filter).apply();
+        getActivity().invalidateOptionsMenu();
+        if (selectionTracker != null)
+            selectionTracker.clearSelection();
+        loadMessages();
+    }
+
+    private void onMenuFilterSnoozed(boolean filter) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putBoolean("filter_snoozed", filter).apply();
+        getActivity().invalidateOptionsMenu();
+        if (selectionTracker != null)
+            selectionTracker.clearSelection();
+        loadMessages();
+    }
+
+    private void onMenuFilterDuplicates(boolean filter) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putBoolean("filter_duplicates", filter).apply();
+        getActivity().invalidateOptionsMenu();
+        adapter.setFilterDuplicates(filter);
+    }
+
     private void onMenuZoom() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean compact = prefs.getBoolean("compact", false);
@@ -2170,22 +2200,6 @@ public class FragmentMessages extends FragmentBase {
         adapter.setCompact(compact);
         adapter.setZoom(zoom);
         getActivity().invalidateOptionsMenu();
-    }
-
-    private void onMenuSnoozed() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean snoozed = prefs.getBoolean("snoozed", false);
-        prefs.edit().putBoolean("snoozed", !snoozed).apply();
-        if (selectionTracker != null)
-            selectionTracker.clearSelection();
-        loadMessages();
-    }
-
-    private void onMenuDuplicates() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean duplicates = prefs.getBoolean("duplicates", true);
-        prefs.edit().putBoolean("duplicates", !duplicates).apply();
-        adapter.setDuplicates(!duplicates);
     }
 
     private void onMenuSelectAll() {
@@ -2291,7 +2305,8 @@ public class FragmentMessages extends FragmentBase {
         // Observe folder/messages/search
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         String sort = prefs.getString("sort", "time");
-        boolean snoozed = prefs.getBoolean("snoozed", false);
+        boolean filter_seen = prefs.getBoolean("filter_seen", false);
+        boolean filter_snoozed = prefs.getBoolean("filter_snoozed", true);
         boolean debug = prefs.getBoolean("debug", false);
         Log.i("Load messages type=" + viewType + " sort=" + sort + " debug=" + debug);
 
@@ -2304,7 +2319,7 @@ public class FragmentMessages extends FragmentBase {
         switch (viewType) {
             case UNIFIED:
                 builder = new LivePagedListBuilder<>(
-                        db.message().pagedUnifiedInbox(threading, sort, snoozed, false, debug), LOCAL_PAGE_SIZE);
+                        db.message().pagedUnifiedInbox(threading, sort, filter_seen, filter_snoozed, false, debug), LOCAL_PAGE_SIZE);
                 break;
 
             case FOLDER:
@@ -2313,7 +2328,7 @@ public class FragmentMessages extends FragmentBase {
                         .setPrefetchDistance(REMOTE_PAGE_SIZE)
                         .build();
                 builder = new LivePagedListBuilder<>(
-                        db.message().pagedFolder(folder, threading, sort, snoozed, false, debug), configFolder);
+                        db.message().pagedFolder(folder, threading, sort, filter_seen, filter_snoozed, false, debug), configFolder);
                 builder.setBoundaryCallback(boundaryCallback);
                 break;
 
@@ -2329,10 +2344,10 @@ public class FragmentMessages extends FragmentBase {
                         .build();
                 if (folder < 0)
                     builder = new LivePagedListBuilder<>(
-                            db.message().pagedUnifiedInbox(threading, "time", snoozed, true, debug), configSearch);
+                            db.message().pagedUnifiedInbox(threading, "time", false, false, true, debug), configSearch);
                 else
                     builder = new LivePagedListBuilder<>(
-                            db.message().pagedFolder(folder, threading, "time", snoozed, true, debug), configSearch);
+                            db.message().pagedFolder(folder, threading, "time", false, false, true, debug), configSearch);
                 builder.setBoundaryCallback(boundaryCallback);
                 break;
         }

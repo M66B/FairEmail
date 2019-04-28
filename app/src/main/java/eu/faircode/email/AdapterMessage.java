@@ -131,7 +131,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean monospaced;
     private int zoom;
     private String sort;
-    private boolean duplicates;
+    private boolean filter_duplicates;
     private boolean suitable;
     private IProperties properties;
 
@@ -448,7 +448,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbLoading.setVisibility(View.GONE);
 
             if (viewType == ViewType.THREAD)
-                view.setVisibility(duplicates || !message.duplicate ? View.VISIBLE : View.GONE);
+                view.setVisibility(!filter_duplicates || !message.duplicate ? View.VISIBLE : View.GONE);
 
             // Text size
             if (textSize != 0) {
@@ -3020,7 +3020,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     AdapterMessage(Context context, LifecycleOwner owner,
-                   ViewType viewType, boolean compact, int zoom, String sort, boolean duplicates, IProperties properties) {
+                   ViewType viewType, boolean compact, int zoom, String sort, boolean filter_duplicates, IProperties properties) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         this.TF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
@@ -3035,7 +3035,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.monospaced = prefs.getBoolean("monospaced", false);
         this.zoom = zoom;
         this.sort = sort;
-        this.duplicates = duplicates;
+        this.filter_duplicates = filter_duplicates;
         this.suitable = Helper.getNetworkState(context).isSuitable();
         this.properties = properties;
 
@@ -3108,9 +3108,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         return this.sort;
     }
 
-    void setDuplicates(boolean duplicates) {
-        if (this.duplicates != duplicates) {
-            this.duplicates = duplicates;
+    void setFilterDuplicates(boolean filter_duplicates) {
+        if (this.filter_duplicates != filter_duplicates) {
+            this.filter_duplicates = filter_duplicates;
             notifyDataSetChanged();
         }
     }

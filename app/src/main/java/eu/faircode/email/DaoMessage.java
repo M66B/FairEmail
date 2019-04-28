@@ -64,10 +64,11 @@ public interface DaoMessage {
             " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
             " AND (NOT message.ui_hide OR :debug)" +
-            " AND (:snoozed OR :found OR ui_snoozed IS NULL)" +
+            " AND (NOT :filter_snoozed OR ui_snoozed IS NULL)" +
             " AND (NOT :found OR ui_found = :found)" +
             " GROUP BY account.id, CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING :found OR SUM(unified) > 0" +
+            " AND (NOT :filter_seen OR " + unseen_unified + " > 0)" +
             " ORDER BY" +
             " CASE" +
             "  WHEN 'unread' = :sort THEN " + unseen_unified + " = 0" +
@@ -78,7 +79,8 @@ public interface DaoMessage {
             "  ELSE 0" +
             " END, message.received DESC")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
-    DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(boolean threading, String sort, boolean snoozed, boolean found, boolean debug);
+    DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(
+            boolean threading, String sort, boolean filter_seen, boolean filter_snoozed, boolean found, boolean debug);
 
     String unseen_folder = "SUM(CASE WHEN message.ui_seen" +
             "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.ARCHIVE + "')" +
@@ -108,10 +110,11 @@ public interface DaoMessage {
             " JOIN folder f ON f.id = :folder" +
             " WHERE (message.account = f.account OR folder.type = '" + EntityFolder.OUTBOX + "')" +
             " AND (NOT message.ui_hide OR :debug)" +
-            " AND (:snoozed OR :found OR ui_snoozed IS NULL OR folder.type = '" + EntityFolder.OUTBOX + "')" +
+            " AND (NOT :filter_snoozed OR ui_snoozed IS NULL)" +
             " AND (NOT :found OR ui_found = :found)" +
             " GROUP BY CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING SUM(CASE WHEN folder.id = :folder THEN 1 ELSE 0 END) > 0" +
+            " AND (NOT :filter_seen OR " + unseen_folder + " > 0)" +
             " ORDER BY" +
             " CASE" +
             "  WHEN 'unread' = :sort THEN " + unseen_folder + " = 0" +
@@ -122,7 +125,8 @@ public interface DaoMessage {
             "  ELSE 0" +
             " END, message.received DESC")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
-    DataSource.Factory<Integer, TupleMessageEx> pagedFolder(long folder, boolean threading, String sort, boolean snoozed, boolean found, boolean debug);
+    DataSource.Factory<Integer, TupleMessageEx> pagedFolder(
+            long folder, boolean threading, String sort, boolean filter_seen, boolean filter_snoozed, boolean found, boolean debug);
 
     @Query("SELECT message.*" +
             ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +

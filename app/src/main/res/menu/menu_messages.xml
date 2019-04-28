@@ -45,6 +45,31 @@
     </item>
 
     <item
+        android:id="@+id/menu_filter"
+        android:icon="@drawable/baseline_filter_list_24"
+        android:title="@string/title_filter"
+        app:showAsAction="ifRoom">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/menu_filter_seen"
+                    android:checkable="true"
+                    android:title="@string/title_filter_seen" />
+
+                <item
+                    android:id="@+id/menu_filter_snoozed"
+                    android:checkable="true"
+                    android:title="@string/title_filter_snoozed" />
+
+                <item
+                    android:id="@+id/menu_filter_duplicates"
+                    android:checkable="true"
+                    android:title="@string/title_filter_duplicates" />
+            </group>
+        </menu>
+    </item>
+
+    <item
         android:id="@+id/menu_zoom"
         android:icon="@drawable/baseline_format_size_24"
         android:title="@string/title_zoom"
@@ -54,18 +79,6 @@
         android:id="@+id/menu_compact"
         android:checkable="true"
         android:title="@string/title_compact"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/menu_snoozed"
-        android:checkable="true"
-        android:title="@string/title_snoozed"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/menu_duplicates"
-        android:checkable="true"
-        android:title="@string/title_duplicates"
         app:showAsAction="never" />
 
     <item
