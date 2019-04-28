@@ -465,7 +465,7 @@
     <string name="title_sort_on_subject">Subject</string>
     <string name="title_sort_on_size">Size</string>
 
-    <string name="title_filter">Filter</string>
+    <string name="title_filter">Filter on</string>
     <string name="title_filter_seen">Read</string>
     <string name="title_filter_snoozed">Snoozed</string>
     <string name="title_filter_duplicates">Duplicates</string>
