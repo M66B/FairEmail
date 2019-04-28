@@ -385,8 +385,6 @@
     <string name="title_sort_on_size">Storlek</string>
     <string name="title_compact">Kompakt vy</string>
     <string name="title_zoom">Textstorlek</string>
-    <string name="title_snoozed">Slumrade</string>
-    <string name="title_duplicates">Visa dubbletter</string>
     <string name="title_select_all">Markera alla</string>
     <string name="title_address_sent">Skickat:</string>
     <string name="title_address_unsent">Inte skickad:</string>

@@ -402,8 +402,6 @@
     <string name="title_sort_on_size">大小</string>
     <string name="title_compact">紧凑视图</string>
     <string name="title_zoom">文本大小</string>
-    <string name="title_snoozed">已暂停</string>
-    <string name="title_duplicates">显示重复项</string>
     <string name="title_select_all">选择所有</string>
     <string name="title_address_sent">发送：</string>
     <string name="title_address_unsent">未发送:</string>

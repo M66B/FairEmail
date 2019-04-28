@@ -409,8 +409,6 @@
     <string name="title_sort_on_size">Tamaño</string>
     <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Tamaño del texto</string>
-    <string name="title_snoozed">Pospuesto</string>
-    <string name="title_duplicates">Mostrar duplicados</string>
     <string name="title_select_all">Seleccionar todo</string>
     <string name="title_address_sent">Enviado/s:</string>
     <string name="title_address_unsent">No enviado/s:</string>

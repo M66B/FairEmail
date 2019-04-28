@@ -408,10 +408,12 @@
     <string name="title_sort_on_sender">Afzender</string>
     <string name="title_sort_on_subject">Onderwerp</string>
     <string name="title_sort_on_size">Grootte</string>
+    <string name="title_filter">Filter</string>
+    <string name="title_filter_seen">Gelezen</string>
+    <string name="title_filter_snoozed">Gesluimerd</string>
+    <string name="title_filter_duplicates">Duplicaten</string>
     <string name="title_compact">Compacte weergave</string>
     <string name="title_zoom">Tekstgrootte</string>
-    <string name="title_snoozed">Gesluimerd</string>
-    <string name="title_duplicates">Toon dubbele</string>
     <string name="title_select_all">Selecteer alles</string>
     <string name="title_address_sent">Verzonden:</string>
     <string name="title_address_unsent">Niet verzonden:</string>
