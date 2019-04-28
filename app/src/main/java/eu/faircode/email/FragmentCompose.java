@@ -2415,6 +2415,7 @@ public class FragmentCompose extends FragmentBase {
 
                 // Move draft to new account
                 if (draft.account != aid && aid >= 0) {
+                    Log.i("Account changed");
                     Long uid = draft.uid;
                     String msgid = draft.msgid;
 
@@ -2440,6 +2441,7 @@ public class FragmentCompose extends FragmentBase {
                     draft.msgid = EntityMessage.generateMessageId();
                     draft.content = true;
                     draft.ui_hide = false;
+                    db.message().updateMessage(draft);
                     EntityOperation.queue(context, db, draft, EntityOperation.ADD);
                 }
 
