@@ -110,11 +110,11 @@ public interface DaoMessage {
             " JOIN folder f ON f.id = :folder" +
             " WHERE (message.account = f.account OR folder.type = '" + EntityFolder.OUTBOX + "')" +
             " AND (NOT message.ui_hide OR :debug)" +
-            " AND (NOT :filter_snoozed OR ui_snoozed IS NULL)" +
+            " AND (NOT :filter_snoozed OR ui_snoozed IS NULL OR folder.type = '" + EntityFolder.OUTBOX + "')" +
             " AND (NOT :found OR ui_found = :found)" +
             " GROUP BY CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING SUM(CASE WHEN folder.id = :folder THEN 1 ELSE 0 END) > 0" +
-            " AND (NOT :filter_seen OR " + unseen_folder + " > 0)" +
+            " AND (NOT :filter_seen OR " + unseen_folder + " > 0 OR folder.type = '" + EntityFolder.OUTBOX + "')" +
             " ORDER BY" +
             " CASE" +
             "  WHEN 'unread' = :sort THEN " + unseen_folder + " = 0" +
