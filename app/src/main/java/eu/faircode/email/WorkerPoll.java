@@ -41,7 +41,6 @@ public class WorkerPoll extends Worker {
 
             Log.i("Queued " + getName());
         } else {
-
             Log.i("Cancelling " + getName());
             WorkManager.getInstance(context).cancelUniqueWork(getName());
             Log.i("Cancelled " + getName());

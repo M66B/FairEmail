@@ -166,7 +166,7 @@ public class WorkerCleanup extends Worker {
     }
 
     static void queue(Context context) {
-        Log.i("Queuing " + getName());
+        Log.i("Queuing " + getName() + " every " + CLEANUP_INTERVAL + " hours");
 
         Constraints.Builder constraints = new Constraints.Builder();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
