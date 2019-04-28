@@ -488,18 +488,21 @@ class Core {
                 throw new IllegalArgumentException("uid not found");
 
             Log.i(folder.name + " appended id=" + message.id + " uid=" + uid);
-            db.message().setMessageUid(message.id, uid);
 
-            if (!folder.id.equals(message.folder))
+            if (folder.id.equals(message.folder))
+                db.message().setMessageUid(message.id, uid);
+            else {
+                // Cross account move
                 try {
                     db.beginTransaction();
 
-                    // Cross account move
+                    // Mark source read
                     if (autoread) {
                         Log.i(folder.name + " queuing SEEN id=" + message.id);
                         EntityOperation.queue(context, db, message, EntityOperation.SEEN, true);
                     }
 
+                    // Delete source
                     Log.i(folder.name + " queuing DELETE id=" + message.id);
                     EntityOperation.queue(context, db, message, EntityOperation.DELETE);
 
@@ -507,8 +510,10 @@ class Core {
                 } finally {
                     db.endTransaction();
                 }
+            }
         } catch (Throwable ex) {
-            db.message().setMessageUid(message.id, null);
+            if (folder.id.equals(message.folder))
+                db.message().setMessageUid(message.id, null);
             throw ex;
         }
     }
@@ -606,6 +611,7 @@ class Core {
         }
 
         if (jargs.length() > 0) {
+            // Cross account move
             long target = jargs.getLong(2);
             jargs.remove(2);
             Log.i(folder.name + " queuing ADD id=" + message.id + ":" + target);
