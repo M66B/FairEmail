@@ -146,7 +146,7 @@ public class ContactInfo {
 
             boolean dark = !"light".equals(tv.string);
             boolean identicons = prefs.getBoolean("identicons", false);
-            if (identicons)
+            if (identicons && BuildConfig.DEBUG)
                 info.bitmap = Identicon.icon(key, dp, 5, dark);
             else
                 info.bitmap = Identicon.letter(key, dp, dark);
