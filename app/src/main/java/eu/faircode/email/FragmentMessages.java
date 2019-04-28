@@ -2308,7 +2308,8 @@ public class FragmentMessages extends FragmentBase {
         boolean filter_seen = prefs.getBoolean("filter_seen", false);
         boolean filter_snoozed = prefs.getBoolean("filter_snoozed", true);
         boolean debug = prefs.getBoolean("debug", false);
-        Log.i("Load messages type=" + viewType + " sort=" + sort + " debug=" + debug);
+        Log.i("Load messages type=" + viewType +
+                " sort=" + sort + " filter seen=" + filter_seen + " snoozed=" + filter_snoozed + " debug=" + debug);
 
         // Sort changed
         final ViewModelMessages modelMessages = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
