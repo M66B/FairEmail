@@ -406,7 +406,7 @@ class Core {
             // Delete previous message(s) with same ID
             if (folder.id.equals(message.folder)) {
                 // Prevent adding/deleting message
-                db.message().setMessageUid(message.id, -1L);
+                db.message().setMessageUid(message.id, message.uid == null ? -1L : -message.uid);
 
                 Message[] ideletes = ifolder.search(new MessageIDTerm(message.msgid));
                 for (Message idelete : ideletes) {
@@ -490,10 +490,16 @@ class Core {
 
             Log.i(folder.name + " appended id=" + message.id + " uid=" + uid);
 
-            if (folder.id.equals(message.folder))
+            if (folder.id.equals(message.folder)) {
+                Log.i(folder.name + " Setting id=" + message.id + " uid=" + uid);
                 db.message().setMessageUid(message.id, uid);
-            else {
+            } else {
                 // Cross account move
+                if (jargs.length() > 0 && !jargs.isNull(0)) {
+                    long tmpid = jargs.getLong(0);
+                    Log.i(folder.name + " Setting id=" + tmpid + " (tmp) appended uid=" + uid);
+                    db.message().setMessageUid(tmpid, uid);
+                }
                 try {
                     db.beginTransaction();
 
@@ -514,7 +520,7 @@ class Core {
             }
         } catch (Throwable ex) {
             if (folder.id.equals(message.folder))
-                db.message().setMessageUid(message.id, null);
+                db.message().setMessageUid(message.id, message.uid);
             throw ex;
         }
     }
