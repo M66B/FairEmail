@@ -883,9 +883,10 @@ public class FragmentMessages extends FragmentBase {
             int margin = Helper.dp2pixels(getContext(), 12);
             int size = Helper.dp2pixels(getContext(), 24);
 
-            if (dX > margin) {
+            if (dX > 0) {
                 // Right swipe
                 Drawable d = getResources().getDrawable(EntityFolder.getIcon(swipes.right_type), getContext().getTheme());
+                d.setAlpha(Math.round(255 * Math.min(dX / (2 * margin + size), 1.0f)));
                 int padding = (rect.height() - size);
                 d.setBounds(
                         rect.left + margin,
@@ -893,9 +894,10 @@ public class FragmentMessages extends FragmentBase {
                         rect.left + margin + size,
                         rect.top + padding / 2 + size);
                 d.draw(canvas);
-            } else if (dX < -margin) {
+            } else if (dX < 0) {
                 // Left swipe
                 Drawable d = getResources().getDrawable(EntityFolder.getIcon(swipes.left_type), getContext().getTheme());
+                d.setAlpha(Math.round(255 * Math.min(-dX / (2 * margin + size), 1.0f)));
                 int padding = (rect.height() - size);
                 d.setBounds(
                         rect.left + rect.width() - size - margin,
