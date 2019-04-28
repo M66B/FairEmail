@@ -243,19 +243,6 @@
             port="465"
             starttls="false" />
     </provider>
-    <provider
-        name="IRoute.io"
-        link="https://iroute.io/"
-        prefix="INBOX">
-        <imap
-            host="mail.mxfirewall.com"
-            port="993"
-            starttls="false" />
-        <smtp
-            host="mail.mxfirewall.com"
-            port="465"
-            starttls="false" />
-    </provider>
     <!-- no IMAP IDLE -->
     <provider
         name="Onet"
