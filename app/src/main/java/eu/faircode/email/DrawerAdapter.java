@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DrawerAdapter extends ArrayAdapter<DrawerItem> {
-    private boolean collapsed = false;
+    private boolean collapsed;
     private List<DrawerItem> items = new ArrayList<>();
 
     DrawerAdapter(@NonNull Context context, boolean collapsed) {
@@ -26,7 +26,10 @@ public class DrawerAdapter extends ArrayAdapter<DrawerItem> {
     @NonNull
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         DrawerItem item = getItem(position);
-        View row = LayoutInflater.from(getContext()).inflate(item.getLayout(), null);
+
+        View row = item.isCollapsible() && collapsed
+                ? new View(getContext())
+                : LayoutInflater.from(getContext()).inflate(item.getLayout(), null);
 
         ImageView iv = row.findViewById(R.id.ivItem);
         TextView tv = row.findViewById(R.id.tvItem);
@@ -47,8 +50,6 @@ public class DrawerAdapter extends ArrayAdapter<DrawerItem> {
 
         if (expander != null)
             expander.setImageLevel(collapsed ? 1 /* more */ : 0 /* less */);
-
-        row.setVisibility(item.isCollapsible() && collapsed ? View.GONE : View.VISIBLE);
 
         return row;
     }
