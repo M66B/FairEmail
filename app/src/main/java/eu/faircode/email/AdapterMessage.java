@@ -1224,11 +1224,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         @TargetApi(Build.VERSION_CODES.O)
         private void onNotifyContactDelete(TupleMessageEx message) {
-            NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            if (message.from != null && message.from.length > 0) {
+                NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-            InternetAddress from = (InternetAddress) message.from[0];
-            String channelName = "notification." + from.getAddress().toLowerCase();
-            nm.deleteNotificationChannel(channelName);
+                InternetAddress from = (InternetAddress) message.from[0];
+                String channelName = "notification." + from.getAddress().toLowerCase();
+                nm.deleteNotificationChannel(channelName);
+            }
         }
 
         private void onAddContact(TupleMessageEx message) {
