@@ -19,30 +19,22 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-public class TupleAccountEx extends EntityAccount {
-    public int unseen;
-    public int identities; // synchronizing
-    public boolean drafts;
+import java.io.Serializable;
+import java.util.Objects;
 
-    public boolean uiEquals(Object obj) {
-        if (obj instanceof TupleAccountEx) {
-            TupleAccountEx other = (TupleAccountEx) obj;
-            return (super.equals(obj) &&
-                    this.unseen == other.unseen &&
-                    this.identities == other.identities &&
-                    this.drafts == other.drafts);
-        } else
-            return false;
-    }
+public class TupleFolderNav extends EntityFolder implements Serializable {
+    public Integer color; // account
+    public int unseen;
+    public int operations;
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof TupleAccountEx) {
-            TupleAccountEx other = (TupleAccountEx) obj;
+        if (obj instanceof TupleFolderNav) {
+            TupleFolderNav other = (TupleFolderNav) obj;
             return (super.equals(obj) &&
+                    Objects.equals(this.color, other.color) &&
                     this.unseen == other.unseen &&
-                    this.identities == other.identities &&
-                    this.drafts == other.drafts);
+                    this.operations == other.operations);
         } else
             return false;
     }

@@ -37,8 +37,6 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -52,6 +50,8 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
@@ -88,8 +88,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
     private ConstraintLayout drawerContainer;
-    private ListView drawerMenu;
-    private DrawerAdapter drawerArray;
+    private RecyclerView rvMenu;
 
     private boolean hasAccount;
     private String password;
@@ -134,82 +133,98 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         drawerLayout.addDrawerListener(drawerToggle);
 
         drawerContainer = findViewById(R.id.drawer_container);
-        drawerMenu = drawerContainer.findViewById(R.id.drawer_menu);
-
-        drawerArray = new DrawerAdapter(this, false);
-        drawerMenu.setAdapter(drawerArray);
-
-        drawerMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                DrawerItem item = drawerArray.getItem(position);
-                if (item == null)
-                    return;
-
-                switch (item.getMenuId()) {
-                    case R.string.title_setup_export:
-                        onMenuExport();
-                        break;
-                    case R.string.title_setup_import:
-                        onMenuImport();
-                        break;
-                    case R.string.title_setup_theme:
-                        onMenuTheme();
-                        break;
-                    case R.string.title_setup_notifications:
-                        onManageNotifications();
-                        break;
-                    case R.string.title_setup_advanced:
-                        onMenuOptions();
-                        break;
-                    case R.string.menu_contacts:
-                        onMenuContacts();
-                        break;
-                    case R.string.menu_legend:
-                        onMenuLegend();
-                        break;
-                    case R.string.menu_faq:
-                        onMenuFAQ();
-                        break;
-                    case R.string.menu_privacy:
-                        onMenuPrivacy();
-                        break;
-                    case R.string.menu_about:
-                        onMenuAbout();
-                        break;
-                }
-
-                drawerLayout.closeDrawer(drawerContainer);
-            }
-        });
-
-        List<DrawerItem> items = new ArrayList<>();
+        rvMenu = drawerContainer.findViewById(R.id.rvMenu);
+        rvMenu.setLayoutManager(new LinearLayoutManager(this));
+        final AdapterNavMenu adapter = new AdapterNavMenu(this, this);
+        rvMenu.setAdapter(adapter);
 
         PackageManager pm = getPackageManager();
-        if (getIntentExport().resolveActivity(pm) != null)
-            items.add(new DrawerItem(-1, R.drawable.baseline_archive_24, R.string.title_setup_export));
-        if (getIntentImport().resolveActivity(pm) != null)
-            items.add(new DrawerItem(-2, R.drawable.baseline_unarchive_24, R.string.title_setup_import));
+        final List<NavMenuItem> menus = new ArrayList<>();
 
-        items.add(new DrawerItem(-3));
+        menus.add(new NavMenuItem(R.drawable.baseline_archive_24, R.string.title_setup_export, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onMenuExport();
+            }
+        }));
+
+        menus.add(new NavMenuItem(R.drawable.baseline_unarchive_24, R.string.title_setup_import, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onMenuImport();
+            }
+        }));
+
+        menus.add(new NavMenuItem(R.drawable.baseline_palette_24, R.string.title_setup_theme, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onMenuTheme();
+            }
+        }));
 
         if (getIntentNotifications(this).resolveActivity(pm) != null)
-            items.add(new DrawerItem(-4, R.drawable.baseline_notifications_24, R.string.title_setup_notifications));
+            menus.add(new NavMenuItem(R.drawable.baseline_notifications_24, R.string.title_setup_notifications, new Runnable() {
+                @Override
+                public void run() {
+                    drawerLayout.closeDrawer(drawerContainer);
+                    onManageNotifications();
+                }
+            }));
 
-        items.add(new DrawerItem(-8, R.drawable.baseline_palette_24, R.string.title_setup_theme));
-        items.add(new DrawerItem(-9, R.drawable.baseline_settings_applications_24, R.string.title_setup_advanced));
-        items.add(new DrawerItem(-10, R.drawable.baseline_person_24, R.string.menu_contacts));
+        menus.add(new NavMenuItem(R.drawable.baseline_settings_applications_24, R.string.title_setup_advanced, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onMenuOptions();
+            }
+        }));
 
-        items.add(new DrawerItem(-11));
+        menus.add(new NavMenuItem(R.drawable.baseline_person_24, R.string.menu_contacts, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onMenuContacts();
+            }
+        }));
 
-        items.add(new DrawerItem(-12, R.drawable.baseline_help_24, R.string.menu_legend));
-        if (Helper.getIntentFAQ().resolveActivity(getPackageManager()) != null)
-            items.add(new DrawerItem(-13, R.drawable.baseline_question_answer_24, R.string.menu_faq));
-        if (Helper.getIntentPrivacy().resolveActivity(getPackageManager()) != null)
-            items.add(new DrawerItem(-14, R.drawable.baseline_account_box_24, R.string.menu_privacy));
-        items.add(new DrawerItem(-15, R.drawable.baseline_info_24, R.string.menu_about));
+        menus.add(new NavMenuItem(R.drawable.baseline_help_24, R.string.menu_legend, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onMenuLegend();
+            }
+        }));
 
-        drawerArray.set(items);
+        if (Helper.getIntentFAQ().resolveActivity(pm) != null)
+            menus.add(new NavMenuItem(R.drawable.baseline_question_answer_24, R.string.menu_faq, new Runnable() {
+                @Override
+                public void run() {
+                    drawerLayout.closeDrawer(drawerContainer);
+                    onMenuFAQ();
+                }
+            }));
+
+        if (Helper.getIntentPrivacy().resolveActivity(pm) != null)
+            menus.add(new NavMenuItem(R.drawable.baseline_account_box_24, R.string.menu_privacy, new Runnable() {
+                @Override
+                public void run() {
+                    drawerLayout.closeDrawer(drawerContainer);
+                    onMenuPrivacy();
+                }
+            }));
+
+        menus.add(new NavMenuItem(R.drawable.baseline_info_24, R.string.menu_about, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onMenuAbout();
+            }
+        }));
+
+        adapter.set(menus);
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 

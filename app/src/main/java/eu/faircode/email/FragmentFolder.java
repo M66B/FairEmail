@@ -50,6 +50,7 @@ public class FragmentFolder extends FragmentBase {
     private EditText etDisplay;
     private CheckBox cbHide;
     private CheckBox cbUnified;
+    private CheckBox cbNavigation;
     private CheckBox cbNotify;
     private CheckBox cbSynchronize;
     private CheckBox cbPoll;
@@ -90,6 +91,7 @@ public class FragmentFolder extends FragmentBase {
         etDisplay = view.findViewById(R.id.etDisplay);
         cbHide = view.findViewById(R.id.cbHide);
         cbUnified = view.findViewById(R.id.cbUnified);
+        cbNavigation = view.findViewById(R.id.cbNavigation);
         cbNotify = view.findViewById(R.id.cbNotify);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPoll = view.findViewById(R.id.cbPoll);
@@ -151,6 +153,7 @@ public class FragmentFolder extends FragmentBase {
         args.putString("display", etDisplay.getText().toString());
         args.putBoolean("hide", cbHide.isChecked());
         args.putBoolean("unified", cbUnified.isChecked());
+        args.putBoolean("navigation", cbNavigation.isChecked());
         args.putBoolean("notify", cbNotify.getVisibility() == View.VISIBLE && cbNotify.isChecked());
         args.putBoolean("synchronize", cbSynchronize.isChecked());
         args.putBoolean("poll", cbPoll.isChecked());
@@ -185,6 +188,7 @@ public class FragmentFolder extends FragmentBase {
                 String display = args.getString("display");
                 boolean hide = args.getBoolean("hide");
                 boolean unified = args.getBoolean("unified");
+                boolean navigation = args.getBoolean("navigation");
                 boolean notify = args.getBoolean("notify");
                 boolean synchronize = args.getBoolean("synchronize");
                 boolean poll = args.getBoolean("poll");
@@ -220,6 +224,7 @@ public class FragmentFolder extends FragmentBase {
                         create.hide = hide;
                         create.type = EntityFolder.USER;
                         create.unified = unified;
+                        create.navigation = navigation;
                         create.notify = notify;
                         create.synchronize = synchronize;
                         create.poll = poll;
@@ -234,7 +239,7 @@ public class FragmentFolder extends FragmentBase {
 
                         Log.i("Updating folder=" + name);
                         db.folder().setFolderProperties(id,
-                                display, unified, notify, hide,
+                                display, unified, navigation, notify, hide,
                                 synchronize, poll, download,
                                 sync_days, keep_days);
                         db.folder().setFolderError(id, null);
@@ -414,6 +419,7 @@ public class FragmentFolder extends FragmentBase {
                     etDisplay.setHint(folder == null ? null : folder.name);
                     cbHide.setChecked(folder == null ? false : folder.hide);
                     cbUnified.setChecked(folder == null ? false : folder.unified);
+                    cbNavigation.setChecked(folder == null ? false : folder.navigation);
                     cbNotify.setChecked(folder == null ? false : folder.notify);
                     cbSynchronize.setChecked(folder == null || folder.synchronize);
                     cbPoll.setChecked(folder == null ? false : folder.poll);

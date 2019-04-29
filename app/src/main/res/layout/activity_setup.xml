@@ -18,14 +18,10 @@
         android:layout_gravity="start"
         android:background="?attr/colorDrawerBackground">
 
-        <ListView
-            android:id="@+id/drawer_menu"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMenu"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:choiceMode="singleChoice"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="match_parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

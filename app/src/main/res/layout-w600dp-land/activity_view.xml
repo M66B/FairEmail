@@ -43,22 +43,17 @@
             app:constraint_referenced_ids="content_separator,content_pane" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:id="@+id/drawer_container"
         android:layout_width="270dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="?attr/colorDrawerBackground">
+        android:background="?attr/colorDrawerBackground"
+        android:orientation="vertical">
 
-        <ListView
-            android:id="@+id/drawer_menu"
+        <include
+            layout="@layout/include_nav"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:choiceMode="singleChoice"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="wrap_content" />
+    </ScrollView>
 </androidx.drawerlayout.widget.DrawerLayout>

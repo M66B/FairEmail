@@ -82,6 +82,18 @@ public interface DaoFolder {
             " GROUP BY folder.id")
     LiveData<List<TupleFolderEx>> liveUnified();
 
+    @Query("SELECT folder.*" +
+            ", account.color" +
+            ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
+            ", (SELECT COUNT(*) FROM operation WHERE operation.folder = folder.id) AS operations" +
+            " FROM folder" +
+            " LEFT JOIN account ON account.id = folder.account" +
+            " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
+            " WHERE account.id IS NULL" +
+            " OR (account.`synchronize` AND folder.navigation)" +
+            " GROUP BY folder.id")
+    LiveData<List<TupleFolderNav>> liveNavigation();
+
     @Query("SELECT folder.* FROM folder" +
             " JOIN account ON account.id = folder.account" +
             " WHERE account.synchronize" +
@@ -180,6 +192,7 @@ public interface DaoFolder {
     @Query("UPDATE folder" +
             " SET display = :display" +
             ", unified = :unified" +
+            ", navigation = :navigation" +
             ", notify = :notify" +
             ", hide = :hide" +
             ", synchronize = :synchronize" +
@@ -190,7 +203,7 @@ public interface DaoFolder {
             " WHERE id = :id")
     int setFolderProperties(
             long id,
-            String display, boolean unified, boolean notify, boolean hide,
+            String display, boolean unified, boolean navigation, boolean notify, boolean hide,
             boolean synchronize, boolean poll, boolean download,
             int sync_days, int keep_days);
 

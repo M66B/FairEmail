@@ -91,6 +91,8 @@ public class EntityFolder implements Serializable {
     @NonNull
     public Boolean unified = false;
     @NonNull
+    public Boolean navigation = false;
+    @NonNull
     public Boolean notify = false;
 
     public Integer total; // messages on server

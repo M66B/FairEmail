@@ -44,13 +44,12 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -61,6 +60,8 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -84,11 +85,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.URL;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 import java.util.Properties;
 
 import javax.mail.Session;
@@ -102,17 +101,19 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private Group grpPane;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
-    private ConstraintLayout drawerContainer;
-    private ListView drawerMenu;
-    private DrawerAdapter drawerArray;
+    private ScrollView drawerContainer;
+    private RecyclerView rvAccount;
+    private RecyclerView rvFolder;
+    private RecyclerView rvMenu;
+    private ImageView ivExpander;
+    private RecyclerView rvMenuExtra1;
+    private RecyclerView rvMenuExtra2;
 
     private long message = -1;
     private long attachment = -1;
 
     private WebView printWebView = null;
     private OpenPgpServiceConnection pgpService;
-
-    private NumberFormat nf = NumberFormat.getNumberInstance();
 
     static final int REQUEST_UNIFIED = 1;
     static final int REQUEST_WHY = 2;
@@ -151,7 +152,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         startup = prefs.getString("startup", "unified");
 
         view = LayoutInflater.from(this).inflate(R.layout.activity_view, null);
@@ -178,216 +179,216 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         drawerLayout.addDrawerListener(drawerToggle);
 
         drawerContainer = findViewById(R.id.drawer_container);
-        drawerMenu = drawerContainer.findViewById(R.id.drawer_menu);
+
+        rvAccount = drawerContainer.findViewById(R.id.rvAccount);
+        rvAccount.setLayoutManager(new LinearLayoutManager(this));
+        final AdapterNavAccount aadapter = new AdapterNavAccount(this, this);
+        rvAccount.setAdapter(aadapter);
+
+        rvFolder = drawerContainer.findViewById(R.id.rvFolder);
+        rvFolder.setLayoutManager(new LinearLayoutManager(this));
+        final AdapterNavFolder fadapter = new AdapterNavFolder(this, this);
+        rvFolder.setAdapter(fadapter);
+
+        rvMenu = drawerContainer.findViewById(R.id.rvMenu);
+        rvMenu.setLayoutManager(new LinearLayoutManager(this));
+        final AdapterNavMenu madapter = new AdapterNavMenu(this, this);
+        rvMenu.setAdapter(madapter);
+
+        ivExpander = drawerContainer.findViewById(R.id.ivExpander);
+
+        rvMenuExtra1 = drawerContainer.findViewById(R.id.rvMenuExtra1);
+        rvMenuExtra1.setLayoutManager(new LinearLayoutManager(this));
+        final AdapterNavMenu e1adapter = new AdapterNavMenu(this, this);
+        rvMenuExtra1.setAdapter(e1adapter);
+
+        rvMenuExtra2 = drawerContainer.findViewById(R.id.rvMenuExtra2);
+        rvMenuExtra2.setLayoutManager(new LinearLayoutManager(this));
+        final AdapterNavMenu e2adapter = new AdapterNavMenu(this, this);
+        rvMenuExtra2.setAdapter(e2adapter);
 
         boolean minimal = prefs.getBoolean("minimal", false);
-        drawerArray = new DrawerAdapter(this, minimal);
+        rvMenuExtra1.setVisibility(minimal ? View.GONE : View.VISIBLE);
+        rvMenuExtra2.setVisibility(minimal ? View.GONE : View.VISIBLE);
+        ivExpander.setImageLevel(minimal ? 1 /* more */ : 0 /* less */);
 
-        drawerMenu.setAdapter(drawerArray);
-
-        drawerMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        ivExpander.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                DrawerItem item = drawerArray.getItem(position);
-                if (item == null)
-                    return;
-                Log.i("Navigation id=" + item.getId() + " menu=" + item.getMenuId());
-
-                switch (item.getMenuId()) {
-                    case R.string.menu_operations:
-                        onMenuOperations();
-                        break;
-                    case R.string.menu_answers:
-                        onMenuAnswers();
-                        break;
-                    case R.string.menu_setup:
-                        onMenuSetup();
-                        break;
-                    case R.string.title_legend_expander:
-                        onMenuCollapse();
-                        return;
-                    case R.string.menu_legend:
-                        onMenuLegend();
-                        break;
-                    case R.string.menu_faq:
-                        onMenuFAQ();
-                        break;
-                    case R.string.menu_privacy:
-                        onMenuPrivacy();
-                        break;
-                    case R.string.menu_about:
-                        onMenuAbout();
-                        break;
-                    case R.string.menu_pro:
-                        onMenuPro();
-                        break;
-                    case R.string.menu_invite:
-                        onMenuInvite();
-                        break;
-                    case R.string.menu_rate:
-                        onMenuRate();
-                        break;
-                    case R.string.menu_other:
-                        onMenuOtherApps();
-                        break;
-                    default:
-                        long account = item.getId();
-                        if (account > 0)
-                            onMenuFolders(account);
-                        else
-                            onMenuOutbox();
-                }
-
-                drawerLayout.closeDrawer(drawerContainer);
-            }
-        });
-
-        drawerMenu.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                DrawerItem item = drawerArray.getItem(position);
-                if (item == null)
-                    return false;
-
-                switch (item.getMenuId()) {
-                    case R.string.menu_operations:
-                        onShowLog();
-                        break;
-                    case R.string.menu_setup:
-                        onReset();
-                        break;
-                    case R.string.menu_faq:
-                        onDebugInfo();
-                        break;
-                    case R.string.menu_privacy:
-                        onCleanup();
-                        break;
-                    case R.string.menu_about:
-                        if (Helper.isPlayStoreInstall(ActivityView.this))
-                            return false;
-                        checkUpdate(true);
-                        break;
-                    default:
-                        long account = item.getId();
-                        if (account < 0)
-                            return false;
-                        else
-                            onMenuInbox(account);
-                }
-
-                drawerLayout.closeDrawer(drawerContainer);
-                return true;
+            public void onClick(View v) {
+                boolean minimal = !prefs.getBoolean("minimal", false);
+                prefs.edit().putBoolean("minimal", minimal).apply();
+                rvMenuExtra1.setVisibility(minimal ? View.GONE : View.VISIBLE);
+                rvMenuExtra2.setVisibility(minimal ? View.GONE : View.VISIBLE);
+                ivExpander.setImageLevel(minimal ? 1 /* more */ : 0 /* less */);
             }
         });
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
+        final List<NavMenuItem> menus = new ArrayList<>();
+
+        final NavMenuItem navOperations = new NavMenuItem(R.drawable.baseline_list_24, R.string.menu_operations, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onMenuOperations();
+            }
+        }, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onShowLog();
+            }
+        });
+
+        menus.add(navOperations);
+
+        menus.add(new NavMenuItem(R.drawable.baseline_reply_24, R.string.menu_answers, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onMenuAnswers();
+            }
+        }));
+
+        menus.add(new NavMenuItem(R.drawable.baseline_settings_applications_24, R.string.menu_setup, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onMenuSetup();
+            }
+        }, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onReset();
+            }
+        }));
+
+        madapter.set(menus);
+
+        List<NavMenuItem> extra1 = new ArrayList<>();
+
+        extra1.add(new NavMenuItem(R.drawable.baseline_help_24, R.string.menu_legend, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onMenuLegend();
+            }
+        }));
+
+        if (Helper.getIntentFAQ().resolveActivity(getPackageManager()) != null)
+            extra1.add(new NavMenuItem(R.drawable.baseline_question_answer_24, R.string.menu_faq, new Runnable() {
+                @Override
+                public void run() {
+                    drawerLayout.closeDrawer(drawerContainer);
+                    onMenuFAQ();
+                }
+            }, new Runnable() {
+                @Override
+                public void run() {
+                    drawerLayout.closeDrawer(drawerContainer);
+                    onDebugInfo();
+                }
+            }));
+
+        if (Helper.getIntentPrivacy().resolveActivity(getPackageManager()) != null)
+            extra1.add(new NavMenuItem(R.drawable.baseline_account_box_24, R.string.menu_privacy, new Runnable() {
+                @Override
+                public void run() {
+                    drawerLayout.closeDrawer(drawerContainer);
+                    onMenuPrivacy();
+                }
+            }, new Runnable() {
+                @Override
+                public void run() {
+                    drawerLayout.closeDrawer(drawerContainer);
+                    onCleanup();
+                }
+            }));
+
+        extra1.add(new NavMenuItem(R.drawable.baseline_info_24, R.string.menu_about, new Runnable() {
+            @Override
+            public void run() {
+                onMenuAbout();
+            }
+        }, new Runnable() {
+            @Override
+            public void run() {
+                if (Helper.isPlayStoreInstall(ActivityView.this)) {
+                    drawerLayout.closeDrawer(drawerContainer);
+                    checkUpdate(true);
+                }
+            }
+        }));
+
+        e1adapter.set(extra1);
+
+        List<NavMenuItem> extra2 = new ArrayList<>();
+
+        if (getIntentPro() == null || getIntentPro().resolveActivity(getPackageManager()) != null)
+            extra2.add(new NavMenuItem(R.drawable.baseline_monetization_on_24, R.string.menu_pro, new Runnable() {
+                @Override
+                public void run() {
+                    drawerLayout.closeDrawer(drawerContainer);
+                    onMenuPro();
+                }
+            }));
+
+        if ((getIntentInvite().resolveActivity(getPackageManager()) != null))
+            extra2.add(new NavMenuItem(R.drawable.baseline_people_24, R.string.menu_invite, new Runnable() {
+                @Override
+                public void run() {
+                    drawerLayout.closeDrawer(drawerContainer);
+                    onMenuInvite();
+                }
+            }));
+
+        if (getIntentRate().resolveActivity(getPackageManager()) != null)
+            extra2.add(new NavMenuItem(R.drawable.baseline_star_24, R.string.menu_rate, new Runnable() {
+                @Override
+                public void run() {
+                    drawerLayout.closeDrawer(drawerContainer);
+                    onMenuRate();
+                }
+            }));
+
+        if (getIntentOtherApps().resolveActivity(getPackageManager()) != null)
+            extra2.add(new NavMenuItem(R.drawable.baseline_get_app_24, R.string.menu_other, new Runnable() {
+                @Override
+                public void run() {
+                    drawerLayout.closeDrawer(drawerContainer);
+                    onMenuOtherApps();
+                }
+            }));
+
+        e2adapter.set(extra2);
+
         DB db = DB.getInstance(this);
 
         db.account().liveAccountsEx(false).observe(this, new Observer<List<TupleAccountEx>>() {
-            private List<TupleAccountEx> last = new ArrayList<>();
-
             @Override
             public void onChanged(@Nullable List<TupleAccountEx> accounts) {
                 if (accounts == null)
                     accounts = new ArrayList<>();
+                aadapter.set(accounts);
+            }
+        });
 
-                boolean changed = false;
-                if (last.size() == accounts.size()) {
-                    for (int i = 0; i < accounts.size(); i++) {
-                        TupleAccountEx other = last.get(i);
-                        TupleAccountEx account = accounts.get(i);
-                        if (!account.id.equals(other.id) ||
-                                !Objects.equals(account.name, other.name) ||
-                                !Objects.equals(account.color, other.color) ||
-                                !Objects.equals(account.state, other.state) ||
-                                account.unseen != other.unseen ||
-                                account.unsent != other.unsent ||
-                                account.operations != other.operations) {
-                            changed = true;
-                            break;
-                        }
-                    }
-                } else
-                    changed = true;
+        db.folder().liveNavigation().observe(this, new Observer<List<TupleFolderNav>>() {
+            @Override
+            public void onChanged(List<TupleFolderNav> folders) {
+                if (folders == null)
+                    folders = new ArrayList<>();
+                fadapter.set(folders);
+            }
+        });
 
-                if (!changed)
-                    return;
-                last = accounts;
-
-                List<DrawerItem> items = new ArrayList<>();
-
-                int unsent = 0;
-                int pending = 0;
-                for (TupleAccountEx account : accounts) {
-                    String title;
-                    if (account.unseen > 0)
-                        title = getString(R.string.title_name_count, account.name, nf.format(account.unseen));
-                    else
-                        title = account.name;
-                    items.add(new DrawerItem(account.id,
-                            "connected".equals(account.state)
-                                    ? account.primary ? R.drawable.baseline_folder_special_24 : R.drawable.baseline_folder_24
-                                    : R.drawable.baseline_folder_open_24,
-                            title, account.color, account.unseen > 0));
-                    unsent += account.unsent;
-                    pending += account.operations;
-                }
-
-                items.add(new DrawerItem(-1));
-
-                String outbox;
-                if (unsent > 0)
-                    outbox = getString(R.string.title_name_count, getString(R.string.title_folder_outbox), nf.format(unsent));
-                else
-                    outbox = getString(R.string.title_folder_outbox);
-                items.add(new DrawerItem(-2, R.drawable.baseline_send_24, outbox, null, unsent > 0));
-
-                String operations;
-                if (pending == 0)
-                    operations = getString(R.string.menu_operations);
-                else
-                    operations = getString(R.string.title_name_count,
-                            getString(R.string.menu_operations),
-                            nf.format(pending));
-                items.add(new DrawerItem(-3, R.string.menu_operations, R.drawable.baseline_list_24, operations, pending > 0));
-
-                items.add(new DrawerItem(-4, R.drawable.baseline_reply_24, R.string.menu_answers));
-
-                items.add(new DrawerItem(-5, R.drawable.baseline_settings_applications_24, R.string.menu_setup));
-                items.add(new DrawerItem(-6));
-                items.add(new DrawerItem(-7, R.string.title_legend_expander));
-                items.add(new DrawerItem(-8, R.drawable.baseline_help_24, R.string.menu_legend).setCollapsible());
-
-                if (Helper.getIntentFAQ().resolveActivity(getPackageManager()) != null)
-                    items.add(new DrawerItem(-9, R.drawable.baseline_question_answer_24, R.string.menu_faq).setCollapsible());
-
-                if (Helper.getIntentPrivacy().resolveActivity(getPackageManager()) != null)
-                    items.add(new DrawerItem(-10, R.drawable.baseline_account_box_24, R.string.menu_privacy).setCollapsible());
-
-                items.add(new DrawerItem(-11, R.drawable.baseline_info_24, R.string.menu_about).setCollapsible());
-
-                boolean pro = (getIntentPro() == null || getIntentPro().resolveActivity(getPackageManager()) != null);
-                boolean invite = (getIntentInvite().resolveActivity(getPackageManager()) != null);
-                boolean rate = (getIntentRate().resolveActivity(getPackageManager()) != null);
-                boolean other = (getIntentOtherApps().resolveActivity(getPackageManager()) != null);
-
-                if (pro || invite || rate || other)
-                    items.add(new DrawerItem(-12).setCollapsible());
-
-                if (pro)
-                    items.add(new DrawerItem(-13, R.drawable.baseline_monetization_on_24, R.string.menu_pro).setCollapsible());
-
-                if (invite)
-                    items.add(new DrawerItem(-14, R.drawable.baseline_people_24, R.string.menu_invite).setCollapsible());
-
-                if (rate)
-                    items.add(new DrawerItem(-15, R.drawable.baseline_star_24, R.string.menu_rate).setCollapsible());
-
-                if (other)
-                    items.add(new DrawerItem(-16, R.drawable.baseline_get_app_24, R.string.menu_other).setCollapsible());
-
-                drawerArray.set(items);
+        db.operation().liveCount().observe(this, new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer count) {
+                navOperations.setCount(count);
+                madapter.notifyDataSetChanged();
             }
         });
 
@@ -961,8 +962,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean minimal = !prefs.getBoolean("minimal", false);
         prefs.edit().putBoolean("minimal", minimal).apply();
-        drawerArray.set(minimal);
-        drawerArray.notifyDataSetChanged();
+        //drawerArray.set(minimal);
+        //drawerArray.notifyDataSetChanged();
     }
 
     private void onMenuLegend() {

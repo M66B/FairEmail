@@ -43,7 +43,7 @@ public interface DaoAccount {
     @Query("SELECT * FROM account WHERE synchronize")
     LiveData<List<EntityAccount>> liveSynchronizingAccounts();
 
-    @Query("SELECT account.*, COUNT(operation.id) AS operations" +
+    @Query("SELECT account.*" +
             ", (SELECT COUNT(message.id)" +
             "    FROM message" +
             "    JOIN folder ON folder.id = message.folder" +
@@ -58,16 +58,8 @@ public interface DaoAccount {
             "    FROM identity" +
             "    WHERE identity.account = account.id" +
             "    AND identity.synchronize) AS identities" +
-            ", (SELECT COUNT(message.id)" +
-            "    FROM message" +
-            "    JOIN folder ON folder.id = message.folder" +
-            "    WHERE message.account = account.id" +
-            "    AND folder.type = '" + EntityFolder.OUTBOX + "'" +
-            "    AND NOT ui_seen" +
-            "    AND NOT ui_hide) AS unsent" +
             ", CASE WHEN drafts.id IS NULL THEN 0 ELSE 1 END AS drafts" +
             " FROM account" +
-            " LEFT JOIN operation ON operation.account = account.id" +
             " LEFT JOIN folder AS drafts ON drafts.account = account.id AND drafts.type = '" + EntityFolder.DRAFTS + "'" +
             " WHERE :all OR account.synchronize" +
             " GROUP BY account.id" +
