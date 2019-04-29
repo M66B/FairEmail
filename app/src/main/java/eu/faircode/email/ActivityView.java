@@ -28,6 +28,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
@@ -233,6 +234,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
+        PackageManager pm = getPackageManager();
         final List<NavMenuItem> menus = new ArrayList<>();
 
         final NavMenuItem navOperations = new NavMenuItem(R.drawable.baseline_list_24, R.string.menu_operations, new Runnable() {
@@ -285,7 +287,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }));
 
-        if (Helper.getIntentFAQ().resolveActivity(getPackageManager()) != null)
+        if (Helper.getIntentFAQ().resolveActivity(pm) != null)
             extra.add(new NavMenuItem(R.drawable.baseline_question_answer_24, R.string.menu_faq, new Runnable() {
                 @Override
                 public void run() {
@@ -300,7 +302,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
             }));
 
-        if (Helper.getIntentPrivacy().resolveActivity(getPackageManager()) != null)
+        if (Helper.getIntentPrivacy().resolveActivity(pm) != null)
             extra.add(new NavMenuItem(R.drawable.baseline_account_box_24, R.string.menu_privacy, new Runnable() {
                 @Override
                 public void run() {
@@ -330,7 +332,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }).setSeparated());
 
-        if (getIntentPro() == null || getIntentPro().resolveActivity(getPackageManager()) != null)
+        if (getIntentPro() == null || getIntentPro().resolveActivity(pm) != null)
             extra.add(new NavMenuItem(R.drawable.baseline_monetization_on_24, R.string.menu_pro, new Runnable() {
                 @Override
                 public void run() {
@@ -339,7 +341,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
             }));
 
-        if ((getIntentInvite().resolveActivity(getPackageManager()) != null))
+        if ((getIntentInvite().resolveActivity(pm) != null))
             extra.add(new NavMenuItem(R.drawable.baseline_people_24, R.string.menu_invite, new Runnable() {
                 @Override
                 public void run() {
@@ -348,7 +350,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
             }));
 
-        if (getIntentRate().resolveActivity(getPackageManager()) != null)
+        if (getIntentRate().resolveActivity(pm) != null)
             extra.add(new NavMenuItem(R.drawable.baseline_star_24, R.string.menu_rate, new Runnable() {
                 @Override
                 public void run() {
@@ -357,7 +359,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
             }));
 
-        if (getIntentOtherApps().resolveActivity(getPackageManager()) != null)
+        if (getIntentOtherApps().resolveActivity(pm) != null)
             extra.add(new NavMenuItem(R.drawable.baseline_get_app_24, R.string.menu_other, new Runnable() {
                 @Override
                 public void run() {
