@@ -1515,7 +1515,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             setupWebView(webView);
 
             boolean show_images = properties.getValue("images", message.id);
-            webView.getSettings().setLoadsImagesAutomatically(show_images);
+
+            WebSettings settings = webView.getSettings();
+            settings.setLoadsImagesAutomatically(show_images);
+            settings.setBuiltInZoomControls(true);
+            settings.setDisplayZoomControls(false);
 
             String html = properties.getHtml(message.id);
             webView.loadDataWithBaseURL("email://", html, "text/html", "UTF-8", null);
@@ -1580,8 +1584,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             settings.setUseWideViewPort(true);
             settings.setLoadWithOverviewMode(true);
             settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
-            settings.setBuiltInZoomControls(true);
-            settings.setDisplayZoomControls(false);
             settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
             settings.setAllowFileAccess(false);
 
