@@ -1419,6 +1419,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             final WebView webView = (WebView) vwBody;
+            webView.setBackgroundColor(Color.TRANSPARENT);
             webView.getSettings().setLoadsImagesAutomatically(show_images);
 
             String html = properties.getHtml(message.id);
@@ -1427,14 +1428,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 Bundle args = new Bundle();
                 args.putLong("id", message.id);
-                args.putBoolean("dark", dark);
-                args.putInt("color", textColorSecondary);
 
                 new SimpleTask<OriginalMessage>() {
                     @Override
                     protected OriginalMessage onExecute(Context context, Bundle args) throws IOException {
                         long id = args.getLong("id");
-                        boolean dark = args.getBoolean("dark");
 
                         DB db = DB.getInstance(context);
                         EntityMessage message = db.message().getMessage(id);
@@ -1445,13 +1443,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         original.html = Helper.readText(message.getFile(context));
                         original.html = HtmlHelper.getHtmlEmbedded(context, id, original.html);
                         original.html = HtmlHelper.removeTracking(context, original.html);
-
-                        if (dark) {
-                            String color = String.format("#%06X", (args.getInt("color") & 0xFFFFFF));
-                            original.html = "<style type=\"text/css\">" +
-                                    "* { background: black !important; color: " + color + " !important }" +
-                                    "</style>" + original.html;
-                        }
 
                         Document doc = Jsoup.parse(original.html);
                         original.has_images = (doc.select("img").size() > 0);
@@ -1478,7 +1469,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         ibFull.setVisibility(View.VISIBLE);
                         ibImages.setVisibility(show_images ? View.GONE : View.VISIBLE);
 
-                        webView.loadDataWithBaseURL("email://", original.html, "text/html", "UTF-8", null);
+                        webView.loadDataWithBaseURL("email://", themeHtml(original.html), "text/html", "UTF-8", null);
 
                         pbBody.setVisibility(View.GONE);
                         tvBody.setVisibility(View.GONE);
@@ -1494,7 +1485,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibFull.setVisibility(View.VISIBLE);
                 ibImages.setVisibility(show_images ? View.GONE : View.VISIBLE);
 
-                webView.loadDataWithBaseURL("email://", html, "text/html", "UTF-8", null);
+                webView.loadDataWithBaseURL("email://", themeHtml(html), "text/html", "UTF-8", null);
 
                 pbBody.setVisibility(View.GONE);
                 tvBody.setVisibility(View.GONE);
@@ -1507,6 +1498,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private class OriginalMessage {
             String html;
             boolean has_images;
+        }
+
+        private String themeHtml(String html) {
+            if (dark) {
+                String color = String.format("#%06X", (textColorSecondary & 0xFFFFFF));
+                return "<style type=\"text/css\">" +
+                        "* { background: black !important; color: " + color + " !important }" +
+                        "</style>" + html;
+            } else
+                return html;
         }
 
         private void onShowFull(TupleMessageEx message) {
@@ -1574,8 +1575,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     return false;
                 }
             });
-
-            webView.setBackgroundColor(Color.TRANSPARENT);
 
             WebSettings settings = webView.getSettings();
             settings.setUseWideViewPort(true);
