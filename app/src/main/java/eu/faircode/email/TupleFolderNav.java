@@ -26,16 +26,4 @@ public class TupleFolderNav extends EntityFolder implements Serializable {
     public Integer color; // account
     public int unseen;
     public int operations;
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof TupleFolderNav) {
-            TupleFolderNav other = (TupleFolderNav) obj;
-            return (super.equals(obj) &&
-                    Objects.equals(this.color, other.color) &&
-                    this.unseen == other.unseen &&
-                    this.operations == other.operations);
-        } else
-            return false;
-    }
 }

@@ -41,6 +41,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.ViewHolder> {
     private Context context;
@@ -200,7 +201,13 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
             TupleFolderNav f1 = prev.get(oldItemPosition);
             TupleFolderNav f2 = next.get(newItemPosition);
-            return f1.equals(f2);
+            return (f1.name.equals(f2.name) &&
+                    f1.type.equals(f2.type) &&
+                    Objects.equals(f1.display, f2.display) &&
+                    Objects.equals(f1.color, f2.color) &&
+                    Objects.equals(f1.state, f2.state) &&
+                    f1.unseen == f2.unseen &&
+                    f1.operations == f2.operations);
         }
     }
 

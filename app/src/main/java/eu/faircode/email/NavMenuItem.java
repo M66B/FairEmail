@@ -1,9 +1,5 @@
 package eu.faircode.email;
 
-import androidx.annotation.Nullable;
-
-import java.util.Objects;
-
 public class NavMenuItem {
     private int icon;
     private int title;
@@ -60,16 +56,5 @@ public class NavMenuItem {
         if (longClick != null)
             longClick.run();
         return (longClick != null);
-    }
-
-    @Override
-    public boolean equals(@Nullable Object obj) {
-        if (obj instanceof NavMenuItem) {
-            NavMenuItem other = (NavMenuItem) obj;
-            return (this.icon == other.icon &&
-                    this.title == other.title &&
-                    Objects.equals(this.count, other.count));
-        } else
-            return false;
     }
 }

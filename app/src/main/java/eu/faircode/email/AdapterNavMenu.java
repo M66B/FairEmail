@@ -35,6 +35,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHolder> {
     private Context context;
@@ -174,7 +175,9 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
             NavMenuItem m1 = prev.get(oldItemPosition);
             NavMenuItem m2 = next.get(newItemPosition);
-            return m1.equals(m2);
+            return m1.getIcon() == m2.getIcon() &&
+                    m1.getTitle() == m2.getTitle() &&
+                    Objects.equals(m1.getCount(), m2.getCount());
         }
     }
 
