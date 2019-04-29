@@ -271,6 +271,7 @@
     <string name="title_show_folders">Mostrar carpetas ocultas</string>
     <string name="title_hide_folder">Ocultar carpeta</string>
     <string name="title_unified_folder">Mostrar en bandeja de entrada unificada</string>
+    <string name="title_navigation_folder">Mostrar en el menú de navegación</string>
     <string name="title_synchronize_folder">Sincronizar (recibir mensajes)</string>
     <string name="title_poll_folder">Comprobar periódicamente en lugar de sincronizar continuamente</string>
     <string name="title_download_folder">Descargar mensajes de texto y archivos adjuntos automáticamente</string>
@@ -383,6 +384,7 @@
     <string name="title_add_attachment">Agregar adjunto</string>
     <string name="title_show_addresses">Mostrar CC/CCO</string>
     <string name="title_insert_contact_group">Insertar grupo de contactos</string>
+    <string name="title_insert_template">Insertar plantilla</string>
     <string name="title_from_missing">Falta remitente</string>
     <string name="title_to_missing">Falta destinatario</string>
     <string name="title_attachments_missing">No todos los adjuntos fueron descargados</string>
@@ -407,6 +409,10 @@
     <string name="title_sort_on_sender">Remitente</string>
     <string name="title_sort_on_subject">Asunto</string>
     <string name="title_sort_on_size">Tamaño</string>
+    <string name="title_filter">Filtro</string>
+    <string name="title_filter_seen">Leer</string>
+    <string name="title_filter_snoozed">Pospuesto</string>
+    <string name="title_filter_duplicates">Duplicados</string>
     <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Tamaño del texto</string>
     <string name="title_select_all">Seleccionar todo</string>
