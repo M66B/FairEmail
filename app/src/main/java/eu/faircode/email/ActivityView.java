@@ -964,14 +964,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         startActivity(new Intent(ActivityView.this, ActivitySetup.class));
     }
 
-    private void onMenuCollapse() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean minimal = !prefs.getBoolean("minimal", false);
-        prefs.edit().putBoolean("minimal", minimal).apply();
-        //drawerArray.set(minimal);
-        //drawerArray.notifyDataSetChanged();
-    }
-
     private void onMenuLegend() {
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
             getSupportFragmentManager().popBackStack("legend", FragmentManager.POP_BACK_STACK_INCLUSIVE);
