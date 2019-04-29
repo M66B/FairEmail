@@ -67,6 +67,7 @@ import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
+import javax.mail.ReadOnlyFolderException;
 import javax.mail.Session;
 import javax.mail.StoreClosedException;
 import javax.mail.UIDFolder;
@@ -665,8 +666,17 @@ public class ServiceSynchronize extends LifecycleService {
                             final IMAPFolder ifolder = (IMAPFolder) istore.getFolder(folder.name);
                             try {
                                 ifolder.open(Folder.READ_WRITE);
+                            } catch (ReadOnlyFolderException ex) {
+                                try {
+                                    ifolder.open(Folder.READ_ONLY);
+                                } catch (MessagingException ex1) {
+                                    Log.w(ex1);
+                                    db.folder().setFolderState(folder.id, null);
+                                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex1, true));
+                                    continue;
+                                }
                             } catch (MessagingException ex) {
-                                // Including ReadOnlyFolderException
+                                Log.w(ex);
                                 db.folder().setFolderState(folder.id, null);
                                 db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
                                 continue;
