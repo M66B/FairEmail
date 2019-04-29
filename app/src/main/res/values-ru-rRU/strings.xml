@@ -518,6 +518,7 @@
     <string name="title_legend_roaming">Роуминг</string>
     <string name="title_legend_expander">Развернуть</string>
     <string name="title_legend_avatar">Аватар</string>
+    <string name="title_legend_show_full">На полный экран</string>
     <string name="title_legend_show_quotes">Отображать цитаты</string>
     <string name="title_legend_show_images">Показывать изображения</string>
     <string name="title_legend_edit">Редактировать</string>

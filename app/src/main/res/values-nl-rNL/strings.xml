@@ -502,6 +502,7 @@
     <string name="title_legend_roaming">Roaming</string>
     <string name="title_legend_expander">Uitklappen</string>
     <string name="title_legend_avatar">Avatar</string>
+    <string name="title_legend_show_full">Toon volledig scherm</string>
     <string name="title_legend_show_quotes">Toon citaten</string>
     <string name="title_legend_show_images">Toon afbeeldingen</string>
     <string name="title_legend_edit">Bewerken</string>
