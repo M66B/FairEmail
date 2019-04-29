@@ -19,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.preference.PreferenceManager;
 
+import com.sun.mail.iap.CommandFailedException;
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.iap.Response;
 import com.sun.mail.imap.AppendUID;
@@ -240,7 +241,8 @@ class Core {
                         if (ex instanceof OutOfMemoryError ||
                                 ex instanceof MessageRemovedException ||
                                 ex instanceof FolderNotFoundException ||
-                                ex instanceof IllegalArgumentException) {
+                                ex instanceof IllegalArgumentException ||
+                                ex.getCause() instanceof CommandFailedException) {
                             Log.w("Unrecoverable");
 
                             // There is no use in repeating
