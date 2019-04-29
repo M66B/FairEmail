@@ -253,7 +253,6 @@ public class FragmentAccounts extends FragmentBase {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.menu_search).setVisible(!settings);
-        menu.findItem(R.id.menu_reset_order).setVisible(settings);
 
         super.onPrepareOptionsMenu(menu);
     }
