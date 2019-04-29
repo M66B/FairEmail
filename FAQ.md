@@ -371,9 +371,9 @@ First of all you need to install and configure [OpenKeychain](https://f-droid.or
 To encrypt and send a message just check the menu *Encrypt* and the message will be encrypted on sending.
 Similarly, to decrypt a received message, just select the menu *Decrypt* in the expanded message view.
 
-You can enable *Encrypt by default* in the identity settings.
+You can enable *Encrypt by default* in the identity settings, which replaces *Send* by *Encrypt and send*.
 
-Encryption is [Autocrypt](https://autocrypt.org/) compatible.
+FairEmail will send the [Autocrypt](https://autocrypt.org/) headers for other email clients.
 Received messages are not decrypted automatically because of security reasons and because often manual interaction is required.
 
 The decrypted message text and decrypted attachments are stored. If you want to undo this, you can use the *resync* message 'more' menu.
