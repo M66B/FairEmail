@@ -34,6 +34,9 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
@@ -52,6 +55,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
 import java.security.Signature;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -60,17 +64,19 @@ import java.util.Map;
 abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedListener {
     private BillingClient billingClient = null;
     private Map<String, SkuDetails> skuDetails = new HashMap<>();
+    private List<IBillingListener> listeners = new ArrayList<>();
 
     static final String ACTION_PURCHASE = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE";
     static final String ACTION_ACTIVATE_PRO = BuildConfig.APPLICATION_ID + ".ACTIVATE_PRO";
 
-    private static final String SKU_PRO = BuildConfig.APPLICATION_ID + ".pro";
+    static final String SKU_PRO = BuildConfig.APPLICATION_ID + ".pro";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         if (Helper.isPlayStoreInstall(this)) {
+            Log.i("IAB start");
             billingClient = BillingClient.newBuilder(this).setListener(this).build();
             billingClient.startConnection(billingClientStateListener);
         }
@@ -265,10 +271,32 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                             for (SkuDetails skuDetail : skuDetailsList) {
                                 Log.i("IAB SKU detail=" + skuDetail);
                                 skuDetails.put(skuDetail.getSku(), skuDetail);
+                                for (IBillingListener listener : listeners)
+                                    listener.onSkuDetails(skuDetail.getSku(), skuDetail.getPrice());
                             }
                         }
                     }
                 });
+    }
+
+    interface IBillingListener {
+        void onSkuDetails(String sku, String price);
+    }
+
+    void addBillingListener(final IBillingListener listener, LifecycleOwner owner) {
+        Log.i("Adding billing listener=" + listener);
+        listeners.add(listener);
+
+        for (SkuDetails skuDetail : skuDetails.values())
+            listener.onSkuDetails(skuDetail.getSku(), skuDetail.getPrice());
+
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroyed() {
+                Log.i("Removing billing listener=" + listener);
+                listeners.remove(listener);
+            }
+        });
     }
 
     private void checkPurchases(List<Purchase> purchases) {

@@ -47,6 +47,17 @@
                 app:layout_constraintTop_toBottomOf="@id/tvList" />
 
             <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="5 euro"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="@+id/btnPurchase"
+                app:layout_constraintStart_toEndOf="@+id/btnPurchase"
+                app:layout_constraintTop_toTopOf="@+id/btnPurchase" />
+
+            <TextView
                 android:id="@+id/tvHint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -57,7 +68,7 @@
                 app:layout_constraintTop_toBottomOf="@id/btnPurchase" />
 
             <TextView
-                android:id="@+id/tvPrice"
+                android:id="@+id/tvPriceHint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"

@@ -152,4 +152,8 @@ public class FragmentBase extends Fragment {
     void addBackPressedListener(ActivityBase.IBackPressedListener listener) {
         ((ActivityBase) getActivity()).addBackPressedListener(listener, getViewLifecycleOwner());
     }
+
+    void addBillingListener(ActivityBilling.IBillingListener listener) {
+        ((ActivityBilling) getActivity()).addBillingListener(listener, getViewLifecycleOwner());
+    }
 }

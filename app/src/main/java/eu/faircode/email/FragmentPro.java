@@ -40,6 +40,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
     private TextView tvList;
     private Button btnPurchase;
     private TextView tvPrice;
+    private TextView tvPriceHint;
 
     @Override
     @Nullable
@@ -52,10 +53,13 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         tvList = view.findViewById(R.id.tvList);
         btnPurchase = view.findViewById(R.id.btnPurchase);
         tvPrice = view.findViewById(R.id.tvPrice);
+        tvPriceHint = view.findViewById(R.id.tvPriceHint);
 
         tvList.setText(HtmlHelper.fromHtml(
                 "<a href=\"" + BuildConfig.PRO_FEATURES_URI + "\">" + Html.escapeHtml(getString(R.string.title_pro_list)) + "</a>"));
         tvList.setMovementMethod(LinkMovementMethod.getInstance());
+
+        tvPrice.setText(null);
 
         btnPurchase.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,9 +69,22 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
             }
         });
 
-        tvPrice.setMovementMethod(LinkMovementMethod.getInstance());
+        tvPriceHint.setMovementMethod(LinkMovementMethod.getInstance());
 
         return view;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        addBillingListener(new ActivityBilling.IBillingListener() {
+            @Override
+            public void onSkuDetails(String sku, String price) {
+                if (ActivityBilling.SKU_PRO.equals(sku))
+                    tvPrice.setText(price);
+            }
+        });
     }
 
     @Override
