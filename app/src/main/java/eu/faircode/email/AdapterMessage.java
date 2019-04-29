@@ -242,6 +242,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private Button btnHtml;
         private ImageButton ibQuotes;
         private ImageButton ibImages;
+        private ImageButton ibFull;
         private TextView tvBody;
         private View vwBody;
         private ContentLoadingProgressBar pbBody;
@@ -335,6 +336,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnHtml = itemView.findViewById(R.id.btnHtml);
             ibQuotes = itemView.findViewById(R.id.ibQuotes);
             ibImages = itemView.findViewById(R.id.ibImages);
+            ibFull = itemView.findViewById(R.id.ibFull);
             tvBody = itemView.findViewById(R.id.tvBody);
             vwBody = itemView.findViewById(R.id.vwBody);
             pbBody = itemView.findViewById(R.id.pbBody);
@@ -391,6 +393,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnHtml.setOnClickListener(this);
             ibQuotes.setOnClickListener(this);
             ibImages.setOnClickListener(this);
+            ibFull.setOnClickListener(this);
 
             bnvActions.setOnNavigationItemSelectedListener(this);
         }
@@ -413,6 +416,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnHtml.setOnClickListener(null);
             ibQuotes.setOnClickListener(null);
             ibImages.setOnClickListener(null);
+            ibFull.setOnClickListener(null);
 
             bnvActions.setOnNavigationItemSelectedListener(null);
         }
@@ -712,6 +716,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnHtml.setVisibility(View.GONE);
             ibQuotes.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
+            ibFull.setVisibility(View.GONE);
             tvBody.setVisibility(View.GONE);
             vwBody.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
@@ -768,6 +773,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnHtml.setVisibility(!show_html ? View.INVISIBLE : View.GONE);
             ibQuotes.setVisibility(!show_html ? View.INVISIBLE : View.GONE);
             ibImages.setVisibility(!show_html ? View.INVISIBLE : View.GONE);
+            ibFull.setVisibility(show_html ? View.INVISIBLE : View.GONE);
 
             tvBody.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
             tvBody.setVisibility(!show_html ? View.INVISIBLE : View.GONE);
@@ -1064,6 +1070,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onShowQuotes(message);
                 else if (view.getId() == R.id.ibImages)
                     onShowImages(message);
+                else if (view.getId() == R.id.ibFull)
+                    onShowFull(message);
                 else
                     onToggleMessage(message);
             } else {
@@ -1384,7 +1392,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnHtml.setVisibility(View.GONE);
             ibQuotes.setVisibility(View.GONE);
             ibImages.setVisibility(show_images ? View.GONE : View.INVISIBLE);
-            rvImage.setVisibility(View.GONE);
+            ibFull.setVisibility(View.INVISIBLE);
+            rvImage.setVisibility(adapterImage.getItemCount() > 0 ? View.INVISIBLE : View.GONE);
 
             // For performance reasons the WebView is created when needed only
             if (!(vwBody instanceof WebView)) {
@@ -1395,89 +1404,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 getMeasuredWidth(),
                                 Math.max(tvBody.getMinHeight(), getMeasuredHeight()));
                     }
-
-                    @Override
-                    public boolean onTouchEvent(MotionEvent event) {
-                        if (event.getPointerCount() == 1) {
-                            int range = computeVerticalScrollRange() - computeVerticalScrollExtent();
-                            if (range > 0) // scroll
-                                getParent().requestDisallowInterceptTouchEvent(true);
-                        } else // zoom
-                            getParent().requestDisallowInterceptTouchEvent(true);
-                        return super.onTouchEvent(event);
-                    }
-
-                    int dy = 0;
-
-                    @Override
-                    protected boolean overScrollBy(int deltaX, int deltaY, int scrollX, int scrollY, int scrollRangeX, int scrollRangeY, int maxOverScrollX, int maxOverScrollY, boolean isTouchEvent) {
-                        dy = deltaY;
-                        return super.overScrollBy(deltaX, deltaY, scrollX, scrollY, scrollRangeX, scrollRangeY, maxOverScrollX, maxOverScrollY, isTouchEvent);
-                    }
-
-                    @Override
-                    protected void onOverScrolled(int scrollX, int scrollY, boolean clampedX, boolean clampedY) {
-                        int range = computeVerticalScrollRange() - computeVerticalScrollExtent();
-                        Log.i("Overscroll=" + scrollY + "/" + clampedY + " range=" + range + " dy=" + dy);
-                        if (clampedY && range > 0 && (scrollY == 0 || scrollY == range))
-                            properties.scrollBy(0, dy);
-                        else
-                            super.onOverScrolled(scrollX, scrollY, clampedX, clampedY);
-                    }
                 };
 
-                webView.setWebViewClient(new WebViewClient() {
-                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                        Log.i("Open url=" + url);
-
-                        Uri uri = Uri.parse(url);
-                        if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
-                            return false;
-
-                        onOpenLink(uri);
-                        return true;
-                    }
-                });
-
-                webView.setDownloadListener(new DownloadListener() {
-                    public void onDownloadStart(
-                            String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
-                        Log.i("Download url=" + url + " mime type=" + mimetype);
-                        Uri uri = Uri.parse(url);
-                        Helper.view(context, owner, uri, true);
-                    }
-                });
-
-                webView.setOnLongClickListener(new View.OnLongClickListener() {
-                    @Override
-                    public boolean onLongClick(View view) {
-                        WebView.HitTestResult result = ((WebView) view).getHitTestResult();
-                        if (result.getType() == WebView.HitTestResult.IMAGE_TYPE ||
-                                result.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
-                            Log.i("Long press url=" + result.getExtra());
-
-                            Uri uri = Uri.parse(result.getExtra());
-                            Helper.view(context, owner, uri, true);
-
-                            return true;
-                        }
-                        return false;
-                    }
-                });
-
-                webView.setBackgroundColor(Color.TRANSPARENT);
-
-                WebSettings settings = webView.getSettings();
-                settings.setUseWideViewPort(true);
-                settings.setLoadWithOverviewMode(true);
-                settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
-                settings.setBuiltInZoomControls(true);
-                settings.setDisplayZoomControls(false);
-                settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-                settings.setAllowFileAccess(false);
-
-                if (monospaced)
-                    settings.setStandardFontFamily("monospace");
+                setupWebView(webView);
 
                 webView.setId(vwBody.getId());
                 webView.setVisibility(vwBody.getVisibility());
@@ -1541,15 +1470,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (amessage == null || !amessage.id.equals(id))
                             return;
 
+                        boolean expanded = properties.getValue("expanded", id);
+                        if (!expanded)
+                            return;
+
                         boolean show_images = properties.getValue("images", id);
+                        ibFull.setVisibility(View.VISIBLE);
                         ibImages.setVisibility(show_images ? View.GONE : View.VISIBLE);
 
                         webView.loadDataWithBaseURL("email://", original.html, "text/html", "UTF-8", null);
 
-                        boolean expanded = properties.getValue("expanded", id);
                         pbBody.setVisibility(View.GONE);
                         tvBody.setVisibility(View.GONE);
-                        webView.setVisibility(expanded ? View.VISIBLE : View.GONE);
+                        webView.setVisibility(View.VISIBLE);
                     }
 
                     @Override
@@ -1558,8 +1491,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 }.execute(context, owner, args, "message:webview");
             } else {
+                ibFull.setVisibility(View.VISIBLE);
+                ibImages.setVisibility(show_images ? View.GONE : View.VISIBLE);
+
                 webView.loadDataWithBaseURL("email://", html, "text/html", "UTF-8", null);
+
                 pbBody.setVisibility(View.GONE);
+                tvBody.setVisibility(View.GONE);
                 webView.setVisibility(View.VISIBLE);
             }
 
@@ -1569,6 +1507,87 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private class OriginalMessage {
             String html;
             boolean has_images;
+        }
+
+        private void onShowFull(TupleMessageEx message) {
+            WebView webView = new WebView(context);
+            setupWebView(webView);
+
+            boolean show_images = properties.getValue("images", message.id);
+            webView.getSettings().setLoadsImagesAutomatically(show_images);
+
+            String html = properties.getHtml(message.id);
+            webView.loadDataWithBaseURL("email://", html, "text/html", "UTF-8", null);
+
+            final Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+            dialog.setContentView(webView);
+
+            owner.getLifecycle().addObserver(new LifecycleObserver() {
+                @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+                public void onCreate() {
+                    dialog.show();
+                }
+
+                @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+                public void onDestroyed() {
+                    dialog.dismiss();
+                }
+            });
+        }
+
+        private void setupWebView(WebView webView) {
+            webView.setWebViewClient(new WebViewClient() {
+                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                    Log.i("Open url=" + url);
+
+                    Uri uri = Uri.parse(url);
+                    if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
+                        return false;
+
+                    onOpenLink(uri);
+                    return true;
+                }
+            });
+
+            webView.setDownloadListener(new DownloadListener() {
+                public void onDownloadStart(
+                        String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+                    Log.i("Download url=" + url + " mime type=" + mimetype);
+                    Uri uri = Uri.parse(url);
+                    Helper.view(context, owner, uri, true);
+                }
+            });
+
+            webView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    WebView.HitTestResult result = ((WebView) view).getHitTestResult();
+                    if (result.getType() == WebView.HitTestResult.IMAGE_TYPE ||
+                            result.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
+                        Log.i("Long press url=" + result.getExtra());
+
+                        Uri uri = Uri.parse(result.getExtra());
+                        Helper.view(context, owner, uri, true);
+
+                        return true;
+                    }
+                    return false;
+                }
+            });
+
+            webView.setBackgroundColor(Color.TRANSPARENT);
+
+            WebSettings settings = webView.getSettings();
+            settings.setUseWideViewPort(true);
+            settings.setLoadWithOverviewMode(true);
+            settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
+            settings.setBuiltInZoomControls(true);
+            settings.setDisplayZoomControls(false);
+            settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+            settings.setAllowFileAccess(false);
+
+            if (monospaced)
+                settings.setStandardFontFamily("monospace");
         }
 
         private void onShowQuotes(final TupleMessageEx message) {
@@ -1695,20 +1714,23 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (amessage == null || !amessage.id.equals(message.id))
                     return;
 
+                boolean show_expanded = properties.getValue("expanded", message.id);
+                if (!show_expanded)
+                    return;
+
                 boolean has_quotes = args.getBoolean("has_quotes");
                 boolean has_images = args.getBoolean("has_images");
-                boolean show_expanded = properties.getValue("expanded", message.id);
                 boolean show_quotes = properties.getValue("quotes", message.id);
                 boolean show_images = properties.getValue("images", message.id);
 
-                btnHtml.setVisibility(hasWebView && show_expanded ? View.VISIBLE : View.GONE);
-                ibQuotes.setVisibility(has_quotes && show_expanded && !show_quotes ? View.VISIBLE : View.GONE);
-                ibImages.setVisibility(has_images && show_expanded && !show_images ? View.VISIBLE : View.GONE);
+                btnHtml.setVisibility(hasWebView ? View.VISIBLE : View.GONE);
+                ibQuotes.setVisibility(has_quotes && !show_quotes ? View.VISIBLE : View.GONE);
+                ibImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
                 tvBody.setText(body);
                 tvBody.setTextIsSelectable(false);
                 tvBody.setTextIsSelectable(true);
                 tvBody.setMovementMethod(new TouchHandler(message.id));
-                tvBody.setVisibility(show_expanded ? View.VISIBLE : View.GONE);
+                tvBody.setVisibility(View.VISIBLE);
                 pbBody.setVisibility(View.GONE);
                 rvImage.setVisibility(adapterImage.getItemCount() > 0 ? View.VISIBLE : View.GONE);
             }

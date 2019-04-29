@@ -523,7 +523,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:layout_marginEnd="6dp"
+            android:contentDescription="@string/title_legend_show_images"
             android:src="@drawable/baseline_image_24"
+            app:layout_constraintEnd_toStartOf="@+id/ibFull"
+            app:layout_constraintTop_toBottomOf="@id/bnvActions" />
+
+        <ImageButton
+            android:id="@+id/ibFull"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="6dp"
+            android:contentDescription="@string/title_legend_show_full"
+            android:src="@drawable/baseline_fullscreen_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bnvActions" />
 
@@ -532,7 +544,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:barrierDirection="bottom"
-            app:constraint_referenced_ids="btnHtml,ibQuotes,ibImages" />
+            app:constraint_referenced_ids="btnHtml,ibQuotes,ibImages,ibFull" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbBody"
