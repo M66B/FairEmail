@@ -176,6 +176,9 @@ public interface DaoFolder {
     @Query("UPDATE folder SET display = :display WHERE id = :id")
     int setFolderDisplay(long id, String display);
 
+    @Query("UPDATE folder SET `order` = :order WHERE id = :id")
+    int setFolderOrder(long id, Integer order);
+
     @Query("UPDATE folder SET parent = :parent WHERE id = :id")
     int setFolderParent(long id, Long parent);
 
