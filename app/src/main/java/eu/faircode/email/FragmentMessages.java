@@ -193,11 +193,11 @@ public class FragmentMessages extends FragmentBase {
             EntityFolder.OUTBOX,
             EntityFolder.DRAFTS,
             EntityFolder.SENT,
-            EntityFolder.TRASH,
-            EntityFolder.JUNK,
             EntityFolder.SYSTEM,
             EntityFolder.USER,
-            EntityFolder.ARCHIVE
+            EntityFolder.ARCHIVE,
+            EntityFolder.TRASH,
+            EntityFolder.JUNK
     ));
 
     @Override
