@@ -29,6 +29,8 @@ import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -60,6 +62,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -106,8 +109,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private RecyclerView rvFolder;
     private RecyclerView rvMenu;
     private ImageView ivExpander;
-    private RecyclerView rvMenuExtra1;
-    private RecyclerView rvMenuExtra2;
+    private RecyclerView rvMenuExtra;
 
     private long message = -1;
     private long attachment = -1;
@@ -197,19 +199,27 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         ivExpander = drawerContainer.findViewById(R.id.ivExpander);
 
-        rvMenuExtra1 = drawerContainer.findViewById(R.id.rvMenuExtra1);
-        rvMenuExtra1.setLayoutManager(new LinearLayoutManager(this));
-        final AdapterNavMenu e1adapter = new AdapterNavMenu(this, this);
-        rvMenuExtra1.setAdapter(e1adapter);
+        rvMenuExtra = drawerContainer.findViewById(R.id.rvMenuExtra);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        rvMenuExtra.setLayoutManager(llm);
+        final AdapterNavMenu eadapter = new AdapterNavMenu(this, this);
+        rvMenuExtra.setAdapter(eadapter);
 
-        rvMenuExtra2 = drawerContainer.findViewById(R.id.rvMenuExtra2);
-        rvMenuExtra2.setLayoutManager(new LinearLayoutManager(this));
-        final AdapterNavMenu e2adapter = new AdapterNavMenu(this, this);
-        rvMenuExtra2.setAdapter(e2adapter);
+        final Drawable d = getDrawable(R.drawable.divider);
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(this, llm.getOrientation()) {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                int pos = parent.getChildAdapterPosition(view);
+                NavMenuItem menu = eadapter.get(pos);
+                Log.i("pos=" + pos + " separated=" + menu.isSeparated());
+                outRect.set(0, 0, 0, menu.isSeparated() ? d.getIntrinsicHeight() : 0);
+            }
+        };
+        itemDecorator.setDrawable(d);
+        rvMenuExtra.addItemDecoration(itemDecorator);
 
         boolean minimal = prefs.getBoolean("minimal", false);
-        rvMenuExtra1.setVisibility(minimal ? View.GONE : View.VISIBLE);
-        rvMenuExtra2.setVisibility(minimal ? View.GONE : View.VISIBLE);
+        rvMenuExtra.setVisibility(minimal ? View.GONE : View.VISIBLE);
         ivExpander.setImageLevel(minimal ? 1 /* more */ : 0 /* less */);
 
         ivExpander.setOnClickListener(new View.OnClickListener() {
@@ -217,8 +227,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             public void onClick(View v) {
                 boolean minimal = !prefs.getBoolean("minimal", false);
                 prefs.edit().putBoolean("minimal", minimal).apply();
-                rvMenuExtra1.setVisibility(minimal ? View.GONE : View.VISIBLE);
-                rvMenuExtra2.setVisibility(minimal ? View.GONE : View.VISIBLE);
+                rvMenuExtra.setVisibility(minimal ? View.GONE : View.VISIBLE);
                 ivExpander.setImageLevel(minimal ? 1 /* more */ : 0 /* less */);
             }
         });
@@ -267,9 +276,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         madapter.set(menus);
 
-        List<NavMenuItem> extra1 = new ArrayList<>();
+        List<NavMenuItem> extra = new ArrayList<>();
 
-        extra1.add(new NavMenuItem(R.drawable.baseline_help_24, R.string.menu_legend, new Runnable() {
+        extra.add(new NavMenuItem(R.drawable.baseline_help_24, R.string.menu_legend, new Runnable() {
             @Override
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer);
@@ -278,7 +287,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }));
 
         if (Helper.getIntentFAQ().resolveActivity(getPackageManager()) != null)
-            extra1.add(new NavMenuItem(R.drawable.baseline_question_answer_24, R.string.menu_faq, new Runnable() {
+            extra.add(new NavMenuItem(R.drawable.baseline_question_answer_24, R.string.menu_faq, new Runnable() {
                 @Override
                 public void run() {
                     drawerLayout.closeDrawer(drawerContainer);
@@ -293,7 +302,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }));
 
         if (Helper.getIntentPrivacy().resolveActivity(getPackageManager()) != null)
-            extra1.add(new NavMenuItem(R.drawable.baseline_account_box_24, R.string.menu_privacy, new Runnable() {
+            extra.add(new NavMenuItem(R.drawable.baseline_account_box_24, R.string.menu_privacy, new Runnable() {
                 @Override
                 public void run() {
                     drawerLayout.closeDrawer(drawerContainer);
@@ -307,7 +316,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
             }));
 
-        extra1.add(new NavMenuItem(R.drawable.baseline_info_24, R.string.menu_about, new Runnable() {
+        extra.add(new NavMenuItem(R.drawable.baseline_info_24, R.string.menu_about, new Runnable() {
             @Override
             public void run() {
                 onMenuAbout();
@@ -320,14 +329,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     checkUpdate(true);
                 }
             }
-        }));
-
-        e1adapter.set(extra1);
-
-        List<NavMenuItem> extra2 = new ArrayList<>();
+        }).setSeparated());
 
         if (getIntentPro() == null || getIntentPro().resolveActivity(getPackageManager()) != null)
-            extra2.add(new NavMenuItem(R.drawable.baseline_monetization_on_24, R.string.menu_pro, new Runnable() {
+            extra.add(new NavMenuItem(R.drawable.baseline_monetization_on_24, R.string.menu_pro, new Runnable() {
                 @Override
                 public void run() {
                     drawerLayout.closeDrawer(drawerContainer);
@@ -336,7 +341,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }));
 
         if ((getIntentInvite().resolveActivity(getPackageManager()) != null))
-            extra2.add(new NavMenuItem(R.drawable.baseline_people_24, R.string.menu_invite, new Runnable() {
+            extra.add(new NavMenuItem(R.drawable.baseline_people_24, R.string.menu_invite, new Runnable() {
                 @Override
                 public void run() {
                     drawerLayout.closeDrawer(drawerContainer);
@@ -345,7 +350,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }));
 
         if (getIntentRate().resolveActivity(getPackageManager()) != null)
-            extra2.add(new NavMenuItem(R.drawable.baseline_star_24, R.string.menu_rate, new Runnable() {
+            extra.add(new NavMenuItem(R.drawable.baseline_star_24, R.string.menu_rate, new Runnable() {
                 @Override
                 public void run() {
                     drawerLayout.closeDrawer(drawerContainer);
@@ -354,7 +359,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }));
 
         if (getIntentOtherApps().resolveActivity(getPackageManager()) != null)
-            extra2.add(new NavMenuItem(R.drawable.baseline_get_app_24, R.string.menu_other, new Runnable() {
+            extra.add(new NavMenuItem(R.drawable.baseline_get_app_24, R.string.menu_other, new Runnable() {
                 @Override
                 public void run() {
                     drawerLayout.closeDrawer(drawerContainer);
@@ -362,7 +367,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
             }));
 
-        e2adapter.set(extra2);
+        eadapter.set(extra);
 
         DB db = DB.getInstance(this);
 

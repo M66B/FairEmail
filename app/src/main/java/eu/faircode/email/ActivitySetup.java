@@ -29,6 +29,8 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.Configuration;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -50,6 +52,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -134,9 +137,23 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
         drawerContainer = findViewById(R.id.drawer_container);
         rvMenu = drawerContainer.findViewById(R.id.rvMenu);
-        rvMenu.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        rvMenu.setLayoutManager(llm);
         final AdapterNavMenu adapter = new AdapterNavMenu(this, this);
         rvMenu.setAdapter(adapter);
+
+        final Drawable d = getDrawable(R.drawable.divider);
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(this, llm.getOrientation()) {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                int pos = parent.getChildAdapterPosition(view);
+                NavMenuItem menu = adapter.get(pos);
+                Log.i("pos=" + pos + " separated=" + menu.isSeparated());
+                outRect.set(0, 0, 0, menu.isSeparated() ? d.getIntrinsicHeight() : 0);
+            }
+        };
+        itemDecorator.setDrawable(d);
+        rvMenu.addItemDecoration(itemDecorator);
 
         PackageManager pm = getPackageManager();
         final List<NavMenuItem> menus = new ArrayList<>();
@@ -155,7 +172,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 drawerLayout.closeDrawer(drawerContainer);
                 onMenuImport();
             }
-        }));
+        }).setSeparated());
 
         menus.add(new NavMenuItem(R.drawable.baseline_palette_24, R.string.title_setup_theme, new Runnable() {
             @Override
@@ -188,7 +205,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 drawerLayout.closeDrawer(drawerContainer);
                 onMenuContacts();
             }
-        }));
+        }).setSeparated());
 
         menus.add(new NavMenuItem(R.drawable.baseline_help_24, R.string.menu_legend, new Runnable() {
             @Override

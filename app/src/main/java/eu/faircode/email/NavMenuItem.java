@@ -8,6 +8,7 @@ public class NavMenuItem {
     private int icon;
     private int title;
     private Integer count = null;
+    private boolean separated = false;
     private Runnable click;
     private Runnable longClick;
 
@@ -30,6 +31,11 @@ public class NavMenuItem {
         this.count = count;
     }
 
+    NavMenuItem setSeparated() {
+        this.separated = true;
+        return this;
+    }
+
     int getIcon() {
         return this.icon;
     }
@@ -40,6 +46,10 @@ public class NavMenuItem {
 
     Integer getCount() {
         return this.count;
+    }
+
+    boolean isSeparated() {
+        return this.separated;
     }
 
     void onClick() {
