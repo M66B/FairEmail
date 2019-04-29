@@ -14,4 +14,15 @@
         android:checkable="true"
         android:title="@string/title_show_folders"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_reorder"
+        android:checkable="true"
+        android:title="@string/title_reorder"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_reset_order"
+        android:title="@string/title_reset_order"
+        app:showAsAction="never" />
 </menu>
