@@ -148,8 +148,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 int pos = parent.getChildAdapterPosition(view);
                 NavMenuItem menu = adapter.get(pos);
-                Log.i("pos=" + pos + " separated=" + menu.isSeparated());
-                outRect.set(0, 0, 0, menu.isSeparated() ? d.getIntrinsicHeight() : 0);
+                outRect.set(0, 0, 0, menu != null && menu.isSeparated() ? d.getIntrinsicHeight() : 0);
             }
         };
         itemDecorator.setDrawable(d);
