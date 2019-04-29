@@ -154,6 +154,9 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     }
 
     void addBackPressedListener(final IBackPressedListener listener, LifecycleOwner owner) {
+        Log.i("Adding back listener=" + listener);
+        backPressedListeners.add(listener);
+
         owner.getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroyed() {
@@ -161,9 +164,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 backPressedListeners.remove(listener);
             }
         });
-
-        Log.i("Adding back listener=" + listener);
-        backPressedListeners.add(listener);
     }
 
     @Override
