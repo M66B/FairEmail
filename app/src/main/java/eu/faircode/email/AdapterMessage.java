@@ -1417,12 +1417,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     @Override
                     protected void onOverScrolled(int scrollX, int scrollY, boolean clampedX, boolean clampedY) {
-                        super.onOverScrolled(scrollX, scrollY, clampedX, clampedY);
-                        if (clampedY) {
-                            int range = computeVerticalScrollRange() - computeVerticalScrollExtent();
-                            if (range > 0) // This is to prevent flicker
-                                properties.scrollBy(0, dy);
-                        }
+                        int range = computeVerticalScrollRange() - computeVerticalScrollExtent();
+                        Log.i("Overscroll=" + scrollY + "/" + clampedY + " range=" + range + " dy=" + dy);
+                        if (clampedY && range > 0 && (scrollY == 0 || scrollY == range))
+                            properties.scrollBy(0, dy);
+                        else
+                            super.onOverScrolled(scrollX, scrollY, clampedX, clampedY);
                     }
                 };
 
