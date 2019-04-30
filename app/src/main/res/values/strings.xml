@@ -223,6 +223,7 @@
     <string name="title_advanced_search_local_hint">Instead of searching in the primary archive folder on the server</string>
     <string name="title_advanced_english_hint">This will restart the app</string>
     <string name="title_advanced_paranoid_hint">See the FAQ for details</string>
+    <string name="title_advanced_debug_hint">Enable extra logging and show debug information at various places</string>
 
     <string name="title_select">Select &#8230;</string>
     <string name="title_identity_name">Your name</string>
