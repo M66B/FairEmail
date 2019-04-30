@@ -74,7 +74,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(4) How can I use an invalid security certificate / IMAP STARTTLS / an empty password?](#user-content-faq4)
 * [(5) How can I customize the message view?](#user-content-faq5)
 * [(6) How can I login to Gmail / G suite?](#user-content-faq6)
-* [(7) Why are messages in the outbox not moved to the sent folder?](#user-content-faq7)
+* [(7) Why are sent messages not appearing sent folder?](#user-content-faq7)
 * [(8) Can I use a Microsoft Exchange account?](#user-content-faq8)
 * [(9) What are identities?](#user-content-faq9)
 * [(11) Why is POP not supported?](#user-content-faq11)
@@ -307,12 +307,15 @@ If this doesn't work, see here for more solutions: [https://support.google.com/m
 <br />
 
 <a name="faq7"></a>
-**(7) Why are messages in the outbox not moved to the sent folder?**
+**(7) Why are sent messages not appearing sent folder?**
 
-Messages in the outbox are moved to the sent folder as soon as your provider adds the message to the sent folder.
+Sent messages are normally added to the sent folder as soon as your provider adds the messages to the sent folder.
 This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
 If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.
 In these cases you can enable the advanced identity setting *Store sent messages* to workaround this.
+
+Note that FairEmail will automatically add sent messages to the sent folder when performing a full synchronize,
+which happens when reconnection or if you synchronize manually.
 
 <br />
 
