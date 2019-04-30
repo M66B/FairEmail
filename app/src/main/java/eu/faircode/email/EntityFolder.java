@@ -315,6 +315,7 @@ public class EntityFolder implements Serializable {
         json.put("hide", hide);
         json.put("collapsed", collapsed);
         json.put("unified", unified);
+        json.put("navigation", navigation);
         json.put("notify", notify);
         return json;
     }
@@ -354,6 +355,9 @@ public class EntityFolder implements Serializable {
             folder.collapsed = json.getBoolean("collapsed");
 
         folder.unified = json.getBoolean("unified");
+
+        if (json.has("navigation"))
+            folder.navigation = json.getBoolean("navigation");
 
         if (json.has("notify"))
             folder.notify = json.getBoolean("notify");
