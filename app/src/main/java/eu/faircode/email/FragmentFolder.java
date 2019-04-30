@@ -416,7 +416,7 @@ public class FragmentFolder extends FragmentBase {
                 if (savedInstanceState == null) {
                     etName.setText(folder == null ? null : folder.name);
                     etDisplay.setText(folder == null ? null : folder.display);
-                    etDisplay.setHint(folder == null ? null : folder.name);
+                    etDisplay.setHint(folder == null ? null : Helper.localizeFolderName(getContext(), folder.name));
                     cbHide.setChecked(folder == null ? false : folder.hide);
                     cbUnified.setChecked(folder == null ? false : folder.unified);
                     cbNavigation.setChecked(folder == null ? false : folder.navigation);
@@ -436,7 +436,6 @@ public class FragmentFolder extends FragmentBase {
 
                 Helper.setViewsEnabled(view, true);
                 etName.setEnabled(folder == null);
-                etDisplay.setEnabled(folder == null || !EntityFolder.INBOX.equals(folder.type));
                 cbPoll.setEnabled(cbSynchronize.isChecked());
                 cbDownload.setEnabled(cbSynchronize.isChecked());
                 btnSave.setEnabled(true);
