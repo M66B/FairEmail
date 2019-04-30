@@ -3080,8 +3080,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 prefs.getBoolean("identicons", false));
         this.flags = prefs.getBoolean("flags", true);
         this.preview = prefs.getBoolean("preview", false);
-        this.autohtml = prefs.getBoolean("autohtml", false);
-        this.autoimages = prefs.getBoolean("autoimages", false);
+        this.autohtml = (this.contacts && prefs.getBoolean("autohtml", false));
+        this.autoimages = (this.contacts && prefs.getBoolean("autoimages", false));
         this.authentication = prefs.getBoolean("authentication", false);
         this.debug = prefs.getBoolean("debug", false);
 
