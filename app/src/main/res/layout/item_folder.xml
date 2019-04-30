@@ -30,6 +30,15 @@
             app:layout_constraintStart_toEndOf="@id/vwColor"
             app:layout_constraintTop_toTopOf="@+id/tvName" />
 
+        <ImageView
+            android:id="@+id/ivReadOnly"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="6dp"
+            android:src="@drawable/baseline_visibility_24"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toTopOf="@+id/tvType" />
+
         <View
             android:id="@+id/vwLevel"
             android:layout_width="0dp"

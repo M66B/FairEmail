@@ -89,6 +89,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private View view;
         private View vwColor;
         private ImageView ivState;
+        private ImageView ivReadOnly;
         private View vwLevel;
         private ImageView ivExpander;
         private ImageView ivNotify;
@@ -122,6 +123,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             view = itemView.findViewById(R.id.clItem);
             vwColor = itemView.findViewById(R.id.vwColor);
             ivState = itemView.findViewById(R.id.ivState);
+            ivReadOnly = itemView.findViewById(R.id.ivReadOnly);
             vwLevel = itemView.findViewById(R.id.vwLevel);
             ivExpander = itemView.findViewById(R.id.ivExpander);
             ivNotify = itemView.findViewById(R.id.ivNotify);
@@ -221,6 +223,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ivState.setVisibility(
                     folder.synchronize || folder.state != null || folder.sync_state != null
                             ? View.VISIBLE : View.INVISIBLE);
+
+            ivReadOnly.setVisibility(folder.read_only ? View.VISIBLE : View.GONE);
 
             ViewGroup.LayoutParams lp = vwLevel.getLayoutParams();
             lp.width = (account < 0 || !collapsable ? 1 : level) * dp12;

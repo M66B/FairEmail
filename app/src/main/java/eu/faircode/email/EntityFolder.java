@@ -105,6 +105,8 @@ public class EntityFolder implements Serializable {
     public Boolean tbd; // to be deleted
     public String state;
     public String sync_state;
+    @NonNull
+    public Boolean read_only = false;
     public String error;
     public Long last_sync;
 

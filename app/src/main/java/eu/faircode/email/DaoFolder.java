@@ -222,6 +222,9 @@ public interface DaoFolder {
     @Query("UPDATE folder SET last_sync = :last_sync WHERE id = :id")
     int setFolderSync(long id, long last_sync);
 
+    @Query("UPDATE folder SET read_only = :read_only WHERE id = :id")
+    int setFolderReadOnly(long id, boolean read_only);
+
     @Query("UPDATE folder SET `order` = NULL")
     int resetFolderOrder();
 
