@@ -156,7 +156,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
                 android:hint="@string/title_optional"
-                android:inputType="textCapSentences|textMultiLine"
+                android:inputType="textCapSentences|textMultiLine|textAutoCorrect"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

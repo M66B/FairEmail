@@ -15,7 +15,7 @@
         android:layout_marginEnd="6dp"
         android:hint="@string/title_answer_name"
         android:imeOptions="actionNext"
-        android:inputType="textCapSentences"
+        android:inputType="textCapSentences|textAutoCorrect"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -49,7 +49,7 @@
         android:gravity="top"
         android:hint="@string/title_answer_text"
         android:imeOptions="actionDone"
-        android:inputType="textCapSentences|textMultiLine"
+        android:inputType="textCapSentences|textMultiLine|textAutoCorrect"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toTopOf="@+id/vSeparatorHints"
         app:layout_constraintStart_toStartOf="parent"
