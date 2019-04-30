@@ -21,15 +21,19 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LevelListDrawable;
 import android.net.Uri;
+import android.os.Handler;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Base64;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -61,6 +65,8 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
 
 import static androidx.core.text.HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM;
@@ -74,6 +80,8 @@ public class HtmlHelper {
             "h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "table", "br", "hr"));
     private static final List<String> tails = Collections.unmodifiableList(Arrays.asList(
             "h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "li"));
+
+    private static final ExecutorService executor = Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
 
     static String removeTracking(Context context, String html) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -298,15 +306,18 @@ public class HtmlHelper {
         return (body == null ? "" : body.html());
     }
 
-    static Drawable decodeImage(String source, Context context, long id, boolean show) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+    static Drawable decodeImage(final String source, long id, boolean show, final TextView view) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("zoom", compact ? 0 : 1);
 
-        int px = Helper.dp2pixels(context, (zoom + 1) * 24);
+        final int px = Helper.dp2pixels(view.getContext(), (zoom + 1) * 24);
+
+        final Resources.Theme theme = view.getContext().getTheme();
+        final Resources res = view.getContext().getResources();
 
         if (TextUtils.isEmpty(source)) {
-            Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
+            Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
             d.setBounds(0, 0, px, px);
             return d;
         }
@@ -320,33 +331,33 @@ public class HtmlHelper {
         if (!show) {
             // Show placeholder icon
             int resid = (embedded || data ? R.drawable.baseline_photo_library_24 : R.drawable.baseline_image_24);
-            Drawable d = context.getResources().getDrawable(resid, context.getTheme());
+            Drawable d = res.getDrawable(resid, theme);
             d.setBounds(0, 0, px, px);
             return d;
         }
 
         // Embedded images
         if (embedded) {
-            DB db = DB.getInstance(context);
+            DB db = DB.getInstance(view.getContext());
             String cid = "<" + source.substring(4) + ">";
             EntityAttachment attachment = db.attachment().getAttachment(id, cid);
             if (attachment == null) {
-                Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
+                Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
                 d.setBounds(0, 0, px, px);
                 return d;
             } else if (!attachment.available) {
-                Drawable d = context.getResources().getDrawable(R.drawable.baseline_photo_library_24, context.getTheme());
+                Drawable d = res.getDrawable(R.drawable.baseline_photo_library_24, theme);
                 d.setBounds(0, 0, px, px);
                 return d;
             } else {
-                Bitmap bm = Helper.decodeImage(attachment.getFile(context),
-                        context.getResources().getDisplayMetrics().widthPixels);
+                Bitmap bm = Helper.decodeImage(attachment.getFile(view.getContext()),
+                        res.getDisplayMetrics().widthPixels);
                 if (bm == null) {
-                    Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
+                    Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
                     d.setBounds(0, 0, px, px);
                     return d;
                 } else {
-                    Drawable d = new BitmapDrawable(bm);
+                    Drawable d = new BitmapDrawable(res, bm);
                     d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
                     return d;
                 }
@@ -368,84 +379,110 @@ public class HtmlHelper {
                 if (bm == null)
                     throw new IllegalArgumentException("decode byte array failed");
 
-                Drawable d = new BitmapDrawable(context.getResources(), bm);
+                Drawable d = new BitmapDrawable(res, bm);
                 d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
                 return d;
             } catch (IllegalArgumentException ex) {
                 Log.w(ex);
-                Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
+                Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
                 d.setBounds(0, 0, px, px);
                 return d;
             }
 
         // Get cache file name
-        File dir = new File(context.getCacheDir(), "images");
+        File dir = new File(view.getContext().getCacheDir(), "images");
         if (!dir.exists())
             dir.mkdir();
-        File file = new File(dir, id + "_" + Math.abs(source.hashCode()) + ".png");
+        final File file = new File(dir, id + "_" + Math.abs(source.hashCode()) + ".png");
 
         if (file.exists()) {
             Log.i("Using cached " + file);
             Bitmap bm = BitmapFactory.decodeFile(file.getAbsolutePath());
             if (bm == null) {
-                Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
+                Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
                 d.setBounds(0, 0, px, px);
                 return d;
             } else {
-                Drawable d = new BitmapDrawable(bm);
+                Drawable d = new BitmapDrawable(res, bm);
                 d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
                 return d;
             }
         }
 
-        try {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            Log.i("Probe " + source);
-            try (InputStream probe = new URL(source).openStream()) {
-                options.inJustDecodeBounds = true;
-                BitmapFactory.decodeStream(probe, null, options);
+        final LevelListDrawable lld = new LevelListDrawable();
+        Drawable wait = res.getDrawable(R.drawable.baseline_hourglass_empty_24, theme);
+        lld.addLevel(0, 0, wait);
+        lld.setBounds(0, 0, px, px);
+
+        final Handler handler = new Handler(view.getContext().getMainLooper());
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    BitmapFactory.Options options = new BitmapFactory.Options();
+                    Log.i("Probe " + source);
+                    try (InputStream probe = new URL(source).openStream()) {
+                        options.inJustDecodeBounds = true;
+                        BitmapFactory.decodeStream(probe, null, options);
+                    }
+
+                    Log.i("Download " + source);
+                    Bitmap bm;
+                    try (InputStream is = new URL(source).openStream()) {
+                        int scaleTo = res.getDisplayMetrics().widthPixels;
+                        int factor = 1;
+                        while (options.outWidth / factor > scaleTo)
+                            factor *= 2;
+
+                        if (factor > 1) {
+                            Log.i("Download image factor=" + factor);
+                            options.inJustDecodeBounds = false;
+                            options.inSampleSize = factor;
+                            bm = BitmapFactory.decodeStream(is, null, options);
+                        } else
+                            bm = BitmapFactory.decodeStream(is);
+                    }
+
+                    if (bm == null)
+                        throw new FileNotFoundException("Download image failed");
+
+                    Log.i("Downloaded image");
+
+                    try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                        bm.compress(Bitmap.CompressFormat.PNG, 90, os);
+                    }
+
+                    // Create drawable from bitmap
+                    Drawable d = new BitmapDrawable(res, bm);
+                    d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
+                    post(d, source);
+                } catch (Throwable ex) {
+                    // Show warning icon
+                    Log.w(ex);
+                    int resid = (ex instanceof IOException && !(ex instanceof FileNotFoundException)
+                            ? R.drawable.baseline_cloud_off_24
+                            : R.drawable.baseline_broken_image_24);
+                    Drawable d = res.getDrawable(resid, theme);
+                    d.setBounds(0, 0, px, px);
+                    post(d, source);
+                }
             }
 
-            Log.i("Download " + source);
-            Bitmap bm;
-            try (InputStream is = new URL(source).openStream()) {
-                int scaleTo = context.getResources().getDisplayMetrics().widthPixels;
-                int factor = 1;
-                while (options.outWidth / factor > scaleTo)
-                    factor *= 2;
-
-                if (factor > 1) {
-                    Log.i("Download image factor=" + factor);
-                    options.inJustDecodeBounds = false;
-                    options.inSampleSize = factor;
-                    bm = BitmapFactory.decodeStream(is, null, options);
-                } else
-                    bm = BitmapFactory.decodeStream(is);
+            private void post(final Drawable d, String source) {
+                Log.i("Posting image=" + source);
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        lld.addLevel(1, 1, d);
+                        lld.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+                        lld.setLevel(1);
+                        view.setText(view.getText());
+                    }
+                });
             }
+        });
 
-            if (bm == null)
-                throw new FileNotFoundException("Download image failed");
-
-            Log.i("Downloaded image");
-
-            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-                bm.compress(Bitmap.CompressFormat.PNG, 90, os);
-            }
-
-            // Create drawable from bitmap
-            Drawable d = new BitmapDrawable(context.getResources(), bm);
-            d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
-            return d;
-        } catch (Throwable ex) {
-            // Show warning icon
-            Log.w(ex);
-            int res = (ex instanceof IOException && !(ex instanceof FileNotFoundException)
-                    ? R.drawable.baseline_cloud_off_24
-                    : R.drawable.baseline_broken_image_24);
-            Drawable d = context.getResources().getDrawable(res, context.getTheme());
-            d.setBounds(0, 0, px, px);
-            return d;
-        }
+        return lld;
     }
 
     static String getPreview(String body) {

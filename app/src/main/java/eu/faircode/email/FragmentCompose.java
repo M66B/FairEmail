@@ -342,6 +342,7 @@ public class FragmentCompose extends FragmentBase {
         ibReferenceImages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ibReferenceImages.setVisibility(View.GONE);
                 onReferenceImages();
             }
         });
@@ -2818,7 +2819,7 @@ public class FragmentCompose extends FragmentBase {
                             new Html.ImageGetter() {
                                 @Override
                                 public Drawable getDrawable(String source) {
-                                    Drawable image = HtmlHelper.decodeImage(source, context, id, show_images);
+                                    Drawable image = HtmlHelper.decodeImage(source, id, show_images, tvReference);
 
                                     float width = context.getResources().getDisplayMetrics().widthPixels -
                                             Helper.dp2pixels(context, 12); // margins;

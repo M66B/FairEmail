@@ -1637,7 +1637,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (show_html)
                 onShowHtmlConfirmed(message);
             else {
-                ibImages.setEnabled(false);
+                ibImages.setVisibility(View.GONE);
                 bodyTask.execute(context, owner, args, "message:body");
             }
 
@@ -1753,7 +1753,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             return HtmlHelper.fromHtml(html, new Html.ImageGetter() {
                 @Override
                 public Drawable getDrawable(String source) {
-                    Drawable image = HtmlHelper.decodeImage(source, context, message.id, show_images);
+                    Drawable image = HtmlHelper.decodeImage(source, message.id, show_images, tvBody);
 
                     float width = context.getResources().getDisplayMetrics().widthPixels -
                             Helper.dp2pixels(context, 12); // margins
