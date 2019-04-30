@@ -2237,8 +2237,8 @@ public class FragmentCompose extends FragmentBase {
             grpHeader.setVisibility(View.VISIBLE);
             grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
 
-            bottom_navigation.getMenu().findItem(R.id.action_undo).setEnabled(draft.revision != null && draft.revision > 1);
-            bottom_navigation.getMenu().findItem(R.id.action_redo).setEnabled(draft.revision != null && !draft.revision.equals(draft.revisions));
+            bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision != null && draft.revision > 1);
+            bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision != null && !draft.revision.equals(draft.revisions));
 
             getActivity().invalidateOptionsMenu();
 
@@ -2683,8 +2683,8 @@ public class FragmentCompose extends FragmentBase {
             etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));
             etBcc.setText(MessageHelper.formatAddressesCompose(draft.bcc));
 
-            bottom_navigation.getMenu().findItem(R.id.action_undo).setEnabled(draft.revision != null && draft.revision > 1);
-            bottom_navigation.getMenu().findItem(R.id.action_redo).setEnabled(draft.revision != null && !draft.revision.equals(draft.revisions));
+            bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision != null && draft.revision > 1);
+            bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision != null && !draft.revision.equals(draft.revisions));
 
             if (action == R.id.action_delete) {
                 autosave = false;
@@ -2788,10 +2788,11 @@ public class FragmentCompose extends FragmentBase {
 
                 pbWait.setVisibility(View.GONE);
                 edit_bar.setVisibility(style ? View.VISIBLE : View.GONE);
+                bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision != null && draft.revision > 1);
+                bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision != null && !draft.revision.equals(draft.revisions));
                 bottom_navigation.setVisibility(View.VISIBLE);
+
                 Helper.setViewsEnabled(view, true);
-                bottom_navigation.getMenu().findItem(R.id.action_undo).setEnabled(draft.revision != null && draft.revision > 1);
-                bottom_navigation.getMenu().findItem(R.id.action_redo).setEnabled(draft.revision != null && !draft.revision.equals(draft.revisions));
 
                 getActivity().invalidateOptionsMenu();
             }
