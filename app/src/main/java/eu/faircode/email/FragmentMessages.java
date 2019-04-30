@@ -51,7 +51,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
@@ -1006,38 +1005,17 @@ public class FragmentMessages extends FragmentBase {
 
     private SwipeListener swipeListener = new SwipeListener(getContext(), new SwipeListener.ISwipeListener() {
         @Override
-        public boolean onSwipeRight(MotionEvent me) {
-            if (inWebView(me))
-                return false;
+        public boolean onSwipeRight() {
             if (previous != null)
                 navigate(previous, true);
             return (previous != null);
         }
 
         @Override
-        public boolean onSwipeLeft(MotionEvent me) {
-            if (inWebView(me))
-                return false;
+        public boolean onSwipeLeft() {
             if (next != null)
                 navigate(next, false);
             return (next != null);
-        }
-
-        private boolean inWebView(MotionEvent me) {
-            View parent = rvMessage.findChildViewUnder(me.getX(), me.getY());
-            if (parent == null)
-                return false;
-
-            View child = parent.findViewById(R.id.vwBody);
-            if (!(child instanceof WebView))
-                return false;
-
-            int[] location = new int[2];
-            child.getLocationOnScreen(location);
-            int x = location[0];
-            int y = location[1];
-            return (me.getRawX() >= x && me.getRawX() <= x + view.getWidth() &&
-                    me.getRawY() >= y && me.getRawY() <= y + view.getHeight());
         }
     });
 
