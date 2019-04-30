@@ -134,14 +134,26 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
-                android:layout_marginEnd="6dp"
                 android:hint="@string/title_subject"
                 android:imeOptions="actionNext"
                 android:inputType="textEmailSubject|textCapSentences|textAutoCorrect"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ivCcBcc"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etBcc" />
+
+            <ImageView
+                android:id="@+id/ivCcBcc"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:contentDescription="@string/title_legend_pick"
+                android:src="@drawable/baseline_people_24"
+                app:layout_constraintBottom_toBottomOf="@id/etSubject"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/etSubject"
+                app:layout_constraintTop_toTopOf="@+id/etSubject" />
 
             <View
                 android:id="@+id/vSeparatorAttachments"

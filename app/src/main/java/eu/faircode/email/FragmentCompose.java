@@ -152,6 +152,7 @@ public class FragmentCompose extends FragmentBase {
     private MultiAutoCompleteTextView etBcc;
     private ImageView ivBccAdd;
     private EditText etSubject;
+    private ImageView ivCcBcc;
     private RecyclerView rvAttachment;
     private TextView tvNoInternetAttachments;
     private EditText etBody;
@@ -222,6 +223,7 @@ public class FragmentCompose extends FragmentBase {
         etBcc = view.findViewById(R.id.etBcc);
         ivBccAdd = view.findViewById(R.id.ivBccAdd);
         etSubject = view.findViewById(R.id.etSubject);
+        ivCcBcc = view.findViewById(R.id.ivCcBcc);
         rvAttachment = view.findViewById(R.id.rvAttachment);
         tvNoInternetAttachments = view.findViewById(R.id.tvNoInternetAttachments);
         etBody = view.findViewById(R.id.etBody);
@@ -299,6 +301,13 @@ public class FragmentCompose extends FragmentBase {
 
         etSubject.setMaxLines(Integer.MAX_VALUE);
         etSubject.setHorizontallyScrolling(false);
+
+        ivCcBcc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMenuAddresses();
+            }
+        });
 
         View.OnClickListener onPick = new View.OnClickListener() {
             @Override
@@ -781,7 +790,8 @@ public class FragmentCompose extends FragmentBase {
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
 
-        menu.findItem(R.id.menu_addresses).setVisible(working >= 0);
+        menu.findItem(R.id.menu_addresses).setVisible(false);
+        //menu.findItem(R.id.menu_addresses).setVisible(working >= 0);
         menu.findItem(R.id.menu_zoom).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_style_toolbar).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_image).setVisible(state == State.LOADED && !style);
