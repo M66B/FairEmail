@@ -130,9 +130,9 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
         final Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
 
-        Collections.sort(folders, new Comparator<EntityFolder>() {
+        Collections.sort(folders, new Comparator<TupleFolderNav>() {
             @Override
-            public int compare(EntityFolder f1, EntityFolder f2) {
+            public int compare(TupleFolderNav f1, TupleFolderNav f2) {
                 int o = Boolean.compare(EntityFolder.OUTBOX.equals(f1.type), EntityFolder.OUTBOX.equals(f2.type));
                 if (o != 0)
                     return o;
