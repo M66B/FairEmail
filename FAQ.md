@@ -165,6 +165,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(95) Why are not all apps shown when selecting an attachment or image?](#user-content-faq95)
 * [(96) Where can I find the IMAP and SMTP settings?](#user-content-faq96)
 * [(97) What is 'cleanup' ?](#user-content-faq97)
+* [(98) Why can I still pick contacts after revoking contacts permissions?](#user-content-faq98)
 
 [I have another question.](#support)
 
@@ -1591,6 +1592,13 @@ Note that the cleanup job will only run when the synchronize service is active.
 
 <br />
 
+<a name="faq98"></a>
+**(98) Why can I still pick contacts after revoking contacts permissions?**
+
+After revoking contacts permissions Android does not allow FairEmail access to your contacts anymore.
+However, picking contacts is delegated to and done by Android and not by FairEmail, so this will still be possible without contacts permissions.
+
+<br />
 
 ## Support
 
