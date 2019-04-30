@@ -1736,7 +1736,8 @@ public class FragmentMessages extends FragmentBase {
 
                         boolean refreshing = false;
                         for (TupleFolderEx folder : folders)
-                            if (folder.sync_state != null && (folder.account == null || "connected".equals(folder.accountState))) {
+                            if (folder.sync_state != null &&
+                                    (folder.account == null || "connected".equals(folder.accountState))) {
                                 refreshing = true;
                                 break;
                             }
@@ -1786,8 +1787,8 @@ public class FragmentMessages extends FragmentBase {
                             }
                         }
 
-                        boolean refreshing = (folder != null && folder.sync_state != null);
-
+                        boolean refreshing = (folder != null && folder.sync_state != null &&
+                                (folder.account == null || "connected".equals(folder.accountState)));
                         if (!refreshing && manual) {
                             manual = false;
                             rvMessage.scrollToPosition(0);
