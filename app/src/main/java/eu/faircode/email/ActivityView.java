@@ -878,40 +878,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragmentTransaction.commit();
     }
 
-    private void onMenuInbox(long account) {
-        Bundle args = new Bundle();
-        args.putLong("account", account);
-
-        new SimpleTask<Long>() {
-            @Override
-            protected Long onExecute(Context context, Bundle args) {
-                long account = args.getLong("account");
-                DB db = DB.getInstance(context);
-                EntityFolder inbox = db.folder().getFolderByType(account, EntityFolder.INBOX);
-                return (inbox == null ? -1 : inbox.id);
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Long folder) {
-                long account = args.getLong("account");
-
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                    getSupportFragmentManager().popBackStack("unified", 0);
-
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ActivityView.this);
-                lbm.sendBroadcast(
-                        new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                                .putExtra("account", account)
-                                .putExtra("folder", folder));
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
-            }
-        }.execute(this, args, "menu:inbox");
-    }
-
     private void onMenuOutbox() {
         Bundle args = new Bundle();
 
