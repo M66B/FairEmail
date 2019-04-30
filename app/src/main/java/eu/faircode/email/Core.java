@@ -249,6 +249,10 @@ class Core {
                             db.operation().deleteOperation(op.id);
 
                             // Cleanup
+                            if (EntityOperation.SYNC.equals(op.name))
+                                db.folder().setFolderSyncState(folder.id, null);
+
+                            // Cleanup
                             if (message != null) {
                                 if (ex instanceof MessageRemovedException)
                                     db.message().deleteMessage(message.id);
