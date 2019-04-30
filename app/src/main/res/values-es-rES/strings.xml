@@ -504,6 +504,7 @@
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Mostrar citas</string>
     <string name="title_legend_show_images">Mostrar imágenes</string>
+    <string name="title_legend_show_full">Mostrar en pantalla completa</string>
     <string name="title_legend_edit">Editar</string>
     <string name="title_legend_default_color">Color por defecto</string>
     <string name="title_legend_close_hint">Cerrar pista</string>
@@ -538,6 +539,7 @@
     <string name="title_report">Reportar</string>
     <string name="title_fix">Reparar</string>
     <string name="title_enable">Activar</string>
+    <string name="title_reorder">Reordenar</string>
     <string name="title_no_ask_again">No volver a preguntar</string>
     <string name="title_no_body">No se encontró texto en el mensaje</string>
     <string name="title_no_charset">Codificación no soportada: %1$s</string>

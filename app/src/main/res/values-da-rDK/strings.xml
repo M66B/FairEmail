@@ -504,6 +504,7 @@
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Vis citater</string>
     <string name="title_legend_show_images">Vis billeder</string>
+    <string name="title_legend_show_full">Vis fuldskærm</string>
     <string name="title_legend_edit">Redigér</string>
     <string name="title_legend_default_color">Standardfarve</string>
     <string name="title_legend_close_hint">Luk tip</string>
@@ -538,6 +539,7 @@
     <string name="title_report">Rapportér</string>
     <string name="title_fix">Ret</string>
     <string name="title_enable">Aktivér</string>
+    <string name="title_reorder">Omorganisering</string>
     <string name="title_no_ask_again">Spørg ikke igen</string>
     <string name="title_no_body">Ingen meddelelsestekst fundet</string>
     <string name="title_no_charset">Ikke understøttet kodning: %1$s</string>

@@ -502,9 +502,9 @@
     <string name="title_legend_roaming">Roaming</string>
     <string name="title_legend_expander">Uitklappen</string>
     <string name="title_legend_avatar">Avatar</string>
-    <string name="title_legend_show_full">Toon volledig scherm</string>
     <string name="title_legend_show_quotes">Toon citaten</string>
     <string name="title_legend_show_images">Toon afbeeldingen</string>
+    <string name="title_legend_show_full">Toon volledig scherm</string>
     <string name="title_legend_edit">Bewerken</string>
     <string name="title_legend_default_color">Standaard kleur</string>
     <string name="title_legend_close_hint">Sluit hint</string>
@@ -539,6 +539,7 @@
     <string name="title_report">Rapporteer</string>
     <string name="title_fix">Oplossen</string>
     <string name="title_enable">Inschakelen</string>
+    <string name="title_reorder">Herschikken</string>
     <string name="title_no_ask_again">Dit niet meer vragen</string>
     <string name="title_no_body">Geen berichttekst gevonden</string>
     <string name="title_no_charset">Codering niet ondersteund: %1$s</string>

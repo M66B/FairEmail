@@ -496,6 +496,7 @@
     <string name="title_legend_avatar">头像</string>
     <string name="title_legend_show_quotes">显示引用内容</string>
     <string name="title_legend_show_images">显示图片</string>
+    <string name="title_legend_show_full">全屏显示</string>
     <string name="title_legend_edit">编辑</string>
     <string name="title_legend_default_color">默认颜色</string>
     <string name="title_legend_close_hint">关闭提示</string>
@@ -530,6 +531,7 @@
     <string name="title_report">报告</string>
     <string name="title_fix">修复</string>
     <string name="title_enable">启用</string>
+    <string name="title_reorder">重新排序</string>
     <string name="title_no_ask_again">别再询问</string>
     <string name="title_no_body">没有找到消息文本</string>
     <string name="title_no_charset">不支持的编码: %1$s</string>

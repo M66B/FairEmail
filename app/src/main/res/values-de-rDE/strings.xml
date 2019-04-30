@@ -502,9 +502,9 @@
     <string name="title_legend_roaming">Roaming</string>
     <string name="title_legend_expander">Erweitern</string>
     <string name="title_legend_avatar">Benutzerbild</string>
-    <string name="title_legend_show_full">Vollbild anzeigen</string>
     <string name="title_legend_show_quotes">Zitate anzeigen</string>
     <string name="title_legend_show_images">Bilder anzeigen</string>
+    <string name="title_legend_show_full">Vollbild anzeigen</string>
     <string name="title_legend_edit">Bearbeiten</string>
     <string name="title_legend_default_color">Standardfarbe</string>
     <string name="title_legend_close_hint">Hinweis schließen</string>
@@ -539,6 +539,7 @@
     <string name="title_report">Bericht</string>
     <string name="title_fix">Problem beheben</string>
     <string name="title_enable">Aktivieren</string>
+    <string name="title_reorder">Sortieren</string>
     <string name="title_no_ask_again">Dies nicht mehr anzeigen</string>
     <string name="title_no_body">Kein Nachrichtentext gefunden</string>
     <string name="title_no_charset">Nicht unterstützte Codierung: %1$s</string>

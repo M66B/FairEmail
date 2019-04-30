@@ -502,9 +502,9 @@
     <string name="title_legend_roaming">Roaming</string>
     <string name="title_legend_expander">Espansione</string>
     <string name="title_legend_avatar">Avatar</string>
-    <string name="title_legend_show_full">Mostra schermo intero</string>
     <string name="title_legend_show_quotes">Mostra citazioni</string>
     <string name="title_legend_show_images">Mostra immagini</string>
+    <string name="title_legend_show_full">Mostra schermo intero</string>
     <string name="title_legend_edit">Modifica</string>
     <string name="title_legend_default_color">Colore predefinito</string>
     <string name="title_legend_close_hint">Chiudi suggerimento</string>

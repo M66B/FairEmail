@@ -518,9 +518,9 @@
     <string name="title_legend_roaming">Roaming</string>
     <string name="title_legend_expander">Rozbalit</string>
     <string name="title_legend_avatar">Avatar</string>
-    <string name="title_legend_show_full">Zobrazit na celou obrazovku</string>
     <string name="title_legend_show_quotes">Zobrazit citace</string>
     <string name="title_legend_show_images">Zobrazit obrázky</string>
+    <string name="title_legend_show_full">Zobrazit na celou obrazovku</string>
     <string name="title_legend_edit">Upravit</string>
     <string name="title_legend_default_color">Výchozí barva</string>
     <string name="title_legend_close_hint">Zavřít tip</string>

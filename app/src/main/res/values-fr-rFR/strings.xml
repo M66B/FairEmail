@@ -502,9 +502,9 @@
     <string name="title_legend_roaming">Itinérance</string>
     <string name="title_legend_expander">Développer</string>
     <string name="title_legend_avatar">Avatar</string>
-    <string name="title_legend_show_full">Afficher en plein écran</string>
     <string name="title_legend_show_quotes">Afficher les citations</string>
     <string name="title_legend_show_images">Afficher les images</string>
+    <string name="title_legend_show_full">Afficher en plein écran</string>
     <string name="title_legend_edit">Modifier</string>
     <string name="title_legend_default_color">Couleur par défaut</string>
     <string name="title_legend_close_hint">Fermer l\'indice</string>
@@ -539,6 +539,7 @@
     <string name="title_report">Rapport</string>
     <string name="title_fix">Corriger</string>
     <string name="title_enable">Activer</string>
+    <string name="title_reorder">Réordonner</string>
     <string name="title_no_ask_again">Ne plus me le demander</string>
     <string name="title_no_body">Aucun texte de message trouvé</string>
     <string name="title_no_charset">Format d\'encodage non pris en charge : %1$s</string>

@@ -502,9 +502,9 @@
     <string name="title_legend_roaming">Roaming</string>
     <string name="title_legend_expander">Utvidet</string>
     <string name="title_legend_avatar">Profilbilde</string>
-    <string name="title_legend_show_full">Vis fullskjerm</string>
     <string name="title_legend_show_quotes">Vis sitater</string>
     <string name="title_legend_show_images">Vise bilder</string>
+    <string name="title_legend_show_full">Vis fullskjerm</string>
     <string name="title_legend_edit">Rediger</string>
     <string name="title_legend_default_color">Standard farge</string>
     <string name="title_legend_close_hint">Lukk tips</string>
@@ -539,6 +539,7 @@
     <string name="title_report">Rapportere</string>
     <string name="title_fix">Fiks</string>
     <string name="title_enable">Aktiver</string>
+    <string name="title_reorder">Endre rekkefølge</string>
     <string name="title_no_ask_again">Ikke spør dette igjen</string>
     <string name="title_no_body">Ingen meldingstekst funnet</string>
     <string name="title_no_charset">Koding støttes ikke: %1$s</string>

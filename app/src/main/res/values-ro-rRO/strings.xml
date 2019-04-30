@@ -279,7 +279,7 @@
     <string name="title_show_folders">Arată dosarele ascunse</string>
     <string name="title_hide_folder">Ascunde dosarul</string>
     <string name="title_unified_folder">Arată în căsuța poștală comună</string>
-    <string name="title_navigation_folder">Arată-l în meniul de navigație</string>
+    <string name="title_navigation_folder">Arată în meniul de navigație</string>
     <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
     <string name="title_poll_folder">Verifică periodic în loc de a sincroniza în continuu</string>
     <string name="title_download_folder">Descarcă mesajele text și atașamentele în mod automat</string>
@@ -392,7 +392,7 @@
     <string name="title_add_attachment">Adaugă ataşament</string>
     <string name="title_show_addresses">Arată CC/BCC</string>
     <string name="title_insert_contact_group">Introduceți grup de contacte</string>
-    <string name="title_insert_template">Introduceți șablonul</string>
+    <string name="title_insert_template">Introduceți șablon</string>
     <string name="title_from_missing">Expeditor lipsă</string>
     <string name="title_to_missing">Destinatar lipsă</string>
     <string name="title_attachments_missing">Nu toate ataşamentele se descarcă</string>
@@ -418,9 +418,9 @@
     <string name="title_sort_on_subject">Subiect</string>
     <string name="title_sort_on_size">Mărime</string>
     <string name="title_filter">Filtru</string>
-    <string name="title_filter_seen">Citește</string>
+    <string name="title_filter_seen">Citit</string>
     <string name="title_filter_snoozed">Amânat</string>
-    <string name="title_filter_duplicates">Duplicații</string>
+    <string name="title_filter_duplicates">Duplicate</string>
     <string name="title_compact">Vizualizare compactă</string>
     <string name="title_zoom">Mărime text</string>
     <string name="title_select_all">Selectează tot</string>
@@ -512,6 +512,7 @@
     <string name="title_legend_avatar">Poză de profil</string>
     <string name="title_legend_show_quotes">Arată citate</string>
     <string name="title_legend_show_images">Afișare imagini</string>
+    <string name="title_legend_show_full">Afișează pe ecranul complet</string>
     <string name="title_legend_edit">Editează</string>
     <string name="title_legend_default_color">Culoare implicită</string>
     <string name="title_legend_close_hint">Închidere indiciu</string>
