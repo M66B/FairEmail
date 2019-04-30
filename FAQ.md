@@ -315,7 +315,7 @@ If this doesn't happen, your provider might not keep track of sent messages or y
 In these cases you can enable the advanced identity setting *Store sent messages* to workaround this.
 
 Note that FairEmail will automatically add sent messages to the sent folder when performing a full synchronize,
-which happens when reconnection or if you synchronize manually.
+which happens when reconnecting or if you synchronize manually.
 
 <br />
 
