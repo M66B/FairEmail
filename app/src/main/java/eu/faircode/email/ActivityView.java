@@ -325,7 +325,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }, new Runnable() {
             @Override
             public void run() {
-                if (Helper.isPlayStoreInstall(ActivityView.this)) {
+                if (!Helper.isPlayStoreInstall(ActivityView.this)) {
                     drawerLayout.closeDrawer(drawerContainer);
                     checkUpdate(true);
                 }
