@@ -182,6 +182,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/etKeepDays" />
 
+            <CheckBox
+                android:id="@+id/cbAutoDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_auto_delete"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cbKeepAll" />
+
             <Button
                 android:id="@+id/btnSave"
                 android:layout_width="wrap_content"
@@ -190,7 +198,7 @@
                 android:tag="disable"
                 android:text="@string/title_save"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cbKeepAll" />
+                app:layout_constraintTop_toBottomOf="@id/cbAutoDelete" />
 
             <eu.faircode.email.ContentLoadingProgressBar
                 android:id="@+id/pbSave"

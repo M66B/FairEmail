@@ -83,6 +83,8 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public Integer sync_days;
     @NonNull
     public Integer keep_days;
+    @NonNull
+    public Boolean auto_delete = false;
     public String display;
     @NonNull
     public Boolean hide = false;
@@ -189,6 +191,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         jargs.put(initialize ? Math.min(DEFAULT_INIT, keep_days) : days);
         jargs.put(keep_days);
         jargs.put(download);
+        jargs.put(auto_delete);
 
         return jargs;
     }
@@ -322,6 +325,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         json.put("download", download);
         json.put("sync_days", sync_days);
         json.put("keep_days", keep_days);
+        json.put("auto_delete", auto_delete);
         json.put("display", display);
         json.put("hide", hide);
         json.put("collapsed", collapsed);
@@ -356,6 +360,9 @@ public class EntityFolder extends EntityOrder implements Serializable {
             folder.keep_days = json.getInt("keep_days");
         else
             folder.keep_days = folder.sync_days;
+
+        if (json.has("auto_delete"))
+            folder.auto_delete = json.getBoolean("auto_delete");
 
         if (json.has("display") && !json.isNull("display"))
             folder.display = json.getString("display");

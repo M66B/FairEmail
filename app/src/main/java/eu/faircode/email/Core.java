@@ -843,6 +843,7 @@ class Core {
             int sync_days = jargs.getInt(0);
             int keep_days = jargs.getInt(1);
             boolean download = jargs.getBoolean(2);
+            boolean auto_delete = (jargs.length() > 3 && jargs.getBoolean(3));
 
             if (keep_days == sync_days)
                 keep_days++;
@@ -877,8 +878,18 @@ class Core {
             Log.i(folder.name + " sync=" + new Date(sync_time) + " keep=" + new Date(keep_time));
 
             // Delete old local messages
-            int old = db.message().deleteMessagesBefore(folder.id, keep_time);
-            Log.i(folder.name + " local old=" + old);
+            if (auto_delete && EntityFolder.TRASH.equals(folder.type)) {
+                List<Long> tbds = db.message().getMessagesBefore(folder.id, keep_time);
+                Log.i(folder.name + " local tbd=" + tbds.size());
+                for (Long tbd : tbds) {
+                    EntityMessage message = db.message().getMessage(tbd);
+                    if (message != null)
+                        EntityOperation.queue(context, db, message, EntityOperation.DELETE);
+                }
+            } else {
+                int old = db.message().deleteMessagesBefore(folder.id, keep_time);
+                Log.i(folder.name + " local old=" + old);
+            }
 
             // Get list of local uids
             final List<Long> uids = db.message().getUids(folder.id, null);

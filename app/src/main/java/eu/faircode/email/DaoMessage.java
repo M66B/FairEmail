@@ -421,6 +421,13 @@ public interface DaoMessage {
             "  AND operation.name = '" + EntityOperation.ADD + "')")
     int deleteOrphans(long folder);
 
+    @Query("SELECT id FROM message" +
+            " WHERE folder = :folder" +
+            " AND received < :received" +
+            " AND NOT uid IS NULL" +
+            " AND NOT ui_flagged")
+    List<Long> getMessagesBefore(long folder, long received);
+
     @Query("DELETE FROM message" +
             " WHERE folder = :folder" +
             " AND received < :received" +

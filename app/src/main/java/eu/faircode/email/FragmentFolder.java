@@ -42,8 +42,6 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.snackbar.Snackbar;
 
-import java.util.Calendar;
-
 public class FragmentFolder extends FragmentBase {
     private ViewGroup view;
     private EditText etName;
@@ -58,6 +56,7 @@ public class FragmentFolder extends FragmentBase {
     private EditText etSyncDays;
     private EditText etKeepDays;
     private CheckBox cbKeepAll;
+    private CheckBox cbAutoDelete;
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
     private ContentLoadingProgressBar pbWait;
@@ -99,6 +98,7 @@ public class FragmentFolder extends FragmentBase {
         etSyncDays = view.findViewById(R.id.etSyncDays);
         etKeepDays = view.findViewById(R.id.etKeepDays);
         cbKeepAll = view.findViewById(R.id.cbKeepAll);
+        cbAutoDelete = view.findViewById(R.id.cbAutoDelete);
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
         pbWait = view.findViewById(R.id.pbWait);
@@ -126,6 +126,7 @@ public class FragmentFolder extends FragmentBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 etKeepDays.setEnabled(!isChecked);
+                cbAutoDelete.setEnabled(!isChecked);
             }
         });
 
@@ -138,6 +139,7 @@ public class FragmentFolder extends FragmentBase {
 
         // Initialize
         Helper.setViewsEnabled(view, false);
+        cbAutoDelete.setVisibility(View.GONE);
         btnSave.setEnabled(false);
         pbSave.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
@@ -162,6 +164,7 @@ public class FragmentFolder extends FragmentBase {
         args.putString("keep", cbKeepAll.isChecked()
                 ? Integer.toString(Integer.MAX_VALUE)
                 : etKeepDays.getText().toString());
+        args.putBoolean("auto_delete", cbAutoDelete.isChecked());
 
         new SimpleTask<Void>() {
             @Override
@@ -195,6 +198,7 @@ public class FragmentFolder extends FragmentBase {
                 boolean download = args.getBoolean("download");
                 String sync = args.getString("sync");
                 String keep = args.getString("keep");
+                boolean auto_delete = args.getBoolean("auto_delete");
 
                 if (TextUtils.isEmpty(display) || display.equals(name))
                     display = null;
@@ -241,24 +245,8 @@ public class FragmentFolder extends FragmentBase {
                         db.folder().setFolderProperties(id,
                                 display, unified, navigation, notify, hide,
                                 synchronize, poll, download,
-                                sync_days, keep_days);
+                                sync_days, keep_days, auto_delete);
                         db.folder().setFolderError(id, null);
-
-                        if (keep_days == sync_days)
-                            keep_days++;
-
-                        Calendar cal_keep = Calendar.getInstance();
-                        cal_keep.add(Calendar.DAY_OF_MONTH, -keep_days);
-                        cal_keep.set(Calendar.HOUR_OF_DAY, 12);
-                        cal_keep.set(Calendar.MINUTE, 0);
-                        cal_keep.set(Calendar.SECOND, 0);
-                        cal_keep.set(Calendar.MILLISECOND, 0);
-
-                        long keep_time = cal_keep.getTimeInMillis();
-                        if (keep_time < 0)
-                            keep_time = 0;
-
-                        db.message().deleteMessagesBefore(id, keep_time);
 
                         EntityOperation.sync(context, folder.id, true);
                     }
@@ -429,15 +417,20 @@ public class FragmentFolder extends FragmentBase {
                         cbKeepAll.setChecked(true);
                     else
                         etKeepDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_KEEP : folder.keep_days));
+                    cbAutoDelete.setChecked(folder == null ? false : folder.auto_delete);
+                    cbAutoDelete.setVisibility(folder != null && EntityFolder.TRASH.equals(folder.type) ? View.VISIBLE : View.GONE);
                 }
 
                 // Consider previous save as cancelled
                 pbWait.setVisibility(View.GONE);
 
                 Helper.setViewsEnabled(view, true);
+
                 etName.setEnabled(folder == null);
                 cbPoll.setEnabled(cbSynchronize.isChecked());
                 cbDownload.setEnabled(cbSynchronize.isChecked());
+                etKeepDays.setEnabled(!cbKeepAll.isChecked());
+                cbAutoDelete.setEnabled(!cbKeepAll.isChecked());
                 btnSave.setEnabled(true);
 
                 subscribed = (folder == null ? null : folder.subscribed != null && folder.subscribed);
