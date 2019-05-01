@@ -309,12 +309,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     drawerLayout.closeDrawer(drawerContainer);
                     onMenuPrivacy();
                 }
-            }, new Runnable() {
-                @Override
-                public void run() {
-                    drawerLayout.closeDrawer(drawerContainer);
-                    onCleanup();
-                }
             }));
 
         extra.add(new NavMenuItem(R.drawable.baseline_info_24, R.string.menu_about, new Runnable() {
@@ -1023,21 +1017,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
 
         }.execute(this, new Bundle(), "debug:info");
-    }
-
-    private void onCleanup() {
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) {
-                WorkerCleanup.cleanup(ActivityView.this, true);
-                return null;
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
-            }
-        }.execute(this, new Bundle(), "cleanup:job");
     }
 
     private void onShowLog() {
