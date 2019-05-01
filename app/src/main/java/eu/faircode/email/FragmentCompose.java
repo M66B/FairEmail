@@ -2059,7 +2059,7 @@ public class FragmentCompose extends FragmentBase {
 
     private SimpleTask<EntityMessage> draftLoader = new SimpleTask<EntityMessage>() {
         @Override
-        protected EntityMessage onExecute(Context context, Bundle args) throws IOException {
+        protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
             String action = args.getString("action");
             long id = args.getLong("id", -1);
             long reference = args.getLong("reference", -1);
@@ -2077,7 +2077,7 @@ public class FragmentCompose extends FragmentBase {
                 if (draft == null || draft.ui_hide) {
                     // New draft
                     if ("edit".equals(action))
-                        throw new IllegalStateException("Draft not found hide=" + (draft != null));
+                        throw new MessageRemovedException("Draft for edit was deleted hide=" + (draft != null));
 
                     EntityFolder drafts;
                     EntityMessage ref = db.message().getMessage(reference);
@@ -2467,7 +2467,9 @@ public class FragmentCompose extends FragmentBase {
             pbWait.setVisibility(View.GONE);
 
             // External app sending absolute file
-            if (ex instanceof SecurityException)
+            if (ex instanceof MessageRemovedException)
+                finish();
+            else if (ex instanceof SecurityException)
                 handleFileShare();
             else if (ex instanceof IllegalArgumentException)
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
@@ -2539,8 +2541,8 @@ public class FragmentCompose extends FragmentBase {
                 EntityIdentity identity = db.identity().getIdentity(iid);
 
                 // Draft deleted by server
-                if (draft == null)
-                    throw new MessageRemovedException("Draft for action was deleted");
+                if (draft == null || draft.ui_hide)
+                    throw new MessageRemovedException("Draft for action was deleted hide=" + (draft != null));
 
                 Log.i("Load action id=" + draft.id + " action=" + action);
 
