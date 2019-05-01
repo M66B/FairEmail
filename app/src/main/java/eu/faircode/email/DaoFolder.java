@@ -52,6 +52,13 @@ public interface DaoFolder {
     EntityFolder getBrowsableFolder(long folder, boolean search);
 
     @Query("SELECT folder.*" +
+            ", account.name AS accountName" +
+            " FROM folder" +
+            " JOIN account ON account.id = folder.account" +
+            " WHERE account.`synchronize`")
+    LiveData<List<TupleFolderSort>> liveSort();
+
+    @Query("SELECT folder.*" +
             ", account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +

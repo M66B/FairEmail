@@ -43,7 +43,6 @@ import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -70,7 +69,6 @@ public class FragmentFolders extends FragmentBase {
 
     private long account;
     private boolean show_hidden = false;
-    private boolean reorder = false;
     private String searching = null;
     private AdapterFolder adapter;
 
@@ -403,9 +401,6 @@ public class FragmentFolders extends FragmentBase {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.menu_show_hidden).setChecked(show_hidden);
-        menu.findItem(R.id.menu_reorder).setChecked(reorder);
-        menu.findItem(R.id.menu_reorder).setVisible(account < 0); // unified folders
-        menu.findItem(R.id.menu_reset_order).setVisible(account < 0); // unified folders
         super.onPrepareOptionsMenu(menu);
     }
 
@@ -414,12 +409,6 @@ public class FragmentFolders extends FragmentBase {
         switch (item.getItemId()) {
             case R.id.menu_show_hidden:
                 onMenuShowHidden();
-                return true;
-            case R.id.menu_reorder:
-                onReorder();
-                return true;
-            case R.id.menu_reset_order:
-                onResetOrder();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -432,60 +421,4 @@ public class FragmentFolders extends FragmentBase {
         getActivity().invalidateOptionsMenu();
         adapter.setShowHidden(show_hidden);
     }
-
-    private void onReorder() {
-        reorder = !reorder;
-        getActivity().invalidateOptionsMenu();
-
-        swipeRefresh.setEnabled(!reorder);
-        adapter.setReorder(reorder);
-        if (reorder)
-            touchHelper.attachToRecyclerView(rvFolder);
-        else
-            touchHelper.attachToRecyclerView(null);
-    }
-
-    private void onResetOrder() {
-        Bundle args = new Bundle();
-
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) {
-                DB db = DB.getInstance(context);
-                db.folder().resetFolderOrder();
-                return null;
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-            }
-        }.execute(this, args, "folders:reset");
-    }
-
-    private ItemTouchHelper touchHelper = new ItemTouchHelper(new ItemTouchHelper.Callback() {
-        @Override
-        public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
-            int flags = 0;
-            int pos = viewHolder.getAdapterPosition();
-            if (pos != RecyclerView.NO_POSITION) {
-                if (pos - 1 >= 0)
-                    flags |= ItemTouchHelper.UP;
-                if (pos + 1 < rvFolder.getAdapter().getItemCount())
-                    flags |= ItemTouchHelper.DOWN;
-            }
-
-            return makeMovementFlags(flags, 0);
-        }
-
-        @Override
-        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder source, @NonNull RecyclerView.ViewHolder target) {
-            ((AdapterFolder) rvFolder.getAdapter()).onMove(source.getAdapterPosition(), target.getAdapterPosition());
-            return true;
-        }
-
-        @Override
-        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-        }
-    });
 }

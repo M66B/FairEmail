@@ -40,7 +40,6 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -95,7 +94,6 @@ public class FragmentAccounts extends FragmentBase {
 
         adapter = new AdapterAccount(getContext(), getViewLifecycleOwner(), settings);
         rvAccount.setAdapter(adapter);
-        new ItemTouchHelper(touchHelper).attachToRecyclerView(rvAccount);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -256,59 +254,4 @@ public class FragmentAccounts extends FragmentBase {
 
         super.onPrepareOptionsMenu(menu);
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_reset_order:
-                onResetOrder();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    private void onResetOrder() {
-        Bundle args = new Bundle();
-
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) {
-                DB db = DB.getInstance(context);
-                db.account().resetAccountOrder();
-                return null;
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-            }
-        }.execute(this, args, "accounts:reset");
-    }
-
-    private ItemTouchHelper.Callback touchHelper = new ItemTouchHelper.Callback() {
-        @Override
-        public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
-            int flags = 0;
-            int pos = viewHolder.getAdapterPosition();
-            if (pos != RecyclerView.NO_POSITION) {
-                if (pos - 1 >= 0)
-                    flags |= ItemTouchHelper.UP;
-                if (pos + 1 < rvAccount.getAdapter().getItemCount())
-                    flags |= ItemTouchHelper.DOWN;
-            }
-
-            return makeMovementFlags(flags, 0);
-        }
-
-        @Override
-        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder source, @NonNull RecyclerView.ViewHolder target) {
-            ((AdapterAccount) rvAccount.getAdapter()).onMove(source.getAdapterPosition(), target.getAdapterPosition());
-            return true;
-        }
-
-        @Override
-        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-        }
-    };
 }

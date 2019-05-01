@@ -59,7 +59,7 @@ import static androidx.room.ForeignKey.CASCADE;
         }
 )
 
-public class EntityFolder implements Serializable {
+public class EntityFolder extends EntityOrder implements Serializable {
     static final String TABLE_NAME = "folder";
 
     @PrimaryKey(autoGenerate = true)
@@ -84,7 +84,6 @@ public class EntityFolder implements Serializable {
     @NonNull
     public Integer keep_days;
     public String display;
-    public Integer order;
     @NonNull
     public Boolean hide = false;
     @NonNull
@@ -225,6 +224,16 @@ public class EntityFolder implements Serializable {
         if (parent != null && name.startsWith(parent.name))
             n = n.substring(parent.name.length() + 1);
         return (display == null ? Helper.localizeFolderName(context, n) : display);
+    }
+
+    @Override
+    Long getSortId() {
+        return id;
+    }
+
+    @Override
+    String getSortTitle(Context context) {
+        return Helper.localizeFolderName(context, name);
     }
 
     boolean isOutgoing() {

@@ -173,14 +173,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
             }
         }).setSeparated());
 
-        menus.add(new NavMenuItem(R.drawable.baseline_palette_24, R.string.title_setup_theme, new Runnable() {
-            @Override
-            public void run() {
-                drawerLayout.closeDrawer(drawerContainer);
-                onMenuTheme();
-            }
-        }));
-
         if (getIntentNotifications(this).resolveActivity(pm) != null)
             menus.add(new NavMenuItem(R.drawable.baseline_notifications_24, R.string.title_setup_notifications, new Runnable() {
                 @Override
@@ -190,11 +182,27 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 }
             }));
 
-        menus.add(new NavMenuItem(R.drawable.baseline_settings_applications_24, R.string.title_setup_advanced, new Runnable() {
+        menus.add(new NavMenuItem(R.drawable.baseline_reorder_24, R.string.title_setup_reorder_accounts, new Runnable() {
             @Override
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer);
-                onMenuOptions();
+                onMenuOrder(R.string.title_setup_reorder_accounts, EntityAccount.class);
+            }
+        }));
+
+        menus.add(new NavMenuItem(R.drawable.baseline_reorder_24, R.string.title_setup_reorder_folders, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onMenuOrder(R.string.title_setup_reorder_folders, TupleFolderSort.class);
+            }
+        }));
+
+        menus.add(new NavMenuItem(R.drawable.baseline_palette_24, R.string.title_setup_theme, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onMenuTheme();
             }
         }));
 
@@ -203,6 +211,14 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer);
                 onMenuContacts();
+            }
+        }));
+
+        menus.add(new NavMenuItem(R.drawable.baseline_settings_applications_24, R.string.title_setup_advanced, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onMenuOptions();
             }
         }).setSeparated());
 
@@ -342,10 +358,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 handleImport(data, this.password);
     }
 
-    private void onManageNotifications() {
-        startActivity(getIntentNotifications(this));
-    }
-
     private void onMenuExport() {
         if (Helper.isPro(this))
             try {
@@ -403,6 +415,26 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 .show();
     }
 
+    private void onManageNotifications() {
+        startActivity(getIntentNotifications(this));
+    }
+
+    private void onMenuOrder(int title, Class clazz) {
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+            getSupportFragmentManager().popBackStack("order", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+        Bundle args = new Bundle();
+        args.putInt("title", title);
+        args.putString("class", clazz.getName());
+
+        FragmentOrder fragment = new FragmentOrder();
+        fragment.setArguments(args);
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("order");
+        fragmentTransaction.commit();
+    }
+
     private void onMenuTheme() {
         View dview = LayoutInflater.from(this).inflate(R.layout.dialog_theme, null);
         final RadioGroup rgTheme = dview.findViewById(R.id.rgTheme);
@@ -449,21 +481,21 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 .show();
     }
 
-    private void onMenuOptions() {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-            getSupportFragmentManager().popBackStack("options", FragmentManager.POP_BACK_STACK_INCLUSIVE);
-
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new FragmentOptions()).addToBackStack("options");
-        fragmentTransaction.commit();
-    }
-
     private void onMenuContacts() {
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
             getSupportFragmentManager().popBackStack("contacts", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentContacts()).addToBackStack("contacts");
+        fragmentTransaction.commit();
+    }
+
+    private void onMenuOptions() {
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+            getSupportFragmentManager().popBackStack("options", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentOptions()).addToBackStack("options");
         fragmentTransaction.commit();
     }
 

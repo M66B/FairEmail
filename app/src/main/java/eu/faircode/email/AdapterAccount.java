@@ -23,7 +23,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +41,6 @@ import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHolder> {
@@ -255,51 +253,6 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     @Override
     public int getItemCount() {
         return items.size();
-    }
-
-    void onMove(int from, int to) {
-        if (from < 0 || from >= items.size() ||
-                to < 0 || to >= items.size())
-            return;
-
-        if (from < to)
-            for (int i = from; i < to; i++)
-                Collections.swap(items, i, i + 1);
-        else
-            for (int i = from; i > to; i--)
-                Collections.swap(items, i, i - 1);
-        notifyItemMoved(from, to);
-
-        List<Long> order = new ArrayList<>();
-        for (int i = 0; i < items.size(); i++)
-            order.add(items.get(i).id);
-
-        Bundle args = new Bundle();
-        args.putLongArray("order", Helper.toLongArray(order));
-
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) {
-                final long[] order = args.getLongArray("order");
-
-                final DB db = DB.getInstance(context);
-                db.runInTransaction(new Runnable() {
-                    @Override
-                    public void run() {
-                        for (int i = 0; i < order.length; i++)
-                            db.account().setAccountOrder(order[i], i);
-                    }
-                });
-
-                return null;
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(context, owner, ex);
-
-            }
-        }.execute(context, owner, args, "accounts:order");
     }
 
     @Override

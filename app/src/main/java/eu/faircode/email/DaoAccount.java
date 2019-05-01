@@ -63,7 +63,9 @@ public interface DaoAccount {
             " LEFT JOIN folder AS drafts ON drafts.account = account.id AND drafts.type = '" + EntityFolder.DRAFTS + "'" +
             " WHERE :all OR account.synchronize" +
             " GROUP BY account.id" +
-            " ORDER BY `order`, `primary` DESC, name COLLATE NOCASE")
+            " ORDER BY CASE WHEN :all THEN 0 ELSE account.`order` END" +
+            ", CASE WHEN :all THEN 0 ELSE account.`primary` END DESC" +
+            ", account.name COLLATE NOCASE")
     LiveData<List<TupleAccountEx>> liveAccountsEx(boolean all);
 
     @Query("SELECT * FROM account WHERE id = :id")

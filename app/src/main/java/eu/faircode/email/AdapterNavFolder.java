@@ -133,7 +133,11 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
         Collections.sort(folders, new Comparator<TupleFolderNav>() {
             @Override
             public int compare(TupleFolderNav f1, TupleFolderNav f2) {
-                int o = Boolean.compare(EntityFolder.OUTBOX.equals(f1.type), EntityFolder.OUTBOX.equals(f2.type));
+                int s = Boolean.compare(EntityFolder.OUTBOX.equals(f1.type), EntityFolder.OUTBOX.equals(f2.type));
+                if (s != 0)
+                    return s;
+
+                int o = Integer.compare(f1.order == null ? -1 : f1.order, f2.order == null ? -1 : f2.order);
                 if (o != 0)
                     return o;
 

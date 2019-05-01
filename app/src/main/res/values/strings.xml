@@ -98,16 +98,6 @@
 
     <string name="title_setup">Setup</string>
     <string name="title_setup_help">Help</string>
-    <string name="title_setup_export">Export settings</string>
-    <string name="title_setup_import">Import settings</string>
-    <string name="title_setup_import_do">Imported accounts will be added, not overwritten</string>
-    <string name="title_setup_password">Password</string>
-    <string name="title_setup_password_repeat">Repeat password</string>
-    <string name="title_setup_password_missing">Password missing</string>
-    <string name="title_setup_password_different">Passwords different</string>
-    <string name="title_setup_password_invalid">Password invalid</string>
-    <string name="title_setup_exported">Settings exported</string>
-    <string name="title_setup_imported">Settings imported</string>
     <string name="title_setup_quick">Quick setup</string>
     <string name="title_setup_quick_remark">To quickly setup an account and an identity for most providers</string>
     <string name="title_setup_quick_hint">The quick setup will fetch configuration information from autoconfig.thunderbird.net</string>
@@ -132,14 +122,31 @@
     <string name="title_setup_doze_instructions">In the next dialog, select \"All apps\" at the top, select this app and select and confirm \"Don\'t optimize\"</string>
     <string name="title_setup_data">Disable data saving</string>
     <string name="title_setup_inbox">Read messages</string>
-    <string name="title_setup_notifications">Manage notifications</string>
     <string name="title_setup_to_do">To do</string>
     <string name="title_setup_done">Done</string>
+
+    <string name="title_setup_export">Export settings</string>
+    <string name="title_setup_import">Import settings</string>
+    <string name="title_setup_import_do">Imported accounts will be added, not overwritten</string>
+    <string name="title_setup_password">Password</string>
+    <string name="title_setup_password_repeat">Repeat password</string>
+    <string name="title_setup_password_missing">Password missing</string>
+    <string name="title_setup_password_different">Passwords different</string>
+    <string name="title_setup_password_invalid">Password invalid</string>
+    <string name="title_setup_exported">Settings exported</string>
+    <string name="title_setup_imported">Settings imported</string>
+
+    <string name="title_setup_notifications">Manage notifications</string>
+    <string name="title_setup_reorder_accounts">Order accounts</string>
+    <string name="title_setup_reorder_folders">Order folders</string>
+    <string name="title_reset_order">Reset order</string>
     <string name="title_setup_theme">Select theme</string>
     <string name="title_setup_light_theme">Light theme</string>
     <string name="title_setup_dark_theme">Dark theme</string>
     <string name="title_setup_black_theme">Black theme</string>
     <string name="title_setup_system_theme">System theme</string>
+    <string name="title_setup_advanced">Advanced</string>
+
     <string name="title_setup_defaults">Restore defaults</string>
     <string name="title_setup_options">Options</string>
 
@@ -267,7 +274,6 @@
     <string name="title_use_ip">Use local IP address instead of host name</string>
     <string name="title_authorize">Select account</string>
     <string name="title_authorizing">Authorizing account &#8230;</string>
-    <string name="title_setup_advanced">Advanced</string>
     <string name="title_synchronize_account">Synchronize (receive messages)</string>
     <string name="title_synchronize_identity">Synchronize (send messages)</string>
     <string name="title_primary_account">Primary (default account)</string>
@@ -457,8 +463,6 @@
     <string name="title_search_device">Search on device</string>
     <string name="title_searching">Searching \'%1$s\'</string>
 
-    <string name="title_reset_order">Reset order</string>
-
     <string name="title_sort_on">Sort on</string>
     <string name="title_sort_on_time">Time</string>
     <string name="title_sort_on_unread">Unread</string>
@@ -613,7 +617,6 @@
     <string name="title_report">Report</string>
     <string name="title_fix">Fix</string>
     <string name="title_enable">Enable</string>
-    <string name="title_reorder">Reorder</string>
     <string name="title_no_ask_again">Do not ask this again</string>
     <string name="title_no_body">No message text found</string>
     <string name="title_no_charset">Unsupported encoding: %1$s</string>

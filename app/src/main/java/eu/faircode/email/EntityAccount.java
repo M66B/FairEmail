@@ -41,7 +41,7 @@ import java.util.Objects;
         indices = {
         }
 )
-public class EntityAccount implements Serializable {
+public class EntityAccount extends EntityOrder implements Serializable {
     static final String TABLE_NAME = "account";
 
     static final int DEFAULT_KEEP_ALIVE_INTERVAL = 19; // minutes
@@ -70,7 +70,6 @@ public class EntityAccount implements Serializable {
     public String name;
     public String signature; // obsolete
     public Integer color;
-    public Integer order;
 
     @NonNull
     public Boolean synchronize;
@@ -117,6 +116,16 @@ public class EntityAccount implements Serializable {
     void deleteNotificationChannel(Context context) {
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         nm.deleteNotificationChannel(getNotificationChannelId(id));
+    }
+
+    @Override
+    Long getSortId() {
+        return id;
+    }
+
+    @Override
+    String getSortTitle(Context context) {
+        return name;
     }
 
     public JSONObject toJSON() throws JSONException {
