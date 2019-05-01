@@ -340,7 +340,7 @@ public interface DaoMessage {
     @Query("UPDATE message SET ui_ignored = :ui_ignored WHERE id = :id")
     int setMessageUiIgnored(long id, boolean ui_ignored);
 
-    @Query("UPDATE message SET sent = :sent WHERE id = :id")
+    @Query("UPDATE message SET received = :sent, sent = :sent WHERE id = :id")
     int setMessageSent(long id, Long sent);
 
     @Query("UPDATE message SET receipt_request = :receipt_request WHERE id = :id")
