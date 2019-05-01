@@ -630,6 +630,27 @@ public class HtmlHelper {
     }
 
     static String toHtml(Spanned spanned) {
-        return HtmlCompat.toHtml(spanned, TO_HTML_PARAGRAPH_LINES_CONSECUTIVE);
+        String html = HtmlCompat.toHtml(spanned, TO_HTML_PARAGRAPH_LINES_CONSECUTIVE);
+
+        // @Google: why convert size to and from in a different way?
+        Document doc = Jsoup.parse(html);
+        for (Element element : doc.select("span")) {
+            String style = element.attr("style");
+            if (style.startsWith("font-size:")) {
+                int colon = style.indexOf(':');
+                int semi = style.indexOf("em;", colon);
+                if (semi > colon)
+                    try {
+                        String hsize = style.substring(colon + 1, semi).replace(',', '.');
+                        float size = Float.parseFloat(hsize);
+                        element.tagName(size < 1.0f ? "small" : "big");
+                        element.attributes().remove("style");
+                    } catch (NumberFormatException ex) {
+                        Log.e(ex);
+                    }
+            }
+        }
+
+        return doc.outerHtml();
     }
 }

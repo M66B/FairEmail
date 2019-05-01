@@ -37,6 +37,7 @@ import android.database.Cursor;
 import android.database.CursorWrapper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -58,8 +59,10 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
+import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
@@ -99,6 +102,8 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.colorpicker.ColorPickerDialog;
+import com.android.colorpicker.ColorPickerSwatch;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
@@ -414,6 +419,52 @@ public class FragmentCompose extends FragmentBase {
 
                         etBody.setText(ss);
                         etBody.setSelection(end);
+                        return true;
+                    }
+
+                    case R.string.title_style_size: {
+                        RelativeSizeSpan[] spans = ss.getSpans(start, end, RelativeSizeSpan.class);
+                        float size = (spans.length > 0 ? spans[0].getSizeChange() : 1.0f);
+
+                        // Match small/big
+                        if (size == 0.8f)
+                            size = 1.0f;
+                        else if (size == 1.0)
+                            size = 1.25f;
+                        else
+                            size = 0.8f;
+
+                        for (RelativeSizeSpan span : spans)
+                            ss.removeSpan(span);
+
+                        if (size != 1.0f)
+                            ss.setSpan(new RelativeSizeSpan(size), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                        etBody.setText(ss);
+                        etBody.setSelection(end);
+
+                        return false;
+                    }
+
+                    case R.string.title_style_color: {
+                        ForegroundColorSpan[] spans = ss.getSpans(start, end, ForegroundColorSpan.class);
+                        int color = (spans.length > 0 ? spans[0].getForegroundColor() : Color.TRANSPARENT);
+
+                        int[] colors = getContext().getResources().getIntArray(R.array.colorPicker);
+                        ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
+                        colorPickerDialog.initialize(R.string.title_account_color, colors, color, 4, colors.length);
+                        colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
+                            @Override
+                            public void onColorSelected(int color) {
+                                for (ForegroundColorSpan span : ss.getSpans(start, end, ForegroundColorSpan.class))
+                                    ss.removeSpan(span);
+                                ss.setSpan(new ForegroundColorSpan(color), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                etBody.setText(ss);
+                                etBody.setSelection(end);
+                            }
+                        });
+                        colorPickerDialog.show(getFragmentManager(), "colorpicker");
+
                         return true;
                     }
 
