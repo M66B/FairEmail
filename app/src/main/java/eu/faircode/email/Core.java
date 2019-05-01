@@ -687,45 +687,51 @@ class Core {
 
     static void onSynchronizeFolders(Context context, EntityAccount account, Store istore, State state) throws MessagingException {
         DB db = DB.getInstance(context);
+
+        Log.i("Start sync folders account=" + account.name);
+
+        // Get remote folders
+        Folder defaultFolder = istore.getDefaultFolder();
+        char separator = defaultFolder.getSeparator();
+        EntityLog.log(context, account.name + " folder separator=" + separator);
+
+        // Get remote folder attributes
+        Folder[] ifolders = defaultFolder.list("*");
+        Map<Folder, String[]> attrs = new HashMap<>();
+        Map<Folder, Boolean> subscribed = new HashMap<>();
+        for (Folder ifolder : ifolders) {
+            subscribed.put(ifolder, ifolder.isSubscribed());
+            attrs.put(ifolder, ((IMAPFolder) ifolder).getAttributes());
+        }
+        Log.i("Remote folder count=" + ifolders.length + " separator=" + separator);
+
+        // Get folder names
+        List<String> names = new ArrayList<>();
+        for (EntityFolder folder : db.folder().getFolders(account.id))
+            if (folder.tbc != null) {
+                Log.i(folder.name + " creating");
+                Folder ifolder = istore.getFolder(folder.name);
+                if (!ifolder.exists())
+                    ifolder.create(Folder.HOLDS_MESSAGES);
+                db.folder().resetFolderTbc(folder.id);
+                names.add(folder.name);
+            } else if (folder.tbd != null && folder.tbd) {
+                Log.i(folder.name + " deleting");
+                Folder ifolder = istore.getFolder(folder.name);
+                if (ifolder.exists())
+                    ifolder.delete(false);
+                db.folder().deleteFolder(folder.id);
+            } else
+                names.add(folder.name);
+        Log.i("Local folder count=" + names.size());
+
         try {
-            Log.i("Start sync folders account=" + account.name);
-
-            // Get remote folders
-            Folder defaultFolder = istore.getDefaultFolder();
-            char separator = defaultFolder.getSeparator();
-            EntityLog.log(context, account.name + " folder separator=" + separator);
-
-            Folder[] ifolders = defaultFolder.list("*");
-            Map<Folder, String[]> attrs = new HashMap<>();
-            for (Folder ifolder : ifolders)
-                attrs.put(ifolder, ((IMAPFolder) ifolder).getAttributes());
-            Log.i("Remote folder count=" + ifolders.length + " separator=" + separator);
-
             db.beginTransaction();
-
-            List<String> names = new ArrayList<>();
-            for (EntityFolder folder : db.folder().getFolders(account.id))
-                if (folder.tbc != null) {
-                    Log.i(folder.name + " creating");
-                    Folder ifolder = istore.getFolder(folder.name);
-                    if (!ifolder.exists())
-                        ifolder.create(Folder.HOLDS_MESSAGES);
-                    db.folder().resetFolderTbc(folder.id);
-                } else if (folder.tbd != null && folder.tbd) {
-                    Log.i(folder.name + " deleting");
-                    Folder ifolder = istore.getFolder(folder.name);
-                    if (ifolder.exists())
-                        ifolder.delete(false);
-                    db.folder().deleteFolder(folder.id);
-                } else
-                    names.add(folder.name);
-            Log.i("Local folder count=" + names.size());
 
             Map<String, EntityFolder> nameFolder = new HashMap<>();
             Map<String, List<EntityFolder>> parentFolders = new HashMap<>();
             for (Folder ifolder : ifolders) {
-                String fullName = ifolder.getFullName();
-                boolean subscribed = ifolder.isSubscribed();
+                String fullName = ifolder.getFullName(); // No I/O
                 String[] attr = attrs.get(ifolder);
                 String type = EntityFolder.getType(attr, fullName);
 
@@ -747,7 +753,7 @@ class Core {
                         folder.display = display;
                         folder.type = (EntityFolder.SYSTEM.equals(type) ? type : EntityFolder.USER);
                         folder.synchronize = false;
-                        folder.subscribed = subscribed;
+                        folder.subscribed = subscribed.get(ifolder);
                         folder.poll = ("imap.gmail.com".equals(account.host));
                         folder.sync_days = EntityFolder.DEFAULT_SYNC;
                         folder.keep_days = EntityFolder.DEFAULT_KEEP;
@@ -757,7 +763,7 @@ class Core {
                         Log.i(folder.name + " exists type=" + folder.type);
 
                         if (folder.subscribed == null || !folder.subscribed.equals(subscribed))
-                            db.folder().setFolderSubscribed(folder.id, subscribed);
+                            db.folder().setFolderSubscribed(folder.id, subscribed.get(ifolder));
 
                         if (folder.display == null) {
                             if (display != null) {
