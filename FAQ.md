@@ -42,8 +42,7 @@ Anything on this list is in random order and *might* be added in the near future
 
 ## Frequently requested features
 
-* [Rich text](https://en.wikipedia.org/wiki/Formatted_text) / [Markdown](https://en.wikipedia.org/wiki/Markdown) support: besides that few people would use this on a small mobile device, Android doesn't support a rich text editor and most rich text editor open source projects are abandoned. See [here](https://forum.xda-developers.com/showpost.php?p=79061829&postcount=4919) for some more details. FairEmail supports bold, italic, underline, text size and color via the text selection menu.
-* *Widget to read messages*: widgets can have limited user interaction only, so a widget to read e-mail would not be very useful. Moreover, it would be not very useful to duplicate functions which are already available in the app.
+* *Widget to read messages*: widgets can have limited user interaction only, so a widget to read conversations would not be very convenient. Moreover, it would be not very useful to duplicate functions which are already available in the app.
 * *Design*: the design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. See below for the design goals.
 * *ActiveSync*: using the Exchange ActiveSync protocol requires [a license](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing), so this cannot be added.
 
@@ -166,6 +165,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(96) Where can I find the IMAP and SMTP settings?](#user-content-faq96)
 * [(97) What is 'cleanup' ?](#user-content-faq97)
 * [(98) Why can I still pick contacts after revoking contacts permissions?](#user-content-faq98)
+* [(99) Can you add a rich text or markdown editor?](#user-content-faq99)
 
 [I have another question.](#support)
 
@@ -1600,6 +1600,18 @@ Note that the cleanup job will only run when the synchronize service is active.
 
 After revoking contacts permissions Android does not allow FairEmail access to your contacts anymore.
 However, picking contacts is delegated to and done by Android and not by FairEmail, so this will still be possible without contacts permissions.
+
+<br />
+
+<a name="faq99"></a>
+**(99) Can you add a rich text or markdown editor?**
+
+FairEmail provides common text formatting (bold, italic, underline, text size and color) via the Android text selection menu.
+
+A [Rich text](https://en.wikipedia.org/wiki/Formatted_text) or [Markdown](https://en.wikipedia.org/wiki/Markdown) editor
+would not be used by many people on a small mobile device and, more important,
+Android doesn't support a rich text editor and most rich text editor open source projects are abandoned.
+See [here](https://forum.xda-developers.com/showpost.php?p=79061829&postcount=4919) for some more details about this.
 
 <br />
 
