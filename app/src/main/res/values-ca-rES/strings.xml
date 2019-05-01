@@ -36,11 +36,6 @@
     <string name="title_edit_identity">Edita identitat</string>
     <string name="title_edit_folder">Edita la carpeta</string>
     <string name="title_setup">Configuració</string>
-    <string name="title_setup_export">Exporta la configuració</string>
-    <string name="title_setup_import">Importa una configuració</string>
-    <string name="title_setup_import_do">Els comptes importats no es sobreescriuran</string>
-    <string name="title_setup_exported">Configuració exportada</string>
-    <string name="title_setup_imported">Configuració importada</string>
     <string name="title_setup_account_remark">Per rebre correu-e</string>
     <string name="title_setup_identity_remark">Per enviar correu-e</string>
     <string name="title_setup_doze_remark">Per rebre correu-e contínuament (opcional)</string>
@@ -48,8 +43,14 @@
     <string name="title_setup_data">Desactiva estalvi de dades</string>
     <string name="title_setup_to_do">Per fer</string>
     <string name="title_setup_done">Fet</string>
+    <string name="title_setup_export">Exporta la configuració</string>
+    <string name="title_setup_import">Importa una configuració</string>
+    <string name="title_setup_import_do">Els comptes importats no es sobreescriuran</string>
+    <string name="title_setup_exported">Configuració exportada</string>
+    <string name="title_setup_imported">Configuració importada</string>
     <string name="title_setup_light_theme">Tema clar</string>
     <string name="title_setup_dark_theme">Tema fosc</string>
+    <string name="title_setup_advanced">Avançat</string>
     <string name="title_advanced">Opcions avançades</string>
     <string name="title_advanced_browse">Busca missatges en el servidor remot</string>
     <string name="title_advanced_avatars">Mostra les fotos dels contactes</string>
@@ -75,7 +76,6 @@
     <string name="title_password">Contrasenya</string>
     <string name="title_authorize">Selecciona un compte</string>
     <string name="title_authorizing">Autoritzant compte &#8230;</string>
-    <string name="title_setup_advanced">Avançat</string>
     <string name="title_synchronize_account">Sincronitza (rebre missatges)</string>
     <string name="title_synchronize_identity">Sincronitza (envia missatges)</string>
     <string name="title_primary_account">Primària (compte per defecte)</string>
