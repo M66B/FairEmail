@@ -75,12 +75,22 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
 
         private void bindTo(TupleFolderNav folder) {
             if (EntityFolder.OUTBOX.equals(folder.type)) {
-                ivItem.setImageResource(R.drawable.baseline_send_24);
+                if ("syncing".equals(folder.sync_state))
+                    ivItem.setImageResource(R.drawable.baseline_compare_arrows_24);
+                else
+                    ivItem.setImageResource(R.drawable.baseline_send_24);
+
                 ivItem.clearColorFilter();
             } else {
-                ivItem.setImageResource("connected".equals(folder.state)
-                        ? R.drawable.baseline_folder_24
-                        : R.drawable.baseline_folder_open_24);
+                if ("syncing".equals(folder.sync_state))
+                    ivItem.setImageResource(R.drawable.baseline_compare_arrows_24);
+                else if ("downloading".equals(folder.sync_state))
+                    ivItem.setImageResource(R.drawable.baseline_cloud_download_24);
+                else
+                    ivItem.setImageResource("connected".equals(folder.state)
+                            ? R.drawable.baseline_folder_24
+                            : R.drawable.baseline_folder_open_24);
+
                 if (folder.color == null)
                     ivItem.clearColorFilter();
                 else
