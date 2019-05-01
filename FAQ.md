@@ -1446,6 +1446,9 @@ and why you can make a contact a favorite or exclude from favorites by long pres
 
 The list of contacts is sorted on number of times contacted and the last time contacted.
 
+Local contacts will be used only when no contacts permission has been granted to FairEmail.
+You can revoke contacts permission in the Android app settings.
+
 <br />
 
 <a name="faq85"></a>
