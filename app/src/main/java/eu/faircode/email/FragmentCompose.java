@@ -345,10 +345,10 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                 menu.add(1, R.string.title_style_bold, 1, R.string.title_style_bold).setIcon(R.drawable.baseline_format_bold_24);
-                menu.add(1, R.string.title_style_italic, 1, R.string.title_style_italic).setIcon(R.drawable.baseline_format_italic_24);
-                menu.add(1, R.string.title_style_underline, 1, R.string.title_style_underline).setIcon(R.drawable.baseline_format_underlined_24);
-                menu.add(1, R.string.title_style_size, 1, R.string.title_style_size).setIcon(R.drawable.baseline_format_size_24);
-                menu.add(1, R.string.title_style_color, 1, R.string.title_style_color).setIcon(R.drawable.baseline_format_color_text_24);
+                menu.add(1, R.string.title_style_italic, 2, R.string.title_style_italic).setIcon(R.drawable.baseline_format_italic_24);
+                menu.add(1, R.string.title_style_underline, 3, R.string.title_style_underline).setIcon(R.drawable.baseline_format_underlined_24);
+                menu.add(1, R.string.title_style_size, 4, R.string.title_style_size).setIcon(R.drawable.baseline_format_size_24);
+                menu.add(1, R.string.title_style_color, 5, R.string.title_style_color).setIcon(R.drawable.baseline_format_color_text_24);
                 return true;
             }
 
@@ -1018,7 +1018,7 @@ public class FragmentCompose extends FragmentBase {
                         uri = null;
                 }
 
-                View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_link, null);
+                View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_insert_link, null);
                 final EditText etLink = view.findViewById(R.id.etLink);
                 final TextView tvInsecure = view.findViewById(R.id.tvInsecure);
 
