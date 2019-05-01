@@ -190,7 +190,7 @@
     <string name="title_advanced_autonext">Automatically go to next conversation on close conversation</string>
     <string name="title_advanced_autoread">Automatically mark messages read on moving messages</string>
     <string name="title_advanced_automove">Confirm moving messages</string>
-    <string name="title_advanced_autoresize">Automatically resize images for displaying on screens</string>
+    <string name="title_advanced_autoresize">Automatically resize attached and embedded images</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_sender">Allow editing sender address</string>
     <string name="title_advanced_prefix_once">Prefix subject only once on replying or forwarding</string>
@@ -433,7 +433,6 @@
     <string name="title_send">Send</string>
     <string name="title_send_at">Send at &#8230;</string>
 
-    <string name="title_no_selection">Nothing selected</string>
     <string name="title_style_bold">Bold</string>
     <string name="title_style_italic">Italic</string>
     <string name="title_style_underline">Underline</string>
