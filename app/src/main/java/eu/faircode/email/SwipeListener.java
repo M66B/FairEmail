@@ -10,10 +10,10 @@ import androidx.annotation.NonNull;
 public class SwipeListener implements View.OnTouchListener {
     private final GestureDetector gestureDetector;
 
-    public SwipeListener(Context context, final ISwipeListener listener) {
+    SwipeListener(final Context context, final ISwipeListener listener) {
         gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
-            private static final int MOVE_THRESHOLD = 100;
-            private static final int SPEED_THRESHOLD = 100;
+            private final int MOVE_THRESHOLD = Helper.dp2pixels(context, 100); // dp
+            private final int SPEED_THRESHOLD = Helper.dp2pixels(context, 100); // dp
 
             @Override
             public boolean onFling(MotionEvent me1, MotionEvent me2, float vx, float vy) {
@@ -21,9 +21,10 @@ public class SwipeListener implements View.OnTouchListener {
                     return false;
 
                 boolean consumed = false;
-                float dx = me2.getX() - me1.getX();
-                float dy = me2.getY() - me1.getY();
+                int dx = Math.round(me2.getX() - me1.getX());
+                int dy = Math.round(me2.getY() - me1.getY());
                 if (Math.abs(dx) > Math.abs(dy)) {
+                    Log.i("Swipe dx=" + dx + "/" + MOVE_THRESHOLD + " vx=" + vx + "/" + SPEED_THRESHOLD);
                     if (Math.abs(dx) > MOVE_THRESHOLD && Math.abs(vx) > SPEED_THRESHOLD)
                         try {
                             if (dx > 0)

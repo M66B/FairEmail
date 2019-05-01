@@ -556,6 +556,23 @@ public class FragmentMessages extends FragmentBase {
             boolean swipenav = prefs.getBoolean("swipenav", true);
             if (swipenav) {
                 Log.i("Swipe navigation");
+
+                final SwipeListener swipeListener = new SwipeListener(getContext(), new SwipeListener.ISwipeListener() {
+                    @Override
+                    public boolean onSwipeRight() {
+                        if (previous != null)
+                            navigate(previous, true);
+                        return (previous != null);
+                    }
+
+                    @Override
+                    public boolean onSwipeLeft() {
+                        if (next != null)
+                            navigate(next, false);
+                        return (next != null);
+                    }
+                });
+
                 rvMessage.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
                     @Override
                     public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent ev) {
@@ -1002,22 +1019,6 @@ public class FragmentMessages extends FragmentBase {
             return message;
         }
     };
-
-    private SwipeListener swipeListener = new SwipeListener(getContext(), new SwipeListener.ISwipeListener() {
-        @Override
-        public boolean onSwipeRight() {
-            if (previous != null)
-                navigate(previous, true);
-            return (previous != null);
-        }
-
-        @Override
-        public boolean onSwipeLeft() {
-            if (next != null)
-                navigate(next, false);
-            return (next != null);
-        }
-    });
 
     private void onActionMove(String folderType) {
         Bundle args = new Bundle();
