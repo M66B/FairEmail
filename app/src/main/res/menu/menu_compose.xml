@@ -20,6 +20,11 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/menu_link"
+        android:title="@string/title_style_link"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_image"
         android:title="@string/title_style_image"
         app:showAsAction="never" />

@@ -501,7 +501,7 @@ public class FragmentCompose extends FragmentBase {
                 int action = item.getItemId();
                 switch (action) {
                     case R.id.menu_link:
-                        onMenuLink();
+                        onActionLink();
                         return true;
                     case R.id.menu_image:
                         onActionImage();
@@ -927,6 +927,7 @@ public class FragmentCompose extends FragmentBase {
         //menu.findItem(R.id.menu_addresses).setVisible(working >= 0);
         menu.findItem(R.id.menu_zoom).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_style_toolbar).setVisible(state == State.LOADED);
+        menu.findItem(R.id.menu_link).setVisible(state == State.LOADED && !style);
         menu.findItem(R.id.menu_image).setVisible(state == State.LOADED && !style);
         menu.findItem(R.id.menu_attachment).setVisible(state == State.LOADED && !style);
         menu.findItem(R.id.menu_clear).setVisible(state == State.LOADED);
@@ -936,6 +937,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_send_after).setVisible(state == State.LOADED);
 
         menu.findItem(R.id.menu_zoom).setEnabled(!busy);
+        menu.findItem(R.id.menu_link).setEnabled(!busy);
         menu.findItem(R.id.menu_image).setEnabled(!busy);
         menu.findItem(R.id.menu_attachment).setEnabled(!busy);
         menu.findItem(R.id.menu_clear).setEnabled(!busy);
@@ -966,6 +968,9 @@ public class FragmentCompose extends FragmentBase {
                 return true;
             case R.id.menu_style_toolbar:
                 onMenuStyleToolbar();
+                return true;
+            case R.id.menu_link:
+                onActionLink();
                 return true;
             case R.id.menu_image:
                 onActionImage();
@@ -1042,83 +1047,6 @@ public class FragmentCompose extends FragmentBase {
 
         etBody.setText(ss);
         etBody.setSelection(end);
-    }
-
-    private void onMenuLink() {
-        Uri uri = null;
-
-        ClipboardManager cbm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-        if (cbm.hasPrimaryClip()) {
-            String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(getContext()).toString();
-            uri = Uri.parse(link);
-            if (uri.getScheme() == null)
-                uri = null;
-        }
-
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_insert_link, null);
-        final EditText etLink = view.findViewById(R.id.etLink);
-        final TextView tvInsecure = view.findViewById(R.id.tvInsecure);
-
-        etLink.setText(uri == null ? "https://" : uri.toString());
-        tvInsecure.setVisibility(View.GONE);
-
-        etLink.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                tvInsecure.setVisibility("http".equals(Uri.parse(s.toString()).getScheme()) ? View.VISIBLE : View.GONE);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
-
-        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setView(view)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        int start = etBody.getSelectionStart();
-                        int end = etBody.getSelectionEnd();
-
-                        if (start < 0)
-                            start = 0;
-                        if (end < 0)
-                            end = 0;
-
-                        if (start > end) {
-                            int tmp = start;
-                            start = end;
-                            end = tmp;
-                        }
-
-                        String link = etLink.getText().toString();
-                        if (start == end) {
-                            etBody.setText(etBody.getText().insert(start, link));
-                            end = start + link.length();
-                        }
-
-                        SpannableString ss = new SpannableString(etBody.getText());
-
-                        for (URLSpan span : ss.getSpans(start, end, URLSpan.class))
-                            ss.removeSpan(span);
-
-                        ss.setSpan(new URLSpan(link), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                        etBody.setText(ss);
-                        etBody.setSelection(end);
-                    }
-                })
-                .show();
-        new Handler().post(new Runnable() {
-            @Override
-            public void run() {
-                etLink.requestFocus();
-            }
-        });
     }
 
     private void onMenuContactGroup() {
@@ -1347,6 +1275,83 @@ public class FragmentCompose extends FragmentBase {
 
                     }
                 });
+    }
+
+    private void onActionLink() {
+        Uri uri = null;
+
+        ClipboardManager cbm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+        if (cbm.hasPrimaryClip()) {
+            String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(getContext()).toString();
+            uri = Uri.parse(link);
+            if (uri.getScheme() == null)
+                uri = null;
+        }
+
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_insert_link, null);
+        final EditText etLink = view.findViewById(R.id.etLink);
+        final TextView tvInsecure = view.findViewById(R.id.tvInsecure);
+
+        etLink.setText(uri == null ? "https://" : uri.toString());
+        tvInsecure.setVisibility(View.GONE);
+
+        etLink.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                tvInsecure.setVisibility("http".equals(Uri.parse(s.toString()).getScheme()) ? View.VISIBLE : View.GONE);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+
+        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                .setView(view)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        int start = etBody.getSelectionStart();
+                        int end = etBody.getSelectionEnd();
+
+                        if (start < 0)
+                            start = 0;
+                        if (end < 0)
+                            end = 0;
+
+                        if (start > end) {
+                            int tmp = start;
+                            start = end;
+                            end = tmp;
+                        }
+
+                        String link = etLink.getText().toString();
+                        if (start == end) {
+                            etBody.setText(etBody.getText().insert(start, link));
+                            end = start + link.length();
+                        }
+
+                        SpannableString ss = new SpannableString(etBody.getText());
+
+                        for (URLSpan span : ss.getSpans(start, end, URLSpan.class))
+                            ss.removeSpan(span);
+
+                        ss.setSpan(new URLSpan(link), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        etBody.setText(ss);
+                        etBody.setSelection(end);
+                    }
+                })
+                .show();
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                etLink.requestFocus();
+            }
+        });
     }
 
     private void onActionImage() {
