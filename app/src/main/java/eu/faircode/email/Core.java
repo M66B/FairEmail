@@ -1283,18 +1283,18 @@ class Core {
                         attachment.id = db.attachment().insertAttachment(attachment);
                     }
 
-                    if (message.received > account.created &&
-                            !EntityFolder.ARCHIVE.equals(folder.type) &&
-                            !EntityFolder.TRASH.equals(folder.type) &&
-                            !EntityFolder.JUNK.equals(folder.type))
-                        updateContactInfo(context, folder, message);
-
                     runRules(context, imessage, message, rules);
 
                     db.setTransactionSuccessful();
                 } finally {
                     db.endTransaction();
                 }
+
+                if (message.received > account.created &&
+                        !EntityFolder.ARCHIVE.equals(folder.type) &&
+                        !EntityFolder.TRASH.equals(folder.type) &&
+                        !EntityFolder.JUNK.equals(folder.type))
+                    updateContactInfo(context, folder, message);
             } else {
                 if (!message.seen.equals(seen) || !message.seen.equals(message.ui_seen)) {
                     update = true;
