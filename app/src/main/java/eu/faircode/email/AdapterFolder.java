@@ -647,14 +647,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                     String name1 = f1.getDisplayName(context);
                     String name2 = f2.getDisplayName(context);
-                    int n = collator.compare(name1, name2);
-                    if (n != 0)
-                        return n;
-
-                    if (f1.accountName == null || f2.accountName == null)
-                        return 0;
-                    return collator.compare(f1.accountName, f2.accountName);
-
+                    return collator.compare(name1, name2);
                 } else {
                     int i1 = EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type);
                     int i2 = EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type);

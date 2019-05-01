@@ -25,7 +25,7 @@ public class TupleFolderSort extends EntityFolder {
     public String accountName;
 
     @Override
-    String getSortTitle(Context context) {
-        return accountName + "/" + super.getSortTitle(context);
+    String[] getSortTitle(Context context) {
+        return new String[]{getDisplayName(context), accountName};
     }
 }

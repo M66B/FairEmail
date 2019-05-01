@@ -26,5 +26,7 @@ public abstract class EntityOrder {
 
     abstract Long getSortId();
 
-    abstract String getSortTitle(Context context);
+    abstract String getSortKey(Context context);
+
+    abstract String[] getSortTitle(Context context);
 }

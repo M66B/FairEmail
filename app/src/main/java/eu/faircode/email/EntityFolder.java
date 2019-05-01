@@ -235,8 +235,13 @@ public class EntityFolder extends EntityOrder implements Serializable {
     }
 
     @Override
-    String getSortTitle(Context context) {
-        return Helper.localizeFolderName(context, name);
+    String getSortKey(Context context) {
+        return getDisplayName(context);
+    }
+
+    @Override
+    String[] getSortTitle(Context context) {
+        return new String[]{getDisplayName(context), null};
     }
 
     boolean isOutgoing() {

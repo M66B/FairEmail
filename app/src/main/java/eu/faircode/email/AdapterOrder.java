@@ -49,15 +49,19 @@ public class AdapterOrder extends RecyclerView.Adapter<AdapterOrder.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvTitle;
+        private TextView tvSubTitle;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             tvTitle = itemView.findViewById(R.id.tvTitle);
+            tvSubTitle = itemView.findViewById(R.id.tvSubTitle);
         }
 
         private void bindTo(EntityOrder item) {
-            tvTitle.setText(item.getSortTitle(context));
+            String[] text = item.getSortTitle(context);
+            tvTitle.setText(text[0]);
+            tvSubTitle.setText(text[1]);
         }
     }
 
@@ -82,8 +86,8 @@ public class AdapterOrder extends RecyclerView.Adapter<AdapterOrder.ViewHolder> 
                 if (o != 0)
                     return o;
 
-                String name1 = s1.getSortTitle(context);
-                String name2 = s2.getSortTitle(context);
+                String name1 = s1.getSortKey(context);
+                String name2 = s2.getSortKey(context);
                 return collator.compare(name1, name2);
             }
         });

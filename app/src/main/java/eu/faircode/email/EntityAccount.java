@@ -124,8 +124,13 @@ public class EntityAccount extends EntityOrder implements Serializable {
     }
 
     @Override
-    String getSortTitle(Context context) {
+    String getSortKey(Context context) {
         return name;
+    }
+
+    @Override
+    String[] getSortTitle(Context context) {
+        return new String[]{name, null};
     }
 
     public JSONObject toJSON() throws JSONException {
