@@ -436,6 +436,9 @@
     <string name="title_no_selection">Nothing selected</string>
     <string name="title_style_bold">Bold</string>
     <string name="title_style_italic">Italic</string>
+    <string name="title_style_underline">Underline</string>
+    <string name="title_style_size">Size</string>
+    <string name="title_style_color">Color</string>
     <string name="title_style_clear">Clear formatting</string>
     <string name="title_style_link">Insert link</string>
     <string name="title_style_image">Insert image</string>

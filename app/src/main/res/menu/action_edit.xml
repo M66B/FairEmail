@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/menu_bold"
-        android:icon="@drawable/baseline_format_bold_24"
-        android:title="@string/title_style_bold" />
-
-    <item
-        android:id="@+id/menu_italic"
-        android:icon="@drawable/baseline_format_italic_24"
-        android:title="@string/title_style_italic" />
-
-    <item
         android:id="@+id/menu_link"
         android:icon="@drawable/baseline_insert_link_24"
         android:title="@string/title_style_link" />

@@ -53,7 +53,6 @@ import android.provider.ContactsContract;
 import android.provider.OpenableColumns;
 import android.text.Editable;
 import android.text.Html;
-import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -65,6 +64,7 @@ import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.util.TypedValue;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -341,6 +341,92 @@ public class FragmentCompose extends FragmentBase {
 
         setZoom();
 
+        etBody.setCustomSelectionActionModeCallback(new ActionMode.Callback() {
+            @Override
+            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                menu.add(1, R.string.title_style_bold, 1, R.string.title_style_bold).setIcon(R.drawable.baseline_format_bold_24);
+                menu.add(1, R.string.title_style_italic, 1, R.string.title_style_italic).setIcon(R.drawable.baseline_format_italic_24);
+                menu.add(1, R.string.title_style_underline, 1, R.string.title_style_underline).setIcon(R.drawable.baseline_format_underlined_24);
+                menu.add(1, R.string.title_style_size, 1, R.string.title_style_size).setIcon(R.drawable.baseline_format_size_24);
+                menu.add(1, R.string.title_style_color, 1, R.string.title_style_color).setIcon(R.drawable.baseline_format_color_text_24);
+                return true;
+            }
+
+            @Override
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                return false;
+            }
+
+            @Override
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                Log.i("Action=" + item.getGroupId() + ":" + item.getItemId());
+
+                if (item.getGroupId() != 1)
+                    return false;
+
+                int s = etBody.getSelectionStart();
+                int e = etBody.getSelectionEnd();
+
+                if (s < 0)
+                    s = 0;
+                if (e < 0)
+                    e = 0;
+
+                if (s > e) {
+                    int tmp = s;
+                    s = e;
+                    e = tmp;
+                }
+
+                final int start = s;
+                final int end = e;
+
+                final SpannableString ss = new SpannableString(etBody.getText());
+
+                switch (item.getItemId()) {
+                    case R.string.title_style_bold:
+                    case R.string.title_style_italic: {
+                        int style = (item.getItemId() == R.string.title_style_bold ? Typeface.BOLD : Typeface.ITALIC);
+                        boolean has = false;
+                        for (StyleSpan span : ss.getSpans(start, end, StyleSpan.class))
+                            if (span.getStyle() == style) {
+                                has = true;
+                                ss.removeSpan(span);
+                            }
+
+                        if (!has)
+                            ss.setSpan(new StyleSpan(style), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                        etBody.setText(ss);
+                        etBody.setSelection(end);
+                        return true;
+                    }
+
+                    case R.string.title_style_underline: {
+                        boolean has = false;
+                        for (UnderlineSpan span : ss.getSpans(start, end, UnderlineSpan.class)) {
+                            has = true;
+                            ss.removeSpan(span);
+                        }
+
+                        if (!has)
+                            ss.setSpan(new UnderlineSpan(), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                        etBody.setText(ss);
+                        etBody.setSelection(end);
+                        return true;
+                    }
+
+                    default:
+                        return false;
+                }
+            }
+
+            @Override
+            public void onDestroyActionMode(ActionMode mode) {
+            }
+        });
+
         ibReferenceEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -364,8 +450,6 @@ public class FragmentCompose extends FragmentBase {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int action = item.getItemId();
                 switch (action) {
-                    case R.id.menu_bold:
-                    case R.id.menu_italic:
                     case R.id.menu_clear:
                     case R.id.menu_link:
                         onMenuStyle(item.getItemId());
@@ -917,23 +1001,6 @@ public class FragmentCompose extends FragmentBase {
         final SpannableString ss = new SpannableString(etBody.getText());
 
         switch (id) {
-            case R.id.menu_bold:
-            case R.id.menu_italic:
-                if (start == end)
-                    Snackbar.make(view, R.string.title_no_selection, Snackbar.LENGTH_LONG).show();
-                else {
-                    int style = (id == R.id.menu_bold ? Typeface.BOLD : Typeface.ITALIC);
-                    boolean has = false;
-                    for (StyleSpan span : ss.getSpans(start, end, StyleSpan.class))
-                        if (span.getStyle() == style) {
-                            has = true;
-                            ss.removeSpan(span);
-                        }
-                    if (!has)
-                        ss.setSpan(new StyleSpan(style), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                }
-                break;
-
             case R.id.menu_clear:
                 for (Object span : ss.getSpans(0, ss.length(), Object.class))
                     if (!(span instanceof ImageSpan))
@@ -1735,10 +1802,7 @@ public class FragmentCompose extends FragmentBase {
         EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
 
         // Workaround underlines left by Android
-        Spannable spannable = etBody.getText();
-        UnderlineSpan[] uspans = spannable.getSpans(0, spannable.length(), UnderlineSpan.class);
-        for (UnderlineSpan uspan : uspans)
-            spannable.removeSpan(uspan);
+        etBody.clearComposingText();
 
         Bundle args = new Bundle();
         args.putLong("id", working);
@@ -1750,7 +1814,7 @@ public class FragmentCompose extends FragmentBase {
         args.putString("cc", etCc.getText().toString().trim());
         args.putString("bcc", etBcc.getText().toString().trim());
         args.putString("subject", etSubject.getText().toString().trim());
-        args.putString("body", HtmlHelper.toHtml(spannable));
+        args.putString("body", HtmlHelper.toHtml(etBody.getText()));
         args.putBoolean("empty", isEmpty());
 
         Log.i("Run execute id=" + working);
