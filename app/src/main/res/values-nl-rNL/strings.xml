@@ -284,6 +284,7 @@
     <string name="title_sync_days_remark">Een hogere waarde verhoogt het batterij- en dataverbruik</string>
     <string name="title_keep_days">Bewaren van berichten (dagen)</string>
     <string name="title_keep_all">Bewaar alle berichten</string>
+    <string name="title_auto_delete">Automatisch oude berichten verwijderen</string>
     <string name="title_folder_name_missing">Mapnaam ontbreekt</string>
     <string name="title_folder_exists">Map %1$s bestaat</string>
     <string name="title_folder_delete">Deze map en de berichten die het bevat permanent verwijderen?</string>
