@@ -369,7 +369,6 @@
     <string name="title_save">Kaydet</string>
     <string name="title_send">Gönder</string>
     <string name="title_send_at">&#8230;\'te gönder</string>
-    <string name="title_no_selection">Seçili hiçbir şey yok</string>
     <string name="title_style_bold">Kalın yazı</string>
     <string name="title_style_italic">Eğik yazı</string>
     <string name="title_style_clear">Biçimlendirmeyi temizle</string>

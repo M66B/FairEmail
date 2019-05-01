@@ -300,6 +300,7 @@
     <string name="title_sync_days_remark">Navýšení této hodnoty zvýší využití baterie a spotřebu dat</string>
     <string name="title_keep_days">Uchovávat zprávy (dny)</string>
     <string name="title_keep_all">Uchovávat všechny zprávy</string>
+    <string name="title_auto_delete">Automaticky mazat staré zprávy</string>
     <string name="title_folder_name_missing">Chybí název složky</string>
     <string name="title_folder_exists">Složka %1$s již existuje</string>
     <string name="title_folder_delete">Trvale odstranit tuto složku a všechny její zprávy?</string>
@@ -394,7 +395,6 @@
     <string name="title_save">Uložit</string>
     <string name="title_send">Odeslat</string>
     <string name="title_send_at">Odeslat později &#8230;</string>
-    <string name="title_no_selection">Nic nevybráno</string>
     <string name="title_style_bold">Tučně</string>
     <string name="title_style_italic">Kurzíva</string>
     <string name="title_style_clear">Vymazat formátování</string>

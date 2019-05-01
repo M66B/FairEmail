@@ -112,6 +112,8 @@
     <string name="title_setup_exported">Innstillinger eksportert</string>
     <string name="title_setup_imported">Innstillinger importert</string>
     <string name="title_setup_notifications">Administrer varsler</string>
+    <string name="title_setup_reorder_accounts">Sortere kontoer</string>
+    <string name="title_setup_reorder_folders">Sortere mapper</string>
     <string name="title_reset_order">Tilbakestill rekkefølge</string>
     <string name="title_setup_theme">Velg tema</string>
     <string name="title_setup_light_theme">Lyst tema</string>
@@ -282,6 +284,7 @@
     <string name="title_sync_days_remark">Ved å øke denne verdien øker batteriet og dataforbruket</string>
     <string name="title_keep_days">Beholde meldinger (dager)</string>
     <string name="title_keep_all">Beholde alle meldinger</string>
+    <string name="title_auto_delete">Slett gamle meldinger automatisk</string>
     <string name="title_folder_name_missing">Mappenavn mangler</string>
     <string name="title_folder_exists">Mappen %1$s finnes</string>
     <string name="title_folder_delete">Slett denne mappen permanent og alle meldinger den inneholder?</string>
@@ -376,9 +379,11 @@
     <string name="title_save">Lagre</string>
     <string name="title_send">Send</string>
     <string name="title_send_at">Sender &#8230;</string>
-    <string name="title_no_selection">Ingenting er valgt</string>
     <string name="title_style_bold">Fet</string>
     <string name="title_style_italic">Kursiv</string>
+    <string name="title_style_underline">Understrek</string>
+    <string name="title_style_size">Størrelse</string>
+    <string name="title_style_color">Farge</string>
     <string name="title_style_clear">Fjern formatering</string>
     <string name="title_style_link">Sett inn lenke</string>
     <string name="title_style_image">Sett inn bilde</string>
