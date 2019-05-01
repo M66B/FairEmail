@@ -42,7 +42,7 @@ Anything on this list is in random order and *might* be added in the near future
 
 ## Frequently requested features
 
-* [Rich text](https://en.wikipedia.org/wiki/Formatted_text) / [Markdown](https://en.wikipedia.org/wiki/Markdown) support: besides that very few people would use this on a small mobile device, Android doesn't support a rich text editor and most rich text editor open source projects are abandoned. See [here](https://forum.xda-developers.com/showpost.php?p=79061829&postcount=4919) for some more details.
+* [Rich text](https://en.wikipedia.org/wiki/Formatted_text) / [Markdown](https://en.wikipedia.org/wiki/Markdown) support: besides that few people would use this on a small mobile device, Android doesn't support a rich text editor and most rich text editor open source projects are abandoned. See [here](https://forum.xda-developers.com/showpost.php?p=79061829&postcount=4919) for some more details. FairEmail supports bold, italic, underline, text size and color via the text selection menu.
 * *Widget to read messages*: widgets can have limited user interaction only, so a widget to read e-mail would not be very useful. Moreover, it would be not very useful to duplicate functions which are already available in the app.
 * *Design*: the design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. See below for the design goals.
 * *ActiveSync*: using the Exchange ActiveSync protocol requires [a license](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing), so this cannot be added.
