@@ -369,22 +369,19 @@ public class FragmentCompose extends FragmentBase {
                 if (item.getGroupId() != 1)
                     return false;
 
-                int s = etBody.getSelectionStart();
-                int e = etBody.getSelectionEnd();
+                int start = etBody.getSelectionStart();
+                int end = etBody.getSelectionEnd();
 
-                if (s < 0)
-                    s = 0;
-                if (e < 0)
-                    e = 0;
+                if (start < 0)
+                    start = 0;
+                if (end < 0)
+                    end = 0;
 
-                if (s > e) {
-                    int tmp = s;
-                    s = e;
-                    e = tmp;
+                if (start > end) {
+                    int tmp = start;
+                    start = end;
+                    end = tmp;
                 }
-
-                final int start = s;
-                final int end = e;
 
                 final SpannableString ss = new SpannableString(etBody.getText());
 
@@ -442,11 +439,13 @@ public class FragmentCompose extends FragmentBase {
 
                         etBody.setText(ss);
                         etBody.setSelection(end);
-
                         return false;
                     }
 
                     case R.string.title_style_color: {
+                        final int s = start;
+                        final int e = end;
+
                         ForegroundColorSpan[] spans = ss.getSpans(start, end, ForegroundColorSpan.class);
                         int color = (spans.length > 0 ? spans[0].getForegroundColor() : Color.TRANSPARENT);
 
@@ -456,11 +455,11 @@ public class FragmentCompose extends FragmentBase {
                         colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
                             @Override
                             public void onColorSelected(int color) {
-                                for (ForegroundColorSpan span : ss.getSpans(start, end, ForegroundColorSpan.class))
+                                for (ForegroundColorSpan span : ss.getSpans(s, e, ForegroundColorSpan.class))
                                     ss.removeSpan(span);
-                                ss.setSpan(new ForegroundColorSpan(color), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                ss.setSpan(new ForegroundColorSpan(color), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 etBody.setText(ss);
-                                etBody.setSelection(end);
+                                etBody.setSelection(e);
                             }
                         });
                         colorPickerDialog.show(getFragmentManager(), "colorpicker");
@@ -501,9 +500,8 @@ public class FragmentCompose extends FragmentBase {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int action = item.getItemId();
                 switch (action) {
-                    case R.id.menu_clear:
                     case R.id.menu_link:
-                        onMenuStyle(item.getItemId());
+                        onMenuLink();
                         return true;
                     case R.id.menu_image:
                         onActionImage();
@@ -976,7 +974,7 @@ public class FragmentCompose extends FragmentBase {
                 onActionAttachment();
                 return true;
             case R.id.menu_clear:
-                onMenuStyle(item.getItemId());
+                onMenuClear();
                 return true;
             case R.id.menu_contact_group:
                 onMenuContactGroup();
@@ -1031,89 +1029,96 @@ public class FragmentCompose extends FragmentBase {
         edit_bar.setVisibility(style ? View.VISIBLE : View.GONE);
     }
 
-    private void onMenuStyle(int id) {
-        int s = etBody.getSelectionStart();
-        int e = etBody.getSelectionEnd();
+    private void onMenuClear() {
+        int end = etBody.getSelectionEnd();
+        if (end < 0)
+            end = 0;
 
-        if (s < 0)
-            s = 0;
-        if (e < 0)
-            e = 0;
+        SpannableString ss = new SpannableString(etBody.getText());
 
-        if (s > e) {
-            int tmp = s;
-            s = e;
-            e = tmp;
-        }
-
-        final int start = s;
-        final int end = e;
-
-        final SpannableString ss = new SpannableString(etBody.getText());
-
-        switch (id) {
-            case R.id.menu_clear:
-                for (Object span : ss.getSpans(0, ss.length(), Object.class))
-                    if (!(span instanceof ImageSpan))
-                        ss.removeSpan(span);
-                break;
-
-            case R.id.menu_link:
-                Uri uri = null;
-
-                ClipboardManager cbm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-                if (cbm.hasPrimaryClip()) {
-                    String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(getContext()).toString();
-                    uri = Uri.parse(link);
-                    if (uri.getScheme() == null)
-                        uri = null;
-                }
-
-                View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_insert_link, null);
-                final EditText etLink = view.findViewById(R.id.etLink);
-                final TextView tvInsecure = view.findViewById(R.id.tvInsecure);
-
-                etLink.setText(uri == null ? "https://" : uri.toString());
-                tvInsecure.setVisibility(View.GONE);
-
-                etLink.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
-                        tvInsecure.setVisibility("http".equals(Uri.parse(s.toString()).getScheme()) ? View.VISIBLE : View.GONE);
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable s) {
-                    }
-                });
-
-                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                        .setView(view)
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                ss.setSpan(new URLSpan(etLink.getText().toString()), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                etBody.setText(ss);
-                                etBody.setSelection(end);
-                            }
-                        })
-                        .show();
-                new Handler().post(new Runnable() {
-                    @Override
-                    public void run() {
-                        etLink.requestFocus();
-                    }
-                });
-
-                return;
-        }
+        for (Object span : ss.getSpans(0, ss.length(), Object.class))
+            if (!(span instanceof ImageSpan))
+                ss.removeSpan(span);
 
         etBody.setText(ss);
         etBody.setSelection(end);
+    }
+
+    private void onMenuLink() {
+        Uri uri = null;
+
+        ClipboardManager cbm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+        if (cbm.hasPrimaryClip()) {
+            String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(getContext()).toString();
+            uri = Uri.parse(link);
+            if (uri.getScheme() == null)
+                uri = null;
+        }
+
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_insert_link, null);
+        final EditText etLink = view.findViewById(R.id.etLink);
+        final TextView tvInsecure = view.findViewById(R.id.tvInsecure);
+
+        etLink.setText(uri == null ? "https://" : uri.toString());
+        tvInsecure.setVisibility(View.GONE);
+
+        etLink.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                tvInsecure.setVisibility("http".equals(Uri.parse(s.toString()).getScheme()) ? View.VISIBLE : View.GONE);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+
+        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                .setView(view)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        int start = etBody.getSelectionStart();
+                        int end = etBody.getSelectionEnd();
+
+                        if (start < 0)
+                            start = 0;
+                        if (end < 0)
+                            end = 0;
+
+                        if (start > end) {
+                            int tmp = start;
+                            start = end;
+                            end = tmp;
+                        }
+
+                        String link = etLink.getText().toString();
+                        if (start == end) {
+                            etBody.setText(etBody.getText().insert(start, link));
+                            end = start + link.length();
+                        }
+
+                        SpannableString ss = new SpannableString(etBody.getText());
+
+                        for (URLSpan span : ss.getSpans(start, end, URLSpan.class))
+                            ss.removeSpan(span);
+
+                        ss.setSpan(new URLSpan(link), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        etBody.setText(ss);
+                        etBody.setSelection(end);
+                    }
+                })
+                .show();
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                etLink.requestFocus();
+            }
+        });
     }
 
     private void onMenuContactGroup() {
