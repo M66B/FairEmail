@@ -158,10 +158,9 @@ public class WorkerCleanup extends Worker {
             Log.e(ex);
         } finally {
             Log.i("End cleanup");
-            if (!manual) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                prefs.edit().putLong("last_cleanup", new Date().getTime()).apply();
-            }
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            prefs.edit().putLong("last_cleanup", new Date().getTime()).apply();
         }
     }
 
