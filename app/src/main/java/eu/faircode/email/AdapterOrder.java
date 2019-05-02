@@ -44,16 +44,17 @@ public class AdapterOrder extends RecyclerView.Adapter<AdapterOrder.ViewHolder> 
     private LifecycleOwner owner;
     private LayoutInflater inflater;
 
-    private String clazz;
     private List<EntityOrder> items = new ArrayList<>();
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        private View view;
         private TextView tvTitle;
         private TextView tvSubTitle;
 
         ViewHolder(View itemView) {
             super(itemView);
 
+            view = itemView.findViewById(R.id.clItem);
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvSubTitle = itemView.findViewById(R.id.tvSubTitle);
         }
@@ -65,10 +66,9 @@ public class AdapterOrder extends RecyclerView.Adapter<AdapterOrder.ViewHolder> 
         }
     }
 
-    AdapterOrder(Context context, LifecycleOwner owner, String clazz) {
+    AdapterOrder(Context context, LifecycleOwner owner) {
         this.context = context;
         this.owner = owner;
-        this.clazz = clazz;
         this.inflater = LayoutInflater.from(context);
         setHasStableIds(true);
     }
