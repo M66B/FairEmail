@@ -1448,7 +1448,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             final WebView webView = (WebView) vwBody;
             webView.setBackgroundColor(Color.TRANSPARENT);
-            webView.getSettings().setLoadsImagesAutomatically(show_images);
+
+            WebSettings settings = webView.getSettings();
+            settings.setDefaultFontSize(Math.round(textSize));
+            settings.setDefaultFixedFontSize(Math.round(textSize));
+            settings.setLoadsImagesAutomatically(show_images);
 
             String html = properties.getHtml(message.id);
             if (TextUtils.isEmpty(html)) {
