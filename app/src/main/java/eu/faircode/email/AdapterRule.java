@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +52,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         private TextView tvName;
         private TextView tvOrder;
         private ImageView ivStop;
+        private TextView tvCondition;
         private TextView tvAction;
 
         ViewHolder(View itemView) {
@@ -60,6 +62,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             tvName = itemView.findViewById(R.id.tvName);
             tvOrder = itemView.findViewById(R.id.tvOrder);
             ivStop = itemView.findViewById(R.id.ivStop);
+            tvCondition = itemView.findViewById(R.id.tvCondition);
             tvAction = itemView.findViewById(R.id.tvAction);
         }
 
@@ -76,6 +79,22 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             tvName.setText(rule.name);
             tvOrder.setText(Integer.toString(rule.order));
             ivStop.setVisibility(rule.stop ? View.VISIBLE : View.INVISIBLE);
+
+            try {
+                List<String> condition = new ArrayList<>();
+                JSONObject jcondition = new JSONObject(rule.condition);
+                if (jcondition.has("sender"))
+                    condition.add(context.getString(R.string.title_rule_sender));
+                if (jcondition.has("recipient"))
+                    condition.add(context.getString(R.string.title_rule_recipient));
+                if (jcondition.has("subject"))
+                    condition.add(context.getString(R.string.title_rule_subject));
+                if (jcondition.has("header"))
+                    condition.add(context.getString(R.string.title_rule_header));
+                tvCondition.setText(TextUtils.join(", ", condition));
+            } catch (Throwable ex) {
+                tvCondition.setText(ex.getMessage());
+            }
 
             try {
                 JSONObject jaction = new JSONObject(rule.action);
