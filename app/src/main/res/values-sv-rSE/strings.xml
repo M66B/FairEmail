@@ -151,7 +151,6 @@
     <string name="title_advanced_autonext">Gå automatiskt till nästa konversation vid stängning av konversation</string>
     <string name="title_advanced_autoread">Märk automatiskt meddelanden som lästa vid flyttning av meddelanden</string>
     <string name="title_advanced_automove">Bekräfta flyttning av meddelanden</string>
-    <string name="title_advanced_autoresize">Ändra storlek automatiskt på bilder för visning på skärmar</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixlar</string>
     <string name="title_advanced_sender">Tillåt avsändaradress redigering</string>
     <string name="title_advanced_autosend">Bekräfta sändning av meddelanden</string>

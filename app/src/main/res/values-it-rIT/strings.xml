@@ -158,7 +158,6 @@
     <string name="title_advanced_autonext">Passa automaticamente alla conversazione successiva nella conversazione stretta</string>
     <string name="title_advanced_autoread">Contrassegna automaticamente il messaggio come letto sul messaggio in movimento</string>
     <string name="title_advanced_automove">Conferma i messaggi in movimento</string>
-    <string name="title_advanced_autoresize">Ridimensiona automaticamente le immagini per la visualizzazione su schermi</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixel</string>
     <string name="title_advanced_sender">Consenti la modifica dell\'indirizzo mittente</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta per rispondere o inoltrare</string>

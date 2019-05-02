@@ -156,7 +156,6 @@
     <string name="title_advanced_autonext">Gå automatisk til næste samtale ved lukning af aktuel samtale</string>
     <string name="title_advanced_autoread">Markér automatisk meddelelser som læst ved flytning af meddelelser</string>
     <string name="title_advanced_automove">Bekræft flytning af meddelelser</string>
-    <string name="title_advanced_autoresize">Ændr automatisk størrelsen på billeder for at kunne vise indhold på skærmen</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_sender">Tillad at ændre afsenderadresse</string>
     <string name="title_advanced_prefix_once">Kun ét emnepræfiks ved svar eller videresendelse</string>

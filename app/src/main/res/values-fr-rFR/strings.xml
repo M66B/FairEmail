@@ -158,7 +158,7 @@
     <string name="title_advanced_autonext">Lors de la fermeture d\'une conversation, aller automatiquement sur la suivante</string>
     <string name="title_advanced_autoread">Marquer automatiquement le message comme lu lors de son déplacement</string>
     <string name="title_advanced_automove">Confirmer le déplacement des messages</string>
-    <string name="title_advanced_autoresize">Redimensionner automatiquement les images pour l\'affichage sur écrans</string>
+    <string name="title_advanced_autoresize">Redimensionner automatiquement les images jointes et incluses</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_sender">Autoriser la modification de l\'adresse de l\'expéditeur</string>
     <string name="title_advanced_prefix_once">Ne préfixer le sujet qu\'une seule fois lors de la réponse ou du transfert</string>
@@ -321,6 +321,7 @@
     <string name="title_download_all">Télécharger tout</string>
     <string name="title_save_all">Enregistrer tout</string>
     <string name="title_show_html">Afficher l\'original</string>
+    <string name="title_show_formatted">Afficher avec la mise en forme</string>
     <string name="title_trash">Corbeille</string>
     <string name="title_copy">Copie de &#8230;</string>
     <string name="title_subscribe">S\'abonner</string>

@@ -104,6 +104,8 @@
     <string name="title_setup_exported">设置已导出！</string>
     <string name="title_setup_imported">设置已导入！</string>
     <string name="title_setup_notifications">通知管理</string>
+    <string name="title_setup_reorder_accounts">账户顺序</string>
+    <string name="title_setup_reorder_folders">文件夹顺序</string>
     <string name="title_reset_order">重置顺序</string>
     <string name="title_setup_theme">选择主题</string>
     <string name="title_setup_light_theme">亮色主题</string>
@@ -148,7 +150,7 @@
     <string name="title_advanced_autonext">关闭对话时自动转到下一个对话</string>
     <string name="title_advanced_autoread">将移动的邮件自动标记为已读</string>
     <string name="title_advanced_automove">确认移动邮件</string>
-    <string name="title_advanced_autoresize">自动调整屏幕显示的图像大小</string>
+    <string name="title_advanced_autoresize">自动调整附加和嵌入图像大小</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d 像素</string>
     <string name="title_advanced_sender">允许编辑发件人地址</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
@@ -274,6 +276,7 @@
     <string name="title_sync_days_remark">增加该值将增加电池和数据的使用量</string>
     <string name="title_keep_days">保留邮件(天)</string>
     <string name="title_keep_all">保留所有邮件</string>
+    <string name="title_auto_delete">自动删除旧的消息</string>
     <string name="title_folder_name_missing">缺少文件夹名</string>
     <string name="title_folder_exists">文件夹 %1$s 存在</string>
     <string name="title_folder_delete">是否永久删除此文件夹及其包含的任何邮件？</string>
@@ -310,6 +313,7 @@
     <string name="title_download_all">下载全部</string>
     <string name="title_save_all">保存全部</string>
     <string name="title_show_html">显示原件</string>
+    <string name="title_show_formatted">显示格式化消息</string>
     <string name="title_trash">回收站</string>
     <string name="title_copy">复制 &#8230;</string>
     <string name="title_subscribe">订阅</string>
@@ -370,6 +374,9 @@
     <string name="title_send_at">发送于 &#8230;</string>
     <string name="title_style_bold">粗体</string>
     <string name="title_style_italic">斜体</string>
+    <string name="title_style_underline">下划线</string>
+    <string name="title_style_size">大小</string>
+    <string name="title_style_color">颜色</string>
     <string name="title_style_clear">清除格式</string>
     <string name="title_style_link">插入链接</string>
     <string name="title_style_image">插入图片</string>

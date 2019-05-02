@@ -174,7 +174,7 @@
     <string name="title_advanced_autonext">При закрытии диалога, автоматически открыть следующий</string>
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
     <string name="title_advanced_automove">Подтверждать перемещение сообщений</string>
-    <string name="title_advanced_autoresize">Автоматически масштабировать изображения к размеру экрана</string>
+    <string name="title_advanced_autoresize">Автоматически изменять размер прикрепленных и встроенных изображений</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d пикселей</string>
     <string name="title_advanced_sender">Разрешить редактирование адреса отправителя</string>
     <string name="title_advanced_prefix_once">Добавлять только один префикс темы при ответе или пересылке</string>
@@ -337,6 +337,7 @@
     <string name="title_download_all">Загрузить все</string>
     <string name="title_save_all">Сохранить все</string>
     <string name="title_show_html">Показать оригинал</string>
+    <string name="title_show_formatted">Показать форматированный</string>
     <string name="title_trash">Корзина</string>
     <string name="title_copy">Копировать &#8230;</string>
     <string name="title_subscribe">Подписаться</string>

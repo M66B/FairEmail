@@ -158,7 +158,7 @@
     <string name="title_advanced_autonext">Gå automatisk til neste samtale ved lukking av samtale</string>
     <string name="title_advanced_autoread">Merk automatisk meldinger som leste ved flytting</string>
     <string name="title_advanced_automove">Bekreft flytting av meldinger</string>
-    <string name="title_advanced_autoresize">Automatisk endre størrelsen på bilder for visning på skjerm</string>
+    <string name="title_advanced_autoresize">Endre størrelsen på vedlagte og innebygde bilder automatisk</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d piksler</string>
     <string name="title_advanced_sender">Tillat redigering av avsenderadresse</string>
     <string name="title_advanced_prefix_once">Prefiks emne bare en gang på svar eller videresending</string>
@@ -264,7 +264,7 @@
     <string name="title_delete_local">Slett lokale meldinger</string>
     <string name="title_delete_browsed">Slett bladde/søkte meldinger</string>
     <string name="title_empty_trash">Tøm papirkurven</string>
-    <string name="title_edit_properties">Rediger egenskaper</string>
+    <string name="title_edit_properties">Redigere egenskaper</string>
     <string name="title_edit_rules">Rediger regler</string>
     <string name="title_empty_trash_ask">Slett alle slettede meldinger permanent?</string>
     <string name="title_delete_operation">Slett operasjoner med en feilmelding?</string>
@@ -321,6 +321,7 @@
     <string name="title_download_all">Last ned alt</string>
     <string name="title_save_all">Lagre alt</string>
     <string name="title_show_html">Vis original</string>
+    <string name="title_show_formatted">Vis formatert</string>
     <string name="title_trash">Søppel</string>
     <string name="title_copy">Kopiere &#8230;</string>
     <string name="title_subscribe">Abonner</string>

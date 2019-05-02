@@ -167,7 +167,6 @@
     <string name="title_advanced_autonext">Automatycznie przejdź do następnej rozmowy przy zamykaniu rozmowy</string>
     <string name="title_advanced_autoread">Automatycznie oznacz wiadomość jako przeczytaną przy przenoszeniu</string>
     <string name="title_advanced_automove">Potwierdź przenoszenie wiadomości</string>
-    <string name="title_advanced_autoresize">Automatycznie zmień rozmiar obrazów do wyświetlania na ekranach</string>
     <string name="title_advanced_sender">Zezwól na edycję adresu nadawcy</string>
     <string name="title_advanced_autosend">Potwierdź wysłanie wiadomości</string>
     <string name="title_advanced_badge">Pokaż liczbę nowych wiadomości na ikonie launchera</string>

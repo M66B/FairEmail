@@ -106,7 +106,6 @@
     <string name="title_advanced_autonext">رفتن به مکالمه بعدی به صورت خودکار پس از بستن مکالمه</string>
     <string name="title_advanced_autoread">به طور خودکار پیام‌های انتقال یافته به عنوان خوانده شده علامت گذاری شود</string>
     <string name="title_advanced_automove">تایید انتقال پیام‌ها</string>
-    <string name="title_advanced_autoresize">تغییر اندازه تصاویر به صورت خودکار برای نمایش در صفحه نمایش</string>
     <string name="title_advanced_sender">اجازه ویرایش آدرس فرستنده</string>
     <string name="title_advanced_autosend">تایید ارسال پیام‌ها</string>
     <string name="title_advanced_light">استفاده از چراغ اعلان‌ها</string>

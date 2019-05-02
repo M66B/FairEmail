@@ -158,7 +158,7 @@
     <string name="title_advanced_autonext">Automatisch beim Schließen einer Konversation zur nächsten Konversation wechseln</string>
     <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen markieren</string>
     <string name="title_advanced_automove">Verschieben von Nachrichten bestätigen</string>
-    <string name="title_advanced_autoresize">Bildgröße automatisch für das Anzeigen auf Displays ändern</string>
+    <string name="title_advanced_autoresize">Angehängte und eingebettete Bilder automatisch anpassen</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d Pixel</string>
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
     <string name="title_advanced_prefix_once">Betreff nur einmal beim Antworten oder Weiterleiten voranstellen</string>
@@ -321,6 +321,7 @@
     <string name="title_download_all">Alle herunterladen</string>
     <string name="title_save_all">Alles speichern</string>
     <string name="title_show_html">Original anzeigen</string>
+    <string name="title_show_formatted">Formatiert anzeigen</string>
     <string name="title_trash">Löschen</string>
     <string name="title_copy">Kopiere &#8230;</string>
     <string name="title_subscribe">Abonnieren</string>
@@ -381,6 +382,9 @@
     <string name="title_send_at">Später senden &#8230;</string>
     <string name="title_style_bold">Fett</string>
     <string name="title_style_italic">Kursiv</string>
+    <string name="title_style_underline">Unterstreichen</string>
+    <string name="title_style_size">Größe</string>
+    <string name="title_style_color">Farbe</string>
     <string name="title_style_clear">Formatierung entfernen</string>
     <string name="title_style_link">Link einfügen</string>
     <string name="title_style_image">Bild einfügen</string>
