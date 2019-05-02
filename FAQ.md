@@ -141,7 +141,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(72) What are primary accounts/identities?](#user-content-faq72)
 * [(73) Is moving messages across accounts safe/efficient?](#user-content-faq73)
 * [(74) Why do I see duplicate messages?](#user-content-faq74)
-* [(75) Can you make an iOS, Windows, etc version?](#user-content-faq75)
+* [(75) Can you make an iOS, Windows, Linux, etc version?](#user-content-faq75)
 * [(76) What does 'Clear local messages' ?](#user-content-faq76)
 * [(77) Why are messages sometimes shown with a small delay?](#user-content-faq77)
 * [(78) How do I use schedules?](#user-content-faq78)
@@ -1309,7 +1309,7 @@ You can hide duplicate messages by disabling *Show duplicates* in the three dots
 <br />
 
 <a name="faq75"></a>
-**(75) Can you make an iOS, Windows, etc version?**
+**(75) Can you make an iOS, Windows, Linux, etc version?**
 
 A lot of knowledge and experience is required to successfully develop an app for a specific platform,
 which is why I develop apps for Android only.
