@@ -195,8 +195,8 @@ public class EntityRule {
 
     void execute(Context context, DB db, EntityMessage message) throws IOException {
         try {
-            JSONObject jargs = new JSONObject(action);
-            int type = jargs.getInt("type");
+            JSONObject jaction = new JSONObject(action);
+            int type = jaction.getInt("type");
             Log.i("Executing rule=" + type + ":" + name + " message=" + message.id);
 
             switch (type) {
@@ -207,13 +207,13 @@ public class EntityRule {
                     onActionSeen(context, db, message, false);
                     break;
                 case TYPE_MOVE:
-                    onActionMove(context, db, message, jargs);
+                    onActionMove(context, db, message, jaction);
                     break;
                 case TYPE_ANSWER:
-                    onActionAnswer(context, db, message, jargs);
+                    onActionAnswer(context, db, message, jaction);
                     break;
                 case TYPE_AUTOMATION:
-                    onActionAutomation(context, db, message, jargs);
+                    onActionAutomation(context, db, message, jaction);
                     break;
             }
         } catch (JSONException ex) {
