@@ -75,6 +75,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -174,7 +175,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     ));
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
-            View.OnClickListener, View.OnLongClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
+            View.OnClickListener, View.OnLongClickListener,
+            CompoundButton.OnCheckedChangeListener,
+            BottomNavigationView.OnNavigationItemSelectedListener {
         private View view;
         private View vwColor;
         private View vwStatus;
@@ -239,7 +242,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private BottomNavigationView bnvActions;
 
-        private Button btnHtml;
+        private ToggleButton tbHtml;
         private ImageButton ibQuotes;
         private ImageButton ibImages;
         private ImageButton ibFull;
@@ -333,7 +336,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             bnvActions = itemView.findViewById(R.id.bnvActions);
 
-            btnHtml = itemView.findViewById(R.id.btnHtml);
+            tbHtml = itemView.findViewById(R.id.tbHtml);
             ibQuotes = itemView.findViewById(R.id.ibQuotes);
             ibImages = itemView.findViewById(R.id.ibImages);
             ibFull = itemView.findViewById(R.id.ibFull);
@@ -390,7 +393,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnDownloadAttachments.setOnClickListener(this);
             btnSaveAttachments.setOnClickListener(this);
 
-            btnHtml.setOnClickListener(this);
+            tbHtml.setOnCheckedChangeListener(this);
             ibQuotes.setOnClickListener(this);
             ibImages.setOnClickListener(this);
             ibFull.setOnClickListener(this);
@@ -413,7 +416,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivAddContact.setOnClickListener(null);
             btnDownloadAttachments.setOnClickListener(null);
             btnSaveAttachments.setOnClickListener(null);
-            btnHtml.setOnClickListener(null);
+            tbHtml.setOnCheckedChangeListener(null);
             ibQuotes.setOnClickListener(null);
             ibImages.setOnClickListener(null);
             ibFull.setOnClickListener(null);
@@ -713,7 +716,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnSaveAttachments.setVisibility(View.GONE);
             tvNoInternetAttachments.setVisibility(View.GONE);
 
-            btnHtml.setVisibility(View.GONE);
+            tbHtml.setVisibility(View.GONE);
             ibQuotes.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
             ibFull.setVisibility(View.GONE);
@@ -770,7 +773,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             for (int i = 0; i < bnvActions.getMenu().size(); i++)
                 bnvActions.getMenu().getItem(i).setVisible(false);
 
-            btnHtml.setVisibility(!show_html ? View.INVISIBLE : View.GONE);
+            tbHtml.setChecked(show_html);
+            tbHtml.setVisibility(hasWebView ? View.INVISIBLE : View.GONE);
             ibQuotes.setVisibility(!show_html ? View.INVISIBLE : View.GONE);
             ibImages.setVisibility(!show_html ? View.INVISIBLE : View.GONE);
             ibFull.setVisibility(show_html ? View.INVISIBLE : View.GONE);
@@ -1064,8 +1068,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onDownloadAttachments(message);
                 else if (view.getId() == R.id.btnSaveAttachments)
                     onSaveAttachments(message);
-                else if (view.getId() == R.id.btnHtml)
-                    onShowHtml(message);
                 else if (view.getId() == R.id.ibQuotes)
                     onShowQuotes(message);
                 else if (view.getId() == R.id.ibImages)
@@ -1103,6 +1105,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             onNotifyContactDelete(message);
             return true;
+        }
+
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            TupleMessageEx message = getMessage();
+            if (message == null)
+                return;
+
+            if (isChecked)
+                onShowHtml(message);
+            else
+                onHideHtml(message);
         }
 
         private void onShowSnoozed(TupleMessageEx message) {
@@ -1358,7 +1372,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onShowHtml(final TupleMessageEx message) {
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            if (prefs.getBoolean("show_html_confirmed", false)) {
+            if (properties.getValue("confirmed", message.id) ||
+                    prefs.getBoolean("show_html_confirmed", false)) {
                 onShowHtmlConfirmed(message);
                 return;
             }
@@ -1374,12 +1389,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            properties.setValue("confirmed", message.id, true);
                             if (cbNotAgain.isChecked())
                                 prefs.edit().putBoolean("show_html_confirmed", true).apply();
                             onShowHtmlConfirmed(message);
                         }
                     })
-                    .setNegativeButton(android.R.string.cancel, null)
+                    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            tbHtml.setChecked(false);
+                        }
+                    })
+                    .setOnCancelListener(new DialogInterface.OnCancelListener() {
+                        @Override
+                        public void onCancel(DialogInterface dialog) {
+                            tbHtml.setChecked(false);
+                        }
+                    })
                     .show();
         }
 
@@ -1389,7 +1416,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             boolean show_images = properties.getValue("images", message.id);
 
-            btnHtml.setVisibility(View.GONE);
+            tbHtml.setVisibility(View.VISIBLE);
             ibQuotes.setVisibility(View.GONE);
             ibImages.setVisibility(show_images ? View.GONE : View.INVISIBLE);
             ibFull.setVisibility(View.INVISIBLE);
@@ -1491,8 +1518,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvBody.setVisibility(View.GONE);
                 webView.setVisibility(View.VISIBLE);
             }
+        }
 
-            rvImage.setVisibility(adapterImage.getItemCount() > 0 ? View.VISIBLE : View.GONE);
+        private void onHideHtml(TupleMessageEx message) {
+            properties.setValue("html", message.id, false);
+
+            ibQuotes.setVisibility(View.INVISIBLE);
+            ibImages.setVisibility(View.INVISIBLE);
+            ibFull.setVisibility(View.GONE);
+
+            tvBody.setVisibility(View.INVISIBLE);
+            vwBody.setVisibility(View.GONE);
+
+            Spanned body = properties.getBody(message.id);
+            tvBody.setText(body);
+            tvBody.setMovementMethod(null);
+
+            Bundle args = new Bundle();
+            args.putSerializable("message", message);
+            bodyTask.execute(context, owner, args, "message:body");
         }
 
         private class OriginalMessage {
@@ -1724,7 +1768,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean show_quotes = properties.getValue("quotes", message.id);
                 boolean show_images = properties.getValue("images", message.id);
 
-                btnHtml.setVisibility(hasWebView ? View.VISIBLE : View.GONE);
+                tbHtml.setVisibility(hasWebView ? View.VISIBLE : View.GONE);
                 ibQuotes.setVisibility(has_quotes && !show_quotes ? View.VISIBLE : View.GONE);
                 ibImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
                 tvBody.setText(body);

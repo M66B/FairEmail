@@ -493,8 +493,8 @@
             app:layout_constraintTop_toBottomOf="@id/tvNoInternetAttachments"
             app:menu="@menu/action_message" />
 
-        <Button
-            android:id="@+id/btnHtml"
+        <ToggleButton
+            android:id="@+id/tbHtml"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -502,7 +502,8 @@
             android:layout_marginTop="3dp"
             android:minWidth="0dp"
             android:minHeight="0dp"
-            android:text="@string/title_show_html"
+            android:textOff="@string/title_show_html"
+            android:textOn="@string/title_show_formatted"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bnvActions" />
 
@@ -544,7 +545,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:barrierDirection="bottom"
-            app:constraint_referenced_ids="btnHtml,ibQuotes,ibImages,ibFull" />
+            app:constraint_referenced_ids="tbHtml,ibQuotes,ibImages,ibFull" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbBody"
