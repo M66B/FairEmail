@@ -34,6 +34,8 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,6 +51,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         private TextView tvName;
         private TextView tvOrder;
         private ImageView ivStop;
+        private TextView tvAction;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -57,6 +60,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             tvName = itemView.findViewById(R.id.tvName);
             tvOrder = itemView.findViewById(R.id.tvOrder);
             ivStop = itemView.findViewById(R.id.ivStop);
+            tvAction = itemView.findViewById(R.id.tvAction);
         }
 
         private void wire() {
@@ -72,6 +76,32 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             tvName.setText(rule.name);
             tvOrder.setText(Integer.toString(rule.order));
             ivStop.setVisibility(rule.stop ? View.VISIBLE : View.INVISIBLE);
+
+            try {
+                JSONObject jaction = new JSONObject(rule.action);
+                int type = jaction.getInt("type");
+                switch (type) {
+                    case EntityRule.TYPE_SEEN:
+                        tvAction.setText(R.string.title_seen);
+                        break;
+                    case EntityRule.TYPE_UNSEEN:
+                        tvAction.setText(R.string.title_unseen);
+                        break;
+                    case EntityRule.TYPE_MOVE:
+                        tvAction.setText(R.string.title_move);
+                        break;
+                    case EntityRule.TYPE_ANSWER:
+                        tvAction.setText(R.string.title_answer_reply);
+                        break;
+                    case EntityRule.TYPE_AUTOMATION:
+                        tvAction.setText(R.string.title_rule_automation);
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unknown action type=" + type);
+                }
+            } catch (Throwable ex) {
+                tvAction.setText(ex.getMessage());
+            }
         }
 
         @Override
