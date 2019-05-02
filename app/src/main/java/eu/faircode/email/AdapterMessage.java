@@ -127,35 +127,36 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private LifecycleOwner owner;
     private ViewType viewType;
     private boolean compact;
-    private boolean name_email;
-    private boolean subject_italic;
-    private boolean monospaced;
     private int zoom;
     private String sort;
     private boolean filter_duplicates;
     private boolean suitable;
     private IProperties properties;
 
-    private boolean dark;
-    private boolean date;
-    private boolean threading;
-    private boolean contacts;
-    private boolean search;
-    private boolean avatars;
-    private boolean flags;
-    private boolean preview;
-    private boolean autohtml;
-    private boolean autoimages;
-    private boolean authentication;
-    private boolean debug;
-
-    private float textSize;
     private int colorPrimary;
     private int colorAccent;
     private int colorWarning;
     private int textColorSecondary;
     private int colorUnread;
+    private boolean dark;
+
     private boolean hasWebView;
+    private boolean contacts;
+    private boolean search;
+    private float textSize;
+
+    private boolean date;
+    private boolean threading;
+    private boolean avatars;
+    private boolean name_email;
+    private boolean subject_italic;
+    private boolean flags;
+    private boolean preview;
+    private boolean monospaced;
+    private boolean autohtml;
+    private boolean autoimages;
+    private boolean authentication;
+    private boolean debug;
 
     private SelectionTracker<Long> selectionTracker = null;
     private AsyncPagedListDiffer<TupleMessageEx> differ = new AsyncPagedListDiffer<>(this, DIFF_CALLBACK);
@@ -3101,41 +3102,42 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.inflater = LayoutInflater.from(context);
         this.viewType = viewType;
         this.compact = compact;
-        this.name_email = prefs.getBoolean("name_email", !compact);
-        this.subject_italic = prefs.getBoolean("subject_italic", true);
-        this.monospaced = prefs.getBoolean("monospaced", false);
         this.zoom = zoom;
         this.sort = sort;
         this.filter_duplicates = filter_duplicates;
         this.suitable = Helper.getNetworkState(context).isSuitable();
         this.properties = properties;
 
-        TypedValue tv = new TypedValue();
-        context.getTheme().resolveAttribute(R.attr.themeName, tv, true);
-        this.dark = !"light".equals(tv.string);
-
-        this.date = prefs.getBoolean("date", true);
-        this.threading = prefs.getBoolean("threading", true);
-        this.contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
-        this.search = (context.getPackageManager().getComponentEnabledSetting(
-                new ComponentName(context, ActivitySearch.class)) ==
-                PackageManager.COMPONENT_ENABLED_STATE_ENABLED);
-        this.avatars = (prefs.getBoolean("avatars", true) ||
-                prefs.getBoolean("identicons", false));
-        this.flags = prefs.getBoolean("flags", true);
-        this.preview = prefs.getBoolean("preview", false);
-        this.autohtml = (this.contacts && prefs.getBoolean("autohtml", false));
-        this.autoimages = (this.contacts && prefs.getBoolean("autoimages", false));
-        this.authentication = prefs.getBoolean("authentication", false);
-        this.debug = prefs.getBoolean("debug", false);
-
-        this.textSize = Helper.getTextSize(context, zoom);
         this.colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
         this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
         this.colorUnread = Helper.resolveColor(context, R.attr.colorUnread);
+
+        TypedValue tv = new TypedValue();
+        context.getTheme().resolveAttribute(R.attr.themeName, tv, true);
+        this.dark = !"light".equals(tv.string);
+
         this.hasWebView = Helper.hasWebView(context);
+        this.contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
+        this.search = (context.getPackageManager().getComponentEnabledSetting(
+                new ComponentName(context, ActivitySearch.class)) ==
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED);
+        this.textSize = Helper.getTextSize(context, zoom);
+
+        this.date = prefs.getBoolean("date", true);
+        this.threading = prefs.getBoolean("threading", true);
+        this.avatars = (prefs.getBoolean("avatars", true) ||
+                prefs.getBoolean("identicons", false));
+        this.name_email = prefs.getBoolean("name_email", !compact);
+        this.subject_italic = prefs.getBoolean("subject_italic", true);
+        this.flags = prefs.getBoolean("flags", true);
+        this.preview = prefs.getBoolean("preview", false);
+        this.monospaced = prefs.getBoolean("monospaced", false);
+        this.autohtml = (this.hasWebView && this.contacts && prefs.getBoolean("autohtml", false));
+        this.autoimages = (this.contacts && prefs.getBoolean("autoimages", false));
+        this.authentication = prefs.getBoolean("authentication", false);
+        this.debug = prefs.getBoolean("debug", false);
     }
 
     void submitList(PagedList<TupleMessageEx> list) {
