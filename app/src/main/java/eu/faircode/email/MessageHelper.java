@@ -778,7 +778,7 @@ public class MessageHelper {
             }
 
             if (part.isMimeType("text/plain") || text)
-                result = "<pre>" + result.replaceAll("\\r?\\n", "<br />") + "</pre>";
+                result = "<span>" + result.replaceAll("\\r?\\n", "<br />") + "</span>";
 
             return result;
         }
