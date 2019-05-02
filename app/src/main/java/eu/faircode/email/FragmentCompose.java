@@ -2755,7 +2755,7 @@ public class FragmentCompose extends FragmentBase {
                 Spanned spannedReference = null;
                 File refFile = draft.getRefFile(context);
                 if (refFile.exists()) {
-                    String quote = HtmlHelper.sanitize(context, Helper.readText(refFile), true);
+                    String quote = HtmlHelper.sanitize(context, Helper.readText(refFile));
                     Spanned spannedQuote = HtmlHelper.fromHtml(quote,
                             new Html.ImageGetter() {
                                 @Override

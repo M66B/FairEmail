@@ -110,7 +110,7 @@ public class HtmlHelper {
         return document.outerHtml();
     }
 
-    static String sanitize(Context context, String html, boolean showQuotes) {
+    static String sanitize(Context context, String html) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean paranoid = prefs.getBoolean("paranoid", true);
 
@@ -124,11 +124,6 @@ public class HtmlHelper {
                 .addProtocols("img", "src", "cid")
                 .addProtocols("img", "src", "data");
         final Document document = new Cleaner(whitelist).clean(parsed);
-
-        // Quotes
-        if (!showQuotes)
-            for (Element quote : document.select("blockquote"))
-                quote.html("&#8230;");
 
         // Short quotes
         for (Element q : document.select("q")) {

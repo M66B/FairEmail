@@ -508,17 +508,6 @@
             app:layout_constraintTop_toBottomOf="@id/bnvActions" />
 
         <ImageButton
-            android:id="@+id/ibQuotes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_marginEnd="6dp"
-            android:contentDescription="@string/title_legend_show_quotes"
-            android:src="@drawable/baseline_format_quote_24"
-            app:layout_constraintEnd_toStartOf="@+id/ibImages"
-            app:layout_constraintTop_toBottomOf="@id/bnvActions" />
-
-        <ImageButton
             android:id="@+id/ibImages"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -545,7 +534,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:barrierDirection="bottom"
-            app:constraint_referenced_ids="tbHtml,ibQuotes,ibImages,ibFull" />
+            app:constraint_referenced_ids="tbHtml,ibImages,ibFull" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbBody"
