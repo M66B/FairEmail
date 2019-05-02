@@ -35,7 +35,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
+import java.nio.charset.CharacterCodingException;
 import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Date;
@@ -614,6 +617,23 @@ public class MessageHelper {
 
     String getSubject() throws MessagingException {
         String subject = imessage.getSubject();
+
+        // Fix UTF-8
+        if (subject != null) {
+            char[] kars = subject.toCharArray();
+            byte[] bytes = new byte[kars.length];
+            for (int i = 0; i < kars.length; i++)
+                bytes[i] = (byte) kars[i];
+
+            try {
+                CharsetDecoder cs = StandardCharsets.UTF_8.newDecoder();
+                cs.decode(ByteBuffer.wrap(bytes));
+                subject = new String(bytes, StandardCharsets.UTF_8);
+            } catch (CharacterCodingException ex) {
+                Log.w(ex);
+            }
+        }
+
         return decodeMime(subject);
     }
 
