@@ -2395,6 +2395,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             rule.putExtra("folder", data.message.folder);
             if (data.message.from != null && data.message.from.length > 0)
                 rule.putExtra("sender", ((InternetAddress) data.message.from[0]).getAddress());
+            if (data.message.to != null && data.message.to.length > 0)
+                rule.putExtra("recipient", ((InternetAddress) data.message.to[0]).getAddress());
             if (!TextUtils.isEmpty(data.message.subject))
                 rule.putExtra("subject", data.message.subject);
 

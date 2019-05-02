@@ -371,6 +371,7 @@ public class FragmentRule extends FragmentBase {
         Bundle rargs = new Bundle();
         rargs.putLong("id", id);
         rargs.putString("sender", getArguments().getString("sender"));
+        rargs.putString("recipient", getArguments().getString("recipient"));
         rargs.putString("subject", getArguments().getString("subject"));
 
         new SimpleTask<TupleRuleEx>() {
@@ -399,7 +400,7 @@ public class FragmentRule extends FragmentBase {
                     etSender.setText(jsender == null ? args.getString("sender") : jsender.getString("value"));
                     cbSender.setChecked(jsender != null && jsender.getBoolean("regex"));
 
-                    etRecipient.setText(jrecipient == null ? null : jrecipient.getString("value"));
+                    etRecipient.setText(jrecipient == null ? args.getString("recipient") : jrecipient.getString("value"));
                     cbRecipient.setChecked(jrecipient != null && jrecipient.getBoolean("regex"));
 
                     etSubject.setText(jsubject == null ? args.getString("subject") : jsubject.getString("value"));
