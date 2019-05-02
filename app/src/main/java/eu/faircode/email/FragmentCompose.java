@@ -251,49 +251,7 @@ public class FragmentCompose extends FragmentBase {
         resolver = getContext().getContentResolver();
 
         // Wire controls
-        spIdentity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                EntityIdentity identity = (EntityIdentity) parent.getAdapter().getItem(position);
-
-                encrypt = (identity != null && identity.encrypt);
-                getActivity().invalidateOptionsMenu();
-
-                int at = (identity == null ? -1 : identity.email.indexOf('@'));
-                etExtra.setHint(at < 0 ? null : identity.email.substring(0, at));
-                tvDomain.setText(at < 0 ? null : identity.email.substring(at));
-                grpExtra.setVisibility(identity != null && identity.sender_extra ? View.VISIBLE : View.GONE);
-
-                Spanned signature = null;
-                if (pro) {
-                    if (identity != null && !TextUtils.isEmpty(identity.signature))
-                        signature = HtmlHelper.fromHtml(identity.signature, new Html.ImageGetter() {
-                            @Override
-                            public Drawable getDrawable(String source) {
-                                int px = Helper.dp2pixels(getContext(), 24);
-                                Drawable d = getContext().getResources()
-                                        .getDrawable(R.drawable.baseline_image_24, getContext().getTheme());
-                                d.setBounds(0, 0, px, px);
-                                return d;
-                            }
-                        }, null);
-                }
-                tvSignature.setText(signature);
-                grpSignature.setVisibility(signature == null ? View.GONE : View.VISIBLE);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                encrypt = false;
-                getActivity().invalidateOptionsMenu();
-
-                etExtra.setHint("");
-                tvDomain.setText(null);
-
-                tvSignature.setText(null);
-                grpSignature.setVisibility(View.GONE);
-            }
-        });
+        spIdentity.setOnItemSelectedListener(identitySelected);
 
         etTo.setMaxLines(Integer.MAX_VALUE);
         etTo.setHorizontallyScrolling(false);
@@ -346,136 +304,7 @@ public class FragmentCompose extends FragmentBase {
 
         setZoom();
 
-        etBody.setCustomSelectionActionModeCallback(new ActionMode.Callback() {
-            @Override
-            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                menu.add(1, R.string.title_style_bold, 1, R.string.title_style_bold).setIcon(R.drawable.baseline_format_bold_24);
-                menu.add(1, R.string.title_style_italic, 2, R.string.title_style_italic).setIcon(R.drawable.baseline_format_italic_24);
-                menu.add(1, R.string.title_style_underline, 3, R.string.title_style_underline).setIcon(R.drawable.baseline_format_underlined_24);
-                menu.add(1, R.string.title_style_size, 4, R.string.title_style_size).setIcon(R.drawable.baseline_format_size_24);
-                menu.add(1, R.string.title_style_color, 5, R.string.title_style_color).setIcon(R.drawable.baseline_format_color_text_24);
-                return true;
-            }
-
-            @Override
-            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-                return false;
-            }
-
-            @Override
-            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                Log.i("Action=" + item.getGroupId() + ":" + item.getItemId());
-
-                if (item.getGroupId() != 1)
-                    return false;
-
-                int start = etBody.getSelectionStart();
-                int end = etBody.getSelectionEnd();
-
-                if (start < 0)
-                    start = 0;
-                if (end < 0)
-                    end = 0;
-
-                if (start > end) {
-                    int tmp = start;
-                    start = end;
-                    end = tmp;
-                }
-
-                final SpannableString ss = new SpannableString(etBody.getText());
-
-                switch (item.getItemId()) {
-                    case R.string.title_style_bold:
-                    case R.string.title_style_italic: {
-                        int style = (item.getItemId() == R.string.title_style_bold ? Typeface.BOLD : Typeface.ITALIC);
-                        boolean has = false;
-                        for (StyleSpan span : ss.getSpans(start, end, StyleSpan.class))
-                            if (span.getStyle() == style) {
-                                has = true;
-                                ss.removeSpan(span);
-                            }
-
-                        if (!has)
-                            ss.setSpan(new StyleSpan(style), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                        etBody.setText(ss);
-                        etBody.setSelection(end);
-                        return true;
-                    }
-
-                    case R.string.title_style_underline: {
-                        boolean has = false;
-                        for (UnderlineSpan span : ss.getSpans(start, end, UnderlineSpan.class)) {
-                            has = true;
-                            ss.removeSpan(span);
-                        }
-
-                        if (!has)
-                            ss.setSpan(new UnderlineSpan(), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                        etBody.setText(ss);
-                        etBody.setSelection(end);
-                        return true;
-                    }
-
-                    case R.string.title_style_size: {
-                        RelativeSizeSpan[] spans = ss.getSpans(start, end, RelativeSizeSpan.class);
-                        float size = (spans.length > 0 ? spans[0].getSizeChange() : 1.0f);
-
-                        // Match small/big
-                        if (size == 0.8f)
-                            size = 1.0f;
-                        else if (size == 1.0)
-                            size = 1.25f;
-                        else
-                            size = 0.8f;
-
-                        for (RelativeSizeSpan span : spans)
-                            ss.removeSpan(span);
-
-                        if (size != 1.0f)
-                            ss.setSpan(new RelativeSizeSpan(size), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                        etBody.setText(ss);
-                        etBody.setSelection(end);
-                        return false;
-                    }
-
-                    case R.string.title_style_color: {
-                        final int s = start;
-                        final int e = end;
-
-                        ForegroundColorSpan[] spans = ss.getSpans(start, end, ForegroundColorSpan.class);
-                        int color = (spans.length > 0 ? spans[0].getForegroundColor() : Color.TRANSPARENT);
-
-                        int[] colors = getContext().getResources().getIntArray(R.array.colorPicker);
-                        ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
-                        colorPickerDialog.initialize(R.string.title_account_color, colors, color, 4, colors.length);
-                        colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
-                            @Override
-                            public void onColorSelected(int color) {
-                                for (ForegroundColorSpan span : ss.getSpans(s, e, ForegroundColorSpan.class))
-                                    ss.removeSpan(span);
-                                ss.setSpan(new ForegroundColorSpan(color), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                etBody.setText(ss);
-                                etBody.setSelection(e);
-                            }
-                        });
-                        colorPickerDialog.show(getFragmentManager(), "colorpicker");
-
-                        return true;
-                    }
-
-                    default:
-                        return false;
-                }
-            }
-
-            @Override
-            public void onDestroyActionMode(ActionMode mode) {
-            }
-        });
+        etBody.setCustomSelectionActionModeCallback(actionCallback);
 
         ibReferenceEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -519,46 +348,21 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 final int action = item.getItemId();
-
                 switch (action) {
                     case R.id.action_delete:
                         onActionDelete();
                         break;
-
                     case R.id.action_send:
                         onActionSend();
                         break;
-
                     default:
                         onAction(action);
                 }
-
                 return true;
             }
         });
 
-        view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                int bottom = view.getBottom()
-                        - edit_bar.getHeight()
-                        - Helper.dp2pixels(view.getContext(), 56); // full bottom navigation
-                int remain = bottom - etBody.getTop();
-                int threshold = Helper.dp2pixels(view.getContext(), 100);
-                Log.i("Reduce remain=" + remain + " threshold=" + threshold);
-
-                boolean reduce = (remain < threshold);
-                boolean reduced = (bottom_navigation.getLabelVisibilityMode() == LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
-                if (reduce != reduced) {
-                    bottom_navigation.setLabelVisibilityMode(reduce
-                            ? LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
-                            : LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
-                    ViewGroup.LayoutParams params = bottom_navigation.getLayoutParams();
-                    params.height = Helper.dp2pixels(view.getContext(), reduce ? 36 : 56);
-                    bottom_navigation.setLayoutParams(params);
-                }
-            }
-        });
+        view.getViewTreeObserver().addOnGlobalLayoutListener(layoutListener);
 
         addBackPressedListener(onBackPressedListener);
 
@@ -3139,6 +2943,204 @@ public class FragmentCompose extends FragmentBase {
             return view;
         }
     }
+
+    private AdapterView.OnItemSelectedListener identitySelected = new AdapterView.OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            EntityIdentity identity = (EntityIdentity) parent.getAdapter().getItem(position);
+
+            encrypt = (identity != null && identity.encrypt);
+            getActivity().invalidateOptionsMenu();
+
+            int at = (identity == null ? -1 : identity.email.indexOf('@'));
+            etExtra.setHint(at < 0 ? null : identity.email.substring(0, at));
+            tvDomain.setText(at < 0 ? null : identity.email.substring(at));
+            grpExtra.setVisibility(identity != null && identity.sender_extra ? View.VISIBLE : View.GONE);
+
+            Spanned signature = null;
+            if (pro) {
+                if (identity != null && !TextUtils.isEmpty(identity.signature))
+                    signature = HtmlHelper.fromHtml(identity.signature, new Html.ImageGetter() {
+                        @Override
+                        public Drawable getDrawable(String source) {
+                            int px = Helper.dp2pixels(getContext(), 24);
+                            Drawable d = getContext().getResources()
+                                    .getDrawable(R.drawable.baseline_image_24, getContext().getTheme());
+                            d.setBounds(0, 0, px, px);
+                            return d;
+                        }
+                    }, null);
+            }
+            tvSignature.setText(signature);
+            grpSignature.setVisibility(signature == null ? View.GONE : View.VISIBLE);
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+            encrypt = false;
+            getActivity().invalidateOptionsMenu();
+
+            etExtra.setHint("");
+            tvDomain.setText(null);
+
+            tvSignature.setText(null);
+            grpSignature.setVisibility(View.GONE);
+        }
+    };
+
+    private ActionMode.Callback actionCallback = new ActionMode.Callback() {
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            menu.add(1, R.string.title_style_bold, 1, R.string.title_style_bold).setIcon(R.drawable.baseline_format_bold_24);
+            menu.add(1, R.string.title_style_italic, 2, R.string.title_style_italic).setIcon(R.drawable.baseline_format_italic_24);
+            menu.add(1, R.string.title_style_underline, 3, R.string.title_style_underline).setIcon(R.drawable.baseline_format_underlined_24);
+            menu.add(1, R.string.title_style_size, 4, R.string.title_style_size).setIcon(R.drawable.baseline_format_size_24);
+            menu.add(1, R.string.title_style_color, 5, R.string.title_style_color).setIcon(R.drawable.baseline_format_color_text_24);
+            return true;
+        }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return false;
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            Log.i("Action=" + item.getGroupId() + ":" + item.getItemId());
+
+            if (item.getGroupId() != 1)
+                return false;
+
+            int start = etBody.getSelectionStart();
+            int end = etBody.getSelectionEnd();
+
+            if (start < 0)
+                start = 0;
+            if (end < 0)
+                end = 0;
+
+            if (start > end) {
+                int tmp = start;
+                start = end;
+                end = tmp;
+            }
+
+            final SpannableString ss = new SpannableString(etBody.getText());
+
+            switch (item.getItemId()) {
+                case R.string.title_style_bold:
+                case R.string.title_style_italic: {
+                    int style = (item.getItemId() == R.string.title_style_bold ? Typeface.BOLD : Typeface.ITALIC);
+                    boolean has = false;
+                    for (StyleSpan span : ss.getSpans(start, end, StyleSpan.class))
+                        if (span.getStyle() == style) {
+                            has = true;
+                            ss.removeSpan(span);
+                        }
+
+                    if (!has)
+                        ss.setSpan(new StyleSpan(style), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                    etBody.setText(ss);
+                    etBody.setSelection(end);
+                    return true;
+                }
+
+                case R.string.title_style_underline: {
+                    boolean has = false;
+                    for (UnderlineSpan span : ss.getSpans(start, end, UnderlineSpan.class)) {
+                        has = true;
+                        ss.removeSpan(span);
+                    }
+
+                    if (!has)
+                        ss.setSpan(new UnderlineSpan(), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                    etBody.setText(ss);
+                    etBody.setSelection(end);
+                    return true;
+                }
+
+                case R.string.title_style_size: {
+                    RelativeSizeSpan[] spans = ss.getSpans(start, end, RelativeSizeSpan.class);
+                    float size = (spans.length > 0 ? spans[0].getSizeChange() : 1.0f);
+
+                    // Match small/big
+                    if (size == 0.8f)
+                        size = 1.0f;
+                    else if (size == 1.0)
+                        size = 1.25f;
+                    else
+                        size = 0.8f;
+
+                    for (RelativeSizeSpan span : spans)
+                        ss.removeSpan(span);
+
+                    if (size != 1.0f)
+                        ss.setSpan(new RelativeSizeSpan(size), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                    etBody.setText(ss);
+                    etBody.setSelection(end);
+                    return false;
+                }
+
+                case R.string.title_style_color: {
+                    final int s = start;
+                    final int e = end;
+
+                    ForegroundColorSpan[] spans = ss.getSpans(start, end, ForegroundColorSpan.class);
+                    int color = (spans.length > 0 ? spans[0].getForegroundColor() : Color.TRANSPARENT);
+
+                    int[] colors = getContext().getResources().getIntArray(R.array.colorPicker);
+                    ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
+                    colorPickerDialog.initialize(R.string.title_account_color, colors, color, 4, colors.length);
+                    colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
+                        @Override
+                        public void onColorSelected(int color) {
+                            for (ForegroundColorSpan span : ss.getSpans(s, e, ForegroundColorSpan.class))
+                                ss.removeSpan(span);
+                            ss.setSpan(new ForegroundColorSpan(color), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            etBody.setText(ss);
+                            etBody.setSelection(e);
+                        }
+                    });
+                    colorPickerDialog.show(getFragmentManager(), "colorpicker");
+
+                    return true;
+                }
+
+                default:
+                    return false;
+            }
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+        }
+    };
+
+    private ViewTreeObserver.OnGlobalLayoutListener layoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
+        @Override
+        public void onGlobalLayout() {
+            int bottom = view.getBottom()
+                    - edit_bar.getHeight()
+                    - Helper.dp2pixels(view.getContext(), 56); // full bottom navigation
+            int remain = bottom - etBody.getTop();
+            int threshold = Helper.dp2pixels(view.getContext(), 100);
+            Log.i("Reduce remain=" + remain + " threshold=" + threshold);
+
+            boolean reduce = (remain < threshold);
+            boolean reduced = (bottom_navigation.getLabelVisibilityMode() == LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
+            if (reduce != reduced) {
+                bottom_navigation.setLabelVisibilityMode(reduce
+                        ? LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
+                        : LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
+                ViewGroup.LayoutParams params = bottom_navigation.getLayoutParams();
+                params.height = Helper.dp2pixels(view.getContext(), reduce ? 36 : 56);
+                bottom_navigation.setLayoutParams(params);
+            }
+        }
+    };
 
     private ActivityBase.IBackPressedListener onBackPressedListener = new ActivityBase.IBackPressedListener() {
         @Override
