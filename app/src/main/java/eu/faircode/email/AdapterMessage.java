@@ -105,6 +105,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -1729,6 +1730,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     db.message().setMessageContent(message.id, false, null, null);
                     db.message().setMessageSize(message.id, null);
                     return null;
+                }
+
+                if (!show_quotes) {
+                    Document document = Jsoup.parse(body);
+                    for (Element quote : document.select("blockquote"))
+                        quote.html("&#8230;");
+                    body = document.html();
                 }
 
                 Spanned html = decodeHtml(context, message, body);
