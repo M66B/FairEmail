@@ -122,7 +122,7 @@ public class FragmentRule extends FragmentBase {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        setSubtitle(R.string.title_edit_rules);
+        setSubtitle(R.string.title_rule_caption);
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_rule, container, false);
 

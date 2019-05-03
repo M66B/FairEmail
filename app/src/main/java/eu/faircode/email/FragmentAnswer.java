@@ -58,7 +58,7 @@ public class FragmentAnswer extends FragmentBase {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        setSubtitle(R.string.menu_answers);
+        setSubtitle(R.string.title_answer_caption);
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_answer, container, false);
 

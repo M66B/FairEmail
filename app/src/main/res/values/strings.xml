@@ -491,6 +491,7 @@
     <string name="title_previous">Previous</string>
     <string name="title_next">Next</string>
 
+    <string name="title_answer_caption">Edit template</string>
     <string name="title_answer_reply">Reply template</string>
     <string name="title_answer_name">Template name</string>
     <string name="title_answer_hide">Hide from menus</string>
@@ -498,6 +499,8 @@
     <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
     <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
 
+    <string name="title_rule_caption">Edit rule</string>
+    <string name="title_rule_title">Rule applies to</string>
     <string name="title_rule_name">Name</string>
     <string name="title_rule_order">Order</string>
     <string name="title_rule_enabled">Enabled</string>
