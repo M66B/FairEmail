@@ -966,6 +966,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Bundle args = new Bundle();
                     args.putSerializable("message", message);
                     args.putBoolean("show_quotes", show_quotes);
+                    args.putInt("zoom", zoom);
                     bodyTask.execute(context, owner, args, "message:body");
                 }
         }
@@ -1036,6 +1037,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Bundle args = new Bundle();
                     args.putSerializable("message", message);
                     args.putBoolean("show_quotes", show_quotes);
+                    args.putInt("zoom", zoom);
                     bodyTask.execute(context, owner, args, "message:body");
                 }
         }
@@ -1542,6 +1544,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Bundle args = new Bundle();
             args.putSerializable("message", message);
             args.putBoolean("show_quotes", show_quotes);
+            args.putInt("zoom", zoom);
             bodyTask.execute(context, owner, args, "message:body");
         }
 
@@ -1676,6 +1679,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Bundle args = new Bundle();
             args.putSerializable("message", message);
             args.putBoolean("show_quotes", show_quotes);
+            args.putInt("zoom", zoom);
 
             boolean show_html = properties.getValue("html", message.id);
             if (show_html)
@@ -1721,6 +1725,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 DB db = DB.getInstance(context);
                 TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
                 boolean show_quotes = args.getBoolean("show_quotes");
+                int zoom = args.getInt("zoom");
 
                 String body;
                 try {
@@ -1753,6 +1758,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
 
                 if (!show_quotes) {
+                    final int px = Helper.dp2pixels(context, 24 + (zoom) * 8);
                     StyledQuoteSpan[] squotes = builder.getSpans(0, builder.length(), StyledQuoteSpan.class);
                     for (StyledQuoteSpan squote : squotes)
                         builder.setSpan(new DynamicDrawableSpan() {
@@ -1760,7 +1766,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                             public Drawable getDrawable() {
                                                 Drawable d = context.getDrawable(R.drawable.baseline_format_quote_24);
                                                 d.setTint(colorAccent);
-                                                d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+                                                d.setBounds(0, 0, px, px);
                                                 return d;
                                             }
                                         },
@@ -1891,6 +1897,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Bundle args = new Bundle();
                         args.putSerializable("message", message);
                         args.putBoolean("show_quotes", true);
+                        args.putInt("zoom", zoom);
                         bodyTask.execute(context, owner, args, "message:body");
                     }
                 }
