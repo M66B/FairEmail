@@ -961,10 +961,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     tvBody.setText(body);
                     tvBody.setMovementMethod(null);
 
+                    boolean show_images = properties.getValue("images", message.id);
                     boolean show_quotes = properties.getValue("quotes", message.id);
 
                     Bundle args = new Bundle();
                     args.putSerializable("message", message);
+                    args.putBoolean("show_images", show_images);
                     args.putBoolean("show_quotes", show_quotes);
                     args.putInt("zoom", zoom);
                     bodyTask.execute(context, owner, args, "message:body");
@@ -1032,10 +1034,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (show_html)
                     onShowHtmlConfirmed(message);
                 else {
+                    boolean show_images = properties.getValue("images", message.id);
                     boolean show_quotes = properties.getValue("quotes", message.id);
 
                     Bundle args = new Bundle();
                     args.putSerializable("message", message);
+                    args.putBoolean("show_images", show_images);
                     args.putBoolean("show_quotes", show_quotes);
                     args.putInt("zoom", zoom);
                     bodyTask.execute(context, owner, args, "message:body");
@@ -1539,10 +1543,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvBody.setText(body);
             tvBody.setMovementMethod(null);
 
+            boolean show_images = properties.getValue("images", message.id);
             boolean show_quotes = properties.getValue("quotes", message.id);
 
             Bundle args = new Bundle();
             args.putSerializable("message", message);
+            args.putBoolean("show_images", show_images);
             args.putBoolean("show_quotes", show_quotes);
             args.putInt("zoom", zoom);
             bodyTask.execute(context, owner, args, "message:body");
@@ -1674,10 +1680,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onShowImagesConfirmed(final TupleMessageEx message) {
             properties.setValue("images", message.id, true);
 
+            boolean show_images = properties.getValue("images", message.id);
             boolean show_quotes = properties.getValue("quotes", message.id);
 
             Bundle args = new Bundle();
             args.putSerializable("message", message);
+            args.putBoolean("show_images", show_images);
             args.putBoolean("show_quotes", show_quotes);
             args.putInt("zoom", zoom);
 
@@ -1723,7 +1731,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             @Override
             protected SpannableStringBuilder onExecute(final Context context, final Bundle args) {
                 DB db = DB.getInstance(context);
-                TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
+                final TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
+                final boolean show_images = args.getBoolean("show_images");
                 boolean show_quotes = args.getBoolean("show_quotes");
                 int zoom = args.getInt("zoom");
 
@@ -1744,9 +1753,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     body = document.html();
                 }
 
-                Spanned html = decodeHtml(context, message, body);
+                String html = HtmlHelper.sanitize(context, body);
+                if (debug)
+                    html += "<pre>" + Html.escapeHtml(html) + "</pre>";
 
-                SpannableStringBuilder builder = new SpannableStringBuilder(html);
+                Spanned spanned = HtmlHelper.fromHtml(html, new Html.ImageGetter() {
+                    @Override
+                    public Drawable getDrawable(String source) {
+                        return HtmlHelper.decodeImage(source, message.id, show_images, tvBody);
+                    }
+                }, null);
+
+                SpannableStringBuilder builder = new SpannableStringBuilder(spanned);
                 QuoteSpan[] quoteSpans = builder.getSpans(0, builder.length(), QuoteSpan.class);
                 for (QuoteSpan quoteSpan : quoteSpans) {
                     builder.setSpan(
@@ -1814,21 +1832,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         };
 
-        private Spanned decodeHtml(final Context context, final EntityMessage message, String body) {
-            final boolean show_images = properties.getValue("images", message.id);
-
-            String html = HtmlHelper.sanitize(context, body);
-            if (debug)
-                html += "<pre>" + Html.escapeHtml(html) + "</pre>";
-
-            return HtmlHelper.fromHtml(html, new Html.ImageGetter() {
-                @Override
-                public Drawable getDrawable(String source) {
-                    return HtmlHelper.decodeImage(source, message.id, show_images, tvBody);
-                }
-            }, null);
-        }
-
         private class TouchHandler extends ArrowKeyMovementMethod {
             private TupleMessageEx message;
 
@@ -1881,8 +1884,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (ddss.length > 0) {
                         properties.setValue("quotes", message.id, true);
 
+                        boolean show_images = properties.getValue("images", message.id);
+
                         Bundle args = new Bundle();
                         args.putSerializable("message", message);
+                        args.putBoolean("show_images", show_images);
                         args.putBoolean("show_quotes", true);
                         args.putInt("zoom", zoom);
                         bodyTask.execute(context, owner, args, "message:body");
