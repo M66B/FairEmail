@@ -36,6 +36,7 @@ import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -1759,7 +1760,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                             @Override
                                             public Drawable getDrawable() {
                                                 Drawable d = context.getDrawable(R.drawable.baseline_format_quote_24);
-                                                d.setTint(colorAccent);
+                                                d.setColorFilter(colorPrimary, PorterDuff.Mode.DST_OVER);
                                                 d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
                                                 return d;
                                             }
