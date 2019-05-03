@@ -336,15 +336,7 @@ public class MessageHelper {
         String plainContent = HtmlHelper.getText(body.toString());
 
         StringBuilder htmlContent = new StringBuilder();
-        htmlContent.append("<!DOCTYPE html>").append("\n");
-        htmlContent.append("<html>").append("\n");
-        htmlContent.append("<head>").append("\n");
-        htmlContent.append("<meta charset=\"utf-8\" /> ").append("\n");
-        htmlContent.append("</head>").append("\n");
-        htmlContent.append("<body>").append("\n");
         htmlContent.append(body.toString()).append("\n");
-        htmlContent.append("</body>").append("\n");
-        htmlContent.append("</html>").append("\n");
 
         BodyPart plainPart = new MimeBodyPart();
         plainPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
