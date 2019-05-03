@@ -12,8 +12,8 @@ public class SwipeListener implements View.OnTouchListener {
 
     SwipeListener(final Context context, final ISwipeListener listener) {
         final int width = context.getResources().getDisplayMetrics().widthPixels;
-        final int MOVE_THRESHOLD = width / 2;
-        final int SPEED_THRESHOLD = width / 2;
+        final int MOVE_THRESHOLD = width / 3;
+        final int SPEED_THRESHOLD = width;
 
         gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
             @Override
