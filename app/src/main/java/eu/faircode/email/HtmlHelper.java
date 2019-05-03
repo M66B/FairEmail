@@ -161,50 +161,17 @@ public class HtmlHelper {
         // Abbreviations
         document.select("abbr").tagName("u");
 
-        // Images
-        for (Element img : document.select("img")) {
-            // Get image attributes
-            String src = img.attr("src");
-            String alt = img.attr("alt");
-            String title = img.attr("title");
-            boolean tracking = (paranoid && isTrackingPixel(img));
-
-            // Remove link tracking pixel
-            if (tracking)
-                img.removeAttr("src");
-
-            // Create image container
-            Element span = document.createElement("span");
-            span.appendElement("br");
-            span.appendChild(img.clone());
-            span.appendElement("br");
-
-            // Show image title
-            if (!TextUtils.isEmpty(title)) {
-                span.appendElement("br");
-                span.appendElement("em").text(title);
-            }
-            if (!TextUtils.isEmpty(alt)) {
-                span.appendElement("br");
-                span.appendElement("em").text(alt);
-            }
-
-            if (tracking) {
-                // Tracking pixel link
-                span.appendElement("br");
-                Element a = document.createElement("a");
-                a.attr("href", src);
-                a.appendText(context.getString(R.string.title_hint_tracking_image,
-                        img.attr("width"), img.attr("height")));
-                span.appendChild(a);
-            }
-
-            // Replace img by span containing img
-            img.tagName("span");
-            for (Attribute attr : img.attributes().asList())
-                img.attributes().remove(attr.getKey());
-            img.html(span.html());
-        }
+        // Remove link tracking pixels
+        if (paranoid)
+            for (Element img : document.select("img"))
+                if (isTrackingPixel(img)) {
+                    String src = img.attr("src");
+                    img.removeAttr("src");
+                    img.tagName("a");
+                    img.attr("href", src);
+                    img.appendText(context.getString(R.string.title_hint_tracking_image,
+                            img.attr("width"), img.attr("height")));
+                }
 
         // Tables
         for (Element col : document.select("th,td")) {
@@ -424,7 +391,7 @@ public class HtmlHelper {
                     Log.i("Download " + source);
                     Bitmap bm;
                     try (InputStream is = new URL(source).openStream()) {
-                        int scaleTo = res.getDisplayMetrics().widthPixels;
+                        int scaleTo = res.getDisplayMetrics().widthPixels * 2;
                         int factor = 1;
                         while (options.outWidth / factor > scaleTo)
                             factor *= 2;
@@ -439,9 +406,9 @@ public class HtmlHelper {
                     }
 
                     if (bm == null)
-                        throw new FileNotFoundException("Download image failed");
+                        throw new FileNotFoundException("Download image failed source=" + source);
 
-                    Log.i("Downloaded image");
+                    Log.i("Downloaded image source=" + source);
 
                     try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                         bm.compress(Bitmap.CompressFormat.PNG, 90, os);

@@ -2760,18 +2760,7 @@ public class FragmentCompose extends FragmentBase {
                             new Html.ImageGetter() {
                                 @Override
                                 public Drawable getDrawable(String source) {
-                                    Drawable image = HtmlHelper.decodeImage(source, id, show_images, tvReference);
-
-                                    float width = context.getResources().getDisplayMetrics().widthPixels -
-                                            Helper.dp2pixels(context, 12); // margins;
-                                    if (image.getIntrinsicWidth() > width) {
-                                        float scale = width / image.getIntrinsicWidth();
-                                        image.setBounds(0, 0,
-                                                Math.round(image.getIntrinsicWidth() * scale),
-                                                Math.round(image.getIntrinsicHeight() * scale));
-                                    }
-
-                                    return image;
+                                    return HtmlHelper.decodeImage(source, id, show_images, tvReference);
                                 }
                             },
                             null);

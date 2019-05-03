@@ -1835,18 +1835,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             return HtmlHelper.fromHtml(html, new Html.ImageGetter() {
                 @Override
                 public Drawable getDrawable(String source) {
-                    Drawable image = HtmlHelper.decodeImage(source, message.id, show_images, tvBody);
-
-                    float width = context.getResources().getDisplayMetrics().widthPixels -
-                            Helper.dp2pixels(context, 12); // margins
-                    if (image.getIntrinsicWidth() > width) {
-                        float scale = width / image.getIntrinsicWidth();
-                        image.setBounds(0, 0,
-                                Math.round(image.getIntrinsicWidth() * scale),
-                                Math.round(image.getIntrinsicHeight() * scale));
-                    }
-
-                    return image;
+                    return HtmlHelper.decodeImage(source, message.id, show_images, tvBody);
                 }
             }, null);
         }
