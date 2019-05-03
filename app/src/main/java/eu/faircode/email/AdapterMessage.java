@@ -1433,6 +1433,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 getMeasuredWidth(),
                                 Math.max(tvBody.getMinHeight(), getMeasuredHeight()));
                     }
+
+                    @Override
+                    public void scrollTo(int x, int y) {
+                        // Do nothing
+                    }
+
+                    @Override
+                    public void computeScroll() {
+                        // Do nothing
+                    }
                 };
 
                 setupWebView(webView);
