@@ -23,13 +23,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -57,7 +61,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     private NumberFormat nf = NumberFormat.getNumberInstance();
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
         private View vwColor;
         private ImageView ivPrimary;
@@ -96,10 +100,12 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
         private void wire() {
             view.setOnClickListener(this);
+            view.setOnLongClickListener(this);
         }
 
         private void unwire() {
             view.setOnClickListener(null);
+            view.setOnLongClickListener(null);
         }
 
         private void bindTo(TupleAccountEx account) {
@@ -165,6 +171,68 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             lbm.sendBroadcast(
                     new Intent(settings ? ActivitySetup.ACTION_EDIT_ACCOUNT : ActivityView.ACTION_VIEW_FOLDERS)
                             .putExtra("id", account.id));
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return false;
+
+            final TupleAccountEx account = items.get(pos);
+            if (account.tbd != null)
+                return false;
+
+            PopupMenu popupMenu = new PopupMenu(context, view);
+
+            popupMenu.getMenu().add(Menu.NONE, 1, 1, R.string.title_advanced_enabled)
+                    .setCheckable(true).setChecked(account.synchronize);
+
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    switch (item.getItemId()) {
+                        case 1:
+                            onActionSync(!item.isChecked());
+                            return true;
+                        default:
+                            return false;
+                    }
+                }
+
+                private void onActionSync(boolean sync) {
+                    Bundle args = new Bundle();
+                    args.putLong("id", account.id);
+                    args.putBoolean("sync", sync);
+
+                    new SimpleTask<Boolean>() {
+                        @Override
+                        protected Boolean onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+                            boolean sync = args.getBoolean("sync");
+
+                            DB db = DB.getInstance(context);
+                            db.account().setAccountSynchronize(id, sync);
+
+                            return sync;
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, Boolean sync) {
+                            ServiceSynchronize.reload(context, "account set sync=" + sync);
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(context, owner, ex);
+                        }
+                    }.execute(context, owner, args, "account:enable");
+                }
+            });
+
+            popupMenu.show();
+
+            return true;
         }
     }
 

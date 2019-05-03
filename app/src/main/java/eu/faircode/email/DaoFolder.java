@@ -162,6 +162,9 @@ public interface DaoFolder {
     @Insert
     long insertFolder(EntityFolder folder);
 
+    @Query("UPDATE folder SET synchronize = :synchronize WHERE id = :id")
+    int setFolderSynchronize(long id, boolean synchronize);
+
     @Query("UPDATE folder SET state = :state WHERE id = :id")
     int setFolderState(long id, String state);
 

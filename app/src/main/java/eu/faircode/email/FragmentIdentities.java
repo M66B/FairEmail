@@ -72,7 +72,7 @@ public class FragmentIdentities extends FragmentBase {
         itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
         rvIdentity.addItemDecoration(itemDecorator);
 
-        adapter = new AdapterIdentity(getContext());
+        adapter = new AdapterIdentity(getContext(), getViewLifecycleOwner());
         rvIdentity.setAdapter(adapter);
 
         fab.setOnClickListener(new View.OnClickListener() {

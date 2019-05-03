@@ -102,6 +102,9 @@ public interface DaoAccount {
     @Update
     void updateAccount(EntityAccount account);
 
+    @Query("UPDATE account SET synchronize = :synchronize WHERE id = :id")
+    int setAccountSynchronize(long id, boolean synchronize);
+
     @Query("UPDATE account SET state = :state WHERE id = :id")
     int setAccountState(long id, String state);
 

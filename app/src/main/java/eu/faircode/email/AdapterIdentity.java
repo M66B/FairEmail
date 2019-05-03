@@ -22,13 +22,18 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
@@ -45,13 +50,14 @@ import java.util.Locale;
 
 public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHolder> {
     private Context context;
+    private LifecycleOwner owner;
     private LayoutInflater inflater;
 
     private List<TupleIdentityEx> items = new ArrayList<>();
 
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
         private View vwColor;
         private ImageView ivSync;
@@ -82,10 +88,12 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
         private void wire() {
             view.setOnClickListener(this);
+            view.setOnLongClickListener(this);
         }
 
         private void unwire() {
             view.setOnClickListener(null);
+            view.setOnLongClickListener(null);
         }
 
         private void bindTo(TupleIdentityEx identity) {
@@ -130,10 +138,66 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                     new Intent(ActivitySetup.ACTION_EDIT_IDENTITY)
                             .putExtra("id", identity.id));
         }
+
+        @Override
+        public boolean onLongClick(View v) {
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return false;
+
+            final TupleIdentityEx identity = items.get(pos);
+
+            PopupMenu popupMenu = new PopupMenu(context, view);
+
+            popupMenu.getMenu().add(Menu.NONE, 1, 1, R.string.title_advanced_enabled)
+                    .setCheckable(true).setChecked(identity.synchronize);
+
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    switch (item.getItemId()) {
+                        case 1:
+                            onActionSync(!item.isChecked());
+                            return true;
+                        default:
+                            return false;
+                    }
+                }
+
+                private void onActionSync(boolean sync) {
+                    Bundle args = new Bundle();
+                    args.putLong("id", identity.id);
+                    args.putBoolean("sync", sync);
+
+                    new SimpleTask<Boolean>() {
+                        @Override
+                        protected Boolean onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+                            boolean sync = args.getBoolean("sync");
+
+                            DB db = DB.getInstance(context);
+                            db.identity().setIdentitySynchronize(id, sync);
+
+                            return sync;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(context, owner, ex);
+                        }
+                    }.execute(context, owner, args, "identitty:enable");
+                }
+            });
+
+            popupMenu.show();
+
+            return true;
+        }
     }
 
-    AdapterIdentity(Context context) {
+    AdapterIdentity(Context context, LifecycleOwner owner) {
         this.context = context;
+        this.owner = owner;
         this.inflater = LayoutInflater.from(context);
         setHasStableIds(true);
     }

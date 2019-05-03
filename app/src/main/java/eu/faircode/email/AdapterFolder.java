@@ -110,11 +110,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private TwoStateOwner cowner = new TwoStateOwner(owner, "AdapterFolder");
 
         private final static int action_synchronize_now = 1;
-        private final static int action_delete_local = 2;
-        private final static int action_delete_browsed = 3;
-        private final static int action_empty_trash = 4;
-        private final static int action_edit_properties = 5;
-        private final static int action_edit_rules = 6;
+        private final static int action_synchronize = 2;
+        private final static int action_delete_local = 3;
+        private final static int action_delete_browsed = 4;
+        private final static int action_empty_trash = 5;
+        private final static int action_edit_properties = 6;
+        private final static int action_edit_rules = 7;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -383,25 +384,33 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             popupMenu.getMenu().add(Menu.NONE, action_synchronize_now, 1, R.string.title_synchronize_now);
 
+            if (folder.account != null)
+                popupMenu.getMenu().add(Menu.NONE, action_synchronize, 2, R.string.title_advanced_enabled)
+                        .setCheckable(true).setChecked(folder.synchronize);
+
             if (folder.account != null) { // outbox
-                popupMenu.getMenu().add(Menu.NONE, action_delete_local, 2, R.string.title_delete_local);
-                popupMenu.getMenu().add(Menu.NONE, action_delete_browsed, 3, R.string.title_delete_browsed);
+                popupMenu.getMenu().add(Menu.NONE, action_delete_local, 3, R.string.title_delete_local);
+                popupMenu.getMenu().add(Menu.NONE, action_delete_browsed, 4, R.string.title_delete_browsed);
             }
 
             if (EntityFolder.TRASH.equals(folder.type))
-                popupMenu.getMenu().add(Menu.NONE, action_empty_trash, 4, R.string.title_empty_trash);
+                popupMenu.getMenu().add(Menu.NONE, action_empty_trash, 5, R.string.title_empty_trash);
 
             if (folder.account != null) {
-                popupMenu.getMenu().add(Menu.NONE, action_edit_rules, 5, R.string.title_edit_rules);
-                popupMenu.getMenu().add(Menu.NONE, action_edit_properties, 6, R.string.title_edit_properties);
+                popupMenu.getMenu().add(Menu.NONE, action_edit_rules, 6, R.string.title_edit_rules);
+                popupMenu.getMenu().add(Menu.NONE, action_edit_properties, 7, R.string.title_edit_properties);
             }
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
-                public boolean onMenuItemClick(MenuItem target) {
-                    switch (target.getItemId()) {
+                public boolean onMenuItemClick(MenuItem item) {
+                    switch (item.getItemId()) {
                         case action_synchronize_now:
                             onActionSynchronizeNow();
+                            return true;
+
+                        case action_synchronize:
+                            onActionSync(!item.isChecked());
                             return true;
 
                         case action_delete_local:
@@ -479,6 +488,35 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                 Helper.unexpectedError(context, owner, ex);
                         }
                     }.execute(context, owner, args, "folder:sync");
+                }
+
+                private void onActionSync(boolean sync) {
+                    Bundle args = new Bundle();
+                    args.putLong("id", folder.id);
+                    args.putBoolean("sync", sync);
+
+                    new SimpleTask<Boolean>() {
+                        @Override
+                        protected Boolean onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+                            boolean sync = args.getBoolean("sync");
+
+                            DB db = DB.getInstance(context);
+                            db.folder().setFolderSynchronize(id, sync);
+
+                            return sync;
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, Boolean sync) {
+                            ServiceSynchronize.reload(context, "folder set sync=" + sync);
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(context, owner, ex);
+                        }
+                    }.execute(context, owner, args, "folder:enable");
                 }
 
                 private void OnActionDeleteLocal(final boolean browsed) {
