@@ -1762,8 +1762,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     public Drawable getDrawable(String source) {
                         Drawable image = HtmlHelper.decodeImage(source, message.id, show_images, tvBody);
 
-                        float width = context.getResources().getDisplayMetrics().widthPixels -
-                                Helper.dp2pixels(context, 12); // margins
+                        float width = tvBody.getWidth();
                         if (image.getIntrinsicWidth() > width) {
                             float scale = width / image.getIntrinsicWidth();
                             image.setBounds(0, 0,
