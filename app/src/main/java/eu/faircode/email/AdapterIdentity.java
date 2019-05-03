@@ -70,6 +70,8 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         private TextView tvLast;
         private TextView tvError;
 
+        private TwoStateOwner powner = new TwoStateOwner(owner, "IdentityPopup");
+
         ViewHolder(View itemView) {
             super(itemView);
 
@@ -149,7 +151,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             if (identity.tbd != null)
                 return false;
 
-            PopupMenu popupMenu = new PopupMenu(context, view);
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
             popupMenu.getMenu().add(Menu.NONE, 1, 1, R.string.title_advanced_enabled)
                     .setCheckable(true).setChecked(identity.synchronize);
@@ -309,5 +311,10 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         holder.bindTo(identity);
 
         holder.wire();
+    }
+
+    @Override
+    public void onViewRecycled(@NonNull ViewHolder holder) {
+        holder.powner.recreate();
     }
 }

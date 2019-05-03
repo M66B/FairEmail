@@ -78,6 +78,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         private TextView tvError;
         private Group grpSettings;
 
+        private TwoStateOwner powner = new TwoStateOwner(owner, "AccountPopup");
+
         ViewHolder(View itemView) {
             super(itemView);
 
@@ -183,7 +185,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             if (account.tbd != null)
                 return false;
 
-            PopupMenu popupMenu = new PopupMenu(context, view);
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
             popupMenu.getMenu().add(Menu.NONE, 1, 1, R.string.title_advanced_enabled)
                     .setCheckable(true).setChecked(account.synchronize);
@@ -337,5 +339,10 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         holder.bindTo(account);
 
         holder.wire();
+    }
+
+    @Override
+    public void onViewRecycled(@NonNull ViewHolder holder) {
+        holder.powner.recreate();
     }
 }

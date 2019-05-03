@@ -261,7 +261,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private AdapterAttachment adapterAttachment;
         private AdapterImage adapterImage;
-        private TwoStateOwner cowner = new TwoStateOwner(owner, "AdapterMessage");
+
+        private TwoStateOwner cowner = new TwoStateOwner(owner, "MessageAttachments");
+        private TwoStateOwner powner = new TwoStateOwner(owner, "MessagePopup");
 
         ViewHolder(final View itemView) {
             super(itemView);
@@ -2247,7 +2249,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return;
 
                     View anchor = bnvActions.findViewById(R.id.action_more);
-                    PopupMenu popupMenu = new PopupMenu(context, anchor);
+                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
 
                     int order = 0;
                     for (EntityFolder folder : folders)
@@ -2727,7 +2729,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean show_headers = properties.getValue("headers", data.message.id);
 
             View anchor = bnvActions.findViewById(R.id.action_more);
-            PopupMenu popupMenu = new PopupMenu(context, anchor);
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
             popupMenu.inflate(R.menu.menu_message);
 
             popupMenu.getMenu().findItem(R.id.menu_forward).setEnabled(data.message.content);
@@ -2946,7 +2948,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return;
 
                     View anchor = bnvActions.findViewById(R.id.action_move);
-                    PopupMenu popupMenu = new PopupMenu(context, anchor);
+                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
 
                     int order = 0;
                     for (EntityFolder folder : folders)
@@ -2996,7 +2998,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onActionReplyMenu(final ActionData data) {
             View anchor = bnvActions.findViewById(R.id.action_reply);
-            PopupMenu popupMenu = new PopupMenu(context, anchor);
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
             popupMenu.inflate(R.menu.menu_reply);
             popupMenu.getMenu().findItem(R.id.menu_reply_list).setVisible(data.message.list_post != null);
             popupMenu.getMenu().findItem(R.id.menu_reply_receipt).setVisible(data.message.receipt_to != null);
@@ -3096,7 +3098,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         snackbar.show();
                     } else {
                         View anchor = bnvActions.findViewById(R.id.action_reply);
-                        PopupMenu popupMenu = new PopupMenu(context, anchor);
+                        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
 
                         int order = 0;
                         for (EntityAnswer answer : answers)
@@ -3290,6 +3292,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     @Override
     public void onViewRecycled(@NonNull ViewHolder holder) {
         holder.cowner.stop();
+        holder.powner.recreate();
     }
 
     void setSelectionTracker(SelectionTracker<Long> selectionTracker) {

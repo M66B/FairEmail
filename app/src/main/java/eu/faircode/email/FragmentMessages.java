@@ -1160,7 +1160,7 @@ public class FragmentMessages extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, final MoreResult result) {
-                PopupMenu popupMenu = new PopupMenu(getContext(), fabMore);
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fabMore);
 
                 if (result.unseen) // Unseen, not draft
                     popupMenu.getMenu().add(Menu.NONE, action_seen, 1, R.string.title_seen);

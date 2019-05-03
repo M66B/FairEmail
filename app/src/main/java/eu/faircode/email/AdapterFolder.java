@@ -107,7 +107,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private RecyclerView rvChilds;
 
         private AdapterFolder childs;
-        private TwoStateOwner cowner = new TwoStateOwner(owner, "AdapterFolder");
+
+        private TwoStateOwner cowner = new TwoStateOwner(owner, "FolderChilds");
+        private TwoStateOwner powner = new TwoStateOwner(owner, "FolderPopup");
 
         private final static int action_synchronize_now = 1;
         private final static int action_synchronize = 2;
@@ -380,7 +382,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (folder.tbd != null)
                 return false;
 
-            PopupMenu popupMenu = new PopupMenu(context, vwRipple);
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, vwRipple);
 
             popupMenu.getMenu().add(Menu.NONE, action_synchronize_now, 1, R.string.title_synchronize_now);
 
@@ -788,6 +790,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     @Override
     public void onViewRecycled(@NonNull ViewHolder holder) {
         holder.cowner.stop();
+        holder.powner.recreate();
     }
 
     @Override
