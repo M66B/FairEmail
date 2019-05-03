@@ -1502,7 +1502,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         ibFull.setVisibility(View.VISIBLE);
                         ibImages.setVisibility(show_images ? View.GONE : View.VISIBLE);
 
-                        webView.loadDataWithBaseURL("email://", themeHtml(original.html), "text/html", "UTF-8", null);
+                        webView.loadDataWithBaseURL(null, themeHtml(original.html), "text/html", "UTF-8", null);
 
                         pbBody.setVisibility(View.GONE);
                         tvBody.setVisibility(View.GONE);
@@ -1518,7 +1518,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibFull.setVisibility(View.VISIBLE);
                 ibImages.setVisibility(show_images ? View.GONE : View.VISIBLE);
 
-                webView.loadDataWithBaseURL("email://", themeHtml(html), "text/html", "UTF-8", null);
+                webView.loadDataWithBaseURL(null, themeHtml(html), "text/html", "UTF-8", null);
 
                 pbBody.setVisibility(View.GONE);
                 tvBody.setVisibility(View.GONE);
@@ -1575,7 +1575,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             settings.setDisplayZoomControls(false);
 
             String html = properties.getHtml(message.id);
-            webView.loadDataWithBaseURL("email://", html, "text/html", "UTF-8", null);
+            webView.loadDataWithBaseURL(null, html, "text/html", "UTF-8", null);
 
             final Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
             dialog.setContentView(webView);
@@ -1905,6 +1905,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onOpenLink(final Uri uri) {
+            Log.i("Opening uri=" + uri);
+
             if (BuildConfig.APPLICATION_ID.equals(uri.getHost()) && "/activate/".equals(uri.getPath())) {
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                 lbm.sendBroadcast(
