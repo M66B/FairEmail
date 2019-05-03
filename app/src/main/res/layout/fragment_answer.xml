@@ -50,43 +50,21 @@
         android:hint="@string/title_answer_text"
         android:imeOptions="actionDone"
         android:inputType="textCapSentences|textMultiLine|textAutoCorrect"
+        android:isScrollContainer="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintBottom_toTopOf="@+id/vSeparatorHints"
+        android:windowSoftInputMode="adjustPan"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparator" />
 
-    <View
-        android:id="@+id/vSeparatorHints"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginBottom="6dp"
-        android:background="?attr/colorSeparator"
-        app:layout_constraintBottom_toTopOf="@+id/tvTemplateName"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tvTemplateName"
+    <ImageButton
+        android:id="@+id/ibInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="6dp"
-        android:text="@string/title_answer_template_name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintBottom_toTopOf="@+id/tvTemplateEmail"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tvTemplateEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginBottom="6dp"
-        android:text="@string/title_answer_template_email"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:contentDescription="@string/title_setup_help"
+        android:src="@drawable/baseline_info_24"
+        app:layout_constraintBottom_toBottomOf="@id/etText"
+        app:layout_constraintEnd_toEndOf="@id/etText" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

@@ -22,12 +22,15 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -40,6 +43,7 @@ public class FragmentAnswer extends FragmentBase {
     private EditText etName;
     private CheckBox cbHide;
     private EditText etText;
+    private ImageButton ibInfo;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -66,9 +70,30 @@ public class FragmentAnswer extends FragmentBase {
         etName = view.findViewById(R.id.etName);
         cbHide = view.findViewById(R.id.cbHide);
         etText = view.findViewById(R.id.etText);
+        ibInfo = view.findViewById(R.id.ibInfo);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
+
+        ibInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Spanned spanned = HtmlHelper.fromHtml("<p>" +
+                        getString(R.string.title_answer_template_name) +
+                        "<br>" +
+                        getString(R.string.title_answer_template_email) +
+                        "</p>");
+
+                View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_message, null);
+                TextView tvMessage = dview.findViewById(R.id.tvMessage);
+
+                tvMessage.setText(spanned);
+
+                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                        .setView(dview)
+                        .show();
+            }
+        });
 
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
