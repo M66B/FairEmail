@@ -444,12 +444,15 @@
     <string name="title_address_invalid">Neplatné:</string>
     <string name="title_previous">Předchozí</string>
     <string name="title_next">Další</string>
+    <string name="title_answer_caption">Upravit šablonu</string>
     <string name="title_answer_reply">Šablona odpovědi</string>
     <string name="title_answer_name">Název šablony</string>
     <string name="title_answer_hide">Skrýt z nabídek</string>
     <string name="title_answer_text">Text šablony</string>
     <string name="title_answer_template_name">$name$ bude nahrazeno celým jménem odesílatele</string>
     <string name="title_answer_template_email">$email$ bude nahrazeno e-mailovou adresou odesílatele</string>
+    <string name="title_rule_caption">Upravit pravidlo</string>
+    <string name="title_rule_title">Pravidlo platí pro</string>
     <string name="title_rule_name">Název</string>
     <string name="title_rule_order">Pořadí</string>
     <string name="title_rule_enabled">Zapnuto</string>

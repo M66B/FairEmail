@@ -70,9 +70,9 @@
     <string name="title_version">Versie %1$s</string>
     <string name="title_list_accounts">Accounts</string>
     <string name="title_list_identities">Identiteiten</string>
-    <string name="title_edit_account">Account bewerken</string>
-    <string name="title_edit_identity">Identiteit bewerken</string>
-    <string name="title_edit_folder">Map bewerken</string>
+    <string name="title_edit_account">Bewerk account</string>
+    <string name="title_edit_identity">Bewerk identiteit</string>
+    <string name="title_edit_folder">Bewerk map</string>
     <string name="title_setup">Instellingen</string>
     <string name="title_setup_help">Help</string>
     <string name="title_setup_quick">Snel instellen</string>
@@ -256,7 +256,7 @@
     <string name="title_drafts_required">Een concepten map is vereist om berichten te verzenden</string>
     <string name="title_account_delete">Verwijder dit account permanent?</string>
     <string name="title_identity_delete">Verwijder deze identiteit permanent?</string>
-    <string name="title_edit_html">Als HTML bewerken</string>
+    <string name="title_edit_html">Bewerk HTML</string>
     <string name="title_last_connected">Laatst verbonden: %1$s</string>
     <string name="title_pop3_hint">POP3 heeft aanzienlijke beperkingen, dus gebruik IMAP indien mogelijk</string>
     <string name="title_pop3_support">POP3 wordt niet ondersteund, zie ook de FAQ</string>
@@ -428,12 +428,15 @@
     <string name="title_address_invalid">Ongeldig:</string>
     <string name="title_previous">Vorige</string>
     <string name="title_next">Volgende</string>
+    <string name="title_answer_caption">Bewerk sjabloon</string>
     <string name="title_answer_reply">Antwoord sjabloon</string>
     <string name="title_answer_name">Sjabloonnaam</string>
     <string name="title_answer_hide">Verbergen in menu\'s</string>
     <string name="title_answer_text">Sjabloontekst</string>
     <string name="title_answer_template_name">$name$ zal worden vervangen door de volledige naam van de afzender</string>
     <string name="title_answer_template_email">$email$ zal worden vervangen door het e-mail adres van de afzender</string>
+    <string name="title_rule_caption">Bewerk regel</string>
+    <string name="title_rule_title">Regel is van toepassing op</string>
     <string name="title_rule_name">Naam</string>
     <string name="title_rule_order">Volgorde</string>
     <string name="title_rule_enabled">Ingeschakeld</string>
@@ -512,7 +515,7 @@
     <string name="title_legend_show_quotes">Toon citaten</string>
     <string name="title_legend_show_images">Toon afbeeldingen</string>
     <string name="title_legend_show_full">Toon volledig scherm</string>
-    <string name="title_legend_edit">Bewerken</string>
+    <string name="title_legend_edit">Bewerk</string>
     <string name="title_legend_default_color">Standaard kleur</string>
     <string name="title_legend_close_hint">Sluit hint</string>
     <string name="title_legend_connection_state">Verbindingsstatus</string>

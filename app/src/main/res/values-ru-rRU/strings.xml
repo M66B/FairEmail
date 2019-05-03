@@ -444,12 +444,15 @@
     <string name="title_address_invalid">Недопустимо:</string>
     <string name="title_previous">Предыдущий шаг</string>
     <string name="title_next">Следующий</string>
+    <string name="title_answer_caption">Изменить шаблон</string>
     <string name="title_answer_reply">Шаблон ответа</string>
     <string name="title_answer_name">Название шаблона</string>
     <string name="title_answer_hide">Скрыть из меню</string>
     <string name="title_answer_text">Текст шаблона</string>
     <string name="title_answer_template_name">$name$ будет заменен на полное имя отправителя</string>
     <string name="title_answer_template_email">$email$ будет заменен на адрес электронной почты отправителя</string>
+    <string name="title_rule_caption">Изменить правило</string>
+    <string name="title_rule_title">Правило применяется к</string>
     <string name="title_rule_name">Название</string>
     <string name="title_rule_order">Порядок</string>
     <string name="title_rule_enabled">Включено</string>

@@ -428,12 +428,15 @@
     <string name="title_address_invalid">Invalide :</string>
     <string name="title_previous">Précédent</string>
     <string name="title_next">Suivant</string>
+    <string name="title_answer_caption">Modifier le modèle</string>
     <string name="title_answer_reply">Modèle de réponse</string>
     <string name="title_answer_name">Nom du modèle</string>
     <string name="title_answer_hide">Cacher dans les menus</string>
     <string name="title_answer_text">Texte du modèle</string>
     <string name="title_answer_template_name">$name$ sera remplacé par le nom complet de l\'expéditeur</string>
     <string name="title_answer_template_email">$email$ sera remplacé par l\'adresse e-mail de l\'expéditeur</string>
+    <string name="title_rule_caption">Modifier la règle</string>
+    <string name="title_rule_title">La règle s\'applique à</string>
     <string name="title_rule_name">Nom</string>
     <string name="title_rule_order">Ordre</string>
     <string name="title_rule_enabled">Activé</string>

@@ -428,12 +428,15 @@
     <string name="title_address_invalid">Inválido/s:</string>
     <string name="title_previous">Anterior</string>
     <string name="title_next">Siguiente</string>
+    <string name="title_answer_caption">Editar plantilla</string>
     <string name="title_answer_reply">Plantilla de respuesta</string>
     <string name="title_answer_name">Nombre de plantilla</string>
     <string name="title_answer_hide">Ocultar de menús</string>
     <string name="title_answer_text">Texto de plantilla</string>
     <string name="title_answer_template_name">$name$ será reemplazado por el nombre completo del remitente</string>
     <string name="title_answer_template_email">$email$ será reemplazado por la dirección de correo electrónico del remitente</string>
+    <string name="title_rule_caption">Editar regla</string>
+    <string name="title_rule_title">Regla aplicable a</string>
     <string name="title_rule_name">Nombre</string>
     <string name="title_rule_order">Orden</string>
     <string name="title_rule_enabled">Activada</string>

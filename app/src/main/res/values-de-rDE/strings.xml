@@ -28,7 +28,7 @@
     </plurals>
     <plurals name="title_notification_unsent">
         <item quantity="one">%1$d Nachricht noch zu senden</item>
-        <item quantity="other">%1$d Nachricht(en) noch zu senden</item>
+        <item quantity="other">%1$d Nachrichten noch zu senden</item>
     </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$d neue</item>
@@ -428,12 +428,15 @@
     <string name="title_address_invalid">Ungültig:</string>
     <string name="title_previous">Vorherige</string>
     <string name="title_next">Nächste</string>
+    <string name="title_answer_caption">Vorlage bearbeiten</string>
     <string name="title_answer_reply">Antwortvorlage</string>
     <string name="title_answer_name">Vorlagenname</string>
     <string name="title_answer_hide">Aus Menüs ausblenden</string>
     <string name="title_answer_text">Vorlagentext</string>
     <string name="title_answer_template_name">$name$ wird durch den vollständigen Absendernamen ersetzt</string>
     <string name="title_answer_template_email">$email$ wird durch die E-Mail-Adresse des Absenders ersetzt</string>
+    <string name="title_rule_caption">Regel bearbeiten</string>
+    <string name="title_rule_title">Regel gilt für</string>
     <string name="title_rule_name">Name</string>
     <string name="title_rule_order">Reihenfolge</string>
     <string name="title_rule_enabled">Aktiviert</string>

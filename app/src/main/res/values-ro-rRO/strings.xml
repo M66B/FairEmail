@@ -436,12 +436,15 @@
     <string name="title_address_invalid">Invalid:</string>
     <string name="title_previous">Precedent</string>
     <string name="title_next">Următor</string>
+    <string name="title_answer_caption">Editare șablon</string>
     <string name="title_answer_reply">Șablon răspuns</string>
     <string name="title_answer_name">Nume șablon</string>
     <string name="title_answer_hide">Ascunde din meniuri</string>
     <string name="title_answer_text">Text șablon</string>
     <string name="title_answer_template_name">$name$ va fi înlocuit cu numele expeditorului</string>
     <string name="title_answer_template_email">$email$ va fi înlocuit cu adresa de e-mail a expeditorului</string>
+    <string name="title_rule_caption">Editare regulă</string>
+    <string name="title_rule_title">Regula se aplică la</string>
     <string name="title_rule_name">Nume</string>
     <string name="title_rule_order">Ordine</string>
     <string name="title_rule_enabled">Activată</string>

@@ -330,7 +330,7 @@
     <string name="title_spam">Søppelpost</string>
     <string name="title_move">Flytt</string>
     <string name="title_move_to">Flytt til %1$s</string>
-    <string name="title_snooze">Pause &#8230;</string>
+    <string name="title_snooze">Utsett &#8230;</string>
     <string name="title_archive">Arkiver</string>
     <string name="title_reply">Svar</string>
     <string name="title_reply_to_sender">Avsender</string>
@@ -428,12 +428,15 @@
     <string name="title_address_invalid">Ugyldig:</string>
     <string name="title_previous">Forrige</string>
     <string name="title_next">Neste</string>
+    <string name="title_answer_caption">Rediger mal</string>
     <string name="title_answer_reply">Svarmal</string>
     <string name="title_answer_name">Navn på mal</string>
     <string name="title_answer_hide">Skjul i menyer</string>
     <string name="title_answer_text">Maltekst</string>
     <string name="title_answer_template_name">$name$ vil bli erstattet med avsenderens fulle navn</string>
     <string name="title_answer_template_email">$email$ vil bli erstattet med avsenderens e-postadresse</string>
+    <string name="title_rule_caption">Rediger regel</string>
+    <string name="title_rule_title">Regelen gjelder for</string>
     <string name="title_rule_name">Navn</string>
     <string name="title_rule_order">Rekkefølge</string>
     <string name="title_rule_enabled">Aktivert</string>
