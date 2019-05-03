@@ -11,10 +11,11 @@ public class SwipeListener implements View.OnTouchListener {
     private final GestureDetector gestureDetector;
 
     SwipeListener(final Context context, final ISwipeListener listener) {
-        gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
-            private final int MOVE_THRESHOLD = Helper.dp2pixels(context, 100); // dp
-            private final int SPEED_THRESHOLD = Helper.dp2pixels(context, 100); // dp
+        final int width = context.getResources().getDisplayMetrics().widthPixels;
+        final int MOVE_THRESHOLD = width / 2;
+        final int SPEED_THRESHOLD = width / 2;
 
+        gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
             @Override
             public boolean onFling(MotionEvent me1, MotionEvent me2, float vx, float vy) {
                 if (me1 == null || me2 == null)
