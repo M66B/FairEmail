@@ -2612,6 +2612,7 @@ public class FragmentMessages extends FragmentBase {
                     getFragmentManager().popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
                 getArguments().putBoolean("fade", true);
+                getArguments().putBoolean("left", left);
 
                 Bundle nargs = new Bundle();
                 nargs.putLong("account", message.account);
@@ -2853,15 +2854,15 @@ public class FragmentMessages extends FragmentBase {
     @Override
     public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
         Bundle args = getArguments();
+        Boolean left = (Boolean) args.get("left");
         if (viewType == AdapterMessage.ViewType.THREAD && args != null) {
             if (enter) {
-                Boolean left = (Boolean) args.get("left");
                 if (left != null)
                     return AnimationUtils.loadAnimation(getContext(), left ? R.anim.enter_from_left : R.anim.enter_from_right);
             } else {
                 if (args.getBoolean("fade")) {
                     args.remove("fade");
-                    return AnimationUtils.loadAnimation(getContext(), android.R.anim.fade_out);
+                    return AnimationUtils.loadAnimation(getContext(), left ? R.anim.leave_to_right : R.anim.leave_to_left);
                 }
             }
         }
