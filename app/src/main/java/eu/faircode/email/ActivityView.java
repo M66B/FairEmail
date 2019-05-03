@@ -1241,7 +1241,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     }
                 });
 
-                printWebView.loadDataWithBaseURL(null, data[1], "text/html", "UTF-8", null);
+                printWebView.loadDataWithBaseURL("about:blank", data[1], "text/html", "UTF-8", null);
             }
 
             @Override
