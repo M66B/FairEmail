@@ -434,9 +434,21 @@ public class HtmlHelper {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
+                        int w = d.getIntrinsicWidth();
+                        int h = d.getIntrinsicHeight();
+
+                        float width = view.getWidth();
+                        if (w > width) {
+                            float scale = width / w;
+                            w = Math.round(w * scale);
+                            h = Math.round(h * scale);
+                            d.setBounds(0, 0, w, h);
+                        }
+
                         lld.addLevel(1, 1, d);
-                        lld.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+                        lld.setBounds(0, 0, w, h);
                         lld.setLevel(1);
+
                         view.setText(view.getText());
                     }
                 });
