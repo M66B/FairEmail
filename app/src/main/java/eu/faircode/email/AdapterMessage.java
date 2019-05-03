@@ -1578,6 +1578,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean show_images = properties.getValue("images", message.id);
 
             WebSettings settings = webView.getSettings();
+            settings.setDefaultFontSize(Math.round(textSize));
+            settings.setDefaultFixedFontSize(Math.round(textSize));
             settings.setLoadsImagesAutomatically(show_images);
             settings.setBuiltInZoomControls(true);
             settings.setDisplayZoomControls(false);
