@@ -1759,6 +1759,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 if (!show_quotes) {
                     final int px = Helper.dp2pixels(context, 24 + (zoom) * 8);
+
                     StyledQuoteSpan[] squotes = builder.getSpans(0, builder.length(), StyledQuoteSpan.class);
                     for (StyledQuoteSpan squote : squotes)
                         builder.setSpan(new DynamicDrawableSpan() {
@@ -1775,7 +1776,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 builder.getSpanFlags(squote));
                 }
 
-                args.putBoolean("has_quotes", builder.getSpans(0, body.length(), StyledQuoteSpan.class).length > 0);
                 args.putBoolean("has_images", builder.getSpans(0, body.length(), ImageSpan.class).length > 0);
 
                 return builder;
@@ -1794,9 +1794,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (!show_expanded)
                     return;
 
-                boolean has_quotes = args.getBoolean("has_quotes");
                 boolean has_images = args.getBoolean("has_images");
-                boolean show_quotes = properties.getValue("quotes", message.id);
                 boolean show_images = properties.getValue("images", message.id);
 
                 tbHtml.setVisibility(hasWebView ? View.VISIBLE : View.GONE);
