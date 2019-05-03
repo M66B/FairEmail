@@ -439,27 +439,27 @@ public class MessageHelper {
 
     String getMessageID() throws MessagingException {
         // Outlook outbox -> sent
-        String[] xID = imessage.getHeader("X-FairEmail-ID");
-        if (xID != null && xID.length > 0)
-            return xID[0];
-
-        return imessage.getHeader("Message-ID", null);
+        String header = imessage.getHeader("X-FairEmail-ID", null);
+        if (header == null)
+            header = imessage.getHeader("Message-ID", null);
+        return (header == null ? null : MimeUtility.unfold(header));
     }
 
     String[] getReferences() throws MessagingException {
         String refs = imessage.getHeader("References", null);
-        return (refs == null ? new String[0] : refs.split("\\s+"));
+        return (refs == null ? new String[0] : MimeUtility.unfold(refs).split("\\s+"));
     }
 
     String getDeliveredTo() throws MessagingException {
         String header = imessage.getHeader("Delivered-To", null);
         if (header == null)
             header = imessage.getHeader("X-Delivered-To", null);
-        return header;
+        return (header == null ? null : MimeUtility.unfold(header));
     }
 
     String getInReplyTo() throws MessagingException {
-        return imessage.getHeader("In-Reply-To", null);
+        String header = imessage.getHeader("In-Reply-To", null);
+        return (header == null ? null : MimeUtility.unfold(header));
     }
 
     String getThreadId(Context context, long account, long uid) throws MessagingException {
@@ -497,6 +497,8 @@ public class MessageHelper {
         if (to == null)
             return null;
 
+        to = MimeUtility.unfold(to);
+
         InternetAddress[] address = null;
         try {
             address = InternetAddress.parse(to);
@@ -513,8 +515,8 @@ public class MessageHelper {
     }
 
     String getAuthentication() throws MessagingException {
-        String header = imessage.getHeader("Authentication-Results", "");
-        return (header == null ? null : header.replaceAll("\\r?\\n", ""));
+        String header = imessage.getHeader("Authentication-Results", null);
+        return (header == null ? null : MimeUtility.unfold(header));
     }
 
     static Boolean getAuthentication(String type, String header) {
@@ -559,6 +561,7 @@ public class MessageHelper {
     }
 
     Address[] getReply() throws MessagingException {
+        // Prevent getting To header
         String[] headers = imessage.getHeader("Reply-To");
         if (headers != null && headers.length > 0)
             return fix(imessage.getReplyTo());
@@ -571,6 +574,8 @@ public class MessageHelper {
         String list = imessage.getHeader("List-Post", null);
         if (list == null || "NO".equals(list))
             return null;
+
+        list = MimeUtility.unfold(list);
 
         InternetAddress[] address = null;
         try {
@@ -616,22 +621,24 @@ public class MessageHelper {
     }
 
     String getSubject() throws MessagingException {
-        String subject = imessage.getSubject();
+        String subject = imessage.getHeader("Subject", null);
+        if (subject == null)
+            return null;
+
+        subject = MimeUtility.unfold(subject);
 
         // Fix UTF-8
-        if (subject != null) {
-            char[] kars = subject.toCharArray();
-            byte[] bytes = new byte[kars.length];
-            for (int i = 0; i < kars.length; i++)
-                bytes[i] = (byte) kars[i];
+        char[] kars = subject.toCharArray();
+        byte[] bytes = new byte[kars.length];
+        for (int i = 0; i < kars.length; i++)
+            bytes[i] = (byte) kars[i];
 
-            try {
-                CharsetDecoder cs = StandardCharsets.UTF_8.newDecoder();
-                cs.decode(ByteBuffer.wrap(bytes));
-                subject = new String(bytes, StandardCharsets.UTF_8);
-            } catch (CharacterCodingException ex) {
-                Log.w(ex);
-            }
+        try {
+            CharsetDecoder cs = StandardCharsets.UTF_8.newDecoder();
+            cs.decode(ByteBuffer.wrap(bytes));
+            subject = new String(bytes, StandardCharsets.UTF_8);
+        } catch (CharacterCodingException ex) {
+            Log.w(ex);
         }
 
         return decodeMime(subject);
@@ -825,7 +832,7 @@ public class MessageHelper {
                 attachment.type = ct.getBaseType().toLowerCase();
                 attachment.disposition = apart.disposition;
                 attachment.size = (long) apart.part.getSize();
-                attachment.cid = (cid == null || cid.length == 0 ? null : cid[0]);
+                attachment.cid = (cid == null || cid.length == 0 ? null : MimeUtility.unfold(cid[0]));
                 attachment.encryption = (apart.pgp ? EntityAttachment.PGP_MESSAGE : null);
 
                 if ("text/calendar".equalsIgnoreCase(attachment.type) && TextUtils.isEmpty(attachment.name))
