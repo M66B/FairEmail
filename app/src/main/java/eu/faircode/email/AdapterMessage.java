@@ -1855,6 +1855,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     int line = layout.getLineForVertical(y);
                     int off = layout.getOffsetForHorizontal(line, x);
 
+                    boolean show_images = properties.getValue("images", message.id);
+                    if (!show_images) {
+                        ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
+                        if (image.length > 0 && image[0].getSource() != null) {
+                            Uri uri = Uri.parse(image[0].getSource());
+                            if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme())) {
+                                onOpenLink(uri);
+                                return true;
+                            }
+                        }
+                    }
+
                     URLSpan[] link = buffer.getSpans(off, off, URLSpan.class);
                     if (link.length > 0) {
                         String url = link[0].getURL();
@@ -1867,24 +1879,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
                     if (image.length > 0 && image[0].getSource() != null) {
-                        boolean show_images = properties.getValue("images", message.id);
-                        if (show_images) {
-                            onOpenImage(image[0].getDrawable());
-                            return true;
-                        } else {
-                            Uri uri = Uri.parse(image[0].getSource());
-                            if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme())) {
-                                onOpenLink(uri);
-                                return true;
-                            }
-                        }
+                        onOpenImage(image[0].getDrawable());
+                        return true;
                     }
 
                     DynamicDrawableSpan[] ddss = buffer.getSpans(off, off, DynamicDrawableSpan.class);
                     if (ddss.length > 0) {
                         properties.setValue("quotes", message.id, true);
-
-                        boolean show_images = properties.getValue("images", message.id);
 
                         Bundle args = new Bundle();
                         args.putSerializable("message", message);
