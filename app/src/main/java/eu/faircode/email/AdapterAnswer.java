@@ -23,11 +23,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DiffUtil;
@@ -44,11 +47,13 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
 
     private List<EntityAnswer> items = new ArrayList<>();
 
-    private boolean primary = false;
+    private boolean composable = false;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
         private TextView tvName;
+
+        private TwoStateOwner powner = new TwoStateOwner(owner, "RulePopup");
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -88,20 +93,68 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
 
         @Override
         public boolean onLongClick(View v) {
-            if (!primary)
-                return false;
-
             int pos = getAdapterPosition();
             if (pos == RecyclerView.NO_POSITION)
                 return false;
 
-            EntityAnswer answer = items.get(pos);
+            final EntityAnswer answer = items.get(pos);
 
-            context.startActivity(new Intent(context, ActivityCompose.class)
-                    .putExtra("action", "new")
-                    .putExtra("answer", answer.id));
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
-            return false;
+            if (composable)
+                popupMenu.getMenu().add(Menu.NONE, 1, 1, R.string.title_compose);
+            popupMenu.getMenu().add(Menu.NONE, 2, 2, R.string.title_answer_hide)
+                    .setCheckable(true).setChecked(answer.hide);
+
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    switch (item.getItemId()) {
+                        case 1:
+                            onActionCompose();
+                            return true;
+                        case 2:
+                            onActionHide(!item.isChecked());
+                            return true;
+                        default:
+                            return false;
+                    }
+                }
+
+                private void onActionCompose() {
+                    context.startActivity(new Intent(context, ActivityCompose.class)
+                            .putExtra("action", "new")
+                            .putExtra("answer", answer.id));
+                }
+
+                private void onActionHide(boolean hide) {
+                    Bundle args = new Bundle();
+                    args.putLong("id", answer.id);
+                    args.putBoolean("hide", hide);
+
+                    new SimpleTask<Boolean>() {
+                        @Override
+                        protected Boolean onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+                            boolean hide = args.getBoolean("hide");
+
+                            DB db = DB.getInstance(context);
+                            db.answer().setAnswerHidden(id, hide);
+
+                            return hide;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(context, owner, ex);
+                        }
+                    }.execute(context, owner, args, "rule:enable");
+                }
+            });
+
+            popupMenu.show();
+
+            return true;
         }
     }
 
@@ -111,22 +164,23 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
         this.inflater = LayoutInflater.from(context);
         setHasStableIds(true);
 
-        new SimpleTask<EntityFolder>() {
+        new SimpleTask<Boolean>() {
             @Override
-            protected EntityFolder onExecute(Context context, Bundle args) {
-                return DB.getInstance(context).folder().getPrimaryDrafts();
+            protected Boolean onExecute(Context context, Bundle args) {
+                DB db = DB.getInstance(context);
+                return (db.identity().getComposableIdentities(null).size() > 0);
             }
 
             @Override
-            protected void onExecuted(Bundle args, EntityFolder drafts) {
-                primary = (drafts != null);
+            protected void onExecuted(Bundle args, Boolean composable) {
+                AdapterAnswer.this.composable = composable;
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(AdapterAnswer.this.context, AdapterAnswer.this.owner, ex);
             }
-        }.execute(context, owner, new Bundle(), "answer:account:primary");
+        }.execute(context, owner, new Bundle(), "answer:composable");
     }
 
     public void set(@NonNull List<EntityAnswer> answers) {
@@ -216,5 +270,10 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
         EntityAnswer answer = items.get(position);
         holder.bindTo(answer);
         holder.wire();
+    }
+
+    @Override
+    public void onViewRecycled(@NonNull ViewHolder holder) {
+        holder.powner.recreate();
     }
 }

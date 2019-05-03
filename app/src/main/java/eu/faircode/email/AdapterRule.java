@@ -21,14 +21,18 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DiffUtil;
@@ -47,13 +51,15 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
     private List<TupleRuleEx> items = new ArrayList<>();
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
         private TextView tvName;
         private TextView tvOrder;
         private ImageView ivStop;
         private TextView tvCondition;
         private TextView tvAction;
+
+        private TwoStateOwner powner = new TwoStateOwner(owner, "RulePopup");
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -68,10 +74,12 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
         private void wire() {
             view.setOnClickListener(this);
+            view.setOnLongClickListener(this);
         }
 
         private void unwire() {
             view.setOnClickListener(null);
+            view.setOnLongClickListener(null);
         }
 
         private void bindTo(TupleRuleEx rule) {
@@ -137,6 +145,61 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                             .putExtra("id", rule.id)
                             .putExtra("account", rule.account)
                             .putExtra("folder", rule.folder));
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return false;
+
+            final TupleRuleEx rule = items.get(pos);
+
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
+
+            popupMenu.getMenu().add(Menu.NONE, 1, 1, R.string.title_rule_enabled)
+                    .setCheckable(true).setChecked(rule.enabled);
+
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    switch (item.getItemId()) {
+                        case 1:
+                            onActionEnabled(!item.isChecked());
+                            return true;
+                        default:
+                            return false;
+                    }
+                }
+
+                private void onActionEnabled(boolean enabled) {
+                    Bundle args = new Bundle();
+                    args.putLong("id", rule.id);
+                    args.putBoolean("enabled", enabled);
+
+                    new SimpleTask<Boolean>() {
+                        @Override
+                        protected Boolean onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+                            boolean enabled = args.getBoolean("enabled");
+
+                            DB db = DB.getInstance(context);
+                            db.rule().setRuleEnabled(id, enabled);
+
+                            return enabled;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(context, owner, ex);
+                        }
+                    }.execute(context, owner, args, "rule:enable");
+                }
+            });
+
+            popupMenu.show();
+
+            return true;
         }
     }
 
@@ -234,5 +297,10 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         TupleRuleEx rule = items.get(position);
         holder.bindTo(rule);
         holder.wire();
+    }
+
+    @Override
+    public void onViewRecycled(@NonNull ViewHolder holder) {
+        holder.powner.recreate();
     }
 }

@@ -47,6 +47,9 @@ public interface DaoAnswer {
     @Update
     int updateAnswer(EntityAnswer answer);
 
+    @Query("UPDATE answer SET hide = :hide WHERE id = :id")
+    int setAnswerHidden(long id, boolean hide);
+
     @Query("DELETE FROM answer WHERE id = :id")
     void deleteAnswer(long id);
 }
