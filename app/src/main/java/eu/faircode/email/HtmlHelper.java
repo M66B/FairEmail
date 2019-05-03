@@ -313,7 +313,7 @@ public class HtmlHelper {
                 return d;
             } else {
                 Bitmap bm = Helper.decodeImage(attachment.getFile(view.getContext()),
-                        res.getDisplayMetrics().widthPixels);
+                        res.getDisplayMetrics().widthPixels * 2);
                 if (bm == null) {
                     Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
                     d.setBounds(0, 0, px, px);

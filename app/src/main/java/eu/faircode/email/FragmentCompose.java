@@ -2881,8 +2881,7 @@ public class FragmentCompose extends FragmentBase {
                                     lld.setLevel(2); // image
 
                                     float scale = 1.0f;
-                                    float width = getContext().getResources().getDisplayMetrics().widthPixels -
-                                            Helper.dp2pixels(getContext(), 12); // margins;
+                                    float width = etBody.getWidth();
                                     if (image.getIntrinsicWidth() > width)
                                         scale = width / image.getIntrinsicWidth();
 

@@ -78,7 +78,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
         private void bindTo(EntityAttachment attachment) {
             if (attachment.available) {
                 Bitmap bm = Helper.decodeImage(attachment.getFile(context),
-                        context.getResources().getDisplayMetrics().widthPixels / 2);
+                        context.getResources().getDisplayMetrics().widthPixels);
                 if (bm == null)
                     image.setImageResource(R.drawable.baseline_broken_image_24);
                 else
