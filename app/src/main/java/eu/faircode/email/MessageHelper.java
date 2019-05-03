@@ -627,21 +627,31 @@ public class MessageHelper {
 
         subject = MimeUtility.unfold(subject);
 
-        // Fix UTF-8
-        char[] kars = subject.toCharArray();
-        byte[] bytes = new byte[kars.length];
-        for (int i = 0; i < kars.length; i++)
-            bytes[i] = (byte) kars[i];
+        if (subject.contains("=?")) {
+            // Decode header
+            try {
+                subject = MimeUtility.decodeText(subject);
+            } catch (UnsupportedEncodingException ex) {
+                Log.w(ex);
+            }
+            return decodeMime(subject);
+        } else {
+            // Fix UTF-8 plain header
+            char[] kars = subject.toCharArray();
+            byte[] bytes = new byte[kars.length];
+            for (int i = 0; i < kars.length; i++)
+                bytes[i] = (byte) kars[i];
 
-        try {
-            CharsetDecoder cs = StandardCharsets.UTF_8.newDecoder();
-            cs.decode(ByteBuffer.wrap(bytes));
-            subject = new String(bytes, StandardCharsets.UTF_8);
-        } catch (CharacterCodingException ex) {
-            Log.w(ex);
+            try {
+                CharsetDecoder cs = StandardCharsets.UTF_8.newDecoder();
+                cs.decode(ByteBuffer.wrap(bytes));
+                subject = new String(bytes, StandardCharsets.UTF_8);
+            } catch (CharacterCodingException ex) {
+                Log.w(ex);
+            }
+
+            return decodeMime(subject);
         }
-
-        return decodeMime(subject);
     }
 
     Long getSize() throws MessagingException {
