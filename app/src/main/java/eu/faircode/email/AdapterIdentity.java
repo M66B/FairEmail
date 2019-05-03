@@ -146,6 +146,8 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                 return false;
 
             final TupleIdentityEx identity = items.get(pos);
+            if (identity.tbd != null)
+                return false;
 
             PopupMenu popupMenu = new PopupMenu(context, view);
 
