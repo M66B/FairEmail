@@ -160,7 +160,7 @@ public class FragmentCompose extends FragmentBase {
     private ImageView ivCcBcc;
     private RecyclerView rvAttachment;
     private TextView tvNoInternetAttachments;
-    private EditText etBody;
+    private EditTextCompose etBody;
     private TextView tvNoInternet;
     private TextView tvSignature;
     private TextView tvReference;
@@ -305,6 +305,13 @@ public class FragmentCompose extends FragmentBase {
         setZoom();
 
         etBody.setCustomSelectionActionModeCallback(actionCallback);
+
+        etBody.setInputContentListener(new EditTextCompose.IInputContentListener() {
+            @Override
+            public void onInputContent(Uri uri) {
+                handleAddAttachment(uri, true);
+            }
+        });
 
         ibReferenceEdit.setOnClickListener(new View.OnClickListener() {
             @Override
