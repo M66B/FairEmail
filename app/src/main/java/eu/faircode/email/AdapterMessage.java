@@ -160,8 +160,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean authentication;
     private boolean debug;
 
+    private boolean gotop = false;
+    private AsyncPagedListDiffer<TupleMessageEx> differ;
     private SelectionTracker<Long> selectionTracker = null;
-    private AsyncPagedListDiffer<TupleMessageEx> differ = new AsyncPagedListDiffer<>(this, DIFF_CALLBACK);
 
     enum ViewType {UNIFIED, FOLDER, THREAD, SEARCH}
 
@@ -3143,7 +3144,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     AdapterMessage(Context context, LifecycleOwner owner,
-                   ViewType viewType, boolean compact, int zoom, String sort, boolean filter_duplicates, IProperties properties) {
+                   ViewType viewType, boolean compact, int zoom, String sort, boolean filter_duplicates, final IProperties properties) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         this.TF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
@@ -3189,9 +3190,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.autoimages = (this.contacts && prefs.getBoolean("autoimages", false));
         this.authentication = prefs.getBoolean("authentication", false);
         this.debug = prefs.getBoolean("debug", false);
+
+        this.differ = new AsyncPagedListDiffer<>(this, DIFF_CALLBACK);
+        this.differ.addPagedListListener(new AsyncPagedListDiffer.PagedListListener<TupleMessageEx>() {
+            @Override
+            public void onCurrentListChanged(@Nullable PagedList<TupleMessageEx> previousList, @Nullable PagedList<TupleMessageEx> currentList) {
+                if (gotop) {
+                    gotop = false;
+                    properties.scrollTo(0);
+                }
+            }
+        });
     }
 
-    void submitList(PagedList<TupleMessageEx> list) {
+    void submitList(PagedList<TupleMessageEx> list, boolean gotop) {
+        this.gotop = gotop;
         differ.submitList(list);
     }
 
