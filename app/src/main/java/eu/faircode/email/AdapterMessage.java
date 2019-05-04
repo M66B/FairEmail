@@ -956,24 +956,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbBody.setVisibility(suitable || message.content ? View.VISIBLE : View.GONE);
             tvNoInternetBody.setVisibility(suitable || message.content ? View.GONE : View.VISIBLE);
 
-            if (message.content)
-                if (show_html)
-                    onShowHtmlConfirmed(message);
-                else {
-                    Spanned body = properties.getBody(message.id);
-                    tvBody.setText(body);
-                    tvBody.setMovementMethod(null);
+            if (show_html)
+                onShowHtmlConfirmed(message);
+            else {
+                Spanned body = properties.getBody(message.id);
+                tvBody.setText(body);
+                tvBody.setMovementMethod(null);
 
-                    boolean show_images = properties.getValue("images", message.id);
-                    boolean show_quotes = properties.getValue("quotes", message.id);
-
-                    Bundle args = new Bundle();
-                    args.putSerializable("message", message);
-                    args.putBoolean("show_images", show_images);
-                    args.putBoolean("show_quotes", show_quotes);
-                    args.putInt("zoom", zoom);
-                    bodyTask.execute(context, owner, args, "message:body");
-                }
+                showText(message);
+            }
         }
 
         private void bindAttachments(final TupleMessageEx message, @Nullable List<EntityAttachment> attachments) {
@@ -1033,20 +1024,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             adapterImage.set(images);
 
             boolean show_html = properties.getValue("html", message.id);
-            if (message.content)
-                if (show_html)
-                    onShowHtmlConfirmed(message);
-                else {
-                    boolean show_images = properties.getValue("images", message.id);
-                    boolean show_quotes = properties.getValue("quotes", message.id);
-
-                    Bundle args = new Bundle();
-                    args.putSerializable("message", message);
-                    args.putBoolean("show_images", show_images);
-                    args.putBoolean("show_quotes", show_quotes);
-                    args.putInt("zoom", zoom);
-                    bodyTask.execute(context, owner, args, "message:body");
-                }
+            if (show_html)
+                onShowHtmlConfirmed(message);
+            else
+                showText(message);
         }
 
         private TupleMessageEx getMessage() {
@@ -1466,6 +1447,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (TextUtils.isEmpty(html)) {
                 webView.loadUrl("about:blank");
 
+                if (!message.content)
+                    return;
+
                 Bundle args = new Bundle();
                 args.putLong("id", message.id);
 
@@ -1542,19 +1526,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvBody.setVisibility(View.INVISIBLE);
             vwBody.setVisibility(View.GONE);
 
-            Spanned body = properties.getBody(message.id);
-            tvBody.setText(body);
-            tvBody.setMovementMethod(null);
-
-            boolean show_images = properties.getValue("images", message.id);
-            boolean show_quotes = properties.getValue("quotes", message.id);
-
-            Bundle args = new Bundle();
-            args.putSerializable("message", message);
-            args.putBoolean("show_images", show_images);
-            args.putBoolean("show_quotes", show_quotes);
-            args.putInt("zoom", zoom);
-            bodyTask.execute(context, owner, args, "message:body");
+            showText(message);
         }
 
         private class OriginalMessage {
@@ -1685,24 +1657,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onShowImagesConfirmed(final TupleMessageEx message) {
             properties.setValue("images", message.id, true);
 
-            boolean show_images = properties.getValue("images", message.id);
-            boolean show_quotes = properties.getValue("quotes", message.id);
-
-            Bundle args = new Bundle();
-            args.putSerializable("message", message);
-            args.putBoolean("show_images", show_images);
-            args.putBoolean("show_quotes", show_quotes);
-            args.putInt("zoom", zoom);
+            ibImages.setVisibility(View.GONE);
 
             boolean show_html = properties.getValue("html", message.id);
             if (show_html)
                 onShowHtmlConfirmed(message);
-            else {
-                ibImages.setVisibility(View.GONE);
-                bodyTask.execute(context, owner, args, "message:body");
-            }
+            else
+                showText(message);
 
             // Download inline images
+            Bundle args = new Bundle();
+            args.putSerializable("message", message);
+
             new SimpleTask<Void>() {
                 @Override
                 protected Void onExecute(Context context, Bundle args) {
@@ -1732,24 +1698,30 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "show:images");
         }
 
+        private void showText(TupleMessageEx message) {
+            if (message.content) {
+                boolean show_images = properties.getValue("images", message.id);
+                boolean show_quotes = properties.getValue("quotes", message.id);
+
+                Bundle args = new Bundle();
+                args.putSerializable("message", message);
+                args.putBoolean("show_images", show_images);
+                args.putBoolean("show_quotes", show_quotes);
+                args.putInt("zoom", zoom);
+                bodyTask.execute(context, owner, args, "message:body");
+            }
+        }
+
         private SimpleTask<SpannableStringBuilder> bodyTask = new SimpleTask<SpannableStringBuilder>() {
             @Override
-            protected SpannableStringBuilder onExecute(final Context context, final Bundle args) {
+            protected SpannableStringBuilder onExecute(final Context context, final Bundle args) throws IOException {
                 DB db = DB.getInstance(context);
                 final TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
                 final boolean show_images = args.getBoolean("show_images");
                 boolean show_quotes = args.getBoolean("show_quotes");
                 int zoom = args.getInt("zoom");
 
-                String body;
-                try {
-                    body = Helper.readText(message.getFile(context));
-                } catch (IOException ex) {
-                    Log.e(ex);
-                    db.message().setMessageContent(message.id, false, null, null);
-                    db.message().setMessageSize(message.id, null);
-                    return null;
-                }
+                String body = Helper.readText(message.getFile(context));
 
                 if (!show_quotes) {
                     Document document = Jsoup.parse(body);
@@ -1901,13 +1873,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     DynamicDrawableSpan[] ddss = buffer.getSpans(off, off, DynamicDrawableSpan.class);
                     if (ddss.length > 0) {
                         properties.setValue("quotes", message.id, true);
-
-                        Bundle args = new Bundle();
-                        args.putSerializable("message", message);
-                        args.putBoolean("show_images", show_images);
-                        args.putBoolean("show_quotes", true);
-                        args.putInt("zoom", zoom);
-                        bodyTask.execute(context, owner, args, "message:body");
+                        showText(message);
                     }
                 }
 
