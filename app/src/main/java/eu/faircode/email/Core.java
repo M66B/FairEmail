@@ -574,8 +574,12 @@ class Core {
         if (TextUtils.isEmpty(message.msgid))
             if (message.uid == null)
                 throw new IllegalArgumentException("Delete without ID");
-            else
-                imessages = new Message[]{ifolder.getMessageByUID(message.uid)};
+            else {
+                Message imessage = ifolder.getMessageByUID(message.uid);
+                if (imessage == null)
+                    throw new MessageRemovedException();
+                imessages = new Message[]{imessage};
+            }
         else
             imessages = ifolder.search(new MessageIDTerm(message.msgid));
 
