@@ -351,33 +351,30 @@ public class HtmlHelper {
                 return d;
             }
 
+        // Get cache file name
+        File dir = new File(view.getContext().getCacheDir(), "images");
+        if (!dir.exists())
+            dir.mkdir();
+        final File file = new File(dir, id + "_" + Math.abs(source.hashCode()) + ".png");
+
+        Drawable cached = getCachedImage(view.getContext(), file);
+        if (cached != null)
+            return cached;
+
         final LevelListDrawable lld = new LevelListDrawable();
         Drawable wait = res.getDrawable(R.drawable.baseline_hourglass_empty_24, theme);
         lld.addLevel(0, 0, wait);
         lld.setBounds(0, 0, px, px);
 
         final Context context = view.getContext().getApplicationContext();
-        final Handler handler = new Handler(view.getContext().getMainLooper());
         executor.submit(new Runnable() {
             @Override
             public void run() {
                 try {
-                    // Get cache file name
-                    File dir = new File(context.getCacheDir(), "images");
-                    if (!dir.exists())
-                        dir.mkdir();
-                    File file = new File(dir, id + "_" + Math.abs(source.hashCode()) + ".png");
-
-                    // Get cached image
-                    if (file.exists() && !BuildConfig.DEBUG) {
-                        Log.i("Using cached " + file);
-                        Bitmap bm = BitmapFactory.decodeFile(file.getAbsolutePath());
-                        if (bm != null) {
-                            Drawable d = new BitmapDrawable(res, bm);
-                            d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
-                            post(d, source);
-                            return;
-                        }
+                    Drawable cached = getCachedImage(context, file);
+                    if (cached != null) {
+                        post(cached, source);
+                        return;
                     }
 
                     BitmapFactory.Options options = new BitmapFactory.Options();
@@ -431,7 +428,7 @@ public class HtmlHelper {
 
             private void post(final Drawable d, String source) {
                 Log.i("Posting image=" + source);
-                handler.post(new Runnable() {
+                new Handler(context.getMainLooper()).post(new Runnable() {
                     @Override
                     public void run() {
                         int w = d.getIntrinsicWidth();
@@ -456,6 +453,20 @@ public class HtmlHelper {
         });
 
         return lld;
+    }
+
+    static private Drawable getCachedImage(Context context, File file) {
+        if (file.exists()) {
+            Log.i("Using cached " + file);
+            Bitmap bm = BitmapFactory.decodeFile(file.getAbsolutePath());
+            if (bm != null) {
+                Drawable d = new BitmapDrawable(context.getResources(), bm);
+                d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
+                return d;
+            }
+        }
+
+        return null;
     }
 
     static String getPreview(String body) {
