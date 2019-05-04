@@ -1220,7 +1220,8 @@ By selecting a zero snooze duration you can cancel snoozing.
 **(69) Can you add auto scroll up on new message?**
 
 The message list is automatically scrolled up when navigating from a new message notification or after a manual refresh.
-Always automatically scrolling up on arrival of new messages would interfere with your own navigation and scrolling.
+Always automatically scrolling up on arrival of new messages would interfere with your own scrolling,
+but if you like you can enable this in the advanced options.
 
 <br />
 

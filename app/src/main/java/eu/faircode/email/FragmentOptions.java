@@ -91,6 +91,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swActionbar;
 
     private SwitchCompat swPull;
+    private SwitchCompat swAutoScroll;
     private SwitchCompat swSwipeNav;
     private SwitchCompat swAutoExpand;
     private SwitchCompat swAutoClose;
@@ -125,7 +126,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     static String[] OPTIONS_RESTART = new String[]{
             "startup", "date", "threading", "avatars", "identicons", "circular", "name_email", "subject_italic", "flags", "preview",
             "addresses", "monospaced", "autohtml", "autoimages", "actionbar",
-            "pull", "swipenav", "autoexpand", "autoclose", "autonext",
+            "pull", "autoscroll", "swipenav", "autoexpand", "autoclose", "autonext",
             "subscriptions",
             "authentication", "debug"
     };
@@ -135,7 +136,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             "metered", "download", "roaming",
             "startup", "date", "threading", "avatars", "identicons", "circular", "name_email", "subject_italic", "flags", "preview",
             "addresses", "monospaced", "autohtml", "autoimages", "actionbar",
-            "pull", "swipenav", "autoexpand", "autoclose", "autonext", "collapse", "autoread", "automove",
+            "pull", "autoscroll", "swipenav", "autoexpand", "autoclose", "autonext", "collapse", "autoread", "automove",
             "autoresize", "resize", "prefix_once", "autosend",
             "badge", "subscriptions", "notify_preview", "search_local", "light", "sound",
             "authentication", "paranoid", "english", "updates", "debug",
@@ -181,6 +182,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swActionbar = view.findViewById(R.id.swActionbar);
 
         swPull = view.findViewById(R.id.swPull);
+        swAutoScroll = view.findViewById(R.id.swAutoScroll);
         swSwipeNav = view.findViewById(R.id.swSwipeNav);
         swAutoExpand = view.findViewById(R.id.swAutoExpand);
         swAutoClose = view.findViewById(R.id.swAutoClose);
@@ -440,6 +442,13 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("pull", checked).apply();
+            }
+        });
+
+        swAutoScroll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("autoscroll", checked).apply();
             }
         });
 
@@ -753,6 +762,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
 
         swPull.setChecked(prefs.getBoolean("pull", true));
+        swAutoScroll.setChecked(prefs.getBoolean("autoscroll", false));
         swSwipeNav.setChecked(prefs.getBoolean("swipenav", true));
         swAutoExpand.setChecked(prefs.getBoolean("autoexpand", true));
         swAutoClose.setChecked(prefs.getBoolean("autoclose", true));

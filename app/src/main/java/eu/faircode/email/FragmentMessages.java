@@ -136,6 +136,7 @@ public class FragmentMessages extends FragmentBase {
     private boolean date;
     private boolean threading;
     private boolean pull;
+    private boolean autoscroll;
     private boolean actionbar;
     private boolean autoexpand;
     private boolean autoclose;
@@ -148,6 +149,8 @@ public class FragmentMessages extends FragmentBase {
     private String searching = null;
     private boolean refresh = false;
     private boolean manual = false;
+    private Integer lastUnseen = null;
+
     private AdapterMessage adapter;
 
     private AdapterMessage.ViewType viewType;
@@ -233,6 +236,7 @@ public class FragmentMessages extends FragmentBase {
         else
             pull = false;
 
+        autoscroll = prefs.getBoolean("autoscroll", false);
         date = prefs.getBoolean("date", true);
         threading = prefs.getBoolean("threading", true);
         actionbar = prefs.getBoolean("actionbar", true);
@@ -1715,45 +1719,8 @@ public class FragmentMessages extends FragmentBase {
                     public void onChanged(List<TupleFolderEx> folders) {
                         if (folders == null)
                             folders = new ArrayList<>();
-                        Log.i("Folder state updated count=" + folders.size());
 
-                        int unseen = 0;
-                        boolean sync = false;
-                        boolean errors = false;
-                        for (TupleFolderEx folder : folders) {
-                            unseen += folder.unseen;
-                            if (folder.synchronize)
-                                sync = true;
-                            if (folder.error != null)
-                                errors = true;
-                        }
-
-                        if (unseen > 0)
-                            setSubtitle(getString(R.string.title_name_count,
-                                    getString(R.string.title_folder_unified),
-                                    nf.format(unseen)));
-                        else
-                            setSubtitle(getString(R.string.title_folder_unified));
-
-                        boolean refreshing = false;
-                        for (TupleFolderEx folder : folders)
-                            if (folder.sync_state != null &&
-                                    (folder.account == null || "connected".equals(folder.accountState))) {
-                                refreshing = true;
-                                break;
-                            }
-
-                        if (!refreshing && manual) {
-                            manual = false;
-                            rvMessage.scrollToPosition(0);
-                        }
-
-                        if (errors && !refreshing && swipeRefresh.isRefreshing())
-                            Snackbar.make(view, R.string.title_sync_errors, Snackbar.LENGTH_LONG).show();
-
-                        refresh = sync;
-                        swipeRefresh.setEnabled(pull && refresh);
-                        swipeRefresh.setRefreshing(refreshing);
+                        updateState(folders);
                     }
                 });
                 db.message().liveHidden(null).observe(getViewLifecycleOwner(), new Observer<List<Long>>() {
@@ -1770,37 +1737,17 @@ public class FragmentMessages extends FragmentBase {
                 db.folder().liveFolderEx(folder).observe(getViewLifecycleOwner(), new Observer<TupleFolderEx>() {
                     @Override
                     public void onChanged(@Nullable TupleFolderEx folder) {
-                        Log.i("Folder state updated");
-                        if (folder == null)
-                            setSubtitle(null);
-                        else {
-                            if (folder.unseen > 0)
-                                setSubtitle(getString(R.string.title_name_count,
-                                        folder.getDisplayName(getContext()),
-                                        nf.format(folder.unseen)));
-                            else
-                                setSubtitle(folder.getDisplayName(getContext()));
+                        List<TupleFolderEx> folders = new ArrayList<>();
+                        if (folder != null)
+                            folders.add(folder);
 
-                            boolean outbox = EntityFolder.OUTBOX.equals(folder.type);
-                            if (FragmentMessages.this.outbox != outbox) {
-                                FragmentMessages.this.outbox = outbox;
-                                getActivity().invalidateOptionsMenu();
-                            }
+                        updateState(folders);
+
+                        boolean outbox = EntityFolder.OUTBOX.equals(folder.type);
+                        if (FragmentMessages.this.outbox != outbox) {
+                            FragmentMessages.this.outbox = outbox;
+                            getActivity().invalidateOptionsMenu();
                         }
-
-                        boolean refreshing = (folder != null && folder.sync_state != null &&
-                                (folder.account == null || "connected".equals(folder.accountState)));
-                        if (!refreshing && manual) {
-                            manual = false;
-                            rvMessage.scrollToPosition(0);
-                        }
-
-                        if (folder != null && folder.error != null && !refreshing && swipeRefresh.isRefreshing())
-                            Snackbar.make(view, folder.error, Snackbar.LENGTH_LONG).show();
-
-                        refresh = (folder != null);
-                        swipeRefresh.setEnabled(pull && refresh);
-                        swipeRefresh.setRefreshing(refreshing);
                     }
                 });
                 db.message().liveHidden(folder).observe(getViewLifecycleOwner(), new Observer<List<Long>>() {
@@ -2211,6 +2158,67 @@ public class FragmentMessages extends FragmentBase {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.execute(this, args, "messages:all");
+    }
+
+    private void updateState(List<TupleFolderEx> folders) {
+        Log.i("Folder state updated count=" + folders.size());
+
+        // Get state
+        int unseen = 0;
+        boolean sync = false;
+        boolean errors = false;
+        boolean refreshing = false;
+        for (TupleFolderEx folder : folders) {
+            unseen += folder.unseen;
+            if (folder.synchronize)
+                sync = true;
+            if (folder.error != null)
+                errors = true;
+            if (folder.sync_state != null &&
+                    (folder.account == null || "connected".equals(folder.accountState))) {
+                refreshing = true;
+                break;
+            }
+        }
+
+        // Get name
+        String name;
+        if (viewType == AdapterMessage.ViewType.UNIFIED)
+            name = getString(R.string.title_folder_unified);
+        else
+            name = (folders.size() > 0 ? folders.get(0).getDisplayName(getContext()) : "");
+
+        // Show name/unread
+        if (unseen == 0)
+            setSubtitle(name);
+        else
+            setSubtitle(getString(R.string.title_name_count, name, nf.format(unseen)));
+
+        // Auto scroll
+        if (lastUnseen == null || lastUnseen != unseen) {
+            if ((!refreshing && manual) ||
+                    (autoscroll && lastUnseen != null && lastUnseen < unseen))
+                // Delay to let list update
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        rvMessage.scrollToPosition(0);
+                    }
+                }, 3000);
+            manual = false;
+            lastUnseen = unseen;
+        }
+
+        // Show errors
+        if (errors && !refreshing && swipeRefresh.isRefreshing())
+            if (folders.size() == 1)
+                Snackbar.make(view, folders.get(0).error, Snackbar.LENGTH_LONG).show();
+            else
+                Snackbar.make(view, R.string.title_sync_errors, Snackbar.LENGTH_LONG).show();
+
+        refresh = sync;
+        swipeRefresh.setEnabled(pull && refresh);
+        swipeRefresh.setRefreshing(refreshing);
     }
 
     private void loadMessages() {
