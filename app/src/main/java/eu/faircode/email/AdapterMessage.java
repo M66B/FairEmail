@@ -195,6 +195,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageView ivSnoozed;
         private ImageView ivBrowsed;
         private ImageView ivAnswered;
+        private ImageView ivPlain;
         private ImageView ivReceipt;
         private ImageView ivAttachments;
         private TextView tvSubject;
@@ -282,6 +283,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivSnoozed = itemView.findViewById(R.id.ivSnoozed);
             ivBrowsed = itemView.findViewById(R.id.ivBrowsed);
             ivAnswered = itemView.findViewById(R.id.ivAnswered);
+            ivPlain = itemView.findViewById(R.id.ivPlain);
             ivReceipt = itemView.findViewById(R.id.ivReceipt);
             ivAttachments = itemView.findViewById(R.id.ivAttachments);
             tvSubject = itemView.findViewById(R.id.tvSubject);
@@ -439,6 +441,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivSnoozed.setVisibility(View.GONE);
             ivBrowsed.setVisibility(View.GONE);
             ivAnswered.setVisibility(View.GONE);
+            ivPlain.setVisibility(View.GONE);
             ivReceipt.setVisibility(View.GONE);
             ivAttachments.setVisibility(View.GONE);
             tvSubject.setText(null);
@@ -499,6 +502,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ivSnoozed.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivBrowsed.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivAnswered.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ivPlain.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivReceipt.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivAttachments.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvSubject.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
@@ -557,6 +561,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivSnoozed.setVisibility(message.ui_snoozed == null ? View.GONE : View.VISIBLE);
             ivBrowsed.setVisibility(message.ui_browsed ? View.VISIBLE : View.GONE);
             ivAnswered.setVisibility(message.ui_answered ? View.VISIBLE : View.GONE);
+            ivPlain.setVisibility(message.plain_only != null && message.plain_only ? View.VISIBLE : View.GONE);
             ivReceipt.setVisibility(message.receipt_request != null && message.receipt_request ? View.VISIBLE : View.GONE);
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
 

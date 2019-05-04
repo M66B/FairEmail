@@ -153,6 +153,17 @@
             app:layout_constraintTop_toTopOf="@+id/tvSubject" />
 
         <ImageView
+            android:id="@+id/ivPlain"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="6dp"
+            android:contentDescription="@string/title_legend_plain_only"
+            android:src="@drawable/baseline_notes_24"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
+            app:layout_constraintStart_toEndOf="@id/ivAnswered"
+            app:layout_constraintTop_toTopOf="@+id/tvSubject" />
+
+        <ImageView
             android:id="@+id/ivReceipt"
             android:layout_width="21dp"
             android:layout_height="21dp"
@@ -160,7 +171,7 @@
             android:contentDescription="@string/title_legend_receipt"
             android:src="@drawable/baseline_playlist_add_check_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
-            app:layout_constraintStart_toEndOf="@id/ivAnswered"
+            app:layout_constraintStart_toEndOf="@id/ivPlain"
             app:layout_constraintTop_toTopOf="@+id/tvSubject" />
 
         <ImageView
