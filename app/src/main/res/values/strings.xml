@@ -237,7 +237,6 @@
     <string name="title_identity_name">Your name</string>
     <string name="title_identity_email">Your email address</string>
     <string name="title_identity_reply_to">Reply to address</string>
-    <string name="title_identity_plain_text">Send plain text only</string>
     <string name="title_identity_encrypt">Encrypt by default</string>
     <string name="title_identity_use_ip_hint">In case of \'invalid greeting\', \'requires valid address\' or a similar error, try to change this setting</string>
     <string name="title_identity_read_receipt">Request read receipt</string>
@@ -448,6 +447,7 @@
     <string name="title_show_addresses">Show CC/BCC</string>
     <string name="title_insert_contact_group">Insert contact group</string>
     <string name="title_insert_template">Insert template</string>
+    <string name="title_send_plain_text">Send plain text only</string>
 
     <string name="title_from_missing">Sender missing</string>
     <string name="title_to_missing">Recipient missing</string>
