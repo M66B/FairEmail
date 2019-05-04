@@ -213,14 +213,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 else if (folder.state == null)
                     ivState.setImageResource(R.drawable.baseline_cloud_off_24);
                 else
-                    ivState.setImageResource(android.R.drawable.stat_sys_warning);
+                    ivState.setImageResource(R.drawable.baseline_warning_24);
             } else {
                 if ("syncing".equals(folder.sync_state))
                     ivState.setImageResource(R.drawable.baseline_compare_arrows_24);
                 else if ("downloading".equals(folder.sync_state))
                     ivState.setImageResource(R.drawable.baseline_cloud_download_24);
                 else
-                    ivState.setImageResource(android.R.drawable.stat_sys_warning);
+                    ivState.setImageResource(R.drawable.baseline_warning_24);
             }
             ivState.setVisibility(
                     folder.synchronize || folder.state != null || folder.sync_state != null

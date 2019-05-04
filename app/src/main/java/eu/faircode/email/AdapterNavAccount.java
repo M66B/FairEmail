@@ -70,9 +70,13 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
         }
 
         private void bindTo(TupleAccountEx account) {
-            ivItem.setImageResource("connected".equals(account.state)
-                    ? account.primary ? R.drawable.baseline_folder_special_24 : R.drawable.baseline_folder_24
-                    : R.drawable.baseline_folder_open_24);
+            if (account.error == null)
+                ivItem.setImageResource("connected".equals(account.state)
+                        ? account.primary ? R.drawable.baseline_folder_special_24 : R.drawable.baseline_folder_24
+                        : R.drawable.baseline_folder_open_24);
+            else
+                ivItem.setImageResource(R.drawable.baseline_warning_24);
+
             if (account.color == null)
                 ivItem.clearColorFilter();
             else
