@@ -746,6 +746,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void bindExpanded(final TupleMessageEx message) {
             DB db = DB.getInstance(context);
+
             boolean show_addresses = !properties.getValue("addresses", message.id);
             boolean show_headers = properties.getValue("headers", message.id);
             boolean show_html = properties.getValue("html", message.id);
@@ -776,7 +777,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tbHtml.setChecked(show_html);
             tbHtml.setVisibility(hasWebView ? View.INVISIBLE : View.GONE);
-            ibImages.setVisibility(!show_html ? View.INVISIBLE : View.GONE);
+            ibImages.setVisibility(View.INVISIBLE);
             ibFull.setVisibility(show_html ? View.INVISIBLE : View.GONE);
 
             tvBody.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
@@ -962,6 +963,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Spanned body = properties.getBody(message.id);
                 tvBody.setText(body);
                 tvBody.setMovementMethod(null);
+                tvBody.setVisibility(View.VISIBLE);
 
                 showText(message);
             }
@@ -1408,8 +1410,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean show_images = properties.getValue("images", message.id);
 
             tbHtml.setVisibility(View.VISIBLE);
-            ibImages.setVisibility(show_images ? View.GONE : View.INVISIBLE);
             ibFull.setVisibility(View.INVISIBLE);
+            tvBody.setVisibility(View.GONE);
             rvImage.setVisibility(adapterImage.getItemCount() > 0 ? View.INVISIBLE : View.GONE);
 
             // For performance reasons the WebView is created when needed only
@@ -1446,6 +1448,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             String html = properties.getHtml(message.id);
             if (TextUtils.isEmpty(html)) {
                 webView.loadUrl("about:blank");
+                webView.setVisibility(View.VISIBLE);
 
                 if (!message.content)
                     return;
@@ -1490,14 +1493,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return;
 
                         boolean show_images = properties.getValue("images", id);
+                        ibImages.setVisibility(original.has_images && !show_images ? View.VISIBLE : View.GONE);
                         ibFull.setVisibility(View.VISIBLE);
-                        ibImages.setVisibility(show_images ? View.GONE : View.VISIBLE);
 
                         webView.loadDataWithBaseURL("about:blank", themeHtml(original.html), "text/html", "UTF-8", null);
 
                         pbBody.setVisibility(View.GONE);
-                        tvBody.setVisibility(View.GONE);
-                        webView.setVisibility(View.VISIBLE);
                     }
 
                     @Override
@@ -1506,25 +1507,29 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 }.execute(context, owner, args, "message:webview");
             } else {
+                Document doc = Jsoup.parse(html);
+                boolean has_images = (doc.select("img").size() > 0);
+
+                ibImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
                 ibFull.setVisibility(View.VISIBLE);
-                ibImages.setVisibility(show_images ? View.GONE : View.VISIBLE);
 
                 webView.loadDataWithBaseURL("about:blank", themeHtml(html), "text/html", "UTF-8", null);
+                webView.setVisibility(View.VISIBLE);
 
                 pbBody.setVisibility(View.GONE);
-                tvBody.setVisibility(View.GONE);
-                webView.setVisibility(View.VISIBLE);
             }
         }
 
         private void onHideHtml(TupleMessageEx message) {
             properties.setValue("html", message.id, false);
 
-            ibImages.setVisibility(View.INVISIBLE);
             ibFull.setVisibility(View.GONE);
-
-            tvBody.setVisibility(View.INVISIBLE);
             vwBody.setVisibility(View.GONE);
+
+            Spanned body = properties.getBody(message.id);
+            tvBody.setText(body);
+            tvBody.setMovementMethod(null);
+            tvBody.setVisibility(View.VISIBLE);
 
             showText(message);
         }
@@ -1804,12 +1809,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 tbHtml.setVisibility(hasWebView ? View.VISIBLE : View.GONE);
                 ibImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
+
                 tvBody.setText(body);
                 tvBody.setTextIsSelectable(false);
                 tvBody.setTextIsSelectable(true);
                 tvBody.setMovementMethod(new TouchHandler(message));
-                tvBody.setVisibility(View.VISIBLE);
+
                 pbBody.setVisibility(View.GONE);
+
                 rvImage.setVisibility(adapterImage.getItemCount() > 0 ? View.VISIBLE : View.GONE);
             }
 

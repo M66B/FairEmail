@@ -706,7 +706,8 @@ public class FragmentMessages extends FragmentBase {
             if (!values.containsKey(name))
                 values.put(name, new ArrayList<Long>());
             if (enabled) {
-                values.get(name).add(id);
+                if (!values.get(name).contains(id))
+                    values.get(name).add(id);
                 if ("expanded".equals(name))
                     handleExpand(id);
             } else
