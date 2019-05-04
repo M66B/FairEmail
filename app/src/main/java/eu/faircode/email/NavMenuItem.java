@@ -21,6 +21,10 @@ public class NavMenuItem {
         this.longClick = longClick;
     }
 
+    void setIcon(int icon) {
+        this.icon = icon;
+    }
+
     void setCount(Integer count) {
         if (count != null && count == 0)
             count = null;

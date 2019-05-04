@@ -65,8 +65,10 @@ public interface DaoOperation {
     @Query(GET_OPS_FOLDER)
     LiveData<List<EntityOperation>> liveOperations(long folder);
 
-    @Query("SELECT COUNT(operation.id) FROM operation")
-    LiveData<Integer> liveCount();
+    @Query("SELECT COUNT(operation.id) AS pending" +
+            ", SUM(CASE WHEN operation.error IS NULL THEN 0 ELSE 1 END) AS errors" +
+            " FROM operation")
+    LiveData<TupleOperationStats> liveStats();
 
     @Query("SELECT COUNT(operation.id) FROM operation" +
             " WHERE operation.name = '" + EntityOperation.SEND + "'")
