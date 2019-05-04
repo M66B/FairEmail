@@ -235,17 +235,20 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 @Override
                 protected Void onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
-                    long message = args.getLong("message");
+                    long mid = args.getLong("message");
                     long sequence = args.getInt("sequence");
 
                     DB db = DB.getInstance(context);
                     try {
                         db.beginTransaction();
 
+                        EntityMessage message = db.message().getMessage(mid);
+                        if (message == null || message.uid == null)
+                            return null;
+
                         db.attachment().setProgress(id, 0);
 
-                        EntityMessage msg = db.message().getMessage(message);
-                        EntityOperation.queue(context, db, msg, EntityOperation.ATTACHMENT, sequence);
+                        EntityOperation.queue(context, db, message, EntityOperation.ATTACHMENT, sequence);
 
                         db.setTransactionSuccessful();
                     } finally {
