@@ -151,6 +151,7 @@
     <string name="title_advanced_images">Mostra automaticamente le immagini per i contatti conosciuti</string>
     <string name="title_advanced_actionbar">Barra di azione di conversazione</string>
     <string name="title_advanced_pull_refresh">Trascina in basso per aggiornare</string>
+    <string name="title_advanced_autoscroll">Scorri verso l\'alto quando ricevi nuovi messaggi</string>
     <string name="title_advanced_swipenav">Scorri a sinistra/destra per andare alla conversazione successiva/precedente</string>
     <string name="title_advanced_autoexpand">Espandi automaticamente i messaggi</string>
     <string name="title_advanced_collapse">Raggruppa i messaggi in conversazioni premendo \'indietro\'</string>
@@ -428,12 +429,15 @@
     <string name="title_address_invalid">Non validi:</string>
     <string name="title_previous">Precedente</string>
     <string name="title_next">Successivo</string>
+    <string name="title_answer_caption">Modifica modello</string>
     <string name="title_answer_reply">Modello di risposta</string>
     <string name="title_answer_name">Nome del modello</string>
     <string name="title_answer_hide">Nascondi dai menu</string>
     <string name="title_answer_text">Testo del modello</string>
     <string name="title_answer_template_name">$name$ verrà sostituito con il nome completo del mittente</string>
     <string name="title_answer_template_email">$email$ verrà sostituito con l\'indirizzo email del mittente</string>
+    <string name="title_rule_caption">Modifica regola</string>
+    <string name="title_rule_title">Regola applicabile a</string>
     <string name="title_rule_name">Nome</string>
     <string name="title_rule_order">Ordine</string>
     <string name="title_rule_enabled">Abilitato</string>

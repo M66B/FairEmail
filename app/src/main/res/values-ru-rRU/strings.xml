@@ -167,6 +167,7 @@
     <string name="title_advanced_images">Автоматически показывать изображения для известных контактов</string>
     <string name="title_advanced_actionbar">Панель управления диалогами</string>
     <string name="title_advanced_pull_refresh">Потяните вниз, для обновления</string>
+    <string name="title_advanced_autoscroll">Прокрутить к началу списка при получении новых сообщений</string>
     <string name="title_advanced_swipenav">Свайп влево/вправо, чтобы перейти к следующему/предыдущему диплогу</string>
     <string name="title_advanced_autoexpand">Автоматически разворачивать сообщения</string>
     <string name="title_advanced_collapse">Сворачивать сообщения в диалоге при нажатии кнопки \'назад\'</string>

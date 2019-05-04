@@ -167,6 +167,7 @@
     <string name="title_advanced_images">Automaticky zobrazit obrázky pro známé kontakty</string>
     <string name="title_advanced_actionbar">Panel akcí konverzací</string>
     <string name="title_advanced_pull_refresh">Aktualizovat tažením dolů</string>
+    <string name="title_advanced_autoscroll">Posun na začátek při příjmu nových zpráv</string>
     <string name="title_advanced_swipenav">Tažením doleva/doprava přejít na předešlou/následující konverzaci</string>
     <string name="title_advanced_autoexpand">Automaticky rozbalovat zprávy</string>
     <string name="title_advanced_collapse">Sbalit zprávy v konverzacích při pohybu zpět</string>
@@ -561,7 +562,7 @@
     <string name="title_redo">Znovu</string>
     <string name="title_add">Přidat</string>
     <string name="title_browse">Procházet</string>
-    <string name="title_info">Informace</string>
+    <string name="title_info">Info</string>
     <string name="title_report">Nahlásit</string>
     <string name="title_fix">Opravit</string>
     <string name="title_enable">Zapnout</string>

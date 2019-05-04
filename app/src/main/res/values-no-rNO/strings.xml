@@ -151,6 +151,7 @@
     <string name="title_advanced_images">Vis automatisk bilder for kjente kontakter</string>
     <string name="title_advanced_actionbar">Konversasjons handlingslinje</string>
     <string name="title_advanced_pull_refresh">Dra ned for å oppdatere</string>
+    <string name="title_advanced_autoscroll">Rull til toppen når du mottar nye meldinger</string>
     <string name="title_advanced_swipenav">Sveip til venstre/høyre for å gå til neste/forrige samtale</string>
     <string name="title_advanced_autoexpand">Utvid automatisk meldinger</string>
     <string name="title_advanced_collapse">Skjul meldinger i samtaler på \'tilbake\'</string>
@@ -265,7 +266,7 @@
     <string name="title_delete_browsed">Slett bladde/søkte meldinger</string>
     <string name="title_empty_trash">Tøm papirkurven</string>
     <string name="title_edit_properties">Redigere egenskaper</string>
-    <string name="title_edit_rules">Rediger regler</string>
+    <string name="title_edit_rules">Redigere regler</string>
     <string name="title_empty_trash_ask">Slett alle slettede meldinger permanent?</string>
     <string name="title_delete_operation">Slett operasjoner med en feilmelding?</string>
     <string name="title_delete_contacts">Slette alle lokale kontakter?</string>
@@ -504,7 +505,7 @@
     <string name="title_legend_downloading">Laster ned</string>
     <string name="title_legend_closing">Lukker</string>
     <string name="title_legend_waiting">Venter på neste synkronisering</string>
-    <string name="title_legend_stop">Stopp behandlingen regler</string>
+    <string name="title_legend_stop">Stopp behandlingen av regler</string>
     <string name="title_legend_sync_keep">Antall dager for å synkronisere / for å beholde meldinger</string>
     <string name="title_legend_download_fetch">Antall nedlastede meldingstekster / overskrifter hentet / på server</string>
     <string name="title_legend_metered">Tilkoblingen er målt</string>
