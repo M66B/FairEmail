@@ -452,8 +452,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             if (!Helper.getNetworkState(context).isSuitable())
                                 throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
 
-                            boolean now = true;
-
                             DB db = DB.getInstance(context);
                             try {
                                 db.beginTransaction();
@@ -466,8 +464,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                                 if (folder.account != null) {
                                     EntityAccount account = db.account().getAccount(folder.account);
-                                    if (account != null && !"connected".equals(account.state))
-                                        now = false;
+                                    if (account != null && !"connected".equals(account.state)) {
+                                        ServiceSynchronize.reset(context);
+                                        // Causes rollback
+                                        throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
+                                    }
                                 }
 
                                 db.setTransactionSuccessful();
@@ -475,9 +476,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             } finally {
                                 db.endTransaction();
                             }
-
-                            if (!now)
-                                throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
 
                             return null;
                         }
