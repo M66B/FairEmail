@@ -82,7 +82,7 @@ public class EntityIdentity {
     public String replyto;
     public String bcc;
     @NonNull
-    public Boolean plain_only = false;
+    public Boolean plain_only = false; // obsolete
     @NonNull
     public Boolean encrypt = false;
     @NonNull
@@ -129,7 +129,6 @@ public class EntityIdentity {
         json.put("replyto", replyto);
         json.put("bcc", bcc);
 
-        json.put("plain_only", plain_only);
         json.put("encrypt", encrypt);
         json.put("delivery_receipt", delivery_receipt);
         json.put("read_receipt", read_receipt);
@@ -173,8 +172,6 @@ public class EntityIdentity {
         if (json.has("bcc") && !json.isNull("bcc"))
             identity.bcc = json.getString("bcc");
 
-        if (json.has("plain_only"))
-            identity.plain_only = json.getBoolean("plain_only");
         if (json.has("encrypt"))
             identity.encrypt = json.getBoolean("encrypt");
         if (json.has("delivery_receipt"))
@@ -212,7 +209,6 @@ public class EntityIdentity {
                     this.sender_extra.equals(sender_extra) &&
                     Objects.equals(this.replyto, other.replyto) &&
                     Objects.equals(this.bcc, other.bcc) &&
-                    this.plain_only.equals(other.plain_only) &&
                     this.encrypt.equals(other.encrypt) &&
                     this.delivery_receipt.equals(other.delivery_receipt) &&
                     this.read_receipt.equals(other.read_receipt) &&

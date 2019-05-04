@@ -50,6 +50,12 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/menu_plain_only"
+        android:checkable="true"
+        android:title="@string/title_identity_plain_text"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_encrypt"
         android:checkable="true"
         android:title="@string/title_encrypt"

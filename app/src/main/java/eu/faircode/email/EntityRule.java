@@ -265,7 +265,11 @@ public class EntityRule {
 
         reply.id = db.message().insertMessage(reply);
         Helper.writeText(reply.getFile(context), body);
-        db.message().setMessageContent(reply.id, true, HtmlHelper.getPreview(body), null);
+        db.message().setMessageContent(reply.id,
+                true,
+                false,
+                HtmlHelper.getPreview(body),
+                null);
 
         Core.updateMessageSize(context, reply.id);
 

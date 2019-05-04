@@ -174,7 +174,7 @@ public class EntityOperation {
                             Helper.copy(msource, mtarget);
                         } catch (IOException ex) {
                             Log.e(ex);
-                            db.message().setMessageContent(tmpid, false, null, null);
+                            db.message().setMessageContent(tmpid, false, null, null, null);
                             db.message().setMessageSize(message.id, null);
                         }
 

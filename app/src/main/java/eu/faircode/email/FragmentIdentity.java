@@ -105,7 +105,6 @@ public class FragmentIdentity extends FragmentBase {
     private CheckBox cbSenderExtra;
     private EditText etReplyTo;
     private EditText etBcc;
-    private CheckBox cbPlainOnly;
     private CheckBox cbEncrypt;
     private CheckBox cbDeliveryReceipt;
     private CheckBox cbReadReceipt;
@@ -177,7 +176,6 @@ public class FragmentIdentity extends FragmentBase {
         cbSenderExtra = view.findViewById(R.id.cbSenderExtra);
         etReplyTo = view.findViewById(R.id.etReplyTo);
         etBcc = view.findViewById(R.id.etBcc);
-        cbPlainOnly = view.findViewById(R.id.cbPlainOnly);
         cbEncrypt = view.findViewById(R.id.cbEncrypt);
         cbDeliveryReceipt = view.findViewById(R.id.cbDeliveryReceipt);
         cbReadReceipt = view.findViewById(R.id.cbReadReceipt);
@@ -501,7 +499,6 @@ public class FragmentIdentity extends FragmentBase {
         args.putBoolean("sender_extra", cbSenderExtra.isChecked());
         args.putString("replyto", etReplyTo.getText().toString().trim());
         args.putString("bcc", etBcc.getText().toString().trim());
-        args.putBoolean("plain_only", cbPlainOnly.isChecked());
         args.putBoolean("encrypt", cbEncrypt.isChecked());
         args.putBoolean("delivery_receipt", cbDeliveryReceipt.isChecked());
         args.putBoolean("read_receipt", cbReadReceipt.isChecked());
@@ -565,7 +562,6 @@ public class FragmentIdentity extends FragmentBase {
                 boolean sender_extra = args.getBoolean("sender_extra");
                 String replyto = args.getString("replyto");
                 String bcc = args.getString("bcc");
-                boolean plain_only = args.getBoolean("plain_only");
                 boolean encrypt = args.getBoolean("encrypt");
                 boolean delivery_receipt = args.getBoolean("delivery_receipt");
                 boolean read_receipt = args.getBoolean("read_receipt");
@@ -686,7 +682,6 @@ public class FragmentIdentity extends FragmentBase {
                     identity.sender_extra = sender_extra;
                     identity.replyto = replyto;
                     identity.bcc = bcc;
-                    identity.plain_only = plain_only;
                     identity.encrypt = encrypt;
                     identity.delivery_receipt = delivery_receipt;
                     identity.read_receipt = read_receipt;
@@ -793,7 +788,6 @@ public class FragmentIdentity extends FragmentBase {
                     cbSenderExtra.setChecked(identity != null && identity.sender_extra);
                     etReplyTo.setText(identity == null ? null : identity.replyto);
                     etBcc.setText(identity == null ? null : identity.bcc);
-                    cbPlainOnly.setChecked(identity == null ? false : identity.plain_only);
                     cbEncrypt.setChecked(identity == null ? false : identity.encrypt);
                     cbDeliveryReceipt.setChecked(identity == null ? false : identity.delivery_receipt);
                     cbReadReceipt.setChecked(identity == null ? false : identity.read_receipt);

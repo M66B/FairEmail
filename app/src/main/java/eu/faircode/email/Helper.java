@@ -427,7 +427,11 @@ public class Helper {
             draft.ui_seen = true;
             draft.id = db.message().insertMessage(draft);
             writeText(draft.getFile(context), body);
-            db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body), null);
+            db.message().setMessageContent(draft.id,
+                    true,
+                    false,
+                    HtmlHelper.getPreview(body),
+                    null);
 
             attachSettings(context, draft.id, 1);
             attachAccounts(context, draft.id, 2);

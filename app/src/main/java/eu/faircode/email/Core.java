@@ -659,8 +659,11 @@ class Core {
         MessageHelper.MessageParts parts = helper.getMessageParts();
         String body = parts.getHtml(context);
         Helper.writeText(message.getFile(context), body);
-        db.message().setMessageContent(message.id, true,
-                HtmlHelper.getPreview(body), parts.getWarnings(message.warning));
+        db.message().setMessageContent(message.id,
+                true,
+                parts.isPlainOnly(),
+                HtmlHelper.getPreview(body),
+                parts.getWarnings(message.warning));
 
         updateMessageSize(context, message.id);
     }
@@ -1526,8 +1529,11 @@ class Core {
                 if (state.getNetworkState().isUnmetered() || (message.size != null && message.size < maxSize)) {
                     String body = parts.getHtml(context);
                     Helper.writeText(message.getFile(context), body);
-                    db.message().setMessageContent(message.id, true,
-                            HtmlHelper.getPreview(body), parts.getWarnings(message.warning));
+                    db.message().setMessageContent(message.id,
+                            true,
+                            parts.isPlainOnly(),
+                            HtmlHelper.getPreview(body),
+                            parts.getWarnings(message.warning));
                     Log.i(folder.name + " downloaded message id=" + message.id + " size=" + message.size);
                 }
             }

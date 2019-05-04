@@ -191,6 +191,7 @@ public class FragmentCompose extends FragmentBase {
     private boolean prefix_once = false;
     private boolean monospaced = false;
     private boolean style = true;
+    private boolean plain_only = false;
     private boolean encrypt = false;
     private OpenPgpServiceConnection pgpService;
     private long[] pgpKeyIds;
@@ -744,6 +745,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_clear).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_contact_group).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_answer).setVisible(state == State.LOADED);
+        menu.findItem(R.id.menu_plain_only).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_encrypt).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_send_after).setVisible(state == State.LOADED);
 
@@ -754,11 +756,13 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_clear).setEnabled(!busy);
         menu.findItem(R.id.menu_contact_group).setEnabled(!busy);
         menu.findItem(R.id.menu_answer).setEnabled(!busy);
+        menu.findItem(R.id.menu_plain_only).setEnabled(!busy);
         menu.findItem(R.id.menu_encrypt).setEnabled(!busy);
         menu.findItem(R.id.menu_send_after).setEnabled(!busy);
 
         menu.findItem(R.id.menu_style_toolbar).setChecked(style);
 
+        menu.findItem(R.id.menu_plain_only).setChecked(plain_only);
         menu.findItem(R.id.menu_encrypt).setChecked(encrypt);
         bottom_navigation.getMenu().findItem(R.id.action_send)
                 .setTitle(encrypt ? R.string.title_encrypt : R.string.title_send);
@@ -797,6 +801,9 @@ public class FragmentCompose extends FragmentBase {
                 return true;
             case R.id.menu_answer:
                 onMenuAnswer();
+                return true;
+            case R.id.menu_plain_only:
+                onMenuPlainOnly();
                 return true;
             case R.id.menu_encrypt:
                 onMenuEncrypt();
@@ -1041,6 +1048,12 @@ public class FragmentCompose extends FragmentBase {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.execute(this, new Bundle(), "compose:answer");
+    }
+
+    private void onMenuPlainOnly() {
+        plain_only = !plain_only;
+        getActivity().invalidateOptionsMenu();
+        onAction(R.id.action_save);
     }
 
     private void onMenuEncrypt() {
@@ -1687,6 +1700,7 @@ public class FragmentCompose extends FragmentBase {
         args.putString("bcc", etBcc.getText().toString().trim());
         args.putString("subject", etSubject.getText().toString().trim());
         args.putString("body", HtmlHelper.toHtml(etBody.getText()));
+        args.putBoolean("plain_only", plain_only);
         args.putBoolean("empty", isEmpty());
 
         Log.i("Run execute id=" + working);
@@ -2047,6 +2061,7 @@ public class FragmentCompose extends FragmentBase {
                                 draft.subject = ref.subject;
                         }
 
+                        draft.plain_only = ref.plain_only;
                         if (answer > 0)
                             body = EntityAnswer.getAnswerText(db, answer, draft.to) + body;
                     }
@@ -2105,7 +2120,11 @@ public class FragmentCompose extends FragmentBase {
                     draft.id = db.message().insertMessage(draft);
                     Helper.writeText(draft.getFile(context), body);
 
-                    db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body), null);
+                    db.message().setMessageContent(draft.id,
+                            true,
+                            draft.plain_only,
+                            HtmlHelper.getPreview(body),
+                            null);
 
                     Core.updateMessageSize(context, draft.id);
 
@@ -2187,6 +2206,7 @@ public class FragmentCompose extends FragmentBase {
             bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision != null && draft.revision > 1);
             bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision != null && !draft.revision.equals(draft.revisions));
 
+            plain_only = (draft.plain_only != null && draft.plain_only);
             getActivity().invalidateOptionsMenu();
 
             new SimpleTask<List<TupleIdentityEx>>() {
@@ -2344,6 +2364,7 @@ public class FragmentCompose extends FragmentBase {
             String bcc = args.getString("bcc");
             String subject = args.getString("subject");
             String body = args.getString("body");
+            boolean plain_only = args.getBoolean("plain_only");
             boolean empty = args.getBoolean("empty");
 
             EntityMessage draft;
@@ -2489,12 +2510,17 @@ public class FragmentCompose extends FragmentBase {
 
                         db.message().setMessageRevision(draft.id, draft.revision);
 
-                        db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body), null);
+                        db.message().setMessageContent(draft.id,
+                                true,
+                                draft.plain_only, // unchanged
+                                HtmlHelper.getPreview(body),
+                                null);
                         Core.updateMessageSize(context, draft.id);
                     }
                 } else {
                     String previous = Helper.readText(draft.getFile(context));
-                    if (!body.equals(previous)) {
+                    if (!body.equals(previous) ||
+                            plain_only != (draft.plain_only != null && draft.plain_only)) {
                         dirty = true;
 
                         if (draft.revisions == null)
@@ -2509,7 +2535,12 @@ public class FragmentCompose extends FragmentBase {
                         db.message().setMessageRevision(draft.id, draft.revision);
                         db.message().setMessageRevisions(draft.id, draft.revisions);
 
-                        db.message().setMessageContent(draft.id, true, HtmlHelper.getPreview(body), null);
+                        draft.plain_only = plain_only;
+                        db.message().setMessageContent(draft.id,
+                                true,
+                                draft.plain_only,
+                                HtmlHelper.getPreview(body),
+                                null);
                         Core.updateMessageSize(context, draft.id);
                     }
                 }

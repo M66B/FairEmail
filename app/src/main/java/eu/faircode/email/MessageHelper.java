@@ -355,7 +355,7 @@ public class MessageHelper {
         Log.i("Attachments available=" + available);
 
         if (available == 0)
-            if (identity != null && identity.plain_only)
+            if (message.plain_only != null && message.plain_only)
                 imessage.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
             else
                 imessage.setContent(alternativePart);
@@ -363,7 +363,7 @@ public class MessageHelper {
             Multipart mixedPart = new MimeMultipart("mixed");
 
             BodyPart attachmentPart = new MimeBodyPart();
-            if (identity != null && identity.plain_only)
+            if (message.plain_only != null && message.plain_only)
                 attachmentPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
             else
                 attachmentPart.setContent(alternativePart);
@@ -761,6 +761,12 @@ public class MessageHelper {
         private Part html = null;
         private List<AttachmentPart> attachments = new ArrayList<>();
         private ArrayList<String> warnings = new ArrayList<>();
+
+        Boolean isPlainOnly() {
+            if (plain == null && html == null)
+                return null;
+            return (html == null);
+        }
 
         String getHtml(Context context) throws MessagingException {
             if (plain == null && html == null) {
