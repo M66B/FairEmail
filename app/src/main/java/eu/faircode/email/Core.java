@@ -791,18 +791,10 @@ class Core {
                         if (folder.subscribed == null || !folder.subscribed.equals(subscribed))
                             db.folder().setFolderSubscribed(folder.id, subscribed.get(ifolder));
 
-                        if (folder.display == null) {
-                            if (display != null) {
-                                db.folder().setFolderDisplay(folder.id, display);
-                                EntityLog.log(context, account.name + ":" + folder.name +
-                                        " removed prefix display=" + display + " separator=" + separator);
-                            }
-                        } else {
-                            if (account.prefix == null && folder.name.endsWith(separator + folder.display)) {
-                                db.folder().setFolderDisplay(folder.id, null);
-                                EntityLog.log(context, account.name + ":" + folder.name +
-                                        " restored prefix display=" + folder.display + " separator=" + separator);
-                            }
+                        if (folder.display == null && display != null) {
+                            db.folder().setFolderDisplay(folder.id, display);
+                            EntityLog.log(context, account.name + ":" + folder.name +
+                                    " removed prefix display=" + display + " separator=" + separator);
                         }
 
                         // Compatibility
