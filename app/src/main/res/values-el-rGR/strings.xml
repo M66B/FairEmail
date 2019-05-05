@@ -57,7 +57,6 @@
     <string name="title_identity_name">Το όνομα σας</string>
     <string name="title_identity_email">Η διεύθυνση email σας</string>
     <string name="title_identity_reply_to">Απάντηση στη διεύθυνση αυτή</string>
-    <string name="title_identity_plain_text">Αποστολή μόνο απλού κειμένου</string>
     <string name="title_account_name">Όνομα λογαριασμού</string>
     <string name="title_account_name_hint">Χρησιμοποιείται για τη διαφοροποίηση φακέλων</string>
     <string name="title_account_color">Χρώμα</string>

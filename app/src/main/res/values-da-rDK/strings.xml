@@ -195,7 +195,6 @@
     <string name="title_identity_name">Dit navn</string>
     <string name="title_identity_email">Din e-mailadresse</string>
     <string name="title_identity_reply_to">Svar til-adresse</string>
-    <string name="title_identity_plain_text">Send altid som klartekst</string>
     <string name="title_identity_encrypt">Kryptér som standard</string>
     <string name="title_identity_use_ip_hint">I tilfælde af \'ugyldig hilsen\', \'kræver gyldig adresse\' eller lignende fejl, prøv da at ændre denne indstilling</string>
     <string name="title_identity_read_receipt">Anmod om kvittering for læsning</string>
@@ -248,7 +247,6 @@
     <string name="title_no_idle">Denne udbyder understøtter ikke push-beskeder. Dette vil forsinke modtagelsen af nye meddelelser og øge batteriforbruget.</string>
     <string name="title_no_utf8">Denne udbyder understøtter ikke UTF-8</string>
     <string name="title_no_sync">Synkroniseringsfejl siden %1$s</string>
-    <string name="title_sync_errors">Synkronisering af visse mapper mislykkedes</string>
     <string name="title_identity_required">Identitet påkrævet for at kunne sende meddelelser</string>
     <string name="title_drafts_required">Kladde-mappe påkrævet for at kunne sende meddelelser</string>
     <string name="title_account_delete">Slet denne konto permanent?</string>

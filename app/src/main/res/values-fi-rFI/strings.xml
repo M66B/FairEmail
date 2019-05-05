@@ -199,7 +199,6 @@
     <string name="title_identity_name">Nimesi</string>
     <string name="title_identity_email">Sähköpostiosoitteesi</string>
     <string name="title_identity_reply_to">Vastausosoite</string>
-    <string name="title_identity_plain_text">Lähetä muotoilemattomana tekstinä</string>
     <string name="title_identity_encrypt">Salaa oletusarvoisesti</string>
     <string name="title_identity_use_ip_hint">Virheilmoituksen ollessa \'invalid greeting\', \'requires valid address\' tai muu samankaltainen yritä muuttaa tätä asetusta</string>
     <string name="title_identity_read_receipt">Pyydä vastaanottokuittausta</string>
@@ -252,7 +251,6 @@
     <string name="title_no_idle">Tämä palveluntarjoaja ei tue push-viestejä. Tämä viivästyttää uusien viestien vastaanottamista ja lisää akun käyttöä.</string>
     <string name="title_no_utf8">Tämä palveluntarjoaja ei tue UTF-8:aa</string>
     <string name="title_no_sync">Synkronointivirheitä alkaen %1$s</string>
-    <string name="title_sync_errors">Joidenkin kansioiden synkronointi epäonnistui</string>
     <string name="title_identity_required">Viestien lähettämiseen tarvitaan identiteetti</string>
     <string name="title_drafts_required">Viestien lähettämiseen tarvitaan luonnoskansio</string>
     <string name="title_account_delete">Poistetaanko tämä tili pysyvästi?</string>
@@ -394,6 +392,7 @@
     <string name="title_show_addresses">Näytä kopio/piilokopio</string>
     <string name="title_insert_contact_group">Lisää yhteystietoryhmä</string>
     <string name="title_insert_template">Lisää malli</string>
+    <string name="title_send_plain_text">Lähetä muotoilemattomana tekstinä</string>
     <string name="title_from_missing">Lähettäjä puuttuu</string>
     <string name="title_to_missing">Vastaanottaja puuttuu</string>
     <string name="title_attachments_missing">Kaikkia liitteitä ei ole ladattu</string>
@@ -476,6 +475,7 @@
     <string name="title_legend_snoozed">On torkutettu</string>
     <string name="title_legend_browsed">Selattu tai haettu</string>
     <string name="title_legend_answered">Vastattu</string>
+    <string name="title_legend_plain_only">On muotoilematon teksti</string>
     <string name="title_legend_receipt">Kuittaus pyydetty</string>
     <string name="title_legend_attachment">Sisältää liitteen</string>
     <string name="title_legend_flagged">Tähdellinen</string>

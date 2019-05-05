@@ -124,7 +124,6 @@
     <string name="title_identity_name">إسمك</string>
     <string name="title_identity_email">البريد الإلكتروني</string>
     <string name="title_identity_reply_to">الرد على العنوان</string>
-    <string name="title_identity_plain_text">إرسال كنص عادي فقط</string>
     <string name="title_identity_encrypt">تشفير بشكل افتراضي</string>
     <string name="title_identity_read_receipt">طلب إيصال بالقراءة</string>
     <string name="title_identity_delivery_receipt">طلب إيصال بالقراءة</string>

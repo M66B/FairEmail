@@ -199,7 +199,6 @@
     <string name="title_identity_name">Uw naam</string>
     <string name="title_identity_email">Uw e-mailadres</string>
     <string name="title_identity_reply_to">Antwoord op adres</string>
-    <string name="title_identity_plain_text">Verstuur alleen platte tekst</string>
     <string name="title_identity_encrypt">Standaard versleutelen</string>
     <string name="title_identity_use_ip_hint">In geval van \'invalid greeting\', \'requires valid address\' of een soortgelijke fout, probeer deze instelling te wijzigen</string>
     <string name="title_identity_read_receipt">Vraag leesbevestiging</string>
@@ -252,7 +251,6 @@
     <string name="title_no_idle">Deze provider biedt geen ondersteuning voor push-berichten. Dit zal het ontvangen van nieuwe berichten vertragen en het gebruik van de batterij te verhogen.</string>
     <string name="title_no_utf8">Deze provider ondersteunt geen UTF-8</string>
     <string name="title_no_sync">Synchronisatiefouten sinds %1$s</string>
-    <string name="title_sync_errors">Synchroniseren van sommige mappen mislukt</string>
     <string name="title_identity_required">Een identiteit is vereist om berichten te verzenden</string>
     <string name="title_drafts_required">Een concepten map is vereist om berichten te verzenden</string>
     <string name="title_account_delete">Verwijder dit account permanent?</string>
@@ -394,6 +392,7 @@
     <string name="title_show_addresses">Toon CC/BCC</string>
     <string name="title_insert_contact_group">Contactgroep toevoegen</string>
     <string name="title_insert_template">Sjabloon invoegen</string>
+    <string name="title_send_plain_text">Verstuur alleen platte tekst</string>
     <string name="title_from_missing">Zender ontbreekt</string>
     <string name="title_to_missing">Ontvanger ontbreekt</string>
     <string name="title_attachments_missing">Niet alle bijlagen zijn gedownload</string>
@@ -476,6 +475,7 @@
     <string name="title_legend_snoozed">Is gesluimerd</string>
     <string name="title_legend_browsed">Is gebladerd of gezocht</string>
     <string name="title_legend_answered">Is beantwoord</string>
+    <string name="title_legend_plain_only">Is alleen platte tekst</string>
     <string name="title_legend_receipt">Ontvangstbevestiging werd gevraagd</string>
     <string name="title_legend_attachment">Heeft bijlagen</string>
     <string name="title_legend_flagged">Heeft een star</string>

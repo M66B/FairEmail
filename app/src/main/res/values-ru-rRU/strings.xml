@@ -215,7 +215,6 @@
     <string name="title_identity_name">Ваше имя</string>
     <string name="title_identity_email">Ваш эл. адрес</string>
     <string name="title_identity_reply_to">Обратный адрес</string>
-    <string name="title_identity_plain_text">Отправка простым текстом</string>
     <string name="title_identity_encrypt">Шифровать по умолчанию</string>
     <string name="title_identity_use_ip_hint">В случае ошибки \'invalid greeting\', \'requires valid address\' или аналогичной, попробуйте изменить этот параметр</string>
     <string name="title_identity_read_receipt">Запросить уведомления о прочтении</string>
@@ -268,7 +267,6 @@
     <string name="title_no_idle">Этот провайдер не поддерживает push-сообщения. Это задержит прием новых сообщений и увеличит расход батареи.</string>
     <string name="title_no_utf8">Этот провайдер не поддерживает UTF-8</string>
     <string name="title_no_sync">Ошибки синхронизации после %1$s</string>
-    <string name="title_sync_errors">Синхронизация некоторых папок не удалась</string>
     <string name="title_identity_required">Для отправки сообщений требуется идентификатор</string>
     <string name="title_drafts_required">Для отправки сообщений требуется папка черновиков</string>
     <string name="title_account_delete">Удалить эту учетную запись навсегда?</string>
@@ -410,6 +408,7 @@
     <string name="title_show_addresses">Показать CC / BCC</string>
     <string name="title_insert_contact_group">Добавить группу контактов</string>
     <string name="title_insert_template">Вставить шаблон</string>
+    <string name="title_send_plain_text">Отправить только простым текстом</string>
     <string name="title_from_missing">Отправитель отсутствует</string>
     <string name="title_to_missing">Получатель отсутствует</string>
     <string name="title_attachments_missing">Не все вложения загружены</string>
@@ -492,6 +491,7 @@
     <string name="title_legend_snoozed">Отложено</string>
     <string name="title_legend_browsed">Сообщение на сервере</string>
     <string name="title_legend_answered">Был дан ответ</string>
+    <string name="title_legend_plain_only">Только простой текст</string>
     <string name="title_legend_receipt">Уведомление запрошено</string>
     <string name="title_legend_attachment">Имеет вложение</string>
     <string name="title_legend_flagged">Отмечено</string>

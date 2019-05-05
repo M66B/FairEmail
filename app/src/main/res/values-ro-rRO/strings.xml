@@ -206,7 +206,6 @@
     <string name="title_identity_name">Numele dumneavoastră</string>
     <string name="title_identity_email">Adresa dvs. de e-mail</string>
     <string name="title_identity_reply_to">Răspuns la adresa</string>
-    <string name="title_identity_plain_text">Trimite numai text simplu</string>
     <string name="title_identity_encrypt">Criptare în mod implicit</string>
     <string name="title_identity_use_ip_hint">În cazul în care apare erori de tipul \'invalid greeting\', \'requires valid address\' sau similare, încercați să schimbați această setare</string>
     <string name="title_identity_read_receipt">Solicitare confirmare citire</string>
@@ -259,7 +258,6 @@
     <string name="title_no_idle">Acest furnizor de servicii e-mail nu suporta mesaje push. Acest fapt va duce la întârzierea recepției mesajelor și un consum mai mare al bateriei.</string>
     <string name="title_no_utf8">Acest furnizor nu suportă UTF-8</string>
     <string name="title_no_sync">Erori de sincronizare începând cu %1$s</string>
-    <string name="title_sync_errors">Sincronizarea unor dosare a eșuat</string>
     <string name="title_identity_required">O identitate este necesară pentru a trimite mesaje</string>
     <string name="title_drafts_required">Un dosar de ciorne este necesar pentru a trimite mesaje</string>
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>

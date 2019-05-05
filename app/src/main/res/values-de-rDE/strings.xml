@@ -199,7 +199,6 @@
     <string name="title_identity_name">Ihr Name</string>
     <string name="title_identity_email">Ihre E-Mail-Adresse</string>
     <string name="title_identity_reply_to">Antwortadresse</string>
-    <string name="title_identity_plain_text">Nur-Text-Email senden</string>
     <string name="title_identity_encrypt">Standardmäßig verschlüsseln</string>
     <string name="title_identity_use_ip_hint">Bei \'invalid greeting\', \'requires valid address\' oder einem ähnlichen Fehler, versuchen Sie, diese Einstellung zu ändern</string>
     <string name="title_identity_read_receipt">Lesebestätigung anfordern</string>
@@ -252,7 +251,6 @@
     <string name="title_no_idle">Dieser Anbieter unterstützt keine Pushnachrichten. Dies verzögert den Empfang neuer E-Mails und erhöht den Akkuverbrauch.</string>
     <string name="title_no_utf8">Dieser Anbieter unterstützt UTF-8 nicht</string>
     <string name="title_no_sync">Synchronisationsfehler seit %1$s</string>
-    <string name="title_sync_errors">Synchronisieren einiger Ordner fehlgeschlagen</string>
     <string name="title_identity_required">Für das Senden von Nachrichten ist ein Name erforderlich</string>
     <string name="title_drafts_required">Ein Entwürfe-Ordner ist erforderlich, um Nachrichten zu senden</string>
     <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
@@ -394,6 +392,7 @@
     <string name="title_show_addresses">CC/BCC anzeigen</string>
     <string name="title_insert_contact_group">Kontaktgruppe einfügen</string>
     <string name="title_insert_template">Vorlage einfügen</string>
+    <string name="title_send_plain_text">Nur Text senden</string>
     <string name="title_from_missing">Absender fehlt</string>
     <string name="title_to_missing">Empfänger fehlt</string>
     <string name="title_attachments_missing">Nicht alle Dateianhänge wurden heruntergeladen</string>
@@ -476,6 +475,7 @@
     <string name="title_legend_snoozed">Wurde zurückgestellt</string>
     <string name="title_legend_browsed">Gesehen oder gesucht</string>
     <string name="title_legend_answered">Wurde beantwortet</string>
+    <string name="title_legend_plain_only">Ist eine Nur-Text-Mail</string>
     <string name="title_legend_receipt">Lesebestätigung wurde angefordert</string>
     <string name="title_legend_attachment">Anhang vorhanden</string>
     <string name="title_legend_flagged">Als wichtig markiert</string>

@@ -143,6 +143,7 @@
     <string name="title_advanced_images">自动显示来自已知联系人邮件中的图片</string>
     <string name="title_advanced_actionbar">对话操作栏</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
+    <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>
     <string name="title_advanced_swipenav">向左/右滑动来前往下一个/上一个邮件会话</string>
     <string name="title_advanced_autoexpand">自动伸展消息</string>
     <string name="title_advanced_collapse">按返回键折叠对话中的邮件</string>
@@ -190,7 +191,6 @@
     <string name="title_identity_name">姓名</string>
     <string name="title_identity_email">电子邮件地址</string>
     <string name="title_identity_reply_to">回复地址</string>
-    <string name="title_identity_plain_text">仅发送纯文本</string>
     <string name="title_identity_encrypt">默认加密</string>
     <string name="title_identity_use_ip_hint">如果遇到“无效问候”，“需要有效的地址”或类似错误，请尝试更改此设置</string>
     <string name="title_identity_read_receipt">请求读取回执</string>
@@ -243,7 +243,6 @@
     <string name="title_no_idle">该提供商不支持消息推送，这将延迟新消息的接收并增加电池用量</string>
     <string name="title_no_utf8">该邮件服务供应商不支持UTF-8字符集</string>
     <string name="title_no_sync">从 %1$s 开始同步错误</string>
-    <string name="title_sync_errors">一些文件夹同步失败</string>
     <string name="title_identity_required">需要一个身份来发送消息</string>
     <string name="title_drafts_required">需要一个草稿文件夹来发送消息</string>
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
@@ -385,6 +384,7 @@
     <string name="title_show_addresses">显示抄送和密送</string>
     <string name="title_insert_contact_group">插入联系人组</string>
     <string name="title_insert_template">插入模板</string>
+    <string name="title_send_plain_text">仅发送纯文本</string>
     <string name="title_from_missing">缺少发件人</string>
     <string name="title_to_missing">缺少收件人</string>
     <string name="title_attachments_missing">没有下载全部附件</string>
@@ -467,6 +467,7 @@
     <string name="title_legend_snoozed">已暂停</string>
     <string name="title_legend_browsed">已浏览或搜索</string>
     <string name="title_legend_answered">已回复</string>
+    <string name="title_legend_plain_only">仅纯文本</string>
     <string name="title_legend_receipt">请求收据</string>
     <string name="title_legend_attachment">有附件</string>
     <string name="title_legend_flagged">已标星</string>

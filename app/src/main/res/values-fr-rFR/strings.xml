@@ -199,7 +199,6 @@
     <string name="title_identity_name">Votre nom</string>
     <string name="title_identity_email">Votre adresse e-mail</string>
     <string name="title_identity_reply_to">Répondre à l\'adresse</string>
-    <string name="title_identity_plain_text">Envoyer en texte brut uniquement</string>
     <string name="title_identity_encrypt">Chiffrer par défaut</string>
     <string name="title_identity_use_ip_hint">En cas de \"connexion invalide\", \"nécessite une adresse valide\" ou une erreur similaire, essayez de modifier ce paramètre</string>
     <string name="title_identity_read_receipt">Demander une confirmation de lecture</string>
@@ -252,7 +251,6 @@
     <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Cela va retarder la réception de nouveaux messages et augmenter l\'utilisation de la batterie.</string>
     <string name="title_no_utf8">Ce fournisseur ne prend pas en charge l\'UTF-8</string>
     <string name="title_no_sync">Erreurs de synchronisation depuis %1$s</string>
-    <string name="title_sync_errors">La synchronisation de certains dossiers a échoué</string>
     <string name="title_identity_required">Une identité est nécessaire pour envoyer des messages</string>
     <string name="title_drafts_required">Un dossier brouillon est nécessaire pour envoyer des messages</string>
     <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
@@ -394,6 +392,7 @@
     <string name="title_show_addresses">Afficher Cc/Cci</string>
     <string name="title_insert_contact_group">Insérer un groupe de contacts</string>
     <string name="title_insert_template">Insérer un modèle</string>
+    <string name="title_send_plain_text">Envoyer en texte brut uniquement</string>
     <string name="title_from_missing">Expéditeur manquant</string>
     <string name="title_to_missing">Destinataire manquant</string>
     <string name="title_attachments_missing">Les pièces jointes ne sont pas toutes téléchargées</string>
@@ -476,6 +475,7 @@
     <string name="title_legend_snoozed">Est différé</string>
     <string name="title_legend_browsed">Est parcouru ou recherché</string>
     <string name="title_legend_answered">A reçu une réponse</string>
+    <string name="title_legend_plain_only">Texte brut seulement</string>
     <string name="title_legend_receipt">Un accusé de réception a été demandé</string>
     <string name="title_legend_attachment">A une pièce jointe</string>
     <string name="title_legend_flagged">Est suivi</string>

@@ -215,7 +215,6 @@
     <string name="title_identity_name">Vaše jméno</string>
     <string name="title_identity_email">Vaše e-mailová adresa</string>
     <string name="title_identity_reply_to">Adresa pro odpověď</string>
-    <string name="title_identity_plain_text">Odeslat pouze prostý text</string>
     <string name="title_identity_encrypt">Šifrovat ve výchozím stavu</string>
     <string name="title_identity_use_ip_hint">V případě \"neplatného pozdravu\", \"vyžadování platné adresy\" či podobné chyby zkuste změnit toto nastavení</string>
     <string name="title_identity_read_receipt">Požadovat potvrzení o přečtení</string>
@@ -268,7 +267,6 @@
     <string name="title_no_idle">Tento poskytovatel nepodporuje okamžitá oznámení zpráv. Následkem bude opožděný příjem nových zpráv a zvýšená spotřeba baterie.</string>
     <string name="title_no_utf8">Tento poskytovatel nepodporuje UTF-8</string>
     <string name="title_no_sync">Chyby synchronizace od %1$s</string>
-    <string name="title_sync_errors">Synchronizace některých složek selhala</string>
     <string name="title_identity_required">Identita je vyžadována pro odesílání zpráv</string>
     <string name="title_drafts_required">Složka konceptů je vyžadována pro odesílání zpráv</string>
     <string name="title_account_delete">Trvale smazat tento účet?</string>
@@ -410,6 +408,7 @@
     <string name="title_show_addresses">Zobrazit kopii/skrytou kopii</string>
     <string name="title_insert_contact_group">Vložit skupinu kontaktů</string>
     <string name="title_insert_template">Vložit šablonu</string>
+    <string name="title_send_plain_text">Odeslat pouze prostý text</string>
     <string name="title_from_missing">Chybí odesílatel</string>
     <string name="title_to_missing">Chybí příjemce</string>
     <string name="title_attachments_missing">Nebyly staženy všechny přílohy</string>
@@ -492,6 +491,7 @@
     <string name="title_legend_snoozed">Je odloženo</string>
     <string name="title_legend_browsed">Je prohlédnuto/vyhledáno</string>
     <string name="title_legend_answered">Bylo odpovězeno</string>
+    <string name="title_legend_plain_only">Je pouze prostý text</string>
     <string name="title_legend_receipt">Bylo požadováno potvrzení o přečtení</string>
     <string name="title_legend_attachment">Má přílohu</string>
     <string name="title_legend_flagged">Je označeno hvězdičkou</string>

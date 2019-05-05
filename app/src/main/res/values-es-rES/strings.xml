@@ -151,6 +151,7 @@
     <string name="title_advanced_images">Mostrar imágenes automáticamente para contactos conocidos</string>
     <string name="title_advanced_actionbar">Barra de acciones de conversación</string>
     <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
+    <string name="title_advanced_autoscroll">Desplazar hacia arriba al recibir nuevos mensajes</string>
     <string name="title_advanced_swipenav">Deslice a la izquierda/derecha para ir a la siguiente/anterior conversación</string>
     <string name="title_advanced_autoexpand">Expandir mensajes automáticamente</string>
     <string name="title_advanced_collapse">Contraer mensajes en conversaciones al ir \'atrás\'</string>
@@ -193,12 +194,11 @@
     <string name="title_advanced_search_local_hint">En lugar de buscar en la carpeta de archivo principal en el servidor</string>
     <string name="title_advanced_english_hint">Esto reiniciará la app</string>
     <string name="title_advanced_paranoid_hint">Vea las preguntas frecuentes para más detalles</string>
-    <string name="title_advanced_debug_hint">Activar registro extra y mostrar información de depuración en varios lugares</string>
+    <string name="title_advanced_debug_hint">Habilitar registro adicional y mostrar información de depuración en varios lugares</string>
     <string name="title_select">Seleccione &#8230;</string>
     <string name="title_identity_name">Su nombre</string>
     <string name="title_identity_email">Su dirección de correo electrónico</string>
     <string name="title_identity_reply_to">Responder a la dirección</string>
-    <string name="title_identity_plain_text">Enviar sólo texto plano</string>
     <string name="title_identity_encrypt">Encriptar por defecto</string>
     <string name="title_identity_use_ip_hint">En caso de \'saludo inválido\', \'requiere dirección válida\' o un error similar, intente cambiar esta configuración</string>
     <string name="title_identity_read_receipt">Solicitar confirmación de lectura</string>
@@ -251,7 +251,6 @@
     <string name="title_no_idle">Este proveedor no es compatible con mensajes push. Esto retrasará la recepción de nuevos mensajes y aumentará el uso de batería.</string>
     <string name="title_no_utf8">Este proveedor no es compatible con UTF-8</string>
     <string name="title_no_sync">Errores de sincronización desde %1$s</string>
-    <string name="title_sync_errors">Error al sincronizar algunas carpetas</string>
     <string name="title_identity_required">Se requiere una identidad para enviar mensajes</string>
     <string name="title_drafts_required">Una carpeta de borradores es necesaria para enviar mensajes</string>
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
@@ -284,7 +283,7 @@
     <string name="title_sync_days_remark">Incrementar este valor hará que aumente el consumo de datos y batería</string>
     <string name="title_keep_days">Mantener mensajes (días)</string>
     <string name="title_keep_all">Mantener todos los mensajes</string>
-    <string name="title_auto_delete">Borrar automáticamente mensajes antiguos</string>
+    <string name="title_auto_delete">Eliminar automáticamente mensajes antiguos</string>
     <string name="title_folder_name_missing">Falta nombre de carpeta</string>
     <string name="title_folder_exists">La carpeta %1$s ya existe</string>
     <string name="title_folder_delete">¿Eliminar permanentemente esta carpeta y los mensajes que contenga?</string>
@@ -393,6 +392,7 @@
     <string name="title_show_addresses">Mostrar CC/CCO</string>
     <string name="title_insert_contact_group">Insertar grupo de contactos</string>
     <string name="title_insert_template">Insertar plantilla</string>
+    <string name="title_send_plain_text">Enviar sólo texto plano</string>
     <string name="title_from_missing">Falta remitente</string>
     <string name="title_to_missing">Falta destinatario</string>
     <string name="title_attachments_missing">No todos los adjuntos fueron descargados</string>
@@ -475,6 +475,7 @@
     <string name="title_legend_snoozed">Está postergado</string>
     <string name="title_legend_browsed">Está navegado o buscado</string>
     <string name="title_legend_answered">Ha sido respondido</string>
+    <string name="title_legend_plain_only">Sólo es texto plano</string>
     <string name="title_legend_receipt">Se solicitó confirmación de lectura</string>
     <string name="title_legend_attachment">Tiene adjunto</string>
     <string name="title_legend_flagged">Está destacado</string>
