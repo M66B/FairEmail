@@ -124,6 +124,7 @@ public class FragmentMessages extends FragmentBase {
     private Group grpReady;
     private FloatingActionButton fab;
     private FloatingActionButton fabMore;
+    private FloatingActionButton fabError;
 
     private long account;
     private long folder;
@@ -271,6 +272,7 @@ public class FragmentMessages extends FragmentBase {
         grpReady = view.findViewById(R.id.grpReady);
         fab = view.findViewById(R.id.fab);
         fabMore = view.findViewById(R.id.fabMore);
+        fabError = view.findViewById(R.id.fabError);
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
@@ -516,6 +518,13 @@ public class FragmentMessages extends FragmentBase {
             }
         });
 
+        fabError.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMenuFolders(account);
+            }
+        });
+
         addBackPressedListener(onBackPressedListener);
 
         // Initialize
@@ -531,6 +540,7 @@ public class FragmentMessages extends FragmentBase {
 
         fab.hide();
         fabMore.hide();
+        fabError.hide();
 
         if (viewType == AdapterMessage.ViewType.THREAD) {
             ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
@@ -2195,6 +2205,11 @@ public class FragmentMessages extends FragmentBase {
         else
             setSubtitle(getString(R.string.title_name_count, name, nf.format(unseen)));
 
+        if (errors)
+            fabError.show();
+        else
+            fabError.hide();
+
         // Auto scroll
         if (lastUnseen == null || lastUnseen != unseen) {
             if ((!refreshing && manual) ||
@@ -2203,13 +2218,6 @@ public class FragmentMessages extends FragmentBase {
             manual = false;
             lastUnseen = unseen;
         }
-
-        // Show errors
-        if (errors && !refreshing && swipeRefresh.isRefreshing())
-            if (folders.size() == 1)
-                Snackbar.make(view, folders.get(0).error, Snackbar.LENGTH_LONG).show();
-            else
-                Snackbar.make(view, R.string.title_sync_errors, Snackbar.LENGTH_LONG).show();
 
         refresh = sync;
         swipeRefresh.setEnabled(pull && refresh);

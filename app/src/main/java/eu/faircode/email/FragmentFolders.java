@@ -66,6 +66,7 @@ public class FragmentFolders extends FragmentBase {
     private Group grpHintSync;
     private Group grpReady;
     private FloatingActionButton fab;
+    private FloatingActionButton fabError;
 
     private long account;
     private boolean show_hidden = false;
@@ -100,6 +101,7 @@ public class FragmentFolders extends FragmentBase {
         grpHintSync = view.findViewById(R.id.grpHintSync);
         grpReady = view.findViewById(R.id.grpReady);
         fab = view.findViewById(R.id.fab);
+        fabError = view.findViewById(R.id.fabError);
 
         // Wire controls
 
@@ -181,6 +183,15 @@ public class FragmentFolders extends FragmentBase {
             }
         });
 
+        fabError.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, new FragmentAccounts()).addToBackStack("accounts");
+                fragmentTransaction.commit();
+            }
+        });
+
         if (account < 0)
             fab.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
@@ -214,6 +225,7 @@ public class FragmentFolders extends FragmentBase {
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
         fab.hide();
+        fabError.hide();
 
         return view;
     }
@@ -276,6 +288,12 @@ public class FragmentFolders extends FragmentBase {
                 @Override
                 public void onChanged(@Nullable EntityAccount account) {
                     setSubtitle(account == null ? null : account.name);
+
+                    if (account != null && account.error != null)
+                        fabError.show();
+                    else
+                        fabError.hide();
+
                     if (account == null)
                         fab.hide();
                     else
