@@ -36,6 +36,8 @@ For authorizing:
 * ~~Synchronize on demand (manual)~~
 * ~~Semi-automatic encryption~~
 * ~~Copy message~~
+* Notification settings per folder
+* Select local images for signatures
 
 Anything on this list is in random order and *might* be added in the near future.
 
