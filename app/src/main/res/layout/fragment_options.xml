@@ -16,14 +16,15 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="12dp"
-            android:paddingBottom="12dp">
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp">
 
             <include
                 android:id="@+id/sectionGeneral"
                 layout="@layout/include_options_general"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,7 +33,7 @@
                 layout="@layout/include_options_connection"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="48dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/sectionGeneral" />
 
@@ -41,7 +42,7 @@
                 layout="@layout/include_options_display"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="48dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/sectionConnection" />
 
@@ -50,7 +51,7 @@
                 layout="@layout/include_options_behavior"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="48dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/sectionDisplay" />
 
@@ -68,7 +69,7 @@
                 layout="@layout/include_options_misc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="48dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/sectionNotifications" />
         </androidx.constraintlayout.widget.ConstraintLayout>
