@@ -166,6 +166,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(97) What is 'cleanup' ?](#user-content-faq97)
 * [(98) Why can I still pick contacts after revoking contacts permissions?](#user-content-faq98)
 * [(99) Can you add a rich text or markdown editor?](#user-content-faq99)
+* [(100) How can I synchronize Gmail categories?](#user-content-faq100)
 
 [I have another question.](#support)
 
@@ -1615,6 +1616,30 @@ Android doesn't support a rich text editor and most rich text editor open source
 See [here](https://forum.xda-developers.com/showpost.php?p=79061829&postcount=4919) for some more details about this.
 
 <br />
+
+<a name="faq100"></a>
+**(100) How can I synchronize Gmail categories?**
+
+You can synchronize Gmail categories by creating filters to label categorized messages:
+
+* Create a new filter via Gmail > Settings (wheel) > Filters and Blocked Addresses > Create a new filter
+* Enter a category search (see below) in the *Has the words* field and click *Create filter*
+* Check *Apply the label* and select a label and click *Create filter*
+
+Possible categories:
+
+```
+category:social
+category:updates
+category:forums
+category:promotions
+```
+
+Pull down the folders list in FairEmail to refresh the folder list
+and long press the category folders to enable synchronization.
+
+<br />
+
 
 ## Support
 
