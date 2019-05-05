@@ -55,13 +55,22 @@
                 app:layout_constraintTop_toBottomOf="@id/sectionDisplay" />
 
             <include
+                android:id="@+id/sectionNotifications"
+                layout="@layout/include_options_notifications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sectionBehavior" />
+
+            <include
                 android:id="@+id/sectionMisc"
                 layout="@layout/include_options_misc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/sectionBehavior" />
+                app:layout_constraintTop_toBottomOf="@id/sectionNotifications" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

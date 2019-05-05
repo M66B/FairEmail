@@ -41,6 +41,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -105,12 +106,17 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swPrefixOnce;
     private SwitchCompat swAutoSend;
 
-    private SwitchCompat swBadge;
-    private SwitchCompat swSubscriptions;
     private SwitchCompat swNotifyPreview;
-    private SwitchCompat swSearchLocal;
+    private CheckBox cbNotifyActionTrash;
+    private CheckBox cbNotifyActionArchive;
+    private CheckBox cbNotifyActionSeen;
+    private CheckBox cbNotifyActionReply;
     private SwitchCompat swLight;
     private Button btnSound;
+
+    private SwitchCompat swBadge;
+    private SwitchCompat swSubscriptions;
+    private SwitchCompat swSearchLocal;
 
     private SwitchCompat swAuthentication;
     private SwitchCompat swParanoid;
@@ -118,6 +124,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private SwitchCompat swEnglish;
     private SwitchCompat swUpdates;
     private SwitchCompat swDebug;
+
     private TextView tvLastCleanup;
 
     private Group grpSearchLocal;
@@ -138,8 +145,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             "addresses", "monospaced", "autohtml", "autoimages", "actionbar",
             "pull", "autoscroll", "swipenav", "autoexpand", "autoclose", "autonext", "collapse", "autoread", "automove",
             "autoresize", "resize", "prefix_once", "autosend",
-            "badge", "subscriptions", "notify_preview", "search_local", "light", "sound",
-            "authentication", "paranoid", "english", "updates", "debug",
+            "notify_trash", "notify_archive", "notify_reply", "notify_seen", "notify_preview", "light", "sound",
+            "badge", "subscriptions", "search_local", "english", "authentication", "paranoid", "updates", "debug",
             "first", "why", "last_update_check", "app_support", "message_swipe", "message_select", "folder_actions", "folder_sync",
             "edit_ref_confirmed", "show_html_confirmed", "show_images_confirmed", "print_html_confirmed", "show_organization", "style_toolbar"
     };
@@ -196,19 +203,24 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
         swAutoSend = view.findViewById(R.id.swAutoSend);
 
-        swBadge = view.findViewById(R.id.swBadge);
-        swSubscriptions = view.findViewById(R.id.swSubscriptions);
         swNotifyPreview = view.findViewById(R.id.swNotifyPreview);
-        swSearchLocal = view.findViewById(R.id.swSearchLocal);
+        cbNotifyActionTrash = view.findViewById(R.id.cbNotifyActionTrash);
+        cbNotifyActionArchive = view.findViewById(R.id.cbNotifyActionArchive);
+        cbNotifyActionReply = view.findViewById(R.id.cbNotifyActionReply);
+        cbNotifyActionSeen = view.findViewById(R.id.cbNotifyActionSeen);
         swLight = view.findViewById(R.id.swLight);
         btnSound = view.findViewById(R.id.btnSound);
 
+        swBadge = view.findViewById(R.id.swBadge);
+        swSubscriptions = view.findViewById(R.id.swSubscriptions);
+        swSearchLocal = view.findViewById(R.id.swSearchLocal);
+        swEnglish = view.findViewById(R.id.swEnglish);
         swAuthentication = view.findViewById(R.id.swAuthentication);
         swParanoid = view.findViewById(R.id.swParanoid);
         tvParanoidHint = view.findViewById(R.id.tvParanoidHint);
-        swEnglish = view.findViewById(R.id.swEnglish);
         swUpdates = view.findViewById(R.id.swUpdates);
         swDebug = view.findViewById(R.id.swDebug);
+
         tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
 
         grpSearchLocal = view.findViewById(R.id.grpSearchLocal);
@@ -219,6 +231,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         setOptions();
+
+        // General
 
         swEnabled.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -295,6 +309,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             }
         });
 
+        // Connection
+
         swMetered.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -323,6 +339,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
                 ServiceSynchronize.reload(getContext(), "roaming=" + checked);
             }
         });
+
+        // Display
 
         spStartup.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -438,6 +456,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             }
         });
 
+        // Behavior
+
         swPull.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -538,20 +558,7 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             }
         });
 
-        swBadge.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("badge", checked).apply();
-                ServiceSynchronize.reload(getContext(), "badge");
-            }
-        });
-
-        swSubscriptions.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("subscriptions", checked).apply();
-            }
-        });
+        // Notifications
 
         swNotifyPreview.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -560,10 +567,31 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             }
         });
 
-        swSearchLocal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        cbNotifyActionTrash.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("search_local", checked).apply();
+            public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
+                prefs.edit().putBoolean("notify_trash", checked).apply();
+            }
+        });
+
+        cbNotifyActionArchive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
+                prefs.edit().putBoolean("notify_archive", checked).apply();
+            }
+        });
+
+        cbNotifyActionReply.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
+                prefs.edit().putBoolean("notify_reply", checked).apply();
+            }
+        });
+
+        cbNotifyActionSeen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
+                prefs.edit().putBoolean("notify_seen", checked).apply();
             }
         });
 
@@ -588,19 +616,30 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             }
         });
 
-        swAuthentication.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        // Misc
+
+        swBadge.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("authentication", checked).apply();
+                prefs.edit().putBoolean("badge", checked).apply();
+                ServiceSynchronize.reload(getContext(), "badge");
             }
         });
 
-        swParanoid.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swSubscriptions.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("paranoid", checked).apply();
+                prefs.edit().putBoolean("subscriptions", checked).apply();
             }
         });
+
+        swSearchLocal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("search_local", checked).apply();
+            }
+        });
+
 
         final Intent faq = new Intent(Intent.ACTION_VIEW);
         faq.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq86"));
@@ -624,6 +663,20 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 Runtime.getRuntime().exit(0);
+            }
+        });
+
+        swAuthentication.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("authentication", checked).apply();
+            }
+        });
+
+        swParanoid.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("paranoid", checked).apply();
             }
         });
 
@@ -707,6 +760,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
     private void setOptions() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
+        // General
+
         swEnabled.setChecked(prefs.getBoolean("enabled", true));
         spPollInterval.setEnabled(swEnabled.isChecked());
         swSchedule.setEnabled(swEnabled.isChecked());
@@ -724,6 +779,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         tvScheduleStart.setText(formatHour(getContext(), prefs.getInt("schedule_start", 0)));
         tvScheduleEnd.setText(formatHour(getContext(), prefs.getInt("schedule_end", 0)));
 
+        // Connection
+
         swMetered.setChecked(prefs.getBoolean("metered", true));
 
         int download = prefs.getInt("download", MessageHelper.DEFAULT_ATTACHMENT_DOWNLOAD_SIZE);
@@ -735,6 +792,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
             }
 
         swRoaming.setChecked(prefs.getBoolean("roaming", true));
+
+        // Display
 
         boolean compact = prefs.getBoolean("compact", false);
 
@@ -761,6 +820,8 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swImages.setChecked(prefs.getBoolean("autoimages", false));
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
 
+        // Behavior
+
         swPull.setChecked(prefs.getBoolean("pull", true));
         swAutoScroll.setChecked(prefs.getBoolean("autoscroll", false));
         swSwipeNav.setChecked(prefs.getBoolean("swipenav", true));
@@ -786,21 +847,31 @@ public class FragmentOptions extends FragmentBase implements SharedPreferences.O
         swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", false));
         swAutoSend.setChecked(!prefs.getBoolean("autosend", false));
 
-        swBadge.setChecked(prefs.getBoolean("badge", true));
-        swSubscriptions.setChecked(prefs.getBoolean("subscriptions", false));
+        // Notifications
+
         swNotifyPreview.setChecked(prefs.getBoolean("notify_preview", true));
         swNotifyPreview.setEnabled(Helper.isPro(getContext()));
-        swSearchLocal.setChecked(prefs.getBoolean("search_local", false));
+        cbNotifyActionTrash.setChecked(prefs.getBoolean("notify_trash", true));
+        cbNotifyActionArchive.setChecked(prefs.getBoolean("notify_archive", true));
+        cbNotifyActionReply.setChecked(prefs.getBoolean("notify_reply", false));
+        cbNotifyActionSeen.setChecked(prefs.getBoolean("notify_seen", true));
         swLight.setChecked(prefs.getBoolean("light", false));
+
+        grpNotification.setVisibility(Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
+
+        // Misc
+
+        swBadge.setChecked(prefs.getBoolean("badge", true));
+        swSubscriptions.setChecked(prefs.getBoolean("subscriptions", false));
+        swEnglish.setChecked(prefs.getBoolean("english", false));
+        swSearchLocal.setChecked(prefs.getBoolean("search_local", false));
         swAuthentication.setChecked(prefs.getBoolean("authentication", false));
         swParanoid.setChecked(prefs.getBoolean("paranoid", true));
-        swEnglish.setChecked(prefs.getBoolean("english", false));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swUpdates.setVisibility(Helper.isPlayStoreInstall(getContext()) ? View.GONE : View.VISIBLE);
         swDebug.setChecked(prefs.getBoolean("debug", false));
 
         grpSearchLocal.setVisibility(Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.M ? View.GONE : View.VISIBLE);
-        grpNotification.setVisibility(Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
     }
 
     private String formatHour(Context context, int minutes) {

@@ -156,6 +156,7 @@
     <string name="title_advanced_section_connection">Connection</string>
     <string name="title_advanced_section_display">Display</string>
     <string name="title_advanced_section_behavior">Behavior</string>
+    <string name="title_advanced_section_notifications">Notifications</string>
     <string name="title_advanced_section_misc">Miscellaneous</string>
 
     <string name="title_advanced_enabled">Synchronize</string>
@@ -197,12 +198,19 @@
     <string name="title_advanced_prefix_once">Prefix subject only once on replying or forwarding</string>
     <string name="title_advanced_autosend">Confirm sending messages</string>
 
-    <string name="title_advanced_badge">Show launcher icon with number of new messages</string>
-    <string name="title_advanced_subscriptions">Manage folder subscriptions</string>
     <string name="title_advanced_notify_preview">Show message preview in notifications</string>
-    <string name="title_advanced_search_local">External search on device</string>
+    <string name="title_advanced_notify_actions">Notification actions</string>
+    <string name="title_advanced_notify_action_trash">Trash</string>
+    <string name="title_advanced_notify_action_archive">Archive</string>
+    <string name="title_advanced_notify_action_reply">Reply</string>
+    <string name="title_advanced_notify_action_seen">Read</string>
+    <string name="title_advanced_notify_action_hint">At most three actions will be shown</string>
     <string name="title_advanced_light">Use notification light</string>
     <string name="title_advanced_sound">Select notification sound</string>
+
+    <string name="title_advanced_badge">Show launcher icon with number of new messages</string>
+    <string name="title_advanced_subscriptions">Manage folder subscriptions</string>
+    <string name="title_advanced_search_local">External search on device</string>
     <string name="title_advanced_english">Force English language</string>
     <string name="title_advanced_authentication">Show a warning when the receiving server could not authenticate the message</string>
     <string name="title_advanced_paranoid">Extra privacy features</string>
@@ -521,10 +529,6 @@
     <string name="title_rule_condition_missing">Condition missing</string>
     <string name="title_rule_automation">Automation</string>
     <string name="title_rule_automation_hint">This will send the intent \'%1$s\' with the extras \'%2$s\'</string>
-
-    <string name="title_action_seen">Mark read</string>
-    <string name="title_action_archive">Archive</string>
-    <string name="title_action_trash">Trash</string>
 
     <string name="title_legend_inbox">Inbox</string>
     <string name="title_legend_archive">Archive</string>

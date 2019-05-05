@@ -1702,6 +1702,11 @@ class Core {
 
         boolean pro = Helper.isPro(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean notify_trash = prefs.getBoolean("notify_trash", true);
+        boolean notify_archive = prefs.getBoolean("notify_archive", true);
+        boolean notify_reply = prefs.getBoolean("notify_reply", false);
+        boolean notify_seen = prefs.getBoolean("notify_seen", true);
+
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         // Get contact info
@@ -1710,12 +1715,10 @@ class Core {
             messageContact.put(message, ContactInfo.get(context, message.from, false));
 
         // Build pending intents
-        Intent summary = new Intent(context, ActivityView.class);
-        summary.setAction("unified");
+        Intent summary = new Intent(context, ActivityView.class).setAction("unified");
         PendingIntent piSummary = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, summary, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        Intent clear = new Intent(context, ServiceUI.class);
-        clear.setAction("clear");
+        Intent clear = new Intent(context, ServiceUI.class).setAction("clear");
         PendingIntent piClear = PendingIntent.getService(context, ServiceUI.PI_CLEAR, clear, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Build title
@@ -1793,37 +1796,8 @@ class Core {
             PendingIntent piContent = PendingIntent.getActivity(
                     context, ActivityView.REQUEST_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
 
-            Intent ignored = new Intent(context, ServiceUI.class);
-            ignored.setAction("ignore:" + message.id);
-            PendingIntent piDelete = PendingIntent.getService(context, ServiceUI.PI_IGNORED, ignored, PendingIntent.FLAG_UPDATE_CURRENT);
-
-            Intent seen = new Intent(context, ServiceUI.class);
-            seen.setAction("seen:" + message.id);
-            PendingIntent piSeen = PendingIntent.getService(context, ServiceUI.PI_SEEN, seen, PendingIntent.FLAG_UPDATE_CURRENT);
-
-            Intent archive = new Intent(context, ServiceUI.class);
-            archive.setAction("archive:" + message.id);
-            PendingIntent piArchive = PendingIntent.getService(context, ServiceUI.PI_ARCHIVE, archive, PendingIntent.FLAG_UPDATE_CURRENT);
-
-            Intent trash = new Intent(context, ServiceUI.class);
-            trash.setAction("trash:" + message.id);
-            PendingIntent piTrash = PendingIntent.getService(context, ServiceUI.PI_TRASH, trash, PendingIntent.FLAG_UPDATE_CURRENT);
-
-            // Build actions
-            NotificationCompat.Action.Builder actionSeen = new NotificationCompat.Action.Builder(
-                    R.drawable.baseline_visibility_24,
-                    context.getString(R.string.title_action_seen),
-                    piSeen);
-
-            NotificationCompat.Action.Builder actionArchive = new NotificationCompat.Action.Builder(
-                    R.drawable.baseline_archive_24,
-                    context.getString(R.string.title_action_archive),
-                    piArchive);
-
-            NotificationCompat.Action.Builder actionTrash = new NotificationCompat.Action.Builder(
-                    R.drawable.baseline_delete_24,
-                    context.getString(R.string.title_action_trash),
-                    piTrash);
+            Intent ignore = new Intent(context, ServiceUI.class).setAction("ignore:" + message.id);
+            PendingIntent piIgnore = PendingIntent.getService(context, ServiceUI.PI_IGNORED, ignore, PendingIntent.FLAG_UPDATE_CURRENT);
 
             // Get channel name
             String channelName = null;
@@ -1852,16 +1826,53 @@ class Core {
                     .setSubText(message.accountName + " · " + folderName)
                     .setContentIntent(piContent)
                     .setWhen(message.received)
-                    .setDeleteIntent(piDelete)
+                    .setDeleteIntent(piIgnore)
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                     .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                     .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
                     .setGroup(group)
                     .setGroupSummary(false)
-                    .setOnlyAlertOnce(true)
-                    .addAction(actionSeen.build())
-                    .addAction(actionArchive.build())
-                    .addAction(actionTrash.build());
+                    .setOnlyAlertOnce(true);
+
+            if (notify_trash) {
+                Intent trash = new Intent(context, ServiceUI.class).setAction("trash:" + message.id);
+                PendingIntent piTrash = PendingIntent.getService(context, ServiceUI.PI_TRASH, trash, PendingIntent.FLAG_UPDATE_CURRENT);
+                NotificationCompat.Action.Builder actionTrash = new NotificationCompat.Action.Builder(
+                        R.drawable.baseline_delete_24,
+                        context.getString(R.string.title_advanced_notify_action_trash),
+                        piTrash);
+                mbuilder.addAction(actionTrash.build());
+            }
+
+            if (notify_archive) {
+                Intent archive = new Intent(context, ServiceUI.class).setAction("archive:" + message.id);
+                PendingIntent piArchive = PendingIntent.getService(context, ServiceUI.PI_ARCHIVE, archive, PendingIntent.FLAG_UPDATE_CURRENT);
+                NotificationCompat.Action.Builder actionArchive = new NotificationCompat.Action.Builder(
+                        R.drawable.baseline_archive_24,
+                        context.getString(R.string.title_advanced_notify_action_archive),
+                        piArchive);
+                mbuilder.addAction(actionArchive.build());
+            }
+
+            if (notify_reply) {
+                Intent reply = new Intent(context, ServiceUI.class).setAction("reply:" + message.id);
+                PendingIntent piReply = PendingIntent.getService(context, ServiceUI.PI_REPLY, reply, PendingIntent.FLAG_UPDATE_CURRENT);
+                NotificationCompat.Action.Builder actionReply = new NotificationCompat.Action.Builder(
+                        R.drawable.baseline_reply_24,
+                        context.getString(R.string.title_advanced_notify_action_reply),
+                        piReply);
+                mbuilder.addAction(actionReply.build());
+            }
+
+            if (notify_seen) {
+                Intent seen = new Intent(context, ServiceUI.class).setAction("seen:" + message.id);
+                PendingIntent piSeen = PendingIntent.getService(context, ServiceUI.PI_SEEN, seen, PendingIntent.FLAG_UPDATE_CURRENT);
+                NotificationCompat.Action.Builder actionSeen = new NotificationCompat.Action.Builder(
+                        R.drawable.baseline_visibility_24,
+                        context.getString(R.string.title_advanced_notify_action_seen),
+                        piSeen);
+                mbuilder.addAction(actionSeen.build());
+            }
 
             if (pro) {
                 if (!TextUtils.isEmpty(message.subject))
