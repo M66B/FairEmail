@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvSectionBehavior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="@string/title_advanced_section_behavior"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/vSeparatorBehavior"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="?attr/colorSeparator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSectionBehavior" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/swPull"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/title_advanced_pull_refresh"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vSeparatorBehavior"
+        app:switchPadding="12dp" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/swAutoScroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/title_advanced_autoscroll"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/swPull"
+        app:switchPadding="12dp" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/swSwipeNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/title_advanced_swipenav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/swAutoScroll"
+        app:switchPadding="12dp" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/swAutoExpand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/title_advanced_autoexpand"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/swSwipeNav"
+        app:switchPadding="12dp" />
+
+    <TextView
+        android:id="@+id/tvAutoExpandHint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="60dp"
+        android:text="@string/title_advanced_autoexpand_hint"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/swAutoExpand" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/swCollapse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/title_advanced_collapse"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAutoExpandHint"
+        app:switchPadding="12dp" />
+
+    <TextView
+        android:id="@+id/tvAutoCollapseHint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="60dp"
+        android:text="@string/title_advanced_autocollapse_hint"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/swCollapse" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/swAutoClose"
+        android:layout_width="match_parent"
+        android:layout_height="22dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/title_advanced_autoclose"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAutoCollapseHint"
+        app:switchPadding="12dp" />
+
+    <TextView
+        android:id="@+id/tvAutoCloseHint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="60dp"
+        android:text="@string/title_advanced_autoclose_hint"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/swAutoClose" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/swAutoNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/title_advanced_autonext"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAutoCloseHint"
+        app:switchPadding="12dp" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/swAutoRead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/title_advanced_autoread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/swAutoNext"
+        app:switchPadding="12dp" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/swAutoMove"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/title_advanced_automove"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/swAutoRead"
+        app:switchPadding="12dp" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/swAutoResize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/title_advanced_autoresize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/swAutoMove"
+        app:switchPadding="12dp" />
+
+    <Spinner
+        android:id="@+id/spAutoResize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:entries="@array/resizeNames"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/swAutoResize" />
+
+    <TextView
+        android:id="@+id/tvAutoResize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_advanced_resize_pixels"
+        app:layout_constraintBottom_toBottomOf="@id/spAutoResize"
+        app:layout_constraintStart_toEndOf="@id/spAutoResize"
+        app:layout_constraintTop_toTopOf="@id/spAutoResize" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/swPrefixOnce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/title_advanced_prefix_once"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spAutoResize"
+        app:switchPadding="12dp" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/swAutoSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/title_advanced_autosend"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/swPrefixOnce"
+        app:switchPadding="12dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
