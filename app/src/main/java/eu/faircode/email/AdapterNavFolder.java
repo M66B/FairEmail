@@ -56,6 +56,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
         private View view;
         private ImageView ivItem;
         private TextView tvItem;
+        private ImageView ivWarning;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -63,6 +64,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
             view = itemView.findViewById(R.id.clItem);
             ivItem = itemView.findViewById(R.id.ivItem);
             tvItem = itemView.findViewById(R.id.tvItem);
+            ivWarning = itemView.findViewById(R.id.ivWarning);
         }
 
         private void wire() {
@@ -74,31 +76,28 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
         }
 
         private void bindTo(TupleFolderNav folder) {
-            if (folder.error == null)
-                if (EntityFolder.OUTBOX.equals(folder.type)) {
-                    if ("syncing".equals(folder.sync_state))
-                        ivItem.setImageResource(R.drawable.baseline_compare_arrows_24);
-                    else
-                        ivItem.setImageResource(R.drawable.baseline_send_24);
+            if (EntityFolder.OUTBOX.equals(folder.type)) {
+                if ("syncing".equals(folder.sync_state))
+                    ivItem.setImageResource(R.drawable.baseline_compare_arrows_24);
+                else
+                    ivItem.setImageResource(R.drawable.baseline_send_24);
 
+                ivItem.clearColorFilter();
+            } else {
+                if ("syncing".equals(folder.sync_state))
+                    ivItem.setImageResource(R.drawable.baseline_compare_arrows_24);
+                else if ("downloading".equals(folder.sync_state))
+                    ivItem.setImageResource(R.drawable.baseline_cloud_download_24);
+                else
+                    ivItem.setImageResource("connected".equals(folder.state)
+                            ? R.drawable.baseline_folder_24
+                            : R.drawable.baseline_folder_open_24);
+
+                if (folder.color == null)
                     ivItem.clearColorFilter();
-                } else {
-                    if ("syncing".equals(folder.sync_state))
-                        ivItem.setImageResource(R.drawable.baseline_compare_arrows_24);
-                    else if ("downloading".equals(folder.sync_state))
-                        ivItem.setImageResource(R.drawable.baseline_cloud_download_24);
-                    else
-                        ivItem.setImageResource("connected".equals(folder.state)
-                                ? R.drawable.baseline_folder_24
-                                : R.drawable.baseline_folder_open_24);
-
-                    if (folder.color == null)
-                        ivItem.clearColorFilter();
-                    else
-                        ivItem.setColorFilter(folder.color);
-                }
-            else
-                ivItem.setImageResource(R.drawable.baseline_warning_24);
+                else
+                    ivItem.setColorFilter(folder.color);
+            }
 
             int count = (EntityFolder.OUTBOX.equals(folder.type) ? folder.operations : folder.unseen);
 
@@ -110,6 +109,8 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
 
             tvItem.setTextColor(Helper.resolveColor(context,
                     count == 0 ? android.R.attr.textColorSecondary : R.attr.colorUnread));
+
+            ivWarning.setVisibility(folder.error == null ? View.GONE : View.VISIBLE);
         }
 
         @Override

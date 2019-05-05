@@ -23,6 +23,7 @@ public class NavMenuItem {
     private int icon;
     private int title;
     private Integer count = null;
+    private boolean warning = false;
     private boolean separated = false;
     private Runnable click;
     private Runnable longClick;
@@ -40,14 +41,14 @@ public class NavMenuItem {
         this.longClick = longClick;
     }
 
-    void setIcon(int icon) {
-        this.icon = icon;
-    }
-
     void setCount(Integer count) {
         if (count != null && count == 0)
             count = null;
         this.count = count;
+    }
+
+    void setWarning(boolean warning) {
+        this.warning = warning;
     }
 
     NavMenuItem setSeparated() {
@@ -69,6 +70,10 @@ public class NavMenuItem {
 
     boolean isSeparated() {
         return this.separated;
+    }
+
+    boolean hasWarning() {
+        return this.warning;
     }
 
     void onClick() {

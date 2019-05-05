@@ -52,6 +52,7 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
         private View view;
         private ImageView ivItem;
         private TextView tvItem;
+        private ImageView ivWarning;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -59,6 +60,7 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
             view = itemView.findViewById(R.id.clItem);
             ivItem = itemView.findViewById(R.id.ivItem);
             tvItem = itemView.findViewById(R.id.tvItem);
+            ivWarning = itemView.findViewById(R.id.ivWarning);
         }
 
         private void wire() {
@@ -70,12 +72,9 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
         }
 
         private void bindTo(TupleAccountEx account) {
-            if (account.error == null)
-                ivItem.setImageResource("connected".equals(account.state)
-                        ? account.primary ? R.drawable.baseline_folder_special_24 : R.drawable.baseline_folder_24
-                        : R.drawable.baseline_folder_open_24);
-            else
-                ivItem.setImageResource(R.drawable.baseline_warning_24);
+            ivItem.setImageResource("connected".equals(account.state)
+                    ? account.primary ? R.drawable.baseline_folder_special_24 : R.drawable.baseline_folder_24
+                    : R.drawable.baseline_folder_open_24);
 
             if (account.color == null)
                 ivItem.clearColorFilter();
@@ -90,6 +89,8 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
 
             tvItem.setTextColor(Helper.resolveColor(context,
                     account.unseen == 0 ? android.R.attr.textColorSecondary : R.attr.colorUnread));
+
+            ivWarning.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
         }
 
         @Override

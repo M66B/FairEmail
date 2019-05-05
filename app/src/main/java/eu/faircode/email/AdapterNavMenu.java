@@ -50,6 +50,7 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
         private View view;
         private ImageView ivItem;
         private TextView tvItem;
+        private ImageView ivWarning;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -57,6 +58,7 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
             view = itemView.findViewById(R.id.clItem);
             ivItem = itemView.findViewById(R.id.ivItem);
             tvItem = itemView.findViewById(R.id.tvItem);
+            ivWarning = itemView.findViewById(R.id.ivWarning);
         }
 
         private void wire() {
@@ -80,6 +82,8 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
 
             tvItem.setTextColor(Helper.resolveColor(context,
                     menu.getCount() == null ? android.R.attr.textColorSecondary : R.attr.colorUnread));
+
+            ivWarning.setVisibility(menu.hasWarning() ? View.VISIBLE : View.GONE);
         }
 
         @Override
