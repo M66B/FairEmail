@@ -853,9 +853,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         }
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
-                                        Core.reportError(ServiceSynchronize.this, account, folder, ex);
-                                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
-                                        state.error(ex);
+                                        state.error(new FolderClosedException(ifolder, "IDLE"));
                                     } finally {
                                         Log.i(folder.name + " end idle");
                                     }
