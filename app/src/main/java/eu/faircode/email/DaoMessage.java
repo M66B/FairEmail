@@ -151,6 +151,18 @@ public interface DaoMessage {
             ", CASE WHEN folder.type = '" + EntityFolder.ARCHIVE + "' THEN 1 ELSE 0 END")
     DataSource.Factory<Integer, TupleMessageEx> pagedThread(long account, String thread, Long id, boolean debug);
 
+    @Query("SELECT account.name AS accountName" +
+            ", COUNT(message.id) AS count" +
+            ", SUM(message.ui_seen) AS seen" +
+            " FROM message" +
+            " JOIN account ON account.id = message.account" +
+            " WHERE message.account = :account" +
+            " AND message.thread = :thread" +
+            " AND (:id IS NULL OR message.id = :id)" +
+            " AND NOT message.ui_hide" +
+            " GROUP BY account.id")
+    LiveData<TupleThreadStats> liveThreadStats(long account, String thread, Long id);
+
     @Query("SELECT message.id FROM folder" +
             " JOIN message ON message.folder = folder.id" +
             " WHERE CASE WHEN :folder IS NULL THEN folder.unified ELSE folder.id = :folder END" +

@@ -1772,10 +1772,22 @@ public class FragmentMessages extends FragmentBase {
                 break;
 
             case THREAD:
-                db.account().liveAccount(account).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
+                db.message().liveThreadStats(account, thread, null).observe(getViewLifecycleOwner(), new Observer<TupleThreadStats>() {
+                    Integer lastUnseen = null;
+
                     @Override
-                    public void onChanged(EntityAccount account) {
-                        setSubtitle(getString(R.string.title_folder_thread, account == null ? "" : account.name));
+                    public void onChanged(TupleThreadStats stats) {
+                        setSubtitle(getString(R.string.title_folder_thread,
+                                stats == null || stats.accountName == null ? "" : stats.accountName));
+
+                        if (stats != null && stats.count != null && stats.unseen != null) {
+                            int unseen = stats.count - stats.unseen;
+                            if (lastUnseen == null || lastUnseen != unseen) {
+                                if (autoscroll && lastUnseen != null && lastUnseen < unseen)
+                                    loadMessages(true);
+                                lastUnseen = unseen;
+                            }
+                        }
                     }
                 });
                 db.message().liveHidden(account, thread).observe(getViewLifecycleOwner(), new Observer<List<Long>>() {
