@@ -425,13 +425,15 @@ public interface DaoMessage {
             " WHERE folder = :folder" +
             " AND received < :received" +
             " AND NOT uid IS NULL" +
+            " AND (ui_seen OR :unseen)" +
             " AND NOT ui_flagged")
-    List<Long> getMessagesBefore(long folder, long received);
+    List<Long> getMessagesBefore(long folder, long received, boolean unseen);
 
     @Query("DELETE FROM message" +
             " WHERE folder = :folder" +
             " AND received < :received" +
             " AND NOT uid IS NULL" +
+            " AND (ui_seen OR :unseen)" +
             " AND NOT ui_flagged")
-    int deleteMessagesBefore(long folder, long received);
+    int deleteMessagesBefore(long folder, long received, boolean unseen);
 }

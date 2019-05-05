@@ -905,7 +905,7 @@ class Core {
 
             // Delete old local messages
             if (auto_delete && EntityFolder.TRASH.equals(folder.type)) {
-                List<Long> tbds = db.message().getMessagesBefore(folder.id, keep_time);
+                List<Long> tbds = db.message().getMessagesBefore(folder.id, keep_time, false);
                 Log.i(folder.name + " local tbd=" + tbds.size());
                 for (Long tbd : tbds) {
                     EntityMessage message = db.message().getMessage(tbd);
@@ -913,7 +913,7 @@ class Core {
                         EntityOperation.queue(context, db, message, EntityOperation.DELETE);
                 }
             } else {
-                int old = db.message().deleteMessagesBefore(folder.id, keep_time);
+                int old = db.message().deleteMessagesBefore(folder.id, keep_time, false);
                 Log.i(folder.name + " local old=" + old);
             }
 
@@ -923,6 +923,7 @@ class Core {
 
             // Reduce list of local uids
             SearchTerm searchTerm = new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time));
+            searchTerm = new OrTerm(searchTerm, new FlagTerm(new Flags(Flags.Flag.SEEN), false));
             if (ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED))
                 searchTerm = new OrTerm(searchTerm, new FlagTerm(new Flags(Flags.Flag.FLAGGED), true));
 
@@ -931,11 +932,9 @@ class Core {
             try {
                 imessages = ifolder.search(searchTerm);
             } catch (MessagingException ex) {
-                if (ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED)) {
-                    Log.w(ex.getMessage());
-                    imessages = ifolder.search(new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time)));
-                } else
-                    throw ex;
+                Log.w(ex.getMessage());
+                // Fallback to date only search
+                imessages = ifolder.search(new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time)));
             }
             Log.i(folder.name + " remote count=" + imessages.length +
                     " search=" + (SystemClock.elapsedRealtime() - search) + " ms");

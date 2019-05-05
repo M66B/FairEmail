@@ -80,7 +80,7 @@ public class WorkerCleanup extends Worker {
                 if (keep_time < 0)
                     keep_time = 0;
 
-                int messages = db.message().deleteMessagesBefore(folder.id, keep_time);
+                int messages = db.message().deleteMessagesBefore(folder.id, keep_time, false);
                 if (messages > 0)
                     Log.i("Cleanup folder=" + folder.account + "/" + folder.name +
                             " before=" + new Date(keep_time) + " deleted=" + messages);
