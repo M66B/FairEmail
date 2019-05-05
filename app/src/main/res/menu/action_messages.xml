@@ -12,6 +12,11 @@
         android:title="@string/title_trash" />
 
     <item
+        android:id="@+id/action_snooze"
+        android:icon="@drawable/baseline_timelapse_24"
+        android:title="@string/title_snooze" />
+
+    <item
         android:id="@+id/action_archive"
         android:icon="@drawable/baseline_archive_24"
         android:title="@string/title_archive" />

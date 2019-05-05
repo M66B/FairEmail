@@ -446,6 +446,10 @@ public class FragmentMessages extends FragmentBase {
                         onActionMove(EntityFolder.TRASH);
                         return true;
 
+                    case R.id.action_snooze:
+                        onActionSnooze();
+                        return true;
+
                     case R.id.action_archive:
                         onActionMove(EntityFolder.ARCHIVE);
                         return true;
@@ -1091,6 +1095,72 @@ public class FragmentMessages extends FragmentBase {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.execute(FragmentMessages.this, args, "messages:move");
+    }
+
+    private void onActionSnooze() {
+        DialogDuration.show(getContext(), getViewLifecycleOwner(), R.string.title_snooze,
+                new DialogDuration.IDialogDuration() {
+                    @Override
+                    public void onDurationSelected(long duration, long time) {
+                        if (!Helper.isPro(getContext())) {
+                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                            return;
+                        }
+
+                        Bundle args = new Bundle();
+                        args.putLong("account", account);
+                        args.putString("thread", thread);
+                        args.putLong("id", id);
+                        args.putLong("wakeup", duration == 0 ? -1 : time);
+
+                        new SimpleTask<Long>() {
+                            @Override
+                            protected Long onExecute(Context context, Bundle args) {
+                                long account = args.getLong("account");
+                                String thread = args.getString("thread");
+                                long id = args.getLong("id");
+                                Long wakeup = args.getLong("wakeup");
+                                if (wakeup < 0)
+                                    wakeup = null;
+
+                                DB db = DB.getInstance(context);
+                                try {
+                                    db.beginTransaction();
+
+                                    List<EntityMessage> messages = db.message().getMessageByThread(
+                                            account, thread, threading ? null : id, null);
+                                    for (EntityMessage threaded : messages) {
+                                        db.message().setMessageSnoozed(threaded.id, wakeup);
+                                        EntityMessage.snooze(context, threaded.id, wakeup);
+                                        EntityOperation.queue(context, db, threaded, EntityOperation.SEEN, true);
+                                    }
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
+                                }
+
+                                return wakeup;
+                            }
+
+                            @Override
+                            protected void onExecuted(Bundle args, Long wakeup) {
+                                if (wakeup != null)
+                                    finish();
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                            }
+                        }.execute(getContext(), getViewLifecycleOwner(), args, "message:snooze");
+                    }
+
+                    @Override
+                    public void onDismiss() {
+                    }
+                });
     }
 
     private void onMore() {
@@ -2530,6 +2600,7 @@ public class FragmentMessages extends FragmentBase {
                             account, thread, threading ? null : id, null);
 
                     boolean trashable = false;
+                    boolean snoozable = false;
                     boolean archivable = false;
                     for (EntityMessage message : messages) {
                         EntityFolder folder = db.folder().getFolder(message.folder);
@@ -2539,6 +2610,10 @@ public class FragmentMessages extends FragmentBase {
                                 !EntityFolder.TRASH.equals(folder.type) &&
                                 !EntityFolder.JUNK.equals(folder.type))
                             trashable = true;
+
+                        if (!EntityFolder.OUTBOX.equals(folder.type))
+                            snoozable = true;
+
                         if (!EntityFolder.isOutgoing(folder.type) &&
                                 !EntityFolder.TRASH.equals(folder.type) &&
                                 !EntityFolder.JUNK.equals(folder.type) &&
@@ -2552,13 +2627,14 @@ public class FragmentMessages extends FragmentBase {
                     trashable = (trashable && trash != null);
                     archivable = (archivable && archive != null);
 
-                    return new Boolean[]{trashable, archivable};
+                    return new Boolean[]{trashable, snoozable, archivable};
                 }
 
                 @Override
                 protected void onExecuted(Bundle args, Boolean[] data) {
                     bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(data[0]);
-                    bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(data[1]);
+                    bottom_navigation.getMenu().findItem(R.id.action_snooze).setVisible(data[1]);
+                    bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(data[2]);
                     bottom_navigation.setVisibility(View.VISIBLE);
                 }
 

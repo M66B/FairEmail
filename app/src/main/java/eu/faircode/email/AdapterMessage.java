@@ -2137,71 +2137,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "message:unseen");
         }
 
-        private void onMenuSnooze(final ActionData data) {
-            DialogDuration.show(context, owner, R.string.title_snooze,
-                    new DialogDuration.IDialogDuration() {
-                        @Override
-                        public void onDurationSelected(long duration, long time) {
-                            if (!Helper.isPro(context)) {
-                                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                                lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
-                                return;
-                            }
-
-                            Bundle args = new Bundle();
-                            args.putLong("id", data.message.id);
-                            args.putLong("wakeup", duration == 0 ? -1 : time);
-
-                            new SimpleTask<Long>() {
-                                @Override
-                                protected Long onExecute(Context context, Bundle args) {
-                                    long id = args.getLong("id");
-                                    Long wakeup = args.getLong("wakeup");
-                                    if (wakeup < 0)
-                                        wakeup = null;
-
-                                    DB db = DB.getInstance(context);
-                                    try {
-                                        db.beginTransaction();
-
-                                        EntityMessage message = db.message().getMessage(id);
-                                        if (message != null) {
-                                            List<EntityMessage> messages = db.message().getMessageByThread(
-                                                    message.account, message.thread, threading ? null : id, message.folder);
-                                            for (EntityMessage threaded : messages) {
-                                                db.message().setMessageSnoozed(threaded.id, wakeup);
-                                                EntityMessage.snooze(context, threaded.id, wakeup);
-                                            }
-                                        }
-
-                                        db.setTransactionSuccessful();
-                                    } finally {
-                                        db.endTransaction();
-                                    }
-
-                                    return wakeup;
-                                }
-
-                                @Override
-                                protected void onExecuted(Bundle args, Long wakeup) {
-                                    if (wakeup != null)
-                                        properties.finish();
-                                }
-
-                                @Override
-                                protected void onException(Bundle args, Throwable ex) {
-                                    Helper.unexpectedError(context, owner, ex);
-                                }
-                            }.execute(context, owner, args, "message:snooze");
-                        }
-
-                        @Override
-                        public void onDismiss() {
-                        }
-                    });
-
-        }
-
         private void onMenuCopy(final ActionData data) {
             Bundle args = new Bundle();
             args.putLong("id", data.message.id);
@@ -2752,9 +2687,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_unseen:
                             onMenuUnseen(data);
-                            return true;
-                        case R.id.menu_snooze:
-                            onMenuSnooze(data);
                             return true;
                         case R.id.menu_copy:
                             onMenuCopy(data);

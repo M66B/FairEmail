@@ -9,10 +9,6 @@
         android:title="@string/title_unseen" />
 
     <item
-        android:id="@+id/menu_snooze"
-        android:title="@string/title_snooze" />
-
-    <item
         android:id="@+id/menu_copy"
         android:title="@string/title_copy" />
 
