@@ -1148,8 +1148,44 @@ public class ServiceSynchronize extends LifecycleService {
                     ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                     EntityLog.log(ServiceSynchronize.this, "Available " + network + " capabilities " + cm.getNetworkCapabilities(network));
 
-                    if (!started && networkState.isSuitable())
-                        queue_reload(true, false, "connect " + network);
+                    if (networkState.isSuitable())
+                        if (started) {
+                            EntityLog.log(ServiceSynchronize.this, "Checking account states");
+
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        DB db = DB.getInstance(ServiceSynchronize.this);
+
+                                        boolean disconnected = false;
+                                        List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
+                                        for (EntityAccount account : accounts)
+                                            if (!"connected".equals(account.state)) {
+                                                disconnected = true;
+                                                break;
+                                            }
+
+                                        if (disconnected)
+                                            new Handler(getMainLooper()).post(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    try {
+                                                        synchronized (ServiceSynchronize.this) {
+                                                            queue_reload(true, false, "Some accounts disconnected");
+                                                        }
+                                                    } catch (Throwable ex) {
+                                                        Log.e(ex);
+                                                    }
+                                                }
+                                            });
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                    }
+                                }
+                            }).start();
+                        } else
+                            queue_reload(true, false, "connect " + network);
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
