@@ -137,6 +137,11 @@ public class FragmentOptions extends FragmentBase {
                     throw new IllegalArgumentException();
             }
         }
+
+        @Override
+        public int getItemPosition(@NonNull Object object) {
+            return POSITION_NONE; // always recreate fragment
+        }
     }
 
     @Override
@@ -163,6 +168,6 @@ public class FragmentOptions extends FragmentBase {
             editor.remove(option);
         editor.apply();
 
-        //setOptions();
+        adapter.notifyDataSetChanged();
     }
 }
