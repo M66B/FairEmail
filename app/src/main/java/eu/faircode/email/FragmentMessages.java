@@ -1850,8 +1850,8 @@ public class FragmentMessages extends FragmentBase {
                         setSubtitle(getString(R.string.title_folder_thread,
                                 stats == null || stats.accountName == null ? "" : stats.accountName));
 
-                        if (stats != null && stats.count != null && stats.unseen != null) {
-                            int unseen = stats.count - stats.unseen;
+                        if (stats != null && stats.count != null && stats.seen != null) {
+                            int unseen = stats.count - stats.seen;
                             if (lastUnseen == null || lastUnseen != unseen) {
                                 if (autoscroll && lastUnseen != null && lastUnseen < unseen)
                                     loadMessages(true);
