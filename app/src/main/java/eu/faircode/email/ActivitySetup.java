@@ -109,6 +109,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
     static final String ACTION_EDIT_ACCOUNT = BuildConfig.APPLICATION_ID + ".EDIT_ACCOUNT";
     static final String ACTION_EDIT_IDENTITY = BuildConfig.APPLICATION_ID + ".EDIT_IDENTITY";
+    static final String ACTION_SHOW_PRO = BuildConfig.APPLICATION_ID + ".SHOW_PRO";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -302,6 +303,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         IntentFilter iff = new IntentFilter();
         iff.addAction(ACTION_EDIT_ACCOUNT);
         iff.addAction(ACTION_EDIT_IDENTITY);
+        iff.addAction(ACTION_SHOW_PRO);
         lbm.registerReceiver(receiver, iff);
     }
 
@@ -906,6 +908,15 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         fragmentTransaction.commit();
     }
 
+    private void onShowPro(Intent intent) {
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+            getSupportFragmentManager().popBackStack("pro", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+        fragmentTransaction.commit();
+    }
+
     BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -913,6 +924,8 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 onEditAccount(intent);
             else if (ACTION_EDIT_IDENTITY.equals(intent.getAction()))
                 onEditIdentity(intent);
+            else if (ACTION_SHOW_PRO.equals(intent.getAction()))
+                onShowPro(intent);
         }
     };
 }

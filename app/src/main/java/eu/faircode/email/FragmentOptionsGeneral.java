@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.format.DateFormat;
@@ -38,7 +39,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
 import java.text.SimpleDateFormat;
@@ -116,9 +117,8 @@ public class FragmentOptionsGeneral extends FragmentBase implements SharedPrefer
                         ServiceSynchronize.reschedule(getContext());
                     } else {
                         swSchedule.setChecked(false);
-                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-                        fragmentTransaction.commit();
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                        lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
                     }
                 } else {
                     prefs.edit().putBoolean("schedule", false).apply();
