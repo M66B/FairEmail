@@ -73,18 +73,6 @@ public class FragmentOptions extends FragmentBase {
         adapter = new PagerAdapter(getChildFragmentManager());
         pager.setAdapter(adapter);
 
-        addBackPressedListener(new ActivityBase.IBackPressedListener() {
-            @Override
-            public boolean onBackPressed() {
-                if (pager.getCurrentItem() == 0)
-                    return false;
-                else {
-                    pager.setCurrentItem(pager.getCurrentItem() - 1);
-                    return true;
-                }
-            }
-        });
-
         return view;
     }
 
