@@ -59,6 +59,8 @@ public class EditTextCompose extends AppCompatEditText {
     public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
         //https://developer.android.com/guide/topics/text/image-keyboard
         InputConnection ic = super.onCreateInputConnection(editorInfo);
+        if (ic == null)
+            return null;
 
         EditorInfoCompat.setContentMimeTypes(editorInfo, new String[]{"image/*"});
 
