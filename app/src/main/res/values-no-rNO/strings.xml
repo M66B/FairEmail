@@ -124,12 +124,17 @@
     <string name="title_setup_defaults">Gjenopprett standarder</string>
     <string name="title_setup_options">Alternativer</string>
     <string name="title_advanced">Avanserte innstillinger</string>
+    <string name="title_advanced_section_synchronize">Synkroniser</string>
     <string name="title_advanced_section_connection">Forbindelse</string>
     <string name="title_advanced_section_display">Vis</string>
     <string name="title_advanced_section_behavior">Oppførsel</string>
     <string name="title_advanced_section_notifications">Varslinger</string>
     <string name="title_advanced_section_misc">Diverse</string>
+    <string name="title_advanced_enabled">Aktivert</string>
+    <string name="title_advanced_when">Når</string>
     <string name="title_advanced_schedule">Tidsplan</string>
+    <string name="title_advanced_unseen">Alle uleste meldinger</string>
+    <string name="title_advanced_flagged">Alle stjernemerkede meldinger</string>
     <string name="title_advanced_metered">Bruk målte tilkoblinger</string>
     <string name="title_advanced_download">Last ned meldinger og vedlegg automatisk på en målingstilkobling opp til</string>
     <string name="title_advanced_roaming">Laste ned meldinger og vedlegg under roaming</string>
@@ -266,6 +271,7 @@
     <string name="title_pop3_hint">POP3 har betydelige begrensninger, så bruk IMAP når det er mulig</string>
     <string name="title_pop3_support">POP3 støttes ikke, se også vanlige spørsmål</string>
     <string name="title_synchronize_now">Synkroniser nå</string>
+    <string name="title_synchronize_enabled">Synkroniser</string>
     <string name="title_delete_local">Slett lokale meldinger</string>
     <string name="title_delete_browsed">Slett bladde/søkte meldinger</string>
     <string name="title_empty_trash">Tøm papirkurven</string>

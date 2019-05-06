@@ -140,12 +140,17 @@
     <string name="title_setup_defaults">Obnovit výchozí nastavení</string>
     <string name="title_setup_options">Možnosti</string>
     <string name="title_advanced">Rozšířené možnosti</string>
+    <string name="title_advanced_section_synchronize">Synchronizovat</string>
     <string name="title_advanced_section_connection">Připojení</string>
     <string name="title_advanced_section_display">Zobrazení</string>
     <string name="title_advanced_section_behavior">Chování</string>
     <string name="title_advanced_section_notifications">Oznámení</string>
     <string name="title_advanced_section_misc">Ostatní</string>
+    <string name="title_advanced_enabled">Zapnuto</string>
+    <string name="title_advanced_when">Kdy</string>
     <string name="title_advanced_schedule">Naplánovat</string>
+    <string name="title_advanced_unseen">Všechny nepřečtené zprávy</string>
+    <string name="title_advanced_flagged">Všechny zprávy s hvězdičkou</string>
     <string name="title_advanced_metered">Používat účtovaná připojení</string>
     <string name="title_advanced_download">Automaticky stahovat zprávy a přílohy na účtovaném připojení až do velikosti</string>
     <string name="title_advanced_roaming">Stahovat zprávy a přílohy během roamingu</string>
@@ -282,6 +287,7 @@
     <string name="title_pop3_hint">POP3 má významná omezení, proto používejte IMAP kdekoliv je to možné</string>
     <string name="title_pop3_support">POP3 není podporován, viz. časté dotazy</string>
     <string name="title_synchronize_now">Synchronizovat nyní</string>
+    <string name="title_synchronize_enabled">Synchronizovat</string>
     <string name="title_delete_local">Smazat místní zprávy</string>
     <string name="title_delete_browsed">Smazat prohlédnuté/vyhledané zprávy</string>
     <string name="title_empty_trash">Vysypat koš</string>
