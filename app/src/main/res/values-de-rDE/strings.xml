@@ -170,6 +170,7 @@
     <string name="title_advanced_notify_action_trash">Löschen</string>
     <string name="title_advanced_notify_action_archive">Archivieren</string>
     <string name="title_advanced_notify_action_reply">Antworten</string>
+    <string name="title_advanced_notify_action_flag">Kennzeichnen</string>
     <string name="title_advanced_notify_action_seen">Gelesen</string>
     <string name="title_advanced_notify_action_hint">Es werden maximal drei Aktionen angezeigt</string>
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>

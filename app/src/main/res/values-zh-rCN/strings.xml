@@ -162,6 +162,8 @@
     <string name="title_advanced_notify_action_trash">垃圾箱</string>
     <string name="title_advanced_notify_action_archive">存档</string>
     <string name="title_advanced_notify_action_reply">回复</string>
+    <string name="title_advanced_notify_action_flag">标星</string>
+    <string name="title_advanced_notify_action_seen">已读</string>
     <string name="title_advanced_notify_action_hint">最多显示三项操作</string>
     <string name="title_advanced_light">使用指示灯</string>
     <string name="title_advanced_sound">选择通知提示音</string>

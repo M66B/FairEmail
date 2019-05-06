@@ -170,6 +170,7 @@
     <string name="title_advanced_notify_action_trash">Supprimer</string>
     <string name="title_advanced_notify_action_archive">Archiver</string>
     <string name="title_advanced_notify_action_reply">Répondre</string>
+    <string name="title_advanced_notify_action_flag">Suivi</string>
     <string name="title_advanced_notify_action_seen">Lu</string>
     <string name="title_advanced_notify_action_hint">Trois actions au plus seront affichées</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>

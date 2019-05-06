@@ -186,6 +186,7 @@
     <string name="title_advanced_notify_action_trash">Корзина</string>
     <string name="title_advanced_notify_action_archive">Архив</string>
     <string name="title_advanced_notify_action_reply">Ответить</string>
+    <string name="title_advanced_notify_action_flag">Избранное</string>
     <string name="title_advanced_notify_action_seen">Прочитанные</string>
     <string name="title_advanced_notify_action_hint">Будут показаны максимум три действия</string>
     <string name="title_advanced_light">Использовать индикатор уведомлений</string>
@@ -206,7 +207,7 @@
     <string name="title_advanced_browse_hint">Получите больше сообщений при прокрутке вниз</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
     <string name="title_advanced_name_email_hint">Если отключено, будут показаны только имена (при наличии)</string>
-    <string name="title_advanced_flags_hint">Обратите внимание, что отмеченные сообщения всегда будут сохранены локально</string>
+    <string name="title_advanced_flags_hint">Обратите внимание, что избранные сообщения всегда будут сохранены локально</string>
     <string name="title_advanced_subscriptions_hint">Папки без подписки будут скрыты</string>
     <string name="title_advanced_preview_hint">Доступно только когда был загружен текст сообщения</string>
     <string name="title_advanced_autoexpand_hint">Автоматически открывать сообщение, когда оно только одно или только одно непрочитанное сообщение в диалоге</string>
@@ -328,8 +329,8 @@
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Отметить как прочитанное</string>
     <string name="title_unseen">Отметить как непрочитанное</string>
-    <string name="title_flag">Отметить</string>
-    <string name="title_unflag">Снять метку</string>
+    <string name="title_flag">В избранное</string>
+    <string name="title_unflag">Удалить из избранного</string>
     <string name="title_forward">Переслать</string>
     <string name="title_create_rule">Создать правило &#8230;</string>
     <string name="title_share">Поделиться</string>
@@ -498,7 +499,7 @@
     <string name="title_legend_plain_only">Только простой текст</string>
     <string name="title_legend_receipt">Уведомление запрошено</string>
     <string name="title_legend_attachment">Имеет вложение</string>
-    <string name="title_legend_flagged">Отмечено</string>
+    <string name="title_legend_flagged">В избранном</string>
     <string name="title_legend_contacts">Управление контактами</string>
     <string name="title_legend_view">Просмотр содержимого</string>
     <string name="title_legend_hide">Скрыть содержимое</string>

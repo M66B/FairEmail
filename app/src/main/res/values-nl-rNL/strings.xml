@@ -170,6 +170,7 @@
     <string name="title_advanced_notify_action_trash">Weggooien</string>
     <string name="title_advanced_notify_action_archive">Archiveren</string>
     <string name="title_advanced_notify_action_reply">Beantwoorden</string>
+    <string name="title_advanced_notify_action_flag">Ster</string>
     <string name="title_advanced_notify_action_seen">Gelezen</string>
     <string name="title_advanced_notify_action_hint">Er worden maximaal drie acties getoond</string>
     <string name="title_advanced_light">Gebruik meldingslicht</string>

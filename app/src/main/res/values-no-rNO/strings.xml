@@ -170,6 +170,7 @@
     <string name="title_advanced_notify_action_trash">Søppel</string>
     <string name="title_advanced_notify_action_archive">Arkiver</string>
     <string name="title_advanced_notify_action_reply">Besvar</string>
+    <string name="title_advanced_notify_action_flag">Stjerne</string>
     <string name="title_advanced_notify_action_seen">Les</string>
     <string name="title_advanced_notify_action_hint">Høyst tre handlinger vil bli vist</string>
     <string name="title_advanced_light">Bruk meldingslys</string>
