@@ -324,9 +324,6 @@
     <string name="title_rule_answer">الگوی پاسخ</string>
     <string name="title_rule_name_missing">نام دستور موجود نیست</string>
     <string name="title_rule_condition_missing">فاقد شرایط</string>
-    <string name="title_action_seen">علامت گذاری به عنوان خوانده شده</string>
-    <string name="title_action_archive">بایگانی</string>
-    <string name="title_action_trash">سطل آشغال</string>
     <string name="title_legend_inbox">صندوق دریافت</string>
     <string name="title_legend_archive">بایگانی</string>
     <string name="title_legend_trash">سطل آشغال</string>

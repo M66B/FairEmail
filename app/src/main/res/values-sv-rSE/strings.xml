@@ -155,9 +155,9 @@
     <string name="title_advanced_sender">Tillåt avsändaradress redigering</string>
     <string name="title_advanced_autosend">Bekräfta sändning av meddelanden</string>
     <string name="title_advanced_notify_preview">Visa meddelandeförhandsvisning i aviseringar</string>
-    <string name="title_advanced_search_local">Extern sökning på enheten</string>
     <string name="title_advanced_light">Använda aviseringslampan</string>
     <string name="title_advanced_sound">Välj aviseringsljud</string>
+    <string name="title_advanced_search_local">Extern sökning på enheten</string>
     <string name="title_advanced_english">Tvinga användning av engelska</string>
     <string name="title_advanced_authentication">Visa en varning när den mottagande servern inte kunde autentisera meddelandet</string>
     <string name="title_advanced_paranoid">Extra sekretessfunktioner</string>
@@ -410,9 +410,6 @@
     <string name="title_rule_name_missing">Regelnamn saknas</string>
     <string name="title_rule_condition_missing">Tillstånd saknas</string>
     <string name="title_rule_automation">Automatisering</string>
-    <string name="title_action_seen">Märk som läst</string>
-    <string name="title_action_archive">Arkiv</string>
-    <string name="title_action_trash">Papperskorg</string>
     <string name="title_legend_inbox">Inkorg</string>
     <string name="title_legend_archive">Arkivera</string>
     <string name="title_legend_trash">Papperskorg</string>

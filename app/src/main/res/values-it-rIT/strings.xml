@@ -164,12 +164,12 @@
     <string name="title_advanced_sender">Consenti la modifica dell\'indirizzo mittente</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta per rispondere o inoltrare</string>
     <string name="title_advanced_autosend">Confermare l\'invio dei messaggi</string>
-    <string name="title_advanced_badge">Mostra icona launcher con numero di nuovi messaggi</string>
-    <string name="title_advanced_subscriptions">Gestisci abbonamenti cartelle</string>
     <string name="title_advanced_notify_preview">Mostra anteprima messaggio nelle notifiche</string>
-    <string name="title_advanced_search_local">Ricerca esterna sul dispositivo</string>
     <string name="title_advanced_light">Usa il led di notifica</string>
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
+    <string name="title_advanced_badge">Mostra icona launcher con numero di nuovi messaggi</string>
+    <string name="title_advanced_subscriptions">Gestisci abbonamenti cartelle</string>
+    <string name="title_advanced_search_local">Ricerca esterna sul dispositivo</string>
     <string name="title_advanced_english">Forza la lingua inglese</string>
     <string name="title_advanced_authentication">Mostra un avviso quando il server ricevente non può autenticare il messaggio</string>
     <string name="title_advanced_paranoid">Caratteristiche aggiuntive della privacy</string>
@@ -392,6 +392,7 @@
     <string name="title_show_addresses">Mostra CC/CCN</string>
     <string name="title_insert_contact_group">Inserisci gruppo di contatto</string>
     <string name="title_insert_template">Inserisci modello</string>
+    <string name="title_send_plain_text">Invia solo testo semplice</string>
     <string name="title_from_missing">Mittente mancante</string>
     <string name="title_to_missing">Destinatario mancante</string>
     <string name="title_attachments_missing">Non tutti gli allegati sono stati scaricati</string>
@@ -456,9 +457,6 @@
     <string name="title_rule_condition_missing">Condizione mancante</string>
     <string name="title_rule_automation">Automazione</string>
     <string name="title_rule_automation_hint">Questo invierà l\'intento \'%1$s\' con gli extra \'%2$s\'</string>
-    <string name="title_action_seen">Segna come letto</string>
-    <string name="title_action_archive">Archivia</string>
-    <string name="title_action_trash">Cestina</string>
     <string name="title_legend_inbox">Posta in arrivo</string>
     <string name="title_legend_archive">Archivio</string>
     <string name="title_legend_trash">Cestino</string>
@@ -474,6 +472,7 @@
     <string name="title_legend_snoozed">È posticipato</string>
     <string name="title_legend_browsed">È browser o ricercato</string>
     <string name="title_legend_answered">Ha ricevuto risposta</string>
+    <string name="title_legend_plain_only">È solo testo semplice</string>
     <string name="title_legend_receipt">La ricevuta è stata richiesta</string>
     <string name="title_legend_attachment">Ha allegato</string>
     <string name="title_legend_flagged">È preferito</string>

@@ -171,12 +171,12 @@
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_advanced_prefix_once">Adaugă prefix la subiect o singură dată pentru răspuns sau redirecționare</string>
     <string name="title_advanced_autosend">Confirmă trimiterea mesajelor</string>
-    <string name="title_advanced_badge">Afișează iconița lansatorului cu numărul de mesaje noi</string>
-    <string name="title_advanced_subscriptions">Gestionați abonările la dosare</string>
     <string name="title_advanced_notify_preview">Arată previzualizare mesaj în notificare</string>
-    <string name="title_advanced_search_local">Căutare externă pe dispozitiv</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
     <string name="title_advanced_sound">Selectare sunet de notificare</string>
+    <string name="title_advanced_badge">Afișează iconița lansatorului cu numărul de mesaje noi</string>
+    <string name="title_advanced_subscriptions">Gestionați abonările la dosare</string>
+    <string name="title_advanced_search_local">Căutare externă pe dispozitiv</string>
     <string name="title_advanced_english">Forțează folosirea limbii Engleze</string>
     <string name="title_advanced_authentication">Arată o avertizare atunci când serverul destinatar nu a putut autentifica mesajul</string>
     <string name="title_advanced_paranoid">Caracteristici de confidențialitate suplimentare</string>
@@ -463,9 +463,6 @@
     <string name="title_rule_condition_missing">Lipsește condiția</string>
     <string name="title_rule_automation">Automatizare</string>
     <string name="title_rule_automation_hint">Aceasta va trimite intenția \'%1$s\' și extra \'%2$s\'</string>
-    <string name="title_action_seen">Marcare ca citit</string>
-    <string name="title_action_archive">Arhivare</string>
-    <string name="title_action_trash">Gunoi</string>
     <string name="title_legend_inbox">Primite</string>
     <string name="title_legend_archive">Arhivă</string>
     <string name="title_legend_trash">Gunoi</string>

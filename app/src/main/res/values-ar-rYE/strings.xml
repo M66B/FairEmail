@@ -288,8 +288,6 @@
     <string name="title_rule_answer">نموذج الرد</string>
     <string name="title_rule_name_missing">اسم القاعدة مفقود</string>
     <string name="title_rule_condition_missing">الشرط مفقود</string>
-    <string name="title_action_archive">الأرشيف</string>
-    <string name="title_action_trash">سلة المهملات</string>
     <string name="title_legend_inbox">صندوق البريد الوارد</string>
     <string name="title_legend_archive">الأرشيف</string>
     <string name="title_legend_trash">سلة المهملات</string>

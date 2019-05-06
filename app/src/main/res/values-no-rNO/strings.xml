@@ -128,6 +128,7 @@
     <string name="title_advanced_section_connection">Forbindelse</string>
     <string name="title_advanced_section_display">Vis</string>
     <string name="title_advanced_section_behavior">Oppførsel</string>
+    <string name="title_advanced_section_notifications">Varslinger</string>
     <string name="title_advanced_section_misc">Diverse</string>
     <string name="title_advanced_enabled">Synkroniser</string>
     <string name="title_advanced_schedule">Tidsplan</string>
@@ -164,12 +165,18 @@
     <string name="title_advanced_sender">Tillat redigering av avsenderadresse</string>
     <string name="title_advanced_prefix_once">Prefiks emne bare en gang på svar eller videresending</string>
     <string name="title_advanced_autosend">Bekreft sending av meldinger</string>
-    <string name="title_advanced_badge">Vis epost ikonet med antall nye meldinger</string>
-    <string name="title_advanced_subscriptions">Administrere mappeabonnementer</string>
     <string name="title_advanced_notify_preview">Vis forhåndsvisning av melding i varsler</string>
-    <string name="title_advanced_search_local">Eksternt søk på enheten</string>
+    <string name="title_advanced_notify_actions">Varselshandlinger</string>
+    <string name="title_advanced_notify_action_trash">Søppel</string>
+    <string name="title_advanced_notify_action_archive">Arkiver</string>
+    <string name="title_advanced_notify_action_reply">Besvar</string>
+    <string name="title_advanced_notify_action_seen">Les</string>
+    <string name="title_advanced_notify_action_hint">Høyst tre handlinger vil bli vist</string>
     <string name="title_advanced_light">Bruk meldingslys</string>
     <string name="title_advanced_sound">Velg varslingslyd</string>
+    <string name="title_advanced_badge">Vis epost ikonet med antall nye meldinger</string>
+    <string name="title_advanced_subscriptions">Administrere mappeabonnementer</string>
+    <string name="title_advanced_search_local">Eksternt søk på enheten</string>
     <string name="title_advanced_english">Tving bruk av engelsk</string>
     <string name="title_advanced_authentication">Vis en advarsel når mottakeren ikke kunne godkjenne meldingen</string>
     <string name="title_advanced_paranoid">Ekstra personvernfunksjoner</string>
@@ -392,6 +399,7 @@
     <string name="title_show_addresses">Vis Kopi/Blindkopi</string>
     <string name="title_insert_contact_group">Sett inn kontaktgruppe</string>
     <string name="title_insert_template">Sett inn mal</string>
+    <string name="title_send_plain_text">Send bare ren tekst</string>
     <string name="title_from_missing">Avsender mangler</string>
     <string name="title_to_missing">Mottaker mangler</string>
     <string name="title_attachments_missing">Ikke alle vedlegg er lastet ned</string>
@@ -456,9 +464,6 @@
     <string name="title_rule_condition_missing">Tilstand mangler</string>
     <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_automation_hint">Dette vil sende hensikten \'%1$s\' med extras \'%2$s\'</string>
-    <string name="title_action_seen">Merk som lest</string>
-    <string name="title_action_archive">Arkiver</string>
-    <string name="title_action_trash">Papirkurv</string>
     <string name="title_legend_inbox">Innboks</string>
     <string name="title_legend_archive">Arkiver</string>
     <string name="title_legend_trash">Papirkurv</string>
@@ -474,6 +479,7 @@
     <string name="title_legend_snoozed">Er utsatt</string>
     <string name="title_legend_browsed">Er bladd eller søkt etter</string>
     <string name="title_legend_answered">Har blitt besvart</string>
+    <string name="title_legend_plain_only">Er bare ren tekst</string>
     <string name="title_legend_receipt">Kvittering ble forespurt</string>
     <string name="title_legend_attachment">Har vedlegg</string>
     <string name="title_legend_flagged">Er stjernemerket</string>

@@ -160,12 +160,12 @@
     <string name="title_advanced_sender">Tillad at ændre afsenderadresse</string>
     <string name="title_advanced_prefix_once">Kun ét emnepræfiks ved svar eller videresendelse</string>
     <string name="title_advanced_autosend">Bekræft afsendelse af meddelelser</string>
-    <string name="title_advanced_badge">Vis ikon med antal nye meddelelser på launcheren</string>
-    <string name="title_advanced_subscriptions">Administrér mappeabonnementer</string>
     <string name="title_advanced_notify_preview">Forhåndsvisning af meddelelse i underretning</string>
-    <string name="title_advanced_search_local">Ekstern søgning på enhed</string>
     <string name="title_advanced_light">Brug underretnings-LED</string>
     <string name="title_advanced_sound">Vælg lyd til underretning</string>
+    <string name="title_advanced_badge">Vis ikon med antal nye meddelelser på launcheren</string>
+    <string name="title_advanced_subscriptions">Administrér mappeabonnementer</string>
+    <string name="title_advanced_search_local">Ekstern søgning på enhed</string>
     <string name="title_advanced_english">Gennemtving engelsk sprog</string>
     <string name="title_advanced_authentication">Vis en advarsel, når indgående server ikke kan bekræfte meddelelsen</string>
     <string name="title_advanced_paranoid">Yderligere privatlivsfunktioner</string>
@@ -444,9 +444,6 @@
     <string name="title_rule_condition_missing">Betingelse mangler</string>
     <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_automation_hint">Dette vil sende intent \'%1$s\' med ekstra \'%2$s\'</string>
-    <string name="title_action_seen">Markér som læst</string>
-    <string name="title_action_archive">Arkivér</string>
-    <string name="title_action_trash">Slet</string>
     <string name="title_legend_inbox">Indbakke</string>
     <string name="title_legend_archive">Arkiv</string>
     <string name="title_legend_trash">Papirkurv</string>

@@ -163,12 +163,12 @@
     <string name="title_advanced_sender">Permitir editar o endereço do remetente</string>
     <string name="title_advanced_prefix_once">Prefixo de assunto apenas uma vez na resposta ou encaminhamento</string>
     <string name="title_advanced_autosend">Confirmar o envio de mensagens</string>
-    <string name="title_advanced_badge">Mostrar ícone no launcher com número de novas mensagens</string>
-    <string name="title_advanced_subscriptions">Gerenciar assinaturas de pastas</string>
     <string name="title_advanced_notify_preview">Mostrar pré-visualização de mensagem nas notificações</string>
-    <string name="title_advanced_search_local">Pesquisa externa no dispositivo</string>
     <string name="title_advanced_light">Usar luz de notificação</string>
     <string name="title_advanced_sound">Selecionar som de notificação</string>
+    <string name="title_advanced_badge">Mostrar ícone no launcher com número de novas mensagens</string>
+    <string name="title_advanced_subscriptions">Gerenciar assinaturas de pastas</string>
+    <string name="title_advanced_search_local">Pesquisa externa no dispositivo</string>
     <string name="title_advanced_english">Forçar em inglês</string>
     <string name="title_advanced_authentication">Mostrar um aviso quando o servidor de recebimento não pôde autenticar a mensagem</string>
     <string name="title_advanced_paranoid">Recursos extra de privacidade</string>
@@ -452,9 +452,6 @@
     <string name="title_rule_condition_missing">Condição faltando</string>
     <string name="title_rule_automation">Automatização</string>
     <string name="title_rule_automation_hint">Isto enviará a intenção \'%1$s\' com os extras \'%2$s\'</string>
-    <string name="title_action_seen">Marcar como lida</string>
-    <string name="title_action_archive">Arquivo</string>
-    <string name="title_action_trash">Lixeira</string>
     <string name="title_legend_inbox">Caixa de entrada</string>
     <string name="title_legend_archive">Arquivo</string>
     <string name="title_legend_trash">Lixeira</string>
