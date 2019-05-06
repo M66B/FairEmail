@@ -19,12 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -33,7 +29,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.preference.PreferenceManager;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
@@ -50,24 +45,10 @@ public class FragmentOptions extends FragmentBase {
             "authentication", "debug"
     };
 
-    private final static String[] ADVANCED_OPTIONS = new String[]{
-            "enabled", "poll_interval", "schedule", "schedule_start", "schedule_end",
-            "metered", "download", "roaming",
-            "startup", "date", "threading", "avatars", "identicons", "circular", "name_email", "subject_italic", "flags", "preview",
-            "addresses", "monospaced", "autohtml", "autoimages", "actionbar",
-            "pull", "autoscroll", "swipenav", "autoexpand", "autoclose", "autonext", "collapse", "autoread", "automove",
-            "autoresize", "resize", "prefix_once", "autosend",
-            "notify_trash", "notify_archive", "notify_reply", "notify_flag", "notify_seen", "notify_preview", "light", "sound",
-            "badge", "subscriptions", "search_local", "english", "authentication", "paranoid", "updates", "debug",
-            "first", "why", "last_update_check", "app_support", "message_swipe", "message_select", "folder_actions", "folder_sync",
-            "edit_ref_confirmed", "show_html_confirmed", "show_images_confirmed", "print_html_confirmed", "show_organization", "style_toolbar"
-    };
-
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_advanced);
-        setHasOptionsMenu(true);
 
         View view = inflater.inflate(R.layout.fragment_options, container, false);
 
@@ -138,32 +119,5 @@ public class FragmentOptions extends FragmentBase {
         public int getItemPosition(@NonNull Object object) {
             return POSITION_NONE; // always recreate fragment
         }
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_options, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_default:
-                onMenuDefault();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    private void onMenuDefault() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        SharedPreferences.Editor editor = prefs.edit();
-        for (String option : ADVANCED_OPTIONS)
-            editor.remove(option);
-        editor.apply();
-
-        adapter.notifyDataSetChanged();
     }
 }

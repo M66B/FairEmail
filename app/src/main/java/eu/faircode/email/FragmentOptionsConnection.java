@@ -27,6 +27,9 @@ import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -41,17 +44,22 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
-public class FragmentOptionsConnection extends FragmentBase {
+public class FragmentOptionsConnection extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private TextView tvConnectionType;
     private TextView tvConnectionRoaming;
     private SwitchCompat swMetered;
     private Spinner spDownload;
     private SwitchCompat swRoaming;
 
+    private final static String[] RESET_OPTIONS = new String[]{
+            "metered", "download", "roaming"
+    };
+
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_advanced);
+        setHasOptionsMenu(true);
 
         View view = inflater.inflate(R.layout.fragment_options_connection, container, false);
 
@@ -66,8 +74,6 @@ public class FragmentOptionsConnection extends FragmentBase {
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        setOptions();
 
         swMetered.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -98,7 +104,21 @@ public class FragmentOptionsConnection extends FragmentBase {
             }
         });
 
+        setOptions();
+        PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
+
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        PreferenceManager.getDefaultSharedPreferences(getContext()).unregisterOnSharedPreferenceChangeListener(this);
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        setOptions();
     }
 
     @Override
@@ -117,6 +137,31 @@ public class FragmentOptionsConnection extends FragmentBase {
         cm.unregisterNetworkCallback(networkCallback);
 
         super.onPause();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_options, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_default:
+                onMenuDefault();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuDefault() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences.Editor editor = prefs.edit();
+        for (String option : RESET_OPTIONS)
+            editor.remove(option);
+        editor.apply();
     }
 
     private void setOptions() {

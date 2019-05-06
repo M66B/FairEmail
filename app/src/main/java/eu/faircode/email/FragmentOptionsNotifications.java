@@ -26,6 +26,9 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -41,7 +44,7 @@ import androidx.preference.PreferenceManager;
 
 import static android.app.Activity.RESULT_OK;
 
-public class FragmentOptionsNotifications extends FragmentBase {
+public class FragmentOptionsNotifications extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swNotifyPreview;
     private CheckBox cbNotifyActionTrash;
     private CheckBox cbNotifyActionArchive;
@@ -53,10 +56,15 @@ public class FragmentOptionsNotifications extends FragmentBase {
 
     private Group grpNotification;
 
+    private final static String[] RESET_OPTIONS = new String[]{
+            "notify_preview", "notify_trash", "notify_archive", "notify_reply", "notify_flag", "notify_seen", "light", "sound"
+    };
+
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_advanced);
+        setHasOptionsMenu(true);
 
         View view = inflater.inflate(R.layout.fragment_options_notifications, container, false);
 
@@ -76,8 +84,6 @@ public class FragmentOptionsNotifications extends FragmentBase {
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        setOptions();
 
         swNotifyPreview.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -142,18 +148,46 @@ public class FragmentOptionsNotifications extends FragmentBase {
             }
         });
 
+        setOptions();
+        PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
+
         return view;
     }
 
-    private void setAction(CompoundButton cb, String key, boolean checked) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        if (Helper.isPro(getContext()))
-            prefs.edit().putBoolean(key, checked).apply();
-        else {
-            cb.setChecked(!checked);
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+    @Override
+    public void onDestroyView() {
+        PreferenceManager.getDefaultSharedPreferences(getContext()).unregisterOnSharedPreferenceChangeListener(this);
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        setOptions();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_options, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_default:
+                onMenuDefault();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void onMenuDefault() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences.Editor editor = prefs.edit();
+        for (String option : RESET_OPTIONS)
+            editor.remove(option);
+        editor.apply();
     }
 
     private void setOptions() {
@@ -168,6 +202,17 @@ public class FragmentOptionsNotifications extends FragmentBase {
         swLight.setChecked(prefs.getBoolean("light", false));
 
         grpNotification.setVisibility(Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
+    }
+
+    private void setAction(CompoundButton cb, String key, boolean checked) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        if (Helper.isPro(getContext()))
+            prefs.edit().putBoolean(key, checked).apply();
+        else {
+            cb.setChecked(!checked);
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+        }
     }
 
     @Override

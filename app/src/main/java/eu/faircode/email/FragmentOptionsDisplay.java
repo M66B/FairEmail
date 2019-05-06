@@ -22,6 +22,9 @@ package eu.faircode.email;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -33,7 +36,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.preference.PreferenceManager;
 
-public class FragmentOptionsDisplay extends FragmentBase {
+public class FragmentOptionsDisplay extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Spinner spStartup;
     private SwitchCompat swDate;
     private SwitchCompat swThreading;
@@ -50,10 +53,16 @@ public class FragmentOptionsDisplay extends FragmentBase {
     private SwitchCompat swImages;
     private SwitchCompat swActionbar;
 
+    private final static String[] RESET_OPTIONS = new String[]{
+            "startup", "date", "threading", "avatars", "identicons", "circular", "name_email", "subject_italic",
+            "flags", "preview", "addresses", "monospaced", "autohtml", "autoimages", "actionbar",
+    };
+
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_advanced);
+        setHasOptionsMenu(true);
 
         View view = inflater.inflate(R.layout.fragment_options_display, container, false);
 
@@ -78,8 +87,6 @@ public class FragmentOptionsDisplay extends FragmentBase {
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        setOptions();
 
         spStartup.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -195,7 +202,46 @@ public class FragmentOptionsDisplay extends FragmentBase {
             }
         });
 
+        setOptions();
+        PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
+
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        PreferenceManager.getDefaultSharedPreferences(getContext()).unregisterOnSharedPreferenceChangeListener(this);
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        setOptions();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_options, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_default:
+                onMenuDefault();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuDefault() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences.Editor editor = prefs.edit();
+        for (String option : RESET_OPTIONS)
+            editor.remove(option);
+        editor.apply();
     }
 
     private void setOptions() {

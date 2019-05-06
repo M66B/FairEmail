@@ -27,6 +27,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -52,10 +55,15 @@ public class FragmentOptionsGeneral extends FragmentBase implements SharedPrefer
     private TextView tvScheduleStart;
     private TextView tvScheduleEnd;
 
+    private final static String[] RESET_OPTIONS = new String[]{
+            "enabled", "poll_interval", "schedule", "schedule_start", "schedule_end"
+    };
+
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_advanced);
+        setHasOptionsMenu(true);
 
         View view = inflater.inflate(R.layout.fragment_options_general, container, false);
 
@@ -70,10 +78,6 @@ public class FragmentOptionsGeneral extends FragmentBase implements SharedPrefer
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        setOptions();
-
-        // General
 
         swEnabled.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -149,7 +153,7 @@ public class FragmentOptionsGeneral extends FragmentBase implements SharedPrefer
             }
         });
 
-
+        setOptions();
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
@@ -159,6 +163,36 @@ public class FragmentOptionsGeneral extends FragmentBase implements SharedPrefer
     public void onDestroyView() {
         PreferenceManager.getDefaultSharedPreferences(getContext()).unregisterOnSharedPreferenceChangeListener(this);
         super.onDestroyView();
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        setOptions();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_options, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_default:
+                onMenuDefault();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuDefault() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences.Editor editor = prefs.edit();
+        for (String option : RESET_OPTIONS)
+            editor.remove(option);
+        editor.apply();
     }
 
     private void setOptions() {
@@ -225,17 +259,5 @@ public class FragmentOptionsGeneral extends FragmentBase implements SharedPrefer
 
             ServiceSynchronize.reschedule(getContext());
         }
-    }
-
-    @Override
-    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        if ("enabled".equals(key))
-            swEnabled.setChecked(prefs.getBoolean(key, true));
-        else if ("schedule".equals(key))
-            swSchedule.setChecked(prefs.getBoolean(key, false));
-        else if ("schedule_start".equals(key))
-            tvScheduleStart.setText(formatHour(getContext(), prefs.getInt(key, 0)));
-        else if ("schedule_end".equals(key))
-            tvScheduleEnd.setText(formatHour(getContext(), prefs.getInt(key, 0)));
     }
 }
