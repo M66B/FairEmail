@@ -581,11 +581,15 @@ public class FragmentCompose extends FragmentBase {
 
                 refFile.delete();
 
+                db.message().setMessagePlainOnly(draft.id, true);
+
                 return null;
             }
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
+                plain_only = true;
+                getActivity().invalidateOptionsMenu();
                 showDraft(working);
             }
 

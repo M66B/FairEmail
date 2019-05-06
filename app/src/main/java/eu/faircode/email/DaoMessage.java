@@ -385,6 +385,9 @@ public interface DaoMessage {
     @Query("UPDATE message SET stored = :stored WHERE id = :id")
     int setMessageStored(long id, long stored);
 
+    @Query("UPDATE message SET plain_only = :plain_only WHERE id = :id")
+    int setMessagePlainOnly(long id, boolean plain_only);
+
     @Query("UPDATE message SET last_attempt = :last_attempt WHERE id = :id")
     int setMessageLastAttempt(long id, long last_attempt);
 
