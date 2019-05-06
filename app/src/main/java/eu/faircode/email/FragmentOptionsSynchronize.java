@@ -54,9 +54,11 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swSchedule;
     private TextView tvScheduleStart;
     private TextView tvScheduleEnd;
+    private SwitchCompat swUnseen;
+    private SwitchCompat swFlagged;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "enabled", "poll_interval", "schedule", "schedule_start", "schedule_end"
+            "enabled", "poll_interval", "schedule", "schedule_start", "schedule_end", "sync_unseen", "sync_flagged"
     };
 
     @Override
@@ -74,6 +76,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swSchedule = view.findViewById(R.id.swSchedule);
         tvScheduleStart = view.findViewById(R.id.tvScheduleStart);
         tvScheduleEnd = view.findViewById(R.id.tvScheduleEnd);
+        swUnseen = view.findViewById(R.id.swUnseen);
+        swFlagged = view.findViewById(R.id.swFlagged);
 
         // Wire controls
 
@@ -153,6 +157,22 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             }
         });
 
+        swUnseen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("sync_unseen", checked).apply();
+                ServiceSynchronize.reload(getContext(), false, "sync_unseen=" + checked);
+            }
+        });
+
+        swFlagged.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("sync_flagged", checked).apply();
+                ServiceSynchronize.reload(getContext(), false, "sync_flagged=" + checked);
+            }
+        });
+
         setOptions();
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
@@ -214,6 +234,9 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swSchedule.setChecked(prefs.getBoolean("schedule", false));
         tvScheduleStart.setText(formatHour(getContext(), prefs.getInt("schedule_start", 0)));
         tvScheduleEnd.setText(formatHour(getContext(), prefs.getInt("schedule_end", 0)));
+
+        swUnseen.setChecked(prefs.getBoolean("sync_unseen", false));
+        swFlagged.setChecked(prefs.getBoolean("sync_flagged", true));
     }
 
     private String formatHour(Context context, int minutes) {

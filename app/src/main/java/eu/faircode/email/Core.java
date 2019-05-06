@@ -866,7 +866,12 @@ class Core {
             if (keep_days == sync_days)
                 keep_days++;
 
-            Log.i(folder.name + " start sync after=" + sync_days + "/" + keep_days);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean sync_unseen = prefs.getBoolean("sync_unseen", false);
+            boolean sync_flagged = prefs.getBoolean("sync_flagged", true);
+
+            Log.i(folder.name + " start sync after=" + sync_days + "/" + keep_days +
+                    " unseen=" + sync_unseen + " sync_flagged=" + sync_flagged);
 
             db.folder().setFolderSyncState(folder.id, "syncing");
 
@@ -915,8 +920,9 @@ class Core {
 
             // Reduce list of local uids
             SearchTerm searchTerm = new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time));
-            searchTerm = new OrTerm(searchTerm, new FlagTerm(new Flags(Flags.Flag.SEEN), false));
-            if (ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED))
+            if (sync_unseen)
+                searchTerm = new OrTerm(searchTerm, new FlagTerm(new Flags(Flags.Flag.SEEN), false));
+            if (sync_flagged && ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED))
                 searchTerm = new OrTerm(searchTerm, new FlagTerm(new Flags(Flags.Flag.FLAGGED), true));
 
             long search = SystemClock.elapsedRealtime();
