@@ -84,6 +84,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         grpSearchLocal = view.findViewById(R.id.grpSearchLocal);
 
+        setOptions();
+
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -166,7 +168,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         setLastCleanup(prefs.getLong("last_cleanup", -1));
 
-        setOptions();
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;

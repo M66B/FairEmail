@@ -81,6 +81,8 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
         grpNotification = view.findViewById(R.id.grpNotification);
 
+        setOptions();
+
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -148,7 +150,6 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             }
         });
 
-        setOptions();
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;

@@ -83,6 +83,8 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
         swAutoSend = view.findViewById(R.id.swAutoSend);
 
+        setOptions();
+
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -187,7 +189,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
-        setOptions();
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;

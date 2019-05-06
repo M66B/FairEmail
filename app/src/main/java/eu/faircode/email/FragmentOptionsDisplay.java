@@ -84,6 +84,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swImages = view.findViewById(R.id.swImages);
         swActionbar = view.findViewById(R.id.swActionbar);
 
+        setOptions();
+
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -202,7 +204,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        setOptions();
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
