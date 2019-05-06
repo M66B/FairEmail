@@ -1854,7 +1854,7 @@ class Core {
                 mbuilder.addAction(actionArchive.build());
             }
 
-            if (notify_reply) {
+            if (notify_reply && message.content) {
                 Intent reply = new Intent(context, ServiceUI.class).setAction("reply:" + message.id);
                 PendingIntent piReply = PendingIntent.getService(context, ServiceUI.PI_REPLY, reply, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionReply = new NotificationCompat.Action.Builder(
