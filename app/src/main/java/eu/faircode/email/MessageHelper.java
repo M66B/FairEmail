@@ -822,48 +822,11 @@ public class MessageHelper {
             return attachments;
         }
 
-        List<EntityAttachment> getAttachments() throws MessagingException {
+        List<EntityAttachment> getAttachments() {
             List<EntityAttachment> result = new ArrayList<>();
 
-            for (AttachmentPart apart : attachments) {
-                ContentType ct;
-                try {
-                    ct = new ContentType(apart.part.getContentType());
-                } catch (ParseException ex) {
-                    Log.w(ex);
-                    ct = new ContentType("application/octet-stream");
-                }
-                String[] cid = apart.part.getHeader("Content-ID");
-
-                EntityAttachment attachment = new EntityAttachment();
-                attachment.name = apart.filename;
-                attachment.type = ct.getBaseType().toLowerCase();
-                attachment.disposition = apart.disposition;
-                attachment.size = (long) apart.part.getSize();
-                attachment.cid = (cid == null || cid.length == 0 ? null : MimeUtility.unfold(cid[0]));
-                attachment.encryption = (apart.pgp ? EntityAttachment.PGP_MESSAGE : null);
-
-                if ("text/calendar".equalsIgnoreCase(attachment.type) && TextUtils.isEmpty(attachment.name))
-                    attachment.name = "invite.ics";
-
-                // Try to guess a better content type
-                // Sometimes PDF files are sent using the wrong type
-                if ("application/octet-stream".equalsIgnoreCase(attachment.type)) {
-                    String extension = Helper.getExtension(attachment.name);
-                    if (extension != null) {
-                        String type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension.toLowerCase());
-                        if (type != null) {
-                            Log.w("Guessing file=" + attachment.name + " type=" + type);
-                            attachment.type = type;
-                        }
-                    }
-                }
-
-                if (attachment.size < 0)
-                    attachment.size = null;
-
-                result.add(attachment);
-            }
+            for (AttachmentPart apart : attachments)
+                result.add(apart.attachment);
 
             // Fix duplicate CIDs
             for (int i = 0; i < result.size(); i++) {
@@ -881,8 +844,9 @@ public class MessageHelper {
 
         void downloadAttachment(Context context, int index, long id) throws MessagingException, IOException {
             Log.i("downloading attchment id=" + id + " seq=" + index);
+
             // Attachments of drafts might not have been uploaded yet
-            if (index > attachments.size()) {
+            if (index >= attachments.size()) {
                 Log.w("Attachment unavailable sequence=" + index + " size=" + attachments.size());
                 return;
             }
@@ -894,9 +858,17 @@ public class MessageHelper {
             EntityAttachment attachment = db.attachment().getAttachment(id);
             if (attachment == null)
                 return;
-            File file = attachment.getFile(context);
+
+            // Set info again in case ordering changed
+            db.attachment().setInfo(id,
+                    apart.attachment.name,
+                    apart.attachment.type,
+                    apart.attachment.disposition,
+                    apart.attachment.cid,
+                    apart.attachment.encryption);
 
             // Download attachment
+            File file = attachment.getFile(context);
             db.attachment().setProgress(id, null);
             try (InputStream is = apart.part.getInputStream()) {
                 long size = 0;
@@ -942,6 +914,7 @@ public class MessageHelper {
         String filename;
         boolean pgp;
         Part part;
+        EntityAttachment attachment;
     }
 
     MessageParts getMessageParts() throws IOException, FolderClosedException {
@@ -1023,6 +996,43 @@ public class MessageHelper {
                     apart.filename = filename;
                     apart.pgp = pgp;
                     apart.part = part;
+
+                    ContentType ct;
+                    try {
+                        ct = new ContentType(apart.part.getContentType());
+                    } catch (ParseException ex) {
+                        Log.w(ex);
+                        ct = new ContentType("application/octet-stream");
+                    }
+                    String[] cid = apart.part.getHeader("Content-ID");
+
+                    apart.attachment = new EntityAttachment();
+                    apart.attachment.name = apart.filename;
+                    apart.attachment.type = ct.getBaseType().toLowerCase();
+                    apart.attachment.disposition = apart.disposition;
+                    apart.attachment.size = (long) apart.part.getSize();
+                    apart.attachment.cid = (cid == null || cid.length == 0 ? null : MimeUtility.unfold(cid[0]));
+                    apart.attachment.encryption = (apart.pgp ? EntityAttachment.PGP_MESSAGE : null);
+
+                    if ("text/calendar".equalsIgnoreCase(apart.attachment.type) && TextUtils.isEmpty(apart.attachment.name))
+                        apart.attachment.name = "invite.ics";
+
+                    // Try to guess a better content type
+                    // Sometimes PDF files are sent using the wrong type
+                    if ("application/octet-stream".equalsIgnoreCase(apart.attachment.type)) {
+                        String extension = Helper.getExtension(apart.attachment.name);
+                        if (extension != null) {
+                            String type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension.toLowerCase());
+                            if (type != null) {
+                                Log.w("Guessing file=" + apart.attachment.name + " type=" + type);
+                                apart.attachment.type = type;
+                            }
+                        }
+                    }
+
+                    if (apart.attachment.size < 0)
+                        apart.attachment.size = null;
+
                     parts.attachments.add(apart);
                 }
             }

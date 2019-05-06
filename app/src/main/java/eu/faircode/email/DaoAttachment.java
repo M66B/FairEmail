@@ -68,6 +68,11 @@ public interface DaoAttachment {
     void setMessage(long id, long message);
 
     @Query("UPDATE attachment" +
+            " SET name = :name, type = :type, disposition = :disposition, cid = :cid, encryption = :encryption" +
+            " WHERE id = :id")
+    void setInfo(long id, String name, String type, String disposition, String cid, Integer encryption);
+
+    @Query("UPDATE attachment" +
             " SET error = NULL, progress = :progress, available = 0" +
             " WHERE id = :id")
     void setProgress(long id, Integer progress);
