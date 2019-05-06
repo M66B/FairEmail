@@ -44,8 +44,9 @@ public class FragmentOptionsNotifications extends FragmentBase {
     private SwitchCompat swNotifyPreview;
     private CheckBox cbNotifyActionTrash;
     private CheckBox cbNotifyActionArchive;
-    private CheckBox cbNotifyActionSeen;
     private CheckBox cbNotifyActionReply;
+    private CheckBox cbNotifyActionFlag;
+    private CheckBox cbNotifyActionSeen;
     private SwitchCompat swLight;
     private Button btnSound;
 
@@ -64,6 +65,7 @@ public class FragmentOptionsNotifications extends FragmentBase {
         cbNotifyActionTrash = view.findViewById(R.id.cbNotifyActionTrash);
         cbNotifyActionArchive = view.findViewById(R.id.cbNotifyActionArchive);
         cbNotifyActionReply = view.findViewById(R.id.cbNotifyActionReply);
+        cbNotifyActionFlag = view.findViewById(R.id.cbNotifyActionFlag);
         cbNotifyActionSeen = view.findViewById(R.id.cbNotifyActionSeen);
         swLight = view.findViewById(R.id.swLight);
         btnSound = view.findViewById(R.id.btnSound);
@@ -101,6 +103,13 @@ public class FragmentOptionsNotifications extends FragmentBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
                 prefs.edit().putBoolean("notify_reply", checked).apply();
+            }
+        });
+
+        cbNotifyActionFlag.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
+                prefs.edit().putBoolean("notify_flag", checked).apply();
             }
         });
 
@@ -143,6 +152,7 @@ public class FragmentOptionsNotifications extends FragmentBase {
         cbNotifyActionTrash.setChecked(prefs.getBoolean("notify_trash", true));
         cbNotifyActionArchive.setChecked(prefs.getBoolean("notify_archive", true));
         cbNotifyActionReply.setChecked(prefs.getBoolean("notify_reply", false));
+        cbNotifyActionFlag.setChecked(prefs.getBoolean("notify_flag", false));
         cbNotifyActionSeen.setChecked(prefs.getBoolean("notify_seen", true));
         swLight.setChecked(prefs.getBoolean("light", false));
 

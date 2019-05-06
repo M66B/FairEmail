@@ -21,17 +21,22 @@ package eu.faircode.email;
 
 import android.app.IntentService;
 import android.content.Intent;
+import android.content.SharedPreferences;
 
 import androidx.annotation.Nullable;
+import androidx.preference.PreferenceManager;
+
+import java.util.List;
 
 public class ServiceUI extends IntentService {
     static final int PI_CLEAR = 1;
     static final int PI_TRASH = 2;
     static final int PI_ARCHIVE = 3;
     static final int PI_REPLY = 4;
-    static final int PI_SEEN = 5;
-    static final int PI_IGNORED = 6;
-    static final int PI_SNOOZED = 7;
+    static final int PI_FLAG = 6;
+    static final int PI_SEEN = 6;
+    static final int PI_IGNORED = 7;
+    static final int PI_SNOOZED = 8;
 
     public ServiceUI() {
         this(ServiceUI.class.getName());
@@ -82,6 +87,9 @@ public class ServiceUI extends IntentService {
                 break;
             case "reply":
                 onReply(id);
+                break;
+            case "flag":
+                onFlag(id);
                 break;
             case "seen":
                 onSeen(id);
@@ -152,6 +160,30 @@ public class ServiceUI extends IntentService {
                 .putExtra("reference", id);
         reply.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(reply);
+    }
+
+    private void onFlag(long id) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean threading = prefs.getBoolean("threading", true);
+
+        DB db = DB.getInstance(this);
+        try {
+            db.beginTransaction();
+
+            EntityMessage message = db.message().getMessage(id);
+            if (message != null) {
+                List<EntityMessage> messages = db.message().getMessageByThread(
+                        message.account, message.thread, threading ? null : id, null);
+                for (EntityMessage threaded : messages) {
+                    EntityOperation.queue(this, db, threaded, EntityOperation.FLAG, true);
+                    EntityOperation.queue(this, db, threaded, EntityOperation.SEEN, true);
+                }
+            }
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
     }
 
     private void onSeen(long id) {

@@ -55,7 +55,7 @@ public class FragmentOptions extends FragmentBase {
             "addresses", "monospaced", "autohtml", "autoimages", "actionbar",
             "pull", "autoscroll", "swipenav", "autoexpand", "autoclose", "autonext", "collapse", "autoread", "automove",
             "autoresize", "resize", "prefix_once", "autosend",
-            "notify_trash", "notify_archive", "notify_reply", "notify_seen", "notify_preview", "light", "sound",
+            "notify_trash", "notify_archive", "notify_reply", "notify_flag", "notify_seen", "notify_preview", "light", "sound",
             "badge", "subscriptions", "search_local", "english", "authentication", "paranoid", "updates", "debug",
             "first", "why", "last_update_check", "app_support", "message_swipe", "message_select", "folder_actions", "folder_sync",
             "edit_ref_confirmed", "show_html_confirmed", "show_images_confirmed", "print_html_confirmed", "show_organization", "style_toolbar"

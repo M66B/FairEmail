@@ -1702,9 +1702,11 @@ class Core {
 
         boolean pro = Helper.isPro(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean flags = prefs.getBoolean("flags", true);
         boolean notify_trash = prefs.getBoolean("notify_trash", true);
         boolean notify_archive = prefs.getBoolean("notify_archive", true);
         boolean notify_reply = prefs.getBoolean("notify_reply", false);
+        boolean notify_flag = prefs.getBoolean("notify_flag", false);
         boolean notify_seen = prefs.getBoolean("notify_seen", true);
 
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -1862,6 +1864,16 @@ class Core {
                         context.getString(R.string.title_advanced_notify_action_reply),
                         piReply);
                 mbuilder.addAction(actionReply.build());
+            }
+
+            if (notify_flag && flags) {
+                Intent flag = new Intent(context, ServiceUI.class).setAction("flag:" + message.id);
+                PendingIntent piFlag = PendingIntent.getService(context, ServiceUI.PI_FLAG, flag, PendingIntent.FLAG_UPDATE_CURRENT);
+                NotificationCompat.Action.Builder actionFlag = new NotificationCompat.Action.Builder(
+                        R.drawable.baseline_star_24,
+                        context.getString(R.string.title_advanced_notify_action_flag),
+                        piFlag);
+                mbuilder.addAction(actionFlag.build());
             }
 
             if (notify_seen) {

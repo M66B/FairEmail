@@ -203,6 +203,7 @@
     <string name="title_advanced_notify_action_trash">Trash</string>
     <string name="title_advanced_notify_action_archive">Archive</string>
     <string name="title_advanced_notify_action_reply">Reply</string>
+    <string name="title_advanced_notify_action_flag">Star</string>
     <string name="title_advanced_notify_action_seen">Read</string>
     <string name="title_advanced_notify_action_hint">At most three actions will be shown</string>
     <string name="title_advanced_light">Use notification light</string>
