@@ -36,6 +36,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
 import static android.app.Activity.RESULT_OK;
@@ -88,35 +89,35 @@ public class FragmentOptionsNotifications extends FragmentBase {
         cbNotifyActionTrash.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
-                prefs.edit().putBoolean("notify_trash", checked).apply();
+                setAction(buttonView, "notify_trash", checked);
             }
         });
 
         cbNotifyActionArchive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
-                prefs.edit().putBoolean("notify_archive", checked).apply();
+                setAction(buttonView, "notify_archive", checked);
             }
         });
 
         cbNotifyActionReply.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
-                prefs.edit().putBoolean("notify_reply", checked).apply();
+                setAction(buttonView, "notify_reply", checked);
             }
         });
 
         cbNotifyActionFlag.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
-                prefs.edit().putBoolean("notify_flag", checked).apply();
+                setAction(buttonView, "notify_flag", checked);
             }
         });
 
         cbNotifyActionSeen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
-                prefs.edit().putBoolean("notify_seen", checked).apply();
+                setAction(buttonView, "notify_seen", checked);
             }
         });
 
@@ -144,11 +145,21 @@ public class FragmentOptionsNotifications extends FragmentBase {
         return view;
     }
 
+    private void setAction(CompoundButton cb, String key, boolean checked) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        if (Helper.isPro(getContext()))
+            prefs.edit().putBoolean(key, checked).apply();
+        else {
+            cb.setChecked(!checked);
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+        }
+    }
+
     private void setOptions() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swNotifyPreview.setChecked(prefs.getBoolean("notify_preview", true));
-        swNotifyPreview.setEnabled(Helper.isPro(getContext()));
         cbNotifyActionTrash.setChecked(prefs.getBoolean("notify_trash", true));
         cbNotifyActionArchive.setChecked(prefs.getBoolean("notify_archive", true));
         cbNotifyActionReply.setChecked(prefs.getBoolean("notify_reply", false));

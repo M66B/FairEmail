@@ -37,8 +37,8 @@ This app starts a foreground service with a low priority status bar notification
 
 * Account/identity colors
 * Notifications per account (requires Android 8 Oreo or later)
-* Notifications with message details (requires Android 7 Nougat or later)
 * Notification sound per sender (requires Android 8 Oreo or later)
+* Configurable notification actions
 * Snooze messages ([instructions](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq67))
 * Send messages after selected time
 * Synchronization scheduling ([instructions](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq78))

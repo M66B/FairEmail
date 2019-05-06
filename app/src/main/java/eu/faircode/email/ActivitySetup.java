@@ -857,6 +857,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                         }
                     }
                     editor.apply();
+                    ApplicationEx.upgrade(context);
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                         if (jimport.has("channels")) {

@@ -1763,21 +1763,19 @@ class Core {
         } else
             builder.setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
 
-        if (pro) {
-            DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
-            StringBuilder sb = new StringBuilder();
-            for (EntityMessage message : messages) {
-                sb.append("<strong>").append(messageContact.get(message).getDisplayName(true)).append("</strong>");
-                if (!TextUtils.isEmpty(message.subject))
-                    sb.append(": ").append(message.subject);
-                sb.append(" ").append(df.format(message.received));
-                sb.append("<br>");
-            }
-
-            builder.setStyle(new NotificationCompat.BigTextStyle()
-                    .bigText(HtmlHelper.fromHtml(sb.toString()))
-                    .setSummaryText(title));
+        DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
+        StringBuilder sb = new StringBuilder();
+        for (EntityMessage message : messages) {
+            sb.append("<strong>").append(messageContact.get(message).getDisplayName(true)).append("</strong>");
+            if (!TextUtils.isEmpty(message.subject))
+                sb.append(": ").append(message.subject);
+            sb.append(" ").append(df.format(message.received));
+            sb.append("<br>");
         }
+
+        builder.setStyle(new NotificationCompat.BigTextStyle()
+                .bigText(HtmlHelper.fromHtml(sb.toString()))
+                .setSummaryText(title));
 
         notifications.add(builder.build());
 
@@ -1886,42 +1884,40 @@ class Core {
                 mbuilder.addAction(actionSeen.build());
             }
 
-            if (pro) {
-                if (!TextUtils.isEmpty(message.subject))
-                    mbuilder.setContentText(message.subject);
+            if (!TextUtils.isEmpty(message.subject))
+                mbuilder.setContentText(message.subject);
 
-                if (message.content && preview)
-                    try {
-                        String body = Helper.readText(message.getFile(context));
-                        StringBuilder sb = new StringBuilder();
-                        if (!TextUtils.isEmpty(message.subject))
-                            sb.append(message.subject).append("<br>");
-                        String text = Jsoup.parse(body).text();
-                        if (!TextUtils.isEmpty(text)) {
-                            sb.append("<em>");
-                            if (text.length() > HtmlHelper.PREVIEW_SIZE) {
-                                sb.append(text.substring(0, HtmlHelper.PREVIEW_SIZE));
-                                sb.append("…");
-                            } else
-                                sb.append(text);
-                            sb.append("</em>");
-                        }
-                        mbuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(HtmlHelper.fromHtml(sb.toString())));
-                    } catch (IOException ex) {
-                        Log.e(ex);
-                        mbuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(ex.toString()));
+            if (message.content && preview)
+                try {
+                    String body = Helper.readText(message.getFile(context));
+                    StringBuilder sbm = new StringBuilder();
+                    if (!TextUtils.isEmpty(message.subject))
+                        sbm.append(message.subject).append("<br>");
+                    String text = Jsoup.parse(body).text();
+                    if (!TextUtils.isEmpty(text)) {
+                        sbm.append("<em>");
+                        if (text.length() > HtmlHelper.PREVIEW_SIZE) {
+                            sbm.append(text.substring(0, HtmlHelper.PREVIEW_SIZE));
+                            sbm.append("…");
+                        } else
+                            sbm.append(text);
+                        sbm.append("</em>");
                     }
-
-                if (info.hasPhoto())
-                    mbuilder.setLargeIcon(info.getPhotoBitmap());
-
-                if (info.hasLookupUri())
-                    mbuilder.addPerson(info.getLookupUri().toString());
-
-                if (message.accountColor != null) {
-                    mbuilder.setColor(message.accountColor);
-                    mbuilder.setColorized(true);
+                    mbuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(HtmlHelper.fromHtml(sbm.toString())));
+                } catch (IOException ex) {
+                    Log.e(ex);
+                    mbuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(ex.toString()));
                 }
+
+            if (info.hasPhoto())
+                mbuilder.setLargeIcon(info.getPhotoBitmap());
+
+            if (info.hasLookupUri())
+                mbuilder.addPerson(info.getLookupUri().toString());
+
+            if (pro && message.accountColor != null) {
+                mbuilder.setColor(message.accountColor);
+                mbuilder.setColorized(true);
             }
 
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
