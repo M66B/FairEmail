@@ -1725,7 +1725,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private SimpleTask<SpannableStringBuilder> bodyTask = new SimpleTask<SpannableStringBuilder>() {
             @Override
             protected SpannableStringBuilder onExecute(final Context context, final Bundle args) throws IOException {
-                DB db = DB.getInstance(context);
                 final TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
                 final boolean show_images = args.getBoolean("show_images");
                 boolean show_quotes = args.getBoolean("show_quotes");
@@ -2063,7 +2062,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 protected Boolean onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
-                    List<EntityAttachment> attachments = DB.getInstance(context).attachment().getAttachments(id);
+
+                    DB db = DB.getInstance(context);
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(id);
                     for (EntityAttachment attachment : attachments)
                         if (!attachment.available)
                             return false;
@@ -2404,7 +2405,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                             boolean[] dirty = args.getBooleanArray("dirty");
 
                                             DB db = DB.getInstance(context);
-
                                             try {
                                                 db.beginTransaction();
 
@@ -2953,7 +2953,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 protected Boolean onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
-                    List<EntityAttachment> attachments = DB.getInstance(context).attachment().getAttachments(id);
+
+                    DB db = DB.getInstance(context);
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(id);
                     for (EntityAttachment attachment : attachments)
                         if (!attachment.available && attachment.isInline() && attachment.isImage())
                             return false;
