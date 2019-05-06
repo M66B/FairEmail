@@ -6,8 +6,6 @@
     <attr name="colorDrawerScrim" format="reference" />
     <attr name="colorDrawerText" format="reference" />
     <attr name="colorDrawerBackground" format="reference" />
-    <attr name="colorPagerStripeText" format="reference" />
-    <attr name="colorPagerStripeBackground" format="reference" />
     <attr name="activatableItemBackground" format="reference" />
 
     <style name="AppThemeLight" parent="Base.Theme.AppCompat.Light.DarkActionBar">
@@ -25,9 +23,6 @@
         <item name="colorDrawerScrim">@color/lightColorDrawerScrim</item>
         <item name="colorDrawerText">@color/lightColorDrawerText</item>
         <item name="colorDrawerBackground">@color/lightColorDrawerBackground</item>
-
-        <item name="colorPagerStripeText">@color/lightColorDrawerText</item>
-        <item name="colorPagerStripeBackground">@color/lightColorDrawerBackground</item>
 
         <item name="activatableItemBackground">@drawable/activatable_item_background_light</item>
 
@@ -53,9 +48,6 @@
         <item name="colorDrawerScrim">@color/darkColorDrawerScrim</item>
         <item name="colorDrawerText">@color/darkColorDrawerText</item>
         <item name="colorDrawerBackground">@color/darkColorDrawerBackground</item>
-
-        <item name="colorPagerStripeText">@color/darkColorDrawerText</item>
-        <item name="colorPagerStripeBackground">@color/darkColorDrawerBackground</item>
 
         <item name="activatableItemBackground">@drawable/activatable_item_background_dark</item>
 
@@ -109,11 +101,5 @@
     <style name="radioButtonStyle" parent="Base.Widget.AppCompat.CompoundButton.RadioButton">
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
-    </style>
-
-    <style name="PagerTitleStripStyle">
-        <item name="android:textColor">?colorPagerStripeText</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:background">?colorPagerStripeBackground</item>
     </style>
 </resources>
