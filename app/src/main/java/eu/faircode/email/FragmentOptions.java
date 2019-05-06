@@ -74,7 +74,7 @@ public class FragmentOptions extends FragmentBase {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new FragmentOptionsGeneral();
+                    return new FragmentOptionsSynchronize();
                 case 1:
                     return new FragmentOptionsConnection();
                 case 2:
@@ -99,7 +99,7 @@ public class FragmentOptions extends FragmentBase {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return getString(R.string.title_advanced_section_general);
+                    return getString(R.string.title_advanced_section_synchronize);
                 case 1:
                     return getString(R.string.title_advanced_section_connection);
                 case 2:

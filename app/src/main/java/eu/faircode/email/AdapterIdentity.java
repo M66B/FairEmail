@@ -153,7 +153,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
-            popupMenu.getMenu().add(Menu.NONE, 1, 1, R.string.title_advanced_enabled)
+            popupMenu.getMenu().add(Menu.NONE, 1, 1, R.string.title_synchronize_enabled)
                     .setCheckable(true).setChecked(identity.synchronize);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {

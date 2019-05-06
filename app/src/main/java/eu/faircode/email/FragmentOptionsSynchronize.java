@@ -48,7 +48,7 @@ import androidx.preference.PreferenceManager;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class FragmentOptionsGeneral extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class FragmentOptionsSynchronize extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swEnabled;
     private Spinner spPollInterval;
     private SwitchCompat swSchedule;
@@ -65,7 +65,7 @@ public class FragmentOptionsGeneral extends FragmentBase implements SharedPrefer
         setSubtitle(R.string.title_advanced);
         setHasOptionsMenu(true);
 
-        View view = inflater.inflate(R.layout.fragment_options_general, container, false);
+        View view = inflater.inflate(R.layout.fragment_options_synchronize, container, false);
 
         // Get controls
 

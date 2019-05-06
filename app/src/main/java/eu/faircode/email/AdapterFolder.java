@@ -387,7 +387,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             popupMenu.getMenu().add(Menu.NONE, action_synchronize_now, 1, R.string.title_synchronize_now);
 
             if (folder.account != null)
-                popupMenu.getMenu().add(Menu.NONE, action_synchronize, 2, R.string.title_advanced_enabled)
+                popupMenu.getMenu().add(Menu.NONE, action_synchronize, 2, R.string.title_synchronize_enabled)
                         .setCheckable(true).setChecked(folder.synchronize);
 
             if (folder.account != null) { // outbox
