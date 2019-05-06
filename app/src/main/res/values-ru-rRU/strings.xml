@@ -140,13 +140,11 @@
     <string name="title_setup_defaults">Восстановить настройки по умолчанию</string>
     <string name="title_setup_options">Опции</string>
     <string name="title_advanced">Дополнительные опции</string>
-    <string name="title_advanced_section_general">Общее</string>
     <string name="title_advanced_section_connection">Соединение</string>
     <string name="title_advanced_section_display">Дисплей</string>
     <string name="title_advanced_section_behavior">Режимы</string>
     <string name="title_advanced_section_notifications">Уведомления</string>
     <string name="title_advanced_section_misc">Разное</string>
-    <string name="title_advanced_enabled">Cинхронизировать</string>
     <string name="title_advanced_schedule">Расписание</string>
     <string name="title_advanced_metered">Использовать лимитированные подключения</string>
     <string name="title_advanced_download">Автоматически загружать сообщения и вложения для лимитного подключения до</string>

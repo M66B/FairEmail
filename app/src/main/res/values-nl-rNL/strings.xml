@@ -124,14 +124,17 @@
     <string name="title_setup_defaults">Verstekwaarden herstellen</string>
     <string name="title_setup_options">Opties</string>
     <string name="title_advanced">Geavanceerde opties</string>
-    <string name="title_advanced_section_general">Algemeen</string>
+    <string name="title_advanced_section_synchronize">Synchroniseren</string>
     <string name="title_advanced_section_connection">Verbinding</string>
     <string name="title_advanced_section_display">Weergave</string>
     <string name="title_advanced_section_behavior">Gedrag</string>
     <string name="title_advanced_section_notifications">Meldingen</string>
     <string name="title_advanced_section_misc">Diversen</string>
-    <string name="title_advanced_enabled">Synchroniseren</string>
+    <string name="title_advanced_enabled">Ingeschakeld</string>
+    <string name="title_advanced_when">Wanneer</string>
     <string name="title_advanced_schedule">Schema</string>
+    <string name="title_advanced_unseen">Alle ongelezen berichten</string>
+    <string name="title_advanced_flagged">Alle berichten met ster</string>
     <string name="title_advanced_metered">Gemeten verbindingen gebruiken</string>
     <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
     <string name="title_advanced_roaming">Download berichten en bijlagen tijdens roaming</string>
@@ -268,6 +271,7 @@
     <string name="title_pop3_hint">POP3 heeft aanzienlijke beperkingen, dus gebruik IMAP indien mogelijk</string>
     <string name="title_pop3_support">POP3 wordt niet ondersteund, zie ook de FAQ</string>
     <string name="title_synchronize_now">Nu synchroniseren</string>
+    <string name="title_synchronize_enabled">Synchroniseren</string>
     <string name="title_delete_local">Verwijder lokale berichten</string>
     <string name="title_delete_browsed">Verwijder gebladerde/gezochte berichten</string>
     <string name="title_empty_trash">Prullenbak leegmaken</string>

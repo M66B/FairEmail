@@ -117,12 +117,10 @@
     <string name="title_setup_defaults">Återställ standardvärden</string>
     <string name="title_setup_options">Alternativ</string>
     <string name="title_advanced">Avancerade inställningar</string>
-    <string name="title_advanced_section_general">Allmänt</string>
     <string name="title_advanced_section_connection">Anslutning</string>
     <string name="title_advanced_section_display">Visning</string>
     <string name="title_advanced_section_behavior">Beteende</string>
     <string name="title_advanced_section_misc">Diverse</string>
-    <string name="title_advanced_enabled">Synkronisera</string>
     <string name="title_advanced_schedule">Schema</string>
     <string name="title_advanced_metered">Använda uppmätta anslutningar</string>
     <string name="title_advanced_download">Automatiskt hämta meddelanden och bilagor på en uppmätt anslutning upp till</string>

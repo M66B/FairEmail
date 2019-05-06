@@ -124,13 +124,11 @@
     <string name="title_setup_defaults">Rétablir les paramètres par défaut</string>
     <string name="title_setup_options">Options</string>
     <string name="title_advanced">Options avancées</string>
-    <string name="title_advanced_section_general">Général</string>
     <string name="title_advanced_section_connection">Connexion</string>
     <string name="title_advanced_section_display">Afficher</string>
     <string name="title_advanced_section_behavior">Comportement</string>
     <string name="title_advanced_section_notifications">Notifications</string>
     <string name="title_advanced_section_misc">Divers</string>
-    <string name="title_advanced_enabled">Synchroniser</string>
     <string name="title_advanced_schedule">Planifier</string>
     <string name="title_advanced_metered">Utiliser des connexions limitées</string>
     <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes avec une connexion limitée jusqu\'à</string>

@@ -124,13 +124,11 @@
     <string name="title_setup_defaults">Auf Standard zurücksetzen</string>
     <string name="title_setup_options">Optionen</string>
     <string name="title_advanced">Erweiterte Optionen</string>
-    <string name="title_advanced_section_general">Allgemeines</string>
     <string name="title_advanced_section_connection">Verbindung</string>
     <string name="title_advanced_section_display">Anzeige</string>
     <string name="title_advanced_section_behavior">Verhalten</string>
     <string name="title_advanced_section_notifications">Benachrichtigungen</string>
     <string name="title_advanced_section_misc">Verschiedenes</string>
-    <string name="title_advanced_enabled">Synchronisieren</string>
     <string name="title_advanced_schedule">Zeitplan</string>
     <string name="title_advanced_metered">Getaktete Verbindungen verwenden</string>
     <string name="title_advanced_download">Automatisches Herunterladen von E-Mails und Anhängen auf getakteten Verbindungen bis zu einer Größe von</string>

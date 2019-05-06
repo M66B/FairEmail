@@ -122,12 +122,10 @@
     <string name="title_setup_defaults">Gendan standardværdier</string>
     <string name="title_setup_options">Indstillinger</string>
     <string name="title_advanced">Avancerede indstillinger</string>
-    <string name="title_advanced_section_general">Generelt</string>
     <string name="title_advanced_section_connection">Forbindelse</string>
     <string name="title_advanced_section_display">Vis</string>
     <string name="title_advanced_section_behavior">Adfærd</string>
     <string name="title_advanced_section_misc">Diverse</string>
-    <string name="title_advanced_enabled">Synkronisér</string>
     <string name="title_advanced_schedule">Planlægning</string>
     <string name="title_advanced_metered">Brug forbrugsbaserede forbindelser</string>
     <string name="title_advanced_download">Hent automatisk meddelelser og vedhæftninger på forbrugsbaserede forbindelser</string>

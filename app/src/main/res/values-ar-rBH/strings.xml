@@ -90,12 +90,10 @@
     <string name="title_setup_defaults">استعادة الأوضاع الافتراضية</string>
     <string name="title_setup_options">الخيارات</string>
     <string name="title_advanced">الخيارات المتقدمة</string>
-    <string name="title_advanced_section_general">العام</string>
     <string name="title_advanced_section_connection">اتصال</string>
     <string name="title_advanced_section_display">إظهار</string>
     <string name="title_advanced_section_behavior">السلوك</string>
     <string name="title_advanced_section_misc">خيارات متنوعة</string>
-    <string name="title_advanced_enabled">المزامنة</string>
     <string name="title_advanced_schedule">برمجة</string>
     <string name="title_advanced_metered">استخدام اتصالات أجهزة الاستنشاق</string>
     <string name="title_advanced_browse">تصفح الرسائل على الخادم</string>

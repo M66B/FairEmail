@@ -124,13 +124,11 @@
     <string name="title_setup_defaults">Gjenopprett standarder</string>
     <string name="title_setup_options">Alternativer</string>
     <string name="title_advanced">Avanserte innstillinger</string>
-    <string name="title_advanced_section_general">Generelt</string>
     <string name="title_advanced_section_connection">Forbindelse</string>
     <string name="title_advanced_section_display">Vis</string>
     <string name="title_advanced_section_behavior">Oppførsel</string>
     <string name="title_advanced_section_notifications">Varslinger</string>
     <string name="title_advanced_section_misc">Diverse</string>
-    <string name="title_advanced_enabled">Synkroniser</string>
     <string name="title_advanced_schedule">Tidsplan</string>
     <string name="title_advanced_metered">Bruk målte tilkoblinger</string>
     <string name="title_advanced_download">Last ned meldinger og vedlegg automatisk på en målingstilkobling opp til</string>

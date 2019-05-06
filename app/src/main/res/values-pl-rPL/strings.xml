@@ -140,12 +140,10 @@
     <string name="title_setup_defaults">Przywróć domyślne</string>
     <string name="title_setup_options">Opcje</string>
     <string name="title_advanced">Opcje zaawansowane</string>
-    <string name="title_advanced_section_general">Ogólne</string>
     <string name="title_advanced_section_connection">Połączenie</string>
     <string name="title_advanced_section_display">Wyświetlanie</string>
     <string name="title_advanced_section_behavior">Zachowanie</string>
     <string name="title_advanced_section_misc">Różne</string>
-    <string name="title_advanced_enabled">Synchronizuj</string>
     <string name="title_advanced_schedule">Harmonogram</string>
     <string name="title_advanced_metered">Użyj połączeń taryfowych</string>
     <string name="title_advanced_download">Automatycznie pobieraj wiadomości i załączniki przy połączeniach taryfowych do</string>

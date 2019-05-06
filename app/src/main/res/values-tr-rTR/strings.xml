@@ -121,12 +121,10 @@
     <string name="title_setup_defaults">Öntanımlıları geri yükle</string>
     <string name="title_setup_options">Seçenekler</string>
     <string name="title_advanced">Gelişmiş seçenekler</string>
-    <string name="title_advanced_section_general">Genel</string>
     <string name="title_advanced_section_connection">Bağlantı</string>
     <string name="title_advanced_section_display">Görüntüle</string>
     <string name="title_advanced_section_behavior">Davranış</string>
     <string name="title_advanced_section_misc">Çeşitli</string>
-    <string name="title_advanced_enabled">Eşzamanlama</string>
     <string name="title_advanced_schedule">Program</string>
     <string name="title_advanced_metered">Ölçülü bağlantıları kullan</string>
     <string name="title_advanced_download">Mesajları ve ekleri ölçülü bir bağlantıya kadar otomatik olarak indir</string>

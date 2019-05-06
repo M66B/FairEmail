@@ -124,12 +124,10 @@
     <string name="title_setup_defaults">Ripristina predefiniti</string>
     <string name="title_setup_options">Opzioni</string>
     <string name="title_advanced">Opzioni avanzate</string>
-    <string name="title_advanced_section_general">Generale</string>
     <string name="title_advanced_section_connection">Connessione</string>
     <string name="title_advanced_section_display">Schermo</string>
     <string name="title_advanced_section_behavior">Comportamento</string>
     <string name="title_advanced_section_misc">Altro</string>
-    <string name="title_advanced_enabled">Sincronizza</string>
     <string name="title_advanced_schedule">Pianificazione</string>
     <string name="title_advanced_metered">Usa connessioni a consumo</string>
     <string name="title_advanced_download">Scarica automaticamente i messaggi e gli allegati con una connessione a consumo fino a</string>

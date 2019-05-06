@@ -80,12 +80,10 @@
     <string name="title_setup_advanced">پیشرفته</string>
     <string name="title_setup_defaults">بازیابی پیش‌فرض‌ها</string>
     <string name="title_advanced">گزینه‌های پیشرفته</string>
-    <string name="title_advanced_section_general">عمومی</string>
     <string name="title_advanced_section_connection">اتصال</string>
     <string name="title_advanced_section_display">نمایش</string>
     <string name="title_advanced_section_behavior">رفتار</string>
     <string name="title_advanced_section_misc">متفرقه</string>
-    <string name="title_advanced_enabled">همگام سازی</string>
     <string name="title_advanced_metered">استفاده از شبکه موبایل</string>
     <string name="title_advanced_download">دریافت خودکار پیام‌ها و پیوست‌ها روی شبکه موبایل</string>
     <string name="title_advanced_browse">مرور پیام‌های روی سرور</string>

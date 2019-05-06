@@ -124,13 +124,11 @@
     <string name="title_setup_defaults">Palauta oletukset</string>
     <string name="title_setup_options">Asetukset</string>
     <string name="title_advanced">Lisäasetukset</string>
-    <string name="title_advanced_section_general">Yleiset</string>
     <string name="title_advanced_section_connection">Yhteys</string>
     <string name="title_advanced_section_display">Ulkoasu</string>
     <string name="title_advanced_section_behavior">Toiminnot</string>
     <string name="title_advanced_section_notifications">Ilmoitukset</string>
     <string name="title_advanced_section_misc">Sekalaiset</string>
-    <string name="title_advanced_enabled">Synkronoi</string>
     <string name="title_advanced_schedule">Aikataulu</string>
     <string name="title_advanced_metered">Käytä käytön mukaan laskutettavia yhteyksiä</string>
     <string name="title_advanced_download">Ladattavien viestien ja liitteiden maksimikoko käytön mukaan laskutettavaa yhteyttä käytettäessä</string>

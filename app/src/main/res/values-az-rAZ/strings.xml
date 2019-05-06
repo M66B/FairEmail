@@ -107,12 +107,10 @@
     <string name="title_setup_defaults">İlkin vəziyyətinə qaytar</string>
     <string name="title_setup_options">Seçimlər</string>
     <string name="title_advanced">Qabaqcıl variantlar</string>
-    <string name="title_advanced_section_general">Ümumi</string>
     <string name="title_advanced_section_connection">Bağlantı</string>
     <string name="title_advanced_section_display">Görüntü</string>
     <string name="title_advanced_section_behavior">Davranış</string>
     <string name="title_advanced_section_misc">Qarışıq</string>
-    <string name="title_advanced_enabled">Eyniləşdirmə</string>
     <string name="title_advanced_schedule">Cədvəl</string>
     <string name="title_advanced_metered">Ölçülmüş bağlantıları istifadə et</string>
     <string name="title_advanced_download">Mesajları və qoşmaları ölçülmüş bağlantıda avtomatik endir</string>
