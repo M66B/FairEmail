@@ -546,7 +546,7 @@ public class FragmentCompose extends FragmentBase {
         args.putLong("id", working);
         args.putString("body", HtmlHelper.toHtml(etBody.getText()));
 
-        new SimpleTask<Void>() {
+        new SimpleTask<EntityMessage>() {
             @Override
             protected void onPreExecute(Bundle args) {
                 ibReferenceEdit.setEnabled(false);
@@ -558,7 +558,7 @@ public class FragmentCompose extends FragmentBase {
             }
 
             @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
+            protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
                 String body = args.getString("body");
 
@@ -581,16 +581,22 @@ public class FragmentCompose extends FragmentBase {
 
                 refFile.delete();
 
-                db.message().setMessagePlainOnly(draft.id, true);
+                draft.plain_only = true;
+                draft.revision = null;
+                draft.revisions = null;
 
-                return null;
+                db.message().setMessagePlainOnly(draft.id, true);
+                db.message().setMessageRevision(draft.id, null);
+                db.message().setMessageRevisions(draft.id, null);
+
+                return draft;
             }
 
             @Override
-            protected void onExecuted(Bundle args, Void data) {
+            protected void onExecuted(Bundle args, EntityMessage draft) {
                 plain_only = true;
                 getActivity().invalidateOptionsMenu();
-                showDraft(working);
+                showDraft(draft);
             }
 
             @Override
@@ -2794,7 +2800,7 @@ public class FragmentCompose extends FragmentBase {
                 String body = Helper.readText(draft.getFile(context));
                 Spanned spannedBody = HtmlHelper.fromHtml(body, cidGetter, null);
 
-                Spanned spannedReference = null;
+                Spanned spannedRef = null;
                 File refFile = draft.getRefFile(context);
                 if (refFile.exists()) {
                     String quote = HtmlHelper.sanitize(context, Helper.readText(refFile));
@@ -2829,10 +2835,13 @@ public class FragmentCompose extends FragmentBase {
                         builder.removeSpan(quoteSpan);
                     }
 
-                    spannedReference = builder;
+                    spannedRef = builder;
                 }
 
-                return new Spanned[]{spannedBody, spannedReference};
+                args.putBoolean("ref_has_images", spannedRef != null &&
+                        spannedRef.getSpans(0, spannedRef.length(), ImageSpan.class).length > 0);
+
+                return new Spanned[]{spannedBody, spannedRef};
             }
 
             @Override
@@ -2841,13 +2850,12 @@ public class FragmentCompose extends FragmentBase {
                 etBody.setSelection(0);
                 grpBody.setVisibility(View.VISIBLE);
 
-                boolean has_images = (text[1] != null &&
-                        text[1].getSpans(0, text[1].length(), ImageSpan.class).length > 0);
+                boolean ref_has_images = args.getBoolean("ref_has_images");
 
                 tvReference.setText(text[1]);
                 grpReference.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
                 ibReferenceEdit.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
-                ibReferenceImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
+                ibReferenceImages.setVisibility(ref_has_images && !show_images ? View.VISIBLE : View.GONE);
 
                 new Handler().post(new Runnable() {
                     @Override
