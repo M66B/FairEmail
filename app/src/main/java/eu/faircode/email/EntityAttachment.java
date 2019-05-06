@@ -76,6 +76,10 @@ public class EntityAttachment {
         return (disposition != null && disposition.equalsIgnoreCase(Part.INLINE));
     }
 
+    boolean isImage() {
+        return type.startsWith("image/");
+    }
+
     File getFile(Context context) {
         File dir = new File(context.getFilesDir(), "attachments");
         if (!dir.exists())
