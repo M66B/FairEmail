@@ -23,6 +23,7 @@ import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.ContentObserver;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -34,6 +35,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.net.Uri;
+import android.os.Handler;
 import android.provider.ContactsContract;
 import android.util.TypedValue;
 
@@ -43,6 +45,7 @@ import java.io.InputStream;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -54,10 +57,10 @@ public class ContactInfo {
     private Uri lookupUri;
     private long time;
 
-    private static Map<String, LookupInfo> emailLookupInfo = new HashMap<>();
+    private static Object lock = new Object();
+    private static Map<String, Uri> emailLookup = new ConcurrentHashMap<>();
     private static Map<String, ContactInfo> emailContactInfo = new HashMap<>();
 
-    private static final long CACHE_LOOKUP_DURATION = 120 * 60 * 1000L;
     private static final long CACHE_CONTACT_DURATION = 60 * 1000L;
 
     private ContactInfo() {
@@ -93,9 +96,6 @@ public class ContactInfo {
     }
 
     static void clearCache() {
-        synchronized (emailLookupInfo) {
-            emailLookupInfo.clear();
-        }
         synchronized (emailContactInfo) {
             emailContactInfo.clear();
         }
@@ -214,65 +214,62 @@ public class ContactInfo {
         return info;
     }
 
+    static void init(final Context context, Handler handler) {
+        if (Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
+            ContentObserver observer = new ContentObserver(handler) {
+                @Override
+                public void onChange(boolean selfChange, Uri uri) {
+                    Log.i("Contact changed uri=" + uri);
+                    emailLookup = getEmailLookup(context);
+                }
+            };
+
+            emailLookup = getEmailLookup(context);
+
+            Uri uri = ContactsContract.CommonDataKinds.Email.CONTENT_URI;
+            Log.i("Observing uri=" + uri);
+            context.getContentResolver().registerContentObserver(uri, true, observer);
+        }
+    }
+
     static Uri getLookupUri(Context context, Address[] addresses) {
-        if (!Helper.hasPermission(context, Manifest.permission.READ_CONTACTS))
+        if (addresses == null)
             return null;
 
-        if (addresses == null || addresses.length == 0)
-            return null;
-        InternetAddress address = (InternetAddress) addresses[0];
-
-        synchronized (emailLookupInfo) {
-            LookupInfo info = emailLookupInfo.get(address.getAddress());
-            if (info != null && !info.isExpired())
-                return info.uri;
+        for (Address from : addresses) {
+            String email = ((InternetAddress) from).getAddress();
+            if (emailLookup.containsKey(email))
+                return emailLookup.get(email);
         }
 
-        try {
+        return null;
+    }
+
+    private static Map<String, Uri> getEmailLookup(Context context) {
+        Map<String, Uri> all = new ConcurrentHashMap<>();
+
+        if (Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
             ContentResolver resolver = context.getContentResolver();
             try (Cursor cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
                     new String[]{
                             ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
-                            ContactsContract.Contacts.LOOKUP_KEY
+                            ContactsContract.Contacts.LOOKUP_KEY,
+                            ContactsContract.CommonDataKinds.Email.ADDRESS
                     },
-                    ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
-                    new String[]{
-                            address.getAddress()
-                    }, null)) {
+                    ContactsContract.CommonDataKinds.Email.ADDRESS + " <> ''",
+                    null, null)) {
+                while (cursor != null && cursor.moveToNext()) {
+                    long contactId = cursor.getLong(0);
+                    String lookupKey = cursor.getString(1);
+                    String email = cursor.getString(2);
 
-                Uri uri = null;
-                if (cursor != null && cursor.moveToNext()) {
-                    int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
-                    int colLookupKey = cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY);
-
-                    long contactId = cursor.getLong(colContactId);
-                    String lookupKey = cursor.getString(colLookupKey);
-
-                    uri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
+                    Uri uri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
+                    all.put(email, uri);
                 }
-
-                LookupInfo info = new LookupInfo();
-                info.uri = uri;
-                info.time = new Date().getTime();
-
-                synchronized (emailLookupInfo) {
-                    emailLookupInfo.put(address.getAddress(), info);
-                }
-
-                return info.uri;
             }
-        } catch (Throwable ex) {
-            Log.e(ex);
-            return null;
         }
-    }
 
-    private static class LookupInfo {
-        private Uri uri;
-        private long time;
-
-        private boolean isExpired() {
-            return (new Date().getTime() - time > CACHE_LOOKUP_DURATION);
-        }
+        Log.i("Read email/uri=" + all.size());
+        return all;
     }
 }

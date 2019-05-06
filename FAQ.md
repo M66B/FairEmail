@@ -1591,7 +1591,6 @@ About each four hours FairEmail runs a cleanup job that:
 * Removes old image files
 * Removes old local contacts
 * Removes old log entries
-* Updates contact photos of messages
 
 You can see when the last cleanup was performed at the bottom of the advanced options.
 

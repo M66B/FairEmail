@@ -33,6 +33,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.DeadSystemException;
+import android.os.Handler;
 import android.os.RemoteException;
 import android.webkit.CookieManager;
 
@@ -91,10 +92,14 @@ public class ApplicationEx extends Application {
         });
 
         upgrade(this);
+
         createNotificationChannels();
+
         if (Helper.hasWebView(this))
             CookieManager.getInstance().setAcceptCookie(false);
+
         MessageHelper.setSystemProperties();
+        ContactInfo.init(this, new Handler());
         Core.init(this);
     }
 

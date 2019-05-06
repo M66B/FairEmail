@@ -1383,6 +1383,14 @@ class Core {
                     Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " unbrowse");
                 }
 
+                Uri uri = ContactInfo.getLookupUri(context, message.from);
+                String avatar = (uri == null ? null : uri.toString());
+                if (!Objects.equals(message.avatar, avatar)) {
+                    update = true;
+                    message.avatar = avatar;
+                    Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " avatar=" + avatar);
+                }
+
                 if (update)
                     try {
                         db.beginTransaction();
