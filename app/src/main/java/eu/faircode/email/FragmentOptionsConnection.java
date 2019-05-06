@@ -45,11 +45,11 @@ import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsConnection extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
-    private TextView tvConnectionType;
-    private TextView tvConnectionRoaming;
     private SwitchCompat swMetered;
     private Spinner spDownload;
     private SwitchCompat swRoaming;
+    private TextView tvConnectionType;
+    private TextView tvConnectionRoaming;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "metered", "download", "roaming"
@@ -65,11 +65,12 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
         // Get controls
 
-        tvConnectionType = view.findViewById(R.id.tvConnectionType);
-        tvConnectionRoaming = view.findViewById(R.id.tvConnectionRoaming);
         swMetered = view.findViewById(R.id.swMetered);
         spDownload = view.findViewById(R.id.spDownload);
         swRoaming = view.findViewById(R.id.swRoaming);
+
+        tvConnectionType = view.findViewById(R.id.tvConnectionType);
+        tvConnectionRoaming = view.findViewById(R.id.tvConnectionRoaming);
 
         setOptions();
 
@@ -107,6 +108,9 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         });
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
+
+        tvConnectionType.setVisibility(View.GONE);
+        tvConnectionRoaming.setVisibility(View.GONE);
 
         return view;
     }

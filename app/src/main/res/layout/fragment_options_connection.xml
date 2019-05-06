@@ -18,38 +18,14 @@
             android:layout_height="wrap_content"
             android:padding="12dp">
 
-            <TextView
-                android:id="@+id/tvConnectionType"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="48dp"
-                android:text="Connection is unmetered"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textStyle="italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvConnectionRoaming"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="48dp"
-                android:text="@string/title_legend_roaming"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textStyle="italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvConnectionType" />
-
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swMetered"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
                 android:text="@string/title_advanced_metered"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvConnectionRoaming"
+                app:layout_constraintTop_toTopOf="parent"
                 app:switchPadding="12dp" />
 
             <TextView
@@ -94,7 +70,7 @@
                 android:id="@+id/spDownload"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="12dp"
                 android:entries="@array/downloadNames"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDownload" />
@@ -108,6 +84,32 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/spDownload"
                 app:switchPadding="12dp" />
+
+            <TextView
+                android:id="@+id/tvConnectionType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="48dp"
+                android:text="Connection is unmetered"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/swRoaming" />
+
+            <TextView
+                android:id="@+id/tvConnectionRoaming"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="48dp"
+                android:text="@string/title_legend_roaming"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvConnectionType" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
