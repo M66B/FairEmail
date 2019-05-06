@@ -34,6 +34,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.text.Collator;
+import java.util.Comparator;
+import java.util.Locale;
 import java.util.Objects;
 
 @Entity(
@@ -121,11 +124,6 @@ public class EntityAccount extends EntityOrder implements Serializable {
     @Override
     Long getSortId() {
         return id;
-    }
-
-    @Override
-    String getSortKey(Context context) {
-        return name;
     }
 
     @Override
@@ -236,6 +234,30 @@ public class EntityAccount extends EntityOrder implements Serializable {
                     Objects.equals(this.last_connected, other.last_connected));
         } else
             return false;
+    }
+
+    @Override
+    Comparator getComparator(final Context context) {
+        final Collator collator = Collator.getInstance(Locale.getDefault());
+        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+
+        return new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                EntityAccount a1 = (EntityAccount) o1;
+                EntityAccount a2 = (EntityAccount) o2;
+
+                int o = Integer.compare(
+                        a1.order == null ? -1 : a1.order,
+                        a2.order == null ? -1 : a2.order);
+                if (o != 0)
+                    return o;
+
+                String name1 = (a1.name == null ? "" : a1.name);
+                String name2 = (a2.name == null ? "" : a2.name);
+                return collator.compare(name1, name2);
+            }
+        };
     }
 
     @NonNull

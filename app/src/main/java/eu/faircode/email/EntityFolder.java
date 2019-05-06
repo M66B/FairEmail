@@ -235,11 +235,6 @@ public class EntityFolder extends EntityOrder implements Serializable {
     }
 
     @Override
-    String getSortKey(Context context) {
-        return getDisplayName(context);
-    }
-
-    @Override
     String[] getSortTitle(Context context) {
         return new String[]{getDisplayName(context), null};
     }
@@ -388,29 +383,37 @@ public class EntityFolder extends EntityOrder implements Serializable {
         return folder;
     }
 
-    static void sort(final Context context, List<EntityFolder> folders, final boolean menu) {
+    @Override
+    Comparator getComparator(final Context context) {
         final Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
 
-        Collections.sort(folders, new Comparator<EntityFolder>() {
+        return new Comparator() {
             @Override
-            public int compare(EntityFolder f1, EntityFolder f2) {
+            public int compare(Object o1, Object o2) {
+                EntityFolder f1 = (EntityFolder) o1;
+                EntityFolder f2 = (EntityFolder) o2;
+
+                int o = Integer.compare(
+                        f1.order == null ? -1 : f1.order,
+                        f2.order == null ? -1 : f2.order);
+                if (o != 0)
+                    return o;
+
                 int i1 = EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type);
                 int i2 = EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type);
                 int s = Integer.compare(i1, i2);
                 if (s != 0)
                     return s;
 
-                if (!menu) {
-                    int c = -f1.synchronize.compareTo(f2.synchronize);
-                    if (c != 0)
-                        return c;
-                }
+                int c = -f1.synchronize.compareTo(f2.synchronize);
+                if (c != 0)
+                    return c;
 
                 String name1 = f1.getDisplayName(context);
                 String name2 = f2.getDisplayName(context);
                 return collator.compare(name1, name2);
             }
-        });
+        };
     }
 }

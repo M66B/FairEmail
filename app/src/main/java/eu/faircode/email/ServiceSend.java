@@ -59,6 +59,8 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
+
 public class ServiceSend extends LifecycleService {
     private int lastUnsent = 0;
 
@@ -244,6 +246,7 @@ public class ServiceSend extends LifecycleService {
                     }
                 }
             });
+            thread.setPriority(THREAD_PRIORITY_BACKGROUND);
             thread.start();
         }
     };
@@ -446,6 +449,7 @@ public class ServiceSend extends LifecycleService {
                     }
                 }
             });
+            thread.setPriority(THREAD_PRIORITY_BACKGROUND);
             thread.start();
         }
     }

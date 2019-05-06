@@ -1152,7 +1152,7 @@ public class ServiceSynchronize extends LifecycleService {
                         if (started) {
                             EntityLog.log(ServiceSynchronize.this, "Checking account states");
 
-                            new Thread(new Runnable() {
+                            Thread check = new Thread(new Runnable() {
                                 @Override
                                 public void run() {
                                     try {
@@ -1183,7 +1183,9 @@ public class ServiceSynchronize extends LifecycleService {
                                         Log.e(ex);
                                     }
                                 }
-                            }).start();
+                            });
+                            check.setPriority(THREAD_PRIORITY_BACKGROUND);
+                            check.start();
                         } else
                             queue_reload(true, false, "connect " + network);
                 } catch (Throwable ex) {
@@ -1268,6 +1270,7 @@ public class ServiceSynchronize extends LifecycleService {
                     }
                 }
             });
+            thread.setPriority(THREAD_PRIORITY_BACKGROUND);
             thread.start();
         }
     }

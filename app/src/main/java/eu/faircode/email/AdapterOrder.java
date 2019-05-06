@@ -31,12 +31,9 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 
 public class AdapterOrder extends RecyclerView.Adapter<AdapterOrder.ViewHolder> {
@@ -76,21 +73,8 @@ public class AdapterOrder extends RecyclerView.Adapter<AdapterOrder.ViewHolder> 
     public void set(@NonNull List<EntityOrder> items) {
         Log.i("Set sort items=" + items.size());
 
-        final Collator collator = Collator.getInstance(Locale.getDefault());
-        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-
-        Collections.sort(items, new Comparator<EntityOrder>() {
-            @Override
-            public int compare(EntityOrder s1, EntityOrder s2) {
-                int o = Integer.compare(s1.order == null ? -1 : s1.order, s2.order == null ? -1 : s2.order);
-                if (o != 0)
-                    return o;
-
-                String name1 = s1.getSortKey(context);
-                String name2 = s2.getSortKey(context);
-                return collator.compare(name1, name2);
-            }
-        });
+        if (items.size() > 0)
+            Collections.sort(items, items.get(0).getComparator(context));
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(this.items, items), false);
 

@@ -27,16 +27,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
 
+import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
+
 public class Widget extends AppWidgetProvider {
     @Override
     public void onUpdate(final Context context, final AppWidgetManager appWidgetManager, final int[] appWidgetIds) {
-        new Thread(new Runnable() {
+        Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 DB db = DB.getInstance(context);
                 update(appWidgetIds, appWidgetManager, context, db.message().getUnseenUnified());
             }
-        }).start();
+        });
+        thread.setPriority(THREAD_PRIORITY_BACKGROUND);
+        thread.start();
     }
 
     static void update(Context context, int count) {

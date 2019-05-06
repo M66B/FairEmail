@@ -34,13 +34,10 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.Collator;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 
 public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.ViewHolder> {
@@ -93,10 +90,10 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
                             ? R.drawable.baseline_folder_24
                             : R.drawable.baseline_folder_open_24);
 
-                if (folder.color == null)
+                if (folder.accountColor == null)
                     ivItem.clearColorFilter();
                 else
-                    ivItem.setColorFilter(folder.color);
+                    ivItem.setColorFilter(folder.accountColor);
             }
 
             int count = (EntityFolder.OUTBOX.equals(folder.type) ? folder.operations : folder.unseen);
@@ -141,25 +138,8 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
     public void set(@NonNull List<TupleFolderNav> folders) {
         Log.i("Set nav folders=" + folders.size());
 
-        final Collator collator = Collator.getInstance(Locale.getDefault());
-        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-
-        Collections.sort(folders, new Comparator<TupleFolderNav>() {
-            @Override
-            public int compare(TupleFolderNav f1, TupleFolderNav f2) {
-                int s = Boolean.compare(EntityFolder.OUTBOX.equals(f1.type), EntityFolder.OUTBOX.equals(f2.type));
-                if (s != 0)
-                    return s;
-
-                int o = Integer.compare(f1.order == null ? -1 : f1.order, f2.order == null ? -1 : f2.order);
-                if (o != 0)
-                    return o;
-
-                String name1 = f1.getDisplayName(context);
-                String name2 = f2.getDisplayName(context);
-                return collator.compare(name1, name2);
-            }
-        });
+        if (folders.size() > 0)
+            Collections.sort(folders, folders.get(0).getComparator(context));
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, folders), false);
 
@@ -222,8 +202,9 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
             return (f1.name.equals(f2.name) &&
                     f1.type.equals(f2.type) &&
                     Objects.equals(f1.display, f2.display) &&
-                    Objects.equals(f1.color, f2.color) &&
+                    Objects.equals(f1.accountColor, f2.accountColor) &&
                     Objects.equals(f1.state, f2.state) &&
+                    Objects.equals(f1.sync_state, f2.sync_state) &&
                     f1.unseen == f2.unseen &&
                     f1.operations == f2.operations);
         }

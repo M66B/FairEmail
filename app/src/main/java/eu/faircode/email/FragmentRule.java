@@ -54,6 +54,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
@@ -302,7 +303,9 @@ public class FragmentRule extends FragmentBase {
 
                 for (EntityFolder folder : data.folders)
                     folder.display = folder.getDisplayName(context);
-                EntityFolder.sort(context, data.folders, true);
+
+                if (data.folders.size() > 0)
+                    Collections.sort(data.folders, data.folders.get(0).getComparator(context));
 
                 data.identities = db.identity().getIdentities(aid);
                 data.answers = db.answer().getAnswers(false);

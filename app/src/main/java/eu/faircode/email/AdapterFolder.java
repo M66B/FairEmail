@@ -58,7 +58,6 @@ import java.text.Collator;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
@@ -671,36 +670,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         final Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
 
-        Collections.sort(folders, new Comparator<TupleFolderEx>() {
-            @Override
-            public int compare(TupleFolderEx f1, TupleFolderEx f2) {
-                if (account < 0) {
-                    int o = Integer.compare(
-                            f1.order == null ? -1 : f1.order,
-                            f2.order == null ? -1 : f2.order);
-                    if (o != 0)
-                        return o;
-
-                    String name1 = f1.getDisplayName(context);
-                    String name2 = f2.getDisplayName(context);
-                    return collator.compare(name1, name2);
-                } else {
-                    int i1 = EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type);
-                    int i2 = EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type);
-                    int s = Integer.compare(i1, i2);
-                    if (s != 0)
-                        return s;
-
-                    int c = -f1.synchronize.compareTo(f2.synchronize);
-                    if (c != 0)
-                        return c;
-
-                    String name1 = f1.getDisplayName(context);
-                    String name2 = f2.getDisplayName(context);
-                    return collator.compare(name1, name2);
-                }
-            }
-        });
+        if (folders.size() > 0)
+            Collections.sort(folders, folders.get(0).getComparator(context));
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, folders), false);
 

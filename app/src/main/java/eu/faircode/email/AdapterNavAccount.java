@@ -36,6 +36,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -119,6 +120,9 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
 
     public void set(@NonNull List<TupleAccountEx> accounts) {
         Log.i("Set nav accounts=" + accounts.size());
+
+        if (accounts.size() > 0)
+            Collections.sort(accounts, accounts.get(0).getComparator(context));
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, accounts), false);
 

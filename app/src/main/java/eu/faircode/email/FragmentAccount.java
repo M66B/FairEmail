@@ -75,6 +75,7 @@ import com.sun.mail.imap.protocol.IMAPProtocol;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -676,8 +677,9 @@ public class FragmentAccount extends FragmentBase {
 
                     for (EntityFolder folder : result.folders)
                         folder.display = folder.getDisplayName(getContext());
-                    EntityFolder.sort(getContext(), result.folders, true);
 
+                    if (result.folders.size() > 0)
+                        Collections.sort(result.folders, result.folders.get(0).getComparator(context));
                 }
 
                 return result;
@@ -1207,7 +1209,9 @@ public class FragmentAccount extends FragmentBase {
                         if (folders != null) {
                             for (EntityFolder folder : folders)
                                 folder.display = folder.getDisplayName(getContext());
-                            EntityFolder.sort(getContext(), folders, true);
+
+                            if (folders.size() > 0)
+                                Collections.sort(folders, folders.get(0).getComparator(context));
                         }
 
                         return folders;

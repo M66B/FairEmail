@@ -19,11 +19,53 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
+
 import java.io.Serializable;
-import java.util.Objects;
+import java.text.Collator;
+import java.util.Comparator;
+import java.util.Locale;
 
 public class TupleFolderNav extends EntityFolder implements Serializable {
-    public Integer color; // account
+    public Integer accountOrder;
+    public String accountName;
+    public Integer accountColor;
     public int unseen;
     public int operations;
+
+    @Override
+    Comparator getComparator(final Context context) {
+        final Collator collator = Collator.getInstance(Locale.getDefault());
+        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+
+        final Comparator base = super.getComparator(context);
+
+        return new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                TupleFolderNav f1 = (TupleFolderNav) o1;
+                TupleFolderNav f2 = (TupleFolderNav) o2;
+
+                // Outbox
+                if (f1.accountName == null && f2.accountName == null)
+                    return 0;
+                else if (f1.accountName == null)
+                    return 1;
+                else if (f2.accountName == null)
+                    return -1;
+
+                int o = Integer.compare(
+                        f1.accountOrder == null ? -1 : f1.accountOrder,
+                        f2.accountOrder == null ? -1 : f2.accountOrder);
+                if (o != 0)
+                    return o;
+
+                int a = collator.compare(f1.accountName, f2.accountName);
+                if (a != 0)
+                    return a;
+
+                return base.compare(o1, o2);
+            }
+        };
+    }
 }

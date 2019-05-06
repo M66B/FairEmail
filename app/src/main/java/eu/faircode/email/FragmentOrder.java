@@ -47,6 +47,7 @@ public class FragmentOrder extends FragmentBase {
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
+    private boolean dirty = false;
     private AdapterOrder adapter;
 
     @Override
@@ -133,45 +134,47 @@ public class FragmentOrder extends FragmentBase {
     public void onPause() {
         super.onPause();
 
-        List<EntityOrder> items = adapter.getItems();
+        if (dirty) {
+            List<EntityOrder> items = adapter.getItems();
 
-        List<Long> order = new ArrayList<>();
-        for (int i = 0; i < items.size(); i++)
-            order.add(items.get(i).getSortId());
+            List<Long> order = new ArrayList<>();
+            for (int i = 0; i < items.size(); i++)
+                order.add(items.get(i).getSortId());
 
-        Bundle args = new Bundle();
-        args.putString("class", clazz);
-        args.putLongArray("order", Helper.toLongArray(order));
+            Bundle args = new Bundle();
+            args.putString("class", clazz);
+            args.putLongArray("order", Helper.toLongArray(order));
 
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) {
-                final String clazz = args.getString("class");
-                final long[] order = args.getLongArray("order");
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    final String clazz = args.getString("class");
+                    final long[] order = args.getLongArray("order");
 
-                final DB db = DB.getInstance(context);
-                db.runInTransaction(new Runnable() {
-                    @Override
-                    public void run() {
-                        for (int i = 0; i < order.length; i++)
-                            if (EntityAccount.class.getName().equals(clazz))
-                                db.account().setAccountOrder(order[i], i);
-                            else if (TupleFolderSort.class.getName().equals(clazz))
-                                db.folder().setFolderOrder(order[i], i);
-                            else
-                                throw new IllegalArgumentException("Unknown class=" + clazz);
-                    }
-                });
+                    final DB db = DB.getInstance(context);
+                    db.runInTransaction(new Runnable() {
+                        @Override
+                        public void run() {
+                            for (int i = 0; i < order.length; i++)
+                                if (EntityAccount.class.getName().equals(clazz))
+                                    db.account().setAccountOrder(order[i], i);
+                                else if (TupleFolderSort.class.getName().equals(clazz))
+                                    db.folder().setFolderOrder(order[i], i);
+                                else
+                                    throw new IllegalArgumentException("Unknown class=" + clazz);
+                        }
+                    });
 
-                return null;
-            }
+                    return null;
+                }
 
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
 
-            }
-        }.execute(getContext(), getViewLifecycleOwner(), args, "order:set");
+                }
+            }.execute(getContext(), getViewLifecycleOwner(), args, "order:set");
+        }
     }
 
     @Override
@@ -213,6 +216,11 @@ public class FragmentOrder extends FragmentBase {
             }
 
             @Override
+            protected void onExecuted(Bundle args, Void data) {
+                dirty = false;
+            }
+
+            @Override
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
@@ -236,6 +244,7 @@ public class FragmentOrder extends FragmentBase {
 
         @Override
         public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder source, @NonNull RecyclerView.ViewHolder target) {
+            dirty = true;
             ((AdapterOrder) rvOrder.getAdapter()).onMove(source.getAdapterPosition(), target.getAdapterPosition());
             return true;
         }

@@ -52,14 +52,14 @@ public interface DaoFolder {
     EntityFolder getBrowsableFolder(long folder, boolean search);
 
     @Query("SELECT folder.*" +
-            ", account.name AS accountName" +
+            ", account.`order` AS accountOrder, account.name AS accountName" +
             " FROM folder" +
             " JOIN account ON account.id = folder.account" +
             " WHERE account.`synchronize`")
     LiveData<List<TupleFolderSort>> liveSort();
 
     @Query("SELECT folder.*" +
-            ", account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
+            ", account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
@@ -76,7 +76,7 @@ public interface DaoFolder {
     LiveData<List<TupleFolderEx>> liveFolders(Long account, Long parent);
 
     @Query("SELECT folder.*" +
-            ", account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
+            ", account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
@@ -90,7 +90,7 @@ public interface DaoFolder {
     LiveData<List<TupleFolderEx>> liveUnified();
 
     @Query("SELECT folder.*" +
-            ", account.color" +
+            ", account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
             ", (SELECT COUNT(*) FROM operation WHERE operation.folder = folder.id) AS operations" +
             " FROM folder" +
@@ -114,7 +114,7 @@ public interface DaoFolder {
     LiveData<Integer> liveSynchronizing();
 
     @Query("SELECT folder.*" +
-            ", account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
+            ", account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +

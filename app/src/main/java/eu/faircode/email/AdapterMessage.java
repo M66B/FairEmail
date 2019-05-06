@@ -2155,7 +2155,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (folders == null)
                         return null;
 
-                    EntityFolder.sort(context, folders, true);
+                    if (folders.size() > 0)
+                        Collections.sort(folders, folders.get(0).getComparator(context));
 
                     return folders;
                 }
@@ -2850,7 +2851,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 !EntityFolder.JUNK.equals(folder.type))
                             targets.add(folder);
 
-                    EntityFolder.sort(context, targets, true);
+                    if (targets.size() > 0)
+                        Collections.sort(targets, targets.get(0).getComparator(context));
 
                     return targets;
                 }

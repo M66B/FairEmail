@@ -101,6 +101,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static android.text.format.DateUtils.DAY_IN_MILLIS;
 import static android.text.format.DateUtils.FORMAT_SHOW_DATE;
 import static android.text.format.DateUtils.FORMAT_SHOW_WEEKDAY;
@@ -1236,7 +1237,10 @@ public class FragmentMessages extends FragmentBase {
                                 !EntityFolder.JUNK.equals(target.type) &&
                                 (fids.size() != 1 || !fids.contains(target.id)))
                             targets.add(target);
-                    EntityFolder.sort(context, targets, true);
+
+                    if (targets.size() > 0)
+                        Collections.sort(targets, targets.get(0).getComparator(context));
+
                     result.targets.put(account, targets);
                 }
 
@@ -2892,7 +2896,7 @@ public class FragmentMessages extends FragmentBase {
                 if (snackbar.isShown())
                     snackbar.dismiss();
 
-                new Thread(new Runnable() {
+                Thread thread = new Thread(new Runnable() {
                     @Override
                     public void run() {
                         DB db = DB.getInstance(context);
@@ -2912,7 +2916,9 @@ public class FragmentMessages extends FragmentBase {
                             db.endTransaction();
                         }
                     }
-                }).start();
+                });
+                thread.setPriority(THREAD_PRIORITY_BACKGROUND);
+                thread.start();
             }
         }, UNDO_TIMEOUT);
     }
