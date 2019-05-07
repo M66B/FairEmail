@@ -45,6 +45,7 @@ import androidx.preference.PreferenceManager;
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentOptionsNotifications extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private SwitchCompat swNotifyGroup;
     private SwitchCompat swNotifyPreview;
     private CheckBox cbNotifyActionTrash;
     private CheckBox cbNotifyActionArchive;
@@ -57,7 +58,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private Group grpNotification;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "notify_preview", "notify_trash", "notify_archive", "notify_reply", "notify_flag", "notify_seen", "light", "sound"
+            "notify_group", "notify_preview", "notify_trash", "notify_archive", "notify_reply", "notify_flag", "notify_seen", "light", "sound"
     };
 
     @Override
@@ -70,6 +71,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
         // Get controls
 
+        swNotifyGroup = view.findViewById(R.id.swNotifyGroup);
         swNotifyPreview = view.findViewById(R.id.swNotifyPreview);
         cbNotifyActionTrash = view.findViewById(R.id.cbNotifyActionTrash);
         cbNotifyActionArchive = view.findViewById(R.id.cbNotifyActionArchive);
@@ -86,6 +88,13 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        swNotifyGroup.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("notify_group", checked).apply();
+            }
+        });
 
         swNotifyPreview.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -194,6 +203,8 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private void setOptions() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
+        swNotifyGroup.setChecked(prefs.getBoolean("notify_group", true));
+        swNotifyGroup.setVisibility(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N ? View.VISIBLE : View.GONE);
         swNotifyPreview.setChecked(prefs.getBoolean("notify_preview", true));
         cbNotifyActionTrash.setChecked(prefs.getBoolean("notify_trash", true));
         cbNotifyActionArchive.setChecked(prefs.getBoolean("notify_archive", true));
