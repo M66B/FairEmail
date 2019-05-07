@@ -1501,7 +1501,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         ibImages.setVisibility(original.has_images && !show_images ? View.VISIBLE : View.GONE);
                         ibFull.setVisibility(View.VISIBLE);
 
-                        webView.loadDataWithBaseURL("about:blank", themeHtml(original.html), "text/html", "UTF-8", null);
+                        webView.loadDataWithBaseURL("", themeHtml(original.html), "text/html", "UTF-8", null);
 
                         pbBody.setVisibility(View.GONE);
                     }
@@ -1518,7 +1518,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
                 ibFull.setVisibility(View.VISIBLE);
 
-                webView.loadDataWithBaseURL("about:blank", themeHtml(html), "text/html", "UTF-8", null);
+                webView.loadDataWithBaseURL("", themeHtml(html), "text/html", "UTF-8", null);
                 webView.setVisibility(View.VISIBLE);
 
                 pbBody.setVisibility(View.GONE);
@@ -1568,7 +1568,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             settings.setDisplayZoomControls(false);
 
             String html = properties.getHtml(message.id);
-            webView.loadDataWithBaseURL("about:blank", html, "text/html", "UTF-8", null);
+            webView.loadDataWithBaseURL("", html, "text/html", "UTF-8", null);
 
             final Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
             dialog.setContentView(webView);
