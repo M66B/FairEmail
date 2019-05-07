@@ -146,7 +146,11 @@
     <string name="title_advanced_section_behavior">Режимы</string>
     <string name="title_advanced_section_notifications">Уведомления</string>
     <string name="title_advanced_section_misc">Разное</string>
+    <string name="title_advanced_enabled">Включено</string>
+    <string name="title_advanced_when">Когда</string>
     <string name="title_advanced_schedule">Расписание</string>
+    <string name="title_advanced_unseen">Все непрочитанные сообщения</string>
+    <string name="title_advanced_flagged">Все избранные сообщения</string>
     <string name="title_advanced_metered">Использовать лимитированные подключения</string>
     <string name="title_advanced_download">Автоматически загружать сообщения и вложения для лимитного подключения до</string>
     <string name="title_advanced_roaming">Загружать сообщения и вложения в роуминге</string>
@@ -186,7 +190,7 @@
     <string name="title_advanced_notify_action_archive">Архив</string>
     <string name="title_advanced_notify_action_reply">Ответить</string>
     <string name="title_advanced_notify_action_flag">Избранное</string>
-    <string name="title_advanced_notify_action_seen">Прочитанные</string>
+    <string name="title_advanced_notify_action_seen">Прочитанное</string>
     <string name="title_advanced_notify_action_hint">Будут показаны максимум три действия</string>
     <string name="title_advanced_light">Использовать индикатор уведомлений</string>
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
@@ -283,6 +287,7 @@
     <string name="title_pop3_hint">POP3 имеет значительные ограничения, поэтому используйте IMAP, когда это возможно</string>
     <string name="title_pop3_support">POP3 не поддерживается, см. также FAQ</string>
     <string name="title_synchronize_now">Синхронизировать сейчас</string>
+    <string name="title_synchronize_enabled">Синхронизировать</string>
     <string name="title_delete_local">Удалить локальные сообщения</string>
     <string name="title_delete_browsed">Удалить просмотренные/найденные сообщения</string>
     <string name="title_empty_trash">Очистить корзину</string>

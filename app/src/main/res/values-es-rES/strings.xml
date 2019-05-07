@@ -124,12 +124,17 @@
     <string name="title_setup_defaults">Restablecer ajustes por defecto</string>
     <string name="title_setup_options">Opciones</string>
     <string name="title_advanced">Opciones avanzadas</string>
+    <string name="title_advanced_section_synchronize">Sincronizar</string>
     <string name="title_advanced_section_connection">Conexión</string>
     <string name="title_advanced_section_display">Mostrar</string>
     <string name="title_advanced_section_behavior">Comportamiento</string>
     <string name="title_advanced_section_notifications">Notificaciones</string>
     <string name="title_advanced_section_misc">Miscelánea</string>
+    <string name="title_advanced_enabled">Activado</string>
+    <string name="title_advanced_when">Cuando</string>
     <string name="title_advanced_schedule">Programar</string>
+    <string name="title_advanced_unseen">Todos los mensajes no leídos</string>
+    <string name="title_advanced_flagged">Todos los mensajes destacados</string>
     <string name="title_advanced_metered">Usar conexión de datos</string>
     <string name="title_advanced_download">Descargar automáticamente mensajes y adjuntos usando conexión de datos hasta</string>
     <string name="title_advanced_roaming">Descargar mensajes y adjuntos en roaming</string>
@@ -266,6 +271,7 @@
     <string name="title_pop3_hint">POP3 tiene limitaciones importantes, así que use IMAP siempre que sea posible</string>
     <string name="title_pop3_support">POP3 no es compatible, vea las Preguntas Frecuentes</string>
     <string name="title_synchronize_now">Sincronizar ahora</string>
+    <string name="title_synchronize_enabled">Sincronizar</string>
     <string name="title_delete_local">Eliminar mensajes locales</string>
     <string name="title_delete_browsed">Eliminar mensajes explorados/buscados</string>
     <string name="title_empty_trash">Vaciar papelera</string>

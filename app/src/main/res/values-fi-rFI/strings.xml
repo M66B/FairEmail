@@ -124,12 +124,17 @@
     <string name="title_setup_defaults">Palauta oletukset</string>
     <string name="title_setup_options">Asetukset</string>
     <string name="title_advanced">Lisäasetukset</string>
+    <string name="title_advanced_section_synchronize">Synkronoi</string>
     <string name="title_advanced_section_connection">Yhteys</string>
     <string name="title_advanced_section_display">Ulkoasu</string>
     <string name="title_advanced_section_behavior">Toiminnot</string>
     <string name="title_advanced_section_notifications">Ilmoitukset</string>
     <string name="title_advanced_section_misc">Sekalaiset</string>
+    <string name="title_advanced_enabled">Käytössä</string>
+    <string name="title_advanced_when">Milloin</string>
     <string name="title_advanced_schedule">Aikataulu</string>
+    <string name="title_advanced_unseen">Kaikki lukemattomat viestit</string>
+    <string name="title_advanced_flagged">Kaikki tähdelliset viestit</string>
     <string name="title_advanced_metered">Käytä käytön mukaan laskutettavia yhteyksiä</string>
     <string name="title_advanced_download">Ladattavien viestien ja liitteiden maksimikoko käytön mukaan laskutettavaa yhteyttä käytettäessä</string>
     <string name="title_advanced_roaming">Lataa viestit ja liitteet verkkovierailun aikana</string>
@@ -168,6 +173,7 @@
     <string name="title_advanced_notify_action_trash">Roskakoriin</string>
     <string name="title_advanced_notify_action_archive">Arkistoi</string>
     <string name="title_advanced_notify_action_reply">Vastaa</string>
+    <string name="title_advanced_notify_action_flag">Lisää tähti</string>
     <string name="title_advanced_notify_action_seen">Lue</string>
     <string name="title_advanced_notify_action_hint">Enintään kolme toimintoa näytetään</string>
     <string name="title_advanced_light">Käytä LED-ilmoitusta</string>
@@ -265,6 +271,7 @@
     <string name="title_pop3_hint">POP3-protokollalla on merkittäviä rajoituksia, joten käytä IMAP:ia mahdollisuuksien mukaan</string>
     <string name="title_pop3_support">POP3 ei ole tuettu, katso myös usein kysytyt kysymykset</string>
     <string name="title_synchronize_now">Synkronoi nyt</string>
+    <string name="title_synchronize_enabled">Synkronoi</string>
     <string name="title_delete_local">Poista paikalliset viestit</string>
     <string name="title_delete_browsed">Poista selatut/haetut viestit</string>
     <string name="title_empty_trash">Tyhjennä roskakori</string>
