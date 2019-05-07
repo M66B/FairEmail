@@ -309,6 +309,7 @@
     <string name="title_no_sync">Synchronization errors since %1$s</string>
     <string name="title_identity_required">An identity is required to send messages</string>
     <string name="title_drafts_required">A drafts folder is required to send messages</string>
+    <string name="title_account_setup_identity">Add an identity after saving this account</string>
     <string name="title_account_delete">Delete this account permanently?</string>
     <string name="title_identity_delete">Delete this identity permanently?</string>
     <string name="title_edit_html">Edit as HTML</string>
