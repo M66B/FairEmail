@@ -149,7 +149,6 @@ public class FragmentMessages extends FragmentBase {
     private boolean outbox = false;
     private boolean connected;
     private String searching = null;
-    private boolean refresh = false;
     private boolean manual = false;
     private Integer lastUnseen = null;
 
@@ -533,7 +532,7 @@ public class FragmentMessages extends FragmentBase {
         addBackPressedListener(onBackPressedListener);
 
         // Initialize
-        swipeRefresh.setEnabled(false);
+        swipeRefresh.setEnabled(pull);
         tvNoEmail.setVisibility(View.GONE);
         seekBar.setEnabled(false);
         seekBar.setVisibility(View.GONE);
@@ -636,7 +635,7 @@ public class FragmentMessages extends FragmentBase {
                         fabMore.show();
                     } else {
                         fabMore.hide();
-                        swipeRefresh.setEnabled(pull && refresh);
+                        swipeRefresh.setEnabled(pull);
                     }
                 }
             });
@@ -947,7 +946,7 @@ public class FragmentMessages extends FragmentBase {
         @Override
         public void onSelectedChanged(@Nullable RecyclerView.ViewHolder viewHolder, int actionState) {
             super.onSelectedChanged(viewHolder, actionState);
-            swipeRefresh.setEnabled(pull && refresh && actionState != ItemTouchHelper.ACTION_STATE_SWIPE);
+            swipeRefresh.setEnabled(pull && actionState != ItemTouchHelper.ACTION_STATE_SWIPE);
         }
 
         @Override
@@ -2262,13 +2261,10 @@ public class FragmentMessages extends FragmentBase {
 
         // Get state
         int unseen = 0;
-        boolean sync = false;
         boolean errors = false;
         boolean refreshing = false;
         for (TupleFolderEx folder : folders) {
             unseen += folder.unseen;
-            if (folder.synchronize)
-                sync = true;
             if (folder.error != null)
                 errors = true;
             if (folder.sync_state != null &&
@@ -2305,8 +2301,6 @@ public class FragmentMessages extends FragmentBase {
             lastUnseen = unseen;
         }
 
-        refresh = sync;
-        swipeRefresh.setEnabled(pull && refresh);
         swipeRefresh.setRefreshing(refreshing);
     }
 
