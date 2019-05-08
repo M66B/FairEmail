@@ -31,7 +31,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
-import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -97,9 +96,15 @@ public class FragmentOrder extends FragmentBase {
         DB db = DB.getInstance(getContext());
 
         if (EntityAccount.class.getName().equals(clazz))
-            db.account().liveSynchronizingAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
+            new SimpleTask<List<EntityAccount>>() {
                 @Override
-                public void onChanged(List<EntityAccount> accounts) {
+                protected List<EntityAccount> onExecute(Context context, Bundle args) {
+                    DB db = DB.getInstance(context);
+                    return db.account().getSynchronizingAccounts();
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
                     if (accounts == null)
                         accounts = new ArrayList<>();
 
@@ -110,11 +115,22 @@ public class FragmentOrder extends FragmentBase {
                     pbWait.setVisibility(View.GONE);
                     grpReady.setVisibility(View.VISIBLE);
                 }
-            });
-        else if (TupleFolderSort.class.getName().equals(clazz))
-            db.folder().liveSort().observe(getViewLifecycleOwner(), new Observer<List<TupleFolderSort>>() {
+
                 @Override
-                public void onChanged(List<TupleFolderSort> folders) {
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                }
+            }.execute(this, new Bundle(), "order:accounts");
+        else if (TupleFolderSort.class.getName().equals(clazz))
+            new SimpleTask<List<TupleFolderSort>>() {
+                @Override
+                protected List<TupleFolderSort> onExecute(Context context, Bundle args) {
+                    DB db = DB.getInstance(context);
+                    return db.folder().getSortedFolders();
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, List<TupleFolderSort> folders) {
                     if (folders == null)
                         folders = new ArrayList<>();
 
@@ -125,7 +141,12 @@ public class FragmentOrder extends FragmentBase {
                     pbWait.setVisibility(View.GONE);
                     grpReady.setVisibility(View.VISIBLE);
                 }
-            });
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+
+                }
+            }.execute(this, new Bundle(), "order:folders");
         else
             throw new IllegalArgumentException();
     }

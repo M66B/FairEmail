@@ -56,7 +56,7 @@ public interface DaoFolder {
             " FROM folder" +
             " JOIN account ON account.id = folder.account" +
             " WHERE account.`synchronize`")
-    LiveData<List<TupleFolderSort>> liveSort();
+    List<TupleFolderSort> getSortedFolders();
 
     @Query("SELECT folder.*" +
             ", account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
