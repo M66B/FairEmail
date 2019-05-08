@@ -196,7 +196,6 @@ public class MessageHelper {
         return props;
     }
 
-
     static MimeMessageEx from(Context context, EntityMessage message, EntityIdentity identity, Session isession)
             throws MessagingException, IOException {
         DB db = DB.getInstance(context);
@@ -297,8 +296,6 @@ public class MessageHelper {
     }
 
     static void build(Context context, EntityMessage message, List<EntityAttachment> attachments, EntityIdentity identity, MimeMessage imessage) throws IOException, MessagingException {
-        DB db = DB.getInstance(context);
-
         if (message.receipt_request != null && message.receipt_request) {
             // https://www.ietf.org/rfc/rfc3798.txt
             Multipart report = new MimeMultipart("report; report-type=disposition-notification");
