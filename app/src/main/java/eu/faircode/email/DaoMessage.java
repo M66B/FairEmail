@@ -441,7 +441,8 @@ public interface DaoMessage {
             " AND received < :received" +
             " AND NOT uid IS NULL" +
             " AND (ui_seen OR :unseen)" +
-            " AND NOT ui_flagged")
+            " AND NOT ui_flagged" +
+            " AND NOT ui_browsed")
     List<Long> getMessagesBefore(long folder, long received, boolean unseen);
 
     @Query("DELETE FROM message" +
@@ -449,6 +450,7 @@ public interface DaoMessage {
             " AND received < :received" +
             " AND NOT uid IS NULL" +
             " AND (ui_seen OR :unseen)" +
-            " AND NOT ui_flagged")
+            " AND NOT ui_flagged" +
+            " AND NOT ui_browsed")
     int deleteMessagesBefore(long folder, long received, boolean unseen);
 }
