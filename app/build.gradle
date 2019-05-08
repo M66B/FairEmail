@@ -121,7 +121,8 @@ dependencies {
 
     // https://developer.android.com/jetpack/androidx/releases/
 
-    // temporary
+    // Pin arch/core and sqlite
+    implementation "androidx.core:core:1.0.2"
     implementation "androidx.arch.core:core-common:2.0.1"
     implementation "androidx.arch.core:core-runtime:2.0.1"
     implementation "androidx.sqlite:sqlite:2.0.1"
