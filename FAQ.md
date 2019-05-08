@@ -404,6 +404,9 @@ Encryption/decryption is a pro feature.
 
 Please see the [known problems](#known-problems) about YubiKey.
 
+Please see [this comment](https://forum.xda-developers.com/showpost.php?p=79444379&postcount=5609)
+about [these vulnerabilities](https://amp.thehackernews.com/thn/2019/04/email-signature-spoofing.html).
+
 <br />
 
 <a name="faq13"></a>
