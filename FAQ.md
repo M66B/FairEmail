@@ -169,6 +169,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(98) Why can I still pick contacts after revoking contacts permissions?](#user-content-faq98)
 * [(99) Can you add a rich text or markdown editor?](#user-content-faq99)
 * [(100) How can I synchronize Gmail categories?](#user-content-faq100)
+* [(101) What does the blue/orange dot at the bottom of the conversations mean?](#user-content-faq101)
 
 [I have another question.](#support)
 
@@ -1640,6 +1641,14 @@ and long press the category folders to enable synchronization.
 
 <br />
 
+<a name="faq101"></a>
+**(101) What does the blue/orange dot at the bottom of the conversations mean?**
+
+The dot shows the relative position of the conversation in the message list.
+The dot will be show orange when the conversation is the first or last in the message list, else it will be blue.
+The dot is meant as an aid when swiping left/right to go to the previous/next conversation.
+
+<br />
 
 ## Support
 
