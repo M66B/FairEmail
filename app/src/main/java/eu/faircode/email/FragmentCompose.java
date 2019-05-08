@@ -2158,18 +2158,21 @@ public class FragmentCompose extends FragmentBase {
                         int sequence = 0;
                         List<EntityAttachment> attachments = db.attachment().getAttachments(ref.id);
                         for (EntityAttachment attachment : attachments)
-                            if (attachment.available &&
-                                    attachment.encryption == null &&
-                                    ("forward".equals(action) || attachment.isInline())) {
-                                File source = attachment.getFile(context);
+                            if (attachment.encryption == null &&
+                                    ("forward".equals(action) ||
+                                            (attachment.isInline() && attachment.isImage()))) {
+                                if (attachment.available) {
+                                    File source = attachment.getFile(context);
 
-                                attachment.id = null;
-                                attachment.message = draft.id;
-                                attachment.sequence = ++sequence;
-                                attachment.id = db.attachment().insertAttachment(attachment);
+                                    attachment.id = null;
+                                    attachment.message = draft.id;
+                                    attachment.sequence = ++sequence;
+                                    attachment.id = db.attachment().insertAttachment(attachment);
 
-                                File target = attachment.getFile(context);
-                                Helper.copy(source, target);
+                                    File target = attachment.getFile(context);
+                                    Helper.copy(source, target);
+                                } else
+                                    args.putBoolean("incomplete", true);
                             }
                     }
 
@@ -2220,6 +2223,9 @@ public class FragmentCompose extends FragmentBase {
 
             plain_only = (draft.plain_only != null && draft.plain_only);
             getActivity().invalidateOptionsMenu();
+
+            if (args.getBoolean("incomplete"))
+                Snackbar.make(view, R.string.title_attachments_incomplete, Snackbar.LENGTH_LONG).show();
 
             new SimpleTask<List<TupleIdentityEx>>() {
                 @Override

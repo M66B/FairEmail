@@ -2055,47 +2055,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onMenuForward(final ActionData data) {
-            Bundle args = new Bundle();
-            args.putLong("id", data.message.id);
-
-            new SimpleTask<Boolean>() {
-                @Override
-                protected Boolean onExecute(Context context, Bundle args) {
-                    long id = args.getLong("id");
-
-                    DB db = DB.getInstance(context);
-                    List<EntityAttachment> attachments = db.attachment().getAttachments(id);
-                    for (EntityAttachment attachment : attachments)
-                        if (!attachment.available)
-                            return false;
-                    return true;
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, Boolean available) {
-                    final Intent forward = new Intent(context, ActivityCompose.class)
-                            .putExtra("action", "forward")
-                            .putExtra("reference", data.message.id);
-                    if (available)
-                        context.startActivity(forward);
-                    else
-                        new DialogBuilderLifecycle(context, owner)
-                                .setMessage(R.string.title_attachment_unavailable)
-                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        context.startActivity(forward);
-                                    }
-                                })
-                                .setNegativeButton(android.R.string.cancel, null)
-                                .show();
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
-                }
-            }.execute(context, owner, args, "message:forward");
+            Intent forward = new Intent(context, ActivityCompose.class)
+                    .putExtra("action", "forward")
+                    .putExtra("reference", data.message.id);
+            context.startActivity(forward);
         }
 
         private void onMenuUnseen(final ActionData data) {
@@ -2947,48 +2910,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onMenuReply(final ActionData data, String action) {
-            Bundle args = new Bundle();
-            args.putLong("id", data.message.id);
-            args.putString("action", action);
-
-            new SimpleTask<Boolean>() {
-                @Override
-                protected Boolean onExecute(Context context, Bundle args) {
-                    long id = args.getLong("id");
-
-                    DB db = DB.getInstance(context);
-                    List<EntityAttachment> attachments = db.attachment().getAttachments(id);
-                    for (EntityAttachment attachment : attachments)
-                        if (!attachment.available && attachment.isInline() && attachment.isImage())
-                            return false;
-                    return true;
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, Boolean available) {
-                    final Intent reply = new Intent(context, ActivityCompose.class)
-                            .putExtra("action", args.getString("action"))
-                            .putExtra("reference", data.message.id);
-                    if (available)
-                        context.startActivity(reply);
-                    else
-                        new DialogBuilderLifecycle(context, owner)
-                                .setMessage(R.string.title_image_unavailable)
-                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        context.startActivity(reply);
-                                    }
-                                })
-                                .setNegativeButton(android.R.string.cancel, null)
-                                .show();
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
-                }
-            }.execute(context, owner, args, "message:reply");
+            Intent reply = new Intent(context, ActivityCompose.class)
+                    .putExtra("action", action)
+                    .putExtra("reference", data.message.id);
+            context.startActivity(reply);
         }
 
         private void onMenuAnswer(final ActionData data) {

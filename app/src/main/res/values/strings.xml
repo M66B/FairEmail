@@ -421,8 +421,7 @@
     <string name="title_raw_saved">Raw message saved</string>
     <string name="title_attachment_saved">Attachment saved</string>
     <string name="title_attachments_saved">Attachments saved</string>
-    <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be added, continue?</string>
-    <string name="title_image_unavailable">Some images are not downloaded and will not be added, continue?</string>
+    <string name="title_attachments_incomplete">Some attachments or images were not downloaded and could not be added</string>
     <string name="title_ask_delete">Delete message permanently?</string>
     <string name="title_ask_delete_answer">Delete reply template permanently?</string>
     <string name="title_ask_delete_rule">Delete rule permanently?</string>
