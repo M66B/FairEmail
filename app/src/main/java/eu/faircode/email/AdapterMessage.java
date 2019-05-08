@@ -1748,7 +1748,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     public Drawable getDrawable(String source) {
                         Drawable image = HtmlHelper.decodeImage(source, message.id, show_images, tvBody);
 
-                        float width = tvBody.getWidth();
+                        ConstraintLayout.LayoutParams params =
+                                (ConstraintLayout.LayoutParams) tvBody.getLayoutParams();
+                        float width = context.getResources().getDisplayMetrics().widthPixels
+                                - params.leftMargin - params.rightMargin;
                         if (image.getIntrinsicWidth() > width) {
                             float scale = width / image.getIntrinsicWidth();
                             image.setBounds(0, 0,

@@ -92,6 +92,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.exifinterface.media.ExifInterface;
@@ -2818,7 +2819,10 @@ public class FragmentCompose extends FragmentBase {
                                 public Drawable getDrawable(String source) {
                                     Drawable image = HtmlHelper.decodeImage(source, id, show_images, tvReference);
 
-                                    float width = tvReference.getWidth();
+                                    ConstraintLayout.LayoutParams params =
+                                            (ConstraintLayout.LayoutParams) tvReference.getLayoutParams();
+                                    float width = context.getResources().getDisplayMetrics().widthPixels
+                                            - params.leftMargin - params.rightMargin;
                                     if (image.getIntrinsicWidth() > width) {
                                         float scale = width / image.getIntrinsicWidth();
                                         image.setBounds(0, 0,
