@@ -75,5 +75,4 @@ public class FixedRecyclerView extends RecyclerView {
             return false;
         }
     }
-
 }

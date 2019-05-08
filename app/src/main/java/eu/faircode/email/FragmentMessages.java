@@ -446,6 +446,14 @@ public class FragmentMessages extends FragmentBase {
 
         rvMessage.setAdapter(adapter);
 
+        rvMessage.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView rv, int dx, int dy) {
+                int pos = (rv.getChildCount() == 0 ? 0 : rv.getChildAt(0).getTop());
+                swipeRefresh.setEnabled(pull && pos >= 0);
+            }
+        });
+
         seekBar.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
