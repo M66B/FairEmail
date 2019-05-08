@@ -21,9 +21,10 @@ package eu.faircode.email;
 
 import android.os.Handler;
 
-import androidx.lifecycle.GenericLifecycleObserver;
 import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.paging.PagedList;
 
 import java.util.concurrent.ExecutorService;
@@ -50,17 +51,17 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         this.handler = new Handler();
         this.intf = intf;
 
-        owner.getLifecycle().addObserver(new GenericLifecycleObserver() {
-            @Override
-            public void onStateChanged(LifecycleOwner source, Lifecycle.Event event) {
-                if (event == Lifecycle.Event.ON_DESTROY)
-                    executor.submit(new Runnable() {
-                        @Override
-                        public void run() {
-                            model.clear();
-                            model = null;
-                        }
-                    });
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroyed() {
+                executor.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.i("Boundary destroy");
+                        model.clear();
+                        model = null;
+                    }
+                });
             }
         });
     }
