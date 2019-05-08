@@ -2074,6 +2074,8 @@ public class FragmentCompose extends FragmentBase {
                         draft.plain_only = ref.plain_only;
                         if (answer > 0)
                             body = EntityAnswer.getAnswerText(db, answer, draft.to) + body;
+
+                        EntityOperation.queue(context, db, ref, EntityOperation.SEEN, true);
                     }
 
                     // Select identity matching from address

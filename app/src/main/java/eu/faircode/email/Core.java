@@ -1898,8 +1898,11 @@ class Core {
             }
 
             if (notify_reply && message.content) {
-                Intent reply = new Intent(context, ServiceUI.class).setAction("reply:" + message.id);
-                PendingIntent piReply = PendingIntent.getService(context, ServiceUI.PI_REPLY, reply, PendingIntent.FLAG_UPDATE_CURRENT);
+                Intent reply = new Intent(context, ActivityCompose.class)
+                        .putExtra("action", args.getString("action"))
+                        .putExtra("reference", message.id);
+                reply.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                PendingIntent piReply = PendingIntent.getActivity(context, ActivityCompose.PI_REPLY, reply, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionReply = new NotificationCompat.Action.Builder(
                         R.drawable.baseline_reply_24,
                         context.getString(R.string.title_advanced_notify_action_reply),

@@ -48,6 +48,8 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
     static final int REQUEST_ATTACHMENT = 5;
     static final int REQUEST_ENCRYPT = 6;
 
+    static final int PI_REPLY = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

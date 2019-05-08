@@ -32,11 +32,10 @@ public class ServiceUI extends IntentService {
     static final int PI_CLEAR = 1;
     static final int PI_TRASH = 2;
     static final int PI_ARCHIVE = 3;
-    static final int PI_REPLY = 4;
-    static final int PI_FLAG = 6;
-    static final int PI_SEEN = 6;
-    static final int PI_IGNORED = 7;
-    static final int PI_SNOOZED = 8;
+    static final int PI_FLAG = 4;
+    static final int PI_SEEN = 5;
+    static final int PI_IGNORED = 6;
+    static final int PI_SNOOZED = 7;
 
     public ServiceUI() {
         this(ServiceUI.class.getName());
@@ -84,9 +83,6 @@ public class ServiceUI extends IntentService {
                 break;
             case "archive":
                 onArchive(id);
-                break;
-            case "reply":
-                onReply(id);
                 break;
             case "flag":
                 onFlag(id);
@@ -149,17 +145,6 @@ public class ServiceUI extends IntentService {
         } finally {
             db.endTransaction();
         }
-    }
-
-    private void onReply(long id) {
-        onSeen(id);
-
-        // No check for attachments
-        Intent reply = new Intent(this, ActivityCompose.class)
-                .putExtra("action", "reply")
-                .putExtra("reference", id);
-        reply.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(reply);
     }
 
     private void onFlag(long id) {
