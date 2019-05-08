@@ -824,21 +824,8 @@ public class MessageHelper {
 
         List<EntityAttachment> getAttachments() {
             List<EntityAttachment> result = new ArrayList<>();
-
             for (AttachmentPart apart : attachments)
                 result.add(apart.attachment);
-
-            // Fix duplicate CIDs
-            for (int i = 0; i < result.size(); i++) {
-                String cid = result.get(i).cid;
-                if (cid != null)
-                    for (int j = i + 1; j < result.size(); j++) {
-                        EntityAttachment a = result.get(j);
-                        if (cid.equals(a.cid))
-                            a.cid = null;
-                    }
-            }
-
             return result;
         }
 
@@ -937,6 +924,18 @@ public class MessageHelper {
         }
 
         getMessageParts(cmessage, parts, false);
+
+        // Fix duplicate CIDs
+        List<EntityAttachment> attachments = parts.getAttachments();
+        for (int i = 0; i < attachments.size(); i++) {
+            String cid = attachments.get(i).cid;
+            if (cid != null)
+                for (int j = i + 1; j < attachments.size(); j++) {
+                    EntityAttachment a = attachments.get(j);
+                    if (cid.equals(a.cid))
+                        a.cid = null;
+                }
+        }
 
         return parts;
     }
