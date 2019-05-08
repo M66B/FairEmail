@@ -1343,7 +1343,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             for (EntityAttachment attachment : db.attachment().getAttachments(message.id))
                                 if (attachment.progress == null && !attachment.available) {
                                     db.attachment().setProgress(attachment.id, 0);
-                                    EntityOperation.queue(context, db, msg, EntityOperation.ATTACHMENT, attachment.sequence);
+                                    EntityOperation.queue(context, db, msg, EntityOperation.ATTACHMENT, attachment.id);
                                 }
 
                         db.setTransactionSuccessful();
@@ -1691,7 +1691,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
                         for (EntityAttachment attachment : attachments)
                             if (!attachment.available && !TextUtils.isEmpty(attachment.cid))
-                                EntityOperation.queue(context, db, message, EntityOperation.ATTACHMENT, attachment.sequence);
+                                EntityOperation.queue(context, db, message, EntityOperation.ATTACHMENT, attachment.id);
 
                         db.setTransactionSuccessful();
                     } finally {

@@ -691,10 +691,14 @@ class Core {
         // Download attachment
         DB db = DB.getInstance(context);
 
-        int sequence = jargs.getInt(0);
+        long id = jargs.getLong(0);
 
         // Get attachment
-        EntityAttachment attachment = db.attachment().getAttachment(op.message, sequence);
+        EntityAttachment attachment = db.attachment().getAttachment(id);
+        if (attachment == null)
+            attachment = db.attachment().getAttachment(message.id, (int) id); // legacy
+        if (attachment == null)
+            throw new IllegalArgumentException("Attachment not found");
         if (attachment.available)
             return;
 
@@ -703,10 +707,28 @@ class Core {
         if (imessage == null)
             throw new MessageRemovedException();
 
-        // Download attachment
-        MessageHelper helper = new MessageHelper((MimeMessage) imessage);
-        MessageHelper.MessageParts parts = helper.getMessageParts();
-        parts.downloadAttachment(context, sequence - 1, attachment.id);
+        // Match attachment by attributes
+        // Some servers order attachments randomly
+        boolean found = false;
+        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+        for (EntityAttachment a : attachments) {
+            if (Objects.equals(a.name, attachment.name) &&
+                    Objects.equals(a.type, attachment.type) &&
+                    Objects.equals(a.disposition, attachment.disposition) &&
+                    Objects.equals(a.cid, attachment.cid) &&
+                    Objects.equals(a.encryption, attachment.encryption) &&
+                    Objects.equals(a.size, attachment.size)) {
+                found = true;
+
+                // Download attachment
+                MessageHelper helper = new MessageHelper((MimeMessage) imessage);
+                MessageHelper.MessageParts parts = helper.getMessageParts();
+                parts.downloadAttachment(context, a);
+            }
+        }
+
+        if (!found && !EntityFolder.DRAFTS.equals(folder.type))
+            throw new IllegalArgumentException("Attachment not found");
 
         updateMessageSize(context, message.id);
     }
@@ -1566,7 +1588,7 @@ class Core {
                 if (!attachment.available)
                     if (state.getNetworkState().isUnmetered() || (attachment.size != null && attachment.size < maxSize))
                         try {
-                            parts.downloadAttachment(context, attachment.sequence - 1, attachment.id);
+                            parts.downloadAttachment(context, attachment);
                         } catch (Throwable ex) {
                             Log.e(ex);
                         }

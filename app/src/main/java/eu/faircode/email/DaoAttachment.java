@@ -59,18 +59,14 @@ public interface DaoAttachment {
 
     @Query("SELECT * FROM attachment" +
             " WHERE message = :message" +
-            " AND cid = :cid")
+            " AND cid = :cid" +
+            " LIMIT 1")
     EntityAttachment getAttachment(long message, String cid);
 
     @Query("UPDATE attachment" +
             " SET message = :message" +
             " WHERE id = :id")
     void setMessage(long id, long message);
-
-    @Query("UPDATE attachment" +
-            " SET name = :name, type = :type, disposition = :disposition, cid = :cid, encryption = :encryption" +
-            " WHERE id = :id")
-    void setInfo(long id, String name, String type, String disposition, String cid, Integer encryption);
 
     @Query("UPDATE attachment" +
             " SET error = NULL, progress = :progress, available = 0" +

@@ -2182,7 +2182,7 @@ public class FragmentCompose extends FragmentBase {
                     List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
                     for (EntityAttachment attachment : attachments)
                         if (!attachment.available)
-                            EntityOperation.queue(context, db, draft, EntityOperation.ATTACHMENT, attachment.sequence);
+                            EntityOperation.queue(context, db, draft, EntityOperation.ATTACHMENT, attachment.id);
                 }
 
                 db.setTransactionSuccessful();

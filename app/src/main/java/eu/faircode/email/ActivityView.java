@@ -1390,7 +1390,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                     a.sequence = ++sequence;
                                     a.id = db.attachment().insertAttachment(a);
                                     try {
-                                        parts.downloadAttachment(context, index, a.id);
+                                        parts.downloadAttachment(context, a);
                                     } catch (Throwable ex) {
                                         Log.e(ex);
                                     }

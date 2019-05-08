@@ -826,34 +826,17 @@ public class MessageHelper {
             return result;
         }
 
-        void downloadAttachment(Context context, int index, long id) throws MessagingException, IOException {
-            Log.i("downloading attchment id=" + id + " seq=" + index);
-
-            // Attachments of drafts might not have been uploaded yet
-            if (index >= attachments.size()) {
-                Log.w("Attachment unavailable sequence=" + index + " size=" + attachments.size());
-                return;
-            }
+        void downloadAttachment(Context context, EntityAttachment attachment) throws MessagingException, IOException {
+            Log.i("downloading attachment id=" + attachment.id);
 
             DB db = DB.getInstance(context);
 
             // Get data
-            AttachmentPart apart = attachments.get(index);
-            EntityAttachment attachment = db.attachment().getAttachment(id);
-            if (attachment == null)
-                return;
-
-            // Set info again in case ordering changed
-            db.attachment().setInfo(id,
-                    apart.attachment.name,
-                    apart.attachment.type,
-                    apart.attachment.disposition,
-                    apart.attachment.cid,
-                    apart.attachment.encryption);
+            AttachmentPart apart = attachments.get(attachment.sequence - 1);
 
             // Download attachment
             File file = attachment.getFile(context);
-            db.attachment().setProgress(id, null);
+            db.attachment().setProgress(attachment.id, null);
             try (InputStream is = apart.part.getInputStream()) {
                 long size = 0;
                 long total = apart.part.getSize();
@@ -866,19 +849,19 @@ public class MessageHelper {
 
                         // Update progress
                         if (total > 0)
-                            db.attachment().setProgress(id, (int) (size * 100 / total));
+                            db.attachment().setProgress(attachment.id, (int) (size * 100 / total));
                     }
                 }
 
                 // Store attachment data
-                db.attachment().setDownloaded(id, size);
+                db.attachment().setDownloaded(attachment.id, size);
 
                 Log.i("Downloaded attachment size=" + size);
             } catch (FolderClosedIOException ex) {
                 throw new FolderClosedException(ex.getFolder(), "downloadAttachment", ex);
             } catch (Throwable ex) {
                 // Reset progress on failure
-                db.attachment().setError(id, Helper.formatThrowable(ex));
+                db.attachment().setError(attachment.id, Helper.formatThrowable(ex));
                 throw ex;
             }
         }
@@ -921,18 +904,6 @@ public class MessageHelper {
         }
 
         getMessageParts(cmessage, parts, false);
-
-        // Fix duplicate CIDs
-        List<EntityAttachment> attachments = parts.getAttachments();
-        for (int i = 0; i < attachments.size(); i++) {
-            String cid = attachments.get(i).cid;
-            if (cid != null)
-                for (int j = i + 1; j < attachments.size(); j++) {
-                    EntityAttachment a = attachments.get(j);
-                    if (cid.equals(a.cid))
-                        a.cid = null;
-                }
-        }
 
         return parts;
     }
