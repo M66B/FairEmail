@@ -31,6 +31,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -63,46 +64,46 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     private List<EntityAttachment> items = new ArrayList<>();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        View view;
-        ImageView ivDelete;
-        TextView tvName;
-        TextView tvType;
-        TextView tvSize;
-        ImageView ivStatus;
-        ImageView ivSave;
-        TextView tvDebug;
-        ProgressBar progressbar;
+        private View view;
+        private ImageButton ibDelete;
+        private TextView tvName;
+        private TextView tvType;
+        private TextView tvSize;
+        private ImageView ivStatus;
+        private ImageButton ibSave;
+        private TextView tvDebug;
+        private ProgressBar progressbar;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             view = itemView.findViewById(R.id.clItem);
-            ivDelete = itemView.findViewById(R.id.ivDelete);
+            ibDelete = itemView.findViewById(R.id.ibDelete);
             tvName = itemView.findViewById(R.id.tvName);
             tvType = itemView.findViewById(R.id.tvType);
             tvSize = itemView.findViewById(R.id.tvSize);
             ivStatus = itemView.findViewById(R.id.ivStatus);
-            ivSave = itemView.findViewById(R.id.ivSave);
+            ibSave = itemView.findViewById(R.id.ibSave);
             tvDebug = itemView.findViewById(R.id.tvDebug);
             progressbar = itemView.findViewById(R.id.progressbar);
         }
 
         private void wire() {
             view.setOnClickListener(this);
-            ivDelete.setOnClickListener(this);
-            ivSave.setOnClickListener(this);
+            ibDelete.setOnClickListener(this);
+            ibSave.setOnClickListener(this);
         }
 
         private void unwire() {
             view.setOnClickListener(null);
-            ivDelete.setOnClickListener(null);
-            ivSave.setOnClickListener(null);
+            ibDelete.setOnClickListener(null);
+            ibSave.setOnClickListener(null);
         }
 
         private void bindTo(EntityAttachment attachment) {
             view.setAlpha(attachment.isInline() ? Helper.LOW_LIGHT : 1.0f);
 
-            ivDelete.setVisibility(readonly ? View.GONE : attachment.isInline() ? View.INVISIBLE : View.VISIBLE);
+            ibDelete.setVisibility(readonly ? View.GONE : attachment.isInline() ? View.INVISIBLE : View.VISIBLE);
             tvName.setText(attachment.name);
             tvType.setText(attachment.type);
             tvType.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
@@ -122,7 +123,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     ivStatus.setVisibility(View.GONE);
             }
 
-            ivSave.setVisibility(readonly && attachment.available ? View.VISIBLE : View.GONE);
+            ibSave.setVisibility(readonly && attachment.available ? View.VISIBLE : View.GONE);
 
             if (attachment.progress != null)
                 progressbar.setProgress(attachment.progress);
@@ -146,9 +147,9 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 return;
             final EntityAttachment attachment = items.get(pos);
 
-            if (view.getId() == R.id.ivDelete)
+            if (view.getId() == R.id.ibDelete)
                 onDelete(attachment);
-            else if (view.getId() == R.id.ivSave)
+            else if (view.getId() == R.id.ibSave)
                 onSave(attachment);
             else {
                 if (attachment.available)

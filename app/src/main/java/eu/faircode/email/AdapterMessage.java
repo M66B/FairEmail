@@ -209,9 +209,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private ImageView ivExpanderAddress;
 
-        private ImageView ivSearchContact;
-        private ImageView ivNotifyContact;
-        private ImageView ivAddContact;
+        private ImageButton ibSearchContact;
+        private ImageButton ibNotifyContact;
+        private ImageButton ibAddContact;
 
         private TextView tvFromExTitle;
         private TextView tvToTitle;
@@ -297,9 +297,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ivExpanderAddress = itemView.findViewById(R.id.ivExpanderAddress);
 
-            ivSearchContact = itemView.findViewById(R.id.ivSearchContact);
-            ivNotifyContact = itemView.findViewById(R.id.ivNotifyContact);
-            ivAddContact = itemView.findViewById(R.id.ivAddContact);
+            ibSearchContact = itemView.findViewById(R.id.ibSearchContact);
+            ibNotifyContact = itemView.findViewById(R.id.ibNotifyContact);
+            ibAddContact = itemView.findViewById(R.id.ibAddContact);
 
             tvFromExTitle = itemView.findViewById(R.id.tvFromExTitle);
             tvToTitle = itemView.findViewById(R.id.tvToTitle);
@@ -391,10 +391,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivFlagged.setOnClickListener(this);
 
             ivExpanderAddress.setOnClickListener(this);
-            ivSearchContact.setOnClickListener(this);
-            ivNotifyContact.setOnClickListener(this);
-            ivNotifyContact.setOnLongClickListener(this);
-            ivAddContact.setOnClickListener(this);
+            ibSearchContact.setOnClickListener(this);
+            ibNotifyContact.setOnClickListener(this);
+            ibNotifyContact.setOnLongClickListener(this);
+            ibAddContact.setOnClickListener(this);
 
             btnDownloadAttachments.setOnClickListener(this);
             btnSaveAttachments.setOnClickListener(this);
@@ -415,10 +415,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivSnoozed.setOnClickListener(null);
             ivFlagged.setOnClickListener(null);
             ivExpanderAddress.setOnClickListener(null);
-            ivSearchContact.setOnClickListener(null);
-            ivNotifyContact.setOnClickListener(null);
-            ivNotifyContact.setOnLongClickListener(null);
-            ivAddContact.setOnClickListener(null);
+            ibSearchContact.setOnClickListener(null);
+            ibNotifyContact.setOnClickListener(null);
+            ibNotifyContact.setOnLongClickListener(null);
+            ibAddContact.setOnClickListener(null);
             btnDownloadAttachments.setOnClickListener(null);
             btnSaveAttachments.setOnClickListener(null);
             tbHtml.setOnCheckedChangeListener(null);
@@ -690,9 +690,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpAttachments.setVisibility(View.GONE);
             grpExpanded.setVisibility(View.GONE);
 
-            ivSearchContact.setVisibility(View.GONE);
-            ivNotifyContact.setVisibility(View.GONE);
-            ivAddContact.setVisibility(View.GONE);
+            ibSearchContact.setVisibility(View.GONE);
+            ibNotifyContact.setVisibility(View.GONE);
+            ibAddContact.setVisibility(View.GONE);
 
             tvFromExTitle.setVisibility(View.GONE);
             tvToTitle.setVisibility(View.GONE);
@@ -761,9 +761,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean hasFrom = (message.from != null && message.from.length > 0);
             boolean hasChannel = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
 
-            ivSearchContact.setVisibility(show_addresses && search && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
-            ivNotifyContact.setVisibility(show_addresses && hasChannel && hasFrom ? View.VISIBLE : View.GONE);
-            ivAddContact.setVisibility(show_addresses && contacts && hasFrom ? View.VISIBLE : View.GONE);
+            ibSearchContact.setVisibility(show_addresses && search && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+            ibNotifyContact.setVisibility(show_addresses && hasChannel && hasFrom ? View.VISIBLE : View.GONE);
+            ibAddContact.setVisibility(show_addresses && contacts && hasFrom ? View.VISIBLE : View.GONE);
 
             grpHeaders.setVisibility(show_headers ? View.VISIBLE : View.GONE);
             if (show_headers && message.headers == null) {
@@ -1055,11 +1055,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 onShowSnoozed(message);
             else if (view.getId() == R.id.ivFlagged)
                 onToggleFlag(message);
-            else if (view.getId() == R.id.ivSearchContact)
+            else if (view.getId() == R.id.ibSearchContact)
                 onSearchContact(message);
-            else if (view.getId() == R.id.ivNotifyContact)
+            else if (view.getId() == R.id.ibNotifyContact)
                 onNotifyContact(message);
-            else if (view.getId() == R.id.ivAddContact)
+            else if (view.getId() == R.id.ibAddContact)
                 onAddContact(message);
             else if (viewType == ViewType.THREAD) {
                 if (view.getId() == R.id.ivExpanderAddress)
