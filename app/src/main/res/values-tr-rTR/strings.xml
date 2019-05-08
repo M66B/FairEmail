@@ -127,6 +127,7 @@
     <string name="title_advanced_section_behavior">Davranış</string>
     <string name="title_advanced_section_notifications">Bildirimler</string>
     <string name="title_advanced_section_misc">Çeşitli</string>
+    <string name="title_advanced_enabled">Etkin</string>
     <string name="title_advanced_schedule">Program</string>
     <string name="title_advanced_unseen">Tüm okunmamış iletiler</string>
     <string name="title_advanced_flagged">Tüm yıldızlı iletiler</string>
@@ -150,6 +151,7 @@
     <string name="title_advanced_images">Bilinen kişiler için görselleri otomatik olarak göster</string>
     <string name="title_advanced_actionbar">İletişim etkinlik çubuğu</string>
     <string name="title_advanced_pull_refresh">Yenilemek için aşağıya çekin</string>
+    <string name="title_advanced_autoscroll">Yeni iletiler almak için üst tarafı kaydırın</string>
     <string name="title_advanced_swipenav">Sonraki / önceki sohbete gitmek için sola / sağa kaydırın</string>
     <string name="title_advanced_autoexpand">İletileri otomatik olarak aç </string>
     <string name="title_advanced_collapse">Konuşmalardaki mesajları \'geri\' seçeneğinde daralt</string>
@@ -157,15 +159,19 @@
     <string name="title_advanced_autonext">Sohbet kapatıldığında otomatik olarak sonraki sohbete git</string>
     <string name="title_advanced_autoread">İleti taşındığında otomatik olarak okundu diye işaretle</string>
     <string name="title_advanced_automove">İletileri taşımayı onaylayın</string>
+    <string name="title_advanced_autoresize">Ekli ve gömülü görüntüleri otomatik olarak yeniden boyutlandır</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d piksel</string>
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
     <string name="title_advanced_autosend">İleti göndermeyi onayla</string>
+    <string name="title_advanced_notify_group">Yeni ileti bildirimlerini gruplandır</string>
     <string name="title_advanced_notify_preview">Bildirimlerde ileti önizlemesini göster</string>
+    <string name="title_advanced_notify_actions">Bildirim eylemleri</string>
     <string name="title_advanced_notify_action_trash">Çöp kutusu</string>
     <string name="title_advanced_notify_action_archive">Arşiv</string>
     <string name="title_advanced_notify_action_reply">Yanıtla</string>
     <string name="title_advanced_notify_action_flag">Yıldız</string>
     <string name="title_advanced_notify_action_seen">Oku</string>
+    <string name="title_advanced_notify_action_hint">En fazla üç eylem gösterilecek</string>
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
     <string name="title_advanced_badge">Yeni ileti sayısını başlatıcıdaki simgede göster</string>
@@ -251,6 +257,7 @@
     <string name="title_no_sync">%1$s\'den beri eşzamanlama hataları</string>
     <string name="title_identity_required">İleti göndermek için bir kimlik gerekli</string>
     <string name="title_drafts_required">İleti göndermek için taslaklar klasörü gerekir</string>
+    <string name="title_account_setup_identity">Bu hesabı kaydettikten sonra bir kimlik ekleyin</string>
     <string name="title_account_delete">Bu hesap kalıcı olarak silinsin mi?</string>
     <string name="title_identity_delete">Bu kimlik kalıcı olarak silinsin mi?</string>
     <string name="title_edit_html">HTML olarak düzenle</string>
@@ -353,8 +360,6 @@
     <string name="title_raw_saved">Ham ileti kaydedildi</string>
     <string name="title_attachment_saved">Ek kaydedildi</string>
     <string name="title_attachments_saved">Ekler kaydedildi</string>
-    <string name="title_attachment_unavailable">Bazı eklentiler indirilmedi ve eklenmeyecek. Devam edilsin mi?</string>
-    <string name="title_image_unavailable">Bazı resimler indirilmemiş ve eklenmeyecek, devam edilsin mi?</string>
     <string name="title_ask_delete">İleti kalıcı olarak silinsin mi?</string>
     <string name="title_ask_delete_answer">Yanıt kalıbı kalıcı olarak silinsin mi?</string>
     <string name="title_ask_delete_rule">Kural kalıcı olarak silinsin mi?</string>
@@ -390,6 +395,7 @@
     <string name="title_add_attachment">Ek ekle</string>
     <string name="title_show_addresses">CC/BCC göster</string>
     <string name="title_insert_template">Kalıp ekle</string>
+    <string name="title_send_plain_text">Yalnızca düz metin gönder</string>
     <string name="title_from_missing">Gönderici Eksik</string>
     <string name="title_to_missing">Alıcı eksik</string>
     <string name="title_attachments_missing">Tüm ekler indirilmedi</string>
@@ -469,6 +475,7 @@
     <string name="title_legend_snoozed">Ertelendi</string>
     <string name="title_legend_browsed">Gözatılmış ve aranmış</string>
     <string name="title_legend_answered">Yanıtlandı</string>
+    <string name="title_legend_plain_only">Sadece düz metin mi</string>
     <string name="title_legend_receipt">Alındı belgesi istendi</string>
     <string name="title_legend_attachment">Eki var</string>
     <string name="title_legend_flagged">Yıldızlı</string>

@@ -368,8 +368,6 @@
     <string name="title_raw_saved">Mensaje raw guardado</string>
     <string name="title_attachment_saved">Adjunto guardado</string>
     <string name="title_attachments_saved">Adjuntos guardados</string>
-    <string name="title_attachment_unavailable">Algunos adjuntos no están descargados y no serán agregados, ¿continuar?</string>
-    <string name="title_image_unavailable">Algunas imágenes no están descargadas y no serán aagregadas, ¿continuar?</string>
     <string name="title_ask_delete">¿Eliminar mensaje permanentemente?</string>
     <string name="title_ask_delete_answer">¿Eliminar plantilla de respuesta permanentemente?</string>
     <string name="title_ask_delete_rule">¿Eliminar regla permanentemente?</string>

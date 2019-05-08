@@ -366,8 +366,6 @@
     <string name="title_raw_saved">Messaggio non elaborato salvato</string>
     <string name="title_attachment_saved">Allegato salvato</string>
     <string name="title_attachments_saved">Allegati salvati</string>
-    <string name="title_attachment_unavailable">Alcuni allegati non vengono scaricati e non verranno aggiunti, continuare?</string>
-    <string name="title_image_unavailable">Alcune immagini non vengono scaricate e non verranno aggiunte, continuare?</string>
     <string name="title_ask_delete">Eliminare il messaggio permanentemente?</string>
     <string name="title_ask_delete_answer">Elimina definitivamente il modello di risposta?</string>
     <string name="title_ask_delete_rule">Eliminare la regola permanentemente?</string>

@@ -360,8 +360,7 @@
     <string name="title_raw_saved">原始消息已保存</string>
     <string name="title_attachment_saved">附件已保存</string>
     <string name="title_attachments_saved">附件已保存</string>
-    <string name="title_attachment_unavailable">一些附件未被下载并将不会添加，仍要继续吗？</string>
-    <string name="title_image_unavailable">一些附件未被下载并将不会添加，仍要继续吗？</string>
+    <string name="title_attachments_incomplete">一些附件或图像没有下载，且无法添加</string>
     <string name="title_ask_delete">确定要永久删除邮件吗？</string>
     <string name="title_ask_delete_answer">是否永久性删除回复模板？</string>
     <string name="title_ask_delete_rule">是否永久删除规则？</string>

@@ -384,8 +384,6 @@
     <string name="title_raw_saved">Zdrojová zpráva uložena</string>
     <string name="title_attachment_saved">Příloha uložena</string>
     <string name="title_attachments_saved">Přílohy uloženy</string>
-    <string name="title_attachment_unavailable">Některé přílohy nejsou staženy a nebudou zahrnuty. Pokračovat?</string>
-    <string name="title_image_unavailable">Některé obrázky nejsou staženy a nebudou zahrnuty. Pokračovat?</string>
     <string name="title_ask_delete">Trvale odstranit zprávu?</string>
     <string name="title_ask_delete_answer">Trvale odstranit šablonu odpovědi?</string>
     <string name="title_ask_delete_rule">Trvale odstranit pravidlo?</string>

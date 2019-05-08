@@ -384,8 +384,7 @@
     <string name="title_raw_saved">Оригинал сообщения сохранён</string>
     <string name="title_attachment_saved">Файл сохранен</string>
     <string name="title_attachments_saved">Вложения сохранены</string>
-    <string name="title_attachment_unavailable">Некоторые вложения не загружены и не будут пересылаться, продолжить?</string>
-    <string name="title_image_unavailable">Некоторые изображения не загружены и не будут добавленны, продолжить?</string>
+    <string name="title_attachments_incomplete">Некоторые вложения или изображения не были загружены и не могут быть добавлены</string>
     <string name="title_ask_delete">Удалить сообщение навсегда?</string>
     <string name="title_ask_delete_answer">Удалить шаблон ответа навсегда?</string>
     <string name="title_ask_delete_rule">Удалить правило навсегда?</string>

@@ -366,8 +366,6 @@
     <string name="title_raw_saved">Mensagem bruta salva</string>
     <string name="title_attachment_saved">Anexo salvo</string>
     <string name="title_attachments_saved">Anexos salvos</string>
-    <string name="title_attachment_unavailable">Alguns anexos não foram baixados e não serão adicionados, continuar?</string>
-    <string name="title_image_unavailable">Algumas imagens não foram baixadas e não serão adicionadas, continuar?</string>
     <string name="title_ask_delete">Deletar mensagem permanentemente?</string>
     <string name="title_ask_delete_answer">Excluir modelo de resposta permanentemente?</string>
     <string name="title_ask_delete_rule">Excluir regra permanentemente?</string>

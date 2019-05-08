@@ -301,7 +301,7 @@
     <string name="title_folder_name_missing">Nom de dossier manquant</string>
     <string name="title_folder_exists">Le dossier %1$s existe</string>
     <string name="title_folder_delete">Supprimer définitivement ce dossier et tous les messages qu\'il contient ?</string>
-    <string name="title_folder_unified">Boite de réception unifiée</string>
+    <string name="title_folder_unified">Boîte de réception unifiée</string>
     <string name="title_folder_inbox">Boîte de réception</string>
     <string name="title_folder_outbox">Boîte d\'envoi</string>
     <string name="title_folder_all">Archives</string>
@@ -313,7 +313,7 @@
     <string name="title_folder_user">Utilisateur</string>
     <string name="title_folder_primary">Dossiers du compte principal</string>
     <string name="title_folder_thread">Fil de discussion %1$s</string>
-    <string name="title_folders_unified">Dossiers de boîte de réception unifiée</string>
+    <string name="title_folders_unified">Dossiers de la boîte de réception unifiée</string>
     <string name="title_no_messages">Aucun message</string>
     <string name="title_subject_reply">Re : %1$s</string>
     <string name="title_subject_forward">Tr : %1$s</string>
@@ -368,8 +368,7 @@
     <string name="title_raw_saved">Message brut enregistré</string>
     <string name="title_attachment_saved">Pièce jointe enregistrée</string>
     <string name="title_attachments_saved">Pièces jointes enregistrées</string>
-    <string name="title_attachment_unavailable">Certaines pièces jointes ne sont pas téléchargées et ne seront pas ajoutées, continuer ?</string>
-    <string name="title_image_unavailable">Certaines images ne sont pas téléchargées et ne seront pas ajoutées, continuer ?</string>
+    <string name="title_attachments_incomplete">Certaines pièces jointes ou images n\'ont pas été téléchargées et n\'ont pas pu être ajoutées</string>
     <string name="title_ask_delete">Supprimer ce message définitivement ?</string>
     <string name="title_ask_delete_answer">Supprimer définitivement le modèle de réponse ?</string>
     <string name="title_ask_delete_rule">Supprimer définitivement la règle ?</string>
@@ -589,7 +588,7 @@
         <item>Toutes les 4 heures</item>
     </string-array>
     <string-array name="startupNames">
-        <item>Boite de réception unifiée</item>
+        <item>Boîte de réception unifiée</item>
         <item>Dossiers unifiés</item>
         <item>Comptes</item>
     </string-array>

@@ -368,8 +368,6 @@
     <string name="title_raw_saved">Raakaviesti tallennettu</string>
     <string name="title_attachment_saved">Liite tallennettu</string>
     <string name="title_attachments_saved">Liitteet tallennettu</string>
-    <string name="title_attachment_unavailable">Joitakin liitteitä ei ole ladattu eikä niitä lisätä, jatketaanko?</string>
-    <string name="title_image_unavailable">Joitakin kuvia ei ole ladattu eikä niitä lisätä, jatketaanko?</string>
     <string name="title_ask_delete">Poistetaanko viesti pysyvästi?</string>
     <string name="title_ask_delete_answer">Poistetaanko vastausmalli pysyvästi?</string>
     <string name="title_ask_delete_rule">Poistetaanko sääntö pysyvästi?</string>

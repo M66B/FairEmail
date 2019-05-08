@@ -244,8 +244,6 @@
     <string name="title_raw_saved">پیام خام ذخیره شد</string>
     <string name="title_attachment_saved">پیوست ذخیره شد</string>
     <string name="title_attachments_saved">پیوست ها ذخیره شدند</string>
-    <string name="title_attachment_unavailable">برخی پیوست ها دانلود نشده و اضافه نخواهند شد. آیا ادامه می‌دهید؟</string>
-    <string name="title_image_unavailable">برخی تصاویر دانلود نشده و اضافه نخواهند شد. آیا ادامه می‌دهید؟</string>
     <string name="title_ask_delete">پیام به صورت همیشگی حذف شود؟</string>
     <string name="title_ask_delete_answer">الگوی پاسخ به صورت همیشگی حذف شود؟</string>
     <string name="title_ask_delete_rule">دستور به صورت همیشگی حذف شود؟</string>

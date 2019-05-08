@@ -132,12 +132,17 @@
     <string name="title_setup_defaults">Restabiliți valorile implicite</string>
     <string name="title_setup_options">Opţiuni</string>
     <string name="title_advanced">Opțiuni avansate</string>
+    <string name="title_advanced_section_synchronize">Sincronizare</string>
     <string name="title_advanced_section_connection">Conexiune</string>
     <string name="title_advanced_section_display">Afișare</string>
     <string name="title_advanced_section_behavior">Comportament</string>
     <string name="title_advanced_section_notifications">Notificări</string>
     <string name="title_advanced_section_misc">Diverse</string>
+    <string name="title_advanced_enabled">Activat</string>
+    <string name="title_advanced_when">Când</string>
     <string name="title_advanced_schedule">Programat</string>
+    <string name="title_advanced_unseen">Toate mesajele necitite</string>
+    <string name="title_advanced_flagged">Toate mesajele marcate</string>
     <string name="title_advanced_metered">Folosește conexiuni contorizate</string>
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
     <string name="title_advanced_roaming">Descărcarea mesajelor și a atașamentelor prin conexiuni roaming</string>
@@ -171,6 +176,7 @@
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_advanced_prefix_once">Adaugă prefix la subiect o singură dată pentru răspuns sau redirecționare</string>
     <string name="title_advanced_autosend">Confirmă trimiterea mesajelor</string>
+    <string name="title_advanced_notify_group">Grupează notificări mesaje noi</string>
     <string name="title_advanced_notify_preview">Arată previzualizare mesaj în notificare</string>
     <string name="title_advanced_notify_actions">Acțiuni la notificare</string>
     <string name="title_advanced_notify_action_trash">Gunoi</string>
@@ -267,6 +273,7 @@
     <string name="title_no_sync">Erori de sincronizare începând cu %1$s</string>
     <string name="title_identity_required">O identitate este necesară pentru a trimite mesaje</string>
     <string name="title_drafts_required">Un dosar de ciorne este necesar pentru a trimite mesaje</string>
+    <string name="title_account_setup_identity">Adaugă o identitate după salvarea acestui cont</string>
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
     <string name="title_edit_html">Editează ca HTML</string>
@@ -274,6 +281,7 @@
     <string name="title_pop3_hint">POP3 are limitări semnificative, așa ca folosiți IMAP dacă se poate</string>
     <string name="title_pop3_support">POP3 nu este suportat activ, vedeți de asemenea secțiunea de întrebări și răspunsuri</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
+    <string name="title_synchronize_enabled">Sincronizare</string>
     <string name="title_delete_local">Șterge mesajul local</string>
     <string name="title_delete_browsed">Șterge mesajele răsfoite/căutate</string>
     <string name="title_empty_trash">Golire coș de gunoi</string>
@@ -368,8 +376,6 @@
     <string name="title_raw_saved">Mesaj original salvat</string>
     <string name="title_attachment_saved">Atașament salvat</string>
     <string name="title_attachments_saved">Atașamente salvate</string>
-    <string name="title_attachment_unavailable">Unele fișiere atașate nu sunt descărcate și nu vor fi adăugate, continuați?</string>
-    <string name="title_image_unavailable">Unele imagini nu sunt descărcate și nu vor fi adăugate, continuați?</string>
     <string name="title_ask_delete">Ștergeți definitiv mesajul?</string>
     <string name="title_ask_delete_answer">Se șterge permanent șablonul de răspuns?</string>
     <string name="title_ask_delete_rule">Ștergeți regula definitiv?</string>

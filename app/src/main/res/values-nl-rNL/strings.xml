@@ -368,8 +368,7 @@
     <string name="title_raw_saved">Ruw bericht opgeslagen</string>
     <string name="title_attachment_saved">Bijlage opgeslagen</string>
     <string name="title_attachments_saved">Bijlagen opgeslagen</string>
-    <string name="title_attachment_unavailable">Sommige bijlagen zijn niet gedownload en zullen niet toegevoegd worden, doorgaan?</string>
-    <string name="title_image_unavailable">Sommige afbeeldingen zijn niet gedownload en zullen niet toegevoegd worden, doorgaan?</string>
+    <string name="title_attachments_incomplete">Sommige bijlagen of afbeeldingen zijn niet gedownload en konden niet worden toegevoegd</string>
     <string name="title_ask_delete">Verwijder bericht permanent?</string>
     <string name="title_ask_delete_answer">Verwijder antwoordsjabloon permanent?</string>
     <string name="title_ask_delete_rule">Verwijder regel permanent?</string>
