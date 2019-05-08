@@ -116,12 +116,17 @@
     <string name="title_setup_defaults">恢复默认设置</string>
     <string name="title_setup_options">选项</string>
     <string name="title_advanced">高级选项</string>
+    <string name="title_advanced_section_synchronize">同步</string>
     <string name="title_advanced_section_connection">连接</string>
     <string name="title_advanced_section_display">显示</string>
     <string name="title_advanced_section_behavior">行为</string>
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">杂项</string>
+    <string name="title_advanced_enabled">开启</string>
+    <string name="title_advanced_when">何时</string>
     <string name="title_advanced_schedule">任务计划</string>
+    <string name="title_advanced_unseen">所有未读消息</string>
+    <string name="title_advanced_flagged">所有已标星消息</string>
     <string name="title_advanced_metered">使用按流量计费的连接</string>
     <string name="title_advanced_download">在计量的连接下自动下载邮件和附件, 最高可达</string>
     <string name="title_advanced_roaming">漫游时下载消息和附件</string>
@@ -155,6 +160,7 @@
     <string name="title_advanced_sender">允许编辑发件人地址</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
     <string name="title_advanced_autosend">确认发送邮件</string>
+    <string name="title_advanced_notify_group">对新消息通知分组</string>
     <string name="title_advanced_notify_preview">通知中显示消息预览</string>
     <string name="title_advanced_notify_actions">通知操作</string>
     <string name="title_advanced_notify_action_trash">垃圾箱</string>
@@ -251,6 +257,7 @@
     <string name="title_no_sync">从 %1$s 开始同步错误</string>
     <string name="title_identity_required">需要一个身份来发送消息</string>
     <string name="title_drafts_required">需要一个草稿文件夹来发送消息</string>
+    <string name="title_account_setup_identity">保存此账户后添加一个身份</string>
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
     <string name="title_edit_html">以 html 格式编辑</string>
@@ -258,6 +265,7 @@
     <string name="title_pop3_hint">POP3协议有很大局限性，因此尽可能使用 IMAP</string>
     <string name="title_pop3_support">不支持POP3协议，另见FAQ</string>
     <string name="title_synchronize_now">现在同步</string>
+    <string name="title_synchronize_enabled">同步</string>
     <string name="title_delete_local">删除本地消息</string>
     <string name="title_delete_browsed">删除浏览过/搜索过的消息</string>
     <string name="title_empty_trash">清空垃圾箱</string>

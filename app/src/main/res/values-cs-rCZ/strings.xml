@@ -184,6 +184,7 @@
     <string name="title_advanced_sender">Umožnit úpravu adresy odesílatele</string>
     <string name="title_advanced_prefix_once">Přidat do předmětu pouze jednu předponu při odpovídání nebo přeposílání</string>
     <string name="title_advanced_autosend">Potvrzovat odesílání zpráv</string>
+    <string name="title_advanced_notify_group">Seskupovat oznámení nových zpráv</string>
     <string name="title_advanced_notify_preview">Zobrazit náhled zprávy v oznámení</string>
     <string name="title_advanced_notify_actions">Akce oznámení</string>
     <string name="title_advanced_notify_action_trash">Koš</string>
@@ -220,7 +221,7 @@
     <string name="title_advanced_badge_hint">K dispozici pouze v podporovaných spouštěčích aplikací</string>
     <string name="title_advanced_search_local_hint">Namísto vyhledávání v hlavní složce archivu na serveru</string>
     <string name="title_advanced_english_hint">Restartuje aplikaci</string>
-    <string name="title_advanced_paranoid_hint">Podrobnosti naleznete v častých dotazech</string>
+    <string name="title_advanced_paranoid_hint">Pro více informací si přečtěte časté dotazy</string>
     <string name="title_advanced_debug_hint">Zapnout rozšířený záznam a zobrazit ladící informace na různých místech</string>
     <string name="title_select">Vybrat &#8230;</string>
     <string name="title_identity_name">Vaše jméno</string>
@@ -280,6 +281,7 @@
     <string name="title_no_sync">Chyby synchronizace od %1$s</string>
     <string name="title_identity_required">Identita je vyžadována pro odesílání zpráv</string>
     <string name="title_drafts_required">Složka konceptů je vyžadována pro odesílání zpráv</string>
+    <string name="title_account_setup_identity">Přidat identitu po uložení tohoto účtu</string>
     <string name="title_account_delete">Trvale smazat tento účet?</string>
     <string name="title_identity_delete">Trvale smazat tuto identitu?</string>
     <string name="title_edit_html">Upravit jako HTML</string>

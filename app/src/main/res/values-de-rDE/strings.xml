@@ -168,6 +168,7 @@
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
     <string name="title_advanced_prefix_once">Betreff nur einmal beim Antworten oder Weiterleiten voranstellen</string>
     <string name="title_advanced_autosend">Senden von E-Mails bestätigen</string>
+    <string name="title_advanced_notify_group">Neue Nachrichten-Benachrichtigungen gruppieren</string>
     <string name="title_advanced_notify_preview">Zeige die Nachrichten-Vorschau in den Benachrichtigungen</string>
     <string name="title_advanced_notify_actions">Benachrichtigungsaktionen</string>
     <string name="title_advanced_notify_action_trash">Löschen</string>
@@ -264,6 +265,7 @@
     <string name="title_no_sync">Synchronisationsfehler seit %1$s</string>
     <string name="title_identity_required">Für das Senden von Nachrichten ist ein Name erforderlich</string>
     <string name="title_drafts_required">Ein Entwürfe-Ordner ist erforderlich, um Nachrichten zu senden</string>
+    <string name="title_account_setup_identity">Eine Identität nach dem Speichern dieses Kontos hinzufügen</string>
     <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
     <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
     <string name="title_edit_html">Als HTML bearbeiten</string>

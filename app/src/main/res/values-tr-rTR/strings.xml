@@ -121,11 +121,15 @@
     <string name="title_setup_defaults">Öntanımlıları geri yükle</string>
     <string name="title_setup_options">Seçenekler</string>
     <string name="title_advanced">Gelişmiş seçenekler</string>
+    <string name="title_advanced_section_synchronize">Eşzamanlama</string>
     <string name="title_advanced_section_connection">Bağlantı</string>
     <string name="title_advanced_section_display">Görüntüle</string>
     <string name="title_advanced_section_behavior">Davranış</string>
+    <string name="title_advanced_section_notifications">Bildirimler</string>
     <string name="title_advanced_section_misc">Çeşitli</string>
     <string name="title_advanced_schedule">Program</string>
+    <string name="title_advanced_unseen">Tüm okunmamış iletiler</string>
+    <string name="title_advanced_flagged">Tüm yıldızlı iletiler</string>
     <string name="title_advanced_metered">Ölçülü bağlantıları kullan</string>
     <string name="title_advanced_download">Mesajları ve ekleri ölçülü bir bağlantıya kadar otomatik olarak indir</string>
     <string name="title_advanced_roaming">Gezeleme yaparken iletileri ve ekleri indir</string>
@@ -157,6 +161,11 @@
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
     <string name="title_advanced_autosend">İleti göndermeyi onayla</string>
     <string name="title_advanced_notify_preview">Bildirimlerde ileti önizlemesini göster</string>
+    <string name="title_advanced_notify_action_trash">Çöp kutusu</string>
+    <string name="title_advanced_notify_action_archive">Arşiv</string>
+    <string name="title_advanced_notify_action_reply">Yanıtla</string>
+    <string name="title_advanced_notify_action_flag">Yıldız</string>
+    <string name="title_advanced_notify_action_seen">Oku</string>
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
     <string name="title_advanced_badge">Yeni ileti sayısını başlatıcıdaki simgede göster</string>
@@ -249,6 +258,7 @@
     <string name="title_pop3_hint">POP3\'ün önemli sınırlamaları var, mümkünse IMAP kullanın</string>
     <string name="title_pop3_support">POP3 desteklenmiyor, ayrıca SSS bölümüne bakınız</string>
     <string name="title_synchronize_now">Şimdi eşzamanla</string>
+    <string name="title_synchronize_enabled">Eşzamanlama</string>
     <string name="title_delete_local">Yerel iletileri sil</string>
     <string name="title_delete_browsed">Gözatılmış/aranmış iletileri sil</string>
     <string name="title_empty_trash">Çöpü boşalt</string>
@@ -423,6 +433,7 @@
     <string name="title_answer_template_name">$name$ gönderenin tam adı ile değiştirilecek</string>
     <string name="title_answer_template_email">$email$ gönderenin e-posta adresi ile değiştirilecek</string>
     <string name="title_rule_caption">Kuralı düzenle</string>
+    <string name="title_rule_title">Kural geçerlidir</string>
     <string name="title_rule_name">Ad</string>
     <string name="title_rule_order">Sıralama</string>
     <string name="title_rule_enabled">Etkin</string>

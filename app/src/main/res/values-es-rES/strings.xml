@@ -168,6 +168,7 @@
     <string name="title_advanced_sender">Permitir editar dirección del remitente</string>
     <string name="title_advanced_prefix_once">Prefijar el asunto solo una vez al responder o reenviar</string>
     <string name="title_advanced_autosend">Confirmar enviar mensajes</string>
+    <string name="title_advanced_notify_group">Agrupar notificaciones de nuevos mensajes</string>
     <string name="title_advanced_notify_preview">Mostrar vista previa del mensaje en notificaciones</string>
     <string name="title_advanced_notify_actions">Acciones de notificación</string>
     <string name="title_advanced_notify_action_trash">Papelera</string>
@@ -264,6 +265,7 @@
     <string name="title_no_sync">Errores de sincronización desde %1$s</string>
     <string name="title_identity_required">Se requiere una identidad para enviar mensajes</string>
     <string name="title_drafts_required">Una carpeta de borradores es necesaria para enviar mensajes</string>
+    <string name="title_account_setup_identity">Añadir una identidad después de guardar esta cuenta</string>
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
     <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
     <string name="title_edit_html">Editar como HTML</string>

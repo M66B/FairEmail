@@ -168,6 +168,7 @@
     <string name="title_advanced_sender">Salli lähetysosoitteen muokkaaminen</string>
     <string name="title_advanced_prefix_once">Lisää aiheeseen etuliite vain kerran vastatessa ja edelleenlähetettäessä</string>
     <string name="title_advanced_autosend">Vahvista viestien lähetys</string>
+    <string name="title_advanced_notify_group">Ryhmittele uusien viestien ilmoitukset</string>
     <string name="title_advanced_notify_preview">Näytä viestin esikatselu ilmoituksissa</string>
     <string name="title_advanced_notify_actions">Ilmoituksen toiminnot</string>
     <string name="title_advanced_notify_action_trash">Roskakoriin</string>
@@ -264,6 +265,7 @@
     <string name="title_no_sync">Synkronointivirheitä alkaen %1$s</string>
     <string name="title_identity_required">Viestien lähettämiseen tarvitaan identiteetti</string>
     <string name="title_drafts_required">Viestien lähettämiseen tarvitaan luonnoskansio</string>
+    <string name="title_account_setup_identity">Lisää identiteetti tilin tallennuksen jälkeen</string>
     <string name="title_account_delete">Poistetaanko tämä tili pysyvästi?</string>
     <string name="title_identity_delete">Poistetaanko tämä identiteetti pysyvästi?</string>
     <string name="title_edit_html">Muokkaa HTML-muodossa</string>

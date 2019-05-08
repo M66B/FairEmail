@@ -184,6 +184,7 @@
     <string name="title_advanced_sender">Разрешить редактирование адреса отправителя</string>
     <string name="title_advanced_prefix_once">Добавлять только один префикс темы при ответе или пересылке</string>
     <string name="title_advanced_autosend">Подтверждать отправку сообщений</string>
+    <string name="title_advanced_notify_group">Группировать новые уведомления</string>
     <string name="title_advanced_notify_preview">Предпросмотр сообщений в уведомлениях</string>
     <string name="title_advanced_notify_actions">Действия с уведомлениями</string>
     <string name="title_advanced_notify_action_trash">Корзина</string>
@@ -280,6 +281,7 @@
     <string name="title_no_sync">Ошибки синхронизации после %1$s</string>
     <string name="title_identity_required">Для отправки сообщений требуется идентификатор</string>
     <string name="title_drafts_required">Для отправки сообщений требуется папка черновиков</string>
+    <string name="title_account_setup_identity">Добавить идентификатор после сохранения этой учетной записи</string>
     <string name="title_account_delete">Удалить эту учетную запись навсегда?</string>
     <string name="title_identity_delete">Удалить эту учетную запись навсегда?</string>
     <string name="title_edit_html">Редактировать как HTML</string>

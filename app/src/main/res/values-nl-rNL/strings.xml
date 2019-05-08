@@ -168,6 +168,7 @@
     <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
     <string name="title_advanced_prefix_once">Prefix onderwerp slechts één keer bij beantwoorden of doorsturen</string>
     <string name="title_advanced_autosend">Bevestig het verzenden van berichten</string>
+    <string name="title_advanced_notify_group">Groepeer meldingen nieuwe berichten</string>
     <string name="title_advanced_notify_preview">Toon berichtvoorbeeld in meldingen</string>
     <string name="title_advanced_notify_actions">Meldingsacties</string>
     <string name="title_advanced_notify_action_trash">Weggooien</string>
@@ -264,6 +265,7 @@
     <string name="title_no_sync">Synchronisatiefouten sinds %1$s</string>
     <string name="title_identity_required">Een identiteit is vereist om berichten te verzenden</string>
     <string name="title_drafts_required">Een concepten map is vereist om berichten te verzenden</string>
+    <string name="title_account_setup_identity">Een identiteit toevoegen na het opslaan van dit account</string>
     <string name="title_account_delete">Verwijder dit account permanent?</string>
     <string name="title_identity_delete">Verwijder deze identiteit permanent?</string>
     <string name="title_edit_html">Bewerk HTML</string>
