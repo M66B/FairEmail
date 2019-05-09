@@ -308,8 +308,11 @@ public class ServiceSynchronize extends LifecycleService {
                 am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + ONESHOT_DURATION, piOneshot);
             else
                 am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + ONESHOT_DURATION, piOneshot);
+
+            if (!started)
+                onReload(true, "oneshot start");
         } else
-            onReload(true, "oneshot");
+            onReload(true, "oneshot end");
     }
 
     private void queue_reload(final boolean start, final boolean clear, final String reason) {
