@@ -154,6 +154,7 @@
     <string name="title_advanced">Advanced options</string>
 
     <string name="title_advanced_section_synchronize">Synchronize</string>
+    <string name="title_advanced_section_send">Send</string>
     <string name="title_advanced_section_connection">Connection</string>
     <string name="title_advanced_section_display">Display</string>
     <string name="title_advanced_section_behavior">Behavior</string>
@@ -199,8 +200,10 @@
     <string name="title_advanced_autoresize">Automatically resize attached and embedded images</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_sender">Allow editing sender address</string>
+
     <string name="title_advanced_prefix_once">Prefix subject only once on replying or forwarding</string>
     <string name="title_advanced_autosend">Confirm sending messages</string>
+    <string name="title_advanced_send_delayed">Delay sending messages</string>
 
     <string name="title_advanced_notify_group">Group new message notifications</string>
     <string name="title_advanced_notify_preview">Show message preview in notifications</string>
@@ -470,6 +473,7 @@
     <string name="title_draft_saved">Draft saved</string>
     <string name="title_ask_send_via">Send message to %1$s via %2$s?</string>
     <string name="title_queued">Sending message</string>
+    <string name="title_queued_at">Message will be sent around %1$s</string>
 
     <string name="title_encrypt">Encrypt</string>
     <string name="title_decrypt">Decrypt</string>
@@ -675,6 +679,26 @@
         <item>60</item>
         <item>120</item>
         <item>240</item>
+    </integer-array>
+
+    <string-array name="sendDelayedNames">
+        <item>Never</item>
+        <item>15 seconds</item>
+        <item>30 seconds</item>
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+    </string-array>
+
+    <integer-array name="sendDelayedValues" translatable="false">
+        <item>0</item>
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+        <item>300</item>
+        <item>600</item>
     </integer-array>
 
     <string-array name="startupValues" translatable="false">

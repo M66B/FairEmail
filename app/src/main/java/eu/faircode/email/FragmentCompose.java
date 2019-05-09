@@ -126,6 +126,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -2647,17 +2649,32 @@ public class FragmentCompose extends FragmentBase {
                     for (EntityAttachment attachment : attachments)
                         db.attachment().setMessage(attachment.id, draft.id);
 
+                    // Delay sending message
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    int send_delayed = prefs.getInt("send_delayed", 0);
+                    if (send_delayed != 0) {
+                        draft.ui_snoozed = new Date().getTime() + send_delayed * 1000L;
+                        db.message().setMessageSnoozed(draft.id, draft.ui_snoozed);
+                    }
+
+                    // Send message
                     if (draft.ui_snoozed == null)
                         EntityOperation.queue(context, db, draft, EntityOperation.SEND);
 
-                    if (draft.ui_snoozed == null) {
-                        Handler handler = new Handler(context.getMainLooper());
-                        handler.post(new Runnable() {
-                            public void run() {
-                                Toast.makeText(context, R.string.title_queued, Toast.LENGTH_LONG).show();
-                            }
-                        });
+                    final String feedback;
+                    if (draft.ui_snoozed == null)
+                        feedback = context.getString(R.string.title_queued);
+                    else {
+                        DateFormat df = SimpleDateFormat.getDateTimeInstance();
+                        feedback = context.getString(R.string.title_queued_at, df.format(draft.ui_snoozed));
                     }
+
+                    Handler handler = new Handler(context.getMainLooper());
+                    handler.post(new Runnable() {
+                        public void run() {
+                            Toast.makeText(context, feedback, Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }
 
                 db.setTransactionSuccessful();

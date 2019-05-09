@@ -50,12 +50,10 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swAutoResize;
     private Spinner spAutoResize;
     private TextView tvAutoResize;
-    private SwitchCompat swPrefixOnce;
-    private SwitchCompat swAutoSend;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "pull", "autoscroll", "swipenav", "autoexpand", "autoclose", "autonext",
-            "collapse", "autoread", "automove", "autoresize", "resize", "prefix_once", "autosend"
+            "collapse", "autoread", "automove", "autoresize", "resize"
     };
 
     @Override
@@ -80,8 +78,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoResize = view.findViewById(R.id.swAutoResize);
         spAutoResize = view.findViewById(R.id.spAutoResize);
         tvAutoResize = view.findViewById(R.id.tvAutoResize);
-        swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
-        swAutoSend = view.findViewById(R.id.swAutoSend);
 
         setOptions();
 
@@ -175,20 +171,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
-        swPrefixOnce.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("prefix_once", checked).apply();
-            }
-        });
-
-        swAutoSend.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("autosend", !checked).apply();
-            }
-        });
-
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
@@ -254,8 +236,5 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
                 break;
             }
         spAutoResize.setEnabled(swAutoResize.isChecked());
-
-        swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", false));
-        swAutoSend.setChecked(!prefs.getBoolean("autosend", false));
     }
 }
