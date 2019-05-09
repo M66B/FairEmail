@@ -117,6 +117,7 @@ public class FragmentMessages extends FragmentBase {
     private TextView tvNoEmail;
     private FixedRecyclerView rvMessage;
     private SeekBar seekBar;
+    private ImageButton ibUp;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
     private Group grpSupport;
@@ -272,6 +273,7 @@ public class FragmentMessages extends FragmentBase {
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
         rvMessage = view.findViewById(R.id.rvMessage);
         seekBar = view.findViewById(R.id.seekBar);
+        ibUp = view.findViewById(R.id.ibUp);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
         grpSupport = view.findViewById(R.id.grpSupport);
@@ -333,7 +335,7 @@ public class FragmentMessages extends FragmentBase {
         rvMessage.setHasFixedSize(false);
         //rvMessage.setItemViewCacheSize(10);
         //rvMessage.getRecycledViewPool().setMaxRecycledViews(0, 10);
-        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        final LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvMessage.setLayoutManager(llm);
 
         DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
@@ -461,6 +463,22 @@ public class FragmentMessages extends FragmentBase {
             }
         });
 
+        ibUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int pos = llm.findLastVisibleItemPosition();
+                if (pos != RecyclerView.NO_POSITION)
+                    do {
+                        Long key = adapter.getKeyAtPosition(pos);
+                        if (key != null && isExpanded(key)) {
+                            rvMessage.scrollToPosition(pos);
+                            break;
+                        }
+                        pos--;
+                    } while (pos >= 0);
+            }
+        });
+
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -558,6 +576,7 @@ public class FragmentMessages extends FragmentBase {
         swipeRefresh.setEnabled(pull);
         tvNoEmail.setVisibility(View.GONE);
         seekBar.setVisibility(View.GONE);
+        ibUp.setVisibility(viewType == AdapterMessage.ViewType.THREAD ? View.VISIBLE : View.GONE);
         bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(false);
         bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(false);
         bottom_navigation.setVisibility(View.GONE);
@@ -1054,7 +1073,7 @@ public class FragmentMessages extends FragmentBase {
             if (message == null || message.uid == null)
                 return null;
 
-            if (values.containsKey("expanded") && values.get("expanded").contains(message.id))
+            if (isExpanded(message.id))
                 return null;
 
             if (EntityFolder.OUTBOX.equals(message.folderType))
@@ -1063,6 +1082,10 @@ public class FragmentMessages extends FragmentBase {
             return message;
         }
     };
+
+    private boolean isExpanded(long id) {
+        return (values.containsKey("expanded") && values.get("expanded").contains(id));
+    }
 
     private void onActionMove(String folderType) {
         Bundle args = new Bundle();
