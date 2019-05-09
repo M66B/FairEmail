@@ -765,8 +765,6 @@ public class FragmentCompose extends FragmentBase {
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
 
-        menu.findItem(R.id.menu_addresses).setVisible(false);
-        //menu.findItem(R.id.menu_addresses).setVisible(working >= 0);
         menu.findItem(R.id.menu_zoom).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_media_toolbar).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_clear).setVisible(state == State.LOADED);
@@ -798,9 +796,6 @@ public class FragmentCompose extends FragmentBase {
             case android.R.id.home:
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                     handleExit();
-                return true;
-            case R.id.menu_addresses:
-                onMenuAddresses();
                 return true;
             case R.id.menu_zoom:
                 onMenuZoom();

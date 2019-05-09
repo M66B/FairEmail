@@ -148,7 +148,7 @@
                 android:layout_height="24dp"
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
-                android:contentDescription="@string/title_legend_pick"
+                android:contentDescription="@string/title_show_addresses"
                 android:src="@drawable/baseline_people_24"
                 app:layout_constraintBottom_toBottomOf="@id/etSubject"
                 app:layout_constraintEnd_toEndOf="parent"

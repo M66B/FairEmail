@@ -2,12 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu_addresses"
-        android:icon="@drawable/baseline_people_24"
-        android:title="@string/title_show_addresses"
-        app:showAsAction="ifRoom" />
-
-    <item
         android:id="@+id/menu_zoom"
         android:icon="@drawable/baseline_format_size_24"
         android:title="@string/title_zoom"
