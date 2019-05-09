@@ -121,8 +121,8 @@
     <string name="title_setup_black_theme">Tema escuro</string>
     <string name="title_setup_system_theme">Tema do sistema</string>
     <string name="title_setup_advanced">Avançado</string>
-    <string name="title_setup_defaults">Restaurar padrão</string>
     <string name="title_setup_options">Opções</string>
+    <string name="title_setup_defaults">Restaurar padrão</string>
     <string name="title_advanced">Opções avançadas</string>
     <string name="title_advanced_section_synchronize">Sincronizar</string>
     <string name="title_advanced_section_connection">Conexão</string>
@@ -397,7 +397,6 @@
     <string name="title_style_clear">Limpar formatação</string>
     <string name="title_style_link">Inserir link</string>
     <string name="title_style_image">Inserir imagem</string>
-    <string name="title_style_toolbar">Barra de estilo</string>
     <string name="title_add_attachment">Adicionar anexo</string>
     <string name="title_show_addresses">Mostrar CC/CCO</string>
     <string name="title_insert_contact_group">Inserir grupo de contato</string>

@@ -121,10 +121,12 @@
     <string name="title_setup_black_theme">Svart tema</string>
     <string name="title_setup_system_theme">System tema</string>
     <string name="title_setup_advanced">Avansert</string>
-    <string name="title_setup_defaults">Gjenopprett standarder</string>
     <string name="title_setup_options">Alternativer</string>
+    <string name="title_setup_defaults">Gjenopprett standarder</string>
+    <string name="title_setup_reset_questions">Tilbakestill spørsmål</string>
     <string name="title_advanced">Avanserte innstillinger</string>
     <string name="title_advanced_section_synchronize">Synkroniser</string>
+    <string name="title_advanced_section_send">Send</string>
     <string name="title_advanced_section_connection">Forbindelse</string>
     <string name="title_advanced_section_display">Vis</string>
     <string name="title_advanced_section_behavior">Oppførsel</string>
@@ -168,6 +170,7 @@
     <string name="title_advanced_sender">Tillat redigering av avsenderadresse</string>
     <string name="title_advanced_prefix_once">Prefiks emne bare en gang på svar eller videresending</string>
     <string name="title_advanced_autosend">Bekreft sending av meldinger</string>
+    <string name="title_advanced_send_delayed">Forsink sending av meldinger</string>
     <string name="title_advanced_notify_group">Grupper nye meldingsvarsler</string>
     <string name="title_advanced_notify_preview">Vis forhåndsvisning av melding i varsler</string>
     <string name="title_advanced_notify_actions">Varselshandlinger</string>
@@ -400,9 +403,12 @@
     <string name="title_style_clear">Fjern formatering</string>
     <string name="title_style_link">Sett inn lenke</string>
     <string name="title_style_image">Sett inn bilde</string>
-    <string name="title_style_toolbar">Stil verktøylinjen</string>
     <string name="title_add_attachment">Legg ved fil</string>
+    <string name="title_attachment_file">Legg ved fil</string>
+    <string name="title_attachment_photo">Ta bilde</string>
+    <string name="title_attachment_audio">Ta opp lyd</string>
     <string name="title_show_addresses">Vis Kopi/Blindkopi</string>
+    <string name="title_media_toolbar">Media verktøylinje</string>
     <string name="title_insert_contact_group">Sett inn kontaktgruppe</string>
     <string name="title_insert_template">Sett inn mal</string>
     <string name="title_send_plain_text">Send bare ren tekst</string>
@@ -413,6 +419,7 @@
     <string name="title_draft_saved">Utkast lagret</string>
     <string name="title_ask_send_via">Send meldingen til %1$s via %2$s?</string>
     <string name="title_queued">Sender melding</string>
+    <string name="title_queued_at">Melding vil bli sendt rundt %1$s</string>
     <string name="title_encrypt">Krypter</string>
     <string name="title_decrypt">Dekrypter</string>
     <string name="title_resync">Resync</string>
@@ -429,6 +436,7 @@
     <string name="title_sort_on_sender">Avsender</string>
     <string name="title_sort_on_subject">Emne</string>
     <string name="title_sort_on_size">Størrelse</string>
+    <string name="title_sort_on_snoozed">Utsatt</string>
     <string name="title_filter">Filter</string>
     <string name="title_filter_seen">Les</string>
     <string name="title_filter_snoozed">Utsatt</string>
@@ -586,6 +594,15 @@
         <item>Hver time</item>
         <item>Hver 2. time</item>
         <item>Hver 4. time</item>
+    </string-array>
+    <string-array name="sendDelayedNames">
+        <item>Aldri</item>
+        <item>15 sekunder</item>
+        <item>30 sekunder</item>
+        <item>1 minutt</item>
+        <item>2 minutter</item>
+        <item>5 minutter</item>
+        <item>10 minutter</item>
     </string-array>
     <string-array name="startupNames">
         <item>Enhetlig innboks</item>

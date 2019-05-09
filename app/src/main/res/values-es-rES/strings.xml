@@ -121,10 +121,12 @@
     <string name="title_setup_black_theme">Tema negro</string>
     <string name="title_setup_system_theme">Tema del sistema</string>
     <string name="title_setup_advanced">Avanzado</string>
-    <string name="title_setup_defaults">Restablecer ajustes por defecto</string>
     <string name="title_setup_options">Opciones</string>
+    <string name="title_setup_defaults">Restablecer ajustes por defecto</string>
+    <string name="title_setup_reset_questions">Restablecer preguntas</string>
     <string name="title_advanced">Opciones avanzadas</string>
     <string name="title_advanced_section_synchronize">Sincronizar</string>
+    <string name="title_advanced_section_send">Enviar</string>
     <string name="title_advanced_section_connection">Conexión</string>
     <string name="title_advanced_section_display">Mostrar</string>
     <string name="title_advanced_section_behavior">Comportamiento</string>
@@ -168,6 +170,7 @@
     <string name="title_advanced_sender">Permitir editar dirección del remitente</string>
     <string name="title_advanced_prefix_once">Prefijar el asunto solo una vez al responder o reenviar</string>
     <string name="title_advanced_autosend">Confirmar enviar mensajes</string>
+    <string name="title_advanced_send_delayed">Diferir envío de mensajes</string>
     <string name="title_advanced_notify_group">Agrupar notificaciones de nuevos mensajes</string>
     <string name="title_advanced_notify_preview">Mostrar vista previa del mensaje en notificaciones</string>
     <string name="title_advanced_notify_actions">Acciones de notificación</string>
@@ -368,6 +371,7 @@
     <string name="title_raw_saved">Mensaje raw guardado</string>
     <string name="title_attachment_saved">Adjunto guardado</string>
     <string name="title_attachments_saved">Adjuntos guardados</string>
+    <string name="title_attachments_incomplete">Algunos adjuntos o imágenes no fueron descargados y no pudieron añadirse</string>
     <string name="title_ask_delete">¿Eliminar mensaje permanentemente?</string>
     <string name="title_ask_delete_answer">¿Eliminar plantilla de respuesta permanentemente?</string>
     <string name="title_ask_delete_rule">¿Eliminar regla permanentemente?</string>
@@ -399,8 +403,10 @@
     <string name="title_style_clear">Borrar formato</string>
     <string name="title_style_link">Insertar enlace</string>
     <string name="title_style_image">Insertar imagen</string>
-    <string name="title_style_toolbar">Barra de herramientas de estilo</string>
     <string name="title_add_attachment">Agregar adjunto</string>
+    <string name="title_attachment_file">Adjuntar archivo</string>
+    <string name="title_attachment_photo">Tomar foto</string>
+    <string name="title_attachment_audio">Grabar audio</string>
     <string name="title_show_addresses">Mostrar CC/CCO</string>
     <string name="title_insert_contact_group">Insertar grupo de contactos</string>
     <string name="title_insert_template">Insertar plantilla</string>
@@ -412,6 +418,7 @@
     <string name="title_draft_saved">Borrador guardado</string>
     <string name="title_ask_send_via">¿Enviar mensaje a %1$s vía %2$s?</string>
     <string name="title_queued">Enviando mensaje</string>
+    <string name="title_queued_at">El mensaje será enviado alrededor de %1$s</string>
     <string name="title_encrypt">Cifrar</string>
     <string name="title_decrypt">Descifrar</string>
     <string name="title_resync">Resincronizar</string>
@@ -428,6 +435,7 @@
     <string name="title_sort_on_sender">Remitente</string>
     <string name="title_sort_on_subject">Asunto</string>
     <string name="title_sort_on_size">Tamaño</string>
+    <string name="title_sort_on_snoozed">Pospuesto</string>
     <string name="title_filter">Filtro</string>
     <string name="title_filter_seen">Leer</string>
     <string name="title_filter_snoozed">Pospuesto</string>
@@ -585,6 +593,15 @@
         <item>Cada hora</item>
         <item>Cada 2 horas</item>
         <item>Cada 4 horas</item>
+    </string-array>
+    <string-array name="sendDelayedNames">
+        <item>Nunca</item>
+        <item>15 segundos</item>
+        <item>30 segundos</item>
+        <item>1 minuto</item>
+        <item>2 minutos</item>
+        <item>5 minutos</item>
+        <item>10 minutos</item>
     </string-array>
     <string-array name="startupNames">
         <item>Bandeja de entrada unificada</item>

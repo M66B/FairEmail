@@ -121,8 +121,8 @@
     <string name="title_setup_black_theme">Tema nero</string>
     <string name="title_setup_system_theme">Tema di sistema</string>
     <string name="title_setup_advanced">Avanzate</string>
-    <string name="title_setup_defaults">Ripristina predefiniti</string>
     <string name="title_setup_options">Opzioni</string>
+    <string name="title_setup_defaults">Ripristina predefiniti</string>
     <string name="title_advanced">Opzioni avanzate</string>
     <string name="title_advanced_section_synchronize">Sincronizza</string>
     <string name="title_advanced_section_connection">Connessione</string>
@@ -168,6 +168,7 @@
     <string name="title_advanced_sender">Consenti la modifica dell\'indirizzo mittente</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta per rispondere o inoltrare</string>
     <string name="title_advanced_autosend">Confermare l\'invio dei messaggi</string>
+    <string name="title_advanced_notify_group">Raggruppa le nuove notifiche messaggi</string>
     <string name="title_advanced_notify_preview">Mostra anteprima messaggio nelle notifiche</string>
     <string name="title_advanced_notify_actions">Azioni di notifica</string>
     <string name="title_advanced_notify_action_trash">Cestino</string>
@@ -264,6 +265,7 @@
     <string name="title_no_sync">Errori di sincronizzazione da %1$s</string>
     <string name="title_identity_required">È necessaria un\'identità per inviare messaggi</string>
     <string name="title_drafts_required">Per inviare messaggi è necessaria una cartella bozze</string>
+    <string name="title_account_setup_identity">Aggiungi un\'identità dopo aver salvato questo account</string>
     <string name="title_account_delete">Eliminare questo account permanentemente?</string>
     <string name="title_identity_delete">Eliminare questa identità permanentemente?</string>
     <string name="title_edit_html">Modifica come HTML</string>
@@ -366,6 +368,7 @@
     <string name="title_raw_saved">Messaggio non elaborato salvato</string>
     <string name="title_attachment_saved">Allegato salvato</string>
     <string name="title_attachments_saved">Allegati salvati</string>
+    <string name="title_attachments_incomplete">Alcuni allegati o immagini non sono stati scaricati e non possono essere aggiunti</string>
     <string name="title_ask_delete">Eliminare il messaggio permanentemente?</string>
     <string name="title_ask_delete_answer">Elimina definitivamente il modello di risposta?</string>
     <string name="title_ask_delete_rule">Eliminare la regola permanentemente?</string>
@@ -397,7 +400,6 @@
     <string name="title_style_clear">Cancella formattazione</string>
     <string name="title_style_link">Inserisci collegamento</string>
     <string name="title_style_image">Inserisci immagine</string>
-    <string name="title_style_toolbar">Stile Barra strumenti</string>
     <string name="title_add_attachment">Aggiungi allegato</string>
     <string name="title_show_addresses">Mostra CC/CCN</string>
     <string name="title_insert_contact_group">Inserisci gruppo di contatto</string>
