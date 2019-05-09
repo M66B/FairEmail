@@ -1,0 +1,35 @@
+diff --git a/app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java b/app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java
+index ae3785df..1591ff4b 100644
+--- a/app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java
++++ b/app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java
+@@ -765,7 +765,13 @@ public abstract class SelectionTracker<K> {
+                     new Runnable() {
+                         @Override
+                         public void run() {
+-                            gestureHelper.start();
++                            if (mSelectionPredicate.canSelectMultiple()) {
++                                try {
++                                    gestureHelper.start();
++                                } catch (IllegalStateException ex) {
++                                    ex.printStackTrace();
++                                }
++                            }
+                         }
+                     },
+                     mOnDragInitiatedListener,
+diff --git a/app/src/main/java/androidx/recyclerview/selection/TouchInputHandler.java b/app/src/main/java/androidx/recyclerview/selection/TouchInputHandler.java
+index d82812cc..48db78ec 100644
+--- a/app/src/main/java/androidx/recyclerview/selection/TouchInputHandler.java
++++ b/app/src/main/java/androidx/recyclerview/selection/TouchInputHandler.java
+@@ -107,6 +107,11 @@ final class TouchInputHandler<K> extends MotionInputHandler<K> {
+     }
+ 
+     @Override
++    public boolean onDoubleTapEvent(MotionEvent e) {
++        return mSelectionTracker.hasSelection();
++    }
++
++    @Override
+     public void onLongPress(@NonNull MotionEvent e) {
+         if (!mDetailsLookup.overItemWithSelectionKey(e)) {
+             if (DEBUG) Log.d(TAG, "Ignoring LongPress on non-model-backed item.");
