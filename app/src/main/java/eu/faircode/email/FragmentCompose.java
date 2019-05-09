@@ -768,7 +768,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_addresses).setVisible(false);
         //menu.findItem(R.id.menu_addresses).setVisible(working >= 0);
         menu.findItem(R.id.menu_zoom).setVisible(state == State.LOADED);
-        menu.findItem(R.id.menu_style_toolbar).setVisible(state == State.LOADED);
+        menu.findItem(R.id.menu_media_toolbar).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_clear).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_contact_group).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_answer).setVisible(state == State.LOADED);
@@ -784,7 +784,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_encrypt).setEnabled(!busy);
         menu.findItem(R.id.menu_send_after).setEnabled(!busy);
 
-        menu.findItem(R.id.menu_style_toolbar).setChecked(style);
+        menu.findItem(R.id.menu_media_toolbar).setChecked(style);
 
         menu.findItem(R.id.menu_plain_only).setChecked(plain_only);
         menu.findItem(R.id.menu_encrypt).setChecked(encrypt);
@@ -805,7 +805,7 @@ public class FragmentCompose extends FragmentBase {
             case R.id.menu_zoom:
                 onMenuZoom();
                 return true;
-            case R.id.menu_style_toolbar:
+            case R.id.menu_media_toolbar:
                 onMenuStyleToolbar();
                 return true;
             case R.id.menu_clear:

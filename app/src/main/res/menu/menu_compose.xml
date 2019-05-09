@@ -14,9 +14,9 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/menu_style_toolbar"
+        android:id="@+id/menu_media_toolbar"
         android:checkable="true"
-        android:title="@string/title_style_toolbar"
+        android:title="@string/title_media_toolbar"
         app:showAsAction="never" />
 
     <item
