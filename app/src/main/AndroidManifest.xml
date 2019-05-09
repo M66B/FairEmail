@@ -22,6 +22,9 @@
     <uses-feature
         android:name="android.software.webview"
         android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <application
         android:name=".ApplicationEx"

@@ -461,6 +461,9 @@
     <string name="title_style_image">Insert image</string>
     <string name="title_style_toolbar">Style toolbar</string>
     <string name="title_add_attachment">Add attachment</string>
+    <string name="title_attachment_file">Attach file</string>
+    <string name="title_attachment_photo">Take photo</string>
+    <string name="title_attachment_audio">Record audio</string>
     <string name="title_show_addresses">Show CC/BCC</string>
     <string name="title_insert_contact_group">Insert contact group</string>
     <string name="title_insert_template">Insert template</string>

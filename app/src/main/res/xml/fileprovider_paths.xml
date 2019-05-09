@@ -6,4 +6,7 @@
     <files-path
         name="raw"
         path="raw" />
+    <files-path
+        name="temporary"
+        path="temporary" />
 </paths>

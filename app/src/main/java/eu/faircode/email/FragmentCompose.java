@@ -51,6 +51,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.ContactsContract;
+import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.text.Editable;
 import android.text.Html;
@@ -94,6 +95,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.FileProvider;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.FragmentTransaction;
@@ -185,17 +187,19 @@ public class FragmentCompose extends FragmentBase {
 
     private boolean pro;
 
-    private long working = -1;
-    private State state = State.NONE;
-    private boolean show_images = false;
-    private boolean autosave = false;
-    private boolean busy = false;
-
     private boolean prefix_once = false;
     private boolean monospaced = false;
     private boolean style = true;
     private boolean plain_only = false;
     private boolean encrypt = false;
+
+    private long working = -1;
+    private State state = State.NONE;
+    private boolean show_images = false;
+    private boolean autosave = false;
+    private boolean busy = false;
+    private Uri photoURI = null;
+
     private OpenPgpServiceConnection pgpService;
     private long[] pgpKeyIds;
     private long pgpSignKeyId;
@@ -335,19 +339,32 @@ public class FragmentCompose extends FragmentBase {
         etBody.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
         tvReference.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
 
+        PackageManager pm = getContext().getPackageManager();
+        Intent take_photo = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        Intent record_audio = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
+        edit_bar.getMenu().findItem(R.id.menu_take_photo).setVisible(take_photo.resolveActivity(pm) != null);
+        edit_bar.getMenu().findItem(R.id.menu_record_audio).setVisible(record_audio.resolveActivity(pm) != null);
+
+
         edit_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int action = item.getItemId();
                 switch (action) {
-                    case R.id.menu_link:
-                        onActionLink();
+                    case R.id.menu_record_audio:
+                        onActionRecordAudio();
+                        return true;
+                    case R.id.menu_take_photo:
+                        onActionTakePhoto();
                         return true;
                     case R.id.menu_image:
                         onActionImage();
                         return true;
                     case R.id.menu_attachment:
                         onActionAttachment();
+                        return true;
+                    case R.id.menu_link:
+                        onActionLink();
                         return true;
                     default:
                         return false;
@@ -1114,6 +1131,46 @@ public class FragmentCompose extends FragmentBase {
                 });
     }
 
+    private void onActionRecordAudio() {
+        Intent intent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
+        startActivityForResult(intent, ActivityCompose.REQUEST_RECORD_AUDIO);
+    }
+
+    private void onActionTakePhoto() {
+        File dir = new File(getContext().getFilesDir(), "temporary");
+        if (!dir.exists())
+            dir.mkdir();
+        File file = new File(dir, new Date().getTime() + ".jpg");
+
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        photoURI = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID, file);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+        startActivityForResult(intent, ActivityCompose.REQUEST_TAKE_PHOTO);
+    }
+
+    private void onActionImage() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("image/*");
+        PackageManager pm = getContext().getPackageManager();
+        if (intent.resolveActivity(pm) == null)
+            Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
+        else
+            startActivityForResult(Helper.getChooser(getContext(), intent), ActivityCompose.REQUEST_IMAGE);
+    }
+
+    private void onActionAttachment() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("*/*");
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        PackageManager pm = getContext().getPackageManager();
+        if (intent.resolveActivity(pm) == null)
+            Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
+        else
+            startActivityForResult(Helper.getChooser(getContext(), intent), ActivityCompose.REQUEST_ATTACHMENT);
+    }
+
     private void onActionLink() {
         Uri uri = null;
 
@@ -1189,29 +1246,6 @@ public class FragmentCompose extends FragmentBase {
                 etLink.requestFocus();
             }
         });
-    }
-
-    private void onActionImage() {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("image/*");
-        PackageManager pm = getContext().getPackageManager();
-        if (intent.resolveActivity(pm) == null)
-            Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
-        else
-            startActivityForResult(Helper.getChooser(getContext(), intent), ActivityCompose.REQUEST_IMAGE);
-    }
-
-    private void onActionAttachment() {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("*/*");
-        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-        PackageManager pm = getContext().getPackageManager();
-        if (intent.resolveActivity(pm) == null)
-            Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
-        else
-            startActivityForResult(Helper.getChooser(getContext(), intent), ActivityCompose.REQUEST_ATTACHMENT);
     }
 
     private void onActionDelete() {
@@ -1505,7 +1539,13 @@ public class FragmentCompose extends FragmentBase {
                     if (uri != null)
                         handleAddAttachment(uri, true);
                 }
-            } else if (requestCode == ActivityCompose.REQUEST_ATTACHMENT) {
+            } else if (requestCode == ActivityCompose.REQUEST_ATTACHMENT ||
+                    requestCode == ActivityCompose.REQUEST_RECORD_AUDIO ||
+                    requestCode == ActivityCompose.REQUEST_TAKE_PHOTO) {
+
+                if (requestCode == ActivityCompose.REQUEST_TAKE_PHOTO)
+                    data = new Intent().setData(photoURI);
+
                 if (data != null) {
                     ClipData clipData = data.getClipData();
                     if (clipData == null) {
@@ -1722,11 +1762,11 @@ public class FragmentCompose extends FragmentBase {
 
     private static EntityAttachment addAttachment(Context context, long id, Uri uri,
                                                   boolean image) throws IOException {
+        Log.w("Add attachment uri=" + uri);
+
         if ("file".equals(uri.getScheme()) &&
-                !Helper.hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-            Log.w("Add attachment uri=" + uri);
+                !Helper.hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE))
             throw new SecurityException();
-        }
 
         EntityAttachment attachment = new EntityAttachment();
 
@@ -1805,6 +1845,15 @@ public class FragmentCompose extends FragmentBase {
                 }
             }
 
+            if ("eu.faircode.email".equals(uri.getAuthority())) {
+                // content://eu.faircode.email/temporary/nnn.jpg
+                File tmp = new File(context.getFilesDir(), uri.getPath());
+                Log.i("Deleting " + tmp);
+                if (!tmp.delete())
+                    Log.w("Error deleting " + tmp);
+            } else
+                Log.i("Authority=" + uri.getAuthority());
+
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean autoresize = prefs.getBoolean("autoresize", true);
 
@@ -1821,6 +1870,7 @@ public class FragmentCompose extends FragmentBase {
                         options.outHeight / factor > resize)
                     factor *= 2;
 
+                Log.i("Image type=" + attachment.type + " rotation=" + getImageRotation(file));
                 Matrix rotation = ("image/jpeg".equals(attachment.type) ? getImageRotation(file) : null);
 
                 if (factor > 1 || rotation != null) {

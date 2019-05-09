@@ -46,7 +46,9 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
     static final int REQUEST_CONTACT_BCC = 3;
     static final int REQUEST_IMAGE = 4;
     static final int REQUEST_ATTACHMENT = 5;
-    static final int REQUEST_ENCRYPT = 6;
+    static final int REQUEST_TAKE_PHOTO = 6;
+    static final int REQUEST_RECORD_AUDIO = 7;
+    static final int REQUEST_ENCRYPT = 8;
 
     static final int PI_REPLY = 1;
 
