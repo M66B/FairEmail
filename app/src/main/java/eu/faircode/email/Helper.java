@@ -21,6 +21,8 @@ package eu.faircode.email;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.accounts.AuthenticatorException;
+import android.accounts.OperationCanceledException;
 import android.app.usage.UsageStatsManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -934,7 +936,8 @@ public class Helper {
         return true;
     }
 
-    static void connect(Context context, IMAPStore istore, EntityAccount account) throws MessagingException {
+    static void connect(Context context, IMAPStore istore, EntityAccount account)
+            throws MessagingException, AuthenticatorException, OperationCanceledException, IOException {
         try {
             istore.connect(account.host, account.port, account.user, account.password);
         } catch (AuthenticationFailedException ex) {
@@ -961,21 +964,18 @@ public class Helper {
             }
     }
 
-    static String refreshToken(Context context, String type, String name, String current) {
-        try {
-            AccountManager am = AccountManager.get(context);
-            Account[] accounts = am.getAccountsByType(type);
-            for (Account account : accounts)
-                if (name.equals(account.name)) {
-                    Log.i("Refreshing token");
-                    am.invalidateAuthToken(type, current);
-                    String refreshed = am.blockingGetAuthToken(account, getAuthTokenType(type), true);
-                    Log.i("Refreshed token");
-                    return refreshed;
-                }
-        } catch (Throwable ex) {
-            Log.w(ex);
-        }
+    static String refreshToken(Context context, String type, String name, String current)
+            throws AuthenticatorException, OperationCanceledException, IOException {
+        AccountManager am = AccountManager.get(context);
+        Account[] accounts = am.getAccountsByType(type);
+        for (Account account : accounts)
+            if (name.equals(account.name)) {
+                Log.i("Refreshing token");
+                am.invalidateAuthToken(type, current);
+                String refreshed = am.blockingGetAuthToken(account, getAuthTokenType(type), true);
+                Log.i("Refreshed token");
+                return refreshed;
+            }
         return current;
     }
 

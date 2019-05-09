@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.accounts.AuthenticatorException;
+import android.accounts.OperationCanceledException;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -86,7 +88,7 @@ public class ViewModelBrowse extends ViewModel {
         currentState.error = false;
     }
 
-    int load() throws MessagingException, IOException {
+    int load() throws MessagingException, IOException, AuthenticatorException, OperationCanceledException {
         final State state = currentState;
         if (state == null || state.error)
             return 0;

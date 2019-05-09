@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.accounts.AuthenticatorException;
+import android.accounts.OperationCanceledException;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -251,7 +253,7 @@ public class ServiceSend extends LifecycleService {
         }
     };
 
-    private void send(EntityMessage message) throws MessagingException, IOException {
+    private void send(EntityMessage message) throws MessagingException, IOException, AuthenticatorException, OperationCanceledException {
         DB db = DB.getInstance(this);
 
         // Mark attempt
