@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.text.Html;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 
@@ -809,8 +810,11 @@ public class MessageHelper {
                     warnings.add(context.getString(R.string.title_no_charset, charset));
             }
 
-            if (part.isMimeType("text/plain") || text)
-                result = "<span>" + result.replaceAll("\\r?\\n", "<br />") + "</span>";
+            if (part.isMimeType("text/plain") || text) {
+                result = Html.escapeHtml(result);
+                result = result.replaceAll("\\r?\\n", "<br />");
+                result = "<span>" + result + "</span>";
+            }
 
             return result;
         }
