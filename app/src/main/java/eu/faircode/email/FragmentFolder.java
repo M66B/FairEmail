@@ -220,6 +220,8 @@ public class FragmentFolder extends FragmentBase {
 
                         if (TextUtils.isEmpty(name))
                             throw new IllegalArgumentException(context.getString(R.string.title_folder_name_missing));
+                        if (db.folder().getFolderByName(aid, name) != null)
+                            throw new IllegalArgumentException(context.getString(R.string.title_folder_exists, name));
 
                         EntityFolder create = new EntityFolder();
                         create.account = aid;
