@@ -76,6 +76,7 @@ public interface DaoMessage {
             "  WHEN 'sender' = :sort THEN LOWER(message.sender)" +
             "  WHEN 'subject' = :sort THEN LOWER(message.subject)" +
             "  WHEN 'size' = :sort THEN -SUM(message.size)" +
+            "  WHEN 'snoozed' = :sort THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
             "  ELSE 0" +
             " END, message.received DESC")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
@@ -122,6 +123,7 @@ public interface DaoMessage {
             "  WHEN 'sender' = :sort THEN LOWER(message.sender)" +
             "  WHEN 'subject' = :sort THEN LOWER(message.subject)" +
             "  WHEN 'size' = :sort THEN -SUM(message.size)" +
+            "  WHEN 'snoozed' = :sort THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
             "  ELSE 0" +
             " END, message.received DESC")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)

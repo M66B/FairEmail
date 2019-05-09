@@ -2097,6 +2097,8 @@ public class FragmentMessages extends FragmentBase {
             menu.findItem(R.id.menu_sort_on_subject).setChecked(true);
         else if ("size".equals(sort))
             menu.findItem(R.id.menu_sort_on_size).setChecked(true);
+        else if ("snoozed".equals(sort))
+            menu.findItem(R.id.menu_sort_on_snoozed).setChecked(true);
 
         menu.findItem(R.id.menu_filter).setVisible(viewType != AdapterMessage.ViewType.SEARCH && !outbox);
         menu.findItem(R.id.menu_filter_seen).setVisible(viewType != AdapterMessage.ViewType.THREAD);
@@ -2150,6 +2152,11 @@ public class FragmentMessages extends FragmentBase {
             case R.id.menu_sort_on_size:
                 item.setChecked(true);
                 onMenuSort("size");
+                return true;
+
+            case R.id.menu_sort_on_snoozed:
+                item.setChecked(true);
+                onMenuSort("snoozed");
                 return true;
 
             case R.id.menu_filter_seen:
