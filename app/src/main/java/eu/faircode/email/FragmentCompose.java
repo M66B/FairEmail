@@ -769,9 +769,6 @@ public class FragmentCompose extends FragmentBase {
         //menu.findItem(R.id.menu_addresses).setVisible(working >= 0);
         menu.findItem(R.id.menu_zoom).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_style_toolbar).setVisible(state == State.LOADED);
-        menu.findItem(R.id.menu_link).setVisible(state == State.LOADED && !style);
-        menu.findItem(R.id.menu_image).setVisible(state == State.LOADED && !style);
-        menu.findItem(R.id.menu_attachment).setVisible(state == State.LOADED && !style);
         menu.findItem(R.id.menu_clear).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_contact_group).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_answer).setVisible(state == State.LOADED);
@@ -780,9 +777,6 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_send_after).setVisible(state == State.LOADED);
 
         menu.findItem(R.id.menu_zoom).setEnabled(!busy);
-        menu.findItem(R.id.menu_link).setEnabled(!busy);
-        menu.findItem(R.id.menu_image).setEnabled(!busy);
-        menu.findItem(R.id.menu_attachment).setEnabled(!busy);
         menu.findItem(R.id.menu_clear).setEnabled(!busy);
         menu.findItem(R.id.menu_contact_group).setEnabled(!busy);
         menu.findItem(R.id.menu_answer).setEnabled(!busy);
@@ -813,15 +807,6 @@ public class FragmentCompose extends FragmentBase {
                 return true;
             case R.id.menu_style_toolbar:
                 onMenuStyleToolbar();
-                return true;
-            case R.id.menu_link:
-                onActionLink();
-                return true;
-            case R.id.menu_image:
-                onActionImage();
-                return true;
-            case R.id.menu_attachment:
-                onActionAttachment();
                 return true;
             case R.id.menu_clear:
                 onMenuClear();
@@ -878,7 +863,6 @@ public class FragmentCompose extends FragmentBase {
         style = !style;
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putBoolean("style_toolbar", style).apply();
-        getActivity().invalidateOptionsMenu();
         edit_bar.setVisibility(style ? View.VISIBLE : View.GONE);
     }
 
