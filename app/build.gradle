@@ -134,7 +134,7 @@ dependencies {
     // https://mvnrepository.com/artifact/androidx.recyclerview/recyclerview
     // https://mvnrepository.com/artifact/androidx.recyclerview/recyclerview-selection
     implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
-    //implementation "androidx.recyclerview:recyclerview-selection:1.1.0-alpha01"
+    //implementation "androidx.recyclerview:recyclerview-selection:1.1.0-alpha05"
 
     // https://mvnrepository.com/artifact/androidx.coordinatorlayout/coordinatorlayout
     implementation "androidx.coordinatorlayout:coordinatorlayout:$coordinatorlayout_version"
