@@ -167,6 +167,12 @@
     <string name="title_advanced_unseen">All unread messages</string>
     <string name="title_advanced_flagged">All starred messages</string>
 
+    <string name="title_advanced_prefix_once">Prefix subject only once on replying or forwarding</string>
+    <string name="title_advanced_autoresize">Automatically resize attached and embedded images</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_advanced_autosend">Confirm sending messages</string>
+    <string name="title_advanced_send_delayed">Delay sending messages</string>
+
     <string name="title_advanced_metered">Use metered connections</string>
     <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
     <string name="title_advanced_roaming">Download messages and attachments while roaming</string>
@@ -197,13 +203,6 @@
     <string name="title_advanced_autonext">Automatically go to next conversation on close conversation</string>
     <string name="title_advanced_autoread">Automatically mark messages read on moving messages</string>
     <string name="title_advanced_automove">Confirm moving messages</string>
-    <string name="title_advanced_autoresize">Automatically resize attached and embedded images</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
-    <string name="title_advanced_sender">Allow editing sender address</string>
-
-    <string name="title_advanced_prefix_once">Prefix subject only once on replying or forwarding</string>
-    <string name="title_advanced_autosend">Confirm sending messages</string>
-    <string name="title_advanced_send_delayed">Delay sending messages</string>
 
     <string name="title_advanced_notify_group">Group new message notifications</string>
     <string name="title_advanced_notify_preview">Show message preview in notifications</string>
@@ -253,6 +252,7 @@
     <string name="title_select">Select &#8230;</string>
     <string name="title_identity_name">Your name</string>
     <string name="title_identity_email">Your email address</string>
+    <string name="title_advanced_sender">Allow editing sender address</string>
     <string name="title_identity_reply_to">Reply to address</string>
     <string name="title_identity_encrypt">Encrypt by default</string>
     <string name="title_identity_use_ip_hint">In case of \'invalid greeting\', \'requires valid address\' or a similar error, try to change this setting</string>

@@ -27,10 +27,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.CompoundButton;
-import android.widget.Spinner;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -47,13 +44,10 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swCollapse;
     private SwitchCompat swAutoRead;
     private SwitchCompat swAutoMove;
-    private SwitchCompat swAutoResize;
-    private Spinner spAutoResize;
-    private TextView tvAutoResize;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "pull", "autoscroll", "swipenav", "autoexpand", "autoclose", "autonext",
-            "collapse", "autoread", "automove", "autoresize", "resize"
+            "collapse", "autoread", "automove"
     };
 
     @Override
@@ -75,9 +69,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swCollapse = view.findViewById(R.id.swCollapse);
         swAutoRead = view.findViewById(R.id.swAutoRead);
         swAutoMove = view.findViewById(R.id.swAutoMove);
-        swAutoResize = view.findViewById(R.id.swAutoResize);
-        spAutoResize = view.findViewById(R.id.spAutoResize);
-        tvAutoResize = view.findViewById(R.id.tvAutoResize);
 
         setOptions();
 
@@ -149,28 +140,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
-        swAutoResize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("autoresize", checked).apply();
-                spAutoResize.setEnabled(checked);
-            }
-        });
-
-        spAutoResize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                int[] values = getResources().getIntArray(R.array.resizeValues);
-                prefs.edit().putInt("resize", values[position]).apply();
-                tvAutoResize.setText(getString(R.string.title_advanced_resize_pixels, values[position]));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                prefs.edit().remove("resize").apply();
-            }
-        });
-
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
@@ -225,16 +194,5 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swCollapse.setChecked(prefs.getBoolean("collapse", false));
         swAutoRead.setChecked(prefs.getBoolean("autoread", false));
         swAutoMove.setChecked(!prefs.getBoolean("automove", false));
-        swAutoResize.setChecked(prefs.getBoolean("autoresize", true));
-
-        int resize = prefs.getInt("resize", FragmentCompose.REDUCED_IMAGE_SIZE);
-        int[] resizeValues = getResources().getIntArray(R.array.resizeValues);
-        for (int pos = 0; pos < resizeValues.length; pos++)
-            if (resizeValues[pos] == resize) {
-                spAutoResize.setSelection(pos);
-                tvAutoResize.setText(getString(R.string.title_advanced_resize_pixels, resizeValues[pos]));
-                break;
-            }
-        spAutoResize.setEnabled(swAutoResize.isChecked());
     }
 }

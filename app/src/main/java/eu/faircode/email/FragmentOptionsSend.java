@@ -30,6 +30,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -38,11 +39,14 @@ import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsSend extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swPrefixOnce;
+    private SwitchCompat swAutoResize;
+    private Spinner spAutoResize;
+    private TextView tvAutoResize;
     private SwitchCompat swAutoSend;
     private Spinner spSendDelayed;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "prefix_once", "autosend", "send_delayed"
+            "prefix_once", "autoresize", "resize", "autosend", "send_delayed"
     };
 
     @Override
@@ -56,6 +60,9 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         // Get controls
 
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
+        swAutoResize = view.findViewById(R.id.swAutoResize);
+        spAutoResize = view.findViewById(R.id.spAutoResize);
+        tvAutoResize = view.findViewById(R.id.tvAutoResize);
         swAutoSend = view.findViewById(R.id.swAutoSend);
         spSendDelayed = view.findViewById(R.id.spSendDelayed);
 
@@ -69,6 +76,28 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("prefix_once", checked).apply();
+            }
+        });
+
+        swAutoResize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("autoresize", checked).apply();
+                spAutoResize.setEnabled(checked);
+            }
+        });
+
+        spAutoResize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                int[] values = getResources().getIntArray(R.array.resizeValues);
+                prefs.edit().putInt("resize", values[position]).apply();
+                tvAutoResize.setText(getString(R.string.title_advanced_resize_pixels, values[position]));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("resize").apply();
             }
         });
 
@@ -137,6 +166,19 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", false));
+
+        swAutoResize.setChecked(prefs.getBoolean("autoresize", true));
+
+        int resize = prefs.getInt("resize", FragmentCompose.REDUCED_IMAGE_SIZE);
+        int[] resizeValues = getResources().getIntArray(R.array.resizeValues);
+        for (int pos = 0; pos < resizeValues.length; pos++)
+            if (resizeValues[pos] == resize) {
+                spAutoResize.setSelection(pos);
+                tvAutoResize.setText(getString(R.string.title_advanced_resize_pixels, resizeValues[pos]));
+                break;
+            }
+        spAutoResize.setEnabled(swAutoResize.isChecked());
+
         swAutoSend.setChecked(!prefs.getBoolean("autosend", false));
 
         int send_delayed = prefs.getInt("send_delayed", 0);
