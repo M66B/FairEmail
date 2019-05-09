@@ -811,7 +811,7 @@ public class MessageHelper {
             }
 
             if (part.isMimeType("text/plain") || text) {
-                result = Html.escapeHtml(result);
+                result = TextUtils.htmlEncode(result);
                 result = result.replaceAll("\\r?\\n", "<br />");
                 result = "<span>" + result + "</span>";
             }
