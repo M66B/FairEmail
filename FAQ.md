@@ -1021,6 +1021,8 @@ The message action bar works on a single message and the bottom action bar works
 Since there is often more than one message in a conversation, this is not possible.
 Moreover, there are quite some message specific actions, like forwarding.
 
+You can use the *Home* button to quickly go to the top of the message.
+
 <br />
 
 <a name="faq54"></a>
