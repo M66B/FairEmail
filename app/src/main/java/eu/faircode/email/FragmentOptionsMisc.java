@@ -60,6 +60,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "badge", "subscriptions", "search_local", "english", "authentication", "paranoid", "updates", "debug"
     };
 
+    private final static String[] RESET_QUESTIONS = new String[]{
+            "show_html_confirmed", "show_images_confirmed", "print_html_confirmed", "edit_ref_confirmed", "automove", "autosend"
+    };
+
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -188,7 +192,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_options, menu);
+        inflater.inflate(R.menu.menu_options_misc, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -196,17 +200,20 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_default:
-                onMenuDefault();
+                onMenuDefault(RESET_OPTIONS);
+                return true;
+            case R.id.menu_reset_questions:
+                onMenuDefault(RESET_QUESTIONS);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private void onMenuDefault() {
+    private void onMenuDefault(String[] options) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         SharedPreferences.Editor editor = prefs.edit();
-        for (String option : RESET_OPTIONS)
+        for (String option : options)
             editor.remove(option);
         editor.apply();
     }
