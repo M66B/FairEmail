@@ -230,6 +230,22 @@ public class Helper {
         return intent;
     }
 
+    static Intent getIntentIssue(Context context) {
+        String version = BuildConfig.VERSION_NAME + "/" +
+                (Helper.hasValidFingerprint(context) ? "1" : "3") +
+                (Helper.isPro(context) ? "+" : "");
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setPackage(BuildConfig.APPLICATION_ID);
+        intent.setType("text/plain");
+        try {
+            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{Helper.myAddress().getAddress()});
+        } catch (UnsupportedEncodingException ex) {
+            Log.w(ex);
+        }
+        intent.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.title_issue_subject, version));
+        return intent;
+    }
+
     static int dp2pixels(Context context, int dp) {
         float scale = context.getResources().getDisplayMetrics().density;
         return Math.round(dp * scale);

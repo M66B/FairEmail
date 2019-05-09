@@ -302,6 +302,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
             }));
 
+        if (BuildConfig.DEBUG && Helper.getIntentIssue(this).resolveActivity(pm) != null)
+            extra.add(new NavMenuItem(R.drawable.baseline_warning_24, R.string.menu_issue, new Runnable() {
+                @Override
+                public void run() {
+                    drawerLayout.closeDrawer(drawerContainer);
+                    onMenuIssue();
+                }
+            }));
+
         if (Helper.getIntentPrivacy().resolveActivity(pm) != null)
             extra.add(new NavMenuItem(R.drawable.baseline_account_box_24, R.string.menu_privacy, new Runnable() {
                 @Override
@@ -936,6 +945,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private void onMenuFAQ() {
         Helper.view(this, this, Helper.getIntentFAQ());
+    }
+
+    private void onMenuIssue() {
+        startActivity(Helper.getIntentIssue(this));
     }
 
     private void onMenuPrivacy() {

@@ -35,8 +35,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import java.io.UnsupportedEncodingException;
-
 public class FragmentAbout extends FragmentBase {
     @Override
     @Nullable
@@ -65,9 +63,10 @@ public class FragmentAbout extends FragmentBase {
     public void onPrepareOptionsMenu(Menu menu) {
         PackageManager pm = getContext().getPackageManager();
         menu.findItem(R.id.menu_changelog).setVisible(
-                !Helper.isPlayStoreInstall(getContext()) && getIntentChangelog().resolveActivity(pm) != null);
+                !Helper.isPlayStoreInstall(getContext()) &&
+                        getIntentChangelog().resolveActivity(pm) != null);
         menu.findItem(R.id.menu_issue).setVisible(
-                BuildConfig.BETA_RELEASE && getIntentIssue().resolveActivity(pm) != null);
+                Helper.getIntentIssue(getContext()).resolveActivity(pm) != null);
         super.onPrepareOptionsMenu(menu);
     }
 
@@ -90,28 +89,12 @@ public class FragmentAbout extends FragmentBase {
     }
 
     private void onMenuIssue() {
-        startActivity(getIntentIssue());
+        startActivity(Helper.getIntentIssue(getContext()));
     }
 
     private Intent getIntentChangelog() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(BuildConfig.CHANGELOG));
-        return intent;
-    }
-
-    private Intent getIntentIssue() {
-        String version = BuildConfig.VERSION_NAME + "/" +
-                (Helper.hasValidFingerprint(getContext()) ? "1" : "3") +
-                (Helper.isPro(getContext()) ? "+" : "");
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setPackage(BuildConfig.APPLICATION_ID);
-        intent.setType("text/plain");
-        try {
-            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{Helper.myAddress().getAddress()});
-        } catch (UnsupportedEncodingException ex) {
-            Log.w(ex);
-        }
-        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.title_issue_subject, version));
         return intent;
     }
 }
