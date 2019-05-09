@@ -44,6 +44,24 @@ public class FixedRecyclerView extends RecyclerView {
     public boolean onTouchEvent(MotionEvent e) {
         try {
             return super.onTouchEvent(e);
+        } catch (IllegalArgumentException ex) {
+            /*
+                java.lang.IllegalArgumentException: Position cannot be NO_POSITION.
+                java.lang.IllegalArgumentException: Position cannot be NO_POSITION.
+                at androidx.core.util.Preconditions.checkArgument(SourceFile:52)
+                at androidx.recyclerview.selection.Range.extendRange(SourceFile:83)
+                at androidx.recyclerview.selection.DefaultSelectionTracker.extendRange(SourceFile:299)
+                at androidx.recyclerview.selection.DefaultSelectionTracker.extendProvisionalRange(SourceFile:282)
+                at androidx.recyclerview.selection.GestureSelectionHelper.extendSelection(SourceFile:215)
+                at androidx.recyclerview.selection.GestureSelectionHelper.handleMoveEvent(SourceFile:192)
+                at androidx.recyclerview.selection.GestureSelectionHelper.handleTouch(SourceFile:145)
+                at androidx.recyclerview.selection.GestureSelectionHelper.onTouchEvent(SourceFile:111)
+                at androidx.recyclerview.selection.TouchEventRouter.onTouchEvent(SourceFile:103)
+                at androidx.recyclerview.widget.RecyclerView.dispatchOnItemTouch(SourceFile:2947)
+                at androidx.recyclerview.widget.RecyclerView.onTouchEvent(SourceFile:3090)
+             */
+            Log.w(ex);
+            return false;
         } catch (NullPointerException ex) {
             /*
                 java.lang.NullPointerException: Attempt to invoke virtual method 'int android.view.View.getTop()' on a null object reference
