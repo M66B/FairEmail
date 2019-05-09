@@ -687,7 +687,7 @@
     </integer-array>
 
     <string-array name="sendDelayedNames">
-        <item>Never</item>
+        <item>No</item>
         <item>15 seconds</item>
         <item>30 seconds</item>
         <item>1 minute</item>
