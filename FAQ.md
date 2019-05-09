@@ -1674,6 +1674,7 @@ Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.w
 
 You can record audio if you have a recording app installed
 which supports the [RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION) intent.
+If no supported app is installed, FairEmail will not show a record audio action/icon.
 
 Unfortunately and surprisingly, most recording apps do not seem to support this intent (they should).
 
