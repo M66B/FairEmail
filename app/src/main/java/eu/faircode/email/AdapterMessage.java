@@ -3172,7 +3172,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     TupleMessageEx getItemAtPosition(int pos) {
         PagedList<TupleMessageEx> list = getCurrentList();
-        if (list != null && pos < list.size()) {
+        if (list != null && pos >= 0 && pos < list.size()) {
             TupleMessageEx message = list.get(pos);
             Long key = (message == null ? null : message.id);
             Log.i("Item=" + key + " @Position=" + pos);
