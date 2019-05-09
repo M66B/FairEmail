@@ -170,6 +170,8 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(99) Can you add a rich text or markdown editor?](#user-content-faq99)
 * [(100) How can I synchronize Gmail categories?](#user-content-faq100)
 * [(101) What does the blue/orange dot at the bottom of the conversations mean?](#user-content-faq101)
+* [(102) How can I enable auto rotation of images?](#user-content-faq102)
+* [(103) How can I record audio?](#user-content-faq103)
 
 [I have another question.](#support)
 
@@ -1652,6 +1654,27 @@ and long press the category folders to enable synchronization.
 The dot shows the relative position of the conversation in the message list.
 The dot will be show orange when the conversation is the first or last in the message list, else it will be blue.
 The dot is meant as an aid when swiping left/right to go to the previous/next conversation.
+
+<br />
+
+<a name="faq102"></a>
+**(102) How can I enable auto rotation of images?**
+
+Images will automatically be rotated when automatic resizing of images is enabled in the advanced options (enabled by default).
+However, automatic rotating depends on the [Exif](https://en.wikipedia.org/wiki/Exif) information to be present and to be correct,
+which is not always the case. Particularly not when taking a photo with a camara app from FairEmail.
+
+Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) images can contain Exif information.
+
+<br />
+
+<a name="faq103"></a>
+**(103) How can I record audio?**
+
+You can record audio if you have a recording app installed
+which supports the [RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION) intent.
+
+Unfortunately and surprisingly, most recording apps do not seem to support this intent (they should).
 
 <br />
 
