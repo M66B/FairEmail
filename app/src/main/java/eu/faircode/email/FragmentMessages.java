@@ -471,6 +471,13 @@ public class FragmentMessages extends FragmentBase {
                     do {
                         Long key = adapter.getKeyAtPosition(pos);
                         if (key != null && isExpanded(key)) {
+                            int first = llm.findFirstVisibleItemPosition();
+                            View child = rvMessage.getChildAt(pos - (first < 0 ? 0 : first));
+                            if (child != null) {
+                                Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in_fast);
+                                child.startAnimation(animation);
+                            }
+
                             rvMessage.scrollToPosition(pos);
                             break;
                         }
