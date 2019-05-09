@@ -408,6 +408,7 @@
     <string name="title_attachment_photo">Tomar foto</string>
     <string name="title_attachment_audio">Grabar audio</string>
     <string name="title_show_addresses">Mostrar CC/CCO</string>
+    <string name="title_media_toolbar">Barra de herramientas multimedia</string>
     <string name="title_insert_contact_group">Insertar grupo de contactos</string>
     <string name="title_insert_template">Insertar plantilla</string>
     <string name="title_send_plain_text">Enviar sólo texto plano</string>

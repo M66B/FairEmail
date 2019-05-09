@@ -48,7 +48,7 @@
     </plurals>
     <string name="title_ask_spam_who">Nachricht von %1$s als Spam markieren?</string>
     <string name="title_notification_sending">Nachrichten werden gesendet</string>
-    <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
+    <string name="title_notification_failed">„%1$s” fehlgeschlagen</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_answers">Vorlagen</string>
     <string name="menu_operations">Vorgänge</string>
@@ -346,7 +346,7 @@
     <string name="title_spam">Spam</string>
     <string name="title_move">Verschieben</string>
     <string name="title_move_to">Nach %1$s verschieben</string>
-    <string name="title_snooze">Später lesen &#8230;</string>
+    <string name="title_snooze">Zurückstellen &#8230;</string>
     <string name="title_archive">Archivieren</string>
     <string name="title_reply">Antworten</string>
     <string name="title_reply_to_sender">Nur dem Absender antworten</string>
