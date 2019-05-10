@@ -1693,6 +1693,7 @@ Unfortunately and surprisingly, most recording apps do not seem to support this 
 * Bugsnag for Android is [open source](https://github.com/bugsnag/bugsnag-android)
 * See [here](https://docs.bugsnag.com/platforms/android/automatically-captured-data/) about what data will be sent in case of errors
 * See [here](https://docs.bugsnag.com/legal/privacy-policy/) for the privacy policy of Bugsnag
+* Error reports will be sent to *sessions.bugsnag.com:443* and *notify.bugsnag.com:443*
 
 <br />
 
