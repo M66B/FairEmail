@@ -52,6 +52,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -184,6 +185,11 @@ public class ApplicationEx extends Application {
                     if (ex instanceof MessagingException &&
                             ("connection failure".equals(ex.getMessage()) ||
                                     "failed to create new store connection".equals(ex.getMessage())))
+                        return false;
+
+                    if (ex instanceof FileNotFoundException &&
+                            ex.getMessage() != null &&
+                            ex.getMessage().startsWith("Download image failed"))
                         return false;
                 }
 
