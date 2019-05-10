@@ -122,11 +122,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("english", checked).commit(); // apply won't work here
-
-                Intent intent = new Intent(getContext(), ActivityMain.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                Runtime.getRuntime().exit(0);
+                restart();
             }
         });
 
@@ -249,5 +245,12 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvLastCleanup.setText(
                 getString(R.string.title_advanced_last_cleanup,
                         time < 0 ? "-" : df.format(time)));
+    }
+
+    private void restart() {
+        Intent intent = new Intent(getContext(), ActivityMain.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        Runtime.getRuntime().exit(0);
     }
 }
