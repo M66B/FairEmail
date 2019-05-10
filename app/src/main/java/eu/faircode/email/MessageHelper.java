@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.text.Html;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 
@@ -483,25 +482,30 @@ public class MessageHelper {
     }
 
     Address[] getReceiptTo() throws MessagingException {
-        String to = imessage.getHeader("Disposition-Notification-To", null);
-        if (to == null)
-            return null;
-
-        to = MimeUtility.unfold(to);
-
-        InternetAddress[] address = null;
         try {
-            address = InternetAddress.parse(to);
+            String to = imessage.getHeader("Disposition-Notification-To", null);
+            if (to == null)
+                return null;
+
+            to = MimeUtility.unfold(to);
+
+            InternetAddress[] address = null;
+            try {
+                address = InternetAddress.parse(to);
+            } catch (AddressException ex) {
+                Log.w(ex);
+            }
+
+            if (address == null || address.length == 0)
+                return null;
+
+            fix(address[0]);
+
+            return new Address[]{address[0]};
         } catch (AddressException ex) {
             Log.w(ex);
-        }
-
-        if (address == null || address.length == 0)
             return null;
-
-        fix(address[0]);
-
-        return new Address[]{address[0]};
+        }
     }
 
     String getAuthentication() throws MessagingException {
@@ -560,26 +564,31 @@ public class MessageHelper {
     }
 
     Address[] getListPost() throws MessagingException {
-        // https://www.ietf.org/rfc/rfc2369.txt
-        String list = imessage.getHeader("List-Post", null);
-        if (list == null || "NO".equals(list))
-            return null;
-
-        list = MimeUtility.unfold(list);
-
-        InternetAddress[] address = null;
         try {
-            address = InternetAddress.parse(list);
+            // https://www.ietf.org/rfc/rfc2369.txt
+            String list = imessage.getHeader("List-Post", null);
+            if (list == null || "NO".equals(list))
+                return null;
+
+            list = MimeUtility.unfold(list);
+
+            InternetAddress[] address = null;
+            try {
+                address = InternetAddress.parse(list);
+            } catch (AddressException ex) {
+                Log.w(ex);
+            }
+
+            if (address == null || address.length == 0)
+                return null;
+
+            fix(address[0]);
+
+            return new Address[]{address[0]};
         } catch (AddressException ex) {
             Log.w(ex);
-        }
-
-        if (address == null || address.length == 0)
             return null;
-
-        fix(address[0]);
-
-        return new Address[]{address[0]};
+        }
     }
 
     private static Address[] fix(Address[] addresses) {
