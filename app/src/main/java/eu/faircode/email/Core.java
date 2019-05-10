@@ -90,6 +90,7 @@ import javax.mail.FolderNotFoundException;
 import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
+import javax.mail.ReadOnlyFolderException;
 import javax.mail.SendFailedException;
 import javax.mail.Session;
 import javax.mail.Store;
@@ -261,6 +262,7 @@ class Core {
                                 ex instanceof MessageRemovedException ||
                                 ex instanceof FolderNotFoundException ||
                                 ex instanceof IllegalArgumentException ||
+                                ex instanceof ReadOnlyFolderException ||
                                 ex.getCause() instanceof CommandFailedException) {
                             Log.w("Unrecoverable");
 
