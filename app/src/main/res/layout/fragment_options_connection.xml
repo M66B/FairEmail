@@ -76,23 +76,35 @@
                 app:layout_constraintTop_toBottomOf="@id/tvDownload" />
 
             <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swRoaming"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_advanced_roaming"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/spDownload"
-                app:switchPadding="12dp" />
-
-            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swRlah"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="@string/title_advanced_rlah"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swRoaming"
+                app:layout_constraintTop_toBottomOf="@id/spDownload"
+                app:switchPadding="12dp" />
+
+            <TextView
+                android:id="@+id/tvRlah"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:text="@string/title_advanced_rlah_hint"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/swRlah" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swRoaming"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/title_advanced_roaming"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvRlah"
                 app:switchPadding="12dp" />
 
             <TextView
@@ -106,7 +118,7 @@
                 android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/swRlah" />
+                app:layout_constraintTop_toBottomOf="@+id/swRoaming" />
 
             <TextView
                 android:id="@+id/tvConnectionRoaming"
