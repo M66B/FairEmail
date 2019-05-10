@@ -1045,6 +1045,8 @@ public class Helper {
                 Log.i("Refreshing token");
                 am.invalidateAuthToken(type, current);
                 String refreshed = am.blockingGetAuthToken(account, getAuthTokenType(type), true);
+                if (refreshed == null)
+                    throw new OperationCanceledException("no token");
                 Log.i("Refreshed token");
                 return refreshed;
             }
