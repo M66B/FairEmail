@@ -23,6 +23,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 
+import com.bugsnag.android.Bugsnag;
+import com.bugsnag.android.Severity;
+
 import java.lang.reflect.Array;
 import java.util.Set;
 
@@ -45,18 +48,22 @@ public class Log {
     }
 
     public static int w(Throwable ex) {
+        Bugsnag.notify(ex, Severity.WARNING);
         return android.util.Log.w(TAG, ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
 
     public static int e(Throwable ex) {
+        Bugsnag.notify(ex, Severity.ERROR);
         return android.util.Log.e(TAG, ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
 
     public static int w(String prefix, Throwable ex) {
+        Bugsnag.notify(ex, Severity.WARNING);
         return android.util.Log.w(TAG, prefix + " " + ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
 
     public static int e(String prefix, Throwable ex) {
+        Bugsnag.notify(ex, Severity.ERROR);
         return android.util.Log.e(TAG, prefix + " " + ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
 

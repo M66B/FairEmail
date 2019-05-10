@@ -37,8 +37,13 @@ import android.os.Handler;
 import android.os.RemoteException;
 import android.webkit.CookieManager;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.preference.PreferenceManager;
+
+import com.bugsnag.android.BeforeSend;
+import com.bugsnag.android.Bugsnag;
+import com.bugsnag.android.Report;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -68,6 +73,7 @@ public class ApplicationEx extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
         logMemory("App create version=" + BuildConfig.VERSION_NAME);
 
         prev = Thread.getDefaultUncaughtExceptionHandler();
@@ -90,6 +96,30 @@ public class ApplicationEx extends Application {
                 }
             }
         });
+
+        // https://docs.bugsnag.com/platforms/android/sdk/
+        com.bugsnag.android.Configuration config =
+                new com.bugsnag.android.Configuration("9d2d57476a0614974449a3ec33f2604a");
+
+        if (BuildConfig.DEBUG)
+            config.setReleaseStage("development");
+        else if (BuildConfig.BETA_RELEASE)
+            config.setReleaseStage(BuildConfig.PLAY_STORE_RELEASE ? "beta/play" : "beta");
+        else
+            config.setReleaseStage(BuildConfig.PLAY_STORE_RELEASE ? "stable/play" : "stable");
+
+        config.setIgnoreClasses(new String[]{"javax.mail.MessageRemovedException"});
+
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        config.beforeSend(new BeforeSend() {
+            @Override
+            public boolean run(@NonNull Report report) {
+                return prefs.getBoolean("crash_reports", false); // opt-out
+            }
+        });
+
+        Bugsnag.init(this, config);
 
         upgrade(this);
 

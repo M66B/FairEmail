@@ -50,6 +50,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swParanoid;
     private TextView tvParanoidHint;
     private SwitchCompat swUpdates;
+    private SwitchCompat swCrashReports;
     private SwitchCompat swDebug;
 
     private TextView tvLastCleanup;
@@ -57,7 +58,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Group grpSearchLocal;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "badge", "subscriptions", "search_local", "english", "authentication", "paranoid", "updates", "debug"
+            "badge", "subscriptions", "search_local", "english", "authentication", "paranoid", "updates", "crash_reports", "debug"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -82,6 +83,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swParanoid = view.findViewById(R.id.swParanoid);
         tvParanoidHint = view.findViewById(R.id.tvParanoidHint);
         swUpdates = view.findViewById(R.id.swUpdates);
+        swCrashReports = view.findViewById(R.id.swCrashReports);
         swDebug = view.findViewById(R.id.swDebug);
 
         tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
@@ -162,6 +164,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swCrashReports.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("crash_reports", checked).apply();
+            }
+        });
+
         swDebug.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -229,6 +238,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swParanoid.setChecked(prefs.getBoolean("paranoid", true));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swUpdates.setVisibility(Helper.isPlayStoreInstall(getContext()) ? View.GONE : View.VISIBLE);
+        swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
         swDebug.setChecked(prefs.getBoolean("debug", false));
 
         grpSearchLocal.setVisibility(Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.M ? View.GONE : View.VISIBLE);
