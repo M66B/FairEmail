@@ -84,6 +84,7 @@
     <string name="title_advanced_section_display">نمایش</string>
     <string name="title_advanced_section_behavior">رفتار</string>
     <string name="title_advanced_section_misc">متفرقه</string>
+    <string name="title_advanced_autosend">تایید ارسال پیام‌ها</string>
     <string name="title_advanced_metered">استفاده از شبکه موبایل</string>
     <string name="title_advanced_download">دریافت خودکار پیام‌ها و پیوست‌ها روی شبکه موبایل</string>
     <string name="title_advanced_browse">مرور پیام‌های روی سرور</string>
@@ -104,8 +105,6 @@
     <string name="title_advanced_autonext">رفتن به مکالمه بعدی به صورت خودکار پس از بستن مکالمه</string>
     <string name="title_advanced_autoread">به طور خودکار پیام‌های انتقال یافته به عنوان خوانده شده علامت گذاری شود</string>
     <string name="title_advanced_automove">تایید انتقال پیام‌ها</string>
-    <string name="title_advanced_sender">اجازه ویرایش آدرس فرستنده</string>
-    <string name="title_advanced_autosend">تایید ارسال پیام‌ها</string>
     <string name="title_advanced_light">استفاده از چراغ اعلان‌ها</string>
     <string name="title_advanced_sound">انتخاب صدای اعلان‌ها</string>
     <string name="title_advanced_updates">بررسی بروزرسانی ها</string>
@@ -121,6 +120,7 @@
     <string name="title_select">انتخاب &#8230;</string>
     <string name="title_identity_name">نام شما</string>
     <string name="title_identity_email">آدرس ایمیل شما</string>
+    <string name="title_advanced_sender">اجازه ویرایش آدرس فرستنده</string>
     <string name="title_identity_reply_to">پاسخ به آدرس</string>
     <string name="title_identity_read_receipt">درخواست اعلان خوانده شدن</string>
     <string name="title_identity_delivery_receipt">درخواست اعلان تحویل</string>

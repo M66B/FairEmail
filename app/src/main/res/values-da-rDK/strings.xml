@@ -135,6 +135,10 @@
     <string name="title_advanced_schedule">Planlægning</string>
     <string name="title_advanced_unseen">Alle ulæste meddelelser</string>
     <string name="title_advanced_flagged">Alle stjernemarkerede meddelelser</string>
+    <string name="title_advanced_prefix_once">Kun ét emnepræfiks ved svar eller videresendelse</string>
+    <string name="title_advanced_autoresize">Automatisk tilpasning af vedhæftede billeder</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_advanced_autosend">Bekræft afsendelse af meddelelser</string>
     <string name="title_advanced_metered">Brug forbrugsbaserede forbindelser</string>
     <string name="title_advanced_download">Hent automatisk meddelelser og vedhæftninger på forbrugsbaserede forbindelser</string>
     <string name="title_advanced_roaming">Download meddelelser og vedhæftninger under roaming</string>
@@ -163,11 +167,6 @@
     <string name="title_advanced_autonext">Gå automatisk til næste samtale ved lukning af aktuel samtale</string>
     <string name="title_advanced_autoread">Markér automatisk meddelelser som læst ved flytning af meddelelser</string>
     <string name="title_advanced_automove">Bekræft flytning af meddelelser</string>
-    <string name="title_advanced_autoresize">Automatisk tilpasning af vedhæftede billeder</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
-    <string name="title_advanced_sender">Tillad at ændre afsenderadresse</string>
-    <string name="title_advanced_prefix_once">Kun ét emnepræfiks ved svar eller videresendelse</string>
-    <string name="title_advanced_autosend">Bekræft afsendelse af meddelelser</string>
     <string name="title_advanced_notify_group">Gruppér underretninger om ny meddelelse</string>
     <string name="title_advanced_notify_preview">Forhåndsvisning af meddelelse i underretning</string>
     <string name="title_advanced_notify_actions">Handling ved underretninger</string>
@@ -210,6 +209,7 @@
     <string name="title_select">Vælg &#8230;</string>
     <string name="title_identity_name">Dit navn</string>
     <string name="title_identity_email">Din e-mailadresse</string>
+    <string name="title_advanced_sender">Tillad at ændre afsenderadresse</string>
     <string name="title_identity_reply_to">Svar til-adresse</string>
     <string name="title_identity_encrypt">Kryptér som standard</string>
     <string name="title_identity_use_ip_hint">I tilfælde af \'ugyldig hilsen\', \'kræver gyldig adresse\' eller lignende fejl, prøv da at ændre denne indstilling</string>

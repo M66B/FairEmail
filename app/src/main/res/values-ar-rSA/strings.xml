@@ -95,6 +95,7 @@
     <string name="title_advanced_section_behavior">السلوك</string>
     <string name="title_advanced_section_misc">خيارات متنوعة</string>
     <string name="title_advanced_schedule">برمجة</string>
+    <string name="title_advanced_autosend">تأكيد إرسال الرسائل</string>
     <string name="title_advanced_metered">استخدام اتصالات أجهزة الاستنشاق</string>
     <string name="title_advanced_browse">تصفح الرسائل على الخادم</string>
     <string name="title_advanced_date_header">تجميع بحسب التاريخ</string>
@@ -111,8 +112,6 @@
     <string name="title_advanced_autoexpand">توسيع محتوى الرسائل تلقائيًا</string>
     <string name="title_advanced_autoclose">غلق المحادثات تلقائيا</string>
     <string name="title_advanced_automove">تأكيد نقل الرسائل</string>
-    <string name="title_advanced_sender">السماح بتغيير عنوان المُرسِل</string>
-    <string name="title_advanced_autosend">تأكيد إرسال الرسائل</string>
     <string name="title_advanced_notify_preview">إظهار معاينة للرسائل في الإشعارات</string>
     <string name="title_advanced_light">استخدم الإشعار الضوئي</string>
     <string name="title_advanced_sound">إختر نغمة التنبيه</string>
@@ -121,6 +120,7 @@
     <string name="title_advanced_browse_hint">جلب المزيد من الرسائل عند التمرير إلى أسفل</string>
     <string name="title_identity_name">إسمك</string>
     <string name="title_identity_email">البريد الإلكتروني</string>
+    <string name="title_advanced_sender">السماح بتغيير عنوان المُرسِل</string>
     <string name="title_identity_reply_to">الرد على العنوان</string>
     <string name="title_identity_encrypt">تشفير بشكل افتراضي</string>
     <string name="title_identity_read_receipt">طلب إيصال بالقراءة</string>

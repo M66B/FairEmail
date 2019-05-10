@@ -131,6 +131,9 @@
     <string name="title_advanced_schedule">Program</string>
     <string name="title_advanced_unseen">Tüm okunmamış iletiler</string>
     <string name="title_advanced_flagged">Tüm yıldızlı iletiler</string>
+    <string name="title_advanced_autoresize">Ekli ve gömülü görüntüleri otomatik olarak yeniden boyutlandır</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d piksel</string>
+    <string name="title_advanced_autosend">İleti göndermeyi onayla</string>
     <string name="title_advanced_metered">Ölçülü bağlantıları kullan</string>
     <string name="title_advanced_download">Mesajları ve ekleri ölçülü bir bağlantıya kadar otomatik olarak indir</string>
     <string name="title_advanced_roaming">Gezeleme yaparken iletileri ve ekleri indir</string>
@@ -159,10 +162,6 @@
     <string name="title_advanced_autonext">Sohbet kapatıldığında otomatik olarak sonraki sohbete git</string>
     <string name="title_advanced_autoread">İleti taşındığında otomatik olarak okundu diye işaretle</string>
     <string name="title_advanced_automove">İletileri taşımayı onaylayın</string>
-    <string name="title_advanced_autoresize">Ekli ve gömülü görüntüleri otomatik olarak yeniden boyutlandır</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d piksel</string>
-    <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
-    <string name="title_advanced_autosend">İleti göndermeyi onayla</string>
     <string name="title_advanced_notify_group">Yeni ileti bildirimlerini gruplandır</string>
     <string name="title_advanced_notify_preview">Bildirimlerde ileti önizlemesini göster</string>
     <string name="title_advanced_notify_actions">Bildirim eylemleri</string>
@@ -202,6 +201,7 @@
     <string name="title_select">Seçin &#8230;</string>
     <string name="title_identity_name">Adınız</string>
     <string name="title_identity_email">E-posta adresiniz</string>
+    <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
     <string name="title_identity_reply_to">Yanıtlama adresi</string>
     <string name="title_identity_encrypt">Öntanımlı olarak şifrele</string>
     <string name="title_identity_use_ip_hint">\'Geçersiz selamlaşma\', \'geçerli adres gerekir\' veya benzer bir hata olması durumunda, bu ayarı değiştirmeyi deneyin</string>

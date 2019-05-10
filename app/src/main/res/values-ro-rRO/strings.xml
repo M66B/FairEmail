@@ -145,6 +145,11 @@
     <string name="title_advanced_schedule">Programat</string>
     <string name="title_advanced_unseen">Toate mesajele necitite</string>
     <string name="title_advanced_flagged">Toate mesajele marcate</string>
+    <string name="title_advanced_prefix_once">Adaugă prefix la subiect o singură dată pentru răspuns sau redirecționare</string>
+    <string name="title_advanced_autoresize">Redimensionează automat imaginile atașate și incorporate</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
+    <string name="title_advanced_autosend">Confirmă trimiterea mesajelor</string>
+    <string name="title_advanced_send_delayed">Amână trimiterea mesajelor</string>
     <string name="title_advanced_metered">Folosește conexiuni contorizate</string>
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
     <string name="title_advanced_roaming">Descărcarea mesajelor și a atașamentelor prin conexiuni roaming</string>
@@ -173,12 +178,6 @@
     <string name="title_advanced_autonext">Se trece la următoarea conversație când este închisă cea curentă</string>
     <string name="title_advanced_autoread">Marchează automat mesajele mutate ca citite</string>
     <string name="title_advanced_automove">Confirmă mutarea mesajelor</string>
-    <string name="title_advanced_autoresize">Redimensionează automat imaginile atașate și incorporate</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
-    <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
-    <string name="title_advanced_prefix_once">Adaugă prefix la subiect o singură dată pentru răspuns sau redirecționare</string>
-    <string name="title_advanced_autosend">Confirmă trimiterea mesajelor</string>
-    <string name="title_advanced_send_delayed">Amână trimiterea mesajelor</string>
     <string name="title_advanced_notify_group">Grupează notificări mesaje noi</string>
     <string name="title_advanced_notify_preview">Arată previzualizare mesaj în notificare</string>
     <string name="title_advanced_notify_actions">Acțiuni la notificare</string>
@@ -221,6 +220,7 @@
     <string name="title_select">Selectaţi &#8230;</string>
     <string name="title_identity_name">Numele dumneavoastră</string>
     <string name="title_identity_email">Adresa dvs. de e-mail</string>
+    <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_identity_reply_to">Răspuns la adresa</string>
     <string name="title_identity_encrypt">Criptare în mod implicit</string>
     <string name="title_identity_use_ip_hint">În cazul în care apare erori de tipul \'invalid greeting\', \'requires valid address\' sau similare, încercați să schimbați această setare</string>
@@ -416,6 +416,7 @@
     <string name="title_attachment_photo">Fă o poză</string>
     <string name="title_attachment_audio">Înregistrare audio</string>
     <string name="title_show_addresses">Arată CC/BCC</string>
+    <string name="title_media_toolbar">Bară atașare</string>
     <string name="title_insert_contact_group">Introduceți grup de contacte</string>
     <string name="title_insert_template">Introduceți șablon</string>
     <string name="title_send_plain_text">Trimite numai text simplu</string>
@@ -603,7 +604,7 @@
         <item>La fiecare 4 ore</item>
     </string-array>
     <string-array name="sendDelayedNames">
-        <item>Niciodată</item>
+        <item>Fără</item>
         <item>15 secunde</item>
         <item>30 de secunde</item>
         <item>1 minut</item>

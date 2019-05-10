@@ -122,6 +122,8 @@
     <string name="title_advanced_section_behavior">Beteende</string>
     <string name="title_advanced_section_misc">Diverse</string>
     <string name="title_advanced_schedule">Schema</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d pixlar</string>
+    <string name="title_advanced_autosend">Bekräfta sändning av meddelanden</string>
     <string name="title_advanced_metered">Använda uppmätta anslutningar</string>
     <string name="title_advanced_download">Automatiskt hämta meddelanden och bilagor på en uppmätt anslutning upp till</string>
     <string name="title_advanced_roaming">Hämta meddelanden och bilagor vid roaming</string>
@@ -149,9 +151,6 @@
     <string name="title_advanced_autonext">Gå automatiskt till nästa konversation vid stängning av konversation</string>
     <string name="title_advanced_autoread">Märk automatiskt meddelanden som lästa vid flyttning av meddelanden</string>
     <string name="title_advanced_automove">Bekräfta flyttning av meddelanden</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixlar</string>
-    <string name="title_advanced_sender">Tillåt avsändaradress redigering</string>
-    <string name="title_advanced_autosend">Bekräfta sändning av meddelanden</string>
     <string name="title_advanced_notify_preview">Visa meddelandeförhandsvisning i aviseringar</string>
     <string name="title_advanced_light">Använda aviseringslampan</string>
     <string name="title_advanced_sound">Välj aviseringsljud</string>
@@ -181,6 +180,7 @@
     <string name="title_select">Välj &#8230;</string>
     <string name="title_identity_name">Ditt namn</string>
     <string name="title_identity_email">Din e-postadress</string>
+    <string name="title_advanced_sender">Tillåt avsändaradress redigering</string>
     <string name="title_identity_reply_to">Svara till adress</string>
     <string name="title_identity_encrypt">Kryptera som standard</string>
     <string name="title_identity_read_receipt">Begär läskvitto</string>

@@ -137,6 +137,11 @@
     <string name="title_advanced_schedule">Programar</string>
     <string name="title_advanced_unseen">Todos los mensajes no leídos</string>
     <string name="title_advanced_flagged">Todos los mensajes destacados</string>
+    <string name="title_advanced_prefix_once">Prefijar el asunto solo una vez al responder o reenviar</string>
+    <string name="title_advanced_autoresize">Redimensionar automáticamente imágenes adjuntas e incrustadas</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d píxeles</string>
+    <string name="title_advanced_autosend">Confirmar enviar mensajes</string>
+    <string name="title_advanced_send_delayed">Diferir envío de mensajes</string>
     <string name="title_advanced_metered">Usar conexión de datos</string>
     <string name="title_advanced_download">Descargar automáticamente mensajes y adjuntos usando conexión de datos hasta</string>
     <string name="title_advanced_roaming">Descargar mensajes y adjuntos en roaming</string>
@@ -165,12 +170,6 @@
     <string name="title_advanced_autonext">Al cerrar una conversación, ir automáticamente a la siguiente</string>
     <string name="title_advanced_autoread">Marcar mensaje como leído automáticamente al moverlo</string>
     <string name="title_advanced_automove">Confirmar mover mensajes</string>
-    <string name="title_advanced_autoresize">Redimensionar automáticamente imágenes adjuntas e incrustadas</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d píxeles</string>
-    <string name="title_advanced_sender">Permitir editar dirección del remitente</string>
-    <string name="title_advanced_prefix_once">Prefijar el asunto solo una vez al responder o reenviar</string>
-    <string name="title_advanced_autosend">Confirmar enviar mensajes</string>
-    <string name="title_advanced_send_delayed">Diferir envío de mensajes</string>
     <string name="title_advanced_notify_group">Agrupar notificaciones de nuevos mensajes</string>
     <string name="title_advanced_notify_preview">Mostrar vista previa del mensaje en notificaciones</string>
     <string name="title_advanced_notify_actions">Acciones de notificación</string>
@@ -213,6 +212,7 @@
     <string name="title_select">Seleccione &#8230;</string>
     <string name="title_identity_name">Su nombre</string>
     <string name="title_identity_email">Su dirección de correo electrónico</string>
+    <string name="title_advanced_sender">Permitir editar dirección del remitente</string>
     <string name="title_identity_reply_to">Responder a la dirección</string>
     <string name="title_identity_encrypt">Encriptar por defecto</string>
     <string name="title_identity_use_ip_hint">En caso de \'saludo inválido\', \'requiere dirección válida\' o un error similar, intente cambiar esta configuración</string>
@@ -596,7 +596,7 @@
         <item>Cada 4 horas</item>
     </string-array>
     <string-array name="sendDelayedNames">
-        <item>Nunca</item>
+        <item>No</item>
         <item>15 segundos</item>
         <item>30 segundos</item>
         <item>1 minuto</item>

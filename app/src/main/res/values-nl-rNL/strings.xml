@@ -137,6 +137,11 @@
     <string name="title_advanced_schedule">Schema</string>
     <string name="title_advanced_unseen">Alle ongelezen berichten</string>
     <string name="title_advanced_flagged">Alle berichten met een ster</string>
+    <string name="title_advanced_prefix_once">Prefix onderwerp slechts één keer bij beantwoorden of doorsturen</string>
+    <string name="title_advanced_autoresize">Automatisch bijgevoegde en ingesloten afbeeldingen verkleinen</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_advanced_autosend">Bevestig het verzenden van berichten</string>
+    <string name="title_advanced_send_delayed">Verzenden van berichten uitstellen</string>
     <string name="title_advanced_metered">Gemeten verbindingen gebruiken</string>
     <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
     <string name="title_advanced_roaming">Download berichten en bijlagen tijdens roaming</string>
@@ -165,12 +170,6 @@
     <string name="title_advanced_autonext">Automatisch naar het volgende gesprek gaan bij het sluiten van een gesprek</string>
     <string name="title_advanced_autoread">Markeer berichten automatisch als gelezen bij het verplaatsen van berichten</string>
     <string name="title_advanced_automove">Bevestig het verplaatsen van berichten</string>
-    <string name="title_advanced_autoresize">Automatisch bijgevoegde en ingesloten afbeeldingen verkleinen</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
-    <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
-    <string name="title_advanced_prefix_once">Prefix onderwerp slechts één keer bij beantwoorden of doorsturen</string>
-    <string name="title_advanced_autosend">Bevestig het verzenden van berichten</string>
-    <string name="title_advanced_send_delayed">Verzenden van berichten uitstellen</string>
     <string name="title_advanced_notify_group">Groepeer meldingen nieuwe berichten</string>
     <string name="title_advanced_notify_preview">Toon berichtvoorbeeld in meldingen</string>
     <string name="title_advanced_notify_actions">Meldingsacties</string>
@@ -189,6 +188,7 @@
     <string name="title_advanced_authentication">Toon een waarschuwing wanneer de ontvangende server het bericht niet kon verifiëren</string>
     <string name="title_advanced_paranoid">Extra privacy functies</string>
     <string name="title_advanced_updates">Controleren op updates</string>
+    <string name="title_advanced_crash_reports">Foutrapporten verzenden</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
     <string name="title_advanced_last_cleanup">Laatste schoonmaak: %1$s</string>
     <string name="title_advanced_enabled_hint">Globaal in- of uitschakelen van het ontvangen en verzenden van berichten</string>
@@ -213,6 +213,7 @@
     <string name="title_select">Selecteer &#8230;</string>
     <string name="title_identity_name">Uw naam</string>
     <string name="title_identity_email">Uw e-mailadres</string>
+    <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
     <string name="title_identity_reply_to">Antwoord op adres</string>
     <string name="title_identity_encrypt">Standaard versleutelen</string>
     <string name="title_identity_use_ip_hint">In geval van \'invalid greeting\', \'requires valid address\' of een soortgelijke fout, probeer deze instelling te wijzigen</string>
@@ -380,6 +381,8 @@
     <string name="title_ask_show_image">Afbeeldingen tonen kan privacy gevoelige informatie lekken</string>
     <string name="title_ask_edit_ref">Bewerk opnieuw geformatteerde beantwoorde/doorgestuurde berichttekst?</string>
     <string name="title_ask_delete_local">Verwijder lokale berichten die ook op de externe server zijn opgeslagen?</string>
+    <string name="title_ask_bugsnag">Foutrapporten verzenden?</string>
+    <string name="title_bugsnag_hint">Foutrapportage helpt om FairEmail te verbeteren</string>
     <string name="title_compose">Opstellen</string>
     <string name="title_from">Van:</string>
     <string name="title_to">Aan:</string>
@@ -596,7 +599,7 @@
         <item>Elke 4 uur</item>
     </string-array>
     <string-array name="sendDelayedNames">
-        <item>Nooit</item>
+        <item>Geen</item>
         <item>15 seconden</item>
         <item>30 seconden</item>
         <item>1 minuut</item>

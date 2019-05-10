@@ -151,6 +151,10 @@
     <string name="title_advanced_schedule">Расписание</string>
     <string name="title_advanced_unseen">Все непрочитанные сообщения</string>
     <string name="title_advanced_flagged">Все избранные сообщения</string>
+    <string name="title_advanced_prefix_once">Добавлять только один префикс темы при ответе или пересылке</string>
+    <string name="title_advanced_autoresize">Автоматически изменять размер прикрепленных и встроенных изображений</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d пикселей</string>
+    <string name="title_advanced_autosend">Подтверждать отправку сообщений</string>
     <string name="title_advanced_metered">Использовать лимитированные подключения</string>
     <string name="title_advanced_download">Автоматически загружать сообщения и вложения для лимитного подключения до</string>
     <string name="title_advanced_roaming">Загружать сообщения и вложения в роуминге</string>
@@ -179,11 +183,6 @@
     <string name="title_advanced_autonext">При закрытии диалога, автоматически открыть следующий</string>
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
     <string name="title_advanced_automove">Подтверждать перемещение сообщений</string>
-    <string name="title_advanced_autoresize">Автоматически изменять размер прикрепленных и встроенных изображений</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d пикселей</string>
-    <string name="title_advanced_sender">Разрешить редактирование адреса отправителя</string>
-    <string name="title_advanced_prefix_once">Добавлять только один префикс темы при ответе или пересылке</string>
-    <string name="title_advanced_autosend">Подтверждать отправку сообщений</string>
     <string name="title_advanced_notify_group">Группировать новые уведомления</string>
     <string name="title_advanced_notify_preview">Предпросмотр сообщений в уведомлениях</string>
     <string name="title_advanced_notify_actions">Действия с уведомлениями</string>
@@ -226,6 +225,7 @@
     <string name="title_select">Выбор &#8230;</string>
     <string name="title_identity_name">Ваше имя</string>
     <string name="title_identity_email">Ваш эл. адрес</string>
+    <string name="title_advanced_sender">Разрешить редактирование адреса отправителя</string>
     <string name="title_identity_reply_to">Обратный адрес</string>
     <string name="title_identity_encrypt">Шифровать по умолчанию</string>
     <string name="title_identity_use_ip_hint">В случае ошибки \'invalid greeting\', \'requires valid address\' или аналогичной, попробуйте изменить этот параметр</string>

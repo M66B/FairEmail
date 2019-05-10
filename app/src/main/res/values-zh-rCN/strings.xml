@@ -129,6 +129,11 @@
     <string name="title_advanced_schedule">任务计划</string>
     <string name="title_advanced_unseen">所有未读消息</string>
     <string name="title_advanced_flagged">所有已标星消息</string>
+    <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
+    <string name="title_advanced_autoresize">自动调整附加和嵌入图像大小</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d 像素</string>
+    <string name="title_advanced_autosend">确认发送邮件</string>
+    <string name="title_advanced_send_delayed">延迟发送消息</string>
     <string name="title_advanced_metered">使用按流量计费的连接</string>
     <string name="title_advanced_download">在计量的连接下自动下载邮件和附件, 最高可达</string>
     <string name="title_advanced_roaming">漫游时下载消息和附件</string>
@@ -157,12 +162,6 @@
     <string name="title_advanced_autonext">关闭对话时自动转到下一个对话</string>
     <string name="title_advanced_autoread">将移动的邮件自动标记为已读</string>
     <string name="title_advanced_automove">确认移动邮件</string>
-    <string name="title_advanced_autoresize">自动调整附加和嵌入图像大小</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d 像素</string>
-    <string name="title_advanced_sender">允许编辑发件人地址</string>
-    <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
-    <string name="title_advanced_autosend">确认发送邮件</string>
-    <string name="title_advanced_send_delayed">延迟发送消息</string>
     <string name="title_advanced_notify_group">对新消息通知分组</string>
     <string name="title_advanced_notify_preview">通知中显示消息预览</string>
     <string name="title_advanced_notify_actions">通知操作</string>
@@ -205,6 +204,7 @@
     <string name="title_select">选择 &#8230;</string>
     <string name="title_identity_name">姓名</string>
     <string name="title_identity_email">电子邮件地址</string>
+    <string name="title_advanced_sender">允许编辑发件人地址</string>
     <string name="title_identity_reply_to">回复地址</string>
     <string name="title_identity_encrypt">默认加密</string>
     <string name="title_identity_use_ip_hint">如果遇到“无效问候”，“需要有效的地址”或类似错误，请尝试更改此设置</string>
@@ -400,6 +400,7 @@
     <string name="title_attachment_photo">拍照</string>
     <string name="title_attachment_audio">录音</string>
     <string name="title_show_addresses">显示抄送和密送</string>
+    <string name="title_media_toolbar">媒体工具栏</string>
     <string name="title_insert_contact_group">插入联系人组</string>
     <string name="title_insert_template">插入模板</string>
     <string name="title_send_plain_text">仅发送纯文本</string>
@@ -587,7 +588,7 @@
         <item>每 4 小时</item>
     </string-array>
     <string-array name="sendDelayedNames">
-        <item>从不</item>
+        <item>否</item>
         <item>15秒</item>
         <item>30秒</item>
         <item>1分钟</item>

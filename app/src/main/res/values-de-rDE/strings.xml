@@ -137,6 +137,11 @@
     <string name="title_advanced_schedule">Zeitplan</string>
     <string name="title_advanced_unseen">Alle ungelesenen Nachrichten</string>
     <string name="title_advanced_flagged">Alle gekennzeichneten Nachrichten</string>
+    <string name="title_advanced_prefix_once">Betreff nur einmal beim Antworten oder Weiterleiten voranstellen</string>
+    <string name="title_advanced_autoresize">Angehängte und eingebettete Bilder automatisch anpassen</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d Pixel</string>
+    <string name="title_advanced_autosend">Senden von E-Mails bestätigen</string>
+    <string name="title_advanced_send_delayed">Senden von Nachrichten verzögern</string>
     <string name="title_advanced_metered">Getaktete Verbindungen verwenden</string>
     <string name="title_advanced_download">Automatisches Herunterladen von E-Mails und Anhängen auf getakteten Verbindungen bis zu einer Größe von</string>
     <string name="title_advanced_roaming">Nachrichten und Anhänge bei Roaming herunterladen</string>
@@ -165,12 +170,6 @@
     <string name="title_advanced_autonext">Automatisch beim Schließen einer Konversation zur nächsten Konversation wechseln</string>
     <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen markieren</string>
     <string name="title_advanced_automove">Verschieben von Nachrichten bestätigen</string>
-    <string name="title_advanced_autoresize">Angehängte und eingebettete Bilder automatisch anpassen</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d Pixel</string>
-    <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
-    <string name="title_advanced_prefix_once">Betreff nur einmal beim Antworten oder Weiterleiten voranstellen</string>
-    <string name="title_advanced_autosend">Senden von E-Mails bestätigen</string>
-    <string name="title_advanced_send_delayed">Senden von Nachrichten verzögern</string>
     <string name="title_advanced_notify_group">Neue Nachrichten-Benachrichtigungen gruppieren</string>
     <string name="title_advanced_notify_preview">Zeige die Nachrichten-Vorschau in den Benachrichtigungen</string>
     <string name="title_advanced_notify_actions">Benachrichtigungsaktionen</string>
@@ -213,6 +212,7 @@
     <string name="title_select">Wählen Sie &#8230;</string>
     <string name="title_identity_name">Ihr Name</string>
     <string name="title_identity_email">Ihre E-Mail-Adresse</string>
+    <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
     <string name="title_identity_reply_to">Antwortadresse</string>
     <string name="title_identity_encrypt">Standardmäßig verschlüsseln</string>
     <string name="title_identity_use_ip_hint">Bei \'invalid greeting\', \'requires valid address\' oder einem ähnlichen Fehler, versuchen Sie, diese Einstellung zu ändern</string>
@@ -596,7 +596,7 @@
         <item>Alle vier Stunden</item>
     </string-array>
     <string-array name="sendDelayedNames">
-        <item>Niemals</item>
+        <item>Nein</item>
         <item>15 Sekunden</item>
         <item>30 Sekunden</item>
         <item>1 Minute</item>

@@ -50,11 +50,11 @@
     <string name="title_notification_sending">Lähetetään viestejä</string>
     <string name="title_notification_failed">\'%1$s\' epäonnistui</string>
     <string name="title_name_count">%1$s (%2$s)</string>
-    <string name="menu_answers">Mallit</string>
+    <string name="menu_answers">Viestipohjat</string>
     <string name="menu_operations">Toimenpiteet</string>
     <string name="menu_contacts">Paikalliset yhteystiedot</string>
     <string name="menu_setup">Asetukset</string>
-    <string name="menu_legend">Selitteet</string>
+    <string name="menu_legend">Selite</string>
     <string name="menu_faq">Tuki</string>
     <string name="menu_issue">Ilmoita ongelmasta</string>
     <string name="menu_privacy">Yksityisyys</string>
@@ -76,7 +76,7 @@
     <string name="title_setup">Asetukset</string>
     <string name="title_setup_help">Ohje</string>
     <string name="title_setup_quick">Pika-asennus</string>
-    <string name="title_setup_quick_remark">Tilin ja identiteetin nopeaan asettamiseen useimmilla palveluntarjoajilla</string>
+    <string name="title_setup_quick_remark">Tilin ja identiteetin nopeaan asettamiseen useimmille palveluntarjoajille</string>
     <string name="title_setup_quick_hint">Pika-asennus hakee asetustiedot osoitteesta autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-palvelin viestien vastaanottamiseen</string>
     <string name="title_setup_quick_smtp">SMTP-palvelin viestien lähettämiseen</string>
@@ -95,7 +95,7 @@
     <string name="title_setup_permissions">Myönnä käyttöluvat</string>
     <string name="title_setup_permissions_remark">Laitteen yhteystietojen lukemiseen (valinnainen)</string>
     <string name="title_setup_doze">Akun käytön optimoinnin asettaminen</string>
-    <string name="title_setup_doze_remark">Sähköpostien keskeytymättömään vastaanottamiseen (valinnainen)</string>
+    <string name="title_setup_doze_remark">Sähköpostien vastaanottamiseen ilman keskeytyksiä (valinnainen)</string>
     <string name="title_setup_doze_instructions">Seuraavassa valintaikkunassa valitse ylhäältä ”Kaikki sovellukset”, valitse tämä sovellus ja valitse sekä vahvista ”Älä optimoi”</string>
     <string name="title_setup_data">Poista käytöstä datan käytön hallinta</string>
     <string name="title_setup_inbox">Lue viestejä</string>
@@ -123,8 +123,10 @@
     <string name="title_setup_advanced">Lisäasetukset</string>
     <string name="title_setup_options">Asetukset</string>
     <string name="title_setup_defaults">Palauta oletukset</string>
+    <string name="title_setup_reset_questions">Resetoi kysymykset</string>
     <string name="title_advanced">Lisäasetukset</string>
-    <string name="title_advanced_section_synchronize">Synkronoi</string>
+    <string name="title_advanced_section_synchronize">Synkronointi</string>
+    <string name="title_advanced_section_send">Lähettäminen</string>
     <string name="title_advanced_section_connection">Yhteys</string>
     <string name="title_advanced_section_display">Ulkoasu</string>
     <string name="title_advanced_section_behavior">Toiminnot</string>
@@ -135,6 +137,11 @@
     <string name="title_advanced_schedule">Aikataulu</string>
     <string name="title_advanced_unseen">Kaikki lukemattomat viestit</string>
     <string name="title_advanced_flagged">Kaikki tähdelliset viestit</string>
+    <string name="title_advanced_prefix_once">Lisää aiheeseen etuliite vain kerran vastatessa ja edelleenlähetettäessä</string>
+    <string name="title_advanced_autoresize">Muuta liitettyjen ja upotettujen kuvien koot</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d kuvapistettä</string>
+    <string name="title_advanced_autosend">Vahvista viestien lähetys</string>
+    <string name="title_advanced_send_delayed">Viivästä viestien lähetystä</string>
     <string name="title_advanced_metered">Käytä käytön mukaan laskutettavia yhteyksiä</string>
     <string name="title_advanced_download">Ladattavien viestien ja liitteiden maksimikoko käytön mukaan laskutettavaa yhteyttä käytettäessä</string>
     <string name="title_advanced_roaming">Lataa viestit ja liitteet verkkovierailun aikana</string>
@@ -163,11 +170,6 @@
     <string name="title_advanced_autonext">Siirry seuraavaan keskusteluun, kun keskustelu suljetaan</string>
     <string name="title_advanced_autoread">Siirtäessä viestejä merkitse ne luetuiksi</string>
     <string name="title_advanced_automove">Vahvista viestien siirto</string>
-    <string name="title_advanced_autoresize">Muuta liitettyjen ja upotettujen kuvien koot</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d kuvapistettä</string>
-    <string name="title_advanced_sender">Salli lähetysosoitteen muokkaaminen</string>
-    <string name="title_advanced_prefix_once">Lisää aiheeseen etuliite vain kerran vastatessa ja edelleenlähetettäessä</string>
-    <string name="title_advanced_autosend">Vahvista viestien lähetys</string>
     <string name="title_advanced_notify_group">Ryhmittele uusien viestien ilmoitukset</string>
     <string name="title_advanced_notify_preview">Näytä viestin esikatselu ilmoituksissa</string>
     <string name="title_advanced_notify_actions">Ilmoituksen toiminnot</string>
@@ -210,6 +212,7 @@
     <string name="title_select">Valitse &#8230;</string>
     <string name="title_identity_name">Nimesi</string>
     <string name="title_identity_email">Sähköpostiosoitteesi</string>
+    <string name="title_advanced_sender">Salli lähetysosoitteen muokkaaminen</string>
     <string name="title_identity_reply_to">Vastausosoite</string>
     <string name="title_identity_encrypt">Salaa oletusarvoisesti</string>
     <string name="title_identity_use_ip_hint">Virheilmoituksen ollessa \'invalid greeting\', \'requires valid address\' tai muu samankaltainen yritä muuttaa tätä asetusta</string>
@@ -335,14 +338,14 @@
     <string name="title_save_all">Tallenna kaikki</string>
     <string name="title_show_html">Näytä alkuperäinen</string>
     <string name="title_show_formatted">Näytä muotoiltu</string>
-    <string name="title_trash">Roskakori</string>
+    <string name="title_trash">Roskakoriin</string>
     <string name="title_copy">Kopioi &#8230;</string>
     <string name="title_subscribe">Tilaa</string>
     <string name="title_delete">Poista</string>
     <string name="title_more">Lisää</string>
     <string name="title_spam">Roskaposti</string>
     <string name="title_move">Siirrä</string>
-    <string name="title_move_to">Siirrä kansioon %1$s</string>
+    <string name="title_move_to">Siirrä tilille %1$s</string>
     <string name="title_snooze">Torkuta &#8230;</string>
     <string name="title_archive">Arkistoi</string>
     <string name="title_reply">Vastaa</string>
@@ -350,12 +353,12 @@
     <string name="title_reply_to_all">Kaikki</string>
     <string name="title_reply_list">Lista</string>
     <string name="title_reply_receipt">Vastaanottokuittaus</string>
-    <string name="title_reply_template">Malli</string>
+    <string name="title_reply_template">Viestipohja</string>
     <string name="title_moving">Siirretään kansioon %1$s</string>
     <string name="title_open_with">Avaa sovelluksessa</string>
     <string name="title_receipt_subject">Vastaanottokuittaus: %1$s</string>
     <string name="title_receipt_text">Tämä vastaanottokuittaus tarkoittaa, että viesti on näytetty. Ei ole varmuutta, että vastaanottaja on lukenut viestin sisällön.</string>
-    <string name="title_no_answers">Vastausmalleja ei ole määritetty</string>
+    <string name="title_no_answers">Vastausviestipohjia ei ole määritetty</string>
     <string name="title_no_viewer">Katselusovellusta ei ole saatavilla tiedostolle %1$s</string>
     <string name="title_no_saf">Storage access framework ei ole käytettävissä</string>
     <string name="title_no_stream">Vanhentunut sovellus lähetti tiedoston kansion tiedostovirran sijaan</string>
@@ -370,7 +373,7 @@
     <string name="title_attachments_saved">Liitteet tallennettu</string>
     <string name="title_attachments_incomplete">Joitakin liitteitä tai kuvia ei ladattu eikä voitu lisätä</string>
     <string name="title_ask_delete">Poistetaanko viesti pysyvästi?</string>
-    <string name="title_ask_delete_answer">Poistetaanko vastausmalli pysyvästi?</string>
+    <string name="title_ask_delete_answer">Poistetaanko vastausviestipohja pysyvästi?</string>
     <string name="title_ask_delete_rule">Poistetaanko sääntö pysyvästi?</string>
     <string name="title_ask_discard">Hylätäänkö luonnos?</string>
     <string name="title_ask_show_html">Alkuperäisen viestin näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
@@ -401,9 +404,13 @@
     <string name="title_style_link">Lisää linkki</string>
     <string name="title_style_image">Lisää kuva</string>
     <string name="title_add_attachment">Lisää liite</string>
+    <string name="title_attachment_file">Liitä tiedosto</string>
+    <string name="title_attachment_photo">Ota kuva</string>
+    <string name="title_attachment_audio">Tallenna ääntä</string>
     <string name="title_show_addresses">Näytä kopio/piilokopio</string>
+    <string name="title_media_toolbar">Mediatyökalupalkki</string>
     <string name="title_insert_contact_group">Lisää yhteystietoryhmä</string>
-    <string name="title_insert_template">Lisää malli</string>
+    <string name="title_insert_template">Lisää viestipohja</string>
     <string name="title_send_plain_text">Lähetä muotoilemattomana tekstinä</string>
     <string name="title_from_missing">Lähettäjä puuttuu</string>
     <string name="title_to_missing">Vastaanottaja puuttuu</string>
@@ -412,6 +419,7 @@
     <string name="title_draft_saved">Luonnos tallennettu</string>
     <string name="title_ask_send_via">Lähetäänkö viesti vaataanottajalle %1$s identiteetillä %2$s?</string>
     <string name="title_queued">Lähetetään viestiä</string>
+    <string name="title_queued_at">Viesti lähetetään arviolta %1$s</string>
     <string name="title_encrypt">Salaa</string>
     <string name="title_decrypt">Pura salaus</string>
     <string name="title_resync">Synkronoi uudelleen</string>
@@ -421,13 +429,14 @@
     <string name="title_search_hint">Hae palvelimelta</string>
     <string name="title_search_device">Hae laitteesta</string>
     <string name="title_searching">Haetaan \'%1$s\'</string>
-    <string name="title_sort_on">Lajittele</string>
+    <string name="title_sort_on">Järjestys</string>
     <string name="title_sort_on_time">Aika</string>
     <string name="title_sort_on_unread">Lukematon</string>
     <string name="title_sort_on_starred">Tähdellinen</string>
     <string name="title_sort_on_sender">Lähettäjä</string>
     <string name="title_sort_on_subject">Aihe</string>
     <string name="title_sort_on_size">Koko</string>
+    <string name="title_sort_on_snoozed">Torkutettu</string>
     <string name="title_filter">Suodatin</string>
     <string name="title_filter_seen">Luettu</string>
     <string name="title_filter_snoozed">Torkutettu</string>
@@ -440,11 +449,11 @@
     <string name="title_address_invalid">Virheellinen:</string>
     <string name="title_previous">Edellinen</string>
     <string name="title_next">Seuraava</string>
-    <string name="title_answer_caption">Muokkaa mallia</string>
-    <string name="title_answer_reply">Vastausmalli</string>
-    <string name="title_answer_name">Mallin nimi</string>
+    <string name="title_answer_caption">Muokkaa viestipohjaa</string>
+    <string name="title_answer_reply">Vastausviestipohja</string>
+    <string name="title_answer_name">Viestipohjan nimi</string>
     <string name="title_answer_hide">Piilota valikoista</string>
-    <string name="title_answer_text">Mallin teksti</string>
+    <string name="title_answer_text">Viestipohjan teksti</string>
     <string name="title_answer_template_name">$name$ korvataan lähettäjän koko nimellä</string>
     <string name="title_answer_template_email">$email$ korvataan lähettäjän sähköpostiosoitteella</string>
     <string name="title_rule_caption">Muokkaa sääntöä</string>
@@ -463,7 +472,7 @@
     <string name="title_rule_action_remark">Tätä toimintoa käytetään uusiin viesteihin, jotka saapuvat kansioon %1$s</string>
     <string name="title_rule_folder">Kansio</string>
     <string name="title_rule_identity">Identiteetti</string>
-    <string name="title_rule_answer">Vastausmalli</string>
+    <string name="title_rule_answer">Vastausviestipohja</string>
     <string name="title_rule_cc">Vastaa kopio-osoitteisiin</string>
     <string name="title_rule_name_missing">Säännön nimi puuttuu</string>
     <string name="title_rule_condition_missing">Ehdot puuttuvat</string>
@@ -481,10 +490,10 @@
     <string name="title_legend_thread">Keskustelu</string>
     <string name="title_legend_zoom">Muuta tekstin kokoa</string>
     <string name="title_legend_draft">Sisältää luonnoksen</string>
-    <string name="title_legend_snoozed">On torkutettu</string>
+    <string name="title_legend_snoozed">Torkutettu</string>
     <string name="title_legend_browsed">Selattu tai haettu</string>
     <string name="title_legend_answered">Vastattu</string>
-    <string name="title_legend_plain_only">On muotoilematon teksti</string>
+    <string name="title_legend_plain_only">Muotoilematon teksti</string>
     <string name="title_legend_receipt">Kuittaus pyydetty</string>
     <string name="title_legend_attachment">Sisältää liitteen</string>
     <string name="title_legend_flagged">Tähdellinen</string>
@@ -567,7 +576,7 @@
     <string name="title_pro_feature">Tämä on pro-ominaisuus</string>
     <string name="title_pro_list">Luettelo pro-ominaisuuksista</string>
     <string name="title_pro_purchase">Osta</string>
-    <string name="title_pro_hint">Pro-ominaisuuksien ostaminen antaa sinulle oikeudet käyttää nykyisiä ja tulevia pro-ominaisuuksia sekä auttaa ylläpitämään ja tukemaan tätä sovellusta</string>
+    <string name="title_pro_hint">Pro-ominaisuuksien ostaminen antaa oikeudet käyttää nykyisiä ja tulevia pro-ominaisuuksia sekä auttaa ylläpitämään ja tukemaan tätä sovellusta</string>
     <string name="title_pro_price">Katso <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">nämä usein kysytyt kysymykset</a> pro-ominaisuuksien hinnasta</string>
     <string name="title_pro_activated">Kaikki pro-ominaisuudet on aktivoitu</string>
     <string name="title_pro_valid">Kaikki pro-ominaisuudet on aktivoitu</string>
@@ -585,6 +594,15 @@
         <item>Tunnin välein</item>
         <item>2 tunnin välein</item>
         <item>4 tunnin välein</item>
+    </string-array>
+    <string-array name="sendDelayedNames">
+        <item>Ei</item>
+        <item>15 sekuntia</item>
+        <item>30 sekuntia</item>
+        <item>1 minuutti</item>
+        <item>2 minuuttia</item>
+        <item>5 minuuttia</item>
+        <item>10 minuuttia</item>
     </string-array>
     <string-array name="startupNames">
         <item>Yhdistetty saapuneet</item>

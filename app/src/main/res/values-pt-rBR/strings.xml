@@ -135,6 +135,10 @@
     <string name="title_advanced_schedule">Programar</string>
     <string name="title_advanced_unseen">Todas as mensagens não lidas</string>
     <string name="title_advanced_flagged">Todas as mensagens com estrela</string>
+    <string name="title_advanced_prefix_once">Prefixo de assunto apenas uma vez na resposta ou encaminhamento</string>
+    <string name="title_advanced_autoresize">Redimensionar automaticamente as imagens anexadas e incorporadas</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_advanced_autosend">Confirmar o envio de mensagens</string>
     <string name="title_advanced_metered">Usar conexões limitadas</string>
     <string name="title_advanced_download">Fazer download automático de mensagens e anexos em uma conexão limitada até</string>
     <string name="title_advanced_roaming">Fazer o download de mensagens e anexos de roaming</string>
@@ -163,11 +167,6 @@
     <string name="title_advanced_autonext">Ir para a próxima conversa automaticamente ao fechar a conversa</string>
     <string name="title_advanced_autoread">Marcar mensagens como lidas automaticamente ao movê-las</string>
     <string name="title_advanced_automove">Confirmar ao mover mensagens</string>
-    <string name="title_advanced_autoresize">Redimensionar automaticamente as imagens anexadas e incorporadas</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
-    <string name="title_advanced_sender">Permitir editar o endereço do remetente</string>
-    <string name="title_advanced_prefix_once">Prefixo de assunto apenas uma vez na resposta ou encaminhamento</string>
-    <string name="title_advanced_autosend">Confirmar o envio de mensagens</string>
     <string name="title_advanced_notify_preview">Mostrar pré-visualização de mensagem nas notificações</string>
     <string name="title_advanced_notify_actions">Ações de notificação</string>
     <string name="title_advanced_notify_action_trash">Lixeira</string>
@@ -209,6 +208,7 @@
     <string name="title_select">Selecionar &#8230;</string>
     <string name="title_identity_name">Seu nome</string>
     <string name="title_identity_email">Seu endereço de e-mail</string>
+    <string name="title_advanced_sender">Permitir editar o endereço do remetente</string>
     <string name="title_identity_reply_to">Resposta para o endereço</string>
     <string name="title_identity_encrypt">Criptografar por padrão</string>
     <string name="title_identity_use_ip_hint">Em caso de \'saudação inválida\', \'requer um endereço válido\' ou um erro similar, tente alterar esta configuração</string>

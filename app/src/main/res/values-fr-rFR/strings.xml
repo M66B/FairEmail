@@ -137,6 +137,11 @@
     <string name="title_advanced_schedule">Planifier</string>
     <string name="title_advanced_unseen">Tous les messages non lus</string>
     <string name="title_advanced_flagged">Tous les messages suivis</string>
+    <string name="title_advanced_prefix_once">Ne préfixer le sujet qu\'une seule fois lors de la réponse ou du transfert</string>
+    <string name="title_advanced_autoresize">Redimensionner automatiquement les images jointes et incluses</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_advanced_autosend">Confirmer l\'envoi des messages</string>
+    <string name="title_advanced_send_delayed">Retarder l\'envoi des messages</string>
     <string name="title_advanced_metered">Utiliser des connexions limitées</string>
     <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes avec une connexion limitée jusqu\'à</string>
     <string name="title_advanced_roaming">Télécharger les messages et les pièces jointes en itinérance</string>
@@ -165,12 +170,6 @@
     <string name="title_advanced_autonext">Lors de la fermeture d\'une conversation, aller automatiquement sur la suivante</string>
     <string name="title_advanced_autoread">Marquer automatiquement le message comme lu lors de son déplacement</string>
     <string name="title_advanced_automove">Confirmer le déplacement des messages</string>
-    <string name="title_advanced_autoresize">Redimensionner automatiquement les images jointes et incluses</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
-    <string name="title_advanced_sender">Autoriser la modification de l\'adresse de l\'expéditeur</string>
-    <string name="title_advanced_prefix_once">Ne préfixer le sujet qu\'une seule fois lors de la réponse ou du transfert</string>
-    <string name="title_advanced_autosend">Confirmer l\'envoi des messages</string>
-    <string name="title_advanced_send_delayed">Retarder l\'envoi des messages</string>
     <string name="title_advanced_notify_group">Grouper les notifications de nouveau message</string>
     <string name="title_advanced_notify_preview">Afficher l\'aperçu du message dans les notifications</string>
     <string name="title_advanced_notify_actions">Actions de notification</string>
@@ -189,6 +188,7 @@
     <string name="title_advanced_authentication">Afficher un avertissement lorsque le serveur de réception n\'a pas pu authentifier le message</string>
     <string name="title_advanced_paranoid">Fonctions de confidentialité supplémentaires</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
+    <string name="title_advanced_crash_reports">Envoyer des rapports d\'erreur</string>
     <string name="title_advanced_debug">Débogage</string>
     <string name="title_advanced_last_cleanup">Dernier nettoyage : %1$s</string>
     <string name="title_advanced_enabled_hint">Désactiver ou activer globalement la réception et l\'envoi de messages</string>
@@ -213,6 +213,7 @@
     <string name="title_select">Sélectionner &#8230;</string>
     <string name="title_identity_name">Votre nom</string>
     <string name="title_identity_email">Votre adresse e-mail</string>
+    <string name="title_advanced_sender">Autoriser la modification de l\'adresse de l\'expéditeur</string>
     <string name="title_identity_reply_to">Répondre à l\'adresse</string>
     <string name="title_identity_encrypt">Chiffrer par défaut</string>
     <string name="title_identity_use_ip_hint">En cas de \"connexion invalide\", \"nécessite une adresse valide\" ou une erreur similaire, essayez de modifier ce paramètre</string>
@@ -380,6 +381,8 @@
     <string name="title_ask_show_image">Afficher les images peut divulguer des informations sensibles privées</string>
     <string name="title_ask_edit_ref">Modifier le texte du message reformaté et répondu/transféré ?</string>
     <string name="title_ask_delete_local">Supprimer les messages locaux qui sont également stockés sur le serveur distant ?</string>
+    <string name="title_ask_bugsnag">Envoyer des rapports d\'erreur ?</string>
+    <string name="title_bugsnag_hint">Un rapport d\'erreur aidera à améliorer FairEmail</string>
     <string name="title_compose">Rédiger</string>
     <string name="title_from">De :</string>
     <string name="title_to">À :</string>
@@ -596,7 +599,7 @@
         <item>Toutes les 4 heures</item>
     </string-array>
     <string-array name="sendDelayedNames">
-        <item>Jamais</item>
+        <item>Aucun</item>
         <item>15 secondes</item>
         <item>30 secondes</item>
         <item>1 minute</item>

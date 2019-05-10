@@ -151,6 +151,10 @@
     <string name="title_advanced_schedule">Harmonogram</string>
     <string name="title_advanced_unseen">Wszystkie nieprzeczytane wiadomości</string>
     <string name="title_advanced_flagged">Wszystkie oznaczone wiadomości</string>
+    <string name="title_advanced_prefix_once">Prefiksuj tylko raz przy odpowiedzi lub przesyłaniu dalej</string>
+    <string name="title_advanced_autoresize">Automatycznie zmieniaj rozmiar załączonych i osadzonych obrazów</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
+    <string name="title_advanced_autosend">Potwierdź wysłanie wiadomości</string>
     <string name="title_advanced_metered">Użyj połączeń taryfowych</string>
     <string name="title_advanced_download">Automatycznie pobieraj wiadomości i załączniki przy połączeniach taryfowych do</string>
     <string name="title_advanced_roaming">Pobieraj wiadomości i załączniki podczas roamingu</string>
@@ -176,11 +180,6 @@
     <string name="title_advanced_autonext">Automatycznie przejdź do następnej rozmowy przy zamykaniu rozmowy</string>
     <string name="title_advanced_autoread">Automatycznie oznacz wiadomość jako przeczytaną przy przenoszeniu</string>
     <string name="title_advanced_automove">Potwierdź przenoszenie wiadomości</string>
-    <string name="title_advanced_autoresize">Automatycznie zmieniaj rozmiar załączonych i osadzonych obrazów</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
-    <string name="title_advanced_sender">Zezwól na edycję adresu nadawcy</string>
-    <string name="title_advanced_prefix_once">Prefiksuj tylko raz przy odpowiedzi lub przesyłaniu dalej</string>
-    <string name="title_advanced_autosend">Potwierdź wysłanie wiadomości</string>
     <string name="title_advanced_notify_group">Grupuj powiadomienia o nowych wiadomościach</string>
     <string name="title_advanced_notify_preview">Pokaż podgląd wiadomości w powiadomieniach</string>
     <string name="title_advanced_notify_actions">Akcje powiadomień</string>
@@ -221,6 +220,7 @@
     <string name="title_select">Wybierz &#8230;</string>
     <string name="title_identity_name">Twoja nazwa</string>
     <string name="title_identity_email">Twój adres e-mail</string>
+    <string name="title_advanced_sender">Zezwól na edycję adresu nadawcy</string>
     <string name="title_identity_reply_to">Odpowiedz na adres</string>
     <string name="title_identity_encrypt">Szyfruj domyślnie</string>
     <string name="title_identity_use_ip_hint">W przypadku „nieprawidłowego powitania”, „wymaga prawidłowego adresu” lub podobnego błędu spróbuj zmienić to ustawienie</string>

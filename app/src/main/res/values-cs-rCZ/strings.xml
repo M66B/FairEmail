@@ -153,6 +153,11 @@
     <string name="title_advanced_schedule">Naplánovat</string>
     <string name="title_advanced_unseen">Všechny nepřečtené zprávy</string>
     <string name="title_advanced_flagged">Všechny zprávy s hvězdičkou</string>
+    <string name="title_advanced_prefix_once">Přidat do předmětu pouze jednu předponu při odpovídání nebo přeposílání</string>
+    <string name="title_advanced_autoresize">Automaticky upravit velikost přiložených a vložených obrázků</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d pixelů</string>
+    <string name="title_advanced_autosend">Potvrzovat odesílání zpráv</string>
+    <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
     <string name="title_advanced_metered">Používat účtovaná připojení</string>
     <string name="title_advanced_download">Automaticky stahovat zprávy a přílohy na účtovaném připojení až do velikosti</string>
     <string name="title_advanced_roaming">Stahovat zprávy a přílohy během roamingu</string>
@@ -181,12 +186,6 @@
     <string name="title_advanced_autonext">Automaticky přejít na další konverzaci při zavření konverzace</string>
     <string name="title_advanced_autoread">Automaticky označit zprávy jako přečtené při přesunu</string>
     <string name="title_advanced_automove">Potvrzovat přesun zpráv</string>
-    <string name="title_advanced_autoresize">Automaticky upravit velikost přiložených a vložených obrázků</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixelů</string>
-    <string name="title_advanced_sender">Umožnit úpravu adresy odesílatele</string>
-    <string name="title_advanced_prefix_once">Přidat do předmětu pouze jednu předponu při odpovídání nebo přeposílání</string>
-    <string name="title_advanced_autosend">Potvrzovat odesílání zpráv</string>
-    <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
     <string name="title_advanced_notify_group">Seskupovat oznámení nových zpráv</string>
     <string name="title_advanced_notify_preview">Zobrazit náhled zprávy v oznámení</string>
     <string name="title_advanced_notify_actions">Akce oznámení</string>
@@ -229,6 +228,7 @@
     <string name="title_select">Vybrat &#8230;</string>
     <string name="title_identity_name">Vaše jméno</string>
     <string name="title_identity_email">Vaše e-mailová adresa</string>
+    <string name="title_advanced_sender">Umožnit úpravu adresy odesílatele</string>
     <string name="title_identity_reply_to">Adresa pro odpověď</string>
     <string name="title_identity_encrypt">Šifrovat ve výchozím stavu</string>
     <string name="title_identity_use_ip_hint">V případě \"neplatného pozdravu\", \"vyžadování platné adresy\" či podobné chyby zkuste změnit toto nastavení</string>
@@ -612,7 +612,7 @@
         <item>Každé 4 hodiny</item>
     </string-array>
     <string-array name="sendDelayedNames">
-        <item>Nikdy</item>
+        <item>No</item>
         <item>15 vteřin</item>
         <item>30 vteřin</item>
         <item>1 minuta</item>
