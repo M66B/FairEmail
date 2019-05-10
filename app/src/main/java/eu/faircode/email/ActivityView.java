@@ -681,7 +681,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 prefs.getBoolean("crash_reports_confirmed", false))
             return;
 
-        final View dview = LayoutInflater.from(this).inflate(R.layout.dialog_bugsnag, null);
+        final View dview = LayoutInflater.from(this).inflate(R.layout.dialog_error_reporting, null);
         final Button btnInfo = dview.findViewById(R.id.btnInfo);
         final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
