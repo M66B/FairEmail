@@ -100,6 +100,42 @@ public class ApplicationEx extends Application {
             }
         });
 
+        setupBugsnag();
+
+        upgrade(this);
+
+        createNotificationChannels();
+
+        if (Helper.hasWebView(this))
+            CookieManager.getInstance().setAcceptCookie(false);
+
+        MessageHelper.setSystemProperties();
+        ContactInfo.init(this, new Handler());
+        Core.init(this);
+    }
+
+    @Override
+    public void onTrimMemory(int level) {
+        logMemory("Trim memory level=" + level);
+        super.onTrimMemory(level);
+    }
+
+    @Override
+    public void onLowMemory() {
+        logMemory("Low memory");
+        super.onLowMemory();
+    }
+
+    private void logMemory(String message) {
+        ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
+        ActivityManager activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+        activityManager.getMemoryInfo(mi);
+        int mb = Math.round(mi.availMem / 0x100000L);
+        int perc = Math.round(mi.availMem / (float) mi.totalMem * 100.0f);
+        Log.i(message + " " + mb + " MB" + " " + perc + " %");
+    }
+
+    private void setupBugsnag() {
         // https://docs.bugsnag.com/platforms/android/sdk/
         com.bugsnag.android.Configuration config =
                 new com.bugsnag.android.Configuration("9d2d57476a0614974449a3ec33f2604a");
@@ -149,38 +185,6 @@ public class ApplicationEx extends Application {
                 return true;
             }
         });
-
-        upgrade(this);
-
-        createNotificationChannels();
-
-        if (Helper.hasWebView(this))
-            CookieManager.getInstance().setAcceptCookie(false);
-
-        MessageHelper.setSystemProperties();
-        ContactInfo.init(this, new Handler());
-        Core.init(this);
-    }
-
-    @Override
-    public void onTrimMemory(int level) {
-        logMemory("Trim memory level=" + level);
-        super.onTrimMemory(level);
-    }
-
-    @Override
-    public void onLowMemory() {
-        logMemory("Low memory");
-        super.onLowMemory();
-    }
-
-    private void logMemory(String message) {
-        ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
-        ActivityManager activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
-        activityManager.getMemoryInfo(mi);
-        int mb = Math.round(mi.availMem / 0x100000L);
-        int perc = Math.round(mi.availMem / (float) mi.totalMem * 100.0f);
-        Log.i(message + " " + mb + " MB" + " " + perc + " %");
     }
 
     static void upgrade(Context context) {
