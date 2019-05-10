@@ -61,6 +61,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.mail.MessagingException;
+
 public class ApplicationEx extends Application {
     private Thread.UncaughtExceptionHandler prev = null;
 
@@ -152,13 +154,17 @@ public class ApplicationEx extends Application {
         config.setDetectAnrs(false);
 
         List<String> ignore = new ArrayList<>();
+
+        ignore.add("com.sun.mail.util.MailConnectException");
+        ignore.add("javax.mail.AuthenticationFailedException");
+
+        ignore.add("javax.mail.StoreClosedException");
+        ignore.add("javax.mail.FolderClosedException");
+        ignore.add("javax.mail.ReadOnlyFolderException");
+
         ignore.add("javax.mail.MessageRemovedException");
-        if (!BuildConfig.BETA_RELEASE) {
-            ignore.add("javax.mail.FolderClosedException");
-            ignore.add("javax.mail.StoreClosedException");
-            ignore.add("com.sun.mail.util.MailConnectException");
-            ignore.add("javax.mail.internet.AddressException");
-        }
+        ignore.add("javax.mail.internet.AddressException");
+
         config.setIgnoreClasses(ignore.toArray(new String[0]));
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -166,6 +172,21 @@ public class ApplicationEx extends Application {
         config.beforeSend(new BeforeSend() {
             @Override
             public boolean run(@NonNull Report report) {
+                Error error = report.getError();
+                if (error != null) {
+                    Throwable ex = error.getException();
+
+                    if (ex instanceof IllegalStateException &&
+                            ("Not connected".equals(ex.getMessage()) ||
+                                    "This operation is not allowed on a closed folder".equals(ex.getMessage())))
+                        return false;
+
+                    if (ex instanceof MessagingException &&
+                            ("connection failure".equals(ex.getMessage()) ||
+                                    "failed to create new store connection".equals(ex.getMessage())))
+                        return false;
+                }
+
                 return prefs.getBoolean("crash_reports", false); // opt-in
             }
         });
