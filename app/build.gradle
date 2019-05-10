@@ -91,6 +91,12 @@ android {
     bugsnag {
         // https://docs.bugsnag.com/build-integrations/gradle/
         apiKey "9d2d57476a0614974449a3ec33f2604a"
+        builderName "M66B"
+        autoUpload false
+        autoReportBuilds false
+        sourceControl {
+            repository "https://github.com/M66B/open-source-email"
+        }
     }
 }
 
