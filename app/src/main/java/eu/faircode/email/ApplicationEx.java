@@ -108,6 +108,7 @@ public class ApplicationEx extends Application {
         else
             config.setReleaseStage(BuildConfig.PLAY_STORE_RELEASE ? "stable/play" : "stable");
 
+        config.setAutoCaptureSessions(false);
         config.setIgnoreClasses(new String[]{"javax.mail.MessageRemovedException"});
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -115,11 +116,13 @@ public class ApplicationEx extends Application {
         config.beforeSend(new BeforeSend() {
             @Override
             public boolean run(@NonNull Report report) {
-                return prefs.getBoolean("crash_reports", false); // opt-out
+                return prefs.getBoolean("crash_reports", false); // opt-in
             }
         });
 
         Bugsnag.init(this, config);
+        if (prefs.getBoolean("crash_reports", false))
+            Bugsnag.startSession();
 
         upgrade(this);
 

@@ -69,6 +69,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bugsnag.android.Bugsnag;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
@@ -706,6 +707,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         prefs.edit().putBoolean("crash_reports", true).apply();
                         if (cbNotAgain.isChecked())
                             prefs.edit().putBoolean("crash_reports_confirmed", true).apply();
+                        Bugsnag.startSession();
                     }
                 })
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {

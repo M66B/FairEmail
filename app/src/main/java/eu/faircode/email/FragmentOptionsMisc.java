@@ -39,6 +39,8 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
 
+import com.bugsnag.android.Bugsnag;
+
 import java.text.SimpleDateFormat;
 
 public class FragmentOptionsMisc extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -164,6 +166,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("crash_reports", checked).apply();
+                if (checked)
+                    Bugsnag.startSession();
+                else
+                    Bugsnag.stopSession();
             }
         });
 
