@@ -93,8 +93,6 @@ public class FragmentOrder extends FragmentBase {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        DB db = DB.getInstance(getContext());
-
         if (EntityAccount.class.getName().equals(clazz))
             new SimpleTask<List<EntityAccount>>() {
                 @Override
@@ -216,36 +214,7 @@ public class FragmentOrder extends FragmentBase {
     }
 
     private void onMenuResetOrder() {
-        Bundle args = new Bundle();
-        args.putString("class", clazz);
-
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) {
-                String clazz = args.getString("class");
-
-                DB db = DB.getInstance(context);
-
-                if (EntityAccount.class.getName().equals(clazz))
-                    db.account().resetAccountOrder();
-                else if (TupleFolderSort.class.getName().equals(clazz))
-                    db.folder().resetFolderOrder();
-                else
-                    throw new IllegalArgumentException("Unknown class=" + clazz);
-
-                return null;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Void data) {
-                dirty = false;
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-            }
-        }.execute(this, args, "order:reset");
+        adapter.onReset();
     }
 
     private ItemTouchHelper.Callback touchHelper = new ItemTouchHelper.Callback() {

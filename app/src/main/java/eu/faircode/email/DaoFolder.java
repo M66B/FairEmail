@@ -236,9 +236,6 @@ public interface DaoFolder {
     @Query("UPDATE folder SET read_only = :read_only WHERE id = :id")
     int setFolderReadOnly(long id, boolean read_only);
 
-    @Query("UPDATE folder SET `order` = NULL")
-    int resetFolderOrder();
-
     @Query("UPDATE folder SET tbc = null WHERE id = :id")
     int resetFolderTbc(long id);
 

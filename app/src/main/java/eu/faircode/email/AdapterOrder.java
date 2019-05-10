@@ -167,6 +167,15 @@ public class AdapterOrder extends RecyclerView.Adapter<AdapterOrder.ViewHolder> 
         notifyItemMoved(from, to);
     }
 
+    void onReset() {
+        List<EntityOrder> list = new ArrayList<>();
+        for (EntityOrder item : items) {
+            item.order = null;
+            list.add(item);
+        }
+        set(list);
+    }
+
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

@@ -132,9 +132,6 @@ public interface DaoAccount {
     @Query("UPDATE account SET last_connected = NULL")
     int clearAccountConnected();
 
-    @Query("UPDATE account SET `order` = NULL")
-    int resetAccountOrder();
-
     @Query("DELETE FROM account WHERE tbd = 1")
     int deleteAccountsTbd();
 }
