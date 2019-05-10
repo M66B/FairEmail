@@ -347,6 +347,16 @@
                 app:layout_constraintStart_toEndOf="@id/vwColor"
                 app:layout_constraintTop_toTopOf="@id/btnColor" />
 
+            <TextView
+                android:id="@+id/tvColorPro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_pro_feature"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnColor" />
+
             <Button
                 android:id="@+id/btnAdvanced"
                 style="@style/buttonStyleSmall"
@@ -357,7 +367,7 @@
                 android:minHeight="0dp"
                 android:text="@string/title_setup_advanced"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnColor" />
+                app:layout_constraintTop_toBottomOf="@id/tvColorPro" />
 
             <CheckBox
                 android:id="@+id/cbSynchronize"
@@ -386,6 +396,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
 
+            <TextView
+                android:id="@+id/tvNotifyPro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_pro_feature"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cbNotify" />
+
             <CheckBox
                 android:id="@+id/cbBrowse"
                 android:layout_width="wrap_content"
@@ -393,7 +413,7 @@
                 android:layout_marginTop="12dp"
                 android:text="@string/title_advanced_browse"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cbNotify" />
+                app:layout_constraintTop_toBottomOf="@id/tvNotifyPro" />
 
             <TextView
                 android:id="@+id/tvBrowseHint"
@@ -740,14 +760,14 @@
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="
             tvUser,etUser,tvPassword,tilPassword,tvRealm,etRealm,
-            tvName,tvNameRemark,etName,btnColor,vwColor,ibColorDefault" />
+            tvName,tvNameRemark,etName,btnColor,vwColor,ibColorDefault,tvColorPro" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpAdvanced"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="
-            tvPrefix,tvPrefixRemark,etPrefix,cbNotify,
+            tvPrefix,tvPrefixRemark,etPrefix,cbNotify,tvNotifyPro,
             cbSynchronize,cbPrimary,
             cbBrowse,tvBrowseHint,
             tvInterval,etInterval" />

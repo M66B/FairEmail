@@ -117,6 +117,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvScheduleStart" />
 
+            <TextView
+                android:id="@+id/tvSchedulePro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_pro_feature"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvScheduleHint" />
+
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swUnseen"
                 android:layout_width="match_parent"
@@ -125,7 +135,7 @@
                 android:checked="true"
                 android:text="@string/title_advanced_unseen"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvScheduleHint"
+                app:layout_constraintTop_toBottomOf="@id/tvSchedulePro"
                 app:switchPadding="12dp" />
 
             <androidx.appcompat.widget.SwitchCompat
