@@ -92,7 +92,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                 try {
                     data = onExecute(context, args);
                 } catch (Throwable ex) {
-                    Log.e(ex);
+                    if (!(ex instanceof IllegalArgumentException))
+                        Log.e(ex);
                     this.ex = ex;
                 }
 
