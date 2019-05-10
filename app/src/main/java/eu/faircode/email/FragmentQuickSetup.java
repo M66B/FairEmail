@@ -53,6 +53,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+import androidx.lifecycle.Lifecycle;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
@@ -514,9 +515,10 @@ public class FragmentQuickSetup extends FragmentBase {
                                     Log.e(ex);
                                     if (ex instanceof OperationCanceledException ||
                                             ex instanceof AuthenticatorException ||
-                                            ex instanceof IOException)
-                                        Snackbar.make(view, Helper.formatThrowable(ex), Snackbar.LENGTH_LONG).show();
-                                    else
+                                            ex instanceof IOException) {
+                                        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                                            Snackbar.make(view, Helper.formatThrowable(ex), Snackbar.LENGTH_LONG).show();
+                                    } else
                                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                                 } finally {
                                     etEmail.setEnabled(true);

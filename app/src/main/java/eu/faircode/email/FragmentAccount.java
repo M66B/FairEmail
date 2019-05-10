@@ -63,6 +63,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Lifecycle;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.android.colorpicker.ColorPickerDialog;
@@ -1370,9 +1371,10 @@ public class FragmentAccount extends FragmentBase {
                                             Log.e(ex);
                                             if (ex instanceof OperationCanceledException ||
                                                     ex instanceof AuthenticatorException ||
-                                                    ex instanceof IOException)
-                                                Snackbar.make(view, Helper.formatThrowable(ex), Snackbar.LENGTH_LONG).show();
-                                            else
+                                                    ex instanceof IOException) {
+                                                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                                                    Snackbar.make(view, Helper.formatThrowable(ex), Snackbar.LENGTH_LONG).show();
+                                            } else
                                                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                                         } finally {
                                             btnAuthorize.setEnabled(true);
