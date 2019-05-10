@@ -176,6 +176,7 @@
     <string name="title_advanced_metered">Use metered connections</string>
     <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
     <string name="title_advanced_roaming">Download messages and attachments while roaming</string>
+    <string name="title_advanced_rlah">Roam like at home EU</string>
     <string name="title_advanced_browse">Browse messages on the server</string>
 
     <string name="title_advanced_startup">Show on start screen</string>

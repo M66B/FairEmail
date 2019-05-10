@@ -85,6 +85,16 @@
                 app:layout_constraintTop_toBottomOf="@id/spDownload"
                 app:switchPadding="12dp" />
 
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swRlah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/title_advanced_rlah"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/swRoaming"
+                app:switchPadding="12dp" />
+
             <TextView
                 android:id="@+id/tvConnectionType"
                 android:layout_width="0dp"
@@ -96,7 +106,7 @@
                 android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/swRoaming" />
+                app:layout_constraintTop_toBottomOf="@+id/swRlah" />
 
             <TextView
                 android:id="@+id/tvConnectionRoaming"

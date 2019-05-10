@@ -46,6 +46,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.PowerManager;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.text.format.Time;
@@ -100,6 +101,8 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -143,6 +146,42 @@ public class Helper {
             return thread;
         }
     };
+
+    // Roam like at home
+    // https://en.wikipedia.org/wiki/European_Union_roaming_regulations
+    private static final List<String> RLAH_COUNTRY_CODES = Collections.unmodifiableList(Arrays.asList(
+            "AT", // Austria
+            "BE", // Belgium
+            "BG", // Bulgaria
+            "HR", // Croatia
+            "CY", // Cyprus
+            "CZ", // Czech Republic
+            "DK", // Denmark
+            "EE", // Estonia
+            "FI", // Finland
+            "FR", // France
+            "DE", // Germany
+            "GR", // Greece
+            "HU", // Hungary
+            "IS", // Iceland
+            "IE", // Ireland
+            "IT", // Italy
+            "LV", // Latvia
+            "LI", // Liechtenstein
+            "LT", // Lithuania
+            "LU", // Luxembourg
+            "MT", // Malta
+            "NL", // Netherlands
+            "NO", // Norway
+            "PL", // Poland
+            "PT", // Portugal
+            "RO", // Romania
+            "SK", // Slovakia
+            "SI", // Slovenia
+            "ES", // Spain
+            "SE", // Sweden
+            "GB" // United Kingdom
+    ));
 
     static boolean hasPermission(Context context, String name) {
         return (ContextCompat.checkSelfPermission(context, name) == PackageManager.PERMISSION_GRANTED);
@@ -828,6 +867,7 @@ public class Helper {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean metered = prefs.getBoolean("metered", true);
         boolean roaming = prefs.getBoolean("roaming", true);
+        boolean rlah = prefs.getBoolean("rlah", false);
 
         NetworkState state = new NetworkState();
         Boolean isMetered = isMetered(context);
@@ -837,7 +877,7 @@ public class Helper {
 
         if (state.connected && !roaming) {
             ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
                 NetworkInfo ani = cm.getActiveNetworkInfo();
                 if (ani != null)
                     state.roaming = ani.isRoaming();
@@ -849,6 +889,22 @@ public class Helper {
                         state.roaming = !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_ROAMING);
                 }
             }
+
+            if (state.roaming && rlah)
+                try {
+                    TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+                    if (tm != null) {
+                        String sim = tm.getSimCountryIso();
+                        String network = tm.getNetworkCountryIso();
+                        Log.i("Country SIM=" + sim + " network=" + network);
+                        if (sim != null && network != null &&
+                                RLAH_COUNTRY_CODES.contains(sim) &&
+                                RLAH_COUNTRY_CODES.contains(network))
+                            state.roaming = false;
+                    }
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
         }
 
         return state;
