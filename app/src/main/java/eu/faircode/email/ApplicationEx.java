@@ -41,8 +41,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.preference.PreferenceManager;
 
+import com.bugsnag.android.BeforeNotify;
 import com.bugsnag.android.BeforeSend;
 import com.bugsnag.android.Bugsnag;
+import com.bugsnag.android.Error;
 import com.bugsnag.android.Report;
 
 import org.json.JSONArray;
@@ -52,6 +54,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
@@ -109,7 +112,16 @@ public class ApplicationEx extends Application {
             config.setReleaseStage(BuildConfig.PLAY_STORE_RELEASE ? "stable/play" : "stable");
 
         config.setAutoCaptureSessions(false);
-        config.setIgnoreClasses(new String[]{"javax.mail.MessageRemovedException"});
+
+        List<String> ignore = new ArrayList<>();
+        ignore.add("javax.mail.MessageRemovedException");
+        if (!BuildConfig.BETA_RELEASE) {
+            ignore.add("javax.mail.FolderClosedException");
+            ignore.add("javax.mail.StoreClosedException");
+            ignore.add("com.sun.mail.util.MailConnectException");
+            ignore.add("javax.mail.internet.AddressException");
+        }
+        config.setIgnoreClasses(ignore.toArray(new String[0]));
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -123,6 +135,18 @@ public class ApplicationEx extends Application {
         Bugsnag.init(this, config);
         if (prefs.getBoolean("crash_reports", false))
             Bugsnag.startSession();
+
+        final String installer = getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
+        final boolean fingerprint = Helper.hasValidFingerprint(this);
+
+        Bugsnag.beforeNotify(new BeforeNotify() {
+            @Override
+            public boolean run(@NonNull Error error) {
+                error.addToTab("extra", "installer", installer == null ? "-" : installer);
+                error.addToTab("extra", "fingerprint", fingerprint);
+                return true;
+            }
+        });
 
         upgrade(this);
 
