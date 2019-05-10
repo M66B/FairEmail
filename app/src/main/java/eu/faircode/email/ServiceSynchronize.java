@@ -42,6 +42,8 @@ import androidx.lifecycle.LifecycleService;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
+import com.bugsnag.android.BreadcrumbType;
+import com.bugsnag.android.Bugsnag;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
@@ -340,6 +342,20 @@ public class ServiceSynchronize extends LifecycleService {
 
                         EntityLog.log(ServiceSynchronize.this, "Reload" +
                                 " stop=" + doStop + " start=" + doStart + " queued=" + queued + " " + reason);
+
+                        Map<String, String> crumb = new HashMap<>();
+                        crumb.put("oneshot", Boolean.toString(oneshot));
+                        crumb.put("started", Boolean.toString(started));
+                        crumb.put("doStop", Boolean.toString(doStop));
+                        crumb.put("doStart", Boolean.toString(doStart));
+                        crumb.put("queued", Integer.toString(queued));
+                        crumb.put("reason", reason == null ? "" : reason);
+                        crumb.put("connected", Boolean.toString(networkState.isConnected()));
+                        crumb.put("suitable", Boolean.toString(networkState.isSuitable()));
+                        crumb.put("unmetered", Boolean.toString(networkState.isUnmetered()));
+                        crumb.put("roaming", Boolean.toString(networkState.isRoaming()));
+                        crumb.put("lastLost", new Date(lastLost).toString());
+                        Bugsnag.leaveBreadcrumb("reload", BreadcrumbType.STATE, crumb);
 
                         if (doStop)
                             stop();
