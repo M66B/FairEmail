@@ -158,6 +158,7 @@ public class ApplicationEx extends Application {
 
         ignore.add("com.sun.mail.util.MailConnectException");
         ignore.add("javax.mail.AuthenticationFailedException");
+        ignore.add("java.net.UnknownHostException");
 
         ignore.add("javax.mail.StoreClosedException");
         ignore.add("javax.mail.FolderClosedException");
