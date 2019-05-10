@@ -15,4 +15,6 @@ FairEmail **does not** allow other apps access to messages and attachments witho
 
 FairEmail is 100 % **open source**, see [the license](https://github.com/M66B/open-source-email/blob/master/LICENSE).
 
+Error reporting is **opt-in**, see [here](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq104) for more information.
+
 Copyright &copy; 2018-2019 Marcel Bokhorst.

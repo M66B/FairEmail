@@ -47,6 +47,8 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.Toast;
@@ -412,6 +414,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         new Handler().post(checkIntent);
 
         checkFirst();
+        checkBugsnag();
         checkCrash();
 
         pgpService = new OpenPgpServiceConnection(this, "org.sufficientlysecure.keychain");
@@ -668,6 +671,51 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     })
                     .show();
         }
+    }
+
+    private void checkBugsnag() {
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if (prefs.getBoolean("first", true) ||
+                prefs.getBoolean("crash_reports", false) ||
+                prefs.getBoolean("crash_reports_confirmed", false))
+            return;
+
+        final View dview = LayoutInflater.from(this).inflate(R.layout.dialog_bugsnag, null);
+        final Button btnInfo = dview.findViewById(R.id.btnInfo);
+        final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+
+        final Intent info = new Intent(Intent.ACTION_VIEW);
+        info.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq104"));
+        info.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        btnInfo.setVisibility(
+                info.resolveActivity(getPackageManager()) == null ? View.GONE : View.VISIBLE);
+
+        btnInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(info);
+            }
+        });
+
+        new DialogBuilderLifecycle(this, this)
+                .setView(dview)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        prefs.edit().putBoolean("crash_reports", true).apply();
+                        if (cbNotAgain.isChecked())
+                            prefs.edit().putBoolean("crash_reports_confirmed", true).apply();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (cbNotAgain.isChecked())
+                            prefs.edit().putBoolean("crash_reports_confirmed", true).apply();
+                    }
+                })
+                .show();
     }
 
     private void checkCrash() {

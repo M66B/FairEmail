@@ -173,6 +173,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(101) What does the blue/orange dot at the bottom of the conversations mean?](#user-content-faq101)
 * [(102) How can I enable auto rotation of images?](#user-content-faq102)
 * [(103) How can I record audio?](#user-content-faq103)
+* [(104) What do I need to know about error reporting?](#user-content-faq104)
 
 [I have another question.](#support)
 
@@ -1681,6 +1682,20 @@ If no supported app is installed, FairEmail will not show a record audio action/
 Unfortunately and surprisingly, most recording apps do not seem to support this intent (they should).
 
 <br />
+
+<a name="faq104"></a>
+**(104) What do I need to know about error reporting?**
+
+* Error reports will help improve FairEmail
+* Error reporting is optional and opt-in
+* Error reporting can be enabled/disabled in the advanced options, section miscellaneous
+* Error reports will be sent to [Bugsnag](https://www.bugsnag.com/)
+* Bugsnag for Android is [open source](https://github.com/bugsnag/bugsnag-android)
+* See [here](https://docs.bugsnag.com/platforms/android/automatically-captured-data/) about what data will be sent in case of errors
+* See [here](https://docs.bugsnag.com/legal/privacy-policy/) for the privacy policy of Bugsnag
+
+<br />
+
 
 ## Support
 
