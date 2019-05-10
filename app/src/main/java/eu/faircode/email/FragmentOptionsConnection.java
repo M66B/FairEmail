@@ -192,7 +192,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                 break;
             }
 
-        swRlah.setChecked(prefs.getBoolean("rlah", false));
+        swRlah.setChecked(prefs.getBoolean("rlah", true));
         swRoaming.setChecked(prefs.getBoolean("roaming", true));
     }
 
