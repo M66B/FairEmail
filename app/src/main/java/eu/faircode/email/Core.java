@@ -2134,7 +2134,13 @@ class Core {
         }
 
         void error(Throwable ex) {
-            recoverable = (recoverable && !(ex instanceof FolderClosedException));
+            if (ex instanceof FolderClosedException)
+                recoverable = false;
+
+            if (ex instanceof IllegalStateException &&
+                    "This operation is not allowed on a closed folder".equals(ex.getMessage()))
+                recoverable = false;
+
             thread.interrupt();
             yield();
         }
