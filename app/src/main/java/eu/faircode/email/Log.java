@@ -48,22 +48,22 @@ public class Log {
     }
 
     public static int w(Throwable ex) {
-        Bugsnag.notify(ex, Severity.WARNING);
+        Bugsnag.notify(ex, Severity.INFO);
         return android.util.Log.w(TAG, ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
 
     public static int e(Throwable ex) {
-        Bugsnag.notify(ex, Severity.ERROR);
+        Bugsnag.notify(ex, Severity.WARNING);
         return android.util.Log.e(TAG, ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
 
     public static int w(String prefix, Throwable ex) {
-        Bugsnag.notify(ex, Severity.WARNING);
+        Bugsnag.notify(ex, Severity.INFO);
         return android.util.Log.w(TAG, prefix + " " + ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
 
     public static int e(String prefix, Throwable ex) {
-        Bugsnag.notify(ex, Severity.ERROR);
+        Bugsnag.notify(ex, Severity.WARNING);
         return android.util.Log.e(TAG, prefix + " " + ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
 
