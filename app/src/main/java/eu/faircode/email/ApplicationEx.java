@@ -46,6 +46,7 @@ import com.bugsnag.android.BeforeSend;
 import com.bugsnag.android.Bugsnag;
 import com.bugsnag.android.Error;
 import com.bugsnag.android.Report;
+import com.sun.mail.iap.ConnectionException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -160,6 +161,7 @@ public class ApplicationEx extends Application {
         ignore.add("com.sun.mail.util.MailConnectException");
         ignore.add("javax.mail.AuthenticationFailedException");
         ignore.add("java.net.UnknownHostException");
+        ignore.add("java.net.SocketTimeoutException");
 
         ignore.add("javax.mail.StoreClosedException");
         ignore.add("javax.mail.FolderClosedException");
@@ -179,14 +181,19 @@ public class ApplicationEx extends Application {
                 if (error != null) {
                     Throwable ex = error.getException();
 
-                    if (ex instanceof IllegalStateException &&
-                            ("Not connected".equals(ex.getMessage()) ||
-                                    "This operation is not allowed on a closed folder".equals(ex.getMessage())))
+                    if (ex instanceof MessagingException &&
+                            (ex.getCause() instanceof IOException ||
+                                    ex.getCause() instanceof ConnectionException))
                         return false;
 
                     if (ex instanceof MessagingException &&
                             ("connection failure".equals(ex.getMessage()) ||
                                     "failed to create new store connection".equals(ex.getMessage())))
+                        return false;
+
+                    if (ex instanceof IllegalStateException &&
+                            ("Not connected".equals(ex.getMessage()) ||
+                                    "This operation is not allowed on a closed folder".equals(ex.getMessage())))
                         return false;
 
                     if (ex instanceof FileNotFoundException &&
