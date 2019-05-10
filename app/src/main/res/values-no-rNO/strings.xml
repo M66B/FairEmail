@@ -188,6 +188,7 @@
     <string name="title_advanced_authentication">Vis en advarsel når mottakeren ikke kunne godkjenne meldingen</string>
     <string name="title_advanced_paranoid">Ekstra personvernfunksjoner</string>
     <string name="title_advanced_updates">Se etter oppdateringer</string>
+    <string name="title_advanced_crash_reports">Send feilrapporter</string>
     <string name="title_advanced_debug">Feilsøkingsmodus</string>
     <string name="title_advanced_last_cleanup">Siste opprydding: %1$s</string>
     <string name="title_advanced_enabled_hint">Globalt deaktivere eller aktivere mottak og sending av meldinger</string>
@@ -380,6 +381,8 @@
     <string name="title_ask_show_image">Å vise bilder kan lekke sensitiv informasjon</string>
     <string name="title_ask_edit_ref">Redigere omformatert svar/videresendt meldingstekst?</string>
     <string name="title_ask_delete_local">Slett lokale meldinger som også er lagret på den eksterne serveren?</string>
+    <string name="title_ask_bugsnag">Send feilrapporter?</string>
+    <string name="title_bugsnag_hint">Feilrapportering vil bidra til å forbedre FairEmail</string>
     <string name="title_compose">Skriv</string>
     <string name="title_from">Fra:</string>
     <string name="title_to">Til:</string>

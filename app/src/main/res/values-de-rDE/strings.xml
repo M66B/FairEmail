@@ -188,6 +188,7 @@
     <string name="title_advanced_authentication">Warnung anzeigen, wenn der empfangende Server die Nachricht nicht authentifizieren konnte</string>
     <string name="title_advanced_paranoid">Zusätzliche Datenschutzfunktionen</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
+    <string name="title_advanced_crash_reports">Fehlerbericht senden</string>
     <string name="title_advanced_debug">Debugmodus</string>
     <string name="title_advanced_last_cleanup">Letzte Bereinigung: %1$s</string>
     <string name="title_advanced_enabled_hint">Vollständiges de-/aktivieren der Empfangs- und Versandfunktion von E-Mails</string>
@@ -380,6 +381,8 @@
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_edit_ref">Nachrichtentext der zu beantwortenden/weitergeleitenden Nachricht bearbeiten?</string>
     <string name="title_ask_delete_local">Lokal gespeicherte Meldungen, welche auch auf dem Server gespeichert sind, löschen?</string>
+    <string name="title_ask_bugsnag">Fehlerberichte senden?</string>
+    <string name="title_bugsnag_hint">Fehlerberichte helfen FairEmail zu verbessern</string>
     <string name="title_compose">Verfassen</string>
     <string name="title_from">Von:</string>
     <string name="title_to">An:</string>

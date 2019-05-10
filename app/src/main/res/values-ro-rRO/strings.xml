@@ -196,6 +196,7 @@
     <string name="title_advanced_authentication">Arată o avertizare atunci când serverul destinatar nu a putut autentifica mesajul</string>
     <string name="title_advanced_paranoid">Caracteristici de confidențialitate suplimentare</string>
     <string name="title_advanced_updates">Verificare actualizări aplicație</string>
+    <string name="title_advanced_crash_reports">Trimite rapoarte de eroare</string>
     <string name="title_advanced_debug">Depanare</string>
     <string name="title_advanced_last_cleanup">Ultima curățare: %1$s</string>
     <string name="title_advanced_enabled_hint">Control global pentru recepția și trimiterea mesajelor</string>
@@ -388,6 +389,8 @@
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_edit_ref">Se editează textul mesajului rescris ca răspuns/redirecționat?</string>
     <string name="title_ask_delete_local">Șterge mesajele locale care sunt stocate și pe serverul furnizorului?</string>
+    <string name="title_ask_bugsnag">Trimite rapoarte de eroare?</string>
+    <string name="title_bugsnag_hint">Raportarea erorilor va ajuta la îmbunătățirea FairEmail</string>
     <string name="title_compose">Compune</string>
     <string name="title_from">De la:</string>
     <string name="title_to">Către:</string>

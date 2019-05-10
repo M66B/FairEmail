@@ -180,6 +180,7 @@
     <string name="title_advanced_authentication">当接收服务器无法验证消息时显示警告</string>
     <string name="title_advanced_paranoid">额外隐私功能</string>
     <string name="title_advanced_updates">检查更新</string>
+    <string name="title_advanced_crash_reports">发送错误报告</string>
     <string name="title_advanced_debug">调试模式</string>
     <string name="title_advanced_last_cleanup">上次清理: %1$s</string>
     <string name="title_advanced_enabled_hint">全局禁用或启用邮件的接收和发送</string>
@@ -372,6 +373,8 @@
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
     <string name="title_ask_edit_ref">编辑格式已更改的回复/转发消息文本？</string>
     <string name="title_ask_delete_local">删除同样存储在远程服务器上的本地消息？</string>
+    <string name="title_ask_bugsnag">发送错误报告?</string>
+    <string name="title_bugsnag_hint">错误报告将有助于改进FairEmail</string>
     <string name="title_compose">撰写</string>
     <string name="title_from">发件人：</string>
     <string name="title_to">收件人：</string>

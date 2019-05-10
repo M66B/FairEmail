@@ -188,6 +188,7 @@
     <string name="title_advanced_authentication">Mostrar una advertencia cuando el servidor de recepción no pudo autenticar el mensaje</string>
     <string name="title_advanced_paranoid">Características de privacidad adicionales</string>
     <string name="title_advanced_updates">Buscar actualizaciones</string>
+    <string name="title_advanced_crash_reports">Enviar informes de errores</string>
     <string name="title_advanced_debug">Modo de depuración</string>
     <string name="title_advanced_last_cleanup">Última limpieza: %1$s</string>
     <string name="title_advanced_enabled_hint">Desactivar o activar globalmente la recepción y envío de mensajes</string>
@@ -380,6 +381,8 @@
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
     <string name="title_ask_edit_ref">¿Editar texto reformateado de mensaje respondido/reenviado?</string>
     <string name="title_ask_delete_local">¿Eliminar mensajes locales que también están almacenados en el servidor remoto?</string>
+    <string name="title_ask_bugsnag">¿Enviar informes de errores?</string>
+    <string name="title_bugsnag_hint">Informar de errores ayudará a mejorar FairEmail</string>
     <string name="title_compose">Redactar</string>
     <string name="title_from">De:</string>
     <string name="title_to">A:</string>
