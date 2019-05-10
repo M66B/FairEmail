@@ -800,23 +800,28 @@ public class MessageHelper {
                 throw new FolderClosedException(ex.getFolder(), "getHtml", ex);
             } catch (Throwable ex) {
                 Log.w(ex);
-                text = true;
-                result = ex + "\n" + android.util.Log.getStackTraceString(ex);
+                warnings.add(ex.getMessage());
+                return null;
             }
 
-            ContentType ct = new ContentType(part.getContentType());
-            String charset = ct.getParameter("charset");
-            if (TextUtils.isEmpty(charset)) {
-                if (BuildConfig.DEBUG)
-                    warnings.add(context.getString(R.string.title_no_charset, ct.toString()));
-                if (part.isMimeType("text/plain")) {
-                    // The first 127 characters are the same as in US-ASCII
-                    result = new String(result.getBytes(StandardCharsets.ISO_8859_1));
+            try {
+                ContentType ct = new ContentType(part.getContentType());
+                String charset = ct.getParameter("charset");
+                if (TextUtils.isEmpty(charset)) {
+                    if (BuildConfig.DEBUG)
+                        warnings.add(context.getString(R.string.title_no_charset, ct.toString()));
+                    if (part.isMimeType("text/plain")) {
+                        // The first 127 characters are the same as in US-ASCII
+                        result = new String(result.getBytes(StandardCharsets.ISO_8859_1));
+                    }
+                } else {
+                    if ("US-ASCII".equals(Charset.forName(charset).name()) &&
+                            !"US-ASCII".equals(charset.toUpperCase()))
+                        warnings.add(context.getString(R.string.title_no_charset, charset));
                 }
-            } else {
-                if ("US-ASCII".equals(Charset.forName(charset).name()) &&
-                        !"US-ASCII".equals(charset.toUpperCase()))
-                    warnings.add(context.getString(R.string.title_no_charset, charset));
+            } catch (ParseException ex) {
+                Log.w(ex);
+                warnings.add(ex.getMessage());
             }
 
             if (part.isMimeType("text/plain") || text) {
