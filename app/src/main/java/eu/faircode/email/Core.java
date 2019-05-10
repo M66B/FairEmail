@@ -2139,8 +2139,9 @@ class Core {
             if (ex instanceof FolderClosedException)
                 recoverable = false;
 
-            if (ex instanceof IllegalStateException &&
-                    "This operation is not allowed on a closed folder".equals(ex.getMessage()))
+            if (ex instanceof IllegalStateException && (
+                    "Not connected".equals(ex.getMessage()) ||
+                            "This operation is not allowed on a closed folder".equals(ex.getMessage())))
                 recoverable = false;
 
             thread.interrupt();
