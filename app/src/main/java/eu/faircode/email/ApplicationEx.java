@@ -103,7 +103,8 @@ public class ApplicationEx extends Application {
             }
         });
 
-        setupBugsnag();
+        if ("eu.faircode.email".equals(BuildConfig.APPLICATION_ID))
+            setupBugsnag();
 
         upgrade(this);
 
