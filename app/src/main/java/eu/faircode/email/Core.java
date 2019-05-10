@@ -263,7 +263,7 @@ class Core {
                         reportError(context, account, folder, ex);
 
                         db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
-                        if (message != null)
+                        if (message != null && !(ex instanceof IllegalArgumentException))
                             db.message().setMessageError(message.id, Helper.formatThrowable(ex, true));
 
                         if (ex instanceof OutOfMemoryError ||
