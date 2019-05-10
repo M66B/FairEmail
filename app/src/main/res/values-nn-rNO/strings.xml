@@ -381,8 +381,8 @@
     <string name="title_ask_show_image">Å vise bilder kan lekke sensitiv informasjon</string>
     <string name="title_ask_edit_ref">Redigere omformatert svar/videresendt meldingstekst?</string>
     <string name="title_ask_delete_local">Slett lokale meldinger som også er lagret på den eksterne serveren?</string>
-    <string name="title_ask_bugsnag">Send feilrapporter?</string>
-    <string name="title_bugsnag_hint">Feilrapportering vil bidra til å forbedre FairEmail</string>
+    <string name="title_ask_reporting">Send feilrapporter?</string>
+    <string name="title_reporting_why">Feilrapportering vil bidra til å forbedre FairEmail</string>
     <string name="title_compose">Skriv</string>
     <string name="title_from">Fra:</string>
     <string name="title_to">Til:</string>

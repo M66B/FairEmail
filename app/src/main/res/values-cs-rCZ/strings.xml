@@ -204,6 +204,7 @@
     <string name="title_advanced_authentication">Zobrazit upozornění, pokud přijímající server nemůže zprávu ověřit</string>
     <string name="title_advanced_paranoid">Doplňující funkce ochrany soukromí</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace</string>
+    <string name="title_advanced_crash_reports">Odesílat zprávy o chybách</string>
     <string name="title_advanced_debug">Režim ladění</string>
     <string name="title_advanced_last_cleanup">Poslední čištění: %1$s</string>
     <string name="title_advanced_enabled_hint">Globálně zakáže nebo povolí přijímání a odesílání zpráv</string>
@@ -396,6 +397,7 @@
     <string name="title_ask_show_image">Zobrazením obrázků může dojít k úniku citlivých informací</string>
     <string name="title_ask_edit_ref">Upravit přeformátovaný text odpovídané/přeposílané zprávy?</string>
     <string name="title_ask_delete_local">Smazat místní zprávy, které jsou zároveň uloženy na vzdáleném serveru?</string>
+    <string name="title_ask_reporting">Odeslat zprávy o chybách?</string>
     <string name="title_compose">Napsat zprávu</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Komu:</string>
@@ -612,7 +614,7 @@
         <item>Každé 4 hodiny</item>
     </string-array>
     <string-array name="sendDelayedNames">
-        <item>No</item>
+        <item>Nepozdržovat</item>
         <item>15 vteřin</item>
         <item>30 vteřin</item>
         <item>1 minuta</item>

@@ -389,8 +389,6 @@
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_edit_ref">Se editează textul mesajului rescris ca răspuns/redirecționat?</string>
     <string name="title_ask_delete_local">Șterge mesajele locale care sunt stocate și pe serverul furnizorului?</string>
-    <string name="title_ask_bugsnag">Trimite rapoarte de eroare?</string>
-    <string name="title_bugsnag_hint">Raportarea erorilor va ajuta la îmbunătățirea FairEmail</string>
     <string name="title_compose">Compune</string>
     <string name="title_from">De la:</string>
     <string name="title_to">Către:</string>

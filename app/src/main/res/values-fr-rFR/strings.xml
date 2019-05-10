@@ -381,8 +381,8 @@
     <string name="title_ask_show_image">Afficher les images peut divulguer des informations sensibles privées</string>
     <string name="title_ask_edit_ref">Modifier le texte du message reformaté et répondu/transféré ?</string>
     <string name="title_ask_delete_local">Supprimer les messages locaux qui sont également stockés sur le serveur distant ?</string>
-    <string name="title_ask_bugsnag">Envoyer des rapports d\'erreur ?</string>
-    <string name="title_bugsnag_hint">Un rapport d\'erreur aidera à améliorer FairEmail</string>
+    <string name="title_ask_reporting">Envoyer des rapports d\'erreur ?</string>
+    <string name="title_reporting_why">Un rapport d\'erreur aidera à améliorer FairEmail</string>
     <string name="title_compose">Rédiger</string>
     <string name="title_from">De :</string>
     <string name="title_to">À :</string>

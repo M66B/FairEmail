@@ -188,6 +188,7 @@
     <string name="title_advanced_authentication">Näytä varoitus, kun vastaanottava palvelin ei voinut todentaa viestiä</string>
     <string name="title_advanced_paranoid">Ylimääräiset yksityisyysominaisuudet</string>
     <string name="title_advanced_updates">Päivitysten tarkastus</string>
+    <string name="title_advanced_crash_reports">Lähetä virheraportit</string>
     <string name="title_advanced_debug">Debug-tila</string>
     <string name="title_advanced_last_cleanup">Viimeisin puhdistus: %1$s</string>
     <string name="title_advanced_enabled_hint">Estä tai salli viestien vastaanotto ja lähetys globaalisti</string>
