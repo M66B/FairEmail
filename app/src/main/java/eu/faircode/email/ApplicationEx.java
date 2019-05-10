@@ -113,6 +113,8 @@ public class ApplicationEx extends Application {
 
         config.setAutoCaptureSessions(false);
 
+        config.setDetectAnrs(false);
+
         List<String> ignore = new ArrayList<>();
         ignore.add("javax.mail.MessageRemovedException");
         if (!BuildConfig.BETA_RELEASE) {
