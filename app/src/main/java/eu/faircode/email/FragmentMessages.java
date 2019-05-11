@@ -477,8 +477,8 @@ public class FragmentMessages extends FragmentBase {
                             int first = llm.findFirstVisibleItemPosition();
                             View child = rvMessage.getChildAt(pos - (first < 0 ? 0 : first));
                             if (child != null) {
-                                Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.enter_from_bottom);
-                                child.startAnimation(animation);
+                                Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_top);
+                                child.startAnimation(bounce);
                             }
 
                             rvMessage.scrollToPosition(pos);
@@ -633,8 +633,8 @@ public class FragmentMessages extends FragmentBase {
                     @Override
                     public boolean onSwipeRight() {
                         if (previous == null) {
-                            Animation shake = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_right);
-                            view.startAnimation(shake);
+                            Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_right);
+                            view.startAnimation(bounce);
                         } else
                             navigate(previous, true);
 
@@ -644,8 +644,8 @@ public class FragmentMessages extends FragmentBase {
                     @Override
                     public boolean onSwipeLeft() {
                         if (next == null) {
-                            Animation shake = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_left);
-                            view.startAnimation(shake);
+                            Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_left);
+                            view.startAnimation(bounce);
                         } else
                             navigate(next, false);
 
