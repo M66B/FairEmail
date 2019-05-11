@@ -2662,7 +2662,7 @@ public class FragmentMessages extends FragmentBase {
                     }
                 }
 
-                if (message.ui_snoozed == null &&
+                if (!(EntityFolder.OUTBOX.equals(message.folderType) && message.ui_snoozed != null) &&
                         !EntityFolder.ARCHIVE.equals(message.folderType) &&
                         !EntityFolder.SENT.equals(message.folderType) &&
                         !EntityFolder.TRASH.equals(message.folderType) &&
@@ -2698,7 +2698,7 @@ public class FragmentMessages extends FragmentBase {
                     TupleMessageEx message = messages.get(i);
                     if (message == null)
                         continue;
-                    if (message.ui_snoozed == null &&
+                    if (!(EntityFolder.OUTBOX.equals(message.folderType) && message.ui_snoozed != null) &&
                             !EntityFolder.ARCHIVE.equals(message.folderType) &&
                             !EntityFolder.SENT.equals(message.folderType) &&
                             !EntityFolder.TRASH.equals(message.folderType) &&
