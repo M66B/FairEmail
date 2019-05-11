@@ -144,6 +144,7 @@
     <string name="title_advanced_send_delayed">Ritardo invio messaggi</string>
     <string name="title_advanced_metered">Usa connessioni a consumo</string>
     <string name="title_advanced_download">Scarica automaticamente i messaggi e gli allegati con una connessione a consumo fino a</string>
+    <string name="title_advanced_rlah">Roaming come a casa</string>
     <string name="title_advanced_roaming">Scarica messaggi e allegati durante il roaming</string>
     <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
     <string name="title_advanced_startup">Mostra nella schermata iniziale</string>
@@ -188,12 +189,14 @@
     <string name="title_advanced_authentication">Mostra un avviso quando il server ricevente non può autenticare il messaggio</string>
     <string name="title_advanced_paranoid">Caratteristiche aggiuntive della privacy</string>
     <string name="title_advanced_updates">Controlla aggiornamenti</string>
+    <string name="title_advanced_crash_reports">Invia rapporti di errore</string>
     <string name="title_advanced_debug">Debug</string>
     <string name="title_advanced_last_cleanup">Ultima pulizia: %1$s</string>
     <string name="title_advanced_enabled_hint">Attiva o disattiva a livello globale la ricezione e l\'invio dei messaggi</string>
     <string name="title_advanced_schedule_hint">Tocca un orario per impostare un orario</string>
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>
     <string name="title_advanced_metered_warning">Disabilitando questa opzione disattiverai la ricezione e l\'invio di messaggi sulle connessioni internet mobili</string>
+    <string name="title_advanced_rlah_hint">Disabilita roaming all\'interno dell\'UE</string>
     <string name="title_advanced_browse_hint">Scarica più messaggi quando scorri verso il basso</string>
     <string name="title_advanced_threading_hint">Messaggi di gruppo relazionati a vicenda</string>
     <string name="title_advanced_name_email_hint">Quando disabilitati saranno mostrati solo i nomi quando disponibili</string>
@@ -380,6 +383,8 @@
     <string name="title_ask_show_image">Mostrare le immagini rende possibile una fuga di informazioni personali sensibili</string>
     <string name="title_ask_edit_ref">Modificare il testo del messaggio inviato/inoltrato riformattato?</string>
     <string name="title_ask_delete_local">Eliminare i messaggi locali che sono memorizzati anche sul server remoto?</string>
+    <string name="title_ask_reporting">Inviare rapporti di errore?</string>
+    <string name="title_reporting_why">Il report di errore aiuterà a migliorare FairEmail</string>
     <string name="title_compose">Scrivi</string>
     <string name="title_from">Da:</string>
     <string name="title_to">A:</string>
