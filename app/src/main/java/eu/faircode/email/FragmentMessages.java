@@ -629,15 +629,23 @@ public class FragmentMessages extends FragmentBase {
                 final SwipeListener swipeListener = new SwipeListener(getContext(), new SwipeListener.ISwipeListener() {
                     @Override
                     public boolean onSwipeRight() {
-                        if (previous != null)
+                        if (previous == null) {
+                            Animation shake = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_right);
+                            view.startAnimation(shake);
+                        } else
                             navigate(previous, true);
+
                         return (previous != null);
                     }
 
                     @Override
                     public boolean onSwipeLeft() {
-                        if (next != null)
+                        if (next == null) {
+                            Animation shake = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_left);
+                            view.startAnimation(shake);
+                        } else
                             navigate(next, false);
+
                         return (next != null);
                     }
                 });
