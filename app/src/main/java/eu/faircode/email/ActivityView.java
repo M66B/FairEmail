@@ -303,7 +303,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }));
 
         if (BuildConfig.BETA_RELEASE && Helper.getIntentIssue(this).resolveActivity(pm) != null)
-            extra.add(new NavMenuItem(R.drawable.baseline_warning_24, R.string.menu_issue, new Runnable() {
+            extra.add(new NavMenuItem(R.drawable.baseline_feedback_24, R.string.menu_issue, new Runnable() {
                 @Override
                 public void run() {
                     drawerLayout.closeDrawer(drawerContainer);
