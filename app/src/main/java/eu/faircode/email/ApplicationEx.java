@@ -47,6 +47,7 @@ import com.bugsnag.android.Bugsnag;
 import com.bugsnag.android.Error;
 import com.bugsnag.android.Report;
 import com.sun.mail.iap.ConnectionException;
+import com.sun.mail.iap.ProtocolException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -163,6 +164,7 @@ public class ApplicationEx extends Application {
         ignore.add("com.sun.mail.util.MailConnectException");
         ignore.add("javax.mail.AuthenticationFailedException");
         ignore.add("java.net.UnknownHostException");
+        ignore.add("java.net.ConnectException");
         ignore.add("java.net.SocketTimeoutException");
         ignore.add("java.net.SocketException");
         // android.accounts.OperationCanceledException
@@ -188,7 +190,8 @@ public class ApplicationEx extends Application {
                     if (ex instanceof MessagingException &&
                             (ex.getCause() instanceof IOException ||
                                     ex.getCause() instanceof ConnectionException ||
-                                    ex.getCause() instanceof SocketTimeoutException))
+                                    ex.getCause() instanceof SocketTimeoutException ||
+                                    ex.getCause() instanceof ProtocolException))
                         return false;
 
                     if (ex instanceof MessagingException &&
