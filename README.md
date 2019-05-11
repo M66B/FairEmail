@@ -160,6 +160,13 @@ FairEmail uses:
 * [PhotoView](https://github.com/chrisbanes/PhotoView). Copyright 2018 Chris Banes. [Apache License](https://github.com/chrisbanes/PhotoView/blob/master/LICENSE).
 * [Bugsnag exception reporter for Android](https://github.com/bugsnag/bugsnag-android). Copyright (c) 2012 Bugsnag. [MIT License](https://github.com/bugsnag/bugsnag-android/blob/master/LICENSE.txt).
 
+FairEmail is sponsored by:
+
+![Bugsnag Logo](/images/bugsnag_logo_navy.png)
+
+[Bugsnag](https://www.bugsnag.com/) monitors application stability
+and is used to [help improve FairEmail](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq104).
+
 ## License
 
 [GNU General Public License version 3](https://www.gnu.org/licenses/gpl.txt)
