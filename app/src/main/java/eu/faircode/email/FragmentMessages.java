@@ -53,6 +53,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.TranslateAnimation;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -477,7 +478,9 @@ public class FragmentMessages extends FragmentBase {
                             int first = llm.findFirstVisibleItemPosition();
                             View child = rvMessage.getChildAt(pos - (first < 0 ? 0 : first));
                             if (child != null) {
-                                Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_top);
+                                TranslateAnimation bounce = new TranslateAnimation(
+                                        0, 0, Helper.dp2pixels(getContext(), 12), 0);
+                                bounce.setDuration(getResources().getInteger(android.R.integer.config_shortAnimTime));
                                 child.startAnimation(bounce);
                             }
 
