@@ -198,7 +198,9 @@ public class EntityFolder extends EntityOrder implements Serializable {
 
     static int getIcon(String type) {
         if (EntityFolder.INBOX.equals(type))
-            return R.drawable.baseline_move_to_inbox_24;
+            return R.drawable.baseline_inbox_24;
+        if (EntityFolder.DRAFTS.equals(type))
+            return R.drawable.baseline_drafts_24;
         if (EntityFolder.ARCHIVE.equals(type))
             return R.drawable.baseline_archive_24;
         if (EntityFolder.TRASH.equals(type))
