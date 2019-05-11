@@ -14,59 +14,69 @@
         android:paddingEnd="6dp"
         android:paddingBottom="3dp">
 
+        <ImageView
+            android:id="@+id/ivState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_synchronizing"
+            android:src="@drawable/baseline_compare_arrows_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/tvFolder"
-            android:layout_width="0dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
             android:ellipsize="middle"
+            android:gravity="center_vertical"
             android:singleLine="true"
             android:text="Folder"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent=".40" />
+            app:layout_constraintBottom_toBottomOf="@id/ivState"
+            app:layout_constraintStart_toEndOf="@id/ivState"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvOperation"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
             android:ellipsize="end"
-            android:paddingStart="6dp"
+            android:gravity="center_vertical"
             android:singleLine="true"
             android:text="Name"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@id/ivState"
             app:layout_constraintEnd_toStartOf="@+id/tvTime"
             app:layout_constraintStart_toEndOf="@id/tvFolder"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent=".40" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvTime"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="start"
-            android:gravity="end"
-            android:paddingStart="6dp"
+            android:gravity="center_vertical"
             android:singleLine="true"
             android:text="Time"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@id/ivState"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent=".20" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvError"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
             android:text="error"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?attr/colorWarning"
             android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivState"
             app:layout_constraintTop_toBottomOf="@id/tvFolder" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -180,6 +180,8 @@ class Core {
 
                         // Operations should use database transaction when needed
 
+                        db.operation().setOperationState(op.id, "executing");
+
                         switch (op.name) {
                             case EntityOperation.SEEN:
                                 onSeen(context, jargs, folder, message, (IMAPFolder) ifolder);
@@ -307,6 +309,8 @@ class Core {
                         }
 
                         throw ex;
+                    } finally {
+                        db.operation().setOperationState(op.id, null);
                     }
                 } finally {
                     Log.i(folder.name + " end op=" + op.id + "/" + op.name);

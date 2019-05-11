@@ -67,6 +67,7 @@ public class EntityOperation {
     public String args;
     @NonNull
     public Long created;
+    public String state;
     public String error;
 
     static final String ADD = "add";
@@ -285,6 +286,7 @@ public class EntityOperation {
                     this.name.equals(other.name) &&
                     this.args.equals(other.args) &&
                     this.created.equals(other.created) &&
+                    Objects.equals(this.state, other.state) &&
                     Objects.equals(this.error, other.error));
         } else
             return false;

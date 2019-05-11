@@ -26,6 +26,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -53,6 +54,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
+        private ImageView ivState;
         private TextView tvFolder;
         private TextView tvOperation;
         private TextView tvTime;
@@ -62,6 +64,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
             super(itemView);
 
             view = itemView.findViewById(R.id.clItem);
+            ivState = itemView.findViewById(R.id.ivState);
             tvFolder = itemView.findViewById(R.id.tvFolder);
             tvOperation = itemView.findViewById(R.id.tvOperation);
             tvTime = itemView.findViewById(R.id.tvTime);
@@ -96,6 +99,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
             String folderName =
                     (operation.accountName == null ? "" : operation.accountName + "/") + operation.folderName;
 
+            ivState.setVisibility(operation.state == null ? View.INVISIBLE : View.VISIBLE);
             tvFolder.setText(folderName);
             tvOperation.setText(sb.toString());
             tvTime.setText(Helper.getRelativeTimeSpanString(context, operation.created));
