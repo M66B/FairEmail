@@ -474,7 +474,7 @@ public class FragmentMessages extends FragmentBase {
                             int first = llm.findFirstVisibleItemPosition();
                             View child = rvMessage.getChildAt(pos - (first < 0 ? 0 : first));
                             if (child != null) {
-                                Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in_fast);
+                                Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.enter_from_bottom);
                                 child.startAnimation(animation);
                             }
 
