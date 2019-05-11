@@ -165,6 +165,7 @@ public class ApplicationEx extends Application {
         ignore.add("java.net.UnknownHostException");
         ignore.add("java.net.SocketTimeoutException");
         ignore.add("java.net.SocketException");
+        // android.accounts.OperationCanceledException
 
         ignore.add("javax.mail.StoreClosedException");
         ignore.add("javax.mail.FolderClosedException");
