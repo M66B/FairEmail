@@ -890,7 +890,7 @@ public class Helper {
                 }
             }
 
-            if (state.roaming && rlah)
+            if (state.roaming != null && state.roaming && rlah)
                 try {
                     TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
                     if (tm != null) {
