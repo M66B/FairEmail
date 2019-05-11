@@ -800,7 +800,7 @@ public class MessageHelper {
                 throw new FolderClosedException(ex.getFolder(), "getHtml", ex);
             } catch (Throwable ex) {
                 Log.w(ex);
-                warnings.add(ex.getMessage());
+                warnings.add(Helper.formatThrowable(ex));
                 return null;
             }
 
@@ -821,7 +821,7 @@ public class MessageHelper {
                 }
             } catch (ParseException ex) {
                 Log.w(ex);
-                warnings.add(ex.getMessage());
+                warnings.add(Helper.formatThrowable(ex));
             }
 
             if (part.isMimeType("text/plain") || text) {
@@ -987,6 +987,7 @@ public class MessageHelper {
                         ct = new ContentType(apart.part.getContentType());
                     } catch (ParseException ex) {
                         Log.w(ex);
+                        parts.warnings.add(Helper.formatThrowable(ex));
                         ct = new ContentType("application/octet-stream");
                     }
 
