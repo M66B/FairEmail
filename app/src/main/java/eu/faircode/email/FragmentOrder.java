@@ -153,47 +153,8 @@ public class FragmentOrder extends FragmentBase {
     public void onPause() {
         super.onPause();
 
-        if (dirty) {
-            List<EntityOrder> items = adapter.getItems();
-
-            List<Long> order = new ArrayList<>();
-            for (int i = 0; i < items.size(); i++)
-                order.add(items.get(i).getSortId());
-
-            Bundle args = new Bundle();
-            args.putString("class", clazz);
-            args.putLongArray("order", Helper.toLongArray(order));
-
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onExecute(Context context, Bundle args) {
-                    final String clazz = args.getString("class");
-                    final long[] order = args.getLongArray("order");
-
-                    final DB db = DB.getInstance(context);
-                    db.runInTransaction(new Runnable() {
-                        @Override
-                        public void run() {
-                            for (int i = 0; i < order.length; i++)
-                                if (EntityAccount.class.getName().equals(clazz))
-                                    db.account().setAccountOrder(order[i], i);
-                                else if (TupleFolderSort.class.getName().equals(clazz))
-                                    db.folder().setFolderOrder(order[i], i);
-                                else
-                                    throw new IllegalArgumentException("Unknown class=" + clazz);
-                        }
-                    });
-
-                    return null;
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-
-                }
-            }.execute(getContext(), getViewLifecycleOwner(), args, "order:set");
-        }
+        if (dirty)
+            update(false);
     }
 
     @Override
@@ -215,6 +176,53 @@ public class FragmentOrder extends FragmentBase {
 
     private void onMenuResetOrder() {
         adapter.onReset();
+        dirty = false;
+        update(true);
+    }
+
+    private void update(boolean reset) {
+        List<EntityOrder> items = adapter.getItems();
+
+        List<Long> order = new ArrayList<>();
+        for (int i = 0; i < items.size(); i++)
+            order.add(items.get(i).getSortId());
+
+        Bundle args = new Bundle();
+        args.putString("class", clazz);
+        args.putBoolean("reset", reset);
+        args.putLongArray("ids", Helper.toLongArray(order));
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                final String clazz = args.getString("class");
+                final boolean reset = args.getBoolean("reset");
+                final long[] ids = args.getLongArray("ids");
+
+                final DB db = DB.getInstance(context);
+                db.runInTransaction(new Runnable() {
+                    @Override
+                    public void run() {
+                        for (int i = 0; i < ids.length; i++)
+                            if (EntityAccount.class.getName().equals(clazz))
+                                db.account().setAccountOrder(ids[i], reset ? null : i);
+                            else if (TupleFolderSort.class.getName().equals(clazz))
+                                db.folder().setFolderOrder(ids[i], reset ? null : i);
+                            else
+                                throw new IllegalArgumentException("Unknown class=" + clazz);
+                    }
+                });
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+
+            }
+        }.execute(getContext(), getViewLifecycleOwner(), args, "order:set");
+
     }
 
     private ItemTouchHelper.Callback touchHelper = new ItemTouchHelper.Callback() {
