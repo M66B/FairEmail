@@ -162,6 +162,7 @@ public class ApplicationEx extends Application {
         ignore.add("javax.mail.AuthenticationFailedException");
         ignore.add("java.net.UnknownHostException");
         ignore.add("java.net.SocketTimeoutException");
+        ignore.add("java.net.SocketException");
 
         ignore.add("javax.mail.StoreClosedException");
         ignore.add("javax.mail.FolderClosedException");
