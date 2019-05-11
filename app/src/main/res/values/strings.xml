@@ -597,6 +597,7 @@
     <string name="title_legend_connecting">Connecting</string>
     <string name="title_legend_connected">Connected</string>
     <string name="title_legend_synchronizing">Synchronizing</string>
+    <string name="title_legend_executing">Executing operations</string>
     <string name="title_legend_downloading">Downloading</string>
     <string name="title_legend_closing">Closing</string>
     <string name="title_legend_waiting">Waiting for next synchronization</string>

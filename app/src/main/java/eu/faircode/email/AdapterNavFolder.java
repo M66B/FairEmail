@@ -85,6 +85,8 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
                     ivItem.setImageResource(R.drawable.baseline_compare_arrows_24);
                 else if ("downloading".equals(folder.sync_state))
                     ivItem.setImageResource(R.drawable.baseline_cloud_download_24);
+                else if (folder.executing > 0)
+                    ivItem.setImageResource(R.drawable.baseline_list_24);
                 else
                     ivItem.setImageResource("connected".equals(folder.state)
                             ? R.drawable.baseline_folder_24
@@ -206,7 +208,8 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
                     Objects.equals(f1.state, f2.state) &&
                     Objects.equals(f1.sync_state, f2.sync_state) &&
                     f1.unseen == f2.unseen &&
-                    f1.operations == f2.operations);
+                    f1.operations == f2.operations &&
+                    f1.executing == f2.executing);
         }
     }
 

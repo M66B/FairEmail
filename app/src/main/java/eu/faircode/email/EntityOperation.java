@@ -47,9 +47,11 @@ import static androidx.room.ForeignKey.CASCADE;
                 @ForeignKey(childColumns = "message", entity = EntityMessage.class, parentColumns = "id", onDelete = CASCADE)
         },
         indices = {
+                @Index(value = {"account"}),
                 @Index(value = {"folder"}),
                 @Index(value = {"message"}),
-                @Index(value = {"name"})
+                @Index(value = {"name"}),
+                @Index(value = {"state"})
         }
 )
 public class EntityOperation {

@@ -201,7 +201,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             vwColor.setVisibility(account < 0 ? View.VISIBLE : View.GONE);
 
             if (folder.sync_state == null || "requested".equals(folder.sync_state)) {
-                if ("waiting".equals(folder.state))
+                if (folder.executing > 0)
+                    ivState.setImageResource(R.drawable.baseline_list_24);
+                else if ("waiting".equals(folder.state))
                     ivState.setImageResource(R.drawable.baseline_hourglass_empty_24);
                 else if ("connected".equals(folder.state))
                     ivState.setImageResource(R.drawable.baseline_cloud_24);
