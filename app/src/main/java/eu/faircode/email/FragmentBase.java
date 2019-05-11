@@ -32,6 +32,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 
+import com.bugsnag.android.BreadcrumbType;
+import com.bugsnag.android.Bugsnag;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class FragmentBase extends Fragment {
     private String subtitle = " ";
     private boolean finish = false;
@@ -60,6 +66,13 @@ public class FragmentBase extends Fragment {
         super.onSaveInstanceState(outState);
         int after = Helper.getSize(outState);
         Log.i("Saved instance " + this + " size=" + before + "/" + after);
+
+        Map<String, String> crumb = new HashMap<>();
+        crumb.put("name", this.getClass().getName());
+        crumb.put("before", Integer.toString(before));
+        crumb.put("after", Integer.toString(after));
+        Bugsnag.leaveBreadcrumb("onSaveInstanceState", BreadcrumbType.STATE, crumb);
+
         for (String key : outState.keySet())
             Log.i("Saved " + this + " " + key + "=" + outState.get(key));
     }
