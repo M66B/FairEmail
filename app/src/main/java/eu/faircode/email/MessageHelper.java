@@ -989,7 +989,14 @@ public class MessageHelper {
                         Log.w(ex);
                         ct = new ContentType("application/octet-stream");
                     }
-                    String[] cid = apart.part.getHeader("Content-ID");
+
+                    String[] cid = null;
+                    try {
+                        cid = apart.part.getHeader("Content-ID");
+                    } catch (MessagingException ex) {
+                        Log.w(ex);
+                        parts.warnings.add(Helper.formatThrowable(ex));
+                    }
 
                     apart.attachment = new EntityAttachment();
                     apart.attachment.name = apart.filename;
