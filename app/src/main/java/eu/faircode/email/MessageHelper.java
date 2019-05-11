@@ -117,6 +117,8 @@ public class MessageHelper {
         props.put("mail.imaps.connectionpool.debug", "true");
         props.put("mail.imaps.connectionpooltimeout", Integer.toString(POOL_TIMEOUT));
 
+        props.put("mail.imaps.finalizecleanclose", "false");
+
         // https://tools.ietf.org/html/rfc4978
         // https://docs.oracle.com/javase/8/docs/api/java/util/zip/Deflater.html
         props.put("mail.imaps.compress.enable", "true");
@@ -141,6 +143,8 @@ public class MessageHelper {
 
         props.put("mail.imap.connectionpool.debug", "true");
         props.put("mail.imap.connectionpooltimeout", Integer.toString(POOL_TIMEOUT));
+
+        props.put("mail.imap.finalizecleanclose", "false");
 
         props.put("mail.imap.compress.enable", "true");
 
