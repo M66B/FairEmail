@@ -640,12 +640,12 @@ public class MessageHelper {
             return decodeMime(subject);
         } else {
             // Fix UTF-8 plain header
-            char[] kars = subject.toCharArray();
-            byte[] bytes = new byte[kars.length];
-            for (int i = 0; i < kars.length; i++)
-                bytes[i] = (byte) kars[i];
-
             try {
+                char[] kars = subject.toCharArray();
+                byte[] bytes = new byte[kars.length];
+                for (int i = 0; i < kars.length; i++)
+                    bytes[i] = (byte) kars[i];
+
                 CharsetDecoder cs = StandardCharsets.UTF_8.newDecoder();
                 cs.decode(ByteBuffer.wrap(bytes));
                 subject = new String(bytes, StandardCharsets.UTF_8);
