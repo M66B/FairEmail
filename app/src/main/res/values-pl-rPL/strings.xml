@@ -139,8 +139,10 @@
     <string name="title_setup_advanced">Zaawansowane</string>
     <string name="title_setup_options">Opcje</string>
     <string name="title_setup_defaults">Przywróć domyślne</string>
+    <string name="title_setup_reset_questions">Zresetuj pytania</string>
     <string name="title_advanced">Opcje zaawansowane</string>
     <string name="title_advanced_section_synchronize">Synchronizuj</string>
+    <string name="title_advanced_section_send">Wyślij</string>
     <string name="title_advanced_section_connection">Połączenie</string>
     <string name="title_advanced_section_display">Wyświetlanie</string>
     <string name="title_advanced_section_behavior">Zachowanie</string>
@@ -155,6 +157,7 @@
     <string name="title_advanced_autoresize">Automatycznie zmieniaj rozmiar załączonych i osadzonych obrazów</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
     <string name="title_advanced_autosend">Potwierdź wysłanie wiadomości</string>
+    <string name="title_advanced_send_delayed">Opóźnij wysyłanie wiadomości</string>
     <string name="title_advanced_metered">Użyj połączeń taryfowych</string>
     <string name="title_advanced_download">Automatycznie pobieraj wiadomości i załączniki przy połączeniach taryfowych do</string>
     <string name="title_advanced_roaming">Pobieraj wiadomości i załączniki podczas roamingu</string>
@@ -173,6 +176,7 @@
     <string name="title_advanced_html">Automatycznie pokaż oryginalną wiadomość dla znanych kontaktów</string>
     <string name="title_advanced_images">Automatycznie pokaż obrazki dla znanych kontaktów</string>
     <string name="title_advanced_pull_refresh">Pociągnij w dół, aby odświeżyć</string>
+    <string name="title_advanced_autoscroll">Przewiń do góry po otrzymaniu nowych wiadomości</string>
     <string name="title_advanced_swipenav">Przesuń w lewo/prawo, aby przejść do następnej/poprzedniej konwersacji</string>
     <string name="title_advanced_autoexpand">Automatycznie rozwijaj wiadomości</string>
     <string name="title_advanced_collapse">Zwiń wiadomości w konwersacji przy \'cofnij\'</string>
@@ -197,6 +201,7 @@
     <string name="title_advanced_authentication">Pokaż ostrzeżenie, gdy serwer odbierający nie może uwierzytelnić wiadomości</string>
     <string name="title_advanced_paranoid">Dodatkowe funkcje prywatności</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
+    <string name="title_advanced_crash_reports">Wyślij raport o błędach</string>
     <string name="title_advanced_debug">Debuguj</string>
     <string name="title_advanced_last_cleanup">Ostatnie czyszczenie: %1$s</string>
     <string name="title_advanced_enabled_hint">Globalnie wyłącz lub włącz odbieranie i wysyłanie wiadomości</string>

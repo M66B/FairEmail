@@ -136,6 +136,7 @@
     <string name="title_advanced_send_delayed">延迟发送消息</string>
     <string name="title_advanced_metered">使用按流量计费的连接</string>
     <string name="title_advanced_download">在计量的连接下自动下载邮件和附件, 最高可达</string>
+    <string name="title_advanced_rlah">像在国内那样漫游</string>
     <string name="title_advanced_roaming">漫游时下载消息和附件</string>
     <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
@@ -187,6 +188,7 @@
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
     <string name="title_advanced_metered_hint">计量连接通常是指移动连接或付费WiFi热点</string>
     <string name="title_advanced_metered_warning">禁用此选项将禁止在使用移动互联网连接时接收和发送消息</string>
+    <string name="title_advanced_rlah_hint">在欧盟境内禁止漫游</string>
     <string name="title_advanced_browse_hint">向下滚动时拉取更多邮件</string>
     <string name="title_advanced_threading_hint">对相互关联的邮件进行分组</string>
     <string name="title_advanced_name_email_hint">禁用该选项，将仅显示名称（如果可用）</string>

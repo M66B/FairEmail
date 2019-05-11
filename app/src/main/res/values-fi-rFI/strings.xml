@@ -381,6 +381,8 @@
     <string name="title_ask_show_image">Kuvien näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
     <string name="title_ask_edit_ref">Muokkaa uudelleenmuotoiltua vastatun/edelleenlähetetyn viestin tekstiä?</string>
     <string name="title_ask_delete_local">Poistetaanko paikalliset viestit, jotka ovat myös palvelimella?</string>
+    <string name="title_ask_reporting">Lähetetäänkö virheraportteja?</string>
+    <string name="title_reporting_why">Virheraportointi auttaa FairEmailin kehittämisessä</string>
     <string name="title_compose">Kirjoita viesti</string>
     <string name="title_from">Lähettäjä:</string>
     <string name="title_to">Vastaanottaja:</string>

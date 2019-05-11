@@ -160,6 +160,7 @@
     <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
     <string name="title_advanced_metered">Používat účtovaná připojení</string>
     <string name="title_advanced_download">Automaticky stahovat zprávy a přílohy na účtovaném připojení až do velikosti</string>
+    <string name="title_advanced_rlah">Roaming jako doma (RLAH)</string>
     <string name="title_advanced_roaming">Stahovat zprávy a přílohy během roamingu</string>
     <string name="title_advanced_browse">Procházet zprávy na serveru</string>
     <string name="title_advanced_startup">Zobrazit na úvodní obrazovce</string>
@@ -211,6 +212,7 @@
     <string name="title_advanced_schedule_hint">Dotkněte se času pro jeho změnu</string>
     <string name="title_advanced_metered_hint">Účtovaná připojení jsou obecně mobilní připojení nebo placené Wi-Fi hotspoty</string>
     <string name="title_advanced_metered_warning">Vypnutí této volby zakáže přijímání a odesílání zpráv při mobilních datových přenosech</string>
+    <string name="title_advanced_rlah_hint">Zakázat roaming v rámci EU</string>
     <string name="title_advanced_browse_hint">Načte další zprávy při posouvání dolů</string>
     <string name="title_advanced_threading_hint">Seskupit zprávy které spolu souvisí</string>
     <string name="title_advanced_name_email_hint">Při deaktivaci se zobrazí pouze jména, pokud budou k dispozici</string>
@@ -398,6 +400,7 @@
     <string name="title_ask_edit_ref">Upravit přeformátovaný text odpovídané/přeposílané zprávy?</string>
     <string name="title_ask_delete_local">Smazat místní zprávy, které jsou zároveň uloženy na vzdáleném serveru?</string>
     <string name="title_ask_reporting">Odeslat zprávy o chybách?</string>
+    <string name="title_reporting_why">Zprávami o chybách pomůžete zlepšit FairEmail</string>
     <string name="title_compose">Napsat zprávu</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Komu:</string>

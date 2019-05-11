@@ -144,6 +144,7 @@
     <string name="title_advanced_send_delayed">Diferir envío de mensajes</string>
     <string name="title_advanced_metered">Usar conexión de datos</string>
     <string name="title_advanced_download">Descargar automáticamente mensajes y adjuntos usando conexión de datos hasta</string>
+    <string name="title_advanced_rlah">Roam como en casa</string>
     <string name="title_advanced_roaming">Descargar mensajes y adjuntos en roaming</string>
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
     <string name="title_advanced_startup">Mostrar en pantalla de inicio</string>
@@ -195,6 +196,7 @@
     <string name="title_advanced_schedule_hint">Toque en una hora para establecer una hora</string>
     <string name="title_advanced_metered_hint">Las conexiones medidas son generalmente conexiones móviles o puntos de acceso Wi-Fi de pago</string>
     <string name="title_advanced_metered_warning">Desactivar esta opción desactivará la recepción y envío de mensajes en conexiones móviles a Internet</string>
+    <string name="title_advanced_rlah_hint">Desactivar roaming dentro de la UE</string>
     <string name="title_advanced_browse_hint">Buscar más mensajes al desplazarse hacia abajo</string>
     <string name="title_advanced_threading_hint">Agrupar mensajes relacionados entre sí</string>
     <string name="title_advanced_name_email_hint">Si está desactivado, solo se mostrarán los nombres cuando estén disponibles</string>
@@ -381,6 +383,8 @@
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
     <string name="title_ask_edit_ref">¿Editar texto reformateado de mensaje respondido/reenviado?</string>
     <string name="title_ask_delete_local">¿Eliminar mensajes locales que también están almacenados en el servidor remoto?</string>
+    <string name="title_ask_reporting">¿Enviar informes de error?</string>
+    <string name="title_reporting_why">Informar de errores ayudará a mejorar FairEmail</string>
     <string name="title_compose">Redactar</string>
     <string name="title_from">De:</string>
     <string name="title_to">A:</string>

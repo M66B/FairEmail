@@ -144,6 +144,7 @@
     <string name="title_advanced_send_delayed">Senden von Nachrichten verzögern</string>
     <string name="title_advanced_metered">Getaktete Verbindungen verwenden</string>
     <string name="title_advanced_download">Automatisches Herunterladen von E-Mails und Anhängen auf getakteten Verbindungen bis zu einer Größe von</string>
+    <string name="title_advanced_rlah">Roaming wie zu Hause</string>
     <string name="title_advanced_roaming">Nachrichten und Anhänge bei Roaming herunterladen</string>
     <string name="title_advanced_browse">E-Mails auf dem Server durchsuchen</string>
     <string name="title_advanced_startup">Zum Start anzeigen</string>
@@ -195,6 +196,7 @@
     <string name="title_advanced_schedule_hint">Tippe auf eine Zeit, um eine Zeit zu setzen</string>
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte Wi-Fi Hotspots</string>
     <string name="title_advanced_metered_warning">Das Deaktivieren dieser Option deaktiviert das Empfangen und Senden von Nachrichten über mobile Internetverbindungen</string>
+    <string name="title_advanced_rlah_hint">Roaming innerhalb der EU deaktivieren</string>
     <string name="title_advanced_browse_hint">Durch herunterscrollen weitere E-Mails laden</string>
     <string name="title_advanced_threading_hint">E-Mails gruppieren, die miteinander verwandt sind</string>
     <string name="title_advanced_name_email_hint">Wenn deaktiviert, werden nur Namen angezeigt, sofern verfügbar</string>
@@ -381,6 +383,8 @@
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_edit_ref">Nachrichtentext der zu beantwortenden/weitergeleitenden Nachricht bearbeiten?</string>
     <string name="title_ask_delete_local">Lokal gespeicherte Meldungen, welche auch auf dem Server gespeichert sind, löschen?</string>
+    <string name="title_ask_reporting">Fehlerberichte senden?</string>
+    <string name="title_reporting_why">Fehlerberichte helfen FairEmail zu verbessern</string>
     <string name="title_compose">Verfassen</string>
     <string name="title_from">Von:</string>
     <string name="title_to">An:</string>
