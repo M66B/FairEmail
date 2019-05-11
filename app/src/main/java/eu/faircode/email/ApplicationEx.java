@@ -56,6 +56,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -185,7 +186,8 @@ public class ApplicationEx extends Application {
 
                     if (ex instanceof MessagingException &&
                             (ex.getCause() instanceof IOException ||
-                                    ex.getCause() instanceof ConnectionException))
+                                    ex.getCause() instanceof ConnectionException ||
+                                    ex.getCause() instanceof SocketTimeoutException))
                         return false;
 
                     if (ex instanceof MessagingException &&
@@ -200,7 +202,8 @@ public class ApplicationEx extends Application {
 
                     if (ex instanceof FileNotFoundException &&
                             ex.getMessage() != null &&
-                            ex.getMessage().startsWith("Download image failed"))
+                            (ex.getMessage().startsWith("Download image failed") ||
+                                    ex.getMessage().startsWith("https://autoconfig.thunderbird.net/")))
                         return false;
                 }
 
