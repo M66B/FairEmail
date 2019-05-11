@@ -62,6 +62,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.TimeoutException;
 
 import javax.mail.MessagingException;
 
@@ -378,6 +379,11 @@ public class ApplicationEx extends Application {
             return false;
 
         if (ex instanceof RemoteException)
+            return false;
+
+        if (ex instanceof TimeoutException &&
+                ex.getMessage() != null &&
+                ex.getMessage().startsWith("com.sun.mail.imap.IMAPStore.finalize"))
             return false;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
