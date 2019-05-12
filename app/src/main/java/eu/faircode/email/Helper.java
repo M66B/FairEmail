@@ -19,35 +19,24 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.app.usage.UsageStatsManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Point;
-import android.net.ConnectivityManager;
-import android.net.Network;
-import android.net.NetworkCapabilities;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
-import android.os.PowerManager;
 import android.text.format.DateUtils;
 import android.text.format.Time;
-import android.view.Display;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -66,9 +55,6 @@ import androidx.preference.PreferenceManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.sun.mail.util.MailConnectException;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -80,7 +66,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.UnknownHostException;
@@ -90,18 +75,14 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ThreadFactory;
 
-import javax.mail.Address;
 import javax.mail.FolderClosedException;
 import javax.mail.MessageRemovedException;
-import javax.mail.internet.InternetAddress;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION;
@@ -124,8 +105,53 @@ public class Helper {
         }
     };
 
+    // Features
+
     static boolean hasPermission(Context context, String name) {
         return (ContextCompat.checkSelfPermission(context, name) == PackageManager.PERMISSION_GRANTED);
+    }
+
+    static boolean hasCustomTabs(Context context, Uri uri) {
+        PackageManager pm = context.getPackageManager();
+        Intent view = new Intent(Intent.ACTION_VIEW, uri);
+
+        for (ResolveInfo info : pm.queryIntentActivities(view, 0)) {
+            Intent intent = new Intent();
+            intent.setAction(ACTION_CUSTOM_TABS_CONNECTION);
+            intent.setPackage(info.activityInfo.packageName);
+            if (pm.resolveService(intent, 0) != null)
+                return true;
+        }
+
+        return false;
+    }
+
+    static boolean hasWebView(Context context) {
+        PackageManager pm = context.getPackageManager();
+        if (pm.hasSystemFeature(PackageManager.FEATURE_WEBVIEW))
+            try {
+                new WebView(context);
+                return true;
+            } catch (Throwable ex) {
+                return false;
+            }
+        else
+            return false;
+    }
+
+    static boolean canPrint(Context context) {
+        PackageManager pm = context.getPackageManager();
+        return pm.hasSystemFeature(PackageManager.FEATURE_PRINTING);
+    }
+
+    // View
+
+    static Intent getChooser(Context context, Intent intent) {
+        PackageManager pm = context.getPackageManager();
+        if (pm.queryIntentActivities(intent, 0).size() == 1)
+            return intent;
+        else
+            return Intent.createChooser(intent, context.getString(R.string.title_select_app));
     }
 
     static void view(Context context, LifecycleOwner owner, Intent intent) {
@@ -163,29 +189,6 @@ public class Helper {
         }
     }
 
-    static boolean hasCustomTabs(Context context, Uri uri) {
-        PackageManager pm = context.getPackageManager();
-        Intent view = new Intent(Intent.ACTION_VIEW, uri);
-
-        for (ResolveInfo info : pm.queryIntentActivities(view, 0)) {
-            Intent intent = new Intent();
-            intent.setAction(ACTION_CUSTOM_TABS_CONNECTION);
-            intent.setPackage(info.activityInfo.packageName);
-            if (pm.resolveService(intent, 0) != null)
-                return true;
-        }
-
-        return false;
-    }
-
-    static Intent getChooser(Context context, Intent intent) {
-        PackageManager pm = context.getPackageManager();
-        if (pm.queryIntentActivities(intent, 0).size() == 1)
-            return intent;
-        else
-            return Intent.createChooser(intent, context.getString(R.string.title_select_app));
-    }
-
     static Intent getIntentSetupHelp() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/SETUP.md#setup-help"));
@@ -218,13 +221,15 @@ public class Helper {
         intent.setPackage(BuildConfig.APPLICATION_ID);
         intent.setType("text/plain");
         try {
-            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{Helper.myAddress().getAddress()});
+            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{Log.myAddress().getAddress()});
         } catch (UnsupportedEncodingException ex) {
             Log.w(ex);
         }
         intent.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.title_issue_subject, version));
         return intent;
     }
+
+    // Graphics
 
     static int dp2pixels(Context context, int dp) {
         float scale = context.getResources().getDisplayMetrics().density;
@@ -258,25 +263,6 @@ public class Helper {
         return color;
     }
 
-    static Bitmap decodeImage(File file, int scaleToPixels) {
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(file.getAbsolutePath(), options);
-
-        int factor = 1;
-        while (options.outWidth / factor > scaleToPixels)
-            factor *= 2;
-
-        if (factor > 1) {
-            Log.i("Decode image factor=" + factor);
-            options.inJustDecodeBounds = false;
-            options.inSampleSize = factor;
-            return BitmapFactory.decodeFile(file.getAbsolutePath(), options);
-        }
-
-        return BitmapFactory.decodeFile(file.getAbsolutePath());
-    }
-
     static void setViewsEnabled(ViewGroup view, boolean enabled) {
         for (int i = 0; i < view.getChildCount(); i++) {
             View child = view.getChildAt(i);
@@ -292,6 +278,51 @@ public class Helper {
             } else if (child instanceof ViewGroup)
                 setViewsEnabled((ViewGroup) child, enabled);
         }
+    }
+
+    // Formatting
+
+    static String humanReadableByteCount(long bytes, boolean si) {
+        int unit = si ? 1000 : 1024;
+        if (bytes < unit) return bytes + " B";
+        int exp = (int) (Math.log(bytes) / Math.log(unit));
+        String pre = (si ? "kMGTPE" : "KMGTPE").charAt(exp - 1) + (si ? "" : "i");
+        return new DecimalFormat("@@").format(bytes / Math.pow(unit, exp)) + " " + pre + "B";
+    }
+
+    static DateFormat getTimeInstance(Context context, int style) {
+        // https://issuetracker.google.com/issues/37054851
+        if (context != null &&
+                (style == SimpleDateFormat.SHORT || style == SimpleDateFormat.MEDIUM)) {
+            Locale locale = Locale.getDefault();
+            boolean is24Hour = android.text.format.DateFormat.is24HourFormat(context);
+            String skeleton = (is24Hour ? "Hm" : "hm");
+            if (style == SimpleDateFormat.MEDIUM)
+                skeleton += "s";
+            String pattern = android.text.format.DateFormat.getBestDateTimePattern(locale, skeleton);
+            return new SimpleDateFormat(pattern, locale);
+        } else
+            return SimpleDateFormat.getTimeInstance(style);
+    }
+
+    static CharSequence getRelativeTimeSpanString(Context context, long millis) {
+        long now = System.currentTimeMillis();
+        long span = Math.abs(now - millis);
+        Time nowTime = new Time();
+        Time thenTime = new Time();
+        nowTime.set(now);
+        thenTime.set(millis);
+        if (span < DateUtils.DAY_IN_MILLIS && nowTime.weekDay == thenTime.weekDay)
+            return getTimeInstance(context, SimpleDateFormat.SHORT).format(millis);
+        else
+            return DateUtils.getRelativeTimeSpanString(context, millis);
+    }
+
+    static String ellipsize(String text, int maxLen) {
+        if (text == null || text.length() < maxLen) {
+            return text;
+        }
+        return text.substring(0, maxLen) + "...";
     }
 
     static String localizeFolderName(Context context, String name) {
@@ -355,7 +386,7 @@ public class Helper {
                             new SimpleTask<Long>() {
                                 @Override
                                 protected Long onExecute(Context context, Bundle args) throws Throwable {
-                                    return getDebugInfo(context, R.string.title_crash_info_remark, ex, null).id;
+                                    return Log.getDebugInfo(context, R.string.title_crash_info_remark, ex, null).id;
                                 }
 
                                 @Override
@@ -381,349 +412,19 @@ public class Helper {
             ApplicationEx.writeCrashLog(context, ex);
     }
 
-    static EntityMessage getDebugInfo(Context context, int title, Throwable ex, String log) throws IOException {
-        StringBuilder sb = new StringBuilder();
-        sb.append(context.getString(title)).append("\n\n\n\n");
-        sb.append(getAppInfo(context));
-        if (ex != null)
-            sb.append(ex.toString()).append("\n").append(android.util.Log.getStackTraceString(ex));
-        if (log != null)
-            sb.append(log);
-        String body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
+    // Files
 
-        EntityMessage draft;
-
-        DB db = DB.getInstance(context);
-        try {
-            db.beginTransaction();
-
-            EntityFolder drafts = db.folder().getPrimaryDrafts();
-            if (drafts == null)
-                throw new IllegalArgumentException(context.getString(R.string.title_no_primary_drafts));
-
-            List<EntityIdentity> identities = db.identity().getIdentities(drafts.account);
-            EntityIdentity primary = null;
-            for (EntityIdentity identity : identities) {
-                if (identity.primary) {
-                    primary = identity;
-                    break;
-                } else if (primary == null)
-                    primary = identity;
-            }
-
-            draft = new EntityMessage();
-            draft.account = drafts.account;
-            draft.folder = drafts.id;
-            draft.identity = (primary == null ? null : primary.id);
-            draft.msgid = EntityMessage.generateMessageId();
-            draft.thread = draft.msgid;
-            draft.to = new Address[]{myAddress()};
-            draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " debug info";
-            draft.received = new Date().getTime();
-            draft.seen = true;
-            draft.ui_seen = true;
-            draft.id = db.message().insertMessage(draft);
-            writeText(draft.getFile(context), body);
-            db.message().setMessageContent(draft.id,
-                    true,
-                    false,
-                    HtmlHelper.getPreview(body),
-                    null);
-
-            attachSettings(context, draft.id, 1);
-            attachAccounts(context, draft.id, 2);
-            attachNetworkInfo(context, draft.id, 3);
-            attachLog(context, draft.id, 4);
-            attachOperations(context, draft.id, 5);
-            attachLogcat(context, draft.id, 6);
-
-            Core.updateMessageSize(context, draft.id);
-
-            EntityOperation.queue(context, db, draft, EntityOperation.ADD);
-
-            db.setTransactionSuccessful();
-        } finally {
-            db.endTransaction();
-        }
-        return draft;
+    static String sanitizeFilename(String name) {
+        return (name == null ? null : name.replaceAll("[^a-zA-Z0-9\\.\\-]", "_"));
     }
 
-    private static StringBuilder getAppInfo(Context context) {
-        StringBuilder sb = new StringBuilder();
-
-        // Get version info
-        String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
-        sb.append(String.format("%s: %s/%s %s/%s%s%s%s\r\n",
-                context.getString(R.string.app_name),
-                BuildConfig.APPLICATION_ID,
-                installer,
-                BuildConfig.VERSION_NAME,
-                hasValidFingerprint(context) ? "1" : "3",
-                BuildConfig.PLAY_STORE_RELEASE ? "p" : "",
-                BuildConfig.DEBUG ? "d" : "",
-                isPro(context) ? "+" : ""));
-        sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
-        sb.append("\r\n");
-
-        // Get device info
-        sb.append(String.format("Brand: %s\r\n", Build.BRAND));
-        sb.append(String.format("Manufacturer: %s\r\n", Build.MANUFACTURER));
-        sb.append(String.format("Model: %s\r\n", Build.MODEL));
-        sb.append(String.format("Product: %s\r\n", Build.PRODUCT));
-        sb.append(String.format("Device: %s\r\n", Build.DEVICE));
-        sb.append(String.format("Host: %s\r\n", Build.HOST));
-        sb.append(String.format("Display: %s\r\n", Build.DISPLAY));
-        sb.append(String.format("Id: %s\r\n", Build.ID));
-        sb.append("\r\n");
-
-        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        Display display = wm.getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        float density = context.getResources().getDisplayMetrics().density;
-        sb.append(String.format("Resolution: %.2f x %.2f dp %b\r\n",
-                size.x / density, size.y / density,
-                context.getResources().getConfiguration().isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL)));
-
-        PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-        boolean ignoring = true;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            ignoring = pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
-        sb.append(String.format("Battery optimizations: %b\r\n", !ignoring));
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            UsageStatsManager usm = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
-            int bucket = usm.getAppStandbyBucket();
-            sb.append(String.format("Standby bucket: %d\r\n", bucket));
-        }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-            boolean saving = (cm.getRestrictBackgroundStatus() == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED);
-            sb.append(String.format("Data saving: %b\r\n", saving));
-        }
-
-        sb.append("\r\n");
-
-        sb.append(new Date().toString()).append("\r\n");
-
-        sb.append("\r\n");
-
-        return sb;
-    }
-
-    private static void attachSettings(Context context, long id, int sequence) throws IOException {
-        DB db = DB.getInstance(context);
-
-        EntityAttachment attachment = new EntityAttachment();
-        attachment.message = id;
-        attachment.sequence = sequence;
-        attachment.name = "settings.txt";
-        attachment.type = "text/plain";
-        attachment.size = null;
-        attachment.progress = 0;
-        attachment.id = db.attachment().insertAttachment(attachment);
-
-        File file = attachment.getFile(context);
-        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-
-            long size = 0;
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
-            Map<String, ?> settings = prefs.getAll();
-            for (String key : settings.keySet())
-                size += write(os, key + "=" + settings.get(key) + "\r\n");
-
-            db.attachment().setDownloaded(attachment.id, size);
-        }
-    }
-
-    private static void attachAccounts(Context context, long id, int sequence) throws IOException {
-        DB db = DB.getInstance(context);
-
-        EntityAttachment attachment = new EntityAttachment();
-        attachment.message = id;
-        attachment.sequence = sequence;
-        attachment.name = "accounts.txt";
-        attachment.type = "text/plain";
-        attachment.size = null;
-        attachment.progress = 0;
-        attachment.id = db.attachment().insertAttachment(attachment);
-
-        File file = attachment.getFile(context);
-        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-
-            long size = 0;
-
-            List<EntityAccount> accounts = db.account().getAccounts();
-            for (EntityAccount account : accounts)
-                try {
-                    JSONObject jaccount = account.toJSON();
-                    jaccount.remove("user");
-                    jaccount.remove("password");
-                    size += write(os, "==========\r\n");
-                    size += write(os, jaccount.toString(2) + "\r\n");
-
-                    List<EntityIdentity> identities = db.identity().getIdentities(account.id);
-                    for (EntityIdentity identity : identities)
-                        try {
-                            JSONObject jidentity = identity.toJSON();
-                            jidentity.remove("user");
-                            jidentity.remove("password");
-                            size += write(os, "----------\r\n");
-                            size += write(os, jidentity.toString(2) + "\r\n");
-                        } catch (JSONException ex) {
-                            size += write(os, ex.toString() + "\r\n");
-                        }
-                } catch (JSONException ex) {
-                    size += write(os, ex.toString() + "\r\n");
-                }
-
-            db.attachment().setDownloaded(attachment.id, size);
-        }
-    }
-
-    private static void attachNetworkInfo(Context context, long id, int sequence) throws IOException {
-        DB db = DB.getInstance(context);
-
-        EntityAttachment attachment = new EntityAttachment();
-        attachment.message = id;
-        attachment.sequence = sequence;
-        attachment.name = "network.txt";
-        attachment.type = "text/plain";
-        attachment.size = null;
-        attachment.progress = 0;
-        attachment.id = db.attachment().insertAttachment(attachment);
-
-        File file = attachment.getFile(context);
-        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-
-            long size = 0;
-            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-            Network active = null;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-                active = cm.getActiveNetwork();
-
-            for (Network network : cm.getAllNetworks()) {
-                NetworkCapabilities caps = cm.getNetworkCapabilities(network);
-                size += write(os, (network.equals(active) ? "active=" : "network=") + network + " capabilities=" + caps + "\r\n\r\n");
-            }
-
-            db.attachment().setDownloaded(attachment.id, size);
-        }
-    }
-
-    private static void attachLog(Context context, long id, int sequence) throws IOException {
-        DB db = DB.getInstance(context);
-
-        EntityAttachment attachment = new EntityAttachment();
-        attachment.message = id;
-        attachment.sequence = sequence;
-        attachment.name = "log.txt";
-        attachment.type = "text/plain";
-        attachment.size = null;
-        attachment.progress = 0;
-        attachment.id = db.attachment().insertAttachment(attachment);
-
-        File file = attachment.getFile(context);
-        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-
-            long size = 0;
-            long from = new Date().getTime() - 24 * 3600 * 1000L;
-            DateFormat DF = SimpleDateFormat.getTimeInstance();
-
-            for (EntityLog entry : db.log().getLogs(from))
-                size += write(os, String.format("%s %s\r\n", DF.format(entry.time), entry.data));
-
-            db.attachment().setDownloaded(attachment.id, size);
-        }
-    }
-
-    private static void attachOperations(Context context, long id, int sequence) throws IOException {
-        DB db = DB.getInstance(context);
-
-        EntityAttachment attachment = new EntityAttachment();
-        attachment.message = id;
-        attachment.sequence = sequence;
-        attachment.name = "operations.txt";
-        attachment.type = "text/plain";
-        attachment.size = null;
-        attachment.progress = 0;
-        attachment.id = db.attachment().insertAttachment(attachment);
-
-        File file = attachment.getFile(context);
-        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-
-            long size = 0;
-            DateFormat DF = SimpleDateFormat.getTimeInstance();
-
-            for (EntityOperation op : db.operation().getOperations())
-                size += write(os, String.format("%s %d %s %s %s\r\n",
-                        DF.format(op.created),
-                        op.message == null ? -1 : op.message,
-                        op.name,
-                        op.args,
-                        op.error));
-
-            db.attachment().setDownloaded(attachment.id, size);
-        }
-    }
-
-    private static void attachLogcat(Context context, long id, int sequence) throws IOException {
-        DB db = DB.getInstance(context);
-
-        EntityAttachment attachment = new EntityAttachment();
-        attachment.message = id;
-        attachment.sequence = sequence;
-        attachment.name = "logcat.txt";
-        attachment.type = "text/plain";
-        attachment.size = null;
-        attachment.progress = 0;
-        attachment.id = db.attachment().insertAttachment(attachment);
-
-        Process proc = null;
-        File file = attachment.getFile(context);
-        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-
-            String[] cmd = new String[]{"logcat",
-                    "-d",
-                    "-v", "threadtime",
-                    //"-t", "1000",
-                    Log.TAG + ":I"};
-            proc = Runtime.getRuntime().exec(cmd);
-
-            long size = 0;
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(proc.getInputStream()))) {
-                String line;
-                while ((line = br.readLine()) != null)
-                    size += write(os, line + "\r\n");
-            }
-
-
-            db.attachment().setDownloaded(attachment.id, size);
-        } finally {
-            if (proc != null)
-                proc.destroy();
-        }
-    }
-
-    private static int write(OutputStream os, String text) throws IOException {
-        byte[] bytes = text.getBytes();
-        os.write(bytes);
-        return bytes.length;
-    }
-
-    static String humanReadableByteCount(long bytes, boolean si) {
-        int unit = si ? 1000 : 1024;
-        if (bytes < unit) return bytes + " B";
-        int exp = (int) (Math.log(bytes) / Math.log(unit));
-        String pre = (si ? "kMGTPE" : "KMGTPE").charAt(exp - 1) + (si ? "" : "i");
-        return new DecimalFormat("@@").format(bytes / Math.pow(unit, exp)) + " " + pre + "B";
-    }
-
-    static InternetAddress myAddress() throws UnsupportedEncodingException {
-        return new InternetAddress("marcel+fairemail@faircode.eu", "FairCode");
+    static String getExtension(String filename) {
+        if (filename == null)
+            return null;
+        int index = filename.lastIndexOf(".");
+        if (index < 0)
+            return null;
+        return filename.substring(index + 1);
     }
 
     static void writeText(File file, String content) throws IOException {
@@ -755,18 +456,26 @@ public class Helper {
         }
     }
 
-    static String getExtension(String filename) {
-        if (filename == null)
-            return null;
-        int index = filename.lastIndexOf(".");
-        if (index < 0)
-            return null;
-        return filename.substring(index + 1);
+    static Bitmap decodeImage(File file, int scaleToPixels) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+
+        int factor = 1;
+        while (options.outWidth / factor > scaleToPixels)
+            factor *= 2;
+
+        if (factor > 1) {
+            Log.i("Decode image factor=" + factor);
+            options.inJustDecodeBounds = false;
+            options.inSampleSize = factor;
+            return BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+        }
+
+        return BitmapFactory.decodeFile(file.getAbsolutePath());
     }
 
-    static boolean isPlayStoreInstall(Context context) {
-        return BuildConfig.PLAY_STORE_RELEASE;
-    }
+    // Cryptography
 
     static String sha256(String data) throws NoSuchAlgorithmException {
         return sha256(data.getBytes());
@@ -778,24 +487,6 @@ public class Helper {
         for (byte b : bytes)
             sb.append(String.format("%02x", b));
         return sb.toString();
-    }
-
-    static boolean hasWebView(Context context) {
-        PackageManager pm = context.getPackageManager();
-        if (pm.hasSystemFeature(PackageManager.FEATURE_WEBVIEW))
-            try {
-                new WebView(context);
-                return true;
-            } catch (Throwable ex) {
-                return false;
-            }
-        else
-            return false;
-    }
-
-    static boolean canPrint(Context context) {
-        PackageManager pm = context.getPackageManager();
-        return pm.hasSystemFeature(PackageManager.FEATURE_PRINTING);
     }
 
     public static String getFingerprint(Context context) {
@@ -820,6 +511,37 @@ public class Helper {
         String signed = getFingerprint(context);
         String expected = context.getString(R.string.fingerprint);
         return Objects.equals(signed, expected);
+    }
+
+    // Miscellaneous
+
+    static String sanitizeKeyword(String keyword) {
+        // https://tools.ietf.org/html/rfc3501
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < keyword.length(); i++) {
+            // flag-keyword    = atom
+            // atom            = 1*ATOM-CHAR
+            // ATOM-CHAR       = <any CHAR except atom-specials>
+            char kar = keyword.charAt(i);
+            // atom-specials   = "(" / ")" / "{" / SP / CTL / list-wildcards / quoted-specials / resp-specials
+            if (kar == '(' || kar == ')' || kar == '{' || kar == ' ' || Character.isISOControl(kar))
+                continue;
+            // list-wildcards  = "%" / "*"
+            if (kar == '%' || kar == '*')
+                continue;
+            // quoted-specials = DQUOTE / "\"
+            if (kar == '"' || kar == '\\')
+                continue;
+            // resp-specials   = "]"
+            if (kar == ']')
+                continue;
+            sb.append(kar);
+        }
+        return sb.toString();
+    }
+
+    static boolean isPlayStoreInstall(Context context) {
+        return BuildConfig.PLAY_STORE_RELEASE;
     }
 
     static boolean isPro(Context context) {
@@ -861,73 +583,9 @@ public class Helper {
         return true;
     }
 
-    static String sanitizeKeyword(String keyword) {
-        // https://tools.ietf.org/html/rfc3501
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < keyword.length(); i++) {
-            // flag-keyword    = atom
-            // atom            = 1*ATOM-CHAR
-            // ATOM-CHAR       = <any CHAR except atom-specials>
-            char kar = keyword.charAt(i);
-            // atom-specials   = "(" / ")" / "{" / SP / CTL / list-wildcards / quoted-specials / resp-specials
-            if (kar == '(' || kar == ')' || kar == '{' || kar == ' ' || Character.isISOControl(kar))
-                continue;
-            // list-wildcards  = "%" / "*"
-            if (kar == '%' || kar == '*')
-                continue;
-            // quoted-specials = DQUOTE / "\"
-            if (kar == '"' || kar == '\\')
-                continue;
-            // resp-specials   = "]"
-            if (kar == ']')
-                continue;
-            sb.append(kar);
-        }
-        return sb.toString();
-    }
-
-    static String sanitizeFilename(String name) {
-        return (name == null ? null : name.replaceAll("[^a-zA-Z0-9\\.\\-]", "_"));
-    }
-
     static int getSize(Bundle bundle) {
         Parcel p = Parcel.obtain();
         bundle.writeToParcel(p, 0);
         return p.dataSize();
-    }
-
-    static DateFormat getTimeInstance(Context context, int style) {
-        // https://issuetracker.google.com/issues/37054851
-        if (context != null &&
-                (style == SimpleDateFormat.SHORT || style == SimpleDateFormat.MEDIUM)) {
-            Locale locale = Locale.getDefault();
-            boolean is24Hour = android.text.format.DateFormat.is24HourFormat(context);
-            String skeleton = (is24Hour ? "Hm" : "hm");
-            if (style == SimpleDateFormat.MEDIUM)
-                skeleton += "s";
-            String pattern = android.text.format.DateFormat.getBestDateTimePattern(locale, skeleton);
-            return new SimpleDateFormat(pattern, locale);
-        } else
-            return SimpleDateFormat.getTimeInstance(style);
-    }
-
-    static CharSequence getRelativeTimeSpanString(Context context, long millis) {
-        long now = System.currentTimeMillis();
-        long span = Math.abs(now - millis);
-        Time nowTime = new Time();
-        Time thenTime = new Time();
-        nowTime.set(now);
-        thenTime.set(millis);
-        if (span < DateUtils.DAY_IN_MILLIS && nowTime.weekDay == thenTime.weekDay)
-            return getTimeInstance(context, SimpleDateFormat.SHORT).format(millis);
-        else
-            return DateUtils.getRelativeTimeSpanString(context, millis);
-    }
-
-    static String ellipsize(String text, int maxLen) {
-        if (text == null || text.length() < maxLen) {
-            return text;
-        }
-        return text.substring(0, maxLen) + "...";
     }
 }

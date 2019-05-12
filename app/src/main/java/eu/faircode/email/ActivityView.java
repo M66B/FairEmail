@@ -644,7 +644,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                 sb.append(line).append("\r\n");
                         }
 
-                        return Helper.getDebugInfo(context, R.string.title_crash_info_remark, null, sb.toString()).id;
+                        return Log.getDebugInfo(context, R.string.title_crash_info_remark, null, sb.toString()).id;
                     } finally {
                         file.delete();
                     }
@@ -972,7 +972,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         new SimpleTask<Long>() {
             @Override
             protected Long onExecute(Context context, Bundle args) throws IOException {
-                return Helper.getDebugInfo(context, R.string.title_debug_info_remark, null, null).id;
+                return Log.getDebugInfo(context, R.string.title_debug_info_remark, null, null).id;
             }
 
             @Override
