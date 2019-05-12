@@ -1432,7 +1432,9 @@ public class FragmentAccount extends FragmentBase {
         folders.add(0, none);
 
         adapter.clear();
-        adapter.addAll(folders);
+        for (EntityFolder folder : folders)
+            if (!EntityFolder.INBOX.equals(folder.type))
+                adapter.add(folder);
 
         Long left = (account == null ? null : account.swipe_left);
         Long right = (account == null ? null : account.swipe_right);
