@@ -150,7 +150,7 @@ public class FragmentAccount extends FragmentBase {
 
     private long id = -1;
     private boolean saving = false;
-    private int auth_type = Helper.AUTH_TYPE_PASSWORD;
+    private int auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
     private int color = Color.TRANSPARENT;
 
     @Override
@@ -251,7 +251,7 @@ public class FragmentAccount extends FragmentBase {
                     return;
                 adapterView.setTag(position);
 
-                auth_type = Helper.AUTH_TYPE_PASSWORD;
+                auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
 
                 etHost.setText(provider.imap_host);
                 etPort.setText(provider.imap_host == null ? null : Integer.toString(provider.imap_port));
@@ -314,8 +314,8 @@ public class FragmentAccount extends FragmentBase {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String user = etUser.getText().toString();
-                if (auth_type != Helper.AUTH_TYPE_PASSWORD && !user.equals(etUser.getTag())) {
-                    auth_type = Helper.AUTH_TYPE_PASSWORD;
+                if (auth_type != ConnectionHelper.AUTH_TYPE_PASSWORD && !user.equals(etUser.getTag())) {
+                    auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
                     tilPassword.getEditText().setText(null);
                     tilPassword.setEnabled(true);
                     tilPassword.setPasswordVisibilityToggleEnabled(true);
@@ -586,8 +586,8 @@ public class FragmentAccount extends FragmentBase {
                     try {
                         istore.connect(host, Integer.parseInt(port), user, password);
                     } catch (AuthenticationFailedException ex) {
-                        if (auth_type == Helper.AUTH_TYPE_GMAIL) {
-                            password = Helper.refreshToken(context, "com.google", user, password);
+                        if (auth_type == ConnectionHelper.AUTH_TYPE_GMAIL) {
+                            password = ConnectionHelper.refreshToken(context, "com.google", user, password);
                             istore.connect(host, Integer.parseInt(port), user, password);
                         } else
                             throw ex;
@@ -884,8 +884,8 @@ public class FragmentAccount extends FragmentBase {
                         try {
                             istore.connect(host, Integer.parseInt(port), user, password);
                         } catch (AuthenticationFailedException ex) {
-                            if (auth_type == Helper.AUTH_TYPE_GMAIL) {
-                                password = Helper.refreshToken(context, "com.google", user, password);
+                            if (auth_type == ConnectionHelper.AUTH_TYPE_GMAIL) {
+                                password = ConnectionHelper.refreshToken(context, "com.google", user, password);
                                 istore.connect(host, Integer.parseInt(port), user, password);
                             } else
                                 throw ex;
@@ -1129,7 +1129,7 @@ public class FragmentAccount extends FragmentBase {
                 spProvider.setAdapter(aaProvider);
 
                 if (savedInstanceState == null) {
-                    auth_type = (account == null ? Helper.AUTH_TYPE_PASSWORD : account.auth_type);
+                    auth_type = (account == null ? ConnectionHelper.AUTH_TYPE_PASSWORD : account.auth_type);
 
                     if (account != null) {
                         boolean found = false;
@@ -1154,7 +1154,7 @@ public class FragmentAccount extends FragmentBase {
                     rgEncryption.check(account != null && account.starttls ? R.id.radio_starttls : R.id.radio_ssl);
                     cbInsecure.setChecked(account == null ? false : account.insecure);
 
-                    etUser.setTag(account == null || auth_type == Helper.AUTH_TYPE_PASSWORD ? null : account.user);
+                    etUser.setTag(account == null || auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD ? null : account.user);
                     etUser.setText(account == null ? null : account.user);
                     tilPassword.getEditText().setText(account == null ? null : account.password);
                     etRealm.setText(account == null ? null : account.realm);
@@ -1202,8 +1202,8 @@ public class FragmentAccount extends FragmentBase {
 
                 Helper.setViewsEnabled(view, true);
 
-                tilPassword.setEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
-                etRealm.setEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
+                tilPassword.setEnabled(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD);
+                etRealm.setEnabled(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD);
 
                 setColor(color);
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
@@ -1350,7 +1350,7 @@ public class FragmentAccount extends FragmentBase {
 
                         am.getAuthToken(
                                 account,
-                                Helper.getAuthTokenType(type),
+                                ConnectionHelper.getAuthTokenType(type),
                                 new Bundle(),
                                 getActivity(),
                                 new AccountManagerCallback<Bundle>() {
@@ -1361,7 +1361,7 @@ public class FragmentAccount extends FragmentBase {
                                             String token = bundle.getString(AccountManager.KEY_AUTHTOKEN);
                                             Log.i("Got token");
 
-                                            auth_type = Helper.AUTH_TYPE_GMAIL;
+                                            auth_type = ConnectionHelper.AUTH_TYPE_GMAIL;
                                             etUser.setTag(account.name);
                                             etUser.setText(account.name);
                                             etUser.setTag(account.name);
@@ -1379,9 +1379,9 @@ public class FragmentAccount extends FragmentBase {
                                         } finally {
                                             btnAuthorize.setEnabled(true);
                                             etUser.setEnabled(true);
-                                            tilPassword.setEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
-                                            tilPassword.setPasswordVisibilityToggleEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
-                                            etRealm.setEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
+                                            tilPassword.setEnabled(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD);
+                                            tilPassword.setPasswordVisibilityToggleEnabled(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD);
+                                            etRealm.setEnabled(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD);
                                             btnCheck.setEnabled(true);
                                             btnSave.setEnabled(true);
                                             new Handler().postDelayed(new Runnable() {

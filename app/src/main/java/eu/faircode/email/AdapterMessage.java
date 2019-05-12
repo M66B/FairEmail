@@ -3000,7 +3000,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.zoom = zoom;
         this.sort = sort;
         this.filter_duplicates = filter_duplicates;
-        this.suitable = Helper.getNetworkState(context).isSuitable();
+        this.suitable = ConnectionHelper.getNetworkState(context).isSuitable();
         this.properties = properties;
 
         this.colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
@@ -3096,7 +3096,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     void checkInternet() {
-        boolean suitable = Helper.getNetworkState(context).isSuitable();
+        boolean suitable = ConnectionHelper.getNetworkState(context).isSuitable();
         if (this.suitable != suitable) {
             this.suitable = suitable;
             notifyDataSetChanged();

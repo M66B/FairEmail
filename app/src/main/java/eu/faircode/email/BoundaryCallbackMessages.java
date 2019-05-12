@@ -270,7 +270,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         if (imessages == null)
             try {
                 // Check connectivity
-                if (!Helper.getNetworkState(context).isSuitable())
+                if (!ConnectionHelper.getNetworkState(context).isSuitable())
                     throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -288,7 +288,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                 Log.i("Boundary server connecting account=" + account.name);
                 istore = (IMAPStore) isession.getStore(protocol);
-                Helper.connect(context, istore, account);
+                ConnectionHelper.connect(context, istore, account);
 
                 Log.i("Boundary server opening folder=" + browsable.name);
                 ifolder = (IMAPFolder) istore.getFolder(browsable.name);

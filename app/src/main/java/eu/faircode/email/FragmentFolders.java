@@ -332,7 +332,7 @@ public class FragmentFolders extends FragmentBase {
             protected Void onExecute(Context context, Bundle args) {
                 long aid = args.getLong("account");
 
-                if (!Helper.getNetworkState(context).isSuitable())
+                if (!ConnectionHelper.getNetworkState(context).isSuitable())
                     throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
 
                 boolean now = true;

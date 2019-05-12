@@ -161,7 +161,7 @@ public class ServiceSend extends LifecycleService {
         }
 
         private void check() {
-            if (!Helper.getNetworkState(ServiceSend.this).isSuitable())
+            if (!ConnectionHelper.getNetworkState(ServiceSend.this).isSuitable())
                 return;
 
             if (thread != null && thread.isAlive())
@@ -230,7 +230,7 @@ public class ServiceSend extends LifecycleService {
                                     Log.i(outbox.name + " end op=" + op.id + "/" + op.name);
                                 }
 
-                                if (!Helper.getNetworkState(ServiceSend.this).isSuitable())
+                                if (!ConnectionHelper.getNetworkState(ServiceSend.this).isSuitable())
                                     break;
                             }
 
@@ -326,9 +326,9 @@ public class ServiceSend extends LifecycleService {
             try {
                 itransport.connect(ident.host, ident.port, ident.user, ident.password);
             } catch (AuthenticationFailedException ex) {
-                if (ident.auth_type == Helper.AUTH_TYPE_GMAIL) {
+                if (ident.auth_type == ConnectionHelper.AUTH_TYPE_GMAIL) {
                     EntityAccount account = db.account().getAccount(ident.account);
-                    ident.password = Helper.refreshToken(this, "com.google", ident.user, account.password);
+                    ident.password = ConnectionHelper.refreshToken(this, "com.google", ident.user, account.password);
                     DB.getInstance(this).identity().setIdentityPassword(ident.id, ident.password);
                     itransport.connect(ident.host, ident.port, ident.user, ident.password);
                 } else

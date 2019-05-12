@@ -2125,13 +2125,13 @@ class Core {
     }
 
     static class State {
-        private Helper.NetworkState networkState;
+        private ConnectionHelper.NetworkState networkState;
         private Thread thread;
         private Semaphore semaphore = new Semaphore(0);
         private boolean running = true;
         private boolean recoverable = true;
 
-        State(Helper.NetworkState networkState) {
+        State(ConnectionHelper.NetworkState networkState) {
             this.networkState = networkState;
         }
 
@@ -2139,7 +2139,7 @@ class Core {
             this(parent.networkState);
         }
 
-        Helper.NetworkState getNetworkState() {
+        ConnectionHelper.NetworkState getNetworkState() {
             return networkState;
         }
 

@@ -222,7 +222,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void run() {
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
-                    Helper.NetworkState networkState = Helper.getNetworkState(getContext());
+                    ConnectionHelper.NetworkState networkState = ConnectionHelper.getNetworkState(getContext());
 
                     tvConnectionType.setText(networkState.isUnmetered() ? R.string.title_legend_unmetered : R.string.title_legend_metered);
                     tvConnectionType.setVisibility(networkState.isConnected() ? View.VISIBLE : View.GONE);

@@ -91,7 +91,7 @@ public class FragmentQuickSetup extends FragmentBase {
     private Button btnSave;
     private Group grpSetup;
 
-    private int auth_type = Helper.AUTH_TYPE_PASSWORD;
+    private int auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
 
     @Override
     @Nullable
@@ -138,8 +138,8 @@ public class FragmentQuickSetup extends FragmentBase {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (auth_type != Helper.AUTH_TYPE_PASSWORD) {
-                    auth_type = Helper.AUTH_TYPE_PASSWORD;
+                if (auth_type != ConnectionHelper.AUTH_TYPE_PASSWORD) {
+                    auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
                     tilPassword.getEditText().setText(null);
                     tilPassword.setEnabled(true);
                     tilPassword.setPasswordVisibilityToggleEnabled(true);
@@ -498,7 +498,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
                 am.getAuthToken(
                         account,
-                        Helper.getAuthTokenType(type),
+                        ConnectionHelper.getAuthTokenType(type),
                         new Bundle(),
                         getActivity(),
                         new AccountManagerCallback<Bundle>() {
@@ -511,7 +511,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
                                     etEmail.setText(account.name);
                                     tilPassword.getEditText().setText(token);
-                                    auth_type = Helper.AUTH_TYPE_GMAIL;
+                                    auth_type = ConnectionHelper.AUTH_TYPE_GMAIL;
                                 } catch (Throwable ex) {
                                     Log.e(ex);
                                     if (ex instanceof OperationCanceledException ||
@@ -523,8 +523,8 @@ public class FragmentQuickSetup extends FragmentBase {
                                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                                 } finally {
                                     etEmail.setEnabled(true);
-                                    tilPassword.setEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
-                                    tilPassword.setPasswordVisibilityToggleEnabled(auth_type == Helper.AUTH_TYPE_PASSWORD);
+                                    tilPassword.setEnabled(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD);
+                                    tilPassword.setPasswordVisibilityToggleEnabled(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD);
                                     btnAuthorize.setEnabled(true);
                                     btnCheck.setEnabled(true);
                                     new Handler().postDelayed(new Runnable() {

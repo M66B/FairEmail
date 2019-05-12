@@ -746,7 +746,7 @@ public class FragmentCompose extends FragmentBase {
     };
 
     private void checkInternet() {
-        boolean suitable = Helper.getNetworkState(getContext()).isSuitable();
+        boolean suitable = ConnectionHelper.getNetworkState(getContext()).isSuitable();
 
         Boolean content = (Boolean) tvNoInternet.getTag();
         tvNoInternet.setVisibility(!suitable && content != null && !content ? View.VISIBLE : View.GONE);
@@ -1377,7 +1377,8 @@ public class FragmentCompose extends FragmentBase {
                         (message.identity == null ? null : db.identity().getIdentity(message.identity));
 
                 // Build message
-                Properties props = MessageHelper.getSessionProperties(Helper.AUTH_TYPE_PASSWORD, null, false);
+                Properties props = MessageHelper.getSessionProperties(
+                        ConnectionHelper.AUTH_TYPE_PASSWORD, null, false);
                 Session isession = Session.getInstance(props, null);
                 MimeMessage imessage = new MimeMessage(isession);
                 MessageHelper.build(context, message, attachments, identity, imessage);

@@ -89,7 +89,7 @@ import me.leolin.shortcutbadger.ShortcutBadger;
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class ServiceSynchronize extends LifecycleService {
-    private Helper.NetworkState networkState = new Helper.NetworkState();
+    private ConnectionHelper.NetworkState networkState = new ConnectionHelper.NetworkState();
     private Core.State state;
     private boolean oneshot = false;
     private boolean started = false;
@@ -641,7 +641,7 @@ public class ServiceSynchronize extends LifecycleService {
                     db.account().setAccountState(account.id, "connecting");
 
                     try {
-                        Helper.connect(this, istore, account);
+                        ConnectionHelper.connect(this, istore, account);
                     } catch (Throwable ex) {
                         // Report account connection error
                         if (account.last_connected != null) {
@@ -1160,7 +1160,7 @@ public class ServiceSynchronize extends LifecycleService {
     ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
         @Override
         public void onAvailable(Network network) {
-            networkState.update(Helper.getNetworkState(ServiceSynchronize.this));
+            networkState.update(ConnectionHelper.getNetworkState(ServiceSynchronize.this));
 
             synchronized (ServiceSynchronize.this) {
                 try {
@@ -1215,7 +1215,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         @Override
         public void onCapabilitiesChanged(Network network, NetworkCapabilities capabilities) {
-            networkState.update(Helper.getNetworkState(ServiceSynchronize.this));
+            networkState.update(ConnectionHelper.getNetworkState(ServiceSynchronize.this));
 
             synchronized (ServiceSynchronize.this) {
                 try {
@@ -1232,7 +1232,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         @Override
         public void onLost(Network network) {
-            networkState.update(Helper.getNetworkState(ServiceSynchronize.this));
+            networkState.update(ConnectionHelper.getNetworkState(ServiceSynchronize.this));
 
             synchronized (ServiceSynchronize.this) {
                 try {

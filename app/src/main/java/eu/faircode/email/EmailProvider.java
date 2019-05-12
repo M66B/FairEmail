@@ -447,8 +447,8 @@ public class EmailProvider {
 
     int getAuthType() {
         if ("com.google".equals(type))
-            return Helper.AUTH_TYPE_GMAIL;
-        return Helper.AUTH_TYPE_PASSWORD;
+            return ConnectionHelper.AUTH_TYPE_GMAIL;
+        return ConnectionHelper.AUTH_TYPE_PASSWORD;
     }
 
     @Override
