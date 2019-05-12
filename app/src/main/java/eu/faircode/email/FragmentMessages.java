@@ -2838,6 +2838,9 @@ public class FragmentMessages extends FragmentBase {
     }
 
     private void navigate(long id, final boolean left) {
+        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+            return;
+
         Bundle args = new Bundle();
         args.putLong("id", id);
         new SimpleTask<EntityMessage>() {
