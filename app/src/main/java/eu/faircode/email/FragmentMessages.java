@@ -2475,12 +2475,11 @@ public class FragmentMessages extends FragmentBase {
     }
 
     private void loadMessagesNext(final boolean top) {
-        ViewModelBrowse modelBrowse = ViewModelProviders.of(getActivity()).get(ViewModelBrowse.class);
-        modelBrowse.set(getContext(), folder, search, REMOTE_PAGE_SIZE);
-
         if (viewType == AdapterMessage.ViewType.FOLDER || viewType == AdapterMessage.ViewType.SEARCH)
             if (boundaryCallback == null)
-                boundaryCallback = new BoundaryCallbackMessages(getViewLifecycleOwner(), modelBrowse,
+                boundaryCallback = new BoundaryCallbackMessages(
+                        getContext(), getViewLifecycleOwner(),
+                        folder, search, REMOTE_PAGE_SIZE,
                         new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
                             @Override
                             public void onLoading() {
