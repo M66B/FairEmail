@@ -2110,7 +2110,6 @@ public class FragmentMessages extends FragmentBase {
             searchView.setQuery(searching, false);
         }
 
-        searchView.setQueryHint(getString(folder < 0 ? R.string.title_search_device : R.string.title_search_hint));
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextChange(String newText) {

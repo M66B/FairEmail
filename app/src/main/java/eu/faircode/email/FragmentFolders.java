@@ -396,7 +396,6 @@ public class FragmentFolders extends FragmentBase {
             searchView.setQuery(searching, false);
         }
 
-        searchView.setQueryHint(getString(R.string.title_search_device));
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextChange(String newText) {
