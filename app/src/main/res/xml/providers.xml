@@ -114,16 +114,6 @@
             port="587"
             starttls="true" />
     </provider>
-    <provider name="OVH.net">
-        <imap
-            host="ssl0.ovh.net"
-            port="993"
-            starttls="false" />
-        <smtp
-            host="ssl0.ovh.net"
-            port="465"
-            starttls="false" />
-    </provider>
     <provider
         name="gmx.com"
         link="https://support.gmx.com/pop-imap/imap/index.html#breadcrumb_help_pop-imap_imap_server">
@@ -227,19 +217,6 @@
             starttls="false" />
         <smtp
             host="smtp.dismail.de"
-            port="465"
-            starttls="false" />
-    </provider>
-    <!-- no IMAP IDLE -->
-    <provider
-        name="Onet"
-        link="https://m.poczta.onet.pl/pomoc/android.html">
-        <imap
-            host="imap.poczta.onet.pl"
-            port="993"
-            starttls="false" />
-        <smtp
-            host="smtp.poczta.onet.pl"
             port="465"
             starttls="false" />
     </provider>
