@@ -237,7 +237,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         PackageManager pm = getPackageManager();
         final List<NavMenuItem> menus = new ArrayList<>();
 
-        final NavMenuItem navOperations = new NavMenuItem(R.drawable.baseline_list_24, R.string.menu_operations, new Runnable() {
+        final NavMenuItem navOperations = new NavMenuItem(R.drawable.baseline_dns_24, R.string.menu_operations, new Runnable() {
             @Override
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer);

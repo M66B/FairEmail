@@ -202,7 +202,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             if (folder.sync_state == null || "requested".equals(folder.sync_state)) {
                 if (folder.executing > 0)
-                    ivState.setImageResource(R.drawable.baseline_list_24);
+                    ivState.setImageResource(R.drawable.baseline_dns_24);
                 else if ("waiting".equals(folder.state))
                     ivState.setImageResource(R.drawable.baseline_hourglass_empty_24);
                 else if ("connected".equals(folder.state))

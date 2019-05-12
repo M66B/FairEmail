@@ -86,7 +86,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
                 else if ("downloading".equals(folder.sync_state))
                     ivItem.setImageResource(R.drawable.baseline_cloud_download_24);
                 else if (folder.executing > 0)
-                    ivItem.setImageResource(R.drawable.baseline_list_24);
+                    ivItem.setImageResource(R.drawable.baseline_dns_24);
                 else
                     ivItem.setImageResource("connected".equals(folder.state)
                             ? R.drawable.baseline_folder_24
