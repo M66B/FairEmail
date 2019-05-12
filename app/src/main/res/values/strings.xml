@@ -219,7 +219,6 @@
 
     <string name="title_advanced_badge">Show launcher icon with number of new messages</string>
     <string name="title_advanced_subscriptions">Manage folder subscriptions</string>
-    <string name="title_advanced_search_local">External search on device</string>
     <string name="title_advanced_english">Force English language</string>
     <string name="title_advanced_authentication">Show a warning when the receiving server could not authenticate the message</string>
     <string name="title_advanced_paranoid">Extra privacy features</string>
@@ -247,7 +246,6 @@
     <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
 
     <string name="title_advanced_badge_hint">Only available on supported launchers</string>
-    <string name="title_advanced_search_local_hint">Instead of searching in the primary archive folder on the server</string>
     <string name="title_advanced_english_hint">This will restart the app</string>
     <string name="title_advanced_paranoid_hint">See the FAQ for details</string>
     <string name="title_advanced_debug_hint">Enable extra logging and show debug information at various places</string>

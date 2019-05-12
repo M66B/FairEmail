@@ -46,7 +46,6 @@ import java.text.SimpleDateFormat;
 public class FragmentOptionsMisc extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swBadge;
     private SwitchCompat swSubscriptions;
-    private SwitchCompat swSearchLocal;
     private SwitchCompat swEnglish;
     private SwitchCompat swAuthentication;
     private SwitchCompat swParanoid;
@@ -60,7 +59,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Group grpSearchLocal;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "badge", "subscriptions", "search_local", "english", "authentication", "paranoid", "updates", "crash_reports", "debug"
+            "badge", "subscriptions", "english", "authentication", "paranoid", "updates", "crash_reports", "debug"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -79,7 +78,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swBadge = view.findViewById(R.id.swBadge);
         swSubscriptions = view.findViewById(R.id.swSubscriptions);
-        swSearchLocal = view.findViewById(R.id.swSearchLocal);
         swEnglish = view.findViewById(R.id.swEnglish);
         swAuthentication = view.findViewById(R.id.swAuthentication);
         swParanoid = view.findViewById(R.id.swParanoid);
@@ -110,13 +108,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("subscriptions", checked).apply();
-            }
-        });
-
-        swSearchLocal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("search_local", checked).apply();
             }
         });
 
@@ -234,7 +225,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swBadge.setChecked(prefs.getBoolean("badge", true));
         swSubscriptions.setChecked(prefs.getBoolean("subscriptions", false));
-        swSearchLocal.setChecked(prefs.getBoolean("search_local", false));
         swEnglish.setChecked(prefs.getBoolean("english", false));
         swAuthentication.setChecked(prefs.getBoolean("authentication", false));
         swParanoid.setChecked(prefs.getBoolean("paranoid", true));

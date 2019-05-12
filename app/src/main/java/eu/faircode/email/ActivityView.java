@@ -500,49 +500,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 intent.removeExtra(Intent.EXTRA_PROCESS_TEXT);
                 setIntent(intent);
 
-                if (Helper.isPro(ActivityView.this)) {
-                    Bundle args = new Bundle();
-                    args.putString("search", search);
-
-                    new SimpleTask<Long>() {
-                        @Override
-                        protected Long onExecute(Context context, Bundle args) {
-                            DB db = DB.getInstance(context);
-
-                            db.message().resetSearch();
-
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                            if (prefs.getBoolean("search_local", false))
-                                return null;
-
-                            EntityFolder archive = db.folder().getPrimaryArchive();
-                            return (archive == null ? null : archive.id);
-                        }
-
-                        @Override
-                        protected void onExecuted(Bundle args, Long archive) {
-                            Bundle sargs = new Bundle();
-                            sargs.putLong("folder", archive == null ? -1 : archive);
-                            sargs.putString("search", args.getString("search"));
-
-                            FragmentMessages fragment = new FragmentMessages();
-                            fragment.setArguments(sargs);
-
-                            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                            fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
-                            fragmentTransaction.commit();
-                        }
-
-                        @Override
-                        protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
-                        }
-                    }.execute(ActivityView.this, args, "search:account:archive");
-                } else {
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-                    fragmentTransaction.commit();
-                }
+                FragmentMessages.search(
+                        ActivityView.this, ActivityView.this,
+                        getSupportFragmentManager(),
+                        -1, search);
             }
         }
     };

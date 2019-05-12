@@ -68,7 +68,7 @@ import javax.mail.search.SubjectTerm;
 
 public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMessageEx> {
     private Context context;
-    private Long fid;
+    private Long folder;
     private String searching;
     private int pageSize;
     private IBoundaryCallbackMessages intf;
@@ -100,7 +100,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             IBoundaryCallbackMessages intf) {
 
         this.context = context.getApplicationContext();
-        this.fid = (folder < 0 ? null : folder);
+        this.folder = (folder < 0 ? null : folder);
         this.searching = searching;
         this.pageSize = pageSize;
         this.intf = intf;
@@ -179,28 +179,32 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         return loading;
     }
 
-    int load() throws MessagingException, IOException, AuthenticatorException, OperationCanceledException {
+    private int load() throws MessagingException, IOException, AuthenticatorException, OperationCanceledException {
         if (error)
             return 0;
 
         DB db = DB.getInstance(context);
 
-        int local = 0;
-        if (searching != null)
-            try {
-                db.beginTransaction();
+        // Search local
+        int local_count = 0;
+        try {
+            db.beginTransaction();
 
-                if (messages == null) {
-                    messages = db.message().getMessageIdsByFolder(fid);
-                    Log.i("Boundary search folder=" + fid + " messages=" + messages.size());
-                }
+            if (messages == null) {
+                messages = db.message().getMessageIdsByFolder(folder);
+                Log.i("Boundary search folder=" + folder + " messages=" + messages.size());
+            }
 
-                for (int i = local_index; i < messages.size() && local < pageSize; i++) {
-                    local_index = i + 1;
+            for (int i = local_index; i < messages.size() && local_count < pageSize; i++) {
+                local_index = i + 1;
 
-                    boolean match = false;
+                EntityMessage message = db.message().getMessage(messages.get(i));
+
+                boolean match = false;
+                if (searching == null)
+                    match = true;
+                else {
                     String find = searching.toLowerCase();
-                    EntityMessage message = db.message().getMessage(messages.get(i));
                     String body = null;
                     if (message.content)
                         try {
@@ -222,33 +226,41 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                     if (!match && message.content)
                         match = body.toLowerCase().contains(find);
-
-                    if (match) {
-                        local++;
-                        db.message().setMessageFound(message.account, message.thread);
-                    }
                 }
 
-                db.setTransactionSuccessful();
-
-                if (local == pageSize)
-                    return local;
-            } finally {
-                db.endTransaction();
+                if (match) {
+                    local_count++;
+                    db.message().setMessageFound(message.account, message.thread);
+                }
             }
 
-        if (fid == null)
-            return local;
+            db.setTransactionSuccessful();
 
-        final EntityFolder folder = db.folder().getBrowsableFolder(fid, searching != null);
-        if (folder == null)
-            return local;
-        EntityAccount account = db.account().getAccount(folder.account);
+            if (local_count == pageSize)
+                return local_count;
+        } finally {
+            db.endTransaction();
+        }
+
+        // Search remote
+        long bid;
+        if (folder == null) {
+            EntityFolder archive = db.folder().getPrimaryArchive();
+            if (archive == null)
+                return local_count;
+            else
+                bid = archive.id;
+        } else
+            bid = folder;
+
+        final EntityFolder browsable = db.folder().getBrowsableFolder(bid, searching != null);
+        if (browsable == null)
+            return local_count;
+        EntityAccount account = db.account().getAccount(browsable.account);
         if (account == null)
-            return local;
+            return local_count;
 
-        if (imessages == null) {
-
+        if (imessages == null)
             try {
                 // Check connectivity
                 if (!Helper.getNetworkState(context).isSuitable())
@@ -271,8 +283,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 istore = (IMAPStore) isession.getStore(protocol);
                 Helper.connect(context, istore, account);
 
-                Log.i("Boundary opening folder=" + folder.name);
-                ifolder = (IMAPFolder) istore.getFolder(folder.name);
+                Log.i("Boundary opening folder=" + browsable.name);
+                ifolder = (IMAPFolder) istore.getFolder(browsable.name);
                 ifolder.open(Folder.READ_WRITE);
 
                 Log.i("Boundary searching=" + searching);
@@ -284,7 +296,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         public Object doCommand(IMAPProtocol protocol) {
                             // Yahoo! does not support keyword search, but uses the flags $Forwarded $Junk $NotJunk
                             boolean keywords = false;
-                            for (String keyword : folder.keywords)
+                            for (String keyword : browsable.keywords)
                                 if (!keyword.startsWith("$")) {
                                     keywords = true;
                                     break;
@@ -388,14 +400,13 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     throw ex;
                 }
             }
-        }
 
-        int remote = 0;
-        while (remote_index >= 0 && remote < pageSize) {
+        int remote_count = 0;
+        while (remote_index >= 0 && remote_count < pageSize) {
             Log.i("Boundary index=" + remote_index);
-            int from = Math.max(0, remote_index - (pageSize - remote) + 1);
+            int from = Math.max(0, remote_index - (pageSize - remote_count) + 1);
             Message[] isub = Arrays.copyOfRange(imessages, from, remote_index + 1);
-            remote_index -= (pageSize - remote);
+            remote_index -= (pageSize - remote_count);
 
             FetchProfile fp = new FetchProfile();
             fp.add(FetchProfile.Item.ENVELOPE);
@@ -414,29 +425,29 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     try {
                         long uid = ifolder.getUID(isub[j]);
                         Log.i("Boundary sync uid=" + uid);
-                        EntityMessage message = db.message().getMessageByUid(folder.id, uid);
+                        EntityMessage message = db.message().getMessageByUid(browsable.id, uid);
                         if (message == null) {
                             message = Core.synchronizeMessage(context,
-                                    account, folder,
+                                    account, browsable,
                                     ifolder, (IMAPMessage) isub[j],
                                     true,
                                     new ArrayList<EntityRule>());
-                            remote++;
+                            remote_count++;
                         }
                         db.message().setMessageFound(message.account, message.thread);
                     } catch (MessageRemovedException ex) {
-                        Log.w(folder.name + " boundary", ex);
+                        Log.w(browsable.name + " boundary", ex);
                     } catch (FolderClosedException ex) {
                         throw ex;
                     } catch (IOException ex) {
                         if (ex.getCause() instanceof MessagingException) {
-                            Log.w(folder.name + " boundary", ex);
-                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
+                            Log.w(browsable.name + " boundary", ex);
+                            db.folder().setFolderError(browsable.id, Helper.formatThrowable(ex, true));
                         } else
                             throw ex;
                     } catch (Throwable ex) {
-                        Log.e(folder.name + " boundary", ex);
-                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
+                        Log.e(browsable.name + " boundary", ex);
+                        db.folder().setFolderError(browsable.id, Helper.formatThrowable(ex, true));
                     } finally {
                         ((IMAPMessage) isub[j]).invalidateHeaders();
                     }
@@ -448,6 +459,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         }
 
         Log.i("Boundary done");
-        return local + remote;
+        return local_count + remote_count;
     }
 }
