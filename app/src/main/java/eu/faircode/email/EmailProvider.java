@@ -144,14 +144,14 @@ public class EmailProvider {
 
     static EmailProvider fromDomain(Context context, String domain) throws IOException {
         try {
-            Log.i("Provider from ISPDB domain=" + domain);
-            return addSpecials(context, fromISPDB(domain));
-        } catch (Throwable ex) {
+            Log.i("Provider from DNS domain=" + domain);
+            return addSpecials(context, fromDNS(domain));
+        } catch (UnknownHostException ex) {
             Log.w(ex);
             try {
-                Log.i("Provider from DNS domain=" + domain);
-                return addSpecials(context, fromDNS(domain));
-            } catch (UnknownHostException ex1) {
+                Log.i("Provider from ISPDB domain=" + domain);
+                return addSpecials(context, fromISPDB(domain));
+            } catch (Throwable ex1) {
                 Log.w(ex1);
                 try {
                     Log.i("Provider from template domain=" + domain);
