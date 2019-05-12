@@ -222,6 +222,10 @@ public class ServiceSynchronize extends LifecycleService {
                         onOneshot(false);
                         break;
 
+                    case "watchdog":
+                        onWatchdog();
+                        break;
+
                     default:
                         Log.w("Unknown action: " + action);
                 }
@@ -315,6 +319,11 @@ public class ServiceSynchronize extends LifecycleService {
                 onReload(true, "oneshot start");
         } else
             onReload(true, "oneshot end");
+    }
+
+    private void onWatchdog() {
+        EntityLog.log(this, "Service watchdog");
+        // Network events will manage the service
     }
 
     private void queue_reload(final boolean start, final boolean clear, final String reason) {
@@ -1386,5 +1395,15 @@ public class ServiceSynchronize extends LifecycleService {
             ContextCompat.startForegroundService(context,
                     new Intent(context, ServiceSynchronize.class)
                             .setAction("oneshot_start"));
+    }
+
+    static void watchdog(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean enabled = prefs.getBoolean("enabled", true);
+        int pollInterval = prefs.getInt("poll_interval", 0);
+        if (enabled && pollInterval == 0)
+            ContextCompat.startForegroundService(context,
+                    new Intent(context, ServiceSynchronize.class)
+                            .setAction("watchdog"));
     }
 }
