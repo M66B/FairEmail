@@ -97,10 +97,6 @@ public abstract class DB extends RoomDatabase {
         if (sInstance == null) {
             Context context = ctx.getApplicationContext();
             sInstance = migrate(context, getBuilder(context));
-
-            Log.i("SQLite version=" + exec(sInstance, "SELECT sqlite_version() AS sqlite_version"));
-            Log.i("SQLite sync=" + exec(sInstance, "PRAGMA synchronous"));
-            Log.i("SQLite journal=" + exec(sInstance, "PRAGMA journal_mode"));
         }
 
         return sInstance;
@@ -112,15 +108,6 @@ public abstract class DB extends RoomDatabase {
                 .openHelperFactory(new RequerySQLiteOpenHelperFactory())
                 .setQueryExecutor(executor)
                 .setJournalMode(JournalMode.WRITE_AHEAD_LOGGING);
-    }
-
-    private static String exec(DB db, String command) {
-        try (Cursor cursor = db.query(command, new Object[0])) {
-            if (cursor != null && cursor.moveToNext())
-                return cursor.getString(0);
-            else
-                return null;
-        }
     }
 
     private static DB migrate(final Context context, RoomDatabase.Builder<DB> builder) {
