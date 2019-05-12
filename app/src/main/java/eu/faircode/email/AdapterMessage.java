@@ -804,9 +804,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 try {
                     via = new InternetAddress(message.identityEmail, message.identityName);
                     if (message.to != null) {
-                        String v = Helper.canonicalAddress(via.getAddress());
+                        String v = MessageHelper.canonicalAddress(via.getAddress());
                         for (Address t : message.to) {
-                            if (v.equals(Helper.canonicalAddress(((InternetAddress) t).getAddress()))) {
+                            if (v.equals(MessageHelper.canonicalAddress(((InternetAddress) t).getAddress()))) {
                                 self = true;
                                 break;
                             }
@@ -1197,7 +1197,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     else {
                         String from = ((InternetAddress) message.from[0]).getAddress();
                         EntityIdentity identity = db.identity().getIdentity(message.identity);
-                        outgoing = Helper.canonicalAddress(identity.email).equals(Helper.canonicalAddress(from));
+                        outgoing = MessageHelper.canonicalAddress(identity.email)
+                                .equals(MessageHelper.canonicalAddress(from));
                     }
 
                     return (outgoing

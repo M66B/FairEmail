@@ -2035,10 +2035,10 @@ public class FragmentCompose extends FragmentBase {
                                 String via = null;
                                 Address[] recipient = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
                                 if (recipient != null && recipient.length > 0)
-                                    to = Helper.canonicalAddress(((InternetAddress) recipient[0]).getAddress());
+                                    to = MessageHelper.canonicalAddress(((InternetAddress) recipient[0]).getAddress());
                                 if (ref.identity != null) {
                                     EntityIdentity v = db.identity().getIdentity(ref.identity);
-                                    via = Helper.canonicalAddress(v.email);
+                                    via = MessageHelper.canonicalAddress(v.email);
                                 }
 
                                 if (to != null && to.equals(via)) {
@@ -2058,10 +2058,10 @@ public class FragmentCompose extends FragmentBase {
                                 if (ref.cc != null)
                                     addresses.addAll(Arrays.asList(ref.cc));
                                 for (Address address : new ArrayList<>(addresses)) {
-                                    String cc = Helper.canonicalAddress(((InternetAddress) address).getAddress());
+                                    String cc = MessageHelper.canonicalAddress(((InternetAddress) address).getAddress());
                                     List<TupleIdentityEx> identities = db.identity().getComposableIdentities(ref.account);
                                     for (EntityIdentity identity : identities) {
-                                        String email = Helper.canonicalAddress(identity.email);
+                                        String email = MessageHelper.canonicalAddress(identity.email);
                                         if (cc.equals(email))
                                             addresses.remove(address);
                                     }
@@ -2120,9 +2120,9 @@ public class FragmentCompose extends FragmentBase {
                     do {
                         String from = null;
                         if (iindex >= 0)
-                            from = Helper.canonicalAddress(((InternetAddress) draft.from[iindex]).getAddress());
+                            from = MessageHelper.canonicalAddress(((InternetAddress) draft.from[iindex]).getAddress());
                         for (EntityIdentity identity : identities) {
-                            String email = Helper.canonicalAddress(identity.email);
+                            String email = MessageHelper.canonicalAddress(identity.email);
                             if (email.equals(from)) {
                                 draft.identity = identity.id;
                                 draft.from = new InternetAddress[]{new InternetAddress(identity.email, identity.name)};

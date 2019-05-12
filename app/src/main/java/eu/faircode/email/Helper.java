@@ -787,16 +787,6 @@ public class Helper {
         return new InternetAddress("marcel+fairemail@faircode.eu", "FairCode");
     }
 
-    static String canonicalAddress(String address) {
-        String[] a = address.split("@");
-        if (a.length > 0) {
-            String[] extra = a[0].split("\\+");
-            if (extra.length > 0)
-                a[0] = extra[0];
-        }
-        return TextUtils.join("@", a).toLowerCase();
-    }
-
     static void writeText(File file, String content) throws IOException {
         try (BufferedWriter out = new BufferedWriter(new FileWriter(file))) {
             out.write(content == null ? "" : content);

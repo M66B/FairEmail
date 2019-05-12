@@ -1268,7 +1268,7 @@ class Core {
                     if (!TextUtils.isEmpty(email)) {
                         identity = db.identity().getIdentity(folder.account, email);
                         if (identity == null) {
-                            String canonical = Helper.canonicalAddress(email);
+                            String canonical = MessageHelper.canonicalAddress(email);
                             if (!canonical.equals(email))
                                 identity = db.identity().getIdentity(folder.account, canonical);
                         }
@@ -1496,7 +1496,7 @@ class Core {
             boolean me = true;
             for (Address reply : recipients) {
                 String email = ((InternetAddress) reply).getAddress();
-                String canonical = Helper.canonicalAddress(email);
+                String canonical = MessageHelper.canonicalAddress(email);
                 if (!TextUtils.isEmpty(email) &&
                         db.identity().getIdentity(folder.account, email) == null &&
                         (canonical.equals(email) ||
