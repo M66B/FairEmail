@@ -69,22 +69,24 @@ import javax.mail.search.SubjectTerm;
 public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMessageEx> {
     private Context context;
     private Long folder;
-    private String searching;
+    private boolean server;
+    private String query;
     private int pageSize;
     private IBoundaryCallbackMessages intf;
 
     private Handler handler;
     private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
+    private boolean destroyed = false;
     private boolean error = false;
-    private int local_index = 0;
-    private int remote_index = -1;
+    private int index = 0;
+    private boolean loading = false;
+
     private List<Long> messages = null;
+
     private IMAPStore istore = null;
     private IMAPFolder ifolder = null;
     private Message[] imessages = null;
-
-    private boolean loading = false;
 
     interface IBoundaryCallbackMessages {
         void onLoading();
@@ -96,12 +98,13 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
     BoundaryCallbackMessages(
             Context context, LifecycleOwner owner,
-            long folder, String searching, int pageSize,
+            long folder, boolean server, String query, int pageSize,
             IBoundaryCallbackMessages intf) {
 
         this.context = context.getApplicationContext();
         this.folder = (folder < 0 ? null : folder);
-        this.searching = searching;
+        this.server = server;
+        this.query = query;
         this.pageSize = pageSize;
         this.intf = intf;
 
@@ -110,6 +113,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         owner.getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroyed() {
+                destroyed = true;
+
                 executor.submit(new Runnable() {
                     @Override
                     public void run() {
@@ -128,13 +133,13 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
     @Override
     public void onZeroItemsLoaded() {
-        Log.i("onZeroItemsLoaded");
+        Log.i("Boundary zero loaded");
         queue_load();
     }
 
     @Override
     public void onItemAtEndLoaded(final TupleMessageEx itemAtEnd) {
-        Log.i("onItemAtEndLoaded");
+        Log.i("Boundary at end");
         queue_load();
     }
 
@@ -145,6 +150,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             @Override
             public void run() {
                 try {
+                    if (destroyed)
+                        return;
+
                     loading = true;
                     fetched = 0;
                     handler.post(new Runnable() {
@@ -153,7 +161,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             intf.onLoading();
                         }
                     });
-                    fetched = load();
+                    if (server)
+                        fetched = load_server();
+                    else
+                        fetched = load_device();
                 } catch (final Throwable ex) {
                     Log.e("Boundary", ex);
                     handler.post(new Runnable() {
@@ -179,32 +190,28 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         return loading;
     }
 
-    private int load() throws MessagingException, IOException, AuthenticatorException, OperationCanceledException {
-        if (error)
-            return 0;
-
+    private int load_device() {
         DB db = DB.getInstance(context);
 
-        // Search local
-        int local_count = 0;
+        int found = 0;
         try {
             db.beginTransaction();
 
             if (messages == null) {
                 messages = db.message().getMessageIdsByFolder(folder);
-                Log.i("Boundary search folder=" + folder + " messages=" + messages.size());
+                Log.i("Boundary device folder=" + folder + " query=" + query + " messages=" + messages.size());
             }
 
-            for (int i = local_index; i < messages.size() && local_count < pageSize; i++) {
-                local_index = i + 1;
+            for (int i = index; i < messages.size() && found < pageSize && !destroyed; i++) {
+                index = i + 1;
 
                 EntityMessage message = db.message().getMessage(messages.get(i));
 
                 boolean match = false;
-                if (searching == null)
+                if (query == null)
                     match = true;
                 else {
-                    String find = searching.toLowerCase();
+                    String find = query.toLowerCase();
                     String body = null;
                     if (message.content)
                         try {
@@ -229,36 +236,36 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 }
 
                 if (match) {
-                    local_count++;
+                    found++;
                     db.message().setMessageFound(message.account, message.thread);
                 }
             }
 
             db.setTransactionSuccessful();
 
-            if (local_count == pageSize)
-                return local_count;
+            if (found == pageSize)
+                return found;
         } finally {
             db.endTransaction();
         }
 
-        // Search remote
-        long bid;
-        if (folder == null) {
-            EntityFolder archive = db.folder().getPrimaryArchive();
-            if (archive == null)
-                return local_count;
-            else
-                bid = archive.id;
-        } else
-            bid = folder;
+        Log.i("Boundary device done");
+        return found;
+    }
 
-        final EntityFolder browsable = db.folder().getBrowsableFolder(bid, searching != null);
+    private int load_server() throws MessagingException, IOException, AuthenticatorException, OperationCanceledException {
+        DB db = DB.getInstance(context);
+
+        if (destroyed || error)
+            return 0;
+
+        final EntityFolder browsable = db.folder().getBrowsableFolder(folder, query != null);
         if (browsable == null)
-            return local_count;
+            return 0;
+
         EntityAccount account = db.account().getAccount(browsable.account);
         if (account == null)
-            return local_count;
+            return 0;
 
         if (imessages == null)
             try {
@@ -279,16 +286,16 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 Session isession = Session.getInstance(props, null);
                 isession.setDebug(debug);
 
-                Log.i("Boundary connecting account=" + account.name);
+                Log.i("Boundary server connecting account=" + account.name);
                 istore = (IMAPStore) isession.getStore(protocol);
                 Helper.connect(context, istore, account);
 
-                Log.i("Boundary opening folder=" + browsable.name);
+                Log.i("Boundary server opening folder=" + browsable.name);
                 ifolder = (IMAPFolder) istore.getFolder(browsable.name);
                 ifolder.open(Folder.READ_WRITE);
 
-                Log.i("Boundary searching=" + searching);
-                if (searching == null)
+                Log.i("Boundary server query=" + query);
+                if (query == null)
                     imessages = ifolder.getMessages();
                 else {
                     Object result = ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
@@ -305,11 +312,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             try {
                                 // https://tools.ietf.org/html/rfc3501#section-6.4.4
                                 Argument arg = new Argument();
-                                if (searching.startsWith("raw:") && istore.hasCapability("X-GM-EXT-1")) {
+                                if (query.startsWith("raw:") && istore.hasCapability("X-GM-EXT-1")) {
                                     // https://support.google.com/mail/answer/7190
                                     // https://developers.google.com/gmail/imap/imap-extensions#extension_of_the_search_command_x-gm-raw
                                     arg.writeAtom("X-GM-RAW");
-                                    arg.writeString(searching.substring(4));
+                                    arg.writeString(query.substring(4));
                                 } else {
                                     if (!protocol.supportsUtf8()) {
                                         arg.writeAtom("CHARSET");
@@ -321,20 +328,20 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                     arg.writeAtom("OR");
                                     arg.writeAtom("OR");
                                     arg.writeAtom("FROM");
-                                    arg.writeBytes(searching.getBytes());
+                                    arg.writeBytes(query.getBytes());
                                     arg.writeAtom("TO");
-                                    arg.writeBytes(searching.getBytes());
+                                    arg.writeBytes(query.getBytes());
                                     arg.writeAtom("SUBJECT");
-                                    arg.writeBytes(searching.getBytes());
+                                    arg.writeBytes(query.getBytes());
                                     arg.writeAtom("BODY");
-                                    arg.writeBytes(searching.getBytes());
+                                    arg.writeBytes(query.getBytes());
                                     if (keywords) {
                                         arg.writeAtom("KEYWORD");
-                                        arg.writeBytes(searching.getBytes());
+                                        arg.writeBytes(query.getBytes());
                                     }
                                 }
 
-                                Log.i("Boundary UTF8 search=" + searching);
+                                Log.i("Boundary UTF8 search=" + query);
                                 Response[] responses = protocol.command("SEARCH", arg);
                                 if (responses.length > 0 && responses[responses.length - 1].isOK()) {
                                     List<Integer> msgnums = new ArrayList<>();
@@ -353,7 +360,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                     return imessages;
                                 } else {
                                     // Assume no UTF-8 support
-                                    String search = searching.replace("ß", "ss"); // Eszett
+                                    String search = query.replace("ß", "ss"); // Eszett
                                     search = Normalizer.normalize(search, Normalizer.Form.NFD)
                                             .replaceAll("[^\\p{ASCII}]", "");
 
@@ -388,9 +395,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                     imessages = (Message[]) result;
                 }
-                Log.i("Boundary found messages=" + imessages.length);
+                Log.i("Boundary server found messages=" + imessages.length);
 
-                remote_index = imessages.length - 1;
+                index = imessages.length - 1;
             } catch (Throwable ex) {
                 error = true;
                 if (ex instanceof FolderClosedException)
@@ -401,12 +408,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 }
             }
 
-        int remote_count = 0;
-        while (remote_index >= 0 && remote_count < pageSize) {
-            Log.i("Boundary index=" + remote_index);
-            int from = Math.max(0, remote_index - (pageSize - remote_count) + 1);
-            Message[] isub = Arrays.copyOfRange(imessages, from, remote_index + 1);
-            remote_index -= (pageSize - remote_count);
+        int found = 0;
+        while (index >= 0 && found < pageSize && !destroyed) {
+            Log.i("Boundary server index=" + index);
+            int from = Math.max(0, index - (pageSize - found) + 1);
+            Message[] isub = Arrays.copyOfRange(imessages, from, index + 1);
+            index -= (pageSize - found);
 
             FetchProfile fp = new FetchProfile();
             fp.add(FetchProfile.Item.ENVELOPE);
@@ -421,10 +428,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             try {
                 db.beginTransaction();
 
-                for (int j = isub.length - 1; j >= 0; j--)
+                for (int j = isub.length - 1; j >= 0 && found < pageSize && !destroyed; j--)
                     try {
                         long uid = ifolder.getUID(isub[j]);
-                        Log.i("Boundary sync uid=" + uid);
+                        Log.i("Boundary server sync uid=" + uid);
                         EntityMessage message = db.message().getMessageByUid(browsable.id, uid);
                         if (message == null) {
                             message = Core.synchronizeMessage(context,
@@ -432,21 +439,21 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                     ifolder, (IMAPMessage) isub[j],
                                     true,
                                     new ArrayList<EntityRule>());
-                            remote_count++;
+                            found++;
                         }
                         db.message().setMessageFound(message.account, message.thread);
                     } catch (MessageRemovedException ex) {
-                        Log.w(browsable.name + " boundary", ex);
+                        Log.w(browsable.name + " boundary server", ex);
                     } catch (FolderClosedException ex) {
                         throw ex;
                     } catch (IOException ex) {
                         if (ex.getCause() instanceof MessagingException) {
-                            Log.w(browsable.name + " boundary", ex);
+                            Log.w(browsable.name + " boundary server", ex);
                             db.folder().setFolderError(browsable.id, Helper.formatThrowable(ex, true));
                         } else
                             throw ex;
                     } catch (Throwable ex) {
-                        Log.e(browsable.name + " boundary", ex);
+                        Log.e(browsable.name + " boundary server", ex);
                         db.folder().setFolderError(browsable.id, Helper.formatThrowable(ex, true));
                     } finally {
                         ((IMAPMessage) isub[j]).invalidateHeaders();
@@ -458,7 +465,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             }
         }
 
-        Log.i("Boundary done");
-        return local_count + remote_count;
+        Log.i("Boundary server done");
+        return found;
     }
 }

@@ -501,9 +501,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 setIntent(intent);
 
                 FragmentMessages.search(
-                        ActivityView.this, ActivityView.this,
-                        getSupportFragmentManager(),
-                        -1, search);
+                        ActivityView.this, ActivityView.this, getSupportFragmentManager(),
+                        -1, false, search);
             }
         }
     };

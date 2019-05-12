@@ -245,6 +245,17 @@
         app:backgroundTint="?attr/colorAccent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/fab_padding"
+        android:src="@drawable/baseline_cloud_download_24"
+        android:tint="@color/colorActionForeground"
+        android:tooltipText="@string/title_search"
+        app:backgroundTint="?attr/colorAccent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -100,6 +100,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -131,14 +132,16 @@ public class FragmentMessages extends FragmentBase {
     private Group grpReady;
     private FloatingActionButton fab;
     private FloatingActionButton fabMore;
+    private FloatingActionButton fabSearch;
     private FloatingActionButton fabError;
 
     private long account;
     private long folder;
+    private boolean server;
     private String thread;
     private long id;
     private boolean found;
-    private String search;
+    private String query;
     private boolean pane;
 
     private boolean date;
@@ -221,15 +224,16 @@ public class FragmentMessages extends FragmentBase {
         Bundle args = getArguments();
         account = args.getLong("account", -1);
         folder = args.getLong("folder", -1);
+        server = args.getBoolean("server", false);
         thread = args.getString("thread");
         id = args.getLong("id", -1);
         found = args.getBoolean("found", false);
-        search = args.getString("search");
+        query = args.getString("query");
         pane = args.getBoolean("pane", false);
         primary = args.getLong("primary", -1);
         connected = args.getBoolean("connected", false);
 
-        if (TextUtils.isEmpty(search))
+        if (TextUtils.isEmpty(query))
             if (thread == null)
                 if (folder < 0)
                     viewType = AdapterMessage.ViewType.UNIFIED;
@@ -286,6 +290,7 @@ public class FragmentMessages extends FragmentBase {
         grpHintSelect = view.findViewById(R.id.grpHintSelect);
         grpReady = view.findViewById(R.id.grpReady);
         fab = view.findViewById(R.id.fab);
+        fabSearch = view.findViewById(R.id.fabSearch);
         fabMore = view.findViewById(R.id.fabMore);
         fabError = view.findViewById(R.id.fabError);
 
@@ -569,6 +574,72 @@ public class FragmentMessages extends FragmentBase {
             }
         });
 
+        fabSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (folder < 0) {
+                    Bundle args = new Bundle();
+
+                    new SimpleTask<Map<EntityAccount, List<EntityFolder>>>() {
+                        @Override
+                        protected Map<EntityAccount, List<EntityFolder>> onExecute(Context context, Bundle args) {
+                            Map<EntityAccount, List<EntityFolder>> result = new LinkedHashMap<>();
+
+                            DB db = DB.getInstance(context);
+                            List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
+
+                            for (EntityAccount account : accounts) {
+                                List<EntityFolder> folders = db.folder().getFolders(account.id);
+                                if (folders.size() > 0)
+                                    Collections.sort(folders, folders.get(0).getComparator(context));
+                                result.put(account, folders);
+                            }
+
+                            return result;
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, Map<EntityAccount, List<EntityFolder>> result) {
+                            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fabSearch);
+
+                            int order = 1;
+                            for (EntityAccount account : result.keySet()) {
+                                SubMenu smenu = popupMenu.getMenu()
+                                        .addSubMenu(Menu.NONE, 0, order++, account.name);
+                                int sorder = 1;
+                                for (EntityFolder folder : result.get(account)) {
+                                    MenuItem item = smenu.add(Menu.NONE, 1, sorder++, folder.getDisplayName(getContext()));
+                                    item.setIntent(new Intent().putExtra("target", folder.id));
+                                }
+                            }
+
+                            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                                @Override
+                                public boolean onMenuItemClick(MenuItem target) {
+                                    Intent intent = target.getIntent();
+                                    if (intent == null)
+                                        return false;
+
+                                    long folder = intent.getLongExtra("target", -1);
+                                    search(getContext(), getViewLifecycleOwner(), getFragmentManager(), folder, true, query);
+
+                                    return true;
+                                }
+                            });
+
+                            popupMenu.show();
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                        }
+                    }.execute(FragmentMessages.this, args, "messages:search");
+                } else
+                    search(getContext(), getViewLifecycleOwner(), getFragmentManager(), folder, true, query);
+            }
+        });
+
         fabMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -597,6 +668,10 @@ public class FragmentMessages extends FragmentBase {
         pbWait.setVisibility(View.VISIBLE);
 
         fab.hide();
+        if (viewType == AdapterMessage.ViewType.SEARCH && !server)
+            fabSearch.show();
+        else
+            fabSearch.hide();
         fabMore.hide();
         fabError.hide();
 
@@ -1949,7 +2024,7 @@ public class FragmentMessages extends FragmentBase {
                 break;
 
             case SEARCH:
-                setSubtitle(getString(R.string.title_searching, search));
+                setSubtitle(getString(R.string.title_searching, query));
                 break;
         }
 
@@ -1960,7 +2035,7 @@ public class FragmentMessages extends FragmentBase {
         else
             fabMore.hide();
 
-        if (viewType != AdapterMessage.ViewType.THREAD) {
+        if (viewType != AdapterMessage.ViewType.THREAD && viewType != AdapterMessage.ViewType.SEARCH) {
             db.identity().liveComposableIdentities(account < 0 ? null : account).observe(getViewLifecycleOwner(),
                     new Observer<List<TupleIdentityEx>>() {
                         @Override
@@ -2104,6 +2179,7 @@ public class FragmentMessages extends FragmentBase {
 
         final MenuItem menuSearch = menu.findItem(R.id.menu_search);
         SearchView searchView = (SearchView) menuSearch.getActionView();
+        searchView.setQueryHint(getString(R.string.title_search));
 
         if (!TextUtils.isEmpty(searching)) {
             menuSearch.expandActionView();
@@ -2121,7 +2197,9 @@ public class FragmentMessages extends FragmentBase {
             public boolean onQueryTextSubmit(String query) {
                 searching = null;
                 menuSearch.collapseActionView();
-                search(getContext(), getViewLifecycleOwner(), getFragmentManager(), folder, query);
+                search(
+                        getContext(), getViewLifecycleOwner(), getFragmentManager(),
+                        folder, false, query);
                 return true;
             }
         });
@@ -2478,7 +2556,7 @@ public class FragmentMessages extends FragmentBase {
             if (boundaryCallback == null)
                 boundaryCallback = new BoundaryCallbackMessages(
                         getContext(), getViewLifecycleOwner(),
-                        folder, search, REMOTE_PAGE_SIZE,
+                        folder, server, query, REMOTE_PAGE_SIZE,
                         new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
                             @Override
                             public void onLoading() {
@@ -3122,11 +3200,12 @@ public class FragmentMessages extends FragmentBase {
 
     static void search(
             final Context context, final LifecycleOwner owner, final FragmentManager manager,
-            long folder, String query) {
+            long folder, boolean server, String query) {
         if (Helper.isPro(context)) {
             Bundle args = new Bundle();
             args.putLong("folder", folder);
-            args.putString("search", query);
+            args.putBoolean("server", server);
+            args.putString("query", query);
 
             new SimpleTask<Void>() {
                 @Override
@@ -3137,6 +3216,9 @@ public class FragmentMessages extends FragmentBase {
 
                 @Override
                 protected void onExecuted(Bundle args, Void data) {
+                    if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                        manager.popBackStack("search", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
                     FragmentMessages fragment = new FragmentMessages();
                     fragment.setArguments(args);
 

@@ -423,12 +423,14 @@ about [these vulnerabilities](https://amp.thehackernews.com/thn/2019/04/email-si
 You can start searching for messages on sender, recipient, subject, keyword or message text by using the magnify glass in the action bar of a folder.
 You can also search from any app by select *Search email* in the copy/paste popup menu.
 
-First on device messages will be searched and after that the search will be executed on the server.
-Searching on the server will be in the current folder
-or the archive folder of the primary account if there is no current folder, for example when searching from the unified inbox.
+Messages will be searched on the device first (all accounts, all folders).
+There will be an action button with a cloud download icon at the bottom to search on the server.
+When the search was started in a specific folder,
+the same folder will be searched in on the server,
+else you can select which folder to search in on the server.
 
-Searching on the server will be triggered/continued when reaching the end of the list.
-Note that it is possible that searching on the server will find messages newer than already found locally.
+The IMAP protocol doesn't support searching in more than one folder at the same time.
+Searching on the server is an expensive operation, therefore it is not possible to select multiple folders.
 
 Searching local messages is case insensitive and on partial text.
 The message text of local messages will not be searched if the message text was not downloaded yet.
