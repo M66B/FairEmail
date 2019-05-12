@@ -63,7 +63,6 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.preference.PreferenceManager;
 
-import com.android.billingclient.api.BillingClient;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.sun.mail.util.MailConnectException;
 
@@ -785,57 +784,6 @@ public class Helper {
         for (byte b : bytes)
             sb.append(String.format("%02x", b));
         return sb.toString();
-    }
-
-    static String getBillingResponseText(@BillingClient.BillingResponse int responseCode) {
-        switch (responseCode) {
-            case BillingClient.BillingResponse.BILLING_UNAVAILABLE:
-                // Billing API version is not supported for the type requested
-                return "BILLING_UNAVAILABLE";
-
-            case BillingClient.BillingResponse.DEVELOPER_ERROR:
-                // Invalid arguments provided to the API.
-                return "DEVELOPER_ERROR";
-
-            case BillingClient.BillingResponse.ERROR:
-                // Fatal error during the API action
-                return "ERROR";
-
-            case BillingClient.BillingResponse.FEATURE_NOT_SUPPORTED:
-                // Requested feature is not supported by Play Store on the current device.
-                return "FEATURE_NOT_SUPPORTED";
-
-            case BillingClient.BillingResponse.ITEM_ALREADY_OWNED:
-                // Failure to purchase since item is already owned
-                return "ITEM_ALREADY_OWNED";
-
-            case BillingClient.BillingResponse.ITEM_NOT_OWNED:
-                // Failure to consume since item is not owned
-                return "ITEM_NOT_OWNED";
-
-            case BillingClient.BillingResponse.ITEM_UNAVAILABLE:
-                // Requested product is not available for purchase
-                return "ITEM_UNAVAILABLE";
-
-            case BillingClient.BillingResponse.OK:
-                // Success
-                return "OK";
-
-            case BillingClient.BillingResponse.SERVICE_DISCONNECTED:
-                // Play Store service is not connected now - potentially transient state.
-                return "SERVICE_DISCONNECTED";
-
-            case BillingClient.BillingResponse.SERVICE_UNAVAILABLE:
-                // Network connection is down
-                return "SERVICE_UNAVAILABLE";
-
-            case BillingClient.BillingResponse.USER_CANCELED:
-                // User pressed back or canceled a dialog
-                return "USER_CANCELED";
-
-            default:
-                return Integer.toString(responseCode);
-        }
     }
 
     static boolean hasWebView(Context context) {

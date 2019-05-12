@@ -155,7 +155,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             }
 
             int responseCode = billingClient.launchBillingFlow(this, flowParams.build());
-            String text = Helper.getBillingResponseText(responseCode);
+            String text = getBillingResponseText(responseCode);
             Log.i("IAB launch billing flow response=" + text);
             if (responseCode != BillingClient.BillingResponse.OK)
                 Snackbar.make(getVisibleView(), text, Snackbar.LENGTH_LONG).show();
@@ -203,7 +203,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
 
         @Override
         public void onBillingSetupFinished(@BillingClient.BillingResponse int responseCode) {
-            String text = Helper.getBillingResponseText(responseCode);
+            String text = getBillingResponseText(responseCode);
             Log.i("IAB connected response=" + text);
 
             if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
@@ -233,7 +233,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
 
     @Override
     public void onPurchasesUpdated(int responseCode, @Nullable List<Purchase> purchases) {
-        String text = Helper.getBillingResponseText(responseCode);
+        String text = getBillingResponseText(responseCode);
         Log.i("IAB purchases updated response=" + text);
 
         if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
@@ -247,7 +247,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
 
     private void queryPurchases() {
         Purchase.PurchasesResult result = billingClient.queryPurchases(BillingClient.SkuType.INAPP);
-        String text = Helper.getBillingResponseText(result.getResponseCode());
+        String text = getBillingResponseText(result.getResponseCode());
         Log.i("IAB query purchases response=" + text);
 
         if (result.getResponseCode() == BillingClient.BillingResponse.OK)
@@ -265,7 +265,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                 new SkuDetailsResponseListener() {
                     @Override
                     public void onSkuDetailsResponse(int responseCode, List<SkuDetails> skuDetailsList) {
-                        String text = Helper.getBillingResponseText(responseCode);
+                        String text = getBillingResponseText(responseCode);
                         Log.i("IAB query SKUs response=" + text);
                         if (responseCode == BillingClient.BillingResponse.OK) {
                             for (SkuDetails skuDetail : skuDetailsList) {
@@ -331,6 +331,57 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                 }
 
             editor.apply();
+        }
+    }
+
+    static String getBillingResponseText(@BillingClient.BillingResponse int responseCode) {
+        switch (responseCode) {
+            case BillingClient.BillingResponse.BILLING_UNAVAILABLE:
+                // Billing API version is not supported for the type requested
+                return "BILLING_UNAVAILABLE";
+
+            case BillingClient.BillingResponse.DEVELOPER_ERROR:
+                // Invalid arguments provided to the API.
+                return "DEVELOPER_ERROR";
+
+            case BillingClient.BillingResponse.ERROR:
+                // Fatal error during the API action
+                return "ERROR";
+
+            case BillingClient.BillingResponse.FEATURE_NOT_SUPPORTED:
+                // Requested feature is not supported by Play Store on the current device.
+                return "FEATURE_NOT_SUPPORTED";
+
+            case BillingClient.BillingResponse.ITEM_ALREADY_OWNED:
+                // Failure to purchase since item is already owned
+                return "ITEM_ALREADY_OWNED";
+
+            case BillingClient.BillingResponse.ITEM_NOT_OWNED:
+                // Failure to consume since item is not owned
+                return "ITEM_NOT_OWNED";
+
+            case BillingClient.BillingResponse.ITEM_UNAVAILABLE:
+                // Requested product is not available for purchase
+                return "ITEM_UNAVAILABLE";
+
+            case BillingClient.BillingResponse.OK:
+                // Success
+                return "OK";
+
+            case BillingClient.BillingResponse.SERVICE_DISCONNECTED:
+                // Play Store service is not connected now - potentially transient state.
+                return "SERVICE_DISCONNECTED";
+
+            case BillingClient.BillingResponse.SERVICE_UNAVAILABLE:
+                // Network connection is down
+                return "SERVICE_UNAVAILABLE";
+
+            case BillingClient.BillingResponse.USER_CANCELED:
+                // User pressed back or canceled a dialog
+                return "USER_CANCELED";
+
+            default:
+                return Integer.toString(responseCode);
         }
     }
 }
