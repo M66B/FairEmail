@@ -71,6 +71,8 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.preference.PreferenceManager;
 
 import com.android.billingclient.api.BillingClient;
+import com.bugsnag.android.BreadcrumbType;
+import com.bugsnag.android.Bugsnag;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.util.MailConnectException;
@@ -1027,9 +1029,14 @@ public class Helper {
                 id.put("name", context.getString(R.string.app_name));
                 id.put("version", BuildConfig.VERSION_NAME);
                 Map<String, String> sid = istore.id(id);
-                if (sid != null)
-                    for (String key : sid.keySet())
+                if (sid != null) {
+                    Map<String, String> crumb = new HashMap<>();
+                    for (String key : sid.keySet()) {
+                        crumb.put(key, sid.get(key));
                         Log.i("Server " + key + "=" + sid.get(key));
+                    }
+                    Bugsnag.leaveBreadcrumb("server", BreadcrumbType.LOG, crumb);
+                }
             } catch (MessagingException ex) {
                 Log.w(ex);
             }
