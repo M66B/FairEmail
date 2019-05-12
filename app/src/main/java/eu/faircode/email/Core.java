@@ -264,7 +264,7 @@ class Core {
                         Log.e(folder.name, ex);
                         reportError(context, account, folder, ex);
 
-                        db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
+                        db.operation().setOperationError(op.id, Helper.formatThrowable(ex, true));
                         if (message != null && !(ex instanceof IllegalArgumentException))
                             db.message().setMessageError(message.id, Helper.formatThrowable(ex, true));
 

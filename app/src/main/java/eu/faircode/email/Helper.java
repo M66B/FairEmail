@@ -376,11 +376,10 @@ public class Helper {
                 return null;
             if (ex instanceof FolderClosedException)
                 return null;
-            if (ex instanceof IllegalStateException)
-                // sync when store disconnected
+            if (ex instanceof IllegalStateException &&
+                    ("Not connected".equals(ex.getMessage()) ||
+                            "This operation is not allowed on a closed folder".equals(ex.getMessage())))
                 return null;
-            //if (ex instanceof SSLException || ex.getCause() instanceof SSLException)
-            //    return null;
             if (ex instanceof MailConnectException && ex.getCause() instanceof UnknownHostException)
                 return null;
         }
