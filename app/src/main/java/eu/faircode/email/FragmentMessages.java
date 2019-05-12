@@ -3053,7 +3053,7 @@ public class FragmentMessages extends FragmentBase {
                             db.endTransaction();
                         }
                     }
-                });
+                }, "messages:timeout");
                 thread.setPriority(THREAD_PRIORITY_BACKGROUND);
                 thread.start();
             }

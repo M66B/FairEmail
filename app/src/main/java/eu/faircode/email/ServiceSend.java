@@ -247,7 +247,7 @@ public class ServiceSend extends LifecycleService {
                         wl.release();
                     }
                 }
-            });
+            }, "send:connectivity");
             thread.setPriority(THREAD_PRIORITY_BACKGROUND);
             thread.start();
         }
@@ -450,7 +450,7 @@ public class ServiceSend extends LifecycleService {
                         Log.e(ex);
                     }
                 }
-            });
+            }, "send:boot");
             thread.setPriority(THREAD_PRIORITY_BACKGROUND);
             thread.start();
         }

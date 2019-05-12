@@ -1202,7 +1202,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         Log.e(ex);
                                     }
                                 }
-                            });
+                            }, "synchronize:connectivity");
                             check.setPriority(THREAD_PRIORITY_BACKGROUND);
                             check.start();
                         } else
@@ -1288,7 +1288,7 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.e(ex);
                     }
                 }
-            });
+            }, "synchronize:boot");
             thread.setPriority(THREAD_PRIORITY_BACKGROUND);
             thread.start();
         }

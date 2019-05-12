@@ -38,7 +38,7 @@ public class Widget extends AppWidgetProvider {
                 DB db = DB.getInstance(context);
                 update(appWidgetIds, appWidgetManager, context, db.message().getUnseenUnified());
             }
-        });
+        }, "widget:update");
         thread.setPriority(THREAD_PRIORITY_BACKGROUND);
         thread.start();
     }
