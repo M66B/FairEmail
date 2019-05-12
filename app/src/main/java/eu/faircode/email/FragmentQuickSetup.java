@@ -61,6 +61,7 @@ import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
 
 import java.io.IOException;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -439,7 +440,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     tvInstructions.setVisibility(View.VISIBLE);
                 }
 
-                if (ex instanceof IllegalArgumentException)
+                if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else {
                     tvError.setText(Helper.formatThrowable(ex));
