@@ -83,8 +83,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.net.InetAddress;
-import java.net.URL;
 import java.net.UnknownHostException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -93,7 +91,6 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -105,14 +102,11 @@ import javax.mail.Address;
 import javax.mail.FolderClosedException;
 import javax.mail.MessageRemovedException;
 import javax.mail.internet.InternetAddress;
-import javax.net.ssl.HttpsURLConnection;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION;
 
 public class Helper {
-    private static Map<String, String> hostOrganization = new HashMap<>();
-
     static final int NOTIFICATION_SYNCHRONIZE = 1;
     static final int NOTIFICATION_SEND = 2;
     static final int NOTIFICATION_EXTERNAL = 3;
@@ -894,29 +888,6 @@ public class Helper {
 
     static String sanitizeFilename(String name) {
         return (name == null ? null : name.replaceAll("[^a-zA-Z0-9\\.\\-]", "_"));
-    }
-
-    static String getOrganization(String host) throws IOException {
-        synchronized (hostOrganization) {
-            if (hostOrganization.containsKey(host))
-                return hostOrganization.get(host);
-        }
-        InetAddress address = InetAddress.getByName(host);
-        URL url = new URL("https://ipinfo.io/" + address.getHostAddress() + "/org");
-        Log.i("GET " + url);
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("GET");
-        connection.setReadTimeout(15 * 1000);
-        connection.connect();
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
-            String organization = reader.readLine();
-            if ("undefined".equals(organization))
-                organization = null;
-            synchronized (hostOrganization) {
-                hostOrganization.put(host, organization);
-            }
-            return organization;
-        }
     }
 
     static int getSize(Bundle bundle) {

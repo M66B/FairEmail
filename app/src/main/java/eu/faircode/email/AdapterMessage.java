@@ -1968,7 +1968,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         protected String onExecute(Context context, Bundle args) throws Throwable {
                             Uri uri = args.getParcelable("uri");
                             String host = uri.getHost();
-                            return (TextUtils.isEmpty(host) ? null : Helper.getOrganization(host));
+                            return (TextUtils.isEmpty(host) ? null : IPInfo.getOrganization(host));
                         }
 
                         @Override
