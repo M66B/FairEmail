@@ -73,6 +73,12 @@ public class EmailProvider {
         this.name = name;
     }
 
+    private void checkValid() throws UnknownHostException {
+        if (this.imap_host == null || this.imap_port == 0 ||
+                this.smtp_host == null || this.smtp_port == 0)
+            throw new UnknownHostException(this.name + " invalid");
+    }
+
     private EmailProvider(String name, String domain, String imap_prefix, String smtp_prefix) {
         this.name = name;
 
@@ -339,6 +345,8 @@ public class EmailProvider {
         Log.i("imap=" + provider.imap_host + ":" + provider.imap_port + ":" + provider.imap_starttls);
         Log.i("smtp=" + provider.smtp_host + ":" + provider.smtp_port + ":" + provider.smtp_starttls);
 
+        provider.checkValid();
+
         return provider;
     }
 
@@ -367,7 +375,7 @@ public class EmailProvider {
             return new EmailProvider(domain, domain, "mail", "mail");
 
         else
-            throw new UnknownHostException();
+            throw new UnknownHostException(domain + " template");
     }
 
     private static boolean checkTemplate(
