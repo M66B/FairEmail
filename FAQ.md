@@ -308,6 +308,10 @@ see [here](https://support.google.com/accounts/answer/6010255) for Google's inst
 or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
 You can solve the error *535-5.7.8 Username and Password not accepted* by enabling "less secure" apps.
 
+If you use your account username/password, you might get the alert "*Please log in via your web browser*".
+This security measure can for example be triggered when too many IP addresses were used in a too short time or when you are using a VPN.
+You can prevent this by using an app specific password.
+
 To login to Gmail / G suite you'll sometimes need an app specific password, for example when two factor authentication is enabled.
 See here for instructions: [https://support.google.com/accounts/answer/185833](https://support.google.com/accounts/answer/185833).
 
