@@ -89,7 +89,7 @@
             android:excludeFromRecents="true"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
+            android:label="@string/app_search"
             android:launchMode="singleTop"
             android:theme="@style/Theme.AppCompat.Translucent">
 
