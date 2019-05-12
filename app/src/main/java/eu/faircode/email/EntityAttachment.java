@@ -81,6 +81,10 @@ public class EntityAttachment {
     }
 
     File getFile(Context context) {
+        return getFile(context, id, name);
+    }
+
+    static File getFile(Context context, long id, String name) {
         File dir = new File(context.getFilesDir(), "attachments");
         if (!dir.exists())
             dir.mkdir();
@@ -129,5 +133,11 @@ public class EntityAttachment {
                     this.available.equals(other.available));
         } else
             return false;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return (this.name + " type=" + this.type + " disposition=" + this.disposition + " cid=" + this.cid + " size=" + this.size);
     }
 }

@@ -1350,20 +1350,21 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                 Helper.writeText(m.getFile(context), parts.getHtml(context));
 
                                 // Remove previously decrypted attachments
-                                for (EntityAttachment a : attachments)
-                                    if (a.encryption == null)
-                                        db.attachment().deleteAttachment(a.id);
+                                for (EntityAttachment local : attachments)
+                                    if (local.encryption == null)
+                                        db.attachment().deleteAttachment(local.id);
+
+                                int sequence = db.attachment().getAttachmentSequence(id);
 
                                 // Add decrypted attachments
-                                attachments = parts.getAttachments();
-                                int sequence = db.attachment().getAttachmentSequence(id);
-                                for (int index = 0; index < attachments.size(); index++) {
-                                    EntityAttachment a = attachments.get(index);
-                                    a.message = id;
-                                    a.sequence = ++sequence;
-                                    a.id = db.attachment().insertAttachment(a);
+                                List<EntityAttachment> remotes = parts.getAttachments();
+                                for (int index = 0; index < remotes.size(); index++) {
+                                    EntityAttachment remote = remotes.get(index);
+                                    remote.message = id;
+                                    remote.sequence = ++sequence;
+                                    remote.id = db.attachment().insertAttachment(remote);
                                     try {
-                                        parts.downloadAttachment(context, a);
+                                        parts.downloadAttachment(context, index, remote.id, remote.name);
                                     } catch (Throwable ex) {
                                         Log.e(ex);
                                     }

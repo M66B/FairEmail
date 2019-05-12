@@ -848,17 +848,17 @@ public class MessageHelper {
             return result;
         }
 
-        void downloadAttachment(Context context, EntityAttachment attachment) throws MessagingException, IOException {
-            Log.i("downloading attachment id=" + attachment.id);
+        void downloadAttachment(Context context, int index, long id, String name) throws MessagingException, IOException {
+            Log.i("downloading attachment id=" + id);
 
             DB db = DB.getInstance(context);
 
             // Get data
-            AttachmentPart apart = attachments.get(attachment.sequence - 1);
+            AttachmentPart apart = attachments.get(index);
 
             // Download attachment
-            File file = attachment.getFile(context);
-            db.attachment().setProgress(attachment.id, null);
+            File file = EntityAttachment.getFile(context, id, name);
+            db.attachment().setProgress(id, null);
             try (InputStream is = apart.part.getInputStream()) {
                 long size = 0;
                 long total = apart.part.getSize();
@@ -871,19 +871,19 @@ public class MessageHelper {
 
                         // Update progress
                         if (total > 0)
-                            db.attachment().setProgress(attachment.id, (int) (size * 100 / total));
+                            db.attachment().setProgress(id, (int) (size * 100 / total));
                     }
                 }
 
                 // Store attachment data
-                db.attachment().setDownloaded(attachment.id, size);
+                db.attachment().setDownloaded(id, size);
 
                 Log.i("Downloaded attachment size=" + size);
             } catch (FolderClosedIOException ex) {
                 throw new FolderClosedException(ex.getFolder(), "downloadAttachment", ex);
             } catch (Throwable ex) {
                 // Reset progress on failure
-                db.attachment().setError(attachment.id, Helper.formatThrowable(ex));
+                db.attachment().setError(id, Helper.formatThrowable(ex));
                 throw ex;
             }
         }
