@@ -75,7 +75,6 @@
     <string name="title_setup_go">转到</string>
     <string name="title_setup_setting_gmail">启用对 \"安全性较低\" 的应用的访问</string>
     <string name="title_setup_setting_yahoo">允许 \"安全性较低\" 的应用的访问</string>
-    <string name="title_setup_no_settings">找不到 \"%1$s\" 的设置</string>
     <string name="title_setup_quick_success">已成功添加了一个账户和身份</string>
     <string name="title_setup_quick_failed">您也可以尝试在下方配置一个账户和身份</string>
     <string name="title_setup_manage">管理</string>
@@ -176,7 +175,6 @@
     <string name="title_advanced_sound">选择通知提示音</string>
     <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
     <string name="title_advanced_subscriptions">管理文件夹订阅</string>
-    <string name="title_advanced_search_local">外部搜索</string>
     <string name="title_advanced_english">强制使用英语</string>
     <string name="title_advanced_authentication">当接收服务器无法验证消息时显示警告</string>
     <string name="title_advanced_paranoid">额外隐私功能</string>
@@ -200,7 +198,6 @@
     <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
     <string name="title_advanced_badge_hint">仅可用于支持的启动器</string>
-    <string name="title_advanced_search_local_hint">不在服务器上的主存档文件夹中搜索</string>
     <string name="title_advanced_english_hint">这将重新启动应用程序</string>
     <string name="title_advanced_paranoid_hint">详细信息请查看常见问题</string>
     <string name="title_advanced_debug_hint">启用额外日志并在不同地方显示调试信息</string>
@@ -375,6 +372,7 @@
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
     <string name="title_ask_edit_ref">编辑格式已更改的回复/转发消息文本？</string>
     <string name="title_ask_delete_local">删除同样存储在远程服务器上的本地消息？</string>
+    <string name="title_ask_help">帮助改进FairEmail</string>
     <string name="title_ask_reporting">发送错误报告?</string>
     <string name="title_reporting_why">错误报告将有助于改进FairEmail</string>
     <string name="title_compose">撰写</string>
@@ -423,8 +421,6 @@
     <string name="title_no_openpgp">OpenKeychain 未找到</string>
     <string name="title_not_encrypted">邮件未加密</string>
     <string name="title_search">搜索</string>
-    <string name="title_search_hint">在服务器上搜索</string>
-    <string name="title_search_device">搜索设备</string>
     <string name="title_searching">搜索 “%1$s”</string>
     <string name="title_sort_on">分类方式</string>
     <string name="title_sort_on_time">时间</string>
@@ -517,6 +513,7 @@
     <string name="title_legend_connecting">正在连接</string>
     <string name="title_legend_connected">已连接</string>
     <string name="title_legend_synchronizing">正在同步</string>
+    <string name="title_legend_executing">执行操作</string>
     <string name="title_legend_downloading">下载中</string>
     <string name="title_legend_closing">正在结束</string>
     <string name="title_legend_waiting">等待下次同步</string>

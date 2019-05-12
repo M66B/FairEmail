@@ -99,7 +99,6 @@
     <string name="title_setup_go">Далее</string>
     <string name="title_setup_setting_gmail">Разрешите доступ для «менее надежных» приложений</string>
     <string name="title_setup_setting_yahoo">Разрешите доступ для \"менее безопасных\" приложений</string>
-    <string name="title_setup_no_settings">Не найдены параметры для \'%1$s\'</string>
     <string name="title_setup_quick_success">Учётная запись и идентификатор добавлены успешно</string>
     <string name="title_setup_quick_failed">Вы также можете настроить учетную запись и идентификатор ниже</string>
     <string name="title_setup_manage">Редактировать</string>
@@ -196,7 +195,6 @@
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
     <string name="title_advanced_badge">Показать значок запуска с числом новых сообщений</string>
     <string name="title_advanced_subscriptions">Управление подпиской на папки</string>
-    <string name="title_advanced_search_local">Внешний поиск на устройстве</string>
     <string name="title_advanced_english">Принудительно использовать английский язык</string>
     <string name="title_advanced_authentication">Показывать предупреждение, когда сервер не может аутентифицировать сообщение</string>
     <string name="title_advanced_paranoid">Дополнительные возможности конфиденциальности</string>
@@ -218,7 +216,6 @@
     <string name="title_advanced_autoclose_hint">Автоматически закрывать диалог, если все сообщения удалены, отправлены или помещены в архив</string>
     <string name="title_advanced_sender_hint">Большинство провайдеров не разрешают изменять адреса отправителей</string>
     <string name="title_advanced_badge_hint">Доступно только на поддерживаемых лаунчерах</string>
-    <string name="title_advanced_search_local_hint">Вместо поиска в основной папке архива на сервере</string>
     <string name="title_advanced_english_hint">Это перезапустит приложение</string>
     <string name="title_advanced_paranoid_hint">Подробнее смотрите FAQ</string>
     <string name="title_advanced_debug_hint">Включить дополнительное журналирование и показывать отладочную информацию в различных местах</string>
@@ -434,8 +431,6 @@
     <string name="title_no_openpgp">OpenKeychain не доступно</string>
     <string name="title_not_encrypted">Сообщение не зашифровано</string>
     <string name="title_search">Поиск</string>
-    <string name="title_search_hint">Поиск на сервере</string>
-    <string name="title_search_device">Поиск на устройстве</string>
     <string name="title_searching">Поиск \'%1$s\'</string>
     <string name="title_sort_on">Сортировать по</string>
     <string name="title_sort_on_time">Время</string>

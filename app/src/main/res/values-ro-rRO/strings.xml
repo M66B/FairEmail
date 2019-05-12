@@ -91,7 +91,6 @@
     <string name="title_setup_go">Start</string>
     <string name="title_setup_setting_gmail">Permite accesul pentru applicații \"mai puţin sigure\"</string>
     <string name="title_setup_setting_yahoo">Permite accesul pentru aplicații \"mai puțin sigure\"</string>
-    <string name="title_setup_no_settings">Nu s-au gasit setări pentru \'%1$s\'</string>
     <string name="title_setup_quick_success">Un cont şi o identitate au fost adăugate cu succes</string>
     <string name="title_setup_quick_failed">Puteţi încerca de asemenea să configurați un cont şi o identitate mai jos</string>
     <string name="title_setup_manage">Gestionează</string>
@@ -191,7 +190,6 @@
     <string name="title_advanced_sound">Selectare sunet de notificare</string>
     <string name="title_advanced_badge">Afișează iconița lansatorului cu numărul de mesaje noi</string>
     <string name="title_advanced_subscriptions">Gestionați abonările la dosare</string>
-    <string name="title_advanced_search_local">Căutare externă pe dispozitiv</string>
     <string name="title_advanced_english">Forțează folosirea limbii Engleze</string>
     <string name="title_advanced_authentication">Arată o avertizare atunci când serverul destinatar nu a putut autentifica mesajul</string>
     <string name="title_advanced_paranoid">Caracteristici de confidențialitate suplimentare</string>
@@ -214,7 +212,6 @@
     <string name="title_advanced_autoclose_hint">Atunci când toate mesajele sunt arhivate, trimise sau mutate la gunoi</string>
     <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
     <string name="title_advanced_badge_hint">Disponibil doar pe lansatoarele suportate</string>
-    <string name="title_advanced_search_local_hint">În loc să se caute în dosarul arhivă primar de pe server</string>
     <string name="title_advanced_english_hint">Aplicația se va restarta</string>
     <string name="title_advanced_paranoid_hint">Vedeți secțiunea de întrebări și răspunsuri pentru detalii</string>
     <string name="title_advanced_debug_hint">Activați înregistrări suplimentare în jurnalul aplicației și afișați informații de depanare în diferite locuri</string>
@@ -435,8 +432,6 @@
     <string name="title_no_openpgp">OpenKeychain nu a fost găsit</string>
     <string name="title_not_encrypted">Mesajul nu este criptat</string>
     <string name="title_search">Caută</string>
-    <string name="title_search_hint">Căutare pe server</string>
-    <string name="title_search_device">Căutare pe dispozitiv</string>
     <string name="title_searching">Se caută \'%1$s\'</string>
     <string name="title_sort_on">Sortare</string>
     <string name="title_sort_on_time">Dată</string>

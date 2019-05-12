@@ -83,7 +83,6 @@
     <string name="title_setup_go">Kör</string>
     <string name="title_setup_setting_gmail">Aktivera åtkomst för ”mindre säkra” appar</string>
     <string name="title_setup_setting_yahoo">Aktivera åtkomst för \"mindre säkra\" appar</string>
-    <string name="title_setup_no_settings">Inga inställningar hittades för \"%1$s\"</string>
     <string name="title_setup_quick_success">Ett konto och en identitet har lagts till</string>
     <string name="title_setup_quick_failed">Du kan prova att konfigurera ett konto och en identitet nedan också</string>
     <string name="title_setup_manage">Hantera</string>
@@ -179,7 +178,6 @@
     <string name="title_advanced_light">Använda aviseringslampan</string>
     <string name="title_advanced_sound">Välj aviseringsljud</string>
     <string name="title_advanced_subscriptions">Hantera mapprenumerationer</string>
-    <string name="title_advanced_search_local">Extern sökning på enheten</string>
     <string name="title_advanced_english">Tvinga användning av engelska</string>
     <string name="title_advanced_authentication">Visa en varning när den mottagande servern inte kunde autentisera meddelandet</string>
     <string name="title_advanced_paranoid">Extra sekretessfunktioner</string>
@@ -202,7 +200,6 @@
     <string name="title_advanced_autocollapse_hint">Flera utökade meddelanden kommer alltid att stängas på \"Tillbaka\"</string>
     <string name="title_advanced_autoclose_hint">Stäng automatiskt konversationstrådar när alla meddelanden arkiveras, skickas eller kastas</string>
     <string name="title_advanced_sender_hint">De flesta leverantörer tillåter inte ändrade avsändaradresser</string>
-    <string name="title_advanced_search_local_hint">Istället för att söka i den primära arkivmappen på servern</string>
     <string name="title_advanced_english_hint">Detta startar om appen</string>
     <string name="title_advanced_paranoid_hint">Se Vanliga frågor för Detaljer</string>
     <string name="title_advanced_debug_hint">Aktivera extra loggning och visa felsökningsinformation på olika ställen</string>
@@ -415,8 +412,6 @@
     <string name="title_no_openpgp">OpenKeychain hittades inte</string>
     <string name="title_not_encrypted">Meddelandet är inte krypterat</string>
     <string name="title_search">Sök</string>
-    <string name="title_search_hint">Sök på server</string>
-    <string name="title_search_device">Sök på enhet</string>
     <string name="title_searching">Söker \'%1$s\'</string>
     <string name="title_sort_on">Sortera på</string>
     <string name="title_sort_on_time">Tid</string>

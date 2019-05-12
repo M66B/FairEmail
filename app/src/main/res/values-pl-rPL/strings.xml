@@ -99,7 +99,6 @@
     <string name="title_setup_go">Idż</string>
     <string name="title_setup_setting_gmail">Włącz dostęp dla \"mniej bezpiecznych\" aplikacji do konta</string>
     <string name="title_setup_setting_yahoo">Włącz dostęp dla \"mniej bezpiecznych\" aplikacji</string>
-    <string name="title_setup_no_settings">Nie znaleziono ustawień dla \'%1$s\'</string>
     <string name="title_setup_quick_success">Pomyślnie dodano konto i tożsamość</string>
     <string name="title_setup_quick_failed">Możesz ustawić konto i tożsamość w krokach poniżej</string>
     <string name="title_setup_manage">Zarządzaj</string>
@@ -218,7 +217,6 @@
     <string name="title_advanced_autoclose_hint">Automatycznie zamykaj wątki rozmowy po zarchiwizowaniu, wysłaniu lub usunięciu wszystkich wiadomości</string>
     <string name="title_advanced_sender_hint">Większość dostawców nie akceptuje zmodyfikowanych adresów nadawcy</string>
     <string name="title_advanced_badge_hint">Dostępne tylko na wspieranych launcherach</string>
-    <string name="title_advanced_search_local_hint">Zamiast przeszukiwać główny folder archiwum na serwerze</string>
     <string name="title_advanced_english_hint">To zrestartuje aplikację</string>
     <string name="title_advanced_paranoid_hint">Szczegóły znajdziesz w FAQ</string>
     <string name="title_advanced_debug_hint">Włącz dodatkowe rejestrowanie i wyświetlaj informacje debugowania w różnych miejscach</string>
@@ -424,8 +422,6 @@
     <string name="title_no_openpgp">Nie znaleziono OpenKeychain</string>
     <string name="title_not_encrypted">Wiadomość nie jest zaszyfrowana</string>
     <string name="title_search">Szukaj</string>
-    <string name="title_search_hint">Szukaj na serwerze</string>
-    <string name="title_search_device">Szukaj na urządzeniu</string>
     <string name="title_searching">Szukam \'%1$s\'</string>
     <string name="title_sort_on">Sortuj wg</string>
     <string name="title_sort_on_time">Czas</string>

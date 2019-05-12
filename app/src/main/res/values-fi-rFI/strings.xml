@@ -83,7 +83,6 @@
     <string name="title_setup_go">Aloita</string>
     <string name="title_setup_setting_gmail">Salli käyttöoikeus \"vähemmän turvallisille\" sovelluksille</string>
     <string name="title_setup_setting_yahoo">Salli käyttöoikeus \"vähemmän turvallisille\" sovelluksille</string>
-    <string name="title_setup_no_settings">Asetuksia ei löytynyt verkkotunnukselle \'%1$s\'</string>
     <string name="title_setup_quick_success">Tili ja identiteetti on lisätty onnistuneesti</string>
     <string name="title_setup_quick_failed">Voit yrittää määrittää tilin ja identiteetin alla</string>
     <string name="title_setup_manage">Hallinnoi</string>
@@ -183,7 +182,6 @@
     <string name="title_advanced_sound">Valitse ilmoituksen ääni</string>
     <string name="title_advanced_badge">Näytä käynnistinsovelluksen kuvakkeessa uusien viestien lukumäärä</string>
     <string name="title_advanced_subscriptions">Hallinnoi tilattuja kansioita</string>
-    <string name="title_advanced_search_local">Suorita ulkoinen haku laitteessa</string>
     <string name="title_advanced_english">Pakota englannin kieli</string>
     <string name="title_advanced_authentication">Näytä varoitus, kun vastaanottava palvelin ei voinut todentaa viestiä</string>
     <string name="title_advanced_paranoid">Ylimääräiset yksityisyysominaisuudet</string>
@@ -206,7 +204,6 @@
     <string name="title_advanced_autoclose_hint">Sulje keskustelut, kun kaikki viestit on arkistoitu, lähetetty tai siirretty roskakoriin</string>
     <string name="title_advanced_sender_hint">Useimmat palveluntarjoajat eivät salli muokattuja lähetysosotteita</string>
     <string name="title_advanced_badge_hint">Käytössä vain tuetuissa käynnistinsovelluksissa</string>
-    <string name="title_advanced_search_local_hint">Sen sijaan, että haettaisiin palvelimen ensisijaisesta arkistokansiosta</string>
     <string name="title_advanced_english_hint">Tämä käynnistää sovelluksen uudelleen</string>
     <string name="title_advanced_paranoid_hint">Katso lisätietoja usein kysytyistä kysymyksistä</string>
     <string name="title_advanced_debug_hint">Salli ylimääräinen lokitietojen tallennus ja näytä debug-tietoja</string>
@@ -381,6 +378,7 @@
     <string name="title_ask_show_image">Kuvien näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
     <string name="title_ask_edit_ref">Muokkaa uudelleenmuotoiltua vastatun/edelleenlähetetyn viestin tekstiä?</string>
     <string name="title_ask_delete_local">Poistetaanko paikalliset viestit, jotka ovat myös palvelimella?</string>
+    <string name="title_ask_help">Auta parantamaan FairEmailia</string>
     <string name="title_ask_reporting">Lähetetäänkö virheraportteja?</string>
     <string name="title_reporting_why">Virheraportointi auttaa FairEmailin kehittämisessä</string>
     <string name="title_compose">Kirjoita viesti</string>
@@ -429,8 +427,6 @@
     <string name="title_no_openpgp">OpenKeychain ei löytynyt</string>
     <string name="title_not_encrypted">Viestiä ei ole salattu</string>
     <string name="title_search">Hae</string>
-    <string name="title_search_hint">Hae palvelimelta</string>
-    <string name="title_search_device">Hae laitteesta</string>
     <string name="title_searching">Haetaan \'%1$s\'</string>
     <string name="title_sort_on">Järjestys</string>
     <string name="title_sort_on_time">Aika</string>
@@ -523,6 +519,7 @@
     <string name="title_legend_connecting">Yhdistetään</string>
     <string name="title_legend_connected">Yhdistetty</string>
     <string name="title_legend_synchronizing">Synkronoidaan</string>
+    <string name="title_legend_executing">Suoritetaan toimenpiteitä</string>
     <string name="title_legend_downloading">Ladataan</string>
     <string name="title_legend_closing">Suljetaan</string>
     <string name="title_legend_waiting">Odotetaan seuraavaa synkronointia</string>

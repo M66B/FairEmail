@@ -44,7 +44,6 @@
     <string name="title_setup_quick">راه اندازی سریع</string>
     <string name="title_setup_go">برو</string>
     <string name="title_setup_setting_gmail">فعال کردن دسترسی به برنامه های \"کمتر امن\"</string>
-    <string name="title_setup_no_settings">تنظیماتی یافت نشد برای \'%1$s\'</string>
     <string name="title_setup_quick_success">یک حساب و یک هویت با موفقیت اضافه شد</string>
     <string name="title_setup_quick_failed">می‌توانید برای پیکربندی حساب و هویت در زیر نیز اقدام کنید</string>
     <string name="title_setup_manage">مدیریت</string>
@@ -285,8 +284,6 @@
     <string name="title_no_openpgp">OpenKeychain یافت نشد</string>
     <string name="title_not_encrypted">پیام رمزگذاری نشده است</string>
     <string name="title_search">جستجو</string>
-    <string name="title_search_hint">جستجو بر روی سرور</string>
-    <string name="title_search_device">جستجوی بر روی دستگاه‌</string>
     <string name="title_searching">جستجوی %1$s</string>
     <string name="title_sort_on">مرتب سازی در</string>
     <string name="title_sort_on_time">زمان</string>

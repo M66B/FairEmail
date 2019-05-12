@@ -83,7 +83,6 @@
     <string name="title_setup_go">Vai</string>
     <string name="title_setup_setting_gmail">Abilitare l\'accesso per le applicazioni \"meno sicure\"</string>
     <string name="title_setup_setting_yahoo">Abilita l\'accesso per le app \"meno sicure\"</string>
-    <string name="title_setup_no_settings">Nessuna impostazione trovata per \'%1$s\'</string>
     <string name="title_setup_quick_success">Un account e un\'identità sono stati aggiunti con successo</string>
     <string name="title_setup_quick_failed">Puoi provare a configurare un account e un\'identità qui sotto</string>
     <string name="title_setup_manage">Gestisci</string>
@@ -184,7 +183,6 @@
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
     <string name="title_advanced_badge">Mostra icona launcher con numero di nuovi messaggi</string>
     <string name="title_advanced_subscriptions">Gestisci abbonamenti cartelle</string>
-    <string name="title_advanced_search_local">Ricerca esterna sul dispositivo</string>
     <string name="title_advanced_english">Forza la lingua inglese</string>
     <string name="title_advanced_authentication">Mostra un avviso quando il server ricevente non può autenticare il messaggio</string>
     <string name="title_advanced_paranoid">Caratteristiche aggiuntive della privacy</string>
@@ -208,7 +206,6 @@
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni raggruppate quando tutti i messaggi sono archiviati, inviati o cestinati</string>
     <string name="title_advanced_sender_hint">La maggior parte dei fornitori non consente indirizzi mittente modificati</string>
     <string name="title_advanced_badge_hint">Disponibile solo sui launcher supportati</string>
-    <string name="title_advanced_search_local_hint">Invece di cercare nella cartella principale dell\'archivio sul server</string>
     <string name="title_advanced_english_hint">Questo riavvierà l\'app</string>
     <string name="title_advanced_paranoid_hint">Vedi le FAQ per i dettagli</string>
     <string name="title_advanced_debug_hint">Abilita il log extra e mostra le informazioni di debug in vari luoghi</string>
@@ -431,8 +428,6 @@
     <string name="title_no_openpgp">OpenKeychain non trovato</string>
     <string name="title_not_encrypted">Il messaggio non è cifrato</string>
     <string name="title_search">Cerca</string>
-    <string name="title_search_hint">Cerca sul server</string>
-    <string name="title_search_device">Cerca nel dispositivo</string>
     <string name="title_searching">Ricerca di \'%1$s\'</string>
     <string name="title_sort_on">Ordina per</string>
     <string name="title_sort_on_time">Ora</string>

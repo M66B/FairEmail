@@ -90,10 +90,14 @@
     <string name="title_setup_options">الخيارات</string>
     <string name="title_setup_defaults">استعادة الأوضاع الافتراضية</string>
     <string name="title_advanced">الخيارات المتقدمة</string>
+    <string name="title_advanced_section_synchronize">المزامنة</string>
+    <string name="title_advanced_section_send">إرسال</string>
     <string name="title_advanced_section_connection">اتصال</string>
     <string name="title_advanced_section_display">إظهار</string>
     <string name="title_advanced_section_behavior">السلوك</string>
+    <string name="title_advanced_section_notifications">الاشعارات</string>
     <string name="title_advanced_section_misc">خيارات متنوعة</string>
+    <string name="title_advanced_when">متى</string>
     <string name="title_advanced_schedule">برمجة</string>
     <string name="title_advanced_autosend">تأكيد إرسال الرسائل</string>
     <string name="title_advanced_metered">استخدام اتصالات أجهزة الاستنشاق</string>
@@ -162,6 +166,7 @@
     <string name="title_edit_html">تعديل كـ HTML</string>
     <string name="title_last_connected">آخر ربط: %1$s</string>
     <string name="title_synchronize_now">زامن الآن</string>
+    <string name="title_synchronize_enabled">مزامنة</string>
     <string name="title_delete_local">حذف الرسائل المحلية</string>
     <string name="title_empty_trash">إفراغ سلّة المهملات</string>
     <string name="title_edit_properties">تعديل الخصائص</string>
@@ -255,8 +260,6 @@
     <string name="title_no_openpgp">لم يتم العثور على OpenKeychain</string>
     <string name="title_not_encrypted">الرسالة غير مُعمّاة</string>
     <string name="title_search">بحث</string>
-    <string name="title_search_hint">البحث في الخادم</string>
-    <string name="title_search_device">البحث في الجهاز</string>
     <string name="title_searching">جارٍ البحث عن \'%1$s\'</string>
     <string name="title_sort_on">الفرز حسب</string>
     <string name="title_sort_on_time">التاريخ</string>

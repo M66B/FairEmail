@@ -83,7 +83,6 @@
     <string name="title_setup_go">Kom i gang!</string>
     <string name="title_setup_setting_gmail">Aktivér adgang for \"mindre sikre\" apps</string>
     <string name="title_setup_setting_yahoo">Aktivér adgang for \"mindre sikre\" apps</string>
-    <string name="title_setup_no_settings">Ingen indstillinger fundet for \'%1$s\'</string>
     <string name="title_setup_quick_success">Tilføjelse af konto og identitet er vellykket</string>
     <string name="title_setup_quick_failed">Du kan også prøve at konfigurere en konto og identitet nedenfor</string>
     <string name="title_setup_manage">Administrér</string>
@@ -180,7 +179,6 @@
     <string name="title_advanced_sound">Vælg lyd til underretning</string>
     <string name="title_advanced_badge">Vis ikon med antal nye meddelelser på launcheren</string>
     <string name="title_advanced_subscriptions">Administrér mappeabonnementer</string>
-    <string name="title_advanced_search_local">Ekstern søgning på enhed</string>
     <string name="title_advanced_english">Gennemtving engelsk sprog</string>
     <string name="title_advanced_authentication">Vis en advarsel, når indgående server ikke kan bekræfte meddelelsen</string>
     <string name="title_advanced_paranoid">Yderligere privatlivsfunktioner</string>
@@ -202,7 +200,6 @@
     <string name="title_advanced_autoclose_hint">Luk automatisk samtaler, hvis alle meddelelser er arkiveret, sendt eller smidt ud</string>
     <string name="title_advanced_sender_hint">De fleste udbydere tillader ikke modificerede afsenderadresser</string>
     <string name="title_advanced_badge_hint">Kun tilgængelig på understøttede launchers</string>
-    <string name="title_advanced_search_local_hint">I stedet for at søge i den primære arkiveringsmappe på serveren</string>
     <string name="title_advanced_english_hint">Dette vil genstarte app\'en</string>
     <string name="title_advanced_paranoid_hint">Se FAQ\'en for yderligere informationer</string>
     <string name="title_advanced_debug_hint">Aktivér ekstra logs og vis fejlretningsoplysninger diverse steder</string>
@@ -417,8 +414,6 @@
     <string name="title_no_openpgp">OpenKeychain ikke fundet</string>
     <string name="title_not_encrypted">Meddelelse er ikke krypteret</string>
     <string name="title_search">Søg</string>
-    <string name="title_search_hint">Søg på server</string>
-    <string name="title_search_device">Søg på enhed</string>
     <string name="title_searching">Søger \'%1$s \'</string>
     <string name="title_sort_on">Sortér efter</string>
     <string name="title_sort_on_time">Tid</string>
