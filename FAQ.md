@@ -421,11 +421,19 @@ about [these vulnerabilities](https://amp.thehackernews.com/thn/2019/04/email-si
 **(13) How does search on device/server work?**
 
 You can start searching for messages on sender, recipient, subject, keyword or message text by using the magnify glass in the action bar of a folder.
-First on device messages will be searched and after that the search will be executed on the server,
-except if the unified inbox is a collection of more than one folder.
+You can also search from any app by select *Search email* in the copy/paste popup menu.
+
+First on device messages will be searched and after that the search will be executed on the server.
+Searching on the server will be in the current folder
+or the archive folder of the primary account if there is no current folder, for example when searching from the unified inbox.
+
+Searching on the server will be triggered/continued when reaching the end of the list.
+Note that it is possible that searching on the server will find messages newer than already found locally.
+
 Searching local messages is case insensitive and on partial text.
 The message text of local messages will not be searched if the message text was not downloaded yet.
 Searching on the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
+
 Searching messages is a pro feature.
 
 <br />
