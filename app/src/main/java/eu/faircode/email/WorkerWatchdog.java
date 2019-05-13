@@ -55,7 +55,7 @@ public class WorkerWatchdog extends Worker {
             Log.i("Queuing " + getName() + " every " + WATCHDOG_INTERVAL + " minutes");
 
             PeriodicWorkRequest workRequest =
-                    new PeriodicWorkRequest.Builder(WorkerCleanup.class, WATCHDOG_INTERVAL, TimeUnit.MINUTES)
+                    new PeriodicWorkRequest.Builder(WorkerWatchdog.class, WATCHDOG_INTERVAL, TimeUnit.MINUTES)
                             .build();
             WorkManager.getInstance(context)
                     .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.KEEP, workRequest);
