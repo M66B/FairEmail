@@ -258,6 +258,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private Group grpHeaders;
         private Group grpAttachments;
         private Group grpExpanded;
+        private Group grpImages;
 
         private AdapterAttachment adapterAttachment;
         private AdapterImage adapterImage;
@@ -360,6 +361,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpHeaders = itemView.findViewById(R.id.grpHeaders);
             grpAttachments = itemView.findViewById(R.id.grpAttachments);
             grpExpanded = itemView.findViewById(R.id.grpExpanded);
+            grpImages = itemView.findViewById(R.id.grpImages);
         }
 
         Rect getItemRect() {
@@ -728,7 +730,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             vwBody.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
             tvNoInternetBody.setVisibility(View.GONE);
-            rvImage.setVisibility(View.GONE);
+            grpImages.setVisibility(View.GONE);
         }
 
         private void bindFlagged(TupleMessageEx message) {
@@ -1415,7 +1417,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tbHtml.setVisibility(View.VISIBLE);
             ibFull.setVisibility(View.INVISIBLE);
             tvBody.setVisibility(View.GONE);
-            rvImage.setVisibility(adapterImage.getItemCount() > 0 ? View.INVISIBLE : View.GONE);
+            grpImages.setVisibility(adapterImage.getItemCount() > 0 ? View.INVISIBLE : View.GONE);
 
             // For performance reasons the WebView is created when needed only
             if (!(vwBody instanceof WebView)) {
@@ -1822,7 +1824,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 pbBody.setVisibility(View.GONE);
 
-                rvImage.setVisibility(adapterImage.getItemCount() > 0 ? View.VISIBLE : View.GONE);
+                grpImages.setVisibility(adapterImage.getItemCount() > 0 ? View.VISIBLE : View.GONE);
             }
 
             @Override
