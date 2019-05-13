@@ -174,6 +174,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(102) How can I enable auto rotation of images?](#user-content-faq102)
 * [(103) How can I record audio?](#user-content-faq103)
 * [(104) What do I need to know about error reporting?](#user-content-faq104)
+* [(105) How does the roam-like-at-home option work?](#user-content-faq105)
 
 [I have another question.](#support)
 
@@ -1711,6 +1712,16 @@ Unfortunately and surprisingly, most recording apps do not seem to support this 
 
 <br />
 
+<a name="faq105"></a>
+**(105) How does the roam-like-at-home option work?**
+
+FairEmail will check if the country code of the SIM card and the country code of the network
+are in the [EU roam-like-at-home countries](https://en.wikipedia.org/wiki/European_Union_roaming_regulations#Territorial_extent)
+and assumes no roaming if the country codes are equal and the advanced roam-like-at-home option is enabled.
+
+So, you don't have to disable this option if you don't have an EU SIM or are not connected to an EU network.
+
+<br />
 
 ## Support
 
