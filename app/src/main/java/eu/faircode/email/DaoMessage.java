@@ -36,15 +36,10 @@ public interface DaoMessage {
     // all bare columns in the result set take values from the input row which also contains the minimum or maximum."
     // https://www.sqlite.org/lang_select.html
 
-    String unseen_unified = "SUM(CASE WHEN message.ui_seen" +
-            "    OR folder.type = '" + EntityFolder.ARCHIVE + "'" +
-            "    OR folder.type = '" + EntityFolder.OUTBOX + "'" +
-            "    OR folder.type = '" + EntityFolder.DRAFTS + "' THEN 0 ELSE 1 END)";
+    String folder_in = "folder.type IN ('" + EntityFolder.ARCHIVE + "', '" + EntityFolder.OUTBOX + "', '" + EntityFolder.DRAFTS + "')";
 
-    String unflagged_unified = "SUM(CASE WHEN message.ui_flagged" +
-            "    AND NOT folder.type = '" + EntityFolder.ARCHIVE + "'" +
-            "    AND NOT folder.type = '" + EntityFolder.OUTBOX + "'" +
-            "    AND NOT folder.type = '" + EntityFolder.DRAFTS + "' THEN 0 ELSE 1 END)";
+    String unseen_unified = "SUM(CASE WHEN message.ui_seen OR " + folder_in + " THEN 0 ELSE 1 END)";
+    String unflagged_unified = "SUM(CASE WHEN message.ui_flagged AND NOT " + folder_in + " THEN 0 ELSE 1 END)";
 
     @Query("SELECT message.*" +
             ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
@@ -88,14 +83,8 @@ public interface DaoMessage {
             boolean found,
             boolean debug);
 
-    String unseen_folder = "SUM(CASE WHEN message.ui_seen" +
-            "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.ARCHIVE + "')" +
-            "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.OUTBOX + "')" +
-            "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.DRAFTS + "') THEN 0 ELSE 1 END)";
-    String unflagged_folder = "SUM(CASE WHEN message.ui_flagged" +
-            "    AND NOT (folder.id <> :folder AND folder.type = '" + EntityFolder.ARCHIVE + "')" +
-            "    AND NOT (folder.id <> :folder AND folder.type = '" + EntityFolder.OUTBOX + "')" +
-            "    AND NOT (folder.id <> :folder AND folder.type = '" + EntityFolder.DRAFTS + "') THEN 0 ELSE 1 END)";
+    String unseen_folder = "SUM(CASE WHEN message.ui_seen OR (folder.id <> :folder AND " + folder_in + ") THEN 0 ELSE 1 END)";
+    String unflagged_folder = "SUM(CASE WHEN message.ui_flagged AND NOT (folder.id <> :folder AND " + folder_in + ") THEN 0 ELSE 1 END)";
 
     @Query("SELECT message.*" +
             ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
