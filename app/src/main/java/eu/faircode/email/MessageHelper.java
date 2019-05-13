@@ -746,9 +746,15 @@ public class MessageHelper {
             return null;
 
         int i = 0;
-        int s = text.indexOf("=?", i);
-        int e = text.indexOf("?=", i);
-        while (s >= 0 && e >= 0 && i < text.length()) {
+        while (i < text.length()) {
+            int s = text.indexOf("=?", i);
+            if (s < 0)
+                break;
+
+            int e = text.indexOf("?=", s + 2);
+            if (e < 0)
+                break;
+
             String decode = text.substring(s, e + 2);
             try {
                 String decoded = MimeUtility.decodeWord(decode);
@@ -761,8 +767,6 @@ public class MessageHelper {
                 Log.w(ex);
                 i += decode.length();
             }
-            s = text.indexOf("=?", i);
-            e = text.indexOf("?=", i);
         }
 
         return text;
