@@ -32,6 +32,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcel;
+import android.text.Spannable;
+import android.text.Spanned;
 import android.text.format.DateUtils;
 import android.text.format.Time;
 import android.view.Menu;
@@ -323,6 +325,13 @@ public class Helper {
             return text;
         }
         return text.substring(0, maxLen) + "...";
+    }
+
+    static void clearComposingText(Spannable text) {
+        Object[] spans = text.getSpans(0, text.length(), Object.class);
+        for (Object span : spans)
+            if ((text.getSpanFlags(span) & Spanned.SPAN_COMPOSING) != 0)
+                text.removeSpan(span);
     }
 
     static String localizeFolderName(Context context, String name) {

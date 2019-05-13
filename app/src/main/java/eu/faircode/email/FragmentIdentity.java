@@ -315,9 +315,14 @@ public class FragmentIdentity extends FragmentBase {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (etSignature.getTag() == null)
-                    signature = HtmlHelper.toHtml(s);
-                else
+                if (etSignature.getTag() == null) {
+                    if (TextUtils.isEmpty(s))
+                        signature = null;
+                    else {
+                        Helper.clearComposingText(s);
+                        signature = HtmlHelper.toHtml(s);
+                    }
+                } else
                     etSignature.setTag(null);
             }
         });
