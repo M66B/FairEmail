@@ -158,12 +158,8 @@
     <string name="title_sort_on_starred">Destacats</string>
     <string name="title_previous">Anterior</string>
     <string name="title_next">Següent</string>
-    <string name="title_legend_inbox">Safata d\'entrada</string>
-    <string name="title_legend_archive">Arxiu</string>
-    <string name="title_legend_trash">Paperera</string>
-    <string name="title_legend_primary_disconnected">Compte desconnectat</string>
     <string name="title_legend_primary_connected">Compte connectat</string>
-    <string name="title_legend_thread">Conversació</string>
+    <string name="title_legend_primary_disconnected">Compte desconnectat</string>
     <string name="title_legend_synchronize_on">Sincronitza engegada</string>
     <string name="title_legend_synchronize_off">Sincronització apagada</string>
     <string name="title_legend_disconnected">Desconnectat</string>
@@ -172,6 +168,10 @@
     <string name="title_legend_synchronizing">Sincronitzant</string>
     <string name="title_legend_downloading">Descarregant</string>
     <string name="title_legend_closing">Tancant</string>
+    <string name="title_legend_inbox">Safata d\'entrada</string>
+    <string name="title_legend_archive">Arxiu</string>
+    <string name="title_legend_trash">Paperera</string>
+    <string name="title_legend_thread">Conversació</string>
     <string name="title_hint_folder_actions">Manté polsat per més opcions</string>
     <string name="title_hint_support">Si tens algun problema o pregunta, per favor utilitza el menú d\'ajuda per obtenir assistència</string>
     <string name="title_hint_message_actions">Llisca cap a l\'esquerra per enviar a la paperera; o bé cap a la dreta per arxivar (si és possible)</string>
