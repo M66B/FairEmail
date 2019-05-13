@@ -391,6 +391,8 @@ public class ServiceSend extends LifecycleService {
             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             nm.cancel("send", message.identity.intValue());
         } catch (MessagingException ex) {
+            // Caused by: com.sun.mail.smtp.SMTPAddressFailedException: 554 Refused. Sending to remote addresses (relaying) is not allowed.
+/*
             if (ex instanceof SendFailedException) {
                 SendFailedException sfe = (SendFailedException) ex;
 
@@ -414,7 +416,7 @@ public class ServiceSend extends LifecycleService {
                         sfe.getValidUnsentAddresses(),
                         sfe.getInvalidAddresses());
             }
-
+*/
             db.identity().setIdentityError(ident.id, Helper.formatThrowable(ex));
 
             EntityLog.log(this, ident.name + " last attempt: " + new Date(message.last_attempt));
