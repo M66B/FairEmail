@@ -260,6 +260,28 @@
                 app:layout_constraintTop_toTopOf="@id/ivContacts" />
 
             <ImageView
+                android:id="@+id/ivSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/title_legend_search"
+                android:padding="12dp"
+                android:src="@drawable/baseline_search_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivContacts" />
+
+            <TextView
+                android:id="@+id/tvSearch"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                android:text="@string/title_legend_search"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="@id/ivSearch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivSearch"
+                app:layout_constraintTop_toTopOf="@id/ivSearch" />
+
+            <ImageView
                 android:id="@+id/ivView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -267,7 +289,7 @@
                 android:padding="12dp"
                 android:src="@drawable/baseline_visibility_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivContacts" />
+                app:layout_constraintTop_toBottomOf="@id/ivSearch" />
 
             <TextView
                 android:id="@+id/tvView"

@@ -133,6 +133,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     static final String ACTION_VIEW_FOLDERS = BuildConfig.APPLICATION_ID + ".VIEW_FOLDERS";
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
+    static final String ACTION_SEARCH = BuildConfig.APPLICATION_ID + ".SEARCH";
     static final String ACTION_VIEW_THREAD = BuildConfig.APPLICATION_ID + ".VIEW_THREAD";
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_EDIT_FOLDER = BuildConfig.APPLICATION_ID + ".EDIT_FOLDER";
@@ -534,6 +535,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         IntentFilter iff = new IntentFilter();
         iff.addAction(ACTION_VIEW_FOLDERS);
         iff.addAction(ACTION_VIEW_MESSAGES);
+        iff.addAction(ACTION_SEARCH);
         iff.addAction(ACTION_VIEW_THREAD);
         iff.addAction(ACTION_STORE_RAW);
         iff.addAction(ACTION_EDIT_FOLDER);
@@ -1012,6 +1014,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     onViewFolders(intent);
                 else if (ACTION_VIEW_MESSAGES.equals(action))
                     onViewMessages(intent);
+                else if (ACTION_SEARCH.equals(action))
+                    onSearchMessages(intent);
                 else if (ACTION_VIEW_THREAD.equals(action))
                     onViewThread(intent);
                 else if (ACTION_STORE_RAW.equals(action))
@@ -1059,6 +1063,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("messages");
         fragmentTransaction.commit();
+    }
+
+    private void onSearchMessages(Intent intent) {
+        long folder = intent.getLongExtra("folder", -1);
+        String query = intent.getStringExtra("search");
+        FragmentMessages.search(
+                this, this, getSupportFragmentManager(),
+                folder, false, query);
     }
 
     private void onViewThread(Intent intent) {

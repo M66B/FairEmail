@@ -596,6 +596,7 @@
     <string name="title_legend_attachment">Has attachment</string>
     <string name="title_legend_flagged">Is favorite</string>
     <string name="title_legend_contacts">Manage contacts</string>
+    <string name="title_legend_search">Search for sender</string>
     <string name="title_legend_view">View content</string>
     <string name="title_legend_hide">Hide content</string>
     <string name="title_legend_download">Download content</string>
