@@ -796,7 +796,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (args.getBoolean("always"))
-                    if (ex instanceof IllegalArgumentException)
+                    if (ex instanceof IllegalArgumentException || ex instanceof IOException)
                         Snackbar.make(getVisibleView(), ex.getMessage(), Snackbar.LENGTH_LONG).show();
                     else
                         Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
