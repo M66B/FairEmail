@@ -76,6 +76,7 @@ public class HtmlHelper {
     static final int PREVIEW_SIZE = 250;
 
     private static final int TRACKING_PIXEL_SURFACE = 25;
+
     private static final List<String> heads = Collections.unmodifiableList(Arrays.asList(
             "h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "table", "br", "hr"));
     private static final List<String> tails = Collections.unmodifiableList(Arrays.asList(
@@ -115,6 +116,38 @@ public class HtmlHelper {
         boolean paranoid = prefs.getBoolean("paranoid", true);
 
         Document parsed = Jsoup.parse(html);
+
+        // <html xmlns:v="urn:schemas-microsoft-com:vml"
+        //   xmlns:o="urn:schemas-microsoft-com:office:office"
+        //   xmlns:w="urn:schemas-microsoft-com:office:word"
+        //   xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+        //   xmlns="http://www.w3.org/TR/REC-html40">
+
+        // <o:p>&nbsp;</o:p></span>
+
+        // Default XHTML namespace: http://www.w3.org/1999/xhtml
+
+        String ns = null;
+        for (Element h : parsed.select("html"))
+            for (Attribute a : h.attributes()) {
+                if (a.getKey().startsWith("xmlns:") &&
+                        a.getValue().startsWith("http://www.w3.org/")) {
+                    ns = a.getKey().split(":")[1];
+                    break;
+                }
+            }
+        for (Element e : parsed.select("*"))
+            if (e.tagName().contains(":")) {
+                String tag = e.tagName();
+                if (ns != null && e.tagName().startsWith(ns)) {
+                    e.tagName(tag.split(":")[1]);
+                    Log.i("Updated tag=" + tag + " to=" + e.tagName());
+                } else {
+                    e.remove();
+                    Log.i("Removed tag=" + tag);
+                }
+            }
+
         Whitelist whitelist = Whitelist.relaxed()
                 .addTags("hr", "abbr")
                 .removeTags("col", "colgroup", "thead", "tbody")
