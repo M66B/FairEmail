@@ -2682,7 +2682,7 @@ public class FragmentCompose extends FragmentBase {
                     // Delay sending message
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     int send_delayed = prefs.getInt("send_delayed", 0);
-                    if (send_delayed != 0) {
+                    if (draft.ui_snoozed == null && send_delayed != 0) {
                         draft.ui_snoozed = new Date().getTime() + send_delayed * 1000L;
                         db.message().setMessageSnoozed(draft.id, draft.ui_snoozed);
                     }
