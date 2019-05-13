@@ -1067,7 +1067,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private void onSearchMessages(Intent intent) {
         long folder = intent.getLongExtra("folder", -1);
-        String query = intent.getStringExtra("search");
+        String query = intent.getStringExtra("query");
         FragmentMessages.search(
                 this, this, getSupportFragmentManager(),
                 folder, false, query);
