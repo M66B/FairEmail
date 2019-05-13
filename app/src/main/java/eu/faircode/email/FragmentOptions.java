@@ -71,6 +71,11 @@ public class FragmentOptions extends FragmentBase {
         }
 
         @Override
+        public int getCount() {
+            return 7;
+        }
+
+        @Override
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
@@ -90,11 +95,6 @@ public class FragmentOptions extends FragmentBase {
                 default:
                     throw new IllegalArgumentException();
             }
-        }
-
-        @Override
-        public int getCount() {
-            return 7;
         }
 
         @Override
