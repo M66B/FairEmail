@@ -3005,10 +3005,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
         this.colorUnread = Helper.resolveColor(context, R.attr.colorUnread);
-
-        TypedValue tv = new TypedValue();
-        context.getTheme().resolveAttribute(R.attr.themeName, tv, true);
-        this.dark = !"light".equals(tv.string);
+        this.dark = Helper.isDarkTheme(context);
 
         this.hasWebView = Helper.hasWebView(context);
         this.contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);

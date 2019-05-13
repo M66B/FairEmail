@@ -37,7 +37,6 @@ import android.graphics.RectF;
 import android.net.Uri;
 import android.os.Handler;
 import android.provider.ContactsContract;
-import android.util.TypedValue;
 
 import androidx.preference.PreferenceManager;
 
@@ -159,11 +158,8 @@ public class ContactInfo {
             }
 
         if (info.bitmap == null) {
-            TypedValue tv = new TypedValue();
-            context.getTheme().resolveAttribute(R.attr.themeName, tv, true);
             int dp = Helper.dp2pixels(context, 48);
-
-            boolean dark = !"light".equals(tv.string);
+            boolean dark = Helper.isDarkTheme(context);
             boolean identicons = prefs.getBoolean("identicons", false);
             if (identicons)
                 info.bitmap = Identicon.icon(key, dp, 5, dark);

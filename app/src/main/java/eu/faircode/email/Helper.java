@@ -36,6 +36,7 @@ import android.text.Spannable;
 import android.text.Spanned;
 import android.text.format.DateUtils;
 import android.text.format.Time;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
@@ -278,6 +279,12 @@ public class Helper {
             } else if (child instanceof ViewGroup)
                 setViewsEnabled((ViewGroup) child, enabled);
         }
+    }
+
+    static boolean isDarkTheme(Context context) {
+        TypedValue tv = new TypedValue();
+        context.getTheme().resolveAttribute(R.attr.themeName, tv, true);
+        return (tv.string != null && !"light".contentEquals(tv.string));
     }
 
     // Formatting
