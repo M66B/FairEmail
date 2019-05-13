@@ -145,7 +145,6 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                     Bundle args = new Bundle();
                     args.putLong("id", attachment.id);
                     args.putLong("message", attachment.message);
-                    args.putInt("sequence", attachment.sequence);
 
                     new SimpleTask<Void>() {
                         @Override
