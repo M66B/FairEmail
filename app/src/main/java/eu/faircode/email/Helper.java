@@ -55,7 +55,6 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.sun.mail.util.MailConnectException;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -70,7 +69,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.net.UnknownHostException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
@@ -361,8 +359,8 @@ public class Helper {
                     ("Not connected".equals(ex.getMessage()) ||
                             "This operation is not allowed on a closed folder".equals(ex.getMessage())))
                 return null;
-            if (ex instanceof MailConnectException && ex.getCause() instanceof UnknownHostException)
-                return null;
+            //if (ex instanceof MailConnectException && ex.getCause() instanceof UnknownHostException)
+            //    return null;
         }
 
         StringBuilder sb = new StringBuilder();
