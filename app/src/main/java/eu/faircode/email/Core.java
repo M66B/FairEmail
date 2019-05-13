@@ -172,6 +172,7 @@ class Core {
 
                         if (message != null && message.uid == null &&
                                 !(EntityOperation.ADD.equals(op.name) ||
+                                        EntityOperation.ANSWERED.equals(op.name) ||
                                         EntityOperation.DELETE.equals(op.name) ||
                                         EntityOperation.SEND.equals(op.name) ||
                                         EntityOperation.SYNC.equals(op.name) ||
