@@ -56,15 +56,19 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private View view;
-        private ImageView image;
-        private TextView caption;
+        private ImageView ivImage;
+        private TextView tvCaption;
+        private TextView tvType;
+        private TextView tvSize;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             view = itemView.findViewById(R.id.clItem);
-            image = itemView.findViewById(R.id.image);
-            caption = itemView.findViewById(R.id.caption);
+            ivImage = itemView.findViewById(R.id.ivImage);
+            tvCaption = itemView.findViewById(R.id.tvCaption);
+            tvType = itemView.findViewById(R.id.tvType);
+            tvSize = itemView.findViewById(R.id.tvSize);
         }
 
         private void wire() {
@@ -76,18 +80,25 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
         }
 
         private void bindTo(EntityAttachment attachment) {
+            Bitmap bm = null;
             if (attachment.available) {
-                Bitmap bm = Helper.decodeImage(attachment.getFile(context),
+                bm = Helper.decodeImage(attachment.getFile(context),
                         context.getResources().getDisplayMetrics().widthPixels);
                 if (bm == null)
-                    image.setImageResource(R.drawable.baseline_broken_image_24);
+                    ivImage.setImageResource(R.drawable.baseline_broken_image_24);
                 else
-                    image.setImageBitmap(bm);
+                    ivImage.setImageBitmap(bm);
             } else
-                image.setImageResource(attachment.progress == null
+                ivImage.setImageResource(attachment.progress == null
                         ? R.drawable.baseline_image_24 : R.drawable.baseline_hourglass_empty_24);
 
-            caption.setText(attachment.name);
+            tvCaption.setVisibility(TextUtils.isEmpty(attachment.name) ? View.GONE : View.VISIBLE);
+            tvSize.setVisibility(bm == null ? View.GONE : View.VISIBLE);
+
+            tvCaption.setText(attachment.name);
+            tvType.setText(attachment.type);
+            if (bm != null)
+                tvSize.setText(bm.getWidth() + "x" + bm.getHeight());
         }
 
         @Override
@@ -141,7 +152,6 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                         protected Void onExecute(Context context, Bundle args) {
                             long id = args.getLong("id");
                             long message = args.getLong("message");
-                            long sequence = args.getInt("sequence");
 
                             DB db = DB.getInstance(context);
                             try {
