@@ -122,7 +122,6 @@ import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -584,8 +583,8 @@ public class FragmentCompose extends FragmentBase {
 
                 DB db = DB.getInstance(context);
                 EntityMessage draft = db.message().getMessage(id);
-                if (draft == null)
-                    throw new FileNotFoundException();
+                if (draft == null || !draft.content)
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_body));
 
                 File file = draft.getFile(context);
                 File refFile = draft.getRefFile(context);
@@ -2850,8 +2849,8 @@ public class FragmentCompose extends FragmentBase {
 
                 DB db = DB.getInstance(context);
                 EntityMessage draft = db.message().getMessage(id);
-                if (draft == null)
-                    throw new FileNotFoundException();
+                if (draft == null || !draft.content)
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_body));
 
                 String body = Helper.readText(draft.getFile(context));
                 Spanned spannedBody = HtmlHelper.fromHtml(body, cidGetter, null);

@@ -107,7 +107,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
@@ -1468,11 +1467,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         DB db = DB.getInstance(context);
                         EntityMessage message = db.message().getMessage(id);
-                        if (message == null)
-                            throw new FileNotFoundException();
+                        if (message == null || !message.content)
+                            return null;
+
+                        File file = message.getFile(context);
+                        if (!file.exists())
+                            return null;
 
                         OriginalMessage original = new OriginalMessage();
-                        original.html = Helper.readText(message.getFile(context));
+                        original.html = Helper.readText(file);
                         original.html = HtmlHelper.getHtmlEmbedded(context, id, original.html);
                         original.html = HtmlHelper.removeTracking(context, original.html);
 
@@ -1484,6 +1487,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     @Override
                     protected void onExecuted(Bundle args, OriginalMessage original) {
+                        if (original == null)
+                            return;
+
                         long id = args.getLong("id");
                         properties.setHtml(id, original.html);
                         if (!original.has_images)
@@ -1730,7 +1736,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean show_quotes = args.getBoolean("show_quotes");
                 int zoom = args.getInt("zoom");
 
-                String body = Helper.readText(message.getFile(context));
+                if (message == null || !message.content)
+                    return null;
+
+                File file = message.getFile(context);
+                if (!file.exists())
+                    return null;
+
+                String body = Helper.readText(file);
 
                 if (!show_quotes) {
                     Document document = Jsoup.parse(body);
@@ -2452,20 +2465,27 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     DB db = DB.getInstance(context);
                     EntityMessage message = db.message().getMessage(id);
+                    if (message == null || !message.content)
+                        return null;
+
+                    File file = message.getFile(context);
+                    if (!file.exists())
+                        return null;
 
                     String from = null;
                     if (message.from != null && message.from.length > 0)
                         from = ((InternetAddress) message.from[0]).getAddress();
 
-                    return new String[]{
-                            from,
-                            message.subject,
-                            HtmlHelper.getText(Helper.readText(message.getFile(context)))
-                    };
+                    String html = HtmlHelper.getText(Helper.readText(file));
+
+                    return new String[]{from, message.subject, html};
                 }
 
                 @Override
                 protected void onExecuted(Bundle args, String[] text) {
+                    if (text == null)
+                        return;
+
                     Intent share = new Intent();
                     share.setAction(Intent.ACTION_SEND);
                     share.setType("text/plain");
@@ -2473,7 +2493,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         share.putExtra(Intent.EXTRA_EMAIL, new String[]{text[0]});
                     if (!TextUtils.isEmpty(text[1]))
                         share.putExtra(Intent.EXTRA_SUBJECT, text[1]);
-                    share.putExtra(Intent.EXTRA_TEXT, text[2]);
+                    if (!TextUtils.isEmpty(text[2]))
+                        share.putExtra(Intent.EXTRA_TEXT, text[2]);
 
                     PackageManager pm = context.getPackageManager();
                     if (share.resolveActivity(pm) == null)

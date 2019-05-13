@@ -1187,10 +1187,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 DB db = DB.getInstance(context);
                 EntityMessage message = db.message().getMessage(id);
-                if (message == null)
-                    throw new FileNotFoundException();
+                if (message == null || !message.content)
+                    return null;
 
-                String html = Helper.readText(message.getFile(context));
+                File file = message.getFile(context);
+                if (!file.exists())
+                    return null;
+
+                String html = Helper.readText(file);
                 html = HtmlHelper.getHtmlEmbedded(context, id, html);
                 html = HtmlHelper.removeTracking(context, html);
 
@@ -1199,6 +1203,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             protected void onExecuted(Bundle args, final String[] data) {
+                if (data == null)
+                    return;
+
                 // https://developer.android.com/training/printing/html-docs.html
                 printWebView = new WebView(ActivityView.this);
                 WebSettings settings = printWebView.getSettings();
@@ -1299,22 +1306,26 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 if (encrypted == null) {
                     EntityMessage message = db.message().getMessage(id);
-                    String body = Helper.readText(message.getFile(context));
+                    if (message != null && message.content) {
+                        File file = message.getFile(context);
+                        if (file.exists()) {
+                            // https://tools.ietf.org/html/rfc4880#section-6.2
+                            String body = Helper.readText(file);
+                            int begin = body.indexOf(PGP_BEGIN_MESSAGE);
+                            int end = body.indexOf(PGP_END_MESSAGE);
+                            if (begin >= 0 && begin < end) {
+                                String section = body.substring(begin, end + PGP_END_MESSAGE.length());
+                                String[] lines = section.split("<br />");
+                                List<String> disarmored = new ArrayList<>();
+                                for (String line : lines)
+                                    if (!TextUtils.isEmpty(line) && !line.contains(": "))
+                                        disarmored.add(line);
+                                section = TextUtils.join("\n\r", disarmored);
 
-                    // https://tools.ietf.org/html/rfc4880#section-6.2
-                    int begin = body.indexOf(PGP_BEGIN_MESSAGE);
-                    int end = body.indexOf(PGP_END_MESSAGE);
-                    if (begin >= 0 && begin < end) {
-                        String section = body.substring(begin, end + PGP_END_MESSAGE.length());
-                        String[] lines = section.split("<br />");
-                        List<String> disarmored = new ArrayList<>();
-                        for (String line : lines)
-                            if (!TextUtils.isEmpty(line) && !line.contains(": "))
-                                disarmored.add(line);
-                        section = TextUtils.join("\n\r", disarmored);
-
-                        inline = true;
-                        encrypted = new ByteArrayInputStream(section.getBytes());
+                                inline = true;
+                                encrypted = new ByteArrayInputStream(section.getBytes());
+                            }
+                        }
                     }
                 }
 
