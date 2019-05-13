@@ -188,7 +188,7 @@
     <string name="title_advanced_circular">Show round icons</string>
     <string name="title_advanced_name_email">Show names and email addresses</string>
     <string name="title_advanced_subject_italic">Show subject italic</string>
-    <string name="title_advanced_flags">Show stars (favorites)</string>
+    <string name="title_advanced_flags">Show stars</string>
     <string name="title_advanced_preview">Show message preview</string>
     <string name="title_advanced_addresses">Show address details by default</string>
     <string name="title_advanced_monospaced">Use monospaced font for message text</string>
@@ -592,7 +592,7 @@
     <string name="title_legend_plain_only">Is plain text only</string>
     <string name="title_legend_receipt">Receipt was requested</string>
     <string name="title_legend_attachment">Has attachment</string>
-    <string name="title_legend_flagged">Is starred</string>
+    <string name="title_legend_flagged">Is favorite</string>
     <string name="title_legend_contacts">Manage contacts</string>
     <string name="title_legend_view">View content</string>
     <string name="title_legend_hide">Hide content</string>
