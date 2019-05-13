@@ -1197,13 +1197,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     else {
                         String from = ((InternetAddress) message.from[0]).getAddress();
                         EntityIdentity identity = db.identity().getIdentity(message.identity);
-                        outgoing = MessageHelper.canonicalAddress(identity.email)
-                                .equals(MessageHelper.canonicalAddress(from));
+                        outgoing = MessageHelper.canonicalAddress(identity.email).equals(MessageHelper.canonicalAddress(from));
                     }
 
-                    return (outgoing
-                            ? message.to
-                            : (message.reply == null || message.reply.length == 0 ? message.from : message.reply));
+                    return (outgoing ? message.to : message.from);
                 }
 
                 @Override
