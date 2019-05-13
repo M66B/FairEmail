@@ -101,7 +101,23 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             if (contact.avatar == null || !contacts)
                 ivAvatar.setImageDrawable(null);
             else
-                ivAvatar.setImageURI(Uri.parse(contact.avatar + "/photo"));
+                try {
+                    /*
+                        java.lang.NullPointerException: Attempt to invoke virtual method 'java.io.FileDescriptor android.content.res.AssetFileDescriptor.getFileDescriptor()' on a null object reference
+                        java.lang.NullPointerException: Attempt to invoke virtual method 'java.io.FileDescriptor android.content.res.AssetFileDescriptor.getFileDescriptor()' on a null object reference
+                        at android.graphics.ImageDecoder$ContentResolverSource.createImageDecoder(ImageDecoder.java:286)
+                        at android.graphics.ImageDecoder.decodeDrawableImpl(ImageDecoder.java:1652)
+                        at android.graphics.ImageDecoder.decodeDrawable(ImageDecoder.java:1645)
+                        at android.widget.ImageView.getDrawableFromUri(ImageView.java:952)
+                        at android.widget.ImageView.resolveUri(ImageView.java:921)
+                        at android.widget.ImageView.setImageURI(ImageView.java:532)
+                        at androidx.appcompat.widget.AppCompatImageView.setImageURI(SourceFile:116)
+                     */
+                    ivAvatar.setImageURI(Uri.parse(contact.avatar + "/photo"));
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                    ivAvatar.setImageDrawable(null);
+                }
 
             tvName.setText(contact.name == null ? contact.email : contact.name);
             tvEmail.setText(contact.accountName + "/" + contact.email);
