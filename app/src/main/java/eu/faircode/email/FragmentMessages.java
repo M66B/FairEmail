@@ -2286,9 +2286,11 @@ public class FragmentMessages extends FragmentBase {
 
         menu.findItem(R.id.menu_filter).setVisible(viewType != AdapterMessage.ViewType.SEARCH && !outbox);
         menu.findItem(R.id.menu_filter_seen).setVisible(viewType != AdapterMessage.ViewType.THREAD);
+        menu.findItem(R.id.menu_filter_unflagged).setVisible(viewType != AdapterMessage.ViewType.THREAD);
         menu.findItem(R.id.menu_filter_snoozed).setVisible(viewType != AdapterMessage.ViewType.THREAD);
         menu.findItem(R.id.menu_filter_duplicates).setVisible(viewType == AdapterMessage.ViewType.THREAD);
         menu.findItem(R.id.menu_filter_seen).setChecked(prefs.getBoolean("filter_seen", false));
+        menu.findItem(R.id.menu_filter_unflagged).setChecked(prefs.getBoolean("filter_unflagged", false));
         menu.findItem(R.id.menu_filter_snoozed).setChecked(prefs.getBoolean("filter_snoozed", true));
         menu.findItem(R.id.menu_filter_duplicates).setChecked(prefs.getBoolean("filter_duplicates", false));
 
@@ -2347,6 +2349,10 @@ public class FragmentMessages extends FragmentBase {
                 onMenuFilterRead(!item.isChecked());
                 return true;
 
+            case R.id.menu_filter_unflagged:
+                onMenuFilterUnflagged(!item.isChecked());
+                return true;
+
             case R.id.menu_filter_snoozed:
                 onMenuFilterSnoozed(!item.isChecked());
                 return true;
@@ -2397,6 +2403,15 @@ public class FragmentMessages extends FragmentBase {
     private void onMenuFilterRead(boolean filter) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putBoolean("filter_seen", filter).apply();
+        getActivity().invalidateOptionsMenu();
+        if (selectionTracker != null)
+            selectionTracker.clearSelection();
+        loadMessages(true);
+    }
+
+    private void onMenuFilterUnflagged(boolean filter) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putBoolean("filter_unflagged", filter).apply();
         getActivity().invalidateOptionsMenu();
         if (selectionTracker != null)
             selectionTracker.clearSelection();
@@ -2592,10 +2607,13 @@ public class FragmentMessages extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         String sort = prefs.getString("sort", "time");
         boolean filter_seen = prefs.getBoolean("filter_seen", false);
+        boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
         boolean filter_snoozed = prefs.getBoolean("filter_snoozed", true);
         boolean debug = prefs.getBoolean("debug", false);
         Log.i("Load messages type=" + viewType +
-                " sort=" + sort + " filter seen=" + filter_seen + " snoozed=" + filter_snoozed + " debug=" + debug);
+                " sort=" + sort +
+                " filter seen=" + filter_seen + " unflagged=" + filter_unflagged + " snoozed=" + filter_snoozed +
+                " debug=" + debug);
 
         // Sort changed
         final ViewModelMessages modelMessages = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
@@ -2606,7 +2624,13 @@ public class FragmentMessages extends FragmentBase {
         switch (viewType) {
             case UNIFIED:
                 builder = new LivePagedListBuilder<>(
-                        db.message().pagedUnifiedInbox(threading, sort, filter_seen, filter_snoozed, false, debug), LOCAL_PAGE_SIZE);
+                        db.message().pagedUnifiedInbox(
+                                threading,
+                                sort,
+                                filter_seen, filter_unflagged, filter_snoozed,
+                                false,
+                                debug),
+                        LOCAL_PAGE_SIZE);
                 break;
 
             case FOLDER:
@@ -2615,7 +2639,13 @@ public class FragmentMessages extends FragmentBase {
                         .setPrefetchDistance(REMOTE_PAGE_SIZE)
                         .build();
                 builder = new LivePagedListBuilder<>(
-                        db.message().pagedFolder(folder, threading, sort, filter_seen, filter_snoozed, false, debug), configFolder);
+                        db.message().pagedFolder(
+                                folder, threading,
+                                sort,
+                                filter_seen, filter_unflagged, filter_snoozed,
+                                false,
+                                debug),
+                        configFolder);
                 builder.setBoundaryCallback(boundaryCallback);
                 break;
 
@@ -2631,10 +2661,22 @@ public class FragmentMessages extends FragmentBase {
                         .build();
                 if (folder < 0)
                     builder = new LivePagedListBuilder<>(
-                            db.message().pagedUnifiedInbox(threading, "time", false, false, true, debug), configSearch);
+                            db.message().pagedUnifiedInbox(
+                                    threading,
+                                    "time",
+                                    false, false, false,
+                                    true,
+                                    debug),
+                            configSearch);
                 else
                     builder = new LivePagedListBuilder<>(
-                            db.message().pagedFolder(folder, threading, "time", false, false, true, debug), configSearch);
+                            db.message().pagedFolder(
+                                    folder, threading,
+                                    "time",
+                                    false, false, false,
+                                    true,
+                                    debug),
+                            configSearch);
                 builder.setBoundaryCallback(boundaryCallback);
                 break;
         }

@@ -505,6 +505,7 @@
 
     <string name="title_filter">Filter</string>
     <string name="title_filter_seen">Read</string>
+    <string name="title_filter_unflagged">Unstarred</string>
     <string name="title_filter_snoozed">Snoozed</string>
     <string name="title_filter_duplicates">Duplicates</string>
 

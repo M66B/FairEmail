@@ -60,6 +60,11 @@
                     android:title="@string/title_filter_seen" />
 
                 <item
+                    android:id="@+id/menu_filter_unflagged"
+                    android:checkable="true"
+                    android:title="@string/title_filter_unflagged" />
+
+                <item
                     android:id="@+id/menu_filter_snoozed"
                     android:checkable="true"
                     android:title="@string/title_filter_snoozed" />
