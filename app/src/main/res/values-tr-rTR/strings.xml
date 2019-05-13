@@ -110,6 +110,8 @@
     <string name="title_setup_exported">Ayarlar dışa aktarıldı</string>
     <string name="title_setup_imported">Ayarlar içe aktarıldı</string>
     <string name="title_setup_notifications">Bildirimleri yönet</string>
+    <string name="title_setup_reorder_accounts">Hesapları sırala</string>
+    <string name="title_setup_reorder_folders">Klasörleri sırala</string>
     <string name="title_reset_order">Düzeni sıfırla</string>
     <string name="title_setup_theme">Tema Seç</string>
     <string name="title_setup_light_theme">Aydınlık tema</string>
@@ -119,6 +121,7 @@
     <string name="title_setup_advanced">Gelişmiş</string>
     <string name="title_setup_options">Seçenekler</string>
     <string name="title_setup_defaults">Öntanımlıları geri yükle</string>
+    <string name="title_setup_reset_questions">Soruları sıfırla</string>
     <string name="title_advanced">Gelişmiş seçenekler</string>
     <string name="title_advanced_section_connection">Bağlantı</string>
     <string name="title_advanced_section_display">Görüntüle</string>
@@ -144,6 +147,7 @@
     <string name="title_advanced_circular">Yuvarlak simgeleri göster</string>
     <string name="title_advanced_name_email">Adları ve e-posta adreslarini göster</string>
     <string name="title_advanced_subject_italic">Konuyu eğik yazı ile göster</string>
+    <string name="title_advanced_flags">Yıldızları göster</string>
     <string name="title_advanced_preview">İleti önizlemesini göster</string>
     <string name="title_advanced_addresses">Öntanımlı olarak adres ayrıntılarını göster</string>
     <string name="title_advanced_monospaced">İleti metni için tek aralıklı yazı tipi kullan</string>
@@ -175,6 +179,7 @@
     <string name="title_advanced_authentication">Alıcı sunucu iletinin kimliğini doğrulayamadığında bir uyarı göster</string>
     <string name="title_advanced_paranoid">Fazladan gizlilik özellikleri</string>
     <string name="title_advanced_updates">Güncellemelere bak</string>
+    <string name="title_advanced_crash_reports">Hata raporları gönder</string>
     <string name="title_advanced_debug">Hata ayıklama</string>
     <string name="title_advanced_last_cleanup">Son temizleme: %1$s</string>
     <string name="title_advanced_schedule_hint">Bir zaman ayarlamak için bir saate dokunun</string>
@@ -386,7 +391,11 @@
     <string name="title_style_link">Bağlantı ekle</string>
     <string name="title_style_image">Resim Ekle</string>
     <string name="title_add_attachment">Ek ekle</string>
+    <string name="title_attachment_file">Dosya iliştir</string>
+    <string name="title_attachment_photo">Fotoğraf çek</string>
+    <string name="title_attachment_audio">Ses kaydet</string>
     <string name="title_show_addresses">CC/BCC göster</string>
+    <string name="title_media_toolbar">Medya araç çubuğu</string>
     <string name="title_insert_template">Kalıp ekle</string>
     <string name="title_send_plain_text">Yalnızca düz metin gönder</string>
     <string name="title_from_missing">Gönderici Eksik</string>
@@ -410,7 +419,6 @@
     <string name="title_sort_on_sender">Gönderen</string>
     <string name="title_sort_on_subject">Konu</string>
     <string name="title_sort_on_size">Boyut</string>
-    <string name="title_filter">Filtre</string>
     <string name="title_filter_seen">Oku</string>
     <string name="title_filter_snoozed">Ertelendi</string>
     <string name="title_filter_duplicates">Çift kopyalar</string>
