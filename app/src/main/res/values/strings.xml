@@ -154,7 +154,7 @@
 
     <string name="title_advanced">Advanced options</string>
 
-    <string name="title_advanced_section_synchronize">Synchronize</string>
+    <string name="title_advanced_section_synchronize">Receive</string>
     <string name="title_advanced_section_send">Send</string>
     <string name="title_advanced_section_connection">Connection</string>
     <string name="title_advanced_section_display">Display</string>
@@ -229,11 +229,11 @@
     <string name="title_advanced_debug">Debug mode</string>
     <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
 
-    <string name="title_advanced_enabled_hint">Globally disable or enable receiving and sending of messages</string>
+    <string name="title_advanced_enabled_hint">Globally disable or enable receiving of messages</string>
     <string name="title_advanced_schedule_hint">Tap on a time to set a time</string>
     <string name="title_advanced_metered_hint">Metered connections are generally mobile connections or paid Wi-Fi hotspots</string>
     <string name="title_advanced_metered_warning">Disabling this option will disable receiving and sending messages on mobile internet connections</string>
-    <string name="title_advanced_rlah_hint">Disable roaming within the EU</string>
+    <string name="title_advanced_rlah_hint">Assuming no roaming within the EU</string>
 
     <string name="title_advanced_browse_hint">Fetch more messages when scrolling down</string>
     <string name="title_advanced_threading_hint">Group messages related to each other</string>
