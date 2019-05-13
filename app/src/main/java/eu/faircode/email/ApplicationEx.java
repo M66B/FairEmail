@@ -208,6 +208,7 @@ public class ApplicationEx extends Application {
                     if (ex instanceof FileNotFoundException &&
                             ex.getMessage() != null &&
                             (ex.getMessage().startsWith("Download image failed") ||
+                                    ex.getMessage().startsWith("https://ipinfo.io/") ||
                                     ex.getMessage().startsWith("https://autoconfig.thunderbird.net/")))
                         return false;
                 }
