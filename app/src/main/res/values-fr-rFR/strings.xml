@@ -442,7 +442,7 @@
     <string name="title_sort_on_subject">Objet</string>
     <string name="title_sort_on_size">Taille</string>
     <string name="title_sort_on_snoozed">Différé</string>
-    <string name="title_filter">Filtrer</string>
+    <string name="title_filter">Filtrer (exclure)</string>
     <string name="title_filter_seen">Lu</string>
     <string name="title_filter_unflagged">Non suivi</string>
     <string name="title_filter_snoozed">Différé</string>
