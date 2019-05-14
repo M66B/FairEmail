@@ -438,9 +438,21 @@ class Core {
         // Add message
         DB db = DB.getInstance(context);
 
+        // Get arguments
+        Long tmpid = (jargs.length() > 0 && !jargs.isNull(0) ? jargs.getLong(0) : null);
+        boolean autoread = (jargs.length() > 1 && jargs.getBoolean(1));
+        boolean across = (jargs.length() > 2 && jargs.getBoolean(2));
+
         try {
             if (TextUtils.isEmpty(message.msgid))
                 throw new IllegalArgumentException("Message ID missing");
+
+            if (EntityFolder.DRAFTS.equals(folder.type) &&
+                    !folder.id.equals(message.folder) &&
+                    !across) {
+                Log.i("Drafts moved folder=" + message.folder);
+                return;
+            }
 
             // Delete previous message(s) with same ID
             if (folder.id.equals(message.folder)) {
@@ -483,14 +495,10 @@ class Core {
             }
 
             // Handle auto read
-            boolean autoread = false;
-            if (jargs.length() > 1) {
-                autoread = jargs.getBoolean(1);
-                if (ifolder.getPermanentFlags().contains(Flags.Flag.SEEN)) {
-                    if (autoread && !imessage.isSet(Flags.Flag.SEEN)) {
-                        Log.i(folder.name + " autoread");
-                        imessage.setFlag(Flags.Flag.SEEN, true);
-                    }
+            if (ifolder.getPermanentFlags().contains(Flags.Flag.SEEN)) {
+                if (autoread && !imessage.isSet(Flags.Flag.SEEN)) {
+                    Log.i(folder.name + " autoread");
+                    imessage.setFlag(Flags.Flag.SEEN, true);
                 }
             }
 
@@ -532,15 +540,15 @@ class Core {
             if (folder.id.equals(message.folder)) {
                 Log.i(folder.name + " Setting id=" + message.id + " uid=" + uid);
                 db.message().setMessageUid(message.id, uid);
-            } else {
-                // Cross account move
-                if (jargs.length() > 0 && !jargs.isNull(0)) {
-                    long tmpid = jargs.getLong(0);
-                    Log.i(folder.name + " Setting id=" + tmpid + " (tmp) appended uid=" + uid);
-                    db.message().setMessageUid(tmpid, uid);
-                }
+            } else
                 try {
                     db.beginTransaction();
+
+                    // Cross account move
+                    if (tmpid != null) {
+                        Log.i(folder.name + " Setting id=" + tmpid + " (tmp) appended uid=" + uid);
+                        db.message().setMessageUid(tmpid, uid);
+                    }
 
                     // Mark source read
                     if (autoread) {
@@ -556,7 +564,6 @@ class Core {
                 } finally {
                     db.endTransaction();
                 }
-            }
         } catch (Throwable ex) {
             if (folder.id.equals(message.folder))
                 db.message().setMessageUid(message.id, message.uid);
@@ -664,6 +671,7 @@ class Core {
             // Cross account move
             long target = jargs.getLong(2);
             jargs.remove(2);
+            jargs.put(2, true); // cross account
             Log.i(folder.name + " queuing ADD id=" + message.id + ":" + target);
 
             EntityOperation operation = new EntityOperation();

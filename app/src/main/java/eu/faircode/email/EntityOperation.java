@@ -184,16 +184,17 @@ public class EntityOperation {
                     EntityAttachment.copy(context, message.id, tmpid);
                 }
 
-                // Cross account move
                 if (source.account.equals(target.account))
                     jargs.put(2, tmpid); // Can be null
                 else {
+                    // Cross account move
                     if (message.raw != null && message.raw) {
                         name = ADD;
                         folder = target.id;
                         jargs = new JSONArray();
                         jargs.put(0, tmpid); // Can be null
                         jargs.put(1, autoread);
+                        jargs.put(2, true); // Cross account
                     } else {
                         name = RAW;
                         jargs = new JSONArray();
