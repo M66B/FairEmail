@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
@@ -85,8 +86,11 @@ public class ActivityEml extends ActivityBase {
             protected Result onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
 
-                if ("file".equals(uri.getScheme()))
+                if ("file".equals(uri.getScheme()) &&
+                        !Helper.hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                    Log.w("EML uri=" + uri);
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
+                }
 
                 Result result = new Result();
 
