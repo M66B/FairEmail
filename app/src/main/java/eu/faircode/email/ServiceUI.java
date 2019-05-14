@@ -215,7 +215,7 @@ public class ServiceUI extends IntentService {
                     Log.i("Delayed send id=" + message.id);
                     EntityOperation.queue(
                             this, db, message, EntityOperation.SEND);
-                } else {
+                } else if (folder.notify) {
                     EntityOperation.queue(
                             this, db, message, EntityOperation.SEEN, false);
                     db.message().setMessageUiIgnored(message.id, false);
