@@ -2556,6 +2556,24 @@ public class FragmentMessages extends FragmentBase {
                     // Do nothing
                 }
             });
+        } else if (viewType == AdapterMessage.ViewType.SEARCH) {
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    DB.getInstance(context).message().resetSearch();
+                    return null;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Void data) {
+                    loadMessagesNext(top);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                }
+            }.execute(getContext(), getViewLifecycleOwner(), new Bundle(), "search:reset");
         } else
             loadMessagesNext(top);
     }
@@ -3163,36 +3181,20 @@ public class FragmentMessages extends FragmentBase {
             final Context context, final LifecycleOwner owner, final FragmentManager manager,
             long folder, boolean server, String query) {
         if (Helper.isPro(context)) {
+            if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                manager.popBackStack("search", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
             Bundle args = new Bundle();
             args.putLong("folder", folder);
             args.putBoolean("server", server);
             args.putString("query", query);
 
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onExecute(Context context, Bundle args) {
-                    DB.getInstance(context).message().resetSearch();
-                    return null;
-                }
+            FragmentMessages fragment = new FragmentMessages();
+            fragment.setArguments(args);
 
-                @Override
-                protected void onExecuted(Bundle args, Void data) {
-                    if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                        manager.popBackStack("search", FragmentManager.POP_BACK_STACK_INCLUSIVE);
-
-                    FragmentMessages fragment = new FragmentMessages();
-                    fragment.setArguments(args);
-
-                    FragmentTransaction fragmentTransaction = manager.beginTransaction();
-                    fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
-                    fragmentTransaction.commit();
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
-                }
-            }.execute(context, owner, args, "search:reset");
+            FragmentTransaction fragmentTransaction = manager.beginTransaction();
+            fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
+            fragmentTransaction.commit();
         } else {
             FragmentTransaction fragmentTransaction = manager.beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
