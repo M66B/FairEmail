@@ -62,7 +62,7 @@ public interface DaoMessage {
             " AND (NOT :filter_snoozed OR ui_snoozed IS NULL)" +
             " AND (NOT :found OR ui_found = :found)" +
             " GROUP BY account.id, CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
-            " HAVING :found OR SUM(unified) > 0" +
+            " HAVING (:found OR SUM(unified) > 0)" +
             " AND (NOT :filter_seen OR " + unseen_unified + " > 0)" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - " + unflagged_unified + " > 0)" +
             " ORDER BY" +
@@ -83,6 +83,7 @@ public interface DaoMessage {
             boolean found,
             boolean debug);
 
+    String is_outbox = "folder.type = '" + EntityFolder.OUTBOX + "'";
     String unseen_folder = "SUM(CASE WHEN message.ui_seen OR (folder.id <> :folder AND " + folder_in + ") THEN 0 ELSE 1 END)";
     String unflagged_folder = "SUM(CASE WHEN message.ui_flagged AND NOT (folder.id <> :folder AND " + folder_in + ") THEN 0 ELSE 1 END)";
 
@@ -103,14 +104,14 @@ public interface DaoMessage {
             " LEFT JOIN identity ON identity.id = message.identity" +
             " JOIN folder ON folder.id = message.folder" +
             " JOIN folder f ON f.id = :folder" +
-            " WHERE (message.account = f.account OR folder.type = '" + EntityFolder.OUTBOX + "')" +
+            " WHERE (message.account = f.account OR " + is_outbox + ")" +
             " AND (NOT message.ui_hide OR :debug)" +
-            " AND (NOT :filter_snoozed OR ui_snoozed IS NULL OR folder.type = '" + EntityFolder.OUTBOX + "')" +
+            " AND (NOT :filter_snoozed OR ui_snoozed IS NULL OR " + is_outbox + ")" +
             " AND (NOT :found OR ui_found = :found)" +
             " GROUP BY CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING SUM(CASE WHEN folder.id = :folder THEN 1 ELSE 0 END) > 0" +
-            " AND (NOT :filter_seen OR " + unseen_folder + " > 0 OR folder.type = '" + EntityFolder.OUTBOX + "')" +
-            " AND (NOT :filter_unflagged OR COUNT(message.id) - " + unflagged_folder + " > 0 OR folder.type = '" + EntityFolder.OUTBOX + "')" +
+            " AND (NOT :filter_seen OR " + unseen_folder + " > 0 OR " + is_outbox + ")" +
+            " AND (NOT :filter_unflagged OR COUNT(message.id) - " + unflagged_folder + " > 0 OR " + is_outbox + ")" +
             " ORDER BY" +
             " CASE" +
             "  WHEN 'unread' = :sort THEN " + unseen_folder + " = 0" +
