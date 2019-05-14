@@ -179,7 +179,7 @@
     <string name="title_advanced_notify_action_archive">Archivio</string>
     <string name="title_advanced_notify_action_reply">Rispondi</string>
     <string name="title_advanced_notify_action_flag">Stella</string>
-    <string name="title_advanced_notify_action_seen">Leggi</string>
+    <string name="title_advanced_notify_action_seen">Letto</string>
     <string name="title_advanced_notify_action_hint">Verranno mostrate al massimo tre azioni</string>
     <string name="title_advanced_light">Usa il led di notifica</string>
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>

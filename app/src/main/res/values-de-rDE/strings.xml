@@ -156,7 +156,7 @@
     <string name="title_advanced_circular">Runde Symbole benutzen</string>
     <string name="title_advanced_name_email">Namen und E-Mail-Adressen anzeigen</string>
     <string name="title_advanced_subject_italic">Betreff kursiv anzeigen</string>
-    <string name="title_advanced_flags">Gekennzeichnete anzeigen</string>
+    <string name="title_advanced_flags">Sterne anzeigen</string>
     <string name="title_advanced_preview">Nachrichtenvorschau anzeigen</string>
     <string name="title_advanced_addresses">Adressdetails standardmäßig anzeigen</string>
     <string name="title_advanced_monospaced">Unproportionale Schriftart für Nachrichtentext verwenden</string>
