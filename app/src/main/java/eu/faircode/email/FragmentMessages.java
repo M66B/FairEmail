@@ -3196,6 +3196,9 @@ public class FragmentMessages extends FragmentBase {
             fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
             fragmentTransaction.commit();
         } else {
+            if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                manager.popBackStack("pro", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
             FragmentTransaction fragmentTransaction = manager.beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
             fragmentTransaction.commit();

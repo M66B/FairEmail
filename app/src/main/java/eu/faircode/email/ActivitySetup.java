@@ -374,6 +374,9 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 Helper.unexpectedError(this, this, ex);
             }
         else {
+            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                getSupportFragmentManager().popBackStack("pro", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
             fragmentTransaction.commit();
