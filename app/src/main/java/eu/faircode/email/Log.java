@@ -80,6 +80,10 @@ public class Log {
         return android.util.Log.e(TAG, msg);
     }
 
+    public static int i(Throwable ex) {
+        return android.util.Log.w(TAG, ex + "\n" + android.util.Log.getStackTraceString(ex));
+    }
+
     public static int w(Throwable ex) {
         Bugsnag.notify(ex, Severity.INFO);
         return android.util.Log.w(TAG, ex + "\n" + android.util.Log.getStackTraceString(ex));

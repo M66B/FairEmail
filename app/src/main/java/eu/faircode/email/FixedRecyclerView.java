@@ -60,7 +60,7 @@ public class FixedRecyclerView extends RecyclerView {
                 at androidx.recyclerview.widget.RecyclerView.dispatchOnItemTouch(SourceFile:2947)
                 at androidx.recyclerview.widget.RecyclerView.onTouchEvent(SourceFile:3090)
              */
-            Log.w(ex);
+            Log.i(ex);
             return false;
         } catch (NullPointerException ex) {
             /*
