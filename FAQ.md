@@ -175,6 +175,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(103) How can I record audio?](#user-content-faq103)
 * [(104) What do I need to know about error reporting?](#user-content-faq104)
 * [(105) How does the roam-like-at-home option work?](#user-content-faq105)
+* [(106) Which launchers can show the number of new messages?](#user-content-faq106)
 
 [I have another question.](#support)
 
@@ -1720,6 +1721,16 @@ are in the [EU roam-like-at-home countries](https://en.wikipedia.org/wiki/Europe
 and assumes no roaming if the country codes are equal and the advanced roam-like-at-home option is enabled.
 
 So, you don't have to disable this option if you don't have an EU SIM or are not connected to an EU network.
+
+<br />
+
+<a name="faq106"></a>
+**(106) Which launchers can show the number of new messages?**
+
+Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers)
+for a list of launchers which can show the number of new messages.
+
+Note that this needs to be enabled in the advance options (default enabled).
 
 <br />
 
