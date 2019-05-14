@@ -753,7 +753,7 @@ class Core {
         if (!found) {
             db.attachment().setError(local.id, "Attachment not found");
             if (!EntityFolder.DRAFTS.equals(folder.type))
-                throw new IllegalArgumentException("Attachment not found");
+                throw new IllegalArgumentException("Attachment not found: " + local);
         }
 
         updateMessageSize(context, message.id);
