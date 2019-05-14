@@ -3187,7 +3187,7 @@ public class FragmentCompose extends FragmentBase {
 
                     etBody.setText(ss);
                     etBody.setSelection(end);
-                    return false;
+                    return true;
                 }
 
                 case R.string.title_style_color: {
