@@ -2665,7 +2665,7 @@ public class FragmentMessages extends FragmentBase {
                 if (folder < 0)
                     builder = new LivePagedListBuilder<>(
                             db.message().pagedUnifiedInbox(
-                                    threading,
+                                    true,
                                     "time",
                                     false, false, false,
                                     true,
@@ -2674,7 +2674,7 @@ public class FragmentMessages extends FragmentBase {
                 else
                     builder = new LivePagedListBuilder<>(
                             db.message().pagedFolder(
-                                    folder, threading,
+                                    folder, true,
                                     "time",
                                     false, false, false,
                                     true,
