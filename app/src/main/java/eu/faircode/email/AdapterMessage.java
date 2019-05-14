@@ -688,6 +688,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpHeaders.setVisibility(View.GONE);
             grpAttachments.setVisibility(View.GONE);
             grpExpanded.setVisibility(View.GONE);
+            grpImages.setVisibility(View.GONE);
 
             ibSearchContact.setVisibility(View.GONE);
             ibNotifyContact.setVisibility(View.GONE);
@@ -729,7 +730,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             vwBody.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
             tvNoInternetBody.setVisibility(View.GONE);
-            grpImages.setVisibility(View.GONE);
         }
 
         private void bindFlagged(TupleMessageEx message) {
@@ -1029,6 +1029,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (!attachment.isInline() && attachment.isImage())
                     images.add(attachment);
             adapterImage.set(images);
+            grpImages.setVisibility(images.size() > 0 ? View.VISIBLE : View.GONE);
 
             boolean show_html = properties.getValue("html", message.id);
             if (show_html)
@@ -1416,7 +1417,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tbHtml.setVisibility(View.VISIBLE);
             ibFull.setVisibility(View.INVISIBLE);
             tvBody.setVisibility(View.GONE);
-            grpImages.setVisibility(adapterImage.getItemCount() > 0 ? View.INVISIBLE : View.GONE);
 
             // For performance reasons the WebView is created when needed only
             if (!(vwBody instanceof WebView)) {
@@ -1836,8 +1836,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvBody.setMovementMethod(new TouchHandler(message));
 
                 pbBody.setVisibility(View.GONE);
-
-                grpImages.setVisibility(adapterImage.getItemCount() > 0 ? View.VISIBLE : View.GONE);
             }
 
             @Override
