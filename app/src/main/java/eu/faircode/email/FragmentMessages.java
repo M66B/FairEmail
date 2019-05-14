@@ -71,10 +71,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.selection.Selection;
@@ -104,8 +104,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static android.text.format.DateUtils.DAY_IN_MILLIS;
@@ -182,10 +180,6 @@ public class FragmentMessages extends FragmentBase {
     private LongSparseArray<List<EntityAttachment>> attachments = new LongSparseArray<>();
     private LongSparseArray<TupleAccountSwipes> accountSwipes = new LongSparseArray<>();
 
-    private BoundaryCallbackMessages boundaryCallback = null;
-
-    private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
-
     private final int action_seen = 1;
     private final int action_unseen = 2;
     private final int action_snooze = 3;
@@ -199,8 +193,6 @@ public class FragmentMessages extends FragmentBase {
 
     private NumberFormat nf = NumberFormat.getNumberInstance();
 
-    private static final int LOCAL_PAGE_SIZE = 100;
-    private static final int REMOTE_PAGE_SIZE = 10;
     private static final int UNDO_TIMEOUT = 5000; // milliseconds
     private static final int SWIPE_DISABLE_SELECT_DURATION = 1500; // milliseconds
 
@@ -679,7 +671,7 @@ public class FragmentMessages extends FragmentBase {
 
         if (viewType == AdapterMessage.ViewType.THREAD) {
             ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-            model.observePrevNext(getViewLifecycleOwner(), id, found, new ViewModelMessages.IPrevNext() {
+            model.observePrevNext(getViewLifecycleOwner(), id, new ViewModelMessages.IPrevNext() {
                 @Override
                 public void onPrevious(boolean exists, Long id) {
                     previous = id;
@@ -2540,7 +2532,7 @@ public class FragmentMessages extends FragmentBase {
     private void loadMessages(final boolean top) {
         if (viewType == AdapterMessage.ViewType.THREAD && autonext) {
             ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-            model.observePrevNext(getViewLifecycleOwner(), id, found, new ViewModelMessages.IPrevNext() {
+            model.observePrevNext(getViewLifecycleOwner(), id, new ViewModelMessages.IPrevNext() {
                 boolean once = false;
 
                 @Override
@@ -2568,126 +2560,48 @@ public class FragmentMessages extends FragmentBase {
             loadMessagesNext(top);
     }
 
+    private boolean loading = false;
+
     private void loadMessagesNext(final boolean top) {
-        if (viewType == AdapterMessage.ViewType.FOLDER || viewType == AdapterMessage.ViewType.SEARCH)
-            if (boundaryCallback == null)
-                boundaryCallback = new BoundaryCallbackMessages(
-                        getContext(), getViewLifecycleOwner(),
-                        folder, server || viewType == AdapterMessage.ViewType.FOLDER,
-                        query, REMOTE_PAGE_SIZE,
-                        new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
-                            @Override
-                            public void onLoading() {
-                                pbWait.setVisibility(View.VISIBLE);
-                            }
+        ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
 
-                            @Override
-                            public void onLoaded(int fetched) {
-                                pbWait.setVisibility(View.GONE);
+        LiveData<PagedList<TupleMessageEx>> liveMessages = model.getPagedList(
+                getContext(), getViewLifecycleOwner(),
+                viewType, account, folder, thread, id, query, server,
+                new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
+                    @Override
+                    public void onLoading() {
+                        loading = true;
+                        pbWait.setVisibility(View.VISIBLE);
+                    }
 
-                                Integer submitted = (Integer) rvMessage.getTag();
-                                if (submitted == null)
-                                    submitted = 0;
-                                if (submitted + fetched == 0)
-                                    tvNoEmail.setVisibility(View.VISIBLE);
-                            }
+                    @Override
+                    public void onLoaded(int fetched) {
+                        loading = false;
+                        pbWait.setVisibility(View.GONE);
 
-                            @Override
-                            public void onError(Throwable ex) {
-                                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                                    if (ex instanceof IllegalArgumentException)
-                                        Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                                    else
-                                        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                                                .setMessage(Helper.formatThrowable(ex))
-                                                .setPositiveButton(android.R.string.cancel, null)
-                                                .create()
-                                                .show();
-                            }
-                        });
+                        Integer submitted = (Integer) rvMessage.getTag();
+                        if (submitted == null)
+                            submitted = 0;
+                        if (submitted + fetched == 0)
+                            tvNoEmail.setVisibility(View.VISIBLE);
+                    }
 
-        // Observe folder/messages/search
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String sort = prefs.getString("sort", "time");
-        boolean filter_seen = prefs.getBoolean("filter_seen", false);
-        boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
-        boolean filter_snoozed = prefs.getBoolean("filter_snoozed", true);
-        boolean debug = prefs.getBoolean("debug", false);
-        Log.i("Load messages type=" + viewType +
-                " sort=" + sort +
-                " filter seen=" + filter_seen + " unflagged=" + filter_unflagged + " snoozed=" + filter_snoozed +
-                " debug=" + debug);
+                    @Override
+                    public void onError(Throwable ex) {
+                        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                            if (ex instanceof IllegalArgumentException)
+                                Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                            else
+                                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                                        .setMessage(Helper.formatThrowable(ex))
+                                        .setPositiveButton(android.R.string.cancel, null)
+                                        .create()
+                                        .show();
+                    }
+                });
 
-        // Sort changed
-        final ViewModelMessages modelMessages = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-        modelMessages.removeObservers(viewType, getViewLifecycleOwner());
-
-        DB db = DB.getInstance(getContext());
-        LivePagedListBuilder<Integer, TupleMessageEx> builder = null;
-        switch (viewType) {
-            case UNIFIED:
-                builder = new LivePagedListBuilder<>(
-                        db.message().pagedUnifiedInbox(
-                                threading,
-                                sort,
-                                filter_seen, filter_unflagged, filter_snoozed,
-                                false,
-                                debug),
-                        LOCAL_PAGE_SIZE);
-                break;
-
-            case FOLDER:
-                PagedList.Config configFolder = new PagedList.Config.Builder()
-                        .setPageSize(LOCAL_PAGE_SIZE)
-                        .setPrefetchDistance(REMOTE_PAGE_SIZE)
-                        .build();
-                builder = new LivePagedListBuilder<>(
-                        db.message().pagedFolder(
-                                folder, threading,
-                                sort,
-                                filter_seen, filter_unflagged, filter_snoozed,
-                                false,
-                                debug),
-                        configFolder);
-                builder.setBoundaryCallback(boundaryCallback);
-                break;
-
-            case THREAD:
-                builder = new LivePagedListBuilder<>(
-                        db.message().pagedThread(account, thread, threading ? null : id, debug), LOCAL_PAGE_SIZE);
-                break;
-
-            case SEARCH:
-                PagedList.Config configSearch = new PagedList.Config.Builder()
-                        .setPageSize(LOCAL_PAGE_SIZE)
-                        .setPrefetchDistance(REMOTE_PAGE_SIZE)
-                        .build();
-                if (folder < 0)
-                    builder = new LivePagedListBuilder<>(
-                            db.message().pagedUnifiedInbox(
-                                    threading,
-                                    "time",
-                                    false, false, false,
-                                    true,
-                                    debug),
-                            configSearch);
-                else
-                    builder = new LivePagedListBuilder<>(
-                            db.message().pagedFolder(
-                                    folder, threading,
-                                    "time",
-                                    false, false, false,
-                                    true,
-                                    debug),
-                            configSearch);
-                builder.setBoundaryCallback(boundaryCallback);
-                break;
-        }
-
-        builder.setFetchExecutor(executor);
-
-        modelMessages.setMessages(viewType, getViewLifecycleOwner(), builder.build());
-        modelMessages.observe(viewType, getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
+        liveMessages.observe(getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
             private boolean topped = false;
 
             @Override
@@ -2714,9 +2628,11 @@ public class FragmentMessages extends FragmentBase {
 
                 rvMessage.setTag(messages.size());
 
-                if (boundaryCallback == null || !boundaryCallback.isLoading())
+                boolean hasBoundary = (viewType == AdapterMessage.ViewType.FOLDER || viewType == AdapterMessage.ViewType.SEARCH);
+
+                if (!hasBoundary || !loading)
                     pbWait.setVisibility(View.GONE);
-                if (boundaryCallback == null && messages.size() == 0)
+                if (!hasBoundary && messages.size() == 0)
                     tvNoEmail.setVisibility(View.VISIBLE);
                 if (messages.size() > 0) {
                     tvNoEmail.setVisibility(View.GONE);

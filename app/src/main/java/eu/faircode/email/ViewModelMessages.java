@@ -19,6 +19,12 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -26,77 +32,184 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.lifecycle.ViewModel;
+import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
+import androidx.preference.PreferenceManager;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class ViewModelMessages extends ViewModel {
-    private Map<AdapterMessage.ViewType, LiveData<PagedList<TupleMessageEx>>> messages = new HashMap<>();
+    private AdapterMessage.ViewType last = AdapterMessage.ViewType.UNIFIED;
+    private Map<AdapterMessage.ViewType, Model> models = new HashMap<>();
 
-    void setMessages(AdapterMessage.ViewType viewType, LifecycleOwner owner, final LiveData<PagedList<TupleMessageEx>> messages) {
-        if (viewType == AdapterMessage.ViewType.UNIFIED)
-            viewType = AdapterMessage.ViewType.FOLDER;
+    private ExecutorService executor = Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
 
-        this.messages.put(viewType, messages);
+    private static final int LOCAL_PAGE_SIZE = 100;
+    private static final int REMOTE_PAGE_SIZE = 10;
 
-        if (viewType == AdapterMessage.ViewType.FOLDER)
-            this.messages.remove(AdapterMessage.ViewType.SEARCH);
+    LiveData<PagedList<TupleMessageEx>> getPagedList(
+            Context context, LifecycleOwner owner,
+            final AdapterMessage.ViewType viewType,
+            long account, long folder, String thread, long id,
+            String query, boolean server,
+            BoundaryCallbackMessages.IBoundaryCallbackMessages callback) {
 
-        if (viewType == AdapterMessage.ViewType.THREAD)
+        Args args = new Args(context, account, folder, thread, id, query, server);
+        Log.i("Get model " + viewType + " " + args);
+        dump();
+
+        Model model = models.get(viewType);
+        if (model == null || !model.args.equals(args)) {
+            Log.i("Creating model");
+
+            if (model != null)
+                model.clear();
+
+            DB db = DB.getInstance(context);
+
+            BoundaryCallbackMessages boundary = null;
+            if (viewType == AdapterMessage.ViewType.FOLDER || viewType == AdapterMessage.ViewType.SEARCH)
+                boundary = new BoundaryCallbackMessages(context,
+                        args.folder, args.server || viewType == AdapterMessage.ViewType.FOLDER,
+                        args.query, REMOTE_PAGE_SIZE);
+
+            LivePagedListBuilder<Integer, TupleMessageEx> builder = null;
+            switch (viewType) {
+                case UNIFIED:
+                    builder = new LivePagedListBuilder<>(
+                            db.message().pagedUnifiedInbox(
+                                    args.threading,
+                                    args.sort,
+                                    args.filter_seen, args.filter_unflagged, args.filter_snoozed,
+                                    false,
+                                    args.debug),
+                            LOCAL_PAGE_SIZE);
+                    break;
+
+                case FOLDER:
+                    PagedList.Config configFolder = new PagedList.Config.Builder()
+                            .setPageSize(LOCAL_PAGE_SIZE)
+                            .setPrefetchDistance(REMOTE_PAGE_SIZE)
+                            .build();
+                    builder = new LivePagedListBuilder<>(
+                            db.message().pagedFolder(
+                                    args.folder, args.threading,
+                                    args.sort,
+                                    args.filter_seen, args.filter_unflagged, args.filter_snoozed,
+                                    false,
+                                    args.debug),
+                            configFolder);
+                    builder.setBoundaryCallback(boundary);
+                    break;
+
+                case THREAD:
+                    builder = new LivePagedListBuilder<>(
+                            db.message().pagedThread(
+                                    args.account, args.thread,
+                                    args.threading ? null : args.id,
+                                    args.debug), LOCAL_PAGE_SIZE);
+                    break;
+
+                case SEARCH:
+                    PagedList.Config configSearch = new PagedList.Config.Builder()
+                            .setPageSize(LOCAL_PAGE_SIZE)
+                            .setPrefetchDistance(REMOTE_PAGE_SIZE)
+                            .build();
+                    if (args.folder < 0)
+                        builder = new LivePagedListBuilder<>(
+                                db.message().pagedUnifiedInbox(
+                                        args.threading,
+                                        "time",
+                                        false, false, false,
+                                        true,
+                                        args.debug),
+                                configSearch);
+                    else
+                        builder = new LivePagedListBuilder<>(
+                                db.message().pagedFolder(
+                                        args.folder, args.threading,
+                                        "time",
+                                        false, false, false,
+                                        true,
+                                        args.debug),
+                                configSearch);
+                    builder.setBoundaryCallback(boundary);
+                    break;
+            }
+
+            builder.setFetchExecutor(executor);
+
+            model = new Model(args, builder.build(), boundary);
+            models.put(viewType, model);
+
             owner.getLifecycle().addObserver(new LifecycleObserver() {
                 @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
                 public void onDestroyed() {
-                    Log.i("Removed model thread");
-                    ViewModelMessages.this.messages.remove(AdapterMessage.ViewType.THREAD);
+                    Log.i("Destroy model " + viewType);
+
+                    if (viewType == AdapterMessage.ViewType.THREAD)
+                        remove(viewType);
+
+                    dump();
                 }
             });
-        else {
-            // Keep list up-to-date for previous/next navigation
-            messages.observeForever(new Observer<PagedList<TupleMessageEx>>() {
-                @Override
-                public void onChanged(PagedList<TupleMessageEx> messages) {
-                }
-            });
+
+            if (viewType != AdapterMessage.ViewType.THREAD)
+                // Keep list up-to-date for previous/next navigation
+                model.list.observeForever(new Observer<PagedList<TupleMessageEx>>() {
+                    @Override
+                    public void onChanged(PagedList<TupleMessageEx> messages) {
+                    }
+                });
         }
-    }
 
-    void observe(AdapterMessage.ViewType viewType, LifecycleOwner owner, Observer<PagedList<TupleMessageEx>> observer) {
-        if (viewType == AdapterMessage.ViewType.UNIFIED)
-            viewType = AdapterMessage.ViewType.FOLDER;
+        if (model.boundary != null)
+            model.boundary.setCallback(callback);
 
-        if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.INITIALIZED))
-            messages.get(viewType).observe(owner, observer);
-    }
+        if (viewType == AdapterMessage.ViewType.UNIFIED) {
+            remove(AdapterMessage.ViewType.FOLDER);
+            remove(AdapterMessage.ViewType.SEARCH);
+        } else if (viewType == AdapterMessage.ViewType.FOLDER)
+            remove(AdapterMessage.ViewType.SEARCH);
 
-    void removeObservers(AdapterMessage.ViewType viewType, LifecycleOwner owner) {
-        if (viewType == AdapterMessage.ViewType.UNIFIED)
-            viewType = AdapterMessage.ViewType.FOLDER;
+        last = viewType;
 
-        if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.INITIALIZED)) {
-            LiveData<PagedList<TupleMessageEx>> list = messages.get(viewType);
-            if (list != null)
-                list.removeObservers(owner);
-        }
+        Log.i("Returning model=" + viewType);
+        dump();
+
+        return model.list;
     }
 
     @Override
     protected void onCleared() {
-        messages.clear();
+        for (AdapterMessage.ViewType viewType : new ArrayList<>(models.keySet()))
+            remove(viewType);
     }
 
-    void observePrevNext(LifecycleOwner owner, final long id, boolean found, final IPrevNext intf) {
-        AdapterMessage.ViewType viewType =
-                (found ? AdapterMessage.ViewType.SEARCH : AdapterMessage.ViewType.FOLDER);
+    private void remove(AdapterMessage.ViewType viewType) {
+        Model model = models.get(viewType);
+        if (model != null) {
+            model.clear();
+            models.remove(viewType);
+        }
+    }
 
-        LiveData<PagedList<TupleMessageEx>> list = messages.get(viewType);
-        if (list == null) {
+    void observePrevNext(LifecycleOwner owner, final long id, final IPrevNext intf) {
+        Log.i("Observe prev/next model=" + last);
+
+        Model model = models.get(last);
+        if (model == null) {
             Log.w("Observe previous/next without list");
             return;
         }
 
         Log.i("Observe previous/next id=" + id);
-        list.observe(owner, new Observer<PagedList<TupleMessageEx>>() {
+        model.list.observe(owner, new Observer<PagedList<TupleMessageEx>>() {
             @Override
             public void onChanged(PagedList<TupleMessageEx> messages) {
                 Log.i("Observe previous/next id=" + id + " messages=" + messages.size());
@@ -134,6 +247,95 @@ public class ViewModelMessages extends ViewModel {
                 Log.w("Observe previous/next gone id=" + id);
             }
         });
+    }
+
+    private class Args {
+        private long account;
+        private long folder;
+        private String thread;
+        private long id;
+        private String query;
+        private boolean server;
+
+        private boolean threading;
+        private String sort;
+        private boolean filter_seen;
+        private boolean filter_unflagged;
+        private boolean filter_snoozed;
+        private boolean debug;
+
+        Args(Context context,
+             long account, long folder, String thread, long id,
+             String query, boolean server) {
+
+            this.account = account;
+            this.folder = folder;
+            this.thread = thread;
+            this.id = id;
+            this.query = query;
+            this.server = server;
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            this.threading = prefs.getBoolean("threading", true);
+            this.sort = prefs.getString("sort", "time");
+            this.filter_seen = prefs.getBoolean("filter_seen", false);
+            this.filter_unflagged = prefs.getBoolean("filter_unflagged", false);
+            this.filter_snoozed = prefs.getBoolean("filter_snoozed", true);
+            this.debug = prefs.getBoolean("debug", false);
+        }
+
+        @Override
+        public boolean equals(@Nullable Object obj) {
+            if (obj instanceof Args) {
+                Args other = (Args) obj;
+                return (this.account == other.account &&
+                        this.folder == other.folder &&
+                        Objects.equals(this.thread, other.thread) &&
+                        this.id == other.id &&
+                        Objects.equals(this.query, other.query) &&
+                        this.server == other.server &&
+
+                        this.threading == other.threading &&
+                        Objects.equals(this.sort, other.sort) &&
+                        this.filter_seen == other.filter_seen &&
+                        this.filter_unflagged == other.filter_unflagged &&
+                        this.filter_snoozed == other.filter_snoozed &&
+                        this.debug == other.debug);
+            } else
+                return false;
+        }
+
+        @NonNull
+        @Override
+        public String toString() {
+            return "folder=" + account + ":" + folder + " thread=" + thread + ":" + id +
+                    " query=" + query + ":" + server + "" +
+                    " threading=" + threading +
+                    " sort=" + sort +
+                    " filter seen=" + filter_seen + " unflagged=" + filter_unflagged + " snoozed=" + filter_snoozed +
+                    " debug=" + debug;
+        }
+    }
+
+    private void dump() {
+        Log.i("Current models=" + TextUtils.join(", ", models.keySet()));
+    }
+
+    private class Model {
+        private Args args;
+        private LiveData<PagedList<TupleMessageEx>> list;
+        private BoundaryCallbackMessages boundary;
+
+        Model(Args args, LiveData<PagedList<TupleMessageEx>> list, BoundaryCallbackMessages boundary) {
+            this.args = args;
+            this.list = list;
+            this.boundary = boundary;
+        }
+
+        private void clear() {
+            if (this.boundary != null)
+                this.boundary.clear();
+        }
     }
 
     interface IPrevNext {

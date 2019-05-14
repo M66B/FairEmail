@@ -25,10 +25,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Handler;
 
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleObserver;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.OnLifecycleEvent;
 import androidx.paging.PagedList;
 import androidx.preference.PreferenceManager;
 
@@ -72,6 +68,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private boolean server;
     private String query;
     private int pageSize;
+
     private IBoundaryCallbackMessages intf;
 
     private Handler handler;
@@ -80,7 +77,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private boolean destroyed = false;
     private boolean error = false;
     private int index = 0;
-    private boolean loading = false;
 
     private List<Long> messages = null;
 
@@ -96,39 +92,17 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         void onError(Throwable ex);
     }
 
-    BoundaryCallbackMessages(
-            Context context, LifecycleOwner owner,
-            long folder, boolean server, String query, int pageSize,
-            IBoundaryCallbackMessages intf) {
-
+    BoundaryCallbackMessages(Context context, long folder, boolean server, String query, int pageSize) {
         this.context = context.getApplicationContext();
         this.folder = (folder < 0 ? null : folder);
         this.server = server;
         this.query = query;
         this.pageSize = pageSize;
-        this.intf = intf;
+    }
 
+    void setCallback(IBoundaryCallbackMessages intf) {
         this.handler = new Handler();
-
-        owner.getLifecycle().addObserver(new LifecycleObserver() {
-            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-            public void onDestroyed() {
-                destroyed = true;
-
-                executor.submit(new Runnable() {
-                    @Override
-                    public void run() {
-                        Log.i("Boundary destroy");
-                        try {
-                            if (istore != null)
-                                istore.close();
-                        } catch (Throwable ex) {
-                            Log.e("Boundary", ex);
-                        }
-                    }
-                });
-            }
-        });
+        this.intf = intf;
     }
 
     @Override
@@ -153,41 +127,38 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     if (destroyed)
                         return;
 
-                    loading = true;
                     fetched = 0;
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            intf.onLoading();
-                        }
-                    });
+                    if (intf != null)
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                intf.onLoading();
+                            }
+                        });
                     if (server)
                         fetched = load_server();
                     else
                         fetched = load_device();
                 } catch (final Throwable ex) {
                     Log.e("Boundary", ex);
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            intf.onError(ex);
-                        }
-                    });
+                    if (intf != null)
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                intf.onError(ex);
+                            }
+                        });
                 } finally {
-                    loading = false;
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            intf.onLoaded(fetched);
-                        }
-                    });
+                    if (intf != null)
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                intf.onLoaded(fetched);
+                            }
+                        });
                 }
             }
         });
-    }
-
-    boolean isLoading() {
-        return loading;
     }
 
     private int load_device() {
@@ -467,5 +438,22 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         Log.i("Boundary server done");
         return found;
+    }
+
+    void clear() {
+        destroyed = true;
+
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                Log.i("Boundary destroy");
+                try {
+                    if (istore != null)
+                        istore.close();
+                } catch (Throwable ex) {
+                    Log.e("Boundary", ex);
+                }
+            }
+        });
     }
 }
