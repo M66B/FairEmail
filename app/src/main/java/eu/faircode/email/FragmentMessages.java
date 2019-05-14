@@ -2573,7 +2573,8 @@ public class FragmentMessages extends FragmentBase {
             if (boundaryCallback == null)
                 boundaryCallback = new BoundaryCallbackMessages(
                         getContext(), getViewLifecycleOwner(),
-                        folder, server, query, REMOTE_PAGE_SIZE,
+                        folder, server || viewType == AdapterMessage.ViewType.FOLDER,
+                        query, REMOTE_PAGE_SIZE,
                         new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
                             @Override
                             public void onLoading() {
