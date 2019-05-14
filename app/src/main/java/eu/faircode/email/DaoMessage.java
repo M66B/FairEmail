@@ -59,12 +59,12 @@ public interface DaoMessage {
             " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
             " AND (NOT message.ui_hide OR :debug)" +
-            " AND (NOT :filter_snoozed OR ui_snoozed IS NULL)" +
             " AND (NOT :found OR ui_found = :found)" +
             " GROUP BY account.id, CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
-            " HAVING (:found OR SUM(unified) > 0)" +
+            " HAVING (:found OR SUM(folder.unified) > 0)" +
             " AND (NOT :filter_seen OR " + unseen_unified + " > 0)" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - " + unflagged_unified + " > 0)" +
+            " AND (NOT :filter_snoozed OR SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0)" +
             " ORDER BY" +
             " CASE" +
             "  WHEN 'unread' = :sort THEN " + unseen_unified + " = 0" +
@@ -106,12 +106,12 @@ public interface DaoMessage {
             " JOIN folder f ON f.id = :folder" +
             " WHERE (message.account = f.account OR " + is_outbox + ")" +
             " AND (NOT message.ui_hide OR :debug)" +
-            " AND (NOT :filter_snoozed OR ui_snoozed IS NULL OR " + is_outbox + ")" +
             " AND (NOT :found OR ui_found = :found)" +
             " GROUP BY CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING SUM(CASE WHEN folder.id = :folder THEN 1 ELSE 0 END) > 0" +
             " AND (NOT :filter_seen OR " + unseen_folder + " > 0 OR " + is_outbox + ")" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - " + unflagged_folder + " > 0 OR " + is_outbox + ")" +
+            " AND (NOT :filter_snoozed OR SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0 OR " + is_outbox + ")" +
             " ORDER BY" +
             " CASE" +
             "  WHEN 'unread' = :sort THEN " + unseen_folder + " = 0" +
