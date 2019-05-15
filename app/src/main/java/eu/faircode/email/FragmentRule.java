@@ -23,6 +23,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -34,6 +36,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -47,6 +50,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.android.colorpicker.ColorPickerDialog;
+import com.android.colorpicker.ColorPickerSwatch;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -86,16 +91,25 @@ public class FragmentRule extends FragmentBase {
 
     private Spinner spAction;
     private TextView tvActionRemark;
+
+    private Button btnColor;
+    private View vwColor;
+    private ImageView ibColorDefault;
+
     private Spinner spTarget;
+
     private Spinner spIdent;
+
     private Spinner spAnswer;
     private CheckBox cbCc;
+
     private TextView tvAutomation;
 
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
 
     private Group grpReady;
+    private Group grpFlag;
     private Group grpMove;
     private Group grpAnswer;
     private Group grpAutomation;
@@ -108,6 +122,7 @@ public class FragmentRule extends FragmentBase {
     private long id = -1;
     private long account = -1;
     private long folder = -1;
+    private Integer color = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -153,16 +168,25 @@ public class FragmentRule extends FragmentBase {
 
         spAction = view.findViewById(R.id.spAction);
         tvActionRemark = view.findViewById(R.id.tvActionRemark);
+
+        btnColor = view.findViewById(R.id.btnColor);
+        vwColor = view.findViewById(R.id.vwColor);
+        ibColorDefault = view.findViewById(R.id.ibColorDefault);
+
         spTarget = view.findViewById(R.id.spTarget);
+
         spIdent = view.findViewById(R.id.spIdent);
+
         spAnswer = view.findViewById(R.id.spAnswer);
         cbCc = view.findViewById(R.id.cbCc);
+
         tvAutomation = view.findViewById(R.id.tvAutomation);
 
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
 
         grpReady = view.findViewById(R.id.grpReady);
+        grpFlag = view.findViewById(R.id.grpFlag);
         grpMove = view.findViewById(R.id.grpMove);
         grpAnswer = view.findViewById(R.id.grpAnswer);
         grpAutomation = view.findViewById(R.id.grpAutomation);
@@ -208,6 +232,7 @@ public class FragmentRule extends FragmentBase {
         List<Action> actions = new ArrayList<>();
         actions.add(new Action(EntityRule.TYPE_SEEN, getString(R.string.title_seen)));
         actions.add(new Action(EntityRule.TYPE_UNSEEN, getString(R.string.title_unseen)));
+        actions.add(new Action(EntityRule.TYPE_FLAG, getString(R.string.title_flag)));
         actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_move)));
         actions.add(new Action(EntityRule.TYPE_ANSWER, getString(R.string.title_answer_reply)));
         actions.add(new Action(EntityRule.TYPE_AUTOMATION, getString(R.string.title_rule_automation)));
@@ -243,6 +268,32 @@ public class FragmentRule extends FragmentBase {
 
         tvActionRemark.setVisibility(View.GONE);
 
+        vwColor.setBackgroundColor(color == null ? Color.TRANSPARENT : color);
+
+        btnColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int color = (FragmentRule.this.color == null ? Color.TRANSPARENT : FragmentRule.this.color);
+                int[] colors = getContext().getResources().getIntArray(R.array.colorPicker);
+                ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
+                colorPickerDialog.initialize(R.string.title_account_color, colors, color, 4, colors.length);
+                colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
+                    @Override
+                    public void onColorSelected(int color) {
+                        setColor(color);
+                    }
+                });
+                colorPickerDialog.show(getFragmentManager(), "colorpicker");
+            }
+        });
+
+        ibColorDefault.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setColor(null);
+            }
+        });
+
         tvAutomation.setText(getString(R.string.title_rule_automation_hint,
                 EntityRule.ACTION_AUTOMATION,
                 TextUtils.join(",", new String[]{
@@ -270,6 +321,7 @@ public class FragmentRule extends FragmentBase {
         tvFolder.setText(null);
         bottom_navigation.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
+        grpFlag.setVisibility(View.GONE);
         grpMove.setVisibility(View.GONE);
         grpAnswer.setVisibility(View.GONE);
         grpAutomation.setVisibility(View.GONE);
@@ -421,6 +473,10 @@ public class FragmentRule extends FragmentBase {
                     } else {
                         int type = jaction.getInt("type");
                         switch (type) {
+                            case EntityRule.TYPE_FLAG:
+                                setColor(jaction.isNull("color") ? null : jaction.getInt("color"));
+                                break;
+
                             case EntityRule.TYPE_MOVE:
                                 long target = jaction.getLong("target");
                                 for (int pos = 0; pos < adapterTarget.getCount(); pos++)
@@ -622,9 +678,22 @@ public class FragmentRule extends FragmentBase {
     }
 
     private void showActionParameters(int type) {
+        grpFlag.setVisibility(type == EntityRule.TYPE_FLAG ? View.VISIBLE : View.GONE);
         grpMove.setVisibility(type == EntityRule.TYPE_MOVE ? View.VISIBLE : View.GONE);
         grpAnswer.setVisibility(type == EntityRule.TYPE_ANSWER ? View.VISIBLE : View.GONE);
         grpAutomation.setVisibility(type == EntityRule.TYPE_AUTOMATION ? View.VISIBLE : View.GONE);
+    }
+
+    private void setColor(Integer color) {
+        this.color = color;
+
+        if (color == null)
+            color = Color.TRANSPARENT;
+
+        GradientDrawable border = new GradientDrawable();
+        border.setColor(color);
+        border.setStroke(1, Helper.resolveColor(getContext(), R.attr.colorSeparator));
+        vwColor.setBackground(border);
     }
 
     private JSONObject getCondition() throws JSONException {
@@ -672,6 +741,10 @@ public class FragmentRule extends FragmentBase {
         if (action != null) {
             jaction.put("type", action.type);
             switch (action.type) {
+                case EntityRule.TYPE_FLAG:
+                    jaction.put("color", color);
+                    break;
+
                 case EntityRule.TYPE_MOVE:
                     EntityFolder target = (EntityFolder) spTarget.getSelectedItem();
                     jaction.put("target", target.id);

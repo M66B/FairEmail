@@ -83,6 +83,7 @@ public class EntityRule {
     static final int TYPE_MOVE = 3;
     static final int TYPE_ANSWER = 4;
     static final int TYPE_AUTOMATION = 5;
+    static final int TYPE_FLAG = 6;
 
     static final String ACTION_AUTOMATION = BuildConfig.APPLICATION_ID + ".AUTOMATION";
     static final String EXTRA_RULE = "rule";
@@ -206,6 +207,9 @@ public class EntityRule {
                 case TYPE_UNSEEN:
                     onActionSeen(context, db, message, false);
                     break;
+                case TYPE_FLAG:
+                    onActionFlag(context, db, message, jaction);
+                    break;
                 case TYPE_MOVE:
                     onActionMove(context, db, message, jaction);
                     break;
@@ -291,6 +295,12 @@ public class EntityRule {
         } catch (Throwable ex) {
             Log.e(ex);
         }
+    }
+
+    private void onActionFlag(Context context, DB db, EntityMessage message, JSONObject jargs) throws JSONException {
+        Integer color = (jargs.has("color") && !jargs.isNull("color")
+                ? jargs.getInt("color") : null);
+        EntityOperation.queue(context, db, message, EntityOperation.FLAG, true, color);
     }
 
     @Override
