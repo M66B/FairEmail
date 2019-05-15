@@ -157,7 +157,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean authentication;
     private boolean debug;
 
-    private boolean gotop = false;
+    private boolean gotoTop = false;
     private AsyncPagedListDiffer<TupleMessageEx> differ;
     private SelectionTracker<Long> selectionTracker = null;
 
@@ -3065,16 +3065,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.differ.addPagedListListener(new AsyncPagedListDiffer.PagedListListener<TupleMessageEx>() {
             @Override
             public void onCurrentListChanged(@Nullable PagedList<TupleMessageEx> previousList, @Nullable PagedList<TupleMessageEx> currentList) {
-                if (gotop) {
-                    gotop = false;
+                if (gotoTop) {
+                    gotoTop = false;
                     properties.scrollTo(0);
                 }
             }
         });
     }
 
-    void submitList(PagedList<TupleMessageEx> list, boolean gotop) {
-        this.gotop = gotop;
+    void gotoTop() {
+        properties.scrollTo(0);
+        this.gotoTop = true;
+    }
+
+    void submitList(PagedList<TupleMessageEx> list) {
         differ.submitList(list);
     }
 

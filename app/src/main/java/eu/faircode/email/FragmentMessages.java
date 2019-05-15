@@ -2612,6 +2612,9 @@ public class FragmentMessages extends FragmentBase {
     private boolean loading = false;
 
     private void loadMessagesNext(final boolean top) {
+        if (top)
+            adapter.gotoTop();
+
         ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
 
         LiveData<PagedList<TupleMessageEx>> liveMessages = model.getPagedList(
@@ -2651,8 +2654,6 @@ public class FragmentMessages extends FragmentBase {
                 });
 
         liveMessages.observe(getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
-            private boolean topped = false;
-
             @Override
             public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
                 if (messages == null)
@@ -2662,10 +2663,8 @@ public class FragmentMessages extends FragmentBase {
                     if (handleThreadActions(messages))
                         return;
 
-                boolean gotop = (top && !topped);
-                topped = true;
-                Log.i("Submit messages=" + messages.size() + " top=" + gotop);
-                adapter.submitList(messages, gotop);
+                Log.i("Submit messages=" + messages.size());
+                adapter.submitList(messages);
 
                 // This is to workaround not drawing when the search is expanded
                 new Handler().post(new Runnable() {
