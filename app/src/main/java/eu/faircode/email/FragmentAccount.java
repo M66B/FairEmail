@@ -1431,10 +1431,11 @@ public class FragmentAccount extends FragmentBase {
         none.name = "-";
         folders.add(0, none);
 
-        adapter.clear();
-        for (EntityFolder folder : folders)
-            if (!EntityFolder.INBOX.equals(folder.type))
-                adapter.add(folder);
+        for (EntityFolder folder : new ArrayList<>(folders))
+            if (EntityFolder.INBOX.equals(folder.type))
+                folders.remove(folder);
+
+        adapter.addAll(folders);
 
         Long left = (account == null ? null : account.swipe_left);
         Long right = (account == null ? null : account.swipe_right);
