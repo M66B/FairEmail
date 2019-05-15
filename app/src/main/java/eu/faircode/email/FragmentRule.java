@@ -276,7 +276,7 @@ public class FragmentRule extends FragmentBase {
                 int color = (FragmentRule.this.color == null ? Color.TRANSPARENT : FragmentRule.this.color);
                 int[] colors = getContext().getResources().getIntArray(R.array.colorPicker);
                 ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
-                colorPickerDialog.initialize(R.string.title_account_color, colors, color, 4, colors.length);
+                colorPickerDialog.initialize(R.string.title_flag_color, colors, color, 4, colors.length);
                 colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
                     @Override
                     public void onColorSelected(int color) {

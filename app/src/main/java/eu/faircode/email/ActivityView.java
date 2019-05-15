@@ -1191,7 +1191,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         int color = intent.getIntExtra("color", -1);
         int[] colors = getResources().getIntArray(R.array.colorPicker);
         ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
-        colorPickerDialog.initialize(R.string.title_account_color, colors, color, 4, colors.length);
+        colorPickerDialog.initialize(R.string.title_flag_color, colors, color, 4, colors.length);
         colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
             @Override
             public void onColorSelected(int color) {
