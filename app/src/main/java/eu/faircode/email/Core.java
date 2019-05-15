@@ -2183,6 +2183,11 @@ class Core {
         }
 
         void error(Throwable ex) {
+            if (ex instanceof MessagingException &&
+                    (ex.getCause() instanceof SocketException ||
+                            ex.getCause() instanceof ConnectionException))
+                recoverable = false;
+
             if (ex instanceof FolderClosedException)
                 recoverable = false;
 
