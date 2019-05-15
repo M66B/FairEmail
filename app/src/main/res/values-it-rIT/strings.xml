@@ -326,6 +326,7 @@
     <string name="title_seen">Segna come letto</string>
     <string name="title_unseen">Segna come non letto</string>
     <string name="title_flag">Aggiungi stella</string>
+    <string name="title_flag_color">Stella colorata &#8230;</string>
     <string name="title_unflag">Rimuovi stella</string>
     <string name="title_forward">Inoltra</string>
     <string name="title_create_rule">Crea regola &#8230;</string>

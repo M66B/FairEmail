@@ -318,6 +318,7 @@
     <string name="title_seen">标记为已读</string>
     <string name="title_unseen">标记为未读</string>
     <string name="title_flag">加注星标</string>
+    <string name="title_flag_color">有色星号 &#8230;</string>
     <string name="title_unflag">移除星标</string>
     <string name="title_forward">转发</string>
     <string name="title_create_rule">创建规则 &#8230;</string>

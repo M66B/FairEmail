@@ -326,6 +326,7 @@
     <string name="title_seen">Marcar como leído</string>
     <string name="title_unseen">Marcar como no leído</string>
     <string name="title_flag">Marcar como favorito</string>
+    <string name="title_flag_color">Estrella coloreada &#8230;</string>
     <string name="title_unflag">Desmarcar como favorito</string>
     <string name="title_forward">Reenviar</string>
     <string name="title_create_rule">Crear regla &#8230;</string>
