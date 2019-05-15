@@ -175,6 +175,8 @@ public class ApplicationEx extends Application {
         ignore.add("javax.mail.MessageRemovedException");
         ignore.add("javax.mail.internet.AddressException");
 
+        ignore.add("android.accounts.OperationCanceledException");
+
         config.setIgnoreClasses(ignore.toArray(new String[0]));
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
