@@ -735,7 +735,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void bindFlagged(TupleMessageEx message) {
             int flagged = (message.count - message.unflagged);
             ivFlagged.setImageResource(flagged > 0 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
-            ivFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? colorAccent : textColorSecondary));
+            ivFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0
+                    ? message.color == null ? colorAccent : message.color
+                    : textColorSecondary));
             ivFlagged.setVisibility(flags ? (message.uid == null ? View.INVISIBLE : View.VISIBLE) : View.GONE);
         }
 
@@ -2115,6 +2117,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "message:unseen");
         }
 
+        private void onMenuColoredStar(final ActionData data) {
+            Intent color = new Intent(ActivityView.ACTION_COLOR);
+            color.putExtra("id", data.message.id);
+            color.putExtra("color", data.message.color == null ? Color.TRANSPARENT : data.message.color);
+
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            lbm.sendBroadcast(color);
+        }
+
         private void onMenuCopy(final ActionData data) {
             Bundle args = new Bundle();
             args.putLong("id", data.message.id);
@@ -2637,6 +2648,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_forward).setEnabled(data.message.content);
 
             popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(data.message.uid != null);
+            popupMenu.getMenu().findItem(R.id.menu_flag_color).setEnabled(data.message.uid != null);
 
             popupMenu.getMenu().findItem(R.id.menu_copy).setEnabled(data.message.uid != null);
             popupMenu.getMenu().findItem(R.id.menu_delete).setVisible(debug);
@@ -2673,6 +2685,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_unseen:
                             onMenuUnseen(data);
+                            return true;
+                        case R.id.menu_flag_color:
+                            onMenuColoredStar(data);
                             return true;
                         case R.id.menu_copy:
                             onMenuCopy(data);

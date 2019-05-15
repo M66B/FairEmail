@@ -36,9 +36,9 @@ For authorizing:
 * ~~Synchronize on demand (manual)~~
 * ~~Semi-automatic encryption~~
 * ~~Copy message~~
+* ~~Colored stars~~
 * Notification settings per folder
 * Select local images for signatures
-* Color label messages
 
 Anything on this list is in random order and *might* be added in the near future.
 

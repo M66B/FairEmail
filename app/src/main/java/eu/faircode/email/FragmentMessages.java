@@ -86,6 +86,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.android.colorpicker.ColorPickerDialog;
+import com.android.colorpicker.ColorPickerSwatch;
 import com.bugsnag.android.Bugsnag;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -185,11 +187,12 @@ public class FragmentMessages extends FragmentBase {
     private final int action_snooze = 3;
     private final int action_flag = 4;
     private final int action_unflag = 5;
-    private final int action_archive = 6;
-    private final int action_trash = 7;
-    private final int action_delete = 8;
-    private final int action_junk = 9;
-    private final int action_move = 10;
+    private final int action_flag_color = 6;
+    private final int action_archive = 7;
+    private final int action_trash = 8;
+    private final int action_delete = 9;
+    private final int action_junk = 10;
+    private final int action_move = 11;
 
     private NumberFormat nf = NumberFormat.getNumberInstance();
 
@@ -1399,18 +1402,20 @@ public class FragmentMessages extends FragmentBase {
                     popupMenu.getMenu().add(Menu.NONE, action_flag, 4, R.string.title_flag);
                 if (result.flagged)
                     popupMenu.getMenu().add(Menu.NONE, action_unflag, 5, R.string.title_unflag);
+                if (result.unflagged || result.flagged)
+                    popupMenu.getMenu().add(Menu.NONE, action_flag_color, 6, R.string.title_flag_color);
 
                 if (result.hasArchive && !result.isArchive) // has archive and not is archive/drafts
-                    popupMenu.getMenu().add(Menu.NONE, action_archive, 6, R.string.title_archive);
+                    popupMenu.getMenu().add(Menu.NONE, action_archive, 7, R.string.title_archive);
 
                 if (result.isTrash) // is trash
-                    popupMenu.getMenu().add(Menu.NONE, action_delete, 7, R.string.title_delete);
+                    popupMenu.getMenu().add(Menu.NONE, action_delete, 8, R.string.title_delete);
 
                 if (!result.isTrash && result.hasTrash) // not trash and has trash
-                    popupMenu.getMenu().add(Menu.NONE, action_trash, 8, R.string.title_trash);
+                    popupMenu.getMenu().add(Menu.NONE, action_trash, 9, R.string.title_trash);
 
                 if (result.hasJunk && !result.isJunk && !result.isDrafts) // has junk and not junk/drafts
-                    popupMenu.getMenu().add(Menu.NONE, action_junk, 9, R.string.title_spam);
+                    popupMenu.getMenu().add(Menu.NONE, action_junk, 10, R.string.title_spam);
 
                 int order = 11;
                 for (EntityAccount account : result.accounts) {
@@ -1437,10 +1442,13 @@ public class FragmentMessages extends FragmentBase {
                                 onActionSnoozeSelection();
                                 return true;
                             case action_flag:
-                                onActionFlagSelection(true);
+                                onActionFlagSelection(true, null);
                                 return true;
                             case action_unflag:
-                                onActionFlagSelection(false);
+                                onActionFlagSelection(false, null);
+                                return true;
+                            case action_flag_color:
+                                onActionFlagColorSelection();
                                 return true;
                             case action_archive:
                                 onActionMoveSelection(EntityFolder.ARCHIVE);
@@ -1589,10 +1597,12 @@ public class FragmentMessages extends FragmentBase {
                 });
     }
 
-    private void onActionFlagSelection(boolean flagged) {
+    private void onActionFlagSelection(boolean flagged, Integer color) {
         Bundle args = new Bundle();
         args.putLongArray("ids", getSelection());
         args.putBoolean("flagged", flagged);
+        if (color != null)
+            args.putInt("color", color);
 
         selectionTracker.clearSelection();
 
@@ -1601,6 +1611,7 @@ public class FragmentMessages extends FragmentBase {
             protected Void onExecute(Context context, Bundle args) {
                 long[] ids = args.getLongArray("ids");
                 boolean flagged = args.getBoolean("flagged");
+                Integer color = (args.containsKey("color") ? args.getInt("color") : null);
 
                 DB db = DB.getInstance(context);
                 try {
@@ -1608,11 +1619,11 @@ public class FragmentMessages extends FragmentBase {
 
                     for (long id : ids) {
                         EntityMessage message = db.message().getMessage(id);
-                        if (message != null && message.ui_flagged != flagged) {
+                        if (message != null) {
                             List<EntityMessage> messages = db.message().getMessageByThread(
                                     message.account, message.thread, threading ? null : id, message.folder);
                             for (EntityMessage threaded : messages)
-                                EntityOperation.queue(context, db, threaded, EntityOperation.FLAG, flagged);
+                                EntityOperation.queue(context, db, threaded, EntityOperation.FLAG, flagged, color);
                         }
                     }
 
@@ -1629,6 +1640,26 @@ public class FragmentMessages extends FragmentBase {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.execute(FragmentMessages.this, args, "messages:flag");
+    }
+
+    private void onActionFlagColorSelection() {
+        if (!Helper.isPro(getContext()) && !BuildConfig.BETA_RELEASE) {
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+            fragmentTransaction.commit();
+            return;
+        }
+
+        int[] colors = getResources().getIntArray(R.array.colorPicker);
+        ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
+        colorPickerDialog.initialize(R.string.title_account_color, colors, Color.TRANSPARENT, 4, colors.length);
+        colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
+            @Override
+            public void onColorSelected(int color) {
+                onActionFlagSelection(true, color);
+            }
+        });
+        colorPickerDialog.show(getFragmentManager(), "colorpicker");
     }
 
     private void onActionDeleteSelection() {

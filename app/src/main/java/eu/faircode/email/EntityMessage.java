@@ -139,6 +139,7 @@ public class EntityMessage implements Serializable {
     @NonNull
     public Boolean ui_browsed = false;
     public Long ui_snoozed;
+    public Integer color;
     public Integer revision; // compose
     public Integer revisions; // compose
     public String warning; // persistent
@@ -241,6 +242,7 @@ public class EntityMessage implements Serializable {
                     this.ui_ignored.equals(other.ui_ignored) &&
                     this.ui_browsed.equals(other.ui_browsed) &&
                     Objects.equals(this.ui_snoozed, other.ui_snoozed) &&
+                    Objects.equals(this.color, other.color) &&
                     Objects.equals(this.warning, other.warning) &&
                     Objects.equals(this.error, other.error)
                     // last_attempt
@@ -296,6 +298,7 @@ public class EntityMessage implements Serializable {
                     this.ui_ignored.equals(other.ui_ignored) &&
                     this.ui_browsed.equals(other.ui_browsed) &&
                     Objects.equals(this.ui_snoozed, other.ui_snoozed) &&
+                    Objects.equals(this.color, other.color) &&
                     Objects.equals(this.revision, other.revision) &&
                     Objects.equals(this.revisions, other.revisions) &&
                     Objects.equals(this.warning, other.warning) &&

@@ -36,6 +36,7 @@ This app starts a foreground service with a low priority status bar notification
 ## Pro features
 
 * Account/identity colors
+* Colored stars
 * Notifications per account (requires Android 8 Oreo or later)
 * Notification sound per sender (requires Android 8 Oreo or later)
 * Configurable notification actions

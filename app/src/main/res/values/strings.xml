@@ -377,6 +377,7 @@
     <string name="title_seen">Mark read</string>
     <string name="title_unseen">Mark unread</string>
     <string name="title_flag">Add star</string>
+    <string name="title_flag_color">Colored star &#8230;</string>
     <string name="title_unflag">Remove star</string>
     <string name="title_forward">Forward</string>
     <string name="title_create_rule">Create rule &#8230;</string>

@@ -9,6 +9,10 @@
         android:title="@string/title_unseen" />
 
     <item
+        android:id="@+id/menu_flag_color"
+        android:title="@string/title_flag_color" />
+
+    <item
         android:id="@+id/menu_copy"
         android:title="@string/title_copy" />
 
