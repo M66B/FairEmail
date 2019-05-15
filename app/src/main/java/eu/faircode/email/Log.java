@@ -63,7 +63,7 @@ import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
 
 public class Log {
-    static final String TAG = "fairemail";
+    private static final String TAG = "fairemail";
 
     public static int i(String msg) {
         if (BuildConfig.BETA_RELEASE)
@@ -85,31 +85,35 @@ public class Log {
     }
 
     public static int w(Throwable ex) {
-        Bugsnag.notify(ex, Severity.INFO);
+        if (BuildConfig.BETA_RELEASE)
+            Bugsnag.notify(ex, Severity.INFO);
         return android.util.Log.w(TAG, ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
 
     public static int e(Throwable ex) {
-        Bugsnag.notify(ex, Severity.WARNING);
+        if (BuildConfig.BETA_RELEASE)
+            Bugsnag.notify(ex, Severity.WARNING);
         return android.util.Log.e(TAG, ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
 
     public static int w(String prefix, Throwable ex) {
-        Bugsnag.notify(ex, Severity.INFO);
+        if (BuildConfig.BETA_RELEASE)
+            Bugsnag.notify(ex, Severity.INFO);
         return android.util.Log.w(TAG, prefix + " " + ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
 
     public static int e(String prefix, Throwable ex) {
-        Bugsnag.notify(ex, Severity.WARNING);
+        if (BuildConfig.BETA_RELEASE)
+            Bugsnag.notify(ex, Severity.WARNING);
         return android.util.Log.e(TAG, prefix + " " + ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
 
-    public static void logExtras(Intent intent) {
+    static void logExtras(Intent intent) {
         if (intent != null)
             logBundle(intent.getExtras());
     }
 
-    public static void logBundle(Bundle data) {
+    static void logBundle(Bundle data) {
         if (data != null) {
             Set<String> keys = data.keySet();
             StringBuilder stringBuilder = new StringBuilder();
