@@ -36,7 +36,7 @@ This app starts a foreground service with a low priority status bar notification
 ## Pro features
 
 * Account/identity colors
-* Colored stars
+* Colored stars ([instructions](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq107))
 * Notifications per account (requires Android 8 Oreo or later)
 * Notification sound per sender (requires Android 8 Oreo or later)
 * Configurable notification actions

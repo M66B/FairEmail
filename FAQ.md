@@ -176,6 +176,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(104) What do I need to know about error reporting?](#user-content-faq104)
 * [(105) How does the roam-like-at-home option work?](#user-content-faq105)
 * [(106) Which launchers can show the number of new messages?](#user-content-faq106)
+* [(107) How do I used colored stars?](#user-content-faq107)
 
 [I have another question.](#support)
 
@@ -1731,6 +1732,21 @@ Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launc
 for a list of launchers which can show the number of new messages.
 
 Note that this needs to be enabled in the advance options (default enabled).
+
+<br />
+
+<a name="faq107"></a>
+**(107) How do I use colored stars?**
+
+You can set a colored star via the *more* message menu, via multiple selection (started by long pressing a message)
+or automatically by using [rules](#user-content-faq71).
+
+You need to know that colored stars are not supported by the IMAP protocol and can therefore not be synchronized to an email server.
+This means that colored stars will not be visible in other email clients and will be lost on downloading messages again.
+However, the stars (without color) will be synchronized and will be visible in other email clients, when supported.
+
+Some email clients use IMAP keywords for colors.
+However, not all servers support IMAP keywords and besides that there are no standard keywords for colors.
 
 <br />
 
