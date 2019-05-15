@@ -1181,7 +1181,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onColor(final Intent intent) {
-        if (!Helper.isPro(this) && !BuildConfig.BETA_RELEASE) {
+        if (!Helper.isPro(this)) {
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
             fragmentTransaction.commit();

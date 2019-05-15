@@ -1644,7 +1644,7 @@ public class FragmentMessages extends FragmentBase {
     }
 
     private void onActionFlagColorSelection() {
-        if (!Helper.isPro(getContext()) && !BuildConfig.BETA_RELEASE) {
+        if (!Helper.isPro(getContext())) {
             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
             fragmentTransaction.commit();
