@@ -156,7 +156,7 @@
     <string name="title_advanced_circular">Runde Symbole benutzen</string>
     <string name="title_advanced_name_email">Namen und E-Mail-Adressen anzeigen</string>
     <string name="title_advanced_subject_italic">Betreff kursiv anzeigen</string>
-    <string name="title_advanced_flags">Sterne anzeigen</string>
+    <string name="title_advanced_flags">Gekennzeichnete anzeigen</string>
     <string name="title_advanced_preview">Nachrichtenvorschau anzeigen</string>
     <string name="title_advanced_addresses">Adressdetails standardmäßig anzeigen</string>
     <string name="title_advanced_monospaced">Unproportionale Schriftart für Nachrichtentext verwenden</string>
@@ -326,6 +326,7 @@
     <string name="title_seen">Als gelesen markieren</string>
     <string name="title_unseen">Als ungelesen markieren</string>
     <string name="title_flag">Als Favorit markieren</string>
+    <string name="title_flag_color">Farbige Kennzeichnung &#8230;</string>
     <string name="title_unflag">Von Favoriten entfernen</string>
     <string name="title_forward">Weiterleiten</string>
     <string name="title_create_rule">Regel &#8230; erstellen</string>
@@ -444,7 +445,7 @@
     <string name="title_sort_on_snoozed">Zurückgestellt</string>
     <string name="title_filter">Ausfiltern</string>
     <string name="title_filter_seen">Gelesen</string>
-    <string name="title_filter_unflagged">Nicht markiert</string>
+    <string name="title_filter_unflagged">Kennzeichnung entfernt</string>
     <string name="title_filter_snoozed">Zurückgestellt</string>
     <string name="title_filter_duplicates">Duplikate</string>
     <string name="title_compact">Kompaktansicht</string>
@@ -625,7 +626,7 @@
     <string-array name="startupNames">
         <item>Sammeleingang</item>
         <item>Zusammengeführte Ordner</item>
-        <item>Accounts / Konten</item>
+        <item>Konten</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

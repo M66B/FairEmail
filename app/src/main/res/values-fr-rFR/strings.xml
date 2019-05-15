@@ -329,7 +329,7 @@
     <string name="title_flag_color">Couleur de suivi &#8230;</string>
     <string name="title_unflag">Marquer comme non suivi</string>
     <string name="title_forward">Transférer</string>
-    <string name="title_create_rule">Créer la règle &#8230;</string>
+    <string name="title_create_rule">Créer une règle &#8230;</string>
     <string name="title_share">Partager</string>
     <string name="title_print">Imprimer</string>
     <string name="title_show_headers">Afficher les en-têtes</string>
@@ -467,7 +467,7 @@
     <string name="title_rule_title">La règle s\'applique à</string>
     <string name="title_rule_name">Nom</string>
     <string name="title_rule_order">Ordre</string>
-    <string name="title_rule_enabled">Activé</string>
+    <string name="title_rule_enabled">Activée</string>
     <string name="title_rule_stop">Arrêter le traitement des règles après avoir exécuté cette règle</string>
     <string name="title_rule_sender">L\'expéditeur contient</string>
     <string name="title_rule_recipient">Le destinataire contient</string>
