@@ -1368,7 +1368,7 @@ public class FragmentMessages extends FragmentBase {
                     List<EntityFolder> targets = new ArrayList<>();
                     List<EntityFolder> folders = db.folder().getFolders(account.id);
                     for (EntityFolder target : folders)
-                        if (!target.isHidden(getContext()) &&
+                        if (!target.isHidden(context) &&
                                 !EntityFolder.ARCHIVE.equals(target.type) &&
                                 !EntityFolder.TRASH.equals(target.type) &&
                                 !EntityFolder.JUNK.equals(target.type) &&
