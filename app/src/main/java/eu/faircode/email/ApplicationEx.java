@@ -46,7 +46,6 @@ import com.bugsnag.android.BeforeSend;
 import com.bugsnag.android.Bugsnag;
 import com.bugsnag.android.Error;
 import com.bugsnag.android.Report;
-import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.iap.ProtocolException;
 
 import org.json.JSONArray;
@@ -57,8 +56,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.SocketException;
-import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -191,10 +188,9 @@ public class ApplicationEx extends Application {
 
                     if (ex instanceof MessagingException &&
                             (ex.getCause() instanceof IOException ||
-                                    ex.getCause() instanceof ConnectionException ||
-                                    ex.getCause() instanceof SocketException ||
-                                    ex.getCause() instanceof SocketTimeoutException ||
                                     ex.getCause() instanceof ProtocolException))
+                        // IOException includes SocketException, SocketTimeoutException
+                        // ProtocolException includes ConnectionException
                         return false;
 
                     if (ex instanceof MessagingException &&
