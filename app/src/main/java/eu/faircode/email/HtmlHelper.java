@@ -130,16 +130,19 @@ public class HtmlHelper {
         String ns = null;
         for (Element h : parsed.select("html"))
             for (Attribute a : h.attributes()) {
-                if (a.getKey().startsWith("xmlns:") &&
-                        a.getValue().startsWith("http://www.w3.org/")) {
-                    ns = a.getKey().split(":")[1];
+                String key = a.getKey();
+                String value = a.getValue();
+                if (value != null &&
+                        key.startsWith("xmlns:") &&
+                        value.startsWith("http://www.w3.org/")) {
+                    ns = key.split(":")[1];
                     break;
                 }
             }
-        for (Element e : parsed.select("*"))
-            if (e.tagName().contains(":")) {
-                String tag = e.tagName();
-                if (ns != null && e.tagName().startsWith(ns)) {
+        for (Element e : parsed.select("*")) {
+            String tag = e.tagName();
+            if (tag.contains(":")) {
+                if (ns != null && tag.startsWith(ns)) {
                     e.tagName(tag.split(":")[1]);
                     Log.i("Updated tag=" + tag + " to=" + e.tagName());
                 } else {
@@ -147,6 +150,7 @@ public class HtmlHelper {
                     Log.i("Removed tag=" + tag);
                 }
             }
+        }
 
         Whitelist whitelist = Whitelist.relaxed()
                 .addTags("hr", "abbr")
