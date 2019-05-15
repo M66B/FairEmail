@@ -52,12 +52,11 @@ public class ViewModelMessages extends ViewModel {
     private static final int LOCAL_PAGE_SIZE = 100;
     private static final int REMOTE_PAGE_SIZE = 10;
 
-    LiveData<PagedList<TupleMessageEx>> getPagedList(
-            Context context, LifecycleOwner owner,
+    Model getModel(
+            Context context, final LifecycleOwner owner,
             final AdapterMessage.ViewType viewType,
             long account, long folder, String thread, long id,
-            String query, boolean server,
-            BoundaryCallbackMessages.IBoundaryCallbackMessages callback) {
+            String query, boolean server) {
 
         Args args = new Args(context, account, folder, thread, id, query, server);
         Log.i("Get model " + viewType + " " + args);
@@ -67,8 +66,10 @@ public class ViewModelMessages extends ViewModel {
         if (model == null || !model.args.equals(args)) {
             Log.i("Creating model");
 
-            if (model != null)
+            if (model != null) {
                 model.clear();
+                model.list.removeObservers(owner);
+            }
 
             DB db = DB.getInstance(context);
 
@@ -168,9 +169,6 @@ public class ViewModelMessages extends ViewModel {
                 });
         }
 
-        if (model.boundary != null)
-            model.boundary.setCallback(callback);
-
         if (viewType == AdapterMessage.ViewType.UNIFIED) {
             remove(AdapterMessage.ViewType.FOLDER);
             remove(AdapterMessage.ViewType.SEARCH);
@@ -182,7 +180,7 @@ public class ViewModelMessages extends ViewModel {
         Log.i("Returning model=" + viewType);
         dump();
 
-        return model.list;
+        return model;
     }
 
     @Override
@@ -193,10 +191,8 @@ public class ViewModelMessages extends ViewModel {
 
     private void remove(AdapterMessage.ViewType viewType) {
         Model model = models.get(viewType);
-        if (model != null) {
-            model.clear();
+        if (model != null)
             models.remove(viewType);
-        }
     }
 
     void observePrevNext(LifecycleOwner owner, final long id, final IPrevNext intf) {
@@ -321,7 +317,7 @@ public class ViewModelMessages extends ViewModel {
         Log.i("Current models=" + TextUtils.join(", ", models.keySet()));
     }
 
-    private class Model {
+    class Model {
         private Args args;
         private LiveData<PagedList<TupleMessageEx>> list;
         private BoundaryCallbackMessages boundary;
@@ -330,6 +326,15 @@ public class ViewModelMessages extends ViewModel {
             this.args = args;
             this.list = list;
             this.boundary = boundary;
+        }
+
+        void setCallback(BoundaryCallbackMessages.IBoundaryCallbackMessages callback) {
+            if (boundary != null)
+                boundary.setCallback(callback);
+        }
+
+        void setObserver(LifecycleOwner owner, @NonNull Observer<PagedList<TupleMessageEx>> observer) {
+            list.observe(owner, observer);
         }
 
         private void clear() {
