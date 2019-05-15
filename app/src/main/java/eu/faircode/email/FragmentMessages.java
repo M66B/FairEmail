@@ -161,7 +161,9 @@ public class FragmentMessages extends FragmentBase {
     private long primary;
     private boolean outbox = false;
     private boolean connected;
+    private boolean reset = false;
     private String searching = null;
+    private boolean loading = false;
     private boolean manual = false;
     private Integer lastUnseen = null;
 
@@ -1867,6 +1869,7 @@ public class FragmentMessages extends FragmentBase {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("fair:reset", reset);
         outState.putString("fair:searching", searching);
 
         outState.putBoolean("fair:autoExpanded", autoExpanded);
@@ -1902,6 +1905,7 @@ public class FragmentMessages extends FragmentBase {
         super.onActivityCreated(savedInstanceState);
 
         if (savedInstanceState != null) {
+            reset = savedInstanceState.getBoolean("fair:reset");
             searching = savedInstanceState.getString("fair:searching");
 
             autoExpanded = savedInstanceState.getBoolean("fair:autoExpanded");
@@ -2587,7 +2591,7 @@ public class FragmentMessages extends FragmentBase {
                     // Do nothing
                 }
             });
-        } else if (viewType == AdapterMessage.ViewType.SEARCH) {
+        } else if (viewType == AdapterMessage.ViewType.SEARCH && !reset) {
             new SimpleTask<Void>() {
                 @Override
                 protected Void onExecute(Context context, Bundle args) {
@@ -2597,6 +2601,7 @@ public class FragmentMessages extends FragmentBase {
 
                 @Override
                 protected void onExecuted(Bundle args, Void data) {
+                    reset = true;
                     loadMessagesNext(top);
                 }
 
@@ -2608,8 +2613,6 @@ public class FragmentMessages extends FragmentBase {
         } else
             loadMessagesNext(top);
     }
-
-    private boolean loading = false;
 
     private void loadMessagesNext(final boolean top) {
         if (top)
