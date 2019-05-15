@@ -326,6 +326,7 @@
     <string name="title_seen">Marquer comme lu</string>
     <string name="title_unseen">Marquer comme non lu</string>
     <string name="title_flag">Marquer comme suivi</string>
+    <string name="title_flag_color">Couleur de suivi &#8230;</string>
     <string name="title_unflag">Marquer comme non suivi</string>
     <string name="title_forward">Transférer</string>
     <string name="title_create_rule">Créer la règle &#8230;</string>

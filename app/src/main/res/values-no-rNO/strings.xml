@@ -326,6 +326,7 @@
     <string name="title_seen">Merk som lest</string>
     <string name="title_unseen">Merk som ulest</string>
     <string name="title_flag">Legg til stjerne</string>
+    <string name="title_flag_color">Farget stjerne &#8230;</string>
     <string name="title_unflag">Fjern stjerne</string>
     <string name="title_forward">Videresend</string>
     <string name="title_create_rule">Opprett regel &#8230;</string>

@@ -326,6 +326,7 @@
     <string name="title_seen">Markeer als gelezen</string>
     <string name="title_unseen">Markeer als ongelezen</string>
     <string name="title_flag">Ster toevoegen</string>
+    <string name="title_flag_color">Gekleurde ster &#8230;</string>
     <string name="title_unflag">Ster verwijderen</string>
     <string name="title_forward">Doorsturen</string>
     <string name="title_create_rule">Maak regel &#8230;</string>

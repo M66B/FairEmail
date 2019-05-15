@@ -342,6 +342,7 @@
     <string name="title_seen">Отметить как прочитанное</string>
     <string name="title_unseen">Отметить как непрочитанное</string>
     <string name="title_flag">В избранное</string>
+    <string name="title_flag_color">Цветная звезда &#8230;</string>
     <string name="title_unflag">Удалить из избранного</string>
     <string name="title_forward">Переслать</string>
     <string name="title_create_rule">Создать правило &#8230;</string>
