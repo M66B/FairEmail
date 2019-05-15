@@ -1,4 +1,10 @@
+
 # FairEmail
+
+![GitHub](https://img.shields.io/github/license/M66B/open-source-email.svg)
+![GitHub release](https://img.shields.io/github/release/M66B/open-source-email.svg)
+![GitHub commits since tagged version](https://img.shields.io/github/commits-since/M66B/open-source-email/0.1.svg)
+![GitHub stars](https://img.shields.io/github/stars/M66B/open-source-email.svg?style=social)
 
 *Open source, privacy friendly email app for Android*
 
