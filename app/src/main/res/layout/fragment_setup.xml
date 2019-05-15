@@ -84,14 +84,25 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
                 android:ellipsize="end"
                 android:singleLine="true"
                 android:text="@string/title_setup_account"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/one"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvImap"
                 app:layout_constraintStart_toEndOf="@id/one" />
+
+            <TextView
+                android:id="@+id/tvImap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:text="@string/title_imap"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintBottom_toBottomOf="@id/one"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
                 android:id="@+id/tvAccount"
@@ -161,14 +172,25 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
                 android:ellipsize="end"
                 android:singleLine="true"
                 android:text="@string/title_setup_identity"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/two"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvSmtp"
                 app:layout_constraintStart_toEndOf="@id/two" />
+
+            <TextView
+                android:id="@+id/tvSmtp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:text="@string/title_smtp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintBottom_toBottomOf="@id/two"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
                 android:id="@+id/tvIdentity"
