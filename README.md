@@ -27,6 +27,7 @@ This app starts a foreground service with a low priority status bar notification
 ## Main features
 
 * 100 % [open source](https://github.com/M66B/open-source-email/blob/master/LICENSE)
+* [Privacy friendly](https://github.com/M66B/open-source-email/blob/master/PRIVACY.md)
 * Multiple accounts
 * Multiple email addresses
 * Unified inbox

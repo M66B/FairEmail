@@ -13,6 +13,8 @@ For more information on permissions, see [this FAQ](https://github.com/M66B/open
 
 FairEmail **does not** allow other apps access to messages and attachments without your approval.
 
+FairEmail **does** follow the recommendations of [this EFF article](https://www.eff.org/deeplinks/2019/01/stop-tracking-my-emails).
+
 FairEmail is 100 % **open source**, see [the license](https://github.com/M66B/open-source-email/blob/master/LICENSE).
 
 Error reporting is **opt-in**, see [here](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq104) for more information.
