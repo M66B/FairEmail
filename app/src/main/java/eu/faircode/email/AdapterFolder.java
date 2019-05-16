@@ -405,10 +405,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                     NotificationChannel channel = nm.getNotificationChannel(channelId);
                     if (channel == null)
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_create_channel, 6, R.string.title_create_channel);
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_create_channel, 8, R.string.title_create_channel);
                     else {
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 7, R.string.title_edit_channel);
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_channel, 8, R.string.title_delete_channel);
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 9, R.string.title_edit_channel);
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_channel, 10, R.string.title_delete_channel);
                     }
                 }
             }
