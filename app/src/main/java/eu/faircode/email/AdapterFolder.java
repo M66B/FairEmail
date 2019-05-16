@@ -642,6 +642,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 }
 
                 private void onActionCreateChannel() {
+                    if (!Helper.isPro(context)) {
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                        lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                        return;
+                    }
+
                     folder.createNotificationChannel(context);
                     onActionEditChannel();
                 }

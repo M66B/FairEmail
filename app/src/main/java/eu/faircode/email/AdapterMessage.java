@@ -1249,6 +1249,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @TargetApi(Build.VERSION_CODES.O)
                 private void onActionCreateChannel() {
+                    if (!Helper.isPro(context)) {
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                        lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                        return;
+                    }
+
                     NotificationChannel channel = new NotificationChannel(
                             channelId, from.getAddress(),
                             NotificationManager.IMPORTANCE_HIGH);
