@@ -285,6 +285,8 @@
     <string name="title_empty_trash">Tyhjennä roskakori</string>
     <string name="title_edit_properties">Muokkaa ominaisuuksia</string>
     <string name="title_edit_rules">Muokkaa sääntöjä</string>
+    <string name="title_create_channel">Luo ilmoituskanava</string>
+    <string name="title_delete_channel">Poista ilmoituskanava</string>
     <string name="title_empty_trash_ask">Tyhjennetäänkö roskakori pysyvästi?</string>
     <string name="title_delete_operation">Poistetaanko toimenpiteet, joille on virheilmoitus?</string>
     <string name="title_delete_contacts">Poistetaanko kaikki paikalliset yhteystiedot?</string>
@@ -326,6 +328,7 @@
     <string name="title_seen">Merkitse luetuksi</string>
     <string name="title_unseen">Merkitse lukemattomaksi</string>
     <string name="title_flag">Lisää tähti</string>
+    <string name="title_flag_color">Värillinen tähti &#8230;</string>
     <string name="title_unflag">Poista tähti</string>
     <string name="title_forward">Lähetä edelleen</string>
     <string name="title_create_rule">Luo sääntö &#8230;</string>

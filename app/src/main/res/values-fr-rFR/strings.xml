@@ -285,6 +285,9 @@
     <string name="title_empty_trash">Vider la corbeille</string>
     <string name="title_edit_properties">Éditer les propriétés</string>
     <string name="title_edit_rules">Modifier les règles</string>
+    <string name="title_create_channel">Créer un canal de notification</string>
+    <string name="title_edit_channel">Modifier un canal de notification</string>
+    <string name="title_delete_channel">Supprimer un canal de notification</string>
     <string name="title_empty_trash_ask">Supprimer définitivement tous les messages de la corbeille ?</string>
     <string name="title_delete_operation">Supprimer les opérations avec un message d\'erreur ?</string>
     <string name="title_delete_contacts">Supprimer tous les contacts locaux ?</string>

@@ -285,6 +285,9 @@
     <string name="title_empty_trash">Tøm papirkurven</string>
     <string name="title_edit_properties">Redigere egenskaper</string>
     <string name="title_edit_rules">Redigere regler</string>
+    <string name="title_create_channel">Opprett varselkanal</string>
+    <string name="title_edit_channel">Rediger varselkanal</string>
+    <string name="title_delete_channel">Slett varselkanal</string>
     <string name="title_empty_trash_ask">Slett alle slettede meldinger permanent?</string>
     <string name="title_delete_operation">Slett operasjoner med en feilmelding?</string>
     <string name="title_delete_contacts">Slette alle lokale kontakter?</string>

@@ -285,6 +285,8 @@
     <string name="title_empty_trash">Svuota cestino</string>
     <string name="title_edit_properties">Modifica le proprietà</string>
     <string name="title_edit_rules">Modifica regole</string>
+    <string name="title_create_channel">Crea un canale di notifica</string>
+    <string name="title_edit_channel">Modifica canale di notifica</string>
     <string name="title_empty_trash_ask">Eliminare definitivamente tutti i messaggi cestinati?</string>
     <string name="title_delete_operation">Eliminare le operazioni con un messaggio di errore?</string>
     <string name="title_delete_contacts">Eliminare tutti i contatti locali?</string>

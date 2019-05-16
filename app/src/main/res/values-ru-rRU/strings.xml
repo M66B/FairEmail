@@ -301,6 +301,9 @@
     <string name="title_empty_trash">Очистить корзину</string>
     <string name="title_edit_properties">Изменить свойства</string>
     <string name="title_edit_rules">Редактировать правила</string>
+    <string name="title_create_channel">Создать канал уведомлений</string>
+    <string name="title_edit_channel">Изменить канал уведомлений</string>
+    <string name="title_delete_channel">Удалить канал уведомлений</string>
     <string name="title_empty_trash_ask">Удалить все сообщения корзины навсегда?</string>
     <string name="title_delete_operation">Удалить операции с сообщением об ошибке?</string>
     <string name="title_delete_contacts">Удалить все локальные контакты?</string>
