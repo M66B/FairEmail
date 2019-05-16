@@ -38,7 +38,7 @@ For authorizing:
 * ~~Copy message~~
 * ~~Colored stars~~
 * ~~Notification settings per folder~~
-* Select local images for signatures
+* ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
 
 Anything on this list is in random order and *might* be added in the near future.
 
