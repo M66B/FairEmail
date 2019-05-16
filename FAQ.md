@@ -183,6 +183,8 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 <a name="faq1"></a>
 **(1) Which permissions are needed and why?**
 
+The following Android permissions are needed:
+
 * *have full network access* (INTERNET): to send and receive email
 * *view network connections* (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
 * *run at startup* (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
@@ -193,6 +195,25 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * Optional: *find accounts on the device* (GET_ACCOUNTS): to use [OAuth](https://en.wikipedia.org/wiki/OAuth) instead of passwords
 * Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
 * Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): needed to select accounts (not used/needed on later Android versions)
+
+The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
+
+* *com.sec.android.provider.badge.permission.READ*
+* *com.sec.android.provider.badge.permission.WRITE*
+* *com.htc.launcher.permission.READ_SETTINGS*
+* *com.htc.launcher.permission.UPDATE_SHORTCUT*
+* *com.sonyericsson.home.permission.BROADCAST_BADGE*
+* *com.sonymobile.home.permission.PROVIDER_INSERT_BADGE*
+* *com.anddoes.launcher.permission.UPDATE_COUNT*
+* *com.majeur.launcher.permission.UPDATE_BADGE*
+* *com.huawei.android.launcher.permission.CHANGE_BADGE*
+* *com.huawei.android.launcher.permission.READ_SETTINGS*
+* *com.huawei.android.launcher.permission.WRITE_SETTINGS*
+* *android.permission.READ_APP_BADGE*
+* *com.oppo.launcher.permission.READ_SETTINGS*
+* *com.oppo.launcher.permission.WRITE_SETTINGS*
+* *me.everything.badger.permission.BADGE_COUNT_READ*
+* *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
 FairEmail will keep a list of addresses you receive messages from and send messages to
 and will use this list for contact suggestions when no contacts permissions is granted to FairEmail.
