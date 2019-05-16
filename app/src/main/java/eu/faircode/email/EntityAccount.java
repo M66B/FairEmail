@@ -23,10 +23,8 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
-import android.os.Build;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -105,20 +103,22 @@ public class EntityAccount extends EntityOrder implements Serializable {
         return "notification" + (account == 0 ? "" : "." + account);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     void createNotificationChannel(Context context) {
-        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        NotificationChannel channel = new NotificationChannel(
-                getNotificationChannelId(id), name,
-                NotificationManager.IMPORTANCE_HIGH);
-        channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-        nm.createNotificationChannel(channel);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            NotificationChannel channel = new NotificationChannel(
+                    getNotificationChannelId(id), name,
+                    NotificationManager.IMPORTANCE_HIGH);
+            channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+            nm.createNotificationChannel(channel);
+        }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     void deleteNotificationChannel(Context context) {
-        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        nm.deleteNotificationChannel(getNotificationChannelId(id));
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            nm.deleteNotificationChannel(getNotificationChannelId(id));
+        }
     }
 
     @Override

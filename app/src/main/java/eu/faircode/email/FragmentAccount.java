@@ -965,13 +965,10 @@ public class FragmentAccount extends FragmentBase {
                     EntityLog.log(context, (update ? "Updated" : "Added") + " account=" + account.name);
 
                     // Make sure the channel exists on commit
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                        if (account.notify) {
-                            // Add or update notification channel
-                            account.deleteNotificationChannel(context);
-                            account.createNotificationChannel(context);
-                        } else if (!account.synchronize)
-                            account.deleteNotificationChannel(context);
+                    if (account.notify)
+                        account.createNotificationChannel(context);
+                    else if (!account.synchronize)
+                        account.deleteNotificationChannel(context);
 
                     List<EntityFolder> folders = new ArrayList<>();
 

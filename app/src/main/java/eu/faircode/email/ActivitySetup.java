@@ -770,9 +770,9 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                         account.id = db.account().insertAccount(account);
                         Log.i("Imported account=" + account.name);
 
-                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
-                            if (account.notify)
-                                account.createNotificationChannel(context);
+                        account.deleteNotificationChannel(context);
+                        if (account.notify)
+                            account.createNotificationChannel(context);
 
                         JSONArray jidentities = (JSONArray) jaccount.get("identities");
                         for (int i = 0; i < jidentities.length(); i++) {
