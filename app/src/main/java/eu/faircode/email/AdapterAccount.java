@@ -19,11 +19,16 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.annotation.TargetApi;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -187,16 +192,29 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
-            popupMenu.getMenu().add(Menu.NONE, 1, 1, R.string.title_synchronize_enabled)
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, 1, R.string.title_synchronize_enabled)
                     .setCheckable(true).setChecked(account.synchronize);
+
+            if (account.notify && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                String channelId = EntityAccount.getNotificationChannelId(account.id);
+                NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                NotificationChannel channel = nm.getNotificationChannel(channelId);
+                if (channel != null)
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 2, R.string.title_edit_channel);
+            }
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
                     switch (item.getItemId()) {
-                        case 1:
+                        case R.string.title_synchronize_enabled:
                             onActionSync(!item.isChecked());
                             return true;
+
+                        case R.string.title_edit_channel:
+                            onActionEditChannel();
+                            return true;
+
                         default:
                             return false;
                     }
@@ -229,6 +247,14 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                             Helper.unexpectedError(context, owner, ex);
                         }
                     }.execute(context, owner, args, "account:enable");
+                }
+
+                @TargetApi(Build.VERSION_CODES.O)
+                private void onActionEditChannel() {
+                    Intent intent = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
+                            .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName())
+                            .putExtra(Settings.EXTRA_CHANNEL_ID, EntityAccount.getNotificationChannelId(account.id));
+                    context.startActivity(intent);
                 }
             });
 
