@@ -1128,7 +1128,6 @@ but even Google's Chrome cannot handle this.
 * Did you know that you can retry sending messages by using pull-down-to-refresh in the outbox?
 * Did you know that you can swipe a conversation left or right to go to the next or previous conversation?
 * Did you know that you can tap on an image to see where it will be downloaded from?
-* Did you know that you can long press the bell icon to delete the notification channel for the email address?
 * Did you know that you can long press the folder icon in the action bar to select an account?
 
 <br />

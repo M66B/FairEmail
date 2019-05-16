@@ -176,7 +176,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     ));
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
-            View.OnClickListener, View.OnLongClickListener,
+            View.OnClickListener,
             CompoundButton.OnCheckedChangeListener,
             BottomNavigationView.OnNavigationItemSelectedListener {
         private View view;
@@ -392,7 +392,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivExpanderAddress.setOnClickListener(this);
             ibSearchContact.setOnClickListener(this);
             ibNotifyContact.setOnClickListener(this);
-            ibNotifyContact.setOnLongClickListener(this);
             ibAddContact.setOnClickListener(this);
 
             btnDownloadAttachments.setOnClickListener(this);
@@ -416,7 +415,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivExpanderAddress.setOnClickListener(null);
             ibSearchContact.setOnClickListener(null);
             ibNotifyContact.setOnClickListener(null);
-            ibNotifyContact.setOnLongClickListener(null);
             ibAddContact.setOnClickListener(null);
             btnDownloadAttachments.setOnClickListener(null);
             btnSaveAttachments.setOnClickListener(null);
@@ -1099,16 +1097,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         @Override
-        public boolean onLongClick(View v) {
-            TupleMessageEx message = getMessage();
-            if (message == null)
-                return false;
-
-            onNotifyContactDelete(message);
-            return true;
-        }
-
-        @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             TupleMessageEx message = getMessage();
             if (message == null)
@@ -1224,35 +1212,67 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         @TargetApi(Build.VERSION_CODES.O)
-        private void onNotifyContact(TupleMessageEx message) {
-            NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        private void onNotifyContact(final TupleMessageEx message) {
+            final NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            final InternetAddress from = (InternetAddress) message.from[0];
+            final String channelId = "notification." + from.getAddress().toLowerCase();
 
-            InternetAddress from = (InternetAddress) message.from[0];
-            String channelId = "notification." + from.getAddress().toLowerCase();
-
-            NotificationChannel channel = new NotificationChannel(
-                    channelId, from.getAddress(),
-                    NotificationManager.IMPORTANCE_HIGH);
-            channel.setGroup("contacts");
-            channel.setDescription(from.getPersonal());
-            channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-            nm.createNotificationChannel(channel);
-
-            Intent intent = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
-                    .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName())
-                    .putExtra(Settings.EXTRA_CHANNEL_ID, channelId);
-            context.startActivity(intent);
-        }
-
-        @TargetApi(Build.VERSION_CODES.O)
-        private void onNotifyContactDelete(TupleMessageEx message) {
-            if (message.from != null && message.from.length > 0) {
-                NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-
-                InternetAddress from = (InternetAddress) message.from[0];
-                String channelName = "notification." + from.getAddress().toLowerCase();
-                nm.deleteNotificationChannel(channelName);
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibAddContact);
+            NotificationChannel channel = nm.getNotificationChannel(channelId);
+            if (channel == null)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_create_channel, 1, R.string.title_create_channel);
+            else {
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 2, R.string.title_edit_channel);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_channel, 3, R.string.title_delete_channel);
             }
+
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    switch (item.getItemId()) {
+                        case R.string.title_create_channel:
+                            onActionCreateChannel();
+                            return true;
+
+                        case R.string.title_edit_channel:
+                            onActionEditChannel();
+                            return true;
+
+                        case R.string.title_delete_channel:
+                            onActionDeleteChannel();
+                            return true;
+
+                        default:
+                            return false;
+                    }
+                }
+
+                @TargetApi(Build.VERSION_CODES.O)
+                private void onActionCreateChannel() {
+                    NotificationChannel channel = new NotificationChannel(
+                            channelId, from.getAddress(),
+                            NotificationManager.IMPORTANCE_HIGH);
+                    channel.setGroup("contacts");
+                    channel.setDescription(from.getPersonal());
+                    channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+                    nm.createNotificationChannel(channel);
+                    onActionEditChannel();
+                }
+
+                private void onActionEditChannel() {
+                    Intent intent = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
+                            .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName())
+                            .putExtra(Settings.EXTRA_CHANNEL_ID, channelId);
+                    context.startActivity(intent);
+                }
+
+                private void onActionDeleteChannel() {
+                    NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                    nm.deleteNotificationChannel(channelId);
+                }
+            });
+
+            popupMenu.show();
         }
 
         private void onAddContact(TupleMessageEx message) {
