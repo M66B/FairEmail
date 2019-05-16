@@ -60,7 +60,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
@@ -410,12 +409,10 @@ public class FragmentAccount extends FragmentBase {
                 }
             }
         });
+
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-            ConstraintLayout.LayoutParams lparam = (ConstraintLayout.LayoutParams) cbNotify.getLayoutParams();
-            lparam.width = 0;
-            lparam.height = 0;
-            lparam.setMargins(0, 0, 0, 0);
-            cbNotify.setLayoutParams(lparam);
+            Helper.hide(cbNotify);
+            Helper.hide(view.findViewById(R.id.tvNotifyPro));
         }
 
         btnCheck.setOnClickListener(new View.OnClickListener() {

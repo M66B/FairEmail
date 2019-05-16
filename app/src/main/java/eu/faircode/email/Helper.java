@@ -50,6 +50,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
@@ -279,6 +280,17 @@ public class Helper {
             } else if (child instanceof ViewGroup)
                 setViewsEnabled((ViewGroup) child, enabled);
         }
+    }
+
+    static void hide(View view) {
+        view.setPadding(0, 0, 0, 0);
+
+        ViewGroup.LayoutParams lparam = view.getLayoutParams();
+        lparam.width = 0;
+        lparam.height = 0;
+        if (lparam instanceof ConstraintLayout.LayoutParams)
+            ((ConstraintLayout.LayoutParams) lparam).setMargins(0, 0, 0, 0);
+        view.setLayoutParams(lparam);
     }
 
     static boolean isDarkTheme(Context context) {
