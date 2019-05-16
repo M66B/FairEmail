@@ -361,7 +361,7 @@ public class ServiceSynchronize extends LifecycleService {
                         crumb.put("unmetered", Boolean.toString(networkState.isUnmetered()));
                         crumb.put("roaming", Boolean.toString(networkState.isRoaming()));
                         crumb.put("lastLost", new Date(lastLost).toString());
-                        Bugsnag.leaveBreadcrumb("reload", BreadcrumbType.STATE, crumb);
+                        Bugsnag.leaveBreadcrumb("reload", BreadcrumbType.LOG, crumb);
 
                         if (doStop)
                             stop();

@@ -150,8 +150,9 @@ class Core {
                     crumb.put("name", op.name);
                     crumb.put("args", op.args);
                     crumb.put("folder", folder.type);
+                    crumb.put("free", Integer.toString(Helper.getFreeMemMb()));
                     crumb.put("UIDPLUS", Boolean.toString(((IMAPStore) istore).hasCapability("UIDPLUS")));
-                    Bugsnag.leaveBreadcrumb("operation", BreadcrumbType.STATE, crumb);
+                    Bugsnag.leaveBreadcrumb("operation", BreadcrumbType.LOG, crumb);
 
                     // Fetch most recent copy of message
                     EntityMessage message = null;
@@ -1092,6 +1093,14 @@ class Core {
                             " " + (SystemClock.elapsedRealtime() - headers) + " ms");
                 }
 
+                int free = Helper.getFreeMemMb();
+                Map<String, String> crumb = new HashMap<>();
+                crumb.put("start", Integer.toString(from));
+                crumb.put("end", Integer.toString(i));
+                crumb.put("free", Integer.toString(free));
+                Bugsnag.leaveBreadcrumb("sync", BreadcrumbType.LOG, crumb);
+                Log.i("Sync " + from + ".." + i + " free=" + free);
+
                 for (int j = isub.length - 1; j >= 0 && state.running() && state.recoverable(); j--)
                     try {
                         EntityMessage message = synchronizeMessage(
@@ -1150,6 +1159,14 @@ class Core {
 
                     Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
                     // Fetch on demand
+
+                    int free = Helper.getFreeMemMb();
+                    Map<String, String> crumb = new HashMap<>();
+                    crumb.put("start", Integer.toString(from));
+                    crumb.put("end", Integer.toString(i));
+                    crumb.put("free", Integer.toString(free));
+                    Bugsnag.leaveBreadcrumb("download", BreadcrumbType.LOG, crumb);
+                    Log.i("Download " + from + ".." + i + " free=" + free);
 
                     for (int j = isub.length - 1; j >= 0 && state.running() && state.recoverable(); j--)
                         try {

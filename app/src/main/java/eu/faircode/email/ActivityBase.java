@@ -90,7 +90,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         crumb.put("name", this.getClass().getName());
         crumb.put("before", Integer.toString(before));
         crumb.put("after", Integer.toString(after));
-        Bugsnag.leaveBreadcrumb("onSaveInstanceState", BreadcrumbType.STATE, crumb);
+        Bugsnag.leaveBreadcrumb("onSaveInstanceState", BreadcrumbType.LOG, crumb);
 
         for (String key : outState.keySet())
             Log.i("Saved " + this + " " + key + "=" + outState.get(key));
