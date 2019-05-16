@@ -351,6 +351,79 @@
             app:layout_constraintTop_toBottomOf="@id/inMessage" />
 
         <View
+            android:id="@+id/vSeparatorAttachments"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="6dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vwBody" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAttachment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
+
+        <CheckBox
+            android:id="@+id/cbInline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="@string/title_show_inline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvAttachment" />
+
+        <Button
+            android:id="@+id/btnDownloadAttachments"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_download_all"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbInline" />
+
+        <Button
+            android:id="@+id/btnSaveAttachments"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_save_all"
+            app:layout_constraintEnd_toEndOf="@id/rvAttachment"
+            app:layout_constraintTop_toBottomOf="@id/cbInline" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_internet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="btnDownloadAttachments,btnSaveAttachments" />
+
+        <TextView
+            android:id="@+id/tvNoInternetAttachments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:text="@string/title_no_internet"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="@id/rvAttachment"
+            app:layout_constraintStart_toStartOf="@id/rvAttachment"
+            app:layout_constraintTop_toBottomOf="@id/barrier_internet" />
+
+        <View
             android:id="@+id/vSeparatorImages"
             android:layout_width="0dp"
             android:layout_height="1dp"
@@ -370,6 +443,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorImages" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpAttachments"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="vSeparatorAttachments,rvAttachment" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpImages"
