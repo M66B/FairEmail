@@ -2,8 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="12dp">
+    android:layout_height="wrap_content">
 
     <EditText
         android:id="@+id/etHtml"
@@ -16,7 +15,21 @@
         android:imeOptions="actionDone"
         android:inputType="text|textMultiLine"
         android:minHeight="120dp"
+        android:padding="12dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="?attr/colorSeparator"
+        app:itemIconTint="@color/bottomnav_foreground"
+        app:itemTextColor="@color/bottomnav_foreground"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etHtml"
+        app:menu="@menu/action_rule" />
 </androidx.constraintlayout.widget.ConstraintLayout>
