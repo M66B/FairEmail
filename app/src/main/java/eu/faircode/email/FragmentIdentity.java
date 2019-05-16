@@ -330,7 +330,7 @@ public class FragmentIdentity extends FragmentBase {
         btnHtml.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_html, null);
+                View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_signature, null);
                 final EditText etHtml = dview.findViewById(R.id.etHtml);
                 etHtml.setText(signature);
 
