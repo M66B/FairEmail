@@ -160,6 +160,11 @@ public class EntityAttachment {
     @NonNull
     @Override
     public String toString() {
-        return (this.name + " type=" + this.type + " disposition=" + this.disposition + " cid=" + this.cid + " size=" + this.size);
+        return (this.name +
+                " type=" + this.type +
+                " disposition=" + this.disposition +
+                " cid=" + this.cid +
+                " encryption=" + this.encryption +
+                " size=" + this.size);
     }
 }

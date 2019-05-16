@@ -720,7 +720,7 @@ class Core {
         if (local == null)
             local = db.attachment().getAttachment(message.id, (int) id); // legacy
         if (local == null)
-            throw new IllegalArgumentException("Attachment not found");
+            throw new IllegalArgumentException("Local attachment not found");
         if (local.available)
             return;
 
@@ -752,8 +752,12 @@ class Core {
 
         if (!found) {
             db.attachment().setError(local.id, "Attachment not found");
-            if (!EntityFolder.DRAFTS.equals(folder.type))
-                throw new IllegalArgumentException("Attachment not found: " + local);
+            if (!EntityFolder.DRAFTS.equals(folder.type)) {
+                Log.w("Attachment not found local=" + local);
+                for (EntityAttachment remote : remotes)
+                    Log.w("Attachment remote=" + remote);
+                throw new IllegalArgumentException("Attachment not found");
+            }
         }
 
         updateMessageSize(context, message.id);
@@ -1628,6 +1632,7 @@ class Core {
                 if (!local.available)
                     if (state.getNetworkState().isUnmetered() || (local.size != null && local.size < maxSize))
                         try {
+                            boolean found = false;
                             for (int i = 0; i < remotes.size(); i++) {
                                 EntityAttachment remote = remotes.get(i);
                                 if (Objects.equals(remote.name, local.name) &&
@@ -1635,8 +1640,16 @@ class Core {
                                         Objects.equals(remote.disposition, local.disposition) &&
                                         Objects.equals(remote.cid, local.cid) &&
                                         Objects.equals(remote.encryption, local.encryption) &&
-                                        Objects.equals(remote.size, local.size))
+                                        Objects.equals(remote.size, local.size)) {
+                                    found = true;
                                     parts.downloadAttachment(context, i, local.id, local.name);
+                                }
+                            }
+
+                            if (!found) {
+                                Log.w("Attachment not found local=" + local);
+                                for (EntityAttachment remote : remotes)
+                                    Log.w("Attachment remote=" + remote);
                             }
                         } catch (Throwable ex) {
                             Log.e(ex);
