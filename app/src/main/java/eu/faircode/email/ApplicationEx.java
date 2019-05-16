@@ -229,6 +229,7 @@ public class ApplicationEx extends Application {
             public boolean run(@NonNull Error error) {
                 error.addToTab("extra", "installer", installer == null ? "-" : installer);
                 error.addToTab("extra", "fingerprint", fingerprint);
+                error.addToTab("extra", "free", Helper.getFreeMemMb());
                 return true;
             }
         });
