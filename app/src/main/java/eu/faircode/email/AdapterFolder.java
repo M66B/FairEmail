@@ -115,17 +115,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private TwoStateOwner cowner = new TwoStateOwner(owner, "FolderChilds");
         private TwoStateOwner powner = new TwoStateOwner(owner, "FolderPopup");
 
-        private final static int action_synchronize_now = 1;
-        private final static int action_synchronize = 2;
-        private final static int action_delete_local = 3;
-        private final static int action_delete_browsed = 4;
-        private final static int action_empty_trash = 5;
-        private final static int action_edit_rules = 6;
-        private final static int action_edit_properties = 7;
-        private final static int action_create_channel = 8;
-        private final static int action_edit_channel = 9;
-        private final static int action_delete_channel = 10;
-
         ViewHolder(View itemView) {
             super(itemView);
 
@@ -393,33 +382,33 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, vwRipple);
 
-            popupMenu.getMenu().add(Menu.NONE, action_synchronize_now, 1, R.string.title_synchronize_now);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_now, 1, R.string.title_synchronize_now);
 
             if (folder.account != null)
-                popupMenu.getMenu().add(Menu.NONE, action_synchronize, 2, R.string.title_synchronize_enabled)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, 2, R.string.title_synchronize_enabled)
                         .setCheckable(true).setChecked(folder.synchronize);
 
             if (folder.account != null) { // outbox
-                popupMenu.getMenu().add(Menu.NONE, action_delete_local, 3, R.string.title_delete_local);
-                popupMenu.getMenu().add(Menu.NONE, action_delete_browsed, 4, R.string.title_delete_browsed);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_local, 3, R.string.title_delete_local);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_browsed, 4, R.string.title_delete_browsed);
             }
 
             if (EntityFolder.TRASH.equals(folder.type))
-                popupMenu.getMenu().add(Menu.NONE, action_empty_trash, 5, R.string.title_empty_trash);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_trash, 5, R.string.title_empty_trash);
 
             if (folder.account != null) {
-                popupMenu.getMenu().add(Menu.NONE, action_edit_rules, 6, R.string.title_edit_rules);
-                popupMenu.getMenu().add(Menu.NONE, action_edit_properties, 7, R.string.title_edit_properties);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, 6, R.string.title_edit_rules);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, 7, R.string.title_edit_properties);
 
                 if (folder.notify && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     String channelId = EntityFolder.getNotificationChannelId(folder.id);
                     NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                     NotificationChannel channel = nm.getNotificationChannel(channelId);
                     if (channel == null)
-                        popupMenu.getMenu().add(Menu.NONE, action_create_channel, 6, R.string.title_create_channel);
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_create_channel, 6, R.string.title_create_channel);
                     else {
-                        popupMenu.getMenu().add(Menu.NONE, action_edit_channel, 7, R.string.title_edit_channel);
-                        popupMenu.getMenu().add(Menu.NONE, action_delete_channel, 8, R.string.title_delete_channel);
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 7, R.string.title_edit_channel);
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_channel, 8, R.string.title_delete_channel);
                     }
                 }
             }
@@ -428,43 +417,43 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
                     switch (item.getItemId()) {
-                        case action_synchronize_now:
+                        case R.string.title_synchronize_now:
                             onActionSynchronizeNow();
                             return true;
 
-                        case action_synchronize:
+                        case R.string.title_synchronize_enabled:
                             onActionSync(!item.isChecked());
                             return true;
 
-                        case action_delete_local:
+                        case R.string.title_delete_local:
                             OnActionDeleteLocal(false);
                             return true;
 
-                        case action_delete_browsed:
+                        case R.string.title_delete_browsed:
                             OnActionDeleteLocal(true);
                             return true;
 
-                        case action_empty_trash:
+                        case R.string.title_empty_trash:
                             onActionEmptyTrash();
                             return true;
 
-                        case action_edit_rules:
+                        case R.string.title_edit_rules:
                             onActionEditRules();
                             return true;
 
-                        case action_edit_properties:
+                        case R.string.title_edit_properties:
                             onActionEditProperties();
                             return true;
 
-                        case action_create_channel:
+                        case R.string.title_create_channel:
                             onActionCreateChannel();
                             return true;
 
-                        case action_edit_channel:
+                        case R.string.title_edit_channel:
                             onActionEditChannel();
                             return true;
 
-                        case action_delete_channel:
+                        case R.string.title_delete_channel:
                             onActionDeleteChannel();
                             return true;
 

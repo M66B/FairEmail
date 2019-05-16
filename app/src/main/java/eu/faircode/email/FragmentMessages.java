@@ -183,18 +183,6 @@ public class FragmentMessages extends FragmentBase {
     private LongSparseArray<List<EntityAttachment>> attachments = new LongSparseArray<>();
     private LongSparseArray<TupleAccountSwipes> accountSwipes = new LongSparseArray<>();
 
-    private final int action_seen = 1;
-    private final int action_unseen = 2;
-    private final int action_snooze = 3;
-    private final int action_flag = 4;
-    private final int action_unflag = 5;
-    private final int action_flag_color = 6;
-    private final int action_archive = 7;
-    private final int action_trash = 8;
-    private final int action_delete = 9;
-    private final int action_junk = 10;
-    private final int action_move = 11;
-
     private NumberFormat nf = NumberFormat.getNumberInstance();
 
     private static final int UNDO_TIMEOUT = 5000; // milliseconds
@@ -1393,30 +1381,30 @@ public class FragmentMessages extends FragmentBase {
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fabMore);
 
                 if (result.unseen) // Unseen, not draft
-                    popupMenu.getMenu().add(Menu.NONE, action_seen, 1, R.string.title_seen);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_seen, 1, R.string.title_seen);
                 if (result.seen) // Seen, not draft
-                    popupMenu.getMenu().add(Menu.NONE, action_unseen, 2, R.string.title_unseen);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unseen, 2, R.string.title_unseen);
 
-                popupMenu.getMenu().add(Menu.NONE, action_snooze, 3, R.string.title_snooze);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_snooze, 3, R.string.title_snooze);
 
                 if (result.unflagged)
-                    popupMenu.getMenu().add(Menu.NONE, action_flag, 4, R.string.title_flag);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_flag, 4, R.string.title_flag);
                 if (result.flagged)
-                    popupMenu.getMenu().add(Menu.NONE, action_unflag, 5, R.string.title_unflag);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unflag, 5, R.string.title_unflag);
                 if (result.unflagged || result.flagged)
-                    popupMenu.getMenu().add(Menu.NONE, action_flag_color, 6, R.string.title_flag_color);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, 6, R.string.title_flag_color);
 
                 if (result.hasArchive && !result.isArchive) // has archive and not is archive/drafts
-                    popupMenu.getMenu().add(Menu.NONE, action_archive, 7, R.string.title_archive);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_archive, 7, R.string.title_archive);
 
                 if (result.isTrash) // is trash
-                    popupMenu.getMenu().add(Menu.NONE, action_delete, 8, R.string.title_delete);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 8, R.string.title_delete);
 
                 if (!result.isTrash && result.hasTrash) // not trash and has trash
-                    popupMenu.getMenu().add(Menu.NONE, action_trash, 9, R.string.title_trash);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_trash, 9, R.string.title_trash);
 
                 if (result.hasJunk && !result.isJunk && !result.isDrafts) // has junk and not junk/drafts
-                    popupMenu.getMenu().add(Menu.NONE, action_junk, 10, R.string.title_spam);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_spam, 10, R.string.title_spam);
 
                 int order = 11;
                 for (EntityAccount account : result.accounts) {
@@ -1424,7 +1412,7 @@ public class FragmentMessages extends FragmentBase {
                             .addSubMenu(Menu.NONE, 0, order++, getString(R.string.title_move_to, account.name));
                     int sorder = 1;
                     for (EntityFolder target : result.targets.get(account)) {
-                        MenuItem item = smenu.add(Menu.NONE, action_move, sorder++, target.getDisplayName(getContext()));
+                        MenuItem item = smenu.add(Menu.NONE, R.string.title_move_to, sorder++, target.getDisplayName(getContext()));
                         item.setIntent(new Intent().putExtra("target", target.id));
                     }
                 }
@@ -1433,37 +1421,37 @@ public class FragmentMessages extends FragmentBase {
                     @Override
                     public boolean onMenuItemClick(MenuItem target) {
                         switch (target.getItemId()) {
-                            case action_seen:
+                            case R.string.title_seen:
                                 onActionSeenSelection(true);
                                 return true;
-                            case action_unseen:
+                            case R.string.title_unseen:
                                 onActionSeenSelection(false);
                                 return true;
-                            case action_snooze:
+                            case R.string.title_snooze:
                                 onActionSnoozeSelection();
                                 return true;
-                            case action_flag:
+                            case R.string.title_flag:
                                 onActionFlagSelection(true, null);
                                 return true;
-                            case action_unflag:
+                            case R.string.title_unflag:
                                 onActionFlagSelection(false, null);
                                 return true;
-                            case action_flag_color:
+                            case R.string.title_flag_color:
                                 onActionFlagColorSelection();
                                 return true;
-                            case action_archive:
+                            case R.string.title_archive:
                                 onActionMoveSelection(EntityFolder.ARCHIVE);
                                 return true;
-                            case action_trash:
-                                onActionMoveSelection(EntityFolder.TRASH);
-                                return true;
-                            case action_delete:
+                            case R.string.title_delete:
                                 onActionDeleteSelection();
                                 return true;
-                            case action_junk:
+                            case R.string.title_trash:
+                                onActionMoveSelection(EntityFolder.TRASH);
+                                return true;
+                            case R.string.title_spam:
                                 onActionJunkSelection();
                                 return true;
-                            case action_move:
+                            case R.string.title_move_to:
                                 onActionMoveSelection(target.getIntent().getLongExtra("target", -1));
                                 return true;
                             default:
