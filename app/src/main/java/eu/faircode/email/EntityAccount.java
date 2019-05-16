@@ -99,8 +99,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
         return "imap" + (starttls ? "" : "s");
     }
 
-    static String getNotificationChannelId(long account) {
-        return "notification" + (account == 0 ? "" : "." + account);
+    static String getNotificationChannelId(long id) {
+        return "notification" + (id == 0 ? "" : "." + id);
     }
 
     void createNotificationChannel(Context context) {
