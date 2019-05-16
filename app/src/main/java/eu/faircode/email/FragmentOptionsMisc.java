@@ -158,7 +158,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("cache_lists", checked).apply();
-                WorkerWatchdog.init(getContext());
             }
         });
 
