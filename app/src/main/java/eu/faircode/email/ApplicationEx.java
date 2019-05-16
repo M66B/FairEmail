@@ -378,6 +378,7 @@ public class ApplicationEx extends Application {
                 channel.enableVibration(jchannel.getBoolean("vibrate"));
 
                 Log.i("Creating channel=" + channel);
+                nm.deleteNotificationChannel(id);
                 nm.createNotificationChannel(channel);
             }
         }
