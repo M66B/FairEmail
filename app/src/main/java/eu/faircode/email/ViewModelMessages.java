@@ -175,7 +175,10 @@ public class ViewModelMessages extends ViewModel {
         } else if (viewType == AdapterMessage.ViewType.FOLDER)
             remove(AdapterMessage.ViewType.SEARCH);
 
-        last = viewType;
+        if (viewType != AdapterMessage.ViewType.THREAD) {
+            last = viewType;
+            Log.i("Last model=" + last);
+        }
 
         Log.i("Returning model=" + viewType);
         dump();
@@ -334,6 +337,7 @@ public class ViewModelMessages extends ViewModel {
         }
 
         void setObserver(LifecycleOwner owner, @NonNull Observer<PagedList<TupleMessageEx>> observer) {
+            //list.removeObservers(owner);
             list.observe(owner, observer);
         }
 
