@@ -51,9 +51,10 @@ public class ViewModelMessages extends ViewModel {
 
     private static final int LOCAL_PAGE_SIZE = 100;
     private static final int REMOTE_PAGE_SIZE = 10;
+    private static final int LOW_MEM_MB = 64;
 
     Model getModel(
-            Context context, final LifecycleOwner owner,
+            final Context context, final LifecycleOwner owner,
             final AdapterMessage.ViewType viewType,
             long account, long folder, String thread, long id,
             String query, boolean server) {
@@ -153,8 +154,21 @@ public class ViewModelMessages extends ViewModel {
                 public void onDestroyed() {
                     Log.i("Destroy model " + viewType);
 
-                    if (viewType == AdapterMessage.ViewType.THREAD)
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean cache = prefs.getBoolean("cache_lists", true);
+
+                    Runtime rt = Runtime.getRuntime();
+                    long used = (rt.totalMemory() - rt.freeMemory());
+                    long max = rt.maxMemory();
+                    long free_mb = (max - used) / 1024L / 1024L;
+
+                    boolean lowmem = (free_mb < LOW_MEM_MB);
+
+                    if (viewType == AdapterMessage.ViewType.THREAD || !cache || lowmem) {
+                        Log.i("Remove model " + viewType +
+                                " cache=" + cache + " lowmem=" + lowmem + " free=" + free_mb + " MB");
                         remove(viewType);
+                    }
 
                     dump();
                 }

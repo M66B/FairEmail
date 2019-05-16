@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -50,6 +52,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swAuthentication;
     private SwitchCompat swParanoid;
     private TextView tvParanoidHint;
+    private SwitchCompat swCacheLists;
+    private TextView tvCacheListsHint;
     private SwitchCompat swWatchdog;
     private SwitchCompat swUpdates;
     private SwitchCompat swCrashReports;
@@ -60,7 +64,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Group grpSearchLocal;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "badge", "subscriptions", "english", "authentication", "paranoid", "watchdog", "updates", "crash_reports", "debug"
+            "badge", "subscriptions", "english", "authentication", "paranoid", "cache_lists", "watchdog", "updates", "crash_reports", "debug"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -83,6 +87,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swAuthentication = view.findViewById(R.id.swAuthentication);
         swParanoid = view.findViewById(R.id.swParanoid);
         tvParanoidHint = view.findViewById(R.id.tvParanoidHint);
+        swCacheLists = view.findViewById(R.id.swCacheLists);
+        tvCacheListsHint = view.findViewById(R.id.tvCacheListsHint);
         swWatchdog = view.findViewById(R.id.swWatchdog);
         swUpdates = view.findViewById(R.id.swUpdates);
         swCrashReports = view.findViewById(R.id.swCrashReports);
@@ -147,6 +153,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 }
             });
         }
+
+        swCacheLists.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("cache_lists", checked).apply();
+                WorkerWatchdog.init(getContext());
+            }
+        });
 
         swWatchdog.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -238,11 +252,17 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swEnglish.setChecked(prefs.getBoolean("english", false));
         swAuthentication.setChecked(prefs.getBoolean("authentication", false));
         swParanoid.setChecked(prefs.getBoolean("paranoid", true));
+        swCacheLists.setChecked(prefs.getBoolean("cache_lists", true));
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swUpdates.setVisibility(Helper.isPlayStoreInstall(getContext()) ? View.GONE : View.VISIBLE);
         swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
         swDebug.setChecked(prefs.getBoolean("debug", false));
+
+        ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
+        int class_mb = am.getMemoryClass();
+
+        tvCacheListsHint.setText(getString(R.string.title_advanced_cache_list_hint, class_mb + " MB"));
 
         grpSearchLocal.setVisibility(Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.M ? View.GONE : View.VISIBLE);
     }
