@@ -102,18 +102,18 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
             if (composable)
-                popupMenu.getMenu().add(Menu.NONE, 1, 1, R.string.title_compose);
-            popupMenu.getMenu().add(Menu.NONE, 2, 2, R.string.title_answer_hide)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_compose, 1, R.string.title_compose);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_answer_hide, 2, R.string.title_answer_hide)
                     .setCheckable(true).setChecked(answer.hide);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
                     switch (item.getItemId()) {
-                        case 1:
+                        case R.string.title_compose:
                             onActionCompose();
                             return true;
-                        case 2:
+                        case R.string.title_answer_hide:
                             onActionHide(!item.isChecked());
                             return true;
                         default:
