@@ -1892,10 +1892,17 @@ class Core {
 
             // Get channel name
             String channelName = null;
-            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O &&
-                    message.from != null && message.from.length > 0) {
-                InternetAddress from = (InternetAddress) message.from[0];
-                NotificationChannel channel = nm.getNotificationChannel("notification." + from.getAddress().toLowerCase());
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
+                NotificationChannel channel = null;
+
+                if (message.from != null && message.from.length > 0) {
+                    InternetAddress from = (InternetAddress) message.from[0];
+                    channel = nm.getNotificationChannel("notification." + from.getAddress().toLowerCase());
+                }
+
+                if (channel == null)
+                    channel = nm.getNotificationChannel(EntityFolder.getNotificationChannelId(message.folder));
+
                 if (channel != null)
                     channelName = channel.getId();
             }

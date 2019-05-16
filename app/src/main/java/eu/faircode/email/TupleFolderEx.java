@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 
 import java.io.Serializable;
@@ -53,6 +56,24 @@ public class TupleFolderEx extends EntityFolder implements Serializable {
                     this.childs == other.childs);
         } else
             return false;
+    }
+
+    void createNotificationChannel(Context context) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            NotificationChannel channel = new NotificationChannel(
+                    getNotificationChannelId(id), accountName + "/" + getDisplayName(context),
+                    NotificationManager.IMPORTANCE_HIGH);
+            channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+            nm.createNotificationChannel(channel);
+        }
+    }
+
+    void deleteNotificationChannel(Context context) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            nm.deleteNotificationChannel(getNotificationChannelId(id));
+        }
     }
 
     @Override

@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.annotation.TargetApi;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -29,7 +32,9 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -115,8 +120,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private final static int action_delete_local = 3;
         private final static int action_delete_browsed = 4;
         private final static int action_empty_trash = 5;
-        private final static int action_edit_properties = 6;
-        private final static int action_edit_rules = 7;
+        private final static int action_edit_rules = 6;
+        private final static int action_edit_properties = 7;
+        private final static int action_create_channel = 8;
+        private final static int action_edit_channel = 9;
+        private final static int action_delete_channel = 10;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -402,6 +410,18 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (folder.account != null) {
                 popupMenu.getMenu().add(Menu.NONE, action_edit_rules, 6, R.string.title_edit_rules);
                 popupMenu.getMenu().add(Menu.NONE, action_edit_properties, 7, R.string.title_edit_properties);
+
+                if (folder.notify && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    String channelId = EntityFolder.getNotificationChannelId(folder.id);
+                    NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                    NotificationChannel channel = nm.getNotificationChannel(channelId);
+                    if (channel == null)
+                        popupMenu.getMenu().add(Menu.NONE, action_create_channel, 6, R.string.title_create_channel);
+                    else {
+                        popupMenu.getMenu().add(Menu.NONE, action_edit_channel, 7, R.string.title_edit_channel);
+                        popupMenu.getMenu().add(Menu.NONE, action_delete_channel, 8, R.string.title_delete_channel);
+                    }
+                }
             }
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -434,6 +454,18 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                         case action_edit_properties:
                             onActionEditProperties();
+                            return true;
+
+                        case action_create_channel:
+                            onActionCreateChannel();
+                            return true;
+
+                        case action_edit_channel:
+                            onActionEditChannel();
+                            return true;
+
+                        case action_delete_channel:
+                            onActionDeleteChannel();
                             return true;
 
                         default:
@@ -618,6 +650,23 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     lbm.sendBroadcast(
                             new Intent(ActivityView.ACTION_EDIT_FOLDER)
                                     .putExtra("id", folder.id));
+                }
+
+                private void onActionCreateChannel() {
+                    folder.createNotificationChannel(context);
+                    onActionEditChannel();
+                }
+
+                @TargetApi(Build.VERSION_CODES.O)
+                private void onActionEditChannel() {
+                    Intent intent = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
+                            .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName())
+                            .putExtra(Settings.EXTRA_CHANNEL_ID, EntityFolder.getNotificationChannelId(folder.id));
+                    context.startActivity(intent);
+                }
+
+                private void onActionDeleteChannel() {
+                    folder.deleteNotificationChannel(context);
                 }
             });
 

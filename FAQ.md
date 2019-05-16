@@ -37,7 +37,7 @@ For authorizing:
 * ~~Semi-automatic encryption~~
 * ~~Copy message~~
 * ~~Colored stars~~
-* Notification settings per folder
+* ~~Notification settings per folder~~
 * Select local images for signatures
 
 Anything on this list is in random order and *might* be added in the near future.

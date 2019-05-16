@@ -179,6 +179,10 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public EntityFolder() {
     }
 
+    static String getNotificationChannelId(long id) {
+        return "notification.folder." + id;
+    }
+
     JSONArray getSyncArgs() {
         int days = sync_days;
         if (last_sync != null) {
