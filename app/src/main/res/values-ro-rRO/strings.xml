@@ -237,6 +237,7 @@
     <string name="title_account_linked">Cont asociat</string>
     <string name="title_account_name">Nume cont</string>
     <string name="title_account_name_hint">Folosit la diferențierea dosarelor</string>
+    <string name="title_account_interval_hint">Frecvența de actualizare a conexiunii pentru mesaje push sau frecventa de verificare de mesaje noi</string>
     <string name="title_account_prefix">Prefix nume cont</string>
     <string name="title_account_prefix_hint">Folosit pentru a simplifica numele dosarelor</string>
     <string name="title_account_signature">Text semnătură</string>
@@ -293,6 +294,9 @@
     <string name="title_empty_trash">Golire coș de gunoi</string>
     <string name="title_edit_properties">Editare proprietăți</string>
     <string name="title_edit_rules">Editare reguli</string>
+    <string name="title_create_channel">Creare canal de notificare</string>
+    <string name="title_edit_channel">Editare canal de notificare</string>
+    <string name="title_delete_channel">Șterge canal de notificare</string>
     <string name="title_empty_trash_ask">Şterge permanent toate mesajele din coșul de gunoi?</string>
     <string name="title_delete_operation">Se șterg operațiunile cu mesaj de eroare?</string>
     <string name="title_delete_contacts">Ștergeți toate contactele locale?</string>

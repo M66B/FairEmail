@@ -211,6 +211,7 @@
     <string name="title_advanced_badge_hint">Sólo disponible en lanzadores soportados</string>
     <string name="title_advanced_english_hint">Esto reiniciará la app</string>
     <string name="title_advanced_paranoid_hint">Vea las preguntas frecuentes para más detalles</string>
+    <string name="title_advanced_cache_list_hint">Memoria disponible: %1$s</string>
     <string name="title_advanced_debug_hint">Habilitar registro adicional y mostrar información de depuración en varios lugares</string>
     <string name="title_select">Seleccione &#8230;</string>
     <string name="title_identity_name">Su nombre</string>
@@ -229,6 +230,7 @@
     <string name="title_account_linked">Cuenta vinculada</string>
     <string name="title_account_name">Nombre de cuenta</string>
     <string name="title_account_name_hint">Usado para diferenciar carpetas</string>
+    <string name="title_account_interval_hint">Frecuencia de actualizar la conexión para mensajes push o frecuencia de comprobación de nuevos mensajes</string>
     <string name="title_account_prefix">Prefijo de espacio de nombres</string>
     <string name="title_account_prefix_hint">Usado para simplificar nombres de carpetas</string>
     <string name="title_account_signature">Texto de la firma</string>

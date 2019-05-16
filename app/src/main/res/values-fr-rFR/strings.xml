@@ -188,6 +188,7 @@
     <string name="title_advanced_english">Forcer la langue anglaise</string>
     <string name="title_advanced_authentication">Afficher un avertissement lorsque le serveur de réception n\'a pas pu authentifier le message</string>
     <string name="title_advanced_paranoid">Fonctions de confidentialité supplémentaires</string>
+    <string name="title_advanced_cache_lists">Cacher les listes de messages</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
     <string name="title_advanced_crash_reports">Envoyer des rapports d\'erreur</string>
@@ -211,6 +212,7 @@
     <string name="title_advanced_badge_hint">Uniquement disponible sur les lanceurs pris en charge</string>
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
     <string name="title_advanced_paranoid_hint">Voir la FAQ pour les détails</string>
+    <string name="title_advanced_cache_list_hint">Mémoire disponible : %1$s</string>
     <string name="title_advanced_debug_hint">Activer la journalisation supplémentaire et afficher les informations de débogage à différents endroits</string>
     <string name="title_select">Sélectionner &#8230;</string>
     <string name="title_identity_name">Votre nom</string>
@@ -229,6 +231,7 @@
     <string name="title_account_linked">Compte associé</string>
     <string name="title_account_name">Nom du compte</string>
     <string name="title_account_name_hint">Utilisé pour différencier les dossiers</string>
+    <string name="title_account_interval_hint">Fréquence de rafraîchissement de la connexion pour les messages push ou la fréquence de vérification des nouveaux messages</string>
     <string name="title_account_prefix">Préfixe du nom des dossiers</string>
     <string name="title_account_prefix_hint">Utilisé pour simplifier les noms de dossiers</string>
     <string name="title_account_signature">Texte de la signature</string>

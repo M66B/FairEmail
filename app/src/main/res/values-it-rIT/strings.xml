@@ -188,6 +188,7 @@
     <string name="title_advanced_english">Forza la lingua inglese</string>
     <string name="title_advanced_authentication">Mostra un avviso quando il server ricevente non può autenticare il messaggio</string>
     <string name="title_advanced_paranoid">Caratteristiche aggiuntive della privacy</string>
+    <string name="title_advanced_cache_lists">Lista messaggi cache</string>
     <string name="title_advanced_watchdog">Controlla periodicamente se FairEmail è ancora attiva</string>
     <string name="title_advanced_updates">Controlla aggiornamenti</string>
     <string name="title_advanced_crash_reports">Invia rapporti di errore</string>
@@ -211,6 +212,7 @@
     <string name="title_advanced_badge_hint">Disponibile solo sui launcher supportati</string>
     <string name="title_advanced_english_hint">Questo riavvierà l\'app</string>
     <string name="title_advanced_paranoid_hint">Vedi le FAQ per i dettagli</string>
+    <string name="title_advanced_cache_list_hint">Memoria disponibile: %1$s</string>
     <string name="title_advanced_debug_hint">Abilita il log extra e mostra le informazioni di debug in vari luoghi</string>
     <string name="title_select">Seleziona &#8230;</string>
     <string name="title_identity_name">Il tuo nome</string>
@@ -229,6 +231,7 @@
     <string name="title_account_linked">Account collegato</string>
     <string name="title_account_name">Nome account</string>
     <string name="title_account_name_hint">Usato per differenziare le cartelle</string>
+    <string name="title_account_interval_hint">Frequenza di aggiornamento della connessione per i messaggi push o frequenza di controllo per i nuovi messaggi</string>
     <string name="title_account_prefix">Prefisso Namespace</string>
     <string name="title_account_prefix_hint">Utilizzato per semplificare i nomi delle cartelle</string>
     <string name="title_account_signature">Testo della firma</string>
@@ -287,6 +290,7 @@
     <string name="title_edit_rules">Modifica regole</string>
     <string name="title_create_channel">Crea un canale di notifica</string>
     <string name="title_edit_channel">Modifica canale di notifica</string>
+    <string name="title_delete_channel">Elimina canale di notifica</string>
     <string name="title_empty_trash_ask">Eliminare definitivamente tutti i messaggi cestinati?</string>
     <string name="title_delete_operation">Eliminare le operazioni con un messaggio di errore?</string>
     <string name="title_delete_contacts">Eliminare tutti i contatti locali?</string>

@@ -286,6 +286,7 @@
     <string name="title_edit_properties">Muokkaa ominaisuuksia</string>
     <string name="title_edit_rules">Muokkaa sääntöjä</string>
     <string name="title_create_channel">Luo ilmoituskanava</string>
+    <string name="title_edit_channel">Muokkaa ilmoituskanavaa</string>
     <string name="title_delete_channel">Poista ilmoituskanava</string>
     <string name="title_empty_trash_ask">Tyhjennetäänkö roskakori pysyvästi?</string>
     <string name="title_delete_operation">Poistetaanko toimenpiteet, joille on virheilmoitus?</string>

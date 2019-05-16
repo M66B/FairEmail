@@ -188,6 +188,7 @@
     <string name="title_advanced_english">Forceer Engelse taal</string>
     <string name="title_advanced_authentication">Toon een waarschuwing wanneer de ontvangende server het bericht niet kon verifiëren</string>
     <string name="title_advanced_paranoid">Extra privacy functies</string>
+    <string name="title_advanced_cache_lists">Cache berichtlijsten</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
     <string name="title_advanced_updates">Controleren op updates</string>
     <string name="title_advanced_crash_reports">Foutrapporten verzenden</string>
@@ -211,6 +212,7 @@
     <string name="title_advanced_badge_hint">Alleen beschikbaar op ondersteunde launchers</string>
     <string name="title_advanced_english_hint">Dit zal de app herstarten</string>
     <string name="title_advanced_paranoid_hint">Zie de FAQ voor details</string>
+    <string name="title_advanced_cache_list_hint">Geheugen beschikbaar: %1$s</string>
     <string name="title_advanced_debug_hint">Extra logging inschakelen en debug informatie tonen op verschillende plaatsen</string>
     <string name="title_select">Selecteer &#8230;</string>
     <string name="title_identity_name">Uw naam</string>
@@ -229,6 +231,7 @@
     <string name="title_account_linked">Gekoppeld account</string>
     <string name="title_account_name">Accountnaam</string>
     <string name="title_account_name_hint">Wordt gebruikt voor het onderscheiden van mappen</string>
+    <string name="title_account_interval_hint">Frequentie van het verversen van de verbinding voor push berichten of frequentie van het controleren op nieuwe berichten</string>
     <string name="title_account_prefix">Namespace voorvoegsel</string>
     <string name="title_account_prefix_hint">Wordt gebruikt voor het vereenvoudigen van mapnamen</string>
     <string name="title_account_signature">Handtekening</string>

@@ -277,6 +277,9 @@
     <string name="title_empty_trash">清空垃圾箱</string>
     <string name="title_edit_properties">编辑属性</string>
     <string name="title_edit_rules">编辑规则</string>
+    <string name="title_create_channel">创建通知通道</string>
+    <string name="title_edit_channel">编辑通知通道</string>
+    <string name="title_delete_channel">删除通知通道</string>
     <string name="title_empty_trash_ask">是否永久删除所有垃圾邮件？</string>
     <string name="title_delete_operation">是否删除带有错误消息的操作？</string>
     <string name="title_delete_contacts">删除所有本地联系人？</string>
