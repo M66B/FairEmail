@@ -11,12 +11,11 @@
         android:background="@null"
         android:fontFamily="monospace"
         android:gravity="top"
-        android:hint="@string/title_edit_html"
         android:imeOptions="actionDone"
         android:inputType="text|textMultiLine"
         android:minHeight="120dp"
         android:padding="12dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

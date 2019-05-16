@@ -335,6 +335,7 @@ public class FragmentIdentity extends FragmentBase {
                 etHtml.setText(signature);
 
                 new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                        .setTitle(R.string.title_edit_html)
                         .setView(dview)
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
@@ -345,6 +346,13 @@ public class FragmentIdentity extends FragmentBase {
                             }
                         })
                         .show();
+
+                new Handler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        etHtml.requestFocus();
+                    }
+                });
             }
         });
 
