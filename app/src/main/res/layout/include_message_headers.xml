@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/vSeparatorHeaders"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="6dp"
+        android:background="?attr/colorSeparator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvHeaders"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="6dp"
+        android:fontFamily="monospace"
+        android:minHeight="30dp"
+        android:text="Headers"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textIsSelectable="true"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vSeparatorHeaders" />
+
+    <eu.faircode.email.ContentLoadingProgressBar
+        android:id="@+id/pbHeaders"
+        style="@style/Base.Widget.AppCompat.ProgressBar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:indeterminate="true"
+        app:layout_constraintBottom_toBottomOf="@id/tvHeaders"
+        app:layout_constraintEnd_toEndOf="@id/tvHeaders"
+        app:layout_constraintStart_toStartOf="@id/tvHeaders"
+        app:layout_constraintTop_toTopOf="@id/tvHeaders" />
+
+    <TextView
+        android:id="@+id/tvNoInternetHeaders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_no_internet"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintBottom_toBottomOf="@id/tvHeaders"
+        app:layout_constraintEnd_toEndOf="@id/tvHeaders"
+        app:layout_constraintStart_toStartOf="@id/tvHeaders"
+        app:layout_constraintTop_toTopOf="@id/tvHeaders" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpHeaders"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="vSeparatorHeaders,tvHeaders" />
+</androidx.constraintlayout.widget.ConstraintLayout>

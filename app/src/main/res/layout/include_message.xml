@@ -4,219 +4,37 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <View
-        android:id="@+id/vSeparatorAddress"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:background="?attr/colorSeparator"
-        app:layout_constraintEnd_toEndOf="parent"
+    <include
+        android:id="@+id/inAddresses"
+        layout="@layout/include_message_addresses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/ivExpanderAddress"
-        android:layout_width="0dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="6dp"
-        android:background="?android:attr/selectableItemBackground"
-        android:contentDescription="@string/title_legend_expander"
-        android:src="@drawable/expander"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vSeparatorAddress" />
-
     <include
-        android:id="@+id/inAddresses"
-        layout="@layout/include_addresses"
+        android:id="@+id/inHeaders"
+        layout="@layout/include_message_headers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="6dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress" />
-
-    <View
-        android:id="@+id/vSeparatorHeaders"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="6dp"
-        android:background="?attr/colorSeparator"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/inAddresses" />
 
-    <TextView
-        android:id="@+id/tvHeaders"
-        android:layout_width="0dp"
+    <include
+        android:id="@+id/inAttachments"
+        layout="@layout/include_message_attachments"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="6dp"
-        android:fontFamily="monospace"
-        android:minHeight="24dp"
-        android:text="Headers"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textIsSelectable="true"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vSeparatorHeaders" />
+        app:layout_constraintTop_toBottomOf="@id/inHeaders" />
 
-    <eu.faircode.email.ContentLoadingProgressBar
-        android:id="@+id/pbHeaders"
-        style="@style/Base.Widget.AppCompat.ProgressBar"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:indeterminate="true"
-        app:layout_constraintBottom_toBottomOf="@id/tvHeaders"
-        app:layout_constraintEnd_toEndOf="@id/tvHeaders"
-        app:layout_constraintStart_toStartOf="@id/tvHeaders"
-        app:layout_constraintTop_toTopOf="@id/tvHeaders" />
-
-    <TextView
-        android:id="@+id/tvNoInternetHeaders"
-        android:layout_width="wrap_content"
+    <include
+        android:id="@+id/inNavigation"
+        layout="@layout/include_message_navigation"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title_no_internet"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintBottom_toBottomOf="@id/tvHeaders"
-        app:layout_constraintEnd_toEndOf="@id/tvHeaders"
-        app:layout_constraintStart_toStartOf="@id/tvHeaders"
-        app:layout_constraintTop_toTopOf="@id/tvHeaders" />
-
-    <View
-        android:id="@+id/vSeparatorAttachments"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="6dp"
-        android:background="?attr/colorSeparator"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvHeaders" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvAttachment"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="6dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
-
-    <CheckBox
-        android:id="@+id/cbInline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:text="@string/title_show_inline"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvAttachment" />
-
-    <Button
-        android:id="@+id/btnDownloadAttachments"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minWidth="0dp"
-        android:minHeight="0dp"
-        android:text="@string/title_download_all"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cbInline" />
-
-    <Button
-        android:id="@+id/btnSaveAttachments"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minWidth="0dp"
-        android:minHeight="0dp"
-        android:text="@string/title_save_all"
-        app:layout_constraintEnd_toEndOf="@id/rvAttachment"
-        app:layout_constraintTop_toBottomOf="@id/cbInline" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier_internet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="btnDownloadAttachments,btnSaveAttachments" />
-
-    <TextView
-        android:id="@+id/tvNoInternetAttachments"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="6dp"
-        android:text="@string/title_no_internet"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toEndOf="@id/rvAttachment"
-        app:layout_constraintStart_toStartOf="@id/rvAttachment"
-        app:layout_constraintTop_toBottomOf="@id/barrier_internet" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bnvActions"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:background="?attr/colorSeparator"
-        app:itemIconTint="@color/bottomnav_foreground"
-        app:itemTextColor="@color/bottomnav_foreground"
-        app:labelVisibilityMode="labeled"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvNoInternetAttachments"
-        app:menu="@menu/action_message" />
-
-    <ToggleButton
-        android:id="@+id/tbHtml"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="3dp"
-        android:minWidth="0dp"
-        android:minHeight="0dp"
-        android:textOff="@string/title_show_html"
-        android:textOn="@string/title_show_formatted"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bnvActions" />
-
-    <ImageButton
-        android:id="@+id/ibImages"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="6dp"
-        android:contentDescription="@string/title_legend_show_images"
-        android:src="@drawable/baseline_image_24"
-        app:layout_constraintEnd_toStartOf="@+id/ibFull"
-        app:layout_constraintTop_toBottomOf="@id/bnvActions" />
-
-    <ImageButton
-        android:id="@+id/ibFull"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="6dp"
-        android:contentDescription="@string/title_legend_show_full"
-        android:src="@drawable/baseline_fullscreen_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bnvActions" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier_body"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="tbHtml,ibImages,ibFull" />
+        app:layout_constraintTop_toBottomOf="@id/inAttachments" />
 
     <eu.faircode.email.ContentLoadingProgressBar
         android:id="@+id/pbBody"
@@ -227,7 +45,7 @@
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/barrier_body" />
+        app:layout_constraintTop_toBottomOf="@id/inNavigation" />
 
     <TextView
         android:id="@+id/tvNoInternetBody"
@@ -238,7 +56,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/barrier_body" />
+        app:layout_constraintTop_toBottomOf="@id/inNavigation" />
 
     <TextView
         android:id="@+id/tvBody"
@@ -255,22 +73,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvNoInternetBody" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/grpHeaders"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:constraint_referenced_ids="vSeparatorHeaders,tvHeaders" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/grpAttachments"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:constraint_referenced_ids="vSeparatorAttachments,rvAttachment" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/grpExpanded"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:constraint_referenced_ids="vSeparatorAddress,ivExpanderAddress,bnvActions" />
 </androidx.constraintlayout.widget.ConstraintLayout>

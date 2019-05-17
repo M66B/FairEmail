@@ -4,6 +4,27 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <View
+        android:id="@+id/vSeparatorAddress"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="?attr/colorSeparator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivExpanderAddress"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="@string/title_legend_expander"
+        android:src="@drawable/expander"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vSeparatorAddress" />
+
     <ImageButton
         android:id="@+id/ibSearchContact"
         android:layout_width="wrap_content"
@@ -12,7 +33,7 @@
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:src="@drawable/baseline_search_24"
         app:layout_constraintEnd_toStartOf="@+id/ibNotifyContact"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress" />
 
     <ImageButton
         android:id="@+id/ibNotifyContact"
@@ -23,17 +44,18 @@
         android:contentDescription="@string/title_legend_notify"
         android:src="@drawable/baseline_notifications_24"
         app:layout_constraintEnd_toStartOf="@+id/ibAddContact"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress" />
 
     <ImageButton
         android:id="@+id/ibAddContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_contacts"
         android:src="@drawable/baseline_import_contacts_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_action"
@@ -46,6 +68,7 @@
         android:id="@+id/tvFromExTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
         android:text="@string/title_from"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,6 +79,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
         android:text="From"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textIsSelectable="true"
@@ -67,6 +91,7 @@
         android:id="@+id/tvToTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
         android:text="@string/title_to"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,6 +102,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
         android:text="To"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textIsSelectable="true"
@@ -88,6 +114,7 @@
         android:id="@+id/tvReplyToTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
         android:text="@string/title_reply_to"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,6 +125,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
         android:text="Reply to"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textIsSelectable="true"
@@ -109,6 +137,7 @@
         android:id="@+id/tvCcTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
         android:text="@string/title_cc"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
@@ -119,6 +148,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
         android:text="Cc"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textIsSelectable="true"
@@ -130,6 +160,7 @@
         android:id="@+id/tvBccTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
         android:text="@string/title_bcc"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
@@ -140,6 +171,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
         android:text="Bcc"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textIsSelectable="true"
@@ -151,6 +183,7 @@
         android:id="@+id/tvIdentityTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
         android:text="@string/title_via_identity"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
@@ -161,6 +194,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
         android:text="user@example.org"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textIsSelectable="true"
@@ -172,6 +206,7 @@
         android:id="@+id/tvTimeExTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
         android:text="@string/title_received"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
@@ -182,6 +217,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
         android:text="12:34:56"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textIsSelectable="true"
@@ -193,6 +229,7 @@
         android:id="@+id/tvSizeExTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
         android:text="@string/title_size"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
@@ -203,6 +240,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
         android:text="123 KB"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textIsSelectable="true"
@@ -225,6 +263,8 @@
         android:id="@+id/tvSubjectEx"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
         android:text="Subject"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textIsSelectable="true"
@@ -236,6 +276,8 @@
         android:id="@+id/tvFlags"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
         android:text="Flags"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textIsSelectable="true"
@@ -247,10 +289,18 @@
         android:id="@+id/tvKeywords"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
         android:text="Keywords"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textIsSelectable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvFlags" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpAddresses"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="vSeparatorAddress,ivExpanderAddress" />
 </androidx.constraintlayout.widget.ConstraintLayout>

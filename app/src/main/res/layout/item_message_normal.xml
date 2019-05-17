@@ -343,31 +343,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/inMessage" />
 
-        <View
-            android:id="@+id/vSeparatorImages"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginEnd="6dp"
-            android:background="?attr/colorSeparator"
-            app:layout_constraintEnd_toEndOf="parent"
+        <include
+            android:id="@+id/inImages"
+            layout="@layout/include_message_images"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vwBody" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvImage"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorImages" />
-
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/grpImages"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:constraint_referenced_ids="vSeparatorImages,rvImage" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -254,9 +254,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private RecyclerView rvImage;
 
+        private Group grpAddresses;
         private Group grpHeaders;
         private Group grpAttachments;
-        private Group grpExpanded;
         private Group grpImages;
 
         private AdapterAttachment adapterAttachment;
@@ -357,9 +357,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             adapterImage = new AdapterImage(context, owner);
             rvImage.setAdapter(adapterImage);
 
+            grpAddresses = itemView.findViewById(R.id.grpAddresses);
             grpHeaders = itemView.findViewById(R.id.grpHeaders);
             grpAttachments = itemView.findViewById(R.id.grpAttachments);
-            grpExpanded = itemView.findViewById(R.id.grpExpanded);
             grpImages = itemView.findViewById(R.id.grpImages);
         }
 
@@ -683,9 +683,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void clearExpanded() {
             cowner.stop();
 
+            grpAddresses.setVisibility(View.GONE);
             grpHeaders.setVisibility(View.GONE);
             grpAttachments.setVisibility(View.GONE);
-            grpExpanded.setVisibility(View.GONE);
             grpImages.setVisibility(View.GONE);
 
             ibSearchContact.setVisibility(View.GONE);
@@ -721,6 +721,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnSaveAttachments.setVisibility(View.GONE);
             tvNoInternetAttachments.setVisibility(View.GONE);
 
+            bnvActions.setVisibility(View.GONE);
+
             tbHtml.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
             ibFull.setVisibility(View.GONE);
@@ -755,7 +757,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean show_headers = properties.getValue("headers", message.id);
             boolean show_html = properties.getValue("html", message.id);
 
-            grpExpanded.setVisibility(View.VISIBLE);
+            grpAddresses.setVisibility(View.VISIBLE);
 
             boolean hasFrom = (message.from != null && message.from.length > 0);
             boolean hasTo = (message.to != null && message.to.length > 0);
@@ -776,6 +778,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             grpAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
 
+            bnvActions.setVisibility(View.VISIBLE);
             bnvActions.setTag(null);
             for (int i = 0; i < bnvActions.getMenu().size(); i++)
                 bnvActions.getMenu().getItem(i).setVisible(false);
