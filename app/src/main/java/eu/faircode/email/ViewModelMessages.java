@@ -60,17 +60,15 @@ public class ViewModelMessages extends ViewModel {
             String query, boolean server) {
 
         Args args = new Args(context, account, folder, thread, id, query, server);
-        Log.i("Get model " + viewType + " " + args);
+        Log.i("Get model=" + viewType + " " + args);
         dump();
 
         Model model = models.get(viewType);
         if (model == null || !model.args.equals(args)) {
-            Log.i("Creating model");
+            Log.i("Creating model=" + viewType + " replace=" + (model != null));
 
-            if (model != null) {
+            if (model != null)
                 model.clear();
-                model.list.removeObservers(owner);
-            }
 
             DB db = DB.getInstance(context);
 
@@ -149,27 +147,6 @@ public class ViewModelMessages extends ViewModel {
             model = new Model(args, builder.build(), boundary);
             models.put(viewType, model);
 
-            owner.getLifecycle().addObserver(new LifecycleObserver() {
-                @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-                public void onDestroyed() {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    boolean cache = prefs.getBoolean("cache_lists", true);
-
-                    int free_mb = Helper.getFreeMemMb();
-                    boolean lowmem = (free_mb < LOW_MEM_MB);
-
-                    Log.i("Destroy model " + viewType +
-                            " cache=" + cache + " lowmem=" + lowmem + " free=" + free_mb + " MB");
-
-                    if (viewType == AdapterMessage.ViewType.THREAD || !cache || lowmem) {
-                        Log.i("Remove model " + viewType);
-                        remove(viewType);
-                    }
-
-                    dump();
-                }
-            });
-
             if (viewType != AdapterMessage.ViewType.THREAD)
                 // Keep list up-to-date for previous/next navigation
                 model.list.observeForever(new Observer<PagedList<TupleMessageEx>>() {
@@ -178,6 +155,33 @@ public class ViewModelMessages extends ViewModel {
                     }
                 });
         }
+
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroyed() {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean cache = prefs.getBoolean("cache_lists", true);
+
+                int free_mb = Helper.getFreeMemMb();
+                boolean lowmem = (free_mb < LOW_MEM_MB);
+
+                Log.i("Destroy model=" + viewType +
+                        " cache=" + cache + " lowmem=" + lowmem + " free=" + free_mb + " MB");
+
+                Model model = models.get(viewType);
+                if (model != null) {
+                    Log.i("Remove observer model=" + viewType);
+                    model.list.removeObservers(owner);
+                }
+
+                if (viewType == AdapterMessage.ViewType.THREAD || !cache || lowmem) {
+                    Log.i("Remove model=" + viewType);
+                    remove(viewType);
+                }
+
+                dump();
+            }
+        });
 
         if (viewType == AdapterMessage.ViewType.UNIFIED) {
             remove(AdapterMessage.ViewType.FOLDER);
