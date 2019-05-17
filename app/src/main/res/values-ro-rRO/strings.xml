@@ -196,6 +196,7 @@
     <string name="title_advanced_english">Forțează folosirea limbii Engleze</string>
     <string name="title_advanced_authentication">Arată o avertizare atunci când serverul destinatar nu a putut autentifica mesajul</string>
     <string name="title_advanced_paranoid">Caracteristici de confidențialitate suplimentare</string>
+    <string name="title_advanced_cache_lists">Încarcă lista de mesaje</string>
     <string name="title_advanced_watchdog">Verifică periodic dacă FairEmail este încă activ</string>
     <string name="title_advanced_updates">Verificare actualizări aplicație</string>
     <string name="title_advanced_crash_reports">Trimite rapoarte de eroare</string>
@@ -219,6 +220,7 @@
     <string name="title_advanced_badge_hint">Disponibil doar pe lansatoarele suportate</string>
     <string name="title_advanced_english_hint">Aplicația se va restarta</string>
     <string name="title_advanced_paranoid_hint">Vedeți secțiunea de întrebări și răspunsuri pentru detalii</string>
+    <string name="title_advanced_cache_list_hint">Memorie disponibilă: %1$s</string>
     <string name="title_advanced_debug_hint">Activați înregistrări suplimentare în jurnalul aplicației și afișați informații de depanare în diferite locuri</string>
     <string name="title_select">Selectaţi &#8230;</string>
     <string name="title_identity_name">Numele dumneavoastră</string>

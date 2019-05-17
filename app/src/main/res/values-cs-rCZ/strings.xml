@@ -175,6 +175,7 @@
     <string name="title_advanced_flags">Zobrazit hvězdičky</string>
     <string name="title_advanced_preview">Zobrazit náhled zprávy</string>
     <string name="title_advanced_addresses">Ve výchozím nastavení zobrazit detaily adresy</string>
+    <string name="title_advanced_attachments_alt">Přemístit zobrazení příloh pod text zprávy</string>
     <string name="title_advanced_monospaced">Použít neproporcionální písmo pro text zprávy</string>
     <string name="title_advanced_html">Automaticky zobrazit původní zprávu pro známé kontakty</string>
     <string name="title_advanced_images">Automaticky zobrazit obrázky pro známé kontakty</string>

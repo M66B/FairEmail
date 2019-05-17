@@ -159,6 +159,7 @@
     <string name="title_advanced_flags">Toon sterren</string>
     <string name="title_advanced_preview">Toon berichtvoorbeeld</string>
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
+    <string name="title_advanced_attachments_alt">Bijlagen weergeven na de berichttekst</string>
     <string name="title_advanced_monospaced">Gebruik vaste breedte lettertype voor berichttekst</string>
     <string name="title_advanced_html">Automatisch originele bericht weergeven voor bekende contacten</string>
     <string name="title_advanced_images">Automatisch afbeeldingen weergeven voor bekende contacten</string>

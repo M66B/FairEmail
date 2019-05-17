@@ -87,7 +87,7 @@
     <string name="title_setup_no_settings">Asetuksia ei löytynyt verkkotunnukselle \'%1$s\'</string>
     <string name="title_setup_quick_success">Tili ja identiteetti on lisätty onnistuneesti</string>
     <string name="title_setup_quick_failed">Voit yrittää määrittää tilin ja identiteetin alla</string>
-    <string name="title_setup_manage">Hallinnoi</string>
+    <string name="title_setup_manage">Muokkaa</string>
     <string name="title_setup_grant">Myönnä</string>
     <string name="title_setup_account">Aseta tilit</string>
     <string name="title_setup_account_remark">Sähköpostien vastaanottoon</string>
@@ -188,6 +188,7 @@
     <string name="title_advanced_english">Pakota englannin kieli</string>
     <string name="title_advanced_authentication">Näytä varoitus, kun vastaanottava palvelin ei voinut todentaa viestiä</string>
     <string name="title_advanced_paranoid">Ylimääräiset yksityisyysominaisuudet</string>
+    <string name="title_advanced_cache_lists">Tallenna viestilistaukset välimuistiin</string>
     <string name="title_advanced_watchdog">Tarkista toistuvasti, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_updates">Päivitysten tarkastus</string>
     <string name="title_advanced_crash_reports">Lähetä virheraportit</string>
@@ -211,6 +212,7 @@
     <string name="title_advanced_badge_hint">Käytössä vain tuetuissa käynnistinsovelluksissa</string>
     <string name="title_advanced_english_hint">Tämä käynnistää sovelluksen uudelleen</string>
     <string name="title_advanced_paranoid_hint">Katso lisätietoja usein kysytyistä kysymyksistä</string>
+    <string name="title_advanced_cache_list_hint">Muistia käytettävissä: %1$s</string>
     <string name="title_advanced_debug_hint">Salli ylimääräinen lokitietojen tallennus ja näytä debug-tietoja</string>
     <string name="title_select">Valitse &#8230;</string>
     <string name="title_identity_name">Nimesi</string>
@@ -229,6 +231,7 @@
     <string name="title_account_linked">Linkitetty tili</string>
     <string name="title_account_name">Tilin nimi</string>
     <string name="title_account_name_hint">Käytetään kansioiden tunnistamiseen</string>
+    <string name="title_account_interval_hint">Push-viestien tai uusien viestien tarkistuksen aikaväli</string>
     <string name="title_account_prefix">Namespace-etuliite</string>
     <string name="title_account_prefix_hint">Käytetään kansionimien yksinkertaistamiseen</string>
     <string name="title_account_signature">Allekirjoituksen teksti</string>
@@ -329,7 +332,7 @@
     <string name="title_seen">Merkitse luetuksi</string>
     <string name="title_unseen">Merkitse lukemattomaksi</string>
     <string name="title_flag">Lisää tähti</string>
-    <string name="title_flag_color">Värillinen tähti &#8230;</string>
+    <string name="title_flag_color">Lisää värillinen tähti &#8230;</string>
     <string name="title_unflag">Poista tähti</string>
     <string name="title_forward">Lähetä edelleen</string>
     <string name="title_create_rule">Luo sääntö &#8230;</string>
@@ -528,7 +531,7 @@
     <string name="title_legend_receipt">Kuittaus pyydetty</string>
     <string name="title_legend_attachment">Sisältää liitteen</string>
     <string name="title_legend_flagged">Tähdellinen</string>
-    <string name="title_legend_contacts">Hallinnoi yhteystietoja</string>
+    <string name="title_legend_contacts">Muokkaa yhteystietoja</string>
     <string name="title_legend_search">Hae lähettäjää</string>
     <string name="title_legend_view">Näytä sisältö</string>
     <string name="title_legend_hide">Piilota sisältö</string>

@@ -188,7 +188,7 @@
     <string name="title_advanced_english">Forzar idioma inglés</string>
     <string name="title_advanced_authentication">Mostrar una advertencia cuando el servidor de recepción no pudo autenticar el mensaje</string>
     <string name="title_advanced_paranoid">Características de privacidad adicionales</string>
-    <string name="title_advanced_cache_lists">Almacenar listas de mensajes en cache</string>
+    <string name="title_advanced_cache_lists">Almacenar listas de mensajes en caché</string>
     <string name="title_advanced_watchdog">Comprobar periódicamente si FairEmail sigue activo</string>
     <string name="title_advanced_updates">Buscar actualizaciones</string>
     <string name="title_advanced_crash_reports">Enviar informes de errores</string>
