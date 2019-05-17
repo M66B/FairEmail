@@ -204,6 +204,7 @@
     <string name="title_advanced_english">Vynutit anglický jazyk</string>
     <string name="title_advanced_authentication">Zobrazit upozornění, pokud přijímající server nemůže zprávu ověřit</string>
     <string name="title_advanced_paranoid">Doplňující funkce ochrany soukromí</string>
+    <string name="title_advanced_cache_lists">Ukládat seznamy zpráv do mezipaměti</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat zda je FairEmail stále aktivní</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace</string>
     <string name="title_advanced_crash_reports">Odesílat zprávy o chybách</string>
@@ -227,6 +228,7 @@
     <string name="title_advanced_badge_hint">K dispozici pouze v podporovaných spouštěčích aplikací</string>
     <string name="title_advanced_english_hint">Restartuje aplikaci</string>
     <string name="title_advanced_paranoid_hint">Pro více informací si přečtěte časté dotazy</string>
+    <string name="title_advanced_cache_list_hint">Dostupná paměť: %1$s</string>
     <string name="title_advanced_debug_hint">Zapnout rozšířený záznam a zobrazit ladící informace na různých místech</string>
     <string name="title_select">Vybrat &#8230;</string>
     <string name="title_identity_name">Vaše jméno</string>
@@ -245,6 +247,7 @@
     <string name="title_account_linked">Připojený účet</string>
     <string name="title_account_name">Název účtu</string>
     <string name="title_account_name_hint">Použito k odlišení složek</string>
+    <string name="title_account_interval_hint">Četnost obnovy spojení pro okamžitá oznámení zpráv nebo četnost kontroly nových zpráv</string>
     <string name="title_account_prefix">Předpona jmenného prostoru</string>
     <string name="title_account_prefix_hint">Použito pro zjednodušení názvů složek</string>
     <string name="title_account_signature">Text podpisu</string>
