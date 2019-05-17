@@ -151,6 +151,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean subject_italic;
     private boolean flags;
     private boolean preview;
+    private boolean attachments_alt;
     private boolean monospaced;
     private boolean autohtml;
     private boolean autoimages;
@@ -269,6 +270,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             super(itemView);
 
             view = itemView.findViewById(R.id.clItem);
+
             vwColor = itemView.findViewById(R.id.vwColor);
             vwStatus = itemView.findViewById(R.id.vwStatus);
             ivExpander = itemView.findViewById(R.id.ivExpander);
@@ -292,6 +294,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvError = itemView.findViewById(R.id.tvError);
             pbLoading = itemView.findViewById(R.id.pbLoading);
             vwRipple = itemView.findViewById(R.id.vwRipple);
+
+            ConstraintLayout inAttachments = itemView.findViewById(R.id.inAttachments);
+            ConstraintLayout inAttachmentsAlt = itemView.findViewById(R.id.inAttachmentsAlt);
+            inAttachments.setVisibility(attachments_alt ? View.GONE : View.VISIBLE);
+            inAttachmentsAlt.setVisibility(attachments_alt ? View.VISIBLE : View.GONE);
+            ConstraintLayout attachments = (attachments_alt ? inAttachmentsAlt : inAttachments);
 
             ivExpanderAddress = itemView.findViewById(R.id.ivExpanderAddress);
 
@@ -325,7 +333,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbHeaders = itemView.findViewById(R.id.pbHeaders);
             tvNoInternetHeaders = itemView.findViewById(R.id.tvNoInternetHeaders);
 
-            rvAttachment = itemView.findViewById(R.id.rvAttachment);
+            rvAttachment = attachments.findViewById(R.id.rvAttachment);
             rvAttachment.setHasFixedSize(false);
             LinearLayoutManager llm = new LinearLayoutManager(context);
             rvAttachment.setLayoutManager(llm);
@@ -334,10 +342,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             adapterAttachment = new AdapterAttachment(context, owner, true);
             rvAttachment.setAdapter(adapterAttachment);
 
-            cbInline = itemView.findViewById(R.id.cbInline);
-            btnDownloadAttachments = itemView.findViewById(R.id.btnDownloadAttachments);
-            btnSaveAttachments = itemView.findViewById(R.id.btnSaveAttachments);
-            tvNoInternetAttachments = itemView.findViewById(R.id.tvNoInternetAttachments);
+            cbInline = attachments.findViewById(R.id.cbInline);
+            btnDownloadAttachments = attachments.findViewById(R.id.btnDownloadAttachments);
+            btnSaveAttachments = attachments.findViewById(R.id.btnSaveAttachments);
+            tvNoInternetAttachments = attachments.findViewById(R.id.tvNoInternetAttachments);
 
             bnvActions = itemView.findViewById(R.id.bnvActions);
 
@@ -359,7 +367,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             grpAddresses = itemView.findViewById(R.id.grpAddresses);
             grpHeaders = itemView.findViewById(R.id.grpHeaders);
-            grpAttachments = itemView.findViewById(R.id.grpAttachments);
+            grpAttachments = attachments.findViewById(R.id.grpAttachments);
             grpImages = itemView.findViewById(R.id.grpImages);
         }
 
@@ -3084,6 +3092,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.subject_italic = prefs.getBoolean("subject_italic", true);
         this.flags = prefs.getBoolean("flags", true);
         this.preview = prefs.getBoolean("preview", false);
+        this.attachments_alt = prefs.getBoolean("attachments_alt", false);
         this.monospaced = prefs.getBoolean("monospaced", false);
         this.autohtml = (this.hasWebView && this.contacts && prefs.getBoolean("autohtml", false));
         this.autoimages = (this.contacts && prefs.getBoolean("autoimages", false));

@@ -48,6 +48,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swFlags;
     private SwitchCompat swPreview;
     private SwitchCompat swAddresses;
+    private SwitchCompat swAttachmentsAlt;
     private SwitchCompat swMonospaced;
     private SwitchCompat swHtml;
     private SwitchCompat swImages;
@@ -55,7 +56,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private final static String[] RESET_OPTIONS = new String[]{
             "startup", "date", "threading", "avatars", "identicons", "circular", "name_email", "subject_italic",
-            "flags", "preview", "addresses", "monospaced", "autohtml", "autoimages", "actionbar",
+            "flags", "preview", "addresses", "attachments_alt", "monospaced", "autohtml", "autoimages", "actionbar",
     };
 
     @Override
@@ -79,6 +80,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swFlags = view.findViewById(R.id.swFlags);
         swPreview = view.findViewById(R.id.swPreview);
         swAddresses = view.findViewById(R.id.swAddresses);
+        swAttachmentsAlt = view.findViewById(R.id.swAttachmentsAlt);
         swMonospaced = view.findViewById(R.id.swMonospaced);
         swHtml = view.findViewById(R.id.swHtml);
         swImages = view.findViewById(R.id.swImages);
@@ -176,6 +178,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swAttachmentsAlt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("attachments_alt", checked).apply();
+            }
+        });
+
         swMonospaced.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -268,6 +277,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swFlags.setChecked(prefs.getBoolean("flags", true));
         swPreview.setChecked(prefs.getBoolean("preview", false));
         swAddresses.setChecked(prefs.getBoolean("addresses", false));
+        swAttachmentsAlt.setChecked(prefs.getBoolean("attachments_alt", false));
         swMonospaced.setChecked(prefs.getBoolean("monospaced", false));
         swHtml.setChecked(prefs.getBoolean("autohtml", false));
         swImages.setChecked(prefs.getBoolean("autoimages", false));
