@@ -56,6 +56,7 @@ public class WorkerWatchdog extends Worker {
 
             PeriodicWorkRequest workRequest =
                     new PeriodicWorkRequest.Builder(WorkerWatchdog.class, WATCHDOG_INTERVAL, TimeUnit.MINUTES)
+                            .setInitialDelay(WATCHDOG_INTERVAL, TimeUnit.MINUTES)
                             .build();
             WorkManager.getInstance(context)
                     .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.KEEP, workRequest);

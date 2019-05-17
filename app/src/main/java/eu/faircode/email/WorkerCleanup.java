@@ -163,6 +163,7 @@ public class WorkerCleanup extends Worker {
 
         PeriodicWorkRequest workRequest =
                 new PeriodicWorkRequest.Builder(WorkerCleanup.class, CLEANUP_INTERVAL, TimeUnit.HOURS)
+                        .setInitialDelay(CLEANUP_INTERVAL, TimeUnit.HOURS)
                         .setConstraints(constraints.build())
                         .build();
         WorkManager.getInstance(context)
