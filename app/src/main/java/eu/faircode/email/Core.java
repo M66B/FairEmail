@@ -991,8 +991,8 @@ class Core {
                     " search=" + (SystemClock.elapsedRealtime() - search) + " ms");
 
             FetchProfile fp = new FetchProfile();
-            fp.add(UIDFolder.FetchProfileItem.UID);
-            fp.add(FetchProfile.Item.FLAGS);
+            fp.add(UIDFolder.FetchProfileItem.UID); // To check if message exists
+            fp.add(FetchProfile.Item.FLAGS); // To update existing messages
             ifolder.fetch(imessages, fp);
 
             long fetch = SystemClock.elapsedRealtime();
@@ -1124,7 +1124,7 @@ class Core {
                         Log.e(folder.name, ex);
                         db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
                     } finally {
-                        // Reduce memory usage
+                        // Free memory
                         ((IMAPMessage) isub[j]).invalidateHeaders();
                     }
             }
@@ -1149,8 +1149,6 @@ class Core {
 
             if (download) {
                 db.folder().setFolderSyncState(folder.id, "downloading");
-
-                //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
 
                 // Download messages/attachments
                 Log.i(folder.name + " download=" + imessages.length);
@@ -1617,16 +1615,19 @@ class Core {
 
         if (fetch) {
             Log.i(folder.name + " fetching message id=" + message.id);
-            FetchProfile fp = new FetchProfile();
-            fp.add(FetchProfile.Item.ENVELOPE);
-            fp.add(FetchProfile.Item.FLAGS);
-            fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
-            fp.add(UIDFolder.FetchProfileItem.UID);
-            fp.add(IMAPFolder.FetchProfileItem.HEADERS);
-            fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
-            fp.add(FetchProfile.Item.SIZE);
-            fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
-            ifolder.fetch(new Message[]{imessage}, fp);
+
+            // Fetch on demand to prevent OOM
+
+            //FetchProfile fp = new FetchProfile();
+            //fp.add(FetchProfile.Item.ENVELOPE);
+            //fp.add(FetchProfile.Item.FLAGS);
+            //fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
+            //fp.add(UIDFolder.FetchProfileItem.UID);
+            //fp.add(IMAPFolder.FetchProfileItem.HEADERS);
+            //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
+            //fp.add(FetchProfile.Item.SIZE);
+            //fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
+            //ifolder.fetch(new Message[]{imessage}, fp);
 
             MessageHelper.MessageParts parts = helper.getMessageParts();
 
