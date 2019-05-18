@@ -182,7 +182,8 @@ class Core {
 
                         // Operations should use database transaction when needed
 
-                        db.operation().setOperationState(op.id, "executing");
+                        if (!EntityOperation.SYNC.equals(op.name))
+                            db.operation().setOperationState(op.id, "executing");
 
                         switch (op.name) {
                             case EntityOperation.SEEN:
