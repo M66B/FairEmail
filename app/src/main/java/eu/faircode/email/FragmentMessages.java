@@ -1263,7 +1263,7 @@ public class FragmentMessages extends FragmentBase {
                                     for (EntityMessage threaded : messages) {
                                         db.message().setMessageSnoozed(threaded.id, wakeup);
                                         EntityMessage.snooze(context, threaded.id, wakeup);
-                                        EntityOperation.queue(context, db, threaded, EntityOperation.SEEN, true);
+                                        EntityOperation.queue(context, threaded, EntityOperation.SEEN, true);
                                     }
 
                                     db.setTransactionSuccessful();
@@ -1504,7 +1504,7 @@ public class FragmentMessages extends FragmentBase {
                             List<EntityMessage> messages = db.message().getMessageByThread(
                                     message.account, message.thread, threading ? null : id, message.folder);
                             for (EntityMessage threaded : messages)
-                                EntityOperation.queue(context, db, threaded, EntityOperation.SEEN, seen);
+                                EntityOperation.queue(context, threaded, EntityOperation.SEEN, seen);
                         }
                     }
 
@@ -1555,7 +1555,7 @@ public class FragmentMessages extends FragmentBase {
                                                 for (EntityMessage threaded : messages) {
                                                     db.message().setMessageSnoozed(threaded.id, wakeup);
                                                     EntityMessage.snooze(context, threaded.id, wakeup);
-                                                    EntityOperation.queue(context, db, threaded, EntityOperation.SEEN, true);
+                                                    EntityOperation.queue(context, threaded, EntityOperation.SEEN, true);
                                                 }
                                             }
                                         }
@@ -1612,7 +1612,7 @@ public class FragmentMessages extends FragmentBase {
                             List<EntityMessage> messages = db.message().getMessageByThread(
                                     message.account, message.thread, threading ? null : id, message.folder);
                             for (EntityMessage threaded : messages)
-                                EntityOperation.queue(context, db, threaded, EntityOperation.FLAG, flagged, color);
+                                EntityOperation.queue(context, threaded, EntityOperation.FLAG, flagged, color);
                         }
                     }
 
@@ -1707,7 +1707,7 @@ public class FragmentMessages extends FragmentBase {
                                             for (long id : ids) {
                                                 EntityMessage message = db.message().getMessage(id);
                                                 if (message != null)
-                                                    EntityOperation.queue(context, db, message, EntityOperation.DELETE);
+                                                    EntityOperation.queue(context, message, EntityOperation.DELETE);
                                             }
 
                                             db.setTransactionSuccessful();
@@ -2884,9 +2884,9 @@ public class FragmentMessages extends FragmentBase {
 
                     if (message.uid != null) {
                         if (!message.content)
-                            EntityOperation.queue(context, db, message, EntityOperation.BODY);
+                            EntityOperation.queue(context, message, EntityOperation.BODY);
                         if (!message.ui_seen)
-                            EntityOperation.queue(context, db, message, EntityOperation.SEEN, true);
+                            EntityOperation.queue(context, message, EntityOperation.SEEN, true);
                     }
 
                     db.setTransactionSuccessful();
@@ -3044,7 +3044,7 @@ public class FragmentMessages extends FragmentBase {
                         EntityMessage message = db.message().getMessage(target.id);
                         if (message != null) {
                             Log.i("Move id=" + target.id + " target=" + target.folder.name);
-                            EntityOperation.queue(context, db, message, EntityOperation.MOVE, target.folder.id);
+                            EntityOperation.queue(context, message, EntityOperation.MOVE, target.folder.id);
                         }
                     }
 
@@ -3124,7 +3124,7 @@ public class FragmentMessages extends FragmentBase {
                                 EntityMessage message = db.message().getMessage(target.id);
                                 if (message != null && message.ui_hide) {
                                     Log.i("Move id=" + id + " target=" + target.folder.name);
-                                    EntityOperation.queue(context, db, message, EntityOperation.MOVE, target.folder.id);
+                                    EntityOperation.queue(context, message, EntityOperation.MOVE, target.folder.id);
                                 }
                             }
 

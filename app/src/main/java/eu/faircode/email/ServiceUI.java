@@ -118,7 +118,7 @@ public class ServiceUI extends IntentService {
             if (message != null) {
                 EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
                 if (trash != null)
-                    EntityOperation.queue(this, db, message, EntityOperation.MOVE, trash.id);
+                    EntityOperation.queue(this, message, EntityOperation.MOVE, trash.id);
             }
 
             db.setTransactionSuccessful();
@@ -138,7 +138,7 @@ public class ServiceUI extends IntentService {
                 if (archive == null)
                     archive = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
                 if (archive != null)
-                    EntityOperation.queue(this, db, message, EntityOperation.MOVE, archive.id);
+                    EntityOperation.queue(this, message, EntityOperation.MOVE, archive.id);
             }
 
             db.setTransactionSuccessful();
@@ -160,8 +160,8 @@ public class ServiceUI extends IntentService {
                 List<EntityMessage> messages = db.message().getMessageByThread(
                         message.account, message.thread, threading ? null : id, null);
                 for (EntityMessage threaded : messages) {
-                    EntityOperation.queue(this, db, threaded, EntityOperation.FLAG, true);
-                    EntityOperation.queue(this, db, threaded, EntityOperation.SEEN, true);
+                    EntityOperation.queue(this, threaded, EntityOperation.FLAG, true);
+                    EntityOperation.queue(this, threaded, EntityOperation.SEEN, true);
                 }
             }
 
@@ -178,7 +178,7 @@ public class ServiceUI extends IntentService {
 
             EntityMessage message = db.message().getMessage(id);
             if (message != null)
-                EntityOperation.queue(this, db, message, EntityOperation.SEEN, true);
+                EntityOperation.queue(this, message, EntityOperation.SEEN, true);
 
             db.setTransactionSuccessful();
         } finally {
@@ -214,10 +214,10 @@ public class ServiceUI extends IntentService {
                 if (EntityFolder.OUTBOX.equals(folder.type)) {
                     Log.i("Delayed send id=" + message.id);
                     EntityOperation.queue(
-                            this, db, message, EntityOperation.SEND);
+                            this, message, EntityOperation.SEND);
                 } else if (folder.notify) {
                     EntityOperation.queue(
-                            this, db, message, EntityOperation.SEEN, false);
+                            this, message, EntityOperation.SEEN, false);
                     db.message().setMessageUiIgnored(message.id, false);
                 }
             }

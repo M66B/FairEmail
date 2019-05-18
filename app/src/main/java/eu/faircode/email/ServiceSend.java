@@ -365,7 +365,7 @@ public class ServiceSend extends LifecycleService {
                 if (ident.store_sent && sent != null) {
                     db.message().setMessageFolder(message.id, sent.id);
                     message.folder = sent.id;
-                    EntityOperation.queue(this, db, message, EntityOperation.ADD);
+                    EntityOperation.queue(this, message, EntityOperation.ADD);
                 } else {
                     if (!BuildConfig.DEBUG && !debug)
                         db.message().setMessageUiHide(message.id, true);
@@ -374,7 +374,7 @@ public class ServiceSend extends LifecycleService {
                 if (message.inreplyto != null) {
                     List<EntityMessage> replieds = db.message().getMessageByMsgId(message.account, message.inreplyto);
                     for (EntityMessage replied : replieds)
-                        EntityOperation.queue(this, db, replied, EntityOperation.ANSWERED, true);
+                        EntityOperation.queue(this, replied, EntityOperation.ANSWERED, true);
                 }
 
                 db.setTransactionSuccessful();

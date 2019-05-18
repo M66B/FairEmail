@@ -2109,7 +2109,7 @@ public class FragmentCompose extends FragmentBase {
                         if (answer > 0)
                             body = EntityAnswer.getAnswerText(db, answer, draft.to) + body;
 
-                        EntityOperation.queue(context, db, ref, EntityOperation.SEEN, true);
+                        EntityOperation.queue(context, ref, EntityOperation.SEEN, true);
                     }
 
                     // Select identity matching from address
@@ -2210,18 +2210,18 @@ public class FragmentCompose extends FragmentBase {
                             }
                     }
 
-                    EntityOperation.queue(context, db, draft, EntityOperation.ADD);
+                    EntityOperation.queue(context, draft, EntityOperation.ADD);
                 } else {
                     if (!draft.content) {
                         if (draft.uid == null)
                             throw new IllegalStateException("Draft without uid");
-                        EntityOperation.queue(context, db, draft, EntityOperation.BODY);
+                        EntityOperation.queue(context, draft, EntityOperation.BODY);
                     }
 
                     List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
                     for (EntityAttachment attachment : attachments)
                         if (!attachment.available)
-                            EntityOperation.queue(context, db, draft, EntityOperation.ATTACHMENT, attachment.id);
+                            EntityOperation.queue(context, draft, EntityOperation.ATTACHMENT, attachment.id);
                 }
 
                 db.setTransactionSuccessful();
@@ -2453,7 +2453,7 @@ public class FragmentCompose extends FragmentBase {
                     draft.content = false;
                     draft.ui_hide = true;
                     draft.id = db.message().insertMessage(draft);
-                    EntityOperation.queue(context, db, draft, EntityOperation.DELETE); // by msgid
+                    EntityOperation.queue(context, draft, EntityOperation.DELETE); // by msgid
 
                     // Restore original with new account, no uid and new msgid
                     draft.id = id;
@@ -2464,7 +2464,7 @@ public class FragmentCompose extends FragmentBase {
                     draft.content = true;
                     draft.ui_hide = false;
                     db.message().updateMessage(draft);
-                    EntityOperation.queue(context, db, draft, EntityOperation.ADD);
+                    EntityOperation.queue(context, draft, EntityOperation.ADD);
                 }
 
                 List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
@@ -2620,9 +2620,9 @@ public class FragmentCompose extends FragmentBase {
                 if (action == R.id.action_delete) {
                     EntityFolder trash = db.folder().getFolderByType(draft.account, EntityFolder.TRASH);
                     if (empty || trash == null)
-                        EntityOperation.queue(context, db, draft, EntityOperation.DELETE);
+                        EntityOperation.queue(context, draft, EntityOperation.DELETE);
                     else
-                        EntityOperation.queue(context, db, draft, EntityOperation.MOVE, trash.id);
+                        EntityOperation.queue(context, draft, EntityOperation.MOVE, trash.id);
 
                     if (!empty) {
                         Handler handler = new Handler(context.getMainLooper());
@@ -2637,7 +2637,7 @@ public class FragmentCompose extends FragmentBase {
                         action == R.id.action_redo ||
                         action == R.id.menu_encrypt) {
                     if (BuildConfig.DEBUG || dirty)
-                        EntityOperation.queue(context, db, draft, EntityOperation.ADD);
+                        EntityOperation.queue(context, draft, EntityOperation.ADD);
 
                     Handler handler = new Handler(context.getMainLooper());
                     handler.post(new Runnable() {
@@ -2660,7 +2660,7 @@ public class FragmentCompose extends FragmentBase {
                             throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
 
                     // Delete draft (cannot move to outbox)
-                    EntityOperation.queue(context, db, draft, EntityOperation.DELETE);
+                    EntityOperation.queue(context, draft, EntityOperation.DELETE);
 
                     File refDraftFile = draft.getRefFile(context);
 
@@ -2690,7 +2690,7 @@ public class FragmentCompose extends FragmentBase {
 
                     // Send message
                     if (draft.ui_snoozed == null)
-                        EntityOperation.queue(context, db, draft, EntityOperation.SEND);
+                        EntityOperation.queue(context, draft, EntityOperation.SEND);
 
                     final String feedback;
                     if (draft.ui_snoozed == null)

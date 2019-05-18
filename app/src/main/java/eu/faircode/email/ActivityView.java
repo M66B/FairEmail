@@ -1213,7 +1213,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                 if (message == null)
                                     return;
 
-                                EntityOperation.queue(context, db, message, EntityOperation.FLAG, true, color);
+                                EntityOperation.queue(context, message, EntityOperation.FLAG, true, color);
                             }
                         });
                         return null;

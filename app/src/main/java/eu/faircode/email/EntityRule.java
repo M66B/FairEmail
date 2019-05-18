@@ -203,25 +203,25 @@ public class EntityRule {
 
             switch (type) {
                 case TYPE_SEEN:
-                    onActionSeen(context, db, message, true);
+                    onActionSeen(context, message, true);
                     break;
                 case TYPE_UNSEEN:
-                    onActionSeen(context, db, message, false);
+                    onActionSeen(context, message, false);
                     break;
                 case TYPE_FLAG:
-                    onActionFlag(context, db, message, jaction);
+                    onActionFlag(context, message, jaction);
                     break;
                 case TYPE_MOVE:
-                    onActionMove(context, db, message, jaction);
+                    onActionMove(context, message, jaction);
                     break;
                 case TYPE_COPY:
-                    onActionCopy(context, db, message, jaction);
+                    onActionCopy(context, message, jaction);
                     break;
                 case TYPE_ANSWER:
-                    onActionAnswer(context, db, message, jaction);
+                    onActionAnswer(context, message, jaction);
                     break;
                 case TYPE_AUTOMATION:
-                    onActionAutomation(context, db, message, jaction);
+                    onActionAutomation(context, message, jaction);
                     break;
             }
         } catch (JSONException ex) {
@@ -229,25 +229,27 @@ public class EntityRule {
         }
     }
 
-    private void onActionSeen(Context context, DB db, EntityMessage message, boolean seen) {
-        EntityOperation.queue(context, db, message, EntityOperation.SEEN, seen);
+    private void onActionSeen(Context context, EntityMessage message, boolean seen) {
+        EntityOperation.queue(context, message, EntityOperation.SEEN, seen);
         message.seen = seen;
     }
 
-    private void onActionMove(Context context, DB db, EntityMessage message, JSONObject jargs) throws JSONException {
+    private void onActionMove(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
         long target = jargs.getLong("target");
-        EntityOperation.queue(context, db, message, EntityOperation.MOVE, target, false);
+        EntityOperation.queue(context, message, EntityOperation.MOVE, target, false);
     }
 
-    private void onActionCopy(Context context, DB db, EntityMessage message, JSONObject jargs) throws JSONException {
+    private void onActionCopy(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
         long target = jargs.getLong("target");
-        EntityOperation.queue(context, db, message, EntityOperation.COPY, target, false);
+        EntityOperation.queue(context, message, EntityOperation.COPY, target, false);
     }
 
-    private void onActionAnswer(Context context, DB db, EntityMessage message, JSONObject jargs) throws JSONException, IOException {
+    private void onActionAnswer(Context context, EntityMessage message, JSONObject jargs) throws JSONException, IOException {
         long iid = jargs.getLong("identity");
         long aid = jargs.getLong("answer");
         boolean cc = (jargs.has("cc") && jargs.getBoolean("cc"));
+
+        DB db = DB.getInstance(context);
 
         EntityIdentity identity = db.identity().getIdentity(iid);
         if (identity == null)
@@ -286,10 +288,10 @@ public class EntityRule {
 
         Core.updateMessageSize(context, reply.id);
 
-        EntityOperation.queue(context, db, reply, EntityOperation.SEND);
+        EntityOperation.queue(context, reply, EntityOperation.SEND);
     }
 
-    private void onActionAutomation(Context context, DB db, EntityMessage message, JSONObject jargs) throws JSONException {
+    private void onActionAutomation(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
         String sender = (message.from == null || message.from.length == 0
                 ? null : ((InternetAddress) message.from[0]).getAddress());
 
@@ -306,10 +308,10 @@ public class EntityRule {
         }
     }
 
-    private void onActionFlag(Context context, DB db, EntityMessage message, JSONObject jargs) throws JSONException {
+    private void onActionFlag(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
         Integer color = (jargs.has("color") && !jargs.isNull("color")
                 ? jargs.getInt("color") : null);
-        EntityOperation.queue(context, db, message, EntityOperation.FLAG, true, color);
+        EntityOperation.queue(context, message, EntityOperation.FLAG, true, color);
     }
 
     @Override

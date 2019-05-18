@@ -554,12 +554,12 @@ class Core {
                     // Mark source read
                     if (autoread) {
                         Log.i(folder.name + " queuing SEEN id=" + message.id);
-                        EntityOperation.queue(context, db, message, EntityOperation.SEEN, true);
+                        EntityOperation.queue(context, message, EntityOperation.SEEN, true);
                     }
 
                     // Delete source
                     Log.i(folder.name + " queuing DELETE id=" + message.id);
-                    EntityOperation.queue(context, db, message, EntityOperation.DELETE);
+                    EntityOperation.queue(context, message, EntityOperation.DELETE);
 
                     db.setTransactionSuccessful();
                 } finally {
@@ -960,7 +960,7 @@ class Core {
                 for (Long tbd : tbds) {
                     EntityMessage message = db.message().getMessage(tbd);
                     if (message != null)
-                        EntityOperation.queue(context, db, message, EntityOperation.DELETE);
+                        EntityOperation.queue(context, message, EntityOperation.DELETE);
                 }
             } else {
                 int old = db.message().deleteMessagesBefore(folder.id, keep_time, false);
@@ -1140,7 +1140,7 @@ class Core {
                     Log.i(folder.name + " adding orphan id=" + orphan.id + " sent=" + new Date(orphan.sent));
                     orphan.folder = folder.id;
                     db.message().updateMessage(orphan);
-                    EntityOperation.queue(context, db, orphan, EntityOperation.ADD);
+                    EntityOperation.queue(context, orphan, EntityOperation.ADD);
                 }
             }
 

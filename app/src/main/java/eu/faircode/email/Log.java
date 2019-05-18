@@ -205,7 +205,7 @@ public class Log {
 
             Core.updateMessageSize(context, draft.id);
 
-            EntityOperation.queue(context, db, draft, EntityOperation.ADD);
+            EntityOperation.queue(context, draft, EntityOperation.ADD);
 
             db.setTransactionSuccessful();
         } finally {

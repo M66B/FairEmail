@@ -604,7 +604,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                                 List<Long> ids = db.message().getMessageByFolder(folder);
                                                 for (Long id : ids) {
                                                     EntityMessage message = db.message().getMessage(id);
-                                                    EntityOperation.queue(context, db, message, EntityOperation.DELETE);
+                                                    EntityOperation.queue(context, message, EntityOperation.DELETE);
                                                 }
 
                                                 db.setTransactionSuccessful();

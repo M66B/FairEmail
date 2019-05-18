@@ -88,7 +88,9 @@ public class EntityOperation {
     static final String SYNC = "sync";
     static final String SUBSCRIBE = "subscribe";
 
-    static void queue(Context context, DB db, EntityMessage message, String name, Object... values) {
+    static void queue(Context context, EntityMessage message, String name, Object... values) {
+        DB db = DB.getInstance(context);
+
         JSONArray jargs = new JSONArray();
         for (Object value : values)
             jargs.put(value);

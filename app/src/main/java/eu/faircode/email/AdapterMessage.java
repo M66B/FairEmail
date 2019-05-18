@@ -1160,7 +1160,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         List<EntityMessage> messages = db.message().getMessageByThread(
                                 message.account, message.thread, threading && thread ? null : id, null);
                         for (EntityMessage threaded : messages)
-                            EntityOperation.queue(context, db, threaded, EntityOperation.FLAG, flagged);
+                            EntityOperation.queue(context, threaded, EntityOperation.FLAG, flagged);
 
                         db.setTransactionSuccessful();
                     } finally {
@@ -1382,7 +1382,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             for (EntityAttachment attachment : db.attachment().getAttachments(message.id))
                                 if (attachment.progress == null && !attachment.available) {
                                     db.attachment().setProgress(attachment.id, 0);
-                                    EntityOperation.queue(context, db, msg, EntityOperation.ATTACHMENT, attachment.id);
+                                    EntityOperation.queue(context, msg, EntityOperation.ATTACHMENT, attachment.id);
                                 }
 
                         db.setTransactionSuccessful();
@@ -1736,7 +1736,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
                         for (EntityAttachment attachment : attachments)
                             if (!attachment.available && !TextUtils.isEmpty(attachment.cid))
-                                EntityOperation.queue(context, db, message, EntityOperation.ATTACHMENT, attachment.id);
+                                EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.id);
 
                         db.setTransactionSuccessful();
                     } finally {
@@ -2131,7 +2131,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (message == null)
                             return null;
 
-                        EntityOperation.queue(context, db, message, EntityOperation.SEEN, false);
+                        EntityOperation.queue(context, message, EntityOperation.SEEN, false);
 
                         db.setTransactionSuccessful();
                     } finally {
@@ -2217,7 +2217,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         if (message == null)
                                             return null;
 
-                                        EntityOperation.queue(context, db, message, EntityOperation.COPY, target);
+                                        EntityOperation.queue(context, message, EntityOperation.COPY, target);
 
                                         db.setTransactionSuccessful();
                                     } finally {
@@ -2292,7 +2292,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                             return null;
 
                                         EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
-                                        EntityOperation.queue(context, db, message, EntityOperation.MOVE, junk.id);
+                                        EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id);
 
                                         db.setTransactionSuccessful();
                                     } finally {
@@ -2436,7 +2436,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                                 for (int i = 0; i < selected.length; i++)
                                                     if (dirty[i])
-                                                        EntityOperation.queue(context, db, message, EntityOperation.KEYWORD, keywords[i], selected[i]);
+                                                        EntityOperation.queue(context, message, EntityOperation.KEYWORD, keywords[i], selected[i]);
 
                                                 db.setTransactionSuccessful();
                                             } finally {
@@ -2474,9 +2474,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                                                 EntityMessage message = (EntityMessage) args.getSerializable("message");
                                                                 String keyword = args.getString("keyword");
 
-                                                                DB db = DB.getInstance(context);
-                                                                EntityOperation.queue(context, db, message, EntityOperation.KEYWORD, keyword, true);
-
+                                                                EntityOperation.queue(context, message, EntityOperation.KEYWORD, keyword, true);
                                                                 return null;
                                                             }
 
@@ -2615,7 +2613,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (message == null)
                                 return null;
 
-                            EntityOperation.queue(context, db, message, EntityOperation.HEADERS);
+                            EntityOperation.queue(context, message, EntityOperation.HEADERS);
 
                             db.setTransactionSuccessful();
                         } finally {
@@ -2651,7 +2649,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (message == null)
                                 return null;
 
-                            EntityOperation.queue(context, db, message, EntityOperation.RAW);
+                            EntityOperation.queue(context, message, EntityOperation.RAW);
 
                             db.message().setMessageRaw(message.id, false);
 
@@ -2803,7 +2801,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                                 NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                                                 nm.cancel("send", message.identity.intValue());
                                             } else
-                                                EntityOperation.queue(context, db, message, EntityOperation.DELETE);
+                                                EntityOperation.queue(context, message, EntityOperation.DELETE);
 
                                             db.setTransactionSuccessful();
                                         } finally {
@@ -2864,7 +2862,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             for (EntityAttachment attachment : attachments)
                                 db.attachment().setMessage(attachment.id, message.id);
 
-                            EntityOperation.queue(context, db, message, EntityOperation.ADD);
+                            EntityOperation.queue(context, message, EntityOperation.ADD);
 
                             // Delete from outbox
                             db.message().deleteMessage(id);

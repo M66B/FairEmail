@@ -159,7 +159,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                                 db.attachment().setProgress(id, 0);
 
                                 EntityMessage msg = db.message().getMessage(message);
-                                EntityOperation.queue(context, db, msg, EntityOperation.ATTACHMENT, id);
+                                EntityOperation.queue(context, msg, EntityOperation.ATTACHMENT, id);
 
                                 db.setTransactionSuccessful();
                             } finally {
