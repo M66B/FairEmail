@@ -112,7 +112,7 @@ import me.leolin.shortcutbadger.ShortcutBadger;
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 class Core {
-    private static final int MAX_NOTIFICATION_COUNT = 20; // per group
+    private static final int MAX_NOTIFICATION_COUNT = 10; // per group
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long YIELD_DURATION = 200L; // milliseconds
@@ -1741,7 +1741,9 @@ class Core {
                     groupNotifying.put(group, new ArrayList<Long>());
             }
 
-            groupMessages.get(group).add(message);
+            // This assumes the messages are properly ordered
+            if (groupMessages.get(group).size() < MAX_NOTIFICATION_COUNT)
+                groupMessages.get(group).add(message);
         }
 
         // Difference
@@ -1760,8 +1762,7 @@ class Core {
                         Log.i("Notify existing=" + id);
                     } else {
                         remove.remove(-id);
-                        if (add.size() < MAX_NOTIFICATION_COUNT)
-                            add.add(id);
+                        add.add(id);
                         Log.i("Notify adding=" + id);
                     }
                 }
