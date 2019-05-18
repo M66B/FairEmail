@@ -1640,7 +1640,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
                         return false;
 
-                    onOpenLink(uri);
+                    onOpenLink(uri, null);
                     return true;
                 }
             });
@@ -1912,7 +1912,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (image.length > 0 && image[0].getSource() != null) {
                             Uri uri = Uri.parse(image[0].getSource());
                             if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme())) {
-                                onOpenLink(uri);
+                                onOpenLink(uri, null);
                                 return true;
                             }
                         }
@@ -1924,7 +1924,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Uri uri = Uri.parse(url);
                         if (uri.getScheme() == null)
                             uri = Uri.parse("https://" + url);
-                        onOpenLink(uri);
+
+                        int start = buffer.getSpanStart(link[0]);
+                        int end = buffer.getSpanEnd(link[0]);
+                        String title = (start < 0 || end < 0 || end <= start
+                                ? null : buffer.subSequence(start, end).toString());
+                        if (url.equals(title))
+                            title = null;
+
+                        onOpenLink(uri, title);
                         return true;
                     }
 
@@ -1945,7 +1953,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private void onOpenLink(final Uri uri) {
+        private void onOpenLink(final Uri uri, String title) {
             Log.i("Opening uri=" + uri);
 
             if (BuildConfig.APPLICATION_ID.equals(uri.getHost()) && "/activate/".equals(uri.getPath())) {
@@ -1994,10 +2002,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     _uri = uri;
 
                 View view = LayoutInflater.from(context).inflate(R.layout.dialog_open_link, null);
+                TextView tvTitle = view.findViewById(R.id.tvTitle);
                 final EditText etLink = view.findViewById(R.id.etLink);
                 TextView tvInsecure = view.findViewById(R.id.tvInsecure);
                 final TextView tvOwner = view.findViewById(R.id.tvOwner);
                 Group grpOwner = view.findViewById(R.id.grpOwner);
+
+                tvTitle.setText(title);
+                tvTitle.setVisibility(TextUtils.isEmpty(title) ? View.GONE : View.VISIBLE);
 
                 etLink.setText(_uri.toString());
                 tvInsecure.setVisibility("http".equals(_uri.getScheme()) ? View.VISIBLE : View.GONE);
