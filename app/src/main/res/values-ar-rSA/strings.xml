@@ -285,7 +285,6 @@
     <string name="title_rule_action">الإجراء</string>
     <string name="title_rule_folder">المجلد</string>
     <string name="title_rule_identity">الهوية</string>
-    <string name="title_rule_answer">نموذج الرد</string>
     <string name="title_rule_name_missing">اسم القاعدة مفقود</string>
     <string name="title_rule_condition_missing">الشرط مفقود</string>
     <string name="title_legend_download_on">تنزيل محتوى الرسائل تلقائيا</string>

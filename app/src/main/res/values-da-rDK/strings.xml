@@ -459,6 +459,7 @@
     <string name="title_answer_text">Skabelontekst</string>
     <string name="title_answer_template_name">$name$ vil erstattes af afsenderens fulde navn</string>
     <string name="title_answer_template_email">$email$ vil erstattes af afsenderes e-mailadresse</string>
+    <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_caption">Redigér regel</string>
     <string name="title_rule_title">Denne regel gælder</string>
     <string name="title_rule_name">Navn</string>
@@ -475,11 +476,9 @@
     <string name="title_rule_action_remark">Denne handling vil gælde for nye meddelelser, der modtages i mappen %1$s</string>
     <string name="title_rule_folder">Mappe</string>
     <string name="title_rule_identity">Identitet</string>
-    <string name="title_rule_answer">Skabelon til svar</string>
     <string name="title_rule_cc">Svar til Cc-adresser</string>
     <string name="title_rule_name_missing">Navn på regel mangler</string>
     <string name="title_rule_condition_missing">Betingelse mangler</string>
-    <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_automation_hint">Dette vil sende intent \'%1$s\' med ekstra \'%2$s\'</string>
     <string name="title_legend_section_synchronize">Synkronisér</string>
     <string name="title_legend_section_folders">Mapper</string>

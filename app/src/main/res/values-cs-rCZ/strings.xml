@@ -486,6 +486,13 @@
     <string name="title_answer_text">Text šablony</string>
     <string name="title_answer_template_name">$name$ bude nahrazeno celým jménem odesílatele</string>
     <string name="title_answer_template_email">$email$ bude nahrazeno e-mailovou adresou odesílatele</string>
+    <string name="title_rule_seen">Označit jako přečtené</string>
+    <string name="title_rule_unseen">Označit jako nepřečtené</string>
+    <string name="title_rule_flag">Přidat hvězdičku</string>
+    <string name="title_rule_move">Přesunout</string>
+    <string name="title_rule_copy">Kopírovat (štítek)</string>
+    <string name="title_rule_answer">Odpovědět</string>
+    <string name="title_rule_automation">Automatizace</string>
     <string name="title_rule_caption">Upravit pravidlo</string>
     <string name="title_rule_title">Pravidlo platí pro</string>
     <string name="title_rule_name">Název</string>
@@ -502,11 +509,10 @@
     <string name="title_rule_action_remark">Tato akce bude použita na nové zprávy přijaté do složky %1$s</string>
     <string name="title_rule_folder">Složka</string>
     <string name="title_rule_identity">Identita</string>
-    <string name="title_rule_answer">Šablona odpovědi</string>
+    <string name="title_rule_template">Šablona odpovědi</string>
     <string name="title_rule_cc">Odpovědět na adresy kopie</string>
     <string name="title_rule_name_missing">Chybí název pravidla</string>
     <string name="title_rule_condition_missing">Chybí podmínka</string>
-    <string name="title_rule_automation">Automatizace</string>
     <string name="title_rule_automation_hint">Bude odeslán záměr (intent) \"%1$s\" s dodatky (extras) \"%2$s\"</string>
     <string name="title_legend_section_synchronize">Synchronizace</string>
     <string name="title_legend_section_folders">Složky</string>
@@ -614,6 +620,9 @@
     <string name="title_no_body">Text zprávy nenalezen</string>
     <string name="title_no_charset">Nepodporované kódování: %1$s</string>
     <string name="title_via">Přes: %1$s</string>
+    <string name="title_icalendar_accept">Přijmout</string>
+    <string name="title_icalendar_decline">Odmítnout</string>
+    <string name="title_icalendar_maybe">Nezávazně</string>
     <string name="title_try">Vyzkoušej FairEmail, e-mailový klient pro Android s otevřeným zdrojovým kódem, respektujícím soukromí</string>
     <string name="title_pro_feature">Toto je Pro funkce</string>
     <string name="title_pro_list">Seznam Pro funkcí</string>

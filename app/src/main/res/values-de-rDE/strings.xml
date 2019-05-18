@@ -159,6 +159,7 @@
     <string name="title_advanced_flags">Sterne anzeigen</string>
     <string name="title_advanced_preview">Nachrichtenvorschau anzeigen</string>
     <string name="title_advanced_addresses">Adressdetails standardmäßig anzeigen</string>
+    <string name="title_advanced_attachments_alt">Anhänge nach dem Nachrichtentext anzeigen</string>
     <string name="title_advanced_monospaced">Unproportionale Schriftart für Nachrichtentext verwenden</string>
     <string name="title_advanced_html">Für bekannte Kontakte Mails automatisch im Original-Format anzeigen</string>
     <string name="title_advanced_images">Für bekannte Kontakte Bilder automatisch anzeigen</string>
@@ -212,7 +213,7 @@
     <string name="title_advanced_badge_hint">Nur verfügbar auf unterstützten Launchern</string>
     <string name="title_advanced_english_hint">Dies wird die App neu starten</string>
     <string name="title_advanced_paranoid_hint">Details finden Sie in der FAQ</string>
-    <string name="title_advanced_cache_list_hint">Speicher verfügbar: %1$s</string>
+    <string name="title_advanced_cache_list_hint">Verfügbarer Speicher: %1$s</string>
     <string name="title_advanced_debug_hint">Aktiviert zusätzliche Protokollierung und zeigt Fehlerbehebungsinformationen an verschiedenen Stellen an</string>
     <string name="title_select">Wählen Sie &#8230;</string>
     <string name="title_identity_name">Ihr Name</string>
@@ -469,6 +470,13 @@
     <string name="title_answer_text">Vorlagentext</string>
     <string name="title_answer_template_name">$name$ wird durch den vollständigen Absendernamen ersetzt</string>
     <string name="title_answer_template_email">$email$ wird durch die E-Mail-Adresse des Absenders ersetzt</string>
+    <string name="title_rule_seen">Als gelesen kennzeichnen</string>
+    <string name="title_rule_unseen">Als ungelesen kennzeichnen</string>
+    <string name="title_rule_flag">Kennzeichnung hinzufügen</string>
+    <string name="title_rule_move">Verschieben</string>
+    <string name="title_rule_copy">Kategorie kopieren</string>
+    <string name="title_rule_answer">Antworten</string>
+    <string name="title_rule_automation">Automatisierung</string>
     <string name="title_rule_caption">Regel bearbeiten</string>
     <string name="title_rule_title">Regel gilt für</string>
     <string name="title_rule_name">Name</string>
@@ -485,11 +493,10 @@
     <string name="title_rule_action_remark">Diese Aktion wird auf neue Mails im Ordner %1$s angewendet</string>
     <string name="title_rule_folder">Ordner</string>
     <string name="title_rule_identity">Identität</string>
-    <string name="title_rule_answer">Antwortvorlage</string>
+    <string name="title_rule_template">Antwortvorlage</string>
     <string name="title_rule_cc">Den CC-Adressen antworten</string>
     <string name="title_rule_name_missing">Regelname fehlt</string>
     <string name="title_rule_condition_missing">Voraussetzung fehlt</string>
-    <string name="title_rule_automation">Automatisierung</string>
     <string name="title_rule_automation_hint">Dies sendet de Intent \'%1$s\' mit den Extras \'%2$s\'</string>
     <string name="title_legend_section_synchronize">Synchronisieren</string>
     <string name="title_legend_section_folders">Ordner</string>
@@ -597,6 +604,9 @@
     <string name="title_no_body">Kein Nachrichtentext gefunden</string>
     <string name="title_no_charset">Nicht unterstützte Codierung: %1$s</string>
     <string name="title_via">über %1$s</string>
+    <string name="title_icalendar_accept">Akzeptieren</string>
+    <string name="title_icalendar_decline">Ablehnen</string>
+    <string name="title_icalendar_maybe">Vielleicht</string>
     <string name="title_try">Testen Sie FairEmail, eine opensource und datenschutzfreundliche E-Mail-App für Android</string>
     <string name="title_pro_feature">Dies ist eine Pro-Funktion</string>
     <string name="title_pro_list">Liste der Pro-Funktionen</string>

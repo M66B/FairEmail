@@ -449,6 +449,7 @@
     <string name="title_answer_text">Malltext</string>
     <string name="title_answer_template_name">$name$ kommer att ersättas av avsändarens fullständiga namn</string>
     <string name="title_answer_template_email">$email$ kommer att ersättas av avsändarens e-postadress</string>
+    <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_caption">Redigera regel</string>
     <string name="title_rule_title">Regeln gäller</string>
     <string name="title_rule_name">Namn</string>
@@ -464,10 +465,8 @@
     <string name="title_rule_action_remark">Denna åtgärd kommer att tillämpas på nya meddelanden som kommer i mappen %1$s</string>
     <string name="title_rule_folder">Mapp</string>
     <string name="title_rule_identity">Identitet</string>
-    <string name="title_rule_answer">Svarsmall</string>
     <string name="title_rule_name_missing">Regelnamn saknas</string>
     <string name="title_rule_condition_missing">Tillstånd saknas</string>
-    <string name="title_rule_automation">Automatisering</string>
     <string name="title_legend_section_synchronize">Synkronisera</string>
     <string name="title_legend_section_folders">Mappar</string>
     <string name="title_legend_section_messages">Meddelanden</string>

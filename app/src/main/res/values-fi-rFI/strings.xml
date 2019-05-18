@@ -159,6 +159,7 @@
     <string name="title_advanced_flags">Näytä tähdet</string>
     <string name="title_advanced_preview">Näytä viestin esikatselu</string>
     <string name="title_advanced_addresses">Näytä viestin osoitetiedot oletuksena</string>
+    <string name="title_advanced_attachments_alt">Näytä liitteet viestin tekstin jälkeen</string>
     <string name="title_advanced_monospaced">Käytä kiinteävälistä kirjaisinta viestien tekstille</string>
     <string name="title_advanced_html">Näytä tunnettujen yhteystietojen alkuperäinen viesti automaattisesti</string>
     <string name="title_advanced_images">Näytä tunnettujen yhteystietojen viestien kuvat automaattisesti</string>
@@ -469,6 +470,7 @@
     <string name="title_answer_text">Viestipohjan teksti</string>
     <string name="title_answer_template_name">$name$ korvataan lähettäjän koko nimellä</string>
     <string name="title_answer_template_email">$email$ korvataan lähettäjän sähköpostiosoitteella</string>
+    <string name="title_rule_automation">Automaatio</string>
     <string name="title_rule_caption">Muokkaa sääntöä</string>
     <string name="title_rule_title">Säännön käyttökohde on</string>
     <string name="title_rule_name">Nimi</string>
@@ -485,11 +487,9 @@
     <string name="title_rule_action_remark">Tätä toimintoa käytetään uusiin viesteihin, jotka saapuvat kansioon %1$s</string>
     <string name="title_rule_folder">Kansio</string>
     <string name="title_rule_identity">Identiteetti</string>
-    <string name="title_rule_answer">Vastausviestipohja</string>
     <string name="title_rule_cc">Vastaa kopio-osoitteisiin</string>
     <string name="title_rule_name_missing">Säännön nimi puuttuu</string>
     <string name="title_rule_condition_missing">Ehdot puuttuvat</string>
-    <string name="title_rule_automation">Automaatio</string>
     <string name="title_rule_automation_hint">Tämä lähettää intentin \'%1$s\' extradatalla \'%2$s\'</string>
     <string name="title_legend_section_synchronize">Synkronointi</string>
     <string name="title_legend_section_folders">Kansiot</string>

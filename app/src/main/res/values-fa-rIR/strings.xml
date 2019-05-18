@@ -313,7 +313,6 @@
     <string name="title_rule_action_remark">این اقدام برای کلیه پیام‌های وارده در پوشه %1$s اعمال می‌شود</string>
     <string name="title_rule_folder">پوشه</string>
     <string name="title_rule_identity">هویت</string>
-    <string name="title_rule_answer">الگوی پاسخ</string>
     <string name="title_rule_name_missing">نام دستور موجود نیست</string>
     <string name="title_rule_condition_missing">فاقد شرایط</string>
     <string name="title_legend_primary_connected">اتصال حساب برقرار شده است</string>

@@ -469,6 +469,7 @@
     <string name="title_answer_text">Maltekst</string>
     <string name="title_answer_template_name">$name$ vil bli erstattet med avsenderens fulle navn</string>
     <string name="title_answer_template_email">$email$ vil bli erstattet med avsenderens e-postadresse</string>
+    <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_caption">Rediger regel</string>
     <string name="title_rule_title">Regelen gjelder for</string>
     <string name="title_rule_name">Navn</string>
@@ -485,11 +486,9 @@
     <string name="title_rule_action_remark">Denne handlingen vil bli brukt på nye meldinger som kommer inn i mappen %1$s</string>
     <string name="title_rule_folder">Mappe</string>
     <string name="title_rule_identity">Identitet</string>
-    <string name="title_rule_answer">Svarmal</string>
     <string name="title_rule_cc">Svar til CC-adresser</string>
     <string name="title_rule_name_missing">Regelnavn mangler</string>
     <string name="title_rule_condition_missing">Tilstand mangler</string>
-    <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_automation_hint">Dette vil sende hensikten \'%1$s\' med extras \'%2$s\'</string>
     <string name="title_legend_section_synchronize">Synkroniser</string>
     <string name="title_legend_section_folders">Mapper</string>

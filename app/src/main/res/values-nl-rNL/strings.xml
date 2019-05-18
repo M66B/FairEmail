@@ -470,6 +470,13 @@
     <string name="title_answer_text">Sjabloontekst</string>
     <string name="title_answer_template_name">$name$ zal worden vervangen door de volledige naam van de afzender</string>
     <string name="title_answer_template_email">$email$ zal worden vervangen door het e-mail adres van de afzender</string>
+    <string name="title_rule_seen">Markeer als gelezen</string>
+    <string name="title_rule_unseen">Markeren als ongelezen</string>
+    <string name="title_rule_flag">Ster toevoegen</string>
+    <string name="title_rule_move">Verplaatsen</string>
+    <string name="title_rule_copy">Kopiëren (label)</string>
+    <string name="title_rule_answer">Beantwoorden</string>
+    <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_caption">Bewerk regel</string>
     <string name="title_rule_title">Regel is van toepassing op</string>
     <string name="title_rule_name">Naam</string>
@@ -486,11 +493,10 @@
     <string name="title_rule_action_remark">Deze actie zal worden toegepast op nieuwe berichten die aankomen in de map %1$s</string>
     <string name="title_rule_folder">Map</string>
     <string name="title_rule_identity">Identiteit</string>
-    <string name="title_rule_answer">Antwoord sjabloon</string>
+    <string name="title_rule_template">Antwoord sjabloon</string>
     <string name="title_rule_cc">Antwoord op CC adressen</string>
     <string name="title_rule_name_missing">Regelnaam ontbreekt</string>
     <string name="title_rule_condition_missing">Voorwaarde ontbreekt</string>
-    <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_automation_hint">Dit zal de intent \'%1$s\' sturen met de extra\'s \'%2$s\'</string>
     <string name="title_legend_section_synchronize">Synchroniseren</string>
     <string name="title_legend_section_folders">Mappen</string>
@@ -598,6 +604,9 @@
     <string name="title_no_body">Geen berichttekst gevonden</string>
     <string name="title_no_charset">Codering niet ondersteund: %1$s</string>
     <string name="title_via">Via: %1$s</string>
+    <string name="title_icalendar_accept">Accepteer</string>
+    <string name="title_icalendar_decline">Weiger</string>
+    <string name="title_icalendar_maybe">Misschien</string>
     <string name="title_try">Probeer FairEmail, een open source, privacy vriendelijke e-mail app voor Android</string>
     <string name="title_pro_feature">Dit is een pro-functie</string>
     <string name="title_pro_list">Lijst van pro-functies</string>

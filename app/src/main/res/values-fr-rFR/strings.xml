@@ -159,6 +159,7 @@
     <string name="title_advanced_flags">Afficher les messages suivis</string>
     <string name="title_advanced_preview">Afficher l\'aperçu du message</string>
     <string name="title_advanced_addresses">Afficher les détails de l\'adresse par défaut</string>
+    <string name="title_advanced_attachments_alt">Afficher les pièces jointes après le texte du message</string>
     <string name="title_advanced_monospaced">Utiliser la police mono-espacée pour le texte du message</string>
     <string name="title_advanced_html">Afficher automatiquement le message initial pour les contacts connus</string>
     <string name="title_advanced_images">Afficher automatiquement les images pour les contacts connus</string>
@@ -469,6 +470,13 @@
     <string name="title_answer_text">Texte du modèle</string>
     <string name="title_answer_template_name">$name$ sera remplacé par le nom complet de l\'expéditeur</string>
     <string name="title_answer_template_email">$email$ sera remplacé par l\'adresse e-mail de l\'expéditeur</string>
+    <string name="title_rule_seen">Marquer comme lu</string>
+    <string name="title_rule_unseen">Marquer comme non lu</string>
+    <string name="title_rule_flag">Marquer comme suivi</string>
+    <string name="title_rule_move">Déplacer</string>
+    <string name="title_rule_copy">Copier (étiquette)</string>
+    <string name="title_rule_answer">Répondre</string>
+    <string name="title_rule_automation">Automatisation</string>
     <string name="title_rule_caption">Modifier la règle</string>
     <string name="title_rule_title">La règle s\'applique à</string>
     <string name="title_rule_name">Nom</string>
@@ -485,11 +493,10 @@
     <string name="title_rule_action_remark">Cette action sera appliquée aux nouveaux messages qui arrivent dans le dossier %1$s</string>
     <string name="title_rule_folder">Dossier</string>
     <string name="title_rule_identity">Identité</string>
-    <string name="title_rule_answer">Modèle de réponse</string>
+    <string name="title_rule_template">Répondre avec un modèle</string>
     <string name="title_rule_cc">Répondre aux adresses CC</string>
     <string name="title_rule_name_missing">Nom de règle manquant</string>
     <string name="title_rule_condition_missing">Condition manquante</string>
-    <string name="title_rule_automation">Automatisation</string>
     <string name="title_rule_automation_hint">Ceci enverra l\'intent \'%1$s\' avec les extras \'%2$s\'</string>
     <string name="title_legend_section_synchronize">Synchronisation</string>
     <string name="title_legend_section_folders">Dossiers</string>
@@ -597,6 +604,9 @@
     <string name="title_no_body">Aucun texte de message trouvé</string>
     <string name="title_no_charset">Format d\'encodage non pris en charge : %1$s</string>
     <string name="title_via">Via : %1$s</string>
+    <string name="title_icalendar_accept">Accepter</string>
+    <string name="title_icalendar_decline">Refuser</string>
+    <string name="title_icalendar_maybe">Peut-être</string>
     <string name="title_try">Essayez FairEmail, une application de messagerie pour Android, open source, respectant la vie privée</string>
     <string name="title_pro_feature">Il s\'agit d\'une fonctionnalité Pro</string>
     <string name="title_pro_list">Liste des fonctionnalités Pro</string>

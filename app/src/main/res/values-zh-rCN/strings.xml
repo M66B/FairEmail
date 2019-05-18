@@ -151,6 +151,7 @@
     <string name="title_advanced_flags">显示星标</string>
     <string name="title_advanced_preview">显示邮件预览</string>
     <string name="title_advanced_addresses">默认显示地址详情</string>
+    <string name="title_advanced_attachments_alt">在消息文本后显示附件</string>
     <string name="title_advanced_monospaced">对邮件文本使用单间距字体</string>
     <string name="title_advanced_html">自动显示已知联系人的原始消息</string>
     <string name="title_advanced_images">自动显示来自已知联系人邮件中的图片</string>
@@ -461,6 +462,7 @@
     <string name="title_answer_text">模板内容</string>
     <string name="title_answer_template_name">$name$ 将被发件人的全名取代</string>
     <string name="title_answer_template_email">$email$ 将被发件人的邮件地址取代</string>
+    <string name="title_rule_automation">自动化</string>
     <string name="title_rule_caption">编辑规则</string>
     <string name="title_rule_title">规则应用于</string>
     <string name="title_rule_name">名称</string>
@@ -477,11 +479,9 @@
     <string name="title_rule_action_remark">此操作将被应用于抵达文件夹 %1$s 的新消息</string>
     <string name="title_rule_folder">文件夹</string>
     <string name="title_rule_identity">身份</string>
-    <string name="title_rule_answer">回复模板</string>
     <string name="title_rule_cc">回信给邮件抄送地址</string>
     <string name="title_rule_name_missing">缺少规则名称</string>
     <string name="title_rule_condition_missing">条件缺失</string>
-    <string name="title_rule_automation">自动化</string>
     <string name="title_rule_automation_hint">将使用参数 \'%2$s\' 发送 \'%1$s\' 的 intent</string>
     <string name="title_legend_section_synchronize">同步</string>
     <string name="title_legend_section_folders">文件夹</string>

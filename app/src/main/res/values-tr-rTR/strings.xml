@@ -437,6 +437,7 @@
     <string name="title_answer_text">Kalıp metni</string>
     <string name="title_answer_template_name">$name$ gönderenin tam adı ile değiştirilecek</string>
     <string name="title_answer_template_email">$email$ gönderenin e-posta adresi ile değiştirilecek</string>
+    <string name="title_rule_automation">Özdevinim</string>
     <string name="title_rule_caption">Kuralı düzenle</string>
     <string name="title_rule_title">Kural geçerlidir</string>
     <string name="title_rule_name">Ad</string>
@@ -453,11 +454,9 @@
     <string name="title_rule_action_remark">Bu işlem %1$s klasörüne gelen yeni iletilere uygulanacaktır</string>
     <string name="title_rule_folder">Klasör</string>
     <string name="title_rule_identity">Kimlik</string>
-    <string name="title_rule_answer">Yanıt kalıbı</string>
     <string name="title_rule_cc">CC adreslerini yanıtlayın</string>
     <string name="title_rule_name_missing">Kural adı eksik</string>
     <string name="title_rule_condition_missing">Koşul kayıp</string>
-    <string name="title_rule_automation">Özdevinim</string>
     <string name="title_rule_automation_hint">%1$s gönderme isteğinizi %2$s ekleyerek gönderecek</string>
     <string name="title_legend_primary_connected">Hesap bağlantısı kuruldu</string>
     <string name="title_legend_primary_disconnected">Hesap bağlantısı kesildi</string>

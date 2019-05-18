@@ -175,6 +175,7 @@
     <string name="title_advanced_flags">Показывать звёзды</string>
     <string name="title_advanced_preview">Показать предварительный просмотр сообщения</string>
     <string name="title_advanced_addresses">По умолчанию показывать подробную информацию об адресах</string>
+    <string name="title_advanced_attachments_alt">Показывать вложения после текста сообщения</string>
     <string name="title_advanced_monospaced">Использовать моноширинный шрифт для текста сообщения</string>
     <string name="title_advanced_html">Автоматически показывать исходное сообщение для известных контактов</string>
     <string name="title_advanced_images">Автоматически показывать изображения для известных контактов</string>
@@ -485,6 +486,13 @@
     <string name="title_answer_text">Текст шаблона</string>
     <string name="title_answer_template_name">$name$ будет заменен на полное имя отправителя</string>
     <string name="title_answer_template_email">$email$ будет заменен на адрес электронной почты отправителя</string>
+    <string name="title_rule_seen">Отметить прочитанным</string>
+    <string name="title_rule_unseen">Отметить непрочитанным</string>
+    <string name="title_rule_flag">В избранное</string>
+    <string name="title_rule_move">Переместить</string>
+    <string name="title_rule_copy">Копировать (пометить)</string>
+    <string name="title_rule_answer">Ответить</string>
+    <string name="title_rule_automation">Автоматизация</string>
     <string name="title_rule_caption">Изменить правило</string>
     <string name="title_rule_title">Правило применяется к</string>
     <string name="title_rule_name">Название</string>
@@ -501,11 +509,10 @@
     <string name="title_rule_action_remark">Это действие будет применяться к новым сообщениям в папке %1$s</string>
     <string name="title_rule_folder">Папка</string>
     <string name="title_rule_identity">Идентификатор</string>
-    <string name="title_rule_answer">Шаблон ответа</string>
+    <string name="title_rule_template">Шаблон ответа</string>
     <string name="title_rule_cc">Ответить на адреса CC</string>
     <string name="title_rule_name_missing">Отсутствует имя правила</string>
     <string name="title_rule_condition_missing">Условие отсутствует</string>
-    <string name="title_rule_automation">Автоматизация</string>
     <string name="title_rule_automation_hint">Это отправит цель \'%1$s\' с дополнениями \'%2$s\'</string>
     <string name="title_legend_section_synchronize">Синхронизация</string>
     <string name="title_legend_section_folders">Папки</string>
@@ -613,6 +620,9 @@
     <string name="title_no_body">В сообщении нет текста</string>
     <string name="title_no_charset">Кодировка не поддерживается: %1$s</string>
     <string name="title_via">Через: %1$s</string>
+    <string name="title_icalendar_accept">Принять</string>
+    <string name="title_icalendar_decline">Отклонить</string>
+    <string name="title_icalendar_maybe">Возможно</string>
     <string name="title_try">Попробуйте FairEmail, приложение с открытым исходным кодом, срвместимое с электронной почтой для Android</string>
     <string name="title_pro_feature">Это функция версии Pro</string>
     <string name="title_pro_list">Список функций, Pro</string>
