@@ -65,3 +65,17 @@
 #OpenPGP
 -keep class org.openintents.openpgp.** {*;}
 -keepnames class org.openintents.openpgp.** {*;}
+
+#biweekly
+-keepnames class biweekly.** {*;}
+-dontwarn biweekly.io.json.**
+
+#Notes
+-dontnote com.google.android.material.**
+-dontnote com.sun.mail.**
+-dontnote javax.activation.**
+-dontnote org.xbill.DNS.**
+-dontnote me.leolin.shortcutbadger.**
+-dontnote com.github.chrisbanes.photoview.**
+-dontnote com.bugsnag.android.**
+-dontnote biweekly.io.**

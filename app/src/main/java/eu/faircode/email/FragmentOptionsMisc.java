@@ -24,7 +24,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -38,7 +37,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
-import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
 
 import com.bugsnag.android.Bugsnag;
@@ -60,8 +58,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swDebug;
 
     private TextView tvLastCleanup;
-
-    private Group grpSearchLocal;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "badge", "subscriptions", "english", "authentication", "paranoid", "cache_lists", "watchdog", "updates", "crash_reports", "debug"
@@ -95,8 +91,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swDebug = view.findViewById(R.id.swDebug);
 
         tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
-
-        grpSearchLocal = view.findViewById(R.id.grpSearchLocal);
 
         setOptions();
 
@@ -262,8 +256,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         int class_mb = am.getMemoryClass();
 
         tvCacheListsHint.setText(getString(R.string.title_advanced_cache_list_hint, class_mb + " MB"));
-
-        grpSearchLocal.setVisibility(Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.M ? View.GONE : View.VISIBLE);
     }
 
     private void setLastCleanup(long time) {
