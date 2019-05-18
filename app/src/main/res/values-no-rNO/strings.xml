@@ -159,6 +159,7 @@
     <string name="title_advanced_flags">Vis stjerner</string>
     <string name="title_advanced_preview">Vis forhåndsvisning av melding</string>
     <string name="title_advanced_addresses">Vis adresseinformasjon som standard</string>
+    <string name="title_advanced_attachments_alt">Vis vedlegg etter meldingsteksten</string>
     <string name="title_advanced_monospaced">Bruk monospaced skrift for meldingstekst</string>
     <string name="title_advanced_html">Vis automatisk den originale meldingen for kjente kontakter</string>
     <string name="title_advanced_images">Vis automatisk bilder for kjente kontakter</string>
@@ -469,6 +470,12 @@
     <string name="title_answer_text">Maltekst</string>
     <string name="title_answer_template_name">$name$ vil bli erstattet med avsenderens fulle navn</string>
     <string name="title_answer_template_email">$email$ vil bli erstattet med avsenderens e-postadresse</string>
+    <string name="title_rule_seen">Merk som lest</string>
+    <string name="title_rule_unseen">Merk som ulest</string>
+    <string name="title_rule_flag">Legg til stjerne</string>
+    <string name="title_rule_move">Flytt</string>
+    <string name="title_rule_copy">Kopier (etikett)</string>
+    <string name="title_rule_answer">Svar</string>
     <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_caption">Rediger regel</string>
     <string name="title_rule_title">Regelen gjelder for</string>
@@ -486,6 +493,7 @@
     <string name="title_rule_action_remark">Denne handlingen vil bli brukt på nye meldinger som kommer inn i mappen %1$s</string>
     <string name="title_rule_folder">Mappe</string>
     <string name="title_rule_identity">Identitet</string>
+    <string name="title_rule_template">Svarmal</string>
     <string name="title_rule_cc">Svar til CC-adresser</string>
     <string name="title_rule_name_missing">Regelnavn mangler</string>
     <string name="title_rule_condition_missing">Tilstand mangler</string>
@@ -596,6 +604,9 @@
     <string name="title_no_body">Ingen meldingstekst funnet</string>
     <string name="title_no_charset">Koding støttes ikke: %1$s</string>
     <string name="title_via">Via: %1$s</string>
+    <string name="title_icalendar_accept">Godta</string>
+    <string name="title_icalendar_decline">Avslå</string>
+    <string name="title_icalendar_maybe">Kanskje</string>
     <string name="title_try">Prøv FairEmail, en e-postapp for Android med åpen kildekode som respekterer din integritet</string>
     <string name="title_pro_feature">Dette er en Pro-funksjon</string>
     <string name="title_pro_list">Liste over Pro funksjoner</string>
