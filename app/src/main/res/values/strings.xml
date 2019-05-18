@@ -537,6 +537,14 @@
     <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
     <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
 
+    <string name="title_rule_seen">Mark read</string>
+    <string name="title_rule_unseen">Mark unread</string>
+    <string name="title_rule_flag">Add star</string>
+    <string name="title_rule_move">Move</string>
+    <string name="title_rule_copy">Copy (label)</string>
+    <string name="title_rule_answer">Reply</string>
+    <string name="title_rule_automation">Automation</string>
+
     <string name="title_rule_caption">Edit rule</string>
     <string name="title_rule_title">Rule applies to</string>
     <string name="title_rule_name">Name</string>
@@ -553,11 +561,10 @@
     <string name="title_rule_action_remark">This action will be applied to new messages arriving in the folder %1$s</string>
     <string name="title_rule_folder">Folder</string>
     <string name="title_rule_identity">Identity</string>
-    <string name="title_rule_answer">Reply template</string>
+    <string name="title_rule_template">Reply template</string>
     <string name="title_rule_cc">Reply to CC addresses</string>
     <string name="title_rule_name_missing">Rule name missing</string>
     <string name="title_rule_condition_missing">Condition missing</string>
-    <string name="title_rule_automation">Automation</string>
     <string name="title_rule_automation_hint">This will send the intent \'%1$s\' with the extras \'%2$s\'</string>
 
     <string name="title_legend_section_synchronize">Synchronize</string>

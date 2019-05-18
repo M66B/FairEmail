@@ -84,6 +84,7 @@ public class EntityRule {
     static final int TYPE_ANSWER = 4;
     static final int TYPE_AUTOMATION = 5;
     static final int TYPE_FLAG = 6;
+    static final int TYPE_COPY = 7;
 
     static final String ACTION_AUTOMATION = BuildConfig.APPLICATION_ID + ".AUTOMATION";
     static final String EXTRA_RULE = "rule";
@@ -213,6 +214,9 @@ public class EntityRule {
                 case TYPE_MOVE:
                     onActionMove(context, db, message, jaction);
                     break;
+                case TYPE_COPY:
+                    onActionCopy(context, db, message, jaction);
+                    break;
                 case TYPE_ANSWER:
                     onActionAnswer(context, db, message, jaction);
                     break;
@@ -233,6 +237,11 @@ public class EntityRule {
     private void onActionMove(Context context, DB db, EntityMessage message, JSONObject jargs) throws JSONException {
         long target = jargs.getLong("target");
         EntityOperation.queue(context, db, message, EntityOperation.MOVE, target, false);
+    }
+
+    private void onActionCopy(Context context, DB db, EntityMessage message, JSONObject jargs) throws JSONException {
+        long target = jargs.getLong("target");
+        EntityOperation.queue(context, db, message, EntityOperation.COPY, target, false);
     }
 
     private void onActionAnswer(Context context, DB db, EntityMessage message, JSONObject jargs) throws JSONException, IOException {

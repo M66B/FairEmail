@@ -230,11 +230,12 @@ public class FragmentRule extends FragmentBase {
         spAnswer.setAdapter(adapterAnswer);
 
         List<Action> actions = new ArrayList<>();
-        actions.add(new Action(EntityRule.TYPE_SEEN, getString(R.string.title_seen)));
-        actions.add(new Action(EntityRule.TYPE_UNSEEN, getString(R.string.title_unseen)));
-        actions.add(new Action(EntityRule.TYPE_FLAG, getString(R.string.title_flag)));
-        actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_move)));
-        actions.add(new Action(EntityRule.TYPE_ANSWER, getString(R.string.title_answer_reply)));
+        actions.add(new Action(EntityRule.TYPE_SEEN, getString(R.string.title_rule_seen)));
+        actions.add(new Action(EntityRule.TYPE_UNSEEN, getString(R.string.title_rule_unseen)));
+        actions.add(new Action(EntityRule.TYPE_FLAG, getString(R.string.title_rule_flag)));
+        actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_rule_move)));
+        actions.add(new Action(EntityRule.TYPE_COPY, getString(R.string.title_rule_copy)));
+        actions.add(new Action(EntityRule.TYPE_ANSWER, getString(R.string.title_rule_answer)));
         actions.add(new Action(EntityRule.TYPE_AUTOMATION, getString(R.string.title_rule_automation)));
         adapterAction.addAll(actions);
 
@@ -478,6 +479,7 @@ public class FragmentRule extends FragmentBase {
                                 break;
 
                             case EntityRule.TYPE_MOVE:
+                            case EntityRule.TYPE_COPY:
                                 long target = jaction.getLong("target");
                                 for (int pos = 0; pos < adapterTarget.getCount(); pos++)
                                     if (adapterTarget.getItem(pos).id.equals(target)) {
@@ -679,7 +681,7 @@ public class FragmentRule extends FragmentBase {
 
     private void showActionParameters(int type) {
         grpFlag.setVisibility(type == EntityRule.TYPE_FLAG ? View.VISIBLE : View.GONE);
-        grpMove.setVisibility(type == EntityRule.TYPE_MOVE ? View.VISIBLE : View.GONE);
+        grpMove.setVisibility(type == EntityRule.TYPE_MOVE || type == EntityRule.TYPE_COPY ? View.VISIBLE : View.GONE);
         grpAnswer.setVisibility(type == EntityRule.TYPE_ANSWER ? View.VISIBLE : View.GONE);
         grpAutomation.setVisibility(type == EntityRule.TYPE_AUTOMATION ? View.VISIBLE : View.GONE);
     }
@@ -746,6 +748,7 @@ public class FragmentRule extends FragmentBase {
                     break;
 
                 case EntityRule.TYPE_MOVE:
+                case EntityRule.TYPE_COPY:
                     EntityFolder target = (EntityFolder) spTarget.getSelectedItem();
                     jaction.put("target", target.id);
                     break;
