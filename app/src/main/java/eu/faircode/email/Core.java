@@ -1706,12 +1706,10 @@ class Core {
         db.message().setMessageSize(message.id, size);
     }
 
-    static void notifyMessages(Context context, List<TupleMessageEx> messages) {
+    static void notifyMessages(Context context, Map<String, List<Long>> groupNotifying, List<TupleMessageEx> messages) {
         Log.i("Notify messages=" + messages.size());
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = prefs.edit();
-
         boolean badge = prefs.getBoolean("badge", true);
 
         Widget.update(context, messages.size());
@@ -1723,22 +1721,7 @@ class Core {
 
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        Map<String, List<Long>> groupNotifying = new HashMap<>();
         Map<String, List<TupleMessageEx>> groupMessages = new HashMap<>();
-
-        // Previous
-        for (String key : prefs.getAll().keySet())
-            if (key.startsWith("notifying:")) {
-                String group = key.substring(key.indexOf(":") + 1);
-                groupNotifying.put(group, new ArrayList<Long>());
-
-                for (String id : prefs.getString(key, null).split(","))
-                    groupNotifying.get(group).add(Long.parseLong(id));
-
-                Log.i("Notifying " + group + "=" + TextUtils.join(",", groupNotifying.get(group)));
-
-                editor.remove(key);
-            }
 
         // Current
         for (TupleMessageEx message : messages) {
@@ -1765,13 +1748,13 @@ class Core {
         for (String group : groupNotifying.keySet()) {
             List<Notification> notifications = getNotificationUnseen(context, group, groupMessages.get(group));
 
-            List<String> all = new ArrayList<>();
+            List<Long> all = new ArrayList<>();
             List<Long> add = new ArrayList<>();
             List<Long> remove = groupNotifying.get(group);
             for (Notification notification : notifications) {
                 Long id = notification.extras.getLong("id", 0);
                 if (id != 0) {
-                    all.add(Long.toString(id));
+                    all.add(id);
                     if (remove.contains(id)) {
                         remove.remove(id);
                         Log.i("Notify existing=" + id);
@@ -1815,11 +1798,8 @@ class Core {
                 }
             }
 
-            if (all.size() > 0)
-                editor.putString("notifying:" + group, TextUtils.join(",", all));
+            groupNotifying.put(group, all);
         }
-
-        editor.apply();
     }
 
     private static List<Notification> getNotificationUnseen(Context context, String group, List<TupleMessageEx> messages) {

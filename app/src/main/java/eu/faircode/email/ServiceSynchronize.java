@@ -149,9 +149,11 @@ public class ServiceSynchronize extends LifecycleService {
         });
 
         db.message().liveUnseenNotify().observe(cowner, new Observer<List<TupleMessageEx>>() {
+            private Map<String, List<Long>> notifying = new HashMap<>();
+
             @Override
             public void onChanged(List<TupleMessageEx> messages) {
-                Core.notifyMessages(ServiceSynchronize.this, messages);
+                Core.notifyMessages(ServiceSynchronize.this, notifying, messages);
             }
         });
 
