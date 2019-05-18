@@ -56,11 +56,10 @@ public class ContactInfo {
     private Uri lookupUri;
     private long time;
 
-    private static Object lock = new Object();
     private static Map<String, Uri> emailLookup = new ConcurrentHashMap<>();
     private static Map<String, ContactInfo> emailContactInfo = new HashMap<>();
 
-    private static final long CACHE_CONTACT_DURATION = 60 * 1000L;
+    private static final long CACHE_CONTACT_DURATION = 120 * 1000L;
 
     private ContactInfo() {
     }
