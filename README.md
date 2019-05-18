@@ -166,8 +166,9 @@ FairEmail uses:
 * [ShortcutBadger](https://github.com/leolin310148/ShortcutBadger). Copyright 2014 Leo Lin. [Apache license](https://github.com/leolin310148/ShortcutBadger/blob/master/LICENSE).
 * [PhotoView](https://github.com/chrisbanes/PhotoView). Copyright 2018 Chris Banes. [Apache License](https://github.com/chrisbanes/PhotoView/blob/master/LICENSE).
 * [Bugsnag exception reporter for Android](https://github.com/bugsnag/bugsnag-android). Copyright (c) 2012 Bugsnag. [MIT License](https://github.com/bugsnag/bugsnag-android/blob/master/LICENSE.txt).
+* [biweekly](https://github.com/mangstadt/biweekly). Copyright (c) 2013-2018, Michael Angstadt. [BSD 2-Clause](https://github.com/mangstadt/biweekly/blob/master/LICENSE).
 
-FairEmail is sponsored by:
+Error reporting is sponsored by:
 
 ![Bugsnag Logo](/images/bugsnag_logo_navy.png)
 

@@ -682,6 +682,10 @@
     <string name="title_no_charset">Unsupported encoding: %1$s</string>
     <string name="title_via">Via: %1$s</string>
 
+    <string name="title_icalendar_accept">Accept</string>
+    <string name="title_icalendar_decline">Decline</string>
+    <string name="title_icalendar_maybe">Maybe</string>
+
     <string name="title_try">Try FairEmail, an open source, privacy friendly email app for Android</string>
 
     <string name="title_pro_feature">This is a pro feature</string>

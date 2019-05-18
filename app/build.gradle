@@ -133,6 +133,7 @@ dependencies {
     def badge_version = "1.1.22"
     def photoview_version = "2.3.0"
     def bugsnag_version = "4.14.0"
+    def biweekly_version = "0.6.3"
 
     // https://developer.android.com/jetpack/androidx/releases/
 
@@ -216,6 +217,11 @@ dependencies {
 
     // https://github.com/bugsnag/bugsnag-android
     implementation "com.bugsnag:bugsnag-android:$bugsnag_version"
+
+    // https://github.com/mangstadt/biweekly
+    implementation("net.sf.biweekly:biweekly:$biweekly_version") {
+        exclude group: 'com.fasterxml.jackson.core', module: 'jackson-core'
+    }
 
     // git clone https://android.googlesource.com/platform/frameworks/opt/colorpicker
     implementation project(path: ':colorpicker')

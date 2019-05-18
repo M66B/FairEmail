@@ -121,6 +121,13 @@ import java.util.List;
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
 
+import biweekly.Biweekly;
+import biweekly.ICalendar;
+import biweekly.component.VEvent;
+import biweekly.property.Attendee;
+import biweekly.property.Summary;
+import biweekly.util.ICalDate;
+
 public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHolder> {
     private Context context;
     private LayoutInflater inflater;
@@ -253,10 +260,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ContentLoadingProgressBar pbBody;
         private TextView tvNoInternetBody;
 
+        private TextView tvCalendarSummary;
+        private TextView tvCalendarStart;
+        private TextView tvCalendarEnd;
+        private TextView tvAttendees;
+        private ContentLoadingProgressBar pbCalendarWait;
+
         private RecyclerView rvImage;
 
         private Group grpAddresses;
         private Group grpHeaders;
+        private Group grpCalendar;
         private Group grpAttachments;
         private Group grpImages;
 
@@ -333,6 +347,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbHeaders = itemView.findViewById(R.id.pbHeaders);
             tvNoInternetHeaders = itemView.findViewById(R.id.tvNoInternetHeaders);
 
+            tvCalendarSummary = view.findViewById(R.id.tvCalendarSummary);
+            tvCalendarStart = view.findViewById(R.id.tvCalendarStart);
+            tvCalendarEnd = view.findViewById(R.id.tvCalendarEnd);
+            tvAttendees = view.findViewById(R.id.tvAttendees);
+
+            pbCalendarWait = view.findViewById(R.id.pbCalendarWait);
+
             rvAttachment = attachments.findViewById(R.id.rvAttachment);
             rvAttachment.setHasFixedSize(false);
             LinearLayoutManager llm = new LinearLayoutManager(context);
@@ -367,6 +388,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             grpAddresses = itemView.findViewById(R.id.grpAddresses);
             grpHeaders = itemView.findViewById(R.id.grpHeaders);
+            grpCalendar = itemView.findViewById(R.id.grpCalendar);
             grpAttachments = attachments.findViewById(R.id.grpAttachments);
             grpImages = itemView.findViewById(R.id.grpImages);
         }
@@ -693,6 +715,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             grpAddresses.setVisibility(View.GONE);
             grpHeaders.setVisibility(View.GONE);
+            grpCalendar.setVisibility(View.GONE);
             grpAttachments.setVisibility(View.GONE);
             grpImages.setVisibility(View.GONE);
 
@@ -723,6 +746,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             pbHeaders.setVisibility(View.GONE);
             tvNoInternetHeaders.setVisibility(View.GONE);
+
+            tvCalendarSummary.setVisibility(View.GONE);
+            tvCalendarStart.setVisibility(View.GONE);
+            tvCalendarEnd.setVisibility(View.GONE);
+            tvAttendees.setVisibility(View.GONE);
+            pbCalendarWait.setVisibility(View.GONE);
 
             cbInline.setVisibility(View.GONE);
             btnDownloadAttachments.setVisibility(View.GONE);
@@ -997,6 +1026,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean download = false;
             boolean save = (attachments.size() > 1);
             boolean downloading = false;
+            boolean calendar = false;
             List<EntityAttachment> a = new ArrayList<>();
             for (EntityAttachment attachment : attachments) {
                 boolean inline = (TextUtils.isEmpty(attachment.name) ||
@@ -1011,8 +1041,91 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     downloading = true;
                 if (show_inline || !inline)
                     a.add(attachment);
+
+                if (attachment.available && "text/calendar".endsWith(attachment.type)) {
+                    // https://tools.ietf.org/html/rfc5546
+                    calendar = true;
+
+                    Bundle args = new Bundle();
+                    args.putSerializable("file", attachment.getFile(context));
+
+                    new SimpleTask<ICalendar>() {
+                        @Override
+                        protected void onPreExecute(Bundle args) {
+                            grpCalendar.setVisibility(View.VISIBLE);
+                            pbCalendarWait.setVisibility(View.VISIBLE);
+                        }
+
+                        @Override
+                        protected void onPostExecute(Bundle args) {
+                            pbCalendarWait.setVisibility(View.GONE);
+                        }
+
+                        @Override
+                        protected ICalendar onExecute(Context context, Bundle args) throws IOException {
+                            File file = (File) args.getSerializable("file");
+                            return Biweekly.parse(file).first();
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, ICalendar icalendar) {
+                            if (icalendar == null || icalendar.getEvents().size() == 0)
+                                return;
+
+                            DateFormat df = SimpleDateFormat.getDateTimeInstance();
+
+                            VEvent event = icalendar.getEvents().get(0);
+
+                            Summary summary = event.getSummary();
+
+                            ICalDate start = event.getDateStart() == null ? null : event.getDateStart().getValue();
+                            ICalDate end = event.getDateEnd() == null ? null : event.getDateEnd().getValue();
+
+                            List<String> attendee = new ArrayList<>();
+                            for (Attendee a : event.getAttendees()) {
+                                String email = a.getEmail();
+                                String name = a.getCommonName();
+                                if (TextUtils.isEmpty(name)) {
+                                    if (!TextUtils.isEmpty(email))
+                                        attendee.add(email);
+                                } else {
+                                    if (TextUtils.isEmpty(email) || name.equals(email))
+                                        attendee.add(name);
+                                    else
+                                        attendee.add(name + " (" + email + ")");
+                                }
+                            }
+
+                            tvCalendarSummary.setText(summary == null ? null : summary.getValue());
+                            tvCalendarSummary.setVisibility(summary == null ? View.GONE : View.VISIBLE);
+
+                            tvCalendarStart.setText(start == null ? null : df.format(start.getTime()));
+                            tvCalendarStart.setVisibility(start == null ? View.GONE : View.VISIBLE);
+
+                            tvCalendarEnd.setText(end == null ? null : df.format(end.getTime()));
+                            tvCalendarEnd.setVisibility(end == null ? View.GONE : View.VISIBLE);
+
+                            tvAttendees.setText(TextUtils.join(", ", attendee));
+                            tvAttendees.setVisibility(attendee.size() == 0 ? View.GONE : View.VISIBLE);
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(context, owner, ex);
+                        }
+                    }.execute(context, owner, args, "message:calendar");
+                }
             }
             adapterAttachment.set(a);
+
+            if (!calendar) {
+                tvCalendarSummary.setVisibility(View.GONE);
+                tvCalendarStart.setVisibility(View.GONE);
+                tvCalendarEnd.setVisibility(View.GONE);
+                tvAttendees.setVisibility(View.GONE);
+                pbCalendarWait.setVisibility(View.GONE);
+                grpCalendar.setVisibility(View.GONE);
+            }
 
             cbInline.setOnCheckedChangeListener(null);
             cbInline.setChecked(show_inline);

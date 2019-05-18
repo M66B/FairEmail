@@ -344,12 +344,20 @@
             app:layout_constraintTop_toBottomOf="@id/inMessage" />
 
         <include
+            android:id="@+id/InCalendar"
+            layout="@layout/include_message_calendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vwBody" />
+
+        <include
             android:id="@+id/inAttachmentsAlt"
             layout="@layout/include_message_attachments"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vwBody" />
+            app:layout_constraintTop_toBottomOf="@id/InCalendar" />
 
         <include
             android:id="@+id/inImages"
