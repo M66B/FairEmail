@@ -68,6 +68,9 @@ import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.MimeUtility;
 import javax.mail.internet.ParseException;
 
+import biweekly.Biweekly;
+import biweekly.ICalendar;
+
 public class MessageHelper {
     private MimeMessage imessage;
 
@@ -373,22 +376,38 @@ public class MessageHelper {
             for (final EntityAttachment attachment : attachments)
                 if (attachment.available) {
                     BodyPart bpAttachment = new MimeBodyPart();
-                    bpAttachment.setFileName(attachment.name);
 
                     File file = attachment.getFile(context);
+
                     FileDataSource dataSource = new FileDataSource(file);
                     dataSource.setFileTypeMap(new FileTypeMap() {
                         @Override
                         public String getContentType(File file) {
+                            // https://tools.ietf.org/html/rfc6047
+                            if ("text/calendar".equals(attachment.type))
+                                try {
+                                    ICalendar icalendar = Biweekly.parse(file).first();
+                                    if (icalendar != null &&
+                                            icalendar.getMethod() != null &&
+                                            icalendar.getMethod().isReply())
+                                        return "text/calendar" +
+                                                "; method=REPLY" +
+                                                "; charset=" + Charset.defaultCharset().name();
+                                } catch (IOException ex) {
+                                    Log.e(ex);
+                                }
+
                             return attachment.type;
                         }
 
                         @Override
                         public String getContentType(String filename) {
-                            return attachment.type;
+                            return getContentType(new File(filename));
                         }
                     });
                     bpAttachment.setDataHandler(new DataHandler(dataSource));
+
+                    bpAttachment.setFileName(attachment.name);
                     if (attachment.disposition != null)
                         bpAttachment.setDisposition(attachment.disposition);
                     if (attachment.cid != null)

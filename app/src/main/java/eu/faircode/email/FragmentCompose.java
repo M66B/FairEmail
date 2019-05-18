@@ -659,6 +659,7 @@ public class FragmentCompose extends FragmentBase {
                 args.putLong("id", getArguments().getLong("id", -1));
                 args.putLong("account", getArguments().getLong("account", -1));
                 args.putLong("reference", getArguments().getLong("reference", -1));
+                args.putSerializable("ics", getArguments().getSerializable("ics"));
                 args.putBoolean("raw", getArguments().getBoolean("raw", false));
                 args.putLong("answer", getArguments().getLong("answer", -1));
                 args.putString("to", getArguments().getString("to"));
@@ -1937,6 +1938,7 @@ public class FragmentCompose extends FragmentBase {
             String action = args.getString("action");
             long id = args.getLong("id", -1);
             long reference = args.getLong("reference", -1);
+            File ics = (File) args.getSerializable("ics");
             long answer = args.getLong("answer", -1);
 
             Log.i("Load draft action=" + action + " id=" + id + " reference=" + reference);
@@ -2013,7 +2015,8 @@ public class FragmentCompose extends FragmentBase {
                             body = EntityAnswer.getAnswerText(db, answer, null) + body;
                     } else {
                         if ("reply".equals(action) || "reply_all".equals(action) ||
-                                "list".equals(action) || "receipt".equals(action)) {
+                                "list".equals(action) || "receipt".equals(action) ||
+                                "participation".equals(action)) {
                             if (ref.to != null && ref.to.length > 0) {
                                 String to = ((InternetAddress) ref.to[0]).getAddress();
                                 int at = to.indexOf('@');
@@ -2072,14 +2075,14 @@ public class FragmentCompose extends FragmentBase {
                             } else if ("receipt".equals(action)) {
                                 draft.receipt_request = true;
                             }
-
                         } else if ("forward".equals(action)) {
                             draft.thread = draft.msgid; // new thread
                             draft.from = ref.to;
                         }
 
                         String subject = (ref.subject == null ? "" : ref.subject);
-                        if ("reply".equals(action) || "reply_all".equals(action)) {
+                        if ("reply".equals(action) || "reply_all".equals(action) ||
+                                "participation".equals(action)) {
                             String re = context.getString(R.string.title_subject_reply, "");
                             if (!prefix_once || !subject.startsWith(re))
                                 draft.subject = context.getString(R.string.title_subject_reply, subject);
@@ -2171,6 +2174,19 @@ public class FragmentCompose extends FragmentBase {
                             draft.plain_only,
                             HtmlHelper.getPreview(body),
                             null);
+
+                    if ("participation".equals(action)) {
+                        EntityAttachment attachment = new EntityAttachment();
+                        attachment.message = draft.id;
+                        attachment.sequence = 1;
+                        attachment.name = ics.getName();
+                        attachment.type = "text/calendar";
+                        attachment.size = ics.length();
+                        attachment.progress = null;
+                        attachment.available = true;
+                        attachment.id = db.attachment().insertAttachment(attachment);
+                        ics.renameTo(attachment.getFile(context));
+                    }
 
                     Core.updateMessageSize(context, draft.id);
 
