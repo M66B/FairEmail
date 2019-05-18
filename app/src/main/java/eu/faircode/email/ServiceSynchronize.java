@@ -525,6 +525,10 @@ public class ServiceSynchronize extends LifecycleService {
         final PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         final PowerManager.WakeLock wlAccount = pm.newWakeLock(
                 PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":account." + account.id);
+        final PowerManager.WakeLock wlFolder = pm.newWakeLock(
+                PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":account." + account.id + ".folder");
+        final PowerManager.WakeLock wlMessage = pm.newWakeLock(
+                PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":account." + account.id + ".message");
         try {
             wlAccount.acquire();
 
@@ -561,7 +565,7 @@ public class ServiceSynchronize extends LifecycleService {
                         @Override
                         public void notification(StoreEvent e) {
                             try {
-                                wlAccount.acquire();
+                                wlFolder.acquire();
                                 String message = e.getMessage();
                                 if (e.getMessageType() == StoreEvent.ALERT) {
                                     Log.w(account.name + " alert: " + message);
@@ -574,7 +578,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 } else
                                     Log.i(account.name + " notice: " + message);
                             } finally {
-                                wlAccount.release();
+                                wlFolder.release();
                             }
                         }
                     });
@@ -584,18 +588,18 @@ public class ServiceSynchronize extends LifecycleService {
                         @Override
                         public void folderCreated(FolderEvent e) {
                             try {
-                                wlAccount.acquire();
+                                wlFolder.acquire();
                                 Log.i("Folder created=" + e.getFolder().getFullName());
                                 reload(ServiceSynchronize.this, "folder created");
                             } finally {
-                                wlAccount.release();
+                                wlFolder.release();
                             }
                         }
 
                         @Override
                         public void folderRenamed(FolderEvent e) {
                             try {
-                                wlAccount.acquire();
+                                wlFolder.acquire();
                                 Log.i("Folder renamed=" + e.getFolder().getFullName());
 
                                 String old = e.getFolder().getFullName();
@@ -605,18 +609,18 @@ public class ServiceSynchronize extends LifecycleService {
 
                                 reload(ServiceSynchronize.this, "folder renamed");
                             } finally {
-                                wlAccount.release();
+                                wlFolder.release();
                             }
                         }
 
                         @Override
                         public void folderDeleted(FolderEvent e) {
                             try {
-                                wlAccount.acquire();
+                                wlFolder.acquire();
                                 Log.i("Folder deleted=" + e.getFolder().getFullName());
                                 reload(ServiceSynchronize.this, "folder deleted");
                             } finally {
-                                wlAccount.release();
+                                wlFolder.release();
                             }
                         }
                     });
@@ -730,7 +734,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 @Override
                                 public void messagesAdded(MessageCountEvent e) {
                                     try {
-                                        wlAccount.acquire();
+                                        wlMessage.acquire();
                                         Log.i(folder.name + " messages added");
 
                                         FetchProfile fp = new FetchProfile();
@@ -779,14 +783,14 @@ public class ServiceSynchronize extends LifecycleService {
                                         Core.reportError(ServiceSynchronize.this, account, folder, ex);
                                         state.error(ex);
                                     } finally {
-                                        wlAccount.release();
+                                        wlMessage.release();
                                     }
                                 }
 
                                 @Override
                                 public void messagesRemoved(MessageCountEvent e) {
                                     try {
-                                        wlAccount.acquire();
+                                        wlMessage.acquire();
                                         Log.i(folder.name + " messages removed");
                                         for (Message imessage : e.getMessages())
                                             try {
@@ -809,7 +813,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
                                         state.error(ex);
                                     } finally {
-                                        wlAccount.release();
+                                        wlMessage.release();
                                     }
                                 }
                             });
@@ -821,7 +825,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 @Override
                                 public void messageChanged(MessageChangedEvent e) {
                                     try {
-                                        wlAccount.acquire();
+                                        wlMessage.acquire();
                                         try {
                                             Log.i(folder.name + " message changed");
 
@@ -860,7 +864,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         Core.reportError(ServiceSynchronize.this, account, folder, ex);
                                         state.error(ex);
                                     } finally {
-                                        wlAccount.release();
+                                        wlMessage.release();
                                     }
                                 }
                             });
