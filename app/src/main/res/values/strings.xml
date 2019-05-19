@@ -57,8 +57,8 @@
     </plurals>
 
     <plurals name="title_ask_spam">
-        <item quantity="one">Report %1$d message as spam?</item>
-        <item quantity="other">Report %1$d messages as spam?</item>
+        <item quantity="one">Treat %1$d message as spam?</item>
+        <item quantity="other">Treat %1$d messages as spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Report message from %1$s as spam?</string>
 
