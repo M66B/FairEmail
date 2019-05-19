@@ -98,7 +98,7 @@ final class GestureSelectionHelper implements OnItemTouchListener {
             case MotionEvent.ACTION_MOVE:
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
-                return mStarted;
+                return mStarted && mSelectionMgr.isRangeActive();
             default:
                 return false;
         }

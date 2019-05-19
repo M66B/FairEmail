@@ -1,3 +1,16 @@
+diff --git a/app/src/main/java/androidx/recyclerview/selection/GestureSelectionHelper.java b/app/src/main/java/androidx/recyclerview/selection/GestureSelectionHelper.java
+index 7f2a5bb2..3736ada4 100644
+--- a/app/src/main/java/androidx/recyclerview/selection/GestureSelectionHelper.java
++++ b/app/src/main/java/androidx/recyclerview/selection/GestureSelectionHelper.java
+@@ -98,7 +98,7 @@ final class GestureSelectionHelper implements OnItemTouchListener {
+             case MotionEvent.ACTION_MOVE:
+             case MotionEvent.ACTION_UP:
+             case MotionEvent.ACTION_CANCEL:
+-                return mStarted;
++                return mStarted && mSelectionMgr.isRangeActive();
+             default:
+                 return false;
+         }
 diff --git a/app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java b/app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java
 index ae3785df..1591ff4b 100644
 --- a/app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java
