@@ -470,6 +470,11 @@
     <string name="title_answer_text">Viestipohjan teksti</string>
     <string name="title_answer_template_name">$name$ korvataan lähettäjän koko nimellä</string>
     <string name="title_answer_template_email">$email$ korvataan lähettäjän sähköpostiosoitteella</string>
+    <string name="title_rule_seen">Merkitse luetuksi</string>
+    <string name="title_rule_unseen">Merkitse lukemattomaksi</string>
+    <string name="title_rule_flag">Lisää tähti</string>
+    <string name="title_rule_move">Siirrä</string>
+    <string name="title_rule_answer">Vastaa</string>
     <string name="title_rule_automation">Automaatio</string>
     <string name="title_rule_caption">Muokkaa sääntöä</string>
     <string name="title_rule_title">Säännön käyttökohde on</string>
@@ -487,6 +492,7 @@
     <string name="title_rule_action_remark">Tätä toimintoa käytetään uusiin viesteihin, jotka saapuvat kansioon %1$s</string>
     <string name="title_rule_folder">Kansio</string>
     <string name="title_rule_identity">Identiteetti</string>
+    <string name="title_rule_template">Vastausviestipohja</string>
     <string name="title_rule_cc">Vastaa kopio-osoitteisiin</string>
     <string name="title_rule_name_missing">Säännön nimi puuttuu</string>
     <string name="title_rule_condition_missing">Ehdot puuttuvat</string>
@@ -597,6 +603,9 @@
     <string name="title_no_body">Viestin tekstiä ei löytynyt</string>
     <string name="title_no_charset">Koodausta ei tueta: %1$s</string>
     <string name="title_via">Kautta: %1$s</string>
+    <string name="title_icalendar_accept">Hyväksy</string>
+    <string name="title_icalendar_decline">Hylkää</string>
+    <string name="title_icalendar_maybe">Ehkä</string>
     <string name="title_try">Kokeile FairEmailia, avoimen lähdekoodin yksityisyyden huomioivaa sähköpostisovellusta Androidille</string>
     <string name="title_pro_feature">Tämä on pro-ominaisuus</string>
     <string name="title_pro_list">Luettelo pro-ominaisuuksista</string>
