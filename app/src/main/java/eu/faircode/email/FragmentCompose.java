@@ -2102,7 +2102,7 @@ public class FragmentCompose extends FragmentBase {
                                 body += "<p>" + res.getString(R.string.title_receipt_text) + "</p>";
                         } else if ("forward".equals(action)) {
                             String fwd = context.getString(R.string.title_subject_forward, "");
-                            if (!prefix_once || !subject.startsWith(fwd))
+                            if (!prefix_once || !subject.startsWith(fwd.trim()))
                                 draft.subject = context.getString(R.string.title_subject_forward, subject);
                             else
                                 draft.subject = ref.subject;
