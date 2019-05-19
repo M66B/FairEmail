@@ -1709,21 +1709,26 @@ class Core {
     static void notifyMessages(Context context, Map<String, List<Long>> groupNotifying, List<TupleMessageEx> messages) {
         Log.i("Notify messages=" + messages.size());
 
+        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean badge = prefs.getBoolean("badge", true);
 
-        Widget.update(context, messages.size());
-        try {
-            ShortcutBadger.applyCount(context, badge ? messages.size() : 0);
-        } catch (Throwable ex) {
-            Log.e(ex);
+        // Update widget/badge count
+        int lastUnseen = 0;
+        for (String group : groupNotifying.keySet())
+            lastUnseen += groupNotifying.get(group).size();
+        if (messages.size() != lastUnseen) {
+            Widget.update(context, messages.size());
+            try {
+                ShortcutBadger.applyCount(context, badge ? messages.size() : 0);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
         }
 
-        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-
-        Map<String, List<TupleMessageEx>> groupMessages = new HashMap<>();
-
         // Current
+        Map<String, List<TupleMessageEx>> groupMessages = new HashMap<>();
         for (TupleMessageEx message : messages) {
             // Check if notification channel enabled
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O &&
