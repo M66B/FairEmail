@@ -84,8 +84,6 @@ import javax.mail.event.MessageCountEvent;
 import javax.mail.event.StoreEvent;
 import javax.mail.event.StoreListener;
 
-import me.leolin.shortcutbadger.ShortcutBadger;
-
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class ServiceSynchronize extends LifecycleService {
@@ -168,12 +166,7 @@ public class ServiceSynchronize extends LifecycleService {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.unregisterNetworkCallback(networkCallback);
 
-        Widget.update(this, -1);
-        try {
-            ShortcutBadger.applyCount(this, 0);
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
+        Core.notifyReset(this);
 
         WorkerCleanup.cancel(this);
 

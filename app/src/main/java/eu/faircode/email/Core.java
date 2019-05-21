@@ -112,6 +112,8 @@ import me.leolin.shortcutbadger.ShortcutBadger;
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 class Core {
+    private static int lastUnseen = -1;
+
     private static final int MAX_NOTIFICATION_COUNT = 10; // per group
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
@@ -1706,6 +1708,16 @@ class Core {
         db.message().setMessageSize(message.id, size);
     }
 
+    static void notifyReset(Context context) {
+        lastUnseen = -1;
+        Widget.update(context, -1);
+        try {
+            ShortcutBadger.removeCount(context);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
     static void notifyMessages(Context context, Map<String, List<Long>> groupNotifying, List<TupleMessageEx> messages) {
         Log.i("Notify messages=" + messages.size());
 
@@ -1715,10 +1727,8 @@ class Core {
         boolean badge = prefs.getBoolean("badge", true);
 
         // Update widget/badge count
-        int lastUnseen = 0;
-        for (String group : groupNotifying.keySet())
-            lastUnseen += groupNotifying.get(group).size();
-        if (messages.size() != lastUnseen) {
+        if (lastUnseen < 0 || messages.size() != lastUnseen) {
+            lastUnseen = messages.size();
             Widget.update(context, messages.size());
             try {
                 ShortcutBadger.applyCount(context, badge ? messages.size() : 0);
