@@ -2512,7 +2512,7 @@ public class FragmentMessages extends FragmentBase {
         boolean refreshing = false;
         for (TupleFolderEx folder : folders) {
             unseen += folder.unseen;
-            if (folder.error != null)
+            if (folder.error != null && folder.account != null /* outbox */)
                 errors = true;
             if (folder.sync_state != null &&
                     (folder.account == null || "connected".equals(folder.accountState))) {
