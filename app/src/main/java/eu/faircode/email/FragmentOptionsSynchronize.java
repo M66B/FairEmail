@@ -90,7 +90,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("enabled", checked).apply();
                 spPollInterval.setEnabled(checked);
-                swSchedule.setEnabled(checked);
                 ServiceSynchronize.reload(getContext(), true, "enabled=" + checked);
             }
         });
@@ -221,7 +220,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
         swEnabled.setChecked(prefs.getBoolean("enabled", true));
         spPollInterval.setEnabled(swEnabled.isChecked());
-        swSchedule.setEnabled(swEnabled.isChecked());
 
         int pollInterval = prefs.getInt("poll_interval", 0);
         int[] pollIntervalValues = getResources().getIntArray(R.array.pollIntervalValues);
