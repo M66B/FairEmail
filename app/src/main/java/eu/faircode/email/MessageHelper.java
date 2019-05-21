@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.net.MailTo;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 
@@ -590,24 +591,22 @@ public class MessageHelper {
         try {
             // https://www.ietf.org/rfc/rfc2369.txt
             String list = imessage.getHeader("List-Post", null);
-            if (list == null || "NO".equals(list))
+            if (list == null)
                 return null;
 
             list = MimeUtility.unfold(list);
-
-            InternetAddress[] address = null;
-            try {
-                address = InternetAddress.parse(list);
-            } catch (AddressException ex) {
-                Log.w(ex);
-            }
-
-            if (address == null || address.length == 0)
+            if ("NO".equals(list) || !list.startsWith("<") || !list.endsWith(">"))
                 return null;
 
-            fix(address[0]);
+            // https://www.ietf.org/rfc/rfc2368.txt
+            MailTo to = MailTo.parse(list.substring(1, list.length() - 1));
+            if (to.getTo() == null)
+                return null;
 
-            return new Address[]{address[0]};
+            return new Address[]{new InternetAddress(to.getTo().split(",")[0])};
+        } catch (android.net.ParseException ex) {
+            Log.w(ex);
+            return null;
         } catch (AddressException ex) {
             Log.w(ex);
             return null;
