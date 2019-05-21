@@ -41,6 +41,10 @@ public interface DaoAnswer {
             " ORDER BY name COLLATE NOCASE")
     LiveData<List<EntityAnswer>> liveAnswers();
 
+    @Query("SELECT COUNT(*) FROM answer" +
+            " WHERE NOT hide")
+    LiveData<Integer> liveAnswerCount();
+
     @Insert
     long insertAnswer(EntityAnswer answer);
 

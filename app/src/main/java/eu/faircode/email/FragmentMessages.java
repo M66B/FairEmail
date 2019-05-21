@@ -1955,6 +1955,13 @@ public class FragmentMessages extends FragmentBase {
             }
         });
 
+        db.answer().liveAnswerCount().observe(getViewLifecycleOwner(), new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer count) {
+                adapter.setAnswerCount(count == null ? -1 : count);
+            }
+        });
+
         // Folder
         switch (viewType) {
             case UNIFIED:

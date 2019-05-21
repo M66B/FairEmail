@@ -141,6 +141,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private String sort;
     private boolean filter_duplicates;
     private boolean suitable;
+    private int answers = -1;
     private IProperties properties;
 
     private int colorPrimary;
@@ -3204,6 +3205,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setVisible(recipients > 1);
             popupMenu.getMenu().findItem(R.id.menu_reply_list).setVisible(data.message.list_post != null);
             popupMenu.getMenu().findItem(R.id.menu_reply_receipt).setVisible(data.message.receipt_to != null);
+            popupMenu.getMenu().findItem(R.id.menu_reply_answer).setVisible(answers != 0 || !Helper.isPro(context));
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -3431,6 +3433,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             this.suitable = suitable;
             notifyDataSetChanged();
         }
+    }
+
+    void setAnswerCount(int answers) {
+        this.answers = answers;
+        Log.i("Answer count=" + answers);
     }
 
     @Override
