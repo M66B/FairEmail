@@ -159,6 +159,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
             popupMenu.getMenu().add(Menu.NONE, R.string.title_rule_enabled, 1, R.string.title_rule_enabled)
                     .setCheckable(true).setChecked(rule.enabled);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_log, 2, R.string.title_log);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -167,6 +168,8 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                         case R.string.title_rule_enabled:
                             onActionEnabled(!item.isChecked());
                             return true;
+                        case R.string.title_log:
+                            onActionLog();
                         default:
                             return false;
                     }
@@ -194,6 +197,14 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                             Helper.unexpectedError(context, owner, ex);
                         }
                     }.execute(context, owner, args, "rule:enable");
+                }
+
+                private void onActionLog() {
+                    Intent log = new Intent(ActivityView.ACTION_VIEW_RULE_LOG);
+                    log.putExtra("rule", rule.id);
+
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                    lbm.sendBroadcast(log);
                 }
             });
 
