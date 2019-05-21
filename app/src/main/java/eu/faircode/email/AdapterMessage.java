@@ -3192,9 +3192,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionReplyMenu(final ActionData data) {
+            int recipients = 0;
+            if (data.message.to != null)
+                recipients += data.message.to.length;
+            if (data.message.cc != null)
+                recipients += data.message.cc.length;
+
             View anchor = bnvActions.findViewById(R.id.action_reply);
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
             popupMenu.inflate(R.menu.menu_reply);
+            popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setVisible(recipients > 1);
             popupMenu.getMenu().findItem(R.id.menu_reply_list).setVisible(data.message.list_post != null);
             popupMenu.getMenu().findItem(R.id.menu_reply_receipt).setVisible(data.message.receipt_to != null);
 
