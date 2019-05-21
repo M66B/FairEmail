@@ -35,12 +35,6 @@ public interface DaoFolder {
 
     @Query("SELECT folder.* FROM folder" +
             " JOIN account ON account.id = folder.account" +
-            " WHERE folder.synchronize" +
-            " AND account.synchronize")
-    List<EntityFolder> getSynchronizingFolders();
-
-    @Query("SELECT folder.* FROM folder" +
-            " JOIN account ON account.id = folder.account" +
             " WHERE account.synchronize" +
             " AND folder.synchronize AND unified")
     List<EntityFolder> getFoldersSynchronizingUnified();
