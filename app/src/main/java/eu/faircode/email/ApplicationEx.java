@@ -237,8 +237,8 @@ public class ApplicationEx extends Application {
 
     static void upgrade(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        int version = prefs.getInt("version", 468);
-        if (version < BuildConfig.VERSION_CODE) {
+        int version = prefs.getInt("version", BuildConfig.VERSION_CODE);
+        if (version < 468) {
             Log.i("Upgrading from " + version + " to " + BuildConfig.VERSION_CODE);
 
             SharedPreferences.Editor editor = prefs.edit();
