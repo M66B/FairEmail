@@ -646,7 +646,7 @@ public class FragmentMessages extends FragmentBase {
         swipeRefresh.setEnabled(pull);
         tvNoEmail.setVisibility(View.GONE);
         seekBar.setVisibility(View.GONE);
-        ibUp.setVisibility(viewType == AdapterMessage.ViewType.THREAD ? View.VISIBLE : View.GONE);
+        ibUp.setVisibility(View.GONE);
         bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(false);
         bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(false);
         bottom_navigation.setVisibility(View.GONE);
@@ -848,10 +848,14 @@ public class FragmentMessages extends FragmentBase {
             if (enabled) {
                 if (!values.get(name).contains(id))
                     values.get(name).add(id);
-                if ("expanded".equals(name))
-                    handleExpand(id);
             } else
                 values.get(name).remove(id);
+
+            if ("expanded".equals(name)) {
+                if (enabled)
+                    handleExpand(id);
+                ibUp.setVisibility(values.get(name).size() > 0 ? View.VISIBLE : View.GONE);
+            }
         }
 
         @Override
@@ -2773,12 +2777,8 @@ public class FragmentMessages extends FragmentBase {
                     expand = messages.get(0);
 
                 if (expand != null &&
-                        (expand.content || unmetered || (expand.size != null && expand.size < download))) {
-                    if (!values.containsKey("expanded"))
-                        values.put("expanded", new ArrayList<Long>());
-                    values.get("expanded").add(expand.id);
-                    handleExpand(expand.id);
-                }
+                        (expand.content || unmetered || (expand.size != null && expand.size < download)))
+                    iProperties.setValue("expanded", expand.id, true);
             }
         } else {
             if (autoCloseCount > 0 && (autoclose || autonext)) {
