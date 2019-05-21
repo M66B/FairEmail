@@ -18,7 +18,7 @@
     <string name="tile_unseen">New messages</string>
 
     <string name="shortcut_compose">Compose</string>
-    <string name="shortcut_setup">Setup</string>
+    <string name="shortcut_setup">Settings</string>
 
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Synchronizing %1$d account</item>
@@ -70,7 +70,7 @@
     <string name="menu_answers">Templates</string>
     <string name="menu_operations">Operations</string>
     <string name="menu_contacts">Local contacts</string>
-    <string name="menu_setup">Setup</string>
+    <string name="menu_setup">Settings</string>
 
     <string name="menu_legend">Legend</string>
     <string name="menu_faq">Support</string>
@@ -97,7 +97,7 @@
     <string name="title_edit_identity">Edit identity</string>
     <string name="title_edit_folder">Edit folder</string>
 
-    <string name="title_setup">Setup</string>
+    <string name="title_setup">Settings</string>
     <string name="title_setup_help">Help</string>
     <string name="title_setup_quick">Quick setup</string>
     <string name="title_setup_quick_remark">To quickly setup an account and an identity for most providers</string>

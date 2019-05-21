@@ -96,7 +96,7 @@ public class FragmentQuickSetup extends FragmentBase {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        setSubtitle(R.string.title_setup);
+        setSubtitle(R.string.title_setup_quick);
         setHasOptionsMenu(true);
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_quick_setup, container, false);
