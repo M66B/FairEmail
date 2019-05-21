@@ -1839,35 +1839,81 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowFull(TupleMessageEx message) {
-            WebView webView = new WebView(context);
-            setupWebView(webView);
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
 
-            boolean show_images = properties.getValue("images", message.id);
+            new SimpleTask<String>() {
+                @Override
+                protected String onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
 
-            WebSettings settings = webView.getSettings();
-            settings.setDefaultFontSize(Math.round(textSize));
-            settings.setDefaultFixedFontSize(Math.round(textSize));
-            settings.setLoadsImagesAutomatically(show_images);
-            settings.setBuiltInZoomControls(true);
-            settings.setDisplayZoomControls(false);
+                    String html = properties.getHtml(id);
 
-            String html = properties.getHtml(message.id);
-            webView.loadDataWithBaseURL("", html, "text/html", "UTF-8", null);
+                    // Remove viewport limitations
+                    Document doc = Jsoup.parse(html);
+                    for (Element meta : doc.select("meta").select("[name=viewport]")) {
+                        String content = meta.attr("content");
+                        String[] params = content.split(";");
+                        if (params.length > 0) {
+                            List<String> viewport = new ArrayList<>();
+                            for (String param : params)
+                                if (!param.toLowerCase().contains("maximum-scale") &&
+                                        !param.toLowerCase().contains("user-scalable"))
+                                    viewport.add(param.trim());
 
-            final Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
-            dialog.setContentView(webView);
+                            if (viewport.size() == 0)
+                                meta.attr("content", "");
+                            else
+                                meta.attr("content", TextUtils.join(" ;", viewport) + ";");
+                        }
+                    }
 
-            owner.getLifecycle().addObserver(new LifecycleObserver() {
-                @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-                public void onCreate() {
-                    dialog.show();
+                    return doc.html();
                 }
 
-                @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-                public void onDestroyed() {
-                    dialog.dismiss();
+                @Override
+                protected void onExecuted(Bundle args, String html) {
+                    long id = args.getLong("id");
+
+                    TupleMessageEx amessage = getMessage();
+                    if (amessage == null || !amessage.id.equals(id))
+                        return;
+
+                    WebView webView = new WebView(context);
+                    setupWebView(webView);
+
+                    boolean show_images = properties.getValue("images", id);
+
+                    WebSettings settings = webView.getSettings();
+                    settings.setDefaultFontSize(Math.round(textSize));
+                    settings.setDefaultFixedFontSize(Math.round(textSize));
+                    settings.setLoadsImagesAutomatically(show_images);
+                    settings.setBuiltInZoomControls(true);
+                    settings.setDisplayZoomControls(false);
+
+                    webView.loadDataWithBaseURL("", html, "text/html", "UTF-8", null);
+
+                    final Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+                    dialog.setContentView(webView);
+
+                    owner.getLifecycle().addObserver(new LifecycleObserver() {
+                        @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+                        public void onCreate() {
+                            dialog.show();
+                        }
+
+                        @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+                        public void onDestroyed() {
+                            dialog.dismiss();
+                        }
+                    });
                 }
-            });
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, owner, ex);
+                }
+            }.execute(context, owner, args, "message:full");
         }
 
         private void setupWebView(WebView webView) {
