@@ -20,6 +20,8 @@ package eu.faircode.email;
 */
 
 import android.app.IntentService;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
@@ -78,21 +80,31 @@ public class ServiceUI extends IntentService {
             case "clear":
                 onClear();
                 break;
+
             case "trash":
+                cancel(intent.getStringExtra("group"), id);
                 onTrash(id);
                 break;
+
             case "archive":
+                cancel(intent.getStringExtra("group"), id);
                 onArchive(id);
                 break;
+
             case "flag":
+                cancel(intent.getStringExtra("group"), id);
                 onFlag(id);
                 break;
+
             case "seen":
+                cancel(intent.getStringExtra("group"), id);
                 onSeen(id);
                 break;
+
             case "ignore":
                 onIgnore(id);
                 break;
+
             case "snooze":
                 // AlarmManager.RTC_WAKEUP
                 // When the alarm is dispatched, the app will also be added to the system's temporary whitelist
@@ -107,6 +119,13 @@ public class ServiceUI extends IntentService {
 
     private void onClear() {
         DB.getInstance(this).message().ignoreAll();
+    }
+
+    private void cancel(String group, long id) {
+        String tag = "unseen." + group + ":" + id;
+
+        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.cancel(tag, 1);
     }
 
     private void onTrash(long id) {

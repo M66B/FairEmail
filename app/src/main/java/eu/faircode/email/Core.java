@@ -1964,7 +1964,9 @@ class Core {
                 mbuilder.setGroup(group).setGroupSummary(false);
 
             if (notify_trash) {
-                Intent trash = new Intent(context, ServiceUI.class).setAction("trash:" + message.id);
+                Intent trash = new Intent(context, ServiceUI.class)
+                        .setAction("trash:" + message.id)
+                        .putExtra("group", group);
                 PendingIntent piTrash = PendingIntent.getService(context, ServiceUI.PI_TRASH, trash, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionTrash = new NotificationCompat.Action.Builder(
                         R.drawable.baseline_delete_24,
@@ -1974,7 +1976,9 @@ class Core {
             }
 
             if (notify_archive) {
-                Intent archive = new Intent(context, ServiceUI.class).setAction("archive:" + message.id);
+                Intent archive = new Intent(context, ServiceUI.class)
+                        .setAction("archive:" + message.id)
+                        .putExtra("group", group);
                 PendingIntent piArchive = PendingIntent.getService(context, ServiceUI.PI_ARCHIVE, archive, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionArchive = new NotificationCompat.Action.Builder(
                         R.drawable.baseline_archive_24,
@@ -1997,7 +2001,9 @@ class Core {
             }
 
             if (notify_flag && flags) {
-                Intent flag = new Intent(context, ServiceUI.class).setAction("flag:" + message.id);
+                Intent flag = new Intent(context, ServiceUI.class)
+                        .setAction("flag:" + message.id)
+                        .putExtra("group", group);
                 PendingIntent piFlag = PendingIntent.getService(context, ServiceUI.PI_FLAG, flag, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionFlag = new NotificationCompat.Action.Builder(
                         R.drawable.baseline_star_24,
@@ -2007,7 +2013,9 @@ class Core {
             }
 
             if (notify_seen) {
-                Intent seen = new Intent(context, ServiceUI.class).setAction("seen:" + message.id);
+                Intent seen = new Intent(context, ServiceUI.class)
+                        .setAction("seen:" + message.id)
+                        .putExtra("group", group);
                 PendingIntent piSeen = PendingIntent.getService(context, ServiceUI.PI_SEEN, seen, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionSeen = new NotificationCompat.Action.Builder(
                         R.drawable.baseline_visibility_24,
