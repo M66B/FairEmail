@@ -561,10 +561,12 @@ public class ServiceSynchronize extends LifecycleService {
                     istore.addStoreListener(new StoreListener() {
                         @Override
                         public void notification(StoreEvent e) {
-                            try {
-                                wlFolder.acquire();
-                                String message = e.getMessage();
-                                if (e.getMessageType() == StoreEvent.ALERT) {
+                            if (e.getMessageType() == StoreEvent.NOTICE)
+                                Log.i(account.name + " notice: " + e.getMessage());
+                            else
+                                try {
+                                    wlFolder.acquire();
+                                    String message = e.getMessage();
                                     Log.w(account.name + " alert: " + message);
                                     db.account().setAccountError(account.id, message);
                                     if (BuildConfig.DEBUG ||
@@ -572,11 +574,9 @@ public class ServiceSynchronize extends LifecycleService {
                                         Core.reportError(ServiceSynchronize.this, account, null,
                                                 new Core.AlertException(message));
                                     state.error(null);
-                                } else
-                                    Log.i(account.name + " notice: " + message);
-                            } finally {
-                                wlFolder.release();
-                            }
+                                } finally {
+                                    wlFolder.release();
+                                }
                         }
                     });
 
