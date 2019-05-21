@@ -1761,7 +1761,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         OriginalMessage original = new OriginalMessage();
                         original.html = Helper.readText(file);
                         original.html = HtmlHelper.getHtmlEmbedded(context, id, original.html);
-                        original.html = HtmlHelper.removeTracking(context, original.html);
 
                         Document doc = Jsoup.parse(original.html);
                         original.has_images = (doc.select("img").size() > 0);

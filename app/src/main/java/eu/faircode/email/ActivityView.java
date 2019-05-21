@@ -1251,7 +1251,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 String html = Helper.readText(file);
                 html = HtmlHelper.getHtmlEmbedded(context, id, html);
-                html = HtmlHelper.removeTracking(context, html);
 
                 return new String[]{message.subject, html};
             }

@@ -84,33 +84,6 @@ public class HtmlHelper {
 
     private static final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
-    static String removeTracking(Context context, String html) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean paranoid = prefs.getBoolean("paranoid", true);
-        if (!paranoid)
-            return html;
-
-        Document document = Jsoup.parse(html);
-
-        // Remove tracking pixels
-        for (Element img : document.select("img"))
-            if (isTrackingPixel(img))
-                img.removeAttr("src");
-
-        // Remove Javascript
-        for (Element e : document.select("*"))
-            for (Attribute a : e.attributes()) {
-                String v = a.getValue();
-                if (v != null && v.trim().toLowerCase().startsWith("javascript:"))
-                    e.removeAttr(a.getKey());
-            }
-
-        // Remove scripts
-        document.select("script").remove();
-
-        return document.outerHtml();
-    }
-
     static String sanitize(Context context, String html) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean paranoid = prefs.getBoolean("paranoid", true);
