@@ -1432,6 +1432,7 @@ public class FragmentAccount extends FragmentBase {
         none.name = "-";
         folders.add(0, none);
 
+        adapter.clear();
         adapter.addAll(folders);
 
         Long left = (account == null ? null : account.swipe_left);
