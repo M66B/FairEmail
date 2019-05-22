@@ -2382,7 +2382,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (EntityFolder.OUTBOX.equals(data.message.folderType))
                         onnActionMoveOutbox(data);
                     else
-                        onActionMove(data);
+                        onActionMove(data, false);
                     return true;
                 case R.id.action_archive:
                     onActionArchive(data);
@@ -2449,111 +2449,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(color);
-        }
-
-        private void onMenuCopy(final ActionData data) {
-            final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_folder_select, null);
-            final RecyclerView rvFolder = dview.findViewById(R.id.rvFolder);
-            final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
-
-            final Dialog dialog = new DialogBuilderLifecycle(context, owner)
-                    .setTitle(R.string.title_copy_to)
-                    .setView(dview)
-                    .create();
-
-            rvFolder.setHasFixedSize(false);
-            LinearLayoutManager llm = new LinearLayoutManager(context);
-            rvFolder.setLayoutManager(llm);
-
-            final AdapterFolderSelect adapter = new AdapterFolderSelect(context, owner, new AdapterFolderSelect.IFolderSelectedListener() {
-                @Override
-                public void onFolderSelected(EntityFolder folder) {
-                    dialog.dismiss();
-
-                    Bundle args = new Bundle();
-                    args.putLong("id", data.message.id);
-                    args.putLong("target", folder.id);
-
-                    new SimpleTask<Void>() {
-                        @Override
-                        protected Void onExecute(Context context, Bundle args) {
-                            long id = args.getLong("id");
-                            long target = args.getLong("target");
-
-                            DB db = DB.getInstance(context);
-                            try {
-                                db.beginTransaction();
-
-                                EntityMessage message = db.message().getMessage(id);
-                                if (message == null)
-                                    return null;
-
-                                EntityOperation.queue(context, message, EntityOperation.COPY, target);
-
-                                db.setTransactionSuccessful();
-                            } finally {
-                                db.endTransaction();
-                            }
-
-                            return null;
-                        }
-
-                        @Override
-                        protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(context, owner, ex);
-                        }
-                    }.execute(context, owner, args, "message:copy");
-                }
-            });
-
-            rvFolder.setAdapter(adapter);
-
-            rvFolder.setVisibility(View.GONE);
-            pbWait.setVisibility(View.VISIBLE);
-            dialog.show();
-
-            Bundle args = new Bundle();
-            args.putLong("id", data.message.id);
-
-            new SimpleTask<List<EntityFolder>>() {
-                @Override
-                protected List<EntityFolder> onExecute(Context context, Bundle args) {
-                    DB db = DB.getInstance(context);
-
-                    EntityMessage message = db.message().getMessage(args.getLong("id"));
-                    if (message == null)
-                        return null;
-
-                    List<EntityFolder> folders = db.folder().getFolders(message.account);
-                    if (folders == null)
-                        return null;
-
-                    List<EntityFolder> targets = new ArrayList<>();
-                    for (EntityFolder folder : folders)
-                        if (!folder.isHidden(context) && !folder.id.equals(message.folder))
-                            targets.add(folder);
-
-                    if (targets.size() > 0)
-                        Collections.sort(targets, targets.get(0).getComparator(context));
-
-                    return targets;
-                }
-
-                @Override
-                protected void onExecuted(final Bundle args, List<EntityFolder> folders) {
-                    if (folders == null)
-                        folders = new ArrayList<>();
-
-                    adapter.set(folders);
-                    pbWait.setVisibility(View.GONE);
-                    rvFolder.setVisibility(View.VISIBLE);
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
-                }
-            }.execute(context, owner, args, "message:copy:list");
         }
 
         private void onMenuDelete(final ActionData data) {
@@ -3034,7 +2929,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             onMenuColoredStar(data);
                             return true;
                         case R.id.menu_copy:
-                            onMenuCopy(data);
+                            onActionMove(data, true);
                             return true;
                         case R.id.menu_delete:
                             // For emergencies
@@ -3194,13 +3089,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "message:move:draft");
         }
 
-        private void onActionMove(final ActionData data) {
+        private void onActionMove(final ActionData data, final boolean copy) {
             final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_folder_select, null);
             final RecyclerView rvFolder = dview.findViewById(R.id.rvFolder);
             final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
 
             final Dialog dialog = new DialogBuilderLifecycle(context, owner)
-                    .setTitle(R.string.title_move_to_folder)
+                    .setTitle(copy ? R.string.title_copy_to : R.string.title_move_to_folder)
                     .setView(dview)
                     .create();
 
@@ -3212,9 +3107,46 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public void onFolderSelected(EntityFolder folder) {
                     dialog.dismiss();
-                    properties.move(data.message.id, folder.name, false);
+
+                    if (copy) {
+                        Bundle args = new Bundle();
+                        args.putLong("id", data.message.id);
+                        args.putLong("target", folder.id);
+
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onExecute(Context context, Bundle args) {
+                                long id = args.getLong("id");
+                                long target = args.getLong("target");
+
+                                DB db = DB.getInstance(context);
+                                try {
+                                    db.beginTransaction();
+
+                                    EntityMessage message = db.message().getMessage(id);
+                                    if (message == null)
+                                        return null;
+
+                                    EntityOperation.queue(context, message, EntityOperation.COPY, target);
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
+                                }
+
+                                return null;
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(context, owner, ex);
+                            }
+                        }.execute(context, owner, args, "message:copy");
+                    } else
+                        properties.move(data.message.id, folder.name, false);
                 }
             });
+
             rvFolder.setAdapter(adapter);
 
             rvFolder.setVisibility(View.GONE);
@@ -3223,14 +3155,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             Bundle args = new Bundle();
             args.putLong("id", data.message.id);
+            args.putBoolean("copy", copy);
 
             new SimpleTask<List<EntityFolder>>() {
                 @Override
                 protected List<EntityFolder> onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
+                    boolean copy = args.getBoolean("copy");
 
                     EntityMessage message;
-                    List<EntityFolder> folders = null;
+                    List<EntityFolder> folders;
 
                     DB db = DB.getInstance(context);
                     try {
@@ -3254,9 +3188,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     for (EntityFolder folder : folders)
                         if (!folder.isHidden(context) &&
                                 !folder.id.equals(message.folder) &&
-                                !EntityFolder.ARCHIVE.equals(folder.type) &&
-                                !EntityFolder.TRASH.equals(folder.type) &&
-                                !EntityFolder.JUNK.equals(folder.type))
+                                (copy ||
+                                        (!EntityFolder.ARCHIVE.equals(folder.type) &&
+                                                !EntityFolder.TRASH.equals(folder.type) &&
+                                                !EntityFolder.JUNK.equals(folder.type))))
                             targets.add(folder);
 
                     if (targets.size() > 0)
