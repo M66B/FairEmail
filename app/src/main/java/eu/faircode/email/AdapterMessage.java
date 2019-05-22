@@ -3169,6 +3169,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             new SimpleTask<List<EntityFolder>>() {
                 @Override
                 protected List<EntityFolder> onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+
                     EntityMessage message;
                     List<EntityFolder> folders = null;
 
@@ -3176,14 +3178,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     try {
                         db.beginTransaction();
 
-                        message = db.message().getMessage(args.getLong("id"));
+                        message = db.message().getMessage(id);
                         if (message == null)
                             return null;
 
                         EntityFolder folder = db.folder().getFolder(message.folder);
                         if (EntityFolder.OUTBOX.equals(folder.type)) {
-                            long id = message.id;
-
                             File source = message.getFile(context);
 
                             // Insert into drafts
@@ -3196,14 +3196,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             File target = message.getFile(context);
                             source.renameTo(target);
 
-                            List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                            List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
                             for (EntityAttachment attachment : attachments)
                                 db.attachment().setMessage(attachment.id, message.id);
 
                             EntityOperation.queue(context, message, EntityOperation.ADD);
 
                             // Delete from outbox
-                            db.message().deleteMessage(id);
+                            db.message().deleteMessage(message.id);
                         } else
                             folders = db.folder().getFolders(message.account);
 
