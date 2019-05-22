@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +27,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,7 +45,7 @@ public class AdapterRuleMatch extends RecyclerView.Adapter<AdapterRuleMatch.View
 
     private DateFormat DF = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         private View view;
         private TextView tvTime;
         private TextView tvSubject;
@@ -61,33 +59,14 @@ public class AdapterRuleMatch extends RecyclerView.Adapter<AdapterRuleMatch.View
         }
 
         private void wire() {
-            view.setOnClickListener(this);
         }
 
         private void unwire() {
-            view.setOnClickListener(null);
         }
 
         private void bindTo(EntityMessage message) {
             tvTime.setText(DF.format(message.received));
             tvSubject.setText(message.subject);
-        }
-
-        @Override
-        public void onClick(View v) {
-            int pos = getAdapterPosition();
-            if (pos == RecyclerView.NO_POSITION)
-                return;
-
-            EntityMessage message = items.get(pos);
-
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(
-                    new Intent(ActivityView.ACTION_VIEW_THREAD)
-                            .putExtra("account", message.account)
-                            .putExtra("thread", message.thread)
-                            .putExtra("id", message.id)
-                            .putExtra("found", false));
         }
     }
 
