@@ -1728,7 +1728,7 @@ Unfortunately and surprisingly, most recording apps do not seem to support this 
 * Error reports will help improve FairEmail
 * Error reporting is optional and opt-in
 * Error reporting can be enabled/disabled in the advanced options, section miscellaneous
-* Error reports will be sent anonymously to [Bugsnag](https://www.bugsnag.com/)
+* Error reports will automatically be sent anonymously to [Bugsnag](https://www.bugsnag.com/)
 * Bugsnag for Android is [open source](https://github.com/bugsnag/bugsnag-android)
 * See [here](https://docs.bugsnag.com/platforms/android/automatically-captured-data/) about what data will be sent in case of errors
 * See [here](https://docs.bugsnag.com/legal/privacy-policy/) for the privacy policy of Bugsnag
