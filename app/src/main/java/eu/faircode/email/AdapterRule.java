@@ -99,7 +99,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     condition.add(context.getString(R.string.title_rule_subject));
                 if (jcondition.has("header"))
                     condition.add(context.getString(R.string.title_rule_header));
-                tvCondition.setText(TextUtils.join(", ", condition));
+                tvCondition.setText(TextUtils.join(" & ", condition));
             } catch (Throwable ex) {
                 tvCondition.setText(ex.getMessage());
             }
@@ -109,16 +109,22 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                 int type = jaction.getInt("type");
                 switch (type) {
                     case EntityRule.TYPE_SEEN:
-                        tvAction.setText(R.string.title_seen);
+                        tvAction.setText(R.string.title_rule_seen);
                         break;
                     case EntityRule.TYPE_UNSEEN:
-                        tvAction.setText(R.string.title_unseen);
+                        tvAction.setText(R.string.title_rule_unseen);
+                        break;
+                    case EntityRule.TYPE_FLAG:
+                        tvAction.setText(R.string.title_rule_flag);
                         break;
                     case EntityRule.TYPE_MOVE:
-                        tvAction.setText(R.string.title_move);
+                        tvAction.setText(R.string.title_rule_move);
+                        break;
+                    case EntityRule.TYPE_COPY:
+                        tvAction.setText(R.string.title_rule_copy);
                         break;
                     case EntityRule.TYPE_ANSWER:
-                        tvAction.setText(R.string.title_answer_reply);
+                        tvAction.setText(R.string.title_rule_answer);
                         break;
                     case EntityRule.TYPE_AUTOMATION:
                         tvAction.setText(R.string.title_rule_automation);
