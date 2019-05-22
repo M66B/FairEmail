@@ -39,6 +39,7 @@ For authorizing:
 * ~~Colored stars~~
 * ~~Notification settings per folder~~
 * ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
+* ~~Show messages matched by a rule~~
 
 Anything on this list is in random order and *might* be added in the near future.
 
@@ -1439,7 +1440,7 @@ If you don't want this, for example to not be disturbed or to save on battery us
 just disable synchronization in the advanced option (accessible via the button at the bottom of the setup screen).
 This will stop the background service which takes care of automatic synchronization and will remove the associated status bar notification.
 You can use pull-down-to-refresh in a folder or use the folder menu *Synchronize now* to manually synchronize messages.
-This will start the synchronization service for 90 seconds for all configured accounts.
+This will start the synchronization service for 60 seconds for all configured accounts.
 
 The synchronization process will also be started to execute [operations](#user-content-faq3),
 for example to mark a message read, move a message or store a draft.
