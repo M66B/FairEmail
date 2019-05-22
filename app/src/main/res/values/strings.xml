@@ -567,6 +567,11 @@
     <string name="title_rule_condition_missing">Condition missing</string>
     <string name="title_rule_automation_hint">This will send the intent \'%1$s\' with the extras \'%2$s\'</string>
 
+    <string name="title_rule_check">Check</string>
+    <string name="title_rule_no_headers">Header conditions cannot be checked</string>
+    <string name="title_rule_matched">Matching messages</string>
+    <string name="title_rule_no_matches">No matching messages</string>
+
     <string name="title_legend_section_synchronize">Synchronize</string>
     <string name="title_legend_section_folders">Folders</string>
     <string name="title_legend_section_messages">Messages</string>

@@ -49,6 +49,8 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.colorpicker.ColorPickerDialog;
 import com.android.colorpicker.ColorPickerSwatch;
@@ -123,6 +125,8 @@ public class FragmentRule extends FragmentBase {
     private long account = -1;
     private long folder = -1;
     private Integer color = null;
+
+    private final static int MAX_CHECK = 10;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -308,6 +312,9 @@ public class FragmentRule extends FragmentBase {
                 switch (menuItem.getItemId()) {
                     case R.id.action_delete:
                         onActionTrash();
+                        return true;
+                    case R.id.action_check:
+                        onActionCheck();
                         return true;
                     case R.id.action_save:
                         onActionSave();
@@ -575,6 +582,86 @@ public class FragmentRule extends FragmentBase {
                 })
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();
+    }
+
+    private void onActionCheck() {
+        try {
+            JSONObject jcondition = getCondition();
+
+            JSONObject jheader = jcondition.optJSONObject("header");
+            if (jheader != null) {
+                Snackbar.make(view, R.string.title_rule_no_headers, Snackbar.LENGTH_LONG).show();
+                return;
+            }
+
+            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_rule_match, null);
+            final TextView tvNoMessages = dview.findViewById(R.id.tvNoMessages);
+            final RecyclerView rvMessage = dview.findViewById(R.id.rvMessage);
+            final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
+
+            rvMessage.setHasFixedSize(false);
+            LinearLayoutManager llm = new LinearLayoutManager(getContext());
+            rvMessage.setLayoutManager(llm);
+
+            final AdapterRuleMatch adapter = new AdapterRuleMatch(getContext(), getViewLifecycleOwner());
+            rvMessage.setAdapter(adapter);
+
+            tvNoMessages.setVisibility(View.GONE);
+            rvMessage.setVisibility(View.GONE);
+            pbWait.setVisibility(View.VISIBLE);
+
+            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                    .setTitle(R.string.title_rule_matched)
+                    .setView(dview)
+                    .show();
+
+            Bundle args = new Bundle();
+            args.putLong("folder", folder);
+            args.putString("condition", jcondition.toString());
+
+            new SimpleTask<List<EntityMessage>>() {
+                @Override
+                protected List<EntityMessage> onExecute(Context context, Bundle args) throws Throwable {
+                    long fid = args.getLong("folder");
+                    EntityRule rule = new EntityRule();
+                    rule.condition = args.getString("condition");
+
+                    List<EntityMessage> matching = new ArrayList<>();
+
+                    DB db = DB.getInstance(context);
+                    List<Long> ids = db.message().getMessageIdsByFolder(fid);
+                    for (long id : ids) {
+                        EntityMessage message = db.message().getMessage(id);
+
+                        if (rule.matches(context, message, null))
+                            matching.add(message);
+
+                        if (matching.size() >= MAX_CHECK)
+                            break;
+                    }
+
+                    return matching;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, List<EntityMessage> messages) {
+                    adapter.set(messages);
+
+                    pbWait.setVisibility(View.GONE);
+                    if (messages.size() > 0)
+                        rvMessage.setVisibility(View.VISIBLE);
+                    else
+                        tvNoMessages.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                }
+            }.execute(this, args, "rule:check");
+        } catch (JSONException ex) {
+            Log.e(ex);
+        }
     }
 
     private void onActionSave() {

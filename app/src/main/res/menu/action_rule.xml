@@ -7,6 +7,11 @@
         android:title="@string/title_delete" />
 
     <item
+        android:id="@+id/action_check"
+        android:icon="@drawable/baseline_check_24"
+        android:title="@string/title_rule_check" />
+
+    <item
         android:id="@+id/action_save"
         android:icon="@drawable/baseline_save_alt_24"
         android:title="@string/title_save" />

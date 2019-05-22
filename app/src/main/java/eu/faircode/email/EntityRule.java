@@ -152,7 +152,7 @@ public class EntityRule {
             }
 
             JSONObject jheader = jcondition.optJSONObject("header");
-            if (jheader != null) {
+            if (jheader != null && imessage != null) {
                 String value = jheader.getString("value");
                 boolean regex = jheader.getBoolean("regex");
 
