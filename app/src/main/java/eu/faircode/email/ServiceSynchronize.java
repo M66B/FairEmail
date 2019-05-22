@@ -665,7 +665,7 @@ public class ServiceSynchronize extends LifecycleService {
                         ConnectionHelper.connect(this, istore, account);
                     } catch (Throwable ex) {
                         // Report account connection error
-                        if (account.last_connected != null) {
+                        if (account.last_connected != null && !ConnectionHelper.airplaneMode(this)) {
                             EntityLog.log(this, account.name + " last connected: " + new Date(account.last_connected));
                             long now = new Date().getTime();
                             long delayed = now - account.last_connected - account.poll_interval * 60 * 1000L;

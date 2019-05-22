@@ -11,6 +11,7 @@ import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.os.Build;
+import android.provider.Settings;
 import android.telephony.TelephonyManager;
 
 import androidx.preference.PreferenceManager;
@@ -300,4 +301,8 @@ public class ConnectionHelper {
         return null;
     }
 
+    static boolean airplaneMode(Context context) {
+        return Settings.System.getInt(context.getContentResolver(),
+                Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
+    }
 }
