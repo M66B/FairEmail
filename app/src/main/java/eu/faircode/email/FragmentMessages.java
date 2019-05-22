@@ -3203,6 +3203,8 @@ public class FragmentMessages extends FragmentBase {
             boolean collapse = prefs.getBoolean("collapse", false);
             if ((count == 1 && collapse) || count > 1) {
                 values.get("expanded").clear();
+                ibDown.setVisibility(View.GONE);
+                ibUp.setVisibility(View.GONE);
                 adapter.notifyDataSetChanged();
                 return true;
             }
