@@ -1302,6 +1302,8 @@ You can disable a rule and you can stop processing other rules after a rule has 
 
 All the conditions of a rule need to be true for a filter rule to be executed.
 Conditions are optional, but there needs to be at least one condition.
+You can use multiple rules, possibly with a *stop processing*, for an *or* condition.
+
 Matching is not case sensitive, unless you use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression).
 
 In the *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
@@ -1310,7 +1312,9 @@ You can select one of these actions to apply to matching messages:
 
 * Mark as read
 * Mark as unread
+* Add star
 * Move
+* Copy
 * Reply template
 * Automation
 
