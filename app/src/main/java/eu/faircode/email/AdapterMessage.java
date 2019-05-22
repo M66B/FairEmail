@@ -3223,8 +3223,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onActionReplyMenu(final ActionData data) {
             int recipients = 0;
-            if (data.message.to != null)
-                recipients += data.message.to.length;
+            if (data.message.from != null)
+                recipients += data.message.from.length;
             if (data.message.cc != null)
                 recipients += data.message.cc.length;
 
