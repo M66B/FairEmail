@@ -19,20 +19,11 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
-import androidx.room.Query;
-
-import java.util.List;
 
 @Dao
 public interface DaoRuleLog {
-    @Query("SELECT rule_log.*, message.account, message.thread, message.subject FROM rule_log" +
-            " JOIN message ON message.id = rule_log.message" +
-            " WHERE rule = :rule" +
-            " ORDER by rule_log.time")
-    LiveData<List<TupleRuleLogEx>> liveRuleLogs(long rule);
 
     @Insert
     long insertRuleLog(EntityRuleLog log);

@@ -143,7 +143,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_EDIT_ANSWER = BuildConfig.APPLICATION_ID + ".EDIT_ANSWER";
     static final String ACTION_EDIT_RULES = BuildConfig.APPLICATION_ID + ".EDIT_RULES";
     static final String ACTION_EDIT_RULE = BuildConfig.APPLICATION_ID + ".EDIT_RULE";
-    static final String ACTION_VIEW_RULE_LOG = BuildConfig.APPLICATION_ID + ".RULE_LOG";
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
     static final String ACTION_STORE_ATTACHMENTS = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENTS";
     static final String ACTION_COLOR = BuildConfig.APPLICATION_ID + ".COLOR";
@@ -547,7 +546,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_EDIT_ANSWER);
         iff.addAction(ACTION_EDIT_RULES);
         iff.addAction(ACTION_EDIT_RULE);
-        iff.addAction(ACTION_VIEW_RULE_LOG);
         iff.addAction(ACTION_STORE_ATTACHMENT);
         iff.addAction(ACTION_STORE_ATTACHMENTS);
         iff.addAction(ACTION_COLOR);
@@ -1036,8 +1034,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     onEditRules(intent);
                 else if (ACTION_EDIT_RULE.equals(action))
                     onEditRule(intent);
-                else if (ACTION_VIEW_RULE_LOG.equals(action))
-                    onRuleLog(intent);
                 else if (ACTION_STORE_ATTACHMENT.equals(action))
                     onStoreAttachment(intent);
                 else if (ACTION_STORE_ATTACHMENTS.equals(action))
@@ -1159,14 +1155,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragment.setArguments(intent.getExtras());
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("rule");
-        fragmentTransaction.commit();
-    }
-
-    private void onRuleLog(Intent intent) {
-        FragmentRuleLogs fragment = new FragmentRuleLogs();
-        fragment.setArguments(intent.getExtras());
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("rule_log");
         fragmentTransaction.commit();
     }
 
