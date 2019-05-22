@@ -535,10 +535,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Selected / disabled
             view.setActivated(selectionTracker != null && selectionTracker.isSelected(message.id));
-            view.setAlpha(
-                    message.uid == null &&
-                            !(EntityFolder.OUTBOX.equals(message.folderType) && !message.ui_seen)
-                            ? Helper.LOW_LIGHT : 1.0f);
+            view.setAlpha(message.uid == null && !EntityFolder.OUTBOX.equals(message.folderType)
+                    ? Helper.LOW_LIGHT : 1.0f);
 
             // Duplicate
             if (viewType == ViewType.THREAD) {
@@ -993,7 +991,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     ActionData data = new ActionData();
                     data.hasJunk = hasJunk;
-                    data.delete = (inTrash || !hasTrash || inOutbox);
+                    data.delete = (inTrash || !hasTrash);
                     data.message = message;
                     bnvActions.setTag(data);
 
@@ -1001,15 +999,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     bnvActions.getMenu().findItem(R.id.action_delete).setVisible(debug ||
                             (inTrash && (message.uid != null || message.msgid != null)) ||
-                            (!inTrash && hasTrash && message.uid != null) ||
-                            (inOutbox && !TextUtils.isEmpty(message.error)));
-                    bnvActions.getMenu().findItem(R.id.action_delete).setTitle(inTrash ? R.string.title_delete : R.string.title_trash);
+                            (!inTrash && hasTrash && message.uid != null));
+                    bnvActions.getMenu().findItem(R.id.action_delete).setTitle(data.delete ? R.string.title_delete : R.string.title_trash);
 
-                    bnvActions.getMenu().findItem(R.id.action_move).setVisible(
-                            message.uid != null || (inOutbox && (message.ui_snoozed != null || message.error != null)));
-                    bnvActions.getMenu().findItem(R.id.action_move).setTitle(
-                            inOutbox && (message.ui_snoozed != null || message.error != null)
-                                    ? R.string.title_folder_drafts : R.string.title_move);
+                    bnvActions.getMenu().findItem(R.id.action_move).setVisible(message.uid != null || inOutbox);
+                    bnvActions.getMenu().findItem(R.id.action_move).setTitle(inOutbox ? R.string.title_folder_drafts : R.string.title_move);
 
                     bnvActions.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
                     bnvActions.getMenu().findItem(R.id.action_reply).setEnabled(message.content);
@@ -2385,7 +2379,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onActionDelete(data);
                     return true;
                 case R.id.action_move:
-                    onActionMove(data);
+                    if (EntityFolder.OUTBOX.equals(data.message.folderType))
+                        onnActionMoveOutbox(data);
+                    else
+                        onActionMove(data);
                     return true;
                 case R.id.action_archive:
                     onActionArchive(data);
@@ -3136,6 +3133,67 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 properties.move(data.message.id, EntityFolder.TRASH, true);
         }
 
+        private void onnActionMoveOutbox(ActionData data) {
+            Bundle args = new Bundle();
+            args.putLong("id", data.message.id);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+
+                    EntityMessage message;
+
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
+                        message = db.message().getMessage(id);
+                        if (message == null)
+                            return null;
+
+                        db.folder().setFolderError(message.folder, null);
+
+                        File source = message.getFile(context);
+
+                        // Insert into drafts
+                        EntityFolder drafts = db.folder().getFolderByType(message.account, EntityFolder.DRAFTS);
+                        message.id = null;
+                        message.folder = drafts.id;
+                        message.ui_snoozed = null;
+                        message.id = db.message().insertMessage(message);
+
+                        File target = message.getFile(context);
+                        source.renameTo(target);
+
+                        List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                        for (EntityAttachment attachment : attachments)
+                            db.attachment().setMessage(attachment.id, message.id);
+
+                        EntityOperation.queue(context, message, EntityOperation.ADD);
+
+                        // Delete from outbox
+                        db.operation().deleteOperation(id, EntityOperation.SEND);
+                        db.message().deleteMessage(id);
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                    nm.cancel("send", message.identity.intValue());
+
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, owner, ex);
+                }
+            }.execute(context, owner, args, "message:move:draft");
+        }
+
         private void onActionMove(final ActionData data) {
             final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_folder_select, null);
             final RecyclerView rvFolder = dview.findViewById(R.id.rvFolder);
@@ -3182,30 +3240,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (message == null)
                             return null;
 
-                        EntityFolder folder = db.folder().getFolder(message.folder);
-                        if (EntityFolder.OUTBOX.equals(folder.type)) {
-                            File source = message.getFile(context);
-
-                            // Insert into drafts
-                            EntityFolder drafts = db.folder().getFolderByType(message.account, EntityFolder.DRAFTS);
-                            message.id = null;
-                            message.folder = drafts.id;
-                            message.ui_snoozed = null;
-                            message.id = db.message().insertMessage(message);
-
-                            File target = message.getFile(context);
-                            source.renameTo(target);
-
-                            List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-                            for (EntityAttachment attachment : attachments)
-                                db.attachment().setMessage(attachment.id, message.id);
-
-                            EntityOperation.queue(context, message, EntityOperation.ADD);
-
-                            // Delete from outbox
-                            db.message().deleteMessage(message.id);
-                        } else
-                            folders = db.folder().getFolders(message.account);
+                        folders = db.folder().getFolders(message.account);
 
                         db.setTransactionSuccessful();
                     } finally {
