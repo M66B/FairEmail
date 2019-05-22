@@ -121,6 +121,7 @@ public class FragmentMessages extends FragmentBase {
     private TextView tvNoEmail;
     private FixedRecyclerView rvMessage;
     private SeekBar seekBar;
+    private ImageButton ibDown;
     private ImageButton ibUp;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
@@ -265,6 +266,7 @@ public class FragmentMessages extends FragmentBase {
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
         rvMessage = view.findViewById(R.id.rvMessage);
         seekBar = view.findViewById(R.id.seekBar);
+        ibDown = view.findViewById(R.id.ibDown);
         ibUp = view.findViewById(R.id.ibUp);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
@@ -456,28 +458,17 @@ public class FragmentMessages extends FragmentBase {
             }
         });
 
+        ibDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scrollToVisibleItem(llm, true);
+            }
+        });
+
         ibUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int pos = llm.findLastVisibleItemPosition();
-                if (pos != RecyclerView.NO_POSITION)
-                    do {
-                        Long key = adapter.getKeyAtPosition(pos);
-                        if (key != null && isExpanded(key)) {
-                            int first = llm.findFirstVisibleItemPosition();
-                            View child = rvMessage.getChildAt(pos - (first < 0 ? 0 : first));
-                            if (child != null) {
-                                TranslateAnimation bounce = new TranslateAnimation(
-                                        0, 0, Helper.dp2pixels(getContext(), 12), 0);
-                                bounce.setDuration(getResources().getInteger(android.R.integer.config_shortAnimTime));
-                                child.startAnimation(bounce);
-                            }
-
-                            rvMessage.scrollToPosition(pos);
-                            break;
-                        }
-                        pos--;
-                    } while (pos >= 0);
+                scrollToVisibleItem(llm, false);
             }
         });
 
@@ -646,6 +637,7 @@ public class FragmentMessages extends FragmentBase {
         swipeRefresh.setEnabled(pull);
         tvNoEmail.setVisibility(View.GONE);
         seekBar.setVisibility(View.GONE);
+        ibDown.setVisibility(View.GONE);
         ibUp.setVisibility(View.GONE);
         bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(false);
         bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(false);
@@ -775,6 +767,35 @@ public class FragmentMessages extends FragmentBase {
         super.onDestroy();
     }
 
+    private void scrollToVisibleItem(LinearLayoutManager llm, boolean bottom) {
+        int pos = llm.findLastVisibleItemPosition();
+        if (pos == RecyclerView.NO_POSITION)
+            return;
+
+        do {
+            Long key = adapter.getKeyAtPosition(pos);
+            if (key != null && isExpanded(key)) {
+                int first = llm.findFirstVisibleItemPosition();
+                View child = rvMessage.getChildAt(pos - (first < 0 ? 0 : first));
+
+                if (child != null) {
+                    TranslateAnimation bounce = new TranslateAnimation(
+                            0, 0, Helper.dp2pixels(getContext(), bottom ? -12 : 12), 0);
+                    bounce.setDuration(getResources().getInteger(android.R.integer.config_shortAnimTime));
+                    child.startAnimation(bounce);
+                }
+
+                if (bottom && child != null)
+                    llm.scrollToPositionWithOffset(pos, rvMessage.getHeight() - llm.getDecoratedMeasuredHeight(child));
+                else
+                    rvMessage.scrollToPosition(pos);
+
+                break;
+            }
+            pos--;
+        } while (pos >= 0);
+    }
+
     private void onSwipeRefresh() {
         Bundle args = new Bundle();
         args.putLong("folder", folder);
@@ -854,6 +875,7 @@ public class FragmentMessages extends FragmentBase {
             if ("expanded".equals(name)) {
                 if (enabled)
                     handleExpand(id);
+                ibDown.setVisibility(values.get(name).size() > 0 ? View.VISIBLE : View.GONE);
                 ibUp.setVisibility(values.get(name).size() > 0 ? View.VISIBLE : View.GONE);
             }
         }
