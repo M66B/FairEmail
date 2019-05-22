@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -1396,7 +1397,7 @@ public class FragmentMessages extends FragmentBase {
                     if (targets.size() > 0)
                         Collections.sort(targets, targets.get(0).getComparator(context));
 
-                    result.targets.put(account, targets);
+                    result.targets.put(account.id, targets);
                 }
 
                 return result;
@@ -1423,25 +1424,22 @@ public class FragmentMessages extends FragmentBase {
                 if (result.hasArchive && !result.isArchive) // has archive and not is archive/drafts
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_archive, 7, R.string.title_archive);
 
+                int order = 8;
+                for (EntityAccount account : result.accounts) {
+                    MenuItem item = popupMenu.getMenu()
+                            .add(Menu.NONE, R.string.title_move_to_account, order++,
+                                    getString(R.string.title_move_to_account, account.name));
+                    item.setIntent(new Intent().putExtra("account", account.id));
+                }
+
                 if (result.isTrash) // is trash
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 8, R.string.title_delete);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, order++, R.string.title_delete);
 
                 if (!result.isTrash && result.hasTrash) // not trash and has trash
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_trash, 9, R.string.title_trash);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_trash, order++, R.string.title_trash);
 
                 if (result.hasJunk && !result.isJunk && !result.isDrafts) // has junk and not junk/drafts
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_spam, 10, R.string.title_spam);
-
-                int order = 11;
-                for (EntityAccount account : result.accounts) {
-                    SubMenu smenu = popupMenu.getMenu()
-                            .addSubMenu(Menu.NONE, 0, order++, getString(R.string.title_move_to, account.name));
-                    int sorder = 1;
-                    for (EntityFolder target : result.targets.get(account)) {
-                        MenuItem item = smenu.add(Menu.NONE, R.string.title_move_to, sorder++, target.getDisplayName(getContext()));
-                        item.setIntent(new Intent().putExtra("target", target.id));
-                    }
-                }
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_spam, order++, R.string.title_spam);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
@@ -1477,8 +1475,9 @@ public class FragmentMessages extends FragmentBase {
                             case R.string.title_spam:
                                 onActionJunkSelection();
                                 return true;
-                            case R.string.title_move_to:
-                                onActionMoveSelection(target.getIntent().getLongExtra("target", -1));
+                            case R.string.title_move_to_account:
+                                long account = target.getIntent().getLongExtra("account", -1);
+                                onActionMoveSelectionAccount(result.targets.get(account));
                                 return true;
                             default:
                                 return false;
@@ -1827,6 +1826,37 @@ public class FragmentMessages extends FragmentBase {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.execute(FragmentMessages.this, args, "messages:move");
+    }
+
+    private void onActionMoveSelectionAccount(List<EntityFolder> folders) {
+        final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_folder_select, null);
+        final RecyclerView rvFolder = dview.findViewById(R.id.rvFolder);
+        final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
+
+        final Dialog dialog = new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                .setTitle(R.string.title_move_to_folder)
+                .setView(dview)
+                .create();
+
+        rvFolder.setHasFixedSize(false);
+        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        rvFolder.setLayoutManager(llm);
+
+        final AdapterFolderSelect adapter = new AdapterFolderSelect(getContext(), getViewLifecycleOwner(),
+                new AdapterFolderSelect.IFolderSelectedListener() {
+                    @Override
+                    public void onFolderSelected(EntityFolder folder) {
+                        dialog.dismiss();
+                        onActionMoveSelection(folder.id);
+                    }
+                });
+        adapter.set(folders);
+
+        rvFolder.setAdapter(adapter);
+
+        rvFolder.setVisibility(View.VISIBLE);
+        pbWait.setVisibility(View.GONE);
+        dialog.show();
     }
 
     private void onActionMoveSelection(long target) {
@@ -3273,7 +3303,7 @@ public class FragmentMessages extends FragmentBase {
         Boolean isJunk;
         Boolean isDrafts;
         List<EntityAccount> accounts;
-        Map<EntityAccount, List<EntityFolder>> targets = new HashMap<>();
+        Map<Long, List<EntityFolder>> targets = new HashMap<>();
     }
 
     private static class MessageTarget implements Parcelable {

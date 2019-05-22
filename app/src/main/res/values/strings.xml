@@ -404,12 +404,14 @@
 
     <string name="title_trash">Trash</string>
     <string name="title_copy">Copy &#8230;</string>
+    <string name="title_copy_to">Copy to &#8230;</string>
     <string name="title_subscribe">Subscribe</string>
     <string name="title_delete">Delete</string>
     <string name="title_more">More</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Move</string>
-    <string name="title_move_to">Move to %1$s</string>
+    <string name="title_move_to_folder">Move to &#8230;</string>
+    <string name="title_move_to_account">Move to %1$s &#8230;</string>
     <string name="title_snooze">Snooze &#8230;</string>
     <string name="title_archive">Archive</string>
     <string name="title_reply">Reply</string>
