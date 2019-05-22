@@ -773,19 +773,13 @@ class Core {
 
         Log.i("Start sync folders account=" + account.name);
 
-        // Get remote folders
+        // Get default folder
         Folder defaultFolder = istore.getDefaultFolder();
         char separator = defaultFolder.getSeparator();
         EntityLog.log(context, account.name + " folder separator=" + separator);
 
-        // Get remote folder attributes
+        // Get remote folders
         Folder[] ifolders = defaultFolder.list("*");
-        Map<Folder, String[]> attrs = new HashMap<>();
-        Map<Folder, Boolean> subscribed = new HashMap<>();
-        for (Folder ifolder : ifolders) {
-            subscribed.put(ifolder, ifolder.isSubscribed());
-            attrs.put(ifolder, ((IMAPFolder) ifolder).getAttributes());
-        }
         Log.i("Remote folder count=" + ifolders.length + " separator=" + separator);
 
         // Get folder names
@@ -808,27 +802,30 @@ class Core {
                 names.add(folder.name);
         Log.i("Local folder count=" + names.size());
 
-        try {
-            db.beginTransaction();
 
-            Map<String, EntityFolder> nameFolder = new HashMap<>();
-            Map<String, List<EntityFolder>> parentFolders = new HashMap<>();
-            for (Folder ifolder : ifolders) {
-                String fullName = ifolder.getFullName(); // No I/O
-                String[] attr = attrs.get(ifolder);
-                String type = EntityFolder.getType(attr, fullName);
+        Map<String, EntityFolder> nameFolder = new HashMap<>();
+        Map<String, List<EntityFolder>> parentFolders = new HashMap<>();
+        for (Folder ifolder : ifolders) {
+            String fullName = ifolder.getFullName();
+            boolean subscribed = ifolder.isSubscribed();
+            String[] attr = ((IMAPFolder) ifolder).getAttributes();
+            String type = EntityFolder.getType(attr, fullName);
 
-                EntityLog.log(context, account.name + ":" + fullName +
-                        " attrs=" + TextUtils.join(" ", attr) + " type=" + type);
+            EntityLog.log(context, account.name + ":" + fullName +
+                    " attrs=" + TextUtils.join(" ", attr) + " type=" + type);
 
-                if (type != null) {
-                    names.remove(fullName);
+            if (type != null) {
+                names.remove(fullName);
 
-                    String display = null;
-                    if (account.prefix != null && fullName.startsWith(account.prefix + separator))
-                        display = fullName.substring(account.prefix.length() + 1);
+                String display = null;
+                if (account.prefix != null && fullName.startsWith(account.prefix + separator))
+                    display = fullName.substring(account.prefix.length() + 1);
 
-                    EntityFolder folder = db.folder().getFolderByName(account.id, fullName);
+                EntityFolder folder;
+                try {
+                    db.beginTransaction();
+
+                    folder = db.folder().getFolderByName(account.id, fullName);
                     if (folder == null) {
                         folder = new EntityFolder();
                         folder.account = account.id;
@@ -836,7 +833,7 @@ class Core {
                         folder.display = display;
                         folder.type = (EntityFolder.SYSTEM.equals(type) ? type : EntityFolder.USER);
                         folder.synchronize = false;
-                        folder.subscribed = subscribed.get(ifolder);
+                        folder.subscribed = subscribed;
                         folder.poll = ("imap.gmail.com".equals(account.host));
                         folder.sync_days = EntityFolder.DEFAULT_SYNC;
                         folder.keep_days = EntityFolder.DEFAULT_KEEP;
@@ -846,7 +843,7 @@ class Core {
                         Log.i(folder.name + " exists type=" + folder.type);
 
                         if (folder.subscribed == null || !folder.subscribed.equals(subscribed))
-                            db.folder().setFolderSubscribed(folder.id, subscribed.get(ifolder));
+                            db.folder().setFolderSubscribed(folder.id, subscribed);
 
                         if (folder.display == null && display != null) {
                             db.folder().setFolderDisplay(folder.id, display);
@@ -866,31 +863,31 @@ class Core {
                                 db.folder().setFolderType(folder.id, type);
                         }
                     }
-
-                    nameFolder.put(folder.name, folder);
-                    String parentName = folder.getParentName(separator);
-                    if (!parentFolders.containsKey(parentName))
-                        parentFolders.put(parentName, new ArrayList<EntityFolder>());
-                    parentFolders.get(parentName).add(folder);
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                    Log.i("End sync folder");
                 }
 
-                for (String parentName : parentFolders.keySet()) {
-                    EntityFolder parent = nameFolder.get(parentName);
-                    for (EntityFolder child : parentFolders.get(parentName))
-                        db.folder().setFolderParent(child.id, parent == null ? null : parent.id);
-                }
+                nameFolder.put(folder.name, folder);
+                String parentName = folder.getParentName(separator);
+                if (!parentFolders.containsKey(parentName))
+                    parentFolders.put(parentName, new ArrayList<EntityFolder>());
+                parentFolders.get(parentName).add(folder);
             }
+        }
 
-            Log.i("Delete local count=" + names.size());
-            for (String name : names) {
-                Log.i(name + " delete");
-                db.folder().deleteFolder(account.id, name);
-            }
+        Log.i("Updating folder parents=" + parentFolders.size());
+        for (String parentName : parentFolders.keySet()) {
+            EntityFolder parent = nameFolder.get(parentName);
+            for (EntityFolder child : parentFolders.get(parentName))
+                db.folder().setFolderParent(child.id, parent == null ? null : parent.id);
+        }
 
-            db.setTransactionSuccessful();
-        } finally {
-            db.endTransaction();
-            Log.i("End sync folder");
+        Log.i("Delete local count=" + names.size());
+        for (String name : names) {
+            Log.i(name + " delete");
+            db.folder().deleteFolder(account.id, name);
         }
     }
 
