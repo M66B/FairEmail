@@ -212,6 +212,7 @@
     <string name="title_advanced_debug">Režim ladění</string>
     <string name="title_advanced_last_cleanup">Poslední čištění: %1$s</string>
     <string name="title_advanced_enabled_hint">Globálně zakáže nebo povolí přijímání zpráv</string>
+    <string name="title_advanced_manual_hint">Je-li synchronizace zakázána, stále je možné synchronizovat ručně tažením dolů v přehledu zpráv. Po omezený čas se tak budou synchronizovat zprávy a provádět operace.</string>
     <string name="title_advanced_schedule_hint">Dotkněte se času pro jeho změnu</string>
     <string name="title_advanced_metered_hint">Účtovaná připojení jsou obecně mobilní připojení nebo placené Wi-Fi hotspoty</string>
     <string name="title_advanced_metered_warning">Vypnutí této volby zakáže přijímání a odesílání zpráv při mobilních datových přenosech</string>
@@ -372,7 +373,6 @@
     <string name="title_more">Více</string>
     <string name="title_spam">Nevyžádané</string>
     <string name="title_move">Přesunout</string>
-    <string name="title_move_to">Přesunout do %1$s</string>
     <string name="title_snooze">Odložit &#8230;</string>
     <string name="title_archive">Archiv</string>
     <string name="title_reply">Odpovědět</string>
@@ -514,6 +514,10 @@
     <string name="title_rule_name_missing">Chybí název pravidla</string>
     <string name="title_rule_condition_missing">Chybí podmínka</string>
     <string name="title_rule_automation_hint">Bude odeslán záměr (intent) \"%1$s\" s dodatky (extras) \"%2$s\"</string>
+    <string name="title_rule_check">Zkontrolovat</string>
+    <string name="title_rule_no_headers">Podmínky hlavičky nelze zkontrolovat</string>
+    <string name="title_rule_matched">Odpovídající zprávy</string>
+    <string name="title_rule_no_matches">Žádné odpovídající zprávy</string>
     <string name="title_legend_section_synchronize">Synchronizace</string>
     <string name="title_legend_section_folders">Složky</string>
     <string name="title_legend_section_messages">Zprávy</string>
@@ -534,8 +538,9 @@
     <string name="title_legend_waiting">Čekání na další synchronizaci</string>
     <string name="title_legend_unified">Sjednocené doručené / hlavní účet</string>
     <string name="title_legend_inbox">Doručené</string>
-    <string name="title_legend_archive">Archiv</string>
     <string name="title_legend_drafts">Koncepty</string>
+    <string name="title_legend_sent">Odeslané</string>
+    <string name="title_legend_archive">Archiv</string>
     <string name="title_legend_trash">Koš</string>
     <string name="title_legend_junk">Nevyžádaná</string>
     <string name="title_legend_primary">Hlavní</string>
@@ -591,6 +596,7 @@
     <string name="title_legend_save">Uložit</string>
     <string name="title_legend_delete">Smazat</string>
     <string name="title_legend_count">Počet</string>
+    <string name="title_legend_folder_tye">Typ složky</string>
     <string name="title_hint_folder_actions">Dlouze podržet pro více možností</string>
     <string name="title_hint_folder_sync">Pro omezení spotřeby baterie a dat nebudou ve výchozím stavu synchronizovány všechny zprávy ani složky</string>
     <string name="title_hint_support">Máte-li dotaz nebo problém, použijte prosím menu podpory pro získání pomoci</string>

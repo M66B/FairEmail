@@ -357,7 +357,8 @@
     <string name="title_more">Altro</string>
     <string name="title_spam">Posta indesiderata</string>
     <string name="title_move">Sposta</string>
-    <string name="title_move_to">Sposta in %1$s</string>
+    <string name="title_move_to_folder">Sposta in &#8230;</string>
+    <string name="title_move_to_account">Sposta in %1$s &#8230;</string>
     <string name="title_snooze">Posticipa &#8230;</string>
     <string name="title_archive">Archivo</string>
     <string name="title_reply">Rispondi</string>
@@ -523,8 +524,9 @@
     <string name="title_legend_waiting">In attesa della prossima sincronizzazione</string>
     <string name="title_legend_unified">Posta in arrivo unificata / account principale</string>
     <string name="title_legend_inbox">Posta in arrivo</string>
-    <string name="title_legend_archive">Archivio</string>
     <string name="title_legend_drafts">Bozze</string>
+    <string name="title_legend_sent">Inviato</string>
+    <string name="title_legend_archive">Archivio</string>
     <string name="title_legend_trash">Cestino</string>
     <string name="title_legend_junk">Posta indesiderata</string>
     <string name="title_legend_primary">Principale</string>
@@ -580,6 +582,7 @@
     <string name="title_legend_save">Salva</string>
     <string name="title_legend_delete">Elimina</string>
     <string name="title_legend_count">Quantità</string>
+    <string name="title_legend_folder_tye">Tipo di cartelle</string>
     <string name="title_hint_folder_actions">Tieni premuto per le opzioni</string>
     <string name="title_hint_folder_sync">Per limitare l\'utilizzo della batteria e della rete, non tutte le cartelle e non tutti i messaggi verranno sincronizzati per impostazione predefinita</string>
     <string name="title_hint_support">Se hai una domanda o un problema, usa il menu di supporto per ottenere aiuto</string>

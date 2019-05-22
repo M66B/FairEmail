@@ -373,7 +373,6 @@
     <string name="title_more">Еще</string>
     <string name="title_spam">Спам</string>
     <string name="title_move">Переместить</string>
-    <string name="title_move_to">Переместить в %1$s</string>
     <string name="title_snooze">Отложить &#8230;</string>
     <string name="title_archive">Архив</string>
     <string name="title_reply">Ответить</string>
@@ -539,8 +538,9 @@
     <string name="title_legend_waiting">Ожидание следующей синхронизации</string>
     <string name="title_legend_unified">Единый почтовый ящик / основная учётная запись</string>
     <string name="title_legend_inbox">Входящие</string>
-    <string name="title_legend_archive">Архив</string>
     <string name="title_legend_drafts">Черновики</string>
+    <string name="title_legend_sent">Отправлено</string>
+    <string name="title_legend_archive">Архив</string>
     <string name="title_legend_trash">Корзина</string>
     <string name="title_legend_junk">Спам</string>
     <string name="title_legend_primary">Основной</string>
@@ -596,6 +596,7 @@
     <string name="title_legend_save">Сохранить</string>
     <string name="title_legend_delete">Удалить</string>
     <string name="title_legend_count">Количество</string>
+    <string name="title_legend_folder_tye">Типы папок</string>
     <string name="title_hint_folder_actions">Длительно нажмите для вариантов</string>
     <string name="title_hint_folder_sync">Для экономии заряда батареи и трафика не все папки и сообщения синхронизируются по умолчанию</string>
     <string name="title_hint_support">Если у вас есть вопрос или проблема, пожалуйста, используйте меню поддержки для получения помощи</string>

@@ -349,7 +349,6 @@
     <string name="title_more">更多</string>
     <string name="title_spam">垃圾邮件</string>
     <string name="title_move">移动</string>
-    <string name="title_move_to">移动到%1$s</string>
     <string name="title_snooze">打盹 &#8230;</string>
     <string name="title_archive">存档</string>
     <string name="title_reply">回复</string>
@@ -515,8 +514,8 @@
     <string name="title_legend_waiting">等待下次同步</string>
     <string name="title_legend_unified">统一收件箱/主账户</string>
     <string name="title_legend_inbox">收件箱</string>
-    <string name="title_legend_archive">存档</string>
     <string name="title_legend_drafts">草稿</string>
+    <string name="title_legend_archive">存档</string>
     <string name="title_legend_trash">垃圾箱</string>
     <string name="title_legend_junk">垃圾邮件</string>
     <string name="title_legend_primary">首选</string>

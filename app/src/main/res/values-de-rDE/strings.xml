@@ -196,7 +196,7 @@
     <string name="title_advanced_debug">Debugmodus</string>
     <string name="title_advanced_last_cleanup">Letzte Bereinigung: %1$s</string>
     <string name="title_advanced_enabled_hint">Empfang von Nachrichten für alle Konten deaktivieren oder aktivieren</string>
-    <string name="title_advanced_manual_hint">Wenn die Synchronisierung deaktiviert ist, kann die Synchronisation manuell durch das Herunterziehen der Nachrichtenliste synchronisiert werden. Dies synchronisiert Nachrichten und führt Operationen für eine begrenzte Zeit aus.</string>
+    <string name="title_advanced_manual_hint">Wenn die Synchronisation deaktiviert ist, ist es weiterhin möglich, die Synchronisation manuell durchzuführen, indem Sie die Nachrichtenliste herunterziehen. Dadurch werden Nachrichten synchronisiert und Operationen für eine begrenzte Zeit ausgeführt.</string>
     <string name="title_advanced_schedule_hint">Tippe auf eine Zeit, um eine Zeit zu setzen</string>
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte Wi-Fi Hotspots</string>
     <string name="title_advanced_metered_warning">Das Deaktivieren dieser Option deaktiviert das Empfangen und Senden von Nachrichten über mobile Internetverbindungen</string>
@@ -357,7 +357,6 @@
     <string name="title_more">Mehr</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Verschieben</string>
-    <string name="title_move_to">Nach %1$s verschieben</string>
     <string name="title_snooze">Zurückstellen &#8230;</string>
     <string name="title_archive">Archivieren</string>
     <string name="title_reply">Antworten</string>
@@ -523,8 +522,9 @@
     <string name="title_legend_waiting">Warten auf Synchronisation</string>
     <string name="title_legend_unified">Sammeleingang / primäres Konto</string>
     <string name="title_legend_inbox">Posteingang</string>
-    <string name="title_legend_archive">Archiv</string>
     <string name="title_legend_drafts">Entwürfe</string>
+    <string name="title_legend_sent">Gesendet</string>
+    <string name="title_legend_archive">Archiv</string>
     <string name="title_legend_trash">Papierkorb</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary">Hauptkonto</string>
@@ -580,6 +580,7 @@
     <string name="title_legend_save">Speichern</string>
     <string name="title_legend_delete">Löschen</string>
     <string name="title_legend_count">Zählen</string>
+    <string name="title_legend_folder_tye">Ordner-Typ</string>
     <string name="title_hint_folder_actions">Gedrückt halten für weitere Optionen</string>
     <string name="title_hint_folder_sync">Um Akkuverbrauch und Datennutzung zu reduzieren, werden standardmäßig nicht alle Ordner und E-Mails synchronisiert</string>
     <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte die Hilfe im Menü</string>

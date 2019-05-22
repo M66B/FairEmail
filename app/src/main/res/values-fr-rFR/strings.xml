@@ -357,7 +357,6 @@
     <string name="title_more">Plus</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Déplacer</string>
-    <string name="title_move_to">Déplacer vers %1$s</string>
     <string name="title_snooze">Différer &#8230;</string>
     <string name="title_archive">Archiver</string>
     <string name="title_reply">Répondre</string>
@@ -523,8 +522,9 @@
     <string name="title_legend_waiting">En attente de la prochaine synchronisation</string>
     <string name="title_legend_unified">Boîte de réception unifiée / compte primaire</string>
     <string name="title_legend_inbox">Boîte de réception</string>
-    <string name="title_legend_archive">Archives</string>
     <string name="title_legend_drafts">Brouillons</string>
+    <string name="title_legend_sent">Envoyés</string>
+    <string name="title_legend_archive">Archives</string>
     <string name="title_legend_trash">Corbeille</string>
     <string name="title_legend_junk">Courrier indésirable</string>
     <string name="title_legend_primary">Principal</string>
@@ -580,6 +580,7 @@
     <string name="title_legend_save">Enregistrer</string>
     <string name="title_legend_delete">Supprimer</string>
     <string name="title_legend_count">Nombre</string>
+    <string name="title_legend_folder_tye">Type de dossier</string>
     <string name="title_hint_folder_actions">Appui long pour les options</string>
     <string name="title_hint_folder_sync">Pour limiter l\'utilisation de la batterie et du réseau, les dossiers et les messages ne seront pas tous synchronisés par défaut</string>
     <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu Support pour obtenir de l\'aide</string>

@@ -209,7 +209,6 @@
     <string name="title_more">المزيد</string>
     <string name="title_spam">البريد المزعج</string>
     <string name="title_move">نقل</string>
-    <string name="title_move_to">انقل إلى %1$s</string>
     <string name="title_archive">أرشيف</string>
     <string name="title_reply">رد</string>
     <string name="title_reply_to_sender">المُرسِل</string>

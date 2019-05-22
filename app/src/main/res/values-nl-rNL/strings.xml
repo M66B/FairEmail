@@ -196,7 +196,7 @@
     <string name="title_advanced_debug">Foutopsporing modus</string>
     <string name="title_advanced_last_cleanup">Laatste schoonmaak: %1$s</string>
     <string name="title_advanced_enabled_hint">Globaal in- of uitschakelen van het ontvangen van berichten</string>
-    <string name="title_advanced_manual_hint">Als synchronisatie uitgeschakeld is, is het nog steeds mogelijk om handmatig te synchroniseren door de berichtenlijst naar beneden te trekken. Dit zal berichten synchroniseren en operaties uitvoeren gedurende een beperkte tijd.</string>
+    <string name="title_advanced_manual_hint">Als synchronisatie uitgeschakeld is, is het nog steeds mogelijk om handmatig te synchroniseren door de berichtenlijst naar beneden te trekken. Dit zal berichten synchroniseren en bewerkingen uitvoeren gedurende een beperkte tijd.</string>
     <string name="title_advanced_schedule_hint">Tik op een tijd om een tijd in te stellen</string>
     <string name="title_advanced_metered_hint">Gemeten verbindingen zijn over het algemeen mobiele verbindingen of betaalde Wi-Fi hotspots</string>
     <string name="title_advanced_metered_warning">Uitschakelen van deze optie zal het ontvangen en verzenden van berichten op mobiele internetverbindingen uitschakelen</string>
@@ -352,12 +352,14 @@
     <string name="title_show_formatted">Toon opgemaakt</string>
     <string name="title_trash">Weggooien</string>
     <string name="title_copy">Kopieer &#8230;</string>
+    <string name="title_copy_to_folder">Kopieer naar &#8230;</string>
     <string name="title_subscribe">Abonneren</string>
     <string name="title_delete">Verwijder</string>
     <string name="title_more">Meer</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Verplaatsen</string>
-    <string name="title_move_to">Verplaats naar %1$s</string>
+    <string name="title_move_to_folder">Verplaats naar &#8230;</string>
+    <string name="title_move_to_account">Verplaats naar %1$s &#8230;</string>
     <string name="title_snooze">Sluimeren &#8230;</string>
     <string name="title_archive">Archiveren</string>
     <string name="title_reply">Beantwoorden</string>
@@ -523,8 +525,9 @@
     <string name="title_legend_waiting">Wachten op volgende synchronisatie</string>
     <string name="title_legend_unified">Gecombineerd postvak in / primaire account</string>
     <string name="title_legend_inbox">Postvak in</string>
-    <string name="title_legend_archive">Archief</string>
     <string name="title_legend_drafts">Concepten</string>
+    <string name="title_legend_sent">Verzonden</string>
+    <string name="title_legend_archive">Archief</string>
     <string name="title_legend_trash">Prullenbak</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary">Primair</string>
@@ -580,6 +583,7 @@
     <string name="title_legend_save">Bewaren</string>
     <string name="title_legend_delete">Verwijderen</string>
     <string name="title_legend_count">Aantal</string>
+    <string name="title_legend_folder_tye">Maptype</string>
     <string name="title_hint_folder_actions">Druk lang voor opties</string>
     <string name="title_hint_folder_sync">Om het gebruik van de batterij en het netwerk te beperken, worden niet alle mappen en niet alle berichten standaard gesynchroniseerd</string>
     <string name="title_hint_support">Als u een vraag of een probleem heeft, gebruik dan het menu ondersteuning om hulp te krijgen</string>

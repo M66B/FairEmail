@@ -331,7 +331,6 @@
     <string name="title_more">Mer</string>
     <string name="title_spam">Skräppost</string>
     <string name="title_move">Flytta</string>
-    <string name="title_move_to">Flytta till %1$s</string>
     <string name="title_snooze">Slumra &#8230;</string>
     <string name="title_archive">Arkivera</string>
     <string name="title_reply">Svara</string>
@@ -480,8 +479,8 @@
     <string name="title_legend_waiting">Väntar på nästa synkronisering</string>
     <string name="title_legend_unified">Samlad inkorg / primärt konto</string>
     <string name="title_legend_inbox">Inkorg</string>
-    <string name="title_legend_archive">Arkivera</string>
     <string name="title_legend_drafts">Utkast</string>
+    <string name="title_legend_archive">Arkivera</string>
     <string name="title_legend_trash">Papperskorg</string>
     <string name="title_legend_junk">Skräppost</string>
     <string name="title_legend_primary">Primär</string>

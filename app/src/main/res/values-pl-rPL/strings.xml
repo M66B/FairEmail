@@ -357,7 +357,6 @@
     <string name="title_more">Więcej</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Przenieś</string>
-    <string name="title_move_to">Przenieś do %1$s</string>
     <string name="title_snooze">Uśpij &#8230;</string>
     <string name="title_archive">Archiwum</string>
     <string name="title_reply">Odpowiedz</string>
@@ -508,8 +507,8 @@
     <string name="title_legend_waiting">Oczekiwanie na następną synchronizację</string>
     <string name="title_legend_unified">Wspólna skrzynka odbiorcza / konto podstawowe</string>
     <string name="title_legend_inbox">Odebrane</string>
-    <string name="title_legend_archive">Archiwum</string>
     <string name="title_legend_drafts">Szkice</string>
+    <string name="title_legend_archive">Archiwum</string>
     <string name="title_legend_trash">Kosz</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary">Podstawowe</string>

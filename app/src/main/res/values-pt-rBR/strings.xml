@@ -196,6 +196,7 @@
     <string name="title_advanced_debug">Modo de depuração</string>
     <string name="title_advanced_last_cleanup">Última limpeza: %1$s</string>
     <string name="title_advanced_enabled_hint">Globalmente desabilitar ou habilitar o recebimento de mensagens</string>
+    <string name="title_advanced_manual_hint">Se a sincronização estiver desativada, ainda é possível sincronizar manualmente, puxando a lista de mensagens. Isso irá sincronizar mensagens e executar operações por um tempo limitado.</string>
     <string name="title_advanced_schedule_hint">Toque uma vez para definir um tempo</string>
     <string name="title_advanced_metered_hint">Conexões limitadas são geralmente conexões móveis ou hotspots Wi-Fi pagos</string>
     <string name="title_advanced_metered_warning">Desabilitar esta opção desativará o recebimento e envio de mensagens em conexões de internet móvel</string>
@@ -356,7 +357,6 @@
     <string name="title_more">Mais</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Mover</string>
-    <string name="title_move_to">Mover para %1$s</string>
     <string name="title_snooze">Adiar &#8230;</string>
     <string name="title_archive">Arquivar</string>
     <string name="title_reply">Responder</string>
@@ -498,6 +498,10 @@
     <string name="title_rule_name_missing">Nome da regra faltando</string>
     <string name="title_rule_condition_missing">Condição faltando</string>
     <string name="title_rule_automation_hint">Isto enviará a intenção \'%1$s\' com os extras \'%2$s\'</string>
+    <string name="title_rule_check">Verificar</string>
+    <string name="title_rule_no_headers">As condições de cabeçalho não podem ser verificadas</string>
+    <string name="title_rule_matched">Mensagens correspondentes</string>
+    <string name="title_rule_no_matches">Nenhuma mensagem correspondente</string>
     <string name="title_legend_section_synchronize">Sincronizar</string>
     <string name="title_legend_section_folders">Pastas</string>
     <string name="title_legend_section_messages">Mensagens</string>
@@ -518,8 +522,9 @@
     <string name="title_legend_waiting">Aguardando a próxima sincronização</string>
     <string name="title_legend_unified">Caixa de entrada unificada / conta principal</string>
     <string name="title_legend_inbox">Caixa de entrada</string>
-    <string name="title_legend_archive">Arquivo</string>
     <string name="title_legend_drafts">Rascunhos</string>
+    <string name="title_legend_sent">Enviado</string>
+    <string name="title_legend_archive">Arquivo</string>
     <string name="title_legend_trash">Lixeira</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary">Principal</string>
@@ -575,6 +580,7 @@
     <string name="title_legend_save">Salvar</string>
     <string name="title_legend_delete">Deletar</string>
     <string name="title_legend_count">Contagem</string>
+    <string name="title_legend_folder_tye">Tipo de pasta</string>
     <string name="title_hint_folder_actions">Mantenha pressionado para mais opções</string>
     <string name="title_hint_folder_sync">Para limitar o uso de bateria e de rede nem todas as pastas e mensagens serão sincronizadas por padrão</string>
     <string name="title_hint_support">Se você tiver uma pergunta ou um problema, por favor, use o menu de suporte para obter ajuda</string>

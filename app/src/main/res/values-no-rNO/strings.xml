@@ -196,6 +196,7 @@
     <string name="title_advanced_debug">Feilsøkingsmodus</string>
     <string name="title_advanced_last_cleanup">Siste opprydding: %1$s</string>
     <string name="title_advanced_enabled_hint">Globalt deaktivere eller aktivere mottak av meldinger</string>
+    <string name="title_advanced_manual_hint">Hvis synkronisering er deaktivert, er det fortsatt mulig å synkronisere manuelt ved å trekke ned meldingslisten. Dette vil synkronisere meldinger og utføre operasjoner i en begrenset periode.</string>
     <string name="title_advanced_schedule_hint">Trykk på en tid for å angi en tid</string>
     <string name="title_advanced_metered_hint">Målte tilkoblinger er vanligvis mobile tilkoblinger eller betalte Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Deaktivering av dette alternativet deaktiverer mottak og sending av meldinger på mobile internettforbindelser</string>
@@ -356,7 +357,6 @@
     <string name="title_more">Mer</string>
     <string name="title_spam">Søppelpost</string>
     <string name="title_move">Flytt</string>
-    <string name="title_move_to">Flytt til %1$s</string>
     <string name="title_snooze">Utsett &#8230;</string>
     <string name="title_archive">Arkiver</string>
     <string name="title_reply">Svar</string>
@@ -498,6 +498,10 @@
     <string name="title_rule_name_missing">Regelnavn mangler</string>
     <string name="title_rule_condition_missing">Tilstand mangler</string>
     <string name="title_rule_automation_hint">Dette vil sende hensikten \'%1$s\' med extras \'%2$s\'</string>
+    <string name="title_rule_check">Sjekk</string>
+    <string name="title_rule_no_headers">Overskrift forholdene kan ikke kontrolleres</string>
+    <string name="title_rule_matched">Matchende meldinger</string>
+    <string name="title_rule_no_matches">Ingen matchede meldinger</string>
     <string name="title_legend_section_synchronize">Synkroniser</string>
     <string name="title_legend_section_folders">Mapper</string>
     <string name="title_legend_section_messages">Meldinger</string>
@@ -518,8 +522,9 @@
     <string name="title_legend_waiting">Venter på neste synkronisering</string>
     <string name="title_legend_unified">Enhetlig innboks/primærkonto</string>
     <string name="title_legend_inbox">Innboks</string>
-    <string name="title_legend_archive">Arkiver</string>
     <string name="title_legend_drafts">Utkast</string>
+    <string name="title_legend_sent">Sendt</string>
+    <string name="title_legend_archive">Arkiver</string>
     <string name="title_legend_trash">Papirkurv</string>
     <string name="title_legend_junk">Søppelpost</string>
     <string name="title_legend_primary">Primær</string>
@@ -575,6 +580,7 @@
     <string name="title_legend_save">Lagre</string>
     <string name="title_legend_delete">Slett</string>
     <string name="title_legend_count">Antall</string>
+    <string name="title_legend_folder_tye">Mappe type</string>
     <string name="title_hint_folder_actions">Langt trykk for flere instillinger</string>
     <string name="title_hint_folder_sync">For å begrense batteri- og nettverks bruk, vil ikke alle mapper og ikke alle meldinger synkroniseres som standard</string>
     <string name="title_hint_support">Hvis du har et spørsmål eller et problem, vennligst bruk support menyen for å få hjelp</string>

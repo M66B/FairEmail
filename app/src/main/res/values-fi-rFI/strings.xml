@@ -196,6 +196,7 @@
     <string name="title_advanced_debug">Debug-tila</string>
     <string name="title_advanced_last_cleanup">Viimeisin puhdistus: %1$s</string>
     <string name="title_advanced_enabled_hint">Estä tai salli viestien vastaanotto globaalisti</string>
+    <string name="title_advanced_manual_hint">Vaikka synkronointi on pois käytöstä, on mahdollista synkronoida manuaalisesti vetämällä alaspäin viestilistassa. Tämä synkronoi viestit ja suorittaa toimenpiteet.</string>
     <string name="title_advanced_schedule_hint">Napauta aikaa asettaaksesi sen</string>
     <string name="title_advanced_metered_hint">Käytön mukaan laskutettavat yhteydet ovat yleensä mobiiliyhteyksiä tai maksullisia Wi-Fi-yhteyspisteitä</string>
     <string name="title_advanced_metered_warning">Tämän asetuksen kytkeminen pois estää viestien vastaanoton ja lähetyksen mobiiliyhteyttä käytettessä</string>
@@ -356,7 +357,6 @@
     <string name="title_more">Lisää</string>
     <string name="title_spam">Roskaposti</string>
     <string name="title_move">Siirrä</string>
-    <string name="title_move_to">Siirrä tilille %1$s</string>
     <string name="title_snooze">Torkuta &#8230;</string>
     <string name="title_archive">Arkistoi</string>
     <string name="title_reply">Vastaa</string>
@@ -498,6 +498,10 @@
     <string name="title_rule_name_missing">Säännön nimi puuttuu</string>
     <string name="title_rule_condition_missing">Ehdot puuttuvat</string>
     <string name="title_rule_automation_hint">Tämä lähettää intentin \'%1$s\' extradatalla \'%2$s\'</string>
+    <string name="title_rule_check">Tarkista</string>
+    <string name="title_rule_no_headers">Tunnistetietojen ehtoja ei voida tarkistaa</string>
+    <string name="title_rule_matched">Täsmäävät viestit</string>
+    <string name="title_rule_no_matches">Ei täsmääviä viestejä</string>
     <string name="title_legend_section_synchronize">Synkronointi</string>
     <string name="title_legend_section_folders">Kansiot</string>
     <string name="title_legend_section_messages">Viestit</string>
@@ -518,8 +522,9 @@
     <string name="title_legend_waiting">Odotetaan seuraavaa synkronointia</string>
     <string name="title_legend_unified">Yhdistetty saapuneet-kansio / ensisijainen tili</string>
     <string name="title_legend_inbox">Saapuneet</string>
-    <string name="title_legend_archive">Arkisto</string>
     <string name="title_legend_drafts">Luonnokset</string>
+    <string name="title_legend_sent">Lähetetty</string>
+    <string name="title_legend_archive">Arkisto</string>
     <string name="title_legend_trash">Roskakori</string>
     <string name="title_legend_junk">Roskaposti</string>
     <string name="title_legend_primary">Ensisijainen</string>
@@ -575,6 +580,7 @@
     <string name="title_legend_save">Tallenna</string>
     <string name="title_legend_delete">Poista</string>
     <string name="title_legend_count">Lukumäärä</string>
+    <string name="title_legend_folder_tye">Kansion tyyppi</string>
     <string name="title_hint_folder_actions">Pitkä painallus avaa asetukset</string>
     <string name="title_hint_folder_sync">Akun ja verkon käytön rajoittamiseksi kaikkia kansioita ja viestejä ei oletusarvoisesti synkronoida</string>
     <string name="title_hint_support">Jos sinulla on kysyttävää tai ongelma, ole hyvä ja käytä tukivalikkoa saadaksesi apua</string>

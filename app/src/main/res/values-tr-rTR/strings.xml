@@ -331,7 +331,6 @@
     <string name="title_more">Daha fazla</string>
     <string name="title_spam">İstenmeyen posta</string>
     <string name="title_move">Taşı</string>
-    <string name="title_move_to">%1$s\'e taşı</string>
     <string name="title_snooze">Ertele &#8230;</string>
     <string name="title_archive">Arşivle</string>
     <string name="title_reply">Yanıtla</string>
@@ -486,8 +485,8 @@
     <string name="title_legend_waiting">Sonraki eşzamanlama için bekleniyor</string>
     <string name="title_legend_unified">Birleşik gelen kutusu / birincil hesap</string>
     <string name="title_legend_inbox">Gelen kutusu</string>
-    <string name="title_legend_archive">Arşiv</string>
     <string name="title_legend_drafts">Taslaklar</string>
+    <string name="title_legend_archive">Arşiv</string>
     <string name="title_legend_trash">Çöp Kutusu</string>
     <string name="title_legend_junk">İstenmeyen posta</string>
     <string name="title_legend_primary">Birincil</string>
