@@ -188,6 +188,7 @@
     <string name="title_advanced_debug">调试模式</string>
     <string name="title_advanced_last_cleanup">上次清理: %1$s</string>
     <string name="title_advanced_enabled_hint">全球禁用或启用接收消息</string>
+    <string name="title_advanced_manual_hint">如果同步功能已禁用，仍然可以通过下拉邮件列表手动同步。这将在一定时间内同步消息和执行操作。</string>
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
     <string name="title_advanced_metered_hint">计量连接通常是指移动连接或付费WiFi热点</string>
     <string name="title_advanced_metered_warning">禁用此选项将禁止在使用移动互联网连接时接收和发送消息</string>

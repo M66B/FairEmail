@@ -14,6 +14,7 @@
     <string name="tile_synchronize">Sincronizare</string>
     <string name="tile_unseen">Mesaje noi</string>
     <string name="shortcut_compose">Compune</string>
+    <string name="shortcut_setup">Setări</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Sincronizare %1$d cont</item>
         <item quantity="few">Sincronizare %1$d conturi</item>
@@ -61,6 +62,7 @@
     <string name="menu_answers">Șabloane</string>
     <string name="menu_operations">Operaţii</string>
     <string name="menu_contacts">Contacte locale</string>
+    <string name="menu_setup">Setări</string>
     <string name="menu_legend">Legendă</string>
     <string name="menu_faq">Suport tehnic</string>
     <string name="menu_issue">Raportaţi o problemă</string>
@@ -80,6 +82,7 @@
     <string name="title_edit_account">Editare cont</string>
     <string name="title_edit_identity">Editare identitate</string>
     <string name="title_edit_folder">Editare dosar</string>
+    <string name="title_setup">Setări</string>
     <string name="title_setup_help">Ajutor</string>
     <string name="title_setup_quick">Configurare rapidă</string>
     <string name="title_setup_quick_remark">Permite setarea rapidă a unui cont și a unei identități pentru majoritatea furnizorilor</string>
@@ -201,6 +204,7 @@
     <string name="title_advanced_debug">Depanare</string>
     <string name="title_advanced_last_cleanup">Ultima curățare: %1$s</string>
     <string name="title_advanced_enabled_hint">Activează sau dezactivează global recepția mesajelor</string>
+    <string name="title_advanced_manual_hint">Dacă sincronizarea este dezactivată, este posibilă sincronizarea manuală prin tragerea în jos a listei de mesaje. Astfel se vor sincroniza mesajele și se vor executa operațiile pentru o perioadă limitată de timp.</string>
     <string name="title_advanced_schedule_hint">Atingeţi data pentru a seta un timp</string>
     <string name="title_advanced_metered_hint">Conexiunile contorizate sunt în general cele mobile sau punctele de acces Wi-Fi cu plată</string>
     <string name="title_advanced_metered_warning">Dezactivarea acestei opțiuni va opri primirea și trimiterea mesajelor pe conexiunile mobile de internet</string>
@@ -503,6 +507,10 @@
     <string name="title_rule_name_missing">Lipsește numele regulii</string>
     <string name="title_rule_condition_missing">Lipsește condiția</string>
     <string name="title_rule_automation_hint">Aceasta va trimite intenția \'%1$s\' și extra \'%2$s\'</string>
+    <string name="title_rule_check">Verifică</string>
+    <string name="title_rule_no_headers">Nu se pot verifica condiții din antet</string>
+    <string name="title_rule_matched">Mesaje ce se potrivesc</string>
+    <string name="title_rule_no_matches">Nici un mesaj potrivit</string>
     <string name="title_legend_section_synchronize">Sincronizare</string>
     <string name="title_legend_section_folders">Dosare</string>
     <string name="title_legend_section_messages">Mesaje</string>

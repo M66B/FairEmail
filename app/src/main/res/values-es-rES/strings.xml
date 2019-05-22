@@ -196,6 +196,7 @@
     <string name="title_advanced_debug">Modo de depuración</string>
     <string name="title_advanced_last_cleanup">Última limpieza: %1$s</string>
     <string name="title_advanced_enabled_hint">Desactivar o activar globalmente la recepción de mensajes</string>
+    <string name="title_advanced_manual_hint">Si la sincronización está desactivada, todavía es posible sincronizar manualmente tirando hacia abajo de la lista de mensajes. Esto sincronizará mensajes y ejecutará operaciones por un tiempo limitado.</string>
     <string name="title_advanced_schedule_hint">Toque en una hora para establecer una hora</string>
     <string name="title_advanced_metered_hint">Las conexiones medidas son generalmente conexiones móviles o puntos de acceso Wi-Fi de pago</string>
     <string name="title_advanced_metered_warning">Desactivar esta opción desactivará la recepción y envío de mensajes en conexiones móviles a Internet</string>
@@ -498,6 +499,10 @@
     <string name="title_rule_name_missing">Falta nombre de regla</string>
     <string name="title_rule_condition_missing">Falta condición</string>
     <string name="title_rule_automation_hint">Esto enviará el intento \'%1$s\' con los extras \'%2$s\'</string>
+    <string name="title_rule_check">Comprobar</string>
+    <string name="title_rule_no_headers">Las condiciones de cabecera no se pueden comprobar</string>
+    <string name="title_rule_matched">Mensajes coincidentes</string>
+    <string name="title_rule_no_matches">No hay mensajes coincidentes</string>
     <string name="title_legend_section_synchronize">Sincronizar</string>
     <string name="title_legend_section_folders">Carpetas</string>
     <string name="title_legend_section_messages">Mensajes</string>

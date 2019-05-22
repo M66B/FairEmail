@@ -196,6 +196,7 @@
     <string name="title_advanced_debug">Debugmodus</string>
     <string name="title_advanced_last_cleanup">Letzte Bereinigung: %1$s</string>
     <string name="title_advanced_enabled_hint">Empfang von Nachrichten für alle Konten deaktivieren oder aktivieren</string>
+    <string name="title_advanced_manual_hint">Wenn die Synchronisierung deaktiviert ist, kann die Synchronisation manuell durch das Herunterziehen der Nachrichtenliste synchronisiert werden. Dies synchronisiert Nachrichten und führt Operationen für eine begrenzte Zeit aus.</string>
     <string name="title_advanced_schedule_hint">Tippe auf eine Zeit, um eine Zeit zu setzen</string>
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte Wi-Fi Hotspots</string>
     <string name="title_advanced_metered_warning">Das Deaktivieren dieser Option deaktiviert das Empfangen und Senden von Nachrichten über mobile Internetverbindungen</string>

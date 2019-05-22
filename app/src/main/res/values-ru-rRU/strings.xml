@@ -212,6 +212,7 @@
     <string name="title_advanced_debug">Режим отладки</string>
     <string name="title_advanced_last_cleanup">Последняя очистка: %1$s</string>
     <string name="title_advanced_enabled_hint">Глобальное включение/отключение получения сообщений</string>
+    <string name="title_advanced_manual_hint">Если синхронизация отключена, можно синхронизировать вручную, потянув вниз список сообщений. Это вызовет синхронизацию сообщений и выполнение операций в течение ограниченного времени.</string>
     <string name="title_advanced_schedule_hint">Нажмите на время, чтобы установить его</string>
     <string name="title_advanced_metered_hint">Лимитированные подключения - это обычно мобильные сети или платные Wi-Fi</string>
     <string name="title_advanced_metered_warning">Отключение этой опции отключит получение и отправку сообщений при мобильном подключении к интернету</string>

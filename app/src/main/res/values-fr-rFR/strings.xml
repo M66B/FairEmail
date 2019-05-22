@@ -196,6 +196,7 @@
     <string name="title_advanced_debug">Débogage</string>
     <string name="title_advanced_last_cleanup">Dernier nettoyage : %1$s</string>
     <string name="title_advanced_enabled_hint">Désactiver ou activer globalement la réception de messages</string>
+    <string name="title_advanced_manual_hint">Si la synchronisation est désactivée, il est toujours possible de synchroniser manuellement en tirant vers le bas la liste des messages. Ceci synchronisera les messages et exécutera les opérations pendant une durée limitée.</string>
     <string name="title_advanced_schedule_hint">Appuyez sur une heure pour définir une heure</string>
     <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>
     <string name="title_advanced_metered_warning">Désactiver cette option désactivera la réception et l\'envoi de messages sur les connexions Internet mobiles</string>

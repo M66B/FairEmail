@@ -196,6 +196,7 @@
     <string name="title_advanced_debug">Foutopsporing modus</string>
     <string name="title_advanced_last_cleanup">Laatste schoonmaak: %1$s</string>
     <string name="title_advanced_enabled_hint">Globaal in- of uitschakelen van het ontvangen van berichten</string>
+    <string name="title_advanced_manual_hint">Als synchronisatie uitgeschakeld is, is het nog steeds mogelijk om handmatig te synchroniseren door de berichtenlijst naar beneden te trekken. Dit zal berichten synchroniseren en operaties uitvoeren gedurende een beperkte tijd.</string>
     <string name="title_advanced_schedule_hint">Tik op een tijd om een tijd in te stellen</string>
     <string name="title_advanced_metered_hint">Gemeten verbindingen zijn over het algemeen mobiele verbindingen of betaalde Wi-Fi hotspots</string>
     <string name="title_advanced_metered_warning">Uitschakelen van deze optie zal het ontvangen en verzenden van berichten op mobiele internetverbindingen uitschakelen</string>
