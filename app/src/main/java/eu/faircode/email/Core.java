@@ -1188,8 +1188,10 @@ class Core {
                 }
             }
 
-            if (state.running)
+            if (state.running) {
+                folder.initialize = false;
                 db.folder().setFolderInitialized(folder.id);
+            }
 
             db.folder().setFolderSync(folder.id, new Date().getTime());
             db.folder().setFolderError(folder.id, null);

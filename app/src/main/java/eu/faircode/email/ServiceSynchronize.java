@@ -96,6 +96,7 @@ public class ServiceSynchronize extends LifecycleService {
     private long lastLost = 0;
     private TupleAccountStats lastStats = new TupleAccountStats();
     private ExecutorService queue = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+    private ExecutorService initExecutor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     private static boolean booted = false;
     private static boolean oneshot = false;
@@ -931,8 +932,18 @@ public class ServiceSynchronize extends LifecycleService {
                                         handling = ops;
 
                                         if (handling.size() > 0 && process) {
-                                            Log.i(folder.name + " operations=" + operations.size());
-                                            (folder.poll ? pollExecutor : folderExecutor).submit(new Runnable() {
+                                            Log.i(folder.name + " operations=" + operations.size() +
+                                                    " init=" + folder.initialize + " poll=" + folder.poll);
+
+                                            ExecutorService executor;
+                                            if (folder.initialize)
+                                                executor = initExecutor;
+                                            else if (folder.poll)
+                                                executor = pollExecutor;
+                                            else
+                                                executor = folderExecutor;
+
+                                            executor.submit(new Runnable() {
                                                 @Override
                                                 public void run() {
                                                     try {
