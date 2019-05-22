@@ -2545,7 +2545,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 protected void onExecuted(final Bundle args, List<EntityFolder> folders) {
                     if (folders == null)
-                        return;
+                        folders = new ArrayList<>();
 
                     adapter.set(folders);
                     pbWait.setVisibility(View.GONE);
@@ -3233,7 +3233,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 protected void onExecuted(final Bundle args, List<EntityFolder> folders) {
                     if (folders == null)
-                        return;
+                        folders = new ArrayList<>();
 
                     adapter.set(folders);
                     pbWait.setVisibility(View.GONE);
