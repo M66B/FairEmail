@@ -58,10 +58,10 @@
         <item quantity="other">Trvale odstranit %1$d zpráv?</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="one">Označit %1$d zprávu jako spam?</item>
-        <item quantity="few">Označit %1$d zprávy jako spam?</item>
-        <item quantity="many">Označit %1$d zpráv jako spam?</item>
-        <item quantity="other">Označit %1$d zpráv jako spam?</item>
+        <item quantity="one">Považovat %1$d zprávu za spam?</item>
+        <item quantity="few">Považovat %1$d zprávy za spam?</item>
+        <item quantity="many">Považovat %1$d zpráv za spam?</item>
+        <item quantity="other">Považovat %1$d zpráv za spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Označit zprávu od %1$s jako spam?</string>
     <string name="title_notification_sending">Odesílání zpráv</string>

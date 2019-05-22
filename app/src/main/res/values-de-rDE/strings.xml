@@ -44,8 +44,8 @@
         <item quantity="other">%1$d E-Mails unwiderruflich löschen?</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="one">Melde E-Mail als Spam?</item>
-        <item quantity="other">Melde %1$d E-Mails als Spam?</item>
+        <item quantity="one">%1$d Nachricht als Spam behandeln?</item>
+        <item quantity="other">%1$d Nachrichten als Spam behandeln?</item>
     </plurals>
     <string name="title_ask_spam_who">Nachricht von %1$s als Spam markieren?</string>
     <string name="title_notification_sending">Nachrichten werden gesendet</string>
@@ -498,6 +498,10 @@
     <string name="title_rule_name_missing">Regelname fehlt</string>
     <string name="title_rule_condition_missing">Voraussetzung fehlt</string>
     <string name="title_rule_automation_hint">Dies sendet de Intent \'%1$s\' mit den Extras \'%2$s\'</string>
+    <string name="title_rule_check">Prüfen</string>
+    <string name="title_rule_no_headers">Nachrichtenkopf-Bedingungen können nicht überprüft werden</string>
+    <string name="title_rule_matched">Passende Nachrichten</string>
+    <string name="title_rule_no_matches">Keine passenden Nachrichten</string>
     <string name="title_legend_section_synchronize">Synchronisieren</string>
     <string name="title_legend_section_folders">Ordner</string>
     <string name="title_legend_section_messages">Nachrichten</string>

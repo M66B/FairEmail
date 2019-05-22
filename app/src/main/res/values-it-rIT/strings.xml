@@ -8,19 +8,19 @@
     <string name="app_crash">FairEmail non è supportata su questo dispositivo a causa di bug in Android che causano crash</string>
     <string name="channel_service">Servizio</string>
     <string name="channel_notification">Notifiche</string>
-    <string name="channel_warning">Avvertenze</string>
+    <string name="channel_warning">Avvisi</string>
     <string name="channel_error">Errori</string>
     <string name="channel_group_contacts">Contatti</string>
     <string name="tile_synchronize">Sincronizza</string>
     <string name="tile_unseen">Nuovi messaggi</string>
     <string name="shortcut_compose">Scrivi</string>
-    <string name="shortcut_setup">Configurazione</string>
+    <string name="shortcut_setup">Impostazioni</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Sincronizzazione account %1$d</item>
         <item quantity="other">Sincronizzazione di %1$d account</item>
     </plurals>
     <plurals name="title_notification_operations">
-        <item quantity="one">%1$d operazione in corso</item>
+        <item quantity="one">%1$d operazione in sospeso</item>
         <item quantity="other">%1$d operazioni in corso</item>
     </plurals>
     <plurals name="title_notification_unseen">
@@ -44,8 +44,8 @@
         <item quantity="other">Eliminare %1$d messaggi definitivamente?</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="one">Segnalare %1$d messaggio come spam?</item>
-        <item quantity="other">Segnalare %1$d messaggi come spam?</item>
+        <item quantity="one">Trattare %1$d messaggio come spam?</item>
+        <item quantity="other">Trattare %1$d messaggi come spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Segnalare messaggio da %1$s come spam?</string>
     <string name="title_notification_sending">Invio messaggi in corso</string>
@@ -54,7 +54,7 @@
     <string name="menu_answers">Modelli</string>
     <string name="menu_operations">Operazioni</string>
     <string name="menu_contacts">Contatti locali</string>
-    <string name="menu_setup">Configurazione</string>
+    <string name="menu_setup">Impostazioni</string>
     <string name="menu_legend">Legenda</string>
     <string name="menu_faq">Supporto</string>
     <string name="menu_issue">Segnala problema</string>
@@ -74,7 +74,7 @@
     <string name="title_edit_account">Modifica account</string>
     <string name="title_edit_identity">Modifica identità</string>
     <string name="title_edit_folder">Modifica cartella</string>
-    <string name="title_setup">Configurazione</string>
+    <string name="title_setup">Impostazioni</string>
     <string name="title_setup_help">Aiuto</string>
     <string name="title_setup_quick">Configurazione rapida</string>
     <string name="title_setup_quick_remark">Per impostare rapidamente un account e un\'identità per la maggior parte dei fornitori</string>
@@ -498,6 +498,10 @@
     <string name="title_rule_name_missing">Nome Regola mancante</string>
     <string name="title_rule_condition_missing">Condizione mancante</string>
     <string name="title_rule_automation_hint">Questo invierà l\'intento \'%1$s\' con gli extra \'%2$s\'</string>
+    <string name="title_rule_check">Controlla</string>
+    <string name="title_rule_no_headers">Le condizioni dell\'intestazione non possono essere controllate</string>
+    <string name="title_rule_matched">Messaggi corrispondenti</string>
+    <string name="title_rule_no_matches">Nessun messaggio corrispondente</string>
     <string name="title_legend_section_synchronize">Sincronizza</string>
     <string name="title_legend_section_folders">Cartelle</string>
     <string name="title_legend_section_messages">Messaggi</string>

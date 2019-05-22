@@ -57,12 +57,6 @@
         <item quantity="many">Usunąć bezpowrotnie %1$d wiadomości?</item>
         <item quantity="other">Usunąć bezpowrotnie %1$d wiadomości?</item>
     </plurals>
-    <plurals name="title_ask_spam">
-        <item quantity="one">Zgłosić %1$d wiadomość jako spam?</item>
-        <item quantity="few">Zgłosić %1$d wiadomości jako spam?</item>
-        <item quantity="many">Zgłosić %1$d wiadomości jako spam?</item>
-        <item quantity="other">Zgłosić %1$d wiadomości jako spam?</item>
-    </plurals>
     <string name="title_ask_spam_who">Zgłosić wiadomość od %1$s jako spam?</string>
     <string name="title_notification_sending">Wysyłanie wiadomości</string>
     <string name="title_notification_failed">%1$s nie powiodło się</string>
@@ -174,6 +168,7 @@
     <string name="title_advanced_subject_italic">Temat wyświetlaj kursywą</string>
     <string name="title_advanced_preview">Pokaż podgląd wiadomości</string>
     <string name="title_advanced_addresses">Domyślnie pokazuj szczegóły adresu</string>
+    <string name="title_advanced_attachments_alt">Pokaż załączniki za treścią wiadomości</string>
     <string name="title_advanced_html">Automatycznie pokaż oryginalną wiadomość dla znanych kontaktów</string>
     <string name="title_advanced_images">Automatycznie pokaż obrazki dla znanych kontaktów</string>
     <string name="title_advanced_pull_refresh">Pociągnij w dół, aby odświeżyć</string>
@@ -223,6 +218,7 @@
     <string name="title_advanced_badge_hint">Dostępne tylko na wspieranych launcherach</string>
     <string name="title_advanced_english_hint">To zrestartuje aplikację</string>
     <string name="title_advanced_paranoid_hint">Szczegóły znajdziesz w FAQ</string>
+    <string name="title_advanced_cache_list_hint">Dostępna pamięć: %1$s</string>
     <string name="title_advanced_debug_hint">Włącz dodatkowe rejestrowanie i wyświetlaj informacje debugowania w różnych miejscach</string>
     <string name="title_select">Wybierz &#8230;</string>
     <string name="title_identity_name">Twoja nazwa</string>
@@ -468,6 +464,9 @@
     <string name="title_answer_text">Tekst szablonu</string>
     <string name="title_answer_template_name">$name$ zostanie zastąpiony przez pełną nazwę nadawcy</string>
     <string name="title_answer_template_email">$email$ zostanie zastąpiony przez adres nadawcy wiadomości</string>
+    <string name="title_rule_flag">Dodaj gwiazdkę</string>
+    <string name="title_rule_move">Przenieś</string>
+    <string name="title_rule_answer">Odpowiedz</string>
     <string name="title_rule_automation">Automatyzacja</string>
     <string name="title_rule_caption">Edytuj regułę</string>
     <string name="title_rule_title">Reguła dotyczy</string>
@@ -485,6 +484,7 @@
     <string name="title_rule_action_remark">Ta akcja zostanie zastosowana do nowych wiadomości przychodzących do folderu %1$s</string>
     <string name="title_rule_folder">Folder</string>
     <string name="title_rule_identity">Tożsamość</string>
+    <string name="title_rule_template">Szablon odpowiedzi</string>
     <string name="title_rule_cc">Odpowiedz na adresy CC</string>
     <string name="title_rule_name_missing">Brak nazwy reguły</string>
     <string name="title_rule_condition_missing">Brak warunku</string>
@@ -593,6 +593,9 @@
     <string name="title_no_body">Nie znaleziono tekstu wiadomości</string>
     <string name="title_no_charset">Nieobsługiwane kodowanie: %1$s</string>
     <string name="title_via">Przez: %1$s</string>
+    <string name="title_icalendar_accept">Akceptuj</string>
+    <string name="title_icalendar_decline">Odrzuć</string>
+    <string name="title_icalendar_maybe">Może</string>
     <string name="title_try">Wypróbuj FairEmail, przyjazna prywatności aplikacja pocztowa dla Android o otwartym kodzie</string>
     <string name="title_pro_feature">Jest to funkcja pro</string>
     <string name="title_pro_list">Lista funkcji pro</string>

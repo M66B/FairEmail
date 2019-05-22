@@ -9,7 +9,6 @@
     <string name="tile_synchronize">Eyniləşdirmə</string>
     <string name="tile_unseen">Yeni mesajlar</string>
     <string name="shortcut_compose">Yaz</string>
-    <string name="shortcut_setup">Quraşdırma</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">%1$d hesab eyniləşdirilir</item>
         <item quantity="other">%1$d hesab eyniləşdirilir</item>
@@ -34,16 +33,11 @@
         <item quantity="one">%1$d mesaj birdəfəlik silinsin?</item>
         <item quantity="other">%1$d mesaj birdəfəlik silinsin?</item>
     </plurals>
-    <plurals name="title_ask_spam">
-        <item quantity="one">%1$d mesaj spam kimi bildirilsin?</item>
-        <item quantity="other">%1$d mesaj spam kimi bildirilsin?</item>
-    </plurals>
     <string name="title_ask_spam_who">%1$s gələn mesaj spam kimi bildirilsin?</string>
     <string name="title_notification_sending">Mesaj göndərilir</string>
     <string name="title_notification_failed">\'%1$s\' uğursuz oldu</string>
     <string name="menu_answers">Şablonlar</string>
     <string name="menu_operations">Əməliyyatlar</string>
-    <string name="menu_setup">Quraşdırma</string>
     <string name="menu_legend">Mənalar</string>
     <string name="menu_faq">Dəstək</string>
     <string name="menu_issue">Problemi bildir</string>
@@ -63,7 +57,6 @@
     <string name="title_edit_account">Hesaba düzəliş et</string>
     <string name="title_edit_identity">Kimliyə düzəliş et</string>
     <string name="title_edit_folder">Qovluğa düzəliş et</string>
-    <string name="title_setup">Quraşdırma</string>
     <string name="title_setup_help">Kömək</string>
     <string name="title_setup_quick">Cəld quraşdırma</string>
     <string name="title_setup_quick_imap">Mesaj almaq üçün IMAP serveri</string>

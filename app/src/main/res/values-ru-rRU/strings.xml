@@ -58,10 +58,10 @@
         <item quantity="other">Удалить %1$d сообщения навсегда?</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="one">Сообщить об %1$d сообщении, как о спаме?</item>
-        <item quantity="few">Сообщить о %1$d сообщениях, как о спаме?</item>
-        <item quantity="many">Сообщить о %1$d сообщениях, как о спаме?</item>
-        <item quantity="other">Сообщить о %1$d сообщениях, как о спаме?</item>
+        <item quantity="one">Считать %1$d сообщение спамом?</item>
+        <item quantity="few">Считать %1$d сообщения спамом?</item>
+        <item quantity="many">Считать %1$d сообщений спамом?</item>
+        <item quantity="other">Считать %1$d сообщений спамом?</item>
     </plurals>
     <string name="title_ask_spam_who">Сообщение от %1$s спам?</string>
     <string name="title_notification_sending">Отправка сообщений</string>
@@ -90,7 +90,7 @@
     <string name="title_edit_account">Изменить учетную запись</string>
     <string name="title_edit_identity">Изменить идентификацию</string>
     <string name="title_edit_folder">Редактировать папку</string>
-    <string name="title_setup">Установка</string>
+    <string name="title_setup">Настройки</string>
     <string name="title_setup_help">Справка</string>
     <string name="title_setup_quick">Быстрая настройка</string>
     <string name="title_setup_quick_remark">Быстрая настройка учётной записи и идентификатора для большинства провайдеров</string>
@@ -514,6 +514,10 @@
     <string name="title_rule_name_missing">Отсутствует имя правила</string>
     <string name="title_rule_condition_missing">Условие отсутствует</string>
     <string name="title_rule_automation_hint">Это отправит цель \'%1$s\' с дополнениями \'%2$s\'</string>
+    <string name="title_rule_check">Проверить</string>
+    <string name="title_rule_no_headers">Условия заголовка не могут быть проверены</string>
+    <string name="title_rule_matched">Подходящие сообщения</string>
+    <string name="title_rule_no_matches">Нет подходящих сообщений</string>
     <string name="title_legend_section_synchronize">Синхронизация</string>
     <string name="title_legend_section_folders">Папки</string>
     <string name="title_legend_section_messages">Сообщения</string>

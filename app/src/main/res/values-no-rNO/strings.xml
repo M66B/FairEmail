@@ -44,8 +44,8 @@
         <item quantity="other">Slette %1$d meldinger permanent?</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="one">Rapporter %1$d meldingen som spam?</item>
-        <item quantity="other">Rapporter %1$d meldingene som spam?</item>
+        <item quantity="one">Behandle %1$d meldingen som spam?</item>
+        <item quantity="other">Behandle %1$d meldingene som spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Rapportere meldingen fra %1$s som spam?</string>
     <string name="title_notification_sending">Sender melding</string>
@@ -54,7 +54,7 @@
     <string name="menu_answers">Maler</string>
     <string name="menu_operations">Aktiviteter</string>
     <string name="menu_contacts">Lokale kontakter</string>
-    <string name="menu_setup">Oppsett</string>
+    <string name="menu_setup">Innstillinger</string>
     <string name="menu_legend">Forklaring</string>
     <string name="menu_faq">Støtte</string>
     <string name="menu_issue">Rapporter en feil</string>
@@ -74,7 +74,7 @@
     <string name="title_edit_account">Rediger konto</string>
     <string name="title_edit_identity">Rediger identitet</string>
     <string name="title_edit_folder">Rediger mappe</string>
-    <string name="title_setup">Oppsett</string>
+    <string name="title_setup">Innstillinger</string>
     <string name="title_setup_help">Hjelp</string>
     <string name="title_setup_quick">Hurtig oppsett</string>
     <string name="title_setup_quick_remark">For å raskt sette opp en konto og en identitet for de fleste tilbydere</string>

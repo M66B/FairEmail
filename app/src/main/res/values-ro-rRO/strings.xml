@@ -14,7 +14,6 @@
     <string name="tile_synchronize">Sincronizare</string>
     <string name="tile_unseen">Mesaje noi</string>
     <string name="shortcut_compose">Compune</string>
-    <string name="shortcut_setup">Setări</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Sincronizare %1$d cont</item>
         <item quantity="few">Sincronizare %1$d conturi</item>
@@ -51,9 +50,9 @@
         <item quantity="other">Ștergeți definitiv %1$d de mesaje?</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="one">Raportați %1$d mesaj drept spam?</item>
-        <item quantity="few">Raportați %1$d mesaje drept spam?</item>
-        <item quantity="other">Raportați %1$d de mesaje drept spam?</item>
+        <item quantity="one">Tratează %1$d mesaj ca spam?</item>
+        <item quantity="few">Tratează %1$d mesaje ca spam?</item>
+        <item quantity="other">Tratează %1$d mesaje ca spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Raportează mesajul de la %1$s ca spam?</string>
     <string name="title_notification_sending">Se trimit mesaje</string>
@@ -62,7 +61,6 @@
     <string name="menu_answers">Șabloane</string>
     <string name="menu_operations">Operaţii</string>
     <string name="menu_contacts">Contacte locale</string>
-    <string name="menu_setup">Setări</string>
     <string name="menu_legend">Legendă</string>
     <string name="menu_faq">Suport tehnic</string>
     <string name="menu_issue">Raportaţi o problemă</string>
@@ -82,7 +80,6 @@
     <string name="title_edit_account">Editare cont</string>
     <string name="title_edit_identity">Editare identitate</string>
     <string name="title_edit_folder">Editare dosar</string>
-    <string name="title_setup">Setări</string>
     <string name="title_setup_help">Ajutor</string>
     <string name="title_setup_quick">Configurare rapidă</string>
     <string name="title_setup_quick_remark">Permite setarea rapidă a unui cont și a unei identități pentru majoritatea furnizorilor</string>
@@ -164,9 +161,10 @@
     <string name="title_advanced_circular">Arată pictograme rotunde</string>
     <string name="title_advanced_name_email">Arată nume și adrese de e-mail</string>
     <string name="title_advanced_subject_italic">Arată subiectul cursiv</string>
-    <string name="title_advanced_flags">Arată marcate</string>
+    <string name="title_advanced_flags">Arată cu stea</string>
     <string name="title_advanced_preview">Arată previzualizare mesaj</string>
     <string name="title_advanced_addresses">Implicit arată detaliile adreselor</string>
+    <string name="title_advanced_attachments_alt">Arată atașamentele după textul mesajului</string>
     <string name="title_advanced_monospaced">Folosește fontul proporțional pentru textul mesajului</string>
     <string name="title_advanced_html">Arată în mod automat imaginile originale pentru contactele cunoscute</string>
     <string name="title_advanced_images">Arată în mod automat imaginile pentru contactele cunoscute</string>
@@ -186,7 +184,7 @@
     <string name="title_advanced_notify_action_trash">Gunoi</string>
     <string name="title_advanced_notify_action_archive">Arhivare</string>
     <string name="title_advanced_notify_action_reply">Răspunde</string>
-    <string name="title_advanced_notify_action_flag">Marcare</string>
+    <string name="title_advanced_notify_action_flag">Stea</string>
     <string name="title_advanced_notify_action_seen">Citit</string>
     <string name="title_advanced_notify_action_hint">Maxim trei acțiuni vor fi afișate</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
@@ -210,7 +208,7 @@
     <string name="title_advanced_browse_hint">Descarcă mai multe mesaje când se derulează în jos</string>
     <string name="title_advanced_threading_hint">Grupează mesajele asociate</string>
     <string name="title_advanced_name_email_hint">Dacă este dezactivată, doar numele va fi afișat atunci când este disponibil</string>
-    <string name="title_advanced_flags_hint">Rețineți că mesajele marcate vor fi păstrate întotdeauna la nivel local</string>
+    <string name="title_advanced_flags_hint">Rețineți că mesajele marcate cu stea vor fi păstrate întotdeauna la nivel local</string>
     <string name="title_advanced_subscriptions_hint">Dosarele fără abonări vor fi ascunse</string>
     <string name="title_advanced_preview_hint">Disponibil doar atunci când a fost descarcat textul mesajului</string>
     <string name="title_advanced_autoexpand_hint">Atunci când este doar un mesaj sau doar un mesaj necitit într-o conversație</string>
@@ -339,9 +337,9 @@
     <string name="title_subject_forward">Redir: %1$s</string>
     <string name="title_seen">Marcare ca citit</string>
     <string name="title_unseen">Marcare ca necitit</string>
-    <string name="title_flag">Marcare</string>
+    <string name="title_flag">Adaugă stea</string>
     <string name="title_flag_color">Stea colorată &#8230;</string>
-    <string name="title_unflag">Anulare marcare</string>
+    <string name="title_unflag">Elimină stea</string>
     <string name="title_forward">Redirecționează</string>
     <string name="title_create_rule">Creare regulă &#8230;</string>
     <string name="title_share">Partajează</string>
@@ -452,14 +450,14 @@
     <string name="title_sort_on">Sortare</string>
     <string name="title_sort_on_time">Dată</string>
     <string name="title_sort_on_unread">Necitit</string>
-    <string name="title_sort_on_starred">Marcat</string>
+    <string name="title_sort_on_starred">Cu stea</string>
     <string name="title_sort_on_sender">Expeditor</string>
     <string name="title_sort_on_subject">Subiect</string>
     <string name="title_sort_on_size">Mărime</string>
     <string name="title_sort_on_snoozed">Amânat</string>
     <string name="title_filter">Exclude</string>
     <string name="title_filter_seen">Citit</string>
-    <string name="title_filter_unflagged">Nemarcat</string>
+    <string name="title_filter_unflagged">Fără stea</string>
     <string name="title_filter_snoozed">Amânat</string>
     <string name="title_filter_duplicates">Duplicate</string>
     <string name="title_compact">Vizualizare compactă</string>
@@ -477,6 +475,12 @@
     <string name="title_answer_text">Text șablon</string>
     <string name="title_answer_template_name">$name$ va fi înlocuit cu numele expeditorului</string>
     <string name="title_answer_template_email">$email$ va fi înlocuit cu adresa de e-mail a expeditorului</string>
+    <string name="title_rule_seen">Marcare ca citit</string>
+    <string name="title_rule_unseen">Marcare ca necitit</string>
+    <string name="title_rule_flag">Adaugă stea</string>
+    <string name="title_rule_move">Mută</string>
+    <string name="title_rule_copy">Copiere (etichetă)</string>
+    <string name="title_rule_answer">Răspunde</string>
     <string name="title_rule_automation">Automatizare</string>
     <string name="title_rule_caption">Editare regulă</string>
     <string name="title_rule_title">Regula se aplică la</string>
@@ -494,6 +498,7 @@
     <string name="title_rule_action_remark">Această acțiune se va aplica mesajelor noi care sosesc în dosarul %1$s</string>
     <string name="title_rule_folder">Dosar</string>
     <string name="title_rule_identity">Identitate</string>
+    <string name="title_rule_template">Șablon răspuns</string>
     <string name="title_rule_cc">Răspuns la adresa CC</string>
     <string name="title_rule_name_missing">Lipsește numele regulii</string>
     <string name="title_rule_condition_missing">Lipsește condiția</string>
@@ -604,6 +609,9 @@
     <string name="title_no_body">Nu a fost găsit textul mesajului</string>
     <string name="title_no_charset">Codare nesuportată: %1$s</string>
     <string name="title_via">Via: %1$s</string>
+    <string name="title_icalendar_accept">Acceptă</string>
+    <string name="title_icalendar_decline">Refuză</string>
+    <string name="title_icalendar_maybe">Poate</string>
     <string name="title_try">Încearcă FairEmail, o aplicație de e-mail pentru Android cu sursă deschisă, ce protejează intimitatea și confidențialitatea</string>
     <string name="title_pro_feature">Aceasta este o caracteristică Pro</string>
     <string name="title_pro_list">Lista de caracteristici Pro</string>

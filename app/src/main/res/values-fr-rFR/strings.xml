@@ -44,8 +44,8 @@
         <item quantity="other">Supprimer définitivement %1$d messages ?</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="one">Signaler %1$d message comme spam ?</item>
-        <item quantity="other">Signaler %1$d messages comme spam ?</item>
+        <item quantity="one">Traiter %1$d message comme spam ?</item>
+        <item quantity="other">Traiter %1$d messages comme spam ?</item>
     </plurals>
     <string name="title_ask_spam_who">Signaler le message de %1$s comme indésirable ?</string>
     <string name="title_notification_sending">Envoi des messages en cours</string>
@@ -498,6 +498,10 @@
     <string name="title_rule_name_missing">Nom de règle manquant</string>
     <string name="title_rule_condition_missing">Condition manquante</string>
     <string name="title_rule_automation_hint">Ceci enverra l\'intent \'%1$s\' avec les extras \'%2$s\'</string>
+    <string name="title_rule_check">Vérifier</string>
+    <string name="title_rule_no_headers">Les conditions sur l\'en-tête ne peuvent pas être vérifiées</string>
+    <string name="title_rule_matched">Messages correspondants</string>
+    <string name="title_rule_no_matches">Aucun message correspondant</string>
     <string name="title_legend_section_synchronize">Synchronisation</string>
     <string name="title_legend_section_folders">Dossiers</string>
     <string name="title_legend_section_messages">Messages</string>

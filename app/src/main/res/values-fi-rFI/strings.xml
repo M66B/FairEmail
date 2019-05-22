@@ -44,8 +44,8 @@
         <item quantity="other">Poista %1$d viestiä pysyvästi?</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="one">Merkitse %1$d viesti roskapostiksi?</item>
-        <item quantity="other">Merkitse %1$d viestiä roskapostiksi?</item>
+        <item quantity="one">Käsittele %1$d viestiä roskapostina?</item>
+        <item quantity="other">Käsittele %1$d viestiä roskapostina?</item>
     </plurals>
     <string name="title_ask_spam_who">Merkitse viesti lähettäjältä %1$s roskapostiksi?</string>
     <string name="title_notification_sending">Lähetetään viestejä</string>
@@ -474,6 +474,7 @@
     <string name="title_rule_unseen">Merkitse lukemattomaksi</string>
     <string name="title_rule_flag">Lisää tähti</string>
     <string name="title_rule_move">Siirrä</string>
+    <string name="title_rule_copy">Kopioi (lisää tunniste)</string>
     <string name="title_rule_answer">Vastaa</string>
     <string name="title_rule_automation">Automaatio</string>
     <string name="title_rule_caption">Muokkaa sääntöä</string>

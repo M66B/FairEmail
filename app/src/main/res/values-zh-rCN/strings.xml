@@ -37,7 +37,7 @@
         <item quantity="other">永久删除 %1$d 邮件？</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="other">报告 %1$d 为垃圾邮件？</item>
+        <item quantity="other">把 %1$d 作为垃圾邮件处理？</item>
     </plurals>
     <string name="title_ask_spam_who">将来自%1$s的消息举报为垃圾邮件?</string>
     <string name="title_notification_sending">正发送消息</string>
@@ -462,6 +462,12 @@
     <string name="title_answer_text">模板内容</string>
     <string name="title_answer_template_name">$name$ 将被发件人的全名取代</string>
     <string name="title_answer_template_email">$email$ 将被发件人的邮件地址取代</string>
+    <string name="title_rule_seen">标记为已读</string>
+    <string name="title_rule_unseen">标记为未读</string>
+    <string name="title_rule_flag">添加星标</string>
+    <string name="title_rule_move">移动</string>
+    <string name="title_rule_copy">复制（标签）</string>
+    <string name="title_rule_answer">回复</string>
     <string name="title_rule_automation">自动化</string>
     <string name="title_rule_caption">编辑规则</string>
     <string name="title_rule_title">规则应用于</string>
@@ -479,10 +485,15 @@
     <string name="title_rule_action_remark">此操作将被应用于抵达文件夹 %1$s 的新消息</string>
     <string name="title_rule_folder">文件夹</string>
     <string name="title_rule_identity">身份</string>
+    <string name="title_rule_template">回复模板</string>
     <string name="title_rule_cc">回信给邮件抄送地址</string>
     <string name="title_rule_name_missing">缺少规则名称</string>
     <string name="title_rule_condition_missing">条件缺失</string>
     <string name="title_rule_automation_hint">将使用参数 \'%2$s\' 发送 \'%1$s\' 的 intent</string>
+    <string name="title_rule_check">检查</string>
+    <string name="title_rule_no_headers">无法检查 邮件标头状况</string>
+    <string name="title_rule_matched">正匹配消息</string>
+    <string name="title_rule_no_matches">没有匹配项目</string>
     <string name="title_legend_section_synchronize">同步</string>
     <string name="title_legend_section_folders">文件夹</string>
     <string name="title_legend_section_messages">消息</string>
@@ -589,6 +600,9 @@
     <string name="title_no_body">没有找到消息文本</string>
     <string name="title_no_charset">不支持的编码: %1$s</string>
     <string name="title_via">通过: %1$s</string>
+    <string name="title_icalendar_accept">接受</string>
+    <string name="title_icalendar_decline">拒绝</string>
+    <string name="title_icalendar_maybe">待定</string>
     <string name="title_try">请试下FairEmail吧！一个安卓平台上开源、隐私友好的邮件客户端</string>
     <string name="title_pro_feature">这是专业版功能</string>
     <string name="title_pro_list">专业版功能列表</string>

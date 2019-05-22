@@ -13,7 +13,7 @@
     <string name="tile_synchronize">Eşzamanlama</string>
     <string name="tile_unseen">Yeni iletiler</string>
     <string name="shortcut_compose">Eposta Oluştur</string>
-    <string name="shortcut_setup">Kurulum</string>
+    <string name="shortcut_setup">Ayarlar</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">%1$d Hesap eşzamanlanıyor</item>
         <item quantity="other">%1$d Hesap senkronize ediliyor</item>
@@ -42,10 +42,6 @@
         <item quantity="one">%1$d ileti kalıcı olarak silinsin mi?</item>
         <item quantity="other">%1$d ileti kalıcı olarak silinsin mi?</item>
     </plurals>
-    <plurals name="title_ask_spam">
-        <item quantity="one">%1$d ileti istenmeyen posta olarak bildirilsin mi?</item>
-        <item quantity="other">%1$d ileti istenmeyen posta olarak bildirilsin mi?</item>
-    </plurals>
     <string name="title_ask_spam_who">%1$s\' iletisi gereksiz posta olarak bildirilsin mi?</string>
     <string name="title_notification_sending">İletileri gönderiliyor</string>
     <string name="title_notification_failed">\'%1$s\' başarısız oldu</string>
@@ -53,7 +49,7 @@
     <string name="menu_answers">Kalıplar</string>
     <string name="menu_operations">İşlemler</string>
     <string name="menu_contacts">Yerel rehber</string>
-    <string name="menu_setup">Kurulum</string>
+    <string name="menu_setup">Ayarlar</string>
     <string name="menu_legend">Simgelerin anlamları</string>
     <string name="menu_faq">Destek</string>
     <string name="menu_issue">Sorun bildir</string>
@@ -73,7 +69,7 @@
     <string name="title_edit_account">Hesabı Düzenle</string>
     <string name="title_edit_identity">Kimliği düzenle</string>
     <string name="title_edit_folder">Klasörü düzenle</string>
-    <string name="title_setup">Kurulum</string>
+    <string name="title_setup">Ayarlar</string>
     <string name="title_setup_help">Yardım</string>
     <string name="title_setup_quick">Hızlı Kurulum</string>
     <string name="title_setup_quick_hint">Hızlı kurulum, yapılandırma bilgilerini autoconfig.thunderbird.net adresinden alır</string>
@@ -123,6 +119,8 @@
     <string name="title_setup_defaults">Öntanımlıları geri yükle</string>
     <string name="title_setup_reset_questions">Soruları sıfırla</string>
     <string name="title_advanced">Gelişmiş seçenekler</string>
+    <string name="title_advanced_section_synchronize">Gelen</string>
+    <string name="title_advanced_section_send">Gönder</string>
     <string name="title_advanced_section_connection">Bağlantı</string>
     <string name="title_advanced_section_display">Görüntüle</string>
     <string name="title_advanced_section_behavior">Davranış</string>
@@ -367,6 +365,9 @@
     <string name="title_ask_show_image">Resimlerin gösterilmesi gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_edit_ref">Yeniden biçimlendirilmiş yanıtlanmış/iletilmiş ileti metni düzenlensin mi?</string>
     <string name="title_ask_delete_local">Uzak sunucuda depolanmış yerel iletiler de silinsin mi?</string>
+    <string name="title_ask_help">FairEmail\'in geliştirilmesine yardımcı olun</string>
+    <string name="title_ask_reporting">Hata raporları gönderilsin mi?</string>
+    <string name="title_reporting_why">Hata raporlama FairEmail\'in geliştirilmesine yardımcı olacaktır</string>
     <string name="title_compose">Eposta Oluştur</string>
     <string name="title_from">Gönderen:</string>
     <string name="title_to">Alıcı:</string>
@@ -419,6 +420,7 @@
     <string name="title_sort_on_sender">Gönderen</string>
     <string name="title_sort_on_subject">Konu</string>
     <string name="title_sort_on_size">Boyut</string>
+    <string name="title_sort_on_snoozed">Ertelendi</string>
     <string name="title_filter_seen">Oku</string>
     <string name="title_filter_snoozed">Ertelendi</string>
     <string name="title_filter_duplicates">Çift kopyalar</string>
@@ -437,6 +439,12 @@
     <string name="title_answer_text">Kalıp metni</string>
     <string name="title_answer_template_name">$name$ gönderenin tam adı ile değiştirilecek</string>
     <string name="title_answer_template_email">$email$ gönderenin e-posta adresi ile değiştirilecek</string>
+    <string name="title_rule_seen">Okundu olarak işaretle</string>
+    <string name="title_rule_unseen">Okunmadı olarak işaretle</string>
+    <string name="title_rule_flag">Yıldız Ekle</string>
+    <string name="title_rule_move">Taşı</string>
+    <string name="title_rule_copy">Kopyala (etiket)</string>
+    <string name="title_rule_answer">Yanıtla</string>
     <string name="title_rule_automation">Özdevinim</string>
     <string name="title_rule_caption">Kuralı düzenle</string>
     <string name="title_rule_title">Kural geçerlidir</string>
@@ -454,10 +462,15 @@
     <string name="title_rule_action_remark">Bu işlem %1$s klasörüne gelen yeni iletilere uygulanacaktır</string>
     <string name="title_rule_folder">Klasör</string>
     <string name="title_rule_identity">Kimlik</string>
+    <string name="title_rule_template">Yanıt kalıbı</string>
     <string name="title_rule_cc">CC adreslerini yanıtlayın</string>
     <string name="title_rule_name_missing">Kural adı eksik</string>
     <string name="title_rule_condition_missing">Koşul kayıp</string>
     <string name="title_rule_automation_hint">%1$s gönderme isteğinizi %2$s ekleyerek gönderecek</string>
+    <string name="title_legend_section_synchronize">Eşzamanlama</string>
+    <string name="title_legend_section_folders">Klasörler</string>
+    <string name="title_legend_section_messages">İletiler</string>
+    <string name="title_legend_section_compose">Eposta Oluştur</string>
     <string name="title_legend_primary_connected">Hesap bağlantısı kuruldu</string>
     <string name="title_legend_primary_disconnected">Hesap bağlantısı kesildi</string>
     <string name="title_legend_download_on">İleti içeriğini otomatik olarak indir</string>
@@ -474,6 +487,7 @@
     <string name="title_legend_unified">Birleşik gelen kutusu / birincil hesap</string>
     <string name="title_legend_inbox">Gelen kutusu</string>
     <string name="title_legend_archive">Arşiv</string>
+    <string name="title_legend_drafts">Taslaklar</string>
     <string name="title_legend_trash">Çöp Kutusu</string>
     <string name="title_legend_junk">İstenmeyen posta</string>
     <string name="title_legend_primary">Birincil</string>
@@ -503,8 +517,13 @@
     <string name="title_legend_link">Bağlantı ekle</string>
     <string name="title_legend_file">Dosya ekle</string>
     <string name="title_legend_picture">Resim ekle</string>
+    <string name="title_legend_photo">Fotoğraf çek</string>
+    <string name="title_legend_audio">Sesi kaydet</string>
     <string name="title_legend_bold">Metni kalın harf yap</string>
     <string name="title_legend_italic">Metni eğik yazı yap</string>
+    <string name="title_legend_underline">Tetnin altını çiz</string>
+    <string name="title_legend_text_size">Metin boyutunu ayarla</string>
+    <string name="title_legend_text_color">Metin rengini ayarla</string>
     <string name="title_legend_metered">Bağlantı ölçülü</string>
     <string name="title_legend_unmetered">Bağlantı ölçüsüz</string>
     <string name="title_legend_roaming">Gezeleme</string>
@@ -550,6 +569,9 @@
     <string name="title_no_body">Hiçbir ileti metni bulunamadı</string>
     <string name="title_no_charset">Desteklenmeyen kodlama: %1$s</string>
     <string name="title_via">Şu yol ile: %1$s</string>
+    <string name="title_icalendar_accept">Kabul</string>
+    <string name="title_icalendar_decline">Reddet</string>
+    <string name="title_icalendar_maybe">Olabilir</string>
     <string name="title_try">Android için açık kaynaklı, gizlilik dostu bir e-posta uygulaması olan FairEmail\'i deneyin</string>
     <string name="title_pro_feature">Bu Pro özelliğidir</string>
     <string name="title_pro_list">Pro özelliklerin listesi</string>
@@ -572,6 +594,15 @@
         <item>Saatte bir</item>
         <item>2 saatte bir</item>
         <item>4 saatte bir</item>
+    </string-array>
+    <string-array name="sendDelayedNames">
+        <item>Hayır</item>
+        <item>15 saniye</item>
+        <item>30 saniye</item>
+        <item>1 dakika</item>
+        <item>2 dakika</item>
+        <item>5 dakika</item>
+        <item>10 dakika</item>
     </string-array>
     <string-array name="startupNames">
         <item>Birleşik Gelen Kutusu</item>

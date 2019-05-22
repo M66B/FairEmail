@@ -18,7 +18,6 @@
     </plurals>
     <string name="title_notification_failed">\'%1$s\' sikertelen</string>
     <string name="menu_operations">Műveletek</string>
-    <string name="menu_setup">Beállítás</string>
     <string name="menu_legend">Jelmagyarázat</string>
     <string name="menu_privacy">Adatvédelem</string>
     <string name="menu_about">Névjegy</string>
@@ -35,7 +34,6 @@
     <string name="title_edit_account">Fiók szerkesztése</string>
     <string name="title_edit_identity">Azonosító szerkesztése</string>
     <string name="title_edit_folder">Könyvtár szerkesztése</string>
-    <string name="title_setup">Beállítás</string>
     <string name="title_setup_account_remark">E-mailt fogadni</string>
     <string name="title_setup_identity_remark">E-mailt küldeni</string>
     <string name="title_setup_export">Beállítások exportálása</string>

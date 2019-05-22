@@ -14,7 +14,7 @@
     <string name="tile_synchronize">Sincronizar</string>
     <string name="tile_unseen">Nuevos mensajes</string>
     <string name="shortcut_compose">Redactar</string>
-    <string name="shortcut_setup">Configuración</string>
+    <string name="shortcut_setup">Ajustes</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Sincronizando %1$d cuenta</item>
         <item quantity="other">Sincronizando %1$d cuentas</item>
@@ -44,8 +44,8 @@
         <item quantity="other">¿Eliminar %1$d mensajes permanentemente?</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="one">¿Reportar %1$d mensaje como spam?</item>
-        <item quantity="other">¿Reportar %1$d mensajes como spam?</item>
+        <item quantity="one">¿Tratar %1$d mensaje como spam?</item>
+        <item quantity="other">¿Tratar %1$d mensajes como spam?</item>
     </plurals>
     <string name="title_ask_spam_who">¿Reportar mensaje de %1$s como spam?</string>
     <string name="title_notification_sending">Enviando mensajes</string>
@@ -54,7 +54,7 @@
     <string name="menu_answers">Plantillas</string>
     <string name="menu_operations">Operaciones</string>
     <string name="menu_contacts">Contactos locales</string>
-    <string name="menu_setup">Configuración</string>
+    <string name="menu_setup">Ajustes</string>
     <string name="menu_legend">Leyenda</string>
     <string name="menu_faq">Soporte</string>
     <string name="menu_issue">Informar problema</string>
@@ -74,7 +74,7 @@
     <string name="title_edit_account">Editar cuenta</string>
     <string name="title_edit_identity">Editar identidad</string>
     <string name="title_edit_folder">Editar carpeta</string>
-    <string name="title_setup">Configuración</string>
+    <string name="title_setup">Ajustes</string>
     <string name="title_setup_help">Ayuda</string>
     <string name="title_setup_quick">Configuración rápida</string>
     <string name="title_setup_quick_remark">Para configurar rápidamente una cuenta y una identidad para la mayoría de los proveedores</string>

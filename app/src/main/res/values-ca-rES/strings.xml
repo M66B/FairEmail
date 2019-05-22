@@ -18,7 +18,6 @@
     </plurals>
     <string name="title_notification_failed">%1$s ha fallat</string>
     <string name="menu_operations">Operacions</string>
-    <string name="menu_setup">Configuració</string>
     <string name="menu_legend">Llegenda</string>
     <string name="menu_privacy">Privadesa</string>
     <string name="menu_about">Quant a</string>
@@ -35,7 +34,6 @@
     <string name="title_edit_account">Edita el compte</string>
     <string name="title_edit_identity">Edita identitat</string>
     <string name="title_edit_folder">Edita la carpeta</string>
-    <string name="title_setup">Configuració</string>
     <string name="title_setup_account_remark">Per rebre correu-e</string>
     <string name="title_setup_identity_remark">Per enviar correu-e</string>
     <string name="title_setup_doze_remark">Per rebre correu-e contínuament (opcional)</string>

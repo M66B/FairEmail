@@ -14,7 +14,7 @@
     <string name="tile_synchronize">Sincronizar</string>
     <string name="tile_unseen">Novas mensagens</string>
     <string name="shortcut_compose">Escrever</string>
-    <string name="shortcut_setup">Configuração</string>
+    <string name="shortcut_setup">Configurações</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Sincronizando %1$d conta</item>
         <item quantity="other">Sincronizando %1$d contas</item>
@@ -44,8 +44,8 @@
         <item quantity="other">Excluir as mensagens %1$d permanentemente?</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="one">Reportar a mensagem %1$d como spam?</item>
-        <item quantity="other">Reportar as mensagens %1$d como spam?</item>
+        <item quantity="one">Tratar %1$d mensagem como spam?</item>
+        <item quantity="other">Tratar %1$d mensagens como spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Denunciar mensagem de %1$s como spam?</string>
     <string name="title_notification_sending">Enviando mensagens</string>
@@ -54,7 +54,7 @@
     <string name="menu_answers">Modelos</string>
     <string name="menu_operations">Operações</string>
     <string name="menu_contacts">Contatos locais</string>
-    <string name="menu_setup">Configurar</string>
+    <string name="menu_setup">Configurações</string>
     <string name="menu_legend">Legenda</string>
     <string name="menu_faq">Suporte</string>
     <string name="menu_issue">Reportar problema</string>
@@ -74,7 +74,7 @@
     <string name="title_edit_account">Editar conta</string>
     <string name="title_edit_identity">Editar identidade</string>
     <string name="title_edit_folder">Editar pasta</string>
-    <string name="title_setup">Configurar</string>
+    <string name="title_setup">Configurações</string>
     <string name="title_setup_help">Ajuda</string>
     <string name="title_setup_quick">Configuração rápida</string>
     <string name="title_setup_quick_remark">Para configurar rapidamente uma conta e uma identidade para a maioria dos provedores</string>
