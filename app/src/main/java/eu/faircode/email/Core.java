@@ -1513,14 +1513,6 @@ class Core {
             for (EntityRule rule : rules)
                 if (rule.matches(context, message, imessage)) {
                     rule.execute(context, db, message);
-
-                    EntityRuleLog rlog = new EntityRuleLog();
-                    rlog.rule = rule.id;
-                    rlog.message = message.id;
-                    rlog.time = new Date().getTime();
-                    rlog.id = db.rulelog().insertRuleLog(rlog);
-                    Log.i("Inserted rule log=" + rlog.id);
-
                     if (rule.stop)
                         break;
                 }

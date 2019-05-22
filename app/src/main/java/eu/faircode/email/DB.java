@@ -51,7 +51,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 84,
+        version = 83,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -62,8 +62,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
                 EntityContact.class,
                 EntityAnswer.class,
                 EntityRule.class,
-                EntityLog.class,
-                EntityRuleLog.class
+                EntityLog.class
         }
 )
 
@@ -88,8 +87,6 @@ public abstract class DB extends RoomDatabase {
     public abstract DaoRule rule();
 
     public abstract DaoLog log();
-
-    public abstract DaoRuleLog rulelog();
 
     private static DB sInstance;
     private static ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
@@ -819,22 +816,6 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `color` INTEGER");
-                    }
-                })
-                .addMigrations(new Migration(83, 84) {
-                    @Override
-                    public void migrate(SupportSQLiteDatabase db) {
-                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
-                        db.execSQL("CREATE TABLE IF NOT EXISTS `rule_log`" +
-                                " (`id` INTEGER PRIMARY KEY AUTOINCREMENT" +
-                                ", `rule` INTEGER NOT NULL" +
-                                ", `message` INTEGER NOT NULL" +
-                                ", `time` INTEGER NOT NULL" +
-                                ", FOREIGN KEY(`rule`) REFERENCES `rule`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE" +
-                                ", FOREIGN KEY(`message`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
-                        db.execSQL("CREATE INDEX `index_rulelog_rule` ON `rule_log` (`rule`)");
-                        db.execSQL("CREATE INDEX `index_rulelog_message` ON `rule_log` (`message`)");
-                        db.execSQL("CREATE INDEX `index_rulelog_time` ON `rule_log` (`time`)");
                     }
                 })
                 .build();
