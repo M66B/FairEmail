@@ -3244,6 +3244,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (data.message.cc != null)
                 recipients += data.message.cc.length;
 
+            if (recipients == 1 &&
+                    data.message.list_post == null &&
+                    data.message.receipt_to == null &&
+                    (answers == 0 && Helper.isPro(context))) {
+                onMenuReply(data, "reply");
+                return;
+            }
+
             View anchor = bnvActions.findViewById(R.id.action_reply);
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
             popupMenu.inflate(R.menu.menu_reply);
@@ -3277,7 +3285,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             });
             popupMenu.show();
-
         }
 
         private void onMenuReply(final ActionData data, String action) {
