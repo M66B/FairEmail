@@ -100,6 +100,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private TextView tvName;
         private TextView tvMessages;
         private ImageView ivMessages;
+        private ImageView ivType;
         private ImageView ivUnified;
         private TextView tvType;
         private TextView tvAfter;
@@ -129,6 +130,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             tvName = itemView.findViewById(R.id.tvName);
             tvMessages = itemView.findViewById(R.id.tvMessages);
             ivMessages = itemView.findViewById(R.id.ivMessages);
+            ivType = itemView.findViewById(R.id.ivType);
             ivUnified = itemView.findViewById(R.id.ivUnified);
             tvType = itemView.findViewById(R.id.tvType);
             tvAfter = itemView.findViewById(R.id.tvAfter);
@@ -264,6 +266,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ivMessages.setImageResource(folder.download || EntityFolder.OUTBOX.equals(folder.type)
                     ? R.drawable.baseline_mail_24 : R.drawable.baseline_mail_outline_24);
 
+            ivType.setImageResource(EntityFolder.getIcon(folder.type));
             ivUnified.setVisibility(account > 0 && folder.unified ? View.VISIBLE : View.GONE);
 
             if (account < 0)

@@ -18,7 +18,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/ivUnified"
+                android:id="@+id/ivType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_unified"
@@ -34,10 +34,10 @@
                 android:gravity="center_vertical"
                 android:text="@string/title_legend_unified"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintBottom_toBottomOf="@id/ivUnified"
+                app:layout_constraintBottom_toBottomOf="@id/ivType"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/ivUnified"
-                app:layout_constraintTop_toTopOf="@id/ivUnified" />
+                app:layout_constraintStart_toEndOf="@id/ivType"
+                app:layout_constraintTop_toTopOf="@id/ivType" />
 
             <ImageView
                 android:id="@+id/ivInbox"
@@ -47,7 +47,7 @@
                 android:padding="12dp"
                 android:src="@drawable/baseline_inbox_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivUnified" />
+                app:layout_constraintTop_toBottomOf="@id/ivType" />
 
             <TextView
                 android:id="@+id/tvInbox"
@@ -62,28 +62,6 @@
                 app:layout_constraintTop_toTopOf="@id/ivInbox" />
 
             <ImageView
-                android:id="@+id/ivArchive"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/title_legend_archive"
-                android:padding="12dp"
-                android:src="@drawable/baseline_archive_24"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivInbox" />
-
-            <TextView
-                android:id="@+id/tvArchive"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:gravity="center_vertical"
-                android:text="@string/title_legend_archive"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintBottom_toBottomOf="@id/ivArchive"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/ivArchive"
-                app:layout_constraintTop_toTopOf="@id/ivArchive" />
-
-            <ImageView
                 android:id="@+id/ivDrafts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,7 +69,7 @@
                 android:padding="12dp"
                 android:src="@drawable/baseline_drafts_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivArchive" />
+                app:layout_constraintTop_toBottomOf="@id/ivInbox" />
 
             <TextView
                 android:id="@+id/tvDrafts"
@@ -106,6 +84,50 @@
                 app:layout_constraintTop_toTopOf="@id/ivDrafts" />
 
             <ImageView
+                android:id="@+id/ivSent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/title_legend_sent"
+                android:padding="12dp"
+                android:src="@drawable/baseline_send_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivDrafts" />
+
+            <TextView
+                android:id="@+id/tvSent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                android:text="@string/title_legend_sent"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="@id/ivSent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivSent"
+                app:layout_constraintTop_toTopOf="@id/ivSent" />
+
+            <ImageView
+                android:id="@+id/ivArchive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/title_legend_archive"
+                android:padding="12dp"
+                android:src="@drawable/baseline_archive_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivSent" />
+
+            <TextView
+                android:id="@+id/tvArchive"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                android:text="@string/title_legend_archive"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="@id/ivArchive"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivArchive"
+                app:layout_constraintTop_toTopOf="@id/ivArchive" />
+
+            <ImageView
                 android:id="@+id/ivTrash"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -113,7 +135,7 @@
                 android:padding="12dp"
                 android:src="@drawable/baseline_delete_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivDrafts" />
+                app:layout_constraintTop_toBottomOf="@id/ivArchive" />
 
             <TextView
                 android:id="@+id/tvTrash"

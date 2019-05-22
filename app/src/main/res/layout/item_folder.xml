@@ -62,14 +62,25 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            android:id="@+id/ivType"
+            android:layout_width="30dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/title_legend_folder_tye"
+            android:paddingEnd="6dp"
+            android:src="@drawable/baseline_inbox_24"
+            app:layout_constraintBottom_toBottomOf="@+id/tvType"
+            app:layout_constraintStart_toEndOf="@id/ivExpander"
+            app:layout_constraintTop_toTopOf="@+id/tvType" />
+
+        <ImageView
             android:id="@+id/ivUnified"
             android:layout_width="30dp"
             android:layout_height="24dp"
-            android:contentDescription="@string/title_legend_unified"
+            android:contentDescription="@string/title_unified_folder"
             android:paddingEnd="6dp"
             android:src="@drawable/baseline_folder_special_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvType"
-            app:layout_constraintStart_toEndOf="@id/ivExpander"
+            app:layout_constraintStart_toEndOf="@id/ivType"
             app:layout_constraintTop_toTopOf="@+id/tvType" />
 
         <ImageView

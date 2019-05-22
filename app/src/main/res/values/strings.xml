@@ -595,8 +595,9 @@
 
     <string name="title_legend_unified">Unified inbox / primary account</string>
     <string name="title_legend_inbox">Inbox</string>
-    <string name="title_legend_archive">Archive</string>
     <string name="title_legend_drafts">Drafts</string>
+    <string name="title_legend_sent">Sent</string>
+    <string name="title_legend_archive">Archive</string>
     <string name="title_legend_trash">Trash</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary">Primary</string>
@@ -656,6 +657,7 @@
     <string name="title_legend_save">Save</string>
     <string name="title_legend_delete">Delete</string>
     <string name="title_legend_count">Count</string>
+    <string name="title_legend_folder_tye">Folders type</string>
 
     <string name="title_hint_folder_actions">Long press for options</string>
     <string name="title_hint_folder_sync">To limit battery and network usage not all folders and not all messages will be synchronized by default</string>
