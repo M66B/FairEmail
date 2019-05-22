@@ -162,7 +162,7 @@ public class ViewModelMessages extends ViewModel {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean cache = prefs.getBoolean("cache_lists", true);
 
-                int free_mb = Helper.getFreeMemMb();
+                int free_mb = Log.getFreeMemMb();
                 boolean lowmem = (free_mb < LOW_MEM_MB);
 
                 Log.i("Destroy model=" + viewType +

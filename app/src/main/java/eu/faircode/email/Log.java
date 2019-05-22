@@ -480,6 +480,18 @@ public class Log {
         return bytes.length;
     }
 
+
+    static long getFreeMem() {
+        Runtime rt = Runtime.getRuntime();
+        long used = (rt.totalMemory() - rt.freeMemory());
+        long max = rt.maxMemory();
+        return (max - used);
+    }
+
+    static int getFreeMemMb() {
+        return (int) (getFreeMem() / 1024L / 1024L);
+    }
+
     static InternetAddress myAddress() throws UnsupportedEncodingException {
         return new InternetAddress("marcel+fairemail@faircode.eu", "FairCode");
     }

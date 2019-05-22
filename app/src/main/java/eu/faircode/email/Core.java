@@ -153,7 +153,7 @@ class Core {
                     crumb.put("name", op.name);
                     crumb.put("args", op.args);
                     crumb.put("folder", folder.type);
-                    crumb.put("free", Integer.toString(Helper.getFreeMemMb()));
+                    crumb.put("free", Integer.toString(Log.getFreeMemMb()));
                     crumb.put("UIDPLUS", Boolean.toString(((IMAPStore) istore).hasCapability("UIDPLUS")));
                     Bugsnag.leaveBreadcrumb("operation", BreadcrumbType.LOG, crumb);
 
@@ -1098,7 +1098,7 @@ class Core {
                             " " + (SystemClock.elapsedRealtime() - headers) + " ms");
                 }
 
-                int free = Helper.getFreeMemMb();
+                int free = Log.getFreeMemMb();
                 Map<String, String> crumb = new HashMap<>();
                 crumb.put("start", Integer.toString(from));
                 crumb.put("end", Integer.toString(i));
@@ -1163,7 +1163,7 @@ class Core {
                     Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
                     // Fetch on demand
 
-                    int free = Helper.getFreeMemMb();
+                    int free = Log.getFreeMemMb();
                     Map<String, String> crumb = new HashMap<>();
                     crumb.put("start", Integer.toString(from));
                     crumb.put("end", Integer.toString(i));
