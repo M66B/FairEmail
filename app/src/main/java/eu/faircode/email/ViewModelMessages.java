@@ -159,14 +159,11 @@ public class ViewModelMessages extends ViewModel {
         owner.getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroyed() {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean cache = prefs.getBoolean("cache_lists", true);
-
                 int free_mb = Log.getFreeMemMb();
                 boolean lowmem = (free_mb < LOW_MEM_MB);
 
                 Log.i("Destroy model=" + viewType +
-                        " cache=" + cache + " lowmem=" + lowmem + " free=" + free_mb + " MB");
+                        " lowmem=" + lowmem + " free=" + free_mb + " MB");
 
                 Model model = models.get(viewType);
                 if (model != null) {
@@ -174,7 +171,7 @@ public class ViewModelMessages extends ViewModel {
                     model.list.removeObservers(owner);
                 }
 
-                if (viewType == AdapterMessage.ViewType.THREAD || !cache || lowmem) {
+                if (viewType == AdapterMessage.ViewType.THREAD || lowmem) {
                     Log.i("Remove model=" + viewType);
                     remove(viewType);
                 }

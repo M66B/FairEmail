@@ -225,11 +225,11 @@
     <string name="title_advanced_english">Force English language</string>
     <string name="title_advanced_authentication">Show a warning when the receiving server could not authenticate the message</string>
     <string name="title_advanced_paranoid">Extra privacy features</string>
-    <string name="title_advanced_cache_lists">Cache message lists</string>
     <string name="title_advanced_watchdog">Periodically check if FairEmail is still active</string>
     <string name="title_advanced_updates">Check for updates</string>
     <string name="title_advanced_crash_reports">Send error reports</string>
     <string name="title_advanced_debug">Debug mode</string>
+    <string name="title_advanced_memory_class">Memory class: %1$s</string>
     <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
 
     <string name="title_advanced_enabled_hint">Globally disable or enable receiving of messages</string>
@@ -253,7 +253,6 @@
     <string name="title_advanced_badge_hint">Only available on supported launchers</string>
     <string name="title_advanced_english_hint">This will restart the app</string>
     <string name="title_advanced_paranoid_hint">See the FAQ for details</string>
-    <string name="title_advanced_cache_list_hint">Memory available: %1$s</string>
     <string name="title_advanced_debug_hint">Enable extra logging and show debug information at various places</string>
 
     <string name="title_select">Select &#8230;</string>
