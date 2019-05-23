@@ -876,11 +876,13 @@ class Core {
                     Log.i("End sync folder");
                 }
 
-                nameFolder.put(folder.name, folder);
-                String parentName = folder.getParentName(separator);
-                if (!parentFolders.containsKey(parentName))
-                    parentFolders.put(parentName, new ArrayList<EntityFolder>());
-                parentFolders.get(parentName).add(folder);
+                if (!subscribed_only || subscribed) {
+                    nameFolder.put(folder.name, folder);
+                    String parentName = folder.getParentName(separator);
+                    if (!parentFolders.containsKey(parentName))
+                        parentFolders.put(parentName, new ArrayList<EntityFolder>());
+                    parentFolders.get(parentName).add(folder);
+                }
             }
         }
 
