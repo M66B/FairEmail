@@ -919,7 +919,7 @@ class Core {
 
             int sync_days = jargs.getInt(0);
             int keep_days = jargs.getInt(1);
-            boolean download = jargs.getBoolean(2);
+            boolean download = (jargs.length() > 2 && jargs.getBoolean(2));
             boolean auto_delete = (jargs.length() > 3 && jargs.getBoolean(3));
 
             if (keep_days == sync_days)
