@@ -771,6 +771,9 @@ class Core {
     static void onSynchronizeFolders(Context context, EntityAccount account, Store istore, State state) throws MessagingException {
         DB db = DB.getInstance(context);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean subscribed_only = prefs.getBoolean("subscribed_only", false);
+
         Log.i("Start sync folders account=" + account.name);
 
         // Get default folder
@@ -802,7 +805,6 @@ class Core {
                 names.add(folder.name);
         Log.i("Local folder count=" + names.size());
 
-
         Map<String, EntityFolder> nameFolder = new HashMap<>();
         Map<String, List<EntityFolder>> parentFolders = new HashMap<>();
         for (Folder ifolder : ifolders) {
@@ -811,8 +813,8 @@ class Core {
             String[] attr = ((IMAPFolder) ifolder).getAttributes();
             String type = EntityFolder.getType(attr, fullName);
 
-            EntityLog.log(context, account.name + ":" + fullName +
-                    " attrs=" + TextUtils.join(" ", attr) + " type=" + type);
+            Log.i(account.name + ":" + fullName + " subscribed=" + subscribed +
+                    " type=" + type + " attrs=" + TextUtils.join(" ", attr));
 
             if (type != null) {
                 names.remove(fullName);
@@ -827,41 +829,46 @@ class Core {
 
                     folder = db.folder().getFolderByName(account.id, fullName);
                     if (folder == null) {
-                        folder = new EntityFolder();
-                        folder.account = account.id;
-                        folder.name = fullName;
-                        folder.display = display;
-                        folder.type = (EntityFolder.SYSTEM.equals(type) ? type : EntityFolder.USER);
-                        folder.synchronize = false;
-                        folder.subscribed = subscribed;
-                        folder.poll = ("imap.gmail.com".equals(account.host));
-                        folder.sync_days = EntityFolder.DEFAULT_SYNC;
-                        folder.keep_days = EntityFolder.DEFAULT_KEEP;
-                        folder.id = db.folder().insertFolder(folder);
-                        Log.i(folder.name + " added type=" + folder.type);
+                        if (!subscribed_only || subscribed) {
+                            folder = new EntityFolder();
+                            folder.account = account.id;
+                            folder.name = fullName;
+                            folder.display = display;
+                            folder.type = (EntityFolder.SYSTEM.equals(type) ? type : EntityFolder.USER);
+                            folder.synchronize = false;
+                            folder.subscribed = subscribed;
+                            folder.poll = ("imap.gmail.com".equals(account.host));
+                            folder.sync_days = EntityFolder.DEFAULT_SYNC;
+                            folder.keep_days = EntityFolder.DEFAULT_KEEP;
+                            folder.id = db.folder().insertFolder(folder);
+                            Log.i(folder.name + " added type=" + folder.type);
+                        }
                     } else {
-                        Log.i(folder.name + " exists type=" + folder.type);
+                        if (!subscribed_only || subscribed) {
+                            Log.i(folder.name + " exists type=" + folder.type);
 
-                        if (folder.subscribed == null || !folder.subscribed.equals(subscribed))
-                            db.folder().setFolderSubscribed(folder.id, subscribed);
+                            if (folder.subscribed == null || !folder.subscribed.equals(subscribed))
+                                db.folder().setFolderSubscribed(folder.id, subscribed);
 
-                        if (folder.display == null && display != null) {
-                            db.folder().setFolderDisplay(folder.id, display);
-                            EntityLog.log(context, account.name + ":" + folder.name +
-                                    " removed prefix display=" + display + " separator=" + separator);
-                        }
+                            if (folder.display == null && display != null) {
+                                db.folder().setFolderDisplay(folder.id, display);
+                                EntityLog.log(context, account.name + ":" + folder.name +
+                                        " removed prefix display=" + display + " separator=" + separator);
+                            }
 
-                        // Compatibility
-                        if ("Inbox_sub".equals(folder.type))
-                            db.folder().setFolderType(folder.id, EntityFolder.USER);
-                        else if (EntityFolder.USER.equals(folder.type) && EntityFolder.SYSTEM.equals(type))
-                            db.folder().setFolderType(folder.id, type);
-                        else if (EntityFolder.SYSTEM.equals(folder.type) && EntityFolder.USER.equals(type))
-                            db.folder().setFolderType(folder.id, type);
-                        else if (EntityFolder.INBOX.equals(type) && !EntityFolder.INBOX.equals(folder.type)) {
-                            if (db.folder().getFolderByType(folder.account, EntityFolder.INBOX) == null)
+                            // Compatibility
+                            if ("Inbox_sub".equals(folder.type))
+                                db.folder().setFolderType(folder.id, EntityFolder.USER);
+                            else if (EntityFolder.USER.equals(folder.type) && EntityFolder.SYSTEM.equals(type))
                                 db.folder().setFolderType(folder.id, type);
-                        }
+                            else if (EntityFolder.SYSTEM.equals(folder.type) && EntityFolder.USER.equals(type))
+                                db.folder().setFolderType(folder.id, type);
+                            else if (EntityFolder.INBOX.equals(type) && !EntityFolder.INBOX.equals(folder.type)) {
+                                if (db.folder().getFolderByType(folder.account, EntityFolder.INBOX) == null)
+                                    db.folder().setFolderType(folder.id, type);
+                            }
+                        } else
+                            db.folder().deleteFolder(folder.id);
                     }
                     db.setTransactionSuccessful();
                 } finally {
