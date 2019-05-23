@@ -62,6 +62,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.UUID;
 import java.util.concurrent.TimeoutException;
 
 import javax.mail.MessagingException;
@@ -218,6 +219,15 @@ public class ApplicationEx extends Application {
         });
 
         Bugsnag.init(this, config);
+
+        String uuid = prefs.getString("uuid", null);
+        if (uuid == null) {
+            uuid = UUID.randomUUID().toString();
+            prefs.edit().putString("uuid", uuid).apply();
+        }
+        Log.i("uuid=" + uuid);
+        Bugsnag.getClient().setUserId(uuid);
+
         if (prefs.getBoolean("crash_reports", false))
             Bugsnag.startSession();
 
