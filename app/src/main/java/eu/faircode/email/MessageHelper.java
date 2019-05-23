@@ -78,7 +78,7 @@ public class MessageHelper {
     private final static int CONNECT_TIMEOUT = 20 * 1000; // milliseconds
     private final static int WRITE_TIMEOUT = 40 * 1000; // milliseconds
     private final static int READ_TIMEOUT = 40 * 1000; // milliseconds
-    private final static int FETCH_SIZE = 1024 * 1024; // bytes, default 16K
+    private final static int FETCH_SIZE = 256 * 1024; // bytes, default 16K
     private final static int POOL_TIMEOUT = 45 * 1000; // milliseconds, default 45 sec
 
     static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
