@@ -298,8 +298,6 @@ public class EntityRule {
                 HtmlHelper.getPreview(body),
                 null);
 
-        Core.updateMessageSize(context, reply.id);
-
         EntityOperation.queue(context, reply, EntityOperation.SEND);
     }
 

@@ -2188,8 +2188,6 @@ public class FragmentCompose extends FragmentBase {
                         ics.renameTo(attachment.getFile(context));
                     }
 
-                    Core.updateMessageSize(context, draft.id);
-
                     // Write reference text
                     if (ref != null && ref.content && !"list".equals(action) && !"receipt".equals(action)) {
                         String refBody = String.format("<p>%s %s:</p>\n<blockquote>%s</blockquote>",
@@ -2583,7 +2581,6 @@ public class FragmentCompose extends FragmentBase {
                                 draft.plain_only, // unchanged
                                 HtmlHelper.getPreview(body),
                                 null);
-                        Core.updateMessageSize(context, draft.id);
                     }
                 } else {
                     String previous = Helper.readText(draft.getFile(context));
@@ -2609,7 +2606,6 @@ public class FragmentCompose extends FragmentBase {
                                 draft.plain_only,
                                 HtmlHelper.getPreview(body),
                                 null);
-                        Core.updateMessageSize(context, draft.id);
                     }
                 }
 

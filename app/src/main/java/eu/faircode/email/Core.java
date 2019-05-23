@@ -710,8 +710,6 @@ class Core {
                 parts.isPlainOnly(),
                 HtmlHelper.getPreview(body),
                 parts.getWarnings(message.warning));
-
-        updateMessageSize(context, message.id);
     }
 
     private static void onAttachment(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws JSONException, MessagingException, IOException {
@@ -764,8 +762,6 @@ class Core {
                 throw new IllegalArgumentException("Attachment not found");
             }
         }
-
-        updateMessageSize(context, message.id);
     }
 
     static void onSynchronizeFolders(Context context, EntityAccount account, Store istore, State state) throws MessagingException {
@@ -1688,36 +1684,7 @@ class Core {
                         } catch (Throwable ex) {
                             Log.e(ex);
                         }
-
-            updateMessageSize(context, message.id);
         }
-    }
-
-    static void updateMessageSize(Context context, long id) {
-        DB db = DB.getInstance(context);
-
-        EntityMessage message = db.message().getMessage(id);
-        if (message == null || !message.content)
-            return;
-
-        long size = message.getFile(context).length();
-        if (size == 0)
-            return;
-
-        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-        for (EntityAttachment attachment : attachments) {
-            if (!attachment.available)
-                return;
-
-            long asize = attachment.getFile(context).length();
-            if (asize == 0)
-                return;
-
-            size += asize;
-        }
-
-        Log.i("Setting message=" + id + " size=" + message.size + "/" + size);
-        db.message().setMessageSize(message.id, size);
     }
 
     static void notifyReset(Context context) {
