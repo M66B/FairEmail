@@ -182,7 +182,6 @@
     <string name="title_advanced_english">强制使用英语</string>
     <string name="title_advanced_authentication">当接收服务器无法验证消息时显示警告</string>
     <string name="title_advanced_paranoid">额外隐私功能</string>
-    <string name="title_advanced_cache_lists">缓存消息列表</string>
     <string name="title_advanced_watchdog">定期检查FairEmail是否仍在运行</string>
     <string name="title_advanced_updates">检查更新</string>
     <string name="title_advanced_crash_reports">发送错误报告</string>
@@ -198,7 +197,6 @@
     <string name="title_advanced_threading_hint">对相互关联的邮件进行分组</string>
     <string name="title_advanced_name_email_hint">禁用该选项，将仅显示名称（如果可用）</string>
     <string name="title_advanced_flags_hint">请注意, 加星消息将始终保存在本地</string>
-    <string name="title_advanced_subscriptions_hint">未订阅的文件夹将被隐藏</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
     <string name="title_advanced_autocollapse_hint">App将在您按下“返回”键时关闭多条展开的消息</string>
@@ -207,7 +205,6 @@
     <string name="title_advanced_badge_hint">仅可用于支持的启动器</string>
     <string name="title_advanced_english_hint">这将重新启动应用程序</string>
     <string name="title_advanced_paranoid_hint">详细信息请查看常见问题</string>
-    <string name="title_advanced_cache_list_hint">可用内存: %1$s</string>
     <string name="title_advanced_debug_hint">启用额外日志并在不同地方显示调试信息</string>
     <string name="title_select">选择 &#8230;</string>
     <string name="title_identity_name">姓名</string>

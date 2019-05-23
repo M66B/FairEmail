@@ -190,7 +190,6 @@
     <string name="title_advanced_english">Englische Sprache erzwingen</string>
     <string name="title_advanced_authentication">Warnung anzeigen, wenn der empfangende Server die Nachricht nicht authentifizieren konnte</string>
     <string name="title_advanced_paranoid">Zusätzliche Datenschutzfunktionen</string>
-    <string name="title_advanced_cache_lists">Nachrichtenlisten zwischenspeichern</string>
     <string name="title_advanced_watchdog">Regelmäßig überprüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
     <string name="title_advanced_crash_reports">Fehlerbericht senden</string>
@@ -206,7 +205,6 @@
     <string name="title_advanced_threading_hint">E-Mails gruppieren, die miteinander verwandt sind</string>
     <string name="title_advanced_name_email_hint">Wenn deaktiviert, werden nur Namen angezeigt, sofern verfügbar</string>
     <string name="title_advanced_flags_hint">Beachten Sie, dass markierte Nachrichten immer lokal gehalten werden</string>
-    <string name="title_advanced_subscriptions_hint">Ordner, die nicht abonniert sind, werden versteckt</string>
     <string name="title_advanced_preview_hint">Nur verfügbar, wenn der E-Mail-Text heruntergeladen wurde</string>
     <string name="title_advanced_autoexpand_hint">Eine (ungelesene) Nachricht wird automatisch geöffnet</string>
     <string name="title_advanced_autocollapse_hint">Mehrere erweiterte Nachrichten werden immer auf \'zurück\' geschlossen</string>
@@ -215,7 +213,6 @@
     <string name="title_advanced_badge_hint">Nur verfügbar auf unterstützten Launchern</string>
     <string name="title_advanced_english_hint">Dies wird die App neu starten</string>
     <string name="title_advanced_paranoid_hint">Details finden Sie in der FAQ</string>
-    <string name="title_advanced_cache_list_hint">Verfügbarer Speicher: %1$s</string>
     <string name="title_advanced_debug_hint">Aktiviert zusätzliche Protokollierung und zeigt Fehlerbehebungsinformationen an verschiedenen Stellen an</string>
     <string name="title_select">Wählen Sie &#8230;</string>
     <string name="title_identity_name">Ihr Name</string>

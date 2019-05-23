@@ -189,7 +189,6 @@
     <string name="title_advanced_english">Tving bruk av engelsk</string>
     <string name="title_advanced_authentication">Vis en advarsel når mottakeren ikke kunne godkjenne meldingen</string>
     <string name="title_advanced_paranoid">Ekstra personvernfunksjoner</string>
-    <string name="title_advanced_cache_lists">Cache-meldingslister</string>
     <string name="title_advanced_watchdog">Kontroller regelmessig om FairEmail fortsatt er aktiv</string>
     <string name="title_advanced_updates">Se etter oppdateringer</string>
     <string name="title_advanced_crash_reports">Send feilrapporter</string>
@@ -205,7 +204,6 @@
     <string name="title_advanced_threading_hint">Gruppemeldinger knyttet til hverandre</string>
     <string name="title_advanced_name_email_hint">Når deaktivert, vil bare navn bli vist når det er tilgjengelig</string>
     <string name="title_advanced_flags_hint">Merk at stjernemerkede meldinger alltid vil bli holdt lokalt</string>
-    <string name="title_advanced_subscriptions_hint">Mapper som ikke abonnerer på, vil bli skjult</string>
     <string name="title_advanced_preview_hint">Kun tilgjengelig når meldingstekst ble lastet ned</string>
     <string name="title_advanced_autoexpand_hint">Åpne automatisk melding når det bare er én melding eller bare en ulest melding i en samtale</string>
     <string name="title_advanced_autocollapse_hint">Flere utvidede meldinger vil alltid bli lukket ved \'tilbake\'</string>
@@ -214,7 +212,6 @@
     <string name="title_advanced_badge_hint">Kun tilgjengelig på støttede launchere</string>
     <string name="title_advanced_english_hint">Dette vil starte appen på nytt</string>
     <string name="title_advanced_paranoid_hint">Se FAQ for detaljer</string>
-    <string name="title_advanced_cache_list_hint">Minne tilgjengelig: %1$s</string>
     <string name="title_advanced_debug_hint">Aktivere ekstra logging og vis feilsøkingsinformasjon på forskjellige steder</string>
     <string name="title_select">Velg &#8230;</string>
     <string name="title_identity_name">Ditt navn</string>
