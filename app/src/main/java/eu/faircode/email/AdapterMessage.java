@@ -1093,12 +1093,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (amessage == null || !amessage.id.equals(id))
                                 return;
 
-                            if (icalendar == null || icalendar.getEvents().size() == 0)
+                            if (icalendar == null ||
+                                    icalendar.getMethod() == null ||
+                                    icalendar.getEvents().size() == 0) {
+                                tvCalendarSummary.setVisibility(View.GONE);
+                                tvCalendarStart.setVisibility(View.GONE);
+                                tvCalendarEnd.setVisibility(View.GONE);
+                                tvAttendees.setVisibility(View.GONE);
+                                pbCalendarWait.setVisibility(View.GONE);
+                                grpCalendar.setVisibility(View.GONE);
+                                grpCalendarResponse.setVisibility(View.GONE);
                                 return;
+                            }
 
                             DateFormat df = SimpleDateFormat.getDateTimeInstance();
 
-                            Method method = icalendar.getMethod();
                             VEvent event = icalendar.getEvents().get(0);
 
                             Summary summary = event.getSummary();
@@ -1136,7 +1145,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             tvAttendees.setVisibility(attendee.size() == 0 ? View.GONE : View.VISIBLE);
 
                             boolean canRespond =
-                                    (method != null && method.isRequest() &&
+                                    (icalendar.getMethod().isRequest() &&
                                             organizer != null && organizer.getEmail() != null &&
                                             message.to != null && message.to.length > 0);
                             grpCalendarResponse.setVisibility(canRespond ? View.VISIBLE : View.GONE);
