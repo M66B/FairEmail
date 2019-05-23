@@ -119,6 +119,7 @@ public class MessageHelper {
         props.put("mail.imaps.timeout", Integer.toString(READ_TIMEOUT));
 
         props.put("mail.imaps.connectionpool.debug", "true");
+        props.put("mail.imaps.connectionpoolsize", "2");
         props.put("mail.imaps.connectionpooltimeout", Integer.toString(POOL_TIMEOUT));
 
         props.put("mail.imaps.finalizecleanclose", "false");
@@ -146,6 +147,7 @@ public class MessageHelper {
         props.put("mail.imap.timeout", Integer.toString(READ_TIMEOUT));
 
         props.put("mail.imap.connectionpool.debug", "true");
+        props.put("mail.imap.connectionpoolsize", "2");
         props.put("mail.imap.connectionpooltimeout", Integer.toString(POOL_TIMEOUT));
 
         props.put("mail.imap.finalizecleanclose", "false");

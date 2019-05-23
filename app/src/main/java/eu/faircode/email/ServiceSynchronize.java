@@ -96,7 +96,6 @@ public class ServiceSynchronize extends LifecycleService {
     private long lastLost = 0;
     private TupleAccountStats lastStats = new TupleAccountStats();
     private ExecutorService queue = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
-    private ExecutorService initExecutor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     private static boolean booted = false;
     private static boolean oneshot = false;
@@ -697,7 +696,7 @@ public class ServiceSynchronize extends LifecycleService {
                     Core.onSynchronizeFolders(this, account, istore, state);
 
                     // Open synchronizing folders
-                    final ExecutorService pollExecutor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+                    final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
                     for (final EntityFolder folder : folders) {
                         if (folder.synchronize && !folder.poll && capIdle) {
                             Log.i(account.name + " sync folder " + folder.name);
@@ -916,7 +915,6 @@ public class ServiceSynchronize extends LifecycleService {
 
                                 db.operation().liveOperations(folder.id).observe(cowner, new Observer<List<EntityOperation>>() {
                                     private List<Long> handling = new ArrayList<>();
-                                    private final ExecutorService folderExecutor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
                                     private final PowerManager.WakeLock wlFolder = pm.newWakeLock(
                                             PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":folder." + folder.id);
 
@@ -934,14 +932,6 @@ public class ServiceSynchronize extends LifecycleService {
                                         if (handling.size() > 0 && process) {
                                             Log.i(folder.name + " operations=" + operations.size() +
                                                     " init=" + folder.initialize + " poll=" + folder.poll);
-
-                                            ExecutorService executor;
-                                            if (folder.initialize)
-                                                executor = initExecutor;
-                                            else if (folder.poll)
-                                                executor = pollExecutor;
-                                            else
-                                                executor = folderExecutor;
 
                                             executor.submit(new Runnable() {
                                                 @Override
