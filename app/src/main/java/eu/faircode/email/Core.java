@@ -768,7 +768,7 @@ class Core {
         DB db = DB.getInstance(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean subscribed_only = prefs.getBoolean("subscribed_only", true);
+        boolean subscribed_only = prefs.getBoolean("subscribed_only", false);
 
         Log.i("Start sync folders account=" + account.name);
 
