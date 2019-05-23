@@ -126,35 +126,13 @@
                 app:layout_constraintTop_toBottomOf="@id/swParanoid" />
 
             <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swCacheLists"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_advanced_cache_lists"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvParanoidHint"
-                app:switchPadding="12dp" />
-
-            <TextView
-                android:id="@+id/tvCacheListsHint"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="48dp"
-                android:text="@string/title_advanced_cache_list_hint"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textStyle="italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swCacheLists" />
-
-            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swWatchdog"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="@string/title_advanced_watchdog"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvCacheListsHint"
+                app:layout_constraintTop_toBottomOf="@id/tvParanoidHint"
                 app:switchPadding="12dp" />
 
             <androidx.appcompat.widget.SwitchCompat
@@ -200,17 +178,29 @@
                 app:layout_constraintTop_toBottomOf="@id/swDebug" />
 
             <TextView
-                android:id="@+id/tvLastCleanup"
+                android:id="@+id/tvMemoryClass"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
+                android:layout_marginEnd="48dp"
+                android:text="@string/title_advanced_memory_class"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDebugHint" />
+
+            <TextView
+                android:id="@+id/tvLastCleanup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="48dp"
                 android:text="@string/title_advanced_last_cleanup"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDebugHint" />
+                app:layout_constraintTop_toBottomOf="@id/tvMemoryClass" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
