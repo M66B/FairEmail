@@ -276,7 +276,6 @@
     <string name="title_no_sync">Synkronointivirheitä alkaen %1$s</string>
     <string name="title_identity_required">Viestien lähettämiseen tarvitaan identiteetti</string>
     <string name="title_drafts_required">Viestien lähettämiseen tarvitaan luonnoskansio</string>
-    <string name="title_account_setup_identity">Lisää identiteetti tilin tallennuksen jälkeen</string>
     <string name="title_account_delete">Poistetaanko tämä tili pysyvästi?</string>
     <string name="title_identity_delete">Poistetaanko tämä identiteetti pysyvästi?</string>
     <string name="title_edit_html">Muokkaa HTML-muodossa</string>

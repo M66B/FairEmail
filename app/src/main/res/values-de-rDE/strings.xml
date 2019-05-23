@@ -277,7 +277,6 @@
     <string name="title_no_sync">Synchronisationsfehler seit %1$s</string>
     <string name="title_identity_required">Für das Senden von Nachrichten ist ein Name erforderlich</string>
     <string name="title_drafts_required">Ein Entwürfe-Ordner ist erforderlich, um Nachrichten zu senden</string>
-    <string name="title_account_setup_identity">Eine Identität nach dem Speichern dieses Kontos hinzufügen</string>
     <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
     <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
     <string name="title_edit_html">Als HTML bearbeiten</string>

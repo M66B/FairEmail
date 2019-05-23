@@ -276,7 +276,6 @@
     <string name="title_no_sync">Synkroniseringsfeil siden %1$s</string>
     <string name="title_identity_required">En identitet er nødvendig for å sende meldinger</string>
     <string name="title_drafts_required">Det kreves en kladd mappe for å kunne sende meldinger</string>
-    <string name="title_account_setup_identity">Legg til en identitet etter å ha lagret denne kontoen</string>
     <string name="title_account_delete">Slett denne konto en permanent?</string>
     <string name="title_identity_delete">Slett denne identiteten permanent?</string>
     <string name="title_edit_html">Rediger som HTML</string>

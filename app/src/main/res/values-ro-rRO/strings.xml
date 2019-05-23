@@ -194,6 +194,7 @@
     <string name="title_advanced_sound">Selectare sunet de notificare</string>
     <string name="title_advanced_badge">Afișează iconița lansatorului cu numărul de mesaje noi</string>
     <string name="title_advanced_subscriptions">Gestionați abonările la dosare</string>
+    <string name="title_advanced_sync_subscribed">Sincronizează doar dosarele abonate</string>
     <string name="title_advanced_english">Forțează folosirea limbii Engleze</string>
     <string name="title_advanced_authentication">Arată o avertizare atunci când serverul destinatar nu a putut autentifica mesajul</string>
     <string name="title_advanced_paranoid">Caracteristici de confidențialitate suplimentare</string>
@@ -284,7 +285,6 @@
     <string name="title_no_sync">Erori de sincronizare începând cu %1$s</string>
     <string name="title_identity_required">O identitate este necesară pentru a trimite mesaje</string>
     <string name="title_drafts_required">Un dosar de ciorne este necesar pentru a trimite mesaje</string>
-    <string name="title_account_setup_identity">Adaugă o identitate după salvarea acestui cont</string>
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
     <string name="title_edit_html">Editează ca HTML</string>
@@ -360,6 +360,7 @@
     <string name="title_show_formatted">Arată formatat</string>
     <string name="title_trash">Gunoi</string>
     <string name="title_copy">Copiere &#8230;</string>
+    <string name="title_copy_to">Copiază în &#8230;</string>
     <string name="title_subscribe">Abonare</string>
     <string name="title_delete">Şterge</string>
     <string name="title_more">Mai mult</string>

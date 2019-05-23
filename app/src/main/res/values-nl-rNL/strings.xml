@@ -277,7 +277,6 @@
     <string name="title_no_sync">Synchronisatiefouten sinds %1$s</string>
     <string name="title_identity_required">Een identiteit is vereist om berichten te verzenden</string>
     <string name="title_drafts_required">Een concepten map is vereist om berichten te verzenden</string>
-    <string name="title_account_setup_identity">Een identiteit toevoegen na het opslaan van dit account</string>
     <string name="title_account_delete">Verwijder dit account permanent?</string>
     <string name="title_identity_delete">Verwijder deze identiteit permanent?</string>
     <string name="title_edit_html">Bewerk HTML</string>

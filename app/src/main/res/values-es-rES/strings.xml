@@ -186,6 +186,7 @@
     <string name="title_advanced_sound">Seleccionar sonido de notificación</string>
     <string name="title_advanced_badge">Mostrar icono del lanzador con el número de mensajes nuevos</string>
     <string name="title_advanced_subscriptions">Administrar suscripciones de carpeta</string>
+    <string name="title_advanced_sync_subscribed">Sincronizar solo carpetas suscritas</string>
     <string name="title_advanced_english">Forzar idioma inglés</string>
     <string name="title_advanced_authentication">Mostrar una advertencia cuando el servidor de recepción no pudo autenticar el mensaje</string>
     <string name="title_advanced_paranoid">Características de privacidad adicionales</string>
@@ -276,7 +277,6 @@
     <string name="title_no_sync">Errores de sincronización desde %1$s</string>
     <string name="title_identity_required">Se requiere una identidad para enviar mensajes</string>
     <string name="title_drafts_required">Una carpeta de borradores es necesaria para enviar mensajes</string>
-    <string name="title_account_setup_identity">Añadir una identidad después de guardar esta cuenta</string>
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
     <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
     <string name="title_edit_html">Editar como HTML</string>
@@ -352,6 +352,7 @@
     <string name="title_show_formatted">Mostrar con formato</string>
     <string name="title_trash">Papelera</string>
     <string name="title_copy">Copiar &#8230;</string>
+    <string name="title_copy_to">Copiar a &#8230;</string>
     <string name="title_subscribe">Subscribir</string>
     <string name="title_delete">Eliminar</string>
     <string name="title_more">Más</string>

@@ -202,6 +202,7 @@
     <string name="title_advanced_sound">Vybrat zvuk oznámení</string>
     <string name="title_advanced_badge">Zobrazit počet nových zpráv na ikoně aplikace</string>
     <string name="title_advanced_subscriptions">Spravovat odběry složek</string>
+    <string name="title_advanced_sync_subscribed">Synchronizovat pouze odebírané složky</string>
     <string name="title_advanced_english">Vynutit anglický jazyk</string>
     <string name="title_advanced_authentication">Zobrazit upozornění, pokud přijímající server nemůže zprávu ověřit</string>
     <string name="title_advanced_paranoid">Doplňující funkce ochrany soukromí</string>
@@ -292,7 +293,6 @@
     <string name="title_no_sync">Chyby synchronizace od %1$s</string>
     <string name="title_identity_required">Identita je vyžadována pro odesílání zpráv</string>
     <string name="title_drafts_required">Složka konceptů je vyžadována pro odesílání zpráv</string>
-    <string name="title_account_setup_identity">Přidat identitu po uložení tohoto účtu</string>
     <string name="title_account_delete">Trvale smazat tento účet?</string>
     <string name="title_identity_delete">Trvale smazat tuto identitu?</string>
     <string name="title_edit_html">Upravit jako HTML</string>
@@ -368,6 +368,7 @@
     <string name="title_show_formatted">Zobrazit formátované</string>
     <string name="title_trash">Koš</string>
     <string name="title_copy">Kopírovat &#8230;</string>
+    <string name="title_copy_to">Kopírovat do &#8230;</string>
     <string name="title_subscribe">Přihlásit odběr</string>
     <string name="title_delete">Smazat</string>
     <string name="title_more">Více</string>

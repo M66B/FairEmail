@@ -277,7 +277,6 @@
     <string name="title_no_sync">Errori di sincronizzazione da %1$s</string>
     <string name="title_identity_required">È necessaria un\'identità per inviare messaggi</string>
     <string name="title_drafts_required">Per inviare messaggi è necessaria una cartella bozze</string>
-    <string name="title_account_setup_identity">Aggiungi un\'identità dopo aver salvato questo account</string>
     <string name="title_account_delete">Eliminare questo account permanentemente?</string>
     <string name="title_identity_delete">Eliminare questa identità permanentemente?</string>
     <string name="title_edit_html">Modifica come HTML</string>
