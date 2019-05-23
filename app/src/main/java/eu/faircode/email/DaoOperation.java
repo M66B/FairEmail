@@ -104,9 +104,4 @@ public interface DaoOperation {
 
     @Query("DELETE FROM operation WHERE id = :id")
     int deleteOperation(long id);
-
-    @Query("DELETE FROM operation" +
-            " WHERE message = :message" +
-            " AND name = :name")
-    int deleteOperation(long message, String name);
 }

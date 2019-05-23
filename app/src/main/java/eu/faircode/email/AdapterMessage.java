@@ -3068,8 +3068,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         EntityOperation.queue(context, message, EntityOperation.ADD);
 
                         // Delete from outbox
-                        db.operation().deleteOperation(id, EntityOperation.SEND);
-                        db.message().deleteMessage(id);
+                        db.message().deleteMessage(id); // will delete operation too
 
                         db.setTransactionSuccessful();
                     } finally {
