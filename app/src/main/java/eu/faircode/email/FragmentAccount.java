@@ -63,7 +63,6 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.android.colorpicker.ColorPickerDialog;
 import com.android.colorpicker.ColorPickerSwatch;
@@ -135,7 +134,6 @@ public class FragmentAccount extends FragmentBase {
     private Spinner spLeft;
     private Spinner spRight;
 
-    private CheckBox cbIdentity;
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
     private TextView tvError;
@@ -213,7 +211,6 @@ public class FragmentAccount extends FragmentBase {
         spLeft = view.findViewById(R.id.spLeft);
         spRight = view.findViewById(R.id.spRight);
 
-        cbIdentity = view.findViewById(R.id.cbIdentity);
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
         tvError = view.findViewById(R.id.tvError);
@@ -267,7 +264,6 @@ public class FragmentAccount extends FragmentBase {
                 etPrefix.setText(provider.prefix);
 
                 grpFolders.setVisibility(View.GONE);
-                cbIdentity.setVisibility(View.GONE);
                 btnSave.setVisibility(View.GONE);
             }
 
@@ -459,7 +455,6 @@ public class FragmentAccount extends FragmentBase {
         btnCheck.setVisibility(View.GONE);
         pbCheck.setVisibility(View.GONE);
 
-        cbIdentity.setVisibility(View.GONE);
         btnSave.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
         tvError.setVisibility(View.GONE);
@@ -706,7 +701,6 @@ public class FragmentAccount extends FragmentBase {
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 grpFolders.setVisibility(View.GONE);
-                cbIdentity.setVisibility(View.GONE);
                 btnSave.setVisibility(View.GONE);
 
                 if (ex instanceof IllegalArgumentException)
@@ -779,7 +773,7 @@ public class FragmentAccount extends FragmentBase {
         args.putSerializable("left", left);
         args.putSerializable("right", right);
 
-        new SimpleTask<Long>() {
+        new SimpleTask<Void>() {
             @Override
             protected void onPreExecute(Bundle args) {
                 saving = true;
@@ -798,7 +792,7 @@ public class FragmentAccount extends FragmentBase {
             }
 
             @Override
-            protected Long onExecute(Context context, Bundle args) throws Throwable {
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
 
                 int auth_type = args.getInt("auth_type");
@@ -1056,18 +1050,12 @@ public class FragmentAccount extends FragmentBase {
                     nm.cancel("receive", account.id.intValue());
                 }
 
-                return account.id;
+                return null;
             }
 
             @Override
-            protected void onExecuted(Bundle args, Long id) {
+            protected void onExecuted(Bundle args, Void data) {
                 getFragmentManager().popBackStack();
-                if (cbIdentity.isChecked()) {
-                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                    lbm.sendBroadcast(
-                            new Intent(ActivitySetup.ACTION_EDIT_IDENTITY)
-                                    .putExtra("account", id));
-                }
             }
 
             @Override
@@ -1163,8 +1151,6 @@ public class FragmentAccount extends FragmentBase {
                     cbPrimary.setChecked(account == null ? false : account.primary);
                     cbBrowse.setChecked(account == null ? true : account.browse);
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
-
-                    cbIdentity.setChecked(account == null);
 
                     color = (account == null || account.color == null ? Color.TRANSPARENT : account.color);
 
@@ -1468,7 +1454,6 @@ public class FragmentAccount extends FragmentBase {
         }
 
         grpFolders.setVisibility(folders.size() > 1 ? View.VISIBLE : View.GONE);
-        cbIdentity.setVisibility(folders.size() > 1 ? View.VISIBLE : View.GONE);
         btnSave.setVisibility(folders.size() > 1 ? View.VISIBLE : View.GONE);
     }
 

@@ -121,7 +121,6 @@ public class FragmentIdentity extends FragmentBase {
     private Group grpAdvanced;
 
     private long id = -1;
-    private long account = -1;
     private boolean saving = false;
     private int auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
     private int color = Color.TRANSPARENT;
@@ -134,7 +133,6 @@ public class FragmentIdentity extends FragmentBase {
         // Get arguments
         Bundle args = getArguments();
         id = args.getLong("id", -1);
-        account = args.getLong("account", -1);
     }
 
     @Override
@@ -214,11 +212,9 @@ public class FragmentIdentity extends FragmentBase {
                 auth_type = account.auth_type;
 
                 // Select associated provider
-                if (position == 0) {
+                if (position == 0)
                     spProvider.setSelection(0);
-                    etHost.setText(account.host.replace("imap", "smtp"));
-                    etPort.setText(null);
-                } else {
+                else {
                     boolean found = false;
                     for (int pos = 1; pos < spProvider.getAdapter().getCount(); pos++) {
                         EmailProvider provider = (EmailProvider) spProvider.getItemAtPosition(pos);
@@ -896,7 +892,7 @@ public class FragmentIdentity extends FragmentBase {
                             spAccount.setSelection(0);
                             for (int pos = 0; pos < accounts.size(); pos++) {
                                 EntityAccount account = accounts.get(pos);
-                                if (account.id.equals(identity == null ? FragmentIdentity.this.account : identity.account)) {
+                                if (account.id.equals((identity == null ? -1 : identity.account))) {
                                     spAccount.setTag(pos);
                                     spAccount.setSelection(pos);
                                     // OAuth token could be updated
