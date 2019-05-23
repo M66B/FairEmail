@@ -240,9 +240,8 @@ public class EntityOperation {
         DB db = DB.getInstance(context);
 
         EntityFolder folder = db.folder().getFolder(fid);
-        EntityAccount account = null;
-        if (folder.account != null)
-            account = db.account().getAccount(folder.account);
+        if (folder == null)
+            return;
 
         if (db.operation().getOperationCount(fid, EntityOperation.SYNC) == 0) {
             EntityOperation operation = new EntityOperation();
@@ -260,7 +259,7 @@ public class EntityOperation {
                 db.folder().setFolderSyncState(fid, "requested");
         }
 
-        if (account == null) // Outbox
+        if (folder.account == null) // Outbox
             ServiceSend.start(context);
         else if (foreground)
             ServiceSynchronize.process(context);
