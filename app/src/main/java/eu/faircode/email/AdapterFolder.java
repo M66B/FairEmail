@@ -76,6 +76,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private int level;
     private EntityFolder parent;
     private boolean collapsable;
+    private boolean collapsable_hidden;
     private IProperties properties;
     private boolean subscriptions;
     private boolean debug;
@@ -228,12 +229,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             ivReadOnly.setVisibility(folder.read_only ? View.VISIBLE : View.GONE);
 
+            boolean folder_collapsible = (show_hidden ? collapsable : collapsable_hidden);
+
             ViewGroup.LayoutParams lp = vwLevel.getLayoutParams();
-            lp.width = (account < 0 || !collapsable ? 1 : level) * dp12;
+            lp.width = (account < 0 || !folder_collapsible ? 1 : level) * dp12;
             vwLevel.setLayoutParams(lp);
 
             ivExpander.setImageLevel(folder.collapsed ? 1 /* more */ : 0 /* less */);
-            ivExpander.setVisibility(account < 0 || !collapsable ? View.GONE : (folder.childs > 0 ? View.VISIBLE : View.INVISIBLE));
+            ivExpander.setVisibility(account < 0 || !folder_collapsible ? View.GONE : (folder.childs > 0 ? View.VISIBLE : View.INVISIBLE));
 
             ivNotify.setVisibility(folder.notify ? View.VISIBLE : View.GONE);
             ivSubscribed.setVisibility(subscriptions && folder.subscribed != null && folder.subscribed ? View.VISIBLE : View.GONE);
@@ -707,14 +710,18 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         if (parent == null) {
             this.collapsable = false;
+            this.collapsable_hidden = false;
             for (TupleFolderEx folder : folders)
                 if (folder.childs > 0) {
                     this.collapsable = true;
+                    this.collapsable_hidden = (folder.childs - folder.hidden_childs > 0);
                     break;
                 }
 
-        } else
+        } else {
             this.collapsable = true;
+            this.collapsable_hidden = true;
+        }
 
         final Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc

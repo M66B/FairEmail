@@ -40,6 +40,7 @@ public class TupleFolderEx extends EntityFolder implements Serializable {
     public int unseen;
     public int executing;
     public int childs;
+    public int hidden_childs;
 
     @Override
     public boolean equals(Object obj) {
@@ -53,7 +54,8 @@ public class TupleFolderEx extends EntityFolder implements Serializable {
                     this.content == other.content &&
                     this.unseen == other.unseen &&
                     this.executing == other.executing &&
-                    this.childs == other.childs);
+                    this.childs == other.childs &&
+                    this.hidden_childs == other.hidden_childs);
         } else
             return false;
     }
