@@ -57,8 +57,8 @@ public class TwoStateOwner implements LifecycleOwner {
         registry.addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
             public void onAny() {
-                if (BuildConfig.DEBUG)
-                    Log.i("LifeCycle " + name + " state=" + registry.getCurrentState() + " " + registry);
+                //if (BuildConfig.DEBUG)
+                //    Log.i("LifeCycle " + name + " state=" + registry.getCurrentState() + " " + registry);
             }
         });
 
