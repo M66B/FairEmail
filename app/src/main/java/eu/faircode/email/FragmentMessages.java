@@ -769,7 +769,7 @@ public class FragmentMessages extends FragmentBase {
     }
 
     private void updateSwipeRefresh() {
-        swipeRefresh.setEnabled(pull && !swiping && selectionTracker == null || !selectionTracker.hasSelection());
+        swipeRefresh.setEnabled(pull && !swiping && (selectionTracker == null || !selectionTracker.hasSelection()));
     }
 
     private void scrollToVisibleItem(LinearLayoutManager llm, boolean bottom) {
