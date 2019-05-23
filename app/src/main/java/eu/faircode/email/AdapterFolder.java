@@ -75,8 +75,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private long account;
     private int level;
     private EntityFolder parent;
-    private boolean collapsable;
-    private boolean collapsable_hidden;
+    private boolean collapsible;
+    private boolean collapsible_hidden;
     private IProperties properties;
     private boolean subscriptions;
     private boolean debug;
@@ -229,7 +229,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             ivReadOnly.setVisibility(folder.read_only ? View.VISIBLE : View.GONE);
 
-            boolean folder_collapsible = (show_hidden ? collapsable : collapsable_hidden);
+            boolean folder_collapsible = (show_hidden ? collapsible : collapsible_hidden);
 
             ViewGroup.LayoutParams lp = vwLevel.getLayoutParams();
             lp.width = (account < 0 || !folder_collapsible ? 1 : level) * dp12;
@@ -709,18 +709,18 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         this.level = level;
 
         if (parent == null) {
-            this.collapsable = false;
-            this.collapsable_hidden = false;
+            this.collapsible = false;
+            this.collapsible_hidden = false;
             for (TupleFolderEx folder : folders)
                 if (folder.childs > 0) {
-                    this.collapsable = true;
-                    this.collapsable_hidden = (folder.childs - folder.hidden_childs > 0);
+                    this.collapsible = true;
+                    this.collapsible_hidden = (folder.childs - folder.hidden_childs > 0);
                     break;
                 }
 
         } else {
-            this.collapsable = true;
-            this.collapsable_hidden = true;
+            this.collapsible = true;
+            this.collapsible_hidden = true;
         }
 
         final Collator collator = Collator.getInstance(Locale.getDefault());
