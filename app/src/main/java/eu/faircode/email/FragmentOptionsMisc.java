@@ -252,7 +252,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swBadge.setChecked(prefs.getBoolean("badge", true));
         swSubscriptions.setChecked(prefs.getBoolean("subscriptions", false));
-        swSubscribedOnly.setChecked(prefs.getBoolean("subscribed_only", false));
+        swSubscribedOnly.setChecked(prefs.getBoolean("subscribed_only", true));
         swEnglish.setChecked(prefs.getBoolean("english", false));
         swAuthentication.setChecked(prefs.getBoolean("authentication", false));
         swParanoid.setChecked(prefs.getBoolean("paranoid", true));

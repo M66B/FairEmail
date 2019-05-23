@@ -190,7 +190,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
 
         private void bindTo(final TupleFolderEx folder) {
-            view.setVisibility(folder.isHidden(context) && !show_hidden ? View.GONE : View.VISIBLE);
+            view.setVisibility(folder.hide && !show_hidden ? View.GONE : View.VISIBLE);
             view.setActivated(folder.tbc != null || folder.tbd != null);
             vwHidden.setAlpha(folder.hide ? Helper.LOW_LIGHT : 0.0f);
 

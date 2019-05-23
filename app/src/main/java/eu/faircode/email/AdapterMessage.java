@@ -3194,7 +3194,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     List<EntityFolder> targets = new ArrayList<>();
                     for (EntityFolder folder : folders)
-                        if (!folder.isHidden(context) &&
+                        if (!folder.hide &&
                                 !folder.id.equals(message.folder) &&
                                 (copy ||
                                         (!EntityFolder.ARCHIVE.equals(folder.type) &&

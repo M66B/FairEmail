@@ -243,7 +243,6 @@
     <string name="title_advanced_threading_hint">Group messages related to each other</string>
     <string name="title_advanced_name_email_hint">When disabled only names will be shown when available</string>
     <string name="title_advanced_flags_hint">Note that starred messages will always be kept locally</string>
-    <string name="title_advanced_subscriptions_hint">Folders not subscribed to will be hidden</string>
     <string name="title_advanced_preview_hint">Only available when message text was downloaded</string>
 
     <string name="title_advanced_autoexpand_hint">Automatically open message when there is just one message or just one unread message in a conversation</string>
