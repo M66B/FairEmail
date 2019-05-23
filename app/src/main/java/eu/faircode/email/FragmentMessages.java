@@ -167,6 +167,7 @@ public class FragmentMessages extends FragmentBase {
     private boolean loading = false;
     private boolean manual = false;
     private Integer lastUnseen = null;
+    private boolean swiping = false;
 
     private AdapterMessage adapter;
 
@@ -443,7 +444,7 @@ public class FragmentMessages extends FragmentBase {
                 viewType, compact, zoom, sort, filter_duplicates, iProperties);
 
         rvMessage.setAdapter(adapter);
-
+/*
         rvMessage.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView rv, int dx, int dy) {
@@ -451,7 +452,7 @@ public class FragmentMessages extends FragmentBase {
                 swipeRefresh.setEnabled(pull && pos >= 0);
             }
         });
-
+*/
         seekBar.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -635,7 +636,6 @@ public class FragmentMessages extends FragmentBase {
         addBackPressedListener(onBackPressedListener);
 
         // Initialize
-        swipeRefresh.setEnabled(pull);
         tvNoEmail.setVisibility(View.GONE);
         seekBar.setVisibility(View.GONE);
         ibDown.setVisibility(View.GONE);
@@ -749,16 +749,16 @@ public class FragmentMessages extends FragmentBase {
                     if (activity != null)
                         activity.invalidateOptionsMenu();
 
-                    if (selectionTracker != null && selectionTracker.hasSelection()) {
-                        swipeRefresh.setEnabled(false);
+                    if (selectionTracker != null && selectionTracker.hasSelection())
                         fabMore.show();
-                    } else {
+                    else
                         fabMore.hide();
-                        swipeRefresh.setEnabled(pull);
-                    }
+                    updateSwipeRefresh();
                 }
             });
         }
+
+        updateSwipeRefresh();
 
         return view;
     }
@@ -766,6 +766,10 @@ public class FragmentMessages extends FragmentBase {
     @Override
     public void onDestroy() {
         super.onDestroy();
+    }
+
+    private void updateSwipeRefresh() {
+        swipeRefresh.setEnabled(pull && !swiping && selectionTracker == null || !selectionTracker.hasSelection());
     }
 
     private void scrollToVisibleItem(LinearLayoutManager llm, boolean bottom) {
@@ -1099,7 +1103,8 @@ public class FragmentMessages extends FragmentBase {
         @Override
         public void onSelectedChanged(@Nullable RecyclerView.ViewHolder viewHolder, int actionState) {
             super.onSelectedChanged(viewHolder, actionState);
-            swipeRefresh.setEnabled(pull && actionState != ItemTouchHelper.ACTION_STATE_SWIPE);
+            swiping = (actionState == ItemTouchHelper.ACTION_STATE_SWIPE);
+            updateSwipeRefresh();
         }
 
         @Override
