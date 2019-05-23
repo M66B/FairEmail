@@ -837,15 +837,15 @@ public class FragmentRule extends FragmentBase {
                 case EntityRule.TYPE_MOVE:
                 case EntityRule.TYPE_COPY:
                     EntityFolder target = (EntityFolder) spTarget.getSelectedItem();
-                    jaction.put("target", target.id);
+                    jaction.put("target", target == null ? -1 : target.id);
                     break;
 
                 case EntityRule.TYPE_ANSWER:
                     EntityIdentity identity = (EntityIdentity) spIdent.getSelectedItem();
                     EntityAnswer answer = (EntityAnswer) spAnswer.getSelectedItem();
                     boolean cc = cbCc.isChecked();
-                    jaction.put("identity", identity.id);
-                    jaction.put("answer", answer.id);
+                    jaction.put("identity", identity == null ? -1 : identity.id);
+                    jaction.put("answer", answer == null ? -1 : answer.id);
                     jaction.put("cc", cc);
                     break;
             }

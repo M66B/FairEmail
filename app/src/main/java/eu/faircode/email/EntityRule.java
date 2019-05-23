@@ -236,11 +236,23 @@ public class EntityRule {
 
     private void onActionMove(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
         long target = jargs.getLong("target");
+
+        DB db = DB.getInstance(context);
+        EntityFolder folder = db.folder().getFolder(target);
+        if (folder == null)
+            throw new IllegalArgumentException("Rule move to folder not found");
+
         EntityOperation.queue(context, message, EntityOperation.MOVE, target, false);
     }
 
     private void onActionCopy(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
         long target = jargs.getLong("target");
+
+        DB db = DB.getInstance(context);
+        EntityFolder folder = db.folder().getFolder(target);
+        if (folder == null)
+            throw new IllegalArgumentException("Rule copy to folder not found");
+
         EntityOperation.queue(context, message, EntityOperation.COPY, target, false);
     }
 
