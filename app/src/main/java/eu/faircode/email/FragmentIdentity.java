@@ -214,9 +214,11 @@ public class FragmentIdentity extends FragmentBase {
                 auth_type = account.auth_type;
 
                 // Select associated provider
-                if (position == 0)
+                if (position == 0) {
                     spProvider.setSelection(0);
-                else {
+                    etHost.setText(account.host.replace("imap", "smtp"));
+                    etPort.setText(null);
+                } else {
                     boolean found = false;
                     for (int pos = 1; pos < spProvider.getAdapter().getCount(); pos++) {
                         EmailProvider provider = (EmailProvider) spProvider.getItemAtPosition(pos);
