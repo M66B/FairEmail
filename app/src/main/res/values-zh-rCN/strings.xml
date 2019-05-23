@@ -178,6 +178,7 @@
     <string name="title_advanced_sound">选择通知提示音</string>
     <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
     <string name="title_advanced_subscriptions">管理文件夹订阅</string>
+    <string name="title_advanced_sync_subscribed">只同步订阅的文件夹</string>
     <string name="title_advanced_english">强制使用英语</string>
     <string name="title_advanced_authentication">当接收服务器无法验证消息时显示警告</string>
     <string name="title_advanced_paranoid">额外隐私功能</string>
@@ -344,11 +345,14 @@
     <string name="title_show_formatted">显示格式化消息</string>
     <string name="title_trash">回收站</string>
     <string name="title_copy">复制 &#8230;</string>
+    <string name="title_copy_to">复制到 &#8230;</string>
     <string name="title_subscribe">订阅</string>
     <string name="title_delete">删除</string>
     <string name="title_more">更多</string>
     <string name="title_spam">垃圾邮件</string>
     <string name="title_move">移动</string>
+    <string name="title_move_to_folder">移动到 &#8230;</string>
+    <string name="title_move_to_account">移动到 %1$s &#8230;</string>
     <string name="title_snooze">打盹 &#8230;</string>
     <string name="title_archive">存档</string>
     <string name="title_reply">回复</string>
@@ -515,6 +519,7 @@
     <string name="title_legend_unified">统一收件箱/主账户</string>
     <string name="title_legend_inbox">收件箱</string>
     <string name="title_legend_drafts">草稿</string>
+    <string name="title_legend_sent">已发送</string>
     <string name="title_legend_archive">存档</string>
     <string name="title_legend_trash">垃圾箱</string>
     <string name="title_legend_junk">垃圾邮件</string>
@@ -571,6 +576,7 @@
     <string name="title_legend_save">保存</string>
     <string name="title_legend_delete">删除</string>
     <string name="title_legend_count">总数</string>
+    <string name="title_legend_folder_tye">文件夹类型</string>
     <string name="title_hint_folder_actions">长按以显示更多选项</string>
     <string name="title_hint_folder_sync">为了减少电池和网络的使用量, 默认情况下, 并非所有文件夹和邮件都将同步</string>
     <string name="title_hint_support">如果您要提问或有问题，请使用支持选项获取帮助</string>

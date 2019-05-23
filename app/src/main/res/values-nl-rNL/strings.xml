@@ -186,6 +186,7 @@
     <string name="title_advanced_sound">Selecteer meldingsgeluid</string>
     <string name="title_advanced_badge">Toon opstartpictogram met aantal nieuwe berichten</string>
     <string name="title_advanced_subscriptions">Beheer map abonnementen</string>
+    <string name="title_advanced_sync_subscribed">Alleen geabonneerde mappen synchroniseren</string>
     <string name="title_advanced_english">Forceer Engelse taal</string>
     <string name="title_advanced_authentication">Toon een waarschuwing wanneer de ontvangende server het bericht niet kon verifiëren</string>
     <string name="title_advanced_paranoid">Extra privacy functies</string>
@@ -352,7 +353,7 @@
     <string name="title_show_formatted">Toon opgemaakt</string>
     <string name="title_trash">Weggooien</string>
     <string name="title_copy">Kopieer &#8230;</string>
-    <string name="title_copy_to_folder">Kopieer naar &#8230;</string>
+    <string name="title_copy_to">Kopieer naar &#8230;</string>
     <string name="title_subscribe">Abonneren</string>
     <string name="title_delete">Verwijder</string>
     <string name="title_more">Meer</string>

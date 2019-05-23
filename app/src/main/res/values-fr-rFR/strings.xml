@@ -186,6 +186,7 @@
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
     <string name="title_advanced_badge">Afficher l\'icône de lancement avec le nombre de nouveaux messages</string>
     <string name="title_advanced_subscriptions">Gérer les abonnements de dossier</string>
+    <string name="title_advanced_sync_subscribed">Synchroniser les dossiers abonnés uniquement</string>
     <string name="title_advanced_english">Forcer la langue anglaise</string>
     <string name="title_advanced_authentication">Afficher un avertissement lorsque le serveur de réception n\'a pas pu authentifier le message</string>
     <string name="title_advanced_paranoid">Fonctions de confidentialité supplémentaires</string>
@@ -352,11 +353,14 @@
     <string name="title_show_formatted">Afficher avec la mise en forme</string>
     <string name="title_trash">Supprimer</string>
     <string name="title_copy">Copie de &#8230;</string>
+    <string name="title_copy_to">Copier vers &#8230;</string>
     <string name="title_subscribe">S\'abonner</string>
     <string name="title_delete">Supprimer</string>
     <string name="title_more">Plus</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Déplacer</string>
+    <string name="title_move_to_folder">Déplacer vers &#8230;</string>
+    <string name="title_move_to_account">Déplacer vers %1$s &#8230;</string>
     <string name="title_snooze">Différer &#8230;</string>
     <string name="title_archive">Archiver</string>
     <string name="title_reply">Répondre</string>

@@ -357,6 +357,8 @@
     <string name="title_more">Más</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Mover</string>
+    <string name="title_move_to_folder">Mover a &#8230;</string>
+    <string name="title_move_to_account">Mover a %1$s &#8230;</string>
     <string name="title_snooze">Posponer &#8230;</string>
     <string name="title_archive">Archivar</string>
     <string name="title_reply">Responder</string>
@@ -523,6 +525,7 @@
     <string name="title_legend_unified">Bandeja de entrada unificada / Cuenta principal</string>
     <string name="title_legend_inbox">Bandeja de entrada</string>
     <string name="title_legend_drafts">Borradores</string>
+    <string name="title_legend_sent">Enviado</string>
     <string name="title_legend_archive">Archivo</string>
     <string name="title_legend_trash">Papelera</string>
     <string name="title_legend_junk">Spam</string>
@@ -579,6 +582,7 @@
     <string name="title_legend_save">Guardar</string>
     <string name="title_legend_delete">Eliminar</string>
     <string name="title_legend_count">Cuenta</string>
+    <string name="title_legend_folder_tye">Tipo de carpetas</string>
     <string name="title_hint_folder_actions">Mantenga pulsado para opciones</string>
     <string name="title_hint_folder_sync">Para limitar el uso de batería y redes, no todas las carpetas y mensajes serán sincronizados por defecto</string>
     <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de soporte para obtener ayuda</string>

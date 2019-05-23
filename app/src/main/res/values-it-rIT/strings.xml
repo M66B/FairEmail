@@ -186,6 +186,7 @@
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
     <string name="title_advanced_badge">Mostra icona launcher con numero di nuovi messaggi</string>
     <string name="title_advanced_subscriptions">Gestisci abbonamenti cartelle</string>
+    <string name="title_advanced_sync_subscribed">Sincronizza solo le cartelle sottoscritte</string>
     <string name="title_advanced_english">Forza la lingua inglese</string>
     <string name="title_advanced_authentication">Mostra un avviso quando il server ricevente non può autenticare il messaggio</string>
     <string name="title_advanced_paranoid">Caratteristiche aggiuntive della privacy</string>
@@ -352,6 +353,7 @@
     <string name="title_show_formatted">Mostra formattato</string>
     <string name="title_trash">Cestino</string>
     <string name="title_copy">Copia &#8230;</string>
+    <string name="title_copy_to">Copia in &#8230;</string>
     <string name="title_subscribe">Iscriviti</string>
     <string name="title_delete">Elimina</string>
     <string name="title_more">Altro</string>

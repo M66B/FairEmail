@@ -357,6 +357,8 @@
     <string name="title_more">Mer</string>
     <string name="title_spam">Søppelpost</string>
     <string name="title_move">Flytt</string>
+    <string name="title_move_to_folder">Flytt til &#8230;</string>
+    <string name="title_move_to_account">Flytt til %1$s &#8230;</string>
     <string name="title_snooze">Utsett &#8230;</string>
     <string name="title_archive">Arkiver</string>
     <string name="title_reply">Svar</string>

@@ -202,6 +202,7 @@
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
     <string name="title_advanced_badge">Показать значок запуска с числом новых сообщений</string>
     <string name="title_advanced_subscriptions">Управление подпиской на папки</string>
+    <string name="title_advanced_sync_subscribed">Синхронизировать только папки с подпиской</string>
     <string name="title_advanced_english">Принудительно использовать английский язык</string>
     <string name="title_advanced_authentication">Показывать предупреждение, когда сервер не может аутентифицировать сообщение</string>
     <string name="title_advanced_paranoid">Дополнительные возможности конфиденциальности</string>
@@ -368,11 +369,14 @@
     <string name="title_show_formatted">Показать форматированный</string>
     <string name="title_trash">Корзина</string>
     <string name="title_copy">Копировать &#8230;</string>
+    <string name="title_copy_to">Копировать в &#8230;</string>
     <string name="title_subscribe">Подписаться</string>
     <string name="title_delete">Удалить</string>
     <string name="title_more">Еще</string>
     <string name="title_spam">Спам</string>
     <string name="title_move">Переместить</string>
+    <string name="title_move_to_folder">Переместить в &#8230;</string>
+    <string name="title_move_to_account">Переместить в %1$s &#8230;</string>
     <string name="title_snooze">Отложить &#8230;</string>
     <string name="title_archive">Архив</string>
     <string name="title_reply">Ответить</string>
@@ -421,7 +425,7 @@
     <string name="title_size">Размер:</string>
     <string name="title_subject">Тема:</string>
     <string name="title_body_hint">Ваше сообщение</string>
-    <string name="title_discard">Отменить</string>
+    <string name="title_discard">Отклонить</string>
     <string name="title_save">Сохранить</string>
     <string name="title_send">Отправить</string>
     <string name="title_send_at">Отправить в &#8230;</string>
@@ -545,7 +549,7 @@
     <string name="title_legend_junk">Спам</string>
     <string name="title_legend_primary">Основной</string>
     <string name="title_legend_notify">Уведомлять о новых сообщениях</string>
-    <string name="title_legend_subscribed">Подписка на</string>
+    <string name="title_legend_subscribed">Подписан на</string>
     <string name="title_legend_sync_keep">Количество дней для синхронизации / хранения сообщений</string>
     <string name="title_legend_download_fetch">Количество загруженных сообщений / полученных заголовков / на сервере</string>
     <string name="title_legend_stop">Остановить обработку правил</string>
