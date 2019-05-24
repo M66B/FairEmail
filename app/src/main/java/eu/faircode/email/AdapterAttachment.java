@@ -67,10 +67,10 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         private View view;
         private ImageButton ibDelete;
         private TextView tvName;
-        private TextView tvType;
         private TextView tvSize;
         private ImageView ivStatus;
         private ImageButton ibSave;
+        private TextView tvType;
         private TextView tvDebug;
         private ProgressBar progressbar;
 
@@ -80,10 +80,10 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             view = itemView.findViewById(R.id.clItem);
             ibDelete = itemView.findViewById(R.id.ibDelete);
             tvName = itemView.findViewById(R.id.tvName);
-            tvType = itemView.findViewById(R.id.tvType);
             tvSize = itemView.findViewById(R.id.tvSize);
             ivStatus = itemView.findViewById(R.id.ivStatus);
             ibSave = itemView.findViewById(R.id.ibSave);
+            tvType = itemView.findViewById(R.id.tvType);
             tvDebug = itemView.findViewById(R.id.tvDebug);
             progressbar = itemView.findViewById(R.id.progressbar);
         }
@@ -105,8 +105,6 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
             ibDelete.setVisibility(readonly ? View.GONE : attachment.isInline() ? View.INVISIBLE : View.VISIBLE);
             tvName.setText(attachment.name);
-            tvType.setText(attachment.type);
-            tvType.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
             if (attachment.size != null)
                 tvSize.setText(Helper.humanReadableByteCount(attachment.size, true));
@@ -130,14 +128,11 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             progressbar.setVisibility(
                     attachment.progress == null || attachment.available ? View.GONE : View.VISIBLE);
 
-            if (debug)
-                tvDebug.setText(attachment.error +
-                        "\n" + attachment.type +
-                        " " + attachment.disposition +
-                        " " + attachment.cid + " " + attachment.encryption);
-            else if (attachment.error != null)
-                tvDebug.setText(attachment.error);
-            tvDebug.setVisibility(debug || attachment.error != null ? View.VISIBLE : View.GONE);
+            tvType.setText(attachment.type + " " + attachment.disposition + " " + attachment.cid + "/" + attachment.encryption);
+            tvType.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+
+            tvDebug.setText(attachment.error);
+            tvDebug.setVisibility(attachment.error == null ? View.GONE : View.VISIBLE);
         }
 
         @Override
