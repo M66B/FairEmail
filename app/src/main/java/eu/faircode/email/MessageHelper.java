@@ -1064,6 +1064,14 @@ public class MessageHelper {
                     if (apart.attachment.size < 0)
                         apart.attachment.size = null;
 
+                    // https://tools.ietf.org/html/rfc2392
+                    if (apart.attachment.cid != null) {
+                        if (!apart.attachment.cid.startsWith("<"))
+                            apart.attachment.cid = "<" + apart.attachment.cid;
+                        if (!apart.attachment.cid.endsWith(">"))
+                            apart.attachment.cid += ">";
+                    }
+
                     parts.attachments.add(apart);
                 }
             }
