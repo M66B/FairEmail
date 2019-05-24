@@ -314,10 +314,12 @@ public class HtmlHelper {
             String cid = "<" + source.substring(4) + ">";
             EntityAttachment attachment = db.attachment().getAttachment(id, cid);
             if (attachment == null) {
+                Log.i("Image not found CID=" + cid);
                 Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
                 d.setBounds(0, 0, px, px);
                 return d;
             } else if (!attachment.available) {
+                Log.i("Image not available CID=" + cid);
                 Drawable d = res.getDrawable(R.drawable.baseline_photo_library_24, theme);
                 d.setBounds(0, 0, px, px);
                 return d;
@@ -325,6 +327,7 @@ public class HtmlHelper {
                 Bitmap bm = Helper.decodeImage(attachment.getFile(view.getContext()),
                         res.getDisplayMetrics().widthPixels * 2);
                 if (bm == null) {
+                    Log.i("Image not decodable CID=" + cid);
                     Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
                     d.setBounds(0, 0, px, px);
                     return d;
