@@ -1206,6 +1206,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionCalendar(TupleMessageEx message, int action) {
+            if (!Helper.isPro(context)) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                return;
+            }
+
             Bundle args = new Bundle();
             args.putLong("id", message.id);
             args.putInt("action", action);
