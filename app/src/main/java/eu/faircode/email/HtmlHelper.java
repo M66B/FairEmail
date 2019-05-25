@@ -325,7 +325,7 @@ public class HtmlHelper {
                 return d;
             } else {
                 Bitmap bm = Helper.decodeImage(attachment.getFile(view.getContext()),
-                        res.getDisplayMetrics().widthPixels * 2);
+                        res.getDisplayMetrics().widthPixels);
                 if (bm == null) {
                     Log.i("Image not decodable CID=" + cid);
                     Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
@@ -400,7 +400,7 @@ public class HtmlHelper {
                     Log.i("Download " + source);
                     Bitmap bm;
                     try (InputStream is = new URL(source).openStream()) {
-                        int scaleTo = res.getDisplayMetrics().widthPixels * 2;
+                        int scaleTo = res.getDisplayMetrics().widthPixels;
                         int factor = 1;
                         while (options.outWidth / factor > scaleTo)
                             factor *= 2;
