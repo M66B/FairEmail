@@ -986,6 +986,8 @@ public class MessageHelper {
                 String disposition;
                 try {
                     disposition = part.getDisposition();
+                    if (disposition != null)
+                        disposition = disposition.toLowerCase();
                 } catch (MessagingException ex) {
                     Log.w(ex);
                     parts.warnings.add(Helper.formatThrowable(ex));
@@ -1061,7 +1063,7 @@ public class MessageHelper {
                         }
                     }
 
-                    if (apart.attachment.size < 0)
+                    if (apart.attachment.size <= 0)
                         apart.attachment.size = null;
 
                     // https://tools.ietf.org/html/rfc2392
