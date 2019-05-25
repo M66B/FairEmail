@@ -1389,18 +1389,14 @@ public class FragmentMessages extends FragmentBase {
                 result.accounts = db.account().getSynchronizingAccounts();
 
                 for (EntityAccount account : result.accounts) {
-                    List<EntityFolder> targets = new ArrayList<>();
-                    List<EntityFolder> folders = db.folder().getFolders(account.id);
-                    for (EntityFolder target : folders)
-                        if (!target.hide &&
+                    List<TupleFolderEx> targets = new ArrayList<>();
+                    List<TupleFolderEx> folders = db.folder().getFoldersEx(account.id);
+                    for (TupleFolderEx target : folders)
+                        if ((fids.size() != 1 || !fids.contains(target.id)) &&
                                 !EntityFolder.ARCHIVE.equals(target.type) &&
                                 !EntityFolder.TRASH.equals(target.type) &&
-                                !EntityFolder.JUNK.equals(target.type) &&
-                                (fids.size() != 1 || !fids.contains(target.id)))
+                                !EntityFolder.JUNK.equals(target.type))
                             targets.add(target);
-
-                    if (targets.size() > 0)
-                        Collections.sort(targets, targets.get(0).getComparator(context));
 
                     result.targets.put(account.id, targets);
                 }
@@ -1482,7 +1478,7 @@ public class FragmentMessages extends FragmentBase {
                                 return true;
                             case R.string.title_move_to_account:
                                 long account = target.getIntent().getLongExtra("account", -1);
-                                onActionMoveSelectionAccount(result.targets.get(account));
+                                onActionMoveSelectionAccount(account, result.targets.get(account));
                                 return true;
                             default:
                                 return false;
@@ -1833,7 +1829,7 @@ public class FragmentMessages extends FragmentBase {
         }.execute(FragmentMessages.this, args, "messages:move");
     }
 
-    private void onActionMoveSelectionAccount(List<EntityFolder> folders) {
+    private void onActionMoveSelectionAccount(long account, List<TupleFolderEx> folders) {
         final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_folder_select, null);
         final RecyclerView rvFolder = dview.findViewById(R.id.rvFolder);
         final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
@@ -1847,10 +1843,10 @@ public class FragmentMessages extends FragmentBase {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvFolder.setLayoutManager(llm);
 
-        final AdapterFolderSelect adapter = new AdapterFolderSelect(getContext(), getViewLifecycleOwner(),
-                new AdapterFolderSelect.IFolderSelectedListener() {
+        final AdapterFolder adapter = new AdapterFolder(getContext(), getViewLifecycleOwner(), account, false,
+                new AdapterFolder.IFolderSelectedListener() {
                     @Override
-                    public void onFolderSelected(EntityFolder folder) {
+                    public void onFolderSelected(TupleFolderEx folder) {
                         dialog.dismiss();
                         onActionMoveSelection(folder.id);
                     }
@@ -3308,7 +3304,7 @@ public class FragmentMessages extends FragmentBase {
         Boolean isJunk;
         Boolean isDrafts;
         List<EntityAccount> accounts;
-        Map<Long, List<EntityFolder>> targets = new HashMap<>();
+        Map<Long, List<TupleFolderEx>> targets = new HashMap<>();
     }
 
     private static class MessageTarget implements Parcelable {

@@ -31,6 +31,19 @@ public interface DaoFolder {
     @Query("SELECT * FROM folder WHERE account = :account")
     List<EntityFolder> getFolders(long account);
 
+    @Query("SELECT folder.*" +
+            ", account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
+            ", COUNT(message.id) AS messages" +
+            ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
+            ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
+            ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id AND operation.state = 'executing') AS executing" +
+            " FROM folder" +
+            " LEFT JOIN account ON account.id = folder.account" +
+            " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
+            " WHERE folder.account = :account AND account.synchronize" +
+            " GROUP BY folder.id")
+    List<TupleFolderEx> getFoldersEx(long account);
+
     @Query("SELECT folder.* FROM folder" +
             " JOIN account ON account.id = folder.account" +
             " WHERE account.synchronize" +

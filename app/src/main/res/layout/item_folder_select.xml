@@ -11,6 +11,26 @@
         android:background="?attr/activatableItemBackground"
         android:padding="6dp">
 
+        <View
+            android:id="@+id/vwLevel"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivExpander"
+            android:layout_width="36dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:contentDescription="@string/title_legend_expander"
+            android:padding="6dp"
+            android:src="@drawable/expander"
+            app:layout_constraintBottom_toBottomOf="@+id/tvName"
+            app:layout_constraintStart_toEndOf="@+id/vwLevel"
+            app:layout_constraintTop_toTopOf="@+id/tvName" />
+
         <ImageView
             android:id="@+id/ivType"
             android:layout_width="24dp"
@@ -18,7 +38,7 @@
             android:contentDescription="@string/title_legend_folder_tye"
             android:src="@drawable/baseline_inbox_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvName"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivExpander"
             app:layout_constraintTop_toTopOf="@+id/tvName" />
 
         <TextView

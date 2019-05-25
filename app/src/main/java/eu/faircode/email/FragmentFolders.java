@@ -144,7 +144,7 @@ public class FragmentFolders extends FragmentBase {
         itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
         rvFolder.addItemDecoration(itemDecorator);
 
-        adapter = new AdapterFolder(getContext(), getViewLifecycleOwner(), account, show_hidden);
+        adapter = new AdapterFolder(getContext(), getViewLifecycleOwner(), account, show_hidden, null);
         rvFolder.setAdapter(adapter);
 
         fab.setOnClickListener(new View.OnClickListener() {
