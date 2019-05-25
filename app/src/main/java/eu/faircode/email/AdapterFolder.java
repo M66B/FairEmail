@@ -390,31 +390,39 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_now, 1, R.string.title_synchronize_now);
 
-            if (folder.account != null)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, 2, R.string.title_synchronize_enabled)
+            if (folder.account != null) {
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_unified_folder, 2, R.string.title_unified_folder)
+                        .setCheckable(true).setChecked(folder.unified);
+
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_navigation_folder, 3, R.string.title_navigation_folder)
+                        .setCheckable(true).setChecked(folder.navigation);
+
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_notify_folder, 4, R.string.title_notify_folder)
+                        .setCheckable(true).setChecked(folder.notify);
+
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, 5, R.string.title_synchronize_enabled)
                         .setCheckable(true).setChecked(folder.synchronize);
 
-            if (folder.account != null) { // outbox
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_local, 3, R.string.title_delete_local);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_browsed, 4, R.string.title_delete_browsed);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_local, 6, R.string.title_delete_local);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_browsed, 7, R.string.title_delete_browsed);
             }
 
             if (EntityFolder.TRASH.equals(folder.type))
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_trash, 5, R.string.title_empty_trash);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_trash, 8, R.string.title_empty_trash);
 
             if (folder.account != null) {
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, 6, R.string.title_edit_rules);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, 7, R.string.title_edit_properties);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, 9, R.string.title_edit_rules);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, 10, R.string.title_edit_properties);
 
                 if (folder.notify && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     String channelId = EntityFolder.getNotificationChannelId(folder.id);
                     NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                     NotificationChannel channel = nm.getNotificationChannel(channelId);
                     if (channel == null)
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_create_channel, 8, R.string.title_create_channel);
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_create_channel, 11, R.string.title_create_channel);
                     else {
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 9, R.string.title_edit_channel);
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_channel, 10, R.string.title_delete_channel);
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 12, R.string.title_edit_channel);
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_channel, 13, R.string.title_delete_channel);
                     }
                 }
             }
@@ -427,8 +435,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             onActionSynchronizeNow();
                             return true;
 
+                        case R.string.title_unified_folder:
+                        case R.string.title_navigation_folder:
+                        case R.string.title_notify_folder:
                         case R.string.title_synchronize_enabled:
-                            onActionSync(!item.isChecked());
+                            onActionProperty(item.getItemId(), !item.isChecked());
                             return true;
 
                         case R.string.title_delete_local:
@@ -520,26 +531,42 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     }.execute(context, owner, args, "folder:sync");
                 }
 
-                private void onActionSync(boolean sync) {
+                private void onActionProperty(int property, boolean enabled) {
                     Bundle args = new Bundle();
                     args.putLong("id", folder.id);
-                    args.putBoolean("sync", sync);
+                    args.putInt("property", property);
+                    args.putBoolean("enabled", enabled);
 
                     new SimpleTask<Boolean>() {
                         @Override
                         protected Boolean onExecute(Context context, Bundle args) {
                             long id = args.getLong("id");
-                            boolean sync = args.getBoolean("sync");
+                            int property = args.getInt("property");
+                            boolean enabled = args.getBoolean("enabled");
 
                             DB db = DB.getInstance(context);
-                            db.folder().setFolderSynchronize(id, sync);
-
-                            return sync;
+                            switch (property) {
+                                case R.string.title_unified_folder:
+                                    db.folder().setFolderUnified(id, enabled);
+                                    return false;
+                                case R.string.title_navigation_folder:
+                                    db.folder().setFolderNavigation(id, enabled);
+                                    return false;
+                                case R.string.title_notify_folder:
+                                    db.folder().setFolderNotify(id, enabled);
+                                    return false;
+                                case R.string.title_synchronize_enabled:
+                                    db.folder().setFolderSynchronize(id, enabled);
+                                    return true;
+                                default:
+                                    return false;
+                            }
                         }
 
                         @Override
-                        protected void onExecuted(Bundle args, Boolean sync) {
-                            ServiceSynchronize.reload(context, "folder set sync=" + sync);
+                        protected void onExecuted(Bundle args, Boolean reload) {
+                            if (reload)
+                                ServiceSynchronize.reload(context, "folder property changed");
                         }
 
                         @Override

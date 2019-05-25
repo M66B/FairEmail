@@ -161,6 +161,15 @@ public interface DaoFolder {
     @Insert
     long insertFolder(EntityFolder folder);
 
+    @Query("UPDATE folder SET unified = :unified WHERE id = :id")
+    int setFolderUnified(long id, boolean unified);
+
+    @Query("UPDATE folder SET navigation = :navigation WHERE id = :id")
+    int setFolderNavigation(long id, boolean navigation);
+
+    @Query("UPDATE folder SET notify = :notify WHERE id = :id")
+    int setFolderNotify(long id, boolean notify);
+
     @Query("UPDATE folder SET synchronize = :synchronize WHERE id = :id")
     int setFolderSynchronize(long id, boolean synchronize);
 
