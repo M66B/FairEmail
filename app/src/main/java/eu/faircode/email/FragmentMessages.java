@@ -239,7 +239,7 @@ public class FragmentMessages extends FragmentBase {
             pull = false;
 
         swipenav = prefs.getBoolean("swipenav", true);
-        autoscroll = prefs.getBoolean("autoscroll", false);
+        autoscroll = (prefs.getBoolean("autoscroll", false) || viewType == AdapterMessage.ViewType.THREAD);
         date = prefs.getBoolean("date", true);
         threading = prefs.getBoolean("threading", true);
         actionbar = prefs.getBoolean("actionbar", true);
