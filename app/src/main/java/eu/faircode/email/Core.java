@@ -772,22 +772,6 @@ class Core {
 
         Log.i("Start sync folders account=" + account.name);
 
-        // Get default folder
-        Folder defaultFolder = istore.getDefaultFolder();
-        char separator = defaultFolder.getSeparator();
-        EntityLog.log(context, account.name + " folder separator=" + separator);
-
-        // Get remote folders
-        Folder[] ifolders = (subscribed_only
-                ? defaultFolder.listSubscribed("*")
-                : defaultFolder.list("*"));
-        if (subscribed_only && ifolders.length == 0) {
-            Log.i("No subscribed folders");
-            ifolders = defaultFolder.list("*");
-        }
-
-        Log.i("Remote folder count=" + ifolders.length + " separator=" + separator);
-
         // Get folder names
         List<String> names = new ArrayList<>();
         for (EntityFolder folder : db.folder().getFolders(account.id))
@@ -807,6 +791,22 @@ class Core {
             } else
                 names.add(folder.name);
         Log.i("Local folder count=" + names.size());
+
+        // Get default folder
+        Folder defaultFolder = istore.getDefaultFolder();
+        char separator = defaultFolder.getSeparator();
+        EntityLog.log(context, account.name + " folder separator=" + separator);
+
+        // Get remote folders
+        Folder[] ifolders = (subscribed_only
+                ? defaultFolder.listSubscribed("*")
+                : defaultFolder.list("*"));
+        if (subscribed_only && ifolders.length == 0) {
+            Log.i("No subscribed folders");
+            ifolders = defaultFolder.list("*");
+        }
+
+        Log.i("Remote folder count=" + ifolders.length + " separator=" + separator);
 
         Map<String, EntityFolder> nameFolder = new HashMap<>();
         Map<String, List<EntityFolder>> parentFolders = new HashMap<>();
