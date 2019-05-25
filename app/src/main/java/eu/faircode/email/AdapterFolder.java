@@ -27,11 +27,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Rect;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -48,12 +45,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -63,8 +57,10 @@ import java.text.Collator;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder> {
     private Context context;
@@ -73,11 +69,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private boolean show_hidden;
 
     private long account;
-    private int level;
-    private EntityFolder parent;
-    private boolean collapsible;
-    private boolean collapsible_hidden;
-    private IProperties properties;
+
     private boolean subscriptions;
     private boolean debug;
     private int dp12;
@@ -108,13 +100,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private ImageView ivSync;
         private TextView tvKeywords;
         private TextView tvError;
-        private View vwHidden;
-        private View vwRipple;
-        private RecyclerView rvChilds;
 
-        private AdapterFolder childs;
-
-        private TwoStateOwner cowner = new TwoStateOwner(owner, "FolderChilds");
         private TwoStateOwner powner = new TwoStateOwner(owner, "FolderPopup");
 
         ViewHolder(View itemView) {
@@ -138,43 +124,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ivSync = itemView.findViewById(R.id.ivSync);
             tvKeywords = itemView.findViewById(R.id.tvKeywords);
             tvError = itemView.findViewById(R.id.tvError);
-            vwHidden = itemView.findViewById(R.id.vwHidden);
-            vwRipple = itemView.findViewById(R.id.vwRipple);
-
-            rvChilds = itemView.findViewById(R.id.rvChilds);
-            LinearLayoutManager llm = new LinearLayoutManager(context);
-            rvChilds.setLayoutManager(llm);
-            rvChilds.setNestedScrollingEnabled(false);
-
-            DividerItemDecoration itemDecorator = new DividerItemDecoration(context, llm.getOrientation()) {
-                Drawable d = context.getDrawable(R.drawable.divider);
-
-                @Override
-                public void onDraw(Canvas canvas, RecyclerView parent, RecyclerView.State state) {
-                    for (int i = 0; i < parent.getChildCount(); i++) {
-                        d.setBounds(0, 0, parent.getWidth(), d.getIntrinsicHeight());
-                        canvas.save();
-                        canvas.translate(0, parent.getChildAt(i).getTop() - d.getIntrinsicHeight());
-                        d.draw(canvas);
-                        canvas.restore();
-                    }
-                }
-
-                @Override
-                public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                    if (view.findViewById(R.id.clItem).getVisibility() == View.GONE)
-                        outRect.setEmpty();
-                    else {
-                        super.getItemOffsets(outRect, view, parent, state);
-                        outRect.set(0, outRect.bottom, 0, 0);
-                    }
-                }
-            };
-            itemDecorator.setDrawable(context.getDrawable(R.drawable.divider));
-            rvChilds.addItemDecoration(itemDecorator);
-
-            childs = new AdapterFolder(context, owner, show_hidden, properties);
-            rvChilds.setAdapter(childs);
         }
 
         private void wire() {
@@ -190,9 +139,28 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
 
         private void bindTo(final TupleFolderEx folder) {
-            view.setVisibility(folder.hide && !show_hidden ? View.GONE : View.VISIBLE);
+            boolean hidden = (folder.hide && !show_hidden);
+
+            int level = 1;
+            TupleFolderEx parent = folder.parent_ref;
+            while (parent != null) {
+                level++;
+                if (parent.collapsed || (parent.hide && !show_hidden))
+                    hidden = true;
+                parent = parent.parent_ref;
+            }
+
+            boolean childs_visible = false;
+            if (folder.child_refs != null)
+                for (TupleFolderEx child : folder.child_refs)
+                    if (!child.hide || show_hidden) {
+                        childs_visible = true;
+                        break;
+                    }
+
+            view.setVisibility(hidden ? View.GONE : View.VISIBLE);
             view.setActivated(folder.tbc != null || folder.tbd != null);
-            vwHidden.setAlpha(folder.hide ? Helper.LOW_LIGHT : 0.0f);
+            view.setAlpha(folder.hide ? Helper.LOW_LIGHT : 1.0f);
 
             if (textSize != 0)
                 tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
@@ -229,14 +197,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             ivReadOnly.setVisibility(folder.read_only ? View.VISIBLE : View.GONE);
 
-            boolean folder_collapsible = (show_hidden ? collapsible : collapsible_hidden);
-
             ViewGroup.LayoutParams lp = vwLevel.getLayoutParams();
-            lp.width = (account < 0 || !folder_collapsible ? 1 : level) * dp12;
+            lp.width = (account < 0 ? 1 : level) * dp12;
             vwLevel.setLayoutParams(lp);
 
             ivExpander.setImageLevel(folder.collapsed ? 1 /* more */ : 0 /* less */);
-            ivExpander.setVisibility(account < 0 || !folder_collapsible ? View.GONE : (folder.childs > 0 ? View.VISIBLE : View.INVISIBLE));
+            ivExpander.setVisibility(account < 0
+                    ? View.GONE
+                    : childs_visible ? View.VISIBLE : View.INVISIBLE);
 
             ivNotify.setVisibility(folder.notify ? View.VISIBLE : View.GONE);
             ivSubscribed.setVisibility(subscriptions && folder.subscribed != null && folder.subscribed ? View.VISIBLE : View.GONE);
@@ -305,27 +273,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             tvError.setText(folder.error);
             tvError.setVisibility(folder.error != null ? View.VISIBLE : View.GONE);
-
-            childs.setShowHidden(show_hidden);
-            cowner.recreate();
-            if (account > 0 && folder.childs > 0 && !folder.collapsed) {
-                DB db = DB.getInstance(context);
-                cowner.start();
-                rvChilds.setVisibility(View.VISIBLE);
-                childs.set(folder.account, folder, level + 1, properties.getChilds(folder.id));
-                db.folder().liveFolders(folder.account, folder.id).observe(cowner, new Observer<List<TupleFolderEx>>() {
-                    @Override
-                    public void onChanged(List<TupleFolderEx> folders) {
-                        if (folders == null)
-                            folders = new ArrayList<>();
-                        properties.setChilds(folder.id, folders);
-                        childs.set(account, folder, level + 1, folders);
-                    }
-                });
-            } else {
-                rvChilds.setVisibility(View.GONE);
-                childs.set(folder.account, folder, level + 1, new ArrayList<TupleFolderEx>());
-            }
         }
 
         @Override
@@ -341,9 +288,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (view.getId() == R.id.ivExpander)
                 onCollapse(folder);
             else {
-                vwRipple.setPressed(true);
-                vwRipple.setPressed(false);
-
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                 lbm.sendBroadcast(
                         new Intent(ActivityView.ACTION_VIEW_MESSAGES)
@@ -386,7 +330,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (folder.tbd != null)
                 return false;
 
-            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, vwRipple);
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
             popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_now, 1, R.string.title_synchronize_now);
 
@@ -704,12 +648,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
     }
 
-    AdapterFolder(Context context, LifecycleOwner owner, boolean show_hidden, IProperties properties) {
+    AdapterFolder(Context context, LifecycleOwner owner, long account, boolean show_hidden) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.owner = owner;
+        this.account = account;
         this.show_hidden = show_hidden;
-        this.properties = properties;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean compact = prefs.getBoolean("compact", false);
@@ -728,27 +672,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         setHasStableIds(true);
     }
 
-    public void set(final long account, EntityFolder parent, int level, @NonNull List<TupleFolderEx> folders) {
-        Log.i("Set account=" + account + " folders=" + folders.size());
-
-        this.account = account;
-        this.parent = parent;
-        this.level = level;
-
-        if (parent == null) {
-            this.collapsible = false;
-            this.collapsible_hidden = false;
-            for (TupleFolderEx folder : folders)
-                if (folder.childs > 0) {
-                    this.collapsible = true;
-                    this.collapsible_hidden = (folder.childs - folder.hidden_childs > 0);
-                    break;
-                }
-
-        } else {
-            this.collapsible = true;
-            this.collapsible_hidden = true;
-        }
+    public void set(@NonNull List<TupleFolderEx> folders) {
+        Log.i("Set folders=" + folders.size());
 
         final Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
@@ -756,9 +681,33 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         if (folders.size() > 0)
             Collections.sort(folders, folders.get(0).getComparator(context));
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, folders), false);
+        List<TupleFolderEx> parents = new ArrayList<>();
+        Map<Long, TupleFolderEx> idFolder = new HashMap<>();
+        Map<Long, List<TupleFolderEx>> parentChilds = new HashMap<>();
 
-        items = folders;
+        for (TupleFolderEx folder : folders) {
+            idFolder.put(folder.id, folder);
+            if (folder.parent == null)
+                parents.add(folder);
+            else {
+                if (!parentChilds.containsKey(folder.parent))
+                    parentChilds.put(folder.parent, new ArrayList<TupleFolderEx>());
+                parentChilds.get(folder.parent).add(folder);
+            }
+        }
+
+        for (long pid : parentChilds.keySet()) {
+            TupleFolderEx parent = idFolder.get(pid);
+            parent.child_refs = parentChilds.get(pid);
+            for (TupleFolderEx child : parent.child_refs)
+                child.parent_ref = parent;
+        }
+
+        List<TupleFolderEx> hierarchical = getHierchical(parents);
+
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, hierarchical), false);
+
+        items = hierarchical;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
@@ -782,6 +731,18 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             }
         });
         diff.dispatchUpdatesTo(this);
+    }
+
+    List<TupleFolderEx> getHierchical(List<TupleFolderEx> parents) {
+        List<TupleFolderEx> result = new ArrayList<>();
+
+        for (TupleFolderEx parent : parents) {
+            result.add(parent);
+            if (parent.child_refs != null)
+                result.addAll(getHierchical(parent.child_refs));
+        }
+
+        return result;
     }
 
     void setShowHidden(boolean show_hidden) {
@@ -821,7 +782,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
             TupleFolderEx f1 = prev.get(oldItemPosition);
             TupleFolderEx f2 = next.get(newItemPosition);
-            return f1.equals(f2);
+            boolean e = f1.equals(f2);
+            if (!e || f1.parent_ref == null || f2.parent_ref == null)
+                return e;
+            return f1.parent_ref.equals(f2.parent_ref);
         }
     }
 
@@ -843,7 +807,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
     @Override
     public void onViewRecycled(@NonNull ViewHolder holder) {
-        holder.cowner.stop();
         holder.powner.recreate();
     }
 
@@ -855,11 +818,5 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         holder.bindTo(folder);
 
         holder.wire();
-    }
-
-    interface IProperties {
-        void setChilds(long parent, List<TupleFolderEx> childs);
-
-        List<TupleFolderEx> getChilds(long parent);
     }
 }

@@ -50,10 +50,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class FragmentFolders extends FragmentBase {
     private ViewGroup view;
@@ -72,8 +69,6 @@ public class FragmentFolders extends FragmentBase {
     private boolean show_hidden = false;
     private String searching = null;
     private AdapterFolder adapter;
-
-    private Map<Long, List<TupleFolderEx>> parentChilds = new HashMap<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -149,18 +144,7 @@ public class FragmentFolders extends FragmentBase {
         itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
         rvFolder.addItemDecoration(itemDecorator);
 
-        adapter = new AdapterFolder(getContext(), getViewLifecycleOwner(), show_hidden, new AdapterFolder.IProperties() {
-            @Override
-            public void setChilds(long parent, List<TupleFolderEx> childs) {
-                parentChilds.put(parent, childs);
-            }
-
-            @Override
-            public List<TupleFolderEx> getChilds(long parent) {
-                List<TupleFolderEx> childs = parentChilds.get(parent);
-                return (childs == null ? new ArrayList<TupleFolderEx>() : childs);
-            }
-        });
+        adapter = new AdapterFolder(getContext(), getViewLifecycleOwner(), account, show_hidden);
         rvFolder.setAdapter(adapter);
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -234,14 +218,6 @@ public class FragmentFolders extends FragmentBase {
     public void onSaveInstanceState(Bundle outState) {
         outState.putString("fair:searching", searching);
 
-        outState.putLongArray("fair:parents", Helper.toLongArray(parentChilds.keySet()));
-        for (Long parent : parentChilds.keySet()) {
-            List<TupleFolderEx> childs = parentChilds.get(parent);
-            outState.putInt("fair:childs:" + parent + ":count", childs.size());
-            for (int i = 0; i < childs.size(); i++)
-                outState.putSerializable("fair:childs:" + parent + ":" + i, childs.get(i));
-        }
-
         super.onSaveInstanceState(outState);
     }
 
@@ -249,17 +225,8 @@ public class FragmentFolders extends FragmentBase {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        if (savedInstanceState != null) {
+        if (savedInstanceState != null)
             searching = savedInstanceState.getString("fair:searching");
-
-            for (long parent : savedInstanceState.getLongArray("fair:parents")) {
-                int count = savedInstanceState.getInt("fair:childs:" + parent + ":count");
-                List<TupleFolderEx> childs = new ArrayList<>(count);
-                for (int i = 0; i < count; i++)
-                    childs.add((TupleFolderEx) savedInstanceState.getSerializable("fair:childs:" + parent + ":" + i));
-                parentChilds.put(parent, childs);
-            }
-        }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         grpHintActions.setVisibility(prefs.getBoolean("folder_actions", false) ? View.GONE : View.VISIBLE);
@@ -302,7 +269,7 @@ public class FragmentFolders extends FragmentBase {
             });
 
         // Observe folders
-        db.folder().liveFolders(account < 0 ? null : account, null).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
+        db.folder().liveFolders(account < 0 ? null : account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
             @Override
             public void onChanged(@Nullable List<TupleFolderEx> folders) {
                 if (folders == null) {
@@ -310,7 +277,7 @@ public class FragmentFolders extends FragmentBase {
                     return;
                 }
 
-                adapter.set(account, null, 0, folders);
+                adapter.set(folders);
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
@@ -437,7 +404,6 @@ public class FragmentFolders extends FragmentBase {
 
     private void onMenuShowHidden() {
         show_hidden = !show_hidden;
-        parentChilds.clear();
         getActivity().invalidateOptionsMenu();
         adapter.setShowHidden(show_hidden);
     }

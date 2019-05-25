@@ -24,9 +24,12 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 
+import androidx.room.Ignore;
+
 import java.io.Serializable;
 import java.text.Collator;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -39,8 +42,12 @@ public class TupleFolderEx extends EntityFolder implements Serializable {
     public int content;
     public int unseen;
     public int executing;
-    public int childs;
-    public int hidden_childs;
+
+    @Ignore
+    TupleFolderEx parent_ref;
+
+    @Ignore
+    List<TupleFolderEx> child_refs;
 
     @Override
     public boolean equals(Object obj) {
@@ -53,9 +60,7 @@ public class TupleFolderEx extends EntityFolder implements Serializable {
                     this.messages == other.messages &&
                     this.content == other.content &&
                     this.unseen == other.unseen &&
-                    this.executing == other.executing &&
-                    this.childs == other.childs &&
-                    this.hidden_childs == other.hidden_childs);
+                    this.executing == other.executing);
         } else
             return false;
     }

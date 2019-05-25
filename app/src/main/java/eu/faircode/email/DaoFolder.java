@@ -56,18 +56,15 @@ public interface DaoFolder {
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
             ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id AND operation.state = 'executing') AS executing" +
-            ", (SELECT COUNT(child.id) FROM folder child WHERE child.parent = folder.id) AS childs" +
-            ", (SELECT COUNT(child.id) FROM folder child WHERE child.parent = folder.id AND child.hide) AS hidden_childs" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
             " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
             " WHERE CASE WHEN :account IS NULL" +
             "  THEN folder.unified AND account.synchronize" +
             "  ELSE folder.account = :account AND account.synchronize" +
-            "    AND CASE WHEN :parent IS NULL THEN folder.parent IS NULL ELSE folder.parent = :parent END" +
             " END" +
             " GROUP BY folder.id")
-    LiveData<List<TupleFolderEx>> liveFolders(Long account, Long parent);
+    LiveData<List<TupleFolderEx>> liveFolders(Long account);
 
     @Query("SELECT folder.*" +
             ", account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
@@ -75,8 +72,6 @@ public interface DaoFolder {
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
             ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id AND operation.state = 'executing') AS executing" +
-            ", (SELECT COUNT(child.id) FROM folder child WHERE child.parent = folder.id) AS childs" +
-            ", (SELECT COUNT(child.id) FROM folder child WHERE child.parent = folder.id AND child.hide) AS hidden_childs" +
             " FROM folder" +
             " JOIN account ON account.id = folder.account" +
             " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
@@ -116,8 +111,6 @@ public interface DaoFolder {
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
             ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id AND operation.state = 'executing') AS executing" +
-            ", (SELECT COUNT(child.id) FROM folder child WHERE child.parent = folder.id) AS childs" +
-            ", (SELECT COUNT(child.id) FROM folder child WHERE child.parent = folder.id AND child.hide) AS hidden_childs" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
             " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
