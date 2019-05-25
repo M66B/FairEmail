@@ -67,6 +67,7 @@ import java.util.concurrent.RejectedExecutionException;
 import javax.mail.FetchProfile;
 import javax.mail.Folder;
 import javax.mail.FolderClosedException;
+import javax.mail.FolderNotFoundException;
 import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
@@ -728,6 +729,10 @@ public class ServiceSynchronize extends LifecycleService {
                                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex1, true));
                                     continue;
                                 }
+                            } catch (FolderNotFoundException ex) {
+                                Log.w(ex);
+                                db.folder().deleteFolder(folder.id);
+                                continue;
                             } catch (MessagingException ex) {
                                 Log.w(ex);
                                 db.folder().setFolderState(folder.id, null);
