@@ -251,6 +251,7 @@
     <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
 
     <string name="title_advanced_badge_hint">Only available on supported launchers</string>
+    <string name="title_advanced_subscribed_only_hint">Enabling this will delete all local folders without subscription</string>
     <string name="title_advanced_english_hint">This will restart the app</string>
     <string name="title_advanced_paranoid_hint">See the FAQ for details</string>
     <string name="title_advanced_debug_hint">Enable extra logging and show debug information at various places</string>
