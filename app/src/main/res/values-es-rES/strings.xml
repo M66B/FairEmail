@@ -194,6 +194,7 @@
     <string name="title_advanced_updates">Buscar actualizaciones</string>
     <string name="title_advanced_crash_reports">Enviar informes de errores</string>
     <string name="title_advanced_debug">Modo de depuración</string>
+    <string name="title_advanced_memory_class">Clase de memoria: %1$s</string>
     <string name="title_advanced_last_cleanup">Última limpieza: %1$s</string>
     <string name="title_advanced_enabled_hint">Desactivar o activar globalmente la recepción de mensajes</string>
     <string name="title_advanced_manual_hint">Si la sincronización está desactivada, todavía es posible sincronizar manualmente tirando hacia abajo de la lista de mensajes. Esto sincronizará mensajes y ejecutará operaciones por un tiempo limitado.</string>

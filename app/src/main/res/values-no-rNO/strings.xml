@@ -186,6 +186,7 @@
     <string name="title_advanced_sound">Velg varslingslyd</string>
     <string name="title_advanced_badge">Vis epost ikonet med antall nye meldinger</string>
     <string name="title_advanced_subscriptions">Administrere mappeabonnementer</string>
+    <string name="title_advanced_sync_subscribed">Synkronisere bare abonnerte mapper</string>
     <string name="title_advanced_english">Tving bruk av engelsk</string>
     <string name="title_advanced_authentication">Vis en advarsel når mottakeren ikke kunne godkjenne meldingen</string>
     <string name="title_advanced_paranoid">Ekstra personvernfunksjoner</string>
@@ -193,6 +194,7 @@
     <string name="title_advanced_updates">Se etter oppdateringer</string>
     <string name="title_advanced_crash_reports">Send feilrapporter</string>
     <string name="title_advanced_debug">Feilsøkingsmodus</string>
+    <string name="title_advanced_memory_class">Minne klasse: %1$s</string>
     <string name="title_advanced_last_cleanup">Siste opprydding: %1$s</string>
     <string name="title_advanced_enabled_hint">Globalt deaktivere eller aktivere mottak av meldinger</string>
     <string name="title_advanced_manual_hint">Hvis synkronisering er deaktivert, er det fortsatt mulig å synkronisere manuelt ved å trekke ned meldingslisten. Dette vil synkronisere meldinger og utføre operasjoner i en begrenset periode.</string>
@@ -348,6 +350,7 @@
     <string name="title_show_formatted">Vis formatert</string>
     <string name="title_trash">Søppel</string>
     <string name="title_copy">Kopiere &#8230;</string>
+    <string name="title_copy_to">Kopier til &#8230;</string>
     <string name="title_subscribe">Abonner</string>
     <string name="title_delete">Slett</string>
     <string name="title_more">Mer</string>

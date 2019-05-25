@@ -186,6 +186,7 @@
     <string name="title_advanced_sound">Valitse ilmoituksen ääni</string>
     <string name="title_advanced_badge">Näytä käynnistinsovelluksen kuvakkeessa uusien viestien lukumäärä</string>
     <string name="title_advanced_subscriptions">Hallinnoi tilattuja kansioita</string>
+    <string name="title_advanced_sync_subscribed">Synkronoi vain tilatut kansiot</string>
     <string name="title_advanced_english">Pakota englannin kieli</string>
     <string name="title_advanced_authentication">Näytä varoitus, kun vastaanottava palvelin ei voinut todentaa viestiä</string>
     <string name="title_advanced_paranoid">Ylimääräiset yksityisyysominaisuudet</string>
@@ -193,6 +194,7 @@
     <string name="title_advanced_updates">Päivitysten tarkastus</string>
     <string name="title_advanced_crash_reports">Lähetä virheraportit</string>
     <string name="title_advanced_debug">Debug-tila</string>
+    <string name="title_advanced_memory_class">Muistiluokka (memory class): %1$s</string>
     <string name="title_advanced_last_cleanup">Viimeisin puhdistus: %1$s</string>
     <string name="title_advanced_enabled_hint">Estä tai salli viestien vastaanotto globaalisti</string>
     <string name="title_advanced_manual_hint">Vaikka synkronointi on pois käytöstä, on mahdollista synkronoida manuaalisesti vetämällä alaspäin viestilistassa. Tämä synkronoi viestit ja suorittaa toimenpiteet.</string>
@@ -348,11 +350,14 @@
     <string name="title_show_formatted">Näytä muotoiltu</string>
     <string name="title_trash">Roskakoriin</string>
     <string name="title_copy">Kopioi &#8230;</string>
+    <string name="title_copy_to">Kopioi kansioon &#8230;</string>
     <string name="title_subscribe">Tilaa</string>
     <string name="title_delete">Poista</string>
     <string name="title_more">Lisää</string>
     <string name="title_spam">Roskaposti</string>
     <string name="title_move">Siirrä</string>
+    <string name="title_move_to_folder">Siirrä kansioon &#8230;</string>
+    <string name="title_move_to_account">Siirrä tilille kapsi %1$s &#8230;</string>
     <string name="title_snooze">Torkuta &#8230;</string>
     <string name="title_archive">Arkistoi</string>
     <string name="title_reply">Vastaa</string>
