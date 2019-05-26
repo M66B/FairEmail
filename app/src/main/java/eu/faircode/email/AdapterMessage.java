@@ -100,6 +100,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.github.chrisbanes.photoview.PhotoView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.jsoup.Jsoup;
@@ -144,6 +145,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int answers = -1;
     private IProperties properties;
 
+    private int dp36;
     private int colorPrimary;
     private int colorAccent;
     private int colorWarning;
@@ -379,6 +381,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvNoInternetAttachments = attachments.findViewById(R.id.tvNoInternetAttachments);
 
             bnvActions = itemView.findViewById(R.id.bnvActions);
+            if (compact) {
+                bnvActions.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
+                ViewGroup.LayoutParams lparam = bnvActions.getLayoutParams();
+                lparam.height = dp36;
+                bnvActions.setLayoutParams(lparam);
+            }
 
             tbHtml = itemView.findViewById(R.id.tbHtml);
             ibImages = itemView.findViewById(R.id.ibImages);
@@ -3393,6 +3401,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.suitable = ConnectionHelper.getNetworkState(context).isSuitable();
         this.properties = properties;
 
+        this.dp36 = Helper.dp2pixels(context, 36);
         this.colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
         this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
