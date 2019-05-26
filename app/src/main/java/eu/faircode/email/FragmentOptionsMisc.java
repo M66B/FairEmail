@@ -37,6 +37,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
 
 import com.bugsnag.android.Bugsnag;
@@ -58,6 +59,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     private TextView tvMemoryClass;
     private TextView tvLastCleanup;
+    private TextView tvUuid;
+
+    private Group grpDebug;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "badge", "subscriptions", "subscribed_only", "english", "authentication", "paranoid", "watchdog", "updates", "crash_reports", "debug"
@@ -91,6 +95,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         tvMemoryClass = view.findViewById(R.id.tvMemoryClass);
         tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
+        tvUuid = view.findViewById(R.id.tvUuid);
+
+        grpDebug = view.findViewById(R.id.grpDebug);
 
         setOptions();
 
@@ -186,8 +193,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("debug", checked).apply();
-                tvMemoryClass.setVisibility(checked ? View.VISIBLE : View.GONE);
-                tvLastCleanup.setVisibility(checked ? View.VISIBLE : View.GONE);
+                grpDebug.setVisibility(checked ? View.VISIBLE : View.GONE);
                 ServiceSynchronize.reload(getContext(), "debug=" + checked);
             }
         });
@@ -258,9 +264,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
         int class_mb = am.getMemoryClass();
         tvMemoryClass.setText(getString(R.string.title_advanced_memory_class, class_mb + " MB"));
+        tvUuid.setText(prefs.getString("uuid", null));
 
-        tvMemoryClass.setVisibility(swDebug.isChecked() ? View.VISIBLE : View.GONE);
-        tvLastCleanup.setVisibility(swDebug.isChecked() ? View.VISIBLE : View.GONE);
+        grpDebug.setVisibility(swDebug.isChecked() ? View.VISIBLE : View.GONE);
     }
 
     private void setLastCleanup(long time) {
