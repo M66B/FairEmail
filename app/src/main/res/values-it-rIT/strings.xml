@@ -533,7 +533,7 @@
     <string name="title_legend_notify">Notifica nuovi messaggi</string>
     <string name="title_legend_subscribed">Iscritto a</string>
     <string name="title_legend_sync_keep">Numero di giorni da sincronizzare / di cui mantenere i messaggi</string>
-    <string name="title_legend_download_fetch">Numero di corpi messaggio scaricati / intestazioni recuperate / sul server</string>
+    <string name="title_legend_download_fetch">Numero di messaggi scaricati / intestazioni recuperate</string>
     <string name="title_legend_stop">Interrompi le regole di elaborazione</string>
     <string name="title_legend_thread">Conversazione</string>
     <string name="title_legend_zoom">Cambia dimensione testo</string>

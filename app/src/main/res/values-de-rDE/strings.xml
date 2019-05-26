@@ -533,7 +533,7 @@
     <string name="title_legend_notify">Eingangsbenachrichtigung</string>
     <string name="title_legend_subscribed">Abonniert zu</string>
     <string name="title_legend_sync_keep">Anzahl der zu synchronisierenden Tage / aufzubewahrenden E-Mails</string>
-    <string name="title_legend_download_fetch">Anzahl der heruntergeladenen Nachrichten-Inhalte / Header abgerufen / auf Server</string>
+    <string name="title_legend_download_fetch">Anzahl der heruntergeladenen Nachrichten / abgerufene Kopfzeilen</string>
     <string name="title_legend_stop">Regelverarbeitung stoppen</string>
     <string name="title_legend_thread">Konversation</string>
     <string name="title_legend_zoom">Textgröße ändern</string>

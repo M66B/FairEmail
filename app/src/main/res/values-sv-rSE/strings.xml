@@ -485,7 +485,6 @@
     <string name="title_legend_notify">Notifiera för nya meddelanden</string>
     <string name="title_legend_subscribed">Prenumererar på</string>
     <string name="title_legend_sync_keep">Antal dagar att synkronisera / för att behålla meddelanden</string>
-    <string name="title_legend_download_fetch">Antal hämtade meddelandetexter / rubriker hämtade / på servern</string>
     <string name="title_legend_stop">Sluta bearbeta regler</string>
     <string name="title_legend_thread">Konversation</string>
     <string name="title_legend_zoom">Ändra textstorlek</string>

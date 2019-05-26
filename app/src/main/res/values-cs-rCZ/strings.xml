@@ -548,7 +548,7 @@
     <string name="title_legend_notify">Oznamovat nové zprávy</string>
     <string name="title_legend_subscribed">Přihlášen k odběru</string>
     <string name="title_legend_sync_keep">Počet dní k synchronizaci / ponechání zpráv</string>
-    <string name="title_legend_download_fetch">Počet stažených zpráv / načtených hlaviček / na serveru</string>
+    <string name="title_legend_download_fetch">Počet stažených zpráv / načtených hlaviček</string>
     <string name="title_legend_stop">Zastavit zpracování pravidel</string>
     <string name="title_legend_thread">Konverzace</string>
     <string name="title_legend_zoom">Změna velikosti textu</string>

@@ -527,7 +527,6 @@
     <string name="title_legend_notify">Notificar novas mensagens</string>
     <string name="title_legend_subscribed">Inscrito em</string>
     <string name="title_legend_sync_keep">Número de dias para sincronizar / manter mensagens</string>
-    <string name="title_legend_download_fetch">Número de corpo de mensagens baixadas/cabeçalhos buscados no servidor</string>
     <string name="title_legend_stop">Parar o processamento de regras</string>
     <string name="title_legend_thread">Conversação</string>
     <string name="title_legend_zoom">Alterar tamanho do texto</string>

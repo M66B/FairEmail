@@ -532,7 +532,6 @@
     <string name="title_legend_notify">Gi beskjed om nye meldinger</string>
     <string name="title_legend_subscribed">Abonnerer på</string>
     <string name="title_legend_sync_keep">Antall dager for å synkronisere / for å beholde meldinger</string>
-    <string name="title_legend_download_fetch">Antall nedlastede meldingstekster / overskrifter hentet / på server</string>
     <string name="title_legend_stop">Stopp behandlingen av regler</string>
     <string name="title_legend_thread">Samtale</string>
     <string name="title_legend_zoom">Endre tekststørrelse</string>

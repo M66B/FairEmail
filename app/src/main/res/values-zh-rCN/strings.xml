@@ -186,6 +186,7 @@
     <string name="title_advanced_updates">检查更新</string>
     <string name="title_advanced_crash_reports">发送错误报告</string>
     <string name="title_advanced_debug">调试模式</string>
+    <string name="title_advanced_memory_class">内存类: %1$s</string>
     <string name="title_advanced_last_cleanup">上次清理: %1$s</string>
     <string name="title_advanced_enabled_hint">全球禁用或启用接收消息</string>
     <string name="title_advanced_manual_hint">如果同步功能已禁用，仍然可以通过下拉邮件列表手动同步。这将在一定时间内同步消息和执行操作。</string>
@@ -203,6 +204,7 @@
     <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
     <string name="title_advanced_badge_hint">仅可用于支持的启动器</string>
+    <string name="title_advanced_subscribed_only_hint">启用此功能将删除所有未订阅的本地文件夹</string>
     <string name="title_advanced_english_hint">这将重新启动应用程序</string>
     <string name="title_advanced_paranoid_hint">详细信息请查看常见问题</string>
     <string name="title_advanced_debug_hint">启用额外日志并在不同地方显示调试信息</string>

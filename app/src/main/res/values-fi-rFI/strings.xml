@@ -212,6 +212,7 @@
     <string name="title_advanced_autoclose_hint">Sulje keskustelut, kun kaikki viestit on arkistoitu, lähetetty tai siirretty roskakoriin</string>
     <string name="title_advanced_sender_hint">Useimmat palveluntarjoajat eivät salli muokattuja lähetysosotteita</string>
     <string name="title_advanced_badge_hint">Käytössä vain tuetuissa käynnistinsovelluksissa</string>
+    <string name="title_advanced_subscribed_only_hint">Tämän käyttöönotto poistaa kaikki paikalliset kansiot, joita ei ole tilattu</string>
     <string name="title_advanced_english_hint">Tämä käynnistää sovelluksen uudelleen</string>
     <string name="title_advanced_paranoid_hint">Katso lisätietoja usein kysytyistä kysymyksistä</string>
     <string name="title_advanced_debug_hint">Salli ylimääräinen lokitietojen tallennus ja näytä debug-tietoja</string>
@@ -357,7 +358,7 @@
     <string name="title_spam">Roskaposti</string>
     <string name="title_move">Siirrä</string>
     <string name="title_move_to_folder">Siirrä kansioon &#8230;</string>
-    <string name="title_move_to_account">Siirrä tilille kapsi %1$s &#8230;</string>
+    <string name="title_move_to_account">Siirrä tilille %1$s &#8230;</string>
     <string name="title_snooze">Torkuta &#8230;</string>
     <string name="title_archive">Arkistoi</string>
     <string name="title_reply">Vastaa</string>
@@ -532,7 +533,6 @@
     <string name="title_legend_notify">Ilmoita uusista viesteistä</string>
     <string name="title_legend_subscribed">Tilattu</string>
     <string name="title_legend_sync_keep">Synkronoitavien / säilytettävien viestien päivien lukumäärä</string>
-    <string name="title_legend_download_fetch">Ladattujen viestirunkojen / haettujen tunnistetietojen / palvelimella olevien viestien lukumäärä</string>
     <string name="title_legend_stop">Lopeta sääntöjen käsittely</string>
     <string name="title_legend_thread">Keskustelu</string>
     <string name="title_legend_zoom">Muuta tekstin kokoa</string>

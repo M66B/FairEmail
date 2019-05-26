@@ -548,7 +548,6 @@
     <string name="title_legend_notify">Уведомлять о новых сообщениях</string>
     <string name="title_legend_subscribed">Подписан на</string>
     <string name="title_legend_sync_keep">Количество дней для синхронизации / хранения сообщений</string>
-    <string name="title_legend_download_fetch">Количество загруженных сообщений / полученных заголовков / на сервере</string>
     <string name="title_legend_stop">Остановить обработку правил</string>
     <string name="title_legend_thread">Диалог</string>
     <string name="title_legend_zoom">Изменить размер текста</string>

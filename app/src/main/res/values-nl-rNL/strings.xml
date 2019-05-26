@@ -533,7 +533,7 @@
     <string name="title_legend_notify">Melding bij nieuwe berichten</string>
     <string name="title_legend_subscribed">Geabonneerd op</string>
     <string name="title_legend_sync_keep">Aantal dagen om te synchroniseren / om berichten te houden</string>
-    <string name="title_legend_download_fetch">Aantal berichtteksten gedownload / koppen opgehaald / op server</string>
+    <string name="title_legend_download_fetch">Aantal berichtteksten gedownload / koppen opgehaald</string>
     <string name="title_legend_stop">Stop met het verwerken van regels</string>
     <string name="title_legend_thread">Gesprek</string>
     <string name="title_legend_zoom">Tekstgrootte wijzigen</string>

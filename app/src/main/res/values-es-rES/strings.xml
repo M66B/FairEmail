@@ -212,6 +212,7 @@
     <string name="title_advanced_autoclose_hint">Cerrar automáticamente hilos de conversación cuando todos los mensajes son archivados, enviados o eliminados</string>
     <string name="title_advanced_sender_hint">La mayoría de los proveedores no permiten direcciones de remitente modificadas</string>
     <string name="title_advanced_badge_hint">Sólo disponible en lanzadores soportados</string>
+    <string name="title_advanced_subscribed_only_hint">Activar esto eliminará todas las carpetas locales sin suscripción</string>
     <string name="title_advanced_english_hint">Esto reiniciará la app</string>
     <string name="title_advanced_paranoid_hint">Vea las preguntas frecuentes para más detalles</string>
     <string name="title_advanced_debug_hint">Habilitar registro adicional y mostrar información de depuración en varios lugares</string>
@@ -532,7 +533,6 @@
     <string name="title_legend_notify">Notificar nuevos mensajes</string>
     <string name="title_legend_subscribed">Suscrito a</string>
     <string name="title_legend_sync_keep">Número de días para sincronizar / mantener mensajes</string>
-    <string name="title_legend_download_fetch">Número de cuerpos de mensaje descargados / cabeceras obtenidas / en el servidor</string>
     <string name="title_legend_stop">Detener procesamiento de reglas</string>
     <string name="title_legend_thread">Conversación</string>
     <string name="title_legend_zoom">Cambiar tamaño del texto</string>
