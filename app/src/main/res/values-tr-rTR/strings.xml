@@ -185,7 +185,6 @@
     <string name="title_advanced_updates">Güncellemelere bak</string>
     <string name="title_advanced_crash_reports">Hata raporları gönder</string>
     <string name="title_advanced_debug">Hata ayıklama</string>
-    <string name="title_advanced_last_cleanup">Son temizleme: %1$s</string>
     <string name="title_advanced_enabled_hint">İleti alımını tamamen aç ya da kapat</string>
     <string name="title_advanced_manual_hint">Eşitleme kapalıysa, mesaj listesini aşağı çekerek elle eşitleme hala yapılabilir. Bu eylem iletileri eşitleyecek ve işlemleri kısıtlı bir süre için uygulayacaktır.</string>
     <string name="title_advanced_schedule_hint">Bir zaman ayarlamak için bir saate dokunun</string>

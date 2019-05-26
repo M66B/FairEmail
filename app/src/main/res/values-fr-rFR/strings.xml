@@ -194,8 +194,6 @@
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
     <string name="title_advanced_crash_reports">Envoyer des rapports d\'erreur</string>
     <string name="title_advanced_debug">Débogage</string>
-    <string name="title_advanced_memory_class">Classe mémoire : %1$s</string>
-    <string name="title_advanced_last_cleanup">Dernier nettoyage : %1$s</string>
     <string name="title_advanced_enabled_hint">Désactiver ou activer globalement la réception de messages</string>
     <string name="title_advanced_manual_hint">Si la synchronisation est désactivée, il est toujours possible de synchroniser manuellement en tirant vers le bas la liste des messages. Ceci synchronisera les messages et exécutera les opérations pendant une durée limitée.</string>
     <string name="title_advanced_schedule_hint">Appuyez sur une heure pour définir une heure</string>

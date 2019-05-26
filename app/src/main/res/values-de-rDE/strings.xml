@@ -194,8 +194,6 @@
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
     <string name="title_advanced_crash_reports">Fehlerbericht senden</string>
     <string name="title_advanced_debug">Debugmodus</string>
-    <string name="title_advanced_memory_class">Speicherklasse: %1$s</string>
-    <string name="title_advanced_last_cleanup">Letzte Bereinigung: %1$s</string>
     <string name="title_advanced_enabled_hint">Empfang von Nachrichten für alle Konten deaktivieren oder aktivieren</string>
     <string name="title_advanced_manual_hint">Wenn die Synchronisation deaktiviert ist, ist es weiterhin möglich, die Synchronisation manuell durchzuführen, indem Sie die Nachrichtenliste herunterziehen. Dadurch werden Nachrichten synchronisiert und Operationen für eine begrenzte Zeit ausgeführt.</string>
     <string name="title_advanced_schedule_hint">Tippe auf eine Zeit, um eine Zeit zu setzen</string>

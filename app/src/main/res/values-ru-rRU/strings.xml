@@ -210,8 +210,6 @@
     <string name="title_advanced_updates">Проверить наличие обновлений</string>
     <string name="title_advanced_crash_reports">Отправлять отчёты об ошибках</string>
     <string name="title_advanced_debug">Режим отладки</string>
-    <string name="title_advanced_memory_class">Класс памяти: %1$s</string>
-    <string name="title_advanced_last_cleanup">Последняя очистка: %1$s</string>
     <string name="title_advanced_enabled_hint">Глобальное включение/отключение получения сообщений</string>
     <string name="title_advanced_manual_hint">Если синхронизация отключена, можно синхронизировать вручную, потянув вниз список сообщений. Это вызовет синхронизацию сообщений и выполнение операций в течение ограниченного времени.</string>
     <string name="title_advanced_schedule_hint">Нажмите на время, чтобы установить его</string>
@@ -228,6 +226,7 @@
     <string name="title_advanced_autoclose_hint">Автоматически закрывать диалог, если все сообщения удалены, отправлены или помещены в архив</string>
     <string name="title_advanced_sender_hint">Большинство провайдеров не разрешают изменять адреса отправителей</string>
     <string name="title_advanced_badge_hint">Доступно только на поддерживаемых лаунчерах</string>
+    <string name="title_advanced_subscribed_only_hint">Включение этого режима удалит все локальные папки без подписки</string>
     <string name="title_advanced_english_hint">Это перезапустит приложение</string>
     <string name="title_advanced_paranoid_hint">Подробнее смотрите FAQ</string>
     <string name="title_advanced_debug_hint">Включить дополнительное журналирование и показывать отладочную информацию в различных местах</string>
@@ -548,6 +547,7 @@
     <string name="title_legend_notify">Уведомлять о новых сообщениях</string>
     <string name="title_legend_subscribed">Подписан на</string>
     <string name="title_legend_sync_keep">Количество дней для синхронизации / хранения сообщений</string>
+    <string name="title_legend_download_fetch">Количество загруженных сообщений / полученных заголовков</string>
     <string name="title_legend_stop">Остановить обработку правил</string>
     <string name="title_legend_thread">Диалог</string>
     <string name="title_legend_zoom">Изменить размер текста</string>

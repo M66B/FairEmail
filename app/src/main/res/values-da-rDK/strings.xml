@@ -184,7 +184,6 @@
     <string name="title_advanced_updates">Søg efter opdateringer</string>
     <string name="title_advanced_crash_reports">Send fejlrapporter</string>
     <string name="title_advanced_debug">Fejlretningstilstand</string>
-    <string name="title_advanced_last_cleanup">Sidste oprydning: %1$s</string>
     <string name="title_advanced_enabled_hint">Generel deaktivering eller aktivering af modtagelse af meddelelser</string>
     <string name="title_advanced_schedule_hint">Tryk på et tidspunkt for at angive et tidspunkt</string>
     <string name="title_advanced_metered_hint">Forbrugsbaserede forbindelser er typisk mobildataforbindelser eller betalte Wi-Fi hotspots</string>

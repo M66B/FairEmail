@@ -202,8 +202,6 @@
     <string name="title_advanced_updates">Verificare actualizări aplicație</string>
     <string name="title_advanced_crash_reports">Trimite rapoarte de eroare</string>
     <string name="title_advanced_debug">Depanare</string>
-    <string name="title_advanced_memory_class">Clasificare memorie: %1$s</string>
-    <string name="title_advanced_last_cleanup">Ultima curățare: %1$s</string>
     <string name="title_advanced_enabled_hint">Activează sau dezactivează global recepția mesajelor</string>
     <string name="title_advanced_manual_hint">Dacă sincronizarea este dezactivată, este posibilă sincronizarea manuală prin tragerea în jos a listei de mesaje. Astfel se vor sincroniza mesajele și se vor executa operațiile pentru o perioadă limitată de timp.</string>
     <string name="title_advanced_schedule_hint">Atingeţi data pentru a seta un timp</string>

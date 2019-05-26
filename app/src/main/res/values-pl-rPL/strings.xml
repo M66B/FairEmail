@@ -208,7 +208,6 @@
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
     <string name="title_advanced_crash_reports">Wyślij raport o błędach</string>
     <string name="title_advanced_debug">Debuguj</string>
-    <string name="title_advanced_last_cleanup">Ostatnie czyszczenie: %1$s</string>
     <string name="title_advanced_enabled_hint">Globalnie wyłącz lub włącz odbieranie wiadomości</string>
     <string name="title_advanced_manual_hint">Jeśli synchronizacja jest wyłączona, nadal istnieje możliwość ręcznej synchronizacji poprzez pociągnięcie w dół listy wiadomości. Spowoduje to synchronizację wiadomości i wykonywanie operacji przez ograniczony czas.</string>
     <string name="title_advanced_schedule_hint">Dotknij zegara, aby ustawić czas</string>

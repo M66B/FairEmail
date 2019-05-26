@@ -194,8 +194,6 @@
     <string name="title_advanced_updates">Controleren op updates</string>
     <string name="title_advanced_crash_reports">Foutrapporten verzenden</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
-    <string name="title_advanced_memory_class">Geheugenklasse: %1$s</string>
-    <string name="title_advanced_last_cleanup">Laatste schoonmaak: %1$s</string>
     <string name="title_advanced_enabled_hint">Globaal in- of uitschakelen van het ontvangen van berichten</string>
     <string name="title_advanced_manual_hint">Als synchronisatie uitgeschakeld is, is het nog steeds mogelijk om handmatig te synchroniseren door de berichtenlijst naar beneden te trekken. Dit zal berichten synchroniseren en bewerkingen uitvoeren gedurende een beperkte tijd.</string>
     <string name="title_advanced_schedule_hint">Tik op een tijd om een tijd in te stellen</string>

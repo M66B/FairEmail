@@ -194,8 +194,6 @@
     <string name="title_advanced_updates">Päivitysten tarkastus</string>
     <string name="title_advanced_crash_reports">Lähetä virheraportit</string>
     <string name="title_advanced_debug">Debug-tila</string>
-    <string name="title_advanced_memory_class">Muistiluokka (memory class): %1$s</string>
-    <string name="title_advanced_last_cleanup">Viimeisin puhdistus: %1$s</string>
     <string name="title_advanced_enabled_hint">Estä tai salli viestien vastaanotto globaalisti</string>
     <string name="title_advanced_manual_hint">Vaikka synkronointi on pois käytöstä, on mahdollista synkronoida manuaalisesti vetämällä alaspäin viestilistassa. Tämä synkronoi viestit ja suorittaa toimenpiteet.</string>
     <string name="title_advanced_schedule_hint">Napauta aikaa asettaaksesi sen</string>
@@ -377,7 +375,7 @@
     <string name="title_no_stream">Vanhentunut sovellus lähetti tiedoston kansion tiedostovirran sijaan</string>
     <string name="title_no_contacts">Yhteystiedon valitsin ei ole käytettävissä</string>
     <string name="title_no_internet">Ei sopivaa verkkoyhteyttä tai ei yhteyttä ollenkaan</string>
-    <string name="title_no_connection">Synkronointi tehdään, kun tiliin yhdistetään seuraavan kerran</string>
+    <string name="title_no_connection">Synkronoidaan, kun yhteys tiliin on muodostettu</string>
     <string name="title_no_folder">Kansiota ei ole</string>
     <string name="title_no_format">Alkuperäinen vastaanotettu viesti sisällytetään</string>
     <string name="title_accross_remark">Tilien välillä siirretyt viestit ladataan uudelleen, mikä lisää datan käyttöä</string>
@@ -533,6 +531,7 @@
     <string name="title_legend_notify">Ilmoita uusista viesteistä</string>
     <string name="title_legend_subscribed">Tilattu</string>
     <string name="title_legend_sync_keep">Synkronoitavien / säilytettävien viestien päivien lukumäärä</string>
+    <string name="title_legend_download_fetch">Ladattujen viestien / haettujen tunnistetietojen lukumäärä</string>
     <string name="title_legend_stop">Lopeta sääntöjen käsittely</string>
     <string name="title_legend_thread">Keskustelu</string>
     <string name="title_legend_zoom">Muuta tekstin kokoa</string>
