@@ -210,6 +210,7 @@
     <string name="title_advanced_autoclose_hint">Lukk samtaler automatisk når alle meldinger arkiveres, sendes eller kastet</string>
     <string name="title_advanced_sender_hint">De fleste leverandører tillater ikke endret avsender adresser</string>
     <string name="title_advanced_badge_hint">Kun tilgjengelig på støttede launchere</string>
+    <string name="title_advanced_subscribed_only_hint">Aktivering av dette vil slette alle lokale mapper uten abonnement</string>
     <string name="title_advanced_english_hint">Dette vil starte appen på nytt</string>
     <string name="title_advanced_paranoid_hint">Se FAQ for detaljer</string>
     <string name="title_advanced_debug_hint">Aktivere ekstra logging og vis feilsøkingsinformasjon på forskjellige steder</string>
@@ -530,6 +531,7 @@
     <string name="title_legend_notify">Gi beskjed om nye meldinger</string>
     <string name="title_legend_subscribed">Abonnerer på</string>
     <string name="title_legend_sync_keep">Antall dager for å synkronisere / for å beholde meldinger</string>
+    <string name="title_legend_download_fetch">Antall nedlastede meldinger / overskrifter hentet</string>
     <string name="title_legend_stop">Stopp behandlingen av regler</string>
     <string name="title_legend_thread">Samtale</string>
     <string name="title_legend_zoom">Endre tekststørrelse</string>

@@ -226,6 +226,7 @@
     <string name="title_advanced_autoclose_hint">Automaticky zavřít konverzace když jsou všechny zprávy archivovány, odeslány nebo v koši</string>
     <string name="title_advanced_sender_hint">Většina poskytovatelů nepovoluje pozměněné adresy odesílatele</string>
     <string name="title_advanced_badge_hint">K dispozici pouze v podporovaných spouštěčích aplikací</string>
+    <string name="title_advanced_subscribed_only_hint">Povolení této volby vymaže všechny místní složky bez přihlášeného odběru</string>
     <string name="title_advanced_english_hint">Restartuje aplikaci</string>
     <string name="title_advanced_paranoid_hint">Pro více informací si přečtěte časté dotazy</string>
     <string name="title_advanced_debug_hint">Zapnout rozšířený záznam a zobrazit ladící informace na různých místech</string>
