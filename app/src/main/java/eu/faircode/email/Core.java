@@ -798,21 +798,37 @@ class Core {
         EntityLog.log(context, account.name + " folder separator=" + separator);
 
         // Get remote folders
+        long start = new Date().getTime();
         Folder[] ifolders = (subscribed_only
                 ? defaultFolder.listSubscribed("*")
                 : defaultFolder.list("*"));
+
+        // Get subscribed folders
+        List<String> subscription = new ArrayList<>();
+        try {
+            Folder[] isubscribed = (subscribed_only ? ifolders : defaultFolder.listSubscribed("*"));
+            for (Folder ifolder : isubscribed)
+                subscription.add(ifolder.getFullName());
+        } catch (MessagingException ex) {
+            Log.e(ex);
+        }
+
         if (subscribed_only && ifolders.length == 0) {
             Log.i("No subscribed folders");
             ifolders = defaultFolder.list("*");
         }
+        long duration = new Date().getTime() - start;
 
-        Log.i("Remote folder count=" + ifolders.length + " separator=" + separator);
+        Log.i("Remote folder count=" + ifolders.length +
+                " subscribed=" + subscription.size() +
+                " separator=" + separator +
+                " fetched in " + duration + " ms");
 
         Map<String, EntityFolder> nameFolder = new HashMap<>();
         Map<String, List<EntityFolder>> parentFolders = new HashMap<>();
         for (Folder ifolder : ifolders) {
             String fullName = ifolder.getFullName();
-            boolean subscribed = ifolder.isSubscribed();
+            boolean subscribed = subscription.contains(fullName);
             String[] attr = ((IMAPFolder) ifolder).getAttributes();
             String type = EntityFolder.getType(attr, fullName);
 
