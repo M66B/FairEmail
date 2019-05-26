@@ -78,6 +78,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private int colorUnread;
     private int textColorSecondary;
 
+    private List<Long> disabledIds = new ArrayList<>();
     private List<TupleFolderEx> items = new ArrayList<>();
 
     private NumberFormat nf = NumberFormat.getNumberInstance();
@@ -177,7 +178,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             view.setVisibility(hidden ? View.GONE : View.VISIBLE);
             view.setActivated(folder.tbc != null || folder.tbd != null);
-            view.setAlpha(folder.hide ? Helper.LOW_LIGHT : 1.0f);
+            view.setAlpha(folder.hide || disabledIds.contains(folder.id) ? Helper.LOW_LIGHT : 1.0f);
 
             if (textSize != 0)
                 tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
@@ -317,8 +318,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             new Intent(ActivityView.ACTION_VIEW_MESSAGES)
                                     .putExtra("account", folder.account)
                                     .putExtra("folder", folder.id));
-                } else
+                } else {
+                    if (disabledIds.contains(folder.id))
+                        return;
                     listener.onFolderSelected(folder);
+                }
             }
         }
 
@@ -703,6 +707,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
 
         setHasStableIds(true);
+    }
+
+    void setDisabled(List<Long> ids) {
+        disabledIds = ids;
     }
 
     public void set(@NonNull List<TupleFolderEx> folders) {

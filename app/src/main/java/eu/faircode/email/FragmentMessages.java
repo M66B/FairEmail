@@ -1338,14 +1338,14 @@ public class FragmentMessages extends FragmentBase {
 
                 DB db = DB.getInstance(context);
 
-                List<Long> fids = new ArrayList<>();
+                result.folders = new ArrayList<>();
                 for (long id : ids) {
                     EntityMessage message = db.message().getMessage(id);
                     if (message == null)
                         continue;
 
-                    if (!fids.contains(message.folder))
-                        fids.add(message.folder);
+                    if (!result.folders.contains(message.folder))
+                        result.folders.add(message.folder);
 
                     if (message.ui_seen)
                         result.seen = true;
@@ -1388,18 +1388,8 @@ public class FragmentMessages extends FragmentBase {
 
                 result.accounts = db.account().getSynchronizingAccounts();
 
-                for (EntityAccount account : result.accounts) {
-                    List<TupleFolderEx> targets = new ArrayList<>();
-                    List<TupleFolderEx> folders = db.folder().getFoldersEx(account.id);
-                    for (TupleFolderEx target : folders)
-                        if ((fids.size() != 1 || !fids.contains(target.id)) &&
-                                !EntityFolder.ARCHIVE.equals(target.type) &&
-                                !EntityFolder.TRASH.equals(target.type) &&
-                                !EntityFolder.JUNK.equals(target.type))
-                            targets.add(target);
-
-                    result.targets.put(account.id, targets);
-                }
+                for (EntityAccount account : result.accounts)
+                    result.targets.put(account.id, db.folder().getFoldersEx(account.id));
 
                 return result;
             }
@@ -1478,7 +1468,7 @@ public class FragmentMessages extends FragmentBase {
                                 return true;
                             case R.string.title_move_to_account:
                                 long account = target.getIntent().getLongExtra("account", -1);
-                                onActionMoveSelectionAccount(account, result.targets.get(account));
+                                onActionMoveSelectionAccount(account, result.targets.get(account), result.folders);
                                 return true;
                             default:
                                 return false;
@@ -1829,7 +1819,7 @@ public class FragmentMessages extends FragmentBase {
         }.execute(FragmentMessages.this, args, "messages:move");
     }
 
-    private void onActionMoveSelectionAccount(long account, List<TupleFolderEx> folders) {
+    private void onActionMoveSelectionAccount(long account, List<TupleFolderEx> folders, List<Long> disabled) {
         final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_folder_select, null);
         final RecyclerView rvFolder = dview.findViewById(R.id.rvFolder);
         final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
@@ -1851,6 +1841,8 @@ public class FragmentMessages extends FragmentBase {
                         onActionMoveSelection(folder.id);
                     }
                 });
+
+        adapter.setDisabled(disabled);
         adapter.set(folders);
 
         rvFolder.setAdapter(adapter);
@@ -3303,6 +3295,7 @@ public class FragmentMessages extends FragmentBase {
         Boolean isTrash;
         Boolean isJunk;
         Boolean isDrafts;
+        List<Long> folders;
         List<EntityAccount> accounts;
         Map<Long, List<TupleFolderEx>> targets = new HashMap<>();
     }

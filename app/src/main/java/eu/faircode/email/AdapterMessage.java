@@ -3123,46 +3123,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             dialog.show();
 
             Bundle args = new Bundle();
-            args.putLong("id", data.message.id);
-            args.putBoolean("copy", copy);
+            args.putLong("account", data.message.account);
 
             new SimpleTask<List<TupleFolderEx>>() {
                 @Override
                 protected List<TupleFolderEx> onExecute(Context context, Bundle args) {
-                    long id = args.getLong("id");
-                    boolean copy = args.getBoolean("copy");
-
-                    EntityMessage message;
-                    List<TupleFolderEx> folders;
+                    long account = args.getLong("account");
 
                     DB db = DB.getInstance(context);
-                    try {
-                        db.beginTransaction();
-
-                        message = db.message().getMessage(id);
-                        if (message == null)
-                            return null;
-
-                        folders = db.folder().getFoldersEx(message.account);
-
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
-                    }
-
-                    if (folders == null)
-                        return null;
-
-                    List<TupleFolderEx> targets = new ArrayList<>();
-                    for (TupleFolderEx folder : folders)
-                        if (!folder.id.equals(message.folder) &&
-                                (copy ||
-                                        (!EntityFolder.ARCHIVE.equals(folder.type) &&
-                                                !EntityFolder.TRASH.equals(folder.type) &&
-                                                !EntityFolder.JUNK.equals(folder.type))))
-                            targets.add(folder);
-
-                    return targets;
+                    return db.folder().getFoldersEx(account);
                 }
 
                 @Override
@@ -3170,6 +3139,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (folders == null)
                         folders = new ArrayList<>();
 
+                    adapter.setDisabled(Arrays.asList(data.message.folder));
                     adapter.set(folders);
                     pbWait.setVisibility(View.GONE);
                     rvFolder.setVisibility(View.VISIBLE);
