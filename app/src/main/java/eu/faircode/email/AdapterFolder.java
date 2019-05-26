@@ -97,6 +97,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private ImageView ivType;
         private ImageView ivUnified;
         private TextView tvType;
+        private TextView tvTotal;
         private TextView tvAfter;
         private ImageView ivSync;
         private TextView tvKeywords;
@@ -121,6 +122,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ivType = itemView.findViewById(R.id.ivType);
             ivUnified = itemView.findViewById(R.id.ivUnified);
             tvType = itemView.findViewById(R.id.tvType);
+            tvTotal = itemView.findViewById(R.id.tvTotal);
             tvAfter = itemView.findViewById(R.id.tvAfter);
             ivSync = itemView.findViewById(R.id.ivSync);
             tvKeywords = itemView.findViewById(R.id.tvKeywords);
@@ -246,11 +248,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     sb.append(nf.format(folder.content));
                     sb.append('/');
                     sb.append(nf.format(folder.messages));
-                    sb.append('/');
-                    if (folder.total == null)
-                        sb.append('?');
-                    else
-                        sb.append(nf.format(folder.total));
                 }
                 tvMessages.setText(sb.toString());
 
@@ -272,6 +269,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             context.getPackageName());
                     tvType.setText(resid > 0 ? context.getString(resid) : folder.type);
                 }
+
+                tvTotal.setText(folder.total == null ? "" : nf.format(folder.total));
 
                 if (folder.account == null) {
                     tvAfter.setText(null);

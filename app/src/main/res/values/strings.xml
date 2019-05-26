@@ -605,7 +605,7 @@
     <string name="title_legend_notify">Notify new messages</string>
     <string name="title_legend_subscribed">Subscribed to</string>
     <string name="title_legend_sync_keep">Number of days to synchronize / to keep messages</string>
-    <string name="title_legend_download_fetch">Number of message bodies downloaded / headers fetched / on server</string>
+    <string name="title_legend_download_fetch">Number of message downloaded / headers fetched</string>
     <string name="title_legend_stop">Stop processing rules</string>
 
     <string name="title_legend_thread">Conversation</string>

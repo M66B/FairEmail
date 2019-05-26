@@ -147,17 +147,33 @@
 
         <TextView
             android:id="@+id/tvType"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:layout_marginEnd="6dp"
             android:gravity="center_vertical"
+            android:maxLines="1"
             android:minHeight="24dp"
             android:text="type"
             android:textAppearance="@android:style/TextAppearance.Small"
             android:textStyle="italic"
-            app:layout_constraintEnd_toStartOf="@+id/tvAfter"
             app:layout_constraintStart_toEndOf="@id/ivUnified"
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:minHeight="24dp"
+            android:text="12,345"
+            android:textAppearance="@android:style/TextAppearance.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toStartOf="@+id/tvAfter"
+            app:layout_constraintStart_toEndOf="@id/tvType"
             app:layout_constraintTop_toBottomOf="@id/tvName" />
 
         <TextView

@@ -239,10 +239,10 @@
 
             <TextView
                 android:id="@+id/tvDownloadFetch"
-                android:layout_width="72dp"
+                android:layout_width="48dp"
                 android:layout_height="0dp"
-                android:gravity="end|center_vertical"
-                android:text="12/34/56"
+                android:gravity="center"
+                android:text="1/23"
                 android:textAppearance="@android:style/TextAppearance.Small"
                 app:layout_constraintBottom_toBottomOf="@+id/tvDownloadFetchLegend"
                 app:layout_constraintStart_toStartOf="parent"
@@ -273,10 +273,10 @@
 
             <TextView
                 android:id="@+id/tvSyncKeep"
-                android:layout_width="72dp"
+                android:layout_width="48dp"
                 android:layout_height="0dp"
-                android:gravity="end|center_vertical"
-                android:text="12/34"
+                android:gravity="center"
+                android:text="1/23"
                 android:textAppearance="@android:style/TextAppearance.Small"
                 app:layout_constraintBottom_toBottomOf="@+id/tvSyncKeepLegend"
                 app:layout_constraintStart_toStartOf="parent"
