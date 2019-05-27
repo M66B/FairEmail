@@ -197,6 +197,7 @@ public class FragmentCompose extends FragmentBase {
     private boolean show_images = false;
     private boolean autosave = false;
     private boolean busy = false;
+
     private Uri photoURI = null;
 
     private OpenPgpServiceConnection pgpService;
@@ -652,6 +653,8 @@ public class FragmentCompose extends FragmentBase {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        state = State.NONE;
+
         if (savedInstanceState == null) {
             if (working < 0) {
                 Bundle args = new Bundle();
@@ -707,7 +710,7 @@ public class FragmentCompose extends FragmentBase {
 
     @Override
     public void onPause() {
-        if (autosave)
+        if (autosave && state == State.LOADED)
             onAction(R.id.action_save);
 
         ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -2453,7 +2456,7 @@ public class FragmentCompose extends FragmentBase {
                 if (draft == null || draft.ui_hide)
                     throw new MessageRemovedException("Draft for action was deleted hide=" + (draft != null));
 
-                Log.i("Load action id=" + draft.id + " action=" + action);
+                Log.i("Load action id=" + draft.id + " action=" + getActionName(action));
 
                 // Move draft to new account
                 if (draft.account != aid && aid >= 0) {
@@ -2742,7 +2745,7 @@ public class FragmentCompose extends FragmentBase {
         @Override
         protected void onExecuted(Bundle args, EntityMessage draft) {
             int action = args.getInt("action");
-            Log.i("Loaded action id=" + (draft == null ? null : draft.id) + " action=" + action);
+            Log.i("Loaded action id=" + (draft == null ? null : draft.id) + " action=" + getActionName(action));
 
             etTo.setText(MessageHelper.formatAddressesCompose(draft.to));
             etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));
@@ -2778,6 +2781,25 @@ public class FragmentCompose extends FragmentBase {
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
             else
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+        }
+
+        String getActionName(int id) {
+            switch (id) {
+                case R.id.action_delete:
+                    return "delete";
+                case R.id.action_undo:
+                    return "undo";
+                case R.id.action_redo:
+                    return "redo";
+                case R.id.action_save:
+                    return "save";
+                case R.id.menu_encrypt:
+                    return "encrypt";
+                case R.id.action_send:
+                    return "send";
+                default:
+                    return Integer.toString(id);
+            }
         }
     };
 
