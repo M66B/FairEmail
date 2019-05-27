@@ -344,7 +344,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 @Override
                 public void run() {
                     drawerLayout.closeDrawer(drawerContainer);
-                    onMenuPro();
+                    onShowPro(null);
                 }
             }));
 
@@ -930,15 +930,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragmentTransaction.commit();
     }
 
-    private void onMenuPro() {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-            getSupportFragmentManager().popBackStack("pro", FragmentManager.POP_BACK_STACK_INCLUSIVE);
-
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-        fragmentTransaction.commit();
-    }
-
     private void onMenuInvite() {
         startActivity(getIntentInvite());
     }
@@ -1008,7 +999,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragmentTransaction.commit();
     }
 
-    BroadcastReceiver receiver = new BroadcastReceiver() {
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
@@ -1182,9 +1173,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private void onColor(final Intent intent) {
         if (!Helper.isPro(this)) {
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-            fragmentTransaction.commit();
+            onShowPro(null);
             return;
         }
 

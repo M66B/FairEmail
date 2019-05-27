@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -50,7 +51,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.android.colorpicker.ColorPickerDialog;
 import com.android.colorpicker.ColorPickerSwatch;
@@ -276,22 +277,22 @@ public class FragmentIdentity extends FragmentBase {
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Helper.isPro(getContext())) {
-                    int[] colors = getContext().getResources().getIntArray(R.array.colorPicker);
-                    ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
-                    colorPickerDialog.initialize(R.string.title_account_color, colors, color, 4, colors.length);
-                    colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
-                        @Override
-                        public void onColorSelected(int color) {
-                            setColor(color);
-                        }
-                    });
-                    colorPickerDialog.show(getFragmentManager(), "colorpicker");
-                } else {
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-                    fragmentTransaction.commit();
+                if (!Helper.isPro(getContext())) {
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                    lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SHOW_PRO));
+                    return;
                 }
+
+                int[] colors = getContext().getResources().getIntArray(R.array.colorPicker);
+                ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
+                colorPickerDialog.initialize(R.string.title_account_color, colors, color, 4, colors.length);
+                colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
+                    @Override
+                    public void onColorSelected(int color) {
+                        setColor(color);
+                    }
+                });
+                colorPickerDialog.show(getFragmentManager(), "colorpicker");
             }
         });
 

@@ -98,9 +98,9 @@ import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.exifinterface.media.ExifInterface;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -1019,11 +1019,11 @@ public class FragmentCompose extends FragmentBase {
 
     private void onMenuAnswer() {
         if (!Helper.isPro(getContext())) {
-            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-            fragmentTransaction.commit();
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+            lbm.sendBroadcast(new Intent(ActivityCompose.ACTION_SHOW_PRO));
             return;
         }
+
         new SimpleTask<List<EntityAnswer>>() {
             @Override
             protected List<EntityAnswer> onExecute(Context context, Bundle args) {
@@ -1075,6 +1075,12 @@ public class FragmentCompose extends FragmentBase {
                 new DialogDuration.IDialogDuration() {
                     @Override
                     public void onDurationSelected(long duration, long time) {
+                        if (!Helper.isPro(getContext())) {
+                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                            lbm.sendBroadcast(new Intent(ActivityCompose.ACTION_SHOW_PRO));
+                            return;
+                        }
+
                         Bundle args = new Bundle();
                         args.putLong("id", working);
                         args.putLong("wakeup", time);
@@ -1307,42 +1313,42 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onEncrypt() {
-        if (Helper.isPro(getContext())) {
-            if (pgpService.isBound())
-                try {
-                    String to = etTo.getText().toString();
-                    InternetAddress ato[] = (TextUtils.isEmpty(to) ? new InternetAddress[0] : InternetAddress.parse(to));
-                    if (ato.length == 0)
-                        throw new IllegalArgumentException(getString(R.string.title_to_missing));
+        if (!Helper.isPro(getContext())) {
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+            lbm.sendBroadcast(new Intent(ActivityCompose.ACTION_SHOW_PRO));
+            return;
+        }
 
-                    String[] tos = new String[ato.length];
-                    for (int i = 0; i < ato.length; i++)
-                        tos[i] = ato[i].getAddress();
+        if (pgpService.isBound())
+            try {
+                String to = etTo.getText().toString();
+                InternetAddress ato[] = (TextUtils.isEmpty(to) ? new InternetAddress[0] : InternetAddress.parse(to));
+                if (ato.length == 0)
+                    throw new IllegalArgumentException(getString(R.string.title_to_missing));
 
-                    Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY_IDS);
-                    intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, tos);
-                    doPgp(intent);
-                } catch (Throwable ex) {
-                    if (ex instanceof IllegalArgumentException)
-                        Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                    else
-                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                }
-            else {
-                Snackbar snackbar = Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG);
-                if (Helper.getIntentOpenKeychain().resolveActivity(getContext().getPackageManager()) != null)
-                    snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            startActivity(Helper.getIntentOpenKeychain());
-                        }
-                    });
-                snackbar.show();
+                String[] tos = new String[ato.length];
+                for (int i = 0; i < ato.length; i++)
+                    tos[i] = ato[i].getAddress();
+
+                Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY_IDS);
+                intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, tos);
+                doPgp(intent);
+            } catch (Throwable ex) {
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        } else {
-            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-            fragmentTransaction.commit();
+        else {
+            Snackbar snackbar = Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG);
+            if (Helper.getIntentOpenKeychain().resolveActivity(getContext().getPackageManager()) != null)
+                snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(Helper.getIntentOpenKeychain());
+                    }
+                });
+            snackbar.show();
         }
     }
 

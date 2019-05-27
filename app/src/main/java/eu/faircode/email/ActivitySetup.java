@@ -367,19 +367,15 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
     }
 
     private void onMenuExport() {
-        if (Helper.isPro(this))
-            try {
-                askPassword(true);
-            } catch (Throwable ex) {
-                Helper.unexpectedError(this, this, ex);
-            }
-        else {
-            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                getSupportFragmentManager().popBackStack("pro", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        if (!Helper.isPro(this)) {
+            onShowPro(null);
+            return;
+        }
 
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-            fragmentTransaction.commit();
+        try {
+            askPassword(true);
+        } catch (Throwable ex) {
+            Helper.unexpectedError(this, this, ex);
         }
     }
 
@@ -921,7 +917,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         fragmentTransaction.commit();
     }
 
-    BroadcastReceiver receiver = new BroadcastReceiver() {
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (ACTION_EDIT_ACCOUNT.equals(intent.getAction()))

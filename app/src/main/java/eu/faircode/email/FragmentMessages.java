@@ -299,9 +299,8 @@ public class FragmentMessages extends FragmentBase {
         tvSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-                fragmentTransaction.commit();
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
             }
         });
 
@@ -1544,56 +1543,56 @@ public class FragmentMessages extends FragmentBase {
                 new DialogDuration.IDialogDuration() {
                     @Override
                     public void onDurationSelected(long duration, long time) {
-                        if (Helper.isPro(getContext())) {
-                            Bundle args = new Bundle();
-                            args.putLongArray("ids", getSelection());
-                            args.putLong("wakeup", duration == 0 ? -1 : time);
+                        if (!Helper.isPro(getContext())) {
+                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                            return;
+                        }
 
-                            selectionTracker.clearSelection();
+                        Bundle args = new Bundle();
+                        args.putLongArray("ids", getSelection());
+                        args.putLong("wakeup", duration == 0 ? -1 : time);
 
-                            new SimpleTask<Void>() {
-                                @Override
-                                protected Void onExecute(Context context, Bundle args) {
-                                    long[] ids = args.getLongArray("ids");
-                                    Long wakeup = args.getLong("wakeup");
-                                    if (wakeup < 0)
-                                        wakeup = null;
+                        selectionTracker.clearSelection();
 
-                                    DB db = DB.getInstance(context);
-                                    try {
-                                        db.beginTransaction();
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onExecute(Context context, Bundle args) {
+                                long[] ids = args.getLongArray("ids");
+                                Long wakeup = args.getLong("wakeup");
+                                if (wakeup < 0)
+                                    wakeup = null;
 
-                                        for (long id : ids) {
-                                            EntityMessage message = db.message().getMessage(id);
-                                            if (message != null) {
-                                                List<EntityMessage> messages = db.message().getMessageByThread(
-                                                        message.account, message.thread, threading ? null : id, message.folder);
-                                                for (EntityMessage threaded : messages) {
-                                                    db.message().setMessageSnoozed(threaded.id, wakeup);
-                                                    EntityMessage.snooze(context, threaded.id, wakeup);
-                                                    EntityOperation.queue(context, threaded, EntityOperation.SEEN, true);
-                                                }
+                                DB db = DB.getInstance(context);
+                                try {
+                                    db.beginTransaction();
+
+                                    for (long id : ids) {
+                                        EntityMessage message = db.message().getMessage(id);
+                                        if (message != null) {
+                                            List<EntityMessage> messages = db.message().getMessageByThread(
+                                                    message.account, message.thread, threading ? null : id, message.folder);
+                                            for (EntityMessage threaded : messages) {
+                                                db.message().setMessageSnoozed(threaded.id, wakeup);
+                                                EntityMessage.snooze(context, threaded.id, wakeup);
+                                                EntityOperation.queue(context, threaded, EntityOperation.SEEN, true);
                                             }
                                         }
-
-                                        db.setTransactionSuccessful();
-                                    } finally {
-                                        db.endTransaction();
                                     }
 
-                                    return null;
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
                                 }
 
-                                @Override
-                                protected void onException(Bundle args, Throwable ex) {
-                                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                                }
-                            }.execute(FragmentMessages.this, args, "messages:snooze");
-                        } else {
-                            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-                            fragmentTransaction.commit();
-                        }
+                                return null;
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                            }
+                        }.execute(FragmentMessages.this, args, "messages:snooze");
                     }
 
                     @Override
@@ -1649,9 +1648,8 @@ public class FragmentMessages extends FragmentBase {
 
     private void onActionFlagColorSelection() {
         if (!Helper.isPro(getContext())) {
-            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-            fragmentTransaction.commit();
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
             return;
         }
 
@@ -3258,29 +3256,26 @@ public class FragmentMessages extends FragmentBase {
     static void search(
             final Context context, final LifecycleOwner owner, final FragmentManager manager,
             long folder, boolean server, String query) {
-        if (Helper.isPro(context)) {
-            if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                manager.popBackStack("search", FragmentManager.POP_BACK_STACK_INCLUSIVE);
-
-            Bundle args = new Bundle();
-            args.putLong("folder", folder);
-            args.putBoolean("server", server);
-            args.putString("query", query);
-
-            FragmentMessages fragment = new FragmentMessages();
-            fragment.setArguments(args);
-
-            FragmentTransaction fragmentTransaction = manager.beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
-            fragmentTransaction.commit();
-        } else {
-            if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                manager.popBackStack("pro", FragmentManager.POP_BACK_STACK_INCLUSIVE);
-
-            FragmentTransaction fragmentTransaction = manager.beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-            fragmentTransaction.commit();
+        if (!Helper.isPro(context)) {
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+            return;
         }
+
+        if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+            manager.popBackStack("search", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+        Bundle args = new Bundle();
+        args.putLong("folder", folder);
+        args.putBoolean("server", server);
+        args.putString("query", query);
+
+        FragmentMessages fragment = new FragmentMessages();
+        fragment.setArguments(args);
+
+        FragmentTransaction fragmentTransaction = manager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
+        fragmentTransaction.commit();
     }
 
     private class MoreResult {

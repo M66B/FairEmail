@@ -19,7 +19,10 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.MailTo;
 import android.net.Uri;
 import android.os.Bundle;
@@ -31,6 +34,7 @@ import androidx.core.app.TaskStackBuilder;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
@@ -51,6 +55,8 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
     static final int REQUEST_ENCRYPT = 8;
 
     static final int PI_REPLY = 1;
+
+    static final String ACTION_SHOW_PRO = BuildConfig.APPLICATION_ID + ".SHOW_PRO";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -213,5 +219,38 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
             default:
                 return false;
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
+        IntentFilter iff = new IntentFilter();
+        iff.addAction(ACTION_SHOW_PRO);
+        lbm.registerReceiver(receiver, iff);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
+        lbm.unregisterReceiver(receiver);
+    }
+
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (ACTION_SHOW_PRO.equals(intent.getAction()))
+                onShowPro(intent);
+        }
+    };
+
+    private void onShowPro(Intent intent) {
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+            getSupportFragmentManager().popBackStack("pro", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+        fragmentTransaction.commit();
     }
 }

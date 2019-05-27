@@ -133,7 +133,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         return Helper.sha256(BuildConfig.APPLICATION_ID + getChallenge());
     }
 
-    BroadcastReceiver receiver = new BroadcastReceiver() {
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (ACTION_PURCHASE.equals(intent.getAction()))
