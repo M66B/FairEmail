@@ -35,6 +35,7 @@ import android.os.Build;
 import android.os.DeadSystemException;
 import android.os.Handler;
 import android.os.RemoteException;
+import android.view.OrientationEventListener;
 import android.webkit.CookieManager;
 
 import androidx.annotation.NonNull;
@@ -44,6 +45,7 @@ import androidx.preference.PreferenceManager;
 import com.bugsnag.android.BeforeNotify;
 import com.bugsnag.android.BeforeSend;
 import com.bugsnag.android.Bugsnag;
+import com.bugsnag.android.Client;
 import com.bugsnag.android.Error;
 import com.bugsnag.android.Report;
 import com.sun.mail.iap.ProtocolException;
@@ -56,6 +58,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -220,13 +223,26 @@ public class ApplicationEx extends Application {
 
         Bugsnag.init(this, config);
 
+        Client client = Bugsnag.getClient();
+
+        try {
+            Log.i("Disabling orientation listener");
+            Field fOrientationListener = Client.class.getDeclaredField("orientationListener");
+            fOrientationListener.setAccessible(true);
+            OrientationEventListener orientationListener = (OrientationEventListener) fOrientationListener.get(client);
+            orientationListener.disable();
+            Log.i("Disabled orientation listener");
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+
         String uuid = prefs.getString("uuid", null);
         if (uuid == null) {
             uuid = UUID.randomUUID().toString();
             prefs.edit().putString("uuid", uuid).apply();
         }
         Log.i("uuid=" + uuid);
-        Bugsnag.getClient().setUserId(uuid);
+        client.setUserId(uuid);
 
         if (prefs.getBoolean("crash_reports", false))
             Bugsnag.startSession();
