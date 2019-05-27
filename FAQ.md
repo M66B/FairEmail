@@ -280,6 +280,8 @@ Empty password: your username is likely easily guessed, so this is very insecure
 If you still want to use an invalid security certificate, IMAP STARTTLS or an empty password,
 you'll need to enable insecure connections in the account and/or identity settings.
 
+Connections without encryption (either SSL or STARTTLS) are not supported because this is very insecure.
+
 <br />
 
 <a name="faq5"></a>
