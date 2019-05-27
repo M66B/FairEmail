@@ -531,6 +531,7 @@
     <string name="title_legend_notify">Notificar nuevos mensajes</string>
     <string name="title_legend_subscribed">Suscrito a</string>
     <string name="title_legend_sync_keep">Número de días para sincronizar / mantener mensajes</string>
+    <string name="title_legend_download_fetch">Número de mensajes descargados / cabeceras obtenidas</string>
     <string name="title_legend_stop">Detener procesamiento de reglas</string>
     <string name="title_legend_thread">Conversación</string>
     <string name="title_legend_zoom">Cambiar tamaño del texto</string>

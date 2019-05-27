@@ -539,6 +539,7 @@
     <string name="title_legend_notify">Notificare la mesaje noi</string>
     <string name="title_legend_subscribed">Abonat la</string>
     <string name="title_legend_sync_keep">Numărul de zile de sincronizat / păstrat mesaje</string>
+    <string name="title_legend_download_fetch">Numărul de mesaje / antete de descărcat</string>
     <string name="title_legend_stop">Oprește procesarea regulilor</string>
     <string name="title_legend_thread">Conversație</string>
     <string name="title_legend_zoom">Modificare dimensiune text</string>
