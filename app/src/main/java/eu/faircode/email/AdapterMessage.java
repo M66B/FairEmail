@@ -3231,13 +3231,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionReplyMenu(final ActionData data) {
-            int recipients = 0;
-            if (data.message.from != null)
-                recipients += data.message.from.length;
+            List<String> recipients = new ArrayList<>();
+            if (data.message.reply != null)
+                for (Address reply : data.message.reply)
+                    recipients.add(((InternetAddress) reply).getAddress());
+            if (data.message.from != null &&
+                    (data.message.reply == null || data.message.reply.length == 0))
+                for (Address from : data.message.from)
+                    recipients.add(((InternetAddress) from).getAddress());
             if (data.message.cc != null)
-                recipients += data.message.cc.length;
+                for (Address cc : data.message.cc)
+                    recipients.add(((InternetAddress) cc).getAddress());
 
-            if (recipients == 1 &&
+            if (recipients.size() == 1 &&
                     data.message.list_post == null &&
                     data.message.receipt_to == null &&
                     (answers == 0 && Helper.isPro(context))) {
@@ -3248,7 +3254,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             View anchor = bnvActions.findViewById(R.id.action_reply);
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
             popupMenu.inflate(R.menu.menu_reply);
-            popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setVisible(recipients > 1);
+            popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setVisible(recipients.size() > 1);
             popupMenu.getMenu().findItem(R.id.menu_reply_list).setVisible(data.message.list_post != null);
             popupMenu.getMenu().findItem(R.id.menu_reply_receipt).setVisible(data.message.receipt_to != null);
             popupMenu.getMenu().findItem(R.id.menu_reply_answer).setVisible(answers != 0 || !Helper.isPro(context));
