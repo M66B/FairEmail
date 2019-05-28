@@ -361,9 +361,6 @@ public class FragmentRule extends FragmentBase {
                 if (data.folders == null)
                     data.folders = new ArrayList<>();
 
-                for (EntityFolder folder : data.folders)
-                    folder.display = folder.getDisplayName(context);
-
                 if (data.folders.size() > 0)
                     Collections.sort(data.folders, data.folders.get(0).getComparator(context));
 
