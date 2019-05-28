@@ -384,8 +384,6 @@ public class ApplicationEx extends Application {
 
                 if (jchannel.has("group") && !jchannel.isNull("group"))
                     channel.setGroup(jchannel.getString("group"));
-                else
-                    channel.setGroup("contacts");
 
                 if (jchannel.has("description") && !jchannel.isNull("description"))
                     channel.setDescription(jchannel.getString("description"));
