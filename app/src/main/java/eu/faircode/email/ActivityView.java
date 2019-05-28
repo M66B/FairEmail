@@ -1669,12 +1669,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 for (EntityAttachment attachment : attachments) {
                     File file = attachment.getFile(context);
 
-                    String name = attachment.name;
+                    String name = Helper.sanitizeFilename(attachment.name);
                     if (TextUtils.isEmpty(name))
                         name = Long.toString(attachment.id);
                     DocumentFile document = tree.createFile(attachment.type, name);
                     if (document == null)
-                        throw new FileNotFoundException(name);
+                        throw new FileNotFoundException(uri + ":" + name);
 
                     ParcelFileDescriptor pfd = null;
                     OutputStream os = null;
