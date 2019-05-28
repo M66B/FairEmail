@@ -779,7 +779,7 @@ public class FragmentCompose extends FragmentBase {
 
         menu.findItem(R.id.menu_zoom).setEnabled(!busy);
         menu.findItem(R.id.menu_clear).setEnabled(!busy);
-        menu.findItem(R.id.menu_contact_group).setEnabled(!busy);
+        menu.findItem(R.id.menu_contact_group).setEnabled(!busy && hasPermission(Manifest.permission.READ_CONTACTS));
         menu.findItem(R.id.menu_answer).setEnabled(!busy);
         menu.findItem(R.id.menu_plain_only).setEnabled(!busy);
         menu.findItem(R.id.menu_encrypt).setEnabled(!busy);
