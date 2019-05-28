@@ -27,7 +27,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LevelListDrawable;
-import android.net.Uri;
 import android.os.Handler;
 import android.text.Html;
 import android.text.Spanned;
@@ -238,12 +237,13 @@ public class HtmlHelper {
                                 parent = parent.parent();
                             }
 
-                            String scheme = Uri.parse(matcher.group()).getScheme();
-
                             if (BuildConfig.DEBUG)
-                                Log.i("Web url=" + matcher.group() + " linked=" + linked + " scheme=" + scheme);
+                                Log.i("Web url=" + matcher.group() +
+                                        " " + matcher.start() + "..." + matcher.end() +
+                                        " linked=" + linked);
 
-                            if (linked)
+                            if (linked ||
+                                    (matcher.start() > 0 && text.charAt(matcher.start() - 1) == '@'))
                                 span.appendText(text.substring(pos, matcher.end()));
                             else {
                                 span.appendText(text.substring(pos, matcher.start()));
