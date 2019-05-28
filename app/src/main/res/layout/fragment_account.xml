@@ -457,37 +457,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/etInterval" />
 
-            <TextView
-                android:id="@+id/tvPrefix"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_account_prefix"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvIntervalRemark" />
-
-            <TextView
-                android:id="@+id/tvPrefixRemark"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/title_account_prefix_hint"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textStyle="italic"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvPrefix" />
-
-            <EditText
-                android:id="@+id/etPrefix"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/title_optional"
-                android:inputType="text"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvPrefixRemark" />
-
             <!-- check -->
 
             <Button
@@ -498,7 +467,7 @@
                 android:tag="disable"
                 android:text="@string/title_check"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/etPrefix" />
+                app:layout_constraintTop_toBottomOf="@id/tvIntervalRemark" />
 
             <eu.faircode.email.ContentLoadingProgressBar
                 android:id="@+id/pbCheck"
@@ -768,7 +737,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="
-            tvPrefix,tvPrefixRemark,etPrefix,cbNotify,tvNotifyPro,
+            cbNotify,tvNotifyPro,
             cbSynchronize,cbPrimary,
             cbBrowse,tvBrowseHint,
             tvInterval,etInterval,tvIntervalRemark" />

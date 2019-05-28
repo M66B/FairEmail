@@ -828,19 +828,20 @@ class Core {
         Map<String, List<EntityFolder>> parentFolders = new HashMap<>();
         for (Folder ifolder : ifolders) {
             String fullName = ifolder.getFullName();
+            String[] name = fullName.split("[" + separator + "]");
+            String childName = name[name.length - 1];
             boolean subscribed = subscription.contains(fullName);
             String[] attr = ((IMAPFolder) ifolder).getAttributes();
             String type = EntityFolder.getType(attr, fullName);
+
+            if (EntityFolder.INBOX.equals(type))
+                childName = null;
 
             Log.i(account.name + ":" + fullName + " subscribed=" + subscribed +
                     " type=" + type + " attrs=" + TextUtils.join(" ", attr));
 
             if (type != null) {
                 names.remove(fullName);
-
-                String display = null;
-                if (account.prefix != null && fullName.startsWith(account.prefix + separator))
-                    display = fullName.substring(account.prefix.length() + 1);
 
                 EntityFolder folder;
                 try {
@@ -851,7 +852,7 @@ class Core {
                         folder = new EntityFolder();
                         folder.account = account.id;
                         folder.name = fullName;
-                        folder.display = display;
+                        folder.display = childName;
                         folder.type = (EntityFolder.SYSTEM.equals(type) ? type : EntityFolder.USER);
                         folder.synchronize = false;
                         folder.subscribed = subscribed;
@@ -866,16 +867,11 @@ class Core {
                         if (folder.subscribed == null || !folder.subscribed.equals(subscribed))
                             db.folder().setFolderSubscribed(folder.id, subscribed);
 
-                        if (folder.display == null && display != null) {
-                            db.folder().setFolderDisplay(folder.id, display);
-                            EntityLog.log(context, account.name + ":" + folder.name +
-                                    " removed prefix display=" + display + " separator=" + separator);
-                        }
+                        if (folder.display == null && childName != null)
+                            db.folder().setFolderDisplay(folder.id, childName);
 
                         // Compatibility
-                        if ("Inbox_sub".equals(folder.type))
-                            db.folder().setFolderType(folder.id, EntityFolder.USER);
-                        else if (EntityFolder.USER.equals(folder.type) && EntityFolder.SYSTEM.equals(type))
+                        if (EntityFolder.USER.equals(folder.type) && EntityFolder.SYSTEM.equals(type))
                             db.folder().setFolderType(folder.id, type);
                         else if (EntityFolder.SYSTEM.equals(folder.type) && EntityFolder.USER.equals(type))
                             db.folder().setFolderType(folder.id, type);

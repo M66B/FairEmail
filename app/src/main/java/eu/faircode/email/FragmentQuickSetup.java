@@ -343,7 +343,6 @@ public class FragmentQuickSetup extends FragmentBase {
                     account.notify = false;
                     account.browse = true;
                     account.poll_interval = EntityAccount.DEFAULT_KEEP_ALIVE_INTERVAL;
-                    account.prefix = provider.prefix;
 
                     account.created = now;
                     account.error = null;

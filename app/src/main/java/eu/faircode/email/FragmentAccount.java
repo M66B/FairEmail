@@ -118,7 +118,6 @@ public class FragmentAccount extends FragmentBase {
     private CheckBox cbNotify;
     private CheckBox cbBrowse;
     private EditText etInterval;
-    private EditText etPrefix;
 
     private Button btnCheck;
     private ContentLoadingProgressBar pbCheck;
@@ -195,7 +194,6 @@ public class FragmentAccount extends FragmentBase {
         cbNotify = view.findViewById(R.id.cbNotify);
         cbBrowse = view.findViewById(R.id.cbBrowse);
         etInterval = view.findViewById(R.id.etInterval);
-        etPrefix = view.findViewById(R.id.etPrefix);
 
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
@@ -261,7 +259,6 @@ public class FragmentAccount extends FragmentBase {
                 etRealm.setEnabled(true);
 
                 etName.setText(position > 1 ? provider.name : null);
-                etPrefix.setText(provider.prefix);
 
                 grpFolders.setVisibility(View.GONE);
                 btnSave.setVisibility(View.GONE);
@@ -762,7 +759,6 @@ public class FragmentAccount extends FragmentBase {
         args.putBoolean("notify", cbNotify.isChecked());
         args.putBoolean("browse", cbBrowse.isChecked());
         args.putString("interval", etInterval.getText().toString());
-        args.putString("prefix", etPrefix.getText().toString());
 
         args.putSerializable("drafts", drafts);
         args.putSerializable("sent", sent);
@@ -811,7 +807,6 @@ public class FragmentAccount extends FragmentBase {
                 boolean notify = args.getBoolean("notify");
                 boolean browse = args.getBoolean("browse");
                 String interval = args.getString("interval");
-                String prefix = args.getString("prefix");
 
                 EntityFolder drafts = (EntityFolder) args.getSerializable("drafts");
                 EntityFolder sent = (EntityFolder) args.getSerializable("sent");
@@ -837,8 +832,6 @@ public class FragmentAccount extends FragmentBase {
 
                 if (Color.TRANSPARENT == color)
                     color = null;
-                if (TextUtils.isEmpty(prefix))
-                    prefix = null;
 
                 Character separator = null;
                 long now = new Date().getTime();
@@ -854,7 +847,6 @@ public class FragmentAccount extends FragmentBase {
                         !user.equals(account.user) || !password.equals(account.password) ||
                         !Objects.equals(realm, accountRealm)));
                 boolean reload = (check || account == null ||
-                        !Objects.equals(account.prefix, prefix) ||
                         account.synchronize != synchronize ||
                         account.notify != notify ||
                         !account.poll_interval.equals(Integer.parseInt(interval)));
@@ -931,7 +923,6 @@ public class FragmentAccount extends FragmentBase {
                     account.notify = notify;
                     account.browse = browse;
                     account.poll_interval = Integer.parseInt(interval);
-                    account.prefix = prefix;
 
                     if (!update)
                         account.created = now;
@@ -1018,9 +1009,6 @@ public class FragmentAccount extends FragmentBase {
                     db.folder().setFoldersUser(account.id);
 
                     for (EntityFolder folder : folders) {
-                        if (account.prefix != null && folder.name.startsWith(account.prefix + separator))
-                            folder.display = folder.name.substring(account.prefix.length() + 1);
-
                         EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
                         if (existing == null) {
                             folder.account = account.id;
@@ -1143,7 +1131,6 @@ public class FragmentAccount extends FragmentBase {
                     etRealm.setText(account == null ? null : account.realm);
 
                     etName.setText(account == null ? null : account.name);
-                    etPrefix.setText(account == null ? null : account.prefix);
                     cbNotify.setChecked(account == null ? false : account.notify);
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);

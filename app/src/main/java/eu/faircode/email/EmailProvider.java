@@ -52,7 +52,6 @@ public class EmailProvider {
     public int order;
     public String link;
     public String type;
-    public String prefix;
     public String imap_host;
     public boolean imap_starttls;
     public int imap_port;
@@ -108,7 +107,6 @@ public class EmailProvider {
                         provider.order = xml.getAttributeIntValue(null, "order", Integer.MAX_VALUE);
                         provider.link = xml.getAttributeValue(null, "link");
                         provider.type = xml.getAttributeValue(null, "type");
-                        provider.prefix = xml.getAttributeValue(null, "prefix");
                     } else if ("imap".equals(name)) {
                         provider.imap_host = xml.getAttributeValue(null, "host");
                         provider.imap_port = xml.getAttributeIntValue(null, "port", 0);
@@ -407,12 +405,6 @@ public class EmailProvider {
     }
 
     private static EmailProvider addSpecials(Context context, EmailProvider provider) {
-        for (EmailProvider predefined : loadProfiles(context))
-            if (provider.imap_host.equals(predefined.imap_host)) {
-                provider.prefix = predefined.prefix;
-                break;
-            }
-
         if ("imap.gmail.com".equals(provider.imap_host))
             addDocumentation(provider,
                     "https://www.google.com/settings/security/lesssecureapps",

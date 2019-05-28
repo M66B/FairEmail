@@ -308,7 +308,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
 
     @Override
     public String toString() {
-        return (display == null ? name : display);
+        return name;
     }
 
     public JSONObject toJSON() throws JSONException {

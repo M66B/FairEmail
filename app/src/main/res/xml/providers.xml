@@ -4,7 +4,6 @@
         name="Gmail"
         link="https://support.google.com/mail/answer/7126229"
         order="1"
-        prefix="[Gmail]"
         type="com.google">
         <imap
             host="imap.gmail.com"
