@@ -261,7 +261,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_padding"
-        android:src="@drawable/baseline_cloud_download_24"
+        android:src="@drawable/baseline_youtube_searched_for_24"
         android:tint="@color/colorActionForeground"
         android:tooltipText="@string/title_search"
         app:backgroundTint="?attr/colorAccent" />

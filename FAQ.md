@@ -451,7 +451,7 @@ You can start searching for messages on sender, recipient, subject, keyword or m
 You can also search from any app by select *Search email* in the copy/paste popup menu.
 
 Messages will be searched on the device first (all accounts, all folders).
-There will be an action button with a cloud download icon at the bottom to search on the server.
+There will be an action button with a search again icon at the bottom to search on the server.
 When the search was started in a specific folder,
 the same folder will be searched in on the server,
 else you can select which folder to search in on the server.
