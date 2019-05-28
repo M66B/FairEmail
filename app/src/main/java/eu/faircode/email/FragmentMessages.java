@@ -1182,7 +1182,11 @@ public class FragmentMessages extends FragmentBase {
             if (pos == RecyclerView.NO_POSITION)
                 return null;
 
-            TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
+            PagedList<TupleMessageEx> list = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList();
+            if (pos >= list.size())
+                return null;
+
+            TupleMessageEx message = list.get(pos);
             if (message == null || message.uid == null)
                 return null;
 
