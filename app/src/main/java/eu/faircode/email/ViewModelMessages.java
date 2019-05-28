@@ -51,7 +51,7 @@ public class ViewModelMessages extends ViewModel {
 
     private static final int LOCAL_PAGE_SIZE = 100;
     private static final int REMOTE_PAGE_SIZE = 10;
-    private static final int LOW_MEM_MB = 64;
+    private static final int LOW_MEM_MB = 32;
 
     Model getModel(
             final Context context, final LifecycleOwner owner,
