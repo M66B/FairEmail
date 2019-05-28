@@ -1673,6 +1673,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     if (TextUtils.isEmpty(name))
                         name = Long.toString(attachment.id);
                     DocumentFile document = tree.createFile(attachment.type, name);
+                    if (document == null)
+                        throw new FileNotFoundException(name);
 
                     ParcelFileDescriptor pfd = null;
                     OutputStream os = null;
