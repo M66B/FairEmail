@@ -248,8 +248,6 @@
     <string name="title_account_name">Название учётной записи</string>
     <string name="title_account_name_hint">Используется для разграничения папок</string>
     <string name="title_account_interval_hint">Частота обновления соединения для push-сообщений или частота проверки новых сообщений</string>
-    <string name="title_account_prefix">Префикс пространства имен</string>
-    <string name="title_account_prefix_hint">Используется для сокращения имён папок</string>
     <string name="title_account_signature">Текст подписи</string>
     <string name="title_account_color">Цвет</string>
     <string name="title_account_notify">Раздельные уведомления</string>

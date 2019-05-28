@@ -232,8 +232,6 @@
     <string name="title_account_name">Accountnaam</string>
     <string name="title_account_name_hint">Wordt gebruikt voor het onderscheiden van mappen</string>
     <string name="title_account_interval_hint">Frequentie van het verversen van de verbinding voor push berichten of frequentie van het controleren op nieuwe berichten</string>
-    <string name="title_account_prefix">Namespace voorvoegsel</string>
-    <string name="title_account_prefix_hint">Wordt gebruikt voor het vereenvoudigen van mapnamen</string>
     <string name="title_account_signature">Handtekening</string>
     <string name="title_account_color">Kleur</string>
     <string name="title_account_notify">Afzonderlijke meldingen</string>

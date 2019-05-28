@@ -124,8 +124,6 @@
     <string name="title_account_linked">حساب مرتبط</string>
     <string name="title_account_name">نام حساب</string>
     <string name="title_account_name_hint">برای افتراق پوشه‌ها استفاده می‌شود</string>
-    <string name="title_account_prefix">پیشوند فضای نام</string>
-    <string name="title_account_prefix_hint">برای ساده کردن نام پوشه استفاده می شود</string>
     <string name="title_account_signature">متن امضا</string>
     <string name="title_account_color">رنگ</string>
     <string name="title_account_notify">اعلانات جداگانه</string>

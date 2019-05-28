@@ -230,8 +230,6 @@
     <string name="title_account_name">Nome da conta</string>
     <string name="title_account_name_hint">Usada para diferenciar pastas</string>
     <string name="title_account_interval_hint">Frequência de atualizar a conexão para mensagens push ou frequência de verificação de novas mensagens</string>
-    <string name="title_account_prefix">Prefixo de Namespace</string>
-    <string name="title_account_prefix_hint">Usado para simplificar os nomes de pasta</string>
     <string name="title_account_signature">Texto da assinatura</string>
     <string name="title_account_color">Cor</string>
     <string name="title_account_notify">Notificações separadas</string>

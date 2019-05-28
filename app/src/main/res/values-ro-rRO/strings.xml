@@ -240,8 +240,6 @@
     <string name="title_account_name">Nume cont</string>
     <string name="title_account_name_hint">Folosit la diferențierea dosarelor</string>
     <string name="title_account_interval_hint">Frecvența de actualizare a conexiunii pentru mesaje push sau frecventa de verificare de mesaje noi</string>
-    <string name="title_account_prefix">Prefix nume cont</string>
-    <string name="title_account_prefix_hint">Folosit pentru a simplifica numele dosarelor</string>
     <string name="title_account_signature">Text semnătură</string>
     <string name="title_account_color">Culoare</string>
     <string name="title_account_notify">Separă notificările</string>

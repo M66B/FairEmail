@@ -224,8 +224,6 @@
     <string name="title_account_name">账户名</string>
     <string name="title_account_name_hint">用于区分文件夹</string>
     <string name="title_account_interval_hint">刷新连接推送消息的频率或检查新消息的频率</string>
-    <string name="title_account_prefix">命名空间前缀</string>
-    <string name="title_account_prefix_hint">用于简化文件夹名</string>
     <string name="title_account_signature">签名文本</string>
     <string name="title_account_color">颜色</string>
     <string name="title_account_notify">单独的通知</string>

@@ -149,8 +149,6 @@
     <string name="title_account_linked">Birləşdirilmiş hesablar</string>
     <string name="title_account_name">Hesab adı</string>
     <string name="title_account_name_hint">Qovluqları fərqləndirmək üçün istifadə edilir</string>
-    <string name="title_account_prefix">Ad sahəsi prefiksi</string>
-    <string name="title_account_prefix_hint">Qovluq adlarını sadələşdirmək üçün istifadə olunur</string>
     <string name="title_account_signature">İmza mətni</string>
     <string name="title_account_color">Rəng</string>
     <string name="title_account_notify">Ayrı bildirişlər</string>

@@ -232,8 +232,6 @@
     <string name="title_account_name">Tilin nimi</string>
     <string name="title_account_name_hint">Käytetään kansioiden tunnistamiseen</string>
     <string name="title_account_interval_hint">Push-viestien tai uusien viestien tarkistuksen aikaväli</string>
-    <string name="title_account_prefix">Namespace-etuliite</string>
-    <string name="title_account_prefix_hint">Käytetään kansionimien yksinkertaistamiseen</string>
     <string name="title_account_signature">Allekirjoituksen teksti</string>
     <string name="title_account_color">Väri</string>
     <string name="title_account_notify">Erilliset ilmoitukset</string>

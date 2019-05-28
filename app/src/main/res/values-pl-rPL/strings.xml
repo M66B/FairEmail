@@ -244,7 +244,6 @@
     <string name="title_account_name">Nazwa konta</string>
     <string name="title_account_name_hint">Używany do odróżnienia folderów</string>
     <string name="title_account_interval_hint">Częstotliwość odświeżania połączenia dla wiadomości Push lub częstotliwość sprawdzania nowych wiadomości</string>
-    <string name="title_account_prefix_hint">Używane do uproszczenia nazw folderów</string>
     <string name="title_account_signature">Tekst podpisu</string>
     <string name="title_account_color">Kolor</string>
     <string name="title_account_notify">Oddzielne powiadomienia</string>

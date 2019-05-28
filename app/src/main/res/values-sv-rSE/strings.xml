@@ -228,7 +228,6 @@
     <string name="title_account_name">Kontonamn</string>
     <string name="title_account_name_hint">Används för att differentiera mappar</string>
     <string name="title_account_interval_hint">Frekvens för att uppdatera anslutningen för pushmeddelanden eller frekvens för att söka efter nya meddelanden</string>
-    <string name="title_account_prefix_hint">Används för att förenkla mappnamn</string>
     <string name="title_account_signature">Signaturtext</string>
     <string name="title_account_color">Färg</string>
     <string name="title_account_notify">Separera aviseringar</string>
@@ -439,7 +438,7 @@
     <string name="title_sort_on_size">Storlek</string>
     <string name="title_sort_on_snoozed">Slumrade</string>
     <string name="title_filter">Filtrera bort</string>
-    <string name="title_filter_seen">Läs</string>
+    <string name="title_filter_seen">Läst</string>
     <string name="title_filter_unflagged">Utan stjärnmärkning</string>
     <string name="title_filter_duplicates">Dubbletter</string>
     <string name="title_compact">Kompakt vy</string>

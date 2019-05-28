@@ -232,8 +232,6 @@
     <string name="title_account_name">Nom du compte</string>
     <string name="title_account_name_hint">Utilisé pour différencier les dossiers</string>
     <string name="title_account_interval_hint">Fréquence de rafraîchissement de la connexion pour les messages push ou la fréquence de vérification des nouveaux messages</string>
-    <string name="title_account_prefix">Préfixe du nom des dossiers</string>
-    <string name="title_account_prefix_hint">Utilisé pour simplifier les noms de dossiers</string>
     <string name="title_account_signature">Texte de la signature</string>
     <string name="title_account_color">Couleur</string>
     <string name="title_account_notify">Notifications séparées</string>

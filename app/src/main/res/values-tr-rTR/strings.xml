@@ -219,8 +219,6 @@
     <string name="title_account_linked">Bağlı hesap</string>
     <string name="title_account_name">Hesap adı</string>
     <string name="title_account_name_hint">Klasörleri ayırt etmek için kullanılır</string>
-    <string name="title_account_prefix">Ad boşluğu öneki</string>
-    <string name="title_account_prefix_hint">Klasör adlsrını basitleştirmek için kullanılır</string>
     <string name="title_account_signature">İmza Metni</string>
     <string name="title_account_color">Renk</string>
     <string name="title_account_notify">Ayrı bildirimler</string>

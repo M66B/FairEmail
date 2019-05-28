@@ -248,8 +248,6 @@
     <string name="title_account_name">Název účtu</string>
     <string name="title_account_name_hint">Použito k odlišení složek</string>
     <string name="title_account_interval_hint">Četnost obnovy spojení pro okamžitá oznámení zpráv nebo četnost kontroly nových zpráv</string>
-    <string name="title_account_prefix">Předpona jmenného prostoru</string>
-    <string name="title_account_prefix_hint">Použito pro zjednodušení názvů složek</string>
     <string name="title_account_signature">Text podpisu</string>
     <string name="title_account_color">Barva</string>
     <string name="title_account_notify">Samostatná oznámení</string>
