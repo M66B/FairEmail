@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
+import android.app.NotificationChannelGroup;
 import android.app.NotificationManager;
 import android.content.Context;
 
@@ -106,9 +107,14 @@ public class EntityAccount extends EntityOrder implements Serializable {
     void createNotificationChannel(Context context) {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+            NotificationChannelGroup group = new NotificationChannelGroup(name, name);
+            nm.createNotificationChannelGroup(group);
+
             NotificationChannel channel = new NotificationChannel(
                     getNotificationChannelId(id), name,
                     NotificationManager.IMPORTANCE_HIGH);
+            channel.setGroup(name);
             channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
             nm.createNotificationChannel(channel);
         }
