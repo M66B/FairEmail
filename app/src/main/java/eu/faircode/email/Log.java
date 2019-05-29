@@ -267,6 +267,11 @@ public class Log {
             sb.append(String.format("Data saving: %b\r\n", saving));
         }
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String uuid = prefs.getString("uuid", null);
+
+        sb.append(String.format("UUID: %s\r\n", uuid == null ? "-" : uuid));
+
         sb.append("\r\n");
 
         sb.append(new Date().toString()).append("\r\n");
