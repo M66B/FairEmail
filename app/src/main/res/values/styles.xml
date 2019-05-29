@@ -26,6 +26,7 @@
 
         <item name="activatableItemBackground">@drawable/activatable_item_background_light</item>
 
+        <item name="android:textColorLink">@color/colorAccentDark</item>
         <item name="android:checkboxStyle">@style/checkboxStyle</item>
         <item name="android:buttonStyle">@style/buttonStyle</item>
         <item name="android:buttonStyleSmall">@style/buttonStyleSmall</item>
@@ -62,7 +63,7 @@
         <item name="themeName">black</item>
         <item name="colorPrimary">@color/blackPrimary</item>
         <item name="colorPrimaryDark">@color/blackPrimaryDark</item>
-        <item name="colorAccent">@color/blackAccent</item>
+        <item name="colorAccent">@color/colorAccentDark</item>
 
         <item name="android:windowBackground">@android:color/black</item>
         <item name="colorDrawerBackground">@android:color/black</item>

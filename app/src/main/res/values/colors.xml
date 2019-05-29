@@ -3,10 +3,10 @@
     <color name="colorPrimary">#039be5</color>
     <color name="colorPrimaryDark">#006db3</color>
     <color name="colorAccent">#ffb300</color>
+    <color name="colorAccentDark">#b27d00</color>
 
     <color name="blackPrimary">#026ca0</color>
     <color name="blackPrimaryDark">#004c7d</color>
-    <color name="blackAccent">#b27d00</color>
 
     <color name="colorActionForeground">#fff</color>
     <color name="colorActionForegroundDisabled">#ccc</color>
