@@ -248,4 +248,16 @@
     <string name="title_account_delete">Želite li trajno izbrisati ovaj račun?</string>
     <string name="title_identity_delete">Želite li trajno izbrisati ovaj identitet?</string>
     <string name="title_edit_html">Uredi kao HTML</string>
+    <string name="title_last_connected">Posljednje povezivanje: %1$s</string>
+    <string name="title_pop3_hint">POP3 ima značajna ograničenja, zbog toga koristite IMAP kad god je to moguće</string>
+    <string name="title_pop3_support">POP3 nije podržan, pogledajte i FAQ</string>
+    <string name="title_synchronize_now">Sinkroniziraj sada</string>
+    <string name="title_synchronize_enabled">Sinkroniziraj</string>
+    <string name="title_delete_local">Izbrišite lokalne poruke</string>
+    <string name="title_delete_browsed">Brisanje pregledanih / pretraženih poruka</string>
+    <string name="title_empty_trash">Isprazni Otpad</string>
+    <string name="title_edit_properties">Uredi svojstva</string>
+    <string name="title_edit_rules">Uredi pravila</string>
+    <string name="title_create_channel">Stvorite kanal obavijesti</string>
+    <string name="title_edit_channel">Uredi kanal obavijesti</string>
 </resources>
