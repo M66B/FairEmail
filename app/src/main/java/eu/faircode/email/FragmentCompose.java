@@ -2037,6 +2037,12 @@ public class FragmentCompose extends FragmentBase {
                             draft.inreplyto = ref.msgid;
                             draft.thread = ref.thread;
 
+                            String via = null;
+                            if (ref.identity != null) {
+                                EntityIdentity v = db.identity().getIdentity(ref.identity);
+                                via = MessageHelper.canonicalAddress(v.email);
+                            }
+
                             if ("list".equals(action) && ref.list_post != null) {
                                 draft.to = ref.list_post;
                                 draft.from = ref.to;
@@ -2046,26 +2052,21 @@ public class FragmentCompose extends FragmentBase {
                             } else {
                                 // Prevent replying to self
                                 String to = null;
-                                String via = null;
-                                Address[] recipient = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
-                                if (recipient != null && recipient.length > 0)
-                                    to = MessageHelper.canonicalAddress(((InternetAddress) recipient[0]).getAddress());
-                                if (ref.identity != null) {
-                                    EntityIdentity v = db.identity().getIdentity(ref.identity);
-                                    via = MessageHelper.canonicalAddress(v.email);
-                                }
+                                Address[] replying = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
+                                if (replying != null && replying.length == 1)
+                                    to = MessageHelper.canonicalAddress(((InternetAddress) replying[0]).getAddress());
 
                                 if (to != null && to.equals(via)) {
                                     draft.to = ref.to;
                                     draft.from = ref.from;
                                 } else {
-                                    draft.to = recipient;
+                                    draft.to = replying;
                                     draft.from = ref.to;
                                 }
                             }
 
                             if ("reply_all".equals(action))
-                                draft.cc = ref.getAll();
+                                draft.cc = ref.getAllRecipients(via);
                             else if ("receipt".equals(action))
                                 draft.receipt_request = true;
 
