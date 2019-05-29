@@ -420,6 +420,17 @@ public class ApplicationEx extends Application {
         if (ex instanceof RemoteException)
             return false;
 
+        /*
+            java.lang.NoSuchMethodError: No direct method ()V in class Landroid/security/IKeyChainService$Stub; or its super classes (declaration of 'android.security.IKeyChainService$Stub' appears in /system/framework/framework.jar!classes2.dex)
+            java.lang.NoSuchMethodError: No direct method ()V in class Landroid/security/IKeyChainService$Stub; or its super classes (declaration of 'android.security.IKeyChainService$Stub' appears in /system/framework/framework.jar!classes2.dex)
+            at com.android.keychain.KeyChainService$1.(KeyChainService.java:95)
+            at com.android.keychain.KeyChainService.(KeyChainService.java:95)
+            at java.lang.Class.newInstance(Native Method)
+            at android.app.AppComponentFactory.instantiateService(AppComponentFactory.java:103)
+         */
+        if (ex instanceof NoSuchMethodError)
+            return false;
+
         if (ex instanceof TimeoutException &&
                 ex.getMessage() != null &&
                 ex.getMessage().startsWith("com.sun.mail.imap.IMAPStore.finalize"))
