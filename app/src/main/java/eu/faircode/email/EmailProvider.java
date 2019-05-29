@@ -81,11 +81,11 @@ public class EmailProvider {
     private EmailProvider(String name, String domain, String imap_prefix, String smtp_prefix) {
         this.name = name;
 
-        this.imap_host = imap_prefix + "." + domain;
+        this.imap_host = (imap_prefix == null ? "" : imap_prefix + ".") + domain;
         this.imap_port = 993;
         this.imap_starttls = false;
 
-        this.smtp_host = smtp_prefix + "." + domain;
+        this.smtp_host = (smtp_prefix == null ? "" : smtp_prefix + ".") + domain;
         this.smtp_port = 587;
         this.smtp_starttls = true;
     }
@@ -366,7 +366,10 @@ public class EmailProvider {
     }
 
     private static EmailProvider fromTemplate(String domain) throws UnknownHostException {
-        if (checkTemplate(domain, "imap", 993, "smtp", 587))
+        if (checkTemplate(domain, null, 993, null, 587))
+            return new EmailProvider(domain, domain, null, null);
+
+        else if (checkTemplate(domain, "imap", 993, "smtp", 587))
             return new EmailProvider(domain, domain, "imap", "smtp");
 
         else if (checkTemplate(domain, "mail", 993, "mail", 587))
@@ -378,8 +381,8 @@ public class EmailProvider {
 
     private static boolean checkTemplate(
             String domain, String imap_prefix, int imap_port, String smtp_prefix, int smtp_port) {
-        return isHostReachable(imap_prefix + "." + domain, imap_port, 5000) &&
-                isHostReachable(smtp_prefix + "." + domain, smtp_port, 5000);
+        return isHostReachable((imap_prefix == null ? "" : imap_prefix + ".") + domain, imap_port, 5000) &&
+                isHostReachable((smtp_prefix == null ? "" : smtp_prefix + ".") + domain, smtp_port, 5000);
     }
 
     static boolean isHostReachable(String host, int port, int timeoutms) {
