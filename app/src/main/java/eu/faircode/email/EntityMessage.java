@@ -160,10 +160,19 @@ public class EntityMessage implements Serializable {
         return sb.toString();
     }
 
+    boolean replySelf(String via) {
+        Address[] replying = (reply == null || reply.length == 0 ? from : reply);
+        if (replying == null || replying.length != 1)
+            return false;
+
+        String recipient = MessageHelper.canonicalAddress(((InternetAddress) replying[0]).getAddress());
+        return recipient.equals(via);
+    }
+
     Address[] getAllRecipients(String via) {
         List<Address> addresses = new ArrayList<>();
 
-        if (to != null)
+        if (!replySelf(via) && to != null)
             addresses.addAll(Arrays.asList(to));
 
         if (cc != null)

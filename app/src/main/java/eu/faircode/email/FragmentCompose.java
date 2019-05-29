@@ -2050,16 +2050,11 @@ public class FragmentCompose extends FragmentBase {
                                 draft.to = ref.receipt_to;
                             else {
                                 // Prevent replying to self
-                                String to = null;
-                                Address[] replying = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
-                                if (replying != null && replying.length == 1)
-                                    to = MessageHelper.canonicalAddress(((InternetAddress) replying[0]).getAddress());
-
-                                if (to != null && to.equals(via)) {
+                                if (ref.replySelf(via)) {
                                     draft.to = ref.to;
                                     draft.from = ref.from;
                                 } else
-                                    draft.to = replying;
+                                    draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
                             }
 
                             if ("reply_all".equals(action))
