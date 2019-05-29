@@ -132,7 +132,7 @@ dependencies {
     def requery_version = "3.28.0"
     def badge_version = "1.1.22"
     def photoview_version = "2.3.0"
-    def bugsnag_version = "4.14.0"
+    def bugsnag_version = "4.14.2"
     def biweekly_version = "0.6.3"
 
     // https://developer.android.com/jetpack/androidx/releases/
