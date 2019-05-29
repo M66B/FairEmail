@@ -193,7 +193,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("debug", checked).apply();
-                grpDebug.setVisibility(checked ? View.VISIBLE : View.GONE);
+                grpDebug.setVisibility(checked || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
                 ServiceSynchronize.reload(getContext(), "debug=" + checked);
             }
         });
@@ -266,7 +266,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvMemoryClass.setText(getString(R.string.title_advanced_memory_class, class_mb + " MB"));
         tvUuid.setText(prefs.getString("uuid", null));
 
-        grpDebug.setVisibility(swDebug.isChecked() ? View.VISIBLE : View.GONE);
+        grpDebug.setVisibility(swDebug.isChecked() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
     }
 
     private void setLastCleanup(long time) {
