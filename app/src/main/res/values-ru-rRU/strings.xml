@@ -453,6 +453,9 @@
     <string name="title_resync">Синхронизировать заново</string>
     <string name="title_no_openpgp">OpenKeychain не доступно</string>
     <string name="title_not_encrypted">Сообщение не зашифровано</string>
+    <string name="title_signature_none">Сообщение не подписано</string>
+    <string name="title_signature_valid">Подпись сообщения действительна</string>
+    <string name="title_signature_invalid">Подпись сообщения недействительна</string>
     <string name="title_search">Поиск</string>
     <string name="title_search_in">Поиск в</string>
     <string name="title_searching">Поиск \'%1$s\'</string>

@@ -437,6 +437,9 @@
     <string name="title_resync">Neu synchronisieren</string>
     <string name="title_no_openpgp">OpenKeychain wurde nicht gefunden</string>
     <string name="title_not_encrypted">E-Mail ist nicht verschlüsselt</string>
+    <string name="title_signature_none">Unsignierte Nachricht</string>
+    <string name="title_signature_valid">Gültige Nachrichtensignatur</string>
+    <string name="title_signature_invalid">Ungültige Nachrichtensignatur</string>
     <string name="title_search">Suche</string>
     <string name="title_search_in">Suchen in</string>
     <string name="title_searching">Suche „%1$s“</string>

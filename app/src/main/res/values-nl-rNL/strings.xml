@@ -232,7 +232,7 @@
     <string name="title_account_name">Accountnaam</string>
     <string name="title_account_name_hint">Wordt gebruikt voor het onderscheiden van mappen</string>
     <string name="title_account_interval_hint">Frequentie van het verversen van de verbinding voor push berichten of frequentie van het controleren op nieuwe berichten</string>
-    <string name="title_account_signature">Handtekening</string>
+    <string name="title_account_signature">Tekst handtekening</string>
     <string name="title_account_color">Kleur</string>
     <string name="title_account_notify">Afzonderlijke meldingen</string>
     <string name="title_account_left">Veeg links</string>
@@ -437,6 +437,9 @@
     <string name="title_resync">Resync</string>
     <string name="title_no_openpgp">OpenKeychain niet gevonden</string>
     <string name="title_not_encrypted">Bericht is niet versleuteld</string>
+    <string name="title_signature_none">Bericht niet ondertekend</string>
+    <string name="title_signature_valid">Handtekening bericht geldig</string>
+    <string name="title_signature_invalid">Handtekening bericht ongeldig</string>
     <string name="title_search">Zoek</string>
     <string name="title_search_in">Zoeken in</string>
     <string name="title_searching">Zoeken naar \'%1$s\'</string>
