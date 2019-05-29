@@ -581,6 +581,7 @@
     <string name="title_legend_save">Bewaren</string>
     <string name="title_legend_delete">Verwijderen</string>
     <string name="title_legend_count">Aantal</string>
+    <string name="title_legend_folder_type">Maptype</string>
     <string name="title_hint_folder_actions">Druk lang voor opties</string>
     <string name="title_hint_folder_sync">Om het gebruik van de batterij en het netwerk te beperken, worden niet alle mappen en niet alle berichten standaard gesynchroniseerd</string>
     <string name="title_hint_support">Als u een vraag of een probleem heeft, gebruik dan het menu ondersteuning om hulp te krijgen</string>
