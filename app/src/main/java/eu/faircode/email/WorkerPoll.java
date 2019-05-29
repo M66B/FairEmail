@@ -52,9 +52,9 @@ public class WorkerPoll extends Worker {
         int pollInterval = prefs.getInt("poll_interval", 0);
         if (enabled && pollInterval > 0) {
             Log.i("Queuing " + getName() + " every " + pollInterval + " minutes");
+
             PeriodicWorkRequest workRequest =
                     new PeriodicWorkRequest.Builder(WorkerPoll.class, pollInterval, TimeUnit.MINUTES)
-                            .setInitialDelay(pollInterval, TimeUnit.MINUTES)
                             .build();
             WorkManager.getInstance(context)
                     .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.REPLACE, workRequest);

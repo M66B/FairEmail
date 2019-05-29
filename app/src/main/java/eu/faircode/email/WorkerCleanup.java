@@ -21,11 +21,9 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Build;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
-import androidx.work.Constraints;
 import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
@@ -157,17 +155,11 @@ public class WorkerCleanup extends Worker {
     static void queue(Context context) {
         Log.i("Queuing " + getName() + " every " + CLEANUP_INTERVAL + " hours");
 
-        Constraints.Builder constraints = new Constraints.Builder();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            constraints.setRequiresDeviceIdle(true);
-
         PeriodicWorkRequest workRequest =
                 new PeriodicWorkRequest.Builder(WorkerCleanup.class, CLEANUP_INTERVAL, TimeUnit.HOURS)
-                        .setInitialDelay(CLEANUP_INTERVAL, TimeUnit.HOURS)
-                        .setConstraints(constraints.build())
                         .build();
         WorkManager.getInstance(context)
-                .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.KEEP, workRequest);
+                .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.REPLACE, workRequest);
 
         Log.i("Queued " + getName());
     }
