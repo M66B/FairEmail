@@ -2066,21 +2066,20 @@ public class FragmentCompose extends FragmentBase {
 
                             if ("reply_all".equals(action)) {
                                 // Remove self from cc
-                                List<Address> addresses = new ArrayList<>();
-                                if (ref.to != null)
-                                    addresses.addAll(Arrays.asList(ref.to));
+                                List<Address> ccs = new ArrayList<>();
                                 if (ref.cc != null)
-                                    addresses.addAll(Arrays.asList(ref.cc));
-                                for (Address address : new ArrayList<>(addresses)) {
-                                    String cc = MessageHelper.canonicalAddress(((InternetAddress) address).getAddress());
+                                    ccs.addAll(Arrays.asList(ref.cc));
+
+                                for (Address cc : new ArrayList<>(ccs)) {
+                                    String email = MessageHelper.canonicalAddress(((InternetAddress) cc).getAddress());
                                     List<TupleIdentityEx> identities = db.identity().getComposableIdentities(ref.account);
                                     for (EntityIdentity identity : identities) {
-                                        String email = MessageHelper.canonicalAddress(identity.email);
-                                        if (cc.equals(email))
-                                            addresses.remove(address);
+                                        String iemail = MessageHelper.canonicalAddress(identity.email);
+                                        if (email.equals(iemail))
+                                            ccs.remove(cc);
                                     }
                                 }
-                                draft.cc = addresses.toArray(new Address[0]);
+                                draft.cc = ccs.toArray(new Address[0]);
                             } else if ("receipt".equals(action)) {
                                 draft.receipt_request = true;
                             }
