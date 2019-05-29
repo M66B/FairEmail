@@ -112,7 +112,7 @@ import static android.text.format.DateUtils.DAY_IN_MILLIS;
 import static android.text.format.DateUtils.FORMAT_SHOW_DATE;
 import static android.text.format.DateUtils.FORMAT_SHOW_WEEKDAY;
 
-public class FragmentMessages extends FragmentBase {
+public class FragmentMessages extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private ViewGroup view;
     private SwipeRefreshLayout swipeRefresh;
     private TextView tvSupport;
@@ -2128,8 +2128,6 @@ public class FragmentMessages extends FragmentBase {
     @Override
     public void onResume() {
         super.onResume();
-        grpSupport.setVisibility(viewType == AdapterMessage.ViewType.THREAD ||
-                Helper.isPro(getContext()) ? View.GONE : View.VISIBLE);
 
         ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkRequest.Builder builder = new NetworkRequest.Builder();
@@ -2147,14 +2145,30 @@ public class FragmentMessages extends FragmentBase {
             swipeRefresh.setRefreshing(false);
             swipeRefresh.setRefreshing(true);
         }
+
+        prefs.registerOnSharedPreferenceChangeListener(this);
+        onSharedPreferenceChanged(prefs, "pro");
     }
 
     @Override
     public void onPause() {
         super.onPause();
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.unregisterOnSharedPreferenceChangeListener(this);
+
         ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.unregisterNetworkCallback(networkCallback);
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if ("pro".equals(key)) {
+            boolean pro = prefs.getBoolean(key, false);
+            grpSupport.setVisibility(
+                    viewType == AdapterMessage.ViewType.THREAD || pro
+                            ? View.GONE : View.VISIBLE);
+        }
     }
 
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
@@ -2185,7 +2199,6 @@ public class FragmentMessages extends FragmentBase {
                 });
         }
     };
-
 
     private void checkReporting() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());

@@ -40,9 +40,14 @@ import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
+import com.android.billingclient.api.AcknowledgePurchaseParams;
+import com.android.billingclient.api.AcknowledgePurchaseResponseListener;
 import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingClientStateListener;
 import com.android.billingclient.api.BillingFlowParams;
+import com.android.billingclient.api.BillingResult;
+import com.android.billingclient.api.ConsumeParams;
+import com.android.billingclient.api.ConsumeResponseListener;
 import com.android.billingclient.api.Purchase;
 import com.android.billingclient.api.PurchasesUpdatedListener;
 import com.android.billingclient.api.SkuDetails;
@@ -56,7 +61,6 @@ import java.security.PublicKey;
 import java.security.Signature;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,15 +73,16 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
     static final String ACTION_PURCHASE = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE";
     static final String ACTION_ACTIVATE_PRO = BuildConfig.APPLICATION_ID + ".ACTIVATE_PRO";
 
-    static final String SKU_PRO = BuildConfig.APPLICATION_ID + ".pro";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         if (Helper.isPlayStoreInstall(this)) {
             Log.i("IAB start");
-            billingClient = BillingClient.newBuilder(this).setListener(this).build();
+            billingClient = BillingClient.newBuilder(this)
+                    .enablePendingPurchases()
+                    .setListener(this)
+                    .build();
             billingClient.startConnection(billingClientStateListener);
         }
     }
@@ -108,6 +113,13 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         if (billingClient != null)
             billingClient.endConnection();
         super.onDestroy();
+    }
+
+    static String getSkuPro() {
+        if (BuildConfig.DEBUG)
+            return "android.test.purchased";
+        else
+            return BuildConfig.APPLICATION_ID + ".pro";
     }
 
     protected Intent getIntentPro() {
@@ -146,18 +158,15 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
     private void onPurchase(Intent intent) {
         if (Helper.isPlayStoreInstall(this)) {
             BillingFlowParams.Builder flowParams = BillingFlowParams.newBuilder();
-            if (skuDetails.containsKey(SKU_PRO)) {
-                Log.i("IAB purchase SKU=" + skuDetails.get(SKU_PRO));
-                flowParams.setSkuDetails(skuDetails.get(SKU_PRO));
-            } else {
-                Log.i("IAB purchase SKU=" + SKU_PRO);
-                flowParams.setSku(SKU_PRO).setType(BillingClient.SkuType.INAPP);
+            if (skuDetails.containsKey(getSkuPro())) {
+                Log.i("IAB purchase SKU=" + skuDetails.get(getSkuPro()));
+                flowParams.setSkuDetails(skuDetails.get(getSkuPro()));
             }
 
-            int responseCode = billingClient.launchBillingFlow(this, flowParams.build());
-            String text = getBillingResponseText(responseCode);
+            BillingResult result = billingClient.launchBillingFlow(this, flowParams.build());
+            String text = getBillingResponseText(result);
             Log.i("IAB launch billing flow response=" + text);
-            if (responseCode != BillingClient.BillingResponse.OK)
+            if (result.getResponseCode() != BillingClient.BillingResponseCode.OK)
                 Snackbar.make(getVisibleView(), text, Snackbar.LENGTH_LONG).show();
         } else
             Helper.view(this, this, getIntentPro());
@@ -202,17 +211,16 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         private int backoff = 4; // seconds
 
         @Override
-        public void onBillingSetupFinished(@BillingClient.BillingResponse int responseCode) {
-            String text = getBillingResponseText(responseCode);
+        public void onBillingSetupFinished(BillingResult result) {
+            String text = getBillingResponseText(result);
             Log.i("IAB connected response=" + text);
 
             if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                 return;
 
-            if (responseCode == BillingClient.BillingResponse.OK) {
+            if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                 backoff = 4;
                 queryPurchases();
-                querySkuDetails();
             } else
                 Snackbar.make(getVisibleView(), text, Snackbar.LENGTH_LONG).show();
         }
@@ -232,14 +240,14 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
     };
 
     @Override
-    public void onPurchasesUpdated(int responseCode, @Nullable List<Purchase> purchases) {
-        String text = getBillingResponseText(responseCode);
+    public void onPurchasesUpdated(BillingResult result, @Nullable List<Purchase> purchases) {
+        String text = getBillingResponseText(result);
         Log.i("IAB purchases updated response=" + text);
 
         if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
             return;
 
-        if (responseCode == BillingClient.BillingResponse.OK)
+        if (result.getResponseCode() == BillingClient.BillingResponseCode.OK)
             checkPurchases(purchases);
         else
             Snackbar.make(getVisibleView(), text, Snackbar.LENGTH_LONG).show();
@@ -247,48 +255,29 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
 
     private void queryPurchases() {
         Purchase.PurchasesResult result = billingClient.queryPurchases(BillingClient.SkuType.INAPP);
-        String text = getBillingResponseText(result.getResponseCode());
+        String text = getBillingResponseText(result.getBillingResult());
         Log.i("IAB query purchases response=" + text);
 
-        if (result.getResponseCode() == BillingClient.BillingResponse.OK)
+        if (result.getResponseCode() == BillingClient.BillingResponseCode.OK)
             checkPurchases(result.getPurchasesList());
         else
             Snackbar.make(getVisibleView(), text, Snackbar.LENGTH_LONG).show();
     }
 
-    private void querySkuDetails() {
-        Log.i("IAB query SKUs");
-        SkuDetailsParams.Builder builder = SkuDetailsParams.newBuilder();
-        builder.setSkusList(Arrays.asList(SKU_PRO));
-        builder.setType(BillingClient.SkuType.INAPP);
-        billingClient.querySkuDetailsAsync(builder.build(),
-                new SkuDetailsResponseListener() {
-                    @Override
-                    public void onSkuDetailsResponse(int responseCode, List<SkuDetails> skuDetailsList) {
-                        String text = getBillingResponseText(responseCode);
-                        Log.i("IAB query SKUs response=" + text);
-                        if (responseCode == BillingClient.BillingResponse.OK) {
-                            for (SkuDetails skuDetail : skuDetailsList) {
-                                Log.i("IAB SKU detail=" + skuDetail);
-                                skuDetails.put(skuDetail.getSku(), skuDetail);
-                                for (IBillingListener listener : listeners)
-                                    listener.onSkuDetails(skuDetail.getSku(), skuDetail.getPrice());
-                            }
-                        }
-                    }
-                });
-    }
-
     interface IBillingListener {
         void onSkuDetails(String sku, String price);
+
+        void onPurchasePending(String sku);
+
+        void onPurchased(String sku);
     }
 
     void addBillingListener(final IBillingListener listener, LifecycleOwner owner) {
         Log.i("Adding billing listener=" + listener);
         listeners.add(listener);
 
-        for (SkuDetails skuDetail : skuDetails.values())
-            listener.onSkuDetails(skuDetail.getSku(), skuDetail.getPrice());
+        if (billingClient != null && billingClient.isReady())
+            queryPurchases();
 
         owner.getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
@@ -300,6 +289,9 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
     }
 
     private void checkPurchases(List<Purchase> purchases) {
+        List<String> query = new ArrayList<>();
+        query.add(getSkuPro());
+
         if (purchases != null) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             SharedPreferences.Editor editor = prefs.edit();
@@ -308,7 +300,23 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
 
             for (Purchase purchase : purchases)
                 try {
-                    Log.i("IAB SKU=" + purchase.getSku());
+                    query.remove(purchase.getSku());
+                    boolean purchased = (purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED);
+                    Log.i("IAB SKU=" + purchase.getSku() + " purchased=" + purchased);
+
+                    //if (new Date().getTime() - purchase.getPurchaseTime() > 3 * 60 * 1000L) {
+                    //    consumePurchase(purchase);
+                    //    continue;
+                    //}
+
+                    for (IBillingListener listener : listeners)
+                        if (purchased)
+                            listener.onPurchased(purchase.getSku());
+                        else
+                            listener.onPurchasePending(purchase.getSku());
+
+                    if (!purchased)
+                        continue;
 
                     byte[] decodedKey = Base64.decode(getString(R.string.public_key), Base64.DEFAULT);
                     KeyFactory keyFactory = KeyFactory.getInstance("RSA");
@@ -317,10 +325,14 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                     sig.initVerify(publicKey);
                     sig.update(purchase.getOriginalJson().getBytes());
                     if (sig.verify(Base64.decode(purchase.getSignature(), Base64.DEFAULT))) {
-                        if (SKU_PRO.equals(purchase.getSku())) {
-                            editor.putBoolean("pro", true);
-                            Log.i("IAB pro features activated");
+                        if (getSkuPro().equals(purchase.getSku())) {
+                            if (purchase.isAcknowledged()) {
+                                editor.putBoolean("pro", true);
+                                Log.i("IAB pro features activated");
+                            } else
+                                acknowledgePurchase(purchase);
                         }
+
                     } else {
                         Log.w("Invalid signature");
                         Snackbar.make(getVisibleView(), R.string.title_pro_invalid, Snackbar.LENGTH_LONG).show();
@@ -332,56 +344,120 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
 
             editor.apply();
         }
+
+        if (query.size() > 0)
+            querySkus(query);
     }
 
-    static String getBillingResponseText(@BillingClient.BillingResponse int responseCode) {
-        switch (responseCode) {
-            case BillingClient.BillingResponse.BILLING_UNAVAILABLE:
+    private void querySkus(List<String> query) {
+        Log.i("IAB query SKUs");
+        SkuDetailsParams.Builder builder = SkuDetailsParams.newBuilder();
+        builder.setSkusList(query);
+        builder.setType(BillingClient.SkuType.INAPP);
+        billingClient.querySkuDetailsAsync(builder.build(),
+                new SkuDetailsResponseListener() {
+                    @Override
+                    public void onSkuDetailsResponse(BillingResult result, List<SkuDetails> skuDetailsList) {
+                        String text = getBillingResponseText(result);
+                        Log.i("IAB query SKUs response=" + text);
+                        if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
+                            for (SkuDetails skuDetail : skuDetailsList) {
+                                Log.i("IAB SKU detail=" + skuDetail);
+                                skuDetails.put(skuDetail.getSku(), skuDetail);
+                                for (IBillingListener listener : listeners)
+                                    listener.onSkuDetails(skuDetail.getSku(), skuDetail.getPrice());
+                            }
+                        }
+                    }
+                });
+    }
+
+    private void consumePurchase(final Purchase purchase) {
+        Log.i("IAB SKU=" + purchase.getSku() + " consuming");
+        ConsumeParams params = ConsumeParams.newBuilder()
+                .setPurchaseToken(purchase.getPurchaseToken())
+                .build();
+        billingClient.consumeAsync(params, new ConsumeResponseListener() {
+            @Override
+            public void onConsumeResponse(BillingResult result, String purchaseToken) {
+                String text = getBillingResponseText(result);
+                Log.i("IAB SKU=" + purchase.getSku() + " consumed response=" + text);
+            }
+        });
+    }
+
+    private void acknowledgePurchase(final Purchase purchase) {
+        Log.i("IAB acknowledging purchase SKU=" + purchase.getSku());
+        AcknowledgePurchaseParams params =
+                AcknowledgePurchaseParams.newBuilder()
+                        .setPurchaseToken(purchase.getPurchaseToken())
+                        .build();
+        billingClient.acknowledgePurchase(params, new AcknowledgePurchaseResponseListener() {
+            @Override
+            public void onAcknowledgePurchaseResponse(BillingResult result) {
+                String text = getBillingResponseText(result);
+                Log.i("IAB acknowledged SKU=" + purchase.getSku() + " response=" + text);
+                if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityBilling.this);
+                    prefs.edit().putBoolean("pro", true).apply();
+                }
+            }
+        });
+    }
+
+    private static String getBillingResponseText(BillingResult result) {
+        String debug = result.getDebugMessage();
+        return _getBillingResponseText(result) + (debug == null ? "" : " " + debug);
+    }
+
+    private static String _getBillingResponseText(BillingResult result) {
+        switch (result.getResponseCode()) {
+            case BillingClient.BillingResponseCode.BILLING_UNAVAILABLE:
                 // Billing API version is not supported for the type requested
                 return "BILLING_UNAVAILABLE";
 
-            case BillingClient.BillingResponse.DEVELOPER_ERROR:
+            case BillingClient.BillingResponseCode.DEVELOPER_ERROR:
                 // Invalid arguments provided to the API.
                 return "DEVELOPER_ERROR";
 
-            case BillingClient.BillingResponse.ERROR:
+            case BillingClient.BillingResponseCode.ERROR:
                 // Fatal error during the API action
                 return "ERROR";
 
-            case BillingClient.BillingResponse.FEATURE_NOT_SUPPORTED:
+            case BillingClient.BillingResponseCode.FEATURE_NOT_SUPPORTED:
                 // Requested feature is not supported by Play Store on the current device.
                 return "FEATURE_NOT_SUPPORTED";
 
-            case BillingClient.BillingResponse.ITEM_ALREADY_OWNED:
+            case BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED:
                 // Failure to purchase since item is already owned
                 return "ITEM_ALREADY_OWNED";
 
-            case BillingClient.BillingResponse.ITEM_NOT_OWNED:
+            case BillingClient.BillingResponseCode.ITEM_NOT_OWNED:
                 // Failure to consume since item is not owned
                 return "ITEM_NOT_OWNED";
 
-            case BillingClient.BillingResponse.ITEM_UNAVAILABLE:
+            case BillingClient.BillingResponseCode.ITEM_UNAVAILABLE:
                 // Requested product is not available for purchase
                 return "ITEM_UNAVAILABLE";
 
-            case BillingClient.BillingResponse.OK:
+            case BillingClient.BillingResponseCode.OK:
                 // Success
                 return "OK";
 
-            case BillingClient.BillingResponse.SERVICE_DISCONNECTED:
+            case BillingClient.BillingResponseCode.SERVICE_DISCONNECTED:
                 // Play Store service is not connected now - potentially transient state.
                 return "SERVICE_DISCONNECTED";
 
-            case BillingClient.BillingResponse.SERVICE_UNAVAILABLE:
+            case BillingClient.BillingResponseCode.SERVICE_UNAVAILABLE:
                 // Network connection is down
                 return "SERVICE_UNAVAILABLE";
 
-            case BillingClient.BillingResponse.USER_CANCELED:
+            case BillingClient.BillingResponseCode.USER_CANCELED:
                 // User pressed back or canceled a dialog
                 return "USER_CANCELED";
 
             default:
-                return Integer.toString(responseCode);
+                return Integer.toString(result.getResponseCode());
         }
     }
 }
