@@ -3231,9 +3231,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionReplyMenu(final ActionData data) {
-            int cc = (data.message.cc == null ? 0 : data.message.cc.length);
+            Address[] all = data.message.getAll();
 
-            if (cc == 0 &&
+            if (all.length == 0 &&
                     data.message.list_post == null &&
                     data.message.receipt_to == null &&
                     (answers == 0 && Helper.isPro(context))) {
@@ -3244,7 +3244,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             View anchor = bnvActions.findViewById(R.id.action_reply);
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
             popupMenu.inflate(R.menu.menu_reply);
-            popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setVisible(cc > 1);
+            popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setVisible(all.length > 0);
             popupMenu.getMenu().findItem(R.id.menu_reply_list).setVisible(data.message.list_post != null);
             popupMenu.getMenu().findItem(R.id.menu_reply_receipt).setVisible(data.message.receipt_to != null);
             popupMenu.getMenu().findItem(R.id.menu_reply_answer).setVisible(answers != 0 || !Helper.isPro(context));

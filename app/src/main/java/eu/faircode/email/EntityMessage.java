@@ -32,7 +32,10 @@ import androidx.room.PrimaryKey;
 
 import java.io.File;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
@@ -154,6 +157,19 @@ public class EntityMessage implements Serializable {
                 .append(BuildConfig.APPLICATION_ID).append("@localhost")
                 .append('>');
         return sb.toString();
+    }
+
+    Address[] getAll() {
+        List<Address> addresses = new ArrayList<>();
+        if (reply != null && reply.length > 0)
+            addresses.addAll(Arrays.asList(reply));
+        else if (to != null)
+            addresses.addAll(Arrays.asList(to));
+
+        if (cc != null)
+            addresses.addAll(Arrays.asList(cc));
+
+        return addresses.toArray(new Address[0]);
     }
 
     File getFile(Context context) {

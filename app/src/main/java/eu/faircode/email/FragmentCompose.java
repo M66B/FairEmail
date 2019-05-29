@@ -2064,25 +2064,11 @@ public class FragmentCompose extends FragmentBase {
                                 }
                             }
 
-                            if ("reply_all".equals(action)) {
-                                // Remove self from cc
-                                List<Address> ccs = new ArrayList<>();
-                                if (ref.cc != null)
-                                    ccs.addAll(Arrays.asList(ref.cc));
-
-                                for (Address cc : new ArrayList<>(ccs)) {
-                                    String email = MessageHelper.canonicalAddress(((InternetAddress) cc).getAddress());
-                                    List<TupleIdentityEx> identities = db.identity().getComposableIdentities(ref.account);
-                                    for (EntityIdentity identity : identities) {
-                                        String iemail = MessageHelper.canonicalAddress(identity.email);
-                                        if (email.equals(iemail))
-                                            ccs.remove(cc);
-                                    }
-                                }
-                                draft.cc = ccs.toArray(new Address[0]);
-                            } else if ("receipt".equals(action)) {
+                            if ("reply_all".equals(action))
+                                draft.cc = ref.getAll();
+                            else if ("receipt".equals(action))
                                 draft.receipt_request = true;
-                            }
+
                         } else if ("forward".equals(action)) {
                             draft.thread = draft.msgid; // new thread
                             draft.from = ref.to;
