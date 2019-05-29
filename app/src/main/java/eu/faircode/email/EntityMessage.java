@@ -163,14 +163,8 @@ public class EntityMessage implements Serializable {
     Address[] getAllRecipients(String via) {
         List<Address> addresses = new ArrayList<>();
 
-        String r = null;
-        Address[] replying = (reply == null || reply.length == 0 ? from : reply);
-        if (replying != null && replying.length == 1)
-            r = MessageHelper.canonicalAddress(((InternetAddress) replying[0]).getAddress());
-        if (r == null && !r.equals(via)) {
-            if (to != null)
-                addresses.addAll(Arrays.asList(to));
-        }
+        if (to != null)
+            addresses.addAll(Arrays.asList(to));
 
         if (cc != null)
             addresses.addAll(Arrays.asList(cc));
