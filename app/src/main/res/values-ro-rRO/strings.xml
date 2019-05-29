@@ -589,7 +589,6 @@
     <string name="title_legend_save">Salvează</string>
     <string name="title_legend_delete">Șterge</string>
     <string name="title_legend_count">Contor</string>
-    <string name="title_legend_folder_tye">Tip de dosar</string>
     <string name="title_hint_folder_actions">Atingeți lung pentru opțiuni</string>
     <string name="title_hint_folder_sync">Pentru a limita utilizarea bateriei şi a conexiunii, nu vor fi sincronizate în mod implicit toate dosarele si mesajele</string>
     <string name="title_hint_support">Dacă aveți o întrebare sau o problemă, vă rugăm să utilizați meniul de suport tehnic pentru a obține ajutor</string>

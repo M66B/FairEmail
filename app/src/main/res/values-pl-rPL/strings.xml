@@ -577,7 +577,6 @@
     <string name="title_legend_save">Zapisz</string>
     <string name="title_legend_delete">Usuń</string>
     <string name="title_legend_count">Liczba</string>
-    <string name="title_legend_folder_tye">Rodzaje folderów</string>
     <string name="title_hint_folder_actions">Przytrzymaj, aby uzyskać więcej opcji</string>
     <string name="title_hint_folder_sync">W celu ograniczenia użycia baterii i sieci nie wszystkie foldery i wiadomości będą domyślnie synchronizowane</string>
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>

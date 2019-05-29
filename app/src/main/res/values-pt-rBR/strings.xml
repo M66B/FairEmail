@@ -572,7 +572,6 @@
     <string name="title_legend_save">Salvar</string>
     <string name="title_legend_delete">Deletar</string>
     <string name="title_legend_count">Contagem</string>
-    <string name="title_legend_folder_tye">Tipo de pasta</string>
     <string name="title_hint_folder_actions">Mantenha pressionado para mais opções</string>
     <string name="title_hint_folder_sync">Para limitar o uso de bateria e de rede nem todas as pastas e mensagens serão sincronizadas por padrão</string>
     <string name="title_hint_support">Se você tiver uma pergunta ou um problema, por favor, use o menu de suporte para obter ajuda</string>

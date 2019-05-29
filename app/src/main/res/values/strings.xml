@@ -661,7 +661,7 @@
     <string name="title_legend_save">Save</string>
     <string name="title_legend_delete">Delete</string>
     <string name="title_legend_count">Count</string>
-    <string name="title_legend_folder_tye">Folders type</string>
+    <string name="title_legend_folder_type">Folders type</string>
 
     <string name="title_hint_folder_actions">Long press for options</string>
     <string name="title_hint_folder_sync">To limit battery and network usage not all folders and not all messages will be synchronized by default</string>

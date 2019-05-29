@@ -581,7 +581,6 @@
     <string name="title_legend_save">Lagre</string>
     <string name="title_legend_delete">Slett</string>
     <string name="title_legend_count">Antall</string>
-    <string name="title_legend_folder_tye">Mappe type</string>
     <string name="title_hint_folder_actions">Langt trykk for flere instillinger</string>
     <string name="title_hint_folder_sync">For å begrense batteri- og nettverks bruk, vil ikke alle mapper og ikke alle meldinger synkroniseres som standard</string>
     <string name="title_hint_support">Hvis du har et spørsmål eller et problem, vennligst bruk support menyen for å få hjelp</string>

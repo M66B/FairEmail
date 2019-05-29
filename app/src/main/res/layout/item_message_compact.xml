@@ -109,11 +109,11 @@
             app:layout_constraintTop_toBottomOf="@id/paddingTop" />
 
         <ImageView
-            android:id="@+id/ivDraft"
+            android:id="@+id/ivType"
             android:layout_width="21dp"
             android:layout_height="21dp"
             android:layout_marginStart="6dp"
-            android:contentDescription="@string/title_legend_draft"
+            android:contentDescription="@string/title_legend_folder_type"
             android:src="@drawable/baseline_edit_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
             app:layout_constraintStart_toEndOf="@id/paddingStart"
@@ -127,7 +127,7 @@
             android:contentDescription="@string/title_legend_snoozed"
             android:src="@drawable/baseline_timelapse_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
-            app:layout_constraintStart_toEndOf="@id/ivDraft"
+            app:layout_constraintStart_toEndOf="@id/ivType"
             app:layout_constraintTop_toTopOf="@+id/tvSubject" />
 
         <ImageView

@@ -581,7 +581,6 @@
     <string name="title_legend_save">Salva</string>
     <string name="title_legend_delete">Elimina</string>
     <string name="title_legend_count">Quantità</string>
-    <string name="title_legend_folder_tye">Tipo di cartelle</string>
     <string name="title_hint_folder_actions">Tieni premuto per le opzioni</string>
     <string name="title_hint_folder_sync">Per limitare l\'utilizzo della batteria e della rete, non tutte le cartelle e non tutti i messaggi verranno sincronizzati per impostazione predefinita</string>
     <string name="title_hint_support">Se hai una domanda o un problema, usa il menu di supporto per ottenere aiuto</string>

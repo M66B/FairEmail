@@ -594,7 +594,6 @@
     <string name="title_legend_save">Uložit</string>
     <string name="title_legend_delete">Smazat</string>
     <string name="title_legend_count">Počet</string>
-    <string name="title_legend_folder_tye">Typ složky</string>
     <string name="title_hint_folder_actions">Dlouze podržet pro více možností</string>
     <string name="title_hint_folder_sync">Pro omezení spotřeby baterie a dat nebudou ve výchozím stavu synchronizovány všechny zprávy ani složky</string>
     <string name="title_hint_support">Máte-li dotaz nebo problém, použijte prosím menu podpory pro získání pomoci</string>

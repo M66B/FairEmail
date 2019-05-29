@@ -578,7 +578,6 @@
     <string name="title_legend_save">Enregistrer</string>
     <string name="title_legend_delete">Supprimer</string>
     <string name="title_legend_count">Nombre</string>
-    <string name="title_legend_folder_tye">Type de dossier</string>
     <string name="title_hint_folder_actions">Appui long pour les options</string>
     <string name="title_hint_folder_sync">Pour limiter l\'utilisation de la batterie et du réseau, les dossiers et les messages ne seront pas tous synchronisés par défaut</string>
     <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu Support pour obtenir de l\'aide</string>

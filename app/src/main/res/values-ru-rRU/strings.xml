@@ -597,7 +597,6 @@
     <string name="title_legend_save">Сохранить</string>
     <string name="title_legend_delete">Удалить</string>
     <string name="title_legend_count">Количество</string>
-    <string name="title_legend_folder_tye">Типы папок</string>
     <string name="title_hint_folder_actions">Длительно нажмите для вариантов</string>
     <string name="title_hint_folder_sync">Для экономии заряда батареи и трафика не все папки и сообщения синхронизируются по умолчанию</string>
     <string name="title_hint_support">Если у вас есть вопрос или проблема, пожалуйста, используйте меню поддержки для получения помощи</string>

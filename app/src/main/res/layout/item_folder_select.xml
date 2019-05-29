@@ -35,7 +35,7 @@
             android:id="@+id/ivType"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:contentDescription="@string/title_legend_folder_tye"
+            android:contentDescription="@string/title_legend_folder_type"
             android:src="@drawable/baseline_inbox_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvName"
             app:layout_constraintStart_toEndOf="@+id/ivExpander"

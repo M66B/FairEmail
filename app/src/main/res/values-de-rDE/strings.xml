@@ -581,7 +581,6 @@
     <string name="title_legend_save">Speichern</string>
     <string name="title_legend_delete">Löschen</string>
     <string name="title_legend_count">Zählen</string>
-    <string name="title_legend_folder_tye">Ordner-Typ</string>
     <string name="title_hint_folder_actions">Gedrückt halten für weitere Optionen</string>
     <string name="title_hint_folder_sync">Um Akkuverbrauch und Datennutzung zu reduzieren, werden standardmäßig nicht alle Ordner und E-Mails synchronisiert</string>
     <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte die Hilfe im Menü</string>

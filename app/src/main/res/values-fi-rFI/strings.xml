@@ -578,7 +578,6 @@
     <string name="title_legend_save">Tallenna</string>
     <string name="title_legend_delete">Poista</string>
     <string name="title_legend_count">Lukumäärä</string>
-    <string name="title_legend_folder_tye">Kansion tyyppi</string>
     <string name="title_hint_folder_actions">Pitkä painallus avaa asetukset</string>
     <string name="title_hint_folder_sync">Akun ja verkon käytön rajoittamiseksi kaikkia kansioita ja viestejä ei oletusarvoisesti synkronoida</string>
     <string name="title_hint_support">Jos sinulla on kysyttävää tai ongelma, ole hyvä ja käytä tukivalikkoa saadaksesi apua</string>

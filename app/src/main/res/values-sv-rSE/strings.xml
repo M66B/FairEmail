@@ -560,7 +560,6 @@
     <string name="title_legend_save">Spara</string>
     <string name="title_legend_delete">Ta bort</string>
     <string name="title_legend_count">Antal</string>
-    <string name="title_legend_folder_tye">Mapptyp</string>
     <string name="title_hint_folder_actions">Långtryck för inställningar</string>
     <string name="title_hint_folder_sync">För att begränsa batteri- och nätverksanvändning synkroniseras inte alla mappar och inte alla meddelanden som standard</string>
     <string name="title_hint_support">Om du har en fråga eller ett problem, vänligen använd supportmenyn för att få hjälp</string>

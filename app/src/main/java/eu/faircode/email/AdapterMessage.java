@@ -202,7 +202,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvFrom;
         private TextView tvSize;
         private TextView tvTime;
-        private ImageView ivDraft;
+        private ImageView ivType;
         private ImageView ivSnoozed;
         private ImageView ivBrowsed;
         private ImageView ivAnswered;
@@ -303,7 +303,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvFrom = itemView.findViewById(R.id.tvFrom);
             tvSize = itemView.findViewById(R.id.tvSize);
             tvTime = itemView.findViewById(R.id.tvTime);
-            ivDraft = itemView.findViewById(R.id.ivDraft);
+            ivType = itemView.findViewById(R.id.ivType);
             ivSnoozed = itemView.findViewById(R.id.ivSnoozed);
             ivBrowsed = itemView.findViewById(R.id.ivBrowsed);
             ivAnswered = itemView.findViewById(R.id.ivAnswered);
@@ -495,7 +495,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvFrom.setText(null);
             tvSize.setText(null);
             tvTime.setText(null);
-            ivDraft.setVisibility(View.GONE);
+            ivType.setVisibility(View.GONE);
             ivSnoozed.setVisibility(View.GONE);
             ivBrowsed.setVisibility(View.GONE);
             ivAnswered.setVisibility(View.GONE);
@@ -554,7 +554,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvFrom.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvSize.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvTime.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
-                ivDraft.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ivType.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivSnoozed.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivBrowsed.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivAnswered.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
@@ -613,7 +613,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSubject.setText(message.subject);
 
             // Line 3
-            ivDraft.setVisibility(message.drafts > 0 ? View.VISIBLE : View.GONE);
+            ivType.setImageResource(message.drafts > 0
+                    ? R.drawable.baseline_edit_24 : EntityFolder.getIcon(message.folderType));
+            ivType.setVisibility(message.drafts > 0 ||
+                    (viewType == ViewType.UNIFIED && !EntityFolder.INBOX.equals(message.folderType))
+                    ? View.VISIBLE : View.GONE);
             ivSnoozed.setVisibility(message.ui_snoozed == null ? View.GONE : View.VISIBLE);
             ivBrowsed.setVisibility(message.ui_browsed ? View.VISIBLE : View.GONE);
             ivAnswered.setVisibility(message.ui_answered ? View.VISIBLE : View.GONE);
