@@ -2059,7 +2059,7 @@ public class FragmentCompose extends FragmentBase {
                                     draft.to = ref.to;
                                     draft.from = ref.from;
                                 } else {
-                                    draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
+                                    draft.to = recipient;
                                     draft.from = ref.to;
                                 }
                             }
