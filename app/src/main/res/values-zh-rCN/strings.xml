@@ -429,6 +429,9 @@
     <string name="title_resync">重新同步</string>
     <string name="title_no_openpgp">OpenKeychain 未找到</string>
     <string name="title_not_encrypted">邮件未加密</string>
+    <string name="title_signature_none">消息未签名</string>
+    <string name="title_signature_valid">消息签名有效</string>
+    <string name="title_signature_invalid">消息签名无效</string>
     <string name="title_search">搜索</string>
     <string name="title_search_in">搜索范围</string>
     <string name="title_searching">搜索 “%1$s”</string>

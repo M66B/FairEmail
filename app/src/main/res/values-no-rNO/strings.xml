@@ -437,6 +437,9 @@
     <string name="title_resync">Resync</string>
     <string name="title_no_openpgp">Finner ikke OpenKeychain</string>
     <string name="title_not_encrypted">Meldingen er ikke kryptert</string>
+    <string name="title_signature_none">Melding ikke signert</string>
+    <string name="title_signature_valid">Meldings signatur gyldig</string>
+    <string name="title_signature_invalid">Meldings signatur ugyldig</string>
     <string name="title_search">Søk</string>
     <string name="title_search_in">Søk i</string>
     <string name="title_searching">Søker \'%1$s \'</string>
