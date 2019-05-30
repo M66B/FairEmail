@@ -325,97 +325,99 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbLoading = itemView.findViewById(R.id.pbLoading);
             vwRipple = itemView.findViewById(R.id.vwRipple);
 
-            ConstraintLayout inAttachments = itemView.findViewById(R.id.inAttachments);
-            ConstraintLayout inAttachmentsAlt = itemView.findViewById(R.id.inAttachmentsAlt);
-            inAttachments.setVisibility(attachments_alt ? View.GONE : View.VISIBLE);
-            inAttachmentsAlt.setVisibility(attachments_alt ? View.VISIBLE : View.GONE);
-            ConstraintLayout attachments = (attachments_alt ? inAttachmentsAlt : inAttachments);
+            if (viewType == ViewType.THREAD) {
+                ConstraintLayout inAttachments = itemView.findViewById(R.id.inAttachments);
+                ConstraintLayout inAttachmentsAlt = itemView.findViewById(R.id.inAttachmentsAlt);
+                inAttachments.setVisibility(attachments_alt ? View.GONE : View.VISIBLE);
+                inAttachmentsAlt.setVisibility(attachments_alt ? View.VISIBLE : View.GONE);
+                ConstraintLayout attachments = (attachments_alt ? inAttachmentsAlt : inAttachments);
 
-            ivExpanderAddress = itemView.findViewById(R.id.ivExpanderAddress);
+                ivExpanderAddress = itemView.findViewById(R.id.ivExpanderAddress);
 
-            ibSearchContact = itemView.findViewById(R.id.ibSearchContact);
-            ibNotifyContact = itemView.findViewById(R.id.ibNotifyContact);
-            ibAddContact = itemView.findViewById(R.id.ibAddContact);
+                ibSearchContact = itemView.findViewById(R.id.ibSearchContact);
+                ibNotifyContact = itemView.findViewById(R.id.ibNotifyContact);
+                ibAddContact = itemView.findViewById(R.id.ibAddContact);
 
-            tvFromExTitle = itemView.findViewById(R.id.tvFromExTitle);
-            tvToTitle = itemView.findViewById(R.id.tvToTitle);
-            tvReplyToTitle = itemView.findViewById(R.id.tvReplyToTitle);
-            tvCcTitle = itemView.findViewById(R.id.tvCcTitle);
-            tvBccTitle = itemView.findViewById(R.id.tvBccTitle);
-            tvIdentityTitle = itemView.findViewById(R.id.tvIdentityTitle);
-            tvTimeExTitle = itemView.findViewById(R.id.tvTimeExTitle);
-            tvSizeExTitle = itemView.findViewById(R.id.tvSizeExTitle);
+                tvFromExTitle = itemView.findViewById(R.id.tvFromExTitle);
+                tvToTitle = itemView.findViewById(R.id.tvToTitle);
+                tvReplyToTitle = itemView.findViewById(R.id.tvReplyToTitle);
+                tvCcTitle = itemView.findViewById(R.id.tvCcTitle);
+                tvBccTitle = itemView.findViewById(R.id.tvBccTitle);
+                tvIdentityTitle = itemView.findViewById(R.id.tvIdentityTitle);
+                tvTimeExTitle = itemView.findViewById(R.id.tvTimeExTitle);
+                tvSizeExTitle = itemView.findViewById(R.id.tvSizeExTitle);
 
-            tvFromEx = itemView.findViewById(R.id.tvFromEx);
-            tvTo = itemView.findViewById(R.id.tvTo);
-            tvReplyTo = itemView.findViewById(R.id.tvReplyTo);
-            tvCc = itemView.findViewById(R.id.tvCc);
-            tvBcc = itemView.findViewById(R.id.tvBcc);
-            tvIdentity = itemView.findViewById(R.id.tvIdentity);
-            tvTimeEx = itemView.findViewById(R.id.tvTimeEx);
-            tvSizeEx = itemView.findViewById(R.id.tvSizeEx);
+                tvFromEx = itemView.findViewById(R.id.tvFromEx);
+                tvTo = itemView.findViewById(R.id.tvTo);
+                tvReplyTo = itemView.findViewById(R.id.tvReplyTo);
+                tvCc = itemView.findViewById(R.id.tvCc);
+                tvBcc = itemView.findViewById(R.id.tvBcc);
+                tvIdentity = itemView.findViewById(R.id.tvIdentity);
+                tvTimeEx = itemView.findViewById(R.id.tvTimeEx);
+                tvSizeEx = itemView.findViewById(R.id.tvSizeEx);
 
-            tvSubjectEx = itemView.findViewById(R.id.tvSubjectEx);
-            tvFlags = itemView.findViewById(R.id.tvFlags);
-            tvKeywords = itemView.findViewById(R.id.tvKeywords);
+                tvSubjectEx = itemView.findViewById(R.id.tvSubjectEx);
+                tvFlags = itemView.findViewById(R.id.tvFlags);
+                tvKeywords = itemView.findViewById(R.id.tvKeywords);
 
-            tvHeaders = itemView.findViewById(R.id.tvHeaders);
-            pbHeaders = itemView.findViewById(R.id.pbHeaders);
-            tvNoInternetHeaders = itemView.findViewById(R.id.tvNoInternetHeaders);
+                tvHeaders = itemView.findViewById(R.id.tvHeaders);
+                pbHeaders = itemView.findViewById(R.id.pbHeaders);
+                tvNoInternetHeaders = itemView.findViewById(R.id.tvNoInternetHeaders);
 
-            tvCalendarSummary = view.findViewById(R.id.tvCalendarSummary);
-            tvCalendarStart = view.findViewById(R.id.tvCalendarStart);
-            tvCalendarEnd = view.findViewById(R.id.tvCalendarEnd);
-            tvAttendees = view.findViewById(R.id.tvAttendees);
-            btnCalendarAccept = view.findViewById(R.id.btnCalendarAccept);
-            btnCalendarDecline = view.findViewById(R.id.btnCalendarDecline);
-            btnCalendarMaybe = view.findViewById(R.id.btnCalendarMaybe);
-            pbCalendarWait = view.findViewById(R.id.pbCalendarWait);
+                tvCalendarSummary = view.findViewById(R.id.tvCalendarSummary);
+                tvCalendarStart = view.findViewById(R.id.tvCalendarStart);
+                tvCalendarEnd = view.findViewById(R.id.tvCalendarEnd);
+                tvAttendees = view.findViewById(R.id.tvAttendees);
+                btnCalendarAccept = view.findViewById(R.id.btnCalendarAccept);
+                btnCalendarDecline = view.findViewById(R.id.btnCalendarDecline);
+                btnCalendarMaybe = view.findViewById(R.id.btnCalendarMaybe);
+                pbCalendarWait = view.findViewById(R.id.pbCalendarWait);
 
-            rvAttachment = attachments.findViewById(R.id.rvAttachment);
-            rvAttachment.setHasFixedSize(false);
-            LinearLayoutManager llm = new LinearLayoutManager(context);
-            rvAttachment.setLayoutManager(llm);
-            rvAttachment.setItemAnimator(null);
+                rvAttachment = attachments.findViewById(R.id.rvAttachment);
+                rvAttachment.setHasFixedSize(false);
+                LinearLayoutManager llm = new LinearLayoutManager(context);
+                rvAttachment.setLayoutManager(llm);
+                rvAttachment.setItemAnimator(null);
 
-            adapterAttachment = new AdapterAttachment(context, owner, true);
-            rvAttachment.setAdapter(adapterAttachment);
+                adapterAttachment = new AdapterAttachment(context, owner, true);
+                rvAttachment.setAdapter(adapterAttachment);
 
-            cbInline = attachments.findViewById(R.id.cbInline);
-            btnDownloadAttachments = attachments.findViewById(R.id.btnDownloadAttachments);
-            btnSaveAttachments = attachments.findViewById(R.id.btnSaveAttachments);
-            tvNoInternetAttachments = attachments.findViewById(R.id.tvNoInternetAttachments);
+                cbInline = attachments.findViewById(R.id.cbInline);
+                btnDownloadAttachments = attachments.findViewById(R.id.btnDownloadAttachments);
+                btnSaveAttachments = attachments.findViewById(R.id.btnSaveAttachments);
+                tvNoInternetAttachments = attachments.findViewById(R.id.tvNoInternetAttachments);
 
-            bnvActions = itemView.findViewById(R.id.bnvActions);
-            if (compact) {
-                bnvActions.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
-                ViewGroup.LayoutParams lparam = bnvActions.getLayoutParams();
-                lparam.height = dp36;
-                bnvActions.setLayoutParams(lparam);
+                bnvActions = itemView.findViewById(R.id.bnvActions);
+                if (compact) {
+                    bnvActions.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
+                    ViewGroup.LayoutParams lparam = bnvActions.getLayoutParams();
+                    lparam.height = dp36;
+                    bnvActions.setLayoutParams(lparam);
+                }
+
+                tbHtml = itemView.findViewById(R.id.tbHtml);
+                ibImages = itemView.findViewById(R.id.ibImages);
+                ibFull = itemView.findViewById(R.id.ibFull);
+                tvBody = itemView.findViewById(R.id.tvBody);
+                vwBody = itemView.findViewById(R.id.vwBody);
+                pbBody = itemView.findViewById(R.id.pbBody);
+                tvNoInternetBody = itemView.findViewById(R.id.tvNoInternetBody);
+
+                rvImage = itemView.findViewById(R.id.rvImage);
+                rvImage.setHasFixedSize(false);
+                StaggeredGridLayoutManager sglm =
+                        new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+                rvImage.setLayoutManager(sglm);
+                adapterImage = new AdapterImage(context, owner);
+                rvImage.setAdapter(adapterImage);
+
+                grpAddresses = itemView.findViewById(R.id.grpAddresses);
+                grpHeaders = itemView.findViewById(R.id.grpHeaders);
+                grpCalendar = itemView.findViewById(R.id.grpCalendar);
+                grpCalendarResponse = itemView.findViewById(R.id.grpCalendarResponse);
+                grpAttachments = attachments.findViewById(R.id.grpAttachments);
+                grpImages = itemView.findViewById(R.id.grpImages);
             }
-
-            tbHtml = itemView.findViewById(R.id.tbHtml);
-            ibImages = itemView.findViewById(R.id.ibImages);
-            ibFull = itemView.findViewById(R.id.ibFull);
-            tvBody = itemView.findViewById(R.id.tvBody);
-            vwBody = itemView.findViewById(R.id.vwBody);
-            pbBody = itemView.findViewById(R.id.pbBody);
-            tvNoInternetBody = itemView.findViewById(R.id.tvNoInternetBody);
-
-            rvImage = itemView.findViewById(R.id.rvImage);
-            rvImage.setHasFixedSize(false);
-            StaggeredGridLayoutManager sglm =
-                    new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-            rvImage.setLayoutManager(sglm);
-            adapterImage = new AdapterImage(context, owner);
-            rvImage.setAdapter(adapterImage);
-
-            grpAddresses = itemView.findViewById(R.id.grpAddresses);
-            grpHeaders = itemView.findViewById(R.id.grpHeaders);
-            grpCalendar = itemView.findViewById(R.id.grpCalendar);
-            grpCalendarResponse = itemView.findViewById(R.id.grpCalendarResponse);
-            grpAttachments = attachments.findViewById(R.id.grpAttachments);
-            grpImages = itemView.findViewById(R.id.grpImages);
         }
 
         Rect getItemRect() {
@@ -444,23 +446,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivSnoozed.setOnClickListener(this);
             ivFlagged.setOnClickListener(this);
 
-            ivExpanderAddress.setOnClickListener(this);
-            ibSearchContact.setOnClickListener(this);
-            ibNotifyContact.setOnClickListener(this);
-            ibAddContact.setOnClickListener(this);
+            if (viewType == ViewType.THREAD) {
+                ivExpanderAddress.setOnClickListener(this);
+                ibSearchContact.setOnClickListener(this);
+                ibNotifyContact.setOnClickListener(this);
+                ibAddContact.setOnClickListener(this);
 
-            btnDownloadAttachments.setOnClickListener(this);
-            btnSaveAttachments.setOnClickListener(this);
+                btnDownloadAttachments.setOnClickListener(this);
+                btnSaveAttachments.setOnClickListener(this);
 
-            tbHtml.setOnCheckedChangeListener(this);
-            ibImages.setOnClickListener(this);
-            ibFull.setOnClickListener(this);
+                tbHtml.setOnCheckedChangeListener(this);
+                ibImages.setOnClickListener(this);
+                ibFull.setOnClickListener(this);
 
-            btnCalendarAccept.setOnClickListener(this);
-            btnCalendarDecline.setOnClickListener(this);
-            btnCalendarMaybe.setOnClickListener(this);
+                btnCalendarAccept.setOnClickListener(this);
+                btnCalendarDecline.setOnClickListener(this);
+                btnCalendarMaybe.setOnClickListener(this);
 
-            bnvActions.setOnNavigationItemSelectedListener(this);
+                bnvActions.setOnNavigationItemSelectedListener(this);
+            }
         }
 
         private void unwire() {
@@ -473,23 +477,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivSnoozed.setOnClickListener(null);
             ivFlagged.setOnClickListener(null);
 
-            ivExpanderAddress.setOnClickListener(null);
-            ibSearchContact.setOnClickListener(null);
-            ibNotifyContact.setOnClickListener(null);
-            ibAddContact.setOnClickListener(null);
+            if (viewType == ViewType.THREAD) {
+                ivExpanderAddress.setOnClickListener(null);
+                ibSearchContact.setOnClickListener(null);
+                ibNotifyContact.setOnClickListener(null);
+                ibAddContact.setOnClickListener(null);
 
-            btnDownloadAttachments.setOnClickListener(null);
-            btnSaveAttachments.setOnClickListener(null);
+                btnDownloadAttachments.setOnClickListener(null);
+                btnSaveAttachments.setOnClickListener(null);
 
-            tbHtml.setOnCheckedChangeListener(null);
-            ibImages.setOnClickListener(null);
-            ibFull.setOnClickListener(null);
+                tbHtml.setOnCheckedChangeListener(null);
+                ibImages.setOnClickListener(null);
+                ibFull.setOnClickListener(null);
 
-            btnCalendarAccept.setOnClickListener(null);
-            btnCalendarDecline.setOnClickListener(null);
-            btnCalendarMaybe.setOnClickListener(null);
+                btnCalendarAccept.setOnClickListener(null);
+                btnCalendarDecline.setOnClickListener(null);
+                btnCalendarMaybe.setOnClickListener(null);
 
-            bnvActions.setOnNavigationItemSelectedListener(null);
+                bnvActions.setOnNavigationItemSelectedListener(null);
+            }
         }
 
         private void clear() {
@@ -531,7 +537,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvFrom.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * (message.unseen > 0 ? 1.1f : 1f));
                 tvSubject.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
                 tvPreview.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
-                tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+                if (viewType == ViewType.THREAD)
+                    tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
 
                 int px = Math.round(TypedValue.applyDimension(
                         TypedValue.COMPLEX_UNIT_PX, textSize * (compact ? 1.5f : 3.0f),
@@ -751,8 +758,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     properties.setBody(message.id, null);
                     properties.setHtml(message.id, null);
                 }
-            } else
-                clearExpanded();
+            }
         }
 
         private void clearExpanded() {
@@ -3536,7 +3542,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     @Override
     public int getItemViewType(int position) {
-        return (compact ? R.layout.item_message_compact : R.layout.item_message_normal);
+        if (viewType == ViewType.THREAD)
+            return (compact ? R.layout.item_message_compact : R.layout.item_message_normal);
+        else
+            return (compact ? R.layout.include_message_compact : R.layout.include_message_normal);
     }
 
     @Override
