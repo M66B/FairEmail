@@ -268,9 +268,20 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
         if (getSupportFragmentManager().getFragments().size() == 0) {
+            Intent intent = getIntent();
+            String target = intent.getStringExtra("target");
+
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, new FragmentSetup()).addToBackStack("setup");
+            if ("accounts".equals(target))
+                fragmentTransaction.replace(R.id.content_frame, new FragmentAccounts()).addToBackStack("accounts");
+            else
+                fragmentTransaction.replace(R.id.content_frame, new FragmentSetup()).addToBackStack("setup");
             fragmentTransaction.commit();
+
+            if (intent.hasExtra("target")) {
+                intent.removeExtra("target");
+                setIntent(intent);
+            }
         }
 
         if (savedInstanceState != null)

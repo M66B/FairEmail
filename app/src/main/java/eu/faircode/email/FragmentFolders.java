@@ -170,9 +170,9 @@ public class FragmentFolders extends FragmentBase {
         fabError.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, new FragmentAccounts()).addToBackStack("accounts");
-                fragmentTransaction.commit();
+                Intent intent = new Intent(getContext(), ActivitySetup.class)
+                        .putExtra("target", "accounts");
+                startActivity(intent);
             }
         });
 
