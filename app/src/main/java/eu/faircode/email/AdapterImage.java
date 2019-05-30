@@ -59,7 +59,6 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
         private ImageView ivImage;
         private TextView tvCaption;
         private TextView tvType;
-        private TextView tvSize;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -68,7 +67,6 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
             ivImage = itemView.findViewById(R.id.ivImage);
             tvCaption = itemView.findViewById(R.id.tvCaption);
             tvType = itemView.findViewById(R.id.tvType);
-            tvSize = itemView.findViewById(R.id.tvSize);
         }
 
         private void wire() {
@@ -80,9 +78,8 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
         }
 
         private void bindTo(EntityAttachment attachment) {
-            Bitmap bm = null;
             if (attachment.available) {
-                bm = Helper.decodeImage(attachment.getFile(context),
+                Bitmap bm = Helper.decodeImage(attachment.getFile(context),
                         context.getResources().getDisplayMetrics().widthPixels);
                 if (bm == null)
                     ivImage.setImageResource(R.drawable.baseline_broken_image_24);
@@ -93,12 +90,9 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                         ? R.drawable.baseline_image_24 : R.drawable.baseline_hourglass_empty_24);
 
             tvCaption.setVisibility(TextUtils.isEmpty(attachment.name) ? View.GONE : View.VISIBLE);
-            tvSize.setVisibility(bm == null ? View.GONE : View.VISIBLE);
 
             tvCaption.setText(attachment.name);
             tvType.setText(attachment.type);
-            if (bm != null)
-                tvSize.setText(bm.getWidth() + "x" + bm.getHeight());
         }
 
         @Override
