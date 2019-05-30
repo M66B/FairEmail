@@ -835,6 +835,24 @@ public abstract class DB extends RoomDatabase {
                 .build();
     }
 
+    @Override
+    @SuppressWarnings("deprecation")
+    public void beginTransaction() {
+        super.beginTransaction();
+    }
+
+    @Override
+    @SuppressWarnings("deprecation")
+    public void setTransactionSuccessful() {
+        super.setTransactionSuccessful();
+    }
+
+    @Override
+    @SuppressWarnings("deprecation")
+    public void endTransaction() {
+        super.endTransaction();
+    }
+
     public static class Converters {
         @TypeConverter
         public static String[] toStringArray(String value) {
