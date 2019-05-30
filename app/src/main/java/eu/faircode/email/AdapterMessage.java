@@ -63,6 +63,7 @@ import android.view.MotionEvent;
 import android.view.TouchDelegate;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewStub;
 import android.webkit.DownloadListener;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -224,6 +225,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ContentLoadingProgressBar pbLoading;
         private View vwRipple;
 
+        private View vsBody;
+
         private ImageView ivExpanderAddress;
 
         private ImageButton ibSearchContact;
@@ -324,100 +327,105 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvError = itemView.findViewById(R.id.tvError);
             pbLoading = itemView.findViewById(R.id.pbLoading);
             vwRipple = itemView.findViewById(R.id.vwRipple);
+        }
 
-            if (viewType == ViewType.THREAD) {
-                ConstraintLayout inAttachments = itemView.findViewById(R.id.inAttachments);
-                ConstraintLayout inAttachmentsAlt = itemView.findViewById(R.id.inAttachmentsAlt);
-                inAttachments.setVisibility(attachments_alt ? View.GONE : View.VISIBLE);
-                inAttachmentsAlt.setVisibility(attachments_alt ? View.VISIBLE : View.GONE);
-                ConstraintLayout attachments = (attachments_alt ? inAttachmentsAlt : inAttachments);
+        private void ensureExpanded() {
+            if (vsBody != null)
+                return;
 
-                ivExpanderAddress = itemView.findViewById(R.id.ivExpanderAddress);
+            vsBody = ((ViewStub) itemView.findViewById(R.id.vsBody)).inflate();
 
-                ibSearchContact = itemView.findViewById(R.id.ibSearchContact);
-                ibNotifyContact = itemView.findViewById(R.id.ibNotifyContact);
-                ibAddContact = itemView.findViewById(R.id.ibAddContact);
+            ConstraintLayout inAttachments = vsBody.findViewById(R.id.inAttachments);
+            ConstraintLayout inAttachmentsAlt = vsBody.findViewById(R.id.inAttachmentsAlt);
+            inAttachments.setVisibility(attachments_alt ? View.GONE : View.VISIBLE);
+            inAttachmentsAlt.setVisibility(attachments_alt ? View.VISIBLE : View.GONE);
+            ConstraintLayout attachments = (attachments_alt ? inAttachmentsAlt : inAttachments);
 
-                tvFromExTitle = itemView.findViewById(R.id.tvFromExTitle);
-                tvToTitle = itemView.findViewById(R.id.tvToTitle);
-                tvReplyToTitle = itemView.findViewById(R.id.tvReplyToTitle);
-                tvCcTitle = itemView.findViewById(R.id.tvCcTitle);
-                tvBccTitle = itemView.findViewById(R.id.tvBccTitle);
-                tvIdentityTitle = itemView.findViewById(R.id.tvIdentityTitle);
-                tvTimeExTitle = itemView.findViewById(R.id.tvTimeExTitle);
-                tvSizeExTitle = itemView.findViewById(R.id.tvSizeExTitle);
+            ivExpanderAddress = vsBody.findViewById(R.id.ivExpanderAddress);
 
-                tvFromEx = itemView.findViewById(R.id.tvFromEx);
-                tvTo = itemView.findViewById(R.id.tvTo);
-                tvReplyTo = itemView.findViewById(R.id.tvReplyTo);
-                tvCc = itemView.findViewById(R.id.tvCc);
-                tvBcc = itemView.findViewById(R.id.tvBcc);
-                tvIdentity = itemView.findViewById(R.id.tvIdentity);
-                tvTimeEx = itemView.findViewById(R.id.tvTimeEx);
-                tvSizeEx = itemView.findViewById(R.id.tvSizeEx);
+            ibSearchContact = vsBody.findViewById(R.id.ibSearchContact);
+            ibNotifyContact = vsBody.findViewById(R.id.ibNotifyContact);
+            ibAddContact = vsBody.findViewById(R.id.ibAddContact);
 
-                tvSubjectEx = itemView.findViewById(R.id.tvSubjectEx);
-                tvFlags = itemView.findViewById(R.id.tvFlags);
-                tvKeywords = itemView.findViewById(R.id.tvKeywords);
+            tvFromExTitle = vsBody.findViewById(R.id.tvFromExTitle);
+            tvToTitle = vsBody.findViewById(R.id.tvToTitle);
+            tvReplyToTitle = vsBody.findViewById(R.id.tvReplyToTitle);
+            tvCcTitle = vsBody.findViewById(R.id.tvCcTitle);
+            tvBccTitle = vsBody.findViewById(R.id.tvBccTitle);
+            tvIdentityTitle = vsBody.findViewById(R.id.tvIdentityTitle);
+            tvTimeExTitle = vsBody.findViewById(R.id.tvTimeExTitle);
+            tvSizeExTitle = vsBody.findViewById(R.id.tvSizeExTitle);
 
-                tvHeaders = itemView.findViewById(R.id.tvHeaders);
-                pbHeaders = itemView.findViewById(R.id.pbHeaders);
-                tvNoInternetHeaders = itemView.findViewById(R.id.tvNoInternetHeaders);
+            tvFromEx = vsBody.findViewById(R.id.tvFromEx);
+            tvTo = vsBody.findViewById(R.id.tvTo);
+            tvReplyTo = vsBody.findViewById(R.id.tvReplyTo);
+            tvCc = vsBody.findViewById(R.id.tvCc);
+            tvBcc = vsBody.findViewById(R.id.tvBcc);
+            tvIdentity = vsBody.findViewById(R.id.tvIdentity);
+            tvTimeEx = vsBody.findViewById(R.id.tvTimeEx);
+            tvSizeEx = vsBody.findViewById(R.id.tvSizeEx);
 
-                tvCalendarSummary = view.findViewById(R.id.tvCalendarSummary);
-                tvCalendarStart = view.findViewById(R.id.tvCalendarStart);
-                tvCalendarEnd = view.findViewById(R.id.tvCalendarEnd);
-                tvAttendees = view.findViewById(R.id.tvAttendees);
-                btnCalendarAccept = view.findViewById(R.id.btnCalendarAccept);
-                btnCalendarDecline = view.findViewById(R.id.btnCalendarDecline);
-                btnCalendarMaybe = view.findViewById(R.id.btnCalendarMaybe);
-                pbCalendarWait = view.findViewById(R.id.pbCalendarWait);
+            tvSubjectEx = vsBody.findViewById(R.id.tvSubjectEx);
+            tvFlags = vsBody.findViewById(R.id.tvFlags);
+            tvKeywords = vsBody.findViewById(R.id.tvKeywords);
 
-                rvAttachment = attachments.findViewById(R.id.rvAttachment);
-                rvAttachment.setHasFixedSize(false);
-                LinearLayoutManager llm = new LinearLayoutManager(context);
-                rvAttachment.setLayoutManager(llm);
-                rvAttachment.setItemAnimator(null);
+            tvHeaders = vsBody.findViewById(R.id.tvHeaders);
+            pbHeaders = vsBody.findViewById(R.id.pbHeaders);
+            tvNoInternetHeaders = vsBody.findViewById(R.id.tvNoInternetHeaders);
 
-                adapterAttachment = new AdapterAttachment(context, owner, true);
-                rvAttachment.setAdapter(adapterAttachment);
+            tvCalendarSummary = vsBody.findViewById(R.id.tvCalendarSummary);
+            tvCalendarStart = vsBody.findViewById(R.id.tvCalendarStart);
+            tvCalendarEnd = vsBody.findViewById(R.id.tvCalendarEnd);
+            tvAttendees = vsBody.findViewById(R.id.tvAttendees);
+            btnCalendarAccept = vsBody.findViewById(R.id.btnCalendarAccept);
+            btnCalendarDecline = vsBody.findViewById(R.id.btnCalendarDecline);
+            btnCalendarMaybe = vsBody.findViewById(R.id.btnCalendarMaybe);
+            pbCalendarWait = vsBody.findViewById(R.id.pbCalendarWait);
 
-                cbInline = attachments.findViewById(R.id.cbInline);
-                btnDownloadAttachments = attachments.findViewById(R.id.btnDownloadAttachments);
-                btnSaveAttachments = attachments.findViewById(R.id.btnSaveAttachments);
-                tvNoInternetAttachments = attachments.findViewById(R.id.tvNoInternetAttachments);
+            rvAttachment = attachments.findViewById(R.id.rvAttachment);
+            rvAttachment.setHasFixedSize(false);
+            LinearLayoutManager llm = new LinearLayoutManager(context);
+            rvAttachment.setLayoutManager(llm);
+            rvAttachment.setItemAnimator(null);
 
-                bnvActions = itemView.findViewById(R.id.bnvActions);
-                if (compact) {
-                    bnvActions.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
-                    ViewGroup.LayoutParams lparam = bnvActions.getLayoutParams();
-                    lparam.height = dp36;
-                    bnvActions.setLayoutParams(lparam);
-                }
+            adapterAttachment = new AdapterAttachment(context, owner, true);
+            rvAttachment.setAdapter(adapterAttachment);
 
-                tbHtml = itemView.findViewById(R.id.tbHtml);
-                ibImages = itemView.findViewById(R.id.ibImages);
-                ibFull = itemView.findViewById(R.id.ibFull);
-                tvBody = itemView.findViewById(R.id.tvBody);
-                vwBody = itemView.findViewById(R.id.vwBody);
-                pbBody = itemView.findViewById(R.id.pbBody);
-                tvNoInternetBody = itemView.findViewById(R.id.tvNoInternetBody);
+            cbInline = attachments.findViewById(R.id.cbInline);
+            btnDownloadAttachments = attachments.findViewById(R.id.btnDownloadAttachments);
+            btnSaveAttachments = attachments.findViewById(R.id.btnSaveAttachments);
+            tvNoInternetAttachments = attachments.findViewById(R.id.tvNoInternetAttachments);
 
-                rvImage = itemView.findViewById(R.id.rvImage);
-                rvImage.setHasFixedSize(false);
-                StaggeredGridLayoutManager sglm =
-                        new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-                rvImage.setLayoutManager(sglm);
-                adapterImage = new AdapterImage(context, owner);
-                rvImage.setAdapter(adapterImage);
-
-                grpAddresses = itemView.findViewById(R.id.grpAddresses);
-                grpHeaders = itemView.findViewById(R.id.grpHeaders);
-                grpCalendar = itemView.findViewById(R.id.grpCalendar);
-                grpCalendarResponse = itemView.findViewById(R.id.grpCalendarResponse);
-                grpAttachments = attachments.findViewById(R.id.grpAttachments);
-                grpImages = itemView.findViewById(R.id.grpImages);
+            bnvActions = vsBody.findViewById(R.id.bnvActions);
+            if (compact) {
+                bnvActions.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
+                ViewGroup.LayoutParams lparam = bnvActions.getLayoutParams();
+                lparam.height = dp36;
+                bnvActions.setLayoutParams(lparam);
             }
+
+            tbHtml = vsBody.findViewById(R.id.tbHtml);
+            ibImages = vsBody.findViewById(R.id.ibImages);
+            ibFull = vsBody.findViewById(R.id.ibFull);
+            tvBody = vsBody.findViewById(R.id.tvBody);
+            vwBody = vsBody.findViewById(R.id.vwBody);
+            pbBody = vsBody.findViewById(R.id.pbBody);
+            tvNoInternetBody = vsBody.findViewById(R.id.tvNoInternetBody);
+
+            rvImage = vsBody.findViewById(R.id.rvImage);
+            rvImage.setHasFixedSize(false);
+            StaggeredGridLayoutManager sglm =
+                    new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+            rvImage.setLayoutManager(sglm);
+            adapterImage = new AdapterImage(context, owner);
+            rvImage.setAdapter(adapterImage);
+
+            grpAddresses = vsBody.findViewById(R.id.grpAddresses);
+            grpHeaders = vsBody.findViewById(R.id.grpHeaders);
+            grpCalendar = vsBody.findViewById(R.id.grpCalendar);
+            grpCalendarResponse = vsBody.findViewById(R.id.grpCalendarResponse);
+            grpAttachments = attachments.findViewById(R.id.grpAttachments);
+            grpImages = vsBody.findViewById(R.id.grpImages);
         }
 
         Rect getItemRect() {
@@ -446,7 +454,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivSnoozed.setOnClickListener(this);
             ivFlagged.setOnClickListener(this);
 
-            if (viewType == ViewType.THREAD) {
+            if (vsBody != null) {
                 ivExpanderAddress.setOnClickListener(this);
                 ibSearchContact.setOnClickListener(this);
                 ibNotifyContact.setOnClickListener(this);
@@ -477,7 +485,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivSnoozed.setOnClickListener(null);
             ivFlagged.setOnClickListener(null);
 
-            if (viewType == ViewType.THREAD) {
+            if (vsBody != null) {
                 ivExpanderAddress.setOnClickListener(null);
                 ibSearchContact.setOnClickListener(null);
                 ibNotifyContact.setOnClickListener(null);
@@ -537,8 +545,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvFrom.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * (message.unseen > 0 ? 1.1f : 1f));
                 tvSubject.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
                 tvPreview.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
-                if (viewType == ViewType.THREAD)
-                    tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
 
                 int px = Math.round(TypedValue.applyDimension(
                         TypedValue.COMPLEX_UNIT_PX, textSize * (compact ? 1.5f : 3.0f),
@@ -762,6 +768,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void clearExpanded() {
+            if (vsBody == null)
+                return;
+
             cowner.stop();
 
             if (compact) {
@@ -856,6 +865,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvSubject.setSingleLine(false);
             }
 
+            ensureExpanded();
+
             grpAddresses.setVisibility(View.VISIBLE);
 
             boolean hasFrom = (message.from != null && message.from.length > 0);
@@ -886,6 +897,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tbHtml.setVisibility(hasWebView ? View.INVISIBLE : View.GONE);
             ibImages.setVisibility(View.INVISIBLE);
             ibFull.setVisibility(show_html ? View.INVISIBLE : View.GONE);
+
+            if (textSize != 0)
+                tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
 
             tvBody.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
             tvBody.setVisibility(!show_html ? View.INVISIBLE : View.GONE);
