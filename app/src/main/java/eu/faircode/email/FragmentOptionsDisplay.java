@@ -50,13 +50,12 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swAddresses;
     private SwitchCompat swAttachmentsAlt;
     private SwitchCompat swMonospaced;
-    private SwitchCompat swHtml;
     private SwitchCompat swImages;
     private SwitchCompat swActionbar;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "startup", "date", "threading", "avatars", "identicons", "circular", "name_email", "subject_italic",
-            "flags", "preview", "addresses", "attachments_alt", "monospaced", "autohtml", "autoimages", "actionbar",
+            "flags", "preview", "addresses", "attachments_alt", "monospaced", "autoimages", "actionbar",
     };
 
     @Override
@@ -82,7 +81,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swAddresses = view.findViewById(R.id.swAddresses);
         swAttachmentsAlt = view.findViewById(R.id.swAttachmentsAlt);
         swMonospaced = view.findViewById(R.id.swMonospaced);
-        swHtml = view.findViewById(R.id.swHtml);
         swImages = view.findViewById(R.id.swImages);
         swActionbar = view.findViewById(R.id.swActionbar);
 
@@ -192,13 +190,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        swHtml.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("autohtml", checked).apply();
-            }
-        });
-
         swImages.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -279,7 +270,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swAddresses.setChecked(prefs.getBoolean("addresses", false));
         swAttachmentsAlt.setChecked(prefs.getBoolean("attachments_alt", false));
         swMonospaced.setChecked(prefs.getBoolean("monospaced", false));
-        swHtml.setChecked(prefs.getBoolean("autohtml", false));
         swImages.setChecked(prefs.getBoolean("autoimages", false));
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
     }

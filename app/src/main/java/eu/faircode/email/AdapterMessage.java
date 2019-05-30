@@ -76,7 +76,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -171,7 +170,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean preview;
     private boolean attachments_alt;
     private boolean monospaced;
-    private boolean autohtml;
     private boolean autoimages;
     private boolean authentication;
     private boolean debug;
@@ -198,7 +196,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
             View.OnClickListener,
-            CompoundButton.OnCheckedChangeListener,
             BottomNavigationView.OnNavigationItemSelectedListener {
         private View view;
         private View vwColor;
@@ -267,11 +264,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private BottomNavigationView bnvActions;
 
-        private ToggleButton tbHtml;
         private ImageButton ibImages;
         private ImageButton ibFull;
         private TextView tvBody;
-        private View vwBody;
         private ContentLoadingProgressBar pbBody;
         private TextView tvNoInternetBody;
 
@@ -404,11 +399,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 bnvActions.setLayoutParams(lparam);
             }
 
-            tbHtml = vsBody.findViewById(R.id.tbHtml);
             ibImages = vsBody.findViewById(R.id.ibImages);
             ibFull = vsBody.findViewById(R.id.ibFull);
             tvBody = vsBody.findViewById(R.id.tvBody);
-            vwBody = vsBody.findViewById(R.id.vwBody);
             pbBody = vsBody.findViewById(R.id.pbBody);
             tvNoInternetBody = vsBody.findViewById(R.id.tvNoInternetBody);
 
@@ -426,6 +419,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpCalendarResponse = vsBody.findViewById(R.id.grpCalendarResponse);
             grpAttachments = attachments.findViewById(R.id.grpAttachments);
             grpImages = vsBody.findViewById(R.id.grpImages);
+
+            unwire();
+            wire();
         }
 
         Rect getItemRect() {
@@ -463,7 +459,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 btnDownloadAttachments.setOnClickListener(this);
                 btnSaveAttachments.setOnClickListener(this);
 
-                tbHtml.setOnCheckedChangeListener(this);
                 ibImages.setOnClickListener(this);
                 ibFull.setOnClickListener(this);
 
@@ -494,7 +489,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 btnDownloadAttachments.setOnClickListener(null);
                 btnSaveAttachments.setOnClickListener(null);
 
-                tbHtml.setOnCheckedChangeListener(null);
                 ibImages.setOnClickListener(null);
                 ibFull.setOnClickListener(null);
 
@@ -748,9 +742,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 bindContactInfo(info, message);
 
             if (message.avatar != null) {
-                if (autohtml && hasWebView)
-                    properties.setValue("html", message.id, true);
-
                 if (autoimages)
                     properties.setValue("images", message.id, true);
             }
@@ -762,7 +753,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 else {
                     clearExpanded();
                     properties.setBody(message.id, null);
-                    properties.setHtml(message.id, null);
                 }
             }
         }
@@ -826,11 +816,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             bnvActions.setVisibility(View.GONE);
 
-            tbHtml.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
             ibFull.setVisibility(View.GONE);
             tvBody.setVisibility(View.GONE);
-            vwBody.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
             tvNoInternetBody.setVisibility(View.GONE);
         }
@@ -858,7 +846,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             boolean show_addresses = !properties.getValue("addresses", message.id);
             boolean show_headers = properties.getValue("headers", message.id);
-            boolean show_html = properties.getValue("html", message.id);
 
             if (compact) {
                 tvFrom.setSingleLine(false);
@@ -893,17 +880,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             for (int i = 0; i < bnvActions.getMenu().size(); i++)
                 bnvActions.getMenu().getItem(i).setVisible(false);
 
-            tbHtml.setChecked(show_html);
-            tbHtml.setVisibility(hasWebView ? View.INVISIBLE : View.GONE);
             ibImages.setVisibility(View.INVISIBLE);
-            ibFull.setVisibility(show_html ? View.INVISIBLE : View.GONE);
+            ibFull.setVisibility(hasWebView ? View.INVISIBLE : View.GONE);
 
             if (textSize != 0)
                 tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
 
             tvBody.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
-            tvBody.setVisibility(!show_html ? View.INVISIBLE : View.GONE);
-            vwBody.setVisibility(show_html ? View.INVISIBLE : View.GONE);
+            tvBody.setVisibility(View.INVISIBLE);
 
             // Addresses
             ivExpanderAddress.setImageLevel(show_addresses ? 0 /* less */ : 1 /* more */);
@@ -1080,16 +1064,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbBody.setVisibility(suitable || message.content ? View.VISIBLE : View.GONE);
             tvNoInternetBody.setVisibility(suitable || message.content ? View.GONE : View.VISIBLE);
 
-            if (show_html)
-                onShowHtmlConfirmed(message);
-            else {
-                Spanned body = properties.getBody(message.id);
-                tvBody.setText(body);
-                tvBody.setMovementMethod(null);
-                tvBody.setVisibility(View.VISIBLE);
+            Spanned body = properties.getBody(message.id);
+            tvBody.setText(body);
+            tvBody.setMovementMethod(null);
+            tvBody.setVisibility(View.VISIBLE);
 
-                showText(message);
-            }
+            showText(message);
         }
 
         private void bindAttachments(final TupleMessageEx message, @Nullable List<EntityAttachment> attachments) {
@@ -1258,11 +1238,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             adapterImage.set(images);
             grpImages.setVisibility(images.size() > 0 ? View.VISIBLE : View.GONE);
 
-            boolean show_html = properties.getValue("html", message.id);
-            if (show_html)
-                onShowHtmlConfirmed(message);
-            else
-                showText(message);
+            showText(message);
         }
 
         private void onActionCalendar(TupleMessageEx message, int action) {
@@ -1419,18 +1395,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     .putExtra("found", viewType == ViewType.SEARCH));
                 }
             }
-        }
-
-        @Override
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            TupleMessageEx message = getMessage();
-            if (message == null)
-                return;
-
-            if (isChecked)
-                onShowHtml(message);
-            else
-                onHideHtml(message);
         }
 
         private void onShowSnoozed(TupleMessageEx message) {
@@ -1721,11 +1685,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .putExtra("id", message.id));
         }
 
-        private void onShowHtml(final TupleMessageEx message) {
+        private void onShowFull(final TupleMessageEx message) {
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             if (properties.getValue("confirmed", message.id) ||
                     prefs.getBoolean("show_html_confirmed", false)) {
-                onShowHtmlConfirmed(message);
+                onShowFullConfirmed(message);
                 return;
             }
 
@@ -1743,180 +1707,36 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             properties.setValue("confirmed", message.id, true);
                             if (cbNotAgain.isChecked())
                                 prefs.edit().putBoolean("show_html_confirmed", true).apply();
-                            onShowHtmlConfirmed(message);
+                            onShowFullConfirmed(message);
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            tbHtml.setChecked(false);
-                        }
-                    })
-                    .setOnCancelListener(new DialogInterface.OnCancelListener() {
-                        @Override
-                        public void onCancel(DialogInterface dialog) {
-                            tbHtml.setChecked(false);
                         }
                     })
                     .show();
         }
 
-        @SuppressLint("ClickableViewAccessibility")
-        private void onShowHtmlConfirmed(final TupleMessageEx message) {
-            properties.setValue("html", message.id, true);
-
-            boolean show_images = properties.getValue("images", message.id);
-
-            tbHtml.setVisibility(View.VISIBLE);
-            ibFull.setVisibility(View.INVISIBLE);
-            tvBody.setVisibility(View.GONE);
-
-            // For performance reasons the WebView is created when needed only
-            if (!(vwBody instanceof WebView)) {
-                WebView webView = new WebView(context) {
-                    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-                        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-                        setMeasuredDimension(
-                                getMeasuredWidth(),
-                                Math.max(tvBody.getMinHeight(), getMeasuredHeight()));
-                    }
-                };
-
-                setupWebView(webView);
-
-                webView.setId(vwBody.getId());
-                webView.setVisibility(vwBody.getVisibility());
-
-                ConstraintLayout cl = (ConstraintLayout) view;
-                cl.removeView(vwBody);
-                cl.addView(webView, vwBody.getLayoutParams());
-
-                vwBody = webView;
-            }
-
-            final WebView webView = (WebView) vwBody;
-            webView.setBackgroundColor(Color.TRANSPARENT);
-
-            WebSettings settings = webView.getSettings();
-            settings.setDefaultFontSize(Math.round(textSize));
-            settings.setDefaultFixedFontSize(Math.round(textSize));
-            settings.setLoadsImagesAutomatically(show_images);
-
-            String html = properties.getHtml(message.id);
-            if (TextUtils.isEmpty(html)) {
-                webView.loadUrl("about:blank");
-                webView.setVisibility(View.VISIBLE);
-
-                if (!message.content)
-                    return;
-
-                Bundle args = new Bundle();
-                args.putLong("id", message.id);
-
-                new SimpleTask<OriginalMessage>() {
-                    @Override
-                    protected OriginalMessage onExecute(Context context, Bundle args) throws IOException {
-                        long id = args.getLong("id");
-
-                        DB db = DB.getInstance(context);
-                        EntityMessage message = db.message().getMessage(id);
-                        if (message == null || !message.content)
-                            return null;
-
-                        File file = message.getFile(context);
-                        if (!file.exists())
-                            return null;
-
-                        OriginalMessage original = new OriginalMessage();
-                        original.html = Helper.readText(file);
-                        original.html = HtmlHelper.getHtmlEmbedded(context, id, original.html);
-
-                        Document doc = Jsoup.parse(original.html);
-                        original.has_images = (doc.select("img").size() > 0);
-
-                        return original;
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, OriginalMessage original) {
-                        if (original == null)
-                            return;
-
-                        long id = args.getLong("id");
-                        properties.setHtml(id, original.html);
-                        if (!original.has_images)
-                            properties.setValue("images", id, true);
-
-                        TupleMessageEx amessage = getMessage();
-                        if (amessage == null || !amessage.id.equals(id))
-                            return;
-
-                        boolean expanded = properties.getValue("expanded", id);
-                        if (!expanded)
-                            return;
-
-                        boolean show_images = properties.getValue("images", id);
-                        ibImages.setVisibility(original.has_images && !show_images ? View.VISIBLE : View.GONE);
-                        ibFull.setVisibility(View.VISIBLE);
-
-                        webView.loadDataWithBaseURL("", themeHtml(original.html), "text/html", "UTF-8", null);
-
-                        pbBody.setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(context, owner, ex);
-                    }
-                }.execute(context, owner, args, "message:webview");
-            } else {
-                Document doc = Jsoup.parse(html);
-                boolean has_images = (doc.select("img").size() > 0);
-
-                ibImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
-                ibFull.setVisibility(View.VISIBLE);
-
-                webView.loadDataWithBaseURL("", themeHtml(html), "text/html", "UTF-8", null);
-                webView.setVisibility(View.VISIBLE);
-
-                pbBody.setVisibility(View.GONE);
-            }
-        }
-
-        private void onHideHtml(TupleMessageEx message) {
-            properties.setValue("html", message.id, false);
-
-            ibFull.setVisibility(View.GONE);
-            vwBody.setVisibility(View.GONE);
-
-            Spanned body = properties.getBody(message.id);
-            tvBody.setText(body);
-            tvBody.setMovementMethod(null);
-            tvBody.setVisibility(View.VISIBLE);
-
-            showText(message);
-        }
-
-        private String themeHtml(String html) {
-            if (dark) {
-                String color = String.format("#%06X", (textColorSecondary & 0xFFFFFF));
-                return "<style type=\"text/css\">" +
-                        "* { background: black !important; color: " + color + " !important }" +
-                        "</style>" + html;
-            } else
-                return html;
-        }
-
-        private void onShowFull(TupleMessageEx message) {
+        private void onShowFullConfirmed(TupleMessageEx message) {
             Bundle args = new Bundle();
             args.putLong("id", message.id);
 
             new SimpleTask<String>() {
                 @Override
-                protected String onExecute(Context context, Bundle args) {
+                protected String onExecute(Context context, Bundle args) throws Throwable {
                     long id = args.getLong("id");
 
-                    String html = properties.getHtml(id);
+                    DB db = DB.getInstance(context);
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null || !message.content)
+                        return null;
+
+                    File file = message.getFile(context);
+                    if (!file.exists())
+                        return null;
+
+                    String html = HtmlHelper.getHtmlEmbedded(context, id, Helper.readText(file));
 
                     // Remove viewport limitations
                     Document doc = Jsoup.parse(html);
@@ -2068,11 +1888,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibImages.setVisibility(View.GONE);
 
-            boolean show_html = properties.getValue("html", message.id);
-            if (show_html)
-                onShowHtmlConfirmed(message);
-            else
-                showText(message);
+            showText(message);
 
             // Download inline images
             Bundle args = new Bundle();
@@ -2220,7 +2036,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean has_images = args.getBoolean("has_images");
                 boolean show_images = properties.getValue("images", message.id);
 
-                tbHtml.setVisibility(hasWebView ? View.VISIBLE : View.GONE);
+                ibFull.setVisibility(hasWebView ? View.VISIBLE : View.GONE);
                 ibImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
 
                 tvBody.setText(body);
@@ -3468,7 +3284,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.preview = prefs.getBoolean("preview", false);
         this.attachments_alt = prefs.getBoolean("attachments_alt", false);
         this.monospaced = prefs.getBoolean("monospaced", false);
-        this.autohtml = (this.hasWebView && this.contacts && prefs.getBoolean("autohtml", false));
         this.autoimages = (this.contacts && prefs.getBoolean("autoimages", false));
         this.authentication = prefs.getBoolean("authentication", false);
         this.debug = prefs.getBoolean("debug", false);
@@ -3556,10 +3371,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     @Override
     public int getItemViewType(int position) {
-        if (viewType == ViewType.THREAD)
-            return (compact ? R.layout.item_message_compact : R.layout.item_message_normal);
-        else
-            return (compact ? R.layout.include_message_compact : R.layout.include_message_normal);
+        return (compact ? R.layout.item_message_compact : R.layout.item_message_normal);
     }
 
     @Override
@@ -3667,10 +3479,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void setBody(long id, Spanned body);
 
         Spanned getBody(long id);
-
-        void setHtml(long id, String html);
-
-        String getHtml(long id);
 
         void setAttchments(long id, List<EntityAttachment> attachments);
 

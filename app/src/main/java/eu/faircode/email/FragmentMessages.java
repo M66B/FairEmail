@@ -182,7 +182,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean autoExpanded = true;
     private Map<String, List<Long>> values = new HashMap<>();
     private LongSparseArray<Spanned> bodies = new LongSparseArray<>();
-    private LongSparseArray<String> html = new LongSparseArray<>();
     private LongSparseArray<List<EntityAttachment>> attachments = new LongSparseArray<>();
     private LongSparseArray<TupleAccountSwipes> accountSwipes = new LongSparseArray<>();
 
@@ -904,19 +903,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @Override
         public Spanned getBody(long id) {
             return bodies.get(id);
-        }
-
-        @Override
-        public void setHtml(long id, String value) {
-            if (value == null)
-                html.remove(id);
-            else
-                html.put(id, value);
-        }
-
-        @Override
-        public String getHtml(long id) {
-            return html.get(id);
         }
 
         @Override
@@ -2090,7 +2076,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 for (String key : values.keySet())
                                     values.get(key).remove(id);
                                 bodies.remove(id);
-                                html.remove(id);
                                 attachments.remove(id);
                             }
                     }
