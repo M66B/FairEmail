@@ -238,7 +238,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             else
                 tvName.setText(folder.getDisplayName(context, parent));
 
-            tvName.setTypeface(null, folder.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
+            tvName.setTypeface(folder.unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
             tvName.setTextColor(folder.unseen > 0 ? colorUnread : textColorSecondary);
 
             if (listener == null) {

@@ -132,7 +132,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 else
                     tvName.setText(account.name);
 
-                tvName.setTypeface(null, account.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
+                tvName.setTypeface(account.unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
                 tvName.setTextColor(account.unseen > 0 ? colorUnread : textColorSecondary);
             }
 

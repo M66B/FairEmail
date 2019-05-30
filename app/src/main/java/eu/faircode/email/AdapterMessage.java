@@ -570,12 +570,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             // Unseen
-            int typeface = (message.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
-            tvFrom.setTypeface(null, typeface);
-            tvSize.setTypeface(null, typeface);
-            tvTime.setTypeface(null, typeface);
-            tvSubject.setTypeface(null, typeface | (subject_italic ? Typeface.ITALIC : 0));
-            tvCount.setTypeface(null, typeface);
+            Typeface typeface = (message.unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+            tvFrom.setTypeface(typeface);
+            tvSize.setTypeface(typeface);
+            tvTime.setTypeface(typeface);
+            if (subject_italic)
+                if (message.unseen > 0)
+                    tvSubject.setTypeface(null, Typeface.BOLD_ITALIC);
+                else
+                    tvSubject.setTypeface(null, Typeface.ITALIC);
+            else
+                tvSubject.setTypeface(typeface);
+            tvCount.setTypeface(typeface);
 
             int colorUnseen = (message.unseen > 0 ? colorUnread : textColorSecondary);
             tvFrom.setTextColor(colorUnseen);
@@ -937,7 +943,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvSubjectEx.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
             tvSubjectEx.setText(message.subject);
-            tvSubjectEx.setTypeface(null, subject_italic ? Typeface.ITALIC : Typeface.NORMAL);
+            if (subject_italic)
+                tvSubjectEx.setTypeface(Typeface.DEFAULT, Typeface.ITALIC);
+            else
+                tvSubjectEx.setTypeface(Typeface.DEFAULT);
 
             // Flags
             tvFlags.setVisibility(show_addresses && debug ? View.VISIBLE : View.GONE);
