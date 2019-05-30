@@ -119,7 +119,7 @@ dependencies {
     def material_version = "1.0.0"
     def browser_version = "1.0.0"
     def lifecycle_version = "2.0.0"
-    def room_version = "2.0.0"
+    def room_version = "2.1.0-rc01"
     def paging_version = "2.1.0"
     def preference_version = "1.0.0"
     def work_version = "2.1.0-alpha02"
@@ -136,13 +136,6 @@ dependencies {
     def biweekly_version = "0.6.3"
 
     // https://developer.android.com/jetpack/androidx/releases/
-
-    // Pin arch/core and sqlite
-    implementation "androidx.core:core:1.0.2"
-    implementation "androidx.arch.core:core-common:2.0.1"
-    implementation "androidx.arch.core:core-runtime:2.0.1"
-    implementation "androidx.sqlite:sqlite:2.0.1"
-    implementation "androidx.sqlite:sqlite-framework:2.0.1"
 
     // https://mvnrepository.com/artifact/androidx.appcompat/appcompat
     implementation "androidx.appcompat:appcompat:$appcompat_version"
