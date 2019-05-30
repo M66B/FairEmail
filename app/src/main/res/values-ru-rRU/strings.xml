@@ -219,7 +219,6 @@
     <string name="title_advanced_browse_hint">Получите больше сообщений при прокрутке вниз</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
     <string name="title_advanced_name_email_hint">Если отключено, будут показаны только имена (при наличии)</string>
-    <string name="title_advanced_flags_hint">Обратите внимание, что избранные сообщения всегда будут сохранены локально</string>
     <string name="title_advanced_preview_hint">Доступно только когда был загружен текст сообщения</string>
     <string name="title_advanced_autoexpand_hint">Автоматически открывать сообщение, когда оно только одно или только одно непрочитанное сообщение в диалоге</string>
     <string name="title_advanced_autocollapse_hint">Несколько развёрнутых сообщений всегда будут закрыты по кнопке \'назад\'</string>
@@ -597,6 +596,7 @@
     <string name="title_legend_save">Сохранить</string>
     <string name="title_legend_delete">Удалить</string>
     <string name="title_legend_count">Количество</string>
+    <string name="title_legend_folder_type">Тип папки</string>
     <string name="title_hint_folder_actions">Длительно нажмите для вариантов</string>
     <string name="title_hint_folder_sync">Для экономии заряда батареи и трафика не все папки и сообщения синхронизируются по умолчанию</string>
     <string name="title_hint_support">Если у вас есть вопрос или проблема, пожалуйста, используйте меню поддержки для получения помощи</string>
@@ -635,6 +635,7 @@
     <string name="title_pro_purchase">Купить</string>
     <string name="title_pro_hint">Покупка функций Pro позволит Вам использовать все текущие и функции Pro в будущем</string>
     <string name="title_pro_price">Ознакомьтесь с <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19"> ​​этим часто задаваемыми вопросами </a> о цене функции PRO</string>
+    <string name="title_pro_pending">Покупка в ожидании</string>
     <string name="title_pro_activated">Все функции Pro активированы</string>
     <string name="title_pro_valid">Все функции Pro активированы</string>
     <string name="title_pro_invalid">Неверный ответ</string>

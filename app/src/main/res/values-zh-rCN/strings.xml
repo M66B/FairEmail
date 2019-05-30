@@ -195,7 +195,6 @@
     <string name="title_advanced_browse_hint">向下滚动时拉取更多邮件</string>
     <string name="title_advanced_threading_hint">对相互关联的邮件进行分组</string>
     <string name="title_advanced_name_email_hint">禁用该选项，将仅显示名称（如果可用）</string>
-    <string name="title_advanced_flags_hint">请注意, 加星消息将始终保存在本地</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
     <string name="title_advanced_autocollapse_hint">App将在您按下“返回”键时关闭多条展开的消息</string>
@@ -573,6 +572,7 @@
     <string name="title_legend_save">保存</string>
     <string name="title_legend_delete">删除</string>
     <string name="title_legend_count">总数</string>
+    <string name="title_legend_folder_type">文件夹类型</string>
     <string name="title_hint_folder_actions">长按以显示更多选项</string>
     <string name="title_hint_folder_sync">为了减少电池和网络的使用量, 默认情况下, 并非所有文件夹和邮件都将同步</string>
     <string name="title_hint_support">如果您要提问或有问题，请使用支持选项获取帮助</string>
@@ -611,6 +611,7 @@
     <string name="title_pro_purchase">购买</string>
     <string name="title_pro_hint">购买专业版将获得现在以及未来更新中全部专业版功能，并将支持开发者维护这个应用</string>
     <string name="title_pro_price">请参见<a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">常见问题</a>关于专业版的价格</string>
+    <string name="title_pro_pending">购买待处理</string>
     <string name="title_pro_activated">专业版功能已激活</string>
     <string name="title_pro_valid">专业版功能已激活</string>
     <string name="title_pro_invalid">无效的响应</string>

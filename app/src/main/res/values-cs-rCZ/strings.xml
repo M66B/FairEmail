@@ -219,7 +219,6 @@
     <string name="title_advanced_browse_hint">Načte další zprávy při posouvání dolů</string>
     <string name="title_advanced_threading_hint">Seskupit zprávy které spolu souvisí</string>
     <string name="title_advanced_name_email_hint">Při deaktivaci se zobrazí pouze jména, pokud budou k dispozici</string>
-    <string name="title_advanced_flags_hint">Mějte na paměti, že zprávy s hvězdičkou budou vždy uchovávány lokálně</string>
     <string name="title_advanced_preview_hint">K dispozici pouze pokud byl stažen text zprávy</string>
     <string name="title_advanced_autoexpand_hint">Automaticky otevřít zprávu pokud je v konverzaci pouze jediná zpráva nebo jediná nepřečtená</string>
     <string name="title_advanced_autocollapse_hint">Vícero rozbalených zpráv bude vždy sbaleno při pohybu zpět</string>
@@ -453,6 +452,9 @@
     <string name="title_resync">Znovu synchronizovat</string>
     <string name="title_no_openpgp">OpenKeychain nenalezena</string>
     <string name="title_not_encrypted">Zpráva není šifrována</string>
+    <string name="title_signature_none">Zpráva není podepsána</string>
+    <string name="title_signature_valid">Podpis zprávy je platný</string>
+    <string name="title_signature_invalid">Neplatný podpis zprávy</string>
     <string name="title_search">Hledat</string>
     <string name="title_search_in">Hledat v</string>
     <string name="title_searching">Hledám \"%1$s\"</string>
@@ -594,6 +596,7 @@
     <string name="title_legend_save">Uložit</string>
     <string name="title_legend_delete">Smazat</string>
     <string name="title_legend_count">Počet</string>
+    <string name="title_legend_folder_type">Typ složky</string>
     <string name="title_hint_folder_actions">Dlouze podržet pro více možností</string>
     <string name="title_hint_folder_sync">Pro omezení spotřeby baterie a dat nebudou ve výchozím stavu synchronizovány všechny zprávy ani složky</string>
     <string name="title_hint_support">Máte-li dotaz nebo problém, použijte prosím menu podpory pro získání pomoci</string>

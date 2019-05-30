@@ -217,12 +217,12 @@
     <string name="title_advanced_browse_hint">Pobierz więcej wiadomości podczas przewijania w dół</string>
     <string name="title_advanced_threading_hint">Grupuj wiadomości powiązane ze sobą</string>
     <string name="title_advanced_name_email_hint">Gdy wyłączone, tylko nazwy będą pokazywane, gdy dostępne</string>
-    <string name="title_advanced_flags_hint">Pamiętaj, że wiadomości oznaczone gwiazdką zawsze będą przechowywane lokalnie</string>
     <string name="title_advanced_preview_hint">Dostępne tylko po pobraniu tekstu wiadomości</string>
     <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w rozmowie jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>
     <string name="title_advanced_autoclose_hint">Automatycznie zamykaj wątki rozmowy po zarchiwizowaniu, wysłaniu lub usunięciu wszystkich wiadomości</string>
     <string name="title_advanced_sender_hint">Większość dostawców nie akceptuje zmodyfikowanych adresów nadawcy</string>
     <string name="title_advanced_badge_hint">Dostępne tylko na wspieranych launcherach</string>
+    <string name="title_advanced_subscribed_only_hint">Włączenie tej opcji usunie wszystkie lokalne foldery bez subskrypcji</string>
     <string name="title_advanced_english_hint">To zrestartuje aplikację</string>
     <string name="title_advanced_paranoid_hint">Szczegóły znajdziesz w FAQ</string>
     <string name="title_advanced_debug_hint">Włącz dodatkowe rejestrowanie i wyświetlaj informacje debugowania w różnych miejscach</string>
@@ -440,6 +440,9 @@
     <string name="title_resync">Resynchronizuj</string>
     <string name="title_no_openpgp">Nie znaleziono OpenKeychain</string>
     <string name="title_not_encrypted">Wiadomość nie jest zaszyfrowana</string>
+    <string name="title_signature_none">Wiadomość niepodpisana</string>
+    <string name="title_signature_valid">Ważny podpis wiadomości</string>
+    <string name="title_signature_invalid">Nieważny podpis wiadomości</string>
     <string name="title_search">Szukaj</string>
     <string name="title_search_in">Szukaj w</string>
     <string name="title_searching">Szukam \'%1$s\'</string>
@@ -529,6 +532,7 @@
     <string name="title_legend_notify">Powiadom o nowych wiadomościach</string>
     <string name="title_legend_subscribed">Zasubskrybowano</string>
     <string name="title_legend_sync_keep">Liczba dni do synchronizacji / zachowania wiadomości</string>
+    <string name="title_legend_download_fetch">Liczba pobranych wiadomości / pobranych nagłówków</string>
     <string name="title_legend_stop">Zatrzymaj przetwarzanie reguł</string>
     <string name="title_legend_thread">Konwersacja</string>
     <string name="title_legend_zoom">Zmień rozmiaru tekstu</string>
@@ -577,6 +581,7 @@
     <string name="title_legend_save">Zapisz</string>
     <string name="title_legend_delete">Usuń</string>
     <string name="title_legend_count">Liczba</string>
+    <string name="title_legend_folder_type">Rodzaj folderu</string>
     <string name="title_hint_folder_actions">Przytrzymaj, aby uzyskać więcej opcji</string>
     <string name="title_hint_folder_sync">W celu ograniczenia użycia baterii i sieci nie wszystkie foldery i wiadomości będą domyślnie synchronizowane</string>
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>

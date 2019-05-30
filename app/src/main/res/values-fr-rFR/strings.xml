@@ -203,7 +203,6 @@
     <string name="title_advanced_browse_hint">Télécharger plus de messages en faisant défiler vers le bas</string>
     <string name="title_advanced_threading_hint">Groupe de messages liés les uns aux autres</string>
     <string name="title_advanced_name_email_hint">Si désactivé, seuls les noms seront affichés si disponibles</string>
-    <string name="title_advanced_flags_hint">Notez que les messages suivis seront toujours conservés localement</string>
     <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
     <string name="title_advanced_autoexpand_hint">Ouvrir automatiquement le message lorsqu’il n’y a qu’un seul message ou seulement un message non lu dans une conversation</string>
     <string name="title_advanced_autocollapse_hint">Les messages étendus multiples seront toujours fermés par \'retour\'</string>
@@ -437,6 +436,9 @@
     <string name="title_resync">Resynchroniser</string>
     <string name="title_no_openpgp">OpenKeychain introuvable</string>
     <string name="title_not_encrypted">Le message n\'est pas chiffré</string>
+    <string name="title_signature_none">Message non signé</string>
+    <string name="title_signature_valid">Signature de message valide</string>
+    <string name="title_signature_invalid">Signature de message invalide</string>
     <string name="title_search">Rechercher</string>
     <string name="title_search_in">Rechercher dans</string>
     <string name="title_searching">Recherche de \'%1$s\'</string>
@@ -578,6 +580,7 @@
     <string name="title_legend_save">Enregistrer</string>
     <string name="title_legend_delete">Supprimer</string>
     <string name="title_legend_count">Nombre</string>
+    <string name="title_legend_folder_type">Type de dossier</string>
     <string name="title_hint_folder_actions">Appui long pour les options</string>
     <string name="title_hint_folder_sync">Pour limiter l\'utilisation de la batterie et du réseau, les dossiers et les messages ne seront pas tous synchronisés par défaut</string>
     <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu Support pour obtenir de l\'aide</string>
@@ -616,6 +619,7 @@
     <string name="title_pro_purchase">Acheter</string>
     <string name="title_pro_hint">L\'achat des fonctionnalités Pro vous autorisera à utiliser toutes les fonctionnalités Pro actuelles et futures et permettra de maintenir et de supporter cette application</string>
     <string name="title_pro_price">Veuillez voir <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">cette FAQ</a> à propos du prix des fonctionnalités Pro</string>
+    <string name="title_pro_pending">Achat en cours</string>
     <string name="title_pro_activated">Toutes les fonctionnalités Pro sont activées</string>
     <string name="title_pro_valid">Toutes les fonctionnalités Pro activées</string>
     <string name="title_pro_invalid">Réponse non valide</string>
