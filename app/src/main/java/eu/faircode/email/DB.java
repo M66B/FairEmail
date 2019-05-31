@@ -5,8 +5,10 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 import androidx.room.Database;
+import androidx.room.InvalidationTracker;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverter;
@@ -21,6 +23,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -68,9 +71,9 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 
 @TypeConverters({DB.Converters.class})
 public abstract class DB extends RoomDatabase {
-    public abstract DaoIdentity identity();
-
     public abstract DaoAccount account();
+
+    public abstract DaoIdentity identity();
 
     public abstract DaoFolder folder();
 
@@ -97,6 +100,23 @@ public abstract class DB extends RoomDatabase {
         if (sInstance == null) {
             Context context = ctx.getApplicationContext();
             sInstance = migrate(context, getBuilder(context));
+
+            sInstance.getInvalidationTracker().addObserver(new InvalidationTracker.Observer(
+                    EntityAccount.TABLE_NAME,
+                    EntityIdentity.TABLE_NAME,
+                    EntityFolder.TABLE_NAME,
+                    EntityMessage.TABLE_NAME,
+                    EntityAttachment.TABLE_NAME,
+                    EntityOperation.TABLE_NAME,
+                    EntityContact.TABLE_NAME,
+                    EntityAnswer.TABLE_NAME,
+                    EntityRule.TABLE_NAME,
+                    EntityLog.TABLE_NAME) {
+                @Override
+                public void onInvalidated(@NonNull Set<String> tables) {
+                    Log.i("ROOM invalidated=" + TextUtils.join(",", tables));
+                }
+            });
         }
 
         return sInstance;
