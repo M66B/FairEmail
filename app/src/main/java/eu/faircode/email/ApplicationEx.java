@@ -110,8 +110,7 @@ public class ApplicationEx extends Application {
             }
         });
 
-        if (Helper.hasValidFingerprint(this))
-            setupBugsnag();
+        setupBugsnag();
 
         upgrade(this);
 
