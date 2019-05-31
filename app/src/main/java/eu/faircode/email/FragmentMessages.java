@@ -876,10 +876,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 values.get(name).remove(id);
 
             if ("expanded".equals(name)) {
+                updateExpanded();
                 if (enabled)
                     handleExpand(id);
-                ibDown.setVisibility(values.get(name).size() > 0 ? View.VISIBLE : View.GONE);
-                ibUp.setVisibility(values.get(name).size() > 0 ? View.VISIBLE : View.GONE);
             }
         }
 
@@ -2089,6 +2088,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         loadMessages(false);
 
+        updateExpanded();
+
         if (selectionTracker != null && selectionTracker.hasSelection())
             fabMore.show();
         else
@@ -2917,6 +2918,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         return false;
     }
 
+    private void updateExpanded() {
+        boolean expanded = (values.containsKey("expanded") && values.get("expanded").size() > 0);
+        ibDown.setVisibility(expanded ? View.VISIBLE : View.GONE);
+        ibUp.setVisibility(expanded ? View.VISIBLE : View.GONE);
+    }
+
     private void handleExpand(long id) {
         Bundle args = new Bundle();
         args.putLong("id", id);
@@ -3226,8 +3233,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             boolean collapse = prefs.getBoolean("collapse", false);
             if ((count == 1 && collapse) || count > 1) {
                 values.get("expanded").clear();
-                ibDown.setVisibility(View.GONE);
-                ibUp.setVisibility(View.GONE);
+                updateExpanded();
                 adapter.notifyDataSetChanged();
                 return true;
             }
