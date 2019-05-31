@@ -1128,7 +1128,7 @@ public class FragmentAccount extends FragmentBase {
                     etRealm.setText(account == null ? null : account.realm);
 
                     etName.setText(account == null ? null : account.name);
-                    cbNotify.setChecked(account == null ? false : account.notify);
+                    cbNotify.setChecked(account != null && account.notify && Helper.isPro(getContext()));
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? false : account.primary);
