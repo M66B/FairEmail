@@ -991,6 +991,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public void onChanged(@Nullable List<EntityAttachment> attachments) {
                     bindAttachments(message, attachments);
+                    loadText(message);
                 }
             });
 
@@ -1069,7 +1070,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvBody.setMovementMethod(null);
             tvBody.setVisibility(View.VISIBLE);
 
-            showText(message);
+            loadText(message);
         }
 
         private void bindAttachments(final TupleMessageEx message, @Nullable List<EntityAttachment> attachments) {
@@ -1237,8 +1238,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     images.add(attachment);
             adapterImage.set(images);
             grpImages.setVisibility(images.size() > 0 ? View.VISIBLE : View.GONE);
-
-            showText(message);
         }
 
         private void onActionCalendar(TupleMessageEx message, int action) {
@@ -1883,7 +1882,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibImages.setVisibility(View.GONE);
 
-            showText(message);
+            loadText(message);
 
             // Download inline images
             Bundle args = new Bundle();
@@ -1918,7 +1917,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "show:images");
         }
 
-        private void showText(TupleMessageEx message) {
+        private void loadText(TupleMessageEx message) {
             if (message.content) {
                 boolean show_images = properties.getValue("images", message.id);
                 boolean show_quotes = properties.getValue("quotes", message.id);
@@ -2110,7 +2109,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     DynamicDrawableSpan[] ddss = buffer.getSpans(off, off, DynamicDrawableSpan.class);
                     if (ddss.length > 0) {
                         properties.setValue("quotes", message.id, true);
-                        showText(message);
+                        loadText(message);
                     }
                 }
 
