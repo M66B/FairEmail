@@ -152,7 +152,6 @@
     <string name="title_advanced_addresses">Öntanımlı olarak adres ayrıntılarını göster</string>
     <string name="title_advanced_attachments_alt">İleti metninden sonra ekleri göster</string>
     <string name="title_advanced_monospaced">İleti metni için tek aralıklı yazı tipi kullan</string>
-    <string name="title_advanced_html">Bilinen kişilerden gelen özgün iletileri otomatik olarak göster</string>
     <string name="title_advanced_images">Bilinen kişiler için görselleri otomatik olarak göster</string>
     <string name="title_advanced_actionbar">İletişim etkinlik çubuğu</string>
     <string name="title_advanced_pull_refresh">Yenilemek için aşağıya çekin</string>
@@ -325,8 +324,6 @@
     <string name="title_show_inline">Ekleri göster</string>
     <string name="title_download_all">Tümünü indir</string>
     <string name="title_save_all">Tümünü kaydet</string>
-    <string name="title_show_html">Orjinali göster</string>
-    <string name="title_show_formatted">Biçimli göster</string>
     <string name="title_trash">Çöp Kutusu</string>
     <string name="title_copy">Kopyala &#8230;</string>
     <string name="title_subscribe">Abonelik</string>

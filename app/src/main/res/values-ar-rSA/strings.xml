@@ -105,7 +105,6 @@
     <string name="title_advanced_name_email">إظهار الأسماء وعناوين البريد الإلكترونية</string>
     <string name="title_advanced_preview">عرض معاينة الرسالة</string>
     <string name="title_advanced_addresses">عرض تفاصيل العناوين بشكل افتراضي</string>
-    <string name="title_advanced_html">أظهر تلقائيا الرسائل المصدرية للمُراسِلين المعروفين</string>
     <string name="title_advanced_images">أظهر تلقائيا صور المُراسِلين المعروفين</string>
     <string name="title_advanced_actionbar">شريط إجراءات المحادثة</string>
     <string name="title_advanced_pull_refresh">اسحب لأسفل للتحديث</string>
@@ -203,7 +202,6 @@
     <string name="title_add_keyword">إضافة كلمة مفتاحية</string>
     <string name="title_download_all">تنزيل الكل</string>
     <string name="title_save_all">حفظ الكل</string>
-    <string name="title_show_html">إظهار المنشور الأصلي</string>
     <string name="title_trash">سلة المهملات</string>
     <string name="title_delete">حذف</string>
     <string name="title_more">المزيد</string>

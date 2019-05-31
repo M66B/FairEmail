@@ -177,7 +177,6 @@
     <string name="title_advanced_addresses">По умолчанию показывать подробную информацию об адресах</string>
     <string name="title_advanced_attachments_alt">Показывать вложения после текста сообщения</string>
     <string name="title_advanced_monospaced">Использовать моноширинный шрифт для текста сообщения</string>
-    <string name="title_advanced_html">Автоматически показывать исходное сообщение для известных контактов</string>
     <string name="title_advanced_images">Автоматически показывать изображения для известных контактов</string>
     <string name="title_advanced_actionbar">Панель управления диалогами</string>
     <string name="title_advanced_pull_refresh">Потяните вниз, для обновления</string>
@@ -358,8 +357,6 @@
     <string name="title_show_inline">Показывать встроенные вложения</string>
     <string name="title_download_all">Загрузить все</string>
     <string name="title_save_all">Сохранить все</string>
-    <string name="title_show_html">Показать оригинал</string>
-    <string name="title_show_formatted">Показать форматированный</string>
     <string name="title_trash">Корзина</string>
     <string name="title_copy">Копировать &#8230;</string>
     <string name="title_copy_to">Копировать в &#8230;</string>

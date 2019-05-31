@@ -161,7 +161,6 @@
     <string name="title_advanced_addresses">Mostra i dettagli dell\'indirizzo per impostazione predefinita</string>
     <string name="title_advanced_attachments_alt">Mostra allegati dopo il testo del messaggio</string>
     <string name="title_advanced_monospaced">Usa il carattere monospaziale per il testo del messaggio</string>
-    <string name="title_advanced_html">Mostra automaticamente il messaggio originale per i contatti conosciuti</string>
     <string name="title_advanced_images">Mostra automaticamente le immagini per i contatti conosciuti</string>
     <string name="title_advanced_actionbar">Barra di azione di conversazione</string>
     <string name="title_advanced_pull_refresh">Trascina in basso per aggiornare</string>
@@ -342,8 +341,6 @@
     <string name="title_show_inline">Mostra gli allegati inline</string>
     <string name="title_download_all">Scarica tutti</string>
     <string name="title_save_all">Salva tutto</string>
-    <string name="title_show_html">Visualizza originale</string>
-    <string name="title_show_formatted">Mostra formattato</string>
     <string name="title_trash">Cestino</string>
     <string name="title_copy">Copia &#8230;</string>
     <string name="title_copy_to">Copia in &#8230;</string>

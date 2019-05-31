@@ -160,7 +160,6 @@
     <string name="title_advanced_addresses">Visa adressuppgifter som standard</string>
     <string name="title_advanced_attachments_alt">Visa bilagor efter meddelandetexten</string>
     <string name="title_advanced_monospaced">Använd monospace-typsnitt för meddelandetexten</string>
-    <string name="title_advanced_html">Visa automatiskt originalmeddelande för kända kontakter</string>
     <string name="title_advanced_images">Visa bilder automatiskt för kända kontakter</string>
     <string name="title_advanced_actionbar">Konversationens åtgärdsfält</string>
     <string name="title_advanced_pull_refresh">Dra ner för att uppdatera</string>
@@ -179,7 +178,7 @@
     <string name="title_advanced_notify_action_archive">Arkiv</string>
     <string name="title_advanced_notify_action_reply">Svara</string>
     <string name="title_advanced_notify_action_flag">Stjärna</string>
-    <string name="title_advanced_notify_action_seen">Läs</string>
+    <string name="title_advanced_notify_action_seen">Läst</string>
     <string name="title_advanced_notify_action_hint">Högst tre åtgärder kommer att visas</string>
     <string name="title_advanced_light">Använda aviseringslampan</string>
     <string name="title_advanced_sound">Välj aviseringsljud</string>
@@ -336,8 +335,6 @@
     <string name="title_add_keyword">Lägg till nyckelord</string>
     <string name="title_download_all">Hämta alla</string>
     <string name="title_save_all">Spara alla</string>
-    <string name="title_show_html">Visa originalet</string>
-    <string name="title_show_formatted">Visa formaterade</string>
     <string name="title_trash">Papperskorg</string>
     <string name="title_copy">Kopiera &#8230;</string>
     <string name="title_copy_to">Kopiera till &#8230;</string>

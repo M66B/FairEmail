@@ -153,7 +153,6 @@
     <string name="title_advanced_addresses">默认显示地址详情</string>
     <string name="title_advanced_attachments_alt">在消息文本后显示附件</string>
     <string name="title_advanced_monospaced">对邮件文本使用单间距字体</string>
-    <string name="title_advanced_html">自动显示已知联系人的原始消息</string>
     <string name="title_advanced_images">自动显示来自已知联系人邮件中的图片</string>
     <string name="title_advanced_actionbar">对话操作栏</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
@@ -334,8 +333,6 @@
     <string name="title_show_inline">显示内嵌附件</string>
     <string name="title_download_all">下载全部</string>
     <string name="title_save_all">保存全部</string>
-    <string name="title_show_html">显示原件</string>
-    <string name="title_show_formatted">显示格式化消息</string>
     <string name="title_trash">回收站</string>
     <string name="title_copy">复制 &#8230;</string>
     <string name="title_copy_to">复制到 &#8230;</string>

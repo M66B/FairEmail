@@ -177,7 +177,6 @@
     <string name="title_advanced_addresses">Ve výchozím nastavení zobrazit detaily adresy</string>
     <string name="title_advanced_attachments_alt">Přemístit zobrazení příloh pod text zprávy</string>
     <string name="title_advanced_monospaced">Použít neproporcionální písmo pro text zprávy</string>
-    <string name="title_advanced_html">Automaticky zobrazit původní zprávu pro známé kontakty</string>
     <string name="title_advanced_images">Automaticky zobrazit obrázky pro známé kontakty</string>
     <string name="title_advanced_actionbar">Panel akcí konverzací</string>
     <string name="title_advanced_pull_refresh">Aktualizovat tažením dolů</string>
@@ -358,8 +357,6 @@
     <string name="title_show_inline">Zobrazit vložené přílohy</string>
     <string name="title_download_all">Stáhnout vše</string>
     <string name="title_save_all">Uložit vše</string>
-    <string name="title_show_html">Zobrazit původní</string>
-    <string name="title_show_formatted">Zobrazit formátované</string>
     <string name="title_trash">Koš</string>
     <string name="title_copy">Kopírovat &#8230;</string>
     <string name="title_copy_to">Kopírovat do &#8230;</string>

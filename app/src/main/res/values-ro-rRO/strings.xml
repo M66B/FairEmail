@@ -169,7 +169,6 @@
     <string name="title_advanced_addresses">Implicit arată detaliile adreselor</string>
     <string name="title_advanced_attachments_alt">Arată atașamentele după textul mesajului</string>
     <string name="title_advanced_monospaced">Folosește fontul proporțional pentru textul mesajului</string>
-    <string name="title_advanced_html">Arată în mod automat imaginile originale pentru contactele cunoscute</string>
     <string name="title_advanced_images">Arată în mod automat imaginile pentru contactele cunoscute</string>
     <string name="title_advanced_actionbar">Bara de acțiuni conversație</string>
     <string name="title_advanced_pull_refresh">Trageți în jos pentru a actualiza</string>
@@ -350,8 +349,6 @@
     <string name="title_show_inline">Arată atașamentele integrate</string>
     <string name="title_download_all">Descarcă tot</string>
     <string name="title_save_all">Salvează tot</string>
-    <string name="title_show_html">Arată originalul</string>
-    <string name="title_show_formatted">Arată formatat</string>
     <string name="title_trash">Gunoi</string>
     <string name="title_copy">Copiere &#8230;</string>
     <string name="title_copy_to">Copiază în &#8230;</string>

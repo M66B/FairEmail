@@ -161,7 +161,6 @@
     <string name="title_advanced_addresses">Mostrar detalles de dirección por defecto</string>
     <string name="title_advanced_attachments_alt">Mostrar adjuntos después del texto del mensaje</string>
     <string name="title_advanced_monospaced">Usar fuente monoespaciada para texto de mensaje</string>
-    <string name="title_advanced_html">Mostrar mensaje original automáticamente para contactos conocidos</string>
     <string name="title_advanced_images">Mostrar imágenes automáticamente para contactos conocidos</string>
     <string name="title_advanced_actionbar">Barra de acciones de conversación</string>
     <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
@@ -342,8 +341,6 @@
     <string name="title_show_inline">Mostrar adjuntos incrustados</string>
     <string name="title_download_all">Descargar todo</string>
     <string name="title_save_all">Guardar todo</string>
-    <string name="title_show_html">Mostrar original</string>
-    <string name="title_show_formatted">Mostrar con formato</string>
     <string name="title_trash">Papelera</string>
     <string name="title_copy">Copiar &#8230;</string>
     <string name="title_copy_to">Copiar a &#8230;</string>

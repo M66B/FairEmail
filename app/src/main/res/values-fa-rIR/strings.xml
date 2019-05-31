@@ -90,7 +90,6 @@
     <string name="title_advanced_identicons">نمایش identicons</string>
     <string name="title_advanced_preview">نمایش دادن پیش‌نمایش پیام</string>
     <string name="title_advanced_addresses">نمایش جزئیات آدرس به صورت پیش‌فرض</string>
-    <string name="title_advanced_html">نمایش خودکار پیام‌های مخاطبین شناخته شده به صورت اصلی</string>
     <string name="title_advanced_images">نمایش خودکار تصاویر برای مخاطبین شناخته شده</string>
     <string name="title_advanced_actionbar">نوار اکشن بار مکالمه</string>
     <string name="title_advanced_pull_refresh">برای بروزرسانی به پایین بکشید</string>
@@ -215,7 +214,6 @@
     <string name="title_show_inline">نمایش پیوست های درون خطی</string>
     <string name="title_download_all">دانلود همه</string>
     <string name="title_save_all">ذخیره همه</string>
-    <string name="title_show_html">نشان دادن اصل</string>
     <string name="title_trash">سطل آشغال</string>
     <string name="title_delete">حذف</string>
     <string name="title_more">بیشتر</string>

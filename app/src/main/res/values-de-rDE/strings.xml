@@ -161,7 +161,6 @@
     <string name="title_advanced_addresses">Adressdetails standardmäßig anzeigen</string>
     <string name="title_advanced_attachments_alt">Anhänge nach dem Nachrichtentext anzeigen</string>
     <string name="title_advanced_monospaced">Unproportionale Schriftart für Nachrichtentext verwenden</string>
-    <string name="title_advanced_html">Für bekannte Kontakte Mails automatisch im Original-Format anzeigen</string>
     <string name="title_advanced_images">Für bekannte Kontakte Bilder automatisch anzeigen</string>
     <string name="title_advanced_actionbar">Navigationsleiste in Konversationen</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
@@ -342,8 +341,6 @@
     <string name="title_show_inline">Inline-Anhänge anzeigen</string>
     <string name="title_download_all">Alle herunterladen</string>
     <string name="title_save_all">Alles speichern</string>
-    <string name="title_show_html">Original anzeigen</string>
-    <string name="title_show_formatted">Formatiert anzeigen</string>
     <string name="title_trash">Löschen</string>
     <string name="title_copy">Kopiere &#8230;</string>
     <string name="title_copy_to">Kopieren nach &#8230;</string>

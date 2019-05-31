@@ -161,7 +161,6 @@
     <string name="title_advanced_addresses">Vis adresseinformasjon som standard</string>
     <string name="title_advanced_attachments_alt">Vis vedlegg etter meldingsteksten</string>
     <string name="title_advanced_monospaced">Bruk monospaced skrift for meldingstekst</string>
-    <string name="title_advanced_html">Vis automatisk den originale meldingen for kjente kontakter</string>
     <string name="title_advanced_images">Vis automatisk bilder for kjente kontakter</string>
     <string name="title_advanced_actionbar">Konversasjons handlingslinje</string>
     <string name="title_advanced_pull_refresh">Dra ned for å oppdatere</string>
@@ -342,8 +341,6 @@
     <string name="title_show_inline">Vis innebygde vedlegg</string>
     <string name="title_download_all">Last ned alt</string>
     <string name="title_save_all">Lagre alt</string>
-    <string name="title_show_html">Vis original</string>
-    <string name="title_show_formatted">Vis formatert</string>
     <string name="title_trash">Søppel</string>
     <string name="title_copy">Kopiere &#8230;</string>
     <string name="title_copy_to">Kopier til &#8230;</string>

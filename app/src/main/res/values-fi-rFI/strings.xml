@@ -161,7 +161,6 @@
     <string name="title_advanced_addresses">Näytä viestin osoitetiedot oletuksena</string>
     <string name="title_advanced_attachments_alt">Näytä liitteet viestin tekstin jälkeen</string>
     <string name="title_advanced_monospaced">Käytä kiinteävälistä kirjaisinta viestien tekstille</string>
-    <string name="title_advanced_html">Näytä tunnettujen yhteystietojen alkuperäinen viesti automaattisesti</string>
     <string name="title_advanced_images">Näytä tunnettujen yhteystietojen viestien kuvat automaattisesti</string>
     <string name="title_advanced_actionbar">Keskustelujen toimintopalkki</string>
     <string name="title_advanced_pull_refresh">Vedä alas päivittääksesi</string>
@@ -342,8 +341,6 @@
     <string name="title_show_inline">Näytä tekstiin upotetut liitteet</string>
     <string name="title_download_all">Lataa kaikki</string>
     <string name="title_save_all">Tallenna kaikki</string>
-    <string name="title_show_html">Näytä alkuperäinen</string>
-    <string name="title_show_formatted">Näytä muotoiltu</string>
     <string name="title_trash">Roskakoriin</string>
     <string name="title_copy">Kopioi &#8230;</string>
     <string name="title_copy_to">Kopioi kansioon &#8230;</string>

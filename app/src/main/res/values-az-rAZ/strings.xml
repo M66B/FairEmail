@@ -116,7 +116,6 @@
     <string name="title_advanced_subject_italic">Mövzunu maili göstər</string>
     <string name="title_advanced_preview">Mesaj ilkin baxışını göstər</string>
     <string name="title_advanced_addresses">Ünvan təfsilatlarını ilkin olaraq göstər</string>
-    <string name="title_advanced_html">Bilinən şəxslərdən gələn orijinal mesajları avtomatik göstər</string>
     <string name="title_advanced_images">Bilinən şəxslərdən gələn təsvirləri avtomatik göstər</string>
     <string name="title_advanced_actionbar">Söhbət hərəkət sətri</string>
     <string name="title_advanced_pull_refresh">Təzələmək üçün aşağı çəkin</string>
@@ -226,7 +225,6 @@
     <string name="title_add_keyword">Açarsöz əlavə et</string>
     <string name="title_download_all">Hamısını endir</string>
     <string name="title_save_all">Hamısını saxla</string>
-    <string name="title_show_html">Həqiqisini göstər</string>
     <string name="title_trash">Tullantı</string>
     <string name="title_delete">Sil</string>
     <string name="title_more">Daha çox</string>

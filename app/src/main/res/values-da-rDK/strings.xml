@@ -161,7 +161,6 @@
     <string name="title_advanced_addresses">Vis adresseinformationer som standard</string>
     <string name="title_advanced_attachments_alt">Vis vedhæftninger efter meddelelsesteksten</string>
     <string name="title_advanced_monospaced">Brug monospatieret skrifttype til meddelelser</string>
-    <string name="title_advanced_html">Vis automatisk oprindelig meddelelse for kendte kontakter</string>
     <string name="title_advanced_images">Vis automatisk billeder for kendte kontakter</string>
     <string name="title_advanced_actionbar">Samtale action-bar</string>
     <string name="title_advanced_pull_refresh">Træk ned for at opdatere</string>
@@ -340,8 +339,6 @@
     <string name="title_show_inline">Vis inline vedhæftninger</string>
     <string name="title_download_all">Hent alle</string>
     <string name="title_save_all">Gem alle</string>
-    <string name="title_show_html">Vis original</string>
-    <string name="title_show_formatted">Vis som formateret</string>
     <string name="title_trash">Papirkurv</string>
     <string name="title_copy">Kopiér &#8230;</string>
     <string name="title_subscribe">Abonnér</string>

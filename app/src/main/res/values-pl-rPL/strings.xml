@@ -176,7 +176,6 @@
     <string name="title_advanced_preview">Pokaż podgląd wiadomości</string>
     <string name="title_advanced_addresses">Domyślnie pokazuj szczegóły adresu</string>
     <string name="title_advanced_attachments_alt">Pokaż załączniki za treścią wiadomości</string>
-    <string name="title_advanced_html">Automatycznie pokaż oryginalną wiadomość dla znanych kontaktów</string>
     <string name="title_advanced_images">Automatycznie pokaż obrazki dla znanych kontaktów</string>
     <string name="title_advanced_pull_refresh">Pociągnij w dół, aby odświeżyć</string>
     <string name="title_advanced_autoscroll">Przewiń do góry po otrzymaniu nowych wiadomości</string>
@@ -352,8 +351,6 @@
     <string name="title_add_keyword">Dodaj słowo kluczowe</string>
     <string name="title_download_all">Pobierz wszystkie</string>
     <string name="title_save_all">Zapisz wszystkie</string>
-    <string name="title_show_html">Pokaż oryginał</string>
-    <string name="title_show_formatted">Pokaż sformatowany</string>
     <string name="title_trash">Kosz</string>
     <string name="title_copy">Kopiuj &#8230;</string>
     <string name="title_copy_to">Kopiuj do &#8230;</string>
