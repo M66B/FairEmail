@@ -193,7 +193,6 @@
     <string name="title_advanced_addresses">Show address details by default</string>
     <string name="title_advanced_attachments_alt">Show attachments after the message text</string>
     <string name="title_advanced_monospaced">Use monospaced font for message text</string>
-    <string name="title_advanced_html">Automatically show original message for known contacts</string>
     <string name="title_advanced_images">Automatically show images for known contacts</string>
     <string name="title_advanced_actionbar">Conversation action bar</string>
 
@@ -396,8 +395,6 @@
     <string name="title_show_inline">Show inline attachments</string>
     <string name="title_download_all">Download all</string>
     <string name="title_save_all">Save all</string>
-    <string name="title_show_html">Show original</string>
-    <string name="title_show_formatted">Show formatted</string>
 
     <string name="title_trash">Trash</string>
     <string name="title_copy">Copy &#8230;</string>
