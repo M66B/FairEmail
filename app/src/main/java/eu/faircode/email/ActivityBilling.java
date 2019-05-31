@@ -61,6 +61,7 @@ import java.security.PublicKey;
 import java.security.Signature;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -302,7 +303,8 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                 try {
                     query.remove(purchase.getSku());
                     boolean purchased = (purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED);
-                    Log.i("IAB SKU=" + purchase.getSku() + " purchased=" + purchased);
+                    long time = purchase.getPurchaseTime();
+                    Log.i("IAB SKU=" + purchase.getSku() + " purchased=" + purchased + " time=" + new Date(time));
 
                     //if (new Date().getTime() - purchase.getPurchaseTime() > 3 * 60 * 1000L) {
                     //    consumePurchase(purchase);
