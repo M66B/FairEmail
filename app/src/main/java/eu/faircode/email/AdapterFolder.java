@@ -830,12 +830,23 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
             TupleFolderEx f1 = prev.get(oldItemPosition);
             TupleFolderEx f2 = next.get(newItemPosition);
-            boolean e = f1.equals(f2);
-            if (!e ||
-                    f1.parent_ref == null || f1.parent_ref.id == null ||
-                    f2.parent_ref == null || f2.parent_ref.id == null)
-                return e;
-            return f1.parent_ref.equals(f2.parent_ref);
+            if (!f1.equals(f2))
+                return false;
+
+            TupleFolderEx p1 = f1.parent_ref;
+            TupleFolderEx p2 = f2.parent_ref;
+            while (p1 != null && p2 != null) {
+                if (p1.hide != p2.hide)
+                    return false;
+
+                if (p1.collapsed != p2.collapsed)
+                    return false;
+
+                p1 = p1.parent_ref;
+                p2 = p2.parent_ref;
+            }
+
+            return true;
         }
     }
 
