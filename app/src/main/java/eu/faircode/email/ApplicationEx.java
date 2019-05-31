@@ -110,7 +110,7 @@ public class ApplicationEx extends Application {
             }
         });
 
-        if ("eu.faircode.email".equals(BuildConfig.APPLICATION_ID))
+        if (Helper.hasValidFingerprint(this))
             setupBugsnag();
 
         upgrade(this);
