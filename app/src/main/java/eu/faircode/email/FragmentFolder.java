@@ -250,7 +250,8 @@ public class FragmentFolder extends FragmentBase {
                                 sync_days, keep_days, auto_delete);
                         db.folder().setFolderError(id, null);
 
-                        EntityOperation.sync(context, folder.id, true);
+                        if (!reload && synchronize)
+                            EntityOperation.sync(context, folder.id, true);
                     }
 
                     db.setTransactionSuccessful();
