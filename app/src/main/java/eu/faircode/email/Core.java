@@ -115,6 +115,7 @@ class Core {
     private static int lastUnseen = -1;
 
     private static final int MAX_NOTIFICATION_COUNT = 10; // per group
+    private static final int SYNC_CHUNCK_SIZE = 500;
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long YIELD_DURATION = 200L; // milliseconds
@@ -1044,7 +1045,7 @@ class Core {
                     @Override
                     public Object doCommand(IMAPProtocol protocol) {
                         Log.i(folder.name + " executing uid fetch count=" + uids.size());
-                        List<List<Long>> chunked = Helper.chunkList(new ArrayList<>(uids), 25);
+                        List<List<Long>> chunked = Helper.chunkList(new ArrayList<>(uids), SYNC_CHUNCK_SIZE);
                         for (int c = 0; c < chunked.size(); c++) {
                             Log.i(folder.name + " chunk #" + c + " size=" + chunked.get(c).size());
                             Response[] responses = protocol.command(
