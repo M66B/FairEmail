@@ -629,10 +629,9 @@
     <string name="title_crash_info_remark">Beskriv hva du gjorde da appen krasjet:</string>
     <string-array name="pollIntervalNames">
         <item>Alltid</item>
-        <item>Hver halve time</item>
-        <item>Hver time</item>
-        <item>Hver 2. time</item>
-        <item>Hver 4. time</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nei</item>

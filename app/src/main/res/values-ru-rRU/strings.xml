@@ -645,10 +645,9 @@
     <string name="title_crash_info_remark">Пожалуйста, опишите, что Вы делали, когда приложение падало:</string>
     <string-array name="pollIntervalNames">
         <item>Всегда</item>
-        <item>Каждые полчаса</item>
-        <item>Каждый час</item>
-        <item>Каждые 2 часа</item>
-        <item>Каждые 4 часа</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Нет</item>

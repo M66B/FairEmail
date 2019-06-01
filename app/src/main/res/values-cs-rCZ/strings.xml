@@ -644,10 +644,9 @@
     <string name="title_crash_info_remark">Popište prosím co jste dělali když došlo k pádu aplikace:</string>
     <string-array name="pollIntervalNames">
         <item>Vždy</item>
-        <item>Každou půlhodinu</item>
-        <item>Každou hodinu</item>
-        <item>Každé 2 hodiny</item>
-        <item>Každé 4 hodiny</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nepozdržovat</item>

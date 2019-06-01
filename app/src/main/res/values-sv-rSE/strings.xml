@@ -144,7 +144,7 @@
     <string name="title_advanced_send_delayed">Fördröj sändning av meddelanden</string>
     <string name="title_advanced_metered">Använda uppmätta anslutningar</string>
     <string name="title_advanced_download">Automatiskt hämta meddelanden och bilagor på en uppmätt anslutning upp till</string>
-    <string name="title_advanced_rlah">Fortsätt som hemma</string>
+    <string name="title_advanced_rlah">Roaming som hemma</string>
     <string name="title_advanced_roaming">Hämta meddelanden och bilagor vid roaming</string>
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
     <string name="title_advanced_startup">Visa på startskärmen</string>
@@ -615,10 +615,9 @@
     <string name="title_crash_info_remark">Beskriv vad du gjorde när appen kraschade:</string>
     <string-array name="pollIntervalNames">
         <item>Alltid</item>
-        <item>Varje halvtimme</item>
-        <item>Varje timme</item>
-        <item>Varannan timme</item>
-        <item>Var fjärde timme</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nej</item>

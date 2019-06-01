@@ -600,10 +600,9 @@
     <string name="title_crash_info_remark">Beskriv venligst hvad du foretog dig, da app\'en gik ned:</string>
     <string-array name="pollIntervalNames">
         <item>Altid</item>
-        <item>Hver halve time</item>
-        <item>Hver time</item>
-        <item>Hver 2. time</item>
-        <item>Hver 4. time</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nej</item>

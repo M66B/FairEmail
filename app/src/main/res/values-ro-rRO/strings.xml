@@ -637,10 +637,9 @@
     <string name="title_crash_info_remark">Vă rugăm să descrieți ce făceați atunci când aplicația s-a oprit:</string>
     <string-array name="pollIntervalNames">
         <item>Întotdeauna</item>
-        <item>La fiecare jumătate de oră</item>
-        <item>La fiecare oră</item>
-        <item>La fiecare 2 ore</item>
-        <item>La fiecare 4 ore</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Fără</item>

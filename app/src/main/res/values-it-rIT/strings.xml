@@ -629,10 +629,9 @@
     <string name="title_crash_info_remark">Descrivi cosa stavi facendo quando l\'app si è interrotta:</string>
     <string-array name="pollIntervalNames">
         <item>Sempre</item>
-        <item>Ogni mezz\'ora</item>
-        <item>Ogni ora</item>
-        <item>Ogni 2 ore</item>
-        <item>Ogni 4 ore</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>No</item>
