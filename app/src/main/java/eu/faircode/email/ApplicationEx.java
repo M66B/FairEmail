@@ -151,7 +151,7 @@ public class ApplicationEx extends Application {
         com.bugsnag.android.Configuration config =
                 new com.bugsnag.android.Configuration("9d2d57476a0614974449a3ec33f2604a");
 
-        if (BuildConfig.DEBUG)
+        if (BuildConfig.DEBUG || !Helper.hasValidFingerprint(this))
             config.setReleaseStage("development");
         else if (BuildConfig.BETA_RELEASE)
             config.setReleaseStage(BuildConfig.PLAY_STORE_RELEASE ? "beta/play" : "beta");
