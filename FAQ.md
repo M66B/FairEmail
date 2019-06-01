@@ -1626,7 +1626,7 @@ instead the Storage Access Framework, available and recommended since Android 4.
 If an app is listed depends on if the app implements a [document provider](https://developer.android.com/guide/topics/providers/document-provider).
 
 Android Q will make it harder and maybe even impossible to directly access files,
-see [here](https://developer.android.com/preview/privacy/scoped-storage) for more details.
+see [here](https://developer.android.com/preview/privacy/scoped-storage) and [here](https://www.xda-developers.com/android-q-storage-access-framework-scoped-storage/) for more details.
 
 <br />
 
