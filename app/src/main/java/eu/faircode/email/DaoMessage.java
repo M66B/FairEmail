@@ -64,7 +64,7 @@ public interface DaoMessage {
             " HAVING (:found OR SUM(folder.unified) > 0)" +
             " AND (NOT :filter_seen OR " + unseen_unified + " > 0)" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - " + unflagged_unified + " > 0)" +
-            " AND (NOT :filter_snoozed OR SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0)" +
+            " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL)" +
             " ORDER BY" +
             " CASE" +
             "  WHEN 'unread' = :sort THEN " + unseen_unified + " = 0" +
@@ -111,7 +111,7 @@ public interface DaoMessage {
             " HAVING SUM(CASE WHEN folder.id = :folder THEN 1 ELSE 0 END) > 0" +
             " AND (NOT :filter_seen OR " + unseen_folder + " > 0 OR " + is_outbox + ")" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - " + unflagged_folder + " > 0 OR " + is_outbox + ")" +
-            " AND (NOT :filter_snoozed OR SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0 OR " + is_outbox + ")" +
+            " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_outbox + ")" +
             " ORDER BY" +
             " CASE" +
             "  WHEN 'unread' = :sort THEN " + unseen_folder + " = 0" +
