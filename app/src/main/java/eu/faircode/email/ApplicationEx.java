@@ -170,7 +170,7 @@ public class ApplicationEx extends Application {
         ignore.add("java.net.ConnectException");
         ignore.add("java.net.SocketTimeoutException");
         ignore.add("java.net.SocketException");
-        // android.accounts.OperationCanceledException
+        ignore.add("android.accounts.OperationCanceledException");
 
         ignore.add("javax.mail.StoreClosedException");
         ignore.add("javax.mail.FolderClosedException");
@@ -179,7 +179,7 @@ public class ApplicationEx extends Application {
         ignore.add("javax.mail.MessageRemovedException");
         ignore.add("javax.mail.internet.AddressException");
 
-        ignore.add("android.accounts.OperationCanceledException");
+        ignore.add("java.nio.charset.MalformedInputException");
 
         config.setIgnoreClasses(ignore.toArray(new String[0]));
 

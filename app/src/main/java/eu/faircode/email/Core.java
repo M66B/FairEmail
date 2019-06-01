@@ -1061,7 +1061,9 @@ class Core {
                                     }
                             } else {
                                 for (Response response : responses)
-                                    if (response.isNO() || response.isBAD() || response.isBYE())
+                                    if (response.isBYE())
+                                        return new MessagingException("UID FETCH", new IOException(response.toString()));
+                                    else if (response.isNO() || response.isBAD())
                                         return new MessagingException(response.toString());
                                 return new MessagingException("UID FETCH failed");
                             }

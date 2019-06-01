@@ -601,11 +601,15 @@ public class MessageHelper {
                 return null;
 
             // https://www.ietf.org/rfc/rfc2368.txt
-            MailTo to = MailTo.parse(list.substring(1, list.length() - 1));
-            if (to.getTo() == null)
-                return null;
+            try {
+                MailTo to = MailTo.parse(list.substring(1, list.length() - 1));
+                if (to.getTo() == null)
+                    return null;
 
-            return new Address[]{new InternetAddress(to.getTo().split(",")[0])};
+                return new Address[]{new InternetAddress(to.getTo().split(",")[0])};
+            } catch (android.net.ParseException ex) {
+                throw new ParseException(list);
+            }
         } catch (android.net.ParseException ex) {
             Log.w(ex);
             return null;
