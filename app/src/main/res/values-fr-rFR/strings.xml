@@ -195,6 +195,7 @@
     <string name="title_advanced_debug">Débogage</string>
     <string name="title_advanced_enabled_hint">Désactiver ou activer globalement la réception de messages</string>
     <string name="title_advanced_manual_hint">Si la synchronisation est désactivée, il est toujours possible de synchroniser manuellement en tirant vers le bas la liste des messages. Ceci synchronisera les messages et exécutera les opérations pendant une durée limitée.</string>
+    <string name="title_advanced_poll_hint">La synchronisation périodique permettra de comparer les messages locaux et distants à chaque fois, ce qui est une opération coûteuse qui peut entraîner une utilisation supplémentaire de la batterie, surtout lorsqu\'il y a beaucoup de messages à synchroniser. La synchronisation en continu évitera cela en surveillant uniquementles changements.</string>
     <string name="title_advanced_schedule_hint">Appuyez sur une heure pour définir une heure</string>
     <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>
     <string name="title_advanced_metered_warning">Désactiver cette option désactivera la réception et l\'envoi de messages sur les connexions Internet mobiles</string>
@@ -629,9 +630,9 @@
     <string name="title_crash_info_remark">Veuillez décrire ce que vous faisiez lorsque l\'application s\'est arrêtée :</string>
     <string-array name="pollIntervalNames">
         <item>Toujours</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
+        <item>Toutes les heures</item>
+        <item>Toutes les 2 heures</item>
+        <item>Toutes les 4 heures</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Non</item>

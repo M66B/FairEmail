@@ -187,6 +187,7 @@
     <string name="title_advanced_debug">调试模式</string>
     <string name="title_advanced_enabled_hint">全球禁用或启用接收消息</string>
     <string name="title_advanced_manual_hint">如果同步功能已禁用，仍然可以通过下拉邮件列表手动同步。这将在一定时间内同步消息和执行操作。</string>
+    <string name="title_advanced_poll_hint">定期同步将每次都比较本地和远程消息，这是一个昂贵的操作，可能导致额外的电池使用，特别是在有很多消息要同步的时候。始终同步将通过持续比较变化以避免发生上述情形。</string>
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
     <string name="title_advanced_metered_hint">计量连接通常是指移动连接或付费WiFi热点</string>
     <string name="title_advanced_metered_warning">禁用此选项将禁止在使用移动互联网连接时接收和发送消息</string>
@@ -621,9 +622,9 @@
     <string name="title_crash_info_remark">请描述应用崩溃时您的操作</string>
     <string-array name="pollIntervalNames">
         <item>总是</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
+        <item>每小时</item>
+        <item>每 2 小时</item>
+        <item>每 4 小时</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>否</item>

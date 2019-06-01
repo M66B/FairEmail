@@ -195,6 +195,7 @@
     <string name="title_advanced_debug">Debugmodus</string>
     <string name="title_advanced_enabled_hint">Empfang von Nachrichten für alle Konten deaktivieren oder aktivieren</string>
     <string name="title_advanced_manual_hint">Wenn die Synchronisation deaktiviert ist, ist es weiterhin möglich, die Synchronisation manuell durchzuführen, indem Sie die Nachrichtenliste herunterziehen. Dadurch werden Nachrichten synchronisiert und Operationen für eine begrenzte Zeit ausgeführt.</string>
+    <string name="title_advanced_poll_hint">Die regelmäßige Synchronisation vergleicht jedes Mal lokale und entfernte Nachrichten, was ein aufwendiger Vorgang ist, der möglicherweise zu einem zusätzlichen Batterieverbrauch führt, besonders wenn es viele zu synchronisierende Nachrichten gibt. Durch die ständige Synchronisation wird dies vermieden, indem man ständig nur auf Änderungen achtet.</string>
     <string name="title_advanced_schedule_hint">Tippe auf eine Zeit, um eine Zeit zu setzen</string>
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte Wi-Fi Hotspots</string>
     <string name="title_advanced_metered_warning">Das Deaktivieren dieser Option deaktiviert das Empfangen und Senden von Nachrichten über mobile Internetverbindungen</string>
@@ -629,9 +630,9 @@
     <string name="title_crash_info_remark">Bitte beschreiben Sie, was Sie getan haben, während die App abgestürzt ist:</string>
     <string-array name="pollIntervalNames">
         <item>Immer</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
+        <item>Stündlich</item>
+        <item>Alle zwei Stunden</item>
+        <item>Alle vier Stunden</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nein</item>
