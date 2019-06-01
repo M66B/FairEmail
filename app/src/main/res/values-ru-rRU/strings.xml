@@ -486,6 +486,7 @@
     <string name="title_answer_template_email">$email$ будет заменен на адрес электронной почты отправителя</string>
     <string name="title_rule_seen">Отметить прочитанным</string>
     <string name="title_rule_unseen">Отметить непрочитанным</string>
+    <string name="title_rule_snooze">Отложить</string>
     <string name="title_rule_flag">В избранное</string>
     <string name="title_rule_move">Переместить</string>
     <string name="title_rule_copy">Копировать (пометить)</string>
@@ -505,6 +506,7 @@
     <string name="title_rule_and">И</string>
     <string name="title_rule_action">Действие</string>
     <string name="title_rule_action_remark">Это действие будет применяться к новым сообщениям в папке %1$s</string>
+    <string name="title_rule_hours">Часов</string>
     <string name="title_rule_folder">Папка</string>
     <string name="title_rule_identity">Идентификатор</string>
     <string name="title_rule_template">Шаблон ответа</string>
