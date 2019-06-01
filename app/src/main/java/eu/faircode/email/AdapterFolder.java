@@ -185,7 +185,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             if (listener == null) {
                 vwColor.setBackgroundColor(folder.accountColor == null ? Color.TRANSPARENT : folder.accountColor);
-                vwColor.setVisibility(account < 0 ? View.VISIBLE : View.GONE);
+                vwColor.setVisibility(account < 0 && Helper.isPro(context) ? View.VISIBLE : View.GONE);
 
                 if (folder.sync_state == null || "requested".equals(folder.sync_state)) {
                     if (folder.executing > 0)

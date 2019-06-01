@@ -602,7 +602,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Account color
             vwColor.setBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
-            vwColor.setVisibility(View.VISIBLE);
+            vwColor.setVisibility(Helper.isPro(context) ? View.VISIBLE : View.INVISIBLE);
 
             vwStatus.setBackgroundColor(
                     Boolean.FALSE.equals(message.dkim) ||
