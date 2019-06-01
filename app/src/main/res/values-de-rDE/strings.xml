@@ -470,6 +470,7 @@
     <string name="title_answer_template_email">$email$ wird durch die E-Mail-Adresse des Absenders ersetzt</string>
     <string name="title_rule_seen">Als gelesen kennzeichnen</string>
     <string name="title_rule_unseen">Als ungelesen kennzeichnen</string>
+    <string name="title_rule_snooze">Zurückstellen</string>
     <string name="title_rule_flag">Kennzeichnung hinzufügen</string>
     <string name="title_rule_move">Verschieben</string>
     <string name="title_rule_copy">Kategorie kopieren</string>
@@ -489,6 +490,7 @@
     <string name="title_rule_and">UND</string>
     <string name="title_rule_action">Aktion</string>
     <string name="title_rule_action_remark">Diese Aktion wird auf neue Mails im Ordner %1$s angewendet</string>
+    <string name="title_rule_hours">Stunden</string>
     <string name="title_rule_folder">Ordner</string>
     <string name="title_rule_identity">Identität</string>
     <string name="title_rule_template">Antwortvorlage</string>

@@ -195,7 +195,7 @@
     <string name="title_advanced_debug">Débogage</string>
     <string name="title_advanced_enabled_hint">Désactiver ou activer globalement la réception de messages</string>
     <string name="title_advanced_manual_hint">Si la synchronisation est désactivée, il est toujours possible de synchroniser manuellement en tirant vers le bas la liste des messages. Ceci synchronisera les messages et exécutera les opérations pendant une durée limitée.</string>
-    <string name="title_advanced_poll_hint">La synchronisation périodique permettra de comparer les messages locaux et distants à chaque fois, ce qui est une opération coûteuse qui peut entraîner une utilisation supplémentaire de la batterie, surtout lorsqu\'il y a beaucoup de messages à synchroniser. La synchronisation en continu évitera cela en surveillant uniquementles changements.</string>
+    <string name="title_advanced_poll_hint">La synchronisation périodique comparera les messages locaux et distants à chaque fois, ce qui est une opération coûteuse qui peut entraîner une utilisation supplémentaire de la batterie, surtout lorsqu\'il y a beaucoup de messages à synchroniser. La synchronisation en continu évitera cela en surveillant uniquement les changements.</string>
     <string name="title_advanced_schedule_hint">Appuyez sur une heure pour définir une heure</string>
     <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>
     <string name="title_advanced_metered_warning">Désactiver cette option désactivera la réception et l\'envoi de messages sur les connexions Internet mobiles</string>
@@ -470,6 +470,7 @@
     <string name="title_answer_template_email">$email$ sera remplacé par l\'adresse e-mail de l\'expéditeur</string>
     <string name="title_rule_seen">Marquer comme lu</string>
     <string name="title_rule_unseen">Marquer comme non lu</string>
+    <string name="title_rule_snooze">Différer</string>
     <string name="title_rule_flag">Marquer comme suivi</string>
     <string name="title_rule_move">Déplacer</string>
     <string name="title_rule_copy">Copier (étiquette)</string>
@@ -489,6 +490,7 @@
     <string name="title_rule_and">ET</string>
     <string name="title_rule_action">Action</string>
     <string name="title_rule_action_remark">Cette action sera appliquée aux nouveaux messages qui arrivent dans le dossier %1$s</string>
+    <string name="title_rule_hours">Heures</string>
     <string name="title_rule_folder">Dossier</string>
     <string name="title_rule_identity">Identité</string>
     <string name="title_rule_template">Répondre avec un modèle</string>

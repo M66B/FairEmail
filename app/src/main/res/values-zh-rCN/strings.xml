@@ -462,6 +462,7 @@
     <string name="title_answer_template_email">$email$ 将被发件人的邮件地址取代</string>
     <string name="title_rule_seen">标记为已读</string>
     <string name="title_rule_unseen">标记为未读</string>
+    <string name="title_rule_snooze">延后</string>
     <string name="title_rule_flag">添加星标</string>
     <string name="title_rule_move">移动</string>
     <string name="title_rule_copy">复制（标签）</string>
@@ -481,6 +482,7 @@
     <string name="title_rule_and">AND</string>
     <string name="title_rule_action">操作</string>
     <string name="title_rule_action_remark">此操作将被应用于抵达文件夹 %1$s 的新消息</string>
+    <string name="title_rule_hours">小时</string>
     <string name="title_rule_folder">文件夹</string>
     <string name="title_rule_identity">身份</string>
     <string name="title_rule_template">回复模板</string>

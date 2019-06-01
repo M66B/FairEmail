@@ -470,6 +470,7 @@
     <string name="title_answer_template_email">$email$ zal worden vervangen door het e-mail adres van de afzender</string>
     <string name="title_rule_seen">Markeer als gelezen</string>
     <string name="title_rule_unseen">Markeren als ongelezen</string>
+    <string name="title_rule_snooze">Sluimeren</string>
     <string name="title_rule_flag">Ster toevoegen</string>
     <string name="title_rule_move">Verplaatsen</string>
     <string name="title_rule_copy">Kopiëren (label)</string>
@@ -489,6 +490,7 @@
     <string name="title_rule_and">EN</string>
     <string name="title_rule_action">Actie</string>
     <string name="title_rule_action_remark">Deze actie zal worden toegepast op nieuwe berichten die aankomen in de map %1$s</string>
+    <string name="title_rule_hours">Uren</string>
     <string name="title_rule_folder">Map</string>
     <string name="title_rule_identity">Identiteit</string>
     <string name="title_rule_template">Antwoord sjabloon</string>

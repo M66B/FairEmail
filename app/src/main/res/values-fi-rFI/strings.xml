@@ -195,6 +195,7 @@
     <string name="title_advanced_debug">Debug-tila</string>
     <string name="title_advanced_enabled_hint">Estä tai salli viestien vastaanotto globaalisti</string>
     <string name="title_advanced_manual_hint">Vaikka synkronointi on pois käytöstä, on mahdollista synkronoida manuaalisesti vetämällä alaspäin viestilistassa. Tämä synkronoi viestit ja suorittaa toimenpiteet.</string>
+    <string name="title_advanced_poll_hint">Ajoittain synkronointi vertaa paikallisia ja palvelimen viestejä joka kerta ja voi aiheuttaa ylimääräistä akun käyttöä varsinkin, kun synkronoitavia viestejä on paljon. Aina synkronointi välttää tämän kuuntelemalla jatkuvasti vain muutoksia.</string>
     <string name="title_advanced_schedule_hint">Napauta aikaa asettaaksesi sen</string>
     <string name="title_advanced_metered_hint">Käytön mukaan laskutettavat yhteydet ovat yleensä mobiiliyhteyksiä tai maksullisia Wi-Fi-yhteyspisteitä</string>
     <string name="title_advanced_metered_warning">Tämän asetuksen kytkeminen pois estää viestien vastaanoton ja lähetyksen mobiiliyhteyttä käytettessä</string>

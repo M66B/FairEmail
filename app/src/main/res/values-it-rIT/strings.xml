@@ -195,6 +195,7 @@
     <string name="title_advanced_debug">Debug</string>
     <string name="title_advanced_enabled_hint">Attiva o disattiva a livello globale la ricezione dei messaggi</string>
     <string name="title_advanced_manual_hint">Se la sincronizzazione è disabilitata, è ancora possibile sincronizzare manualmente tirando giù l\'elenco dei messaggi. Questo sincronizzerà i messaggi ed eseguirà le operazioni per un tempo limitato.</string>
+    <string name="title_advanced_poll_hint">La sincronizzazione periodica compara i messaggi locali e remoti ogni volta, il che è un\'operazione costosa che potrebbe comportare un utilizzo aggiuntivo di batteria, specialmente quando ci sono molti messaggi da sincronizzare. La sincronizzazione sempre eviterà questo solo ascoltando continuamente le modifiche.</string>
     <string name="title_advanced_schedule_hint">Tocca un orario per impostare un orario</string>
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>
     <string name="title_advanced_metered_warning">Disabilitando questa opzione disattiverai la ricezione e l\'invio di messaggi sulle connessioni internet mobili</string>
@@ -469,6 +470,7 @@
     <string name="title_answer_template_email">$email$ verrà sostituito con l\'indirizzo email del mittente</string>
     <string name="title_rule_seen">Segna come letto</string>
     <string name="title_rule_unseen">Segna come non letto</string>
+    <string name="title_rule_snooze">Posticipa</string>
     <string name="title_rule_flag">Aggiungi ai preferiti</string>
     <string name="title_rule_move">Muovi</string>
     <string name="title_rule_copy">Copia (etichetta)</string>
@@ -488,6 +490,7 @@
     <string name="title_rule_and">E</string>
     <string name="title_rule_action">Azione</string>
     <string name="title_rule_action_remark">Questa azione verrà applicata ai nuovi messaggi in arrivo nella cartella %1$s</string>
+    <string name="title_rule_hours">Ore</string>
     <string name="title_rule_folder">Cartella</string>
     <string name="title_rule_identity">Identità</string>
     <string name="title_rule_template">Modello di risposta</string>
