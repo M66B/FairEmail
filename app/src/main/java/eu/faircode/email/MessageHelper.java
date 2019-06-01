@@ -37,6 +37,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
 import java.nio.charset.CharacterCodingException;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
@@ -661,7 +662,6 @@ public class MessageHelper {
             } catch (UnsupportedEncodingException ex) {
                 Log.w(ex);
             }
-            return decodeMime(subject);
         } else {
             // Fix UTF-8 plain header
             try {
@@ -671,14 +671,15 @@ public class MessageHelper {
                     bytes[i] = (byte) kars[i];
 
                 CharsetDecoder cs = StandardCharsets.UTF_8.newDecoder();
-                cs.decode(ByteBuffer.wrap(bytes));
-                subject = new String(bytes, StandardCharsets.UTF_8);
+                CharBuffer out = cs.decode(ByteBuffer.wrap(bytes));
+                if (out.length() > 0)
+                    subject = new String(bytes, StandardCharsets.UTF_8);
             } catch (CharacterCodingException ex) {
                 Log.w(ex);
             }
-
-            return decodeMime(subject);
         }
+
+        return decodeMime(subject);
     }
 
     Long getSize() throws MessagingException {
