@@ -588,6 +588,8 @@ The message *... Connection reset by peer ...* means that the email server activ
 
 The message *... Read timed out ...* means that the email server is not responding anymore or that the internet connction is bad.
 
+See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
+
 Possible causes are:
 
 * A firewall or router is blocking connections to the server
