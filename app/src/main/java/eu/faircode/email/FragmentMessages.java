@@ -440,17 +440,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         adapter = new AdapterMessage(
                 getContext(), getViewLifecycleOwner(),
                 viewType, compact, zoom, sort, filter_duplicates, iProperties);
-
         rvMessage.setAdapter(adapter);
-/*
-        rvMessage.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(@NonNull RecyclerView rv, int dx, int dy) {
-                int pos = (rv.getChildCount() == 0 ? 0 : rv.getChildAt(0).getTop());
-                swipeRefresh.setEnabled(pull && pos >= 0);
-            }
-        });
-*/
+
         seekBar.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -1902,16 +1893,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         for (String name : values.keySet())
             outState.putLongArray("fair:name:" + name, Helper.toLongArray(values.get(name)));
 
-        // Saving bodies and html will result in a TransactionTooLargeException
-/*
-        outState.putLongArray("fair:bodies", Helper.toLongArray(bodies.keySet()));
-        for (Long key : bodies.keySet())
-            outState.putString("fair:bodies:" + key, HtmlHelper.toHtml(bodies.get(key)));
-
-        outState.putLongArray("fair:html", Helper.toLongArray(html.keySet()));
-        for (Long key : html.keySet())
-            outState.putString("fair:html:" + key, html.get(key));
-*/
         if (rvMessage != null) {
             Parcelable rv = rvMessage.getLayoutManager().onSaveInstanceState();
             outState.putParcelable("fair:rv", rv);
@@ -1939,13 +1920,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 for (Long value : savedInstanceState.getLongArray("fair:name:" + name))
                     values.get(name).add(value);
             }
-/*
-            for (long id : savedInstanceState.getLongArray("fair:bodies"))
-                bodies.put(id, HtmlHelper.fromHtml(savedInstanceState.getString("fair:bodies:" + id)));
 
-            for (long id : savedInstanceState.getLongArray("fair:html"))
-                html.put(id, savedInstanceState.getString("fair:html:" + id));
-*/
             if (rvMessage != null) {
                 Parcelable rv = savedInstanceState.getBundle("fair:rv");
                 rvMessage.getLayoutManager().onRestoreInstanceState(rv);
