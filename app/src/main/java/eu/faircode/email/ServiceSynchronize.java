@@ -151,7 +151,7 @@ public class ServiceSynchronize extends LifecycleService {
             @Override
             public void onChanged(Integer count) {
                 Log.i("Synchronizing folders=" + count);
-                if (count == 0)
+                if (count == null || count == 0)
                     cowner.start();
                 else
                     cowner.stop();
