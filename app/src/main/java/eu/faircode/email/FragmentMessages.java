@@ -1627,18 +1627,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onActionFlagColorSelection() {
-        if (!Helper.isPro(getContext())) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
-            return;
-        }
-
         int[] colors = getResources().getIntArray(R.array.colorPicker);
         ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
         colorPickerDialog.initialize(R.string.title_flag_color, colors, Color.TRANSPARENT, 4, colors.length);
         colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
             @Override
             public void onColorSelected(int color) {
+                if (!Helper.isPro(getContext())) {
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                    lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                    return;
+                }
+
                 onActionFlagSelection(true, color);
             }
         });

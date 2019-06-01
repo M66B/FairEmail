@@ -1176,11 +1176,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onColor(final Intent intent) {
-        if (!Helper.isPro(this)) {
-            onShowPro(null);
-            return;
-        }
-
         int color = intent.getIntExtra("color", -1);
         int[] colors = getResources().getIntArray(R.array.colorPicker);
         ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
@@ -1188,6 +1183,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
             @Override
             public void onColorSelected(int color) {
+                if (!Helper.isPro(ActivityView.this)) {
+                    onShowPro(null);
+                    return;
+                }
+
                 Bundle args = new Bundle();
                 args.putLong("id", intent.getLongExtra("id", -1));
                 args.putInt("color", color);
@@ -1292,25 +1292,27 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onDecrypt(Intent intent) {
-        if (Helper.isPro(this)) {
-            if (pgpService.isBound()) {
-                Intent data = new Intent();
-                data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
-
-                decrypt(data, intent.getLongExtra("id", -1));
-            } else {
-                Snackbar snackbar = Snackbar.make(getVisibleView(), R.string.title_no_openpgp, Snackbar.LENGTH_LONG);
-                if (Helper.getIntentOpenKeychain().resolveActivity(getPackageManager()) != null)
-                    snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            startActivity(Helper.getIntentOpenKeychain());
-                        }
-                    });
-                snackbar.show();
-            }
-        } else
+        if (!Helper.isPro(this)) {
             onShowPro(intent);
+            return;
+        }
+
+        if (pgpService.isBound()) {
+            Intent data = new Intent();
+            data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
+
+            decrypt(data, intent.getLongExtra("id", -1));
+        } else {
+            Snackbar snackbar = Snackbar.make(getVisibleView(), R.string.title_no_openpgp, Snackbar.LENGTH_LONG);
+            if (Helper.getIntentOpenKeychain().resolveActivity(getPackageManager()) != null)
+                snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(Helper.getIntentOpenKeychain());
+                    }
+                });
+            snackbar.show();
+        }
     }
 
     private void onShowPro(Intent intent) {

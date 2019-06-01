@@ -201,16 +201,19 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     }
 
     private void setOptions() {
+        boolean pro = Helper.isPro(getContext());
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swNotifyGroup.setChecked(prefs.getBoolean("notify_group", true));
         swNotifyGroup.setVisibility(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N ? View.VISIBLE : View.GONE);
         swNotifyPreview.setChecked(prefs.getBoolean("notify_preview", true));
+
         cbNotifyActionTrash.setChecked(prefs.getBoolean("notify_trash", true));
         cbNotifyActionArchive.setChecked(prefs.getBoolean("notify_archive", true));
-        cbNotifyActionReply.setChecked(prefs.getBoolean("notify_reply", false));
-        cbNotifyActionFlag.setChecked(prefs.getBoolean("notify_flag", false));
+        cbNotifyActionReply.setChecked(prefs.getBoolean("notify_reply", false) && pro);
+        cbNotifyActionFlag.setChecked(prefs.getBoolean("notify_flag", false) && pro);
         cbNotifyActionSeen.setChecked(prefs.getBoolean("notify_seen", true));
+
         swLight.setChecked(prefs.getBoolean("light", false));
 
         grpNotification.setVisibility(Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);

@@ -324,18 +324,18 @@ public class FragmentAccount extends FragmentBase {
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!Helper.isPro(getContext())) {
-                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                    lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SHOW_PRO));
-                    return;
-                }
-
                 int[] colors = getContext().getResources().getIntArray(R.array.colorPicker);
                 ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
                 colorPickerDialog.initialize(R.string.title_account_color, colors, color, 4, colors.length);
                 colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
                     @Override
                     public void onColorSelected(int color) {
+                        if (!Helper.isPro(getContext())) {
+                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                            lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SHOW_PRO));
+                            return;
+                        }
+
                         setColor(color);
                     }
                 });

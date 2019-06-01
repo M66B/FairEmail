@@ -2463,12 +2463,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onMenuManageKeywords(ActionData data) {
-            if (!Helper.isPro(context)) {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
-                return;
-            }
-
             Bundle args = new Bundle();
             args.putSerializable("message", data.message);
 
@@ -2510,6 +2504,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
+                                    if (!Helper.isPro(context)) {
+                                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                                        lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                                        return;
+                                    }
+
                                     args.putStringArray("keywords", items.toArray(new String[0]));
                                     args.putBooleanArray("selected", selected);
                                     args.putBooleanArray("dirty", dirty);
@@ -2556,6 +2556,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialog, int which) {
+                                                    if (!Helper.isPro(context)) {
+                                                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                                                        lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                                                        return;
+                                                    }
+
                                                     String keyword = Helper.sanitizeKeyword(etKeyword.getText().toString());
                                                     if (!TextUtils.isEmpty(keyword)) {
                                                         args.putString("keyword", keyword);
@@ -3195,15 +3201,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(MenuItem target) {
-                                if (Helper.isPro(context))
-                                    context.startActivity(new Intent(context, ActivityCompose.class)
-                                            .putExtra("action", "reply")
-                                            .putExtra("reference", data.message.id)
-                                            .putExtra("answer", (long) target.getItemId()));
-                                else {
+                                if (!Helper.isPro(context)) {
                                     LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                                     lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                                    return true;
                                 }
+
+                                context.startActivity(new Intent(context, ActivityCompose.class)
+                                        .putExtra("action", "reply")
+                                        .putExtra("reference", data.message.id)
+                                        .putExtra("answer", (long) target.getItemId()));
                                 return true;
                             }
                         });

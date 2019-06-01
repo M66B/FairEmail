@@ -1719,6 +1719,7 @@ class Core {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean badge = prefs.getBoolean("badge", true);
+        boolean pro = Helper.isPro(context);
 
         // Update widget/badge count
         if (lastUnseen < 0 || messages.size() != lastUnseen) {
@@ -1743,7 +1744,7 @@ class Core {
                     continue;
             }
 
-            String group = Long.toString(message.accountNotify ? message.account : 0);
+            String group = Long.toString(pro && message.accountNotify ? message.account : 0);
             if (!groupMessages.containsKey(group)) {
                 groupMessages.put(group, new ArrayList<TupleMessageEx>());
                 if (!groupNotifying.containsKey(group))
@@ -1828,8 +1829,8 @@ class Core {
         boolean notify_preview = prefs.getBoolean("notify_preview", true);
         boolean notify_trash = prefs.getBoolean("notify_trash", true);
         boolean notify_archive = prefs.getBoolean("notify_archive", true);
-        boolean notify_reply = prefs.getBoolean("notify_reply", false);
-        boolean notify_flag = prefs.getBoolean("notify_flag", false);
+        boolean notify_reply = prefs.getBoolean("notify_reply", false) && pro;
+        boolean notify_flag = prefs.getBoolean("notify_flag", false) && pro;
         boolean notify_seen = prefs.getBoolean("notify_seen", true);
 
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -1931,7 +1932,8 @@ class Core {
                     channelName = channel.getId();
             }
             if (channelName == null)
-                channelName = EntityAccount.getNotificationChannelId(message.accountNotify ? message.account : 0);
+                channelName = EntityAccount.getNotificationChannelId(
+                        pro && message.accountNotify ? message.account : 0);
 
             // Get folder name
             String folderName = message.folderDisplay == null

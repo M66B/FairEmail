@@ -184,8 +184,6 @@ public class FragmentCompose extends FragmentBase {
     private ContentResolver resolver;
     private AdapterAttachment adapter;
 
-    private boolean pro;
-
     private boolean prefix_once = false;
     private boolean monospaced = false;
     private boolean style = true;
@@ -212,7 +210,6 @@ public class FragmentCompose extends FragmentBase {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        pro = Helper.isPro(getContext());
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefix_once = prefs.getBoolean("prefix_once", false);
@@ -3082,19 +3079,17 @@ public class FragmentCompose extends FragmentBase {
             grpExtra.setVisibility(identity != null && identity.sender_extra ? View.VISIBLE : View.GONE);
 
             Spanned signature = null;
-            if (pro) {
-                if (identity != null && !TextUtils.isEmpty(identity.signature))
-                    signature = HtmlHelper.fromHtml(identity.signature, new Html.ImageGetter() {
-                        @Override
-                        public Drawable getDrawable(String source) {
-                            int px = Helper.dp2pixels(getContext(), 24);
-                            Drawable d = getContext().getResources()
-                                    .getDrawable(R.drawable.baseline_image_24, getContext().getTheme());
-                            d.setBounds(0, 0, px, px);
-                            return d;
-                        }
-                    }, null);
-            }
+            if (identity != null && !TextUtils.isEmpty(identity.signature))
+                signature = HtmlHelper.fromHtml(identity.signature, new Html.ImageGetter() {
+                    @Override
+                    public Drawable getDrawable(String source) {
+                        int px = Helper.dp2pixels(getContext(), 24);
+                        Drawable d = getContext().getResources()
+                                .getDrawable(R.drawable.baseline_image_24, getContext().getTheme());
+                        d.setBounds(0, 0, px, px);
+                        return d;
+                    }
+                }, null);
             tvSignature.setText(signature);
             grpSignature.setVisibility(signature == null ? View.GONE : View.VISIBLE);
         }
