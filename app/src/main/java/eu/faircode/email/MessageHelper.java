@@ -608,7 +608,7 @@ public class MessageHelper {
 
                 return new Address[]{new InternetAddress(to.getTo().split(",")[0])};
             } catch (android.net.ParseException ex) {
-                throw new ParseException(list);
+                throw new IllegalArgumentException(list, ex);
             }
         } catch (android.net.ParseException ex) {
             Log.w(ex);
