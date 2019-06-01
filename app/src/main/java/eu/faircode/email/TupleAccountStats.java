@@ -19,7 +19,21 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import androidx.annotation.Nullable;
+
+import java.util.Objects;
+
 public class TupleAccountStats {
     public Integer accounts = 0;
     public Integer operations = 0;
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        if (obj instanceof TupleAccountStats) {
+            TupleAccountStats other = (TupleAccountStats) obj;
+            return (Objects.equals(this.accounts, other.accounts) &&
+                    Objects.equals(this.operations, other.operations));
+        } else
+            return false;
+    }
 }

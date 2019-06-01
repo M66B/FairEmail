@@ -107,7 +107,7 @@ public class ServiceSynchronize extends LifecycleService {
     private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
-    private static final long ONESHOT_DURATION = 120 * 1000L; // milliseconds
+    private static final long ONESHOT_DURATION = 90 * 1000L; // milliseconds
     private static final long STOP_DELAY = 5000L; // milliseconds
 
     static final int PI_ALARM = 1;
@@ -129,10 +129,19 @@ public class ServiceSynchronize extends LifecycleService {
         DB db = DB.getInstance(this);
 
         db.account().liveStats().observe(this, new Observer<TupleAccountStats>() {
+            private TupleAccountStats lastStats = null;
+
             @Override
             public void onChanged(@Nullable TupleAccountStats stats) {
-                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(stats).build());
+                if (stats != null && !stats.equals(lastStats)) {
+                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(stats).build());
+
+                    if (oneshot && stats.operations > 0)
+                        onOneshot(true);
+                }
+
+                lastStats = stats;
             }
         });
 
