@@ -134,8 +134,12 @@ public class ServiceSynchronize extends LifecycleService {
             @Override
             public void onChanged(@Nullable TupleAccountStats stats) {
                 if (stats != null && !stats.equals(lastStats)) {
-                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                    nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(stats).build());
+                    try {
+                        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                        nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(stats).build());
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
 
                     if (oneshot && stats.operations > 0)
                         onOneshot(true);
@@ -163,7 +167,11 @@ public class ServiceSynchronize extends LifecycleService {
 
             @Override
             public void onChanged(List<TupleMessageEx> messages) {
-                Core.notifyMessages(ServiceSynchronize.this, notifying, messages);
+                try {
+                    Core.notifyMessages(ServiceSynchronize.this, notifying, messages);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
             }
         });
 
