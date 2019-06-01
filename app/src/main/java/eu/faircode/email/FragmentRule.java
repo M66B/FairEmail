@@ -40,6 +40,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.NumberPicker;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -94,6 +95,8 @@ public class FragmentRule extends FragmentBase {
     private Spinner spAction;
     private TextView tvActionRemark;
 
+    private NumberPicker npDuration;
+
     private Button btnColor;
     private View vwColor;
     private ImageView ibColorDefault;
@@ -111,6 +114,7 @@ public class FragmentRule extends FragmentBase {
     private ContentLoadingProgressBar pbWait;
 
     private Group grpReady;
+    private Group grpSnooze;
     private Group grpFlag;
     private Group grpMove;
     private Group grpAnswer;
@@ -173,6 +177,10 @@ public class FragmentRule extends FragmentBase {
         spAction = view.findViewById(R.id.spAction);
         tvActionRemark = view.findViewById(R.id.tvActionRemark);
 
+        npDuration = view.findViewById(R.id.npDuration);
+        npDuration.setMinValue(1);
+        npDuration.setMaxValue(99);
+
         btnColor = view.findViewById(R.id.btnColor);
         vwColor = view.findViewById(R.id.vwColor);
         ibColorDefault = view.findViewById(R.id.ibColorDefault);
@@ -190,6 +198,7 @@ public class FragmentRule extends FragmentBase {
         pbWait = view.findViewById(R.id.pbWait);
 
         grpReady = view.findViewById(R.id.grpReady);
+        grpSnooze = view.findViewById(R.id.grpSnooze);
         grpFlag = view.findViewById(R.id.grpFlag);
         grpMove = view.findViewById(R.id.grpMove);
         grpAnswer = view.findViewById(R.id.grpAnswer);
@@ -236,6 +245,7 @@ public class FragmentRule extends FragmentBase {
         List<Action> actions = new ArrayList<>();
         actions.add(new Action(EntityRule.TYPE_SEEN, getString(R.string.title_rule_seen)));
         actions.add(new Action(EntityRule.TYPE_UNSEEN, getString(R.string.title_rule_unseen)));
+        actions.add(new Action(EntityRule.TYPE_SNOOZE, getString(R.string.title_rule_snooze)));
         actions.add(new Action(EntityRule.TYPE_FLAG, getString(R.string.title_rule_flag)));
         actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_rule_move)));
         actions.add(new Action(EntityRule.TYPE_COPY, getString(R.string.title_rule_copy)));
@@ -329,6 +339,7 @@ public class FragmentRule extends FragmentBase {
         tvFolder.setText(null);
         bottom_navigation.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
+        grpSnooze.setVisibility(View.GONE);
         grpFlag.setVisibility(View.GONE);
         grpMove.setVisibility(View.GONE);
         grpAnswer.setVisibility(View.GONE);
@@ -478,6 +489,10 @@ public class FragmentRule extends FragmentBase {
                     } else {
                         int type = jaction.getInt("type");
                         switch (type) {
+                            case EntityRule.TYPE_SNOOZE:
+                                npDuration.setValue(jaction.getInt("duration"));
+                                break;
+
                             case EntityRule.TYPE_FLAG:
                                 setColor(jaction.isNull("color") ? null : jaction.getInt("color"));
                                 break;
@@ -763,6 +778,7 @@ public class FragmentRule extends FragmentBase {
     }
 
     private void showActionParameters(int type) {
+        grpSnooze.setVisibility(type == EntityRule.TYPE_SNOOZE ? View.VISIBLE : View.GONE);
         grpFlag.setVisibility(type == EntityRule.TYPE_FLAG ? View.VISIBLE : View.GONE);
         grpMove.setVisibility(type == EntityRule.TYPE_MOVE || type == EntityRule.TYPE_COPY ? View.VISIBLE : View.GONE);
         grpAnswer.setVisibility(type == EntityRule.TYPE_ANSWER ? View.VISIBLE : View.GONE);
@@ -826,6 +842,10 @@ public class FragmentRule extends FragmentBase {
         if (action != null) {
             jaction.put("type", action.type);
             switch (action.type) {
+                case EntityRule.TYPE_SNOOZE:
+                    jaction.put("duration", npDuration.getValue());
+                    break;
+
                 case EntityRule.TYPE_FLAG:
                     jaction.put("color", color);
                     break;

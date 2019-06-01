@@ -85,6 +85,7 @@ public class EntityRule {
     static final int TYPE_AUTOMATION = 5;
     static final int TYPE_FLAG = 6;
     static final int TYPE_COPY = 7;
+    static final int TYPE_SNOOZE = 8;
 
     static final String ACTION_AUTOMATION = BuildConfig.APPLICATION_ID + ".AUTOMATION";
     static final String EXTRA_RULE = "rule";
@@ -208,6 +209,9 @@ public class EntityRule {
                 case TYPE_UNSEEN:
                     onActionSeen(context, message, false);
                     break;
+                case TYPE_SNOOZE:
+                    onActionSnooze(context, message, jaction);
+                    break;
                 case TYPE_FLAG:
                     onActionFlag(context, message, jaction);
                     break;
@@ -316,6 +320,16 @@ public class EntityRule {
         } catch (Throwable ex) {
             Log.e(ex);
         }
+    }
+
+    private void onActionSnooze(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
+        int duration = jargs.getInt("duration");
+        long wakeup = new Date().getTime() + duration * 3600 * 1000L;
+
+        DB db = DB.getInstance(context);
+        db.message().setMessageSnoozed(message.id, wakeup);
+        EntityMessage.snooze(context, message.id, wakeup);
+        onActionSeen(context, message, true);
     }
 
     private void onActionFlag(Context context, EntityMessage message, JSONObject jargs) throws JSONException {

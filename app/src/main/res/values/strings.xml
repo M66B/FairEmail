@@ -541,6 +541,7 @@
 
     <string name="title_rule_seen">Mark read</string>
     <string name="title_rule_unseen">Mark unread</string>
+    <string name="title_rule_snooze">Snooze</string>
     <string name="title_rule_flag">Add star</string>
     <string name="title_rule_move">Move</string>
     <string name="title_rule_copy">Copy (label)</string>
@@ -561,6 +562,7 @@
     <string name="title_rule_and">AND</string>
     <string name="title_rule_action">Action</string>
     <string name="title_rule_action_remark">This action will be applied to new messages arriving in the folder %1$s</string>
+    <string name="title_rule_hours">Hours</string>
     <string name="title_rule_folder">Folder</string>
     <string name="title_rule_identity">Identity</string>
     <string name="title_rule_template">Reply template</string>
