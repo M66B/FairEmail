@@ -2069,7 +2069,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 db.message().liveHidden(account, thread).observe(getViewLifecycleOwner(), new Observer<List<Long>>() {
                     @Override
                     public void onChanged(List<Long> ids) {
-                        if (ids != null)
+                        if (ids != null) {
                             for (long id : ids) {
                                 Log.i("Hidden id=" + id);
                                 for (String key : values.keySet())
@@ -2077,6 +2077,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 bodies.remove(id);
                                 attachments.remove(id);
                             }
+                            updateExpanded();
+                        }
                     }
                 });
                 break;
