@@ -312,7 +312,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                     //}
 
                     for (IBillingListener listener : listeners)
-                        if (purchased)
+                        if (purchased && purchase.isAcknowledged())
                             listener.onPurchased(purchase.getSku());
                         else
                             listener.onPurchasePending(purchase.getSku());
@@ -402,6 +402,9 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                 if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityBilling.this);
                     prefs.edit().putBoolean("pro", true).apply();
+
+                    for (IBillingListener listener : listeners)
+                        listener.onPurchased(purchase.getSku());
                 }
             }
         });
