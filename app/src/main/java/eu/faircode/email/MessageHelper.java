@@ -976,14 +976,15 @@ public class MessageHelper {
         try {
             if (part.isMimeType("multipart/*")) {
                 Multipart multipart;
-                final Object content = part.getContent();
+                Object content = part.getContent();
                 if (content instanceof Multipart)
                     multipart = (Multipart) part.getContent();
-                else {
+                else if (content instanceof String) {
                     String text = (String) content;
                     String sample = text.substring(0, Math.min(80, text.length()));
                     throw new ParseException(content.getClass().getName() + ": " + sample);
-                }
+                } else
+                    throw new ParseException(content.getClass().getName());
 
                 for (int i = 0; i < multipart.getCount(); i++)
                     try {
