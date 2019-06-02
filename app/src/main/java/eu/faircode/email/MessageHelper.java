@@ -25,6 +25,7 @@ import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 
 import com.sun.mail.util.FolderClosedIOException;
+import com.sun.mail.util.MessageRemovedIOException;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -920,6 +921,8 @@ public class MessageHelper {
                 Log.i("Downloaded attachment size=" + size);
             } catch (FolderClosedIOException ex) {
                 throw new FolderClosedException(ex.getFolder(), "downloadAttachment", ex);
+            } catch (MessageRemovedIOException ex) {
+                throw new MessagingException("downloadAttachment", ex);
             } catch (Throwable ex) {
                 // Reset progress on failure
                 db.attachment().setError(id, Helper.formatThrowable(ex));
