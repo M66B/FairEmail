@@ -941,9 +941,10 @@ class Core {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean sync_unseen = prefs.getBoolean("sync_unseen", false);
             boolean sync_flagged = prefs.getBoolean("sync_flagged", true);
+            boolean sync_kept = prefs.getBoolean("sync_kept", false);
 
             Log.i(folder.name + " start sync after=" + sync_days + "/" + keep_days +
-                    " unseen=" + sync_unseen + " sync_flagged=" + sync_flagged);
+                    "sync unseen=" + sync_unseen + " flagged=" + sync_flagged + " kept=" + sync_kept);
 
             db.folder().setFolderSyncState(folder.id, "syncing");
 
@@ -987,7 +988,7 @@ class Core {
             }
 
             // Get list of local uids
-            final List<Long> uids = db.message().getUids(folder.id, null);
+            final List<Long> uids = db.message().getUids(folder.id, sync_kept ? null : sync_time);
             Log.i(folder.name + " local count=" + uids.size());
 
             // Reduce list of local uids
