@@ -211,6 +211,7 @@
     <string name="title_advanced_debug">Režim ladění</string>
     <string name="title_advanced_enabled_hint">Globálně zakáže nebo povolí přijímání zpráv</string>
     <string name="title_advanced_manual_hint">Je-li synchronizace zakázána, stále je možné synchronizovat ručně tažením dolů v přehledu zpráv. Po omezený čas se tak budou synchronizovat zprávy a provádět operace.</string>
+    <string name="title_advanced_poll_hint">Synchronizování periodicky pokaždé porovnává místní a vzdálené zprávy, což je náročná operace potencionálně vedoucí ke zvýšené spotřebě baterie, zvláště při velkém množství zpráv k synchronizaci. Synchronizování nepřetržitě tomuto předchází průběžným nasloucháním pouze změnám.</string>
     <string name="title_advanced_schedule_hint">Dotkněte se času pro jeho změnu</string>
     <string name="title_advanced_metered_hint">Účtovaná připojení jsou obecně mobilní připojení nebo placené Wi-Fi hotspoty</string>
     <string name="title_advanced_metered_warning">Vypnutí této volby zakáže přijímání a odesílání zpráv při mobilních datových přenosech</string>
@@ -316,7 +317,7 @@
     <string name="title_poll_folder">Kontrolovat periodicky namísto průběžné synchronizace</string>
     <string name="title_download_folder">Automaticky stahovat obsah a přílohy zpráv</string>
     <string name="title_notify_folder">Oznamovat nové zprávy</string>
-    <string name="title_sync_days">Synchronizace zpráv (dny)</string>
+    <string name="title_sync_days">Synchronizovat zprávy (dny)</string>
     <string name="title_sync_days_remark">Navýšení této hodnoty zvýší využití baterie a spotřebu dat</string>
     <string name="title_keep_days">Uchovávat zprávy (dny)</string>
     <string name="title_keep_all">Uchovávat všechny zprávy</string>
@@ -634,6 +635,7 @@
     <string name="title_pro_purchase">Koupit</string>
     <string name="title_pro_hint">Zakoupením Pro funkcí získáte přístup ke všem současným i budoucím Pro funkcím a pomůžete zachovat tuto aplikaci udržovanou a podporovanou</string>
     <string name="title_pro_price">Pro odůvodnění ceny Pro funkcí si prosím přečtěte <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">časté dotazy</a></string>
+    <string name="title_pro_pending">Probíhá nákup</string>
     <string name="title_pro_activated">Všechny Pro funkce jsou aktivní</string>
     <string name="title_pro_valid">Všechny Pro funkce aktivovány</string>
     <string name="title_pro_invalid">Neplatná odpověď</string>
@@ -645,7 +647,7 @@
     <string name="title_debug_info_remark">Prosím, popište problém a uveďte čas kdy k němu došlo:</string>
     <string name="title_crash_info_remark">Popište prosím co jste dělali když došlo k pádu aplikace:</string>
     <string-array name="pollIntervalNames">
-        <item>Vždy</item>
+        <item>Nepřetržitě</item>
         <item>Každou hodinu</item>
         <item>Každé 2 hodiny</item>
         <item>Každé 4 hodiny</item>

@@ -470,6 +470,7 @@
     <string name="title_answer_template_email">$email$ será reemplazado por la dirección de correo electrónico del remitente</string>
     <string name="title_rule_seen">Marcar como leído</string>
     <string name="title_rule_unseen">Marcar como no leído</string>
+    <string name="title_rule_snooze">Posponer</string>
     <string name="title_rule_flag">Destacar</string>
     <string name="title_rule_move">Mover</string>
     <string name="title_rule_copy">Copiar (etiqueta)</string>
@@ -489,6 +490,7 @@
     <string name="title_rule_and">Y</string>
     <string name="title_rule_action">Acción</string>
     <string name="title_rule_action_remark">Esta acción se aplicará a los nuevos mensajes que lleguen a la carpeta %1$s</string>
+    <string name="title_rule_hours">Horas</string>
     <string name="title_rule_folder">Carpeta</string>
     <string name="title_rule_identity">Identidad</string>
     <string name="title_rule_template">Plantilla de respuesta</string>

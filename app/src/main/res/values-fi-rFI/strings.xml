@@ -470,6 +470,7 @@
     <string name="title_answer_template_email">$email$ korvataan lähettäjän sähköpostiosoitteella</string>
     <string name="title_rule_seen">Merkitse luetuksi</string>
     <string name="title_rule_unseen">Merkitse lukemattomaksi</string>
+    <string name="title_rule_snooze">Torkuta</string>
     <string name="title_rule_flag">Lisää tähti</string>
     <string name="title_rule_move">Siirrä</string>
     <string name="title_rule_copy">Kopioi (lisää tunniste)</string>
