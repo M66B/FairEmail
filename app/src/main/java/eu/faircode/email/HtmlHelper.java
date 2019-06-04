@@ -237,13 +237,15 @@ public class HtmlHelper {
                                 parent = parent.parent();
                             }
 
+                            boolean atStart = (matcher.start() > 0 && text.charAt(matcher.start() - 1) == '@');
+                            boolean atEnd = (matcher.end() < text.length() && text.charAt(matcher.end()) == '@');
+
                             if (BuildConfig.DEBUG)
                                 Log.i("Web url=" + matcher.group() +
-                                        " " + matcher.start() + "..." + matcher.end() +
-                                        " linked=" + linked);
+                                        " " + matcher.start() + "..." + matcher.end() + "/" + text.length() +
+                                        " linked=" + linked + " start=" + atStart + " end=" + atEnd);
 
-                            if (linked ||
-                                    (matcher.start() > 0 && text.charAt(matcher.start() - 1) == '@'))
+                            if (linked || atStart || atEnd)
                                 span.appendText(text.substring(pos, matcher.end()));
                             else {
                                 span.appendText(text.substring(pos, matcher.start()));
