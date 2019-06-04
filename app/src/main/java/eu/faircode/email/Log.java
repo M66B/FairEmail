@@ -63,7 +63,7 @@ import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
 
 public class Log {
-    private static final String TAG = "fairemail";
+    static final String TAG = "fairemail";
 
     public static int i(String msg) {
         if (BuildConfig.BETA_RELEASE)

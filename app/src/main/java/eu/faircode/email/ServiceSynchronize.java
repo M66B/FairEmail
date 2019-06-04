@@ -169,6 +169,8 @@ public class ServiceSynchronize extends LifecycleService {
             public void onChanged(List<TupleMessageEx> messages) {
                 try {
                     Core.notifyMessages(ServiceSynchronize.this, notifying, messages);
+                } catch (SecurityException ex) {
+                    android.util.Log.e(Log.TAG, ex + "\n" + android.util.Log.getStackTraceString(ex));
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
