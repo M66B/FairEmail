@@ -866,6 +866,8 @@ public class MessageHelper {
                     if ("US-ASCII".equals(Charset.forName(charset).name()) &&
                             !"US-ASCII".equals(charset.toUpperCase()))
                         warnings.add(context.getString(R.string.title_no_charset, charset));
+                    if (part.isMimeType("text/plain") && "US-ASCII".equals(charset.toUpperCase()))
+                        result = fixUTF8(result);
                 }
             } catch (ParseException ex) {
                 Log.w(ex);
