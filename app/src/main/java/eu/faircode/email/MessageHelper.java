@@ -599,19 +599,19 @@ public class MessageHelper {
                 return null;
 
             list = MimeUtility.unfold(list);
-            if ("NO".equals(list) || !list.startsWith("<") || !list.endsWith(">"))
+            if ("NO".equals(list))
+                return null;
+
+            String[] to = list.split(",");
+            if (to.length < 1 || !to[0].startsWith("<") || !to[0].endsWith(">"))
                 return null;
 
             // https://www.ietf.org/rfc/rfc2368.txt
-            try {
-                MailTo to = MailTo.parse(list.substring(1, list.length() - 1));
-                if (to.getTo() == null)
-                    return null;
+            MailTo mailto = MailTo.parse(to[0].substring(1, to[0].length() - 1));
+            if (mailto.getTo() == null)
+                return null;
 
-                return new Address[]{new InternetAddress(to.getTo().split(",")[0])};
-            } catch (android.net.ParseException ex) {
-                throw new IllegalArgumentException(list, ex);
-            }
+            return new Address[]{new InternetAddress(mailto.getTo().split(",")[0])};
         } catch (android.net.ParseException ex) {
             Log.w(ex);
             return null;
