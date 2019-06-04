@@ -663,22 +663,8 @@ public class MessageHelper {
             } catch (UnsupportedEncodingException ex) {
                 Log.w(ex);
             }
-        } else {
-            // Fix UTF-8 plain header
-            try {
-                char[] kars = subject.toCharArray();
-                byte[] bytes = new byte[kars.length];
-                for (int i = 0; i < kars.length; i++)
-                    bytes[i] = (byte) kars[i];
-
-                CharsetDecoder cs = StandardCharsets.UTF_8.newDecoder();
-                CharBuffer out = cs.decode(ByteBuffer.wrap(bytes));
-                if (out.length() > 0)
-                    subject = new String(bytes, StandardCharsets.UTF_8);
-            } catch (CharacterCodingException ex) {
-                Log.w(ex);
-            }
-        }
+        } else
+            subject = fixUTF8(subject);
 
         return decodeMime(subject);
     }
@@ -793,6 +779,24 @@ public class MessageHelper {
                 Log.w(ex);
                 i += decode.length();
             }
+        }
+
+        return text;
+    }
+
+    static String fixUTF8(String text) {
+        try {
+            char[] kars = text.toCharArray();
+            byte[] bytes = new byte[kars.length];
+            for (int i = 0; i < kars.length; i++)
+                bytes[i] = (byte) kars[i];
+
+            CharsetDecoder cs = StandardCharsets.UTF_8.newDecoder();
+            CharBuffer out = cs.decode(ByteBuffer.wrap(bytes));
+            if (out.length() > 0)
+                return new String(bytes, StandardCharsets.UTF_8);
+        } catch (CharacterCodingException ex) {
+            Log.w(ex);
         }
 
         return text;
