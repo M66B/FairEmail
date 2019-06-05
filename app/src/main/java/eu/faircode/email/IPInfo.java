@@ -19,6 +19,10 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.net.MailTo;
+import android.net.ParseException;
+import android.net.Uri;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -32,7 +36,23 @@ import javax.net.ssl.HttpsURLConnection;
 public class IPInfo {
     private static Map<String, String> hostOrganization = new HashMap<>();
 
-    static String getOrganization(String host) throws IOException {
+    static String getOrganization(Uri uri) throws IOException, ParseException {
+        if ("mailto".equals(uri.getScheme())) {
+            MailTo email = MailTo.parse(uri.toString());
+            String to = email.getTo();
+            if (to == null || !to.contains("@"))
+                return null;
+            String host = to.substring(to.indexOf('@') + 1);
+            return getOrganization(host);
+        } else {
+            String host = uri.getHost();
+            if (host == null)
+                return null;
+            return getOrganization(host);
+        }
+    }
+
+    private static String getOrganization(String host) throws IOException {
         synchronized (hostOrganization) {
             if (hostOrganization.containsKey(host))
                 return hostOrganization.get(host);
