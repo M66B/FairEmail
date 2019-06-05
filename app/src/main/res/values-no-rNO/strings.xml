@@ -138,6 +138,7 @@
     <string name="title_advanced_schedule">Tidsplan</string>
     <string name="title_advanced_unseen">Alle uleste meldinger</string>
     <string name="title_advanced_flagged">Alle stjernemerkede meldinger</string>
+    <string name="title_advanced_kept_removed">Sjekk om gamle meldinger ble fjernet fra serveren</string>
     <string name="title_advanced_prefix_once">Prefiks emne bare en gang på svar eller videresending</string>
     <string name="title_advanced_autoresize">Endre størrelsen på vedlagte og innebygde bilder automatisk</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d piksler</string>
@@ -195,10 +196,13 @@
     <string name="title_advanced_debug">Feilsøkingsmodus</string>
     <string name="title_advanced_enabled_hint">Globalt deaktivere eller aktivere mottak av meldinger</string>
     <string name="title_advanced_manual_hint">Hvis synkronisering er deaktivert, er det fortsatt mulig å synkronisere manuelt ved å trekke ned meldingslisten. Dette vil synkronisere meldinger og utføre operasjoner i en begrenset periode.</string>
+    <string name="title_advanced_poll_hint">Synkronisering med jevne mellomrom vil sammenligne lokale og eksterne meldinger hver gang, noe som er en dyr operasjon som muligens resulterer i ekstra batteribruk, spesielt når det er mange meldinger som skal synkroniseres. Alltid synkronisering vil unngå dette ved kontinuerlig sjekking for endringer.</string>
+    <string name="title_advanced_sync_kept_hint">Dette vil bruke ekstra data og ekstra batteristrøm, spesielt hvis det er mange meldinger som holdes på enheten</string>
     <string name="title_advanced_schedule_hint">Trykk på en tid for å angi en tid</string>
     <string name="title_advanced_metered_hint">Målte tilkoblinger er vanligvis mobile tilkoblinger eller betalte Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Deaktivering av dette alternativet deaktiverer mottak og sending av meldinger på mobile internettforbindelser</string>
     <string name="title_advanced_rlah_hint">Forutsatt ingen roaming i EU</string>
+    <string name="title_advanced_roaming_hint">Meldingsoverskrifter vil alltid bli hentet når du roamer. Du kan bruke enhetens roaming-innstilling for å deaktivere Internett mens du roamer.</string>
     <string name="title_advanced_browse_hint">Hent flere meldinger når du ruller ned</string>
     <string name="title_advanced_threading_hint">Gruppemeldinger knyttet til hverandre</string>
     <string name="title_advanced_name_email_hint">Når deaktivert, vil bare navn bli vist når det er tilgjengelig</string>
@@ -292,8 +296,6 @@
     <string name="title_no_operations">Ingen ventende operasjoner</string>
     <string name="title_folder_name">Mappenavn</string>
     <string name="title_display_name">Visningsnavn</string>
-    <string name="title_show_folders">Vis skjulte mapper</string>
-    <string name="title_hide_folder">Skjul mappe</string>
     <string name="title_unified_folder">Vis i enhetlig konto</string>
     <string name="title_navigation_folder">Vis i navigasjonsmenyen</string>
     <string name="title_synchronize_folder">Synkronisere (motta meldinger)</string>
@@ -469,6 +471,7 @@
     <string name="title_answer_template_email">$email$ vil bli erstattet med avsenderens e-postadresse</string>
     <string name="title_rule_seen">Merk som lest</string>
     <string name="title_rule_unseen">Merk som ulest</string>
+    <string name="title_rule_snooze">Utsett</string>
     <string name="title_rule_flag">Legg til stjerne</string>
     <string name="title_rule_move">Flytt</string>
     <string name="title_rule_copy">Kopier (etikett)</string>
@@ -488,6 +491,7 @@
     <string name="title_rule_and">OG</string>
     <string name="title_rule_action">Handling</string>
     <string name="title_rule_action_remark">Denne handlingen vil bli brukt på nye meldinger som kommer inn i mappen %1$s</string>
+    <string name="title_rule_hours">Timer</string>
     <string name="title_rule_folder">Mappe</string>
     <string name="title_rule_identity">Identitet</string>
     <string name="title_rule_template">Svarmal</string>
@@ -629,9 +633,9 @@
     <string name="title_crash_info_remark">Beskriv hva du gjorde da appen krasjet:</string>
     <string-array name="pollIntervalNames">
         <item>Alltid</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
+        <item>Hver time</item>
+        <item>Hver 2. time</item>
+        <item>Hver 4. time</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nei</item>

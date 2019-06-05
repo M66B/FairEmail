@@ -291,8 +291,6 @@
     <string name="title_no_operations">Ingen afventende handlinger</string>
     <string name="title_folder_name">Mappenavn</string>
     <string name="title_display_name">Visningsnavn</string>
-    <string name="title_show_folders">Vis skjulte mapper</string>
-    <string name="title_hide_folder">Skjul mappe</string>
     <string name="title_unified_folder">Vis i samlet indbakke</string>
     <string name="title_navigation_folder">Vis i navigationsmenu</string>
     <string name="title_synchronize_folder">Synkronisér (modtag meddelelser)</string>

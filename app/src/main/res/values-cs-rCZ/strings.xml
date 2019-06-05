@@ -154,6 +154,7 @@
     <string name="title_advanced_schedule">Naplánovat</string>
     <string name="title_advanced_unseen">Všechny nepřečtené zprávy</string>
     <string name="title_advanced_flagged">Všechny zprávy s hvězdičkou</string>
+    <string name="title_advanced_kept_removed">Kontrolovat zda byly staré zprávy odstraněny ze serveru</string>
     <string name="title_advanced_prefix_once">Přidat do předmětu pouze jednu předponu při odpovídání nebo přeposílání</string>
     <string name="title_advanced_autoresize">Automaticky upravit velikost přiložených a vložených obrázků</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixelů</string>
@@ -212,10 +213,12 @@
     <string name="title_advanced_enabled_hint">Globálně zakáže nebo povolí přijímání zpráv</string>
     <string name="title_advanced_manual_hint">Je-li synchronizace zakázána, stále je možné synchronizovat ručně tažením dolů v přehledu zpráv. Po omezený čas se tak budou synchronizovat zprávy a provádět operace.</string>
     <string name="title_advanced_poll_hint">Synchronizování periodicky pokaždé porovnává místní a vzdálené zprávy, což je náročná operace potencionálně vedoucí ke zvýšené spotřebě baterie, zvláště při velkém množství zpráv k synchronizaci. Synchronizování nepřetržitě tomuto předchází průběžným nasloucháním pouze změnám.</string>
+    <string name="title_advanced_sync_kept_hint">Zvýší využití dat a spotřebu baterie, zvláště pokud máte v zařízení velké množství starých zpráv</string>
     <string name="title_advanced_schedule_hint">Dotkněte se času pro jeho změnu</string>
     <string name="title_advanced_metered_hint">Účtovaná připojení jsou obecně mobilní připojení nebo placené Wi-Fi hotspoty</string>
     <string name="title_advanced_metered_warning">Vypnutí této volby zakáže přijímání a odesílání zpráv při mobilních datových přenosech</string>
     <string name="title_advanced_rlah_hint">Nepředpokládat žádný roaming v rámci EU</string>
+    <string name="title_advanced_roaming_hint">Hlavičky zpráv budou během roamingu stahovány vždy. Použijte nastavení svého zařízení pro zakázání internetu při roamingu.</string>
     <string name="title_advanced_browse_hint">Načte další zprávy při posouvání dolů</string>
     <string name="title_advanced_threading_hint">Seskupit zprávy které spolu souvisí</string>
     <string name="title_advanced_name_email_hint">Při deaktivaci se zobrazí pouze jména, pokud budou k dispozici</string>
@@ -309,8 +312,6 @@
     <string name="title_no_operations">Žádné probíhající operace</string>
     <string name="title_folder_name">Název složky</string>
     <string name="title_display_name">Zobrazované jméno</string>
-    <string name="title_show_folders">Zobrazit skryté složky</string>
-    <string name="title_hide_folder">Skrýt složku</string>
     <string name="title_unified_folder">Zobrazit ve sjednocené doručené poště</string>
     <string name="title_navigation_folder">Zobrazit v navigačním menu</string>
     <string name="title_synchronize_folder">Synchronizovat (přijímat zprávy)</string>

@@ -138,6 +138,7 @@
     <string name="title_advanced_schedule">Programar</string>
     <string name="title_advanced_unseen">Todas as mensagens não lidas</string>
     <string name="title_advanced_flagged">Todas as mensagens com estrela</string>
+    <string name="title_advanced_kept_removed">Verificar se as mensagens antigas foram removidas do servidor</string>
     <string name="title_advanced_prefix_once">Prefixo de assunto apenas uma vez na resposta ou encaminhamento</string>
     <string name="title_advanced_autoresize">Redimensionar automaticamente as imagens anexadas e incorporadas</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
@@ -185,6 +186,7 @@
     <string name="title_advanced_sound">Selecionar som de notificação</string>
     <string name="title_advanced_badge">Mostrar ícone no launcher com número de novas mensagens</string>
     <string name="title_advanced_subscriptions">Gerenciar assinaturas de pastas</string>
+    <string name="title_advanced_sync_subscribed">Sincronizar apenas pastas subscritas</string>
     <string name="title_advanced_english">Forçar em inglês</string>
     <string name="title_advanced_authentication">Mostrar um aviso quando o servidor de recebimento não puder autenticar a mensagem</string>
     <string name="title_advanced_paranoid">Recursos extra de privacidade</string>
@@ -194,10 +196,13 @@
     <string name="title_advanced_debug">Modo de depuração</string>
     <string name="title_advanced_enabled_hint">Globalmente desabilitar ou habilitar o recebimento de mensagens</string>
     <string name="title_advanced_manual_hint">Se a sincronização estiver desativada, ainda é possível sincronizar manualmente, puxando a lista de mensagens. Isso irá sincronizar mensagens e executar operações por um tempo limitado.</string>
+    <string name="title_advanced_poll_hint">Sincronizar periodicamente irá comparar mensagens locais e remotas cada vez, o que é uma operação cara possivelmente resultando em uso extra de bateria, especialmente quando há muitas mensagens para sincronizar. Sincronizar sempre evitará isso escutando continuamente apenas as alterações.</string>
+    <string name="title_advanced_sync_kept_hint">Isto usará dados extras e energia extra da bateria, especialmente se houver muitas mensagens mantidas no dispositivo</string>
     <string name="title_advanced_schedule_hint">Toque uma vez para definir um tempo</string>
     <string name="title_advanced_metered_hint">Conexões limitadas são geralmente conexões móveis ou hotspots Wi-Fi pagos</string>
     <string name="title_advanced_metered_warning">Desabilitar esta opção desativará o recebimento e envio de mensagens em conexões de internet móvel</string>
     <string name="title_advanced_rlah_hint">Não assumindo roaming na UE</string>
+    <string name="title_advanced_roaming_hint">Os cabeçalhos de mensagens serão sempre buscados quando estiver em roaming. Você pode usar a configuração de roaming do dispositivo para desativar a internet enquanto estiver em roaming.</string>
     <string name="title_advanced_browse_hint">Obter mais mensagens ao rolar para baixo</string>
     <string name="title_advanced_threading_hint">Agrupe as mensagens relacionadas entre si</string>
     <string name="title_advanced_name_email_hint">Quando desativado apenas os nomes serão exibidos quando disponíveis</string>
@@ -207,6 +212,7 @@
     <string name="title_advanced_autoclose_hint">Fechar automaticamente conversas quando todas as mensagens estiverem arquivadas, enviadas ou na lixeira</string>
     <string name="title_advanced_sender_hint">A maioria dos provedores não permite endereços de remetente modificados</string>
     <string name="title_advanced_badge_hint">Disponível somente em lançadores suportados</string>
+    <string name="title_advanced_subscribed_only_hint">Habilitando isto irá apagar todas as pastas locais sem assinatura</string>
     <string name="title_advanced_english_hint">Isto irá reiniciar o app</string>
     <string name="title_advanced_paranoid_hint">Veja o FAQ para mais detalhes</string>
     <string name="title_advanced_debug_hint">Habilitar o log extra e mostrar informações de depuração em vários lugares</string>
@@ -290,8 +296,6 @@
     <string name="title_no_operations">Nenhuma operação pendente</string>
     <string name="title_folder_name">Nome da pasta</string>
     <string name="title_display_name">Nome de exibição</string>
-    <string name="title_show_folders">Mostrar pastas ocultas</string>
-    <string name="title_hide_folder">Ocultar pasta</string>
     <string name="title_unified_folder">Mostrar na caixa de entrada unificada</string>
     <string name="title_navigation_folder">Mostrar no menu de navegação</string>
     <string name="title_synchronize_folder">Sincronizar (receber mensagens)</string>
@@ -341,11 +345,14 @@
     <string name="title_save_all">Salvar todos</string>
     <string name="title_trash">Lixeira</string>
     <string name="title_copy">Copiar &#8230;</string>
+    <string name="title_copy_to">Copiar para &#8230;</string>
     <string name="title_subscribe">Inscreva-se</string>
     <string name="title_delete">Excluir</string>
     <string name="title_more">Mais</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Mover</string>
+    <string name="title_move_to_folder">Mover para &#8230;</string>
+    <string name="title_move_to_account">Mover para %1$s &#8230;</string>
     <string name="title_snooze">Adiar &#8230;</string>
     <string name="title_archive">Arquivar</string>
     <string name="title_reply">Responder</string>
@@ -428,6 +435,9 @@
     <string name="title_resync">Resincronizar</string>
     <string name="title_no_openpgp">OpenKeychain não encontrado</string>
     <string name="title_not_encrypted">Mensagem não criptografada</string>
+    <string name="title_signature_none">Mensagem não assinada</string>
+    <string name="title_signature_valid">Assinatura de mensagem válida</string>
+    <string name="title_signature_invalid">Assinatura de mensagem inválida</string>
     <string name="title_search">Pesquisar</string>
     <string name="title_search_in">Procurar em</string>
     <string name="title_searching">Pesquisando \'%1$s\'</string>
@@ -461,6 +471,7 @@
     <string name="title_answer_template_email">$email$ será substituído pelo endereço de e-mail do remetente</string>
     <string name="title_rule_seen">Marcar como lida</string>
     <string name="title_rule_unseen">Marcar como não lida</string>
+    <string name="title_rule_snooze">Soneca</string>
     <string name="title_rule_flag">Adicionar estrela</string>
     <string name="title_rule_move">Mover</string>
     <string name="title_rule_copy">Copiar (etiqueta)</string>
@@ -480,6 +491,7 @@
     <string name="title_rule_and">E</string>
     <string name="title_rule_action">Ação</string>
     <string name="title_rule_action_remark">Esta ação será aplicada a novas mensagens que chegam no pasta %1$s</string>
+    <string name="title_rule_hours">Horas</string>
     <string name="title_rule_folder">Pasta</string>
     <string name="title_rule_identity">Identidade</string>
     <string name="title_rule_template">Modelo de resposta</string>
@@ -520,6 +532,7 @@
     <string name="title_legend_notify">Notificar novas mensagens</string>
     <string name="title_legend_subscribed">Inscrito em</string>
     <string name="title_legend_sync_keep">Número de dias para sincronizar / manter mensagens</string>
+    <string name="title_legend_download_fetch">Número de mensagens baixadas / cabeçalhos buscados</string>
     <string name="title_legend_stop">Parar o processamento de regras</string>
     <string name="title_legend_thread">Conversação</string>
     <string name="title_legend_zoom">Alterar tamanho do texto</string>
@@ -568,6 +581,7 @@
     <string name="title_legend_save">Salvar</string>
     <string name="title_legend_delete">Deletar</string>
     <string name="title_legend_count">Contagem</string>
+    <string name="title_legend_folder_type">Tipo de pasta</string>
     <string name="title_hint_folder_actions">Mantenha pressionado para mais opções</string>
     <string name="title_hint_folder_sync">Para limitar o uso de bateria e de rede nem todas as pastas e mensagens serão sincronizadas por padrão</string>
     <string name="title_hint_support">Se você tiver uma pergunta ou um problema, por favor, use o menu de suporte para obter ajuda</string>
@@ -606,6 +620,7 @@
     <string name="title_pro_purchase">Comprar</string>
     <string name="title_pro_hint">Comprar recursos Pro permitirá que você use todas as funcionalidades atuais e futuras, ajudará na manutenção e suporte deste app</string>
     <string name="title_pro_price">Por favor, veja <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">este FAQ</a> sobre o preço dos recursos Pro</string>
+    <string name="title_pro_pending">Compra pendente</string>
     <string name="title_pro_activated">Todos os recursos Pro estão ativados</string>
     <string name="title_pro_valid">Todos os recursos Pro ativados</string>
     <string name="title_pro_invalid">Resposta inválida</string>
@@ -618,9 +633,9 @@
     <string name="title_crash_info_remark">Por favor, descreva o que você estava fazendo quando o aplicativo falhou:</string>
     <string-array name="pollIntervalNames">
         <item>Sempre</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
+        <item>A cada hora</item>
+        <item>A cada 2 horas</item>
+        <item>A cada 4 horas</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Não</item>

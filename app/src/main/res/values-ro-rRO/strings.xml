@@ -146,6 +146,7 @@
     <string name="title_advanced_schedule">Programat</string>
     <string name="title_advanced_unseen">Toate mesajele necitite</string>
     <string name="title_advanced_flagged">Toate mesajele marcate</string>
+    <string name="title_advanced_kept_removed">Verifică dacă mesajele vechi au fost înlăturate de pe server</string>
     <string name="title_advanced_prefix_once">Adaugă prefix la subiect o singură dată pentru răspuns sau redirecționare</string>
     <string name="title_advanced_autoresize">Redimensionează automat imaginile atașate și incorporate</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
@@ -207,6 +208,7 @@
     <string name="title_advanced_metered_hint">Conexiunile contorizate sunt în general cele mobile sau punctele de acces Wi-Fi cu plată</string>
     <string name="title_advanced_metered_warning">Dezactivarea acestei opțiuni va opri primirea și trimiterea mesajelor pe conexiunile mobile de internet</string>
     <string name="title_advanced_rlah_hint">În zona UE nu se tratează ca roaming</string>
+    <string name="title_advanced_roaming_hint">Antetele mesajelor vor fi mereu descărcate și în roaming. Puteți folosi setările roaming ale dispozitivului pentru a dezactiva internetul atunci când sunteți în roaming.</string>
     <string name="title_advanced_browse_hint">Descarcă mai multe mesaje când se derulează în jos</string>
     <string name="title_advanced_threading_hint">Grupează mesajele asociate</string>
     <string name="title_advanced_name_email_hint">Dacă este dezactivată, doar numele va fi afișat atunci când este disponibil</string>
@@ -300,8 +302,6 @@
     <string name="title_no_operations">Nici o operațiune în așteptare</string>
     <string name="title_folder_name">Nume dosar</string>
     <string name="title_display_name">Nume afișat</string>
-    <string name="title_show_folders">Arată dosarele ascunse</string>
-    <string name="title_hide_folder">Ascunde dosarul</string>
     <string name="title_unified_folder">Arată în căsuța poștală comună</string>
     <string name="title_navigation_folder">Arată în meniul de navigație</string>
     <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
@@ -477,6 +477,7 @@
     <string name="title_answer_template_email">$email$ va fi înlocuit cu adresa de e-mail a expeditorului</string>
     <string name="title_rule_seen">Marcare ca citit</string>
     <string name="title_rule_unseen">Marcare ca necitit</string>
+    <string name="title_rule_snooze">Amână</string>
     <string name="title_rule_flag">Adaugă stea</string>
     <string name="title_rule_move">Mută</string>
     <string name="title_rule_copy">Copiere (etichetă)</string>
@@ -496,6 +497,7 @@
     <string name="title_rule_and">ȘI</string>
     <string name="title_rule_action">Acțiune</string>
     <string name="title_rule_action_remark">Această acțiune se va aplica mesajelor noi care sosesc în dosarul %1$s</string>
+    <string name="title_rule_hours">Ore</string>
     <string name="title_rule_folder">Dosar</string>
     <string name="title_rule_identity">Identitate</string>
     <string name="title_rule_template">Șablon răspuns</string>
@@ -637,9 +639,9 @@
     <string name="title_crash_info_remark">Vă rugăm să descrieți ce făceați atunci când aplicația s-a oprit:</string>
     <string-array name="pollIntervalNames">
         <item>Întotdeauna</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
+        <item>La fiecare oră</item>
+        <item>La fiecare 2 ore</item>
+        <item>La fiecare 4 ore</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Fără</item>
