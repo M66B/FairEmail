@@ -523,7 +523,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvError.setVisibility(View.GONE);
             pbLoading.setVisibility(View.VISIBLE);
 
-            clearExpanded();
+            clearExpanded(null);
         }
 
         @SuppressLint("WrongConstant")
@@ -670,7 +670,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             // Message text preview
             tvPreview.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT, Typeface.ITALIC);
             tvPreview.setText(message.preview);
-            tvPreview.setVisibility(preview && !TextUtils.isEmpty(message.preview) ? View.VISIBLE : View.GONE);
+            // bind/clearExpanded will manage visibility
 
             // Error / warning
             String error = message.error;
@@ -750,13 +750,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (show_expanded)
                     bindExpanded(message);
                 else {
-                    clearExpanded();
+                    clearExpanded(message);
                     properties.setBody(message.id, null);
                 }
             }
         }
 
-        private void clearExpanded() {
+        private void clearExpanded(TupleMessageEx message) {
             if (vsBody == null)
                 return;
 
@@ -765,6 +765,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (compact) {
                 tvFrom.setSingleLine(true);
                 tvSubject.setSingleLine(true);
+                tvPreview.setVisibility(
+                        preview && message != null && !TextUtils.isEmpty(message.preview)
+                                ? View.VISIBLE : View.GONE);
             }
 
             grpAddresses.setVisibility(View.GONE);
@@ -849,6 +852,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (compact) {
                 tvFrom.setSingleLine(false);
                 tvSubject.setSingleLine(false);
+                tvPreview.setVisibility(View.GONE);
             }
 
             ensureExpanded();
@@ -1630,7 +1634,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     bindExpanded(message);
                     properties.scrollTo(getAdapterPosition());
                 } else
-                    clearExpanded();
+                    clearExpanded(message);
             }
         }
 
