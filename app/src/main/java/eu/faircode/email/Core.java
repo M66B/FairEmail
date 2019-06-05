@@ -450,9 +450,6 @@ class Core {
         boolean across = (jargs.length() > 2 && jargs.getBoolean(2));
 
         try {
-            if (TextUtils.isEmpty(message.msgid))
-                throw new IllegalArgumentException("Message ID missing");
-
             if (EntityFolder.DRAFTS.equals(folder.type) &&
                     !folder.id.equals(message.folder) &&
                     !across) {
@@ -465,13 +462,28 @@ class Core {
                 // Prevent adding/deleting message
                 db.message().setMessageUid(message.id, message.uid == null ? -1L : -message.uid);
 
-                Message[] ideletes = ifolder.search(new MessageIDTerm(message.msgid));
-                for (Message idelete : ideletes) {
-                    long uid = ifolder.getUID(idelete);
-                    Log.i(folder.name + " deleting previous uid=" + uid + " msgid=" + message.msgid);
-                    try {
-                        idelete.setFlag(Flags.Flag.DELETED, true);
-                    } catch (MessageRemovedException ignored) {
+                if (TextUtils.isEmpty(message.msgid)) {
+                    // Draft might be created somewhere else
+                    if (message.uid == null)
+                        throw new IllegalArgumentException("Add without ID");
+                    else {
+                        Message idelete = ifolder.getMessageByUID(message.uid);
+                        Log.i(folder.name + " deleting previous uid=" + message.uid + " msgid=" + message.msgid);
+                        try {
+                            idelete.setFlag(Flags.Flag.DELETED, true);
+                        } catch (MessageRemovedException ignored) {
+                        }
+                    }
+                    message.msgid = EntityMessage.generateMessageId();
+                } else {
+                    Message[] ideletes = ifolder.search(new MessageIDTerm(message.msgid));
+                    for (Message idelete : ideletes) {
+                        long uid = ifolder.getUID(idelete);
+                        Log.i(folder.name + " deleting previous uid=" + uid + " msgid=" + message.msgid);
+                        try {
+                            idelete.setFlag(Flags.Flag.DELETED, true);
+                        } catch (MessageRemovedException ignored) {
+                        }
                     }
                 }
                 ifolder.expunge();
