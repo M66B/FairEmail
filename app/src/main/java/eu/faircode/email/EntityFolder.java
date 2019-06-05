@@ -85,7 +85,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public Boolean auto_delete = false;
     public String display;
     @NonNull
-    public Boolean hide = false;
+    public Boolean hide = false; // obsolete
     @NonNull
     public Boolean collapsed = false;
     @NonNull
@@ -290,7 +290,6 @@ public class EntityFolder extends EntityOrder implements Serializable {
                     this.keep_days.equals(other.keep_days) &&
                     Objects.equals(this.display, other.display) &&
                     Objects.equals(this.order, other.order) &&
-                    this.hide == other.hide &&
                     this.collapsed == other.collapsed &&
                     this.unified == other.unified &&
                     this.notify == other.notify &&
@@ -323,7 +322,6 @@ public class EntityFolder extends EntityOrder implements Serializable {
         json.put("keep_days", keep_days);
         json.put("auto_delete", auto_delete);
         json.put("display", display);
-        json.put("hide", hide);
         json.put("collapsed", collapsed);
         json.put("unified", unified);
         json.put("navigation", navigation);
@@ -363,8 +361,6 @@ public class EntityFolder extends EntityOrder implements Serializable {
         if (json.has("display") && !json.isNull("display"))
             folder.display = json.getString("display");
 
-        if (json.has("hide"))
-            folder.hide = json.getBoolean("hide");
         if (json.has("collapsed"))
             folder.collapsed = json.getBoolean("collapsed");
 

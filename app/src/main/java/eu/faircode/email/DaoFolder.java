@@ -221,7 +221,6 @@ public interface DaoFolder {
             ", unified = :unified" +
             ", navigation = :navigation" +
             ", notify = :notify" +
-            ", hide = :hide" +
             ", synchronize = :synchronize" +
             ", poll = :poll" +
             ", download = :download" +
@@ -231,7 +230,7 @@ public interface DaoFolder {
             " WHERE id = :id")
     int setFolderProperties(
             long id,
-            String display, boolean unified, boolean navigation, boolean notify, boolean hide,
+            String display, boolean unified, boolean navigation, boolean notify,
             boolean synchronize, boolean poll, boolean download,
             int sync_days, int keep_days, boolean auto_delete);
 

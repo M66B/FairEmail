@@ -1811,7 +1811,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvFolder.setLayoutManager(llm);
 
-        final AdapterFolder adapter = new AdapterFolder(getContext(), getViewLifecycleOwner(), account, false,
+        final AdapterFolder adapter = new AdapterFolder(getContext(), getViewLifecycleOwner(), account,
                 new AdapterFolder.IFolderSelectedListener() {
                     @Override
                     public void onFolderSelected(TupleFolderEx folder) {

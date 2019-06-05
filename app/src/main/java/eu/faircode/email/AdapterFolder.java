@@ -66,7 +66,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private Context context;
     private LayoutInflater inflater;
     private LifecycleOwner owner;
-    private boolean show_hidden;
 
     private long account;
     private IFolderSelectedListener listener;
@@ -143,42 +142,20 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
 
         private void bindTo(final TupleFolderEx folder) {
-            boolean hidden = (folder.hide && !show_hidden);
+            boolean hidden = false;
 
             int level = 0;
             TupleFolderEx parent = folder.parent_ref;
             while (parent != null) {
                 level++;
-                if (parent.collapsed || (parent.hide && !show_hidden))
+                if (parent.collapsed)
                     hidden = true;
                 parent = parent.parent_ref;
             }
 
-            boolean root_childs_visible = false;
-            if (folder.parent_ref != null &&
-                    folder.parent_ref.parent_ref == null &&
-                    folder.parent_ref.child_refs != null) {
-                for (TupleFolderEx root : folder.parent_ref.child_refs)
-                    if ((!root.hide || show_hidden) && root.child_refs != null)
-                        for (TupleFolderEx child : root.child_refs)
-                            if (!child.hide || show_hidden) {
-                                root_childs_visible = true;
-                                break;
-                            }
-            } else
-                root_childs_visible = true;
-
-            boolean childs_visible = false;
-            if (folder.child_refs != null)
-                for (TupleFolderEx child : folder.child_refs)
-                    if (!child.hide || show_hidden) {
-                        childs_visible = true;
-                        break;
-                    }
-
             view.setVisibility(hidden ? View.GONE : View.VISIBLE);
             view.setActivated(folder.tbc != null || folder.tbd != null);
-            view.setAlpha(folder.hide || disabledIds.contains(folder.id) ? Helper.LOW_LIGHT : 1.0f);
+            view.setAlpha(disabledIds.contains(folder.id) ? Helper.LOW_LIGHT : 1.0f);
 
             if (textSize != 0)
                 tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
@@ -222,9 +199,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             vwLevel.setLayoutParams(lp);
 
             ivExpander.setImageLevel(folder.collapsed ? 1 /* more */ : 0 /* less */);
-            ivExpander.setVisibility(account < 0 || !root_childs_visible
+            ivExpander.setVisibility(account < 0
                     ? View.GONE
-                    : childs_visible ? View.VISIBLE : View.INVISIBLE);
+                    : folder.child_refs.size() > 0 ? View.VISIBLE : View.INVISIBLE);
 
             if (listener == null) {
                 ivNotify.setVisibility(folder.notify ? View.VISIBLE : View.GONE);
@@ -685,12 +662,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
     }
 
-    AdapterFolder(Context context, LifecycleOwner owner, long account, boolean show_hidden, IFolderSelectedListener listener) {
+    AdapterFolder(Context context, LifecycleOwner owner, long account, IFolderSelectedListener listener) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.owner = owner;
         this.account = account;
-        this.show_hidden = show_hidden;
         this.listener = listener;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -794,13 +770,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         return result;
     }
 
-    void setShowHidden(boolean show_hidden) {
-        if (this.show_hidden != show_hidden) {
-            this.show_hidden = show_hidden;
-            notifyDataSetChanged();
-        }
-    }
-
     private class DiffCallback extends DiffUtil.Callback {
         private List<TupleFolderEx> prev = new ArrayList<>();
         private List<TupleFolderEx> next = new ArrayList<>();
@@ -837,9 +806,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             TupleFolderEx p1 = f1.parent_ref;
             TupleFolderEx p2 = f2.parent_ref;
             while (p1 != null && p2 != null) {
-                if (p1.hide != p2.hide)
-                    return false;
-
                 if (p1.collapsed != p2.collapsed)
                     return false;
 
