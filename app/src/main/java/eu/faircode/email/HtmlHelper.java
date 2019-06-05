@@ -219,7 +219,7 @@ public class HtmlHelper {
                 if (node instanceof TextNode) {
                     TextNode tnode = (TextNode) node;
 
-                    Matcher matcher = PatternsCompat.WEB_URL.matcher(tnode.text());
+                    Matcher matcher = PatternsCompat.AUTOLINK_WEB_URL.matcher(tnode.text());
                     if (matcher.find()) {
                         Element span = document.createElement("span");
 
