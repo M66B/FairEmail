@@ -67,6 +67,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static androidx.core.text.HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM;
 import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
@@ -219,7 +220,10 @@ public class HtmlHelper {
                 if (node instanceof TextNode) {
                     TextNode tnode = (TextNode) node;
 
-                    Matcher matcher = PatternsCompat.AUTOLINK_WEB_URL.matcher(tnode.text());
+                    Pattern pattern = Pattern.compile(
+                            PatternsCompat.AUTOLINK_EMAIL_ADDRESS.pattern() + "|" +
+                                    PatternsCompat.AUTOLINK_WEB_URL.pattern());
+                    Matcher matcher = pattern.matcher(tnode.text());
                     if (matcher.find()) {
                         Element span = document.createElement("span");
 
@@ -237,21 +241,19 @@ public class HtmlHelper {
                                 parent = parent.parent();
                             }
 
-                            boolean atStart = (matcher.start() > 0 && text.charAt(matcher.start() - 1) == '@');
-                            boolean atEnd = (matcher.end() < text.length() && text.charAt(matcher.end()) == '@');
-
+                            boolean email = matcher.group().contains("@") && !matcher.group().contains(":");
                             if (BuildConfig.DEBUG)
                                 Log.i("Web url=" + matcher.group() +
                                         " " + matcher.start() + "..." + matcher.end() + "/" + text.length() +
-                                        " linked=" + linked + " start=" + atStart + " end=" + atEnd);
+                                        " linked=" + linked + " email=" + email);
 
-                            if (linked || atStart || atEnd)
+                            if (linked)
                                 span.appendText(text.substring(pos, matcher.end()));
                             else {
                                 span.appendText(text.substring(pos, matcher.start()));
 
                                 Element a = document.createElement("a");
-                                a.attr("href", matcher.group());
+                                a.attr("href", (email ? "mailto:" : "") + matcher.group());
                                 a.text(matcher.group());
                                 span.appendChild(a);
                             }
