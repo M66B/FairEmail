@@ -670,7 +670,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             // Message text preview
             tvPreview.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT, Typeface.ITALIC);
             tvPreview.setText(message.preview);
-            // bind/clearExpanded will manage visibility
+            tvPreview.setVisibility(preview && !TextUtils.isEmpty(message.preview) ? View.VISIBLE : View.GONE);
 
             // Error / warning
             String error = message.error;
@@ -757,18 +757,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void clearExpanded(TupleMessageEx message) {
+            if (compact) {
+                tvFrom.setSingleLine(true);
+                tvSubject.setSingleLine(true);
+            }
+
+            tvPreview.setVisibility(
+                    preview && message != null && !TextUtils.isEmpty(message.preview)
+                            ? View.VISIBLE : View.GONE);
+
             if (vsBody == null)
                 return;
 
             cowner.stop();
-
-            if (compact) {
-                tvFrom.setSingleLine(true);
-                tvSubject.setSingleLine(true);
-                tvPreview.setVisibility(
-                        preview && message != null && !TextUtils.isEmpty(message.preview)
-                                ? View.VISIBLE : View.GONE);
-            }
 
             grpAddresses.setVisibility(View.GONE);
             grpHeaders.setVisibility(View.GONE);
@@ -852,8 +853,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (compact) {
                 tvFrom.setSingleLine(false);
                 tvSubject.setSingleLine(false);
-                tvPreview.setVisibility(View.GONE);
             }
+
+            tvPreview.setVisibility(View.GONE);
 
             ensureExpanded();
 
