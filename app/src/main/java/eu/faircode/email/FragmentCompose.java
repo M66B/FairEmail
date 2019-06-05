@@ -1845,7 +1845,7 @@ public class FragmentCompose extends FragmentBase {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean autoresize = prefs.getBoolean("autoresize", true);
 
-            if (autoresize &&
+            if (autoresize && file.exists() /* upload cancelled */ &&
                     ("image/jpeg".equals(attachment.type) || "image/png".equals(attachment.type))) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
@@ -1890,7 +1890,6 @@ public class FragmentCompose extends FragmentBase {
             }
 
             db.attachment().setDownloaded(attachment.id, size);
-
 
         } catch (IOException ex) {
             // Reset progress on failure
