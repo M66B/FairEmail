@@ -170,7 +170,7 @@
     <string name="title_advanced_enabled_hint">Globalno onemogućiti ili omogućiti primanje poruka</string>
     <string name="title_advanced_manual_hint">Ako je sinkronizacija onemogućena, još uvijek je moguće ručno usklađivanje povlačenjem popisa poruka prema dolje. To će sinkronizirati poruke i izvršavati operacije na ograničeno vrijeme.</string>
     <string name="title_advanced_poll_hint">Sinkroniziranje povremeno će uspoređivati lokalne i udaljene poruke svaki put, što je skupa operacija koja vjerojatno rezultira dodatnom potrošnjom baterije, osobito kada postoji mnogo poruka za sinkronizaciju. Stalna sinkronizacija će to izbjeći kontinuiranim slušanjem samo na promjene.</string>
-    <string name="title_advanced_sync_kept_hint">To će koristiti dodatne podatke i dodatnu snagu baterije, osobito ako na uređaju ima puno poruka</string>
+    <string name="title_advanced_sync_kept_hint">To će prenijeti dodatne podatke i koristiti dodatnu snagu baterije, osobito ako se na uređaju čuva mnogo poruka</string>
     <string name="title_advanced_schedule_hint">Dodirnite vrijeme za postavljanje vremena</string>
     <string name="title_advanced_metered_hint">Mjerne veze su obično mobilne veze ili plaćene Wi-Fi pristupne točke</string>
     <string name="title_advanced_metered_warning">Onemogućivanjem ove opcije onemogućit ćete primanje i slanje poruka na mobilnim internetskim vezama</string>
@@ -506,12 +506,143 @@
     <string name="title_legend_subscribed">Pretplaćeno na</string>
     <string name="title_legend_sync_keep">Broj dana za sinkronizaciju / za čuvanje poruka</string>
     <string name="title_legend_download_fetch">Broj preuzetih poruka / preuzetih zaglavlja</string>
+    <string name="title_legend_stop">Zaustavi obradu pravila</string>
+    <string name="title_legend_thread">Konverzacija</string>
+    <string name="title_legend_zoom">Promjeni veličinu teksta</string>
+    <string name="title_legend_draft">Ima skicu</string>
+    <string name="title_legend_snoozed">Odgođeno je</string>
+    <string name="title_legend_browsed">Pogledano je ili pretraženo</string>
+    <string name="title_legend_answered">Odgovoreno je</string>
+    <string name="title_legend_plain_only">Samo je običan tekst</string>
+    <string name="title_legend_receipt">Zatražena je potvrda</string>
+    <string name="title_legend_attachment">Ima prilog</string>
+    <string name="title_legend_flagged">Favorit je</string>
+    <string name="title_legend_contacts">Upravljaj kontaktima</string>
+    <string name="title_legend_search">Traži pošiljatelja</string>
+    <string name="title_legend_view">Pregledaj sadržaj</string>
+    <string name="title_legend_hide">Sakrij sadržaj</string>
+    <string name="title_legend_download">Preuzmi sadržaj</string>
+    <string name="title_legend_external_image">Rezervno mjesto za vanjske slike</string>
+    <string name="title_legend_embedded_image">Rezervno mjesto za umetnute slike</string>
+    <string name="title_legend_broken_image">Defektna slika</string>
+    <string name="title_legend_pick">Odaberi kontakt</string>
+    <string name="title_legend_cc">Prikaži CC / BCC</string>
+    <string name="title_legend_link">Umetni vezu</string>
+    <string name="title_legend_file">Priloži datoteku</string>
+    <string name="title_legend_picture">Umetni sliku</string>
+    <string name="title_legend_photo">Uslikaj fotografiju</string>
+    <string name="title_legend_audio">Snimi audio</string>
+    <string name="title_legend_bold">Postavi tekst podebljano</string>
+    <string name="title_legend_italic">Postavi tekst kurzivno</string>
+    <string name="title_legend_underline">Podcrtaj tekst</string>
+    <string name="title_legend_text_size">Postavi veličinu teksta</string>
+    <string name="title_legend_text_color">Postavi boju teksta</string>
+    <string name="title_legend_metered">Veza se mjeri</string>
+    <string name="title_legend_unmetered">Veza se ne mjeri</string>
+    <string name="title_legend_roaming">Roaming</string>
+    <string name="title_legend_expander">Proširenje</string>
+    <string name="title_legend_avatar">Avatar</string>
+    <string name="title_legend_show_quotes">Prikaži citate</string>
+    <string name="title_legend_show_images">Prikaži slike</string>
+    <string name="title_legend_show_full">Prikaži cijeli ekran</string>
+    <string name="title_legend_edit">Uredi</string>
+    <string name="title_legend_default_color">Zadana boja</string>
+    <string name="title_legend_close_hint">Zatvori savjet</string>
+    <string name="title_legend_connection_state">Stanje veze</string>
+    <string name="title_legend_sync_state">Stanje sinkronizacije</string>
+    <string name="title_legend_download_state">Stanje preuzimanja</string>
+    <string name="title_legend_save">Spremi</string>
+    <string name="title_legend_delete">Izbriši</string>
+    <string name="title_legend_count">Brojač</string>
     <string name="title_legend_folder_type">Vrsta mape</string>
+    <string name="title_hint_folder_actions">Dugo pritisni za opcije</string>
+    <string name="title_hint_folder_sync">Da biste ograničili korištenje baterije i mreže prema zadanim postavkama neće se sve mape i sve poruke biti sinkronizirane</string>
+    <string name="title_hint_support">Ako imate pitanje ili problem, upotrijebite izbornik za podršku da biste dobili pomoć</string>
+    <string name="title_hint_message_actions">Prijeđite prstom ulijevo da biste uklonili u otpad; povucite udesno za arhivu (ako je dostupna)</string>
+    <string name="title_hint_message_selection">Dugo pritisnite poruku za početak odabiranja više poruka</string>
+    <string name="title_hint_sync">Preuzimanje poruka može potrajati neko vrijeme, ovisno o brzini davatelja, internetskoj vezi i uređaju te broju poruka. Tijekom preuzimanja poruka aplikacija može reagirati sporije.</string>
+    <string name="title_hint_image_link">Link slike</string>
+    <string name="title_hint_tracking_image">Slika za praćenje %1$sx%2$s</string>
+    <string name="title_hint_ignore_contact">Dugo pritisnite kontakt da ga nikada ne biste smatrali favoritom</string>
+    <string name="title_open_link">Otvori link</string>
+    <string name="title_ip_owner">IP adresa vlasnika</string>
+    <string name="title_insecure_link">Ova veza je nesigurna</string>
+    <string name="title_select_app">Odaberi Aplikaciju</string>
+    <string name="title_updated">Dostupno je ažuriranje na verziju %1$s</string>
+    <string name="title_issue">Imate li pitanje ili problem?</string>
+    <string name="title_yes">Da</string>
+    <string name="title_no">Ne</string>
+    <string name="title_undo">Poništi</string>
+    <string name="title_redo">Ponovi</string>
+    <string name="title_add">Dodaj</string>
+    <string name="title_browse">Pretraži</string>
+    <string name="title_info">Informacije</string>
+    <string name="title_report">Izvješće</string>
+    <string name="title_fix">Popravi</string>
+    <string name="title_enable">Omogući</string>
+    <string name="title_no_ask_again">Ne pitaj ponovno</string>
+    <string name="title_no_body">Nije pronađen tekst poruke</string>
+    <string name="title_no_charset">Nepodržano kodiranje: %1$s</string>
+    <string name="title_via">Preko: %1$s</string>
+    <string name="title_icalendar_accept">Prihvati</string>
+    <string name="title_icalendar_decline">Odbij</string>
+    <string name="title_icalendar_maybe">Možda</string>
+    <string name="title_try">Pokušajte FairEmail, open source i privatnost poštujući e-mail app za Android</string>
+    <string name="title_pro_feature">Ovo je pro funkcija</string>
+    <string name="title_pro_list">Popis pro funkcija</string>
+    <string name="title_pro_purchase">Kupi</string>
+    <string name="title_pro_hint">Kupnja pro funkcija će vam omogućiti da koristite sve trenutne i buduće mogućnosti aplikacije i zadržat će ovu aplikaciju održavanu i podržanu</string>
+    <string name="title_pro_price">Pogledajte <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19"> ovaj FAQ </a> za cijenu pro funkcija</string>
     <string name="title_pro_pending">Kupnja na čekanju</string>
+    <string name="title_pro_activated">Sve pro funkcije su aktivirane</string>
+    <string name="title_pro_valid">Sve pro funkcije aktivirane</string>
+    <string name="title_pro_invalid">Nevažeći odgovor</string>
+    <string name="title_pro_support">FairEmail treba vašu pomoć. Dodirnite da biste kupili pro funkcije kako biste podržali projekt.</string>
+    <string name="title_unexpected_error">Neočekivana greška</string>
+    <string name="title_log">Zapisnik</string>
+    <string name="title_auto_scroll">Automatsko pomicanje</string>
+    <string name="title_debug_info">Informacije o otklanjanju pogrešaka</string>
+    <string name="title_debug_info_remark">Opišite problem i navedite vrijeme problema:</string>
+    <string name="title_crash_info_remark">Opišite što ste radili kada je aplikacija pala:</string>
     <string-array name="pollIntervalNames">
-        <item>Always</item>
+        <item>Uvijek</item>
         <item>Svaki sat</item>
         <item>Svaka 2 sata</item>
         <item>Svaka 4 sata</item>
+    </string-array>
+    <string-array name="sendDelayedNames">
+        <item>Ne</item>
+        <item>15 sekundi</item>
+        <item>30 sekundi</item>
+        <item>1 minuta</item>
+        <item>2 minute</item>
+        <item>5 minuta</item>
+        <item>10 minuta</item>
+    </string-array>
+    <string-array name="startupNames">
+        <item>Jedinstveni ulazni spremnik</item>
+        <item>Mape jedinstvenog ulaznog spremnika</item>
+        <item>Korisnički Računi</item>
+    </string-array>
+    <string-array name="downloadNames">
+        <item>16 KB</item>
+        <item>32 KB</item>
+        <item>64 KB</item>
+        <item>128 KB</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>&#8734;</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Maleno</item>
+        <item>Srednje</item>
+        <item>Veliko</item>
+    </string-array>
+    <string-array name="targetNames">
+        <item>Za</item>
+        <item>Cc</item>
+        <item>Bcc</item>
     </string-array>
 </resources>
