@@ -232,7 +232,6 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 protected Void onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
                     long mid = args.getLong("message");
-                    long sequence = args.getInt("sequence");
 
                     DB db = DB.getInstance(context);
                     try {
