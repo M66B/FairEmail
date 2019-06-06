@@ -85,7 +85,12 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
                 Uri uri = intent.getData();
                 if (uri != null && "mailto".equals(uri.getScheme())) {
                     // https://www.ietf.org/rfc/rfc2368.txt
-                    MailTo mailto = MailTo.parse(uri.toString());
+                    String url = uri.toString();
+                    int query = url.indexOf('?', MailTo.MAILTO_SCHEME.length());
+                    if (query > 0)
+                        url = url.substring(0, query) + url.substring(query).replace(":", "%3A");
+
+                    MailTo mailto = MailTo.parse(url);
 
                     String to = mailto.getTo();
                     if (to != null)
