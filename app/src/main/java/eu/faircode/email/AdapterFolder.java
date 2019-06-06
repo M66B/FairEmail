@@ -78,6 +78,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private int textColorSecondary;
 
     private List<Long> disabledIds = new ArrayList<>();
+    private List<TupleFolderEx> all = new ArrayList<>();
     private List<TupleFolderEx> items = new ArrayList<>();
 
     private NumberFormat nf = NumberFormat.getNumberInstance();
@@ -295,7 +296,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private void onCollapse(TupleFolderEx folder) {
             if (listener != null) {
                 folder.collapsed = !folder.collapsed;
-                notifyDataSetChanged();
+                set(all);
                 return;
             }
 
@@ -681,6 +682,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
     public void set(@NonNull List<TupleFolderEx> folders) {
         Log.i("Set folders=" + folders.size());
+        all = folders;
 
         final Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
@@ -718,7 +720,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             }
         }
 
-        List<TupleFolderEx> hierarchical = getHierchical(parents, 0);
+        List<TupleFolderEx> hierarchical = getHierarchical(parents, 0);
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, hierarchical), false);
 
@@ -748,14 +750,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         diff.dispatchUpdatesTo(this);
     }
 
-    List<TupleFolderEx> getHierchical(List<TupleFolderEx> parents, int indentation) {
+    List<TupleFolderEx> getHierarchical(List<TupleFolderEx> parents, int indentation) {
         List<TupleFolderEx> result = new ArrayList<>();
 
         for (TupleFolderEx parent : parents) {
             parent.indentation = indentation;
             result.add(parent);
             if (!parent.collapsed && parent.child_refs != null)
-                result.addAll(getHierchical(parent.child_refs, indentation + 1));
+                result.addAll(getHierarchical(parent.child_refs, indentation + 1));
         }
 
         return result;
