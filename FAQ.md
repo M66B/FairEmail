@@ -179,6 +179,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(105) How does the roam-like-at-home option work?](#user-content-faq105)
 * [(106) Which launchers can show the number of new messages?](#user-content-faq106)
 * [(107) How do I used colored stars?](#user-content-faq107)
+* [(108) Can you add permanently delete messages from any folder?](#user-content-faq108)
 
 [I have another question.](#support)
 
@@ -1778,6 +1779,15 @@ However, the stars (without color) will be synchronized and will be visible in o
 
 Some email clients use IMAP keywords for colors.
 However, not all servers support IMAP keywords and besides that there are no standard keywords for colors.
+
+<br />
+
+<a name="faq108"></a>
+**(108) Can you add permanently delete messages from any folder?**
+
+When you delete messages from a folder the messages will be moved to the trash folder, so you have a chance to restore the messages.
+You can permanently delete messages from the trash folder.
+Permanently delete messages from other folders would defeat the purpose of the trash folder, so this will not be added.
 
 <br />
 
