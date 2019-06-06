@@ -926,8 +926,10 @@ public class MessageHelper {
 
                 Log.i("Downloaded attachment size=" + size);
             } catch (FolderClosedIOException ex) {
+                db.attachment().setError(id, Helper.formatThrowable(ex));
                 throw new FolderClosedException(ex.getFolder(), "downloadAttachment", ex);
             } catch (MessageRemovedIOException ex) {
+                db.attachment().setError(id, Helper.formatThrowable(ex));
                 throw new MessagingException("downloadAttachment", ex);
             } catch (Throwable ex) {
                 // Reset progress on failure
