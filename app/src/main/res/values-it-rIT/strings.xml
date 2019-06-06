@@ -5,6 +5,7 @@
     <string name="app_changelog">Changelog</string>
     <string name="app_welcome">FairEmail è un\'app opensource di posta focalizzata su privacy e sicurezza. Per questo motivo alcune caratteristiche potrebbero funzionare in modo diverso da quello a cui si è abituati.</string>
     <string name="app_limitations">Ad esempio, i messaggi verranno sempre riformattati per rimuovere elementi non sicuri e per migliorare la leggibilità e l\'apertura dei collegamenti deve essere confermata per sicurezza.</string>
+    <string name="app_guarantee">Si è prestata molta attenzione allo sviluppo di FairEmail, ma è impossibile garantire che FairEmail funzioni correttamente su ogni dispositivo e in ogni situazione.</string>
     <string name="app_crash">FairEmail non è supportata su questo dispositivo a causa di bug in Android che causano crash</string>
     <string name="channel_service">Servizio</string>
     <string name="channel_notification">Notifiche</string>

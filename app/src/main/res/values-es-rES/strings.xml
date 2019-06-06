@@ -197,6 +197,7 @@
     <string name="title_advanced_enabled_hint">Desactivar o activar globalmente la recepción de mensajes</string>
     <string name="title_advanced_manual_hint">Si la sincronización está desactivada, todavía es posible sincronizar manualmente tirando hacia abajo de la lista de mensajes. Esto sincronizará mensajes y ejecutará operaciones por un tiempo limitado.</string>
     <string name="title_advanced_poll_hint">Sincronizar periódicamente comparará mensajes locales y remotos cada vez, lo que es una operación costosa que posiblemente resulte en un uso extra de la batería, especialmente cuando hay muchos mensajes para sincronizar. Sincronizar siempre evitará esto escuchando continuamente si hay cambios solamente.</string>
+    <string name="title_advanced_sync_kept_hint">Esto utilizará datos adicionales y energía adicional de batería, especialmente si hay muchos mensajes guardados en el dispositivo</string>
     <string name="title_advanced_schedule_hint">Toque en una hora para establecer una hora</string>
     <string name="title_advanced_metered_hint">Las conexiones medidas son generalmente conexiones móviles o puntos de acceso Wi-Fi de pago</string>
     <string name="title_advanced_metered_warning">Desactivar esta opción desactivará la recepción y envío de mensajes en conexiones móviles a Internet</string>

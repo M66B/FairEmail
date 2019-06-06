@@ -154,6 +154,7 @@
     <string name="title_advanced_schedule">Harmonogram</string>
     <string name="title_advanced_unseen">Wszystkie nieprzeczytane wiadomości</string>
     <string name="title_advanced_flagged">Wszystkie oznaczone wiadomości</string>
+    <string name="title_advanced_kept_removed">Sprawdź, czy stare wiadomości zostały usunięte z serwera</string>
     <string name="title_advanced_prefix_once">Prefiksuj tylko raz przy odpowiedzi lub przesyłaniu dalej</string>
     <string name="title_advanced_autoresize">Automatycznie zmieniaj rozmiar załączonych i osadzonych obrazów</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
@@ -209,10 +210,13 @@
     <string name="title_advanced_debug">Debuguj</string>
     <string name="title_advanced_enabled_hint">Globalnie wyłącz lub włącz odbieranie wiadomości</string>
     <string name="title_advanced_manual_hint">Jeśli synchronizacja jest wyłączona, nadal istnieje możliwość ręcznej synchronizacji poprzez pociągnięcie w dół listy wiadomości. Spowoduje to synchronizację wiadomości i wykonywanie operacji przez ograniczony czas.</string>
+    <string name="title_advanced_poll_hint">Synchronizacja okresowa porównuje wiadomości lokalne i zdalne za każdym razem, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest dużo wiadomości do synchronizacji. Synchronizacja stała pozwoli uniknąć ciągłego sprawdzania zmian.</string>
+    <string name="title_advanced_sync_kept_hint">Spowoduje to użycie dodatkowych danych i wykorzystanie dodatkowej energii z baterii, zwłaszcza jeśli w urządzeniu przechowywanych jest wiele wiadomości</string>
     <string name="title_advanced_schedule_hint">Dotknij zegara, aby ustawić czas</string>
     <string name="title_advanced_metered_hint">Połączeniu taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>
     <string name="title_advanced_metered_warning">Wyłączenie tej opcji uniemożliwi odbieranie i wysyłanie wiadomości przy użyciu komórkowego połączenia internetowego</string>
     <string name="title_advanced_rlah_hint">Zakładając brak roamingu w UE</string>
+    <string name="title_advanced_roaming_hint">Nagłówki wiadomości będą zawsze pobierane podczas roamingu. Możesz użyć ustawienia roamingu urządzenia, aby wyłączyć Internet podczas roamingu.</string>
     <string name="title_advanced_browse_hint">Pobierz więcej wiadomości podczas przewijania w dół</string>
     <string name="title_advanced_threading_hint">Grupuj wiadomości powiązane ze sobą</string>
     <string name="title_advanced_name_email_hint">Gdy wyłączone, tylko nazwy będą pokazywane, gdy dostępne</string>
@@ -471,6 +475,7 @@
     <string name="title_answer_template_email">$email$ zostanie zastąpiony przez adres nadawcy wiadomości</string>
     <string name="title_rule_seen">Oznacz jako przeczytane</string>
     <string name="title_rule_unseen">Oznacz jako nieprzeczytane</string>
+    <string name="title_rule_snooze">Drzemka</string>
     <string name="title_rule_flag">Dodaj gwiazdkę</string>
     <string name="title_rule_move">Przenieś</string>
     <string name="title_rule_answer">Odpowiedz</string>
@@ -489,6 +494,7 @@
     <string name="title_rule_and">I</string>
     <string name="title_rule_action">Akcja</string>
     <string name="title_rule_action_remark">Ta akcja zostanie zastosowana do nowych wiadomości przychodzących do folderu %1$s</string>
+    <string name="title_rule_hours">Godzin</string>
     <string name="title_rule_folder">Folder</string>
     <string name="title_rule_identity">Tożsamość</string>
     <string name="title_rule_template">Szablon odpowiedzi</string>
@@ -615,6 +621,7 @@
     <string name="title_pro_purchase">Kup</string>
     <string name="title_pro_hint">Kupno funkcji pro pozwoli Ci używać wszystkich obecnych i przyszłych funkcji pro oraz będzie utrzymywać i wspierać aplikację</string>
     <string name="title_pro_price">Zobacz <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">ten FAQ</a> na temat cen funkcji pro</string>
+    <string name="title_pro_pending">Zakup w toku</string>
     <string name="title_pro_activated">Wszystkie funkcje pro są aktywowane</string>
     <string name="title_pro_valid">Wszystkie funkcje pro aktywne</string>
     <string name="title_pro_invalid">Nieprawidłowa odpowiedź</string>
@@ -627,9 +634,9 @@
     <string name="title_crash_info_remark">Opisz proszę, co robisz, w momencie awarii aplikacji:</string>
     <string-array name="pollIntervalNames">
         <item>Zawsze</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
+        <item>Co godzinę</item>
+        <item>Co 2 godziny</item>
+        <item>Co 4 godziny</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Brak</item>
