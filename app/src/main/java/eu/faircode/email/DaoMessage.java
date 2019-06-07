@@ -56,7 +56,7 @@ public interface DaoMessage {
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
-            " JOIN folder ON folder.id = message.folder" +
+            " JOIN folderview AS folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
             " AND (NOT message.ui_hide OR :debug)" +
             " AND (NOT :found OR ui_found = :found)" +
@@ -102,8 +102,8 @@ public interface DaoMessage {
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
-            " JOIN folder ON folder.id = message.folder" +
-            " JOIN folder f ON f.id = :folder" +
+            " JOIN folderview AS folder ON folder.id = message.folder" +
+            " JOIN folderview f ON f.id = :folder" +
             " WHERE (message.account = f.account OR " + is_outbox + ")" +
             " AND (NOT message.ui_hide OR :debug)" +
             " AND (NOT :found OR ui_found = :found)" +
@@ -144,7 +144,7 @@ public interface DaoMessage {
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
-            " JOIN folder ON folder.id = message.folder" +
+            " JOIN folderview AS folder ON folder.id = message.folder" +
             " WHERE message.account = :account" +
             " AND message.thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
