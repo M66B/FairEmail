@@ -26,7 +26,7 @@ import android.content.SharedPreferences;
 
 import androidx.preference.PreferenceManager;
 
-public class ReceiverAutostart extends BroadcastReceiver {
+public class ReceiverAutoStart extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, Intent intent) {
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction()) ||

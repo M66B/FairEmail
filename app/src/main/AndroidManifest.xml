@@ -240,7 +240,7 @@
                 android:resource="@xml/widget" />
         </receiver>
 
-        <receiver android:name=".ReceiverAutostart">
+        <receiver android:name=".ReceiverAutoStart">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
