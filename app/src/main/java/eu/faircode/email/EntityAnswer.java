@@ -101,7 +101,7 @@ public class EntityAnswer implements Serializable {
 
     public static EntityAnswer fromJSON(JSONObject json) throws JSONException {
         EntityAnswer answer = new EntityAnswer();
-        // id
+        answer.id = json.getLong("id");
         answer.name = json.getString("name");
         answer.hide = (json.has("hide") && json.getBoolean("hide"));
         answer.text = json.getString("text");

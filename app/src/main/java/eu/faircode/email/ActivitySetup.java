@@ -60,6 +60,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
@@ -74,7 +75,9 @@ import java.security.spec.KeySpec;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import javax.crypto.BadPaddingException;
@@ -761,6 +764,21 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 try {
                     db.beginTransaction();
 
+                    // Answers
+                    Map<Long, Long> xAnswer = new HashMap<>();
+                    JSONArray janswers = jimport.getJSONArray("answers");
+                    for (int a = 0; a < janswers.length(); a++) {
+                        JSONObject janswer = (JSONObject) janswers.get(a);
+                        EntityAnswer answer = EntityAnswer.fromJSON(janswer);
+                        long id = answer.id;
+                        answer.id = null;
+
+                        answer.id = db.answer().insertAnswer(answer);
+                        xAnswer.put(id, answer.id);
+
+                        Log.i("Imported answer=" + answer.name);
+                    }
+
                     // Accounts
                     JSONArray jaccounts = jimport.getJSONArray("accounts");
                     for (int a = 0; a < jaccounts.length(); a++) {
@@ -781,14 +799,23 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                         if (account.notify)
                             account.createNotificationChannel(context);
 
+                        Map<Long, Long> xIdentity = new HashMap<>();
                         JSONArray jidentities = (JSONArray) jaccount.get("identities");
                         for (int i = 0; i < jidentities.length(); i++) {
                             JSONObject jidentity = (JSONObject) jidentities.get(i);
                             EntityIdentity identity = EntityIdentity.fromJSON(jidentity);
+                            long id = identity.id;
+                            identity.id = null;
+
                             identity.account = account.id;
                             identity.id = db.identity().insertIdentity(identity);
+                            xIdentity.put(id, identity.id);
+
                             Log.i("Imported identity=" + identity.email);
                         }
+
+                        Map<Long, Long> xFolder = new HashMap<>();
+                        List<EntityRule> rules = new ArrayList<>();
 
                         JSONArray jfolders = (JSONArray) jaccount.get("folders");
                         for (int f = 0; f < jfolders.length(); f++) {
@@ -799,6 +826,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
                             folder.account = account.id;
                             folder.id = db.folder().insertFolder(folder);
+                            xFolder.put(id, folder.id);
 
                             if (Objects.equals(swipe_left, id))
                                 account.swipe_left = folder.id;
@@ -811,10 +839,38 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                                     JSONObject jrule = (JSONObject) jrules.get(r);
                                     EntityRule rule = EntityRule.fromJSON(jrule);
                                     rule.folder = folder.id;
-                                    db.rule().insertRule(rule);
+                                    rules.add(rule);
                                 }
                             }
                             Log.i("Imported folder=" + folder.name);
+                        }
+
+                        for (EntityRule rule : rules) {
+                            try {
+                                JSONObject jaction = new JSONObject(rule.action);
+                                int type = jaction.getInt("type");
+
+                                switch (type) {
+                                    case EntityRule.TYPE_MOVE:
+                                    case EntityRule.TYPE_COPY:
+                                        long target = jaction.getLong("target");
+                                        Log.i("XLAT target " + target + " > " + xFolder.get(target));
+                                        jaction.put("target", xFolder.get(target));
+                                        break;
+                                    case EntityRule.TYPE_ANSWER:
+                                        long iid = jaction.getLong("identity");
+                                        long aid = jaction.getLong("answer");
+                                        Log.i("XLAT identity " + iid + " > " + xIdentity.get(iid));
+                                        Log.i("XLAT target " + aid + " > " + xAnswer.get(aid));
+                                        jaction.put("identity", xIdentity.get(iid));
+                                        jaction.put("answer", xAnswer.get(aid));
+                                        break;
+                                }
+                            } catch (JSONException ex) {
+                                Log.e(ex);
+                            }
+
+                            db.rule().insertRule(rule);
                         }
 
                         // Contacts
@@ -833,15 +889,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
                         // Update swipe left/right
                         db.account().updateAccount(account);
-                    }
-
-                    // Answers
-                    JSONArray janswers = jimport.getJSONArray("answers");
-                    for (int a = 0; a < janswers.length(); a++) {
-                        JSONObject janswer = (JSONObject) janswers.get(a);
-                        EntityAnswer answer = EntityAnswer.fromJSON(janswer);
-                        answer.id = db.answer().insertAnswer(answer);
-                        Log.i("Imported answer=" + answer.name);
                     }
 
                     // Settings

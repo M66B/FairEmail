@@ -140,7 +140,7 @@ public class EntityIdentity {
 
     public static EntityIdentity fromJSON(JSONObject json) throws JSONException {
         EntityIdentity identity = new EntityIdentity();
-        // id
+        identity.id = json.getLong("id");
         identity.name = json.getString("name");
         identity.email = json.getString("email");
         if (json.has("display") && !json.isNull("display"))
