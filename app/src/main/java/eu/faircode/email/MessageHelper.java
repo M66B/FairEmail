@@ -908,6 +908,7 @@ public class MessageHelper {
             try (InputStream is = apart.part.getInputStream()) {
                 long size = 0;
                 long total = apart.part.getSize();
+                int lastprogress = 0;
 
                 try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                     byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
@@ -916,8 +917,13 @@ public class MessageHelper {
                         os.write(buffer, 0, len);
 
                         // Update progress
-                        if (total > 0)
-                            db.attachment().setProgress(id, (int) (size * 100 / total));
+                        if (total > 0) {
+                            int progress = (int) (size * 100 / total / 20 * 20);
+                            if (progress != lastprogress) {
+                                lastprogress = progress;
+                                db.attachment().setProgress(id, progress);
+                            }
+                        }
                     }
                 }
 

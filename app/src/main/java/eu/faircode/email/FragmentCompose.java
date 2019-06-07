@@ -1800,6 +1800,7 @@ public class FragmentCompose extends FragmentBase {
         }
 
         long size = 0;
+        int lastProgress = 0;
         try {
             File file = attachment.getFile(context);
 
@@ -1815,8 +1816,13 @@ public class FragmentCompose extends FragmentBase {
                     os.write(buffer, 0, len);
 
                     // Update progress
-                    if (attachment.size != null && attachment.size > 0)
-                        db.attachment().setProgress(attachment.id, (int) (size * 100 / attachment.size));
+                    if (attachment.size != null && attachment.size > 0) {
+                        int progress = (int) (size * 100 / attachment.size / 20 * 20);
+                        if (progress != lastProgress) {
+                            lastProgress = progress;
+                            db.attachment().setProgress(attachment.id, progress);
+                        }
+                    }
                 }
 
                 if (image) {
