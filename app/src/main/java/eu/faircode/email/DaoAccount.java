@@ -46,7 +46,7 @@ public interface DaoAccount {
     @Query("SELECT account.*" +
             ", (SELECT COUNT(message.id)" +
             "    FROM message" +
-            "    JOIN folder ON folder.id = message.folder" +
+            "    JOIN folderprop AS folder ON folder.id = message.folder" +
             "    WHERE message.account = account.id" +
             "    AND folder.type <> '" + EntityFolder.ARCHIVE + "'" +
             "    AND folder.type <> '" + EntityFolder.TRASH + "'" +
@@ -60,7 +60,7 @@ public interface DaoAccount {
             "    AND identity.synchronize) AS identities" +
             ", CASE WHEN drafts.id IS NULL THEN 0 ELSE 1 END AS drafts" +
             " FROM account" +
-            " LEFT JOIN folder AS drafts ON drafts.account = account.id AND drafts.type = '" + EntityFolder.DRAFTS + "'" +
+            " LEFT JOIN folderprop AS drafts ON drafts.account = account.id AND drafts.type = '" + EntityFolder.DRAFTS + "'" +
             " WHERE :all OR account.synchronize" +
             " GROUP BY account.id" +
             " ORDER BY CASE WHEN :all THEN 0 ELSE account.`order` END" +
@@ -84,16 +84,16 @@ public interface DaoAccount {
             " (SELECT COUNT(account.id) FROM account" +
             "    WHERE synchronize" +
             "    AND state = 'connected') AS accounts" +
-            ", (SELECT COUNT(operation.id) FROM operation" +
-            "    JOIN folder ON folder.id = operation.folder" +
-            "    JOIN account ON account.id = folder.account" + // not outbox
+            ", (SELECT COUNT(operation.id) FROM operationprop AS operation" +
+            "    JOIN folderprop AS folder ON folder.id = operation.folder" +
+            "    JOIN accountprop AS account ON account.id = folder.account" + // not outbox
             "    WHERE account.synchronize) AS operations")
     LiveData<TupleAccountStats> liveStats();
 
     @Query("SELECT account.id, l.id AS swipe_left, l.type AS left_type, r.id AS swipe_right, r.type AS right_type" +
-            " FROM account" +
-            " LEFT JOIN folder l ON l.id = account.swipe_left" +
-            " LEFT JOIN folder r ON r.id = account.swipe_right")
+            " FROM accountprop AS account" +
+            " LEFT JOIN folderprop AS l ON l.id = account.swipe_left" +
+            " LEFT JOIN folderprop r ON r.id = account.swipe_right")
     LiveData<List<TupleAccountSwipes>> liveAccountSwipes();
 
     @Insert

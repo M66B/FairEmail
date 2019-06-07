@@ -22,18 +22,23 @@ package eu.faircode.email;
 import androidx.annotation.NonNull;
 import androidx.room.DatabaseView;
 
-
 @DatabaseView(
-        viewName = "folderview",
-        value = "SELECT id, account, name, type, display, unified FROM folder")
-public class EntityFolderView {
+        viewName = "accountprop",
+        value = "SELECT id, name, color, synchronize, `primary`, notify, browse, swipe_left, swipe_right, created, `order` FROM account")
+public class EntityAccountProp {
     public Long id;
-    public Long account;
-    @NonNull
     public String name;
+    public Integer color;
     @NonNull
-    public String type;
-    public String display;
+    public Boolean synchronize;
     @NonNull
-    public Boolean unified = false;
+    public Boolean primary;
+    @NonNull
+    public Boolean notify;
+    @NonNull
+    public Boolean browse = true;
+    public Long swipe_left;
+    public Long swipe_right;
+    public Long created;
+    public Integer order;
 }

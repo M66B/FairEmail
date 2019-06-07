@@ -30,13 +30,13 @@ import java.util.List;
 @Dao
 public interface DaoIdentity {
     @Query("SELECT identity.*, account.name AS accountName FROM identity" +
-            " JOIN account ON account.id = identity.account" +
+            " JOIN accountprop AS account ON account.id = identity.account" +
             " WHERE NOT :synchronize OR account.synchronize")
     LiveData<List<TupleIdentityEx>> liveIdentities(boolean synchronize);
 
     @Query("SELECT identity.*, account.name AS accountName FROM identity" +
-            " JOIN account ON account.id = identity.account" +
-            " JOIN folder ON folder.account = identity.account AND folder.type = '" + EntityFolder.DRAFTS + "'" +
+            " JOIN accountprop AS account ON account.id = identity.account" +
+            " JOIN folderprop AS folder ON folder.account = identity.account AND folder.type = '" + EntityFolder.DRAFTS + "'" +
             " WHERE (:account IS NULL OR identity.account = :account)" +
             " AND identity.synchronize" +
             " AND account.synchronize" +
@@ -45,8 +45,8 @@ public interface DaoIdentity {
     List<TupleIdentityEx> getComposableIdentities(Long account);
 
     @Query("SELECT identity.*, account.name AS accountName FROM identity" +
-            " JOIN account ON account.id = identity.account" +
-            " JOIN folder ON folder.account = identity.account AND folder.type = '" + EntityFolder.DRAFTS + "'" +
+            " JOIN accountprop AS account ON account.id = identity.account" +
+            " JOIN folderprop AS folder ON folder.account = identity.account AND folder.type = '" + EntityFolder.DRAFTS + "'" +
             " WHERE (:account IS NULL OR identity.account = :account)" +
             " AND identity.synchronize" +
             " AND account.synchronize")
