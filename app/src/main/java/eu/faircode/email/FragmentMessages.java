@@ -2664,7 +2664,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             Integer submitted = (Integer) rvMessage.getTag();
             if (submitted == null)
                 submitted = 0;
-            if (submitted + fetched == 0)
+            if (submitted + fetched == 0 && fetched >= 0)
                 tvNoEmail.setVisibility(View.VISIBLE);
         }
 

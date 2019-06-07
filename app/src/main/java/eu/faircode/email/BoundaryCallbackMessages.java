@@ -124,7 +124,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             @Override
             public void run() {
                 try {
-                    if (destroyed)
+                    if (destroyed || error)
                         return;
 
                     fetched = 0;
@@ -227,16 +227,13 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private int load_server() throws MessagingException, IOException, AuthenticatorException, OperationCanceledException {
         DB db = DB.getInstance(context);
 
-        if (destroyed || error)
-            return 0;
-
         final EntityFolder browsable = db.folder().getBrowsableFolder(folder, query != null);
         if (browsable == null)
-            return 0;
+            return -1;
 
         EntityAccount account = db.account().getAccount(browsable.account);
         if (account == null)
-            return 0;
+            return -1;
 
         if (imessages == null)
             try {
