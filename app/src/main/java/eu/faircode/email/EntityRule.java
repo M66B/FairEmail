@@ -196,7 +196,7 @@ public class EntityRule {
         return matched;
     }
 
-    void execute(Context context, DB db, EntityMessage message) throws IOException {
+    void execute(Context context, EntityMessage message) throws IOException {
         try {
             JSONObject jaction = new JSONObject(action);
             int type = jaction.getInt("type");

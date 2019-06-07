@@ -1548,7 +1548,7 @@ class Core {
         try {
             for (EntityRule rule : rules)
                 if (rule.matches(context, message, imessage)) {
-                    rule.execute(context, db, message);
+                    rule.execute(context, message);
                     if (rule.stop)
                         break;
                 }
