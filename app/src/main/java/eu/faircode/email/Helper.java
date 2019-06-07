@@ -105,8 +105,19 @@ public class Helper {
         @Override
         public Thread newThread(@NonNull Runnable runnable) {
             Thread thread = new Thread(runnable);
-            thread.setName("FairEmail_" + threadId.getAndIncrement());
+            thread.setName("FairEmail_bg_" + threadId.getAndIncrement());
             thread.setPriority(THREAD_PRIORITY_BACKGROUND);
+            return thread;
+        }
+    };
+
+    static ThreadFactory foregroundThreadFactory = new ThreadFactory() {
+        private final AtomicInteger threadId = new AtomicInteger();
+
+        @Override
+        public Thread newThread(@NonNull Runnable runnable) {
+            Thread thread = new Thread(runnable);
+            thread.setName("FairEmail_fg_" + threadId.getAndIncrement());
             return thread;
         }
     };
