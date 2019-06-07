@@ -94,11 +94,17 @@ final class GestureSelectionHelper implements OnItemTouchListener {
     @Override
     /** @hide */
     public boolean onInterceptTouchEvent(@NonNull RecyclerView unused, @NonNull MotionEvent e) {
+        // TODO(b/132447183): For some reason we're not receiving an ACTION_UP
+        // event after a > long-press NOT followed by a ACTION_MOVE < event.
+        if (mStarted) {
+            handleTouch(e);
+        }
+
         switch (e.getActionMasked()) {
             case MotionEvent.ACTION_MOVE:
-            case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
-                return mStarted && mSelectionMgr.isRangeActive();
+            case MotionEvent.ACTION_UP:
+                return mStarted;
             default:
                 return false;
         }
@@ -127,32 +133,25 @@ final class GestureSelectionHelper implements OnItemTouchListener {
      * so this methods return value is irrelevant to it.
      * </ol>
      */
-    private boolean handleTouch(MotionEvent e) {
-        if (!mStarted) {
-            return false;
-        }
-
+    private void handleTouch(MotionEvent e) {
         if (!mSelectionMgr.isRangeActive()) {
             Log.e(TAG,
                     "Internal state of GestureSelectionHelper out of sync w/ SelectionTracker "
                             + "(isRangeActive is false). Ignoring event and resetting state.");
             endSelection();
-            return false;
         }
 
         switch (e.getActionMasked()) {
             case MotionEvent.ACTION_MOVE:
                 handleMoveEvent(e);
-                return true;
+                break;
             case MotionEvent.ACTION_UP:
                 handleUpEvent();
-                return true;
+                break;
             case MotionEvent.ACTION_CANCEL:
                 handleCancelEvent();
-                return true;
+                break;
         }
-
-        return false;
     }
 
     @Override

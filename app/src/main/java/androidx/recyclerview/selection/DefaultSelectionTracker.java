@@ -16,7 +16,7 @@
 
 package androidx.recyclerview.selection;
 
-import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
+import static androidx.annotation.RestrictTo.Scope.LIBRARY;
 import static androidx.core.util.Preconditions.checkArgument;
 import static androidx.core.util.Preconditions.checkState;
 import static androidx.recyclerview.selection.Shared.DEBUG;
@@ -49,7 +49,7 @@ import java.util.Set;
  *
  * @hide
  */
-@RestrictTo(LIBRARY_GROUP)
+@RestrictTo(LIBRARY)
 public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
 
     private static final String TAG = "DefaultSelectionTracker";
@@ -295,6 +295,11 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
      */
     private void extendRange(int position, @RangeType int type) {
         checkState(isRangeActive(), "Range start point not set.");
+
+        if (position == RecyclerView.NO_POSITION) {
+            Log.w(TAG, "Invalid position: Cannot extend selection to: " + position);
+            return;
+        }
 
         mRange.extendRange(position, type);
 
