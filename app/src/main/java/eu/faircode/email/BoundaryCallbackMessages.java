@@ -229,11 +229,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         final EntityFolder browsable = db.folder().getBrowsableFolder(folder, query != null);
         if (browsable == null)
-            return -1;
+            return 0;
 
         EntityAccount account = db.account().getAccount(browsable.account);
         if (account == null)
-            return -1;
+            return 0;
 
         if (imessages == null)
             try {

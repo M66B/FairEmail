@@ -2654,17 +2654,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         public void onLoading() {
             loading = true;
             pbWait.setVisibility(View.VISIBLE);
+            tvNoEmail.setVisibility(View.GONE);
         }
 
         @Override
         public void onLoaded(int fetched) {
             loading = false;
-            pbWait.setVisibility(View.GONE);
 
             Integer submitted = (Integer) rvMessage.getTag();
             if (submitted == null)
-                submitted = 0;
-            if (submitted + fetched == 0 && fetched >= 0)
+                return;
+
+            pbWait.setVisibility(View.GONE);
+            if (submitted + fetched == 0)
                 tvNoEmail.setVisibility(View.VISIBLE);
         }
 
@@ -2705,12 +2707,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             rvMessage.setTag(messages.size());
 
-            boolean hasBoundary = (viewType == AdapterMessage.ViewType.FOLDER || viewType == AdapterMessage.ViewType.SEARCH);
-
-            if (!hasBoundary || !loading)
+            if (!loading) {
                 pbWait.setVisibility(View.GONE);
-            if (!hasBoundary && messages.size() == 0)
-                tvNoEmail.setVisibility(View.VISIBLE);
+                if (messages.size() == 0)
+                    tvNoEmail.setVisibility(View.VISIBLE);
+            }
             if (messages.size() > 0) {
                 tvNoEmail.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
