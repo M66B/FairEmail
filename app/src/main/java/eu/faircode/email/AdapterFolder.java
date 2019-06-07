@@ -188,7 +188,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             vwLevel.setLayoutParams(lp);
 
             ivExpander.setImageLevel(folder.collapsed ? 1 /* more */ : 0 /* less */);
-            ivExpander.setVisibility(account < 0
+            ivExpander.setVisibility(account < 0 || !folder.expander
                     ? View.GONE
                     : folder.child_refs != null && folder.child_refs.size() > 0
                     ? View.VISIBLE : View.INVISIBLE);
@@ -724,7 +724,16 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 }
             }
 
-            hierarchical = getHierarchical(parents, 0);
+            boolean anyChild = false;
+            for (TupleFolderEx parent : parents)
+                if (parent.child_refs != null && parent.child_refs.size() > 0) {
+                    anyChild = true;
+                    break;
+                }
+            for (TupleFolderEx parent : parents)
+                parent.expander = anyChild;
+
+            hierarchical = getHierarchical(parents, anyChild ? 0 : 1);
         }
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, hierarchical), false);

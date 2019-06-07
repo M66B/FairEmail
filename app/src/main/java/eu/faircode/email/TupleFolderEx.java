@@ -45,7 +45,10 @@ public class TupleFolderEx extends EntityFolder implements Serializable {
     public int executing;
 
     @Ignore
-    int indentation;
+    int indentation = 0;
+
+    @Ignore
+    boolean expander = true;
 
     @Ignore
     TupleFolderEx parent_ref;
