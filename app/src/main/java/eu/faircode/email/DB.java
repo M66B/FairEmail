@@ -68,10 +68,6 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
                 EntityLog.class
         },
         views = {
-                EntityAccountProp.class,
-                EntityFolderProp.class,
-                EntityAttachmentProp.class,
-                EntityOperationProp.class
         }
 )
 
@@ -871,14 +867,6 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("DROP VIEW `folderview`");
-                        db.execSQL("CREATE VIEW `accountprop` AS " +
-                                "SELECT id, name, color, synchronize, `primary`, notify, browse, swipe_left, swipe_right, created, `order` FROM account");
-                        db.execSQL("CREATE VIEW `folderprop` AS " +
-                                "SELECT id, account, name, type, download, display, unified, notify FROM folder");
-                        db.execSQL("CREATE VIEW `attachmentprop` AS " +
-                                "SELECT id, message, name FROM attachment");
-                        db.execSQL("CREATE VIEW `operationprop` AS " +
-                                "SELECT id, folder, message, name FROM operation");
                     }
                 })
                 .build();

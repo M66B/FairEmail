@@ -37,7 +37,7 @@ public interface DaoContact {
 
     @Query("SELECT contact.*, account.name AS accountName" +
             " FROM contact" +
-            " JOIN accountprop AS account ON account.id = contact.account" +
+            " JOIN account ON account.id = contact.account" +
             " ORDER BY times_contacted DESC, last_contacted DESC")
     LiveData<List<TupleContactEx>> liveContacts();
 

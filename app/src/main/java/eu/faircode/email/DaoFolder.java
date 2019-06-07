@@ -45,13 +45,13 @@ public interface DaoFolder {
     List<TupleFolderEx> getFoldersEx(long account);
 
     @Query("SELECT folder.* FROM folder" +
-            " JOIN accountprop AS account ON account.id = folder.account" +
+            " JOIN account ON account.id = folder.account" +
             " WHERE account.synchronize" +
             " AND folder.synchronize AND unified")
     List<EntityFolder> getFoldersSynchronizingUnified();
 
     @Query("SELECT folder.* FROM folder" +
-            " JOIN accountprop AS account ON account.id = folder.account" +
+            " JOIN account ON account.id = folder.account" +
             " WHERE folder.id = :folder" +
             " AND (:search OR (account.synchronize AND account.browse))")
     EntityFolder getBrowsableFolder(long folder, boolean search);
@@ -59,7 +59,7 @@ public interface DaoFolder {
     @Query("SELECT folder.*" +
             ", account.`order` AS accountOrder, account.name AS accountName" +
             " FROM folder" +
-            " JOIN accountprop AS account ON account.id = folder.account" +
+            " JOIN account ON account.id = folder.account" +
             " WHERE account.`synchronize`")
     List<TupleFolderSort> getSortedFolders();
 
@@ -99,7 +99,7 @@ public interface DaoFolder {
             ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id) AS operations" +
             ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id AND operation.state = 'executing') AS executing" +
             " FROM folder" +
-            " LEFT JOIN accountprop AS account ON account.id = folder.account" +
+            " LEFT JOIN account ON account.id = folder.account" +
             " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
             " WHERE account.id IS NULL" +
             " OR (account.`synchronize` AND folder.navigation)" +
@@ -107,7 +107,7 @@ public interface DaoFolder {
     LiveData<List<TupleFolderNav>> liveNavigation();
 
     @Query("SELECT folder.* FROM folder" +
-            " JOIN accountprop AS account ON account.id = folder.account" +
+            " JOIN account ON account.id = folder.account" +
             " WHERE account.synchronize" +
             " AND account.`primary`" +
             " AND folder.type = '" + EntityFolder.DRAFTS + "'")
@@ -149,19 +149,19 @@ public interface DaoFolder {
     EntityFolder getFolderByType(long account, String type);
 
     @Query("SELECT folder.* FROM folder" +
-            " JOIN accountprop AS account ON account.id = folder.account" +
+            " JOIN account ON account.id = folder.account" +
             " WHERE `primary` AND type = '" + EntityFolder.DRAFTS + "'")
     EntityFolder getPrimaryDrafts();
 
     @Query("SELECT folder.* FROM folder" +
-            " JOIN accountprop AS account ON account.id = folder.account" +
+            " JOIN account ON account.id = folder.account" +
             " WHERE `primary` AND type = '" + EntityFolder.ARCHIVE + "'")
     EntityFolder getPrimaryArchive();
 
     @Query("SELECT * FROM folder WHERE type = '" + EntityFolder.OUTBOX + "'")
     EntityFolder getOutbox();
 
-    @Query("SELECT download FROM folderprop WHERE id = :id")
+    @Query("SELECT download FROM folder WHERE id = :id")
     boolean getFolderDownload(long id);
 
     @Insert

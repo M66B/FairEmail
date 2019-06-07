@@ -32,9 +32,9 @@ public interface DaoOperation {
             " ,((account.synchronize IS NULL OR account.synchronize)" +
             " AND (NOT folder.account IS NULL OR identity.synchronize IS NULL OR identity.synchronize)) AS synchronize" +
             " FROM operation" +
-            " JOIN folderprop AS folder ON folder.id = operation.folder" +
+            " JOIN folder ON folder.id = operation.folder" +
             " LEFT JOIN message ON message.id = operation.message" +
-            " LEFT JOIN accountprop AS account ON account.id = message.account OR account.id = folder.account" +
+            " LEFT JOIN account ON account.id = message.account OR account.id = folder.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
             " ORDER BY" +
             "  CASE WHEN operation.name = '" + EntityOperation.SYNC + "' THEN" +
@@ -45,9 +45,9 @@ public interface DaoOperation {
     LiveData<List<TupleOperationEx>> liveOperations();
 
     String GET_OPS_FOLDER = "SELECT operation.* FROM operation" +
-            " JOIN folderprop AS folder ON folder.id = operation.folder" +
+            " JOIN folder ON folder.id = operation.folder" +
             " LEFT JOIN message ON message.id = operation.message" +
-            " LEFT JOIN accountprop AS account ON account.id = message.account" +
+            " LEFT JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
             " WHERE operation.folder = :folder" +
             " AND (account.synchronize IS NULL OR account.synchronize)" +
@@ -70,7 +70,7 @@ public interface DaoOperation {
             " FROM operation")
     LiveData<TupleOperationStats> liveStats();
 
-    @Query("SELECT COUNT(operation.id) FROM operationprop AS operation" +
+    @Query("SELECT COUNT(operation.id) FROM operation" +
             " WHERE operation.name = '" + EntityOperation.SEND + "'")
     LiveData<Integer> liveUnsent();
 
@@ -83,12 +83,12 @@ public interface DaoOperation {
     @Query("SELECT * FROM operation WHERE error IS NOT NULL")
     List<EntityOperation> getOperationsError();
 
-    @Query("SELECT COUNT(id) FROM operationprop AS operation" +
+    @Query("SELECT COUNT(id) FROM operation" +
             " WHERE folder = :folder" +
             " AND (:name IS NULL OR operation.name = :name)")
     int getOperationCount(long folder, String name);
 
-    @Query("SELECT COUNT(id) FROM operationprop" +
+    @Query("SELECT COUNT(id) FROM operation" +
             " WHERE folder = :folder" +
             " AND  message = :message")
     int getOperationCount(long folder, long message);

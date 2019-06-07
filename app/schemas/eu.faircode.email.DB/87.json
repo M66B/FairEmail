@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 87,
-    "identityHash": "54e4606798a2b98908f5ba9b31401294",
+    "identityHash": "2329269ef351fecd73eff3e3a525e658",
     "entities": [
       {
         "tableName": "identity",
@@ -1773,27 +1773,10 @@
         "foreignKeys": []
       }
     ],
-    "views": [
-      {
-        "viewName": "accountprop",
-        "createSql": "CREATE VIEW `${VIEW_NAME}` AS SELECT id, name, color, synchronize, `primary`, notify, browse, swipe_left, swipe_right, created, `order` FROM account"
-      },
-      {
-        "viewName": "folderprop",
-        "createSql": "CREATE VIEW `${VIEW_NAME}` AS SELECT id, account, name, type, download, display, unified, notify FROM folder"
-      },
-      {
-        "viewName": "attachmentprop",
-        "createSql": "CREATE VIEW `${VIEW_NAME}` AS SELECT id, message, name FROM attachment"
-      },
-      {
-        "viewName": "operationprop",
-        "createSql": "CREATE VIEW `${VIEW_NAME}` AS SELECT id, folder, message, name FROM operation"
-      }
-    ],
+    "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '54e4606798a2b98908f5ba9b31401294')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2329269ef351fecd73eff3e3a525e658')"
     ]
   }
 }

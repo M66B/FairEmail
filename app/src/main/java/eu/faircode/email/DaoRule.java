@@ -41,14 +41,14 @@ public interface DaoRule {
     List<EntityRule> getEnabledRules(long folder);
 
     @Query("SELECT rule.*, folder.account, folder.name AS folderName, account.name AS accountName FROM rule" +
-            " JOIN folderprop AS folder ON folder.id = rule.folder" +
-            " JOIN accountprop AS account ON account.id = folder.account" +
+            " JOIN folder ON folder.id = rule.folder" +
+            " JOIN account ON account.id = folder.account" +
             " WHERE rule.id = :id")
     TupleRuleEx getRule(long id);
 
     @Query("SELECT rule.*, folder.account, folder.name AS folderName, account.name AS accountName FROM rule" +
-            " JOIN folderprop AS folder ON folder.id = rule.folder" +
-            " JOIN accountprop AS account ON account.id = folder.account" +
+            " JOIN folder ON folder.id = rule.folder" +
+            " JOIN account ON account.id = folder.account" +
             " WHERE rule.folder = :folder" +
             " ORDER BY `order`, name COLLATE NOCASE")
     LiveData<List<TupleRuleEx>> liveRules(long folder);

@@ -48,15 +48,15 @@ public interface DaoMessage {
             ", COUNT(message.id) AS count" +
             ", " + unseen_unified + " AS unseen" +
             ", " + unflagged_unified + " AS unflagged" +
-            ", (SELECT COUNT(a.id) FROM attachmentprop a WHERE a.message = message.id) AS attachments" +
+            ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", SUM(CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END) AS drafts" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
             ", SUM(message.size) AS totalSize" +
             ", MAX(CASE WHEN :found OR folder.unified THEN message.received ELSE 0 END) AS dummy" +
             " FROM message" +
-            " JOIN accountprop AS account ON account.id = message.account" +
+            " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
-            " JOIN folderprop AS folder ON folder.id = message.folder" +
+            " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
             " AND (NOT message.ui_hide OR :debug)" +
             " AND (NOT :found OR ui_found = :found)" +
@@ -94,16 +94,16 @@ public interface DaoMessage {
             ", COUNT(message.id) AS count" +
             ", " + unseen_folder + " AS unseen" +
             ", " + unflagged_folder + " AS unflagged" +
-            ", (SELECT COUNT(a.id) FROM attachmentprop a WHERE a.message = message.id) AS attachments" +
+            ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", SUM(CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END) AS drafts" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
             ", SUM(message.size) AS totalSize" +
             ", MAX(CASE WHEN folder.id = :folder THEN message.received ELSE 0 END) AS dummy" +
             " FROM message" +
-            " JOIN accountprop AS account ON account.id = message.account" +
+            " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
-            " JOIN folderprop AS folder ON folder.id = message.folder" +
-            " JOIN folderprop AS f ON f.id = :folder" +
+            " JOIN folder ON folder.id = message.folder" +
+            " JOIN folder AS f ON f.id = :folder" +
             " WHERE (message.account = f.account OR " + is_outbox + ")" +
             " AND (NOT message.ui_hide OR :debug)" +
             " AND (NOT :found OR ui_found = :found)" +
@@ -137,14 +137,14 @@ public interface DaoMessage {
             ", 1 AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
-            ", (SELECT COUNT(a.id) FROM attachmentprop a WHERE a.message = message.id) AS attachments" +
+            ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END AS drafts" +
             ", 1 AS visible" +
             ", message.size AS totalSize" +
             " FROM message" +
-            " JOIN accountprop AS account ON account.id = message.account" +
+            " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
-            " JOIN folderprop AS folder ON folder.id = message.folder" +
+            " JOIN folder ON folder.id = message.folder" +
             " WHERE message.account = :account" +
             " AND message.thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
@@ -157,7 +157,7 @@ public interface DaoMessage {
             ", COUNT(message.id) AS count" +
             ", SUM(message.ui_seen) AS seen" +
             " FROM message" +
-            " JOIN accountprop AS account ON account.id = message.account" +
+            " JOIN account ON account.id = message.account" +
             " WHERE message.account = :account" +
             " AND message.thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
@@ -165,7 +165,7 @@ public interface DaoMessage {
             " GROUP BY account.id")
     LiveData<TupleThreadStats> liveThreadStats(long account, String thread, Long id);
 
-    @Query("SELECT message.id FROM folderprop AS folder" +
+    @Query("SELECT message.id FROM folder" +
             " JOIN message ON message.folder = folder.id" +
             " WHERE CASE WHEN :folder IS NULL THEN folder.unified ELSE folder.id = :folder END" +
             " AND ui_hide")
@@ -208,7 +208,7 @@ public interface DaoMessage {
     List<Long> getMessageIdsByFolder(Long folder);
 
     @Query("SELECT message.id" +
-            " FROM folderprop AS folder" +
+            " FROM folder" +
             " JOIN message ON message.folder = folder.id" +
             " WHERE CASE WHEN :folder IS NULL THEN folder.unified ELSE folder.id = :folder END" +
             " AND NOT ui_hide" +
@@ -243,14 +243,14 @@ public interface DaoMessage {
             ", 1 AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
-            ", (SELECT COUNT(a.id) FROM attachmentprop a WHERE a.message = message.id) AS attachments" +
+            ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END AS drafts" +
             ", 1 AS visible" +
             ", message.size AS totalSize" +
             " FROM message" +
-            " JOIN accountprop AS account ON account.id = message.account" +
+            " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
-            " JOIN folderprop AS folder ON folder.id = message.folder" +
+            " JOIN folder ON folder.id = message.folder" +
             " WHERE message.id = :id")
     LiveData<TupleMessageEx> liveMessage(long id);
 
@@ -266,9 +266,9 @@ public interface DaoMessage {
             ", 1 AS visible" +
             ", message.size AS totalSize" +
             " FROM message" +
-            " JOIN accountprop AS account ON account.id = message.account" +
+            " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
-            " JOIN folderprop AS folder ON folder.id = message.folder" +
+            " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
             " AND folder.notify" +
             " AND (account.created IS NULL OR message.received > account.created)" +
@@ -279,8 +279,8 @@ public interface DaoMessage {
     LiveData<List<TupleMessageEx>> liveUnseenNotify();
 
     @Query("SELECT COUNT(message.id) FROM message" +
-            " JOIN accountprop AS account ON account.id = message.account" +
-            " JOIN folderprop AS folder ON folder.id = message.folder" +
+            " JOIN account ON account.id = message.account" +
+            " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
             " AND folder.unified" +
             " AND (account.created IS NULL OR message.received > account.created)" +
@@ -298,7 +298,7 @@ public interface DaoMessage {
     List<Long> getUids(long folder, Long received);
 
     @Query("SELECT message.* FROM message" +
-            " JOIN folderprop AS folder on folder.id = message.folder" +
+            " JOIN folder on folder.id = message.folder" +
             " WHERE  message.account = :account" +
             " AND folder.type = '" + EntityFolder.OUTBOX + "'" +
             " AND sent IS NOT NULL")
@@ -398,7 +398,7 @@ public interface DaoMessage {
 
     @Query("UPDATE message SET ui_ignored = 1" +
             " WHERE NOT ui_ignored" +
-            " AND folder IN (SELECT id FROM folderprop WHERE type = '" + EntityFolder.INBOX + "')")
+            " AND folder IN (SELECT id FROM folder WHERE type = '" + EntityFolder.INBOX + "')")
     int ignoreAll();
 
     @Query("UPDATE message SET ui_found = 1" +
@@ -436,7 +436,7 @@ public interface DaoMessage {
             " WHERE folder = :folder" +
             " AND uid IS NULL" +
             " AND NOT EXISTS" +
-            "  (SELECT * FROM operationprop AS operation" +
+            "  (SELECT * FROM operation" +
             "  WHERE operation.message = message.id" +
             "  AND operation.name = '" + EntityOperation.ADD + "')")
     int deleteOrphans(long folder);
