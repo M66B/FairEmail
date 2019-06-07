@@ -112,6 +112,7 @@ import org.jsoup.nodes.Element;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.UnknownHostException;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -2175,14 +2176,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 final EditText etLink = view.findViewById(R.id.etLink);
                 TextView tvInsecure = view.findViewById(R.id.tvInsecure);
                 final TextView tvOwner = view.findViewById(R.id.tvOwner);
-                Group grpOwner = view.findViewById(R.id.grpOwner);
+                final Group grpOwner = view.findViewById(R.id.grpOwner);
 
                 tvTitle.setText(title);
                 tvTitle.setVisibility(TextUtils.isEmpty(title) ? View.GONE : View.VISIBLE);
 
                 etLink.setText(_uri.toString());
                 tvInsecure.setVisibility("http".equals(_uri.getScheme()) ? View.VISIBLE : View.GONE);
-                grpOwner.setVisibility(paranoid ? View.VISIBLE : View.GONE);
+                grpOwner.setVisibility(View.GONE);
 
                 if (paranoid) {
                     Bundle args = new Bundle();
@@ -2192,6 +2193,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         @Override
                         protected void onPreExecute(Bundle args) {
                             tvOwner.setText("…");
+                            grpOwner.setVisibility(View.VISIBLE);
                         }
 
                         @Override
@@ -2207,11 +2209,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            tvOwner.setText(ex.getMessage());
+                            if (ex instanceof UnknownHostException)
+                                grpOwner.setVisibility(View.GONE);
+                            else
+                                tvOwner.setText(ex.getMessage());
                         }
                     }.execute(context, owner, args, "link:domain");
                 }
-
 
                 new DialogBuilderLifecycle(context, owner)
                         .setView(view)

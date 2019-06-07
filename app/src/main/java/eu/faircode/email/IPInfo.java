@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,13 +42,13 @@ public class IPInfo {
             MailTo email = MailTo.parse(uri.toString());
             String to = email.getTo();
             if (to == null || !to.contains("@"))
-                return null;
+                throw new UnknownHostException();
             String host = to.substring(to.indexOf('@') + 1);
             return getOrganization(host);
         } else {
             String host = uri.getHost();
             if (host == null)
-                return null;
+                throw new UnknownHostException();
             return getOrganization(host);
         }
     }
