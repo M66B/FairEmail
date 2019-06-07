@@ -690,37 +690,42 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         if (folders.size() > 0)
             Collections.sort(folders, folders.get(0).getComparator(context));
 
-        List<TupleFolderEx> parents = new ArrayList<>();
-        Map<Long, TupleFolderEx> idFolder = new HashMap<>();
-        Map<Long, List<TupleFolderEx>> parentChilds = new HashMap<>();
+        List<TupleFolderEx> hierarchical;
+        if (account < 0)
+            hierarchical = folders;
+        else {
+            List<TupleFolderEx> parents = new ArrayList<>();
+            Map<Long, TupleFolderEx> idFolder = new HashMap<>();
+            Map<Long, List<TupleFolderEx>> parentChilds = new HashMap<>();
 
-        for (TupleFolderEx folder : folders) {
-            idFolder.put(folder.id, folder);
-            if (folder.parent == null)
-                parents.add(folder);
-            else {
-                if (!parentChilds.containsKey(folder.parent))
-                    parentChilds.put(folder.parent, new ArrayList<TupleFolderEx>());
-                parentChilds.get(folder.parent).add(folder);
+            for (TupleFolderEx folder : folders) {
+                idFolder.put(folder.id, folder);
+                if (folder.parent == null)
+                    parents.add(folder);
+                else {
+                    if (!parentChilds.containsKey(folder.parent))
+                        parentChilds.put(folder.parent, new ArrayList<TupleFolderEx>());
+                    parentChilds.get(folder.parent).add(folder);
+                }
             }
-        }
 
-        TupleFolderEx root = new TupleFolderEx();
-        root.name = "[root]";
-        root.child_refs = parents;
-        for (TupleFolderEx parent : parents)
-            parent.parent_ref = root;
+            TupleFolderEx root = new TupleFolderEx();
+            root.name = "[root]";
+            root.child_refs = parents;
+            for (TupleFolderEx parent : parents)
+                parent.parent_ref = root;
 
-        for (long pid : parentChilds.keySet()) {
-            TupleFolderEx parent = idFolder.get(pid);
-            if (parent != null) {
-                parent.child_refs = parentChilds.get(pid);
-                for (TupleFolderEx child : parent.child_refs)
-                    child.parent_ref = parent;
+            for (long pid : parentChilds.keySet()) {
+                TupleFolderEx parent = idFolder.get(pid);
+                if (parent != null) {
+                    parent.child_refs = parentChilds.get(pid);
+                    for (TupleFolderEx child : parent.child_refs)
+                        child.parent_ref = parent;
+                }
             }
-        }
 
-        List<TupleFolderEx> hierarchical = getHierarchical(parents, 0);
+            hierarchical = getHierarchical(parents, 0);
+        }
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, hierarchical), false);
 
