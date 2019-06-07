@@ -93,6 +93,7 @@ public class ViewModelMessages extends ViewModel {
 
                 case FOLDER:
                     PagedList.Config configFolder = new PagedList.Config.Builder()
+                            .setInitialLoadSizeHint(LOCAL_PAGE_SIZE)
                             .setPageSize(LOCAL_PAGE_SIZE)
                             .setPrefetchDistance(REMOTE_PAGE_SIZE)
                             .build();
