@@ -82,6 +82,7 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.mail.FolderClosedException;
 import javax.mail.MessageRemovedException;
@@ -99,9 +100,12 @@ public class Helper {
     static final String FAQ_URI = "https://github.com/M66B/open-source-email/blob/master/FAQ.md";
 
     static ThreadFactory backgroundThreadFactory = new ThreadFactory() {
+        private final AtomicInteger threadId = new AtomicInteger();
+
         @Override
         public Thread newThread(@NonNull Runnable runnable) {
             Thread thread = new Thread(runnable);
+            thread.setName("FairEmail_" + threadId.getAndIncrement());
             thread.setPriority(THREAD_PRIORITY_BACKGROUND);
             return thread;
         }
