@@ -81,6 +81,7 @@ public class TupleFolderEx extends EntityFolder implements Serializable {
                     NotificationManager.IMPORTANCE_HIGH);
             channel.setGroup(accountName);
             channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+            channel.enableLights(true);
             nm.createNotificationChannel(channel);
         }
     }

@@ -116,6 +116,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
                     NotificationManager.IMPORTANCE_HIGH);
             channel.setGroup(name);
             channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+            channel.enableLights(true);
             nm.createNotificationChannel(channel);
         }
     }

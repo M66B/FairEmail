@@ -310,6 +310,7 @@ public class ApplicationEx extends Application {
                     getString(R.string.channel_notification),
                     NotificationManager.IMPORTANCE_HIGH);
             notification.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+            notification.enableLights(true);
             nm.createNotificationChannel(notification);
 
             NotificationChannel warning = new NotificationChannel(
