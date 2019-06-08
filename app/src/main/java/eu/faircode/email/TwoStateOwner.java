@@ -62,15 +62,15 @@ public class TwoStateOwner implements LifecycleOwner {
             }
         });
 
-        registry.markState(Lifecycle.State.CREATED);
+        registry.setCurrentState(Lifecycle.State.CREATED);
     }
 
     void start() {
-        registry.markState(Lifecycle.State.STARTED);
+        registry.setCurrentState(Lifecycle.State.STARTED);
     }
 
     void stop() {
-        registry.markState(Lifecycle.State.CREATED);
+        registry.setCurrentState(Lifecycle.State.CREATED);
     }
 
     void restart() {
@@ -86,9 +86,9 @@ public class TwoStateOwner implements LifecycleOwner {
     void destroy() {
         Lifecycle.State state = registry.getCurrentState();
         if (!state.equals(Lifecycle.State.CREATED))
-            registry.markState(Lifecycle.State.CREATED);
+            registry.setCurrentState(Lifecycle.State.CREATED);
         if (!state.equals(Lifecycle.State.DESTROYED))
-            registry.markState(Lifecycle.State.DESTROYED);
+            registry.setCurrentState(Lifecycle.State.DESTROYED);
     }
 
     @NonNull
