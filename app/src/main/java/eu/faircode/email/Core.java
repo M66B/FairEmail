@@ -782,8 +782,7 @@ class Core {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean subscribed_only = prefs.getBoolean("subscribed_only", false);
-
-        Log.i("Start sync folders account=" + account.name);
+        boolean sync_folders = prefs.getBoolean("sync_folders", true);
 
         // Get folder names
         List<String> names = new ArrayList<>();
@@ -795,15 +794,25 @@ class Core {
                     ifolder.create(Folder.HOLDS_MESSAGES);
                 db.folder().resetFolderTbc(folder.id);
                 names.add(folder.name);
+                sync_folders = true;
             } else if (folder.tbd != null && folder.tbd) {
                 Log.i(folder.name + " deleting");
                 Folder ifolder = istore.getFolder(folder.name);
                 if (ifolder.exists())
                     ifolder.delete(false);
                 db.folder().deleteFolder(folder.id);
-            } else
+                sync_folders = true;
+            } else {
                 names.add(folder.name);
+                if (folder.initialize)
+                    sync_folders = true;
+            }
         Log.i("Local folder count=" + names.size());
+
+        if (!sync_folders)
+            return;
+
+        Log.i("Start sync folders account=" + account.name);
 
         // Get default folder
         Folder defaultFolder = istore.getDefaultFolder();

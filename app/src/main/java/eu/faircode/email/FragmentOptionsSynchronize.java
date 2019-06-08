@@ -57,9 +57,10 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swUnseen;
     private SwitchCompat swFlagged;
     private SwitchCompat swSyncKept;
+    private SwitchCompat swSyncFolders;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "enabled", "poll_interval", "schedule", "schedule_start", "schedule_end", "sync_unseen", "sync_flagged", "sync_kept"
+            "enabled", "poll_interval", "schedule", "schedule_start", "schedule_end", "sync_unseen", "sync_flagged", "sync_kept", "sync_folders"
     };
 
     @Override
@@ -80,6 +81,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swUnseen = view.findViewById(R.id.swUnseen);
         swFlagged = view.findViewById(R.id.swFlagged);
         swSyncKept = view.findViewById(R.id.swSyncKept);
+        swSyncFolders = view.findViewById(R.id.swSyncFolders);
 
         setOptions();
 
@@ -184,6 +186,13 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             }
         });
 
+        swSyncFolders.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("sync_folders", checked).apply();
+            }
+        });
+
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
@@ -247,6 +256,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swUnseen.setChecked(prefs.getBoolean("sync_unseen", false));
         swFlagged.setChecked(prefs.getBoolean("sync_flagged", true));
         swSyncKept.setChecked(prefs.getBoolean("sync_kept", false));
+        swSyncFolders.setChecked(prefs.getBoolean("sync_folders", true));
     }
 
     private String formatHour(Context context, int minutes) {
