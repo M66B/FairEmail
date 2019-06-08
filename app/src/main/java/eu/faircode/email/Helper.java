@@ -98,6 +98,7 @@ public class Helper {
     static final float LOW_LIGHT = 0.6f;
 
     static final String FAQ_URI = "https://github.com/M66B/open-source-email/blob/master/FAQ.md";
+    static final String XDA_URI = "https://forum.xda-developers.com/android/apps-games/source-email-t3824168";
 
     static ThreadFactory backgroundThreadFactory = new ThreadFactory() {
         private final AtomicInteger threadId = new AtomicInteger();
@@ -231,19 +232,22 @@ public class Helper {
     }
 
     static Intent getIntentIssue(Context context) {
-        String version = BuildConfig.VERSION_NAME + "/" +
-                (Helper.hasValidFingerprint(context) ? "1" : "3") +
-                (Helper.isPro(context) ? "+" : "");
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setPackage(BuildConfig.APPLICATION_ID);
-        intent.setType("text/plain");
-        try {
-            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{Log.myAddress().getAddress()});
-        } catch (UnsupportedEncodingException ex) {
-            Log.w(ex);
-        }
-        intent.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.title_issue_subject, version));
-        return intent;
+        if (BuildConfig.BETA_RELEASE) {
+            String version = BuildConfig.VERSION_NAME + "/" +
+                    (Helper.hasValidFingerprint(context) ? "1" : "3") +
+                    (Helper.isPro(context) ? "+" : "");
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setPackage(BuildConfig.APPLICATION_ID);
+            intent.setType("text/plain");
+            try {
+                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{Log.myAddress().getAddress()});
+            } catch (UnsupportedEncodingException ex) {
+                Log.w(ex);
+            }
+            intent.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.title_issue_subject, version));
+            return intent;
+        } else
+            return new Intent(Intent.ACTION_VIEW, Uri.parse(XDA_URI));
     }
 
     // Graphics
