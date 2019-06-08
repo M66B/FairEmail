@@ -19,6 +19,10 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationChannelGroup;
+import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -31,6 +35,8 @@ import android.content.res.AssetFileDescriptor;
 import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -42,6 +48,7 @@ import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.documentfile.provider.DocumentFile;
@@ -602,12 +609,25 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
                 Log.i("Collecting data");
                 DB db = DB.getInstance(context);
+                NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
                 // Accounts
                 JSONArray jaccounts = new JSONArray();
                 for (EntityAccount account : db.account().getAccounts()) {
                     // Account
                     JSONObject jaccount = account.toJSON();
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        if (account.notify) {
+                            NotificationChannel channel = nm.getNotificationChannel(
+                                    EntityAccount.getNotificationChannelId(account.id));
+                            if (channel != null && channel.getImportance() != NotificationManager.IMPORTANCE_NONE) {
+                                JSONObject jchannel = channelToJSON(channel);
+                                jaccount.put("channel", jchannel);
+                                Log.i("Exported account channel=" + jchannel);
+                            }
+                        }
+                    }
 
                     // Identities
                     JSONArray jidentities = new JSONArray();
@@ -619,10 +639,22 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     JSONArray jfolders = new JSONArray();
                     for (EntityFolder folder : db.folder().getFolders(account.id)) {
                         JSONObject jfolder = folder.toJSON();
+
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            NotificationChannel channel = nm.getNotificationChannel(
+                                    EntityFolder.getNotificationChannelId(folder.id));
+                            if (channel != null && channel.getImportance() != NotificationManager.IMPORTANCE_NONE) {
+                                JSONObject jchannel = channelToJSON(channel);
+                                jfolder.put("channel", jchannel);
+                                Log.i("Exported folder channel=" + jchannel);
+                            }
+                        }
+
                         JSONArray jrules = new JSONArray();
                         for (EntityRule rule : db.rule().getRules(folder.id))
                             jrules.put(rule.toJSON());
                         jfolder.put("rules", jrules);
+
                         jfolders.put(jfolder);
                     }
                     jaccount.put("folders", jfolders);
@@ -656,8 +688,20 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 jexport.put("accounts", jaccounts);
                 jexport.put("answers", janswers);
                 jexport.put("settings", jsettings);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                    jexport.put("channels", ApplicationEx.channelsToJSON(context));
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    JSONArray jchannels = new JSONArray();
+                    for (NotificationChannel channel : nm.getNotificationChannels()) {
+                        String id = channel.getId();
+                        if (id.startsWith("notification.") && id.contains("@") &&
+                                channel.getImportance() != NotificationManager.IMPORTANCE_NONE) {
+                            JSONObject jchannel = channelToJSON(channel);
+                            jchannels.put(jchannel);
+                            Log.i("Exported contact channel=" + jchannel);
+                        }
+                    }
+                    jexport.put("channels", jchannels);
+                }
 
                 ContentResolver resolver = context.getContentResolver();
                 DocumentFile file = DocumentFile.fromSingleUri(context, uri);
@@ -761,6 +805,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 JSONObject jimport = new JSONObject(data.toString());
 
                 DB db = DB.getInstance(context);
+                NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                 try {
                     db.beginTransaction();
 
@@ -795,9 +840,21 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                         account.id = db.account().insertAccount(account);
                         Log.i("Imported account=" + account.name);
 
-                        account.deleteNotificationChannel(context);
-                        if (account.notify)
-                            account.createNotificationChannel(context);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            account.deleteNotificationChannel(context);
+                            if (account.notify)
+                                if (jaccount.has("channel")) {
+                                    NotificationChannelGroup group = new NotificationChannelGroup(account.name, account.name);
+                                    nm.createNotificationChannelGroup(group);
+
+                                    JSONObject jchannel = (JSONObject) jaccount.get("channel");
+                                    jchannel.put("id", EntityAccount.getNotificationChannelId(account.id));
+                                    nm.createNotificationChannel(channelFromJSON(context, jchannel));
+
+                                    Log.i("Imported account channel=" + jchannel);
+                                } else
+                                    account.createNotificationChannel(context);
+                        }
 
                         Map<Long, Long> xIdentity = new HashMap<>();
                         JSONArray jidentities = (JSONArray) jaccount.get("identities");
@@ -832,6 +889,19 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                                 account.swipe_left = folder.id;
                             if (Objects.equals(swipe_right, id))
                                 account.swipe_right = folder.id;
+
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                if (jfolder.has("channel")) {
+                                    NotificationChannelGroup group = new NotificationChannelGroup(account.name, account.name);
+                                    nm.createNotificationChannelGroup(group);
+
+                                    JSONObject jchannel = (JSONObject) jfolder.get("channel");
+                                    jchannel.put("id", EntityFolder.getNotificationChannelId(folder.id));
+                                    nm.createNotificationChannel(channelFromJSON(context, jchannel));
+
+                                    Log.i("Imported folder channel=" + jchannel);
+                                }
+                            }
 
                             if (jfolder.has("rules")) {
                                 JSONArray jrules = jfolder.getJSONArray("rules");
@@ -916,11 +986,17 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     editor.apply();
                     ApplicationEx.upgrade(context);
 
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                         if (jimport.has("channels")) {
                             JSONArray jchannels = jimport.getJSONArray("channels");
-                            ApplicationEx.channelsFromJSON(context, jchannels);
+                            for (int i = 0; i < jchannels.length(); i++) {
+                                JSONObject jchannel = (JSONObject) jchannels.get(i);
+                                nm.createNotificationChannel(channelFromJSON(context, jchannel));
+
+                                Log.i("Imported contact channel=" + jchannel);
+                            }
                         }
+                    }
 
                     db.setTransactionSuccessful();
                 } finally {
@@ -948,6 +1024,63 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     Helper.unexpectedError(ActivitySetup.this, ActivitySetup.this, ex);
             }
         }.execute(this, args, "setup:import");
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private JSONObject channelToJSON(NotificationChannel channel) throws JSONException {
+        JSONObject jchannel = new JSONObject();
+
+        jchannel.put("id", channel.getId());
+        jchannel.put("group", channel.getGroup());
+        jchannel.put("name", channel.getName());
+        jchannel.put("description", channel.getDescription());
+
+        jchannel.put("importance", channel.getImportance());
+        jchannel.put("dnd", channel.canBypassDnd());
+        jchannel.put("visibility", channel.getLockscreenVisibility());
+        jchannel.put("badge", channel.canShowBadge());
+
+        Uri sound = channel.getSound();
+        if (sound != null)
+            jchannel.put("sound", sound.toString());
+        // audio attributes
+
+        jchannel.put("light", channel.shouldShowLights());
+        // color
+
+        jchannel.put("vibrate", channel.shouldVibrate());
+        // pattern
+
+        return jchannel;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    static NotificationChannel channelFromJSON(Context context, JSONObject jchannel) throws JSONException {
+        NotificationChannel channel = new NotificationChannel(
+                jchannel.getString("id"),
+                jchannel.getString("name"),
+                jchannel.getInt("importance"));
+
+        channel.setGroup(jchannel.getString("group"));
+
+        if (jchannel.has("description") && !jchannel.isNull("description"))
+            channel.setDescription(jchannel.getString("description"));
+
+        channel.setBypassDnd(jchannel.getBoolean("dnd"));
+        channel.setLockscreenVisibility(jchannel.getInt("visibility"));
+        channel.setShowBadge(jchannel.getBoolean("badge"));
+
+        if (jchannel.has("sound") && !jchannel.isNull("sound")) {
+            Uri uri = Uri.parse(jchannel.getString("sound"));
+            Ringtone ringtone = RingtoneManager.getRingtone(context, uri);
+            if (ringtone != null)
+                channel.setSound(uri, Notification.AUDIO_ATTRIBUTES_DEFAULT);
+        }
+
+        channel.enableLights(jchannel.getBoolean("light"));
+        channel.enableVibration(jchannel.getBoolean("vibrate"));
+
+        return channel;
     }
 
     private void onEditAccount(Intent intent) {

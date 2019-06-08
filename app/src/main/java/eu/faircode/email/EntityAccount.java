@@ -24,8 +24,10 @@ import android.app.NotificationChannel;
 import android.app.NotificationChannelGroup;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.os.Build;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -104,28 +106,26 @@ public class EntityAccount extends EntityOrder implements Serializable {
         return "notification" + (id == 0 ? "" : "." + id);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     void createNotificationChannel(Context context) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-            NotificationChannelGroup group = new NotificationChannelGroup(name, name);
-            nm.createNotificationChannelGroup(group);
+        NotificationChannelGroup group = new NotificationChannelGroup(name, name);
+        nm.createNotificationChannelGroup(group);
 
-            NotificationChannel channel = new NotificationChannel(
-                    getNotificationChannelId(id), name,
-                    NotificationManager.IMPORTANCE_HIGH);
-            channel.setGroup(name);
-            channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-            channel.enableLights(true);
-            nm.createNotificationChannel(channel);
-        }
+        NotificationChannel channel = new NotificationChannel(
+                getNotificationChannelId(id), name,
+                NotificationManager.IMPORTANCE_HIGH);
+        channel.setGroup(name);
+        channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        channel.enableLights(true);
+        nm.createNotificationChannel(channel);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     void deleteNotificationChannel(Context context) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-            nm.deleteNotificationChannel(getNotificationChannelId(id));
-        }
+        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.deleteNotificationChannel(getNotificationChannelId(id));
     }
 
     @Override

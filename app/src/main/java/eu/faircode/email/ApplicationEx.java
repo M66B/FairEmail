@@ -28,19 +28,14 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.DeadSystemException;
 import android.os.Handler;
 import android.os.RemoteException;
-import android.text.TextUtils;
 import android.view.OrientationEventListener;
 import android.webkit.CookieManager;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.preference.PreferenceManager;
 
 import com.bugsnag.android.BeforeNotify;
@@ -51,18 +46,12 @@ import com.bugsnag.android.Error;
 import com.bugsnag.android.Report;
 import com.sun.mail.iap.ProtocolException;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -73,10 +62,6 @@ import javax.mail.MessagingException;
 
 public class ApplicationEx extends Application {
     private Thread.UncaughtExceptionHandler prev = null;
-
-    private static final List<String> DEFAULT_CHANNEL_NAMES = Collections.unmodifiableList(Arrays.asList(
-            "service", "notification", "warning", "error"
-    ));
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -331,89 +316,6 @@ public class ApplicationEx extends Application {
                     "contacts",
                     getString(R.string.channel_group_contacts));
             nm.createNotificationChannelGroup(group);
-        }
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    static JSONArray channelsToJSON(Context context) throws JSONException {
-        JSONArray jchannels = new JSONArray();
-
-        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        for (NotificationChannel channel : nm.getNotificationChannels())
-            if (!DEFAULT_CHANNEL_NAMES.contains(channel.getId())) {
-                JSONObject jchannel = new JSONObject();
-
-                jchannel.put("id", channel.getId());
-                jchannel.put("group", channel.getGroup());
-                jchannel.put("name", channel.getName());
-                jchannel.put("description", channel.getDescription());
-
-                jchannel.put("importance", channel.getImportance());
-                jchannel.put("dnd", channel.canBypassDnd());
-                jchannel.put("visibility", channel.getLockscreenVisibility());
-                jchannel.put("badge", channel.canShowBadge());
-
-                Uri sound = channel.getSound();
-                if (sound != null)
-                    jchannel.put("sound", sound.toString());
-                // audio attributes
-
-                jchannel.put("light", channel.shouldShowLights());
-                // color
-
-                jchannel.put("vibrate", channel.shouldVibrate());
-                // pattern
-
-                jchannels.put(jchannel);
-            }
-
-        return jchannels;
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    static void channelsFromJSON(Context context, JSONArray jchannels) throws JSONException {
-        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        for (int c = 0; c < jchannels.length(); c++) {
-            JSONObject jchannel = (JSONObject) jchannels.get(c);
-
-            // Legacy
-            if (!jchannel.has("group") ||
-                    jchannel.isNull("group") ||
-                    TextUtils.isEmpty(jchannel.getString("group")))
-                continue;
-
-            String id = jchannel.getString("id");
-            if (nm.getNotificationChannel(id) == null) {
-                NotificationChannel channel = new NotificationChannel(
-                        id,
-                        jchannel.getString("name"),
-                        jchannel.getInt("importance"));
-
-                String groupName = jchannel.getString("group");
-                NotificationChannelGroup group = new NotificationChannelGroup(groupName, groupName);
-                nm.createNotificationChannelGroup(group);
-                channel.setGroup(groupName);
-
-                if (jchannel.has("description") && !jchannel.isNull("description"))
-                    channel.setDescription(jchannel.getString("description"));
-
-                channel.setBypassDnd(jchannel.getBoolean("dnd"));
-                channel.setLockscreenVisibility(jchannel.getInt("visibility"));
-                channel.setShowBadge(jchannel.getBoolean("badge"));
-
-                if (jchannel.has("sound") && !jchannel.isNull("sound")) {
-                    Uri uri = Uri.parse(jchannel.getString("sound"));
-                    Ringtone ringtone = RingtoneManager.getRingtone(context, uri);
-                    if (ringtone != null)
-                        channel.setSound(uri, Notification.AUDIO_ATTRIBUTES_DEFAULT);
-                }
-
-                channel.enableLights(jchannel.getBoolean("light"));
-                channel.enableVibration(jchannel.getBoolean("vibrate"));
-
-                Log.i("Creating channel=" + channel);
-                nm.createNotificationChannel(channel);
-            }
         }
     }
 

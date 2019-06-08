@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.annotation.TargetApi;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -43,6 +42,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -410,15 +410,18 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             return true;
 
                         case R.string.title_create_channel:
-                            onActionCreateChannel();
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                                onActionCreateChannel();
                             return true;
 
                         case R.string.title_edit_channel:
-                            onActionEditChannel();
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                                onActionEditChannel();
                             return true;
 
                         case R.string.title_delete_channel:
-                            onActionDeleteChannel();
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                                onActionDeleteChannel();
                             return true;
 
                         default:
@@ -622,6 +625,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                     .putExtra("id", folder.id));
                 }
 
+                @RequiresApi(api = Build.VERSION_CODES.O)
                 private void onActionCreateChannel() {
                     if (!Helper.isPro(context)) {
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
@@ -633,7 +637,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     onActionEditChannel();
                 }
 
-                @TargetApi(Build.VERSION_CODES.O)
+                @RequiresApi(api = Build.VERSION_CODES.O)
                 private void onActionEditChannel() {
                     Intent intent = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
                             .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName())
@@ -641,6 +645,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     context.startActivity(intent);
                 }
 
+                @RequiresApi(api = Build.VERSION_CODES.O)
                 private void onActionDeleteChannel() {
                     folder.deleteNotificationChannel(context);
                 }

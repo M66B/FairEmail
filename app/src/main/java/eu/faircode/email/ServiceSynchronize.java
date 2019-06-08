@@ -464,10 +464,12 @@ public class ServiceSynchronize extends LifecycleService {
                     // Start monitoring accounts
                     List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
                     for (final EntityAccount account : accounts) {
-                        if (account.notify)
-                            account.createNotificationChannel(ServiceSynchronize.this);
-                        else
-                            account.deleteNotificationChannel(ServiceSynchronize.this);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            if (account.notify)
+                                account.createNotificationChannel(ServiceSynchronize.this);
+                            else
+                                account.deleteNotificationChannel(ServiceSynchronize.this);
+                        }
 
                         Log.i(account.host + "/" + account.user + " run");
                         final Core.State astate = new Core.State(state);
