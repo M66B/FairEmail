@@ -5,6 +5,7 @@
     <string name="app_changelog">Endringer</string>
     <string name="app_welcome">FairEmail er en åpen kildekode e-postprogram som er fokusert på personvern og sikkerhet. Av denne grunn kan noen funksjoner virke annerledes enn det du er vant til.</string>
     <string name="app_limitations">For eksempel vil meldinger alltid bli formatert for å fjerne usikre elementer, og for å forbedre lesbarheten og åpning av linker må bekreftes for sikkerhet.</string>
+    <string name="app_guarantee">Stor forsiktighet har blitt tatt for å utvikle FairEmail, men det er umulig å garantere at FairEmail vil fungere riktig på alle enheter og i alle situasjoner.</string>
     <string name="app_crash">FairEmail støttes ikke på denne enheten fordi feil i Android forårsaker krasjer</string>
     <string name="channel_service">Service</string>
     <string name="channel_notification">Varsler</string>
