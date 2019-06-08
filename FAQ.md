@@ -30,6 +30,7 @@ For authorizing:
 * A [bug in Android](https://issuetracker.google.com/issues/119872129) "*... Bad notification posted ...*" lets FairEmail crash on some devices after updating FairEmail and tapping on a notification.
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) "*... ActivityRecord not found for ...*" sometimes causes a crash after updating FairEmail.
 * Encryption with [YubiKey](https://www.yubico.com/) results into an infinite loop. FairEmail follows the latest version of the [OpenKeychain API](https://github.com/open-keychain/openpgp-api), so this is likely being caused by an external bug.
+* A bug in the Nova Launcher lets FairEmail crash with a *java.lang.StackOverflowError* when the Nova Launcher has access to the accessibility service.
 
 ## Planned features
 
