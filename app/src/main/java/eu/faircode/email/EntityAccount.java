@@ -110,13 +110,13 @@ public class EntityAccount extends EntityOrder implements Serializable {
     void createNotificationChannel(Context context) {
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        NotificationChannelGroup group = new NotificationChannelGroup(name, name);
+        NotificationChannelGroup group = new NotificationChannelGroup("group." + id, name);
         nm.createNotificationChannelGroup(group);
 
         NotificationChannel channel = new NotificationChannel(
                 getNotificationChannelId(id), name,
                 NotificationManager.IMPORTANCE_HIGH);
-        channel.setGroup(name);
+        channel.setGroup(group.getId());
         channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
         channel.enableLights(true);
         nm.createNotificationChannel(channel);

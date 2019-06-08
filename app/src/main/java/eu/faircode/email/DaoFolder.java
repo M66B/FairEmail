@@ -32,7 +32,7 @@ public interface DaoFolder {
     List<EntityFolder> getFolders(long account);
 
     @Query("SELECT folder.*" +
-            ", account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
+            ", account.id AS accountId, account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
@@ -64,7 +64,7 @@ public interface DaoFolder {
     List<TupleFolderSort> getSortedFolders();
 
     @Query("SELECT folder.*" +
-            ", account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
+            ", account.id AS accountId, account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
@@ -80,7 +80,7 @@ public interface DaoFolder {
     LiveData<List<TupleFolderEx>> liveFolders(Long account);
 
     @Query("SELECT folder.*" +
-            ", account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
+            ", account.id AS accountId, account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
@@ -119,7 +119,7 @@ public interface DaoFolder {
     LiveData<Integer> liveSynchronizing();
 
     @Query("SELECT folder.*" +
-            ", account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
+            ", account.id AS accountId, account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +

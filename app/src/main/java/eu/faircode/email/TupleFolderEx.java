@@ -37,6 +37,7 @@ import java.util.Locale;
 import java.util.Objects;
 
 public class TupleFolderEx extends EntityFolder implements Serializable {
+    public Long accountId;
     public Integer accountOrder;
     public String accountName;
     public Integer accountColor;
@@ -63,6 +64,7 @@ public class TupleFolderEx extends EntityFolder implements Serializable {
         if (obj instanceof TupleFolderEx) {
             TupleFolderEx other = (TupleFolderEx) obj;
             return (super.equals(obj) &&
+                    Objects.equals(this.accountId, other.accountId) &&
                     Objects.equals(this.accountName, other.accountName) &&
                     Objects.equals(this.accountColor, other.accountColor) &&
                     Objects.equals(this.accountState, other.accountState) &&
@@ -78,13 +80,13 @@ public class TupleFolderEx extends EntityFolder implements Serializable {
     void createNotificationChannel(Context context) {
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        NotificationChannelGroup group = new NotificationChannelGroup(accountName, accountName);
+        NotificationChannelGroup group = new NotificationChannelGroup("group." + accountId, accountName);
         nm.createNotificationChannelGroup(group);
 
         NotificationChannel channel = new NotificationChannel(
                 getNotificationChannelId(id), getDisplayName(context),
                 NotificationManager.IMPORTANCE_HIGH);
-        channel.setGroup(accountName);
+        channel.setGroup(group.getId());
         channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
         channel.enableLights(true);
         nm.createNotificationChannel(channel);

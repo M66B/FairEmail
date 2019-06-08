@@ -844,11 +844,12 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                             account.deleteNotificationChannel(context);
                             if (account.notify)
                                 if (jaccount.has("channel")) {
-                                    NotificationChannelGroup group = new NotificationChannelGroup(account.name, account.name);
+                                    NotificationChannelGroup group = new NotificationChannelGroup("group." + account.id, account.name);
                                     nm.createNotificationChannelGroup(group);
 
                                     JSONObject jchannel = (JSONObject) jaccount.get("channel");
                                     jchannel.put("id", EntityAccount.getNotificationChannelId(account.id));
+                                    jchannel.put("group", group.getId());
                                     nm.createNotificationChannel(channelFromJSON(context, jchannel));
 
                                     Log.i("Imported account channel=" + jchannel);
@@ -892,11 +893,12 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                                 if (jfolder.has("channel")) {
-                                    NotificationChannelGroup group = new NotificationChannelGroup(account.name, account.name);
+                                    NotificationChannelGroup group = new NotificationChannelGroup("group." + account.id, account.name);
                                     nm.createNotificationChannelGroup(group);
 
                                     JSONObject jchannel = (JSONObject) jfolder.get("channel");
                                     jchannel.put("id", EntityFolder.getNotificationChannelId(folder.id));
+                                    jchannel.put("group", group.getId());
                                     nm.createNotificationChannel(channelFromJSON(context, jchannel));
 
                                     Log.i("Imported folder channel=" + jchannel);
