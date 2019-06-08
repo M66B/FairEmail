@@ -5,7 +5,6 @@
     <string name="app_changelog">Liste des modifications</string>
     <string name="app_welcome">FairEmail est une application de messagerie open source axée sur la confidentialité et la sécurité. C\'est pourquoi certaines fonctionnalités peuvent fonctionner différemment de ce à quoi vous êtes habitué.</string>
     <string name="app_limitations">Par exemple, les messages seront toujours reformatés pour enlever les éléments non sûrs et pour améliorer la lisibilité et l\'ouverture des liens doit être confirmée par sécurité.</string>
-    <string name="app_guarantee">Beaucoup de précautions ont été prises pour le développement de FairEmail, cependant il est impossible de garantir que FairEmail fonctionnera correctement sur tous les appareils et dans toutes les situations.</string>
     <string name="app_crash">FairEmail n\'est pas pris en charge sur cet appareil parce que des bogues dans Android provoquent des plantages</string>
     <string name="channel_service">Service</string>
     <string name="channel_notification">Notifications</string>
@@ -140,6 +139,7 @@
     <string name="title_advanced_unseen">Tous les messages non lus</string>
     <string name="title_advanced_flagged">Tous les messages suivis</string>
     <string name="title_advanced_kept_removed">Vérifier si les anciens messages ont été supprimés du serveur</string>
+    <string name="title_advanced_sync_folders">Synchroniser la liste des dossiers</string>
     <string name="title_advanced_prefix_once">Ne préfixer le sujet qu\'une seule fois lors de la réponse ou du transfert</string>
     <string name="title_advanced_autoresize">Redimensionner automatiquement les images jointes et incluses</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
@@ -198,8 +198,8 @@
     <string name="title_advanced_enabled_hint">Désactiver ou activer globalement la réception de messages</string>
     <string name="title_advanced_manual_hint">Si la synchronisation est désactivée, il est toujours possible de synchroniser manuellement en tirant vers le bas la liste des messages. Ceci synchronisera les messages et exécutera les opérations pendant une durée limitée.</string>
     <string name="title_advanced_poll_hint">La synchronisation périodique comparera les messages locaux et distants à chaque fois, ce qui est une opération coûteuse qui peut entraîner une utilisation supplémentaire de la batterie, surtout lorsqu\'il y a beaucoup de messages à synchroniser. La synchronisation en continu évitera cela en surveillant uniquement les changements.</string>
-    <string name="title_advanced_sync_kept_hint">Ceci transférera des données supplémentaires et utilisera de la batterie supplémentaire, surtout s\'il y a beaucoup de messages conservés sur l\'appareil</string>
     <string name="title_advanced_schedule_hint">Appuyez sur une heure pour définir une heure</string>
+    <string name="title_advanced_sync_kept_hint">Ceci transférera des données supplémentaires et utilisera de la batterie supplémentaire, surtout s\'il y a beaucoup de messages conservés sur l\'appareil</string>
     <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>
     <string name="title_advanced_metered_warning">Désactiver cette option désactivera la réception et l\'envoi de messages sur les connexions Internet mobiles</string>
     <string name="title_advanced_rlah_hint">On considère qu\'il n\'y a pas d\'itinérance au sein de l\'UE (roam like at home)</string>

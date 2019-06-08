@@ -5,7 +5,6 @@
     <string name="app_changelog">Endringer</string>
     <string name="app_welcome">FairEmail er en åpen kildekode e-postprogram som er fokusert på personvern og sikkerhet. Av denne grunn kan noen funksjoner virke annerledes enn det du er vant til.</string>
     <string name="app_limitations">For eksempel vil meldinger alltid bli formatert for å fjerne usikre elementer, og for å forbedre lesbarheten og åpning av linker må bekreftes for sikkerhet.</string>
-    <string name="app_guarantee">Stor forsiktighet har blitt tatt for å utvikle FairEmail, men det er umulig å garantere at FairEmail vil fungere riktig på alle enheter og i alle situasjoner.</string>
     <string name="app_crash">FairEmail støttes ikke på denne enheten fordi feil i Android forårsaker krasjer</string>
     <string name="channel_service">Service</string>
     <string name="channel_notification">Varsler</string>
@@ -198,8 +197,8 @@
     <string name="title_advanced_enabled_hint">Globalt deaktivere eller aktivere mottak av meldinger</string>
     <string name="title_advanced_manual_hint">Hvis synkronisering er deaktivert, er det fortsatt mulig å synkronisere manuelt ved å trekke ned meldingslisten. Dette vil synkronisere meldinger og utføre operasjoner i en begrenset periode.</string>
     <string name="title_advanced_poll_hint">Synkronisering med jevne mellomrom vil sammenligne lokale og eksterne meldinger hver gang, noe som er en dyr operasjon som muligens resulterer i ekstra batteribruk, spesielt når det er mange meldinger som skal synkroniseres. Alltid synkronisering vil unngå dette ved kontinuerlig sjekking for endringer.</string>
-    <string name="title_advanced_sync_kept_hint">Dette overfører ekstra data og bruker ekstra batteristrøm, spesielt hvis det er mange meldinger som holdes på enheten</string>
     <string name="title_advanced_schedule_hint">Trykk på en tid for å angi en tid</string>
+    <string name="title_advanced_sync_kept_hint">Dette overfører ekstra data og bruker ekstra batteristrøm, spesielt hvis det er mange meldinger som holdes på enheten</string>
     <string name="title_advanced_metered_hint">Målte tilkoblinger er vanligvis mobile tilkoblinger eller betalte Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Deaktivering av dette alternativet deaktiverer mottak og sending av meldinger på mobile internettforbindelser</string>
     <string name="title_advanced_rlah_hint">Forutsatt ingen roaming i EU</string>

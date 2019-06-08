@@ -5,7 +5,6 @@
     <string name="app_changelog">Что нового</string>
     <string name="app_welcome">FairEmail - это почтовое приложение с открытым исходным кодом, ориентированное на конфиденциальность и безопасность. По этой причине некоторые функции могут работать не так, как вы привыкли.</string>
     <string name="app_limitations">Например, сообщения всегда будут переформатированы, чтобы удалить небезопасные элементы и улучшить читабельность, а также открытие ссылок требует подтверждения в целях безопасности.</string>
-    <string name="app_guarantee">Разработка FairEmail ведётся с особой тщательностью, однако невозможно гарантировать, что FairEmail будет работать правильно на каждом устройстве и в любой ситуации.</string>
     <string name="app_crash">FairEmail не поддерживается на этом устройстве, так как ошибки в Android вызывают сбои</string>
     <string name="channel_service">Сервис</string>
     <string name="channel_notification">Уведомления</string>
@@ -156,6 +155,7 @@
     <string name="title_advanced_unseen">Все непрочитанные сообщения</string>
     <string name="title_advanced_flagged">Все избранные сообщения</string>
     <string name="title_advanced_kept_removed">Проверить, были ли удалены старые сообщения с сервера</string>
+    <string name="title_advanced_sync_folders">Синхронизировать список папок</string>
     <string name="title_advanced_prefix_once">Добавлять только один префикс темы при ответе или пересылке</string>
     <string name="title_advanced_autoresize">Автоматически изменять размер прикрепленных и встроенных изображений</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d пикселей</string>
@@ -214,8 +214,8 @@
     <string name="title_advanced_enabled_hint">Глобальное включение/отключение получения сообщений</string>
     <string name="title_advanced_manual_hint">Если синхронизация отключена, можно синхронизировать вручную, потянув вниз список сообщений. Это вызовет синхронизацию сообщений и выполнение операций в течение ограниченного времени.</string>
     <string name="title_advanced_poll_hint">Периодическая проверка будет сравнивать локальные и удаленные сообщения каждый раз, это \"дорогая\" операция, которая может привести к высокому потреблению заряда батареи, особенно когда сообщений для синхронизации много. Непрерывная синхронизация избегает этого, непрерывно получая только изменения.</string>
-    <string name="title_advanced_sync_kept_hint">Это приведёт к большему потреблению трафика и заряда батареи, особенно если на устройстве хранится много сообщений</string>
     <string name="title_advanced_schedule_hint">Нажмите на время, чтобы установить его</string>
+    <string name="title_advanced_sync_kept_hint">Это приведёт к большему потреблению трафика и заряда батареи, особенно если на устройстве хранится много сообщений</string>
     <string name="title_advanced_metered_hint">Лимитированные подключения - это обычно мобильные сети или платные Wi-Fi</string>
     <string name="title_advanced_metered_warning">Отключение этой опции отключит получение и отправку сообщений при мобильном подключении к интернету</string>
     <string name="title_advanced_rlah_hint">Предполагать отсутствие роуминга внутри ЕС</string>

@@ -5,7 +5,6 @@
     <string name="app_changelog">Promjene</string>
     <string name="app_welcome">FairEmail je aplikacija otvorenog izvora (open source) usmjerena na privatnost i sigurnost. Zbog toga neke funkcije mogu raditi drugačije od onoga na što ste navikli.</string>
     <string name="app_limitations">Na primjer, poruke će uvijek biti preoblikovane kako bi se uklonili nesigurni elementi i poboljšana čitljivost, a otvaranje veza mora biti potvrđeno radi sigurnosti.</string>
-    <string name="app_guarantee">Velika pažnja posvećena je razvoju FairEmail-a, međutim, nemoguće je jamčiti da će FairEmail ispravno raditi na svakom uređaju iu svakoj situaciji.</string>
     <string name="app_crash">FairEmail nije podržan na ovom uređaju jer greške u Androidu uzrokuju probleme i padove</string>
     <string name="channel_service">Usluga</string>
     <string name="channel_notification">Obavijesti</string>
@@ -171,8 +170,8 @@
     <string name="title_advanced_enabled_hint">Globalno onemogućiti ili omogućiti primanje poruka</string>
     <string name="title_advanced_manual_hint">Ako je sinkronizacija onemogućena, još uvijek je moguće ručno usklađivanje povlačenjem popisa poruka prema dolje. To će sinkronizirati poruke i izvršavati operacije na ograničeno vrijeme.</string>
     <string name="title_advanced_poll_hint">Sinkroniziranje povremeno će uspoređivati lokalne i udaljene poruke svaki put, što je skupa operacija koja vjerojatno rezultira dodatnom potrošnjom baterije, osobito kada postoji mnogo poruka za sinkronizaciju. Stalna sinkronizacija će to izbjeći kontinuiranim slušanjem samo na promjene.</string>
-    <string name="title_advanced_sync_kept_hint">To će prenijeti dodatne podatke i koristiti dodatnu snagu baterije, osobito ako se na uređaju čuva mnogo poruka</string>
     <string name="title_advanced_schedule_hint">Dodirnite vrijeme za postavljanje vremena</string>
+    <string name="title_advanced_sync_kept_hint">To će prenijeti dodatne podatke i koristiti dodatnu snagu baterije, osobito ako se na uređaju čuva mnogo poruka</string>
     <string name="title_advanced_metered_hint">Mjerne veze su obično mobilne veze ili plaćene Wi-Fi pristupne točke</string>
     <string name="title_advanced_metered_warning">Onemogućivanjem ove opcije onemogućit ćete primanje i slanje poruka na mobilnim internetskim vezama</string>
     <string name="title_advanced_rlah_hint">Ne pretpostavljajući roaming unutar EU</string>

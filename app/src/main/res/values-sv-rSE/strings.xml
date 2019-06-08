@@ -5,7 +5,6 @@
     <string name="app_changelog">Ändringslogg</string>
     <string name="app_welcome">FairEmail är en e-postapp med öppen källkod som är fokuserad på integritet och säkerhet. Av denna anledning kan vissa funktioner fungera annorlunda än vad du är van vid.</string>
     <string name="app_limitations">Meddelanden kommer till exempel alltid att omformateras för att avlägsna osäkra element och för att förbättra läsbarheten och öppna länkar måste bekräftas för säkerheten.</string>
-    <string name="app_guarantee">Stor omsorg har tagits för att utveckla FairEmail, men det är omöjligt att garantera FairEmail kommer att fungera korrekt på varje enhet och i varje situation.</string>
     <string name="app_crash">FairEmail stöds inte på den här enheten eftersom buggar i Android orsakar kraschar</string>
     <string name="channel_service">Tjänst</string>
     <string name="channel_notification">Aviseringar</string>
@@ -197,8 +196,8 @@
     <string name="title_advanced_enabled_hint">Globalt inaktivera eller aktivera mottagning av meddelanden</string>
     <string name="title_advanced_manual_hint">Om synkroniseringen är inaktiverad är det fortfarande möjligt att synkronisera manuellt genom att dra ner meddelandelistan. Detta synkroniserar meddelanden och utför operationer under en begränsad tid.</string>
     <string name="title_advanced_poll_hint">Synkronisering med jämna mellanrum kommer att jämföra lokala- och fjärrmeddelanden varje gång, vilket är en dyr operation som eventuellt resulterar i extra batterianvändning, speciellt när det finns många meddelanden att synkronisera. Alltid synkronisering kommer att undvika detta genom kontinuerlig lyssning för ändringar endast.</string>
-    <string name="title_advanced_sync_kept_hint">Detta kommer att överföra extra data och använda extra batterikraft, speciellt om det finns många meddelanden som hålls på enheten</string>
     <string name="title_advanced_schedule_hint">Tryck på en tid för att ställa in en tid</string>
+    <string name="title_advanced_sync_kept_hint">Detta kommer att överföra extra data och använda extra batterikraft, speciellt om det finns många meddelanden som hålls på enheten</string>
     <string name="title_advanced_metered_hint">Uppmätta anslutningar är generellt mobila anslutningar eller betalda Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Inaktivering av det här alternativet inaktiverar mottagning och sändning av meddelanden på mobila internetanslutningar</string>
     <string name="title_advanced_rlah_hint">Förutsatt ingen roaming inom EU</string>

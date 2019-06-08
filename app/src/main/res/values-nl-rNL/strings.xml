@@ -5,7 +5,6 @@
     <string name="app_changelog">Wijzigingen</string>
     <string name="app_welcome">FairEmail is een open source e-mail app gericht op privacy en veiligheid. Om deze reden werken sommige functies mogelijk anders dan u gewend bent.</string>
     <string name="app_limitations">Berichten worden bijvoorbeeld altijd opnieuw geformatteerd om onveilige elementen te verwijderen en de leesbaarheid te verbeteren en het openen van links moet voor de veiligheid worden bevestigd.</string>
-    <string name="app_guarantee">Er is veel zorg besteed aan de ontwikkeling van FairEmail, maar het is onmogelijk om te garanderen dat FairEmail op elk apparaat en in elke situatie correct zal werken.</string>
     <string name="app_crash">FairEmail wordt niet ondersteund op dit apparaat omdat bugs in Android crashes veroorzaken</string>
     <string name="channel_service">Service</string>
     <string name="channel_notification">Meldingen</string>
@@ -140,6 +139,7 @@
     <string name="title_advanced_unseen">Alle ongelezen berichten</string>
     <string name="title_advanced_flagged">Alle berichten met een ster</string>
     <string name="title_advanced_kept_removed">Controleer of oude berichten van de server werden verwijderd</string>
+    <string name="title_advanced_sync_folders">Lijst met mappen synchroniseren</string>
     <string name="title_advanced_prefix_once">Prefix onderwerp slechts één keer bij beantwoorden of doorsturen</string>
     <string name="title_advanced_autoresize">Automatisch bijgevoegde en ingesloten afbeeldingen verkleinen</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
@@ -198,8 +198,9 @@
     <string name="title_advanced_enabled_hint">Globaal in- of uitschakelen van het ontvangen van berichten</string>
     <string name="title_advanced_manual_hint">Als synchronisatie uitgeschakeld is, is het nog steeds mogelijk om handmatig te synchroniseren door de berichtenlijst naar beneden te trekken. Dit zal berichten synchroniseren en bewerkingen uitvoeren gedurende een beperkte tijd.</string>
     <string name="title_advanced_poll_hint">Periodiek synchroniseren zal elke keer lokale en externe berichten vergelijken, wat een dure operatie is en kan resulteren in extra batterijgebruik, vooral wanneer er veel berichten zijn om te synchroniseren. Altijd synchroniseren vermijdt dit door voortdurend te luisteren naar veranderingen.</string>
-    <string name="title_advanced_sync_kept_hint">Dit zal extra gegevens overdragen en extra batterijvermogen gebruiken, vooral als er veel berichten op het apparaat worden opgeslagen</string>
     <string name="title_advanced_schedule_hint">Tik op een tijd om een tijd in te stellen</string>
+    <string name="title_advanced_sync_kept_hint">Dit zal extra gegevens overdragen en extra batterijvermogen gebruiken, vooral als er veel berichten op het apparaat worden opgeslagen</string>
+    <string name="title_advanced_sync_folders_hint">Dit uitschakelen zal het gebruik van gegevens en batterij enigszins verminderen, maar zal ook het bijwerken van de lijst met mappen uitschakelen</string>
     <string name="title_advanced_metered_hint">Gemeten verbindingen zijn over het algemeen mobiele verbindingen of betaalde Wi-Fi hotspots</string>
     <string name="title_advanced_metered_warning">Uitschakelen van deze optie zal het ontvangen en verzenden van berichten op mobiele internetverbindingen uitschakelen</string>
     <string name="title_advanced_rlah_hint">Veronderstel geen roaming binnen de EU</string>
