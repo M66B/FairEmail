@@ -592,9 +592,10 @@ public class MessageHelper {
     }
 
     Address[] getListPost() throws MessagingException {
+        String list = null;
         try {
             // https://www.ietf.org/rfc/rfc2369.txt
-            String list = imessage.getHeader("List-Post", null);
+            list = imessage.getHeader("List-Post", null);
             if (list == null)
                 return null;
 
@@ -613,7 +614,7 @@ public class MessageHelper {
 
             return new Address[]{new InternetAddress(mailto.getTo().split(",")[0])};
         } catch (android.net.ParseException ex) {
-            Log.w(ex);
+            Log.w(new IllegalArgumentException(list, ex));
             return null;
         } catch (AddressException ex) {
             Log.w(ex);
