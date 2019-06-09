@@ -78,7 +78,7 @@ public class FixedRecyclerView extends RecyclerView {
             return false;
         } catch (IllegalStateException ex) {
             // Range start point not set
-            Log.w(ex);
+            Log.i(ex);
             return false;
         }
     }
