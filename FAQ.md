@@ -28,7 +28,7 @@ For authorizing:
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty.~~
 * "*... Couldn't read row ...*" causes sometimes a crash. This could be caused by a bug in the [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room) but more likely indicates a corrupt database.
 * A [bug in Android](https://issuetracker.google.com/issues/119872129) "*... Bad notification posted ...*" lets FairEmail crash on some devices after updating FairEmail and tapping on a notification.
-* A [bug in Android](https://issuetracker.google.com/issues/62427912) "*... ActivityRecord not found for ...*" sometimes causes a crash after updating FairEmail.
+* A [bug in Android](https://issuetracker.google.com/issues/62427912) "*... ActivityRecord not found for ...*" sometimes causes a crash after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) migth fix the problem.
 * Encryption with [YubiKey](https://www.yubico.com/) results into an infinite loop. FairEmail follows the latest version of the [OpenKeychain API](https://github.com/open-keychain/openpgp-api), so this is likely being caused by an external bug.
 * A bug in the Nova Launcher lets FairEmail crash with a *java.lang.StackOverflowError* when the Nova Launcher has access to the accessibility service.
 
