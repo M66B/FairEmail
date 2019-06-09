@@ -216,6 +216,7 @@
     <string name="title_advanced_poll_hint">Периодическая проверка будет сравнивать локальные и удаленные сообщения каждый раз, это \"дорогая\" операция, которая может привести к высокому потреблению заряда батареи, особенно когда сообщений для синхронизации много. Непрерывная синхронизация избегает этого, непрерывно получая только изменения.</string>
     <string name="title_advanced_schedule_hint">Нажмите на время, чтобы установить его</string>
     <string name="title_advanced_sync_kept_hint">Это приведёт к большему потреблению трафика и заряда батареи, особенно если на устройстве хранится много сообщений</string>
+    <string name="title_advanced_sync_folders_hint">Отключение этого уменьшит потребление трафика и заряда батареи, но также отключит обновление списка папок</string>
     <string name="title_advanced_metered_hint">Лимитированные подключения - это обычно мобильные сети или платные Wi-Fi</string>
     <string name="title_advanced_metered_warning">Отключение этой опции отключит получение и отправку сообщений при мобильном подключении к интернету</string>
     <string name="title_advanced_rlah_hint">Предполагать отсутствие роуминга внутри ЕС</string>
@@ -286,7 +287,7 @@
     <string name="title_no_inbox">Папка \"Входящие\" не найдена</string>
     <string name="title_no_primary_drafts">Нет основной учетной записи или папки черновиков</string>
     <string name="title_no_identities">Отправка писем требует хотя бы одного идентификатора</string>
-    <string name="title_no_idle">Этот провайдер не поддерживает push-сообщения. Это задержит прием новых сообщений и увеличит расход батареи.</string>
+    <string name="title_no_idle">Этот провайдер не поддерживает push-сообщения. Это задержит прием новых сообщений и увеличит расход заряда батареи.</string>
     <string name="title_no_utf8">Этот провайдер не поддерживает UTF-8</string>
     <string name="title_no_sync">Ошибки синхронизации после %1$s</string>
     <string name="title_identity_required">Для отправки сообщений требуется идентификатор</string>
@@ -320,7 +321,7 @@
     <string name="title_download_folder">Автоматически загружать текст сообщений и вложения</string>
     <string name="title_notify_folder">Уведомлять о новых сообщениях</string>
     <string name="title_sync_days">Синхронизация сообщений (дней)</string>
-    <string name="title_sync_days_remark">Увеличение этого значения увеличит использование батареи и данных</string>
+    <string name="title_sync_days_remark">Увеличение этого значения увеличит потребление трафика и заряда батареи</string>
     <string name="title_keep_days">Сохранить сообщения (дней)</string>
     <string name="title_keep_all">Хранить все сообщения</string>
     <string name="title_auto_delete">Автоматически удалять старые сообщения</string>
