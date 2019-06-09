@@ -143,6 +143,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSelect" />
 
+            <ImageView
+                android:id="@+id/ivBusy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_hourglass_full_24"
+                app:layout_constraintBottom_toTopOf="@+id/seekBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSelect" />
+
             <eu.faircode.email.FixedRecyclerView
                 android:id="@+id/rvMessage"
                 android:layout_width="0dp"

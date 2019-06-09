@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -31,6 +32,7 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleService;
 import androidx.lifecycle.OnLifecycleEvent;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +48,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     private static final ExecutorService executor = Executors.newFixedThreadPool(
             Runtime.getRuntime().availableProcessors(), Helper.backgroundThreadFactory);
+
+    static final String ACTION_TASK_COUNT = BuildConfig.APPLICATION_ID + ".ACTION_TASK_COUNT";
 
     public void execute(Context context, LifecycleOwner owner, @NonNull Bundle args, @NonNull String name) {
         run(context, owner, args, name);
@@ -71,9 +75,14 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         final Handler handler = new Handler();
 
         // prevent garbage collection
+        int count;
         synchronized (tasks) {
             tasks.add(this);
+            count = tasks.size();
         }
+
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+        lbm.sendBroadcast(new Intent(ACTION_TASK_COUNT).putExtra("count", count));
 
         try {
             onPreExecute(args);
@@ -104,12 +113,12 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                         Lifecycle.State state = owner.getLifecycle().getCurrentState();
                         if (state.equals(Lifecycle.State.DESTROYED)) {
                             // No delivery
-                            cleanup();
+                            cleanup(context);
                         } else if (state.isAtLeast(Lifecycle.State.RESUMED)) {
                             // Inline delivery
                             Log.i("Deliver task " + name);
                             deliver();
-                            cleanup();
+                            cleanup(context);
                         } else
                             owner.getLifecycle().addObserver(new LifecycleObserver() {
                                 @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
@@ -118,7 +127,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                                     Log.i("Resume task " + name);
                                     owner.getLifecycle().removeObserver(this);
                                     deliver();
-                                    cleanup();
+                                    cleanup(context);
                                 }
 
                                 @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
@@ -126,7 +135,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                                     // No delivery
                                     Log.i("Destroy task " + name);
                                     owner.getLifecycle().removeObserver(this);
-                                    cleanup();
+                                    cleanup(context);
                                 }
                             });
                     }
@@ -154,11 +163,16 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         });
     }
 
-    private void cleanup() {
+    private void cleanup(Context context) {
+        int count;
         synchronized (tasks) {
             tasks.remove(this);
-            Log.i("Remaining tasks=" + tasks.size());
+            count = tasks.size();
         }
+
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+        lbm.sendBroadcast(new Intent(ACTION_TASK_COUNT).putExtra("count", count));
+        Log.i("Remaining tasks=" + count);
     }
 
     protected void onPreExecute(Bundle args) {

@@ -21,9 +21,11 @@ package eu.faircode.email;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -59,6 +61,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -120,6 +123,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private ImageButton ibHintSwipe;
     private ImageButton ibHintSelect;
     private TextView tvNoEmail;
+    private ImageView ivBusy;
     private FixedRecyclerView rvMessage;
     private SeekBar seekBar;
     private ImageButton ibDown;
@@ -168,6 +172,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean manual = false;
     private Integer lastUnseen = null;
     private boolean swiping = false;
+    private int busy = 0;
 
     private AdapterMessage adapter;
 
@@ -265,6 +270,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
         ibHintSelect = view.findViewById(R.id.ibHintSelect);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
+        ivBusy = view.findViewById(R.id.ivBusy);
         rvMessage = view.findViewById(R.id.rvMessage);
         seekBar = view.findViewById(R.id.seekBar);
         ibDown = view.findViewById(R.id.ibDown);
@@ -749,8 +755,39 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         updateSwipeRefresh();
 
+        ivBusy.setVisibility(View.GONE);
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+        IntentFilter iff = new IntentFilter();
+        iff.addAction(SimpleTask.ACTION_TASK_COUNT);
+        lbm.registerReceiver(receiver, iff);
+
         return view;
     }
+
+    @Override
+    public void onDestroyView() {
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+        lbm.unregisterReceiver(receiver);
+
+        super.onDestroyView();
+    }
+
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            busy = intent.getIntExtra("count", 0);
+            if (busy == 0)
+                ivBusy.setVisibility(View.GONE);
+            else
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (busy > 0)
+                            ivBusy.setVisibility(View.VISIBLE);
+                    }
+                }, 1500);
+        }
+    };
 
     @Override
     public void onDestroy() {
