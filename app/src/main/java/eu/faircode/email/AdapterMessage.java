@@ -1821,7 +1821,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 public void onDownloadStart(
                         String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
                     Log.i("Download url=" + url + " mime type=" + mimetype);
+
                     Uri uri = Uri.parse(url);
+                    if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
+                        return;
+
                     Helper.view(context, owner, uri, true);
                 }
             });
@@ -1835,6 +1839,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Log.i("Long press url=" + result.getExtra());
 
                         Uri uri = Uri.parse(result.getExtra());
+                        if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
+                            return false;
+
                         Helper.view(context, owner, uri, true);
 
                         return true;
