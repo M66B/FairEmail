@@ -25,6 +25,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -50,6 +51,13 @@ public class ActivityMain extends AppCompatActivity implements FragmentManager.O
 
         if (prefs.getBoolean("eula", false)) {
             super.onCreate(savedInstanceState);
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    getWindow().setBackgroundDrawableResource(R.drawable.splash);
+                }
+            }, 1500);
 
             new SimpleTask<Boolean>() {
                 @Override
