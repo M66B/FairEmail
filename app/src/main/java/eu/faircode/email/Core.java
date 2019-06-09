@@ -965,7 +965,7 @@ class Core {
             boolean sync_kept = prefs.getBoolean("sync_kept", false);
 
             Log.i(folder.name + " start sync after=" + sync_days + "/" + keep_days +
-                    "sync unseen=" + sync_unseen + " flagged=" + sync_flagged + " kept=" + sync_kept);
+                    " sync unseen=" + sync_unseen + " flagged=" + sync_flagged + " kept=" + sync_kept);
 
             db.folder().setFolderSyncState(folder.id, "syncing");
 
