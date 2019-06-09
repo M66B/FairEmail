@@ -170,7 +170,9 @@ public class ServiceSynchronize extends LifecycleService {
                 try {
                     Core.notifyMessages(ServiceSynchronize.this, notifying, messages);
                 } catch (SecurityException ex) {
-                    android.util.Log.e(Log.TAG, ex + "\n" + android.util.Log.getStackTraceString(ex));
+                    Log.w(ex);
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
+                    prefs.edit().remove("sound").apply();
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
