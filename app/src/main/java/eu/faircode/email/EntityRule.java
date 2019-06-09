@@ -240,13 +240,22 @@ public class EntityRule {
 
     private void onActionMove(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
         long target = jargs.getLong("target");
+        boolean seen = jargs.optBoolean("seen");
+        boolean thread = jargs.optBoolean("thread");
 
         DB db = DB.getInstance(context);
         EntityFolder folder = db.folder().getFolder(target);
         if (folder == null)
             throw new IllegalArgumentException("Rule move to folder not found");
 
-        EntityOperation.queue(context, message, EntityOperation.MOVE, target, false);
+        List<EntityMessage> messages = db.message().getMessageByThread(
+                message.account, message.thread, thread ? null : message.id, message.folder);
+        for (EntityMessage threaded : messages) {
+            if (seen)
+                onActionSeen(context, threaded, true);
+
+            EntityOperation.queue(context, threaded, EntityOperation.MOVE, target, false);
+        }
     }
 
     private void onActionCopy(Context context, EntityMessage message, JSONObject jargs) throws JSONException {

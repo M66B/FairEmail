@@ -102,6 +102,8 @@ public class FragmentRule extends FragmentBase {
     private ImageView ibColorDefault;
 
     private Spinner spTarget;
+    private CheckBox cbMoveSeen;
+    private CheckBox cbMoveThread;
 
     private Spinner spIdent;
 
@@ -117,6 +119,7 @@ public class FragmentRule extends FragmentBase {
     private Group grpSnooze;
     private Group grpFlag;
     private Group grpMove;
+    private Group grpMoveProp;
     private Group grpAnswer;
     private Group grpAutomation;
 
@@ -186,6 +189,8 @@ public class FragmentRule extends FragmentBase {
         ibColorDefault = view.findViewById(R.id.ibColorDefault);
 
         spTarget = view.findViewById(R.id.spTarget);
+        cbMoveSeen = view.findViewById(R.id.cbMoveSeen);
+        cbMoveThread = view.findViewById(R.id.cbMoveThread);
 
         spIdent = view.findViewById(R.id.spIdent);
 
@@ -201,6 +206,7 @@ public class FragmentRule extends FragmentBase {
         grpSnooze = view.findViewById(R.id.grpSnooze);
         grpFlag = view.findViewById(R.id.grpFlag);
         grpMove = view.findViewById(R.id.grpMove);
+        grpMoveProp = view.findViewById(R.id.grpMoveProp);
         grpAnswer = view.findViewById(R.id.grpAnswer);
         grpAutomation = view.findViewById(R.id.grpAutomation);
 
@@ -342,6 +348,7 @@ public class FragmentRule extends FragmentBase {
         grpSnooze.setVisibility(View.GONE);
         grpFlag.setVisibility(View.GONE);
         grpMove.setVisibility(View.GONE);
+        grpMoveProp.setVisibility(View.GONE);
         grpAnswer.setVisibility(View.GONE);
         grpAutomation.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
@@ -505,6 +512,10 @@ public class FragmentRule extends FragmentBase {
                                         spTarget.setSelection(pos);
                                         break;
                                     }
+                                if (type == EntityRule.TYPE_MOVE) {
+                                    cbMoveSeen.setChecked(jaction.optBoolean("seen"));
+                                    cbMoveThread.setChecked(jaction.optBoolean("thread"));
+                                }
                                 break;
 
                             case EntityRule.TYPE_ANSWER:
@@ -522,8 +533,7 @@ public class FragmentRule extends FragmentBase {
                                         break;
                                     }
 
-                                boolean cc = (jaction.has("cc") && jaction.getBoolean("cc"));
-                                cbCc.setChecked(cc);
+                                cbCc.setChecked(jaction.optBoolean("cc"));
                                 break;
                         }
 
@@ -781,6 +791,7 @@ public class FragmentRule extends FragmentBase {
         grpSnooze.setVisibility(type == EntityRule.TYPE_SNOOZE ? View.VISIBLE : View.GONE);
         grpFlag.setVisibility(type == EntityRule.TYPE_FLAG ? View.VISIBLE : View.GONE);
         grpMove.setVisibility(type == EntityRule.TYPE_MOVE || type == EntityRule.TYPE_COPY ? View.VISIBLE : View.GONE);
+        grpMoveProp.setVisibility(type == EntityRule.TYPE_MOVE ? View.VISIBLE : View.GONE);
         grpAnswer.setVisibility(type == EntityRule.TYPE_ANSWER ? View.VISIBLE : View.GONE);
         grpAutomation.setVisibility(type == EntityRule.TYPE_AUTOMATION ? View.VISIBLE : View.GONE);
     }
@@ -854,15 +865,18 @@ public class FragmentRule extends FragmentBase {
                 case EntityRule.TYPE_COPY:
                     EntityFolder target = (EntityFolder) spTarget.getSelectedItem();
                     jaction.put("target", target == null ? -1 : target.id);
+                    if (action.type == EntityRule.TYPE_MOVE) {
+                        jaction.put("seen", cbMoveSeen.isChecked());
+                        jaction.put("thread", cbMoveThread.isChecked());
+                    }
                     break;
 
                 case EntityRule.TYPE_ANSWER:
                     EntityIdentity identity = (EntityIdentity) spIdent.getSelectedItem();
                     EntityAnswer answer = (EntityAnswer) spAnswer.getSelectedItem();
-                    boolean cc = cbCc.isChecked();
                     jaction.put("identity", identity == null ? -1 : identity.id);
                     jaction.put("answer", answer == null ? -1 : answer.id);
-                    jaction.put("cc", cc);
+                    jaction.put("cc", cbCc.isChecked());
                     break;
             }
         }
