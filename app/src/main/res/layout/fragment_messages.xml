@@ -249,8 +249,9 @@
         android:id="@+id/fabMore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|center_vertical"
-        android:layout_margin="@dimen/fab_padding"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="@dimen/fab_padding"
+        android:layout_marginBottom="90dp"
         android:src="@drawable/baseline_more_vert_24"
         android:tint="@color/colorActionForeground"
         app:backgroundTint="?attr/colorAccent" />
