@@ -281,25 +281,29 @@ public class ApplicationEx extends Application {
             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
             NotificationChannel service = new NotificationChannel(
-                    "service",
-                    getString(R.string.channel_service),
+                    "service", getString(R.string.channel_service),
                     NotificationManager.IMPORTANCE_MIN);
             service.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
             service.setShowBadge(false);
             service.setLockscreenVisibility(Notification.VISIBILITY_SECRET);
             nm.createNotificationChannel(service);
 
+            NotificationChannel send = new NotificationChannel(
+                    "send", getString(R.string.channel_send),
+                    NotificationManager.IMPORTANCE_HIGH);
+            send.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
+            send.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+            nm.createNotificationChannel(send);
+
             NotificationChannel notification = new NotificationChannel(
-                    "notification",
-                    getString(R.string.channel_notification),
+                    "notification", getString(R.string.channel_notification),
                     NotificationManager.IMPORTANCE_HIGH);
             notification.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
             notification.enableLights(true);
             nm.createNotificationChannel(notification);
 
             NotificationChannel warning = new NotificationChannel(
-                    "warning",
-                    getString(R.string.channel_warning),
+                    "warning", getString(R.string.channel_warning),
                     NotificationManager.IMPORTANCE_HIGH);
             warning.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
             nm.createNotificationChannel(warning);

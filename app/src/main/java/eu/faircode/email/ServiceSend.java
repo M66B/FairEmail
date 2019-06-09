@@ -126,7 +126,7 @@ public class ServiceSend extends LifecycleService {
         PendingIntent pi = PendingIntent.getActivity(
                 this, ActivityView.REQUEST_OUTBOX, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "service");
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "send");
 
         builder
                 .setSmallIcon(R.drawable.baseline_send_24)
