@@ -81,7 +81,7 @@ public class Log {
     }
 
     public static int i(Throwable ex) {
-        return android.util.Log.w(TAG, ex + "\n" + android.util.Log.getStackTraceString(ex));
+        return android.util.Log.i(TAG, ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
 
     public static int w(Throwable ex) {
