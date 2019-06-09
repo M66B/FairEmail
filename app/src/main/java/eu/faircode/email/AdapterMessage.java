@@ -1037,7 +1037,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     ActionData data = new ActionData();
                     data.hasJunk = hasJunk;
-                    data.delete = (inTrash || !hasTrash);
+                    data.delete = (inTrash || !hasTrash || inOutbox);
                     data.message = message;
                     bnvActions.setTag(data);
 
@@ -2902,6 +2902,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                                 return null;
 
                                             EntityFolder folder = db.folder().getFolder(message.folder);
+                                            if (folder == null)
+                                                return null;
 
                                             if (EntityFolder.OUTBOX.equals(folder.type)) {
                                                 db.message().deleteMessage(id);
