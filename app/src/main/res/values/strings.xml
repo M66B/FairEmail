@@ -574,6 +574,9 @@
     <string name="title_rule_condition_missing">Condition missing</string>
     <string name="title_rule_automation_hint">This will send the intent \'%1$s\' with the extras \'%2$s\'</string>
 
+    <string name="title_rule_execute">Execute now</string>
+    <string name="title_rule_applied">Affected messages: %1$d</string>
+
     <string name="title_rule_check">Check</string>
     <string name="title_rule_no_headers">Header conditions cannot be checked</string>
     <string name="title_rule_matched">Matching messages</string>

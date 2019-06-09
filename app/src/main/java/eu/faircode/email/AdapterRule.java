@@ -30,6 +30,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
@@ -39,10 +40,14 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.mail.MessagingException;
 
 public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
     private Context context;
@@ -168,6 +173,8 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
             popupMenu.getMenu().add(Menu.NONE, R.string.title_rule_enabled, 1, R.string.title_rule_enabled)
                     .setCheckable(true).setChecked(rule.enabled);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_rule_execute, 2, R.string.title_rule_execute)
+                    .setEnabled(Helper.isPro(context));
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -175,6 +182,9 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     switch (item.getItemId()) {
                         case R.string.title_rule_enabled:
                             onActionEnabled(!item.isChecked());
+                            return true;
+                        case R.string.title_rule_execute:
+                            onActionExecute();
                             return true;
                         default:
                             return false;
@@ -203,6 +213,58 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                             Helper.unexpectedError(context, owner, ex);
                         }
                     }.execute(context, owner, args, "rule:enable");
+                }
+
+                private void onActionExecute() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", rule.id);
+
+                    new SimpleTask<Integer>() {
+                        @Override
+                        protected Integer onExecute(Context context, Bundle args) throws JSONException, MessagingException, IOException {
+                            long id = args.getLong("id");
+
+                            DB db = DB.getInstance(context);
+                            EntityRule rule = db.rule().getRule(id);
+                            if (rule == null)
+                                return 0;
+
+                            JSONObject jcondition = new JSONObject(rule.condition);
+                            JSONObject jheader = jcondition.optJSONObject("header");
+                            if (jheader != null)
+                                return 0;
+
+                            int applied = 0;
+                            List<Long> ids = db.message().getMessageIdsByFolder(rule.folder);
+                            for (long mid : ids)
+                                try {
+                                    db.beginTransaction();
+
+                                    EntityMessage message = db.message().getMessage(mid);
+
+                                    if (rule.matches(context, message, null)) {
+                                        rule.execute(context, message);
+                                        applied++;
+                                    }
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
+                                }
+
+                            return applied;
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, Integer applied) {
+                            Toast.makeText(context, context.getString(R.string.title_rule_applied, applied), Toast.LENGTH_LONG).show();
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(context, owner, ex);
+                        }
+                    }.execute(context, owner, args, "rule:execute");
                 }
             });
 
