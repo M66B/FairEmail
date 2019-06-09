@@ -1046,13 +1046,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     bnvActions.getMenu().findItem(R.id.action_delete).setVisible(debug ||
                             (inTrash && (message.uid != null || message.msgid != null)) ||
                             (!inTrash && hasTrash && message.uid != null));
-                    bnvActions.getMenu().findItem(R.id.action_delete).setTitle(data.delete ? R.string.title_delete : R.string.title_trash);
+                    bnvActions.getMenu().findItem(R.id.action_delete).setTitle(
+                            data.delete ? R.string.title_delete : R.string.title_trash);
 
-                    bnvActions.getMenu().findItem(R.id.action_move).setVisible(message.uid != null || inOutbox);
-                    bnvActions.getMenu().findItem(R.id.action_move).setTitle(inOutbox ? R.string.title_folder_drafts : R.string.title_move);
+                    bnvActions.getMenu().findItem(R.id.action_move).setVisible(
+                            message.uid != null || inOutbox);
+                    bnvActions.getMenu().findItem(R.id.action_move).setTitle(
+                            inOutbox ? R.string.title_folder_drafts : R.string.title_move);
+                    bnvActions.getMenu().findItem(R.id.action_move).setIcon(
+                            inOutbox ? R.drawable.baseline_drafts_24 : R.drawable.baseline_folder_24);
 
-                    bnvActions.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && (inJunk || (!inArchive && hasArchive)));
-                    bnvActions.getMenu().findItem(R.id.action_archive).setTitle(inJunk ? R.string.title_folder_inbox : R.string.title_archive);
+                    bnvActions.getMenu().findItem(R.id.action_archive).setVisible(
+                            message.uid != null && (inJunk || (!inArchive && hasArchive)));
+                    bnvActions.getMenu().findItem(R.id.action_archive).setTitle(
+                            inJunk ? R.string.title_folder_inbox : R.string.title_archive);
 
                     bnvActions.getMenu().findItem(R.id.action_reply).setEnabled(message.content);
                     bnvActions.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
