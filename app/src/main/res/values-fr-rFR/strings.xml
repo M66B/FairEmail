@@ -501,6 +501,8 @@
     <string name="title_rule_name_missing">Nom de règle manquant</string>
     <string name="title_rule_condition_missing">Condition manquante</string>
     <string name="title_rule_automation_hint">Ceci enverra l\'intent \'%1$s\' avec les extras \'%2$s\'</string>
+    <string name="title_rule_execute">Exécuter maintenant</string>
+    <string name="title_rule_applied">Messages affectés : %1$d</string>
     <string name="title_rule_check">Vérifier</string>
     <string name="title_rule_no_headers">Les conditions sur l\'en-tête ne peuvent pas être vérifiées</string>
     <string name="title_rule_matched">Messages correspondants</string>

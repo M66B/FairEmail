@@ -501,6 +501,8 @@
     <string name="title_rule_name_missing">Regelname fehlt</string>
     <string name="title_rule_condition_missing">Voraussetzung fehlt</string>
     <string name="title_rule_automation_hint">Dies sendet de Intent \'%1$s\' mit den Extras \'%2$s\'</string>
+    <string name="title_rule_execute">Jetzt ausführen</string>
+    <string name="title_rule_applied">Betroffene Nachrichten: %1$d</string>
     <string name="title_rule_check">Prüfen</string>
     <string name="title_rule_no_headers">Nachrichtenkopf-Bedingungen können nicht überprüft werden</string>
     <string name="title_rule_matched">Passende Nachrichten</string>

@@ -493,6 +493,8 @@
     <string name="title_rule_name_missing">缺少规则名称</string>
     <string name="title_rule_condition_missing">条件缺失</string>
     <string name="title_rule_automation_hint">将使用参数 \'%2$s\' 发送 \'%1$s\' 的 intent</string>
+    <string name="title_rule_execute">立即执行</string>
+    <string name="title_rule_applied">受影响的消息: %1$d</string>
     <string name="title_rule_check">检查</string>
     <string name="title_rule_no_headers">无法检查 邮件标头状况</string>
     <string name="title_rule_matched">正匹配消息</string>

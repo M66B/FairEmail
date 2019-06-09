@@ -501,6 +501,8 @@
     <string name="title_rule_name_missing">Nome Regola mancante</string>
     <string name="title_rule_condition_missing">Condizione mancante</string>
     <string name="title_rule_automation_hint">Questo invierà l\'intento \'%1$s\' con gli extra \'%2$s\'</string>
+    <string name="title_rule_execute">Esegui ora</string>
+    <string name="title_rule_applied">Messaggi interessati: %1$d</string>
     <string name="title_rule_check">Controlla</string>
     <string name="title_rule_no_headers">Le condizioni dell\'intestazione non possono essere controllate</string>
     <string name="title_rule_matched">Messaggi corrispondenti</string>

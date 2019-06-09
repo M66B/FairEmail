@@ -517,6 +517,8 @@
     <string name="title_rule_name_missing">Отсутствует имя правила</string>
     <string name="title_rule_condition_missing">Условие отсутствует</string>
     <string name="title_rule_automation_hint">Это отправит цель \'%1$s\' с дополнениями \'%2$s\'</string>
+    <string name="title_rule_execute">Выполнить</string>
+    <string name="title_rule_applied">Затронутые сообщения: %1$d</string>
     <string name="title_rule_check">Проверить</string>
     <string name="title_rule_no_headers">Условия заголовка не могут быть проверены</string>
     <string name="title_rule_matched">Подходящие сообщения</string>

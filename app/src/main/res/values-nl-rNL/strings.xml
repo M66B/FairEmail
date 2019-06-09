@@ -501,6 +501,8 @@
     <string name="title_rule_name_missing">Regelnaam ontbreekt</string>
     <string name="title_rule_condition_missing">Conditie ontbreekt</string>
     <string name="title_rule_automation_hint">Dit zal de intent \'%1$s\' sturen met de extra\'s \'%2$s\'</string>
+    <string name="title_rule_execute">Nu uitvoeren</string>
+    <string name="title_rule_applied">Beïnvloede berichten: %1$d</string>
     <string name="title_rule_check">Controleer</string>
     <string name="title_rule_no_headers">Header condities kunnen niet worden gecontroleerd</string>
     <string name="title_rule_matched">Overeenkomende berichten</string>
