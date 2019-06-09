@@ -603,18 +603,20 @@ public class MessageHelper {
             if ("NO".equals(list))
                 return null;
 
-            String[] to = list.split(",");
-            if (to.length < 1 || !to[0].startsWith("<") || !to[0].endsWith(">"))
-                return null;
-
             // https://www.ietf.org/rfc/rfc2368.txt
-            MailTo mailto = MailTo.parse(to[0].substring(1, to[0].length() - 1));
-            if (mailto.getTo() == null)
-                return null;
+            for (String _to : list.split(",")) {
+                String to = _to.trim();
+                if (to.startsWith("<") && to.endsWith(">"))
+                    try {
+                        MailTo mailto = MailTo.parse(to.substring(1, to.length() - 1));
+                        if (mailto.getTo() != null)
+                            return new Address[]{new InternetAddress(mailto.getTo().split(",")[0])};
+                    } catch (android.net.ParseException ex) {
+                        Log.i(ex);
+                    }
+            }
 
-            return new Address[]{new InternetAddress(mailto.getTo().split(",")[0])};
-        } catch (android.net.ParseException ex) {
-            Log.w(new IllegalArgumentException(list, ex));
+            Log.w(new IllegalArgumentException("List-Post: " + list));
             return null;
         } catch (AddressException ex) {
             Log.w(ex);
