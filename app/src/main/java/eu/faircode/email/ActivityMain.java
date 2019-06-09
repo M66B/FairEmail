@@ -50,21 +50,32 @@ public class ActivityMain extends AppCompatActivity implements FragmentManager.O
 
         if (prefs.getBoolean("eula", false)) {
             super.onCreate(savedInstanceState);
-            new SimpleTask<List<EntityAccount>>() {
+
+            new SimpleTask<Boolean>() {
                 @Override
-                protected List<EntityAccount> onExecute(Context context, Bundle args) {
-                    return DB.getInstance(context).account().getSynchronizingAccounts();
+                protected Boolean onExecute(Context context, Bundle args) {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    if (prefs.getBoolean("has_accounts", false))
+                        return true;
+
+                    DB db = DB.getInstance(context);
+                    List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
+                    boolean hasAccounts = (accounts != null && accounts.size() > 0);
+
+                    prefs.edit().putBoolean("has_accounts", hasAccounts).apply();
+
+                    return hasAccounts;
                 }
 
                 @Override
-                protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
-                    if (accounts == null || accounts.size() == 0)
-                        startActivity(new Intent(ActivityMain.this, ActivitySetup.class));
-                    else {
+                protected void onExecuted(Bundle args, Boolean hasAccounts) {
+                    if (hasAccounts) {
                         startActivity(new Intent(ActivityMain.this, ActivityView.class));
                         ServiceSynchronize.boot(ActivityMain.this);
                         ServiceSend.boot(ActivityMain.this);
-                    }
+                    } else
+                        startActivity(new Intent(ActivityMain.this, ActivitySetup.class));
+
                     finish();
                 }
 

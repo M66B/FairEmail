@@ -25,6 +25,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
@@ -47,6 +48,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
+import androidx.preference.PreferenceManager;
 
 import java.util.List;
 
@@ -270,6 +272,7 @@ public class FragmentSetup extends FragmentBase {
         super.onActivityCreated(savedInstanceState);
 
         final DB db = DB.getInstance(getContext());
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         db.account().liveSynchronizingAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
             private boolean done = false;
@@ -286,6 +289,8 @@ public class FragmentSetup extends FragmentBase {
 
                 btnIdentity.setEnabled(done);
                 btnInbox.setEnabled(done);
+
+                prefs.edit().putBoolean("has_accounts", done).apply();
             }
         });
 
