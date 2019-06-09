@@ -120,15 +120,6 @@ class Core {
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long YIELD_DURATION = 200L; // milliseconds
 
-    static void init(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = prefs.edit();
-        for (String key : prefs.getAll().keySet())
-            if (key.startsWith("notifying:"))
-                editor.remove(key);
-        editor.apply();
-    }
-
     static void processOperations(
             Context context,
             EntityAccount account, EntityFolder folder,

@@ -106,7 +106,6 @@ public class ApplicationEx extends Application {
 
         MessageHelper.setSystemProperties();
         ContactInfo.init(this, new Handler());
-        Core.init(this);
         WorkerWatchdog.init(this);
     }
 
