@@ -103,6 +103,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     void setCallback(IBoundaryCallbackMessages intf) {
         this.handler = new Handler();
         this.intf = intf;
+
+        if (imessages == null)
+            index = 0;
+        else
+            index = imessages.length - 1;
     }
 
     @Override
