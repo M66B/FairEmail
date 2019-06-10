@@ -7,6 +7,7 @@
     <string name="app_limitations">Beispielsweise werden Nachrichten neu formatiert um unsichere Elemente zu entfernen und die Lesbarkeit zu erhöhen. Um die Sicherheit zu erhöhen, muss das Öffnen eines Links vorab bestätigt werden.</string>
     <string name="app_crash">FairEmail wird auf diesem Gerät nicht unterstützt, da Fehler in der benutzten Android-Version Abstürze verursachen</string>
     <string name="channel_service">Dienst</string>
+    <string name="channel_send">Senden</string>
     <string name="channel_notification">Benachrichtigungen</string>
     <string name="channel_warning">Warnungen</string>
     <string name="channel_error">Fehler</string>
@@ -495,6 +496,7 @@
     <string name="title_rule_action_remark">Diese Aktion wird auf neue Mails im Ordner %1$s angewendet</string>
     <string name="title_rule_hours">Stunden</string>
     <string name="title_rule_folder">Ordner</string>
+    <string name="title_rule_thread">Alle Nachrichten zum selben Thema und Ordner</string>
     <string name="title_rule_identity">Identität</string>
     <string name="title_rule_template">Antwortvorlage</string>
     <string name="title_rule_cc">Den CC-Adressen antworten</string>

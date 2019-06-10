@@ -7,6 +7,7 @@
     <string name="app_limitations">Ad esempio, i messaggi verranno sempre riformattati per rimuovere elementi non sicuri e per migliorare la leggibilità e l\'apertura dei collegamenti deve essere confermata per sicurezza.</string>
     <string name="app_crash">FairEmail non è supportata su questo dispositivo a causa di bug in Android che causano crash</string>
     <string name="channel_service">Servizio</string>
+    <string name="channel_send">Invia</string>
     <string name="channel_notification">Notifiche</string>
     <string name="channel_warning">Avvisi</string>
     <string name="channel_error">Errori</string>
@@ -495,6 +496,7 @@
     <string name="title_rule_action_remark">Questa azione verrà applicata ai nuovi messaggi in arrivo nella cartella %1$s</string>
     <string name="title_rule_hours">Ore</string>
     <string name="title_rule_folder">Cartella</string>
+    <string name="title_rule_thread">Tutti i messaggi nella stessa conversazione e cartella</string>
     <string name="title_rule_identity">Identità</string>
     <string name="title_rule_template">Modello di risposta</string>
     <string name="title_rule_cc">Rispondi agli indirizzi CC</string>

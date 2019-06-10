@@ -495,12 +495,14 @@
     <string name="title_rule_action_remark">Tätä toimintoa käytetään uusiin viesteihin, jotka saapuvat kansioon %1$s</string>
     <string name="title_rule_hours">Tuntia</string>
     <string name="title_rule_folder">Kansio</string>
+    <string name="title_rule_thread">Kaikki viestit samassa keskustelussa ja kansiossa</string>
     <string name="title_rule_identity">Identiteetti</string>
     <string name="title_rule_template">Vastausviestipohja</string>
     <string name="title_rule_cc">Vastaa kopio-osoitteisiin</string>
     <string name="title_rule_name_missing">Säännön nimi puuttuu</string>
     <string name="title_rule_condition_missing">Ehdot puuttuvat</string>
     <string name="title_rule_automation_hint">Tämä lähettää intentin \'%1$s\' extradatalla \'%2$s\'</string>
+    <string name="title_rule_execute">Suorita nyt</string>
     <string name="title_rule_check">Tarkista</string>
     <string name="title_rule_no_headers">Tunnistetietojen ehtoja ei voida tarkistaa</string>
     <string name="title_rule_matched">Täsmäävät viestit</string>

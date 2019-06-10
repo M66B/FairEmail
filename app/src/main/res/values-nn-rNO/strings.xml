@@ -7,6 +7,7 @@
     <string name="app_limitations">For eksempel vil meldinger alltid bli formatert for å fjerne usikre elementer, og for å forbedre lesbarheten og åpning av linker må bekreftes for sikkerhet.</string>
     <string name="app_crash">FairEmail støttes ikke på denne enheten fordi feil i Android forårsaker krasjer</string>
     <string name="channel_service">Service</string>
+    <string name="channel_send">Send</string>
     <string name="channel_notification">Varsler</string>
     <string name="channel_warning">Advarsler</string>
     <string name="channel_error">Feil</string>
@@ -495,6 +496,7 @@
     <string name="title_rule_action_remark">Denne handlingen vil bli brukt på nye meldinger som kommer inn i mappen %1$s</string>
     <string name="title_rule_hours">Timer</string>
     <string name="title_rule_folder">Mappe</string>
+    <string name="title_rule_thread">Alle meldinger i samme samtale og mappe</string>
     <string name="title_rule_identity">Identitet</string>
     <string name="title_rule_template">Svarmal</string>
     <string name="title_rule_cc">Svar til CC-adresser</string>

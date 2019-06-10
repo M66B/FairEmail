@@ -7,6 +7,7 @@
     <string name="app_limitations">例如，为了去除不安全元素并提高阅读性，邮件将总被重建格式；出于安全考虑，打开邮件内链接需经用户确认</string>
     <string name="app_crash">此设备不支持 FairEmail, 因为 android 中的错误会导致崩溃</string>
     <string name="channel_service">服务</string>
+    <string name="channel_send">发送</string>
     <string name="channel_notification">通知</string>
     <string name="channel_warning">警告</string>
     <string name="channel_error">错误</string>
@@ -487,6 +488,7 @@
     <string name="title_rule_action_remark">此操作将被应用于抵达文件夹 %1$s 的新消息</string>
     <string name="title_rule_hours">小时</string>
     <string name="title_rule_folder">文件夹</string>
+    <string name="title_rule_thread">在同一对话和文件夹中的所有消息</string>
     <string name="title_rule_identity">身份</string>
     <string name="title_rule_template">回复模板</string>
     <string name="title_rule_cc">回信给邮件抄送地址</string>
