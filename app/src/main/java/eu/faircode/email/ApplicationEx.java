@@ -290,7 +290,7 @@ public class ApplicationEx extends Application {
 
             NotificationChannel send = new NotificationChannel(
                     "send", getString(R.string.channel_send),
-                    NotificationManager.IMPORTANCE_HIGH);
+                    NotificationManager.IMPORTANCE_DEFAULT);
             send.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
             send.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
             nm.createNotificationChannel(send);
