@@ -336,7 +336,24 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         rvMessage.setHasFixedSize(false);
         //rvMessage.setItemViewCacheSize(10);
         //rvMessage.getRecycledViewPool().setMaxRecycledViews(0, 10);
-        final LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        final LinearLayoutManager llm = new LinearLayoutManager(getContext()) {
+            Rect parentRect = new Rect();
+            Rect childRect = new Rect();
+
+            @Override
+            public boolean requestChildRectangleOnScreen(@NonNull RecyclerView parent, @NonNull View child, @NonNull Rect rect, boolean immediate) {
+                return requestChildRectangleOnScreen(parent, child, rect, immediate, false);
+            }
+
+            @Override
+            public boolean requestChildRectangleOnScreen(@NonNull RecyclerView parent, @NonNull View child, @NonNull Rect rect, boolean immediate, boolean focusedChildVisible) {
+                parent.getHitRect(parentRect);
+                child.getHitRect(childRect);
+                if (Rect.intersects(parentRect, childRect))
+                    return false;
+                return super.requestChildRectangleOnScreen(parent, child, rect, immediate, focusedChildVisible);
+            }
+        };
         rvMessage.setLayoutManager(llm);
 
         DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
