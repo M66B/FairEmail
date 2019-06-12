@@ -118,6 +118,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private ImageView ivExpander;
     private RecyclerView rvMenuExtra;
 
+    private boolean exit = false;
+
     private long message = -1;
     private long attachment = -1;
 
@@ -589,8 +591,21 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(drawerContainer))
             drawerLayout.closeDrawer(drawerContainer);
-        else
-            super.onBackPressed();
+        else {
+            int count = getSupportFragmentManager().getBackStackEntryCount();
+            if (exit || count > 1)
+                super.onBackPressed();
+            else {
+                exit = true;
+                Toast.makeText(this, R.string.app_exit, Toast.LENGTH_SHORT).show();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        exit = false;
+                    }
+                }, 2500);
+            }
+        }
     }
 
     @Override
