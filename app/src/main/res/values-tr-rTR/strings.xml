@@ -6,7 +6,9 @@
     <string name="app_welcome">FairEmail gizlilik ve güvenlik odaklı açık kaynaklı bir e-posta uygulamasıdır. Bu nedenle, bazı özellikler alışkın olduğunuzdan farklı şekilde çalışabilir.</string>
     <string name="app_limitations">Örneğin, güvenli olmayan öğeleri çıkarmak ve okunabilirliği arttırmak için, iletiler daima tekrardan düzenlenecektir ve bağlantıları açmak güvenlik açısından doğrulama gerektirecektir.</string>
     <string name="app_crash">FairEmail bu aygıtı desteklemiyor. Çünkü Androiddeki hatalar çökmelere neden oluyor</string>
+    <string name="app_exit">Çıkmak için \'geri\' tuşuna tekrar basın</string>
     <string name="channel_service">Hizmet</string>
+    <string name="channel_send">Gönder</string>
     <string name="channel_notification">Bildirimler</string>
     <string name="channel_warning">Uyarılar</string>
     <string name="channel_error">Hatalar</string>
@@ -125,7 +127,6 @@
     <string name="title_setup_options">Seçenekler</string>
     <string name="title_setup_defaults">Öntanımlıları geri yükle</string>
     <string name="title_setup_reset_questions">Soruları sıfırla</string>
-    <string name="title_advanced">Gelişmiş seçenekler</string>
     <string name="title_advanced_section_synchronize">Gelen</string>
     <string name="title_advanced_section_send">Gönder</string>
     <string name="title_advanced_section_connection">Bağlantı</string>
@@ -193,6 +194,7 @@
     <string name="title_advanced_debug">Hata ayıklama</string>
     <string name="title_advanced_enabled_hint">İleti alımını tamamen aç ya da kapat</string>
     <string name="title_advanced_manual_hint">Eşitleme kapalıysa, mesaj listesini aşağı çekerek elle eşitleme hala yapılabilir. Bu eylem iletileri eşitleyecek ve işlemleri kısıtlı bir süre için uygulayacaktır.</string>
+    <string name="title_advanced_poll_hint">Belli aralıklarala eşitleme yerel ve uzak sunucudaki iletileri her defasında karşılaştıracak, bu da özellikle eşitlenecek ileti sayısı fazla olduğunda, fazladan pil kullanımına neden olan maliyetli bir işlem olacaktır. Sürekli eşitleme sadece değişiklikleri izleyerek bu durumdan kaçınacaktır.</string>
     <string name="title_advanced_schedule_hint">Bir zaman ayarlamak için bir saate dokunun</string>
     <string name="title_advanced_metered_hint">Ölçülü bağlantılar genellikle mobil bağlantılar veya ücretli Wi-Fi noktalarıdır</string>
     <string name="title_advanced_metered_warning">Bu seçeneğin devre dışı bırakılması mobil internet bağlantısında ileti almayı ve göndermeyi devre dışı bırakacaktır</string>
@@ -484,6 +486,7 @@
     <string name="title_rule_name_missing">Kural adı eksik</string>
     <string name="title_rule_condition_missing">Koşul kayıp</string>
     <string name="title_rule_automation_hint">%1$s gönderme isteğinizi %2$s ekleyerek gönderecek</string>
+    <string name="title_rule_applied">Etkilenen iletiler: %1$d</string>
     <string name="title_rule_check">Denetle</string>
     <string name="title_rule_matched">İletiler eşleştiriliyor</string>
     <string name="title_rule_no_matches">Eşleşen ileti yok</string>

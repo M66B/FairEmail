@@ -7,6 +7,7 @@
     <string name="app_limitations">De exemplu, mesajele vor fi mereu rescrise pentru a înlătura elementele nesigure și a îmbunătății lizibilitatea iar deschiderea legăturilor trebuie, pentru siguranță, confirmată.</string>
     <string name="app_crash">FairEmail nu suportă acest dispozitiv din cauza erorilor din Android ce duc la blocaje</string>
     <string name="channel_service">Serviciu</string>
+    <string name="channel_send">Trimite</string>
     <string name="channel_notification">Notificări</string>
     <string name="channel_warning">Atenționări</string>
     <string name="channel_error">Erori</string>
@@ -133,7 +134,6 @@
     <string name="title_setup_options">Opţiuni</string>
     <string name="title_setup_defaults">Restabiliți valorile implicite</string>
     <string name="title_setup_reset_questions">Resetare întrebări</string>
-    <string name="title_advanced">Opțiuni avansate</string>
     <string name="title_advanced_section_synchronize">Primește</string>
     <string name="title_advanced_section_send">Trimite</string>
     <string name="title_advanced_section_connection">Conexiune</string>
@@ -503,12 +503,15 @@
     <string name="title_rule_action_remark">Această acțiune se va aplica mesajelor noi care sosesc în dosarul %1$s</string>
     <string name="title_rule_hours">Ore</string>
     <string name="title_rule_folder">Dosar</string>
+    <string name="title_rule_thread">Toate mesajele în aceeași conversație și dosar</string>
     <string name="title_rule_identity">Identitate</string>
     <string name="title_rule_template">Șablon răspuns</string>
     <string name="title_rule_cc">Răspuns la adresa CC</string>
     <string name="title_rule_name_missing">Lipsește numele regulii</string>
     <string name="title_rule_condition_missing">Lipsește condiția</string>
     <string name="title_rule_automation_hint">Aceasta va trimite intenția \'%1$s\' și extra \'%2$s\'</string>
+    <string name="title_rule_execute">Execută acum</string>
+    <string name="title_rule_applied">Mesaje afectate: %1$d</string>
     <string name="title_rule_check">Verifică</string>
     <string name="title_rule_no_headers">Nu se pot verifica condiții din antet</string>
     <string name="title_rule_matched">Mesaje ce se potrivesc</string>

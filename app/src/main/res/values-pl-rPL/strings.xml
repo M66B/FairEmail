@@ -141,7 +141,6 @@
     <string name="title_setup_options">Opcje</string>
     <string name="title_setup_defaults">Przywróć domyślne</string>
     <string name="title_setup_reset_questions">Zresetuj pytania</string>
-    <string name="title_advanced">Opcje zaawansowane</string>
     <string name="title_advanced_section_synchronize">Odbierz</string>
     <string name="title_advanced_section_send">Wyślij</string>
     <string name="title_advanced_section_connection">Połączenie</string>

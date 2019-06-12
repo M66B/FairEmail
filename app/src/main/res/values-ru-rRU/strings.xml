@@ -142,7 +142,7 @@
     <string name="title_setup_options">Опции</string>
     <string name="title_setup_defaults">Восстановить настройки по умолчанию</string>
     <string name="title_setup_reset_questions">Заново включить вопросы</string>
-    <string name="title_advanced">Дополнительные опции</string>
+    <string name="title_advanced_section_main">Основные</string>
     <string name="title_advanced_section_synchronize">Получение</string>
     <string name="title_advanced_section_send">Отправка</string>
     <string name="title_advanced_section_connection">Соединение</string>

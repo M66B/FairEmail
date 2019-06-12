@@ -6,6 +6,7 @@
     <string name="app_welcome">FairEmail is een open source e-mail app gericht op privacy en veiligheid. Om deze reden werken sommige functies mogelijk anders dan u gewend bent.</string>
     <string name="app_limitations">Berichten worden bijvoorbeeld altijd opnieuw geformatteerd om onveilige elementen te verwijderen en de leesbaarheid te verbeteren en het openen van links moet voor de veiligheid worden bevestigd.</string>
     <string name="app_crash">FairEmail wordt niet ondersteund op dit apparaat omdat bugs in Android crashes veroorzaken</string>
+    <string name="app_exit">Druk nogmaals op \'terug\' om af te sluiten</string>
     <string name="channel_service">Service</string>
     <string name="channel_send">Verzenden</string>
     <string name="channel_notification">Meldingen</string>
@@ -126,7 +127,7 @@
     <string name="title_setup_options">Opties</string>
     <string name="title_setup_defaults">Verstekwaarden herstellen</string>
     <string name="title_setup_reset_questions">Vragen resetten</string>
-    <string name="title_advanced">Geavanceerde opties</string>
+    <string name="title_advanced_section_main">Voornaamste</string>
     <string name="title_advanced_section_synchronize">Ontvangen</string>
     <string name="title_advanced_section_send">Verzenden</string>
     <string name="title_advanced_section_connection">Verbinding</string>

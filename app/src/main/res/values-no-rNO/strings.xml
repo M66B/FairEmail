@@ -126,7 +126,7 @@
     <string name="title_setup_options">Alternativer</string>
     <string name="title_setup_defaults">Gjenopprett standarder</string>
     <string name="title_setup_reset_questions">Tilbakestill spørsmål</string>
-    <string name="title_advanced">Avanserte innstillinger</string>
+    <string name="title_advanced_section_main">Hoved</string>
     <string name="title_advanced_section_synchronize">Motta</string>
     <string name="title_advanced_section_send">Send</string>
     <string name="title_advanced_section_connection">Forbindelse</string>
