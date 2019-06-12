@@ -117,6 +117,9 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
     static final int REQUEST_EXPORT = 4;
     static final int REQUEST_IMPORT = 5;
 
+    static final String ACTION_QUICK_SETUP = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_SETUP";
+    static final String ACTION_VIEW_ACCOUNTS = BuildConfig.APPLICATION_ID + ".ACTION_VIEW_ACCOUNTS";
+    static final String ACTION_VIEW_IDENTITIES = BuildConfig.APPLICATION_ID + ".ACTION_VIEW_IDENTITIES";
     static final String ACTION_EDIT_ACCOUNT = BuildConfig.APPLICATION_ID + ".EDIT_ACCOUNT";
     static final String ACTION_EDIT_IDENTITY = BuildConfig.APPLICATION_ID + ".EDIT_IDENTITY";
     static final String ACTION_SHOW_PRO = BuildConfig.APPLICATION_ID + ".SHOW_PRO";
@@ -223,14 +226,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 drawerLayout.closeDrawer(drawerContainer);
                 onMenuContacts();
             }
-        }));
-
-        menus.add(new NavMenuItem(R.drawable.baseline_settings_applications_24, R.string.title_setup_advanced, new Runnable() {
-            @Override
-            public void run() {
-                drawerLayout.closeDrawer(drawerContainer);
-                onMenuOptions();
-            }
         }).setSeparated());
 
         menus.add(new NavMenuItem(R.drawable.baseline_help_24, R.string.menu_legend, new Runnable() {
@@ -285,7 +280,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
             if ("accounts".equals(target))
                 fragmentTransaction.replace(R.id.content_frame, new FragmentAccounts()).addToBackStack("accounts");
             else
-                fragmentTransaction.replace(R.id.content_frame, new FragmentSetup()).addToBackStack("setup");
+                fragmentTransaction.replace(R.id.content_frame, new FragmentOptions()).addToBackStack("options");
             fragmentTransaction.commit();
 
             if (intent.hasExtra("target")) {
@@ -322,6 +317,9 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         super.onResume();
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         IntentFilter iff = new IntentFilter();
+        iff.addAction(ACTION_QUICK_SETUP);
+        iff.addAction(ACTION_VIEW_ACCOUNTS);
+        iff.addAction(ACTION_VIEW_IDENTITIES);
         iff.addAction(ACTION_EDIT_ACCOUNT);
         iff.addAction(ACTION_EDIT_IDENTITY);
         iff.addAction(ACTION_SHOW_PRO);
@@ -515,15 +513,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentContacts()).addToBackStack("contacts");
-        fragmentTransaction.commit();
-    }
-
-    private void onMenuOptions() {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-            getSupportFragmentManager().popBackStack("options", FragmentManager.POP_BACK_STACK_INCLUSIVE);
-
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new FragmentOptions()).addToBackStack("options");
         fragmentTransaction.commit();
     }
 
@@ -1085,6 +1074,24 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         return channel;
     }
 
+    private void onViewQuickSetup(Intent intent) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentQuickSetup()).addToBackStack("quick");
+        fragmentTransaction.commit();
+    }
+
+    private void onViewAccounts(Intent intent) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentAccounts()).addToBackStack("accounts");
+        fragmentTransaction.commit();
+    }
+
+    private void onViewIdentities(Intent intent) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentIdentities()).addToBackStack("identities");
+        fragmentTransaction.commit();
+    }
+
     private void onEditAccount(Intent intent) {
         FragmentAccount fragment = new FragmentAccount();
         fragment.setArguments(intent.getExtras());
@@ -1113,11 +1120,18 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
     private BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (ACTION_EDIT_ACCOUNT.equals(intent.getAction()))
+            String action = intent.getAction();
+            if (ACTION_QUICK_SETUP.equals(action))
+                onViewQuickSetup(intent);
+            else if (ACTION_VIEW_ACCOUNTS.equals(action))
+                onViewAccounts(intent);
+            else if (ACTION_VIEW_IDENTITIES.equals(action))
+                onViewIdentities(intent);
+            else if (ACTION_EDIT_ACCOUNT.equals(action))
                 onEditAccount(intent);
-            else if (ACTION_EDIT_IDENTITY.equals(intent.getAction()))
+            else if (ACTION_EDIT_IDENTITY.equals(action))
                 onEditIdentity(intent);
-            else if (ACTION_SHOW_PRO.equals(intent.getAction()))
+            else if (ACTION_SHOW_PRO.equals(action))
                 onShowPro(intent);
         }
     };

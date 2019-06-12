@@ -53,7 +53,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        setSubtitle(R.string.title_advanced);
+        setSubtitle(R.string.title_setup);
         setHasOptionsMenu(true);
 
         View view = inflater.inflate(R.layout.fragment_options_behavior, container, false);

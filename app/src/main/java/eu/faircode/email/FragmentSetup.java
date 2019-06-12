@@ -35,9 +35,6 @@ import android.os.Bundle;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -46,8 +43,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
 import java.util.List;
@@ -55,6 +52,7 @@ import java.util.List;
 public class FragmentSetup extends FragmentBase {
     private ViewGroup view;
 
+    private Button btnHelp;
     private Button btnQuick;
 
     private TextView tvAccountDone;
@@ -73,7 +71,6 @@ public class FragmentSetup extends FragmentBase {
 
     private Button btnData;
 
-    private Button btnOptions;
     private Button btnInbox;
 
     private int textColorPrimary;
@@ -88,7 +85,6 @@ public class FragmentSetup extends FragmentBase {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_setup);
-        setHasOptionsMenu(true);
 
         textColorPrimary = Helper.resolveColor(getContext(), android.R.attr.textColorPrimary);
         colorWarning = Helper.resolveColor(getContext(), R.attr.colorWarning);
@@ -97,6 +93,7 @@ public class FragmentSetup extends FragmentBase {
         view = (ViewGroup) inflater.inflate(R.layout.fragment_setup, container, false);
 
         // Get controls
+        btnHelp = view.findViewById(R.id.btnHelp);
         btnQuick = view.findViewById(R.id.btnQuick);
 
         tvAccountDone = view.findViewById(R.id.tvAccountDone);
@@ -115,35 +112,41 @@ public class FragmentSetup extends FragmentBase {
 
         btnData = view.findViewById(R.id.btnData);
 
-        btnOptions = view.findViewById(R.id.btnOptions);
         btnInbox = view.findViewById(R.id.btnInbox);
 
         // Wire controls
 
+        btnHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(Helper.getIntentSetupHelp());
+            }
+        });
+
+        PackageManager pm = getContext().getPackageManager();
+        btnHelp.setVisibility(Helper.getIntentSetupHelp().resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
+
         btnQuick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, new FragmentQuickSetup()).addToBackStack("quick");
-                fragmentTransaction.commit();
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_SETUP));
             }
         });
 
         btnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, new FragmentAccounts()).addToBackStack("accounts");
-                fragmentTransaction.commit();
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_VIEW_ACCOUNTS));
             }
         });
 
         btnIdentity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, new FragmentIdentities()).addToBackStack("identities");
-                fragmentTransaction.commit();
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_VIEW_IDENTITIES));
             }
         });
 
@@ -188,19 +191,10 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
-        btnOptions.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, new FragmentOptions()).addToBackStack("options");
-                fragmentTransaction.commit();
-            }
-        });
-
         btnInbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                ((FragmentBase) getParentFragment()).finish();
             }
         });
 
@@ -342,44 +336,6 @@ public class FragmentSetup extends FragmentBase {
             boolean saving = (cm.getRestrictBackgroundStatus() == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED);
             btnData.setVisibility(saving || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         }
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_setup, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        PackageManager pm = getContext().getPackageManager();
-        menu.findItem(R.id.menu_advanced).setVisible(BuildConfig.DEBUG);
-        menu.findItem(R.id.menu_help).setVisible(Helper.getIntentSetupHelp().resolveActivity(pm) != null);
-        super.onPrepareOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_advanced:
-                onMenuAdvanced();
-                return true;
-            case R.id.menu_help:
-                onMenuHelp();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    private void onMenuAdvanced() {
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new FragmentOptions()).addToBackStack("options");
-        fragmentTransaction.commit();
-    }
-
-    private void onMenuHelp() {
-        startActivity(Helper.getIntentSetupHelp());
     }
 
     @Override

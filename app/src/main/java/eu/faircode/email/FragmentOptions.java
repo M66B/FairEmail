@@ -48,8 +48,6 @@ public class FragmentOptions extends FragmentBase {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        setSubtitle(R.string.title_advanced);
-
         View view = inflater.inflate(R.layout.fragment_options, container, false);
 
         pager = view.findViewById(R.id.pager);
@@ -72,25 +70,27 @@ public class FragmentOptions extends FragmentBase {
 
         @Override
         public int getCount() {
-            return 7;
+            return 8;
         }
 
         @Override
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new FragmentOptionsSynchronize();
+                    return new FragmentSetup();
                 case 1:
-                    return new FragmentOptionsSend();
+                    return new FragmentOptionsSynchronize();
                 case 2:
-                    return new FragmentOptionsConnection();
+                    return new FragmentOptionsSend();
                 case 3:
-                    return new FragmentOptionsDisplay();
+                    return new FragmentOptionsConnection();
                 case 4:
-                    return new FragmentOptionsBehavior();
+                    return new FragmentOptionsDisplay();
                 case 5:
-                    return new FragmentOptionsNotifications();
+                    return new FragmentOptionsBehavior();
                 case 6:
+                    return new FragmentOptionsNotifications();
+                case 7:
                     return new FragmentOptionsMisc();
                 default:
                     throw new IllegalArgumentException();
@@ -101,18 +101,20 @@ public class FragmentOptions extends FragmentBase {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return getString(R.string.title_advanced_section_synchronize);
+                    return getString(R.string.title_advanced_section_main);
                 case 1:
-                    return getString(R.string.title_advanced_section_send);
+                    return getString(R.string.title_advanced_section_synchronize);
                 case 2:
-                    return getString(R.string.title_advanced_section_connection);
+                    return getString(R.string.title_advanced_section_send);
                 case 3:
-                    return getString(R.string.title_advanced_section_display);
+                    return getString(R.string.title_advanced_section_connection);
                 case 4:
-                    return getString(R.string.title_advanced_section_behavior);
+                    return getString(R.string.title_advanced_section_display);
                 case 5:
-                    return getString(R.string.title_advanced_section_notifications);
+                    return getString(R.string.title_advanced_section_behavior);
                 case 6:
+                    return getString(R.string.title_advanced_section_notifications);
+                case 7:
                     return getString(R.string.title_advanced_section_misc);
                 default:
                     throw new IllegalArgumentException();
