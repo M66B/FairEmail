@@ -252,10 +252,13 @@ public class EntityRule {
                 message.account, message.thread, thread ? null : message.id, message.folder);
         for (EntityMessage threaded : messages) {
             if (seen)
-                onActionSeen(context, threaded, true);
+                EntityOperation.queue(context, threaded, EntityOperation.SEEN, seen);
 
             EntityOperation.queue(context, threaded, EntityOperation.MOVE, target, false);
         }
+
+        if (seen)
+            message.seen = true;
     }
 
     private void onActionCopy(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
