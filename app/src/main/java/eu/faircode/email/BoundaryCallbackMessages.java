@@ -113,16 +113,16 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     @Override
     public void onZeroItemsLoaded() {
         Log.i("Boundary zero loaded");
-        queue_load();
+        queue_load(true);
     }
 
     @Override
     public void onItemAtEndLoaded(final TupleMessageEx itemAtEnd) {
         Log.i("Boundary at end");
-        queue_load();
+        queue_load(false);
     }
 
-    private void queue_load() {
+    private void queue_load(final boolean zero) {
         executor.submit(new Runnable() {
             private int fetched;
 
@@ -158,7 +158,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
-                                intf.onLoaded(fetched);
+                                intf.onLoaded(zero ? fetched : Integer.MAX_VALUE);
                             }
                         });
                 }
