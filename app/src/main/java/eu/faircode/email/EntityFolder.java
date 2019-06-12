@@ -153,7 +153,6 @@ public class EntityFolder extends EntityOrder implements Serializable {
             USER
     ));
 
-    static final int DEFAULT_INIT = 14; // days
     static final int DEFAULT_SYNC = 7; // days
     static final int DEFAULT_KEEP = 30; // days
 
@@ -190,7 +189,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         }
 
         JSONArray jargs = new JSONArray();
-        jargs.put(initialize ? Math.min(DEFAULT_INIT, keep_days) : days);
+        jargs.put(initialize ? keep_days : days);
         jargs.put(keep_days);
         jargs.put(download);
         jargs.put(auto_delete);
