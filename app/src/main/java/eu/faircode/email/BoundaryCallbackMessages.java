@@ -25,6 +25,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Handler;
 
+import androidx.annotation.NonNull;
 import androidx.paging.PagedList;
 import androidx.preference.PreferenceManager;
 
@@ -89,7 +90,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         void onLoaded(int fetched);
 
-        void onError(Throwable ex);
+        void onError(@NonNull Throwable ex);
     }
 
     BoundaryCallbackMessages(Context context, long folder, boolean server, String query, int pageSize) {
