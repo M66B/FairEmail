@@ -61,7 +61,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -123,7 +122,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private ImageButton ibHintSwipe;
     private ImageButton ibHintSelect;
     private TextView tvNoEmail;
-    private ImageView ivBusy;
     private FixedRecyclerView rvMessage;
     private SeekBar seekBar;
     private ImageButton ibDown;
@@ -168,6 +166,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean connected;
     private boolean reset = false;
     private String searching = null;
+    private boolean initialized = false;
     private boolean loading = false;
     private boolean manual = false;
     private Integer lastUnseen = null;
@@ -270,7 +269,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
         ibHintSelect = view.findViewById(R.id.ibHintSelect);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
-        ivBusy = view.findViewById(R.id.ivBusy);
         rvMessage = view.findViewById(R.id.rvMessage);
         seekBar = view.findViewById(R.id.seekBar);
         ibDown = view.findViewById(R.id.ibDown);
@@ -772,7 +770,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         updateSwipeRefresh();
 
-        ivBusy.setVisibility(View.GONE);
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
         IntentFilter iff = new IntentFilter();
         iff.addAction(SimpleTask.ACTION_TASK_COUNT);
@@ -793,16 +790,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @Override
         public void onReceive(Context context, Intent intent) {
             busy = intent.getIntExtra("count", 0);
-            if (busy == 0)
-                ivBusy.setVisibility(View.GONE);
-            else
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (busy > 0)
-                            ivBusy.setVisibility(View.VISIBLE);
-                    }
-                }, 1500);
+            if (busy == 0) {
+                if (initialized && !loading)
+                    pbWait.setVisibility(View.GONE);
+            } else
+                pbWait.setVisibility(View.VISIBLE);
         }
     };
 
@@ -2719,7 +2711,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (submitted == null)
                 return;
 
-            pbWait.setVisibility(View.GONE);
+            if (initialized && busy == 0)
+                pbWait.setVisibility(View.GONE);
             if (submitted + fetched == 0)
                 tvNoEmail.setVisibility(View.VISIBLE);
         }
@@ -2761,7 +2754,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             rvMessage.setTag(messages.size());
 
-            if (!loading) {
+            initialized = true;
+            if (!loading && busy == 0) {
                 pbWait.setVisibility(View.GONE);
                 if (messages.size() == 0)
                     tvNoEmail.setVisibility(View.VISIBLE);
