@@ -124,7 +124,7 @@
     <string name="title_setup_doze_remark">To continuously receive email (optional)</string>
     <string name="title_setup_doze_instructions">In the next dialog, select \"All apps\" at the top, select this app and select and confirm \"Don\'t optimize\"</string>
     <string name="title_setup_data">Disable data saving</string>
-    <string name="title_setup_inbox">Read messages</string>
+    <string name="title_setup_inbox">Go to messages</string>
     <string name="title_setup_to_do">To do</string>
     <string name="title_setup_done">Done</string>
 
@@ -154,7 +154,7 @@
     <string name="title_setup_defaults">Restore defaults</string>
     <string name="title_setup_reset_questions">Reset questions</string>
 
-    <string name="title_advanced_section_main">Main</string>
+    <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Receive</string>
     <string name="title_advanced_section_send">Send</string>
     <string name="title_advanced_section_connection">Connection</string>
