@@ -8,10 +8,7 @@
         android:id="@+id/clItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/activatableItemBackground"
-        android:descendantFocusability="beforeDescendants"
-        android:focusable="true"
-        android:focusableInTouchMode="true">
+        android:background="?attr/activatableItemBackground">
 
         <include
             android:id="@+id/inHeader"
