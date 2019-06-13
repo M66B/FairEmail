@@ -6,6 +6,7 @@
     <string name="app_welcome">FairEmail este o aplicație pentru e-mail, cu sursă deschisă, ce se concentrează pe confidențialitate și securitate. Din acest motiv se poate ca unele caracteristici să funcționeze diferit de cum erați obișnuiți.</string>
     <string name="app_limitations">De exemplu, mesajele vor fi mereu rescrise pentru a înlătura elementele nesigure și a îmbunătății lizibilitatea iar deschiderea legăturilor trebuie, pentru siguranță, confirmată.</string>
     <string name="app_crash">FairEmail nu suportă acest dispozitiv din cauza erorilor din Android ce duc la blocaje</string>
+    <string name="app_exit">Apăsați înapoi din nou pentru a ieși</string>
     <string name="channel_service">Serviciu</string>
     <string name="channel_send">Trimite</string>
     <string name="channel_notification">Notificări</string>
@@ -108,7 +109,7 @@
     <string name="title_setup_doze_remark">Pentru a primi în mod continuu e-mail (opțional)</string>
     <string name="title_setup_doze_instructions">În fereastra următoare, selectați \"Toate aplicațiile\" din partea de sus, selectați acestă aplicație și selectați și confirmați \"Nu optimiza\"</string>
     <string name="title_setup_data">Dezactivează salvarea datelor</string>
-    <string name="title_setup_inbox">Citire mesaje</string>
+    <string name="title_setup_inbox">Mergi la mesaje</string>
     <string name="title_setup_to_do">De făcut</string>
     <string name="title_setup_done">Gata</string>
     <string name="title_setup_export">Exportă setări</string>
@@ -134,6 +135,7 @@
     <string name="title_setup_options">Opţiuni</string>
     <string name="title_setup_defaults">Restabiliți valorile implicite</string>
     <string name="title_setup_reset_questions">Resetare întrebări</string>
+    <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Primește</string>
     <string name="title_advanced_section_send">Trimite</string>
     <string name="title_advanced_section_connection">Conexiune</string>

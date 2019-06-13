@@ -101,7 +101,7 @@
     <string name="title_setup_doze_remark">Per ricevere continuamente email (facoltativo)</string>
     <string name="title_setup_doze_instructions">Nella prossima finestra, seleziona \"Tutte le app\" in alto, seleziona questa app e seleziona e conferma \"Non ottimizzare\"</string>
     <string name="title_setup_data">Disattiva risparmio dati</string>
-    <string name="title_setup_inbox">Leggere messaggi</string>
+    <string name="title_setup_inbox">Vai ai messaggi</string>
     <string name="title_setup_to_do">Da fare</string>
     <string name="title_setup_done">Fine</string>
     <string name="title_setup_export">Esporta impostazioni</string>

@@ -101,7 +101,7 @@
     <string name="title_setup_doze_remark">Pour recevoir des e-mails en continu (facultatif)</string>
     <string name="title_setup_doze_instructions">Sur le prochain écran, sélectionnez \"Toutes les applications\" en haut, recherchez cette application puis sélectionnez et validez \"Ne pas optimiser\"</string>
     <string name="title_setup_data">Désactiver l\'économie de données</string>
-    <string name="title_setup_inbox">Lire les messages</string>
+    <string name="title_setup_inbox">Voir les messages</string>
     <string name="title_setup_to_do">À faire</string>
     <string name="title_setup_done">Fait</string>
     <string name="title_setup_export">Exporter les paramètres</string>
@@ -127,7 +127,7 @@
     <string name="title_setup_options">Options</string>
     <string name="title_setup_defaults">Rétablir les paramètres par défaut</string>
     <string name="title_setup_reset_questions">Réinitialiser les questions</string>
-    <string name="title_advanced_section_main">Général</string>
+    <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Réception</string>
     <string name="title_advanced_section_send">Envoi</string>
     <string name="title_advanced_section_connection">Connexion</string>

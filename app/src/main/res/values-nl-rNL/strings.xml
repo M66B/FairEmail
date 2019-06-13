@@ -101,7 +101,7 @@
     <string name="title_setup_doze_remark">Om voortdurend e-mail te ontvangen (optioneel)</string>
     <string name="title_setup_doze_instructions">In het volgende dialoogvenster, selecteer \"Alle apps\" bovenin, selecteer deze app en bevestig met \"Niet optimaliseren\"</string>
     <string name="title_setup_data">Databesparing uitschakelen</string>
-    <string name="title_setup_inbox">Berichten lezen</string>
+    <string name="title_setup_inbox">Ga naar berichten</string>
     <string name="title_setup_to_do">Te doen</string>
     <string name="title_setup_done">Gedaan</string>
     <string name="title_setup_export">Exporteer instellingen</string>
@@ -127,7 +127,7 @@
     <string name="title_setup_options">Opties</string>
     <string name="title_setup_defaults">Verstekwaarden herstellen</string>
     <string name="title_setup_reset_questions">Vragen resetten</string>
-    <string name="title_advanced_section_main">Voornaamste</string>
+    <string name="title_advanced_section_main">Hoofd</string>
     <string name="title_advanced_section_synchronize">Ontvangen</string>
     <string name="title_advanced_section_send">Verzenden</string>
     <string name="title_advanced_section_connection">Verbinding</string>

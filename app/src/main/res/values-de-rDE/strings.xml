@@ -101,7 +101,7 @@
     <string name="title_setup_doze_remark">Um kontinuierlich E-Mails zu empfangen (optional)</string>
     <string name="title_setup_doze_instructions">Rufen Sie im folgendem Auswahldialog (oben) \"Alle Apps\" auf; wählen Sie anschließend FairEmail aus und bestätigen Sie die Option \"Nicht optimieren\" mit Fertig.</string>
     <string name="title_setup_data">Deaktiviere Datenreduzierung</string>
-    <string name="title_setup_inbox">E-Mails lesen</string>
+    <string name="title_setup_inbox">Zu Nachrichten wechseln</string>
     <string name="title_setup_to_do">Nicht erledigt</string>
     <string name="title_setup_done">Erledigt</string>
     <string name="title_setup_export">Einstellungen exportieren</string>
@@ -127,7 +127,7 @@
     <string name="title_setup_options">Optionen</string>
     <string name="title_setup_defaults">Auf Standard zurücksetzen</string>
     <string name="title_setup_reset_questions">Fragen zurücksetzen</string>
-    <string name="title_advanced_section_main">Hauptmenü</string>
+    <string name="title_advanced_section_main">Haupteinstellungen</string>
     <string name="title_advanced_section_synchronize">Empfangen</string>
     <string name="title_advanced_section_send">Senden</string>
     <string name="title_advanced_section_connection">Verbindung</string>
