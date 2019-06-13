@@ -552,8 +552,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Selected / disabled
             view.setActivated(selectionTracker != null && selectionTracker.isSelected(message.id));
-            view.setAlpha(message.uid == null && !EntityFolder.OUTBOX.equals(message.folderType)
-                    ? Helper.LOW_LIGHT : 1.0f);
+            view.setAlpha(
+                    (EntityFolder.OUTBOX.equals(message.folderType)
+                            ? message.identitySynchronize == null || !message.identitySynchronize
+                            : message.uid == null)
+                            ? Helper.LOW_LIGHT : 1.0f);
 
             // Duplicate
             if (viewType == ViewType.THREAD) {
