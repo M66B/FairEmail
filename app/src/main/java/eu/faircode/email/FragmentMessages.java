@@ -2725,7 +2725,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         @Override
-        public void onError(Throwable ex) {
+        public void onException(@NonNull Throwable ex) {
             if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                 if (ex instanceof IllegalStateException) {
                     Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);

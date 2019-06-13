@@ -90,7 +90,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         void onLoaded(int fetched);
 
-        void onError(@NonNull Throwable ex);
+        void onException(@NonNull Throwable ex);
     }
 
     BoundaryCallbackMessages(Context context, long folder, boolean server, String query, int pageSize) {
@@ -151,7 +151,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
-                                intf.onError(ex);
+                                intf.onException(ex);
                             }
                         });
                 } finally {
