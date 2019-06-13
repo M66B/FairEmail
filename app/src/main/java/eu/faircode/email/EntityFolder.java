@@ -312,6 +312,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
         json.put("id", id);
+        json.put("order", order);
         json.put("name", name);
         json.put("type", type);
         json.put("synchronize", synchronize);
@@ -332,6 +333,9 @@ public class EntityFolder extends EntityOrder implements Serializable {
         EntityFolder folder = new EntityFolder();
         if (json.has("id"))
             folder.id = json.getLong("id");
+
+        if (json.has("order"))
+            folder.order = json.getInt("order");
 
         folder.name = json.getString("name");
         folder.type = json.getString("type");
