@@ -58,7 +58,10 @@ public interface DaoIdentity {
     @Query("SELECT * FROM identity WHERE id = :id")
     EntityIdentity getIdentity(long id);
 
-    @Query("SELECT * FROM identity WHERE account = :account AND email = :email COLLATE NOCASE")
+    @Query("SELECT * FROM identity" +
+            " WHERE account = :account AND email = :email COLLATE NOCASE" +
+            " ORDER BY CASE WHEN synchronize THEN 0 ELSE 1 END" +
+            " LIMIT 1")
     EntityIdentity getIdentity(long account, String email);
 
     @Query("SELECT COUNT(*) FROM identity WHERE synchronize")
