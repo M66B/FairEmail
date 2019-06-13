@@ -213,23 +213,23 @@ public class HtmlHelper {
         document.select("ol").tagName("div");
         document.select("ul").tagName("div");
 
+        final Pattern pattern = Pattern.compile(
+                PatternsCompat.AUTOLINK_EMAIL_ADDRESS.pattern() + "|" +
+                        PatternsCompat.AUTOLINK_WEB_URL.pattern());
+
         // Autolink
         NodeTraversor.traverse(new NodeVisitor() {
             @Override
             public void head(Node node, int depth) {
                 if (node instanceof TextNode) {
                     TextNode tnode = (TextNode) node;
+                    String text = tnode.text();
 
-                    Pattern pattern = Pattern.compile(
-                            PatternsCompat.AUTOLINK_EMAIL_ADDRESS.pattern() + "|" +
-                                    PatternsCompat.AUTOLINK_WEB_URL.pattern());
-                    Matcher matcher = pattern.matcher(tnode.text());
+                    Matcher matcher = pattern.matcher(text);
                     if (matcher.find()) {
                         Element span = document.createElement("span");
 
                         int pos = 0;
-                        String text = tnode.text();
-
                         do {
                             boolean linked = false;
                             Node parent = tnode.parent();
@@ -260,6 +260,7 @@ public class HtmlHelper {
 
                             pos = matcher.end();
                         } while (matcher.find());
+
                         span.appendText(text.substring(pos));
 
                         tnode.before(span);
