@@ -382,6 +382,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 }
             }
 
+        List<EntityRule> rules = db.rule().getEnabledRules(browsable.id);
+
         int found = 0;
         while (index >= 0 && found < pageSize && !destroyed) {
             Log.i("Boundary server index=" + index);
@@ -412,7 +414,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                     account, browsable,
                                     ifolder, (IMAPMessage) isub[j],
                                     true,
-                                    new ArrayList<EntityRule>());
+                                    rules);
                             found++;
                         }
                         db.message().setMessageFound(message.account, message.thread);
