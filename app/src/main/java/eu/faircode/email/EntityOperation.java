@@ -153,13 +153,16 @@ public class EntityOperation {
 
                     // Copy message to target folder
                     long id = message.id;
+                    Long identity = message.identity;
                     long uid = message.uid;
                     boolean seen = message.seen;
                     boolean ui_seen = message.ui_seen;
                     boolean ui_browsed = message.ui_browsed;
+
                     message.id = null;
                     message.account = target.account;
                     message.folder = target.id;
+                    message.identity = null;
                     message.uid = null;
                     if (autoread) {
                         message.seen = true;
@@ -173,6 +176,7 @@ public class EntityOperation {
                     message.id = id;
                     message.account = source.account;
                     message.folder = source.id;
+                    message.identity = identity;
                     message.uid = uid;
                     message.seen = seen;
                     message.ui_seen = ui_seen;
