@@ -2246,7 +2246,8 @@ class Core {
 
         void error(Throwable ex) {
             if (ex instanceof MessagingException &&
-                    (ex.getCause() instanceof SocketException ||
+                    ("connection failure".equals(ex.getMessage()) ||
+                            ex.getCause() instanceof SocketException ||
                             ex.getCause() instanceof ConnectionException))
                 recoverable = false;
 
