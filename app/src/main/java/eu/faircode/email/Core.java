@@ -546,17 +546,23 @@ class Core {
 
             Log.i(folder.name + " appended id=" + message.id + " uid=" + uid);
 
-            if (folder.id.equals(message.folder)) {
-                Log.i(folder.name + " Setting id=" + message.id + " uid=" + uid);
-                db.message().setMessageUid(message.id, uid);
-            } else
-                try {
-                    db.beginTransaction();
+            try {
+                db.beginTransaction();
 
+                List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
+
+                if (folder.id.equals(message.folder)) {
+                    Log.i(folder.name + " Setting id=" + message.id + " uid=" + uid);
+                    db.message().setMessageUid(message.id, uid);
+
+                    runRules(context, imessage, message, rules);
+                } else {
                     // Cross account move
                     if (tmpid != null) {
                         Log.i(folder.name + " Setting id=" + tmpid + " (tmp) appended uid=" + uid);
                         db.message().setMessageUid(tmpid, uid);
+
+                        runRules(context, imessage, db.message().getMessage(tmpid), rules);
                     }
 
                     // Mark source read
@@ -568,11 +574,12 @@ class Core {
                     // Delete source
                     Log.i(folder.name + " queuing DELETE id=" + message.id);
                     EntityOperation.queue(context, message, EntityOperation.DELETE);
-
-                    db.setTransactionSuccessful();
-                } finally {
-                    db.endTransaction();
                 }
+
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+            }
         } catch (Throwable ex) {
             if (folder.id.equals(message.folder))
                 db.message().setMessageUid(message.id, message.uid);
@@ -1540,7 +1547,7 @@ class Core {
         }
     }
 
-    private static void runRules(Context context, IMAPMessage imessage, EntityMessage message, List<EntityRule> rules) {
+    private static void runRules(Context context, Message imessage, EntityMessage message, List<EntityRule> rules) {
         if (!Helper.isPro(context))
             return;
 
