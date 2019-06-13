@@ -44,12 +44,20 @@ import java.util.concurrent.Executors;
 // Results will not be delivered to destroyed fragments
 
 public abstract class SimpleTask<T> implements LifecycleObserver {
+    private boolean count = true;
+    private int executing = 0;
+
     private static final List<SimpleTask> tasks = new ArrayList<>();
 
     private static final ExecutorService executor = Executors.newFixedThreadPool(
             Runtime.getRuntime().availableProcessors(), Helper.backgroundThreadFactory);
 
     static final String ACTION_TASK_COUNT = BuildConfig.APPLICATION_ID + ".ACTION_TASK_COUNT";
+
+    public SimpleTask<T> setCount(boolean count) {
+        this.count = count;
+        return this;
+    }
 
     public void execute(Context context, LifecycleOwner owner, @NonNull Bundle args, @NonNull String name) {
         run(context, owner, args, name);
@@ -75,14 +83,14 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         final Handler handler = new Handler();
 
         // prevent garbage collection
-        int count;
         synchronized (tasks) {
             tasks.add(this);
-            count = tasks.size();
+            if (count)
+                executing++;
         }
 
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-        lbm.sendBroadcast(new Intent(ACTION_TASK_COUNT).putExtra("count", count));
+        lbm.sendBroadcast(new Intent(ACTION_TASK_COUNT).putExtra("count", executing));
 
         try {
             onPreExecute(args);
@@ -164,15 +172,15 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     }
 
     private void cleanup(Context context) {
-        int count;
         synchronized (tasks) {
             tasks.remove(this);
-            count = tasks.size();
+            if (count)
+                executing--;
         }
 
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-        lbm.sendBroadcast(new Intent(ACTION_TASK_COUNT).putExtra("count", count));
-        Log.i("Remaining tasks=" + count);
+        lbm.sendBroadcast(new Intent(ACTION_TASK_COUNT).putExtra("count", executing));
+        Log.i("Remaining tasks=" + tasks.size());
     }
 
     protected void onPreExecute(Bundle args) {

@@ -1945,7 +1945,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 args.putBoolean("show_images", show_images);
                 args.putBoolean("show_quotes", show_quotes);
                 args.putInt("zoom", zoom);
-                bodyTask.execute(context, owner, args, "message:body");
+                bodyTask.setCount(false).execute(context, owner, args, "message:body");
             }
         }
 
