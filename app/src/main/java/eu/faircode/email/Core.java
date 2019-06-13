@@ -552,19 +552,11 @@ class Core {
                 List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
 
                 if (folder.id.equals(message.folder)) {
-                    Log.i(folder.name + " Setting id=" + message.id + " uid=" + uid);
-                    db.message().setMessageUid(message.id, uid);
-
-                    runRules(context, imessage, message, rules);
-                } else {
-                    // Cross account move
-                    if (tmpid != null) {
-                        Log.i(folder.name + " Setting id=" + tmpid + " (tmp) appended uid=" + uid);
-                        db.message().setMessageUid(tmpid, uid);
-
-                        runRules(context, imessage, db.message().getMessage(tmpid), rules);
+                    if (EntityFolder.DRAFTS.equals(folder.type)) {
+                        Log.i(folder.name + " Setting id=" + message.id + " uid=" + uid);
+                        db.message().setMessageUid(message.id, uid);
                     }
-
+                } else {
                     // Mark source read
                     if (autoread) {
                         Log.i(folder.name + " queuing SEEN id=" + message.id);
@@ -1269,7 +1261,7 @@ class Core {
             String flags = helper.getFlags();
             String[] keywords = helper.getKeywords();
             boolean update = false;
-            boolean filter = false;
+            boolean process = false;
 
             DB db = DB.getInstance(context);
 
@@ -1304,62 +1296,22 @@ class Core {
                             if (dup.size == null)
                                 dup.size = helper.getSize();
                             dup.error = null;
+
                             message = dup;
-                            update = true;
-                            filter = true;
+                            process = true;
                         } else if (dup.uid < 0)
                             throw new MessageRemovedException();
                     }
                 }
-
-                if (message == null)
-                    filter = true;
             }
 
             if (message == null) {
-                Address[] froms = helper.getFrom();
-                Address[] tos = helper.getTo();
-                Address[] ccs = helper.getCc();
-
-                // Build ordered list of addresses
-                List<Address> addresses = new ArrayList<>();
-                if (folder.isOutgoing()) {
-                    if (froms != null)
-                        addresses.addAll(Arrays.asList(froms));
-                } else {
-                    if (tos != null)
-                        addresses.addAll(Arrays.asList(tos));
-                    if (ccs != null)
-                        addresses.addAll(Arrays.asList(ccs));
-                    if (EntityFolder.ARCHIVE.equals(folder.type) || BuildConfig.DEBUG) {
-                        if (froms != null)
-                            addresses.addAll(Arrays.asList(froms));
-                    }
-                }
-
-                // Search for matching identity
-                EntityIdentity identity = null;
-                for (Address address : addresses) {
-                    String email = ((InternetAddress) address).getAddress();
-                    if (!TextUtils.isEmpty(email)) {
-                        identity = db.identity().getIdentity(folder.account, email);
-                        if (identity == null) {
-                            String canonical = MessageHelper.canonicalAddress(email);
-                            if (!canonical.equals(email))
-                                identity = db.identity().getIdentity(folder.account, canonical);
-                        }
-                        if (identity != null)
-                            break;
-                    }
-                }
-
                 String authentication = helper.getAuthentication();
                 MessageHelper.MessageParts parts = helper.getMessageParts();
 
                 message = new EntityMessage();
                 message.account = folder.account;
                 message.folder = folder.id;
-                message.identity = (identity == null ? null : identity.id);
                 message.uid = uid;
 
                 message.msgid = helper.getMessageID();
@@ -1376,9 +1328,9 @@ class Core {
                 message.dkim = MessageHelper.getAuthentication("dkim", authentication);
                 message.spf = MessageHelper.getAuthentication("spf", authentication);
                 message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
-                message.from = froms;
-                message.to = tos;
-                message.cc = ccs;
+                message.from = helper.getFrom();
+                message.to = helper.getTo();
+                message.cc = helper.getCc();
                 message.bcc = helper.getBcc();
                 message.reply = helper.getReply();
                 message.list_post = helper.getListPost();
@@ -1399,6 +1351,9 @@ class Core {
                 message.ui_found = false;
                 message.ui_ignored = seen;
                 message.ui_browsed = browsed;
+
+                EntityIdentity identity = matchIdentity(context, folder, message);
+                message.identity = (identity == null ? null : identity.id);
 
                 message.sender = MessageHelper.getSortKey(message.from);
                 Uri lookupUri = ContactInfo.getLookupUri(context, message.from);
@@ -1446,12 +1401,17 @@ class Core {
                     db.endTransaction();
                 }
 
-                if (message.received > account.created &&
-                        !EntityFolder.ARCHIVE.equals(folder.type) &&
-                        !EntityFolder.TRASH.equals(folder.type) &&
-                        !EntityFolder.JUNK.equals(folder.type))
+                if (message.received > account.created)
                     updateContactInfo(context, folder, message);
             } else {
+                if (process) {
+                    EntityIdentity identity = matchIdentity(context, folder, message);
+                    if (identity != null) {
+                        message.identity = identity.id;
+                        Log.i(folder.name + " updated id=" + message.id + " identity=" + identity.id);
+                    }
+                }
+
                 if (!message.seen.equals(seen) || !message.seen.equals(message.ui_seen)) {
                     update = true;
                     message.seen = seen;
@@ -1513,19 +1473,22 @@ class Core {
                     Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " avatar=" + avatar);
                 }
 
-                if (update)
+                if (update || process)
                     try {
                         db.beginTransaction();
 
                         db.message().updateMessage(message);
 
-                        if (filter)
+                        if (process)
                             runRules(context, imessage, message, rules);
 
                         db.setTransactionSuccessful();
                     } finally {
                         db.endTransaction();
                     }
+
+                if (process)
+                    updateContactInfo(context, folder, message);
 
                 else if (BuildConfig.DEBUG)
                     Log.i(folder.name + " unchanged uid=" + uid);
@@ -1548,6 +1511,45 @@ class Core {
         }
     }
 
+    private static EntityIdentity matchIdentity(Context context, EntityFolder folder, EntityMessage message) {
+        DB db = DB.getInstance(context);
+
+        List<Address> addresses = new ArrayList<>();
+        if (folder.isOutgoing()) {
+            if (message.from != null)
+                addresses.addAll(Arrays.asList(message.from));
+        } else {
+            if (message.to != null)
+                addresses.addAll(Arrays.asList(message.to));
+            if (message.cc != null)
+                addresses.addAll(Arrays.asList(message.cc));
+            if (EntityFolder.ARCHIVE.equals(folder.type) || BuildConfig.DEBUG) {
+                if (message.from != null)
+                    addresses.addAll(Arrays.asList(message.from));
+            }
+        }
+
+        // Search for matching identity
+        for (Address address : addresses) {
+            String email = ((InternetAddress) address).getAddress();
+            if (!TextUtils.isEmpty(email)) {
+                EntityIdentity ident = db.identity().getIdentity(folder.account, email);
+                if (ident != null)
+                    return ident;
+
+                String canonical = MessageHelper.canonicalAddress(email);
+                if (canonical.equals(email))
+                    continue;
+
+                ident = db.identity().getIdentity(folder.account, canonical);
+                if (ident != null)
+                    return ident;
+            }
+        }
+
+        return null;
+    }
+
     private static void runRules(Context context, Message imessage, EntityMessage message, List<EntityRule> rules) {
         if (!Helper.isPro(context))
             return;
@@ -1568,6 +1570,11 @@ class Core {
 
     private static void updateContactInfo(Context context, final EntityFolder folder, final EntityMessage message) {
         final DB db = DB.getInstance(context);
+
+        if (EntityFolder.ARCHIVE.equals(folder.type) ||
+                EntityFolder.TRASH.equals(folder.type) ||
+                EntityFolder.JUNK.equals(folder.type))
+            return;
 
         final int type = (folder.isOutgoing() ? EntityContact.TYPE_TO : EntityContact.TYPE_FROM);
         Address[] recipients = (type == EntityContact.TYPE_TO
