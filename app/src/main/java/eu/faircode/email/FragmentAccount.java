@@ -320,7 +320,7 @@ public class FragmentAccount extends FragmentBase {
             }
         });
 
-        vwColor.setBackgroundColor(color);
+        setColor(color);
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1379,7 +1379,7 @@ public class FragmentAccount extends FragmentBase {
     }
 
     private void setColor(int color) {
-        FragmentAccount.this.color = color;
+        this.color = color;
 
         GradientDrawable border = new GradientDrawable();
         border.setColor(color);

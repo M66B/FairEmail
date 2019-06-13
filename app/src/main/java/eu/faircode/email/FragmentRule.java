@@ -131,7 +131,7 @@ public class FragmentRule extends FragmentBase {
     private long id = -1;
     private long account = -1;
     private long folder = -1;
-    private Integer color = null;
+    private int color = Color.TRANSPARENT;
 
     private final static int MAX_CHECK = 10;
 
@@ -289,12 +289,10 @@ public class FragmentRule extends FragmentBase {
 
         tvActionRemark.setVisibility(View.GONE);
 
-        vwColor.setBackgroundColor(color == null ? Color.TRANSPARENT : color);
-
+        setColor(color);
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int color = (FragmentRule.this.color == null ? Color.TRANSPARENT : FragmentRule.this.color);
                 int[] colors = getContext().getResources().getIntArray(R.array.colorPicker);
                 ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
                 colorPickerDialog.initialize(R.string.title_flag_color, colors, color, 4, colors.length);
@@ -311,7 +309,7 @@ public class FragmentRule extends FragmentBase {
         ibColorDefault.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setColor(null);
+                setColor(Color.TRANSPARENT);
             }
         });
 
@@ -501,7 +499,7 @@ public class FragmentRule extends FragmentBase {
                                 break;
 
                             case EntityRule.TYPE_FLAG:
-                                setColor(jaction.isNull("color") ? null : jaction.getInt("color"));
+                                setColor(jaction.isNull("color") ? Color.TRANSPARENT : jaction.getInt("color"));
                                 break;
 
                             case EntityRule.TYPE_MOVE:
@@ -796,11 +794,8 @@ public class FragmentRule extends FragmentBase {
         grpAutomation.setVisibility(type == EntityRule.TYPE_AUTOMATION ? View.VISIBLE : View.GONE);
     }
 
-    private void setColor(Integer color) {
+    private void setColor(int color) {
         this.color = color;
-
-        if (color == null)
-            color = Color.TRANSPARENT;
 
         GradientDrawable border = new GradientDrawable();
         border.setColor(color);

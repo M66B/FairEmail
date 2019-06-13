@@ -273,7 +273,7 @@ public class FragmentIdentity extends FragmentBase {
             }
         });
 
-        vwColor.setBackgroundColor(color);
+        setColor(color);
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -991,7 +991,7 @@ public class FragmentIdentity extends FragmentBase {
     }
 
     private void setColor(int color) {
-        FragmentIdentity.this.color = color;
+        this.color = color;
 
         GradientDrawable border = new GradientDrawable();
         border.setColor(color);
