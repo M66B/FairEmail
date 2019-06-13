@@ -170,19 +170,21 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private int load_device() {
         DB db = DB.getInstance(context);
 
+        if (messages == null) {
+            messages = db.message().getMessageIdsByFolder(folder);
+            Log.i("Boundary device folder=" + folder + " query=" + query + " messages=" + messages.size());
+        }
+
         int found = 0;
         try {
             db.beginTransaction();
-
-            if (messages == null) {
-                messages = db.message().getMessageIdsByFolder(folder);
-                Log.i("Boundary device folder=" + folder + " query=" + query + " messages=" + messages.size());
-            }
 
             for (int i = index; i < messages.size() && found < pageSize && !destroyed; i++) {
                 index = i + 1;
 
                 EntityMessage message = db.message().getMessage(messages.get(i));
+                if (message == null)
+                    continue;
 
                 boolean match = false;
                 if (query == null)
