@@ -263,7 +263,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibImages;
         private ImageButton ibFull;
         private TextView tvBody;
-        private ContentLoadingProgressBar pbBody;
+        private ImageView ivBodyWait;
         private TextView tvNoInternetBody;
 
         private TextView tvCalendarSummary;
@@ -398,7 +398,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibImages = vsBody.findViewById(R.id.ibImages);
             ibFull = vsBody.findViewById(R.id.ibFull);
             tvBody = vsBody.findViewById(R.id.tvBody);
-            pbBody = vsBody.findViewById(R.id.pbBody);
+            ivBodyWait = vsBody.findViewById(R.id.ivBodyWait);
             tvNoInternetBody = vsBody.findViewById(R.id.tvNoInternetBody);
 
             rvImage = vsBody.findViewById(R.id.rvImage);
@@ -820,7 +820,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibImages.setVisibility(View.GONE);
             ibFull.setVisibility(View.GONE);
             tvBody.setVisibility(View.GONE);
-            pbBody.setVisibility(View.GONE);
+            ivBodyWait.setVisibility(View.GONE);
             tvNoInternetBody.setVisibility(View.GONE);
         }
 
@@ -1072,7 +1072,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, sargs, "message:actions");
 
             // Message text
-            pbBody.setVisibility(suitable || message.content ? View.VISIBLE : View.GONE);
+            ivBodyWait.setVisibility(suitable || message.content ? View.VISIBLE : View.GONE);
             tvNoInternetBody.setVisibility(suitable || message.content ? View.GONE : View.VISIBLE);
 
             Spanned body = properties.getBody(message.id);
@@ -2056,7 +2056,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvBody.setTextIsSelectable(true);
                 tvBody.setMovementMethod(new TouchHandler(message));
 
-                pbBody.setVisibility(View.GONE);
+                ivBodyWait.setVisibility(View.GONE);
             }
 
             @Override
