@@ -184,13 +184,19 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".ServiceSynchronize" />
+        <service
+            android:name=".ServiceSynchronize"
+            android:foregroundServiceType="dataSync" />
 
-        <service android:name=".ServiceSend" />
+        <service
+            android:name=".ServiceSend"
+            android:foregroundServiceType="dataSync" />
 
         <service android:name=".ServiceUI" />
 
-        <service android:name=".ServiceExternal">
+        <service
+            android:name=".ServiceExternal"
+            android:foregroundServiceType="dataSync">
             <intent-filter>
                 <action android:name="${applicationId}.ENABLE" />
                 <action android:name="${applicationId}.DISABLE" />
