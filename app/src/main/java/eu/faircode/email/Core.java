@@ -691,6 +691,7 @@ class Core {
             Log.i(folder.name + " queuing ADD id=" + message.id + ":" + target);
 
             EntityOperation operation = new EntityOperation();
+            operation.account = message.account;
             operation.folder = target;
             operation.message = message.id;
             operation.name = EntityOperation.ADD;

@@ -34,7 +34,7 @@ public interface DaoOperation {
             " FROM operation" +
             " JOIN folder ON folder.id = operation.folder" +
             " LEFT JOIN message ON message.id = operation.message" +
-            " LEFT JOIN account ON account.id = message.account OR account.id = folder.account" +
+            " LEFT JOIN account ON account.id = operation.account OR account.id = folder.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
             " ORDER BY" +
             "  CASE WHEN operation.name = '" + EntityOperation.SYNC + "' THEN" +
@@ -47,7 +47,7 @@ public interface DaoOperation {
     String GET_OPS_FOLDER = "SELECT operation.* FROM operation" +
             " JOIN folder ON folder.id = operation.folder" +
             " LEFT JOIN message ON message.id = operation.message" +
-            " LEFT JOIN account ON account.id = message.account" +
+            " LEFT JOIN account ON account.id = operation.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
             " WHERE operation.folder = :folder" +
             " AND (account.synchronize IS NULL OR account.synchronize)" +
@@ -67,11 +67,20 @@ public interface DaoOperation {
 
     @Query("SELECT COUNT(operation.id) AS pending" +
             ", SUM(CASE WHEN operation.error IS NULL THEN 0 ELSE 1 END) AS errors" +
-            " FROM operation")
+            " FROM operation" +
+            " JOIN folder ON folder.id = operation.folder" +
+            " LEFT JOIN message ON message.id = operation.message" +
+            " LEFT JOIN account ON account.id = operation.account" +
+            " LEFT JOIN identity ON identity.id = message.identity" +
+            " WHERE (account.synchronize IS NULL OR account.synchronize)" +
+            " AND (NOT folder.account IS NULL OR identity.synchronize IS NULL OR identity.synchronize)")
     LiveData<TupleOperationStats> liveStats();
 
     @Query("SELECT COUNT(operation.id) FROM operation" +
-            " WHERE operation.name = '" + EntityOperation.SEND + "'")
+            " JOIN message ON message.id = operation.message" +
+            " JOIN identity ON identity.id = message.identity" +
+            " WHERE operation.name = '" + EntityOperation.SEND + "'" +
+            " AND identity.synchronize")
     LiveData<Integer> liveUnsent();
 
     @Query("SELECT * FROM operation ORDER BY id")
