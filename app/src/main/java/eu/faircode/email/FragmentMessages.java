@@ -851,7 +851,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 long fid = args.getLong("folder");
 
                 if (!ConnectionHelper.getNetworkState(context).isSuitable())
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
+                    throw new IllegalStateException(context.getString(R.string.title_no_internet));
 
                 boolean now = true;
 
@@ -893,7 +893,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onException(Bundle args, Throwable ex) {
                 manual = false;
                 swipeRefresh.setRefreshing(false);
-                if (ex instanceof IllegalArgumentException)
+
+                if (ex instanceof IllegalStateException) {
+                    Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
+                    final Intent intent = ConnectionHelper.getSettingsIntent(getContext());
+                    if (intent != null)
+                        snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                getContext().startActivity(intent);
+                            }
+                        });
+                    snackbar.show();
+                } else if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
@@ -2715,7 +2727,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @Override
         public void onError(Throwable ex) {
             if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                if (ex instanceof IllegalArgumentException)
+                if (ex instanceof IllegalStateException) {
+                    Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
+                    final Intent intent = ConnectionHelper.getSettingsIntent(getContext());
+                    if (intent != null)
+                        snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                getContext().startActivity(intent);
+                            }
+                        });
+                    snackbar.show();
+                } else if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
                     new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())

@@ -439,7 +439,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             long fid = args.getLong("folder");
 
                             if (!ConnectionHelper.getNetworkState(context).isSuitable())
-                                throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
+                                throw new IllegalStateException(context.getString(R.string.title_no_internet));
 
                             boolean now = true;
 
@@ -473,7 +473,18 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            if (ex instanceof IllegalArgumentException)
+                            if (ex instanceof IllegalStateException) {
+                                Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
+                                final Intent intent = ConnectionHelper.getSettingsIntent(context);
+                                if (intent != null)
+                                    snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+                                            context.startActivity(intent);
+                                        }
+                                    });
+                                snackbar.show();
+                            } else if (ex instanceof IllegalArgumentException)
                                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                             else
                                 Helper.unexpectedError(context, owner, ex);

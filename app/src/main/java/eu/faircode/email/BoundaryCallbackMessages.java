@@ -245,7 +245,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             try {
                 // Check connectivity
                 if (!ConnectionHelper.getNetworkState(context).isSuitable())
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
+                    throw new IllegalStateException(context.getString(R.string.title_no_internet));
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);

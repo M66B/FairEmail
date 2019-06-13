@@ -5,6 +5,7 @@ import android.accounts.AccountManager;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -304,5 +305,16 @@ public class ConnectionHelper {
     static boolean airplaneMode(Context context) {
         return Settings.System.getInt(context.getContentResolver(),
                 Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
+    }
+
+    static Intent getSettingsIntent(Context context) {
+        Intent intent;
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
+            intent = new Intent(Settings.ACTION_WIRELESS_SETTINGS);
+        else
+            intent = new Intent(Settings.Panel.ACTION_INTERNET_CONNECTIVITY);
+        if (intent.resolveActivity(context.getPackageManager()) == null)
+            return null;
+        return intent;
     }
 }
