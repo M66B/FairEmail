@@ -3256,11 +3256,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             return getKeyAtPosition(getAdapterPosition());
         }
 
-        private class OriginalMessage {
-            String html;
-            boolean has_images;
-        }
-
         private class ActionData {
             boolean hasJunk;
             boolean delete;
