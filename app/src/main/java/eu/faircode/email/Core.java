@@ -451,7 +451,7 @@ class Core {
             // Delete previous message(s) with same ID
             if (folder.id.equals(message.folder)) {
                 // Prevent adding/deleting message
-                db.message().setMessageUid(message.id, message.uid == null ? -1L : -message.uid);
+                db.message().setMessageUid(message.id, null);
 
                 if (TextUtils.isEmpty(message.msgid)) {
                     // Draft might be created somewhere else
@@ -548,8 +548,6 @@ class Core {
 
             try {
                 db.beginTransaction();
-
-                List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
 
                 if (folder.id.equals(message.folder)) {
                     if (EntityFolder.DRAFTS.equals(folder.type)) {
