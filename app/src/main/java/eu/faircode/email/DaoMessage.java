@@ -320,6 +320,9 @@ public interface DaoMessage {
     @Query("UPDATE message SET folder = :folder WHERE id = :id")
     int setMessageFolder(long id, long folder);
 
+    @Query("UPDATE message SET identity = :identity WHERE id = :id")
+    int setMessageIdentity(long id, Long identity);
+
     @Query("UPDATE message SET uid = :uid WHERE id = :id")
     int setMessageUid(long id, Long uid);
 

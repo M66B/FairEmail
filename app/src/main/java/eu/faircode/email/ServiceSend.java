@@ -355,6 +355,7 @@ public class ServiceSend extends LifecycleService {
             try {
                 db.beginTransaction();
 
+                db.message().setMessageIdentity(message.id, null);
                 db.message().setMessageSent(message.id, time);
                 db.message().setMessageReceiptRequested(message.id, ident.delivery_receipt || ident.read_receipt);
                 db.message().setMessageSeen(message.id, true);
