@@ -600,7 +600,9 @@ public class MessageHelper {
                 return null;
 
             list = MimeUtility.unfold(list);
-            if ("NO".equals(list))
+
+            // List-Post: NO (posting not allowed on this list)
+            if (list != null && list.startsWith("NO"))
                 return null;
 
             // https://www.ietf.org/rfc/rfc2368.txt
