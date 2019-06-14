@@ -466,7 +466,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         seekBar.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                return false;
+                return true;
             }
         });
 
