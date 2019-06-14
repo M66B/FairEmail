@@ -1952,6 +1952,9 @@ public class FragmentCompose extends FragmentBase {
             File ics = (File) args.getSerializable("ics");
             long answer = args.getLong("answer", -1);
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean plain_only = prefs.getBoolean("plain_only", false);
+
             Log.i("Load draft action=" + action + " id=" + id + " reference=" + reference);
 
             EntityMessage draft;
@@ -2101,6 +2104,9 @@ public class FragmentCompose extends FragmentBase {
 
                         EntityOperation.queue(context, ref, EntityOperation.SEEN, true);
                     }
+
+                    if (plain_only)
+                        draft.plain_only = true;
 
                     // Select identity matching from address
                     int icount = 0;

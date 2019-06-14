@@ -39,6 +39,7 @@ import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsSend extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swPrefixOnce;
+    private SwitchCompat swPlainOnly;
     private SwitchCompat swAutoResize;
     private Spinner spAutoResize;
     private TextView tvAutoResize;
@@ -46,7 +47,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private Spinner spSendDelayed;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "prefix_once", "autoresize", "resize", "autosend", "send_delayed"
+            "prefix_once", "plain_only", "autoresize", "resize", "autosend", "send_delayed"
     };
 
     @Override
@@ -60,6 +61,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         // Get controls
 
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
+        swPlainOnly = view.findViewById(R.id.swPlainOnly);
         swAutoResize = view.findViewById(R.id.swAutoResize);
         spAutoResize = view.findViewById(R.id.spAutoResize);
         tvAutoResize = view.findViewById(R.id.tvAutoResize);
@@ -76,6 +78,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("prefix_once", checked).apply();
+            }
+        });
+
+        swPlainOnly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("plain_only", checked).apply();
             }
         });
 
@@ -166,6 +175,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", false));
+        swPlainOnly.setChecked(prefs.getBoolean("plain_only", false));
 
         swAutoResize.setChecked(prefs.getBoolean("autoresize", true));
 
