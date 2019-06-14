@@ -116,11 +116,11 @@ public class ConnectionHelper {
         if (state.connected && !roaming) {
             ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
-                NetworkInfo ani = cm.getActiveNetworkInfo();
+                NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
                 if (ani != null)
                     state.roaming = ani.isRoaming();
             } else {
-                Network active = cm.getActiveNetwork();
+                Network active = (cm == null ? null : cm.getActiveNetwork());
                 if (active != null) {
                     NetworkCapabilities caps = cm.getNetworkCapabilities(active);
                     if (caps != null)
@@ -152,13 +152,13 @@ public class ConnectionHelper {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            NetworkInfo ani = cm.getActiveNetworkInfo();
+            NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
             if (ani == null || !ani.isConnected())
                 return null;
             return cm.isActiveNetworkMetered();
         }
 
-        Network active = cm.getActiveNetwork();
+        Network active = (cm == null ? null : cm.getActiveNetwork());
         if (active == null) {
             Log.i("isMetered: no active network");
             return null;
@@ -199,42 +199,41 @@ public class ConnectionHelper {
 
         boolean underlying = false;
         Network[] networks = cm.getAllNetworks();
-        if (networks != null)
-            for (Network network : networks) {
-                caps = cm.getNetworkCapabilities(network);
-                if (caps == null) {
-                    Log.i("isMetered: no underlying caps");
-                    continue; // network unknown
-                }
+        for (Network network : networks) {
+            caps = cm.getNetworkCapabilities(network);
+            if (caps == null) {
+                Log.i("isMetered: no underlying caps");
+                continue; // network unknown
+            }
 
-                Log.i("isMetered: underlying caps=" + caps);
+            Log.i("isMetered: underlying caps=" + caps);
 
-                if (!caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
-                    Log.i("isMetered: underlying no internet");
-                    continue;
-                }
+            if (!caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
+                Log.i("isMetered: underlying no internet");
+                continue;
+            }
 
-                if (!caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_RESTRICTED)) {
-                    Log.i("isMetered: underlying restricted");
-                    continue;
-                }
+            if (!caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_RESTRICTED)) {
+                Log.i("isMetered: underlying restricted");
+                continue;
+            }
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
-                        !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_FOREGROUND)) {
-                    Log.i("isMetered: underlying background");
-                    continue;
-                }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
+                    !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_FOREGROUND)) {
+                Log.i("isMetered: underlying background");
+                continue;
+            }
 
-                if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
-                    underlying = true;
-                    Log.i("isMetered: underlying is connected");
+            if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
+                underlying = true;
+                Log.i("isMetered: underlying is connected");
 
-                    if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED)) {
-                        Log.i("isMetered: underlying is unmetered");
-                        return false;
-                    }
+                if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED)) {
+                    Log.i("isMetered: underlying is unmetered");
+                    return false;
                 }
             }
+        }
 
         if (!underlying) {
             Log.i("isMetered: no underlying network");
