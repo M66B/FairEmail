@@ -1691,7 +1691,8 @@ class Core {
                             parts.isPlainOnly(),
                             HtmlHelper.getPreview(body),
                             parts.getWarnings(message.warning));
-                    Log.i(folder.name + " downloaded message id=" + message.id + " size=" + message.size);
+                    Log.i(folder.name + " downloaded message id=" + message.id +
+                            " size=" + message.size + "/" + (body == null ? null : body.length()));
                 }
             }
 
