@@ -141,6 +141,9 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         super.onResume();
 
         ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm == null)
+            return;
+
         NetworkRequest.Builder builder = new NetworkRequest.Builder();
         builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
         cm.registerNetworkCallback(builder.build(), networkCallback);
@@ -149,19 +152,22 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     @Override
     public void onPause() {
         ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm == null)
+            return;
+
         cm.unregisterNetworkCallback(networkCallback);
 
         super.onPause();
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.menu_options, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_default:
                 onMenuDefault();
@@ -198,17 +204,17 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
         @Override
-        public void onAvailable(Network network) {
+        public void onAvailable(@NonNull Network network) {
             showConnectionType();
         }
 
         @Override
-        public void onCapabilitiesChanged(Network network, NetworkCapabilities networkCapabilities) {
+        public void onCapabilitiesChanged(@NonNull Network network, @NonNull NetworkCapabilities networkCapabilities) {
             showConnectionType();
         }
 
         @Override
-        public void onLost(Network network) {
+        public void onLost(@NonNull Network network) {
             showConnectionType();
         }
     };
