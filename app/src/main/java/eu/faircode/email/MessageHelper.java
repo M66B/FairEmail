@@ -831,6 +831,7 @@ public class MessageHelper {
 
         String getHtml(Context context) throws MessagingException, IOException {
             if (plain == null && html == null) {
+                Log.i("No body part");
                 warnings.add(context.getString(R.string.title_no_body));
                 return null;
             }
@@ -841,6 +842,7 @@ public class MessageHelper {
 
             try {
                 Object content = part.getContent();
+                Log.i("Content class=" + (content == null ? null : content.getClass().getName()));
                 if (content instanceof String)
                     result = (String) content;
                 else if (content instanceof InputStream)
