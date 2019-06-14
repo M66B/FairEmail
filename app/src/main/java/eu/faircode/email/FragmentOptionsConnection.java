@@ -47,13 +47,13 @@ import androidx.preference.PreferenceManager;
 public class FragmentOptionsConnection extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swMetered;
     private Spinner spDownload;
-    private SwitchCompat swRlah;
     private SwitchCompat swRoaming;
+    private SwitchCompat swRlah;
     private TextView tvConnectionType;
     private TextView tvConnectionRoaming;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "metered", "download", "rlah", "roaming"
+            "metered", "download", "roaming", "rlah"
     };
 
     @Override
@@ -68,8 +68,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
         swMetered = view.findViewById(R.id.swMetered);
         spDownload = view.findViewById(R.id.spDownload);
-        swRlah = view.findViewById(R.id.swRlah);
         swRoaming = view.findViewById(R.id.swRoaming);
+        swRlah = view.findViewById(R.id.swRlah);
 
         tvConnectionType = view.findViewById(R.id.tvConnectionType);
         tvConnectionRoaming = view.findViewById(R.id.tvConnectionRoaming);
@@ -101,19 +101,19 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             }
         });
 
-        swRlah.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("rlah", checked).apply();
-                ServiceSynchronize.reload(getContext(), "rlah=" + checked);
-            }
-        });
-
         swRoaming.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("roaming", checked).apply();
                 ServiceSynchronize.reload(getContext(), "roaming=" + checked);
+            }
+        });
+
+        swRlah.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("rlah", checked).apply();
+                ServiceSynchronize.reload(getContext(), "rlah=" + checked);
             }
         });
 
@@ -192,8 +192,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                 break;
             }
 
-        swRlah.setChecked(prefs.getBoolean("rlah", true));
         swRoaming.setChecked(prefs.getBoolean("roaming", true));
+        swRlah.setChecked(prefs.getBoolean("rlah", true));
     }
 
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
