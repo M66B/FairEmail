@@ -44,7 +44,6 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
@@ -199,14 +198,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer);
                 onMenuOrder(R.string.title_setup_reorder_folders, TupleFolderSort.class);
-            }
-        }));
-
-        menus.add(new NavMenuItem(R.drawable.baseline_palette_24, R.string.title_setup_theme, new Runnable() {
-            @Override
-            public void run() {
-                drawerLayout.closeDrawer(drawerContainer);
-                onMenuTheme();
             }
         }));
 
@@ -445,52 +436,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("order");
         fragmentTransaction.commit();
-    }
-
-    private void onMenuTheme() {
-        View dview = LayoutInflater.from(this).inflate(R.layout.dialog_theme, null);
-        final RadioGroup rgTheme = dview.findViewById(R.id.rgTheme);
-
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String theme = prefs.getString("theme", "light");
-
-        switch (theme) {
-            case "dark":
-                rgTheme.check(R.id.rbThemeDark);
-                break;
-            case "black":
-                rgTheme.check(R.id.rbThemeBlack);
-                break;
-            case "system":
-                rgTheme.check(R.id.rbThemeSystem);
-                break;
-            default:
-                rgTheme.check(R.id.rbThemeLight);
-        }
-
-        rgTheme.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.rbThemeLight:
-                        prefs.edit().putString("theme", "light").apply();
-                        break;
-                    case R.id.rbThemeDark:
-                        prefs.edit().putString("theme", "dark").apply();
-                        break;
-                    case R.id.rbThemeBlack:
-                        prefs.edit().putString("theme", "black").apply();
-                        break;
-                    case R.id.rbThemeSystem:
-                        prefs.edit().putString("theme", "system").apply();
-                        break;
-                }
-            }
-        });
-
-        new DialogBuilderLifecycle(this, this)
-                .setView(dview)
-                .show();
     }
 
     private void onMenuContacts() {

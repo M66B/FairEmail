@@ -28,7 +28,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -37,6 +39,7 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsDisplay extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private Button btnTheme;
     private Spinner spStartup;
     private SwitchCompat swDate;
     private SwitchCompat swThreading;
@@ -54,7 +57,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swActionbar;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "startup", "date", "threading", "avatars", "identicons", "circular", "name_email", "subject_italic",
+            "theme", "startup", "date", "threading", "avatars", "identicons", "circular", "name_email", "subject_italic",
             "flags", "preview", "addresses", "attachments_alt", "monospaced", "autoimages", "actionbar",
     };
 
@@ -68,6 +71,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
         // Get controls
 
+        btnTheme = view.findViewById(R.id.btnTheme);
         spStartup = view.findViewById(R.id.spStartup);
         swDate = view.findViewById(R.id.swDate);
         swThreading = view.findViewById(R.id.swThreading);
@@ -89,6 +93,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        btnTheme.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onSelectTheme();
+            }
+        });
 
         spStartup.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -243,6 +254,52 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         for (String option : RESET_OPTIONS)
             editor.remove(option);
         editor.apply();
+    }
+
+    private void onSelectTheme() {
+        View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_theme, null);
+        final RadioGroup rgTheme = dview.findViewById(R.id.rgTheme);
+
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        String theme = prefs.getString("theme", "light");
+
+        switch (theme) {
+            case "dark":
+                rgTheme.check(R.id.rbThemeDark);
+                break;
+            case "black":
+                rgTheme.check(R.id.rbThemeBlack);
+                break;
+            case "system":
+                rgTheme.check(R.id.rbThemeSystem);
+                break;
+            default:
+                rgTheme.check(R.id.rbThemeLight);
+        }
+
+        rgTheme.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.rbThemeLight:
+                        prefs.edit().putString("theme", "light").apply();
+                        break;
+                    case R.id.rbThemeDark:
+                        prefs.edit().putString("theme", "dark").apply();
+                        break;
+                    case R.id.rbThemeBlack:
+                        prefs.edit().putString("theme", "black").apply();
+                        break;
+                    case R.id.rbThemeSystem:
+                        prefs.edit().putString("theme", "system").apply();
+                        break;
+                }
+            }
+        });
+
+        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                .setView(dview)
+                .show();
     }
 
     private void setOptions() {
