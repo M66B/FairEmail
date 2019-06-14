@@ -828,7 +828,7 @@ public class MessageHelper {
             return (html == null);
         }
 
-        String getHtml(Context context) throws MessagingException {
+        String getHtml(Context context) throws MessagingException, IOException {
             if (plain == null && html == null) {
                 warnings.add(context.getString(R.string.title_no_body));
                 return null;
@@ -847,10 +847,8 @@ public class MessageHelper {
                     result = readStream((InputStream) content, "UTF-8");
                 else
                     result = content.toString();
-            } catch (FolderClosedException ex) {
+            } catch (IOException | FolderClosedException ex) {
                 throw ex;
-            } catch (FolderClosedIOException ex) {
-                throw new FolderClosedException(ex.getFolder(), "getHtml", ex);
             } catch (Throwable ex) {
                 Log.w(ex);
                 warnings.add(Helper.formatThrowable(ex));
