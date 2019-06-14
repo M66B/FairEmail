@@ -155,23 +155,21 @@ class Core {
                     JSONArray jargs = new JSONArray(op.args);
 
                     try {
-                        if (message == null &&
-                                !EntityOperation.SYNC.equals(op.name) &&
-                                !EntityOperation.SUBSCRIBE.equals(op.name))
-                            throw new MessageRemovedException();
-
                         db.operation().setOperationError(op.id, null);
+                        if (!EntityOperation.SYNC.equals(op.name))
+                            db.operation().setOperationState(op.id, "executing");
 
-                        if (message != null) {
+                        if (message == null) {
+                            if (!EntityOperation.SYNC.equals(op.name) &&
+                                    !EntityOperation.SUBSCRIBE.equals(op.name))
+                                throw new MessageRemovedException();
+                        } else {
                             db.message().setMessageError(message.id, null);
                             if (!EntityOperation.ADD.equals(op.name))
                                 ensureUid(context, folder, message, (IMAPFolder) ifolder);
                         }
 
                         // Operations should use database transaction when needed
-
-                        if (!EntityOperation.SYNC.equals(op.name))
-                            db.operation().setOperationState(op.id, "executing");
 
                         switch (op.name) {
                             case EntityOperation.SEEN:
