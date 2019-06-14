@@ -60,12 +60,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -479,14 +478,11 @@ public class Helper {
     }
 
     static String readText(File file) throws IOException {
-        try (BufferedReader in = new BufferedReader(new FileReader(file))) {
-            StringBuilder body = new StringBuilder();
-            String line;
-            while ((line = in.readLine()) != null) {
-                body.append(line);
-                body.append('\n');
-            }
-            return body.toString();
+        try (FileInputStream in = new FileInputStream(file)) {
+            byte[] buffer = new byte[(int) file.length()];
+            DataInputStream dis = new DataInputStream(in);
+            dis.readFully(buffer);
+            return new String(buffer);
         }
     }
 
