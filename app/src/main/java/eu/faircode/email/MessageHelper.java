@@ -48,6 +48,7 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
+import java.util.TimeZone;
 
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
@@ -66,6 +67,7 @@ import javax.mail.Session;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.ContentType;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MailDateFormat;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
@@ -250,7 +252,10 @@ public class MessageHelper {
         if (message.subject != null)
             imessage.setSubject(message.subject);
 
-        imessage.setSentDate(new Date());
+        MailDateFormat mdf = new MailDateFormat();
+        mdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+        imessage.setHeader("Date", mdf.format(new Date()));
+        //imessage.setSentDate(new Date());
 
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
 
