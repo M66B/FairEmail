@@ -26,7 +26,7 @@
             android:layout_gravity="center_vertical|center_horizontal"
             android:contentDescription="@string/title_legend_expander"
             android:padding="6dp"
-            android:src="@drawable/expander"
+            app:srcCompat="@drawable/expander"
             app:layout_constraintBottom_toBottomOf="@+id/tvName"
             app:layout_constraintStart_toEndOf="@+id/vwLevel"
             app:layout_constraintTop_toTopOf="@+id/tvName" />
@@ -36,7 +36,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@string/title_legend_folder_type"
-            android:src="@drawable/baseline_inbox_24"
+            app:srcCompat="@drawable/baseline_inbox_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvName"
             app:layout_constraintStart_toEndOf="@+id/ivExpander"
             app:layout_constraintTop_toTopOf="@+id/tvName" />

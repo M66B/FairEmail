@@ -20,7 +20,7 @@
             android:background="@null"
             android:contentDescription="@string/title_legend_delete"
             android:paddingEnd="12dp"
-            android:src="@drawable/baseline_delete_24"
+            app:srcCompat="@drawable/baseline_delete_24"
             android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -30,7 +30,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@string/title_legend_attachment"
-            android:src="@drawable/baseline_attachment_24"
+            app:srcCompat="@drawable/baseline_attachment_24"
             app:layout_constraintStart_toEndOf="@id/ibDelete"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -67,7 +67,7 @@
             android:layout_height="24dp"
             android:layout_marginStart="6dp"
             android:contentDescription="@string/title_legend_download_state"
-            android:src="@drawable/baseline_cloud_download_24"
+            app:srcCompat="@drawable/baseline_cloud_download_24"
             app:layout_constraintEnd_toStartOf="@+id/ibSave"
             app:layout_constraintStart_toEndOf="@id/tvSize"
             app:layout_constraintTop_toTopOf="parent" />
@@ -79,7 +79,7 @@
             android:background="@null"
             android:contentDescription="@string/title_legend_save"
             android:paddingStart="12dp"
-            android:src="@drawable/baseline_save_24"
+            app:srcCompat="@drawable/baseline_save_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivStatus"
             app:layout_constraintTop_toTopOf="parent" />

@@ -26,7 +26,7 @@
             android:layout_height="24dp"
             android:layout_marginStart="6dp"
             android:contentDescription="@string/title_legend_connection_state"
-            android:src="@drawable/baseline_cloud_off_24"
+            app:srcCompat="@drawable/baseline_cloud_off_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvName"
             app:layout_constraintStart_toEndOf="@id/vwColor"
             app:layout_constraintTop_toTopOf="@+id/tvName" />
@@ -36,7 +36,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="6dp"
-            android:src="@drawable/baseline_visibility_24"
+            app:srcCompat="@drawable/baseline_visibility_24"
             app:layout_constraintStart_toEndOf="@id/vwColor"
             app:layout_constraintTop_toTopOf="@+id/tvType" />
 
@@ -57,7 +57,7 @@
             android:contentDescription="@string/title_legend_expander"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:src="@drawable/expander"
+            app:srcCompat="@drawable/expander"
             app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
             app:layout_constraintStart_toEndOf="@+id/vwLevel"
             app:layout_constraintTop_toTopOf="parent" />
@@ -68,7 +68,7 @@
             android:layout_height="24dp"
             android:contentDescription="@string/title_legend_folder_type"
             android:paddingEnd="6dp"
-            android:src="@drawable/baseline_inbox_24"
+            app:srcCompat="@drawable/baseline_inbox_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvType"
             app:layout_constraintStart_toEndOf="@id/ivExpander"
             app:layout_constraintTop_toTopOf="@+id/tvType" />
@@ -79,7 +79,7 @@
             android:layout_height="24dp"
             android:contentDescription="@string/title_unified_folder"
             android:paddingEnd="6dp"
-            android:src="@drawable/baseline_folder_special_24"
+            app:srcCompat="@drawable/baseline_folder_special_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvType"
             app:layout_constraintStart_toEndOf="@id/ivType"
             app:layout_constraintTop_toTopOf="@+id/tvType" />
@@ -90,7 +90,7 @@
             android:layout_height="24dp"
             android:contentDescription="@string/title_legend_notify"
             android:paddingEnd="6dp"
-            android:src="@drawable/baseline_notifications_24"
+            app:srcCompat="@drawable/baseline_notifications_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvName"
             app:layout_constraintStart_toEndOf="@id/ivExpander"
             app:layout_constraintTop_toTopOf="@+id/tvName" />
@@ -101,7 +101,7 @@
             android:layout_height="24dp"
             android:contentDescription="@string/title_legend_notify"
             android:paddingEnd="6dp"
-            android:src="@drawable/baseline_bookmark_24"
+            app:srcCompat="@drawable/baseline_bookmark_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvName"
             app:layout_constraintStart_toEndOf="@id/ivNotify"
             app:layout_constraintTop_toTopOf="@+id/tvName" />
@@ -140,7 +140,7 @@
             android:layout_height="24dp"
             android:layout_marginEnd="12dp"
             android:contentDescription="@string/title_legend_count"
-            android:src="@drawable/baseline_mail_outline_24"
+            app:srcCompat="@drawable/baseline_mail_outline_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tvName" />
@@ -194,7 +194,7 @@
             android:layout_height="24dp"
             android:layout_marginEnd="12dp"
             android:contentDescription="@string/title_legend_sync_state"
-            android:src="@drawable/baseline_sync_24"
+            app:srcCompat="@drawable/baseline_sync_24"
             app:layout_constraintBottom_toBottomOf="@id/tvType"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tvType" />

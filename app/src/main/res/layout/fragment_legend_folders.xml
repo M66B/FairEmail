@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_unified"
                 android:padding="12dp"
-                android:src="@drawable/baseline_folder_special_24"
+                app:srcCompat="@drawable/baseline_folder_special_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_inbox"
                 android:padding="12dp"
-                android:src="@drawable/baseline_inbox_24"
+                app:srcCompat="@drawable/baseline_inbox_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivType" />
 
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_drafts"
                 android:padding="12dp"
-                android:src="@drawable/baseline_drafts_24"
+                app:srcCompat="@drawable/baseline_drafts_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivInbox" />
 
@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_sent"
                 android:padding="12dp"
-                android:src="@drawable/baseline_send_24"
+                app:srcCompat="@drawable/baseline_send_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivDrafts" />
 
@@ -111,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_archive"
                 android:padding="12dp"
-                android:src="@drawable/baseline_archive_24"
+                app:srcCompat="@drawable/baseline_archive_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivSent" />
 
@@ -133,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_trash"
                 android:padding="12dp"
-                android:src="@drawable/baseline_delete_24"
+                app:srcCompat="@drawable/baseline_delete_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivArchive" />
 
@@ -155,7 +155,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_junk"
                 android:padding="12dp"
-                android:src="@drawable/baseline_flag_24"
+                app:srcCompat="@drawable/baseline_flag_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivTrash" />
 
@@ -177,7 +177,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_primary"
                 android:padding="12dp"
-                android:src="@drawable/baseline_star_24"
+                app:srcCompat="@drawable/baseline_star_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivJunk" />
 
@@ -199,7 +199,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_notify"
                 android:padding="12dp"
-                android:src="@drawable/baseline_notifications_24"
+                app:srcCompat="@drawable/baseline_notifications_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivPrimary" />
 
@@ -221,7 +221,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_subscribed"
                 android:padding="12dp"
-                android:src="@drawable/baseline_bookmark_24"
+                app:srcCompat="@drawable/baseline_bookmark_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivNotify" />
 
@@ -254,7 +254,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_download_fetch"
                 android:padding="12dp"
-                android:src="@drawable/baseline_mail_outline_24"
+                app:srcCompat="@drawable/baseline_mail_outline_24"
                 app:layout_constraintBottom_toBottomOf="@+id/tvDownloadFetchLegend"
                 app:layout_constraintStart_toEndOf="@id/tvDownloadFetch"
                 app:layout_constraintTop_toTopOf="@+id/tvDownloadFetchLegend" />
@@ -288,7 +288,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_sync_keep"
                 android:padding="12dp"
-                android:src="@drawable/baseline_sync_24"
+                app:srcCompat="@drawable/baseline_sync_24"
                 app:layout_constraintBottom_toBottomOf="@+id/tvSyncKeepLegend"
                 app:layout_constraintStart_toEndOf="@id/tvSyncKeep"
                 app:layout_constraintTop_toTopOf="@+id/tvSyncKeepLegend" />
@@ -311,7 +311,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_stop"
                 android:padding="12dp"
-                android:src="@drawable/baseline_stop_24"
+                app:srcCompat="@drawable/baseline_stop_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvSyncKeepLegend" />
 

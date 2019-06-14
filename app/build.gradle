@@ -21,6 +21,9 @@ android {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
             }
         }
+
+        // https://developer.android.com/guide/topics/graphics/vector-drawable-resources
+        vectorDrawables.useSupportLibrary = true
     }
     signingConfigs {
         release {

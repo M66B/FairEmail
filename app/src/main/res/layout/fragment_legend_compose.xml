@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_pick"
                 android:padding="12dp"
-                android:src="@drawable/baseline_person_24"
+                app:srcCompat="@drawable/baseline_person_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_cc"
                 android:padding="12dp"
-                android:src="@drawable/baseline_people_24"
+                app:srcCompat="@drawable/baseline_people_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivPick" />
 
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_link"
                 android:padding="12dp"
-                android:src="@drawable/baseline_insert_link_24"
+                app:srcCompat="@drawable/baseline_insert_link_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivCC" />
 
@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_file"
                 android:padding="12dp"
-                android:src="@drawable/baseline_attachment_24"
+                app:srcCompat="@drawable/baseline_attachment_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivLink" />
 
@@ -111,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_picture"
                 android:padding="12dp"
-                android:src="@drawable/baseline_image_24"
+                app:srcCompat="@drawable/baseline_image_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivFile" />
 
@@ -133,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_photo"
                 android:padding="12dp"
-                android:src="@drawable/baseline_photo_camera_24"
+                app:srcCompat="@drawable/baseline_photo_camera_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivPicture" />
 
@@ -155,7 +155,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_audio"
                 android:padding="12dp"
-                android:src="@drawable/baseline_record_voice_over_24"
+                app:srcCompat="@drawable/baseline_record_voice_over_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivPhoto" />
 
@@ -177,7 +177,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_bold"
                 android:padding="12dp"
-                android:src="@drawable/baseline_format_bold_24"
+                app:srcCompat="@drawable/baseline_format_bold_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivAudio" />
 
@@ -199,7 +199,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_italic"
                 android:padding="12dp"
-                android:src="@drawable/baseline_format_italic_24"
+                app:srcCompat="@drawable/baseline_format_italic_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivBold" />
 
@@ -221,7 +221,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_underline"
                 android:padding="12dp"
-                android:src="@drawable/baseline_format_underlined_24"
+                app:srcCompat="@drawable/baseline_format_underlined_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivItalic" />
 
@@ -243,7 +243,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_text_size"
                 android:padding="12dp"
-                android:src="@drawable/baseline_format_size_24"
+                app:srcCompat="@drawable/baseline_format_size_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivUnderline" />
 
@@ -265,7 +265,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_text_color"
                 android:padding="12dp"
-                android:src="@drawable/baseline_format_color_text_24"
+                app:srcCompat="@drawable/baseline_format_color_text_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivSize" />
 

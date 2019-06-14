@@ -150,7 +150,7 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
                 android:contentDescription="@string/title_legend_pick"
-                android:src="@drawable/baseline_person_24"
+                app:srcCompat="@drawable/baseline_person_24"
                 app:layout_constraintBottom_toBottomOf="@id/etSender"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/etSender" />
@@ -214,7 +214,7 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
                 android:contentDescription="@string/title_legend_pick"
-                android:src="@drawable/baseline_person_24"
+                app:srcCompat="@drawable/baseline_person_24"
                 app:layout_constraintBottom_toBottomOf="@id/etRecipient"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/etRecipient" />
@@ -416,7 +416,7 @@
                 android:layout_marginStart="12dp"
                 android:background="@null"
                 android:contentDescription="@string/title_legend_default_color"
-                android:src="@drawable/baseline_delete_24"
+                app:srcCompat="@drawable/baseline_delete_24"
                 app:layout_constraintBottom_toBottomOf="@id/btnColor"
                 app:layout_constraintStart_toEndOf="@id/vwColor"
                 app:layout_constraintTop_toTopOf="@id/btnColor" />

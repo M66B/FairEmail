@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_primary_connected"
                 android:padding="12dp"
-                android:src="@drawable/baseline_folder_24"
+                app:srcCompat="@drawable/baseline_folder_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_primary_disconnected"
                 android:padding="12dp"
-                android:src="@drawable/baseline_folder_open_24"
+                app:srcCompat="@drawable/baseline_folder_open_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivPrimaryConnected" />
 
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_download_on"
                 android:padding="12dp"
-                android:src="@drawable/baseline_mail_24"
+                app:srcCompat="@drawable/baseline_mail_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivPrimaryDisconnected" />
 
@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_download_off"
                 android:padding="12dp"
-                android:src="@drawable/baseline_mail_outline_24"
+                app:srcCompat="@drawable/baseline_mail_outline_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivDownloadOn" />
 
@@ -111,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_synchronize_on"
                 android:padding="12dp"
-                android:src="@drawable/baseline_sync_24"
+                app:srcCompat="@drawable/baseline_sync_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivDownloadOff" />
 
@@ -133,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_synchronize_off"
                 android:padding="12dp"
-                android:src="@drawable/baseline_sync_disabled_24"
+                app:srcCompat="@drawable/baseline_sync_disabled_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivSynchronize" />
 
@@ -155,7 +155,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_disconnected"
                 android:padding="12dp"
-                android:src="@drawable/baseline_cloud_off_24"
+                app:srcCompat="@drawable/baseline_cloud_off_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivSynchronizeOff" />
 
@@ -177,7 +177,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_connecting"
                 android:padding="12dp"
-                android:src="@drawable/baseline_cloud_queue_24"
+                app:srcCompat="@drawable/baseline_cloud_queue_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivDisconnected" />
 
@@ -199,7 +199,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_connected"
                 android:padding="12dp"
-                android:src="@drawable/baseline_cloud_24"
+                app:srcCompat="@drawable/baseline_cloud_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivConnecting" />
 
@@ -221,7 +221,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_executing"
                 android:padding="12dp"
-                android:src="@drawable/baseline_dns_24"
+                app:srcCompat="@drawable/baseline_dns_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivConnected" />
 
@@ -243,7 +243,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_synchronizing"
                 android:padding="12dp"
-                android:src="@drawable/baseline_compare_arrows_24"
+                app:srcCompat="@drawable/baseline_compare_arrows_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivExecuting" />
 
@@ -265,7 +265,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_downloading"
                 android:padding="12dp"
-                android:src="@drawable/baseline_cloud_download_24"
+                app:srcCompat="@drawable/baseline_cloud_download_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivSynchronizing" />
 
@@ -287,7 +287,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_closing"
                 android:padding="12dp"
-                android:src="@drawable/baseline_close_24"
+                app:srcCompat="@drawable/baseline_close_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivDownloading" />
 
@@ -309,7 +309,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_waiting"
                 android:padding="12dp"
-                android:src="@drawable/baseline_hourglass_empty_24"
+                app:srcCompat="@drawable/baseline_hourglass_empty_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivClosing" />
 

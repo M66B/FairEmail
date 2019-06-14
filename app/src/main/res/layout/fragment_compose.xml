@@ -71,7 +71,7 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
                 android:contentDescription="@string/title_legend_pick"
-                android:src="@drawable/baseline_person_24"
+                app:srcCompat="@drawable/baseline_person_24"
                 app:layout_constraintBottom_toBottomOf="@id/etTo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/etTo"
@@ -97,7 +97,7 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
                 android:contentDescription="@string/title_legend_pick"
-                android:src="@drawable/baseline_person_24"
+                app:srcCompat="@drawable/baseline_person_24"
                 app:layout_constraintBottom_toBottomOf="@id/etCc"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/etCc"
@@ -123,7 +123,7 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
                 android:contentDescription="@string/title_legend_pick"
-                android:src="@drawable/baseline_person_24"
+                app:srcCompat="@drawable/baseline_person_24"
                 app:layout_constraintBottom_toBottomOf="@id/etBcc"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/etBcc"
@@ -149,7 +149,7 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
                 android:contentDescription="@string/title_show_addresses"
-                android:src="@drawable/baseline_people_24"
+                app:srcCompat="@drawable/baseline_people_24"
                 app:layout_constraintBottom_toBottomOf="@id/etSubject"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/etSubject"
@@ -286,7 +286,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="6dp"
                 android:contentDescription="@string/title_legend_edit"
-                android:src="@drawable/baseline_edit_24"
+                app:srcCompat="@drawable/baseline_edit_24"
                 app:layout_constraintEnd_toStartOf="@+id/ibReferenceImages"
                 app:layout_constraintTop_toTopOf="@id/tvReferenceHint" />
 
@@ -296,7 +296,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="6dp"
                 android:contentDescription="@string/title_legend_show_images"
-                android:src="@drawable/baseline_image_24"
+                app:srcCompat="@drawable/baseline_image_24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tvReferenceHint" />
 

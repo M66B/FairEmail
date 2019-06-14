@@ -19,7 +19,7 @@
             android:adjustViewBounds="true"
             android:contentDescription="@string/title_legend_show_images"
             android:scaleType="centerInside"
-            android:src="@mipmap/ic_launcher"
+            app:srcCompat="@mipmap/ic_launcher"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
