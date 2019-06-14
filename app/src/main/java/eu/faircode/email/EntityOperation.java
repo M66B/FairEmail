@@ -117,9 +117,8 @@ public class EntityOperation {
 
             else if (MOVE.equals(name)) {
                 // Parameters:
-                // 0: target folder id
-                // 1: allow auto read
-                // 2: temporary target message id
+                // 0: target folder
+                // 1: auto read
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean autoread = prefs.getBoolean("autoread", false);
@@ -144,7 +143,6 @@ public class EntityOperation {
 
                 // Create copy without uid in target folder
                 // Message with same msgid can be in archive
-                Long tmpid = null;
                 if (message.uid != null &&
                         target.synchronize &&
                         message.received > cal_keep.getTimeInMillis() &&
@@ -171,7 +169,7 @@ public class EntityOperation {
                     message.ui_browsed = false;
                     message.id = db.message().insertMessage(message);
                     File mtarget = message.getFile(context);
-                    tmpid = message.id;
+                    long tmpid = message.id;
 
                     message.id = id;
                     message.account = source.account;
@@ -194,25 +192,13 @@ public class EntityOperation {
                     EntityAttachment.copy(context, message.id, tmpid);
                 }
 
-                if (source.account.equals(target.account))
-                    jargs.put(2, tmpid); // Can be null
-                else {
-                    // Cross account move
+                // Cross account move
+                if (!source.account.equals(target.account))
                     if (message.raw != null && message.raw) {
                         name = ADD;
                         folder = target.id;
-                        jargs = new JSONArray();
-                        jargs.put(0, tmpid); // Can be null
-                        jargs.put(1, autoread);
-                        jargs.put(2, true); // Cross account
-                    } else {
+                    } else
                         name = RAW;
-                        jargs = new JSONArray();
-                        jargs.put(0, tmpid); // Can be null
-                        jargs.put(1, autoread);
-                        jargs.put(2, target.id);
-                    }
-                }
 
             } else if (DELETE.equals(name))
                 db.message().setMessageUiHide(message.id, true);
