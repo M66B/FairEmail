@@ -58,6 +58,7 @@ import javax.mail.Flags;
 import javax.mail.FolderClosedException;
 import javax.mail.Header;
 import javax.mail.Message;
+import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.Part;
@@ -847,7 +848,7 @@ public class MessageHelper {
                     result = readStream((InputStream) content, "UTF-8");
                 else
                     result = content.toString();
-            } catch (IOException | FolderClosedException ex) {
+            } catch (IOException | FolderClosedException | MessageRemovedException ex) {
                 throw ex;
             } catch (Throwable ex) {
                 Log.w(ex);
