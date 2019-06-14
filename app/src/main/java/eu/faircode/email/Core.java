@@ -590,25 +590,33 @@ class Core {
         // Delete message
         DB db = DB.getInstance(context);
 
-        Message[] imessages;
-        if (TextUtils.isEmpty(message.msgid))
-            if (message.uid == null)
-                throw new IllegalArgumentException("Delete without ID");
-            else {
-                Message imessage = ifolder.getMessageByUID(message.uid);
-                if (imessage == null)
-                    throw new MessageRemovedException();
-                imessages = new Message[]{imessage};
-            }
-        else
-            imessages = ifolder.search(new MessageIDTerm(message.msgid));
+        if (message.uid != null) {
+            Message iexisting = ifolder.getMessageByUID(message.uid);
+            if (iexisting == null)
+                Log.w(folder.name + " existing not found uid=" + message.uid);
+            else
+                try {
+                    Log.i(folder.name + " deleting uid=" + message.uid);
+                    iexisting.setFlag(Flags.Flag.DELETED, true);
+                } catch (MessageRemovedException ignored) {
+                    Log.w(folder.name + " existing gone uid=" + message.uid);
+                }
+        }
 
-        for (Message imessage : imessages) {
-            Log.i(folder.name + " deleting uid=" + message.uid + " msgid=" + message.msgid);
-            try {
-                imessage.setFlag(Flags.Flag.DELETED, true);
-            } catch (MessageRemovedException ignored) {
-            }
+        if (!TextUtils.isEmpty(message.msgid)) {
+            Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
+            if (imessages == null)
+                Log.w(folder.name + " search for msgid=" + message.msgid + " returned null");
+            else
+                for (Message iexisting : imessages) {
+                    long muid = ifolder.getUID(iexisting);
+                    Log.i(folder.name + " deleting uid=" + muid);
+                    try {
+                        iexisting.setFlag(Flags.Flag.DELETED, true);
+                    } catch (MessageRemovedException ignored) {
+                        Log.w(folder.name + " existing gone uid=" + muid);
+                    }
+                }
         }
 
         ifolder.expunge();
