@@ -161,17 +161,12 @@ class Core {
                             throw new MessageRemovedException();
 
                         db.operation().setOperationError(op.id, null);
-                        if (message != null)
-                            db.message().setMessageError(message.id, null);
 
-                        if (message != null && message.uid == null &&
-                                !(EntityOperation.ADD.equals(op.name) ||
-                                        EntityOperation.ANSWERED.equals(op.name) ||
-                                        EntityOperation.DELETE.equals(op.name) ||
-                                        EntityOperation.SEND.equals(op.name) ||
-                                        EntityOperation.SYNC.equals(op.name) ||
-                                        EntityOperation.SUBSCRIBE.equals(op.name)))
-                            throw new IllegalArgumentException(op.name + " without uid " + op.args);
+                        if (message != null) {
+                            db.message().setMessageError(message.id, null);
+                            if (!EntityOperation.ADD.equals(op.name))
+                                ensureUid(context, folder, message, (IMAPFolder) ifolder);
+                        }
 
                         // Operations should use database transaction when needed
 
@@ -314,6 +309,34 @@ class Core {
             }
         } finally {
             Log.i(folder.name + " end process state=" + state);
+        }
+    }
+
+    private static void ensureUid(Context context, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException {
+        DB db = DB.getInstance(context);
+
+        // Get uid when needed
+        if (message.uid == null) {
+            Log.i(folder.name + " ensure uid msgid=" + message.msgid);
+
+            if (TextUtils.isEmpty(message.msgid))
+                throw new IllegalArgumentException("Message without ID");
+
+            Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
+            if (imessages == null || imessages.length == 0)
+                throw new IllegalArgumentException("Message not found");
+
+            long uid = -1;
+            for (Message iexisting : imessages) {
+                long muid = ifolder.getUID(iexisting);
+                Log.i(folder.name + " found uid=" + muid);
+                // RFC3501: Unique identifiers are assigned in a strictly ascending fashion
+                if (muid > uid)
+                    uid = muid;
+            }
+
+            message.uid = uid;
+            db.message().setMessageUid(message.id, uid);
         }
     }
 
