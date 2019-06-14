@@ -26,19 +26,19 @@
             android:layout_height="24dp"
             android:layout_marginStart="6dp"
             android:contentDescription="@string/title_legend_connection_state"
-            app:srcCompat="@drawable/baseline_cloud_off_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvName"
             app:layout_constraintStart_toEndOf="@id/vwColor"
-            app:layout_constraintTop_toTopOf="@+id/tvName" />
+            app:layout_constraintTop_toTopOf="@+id/tvName"
+            app:srcCompat="@drawable/baseline_cloud_off_24" />
 
         <ImageView
             android:id="@+id/ivReadOnly"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="6dp"
-            app:srcCompat="@drawable/baseline_visibility_24"
             app:layout_constraintStart_toEndOf="@id/vwColor"
-            app:layout_constraintTop_toTopOf="@+id/tvType" />
+            app:layout_constraintTop_toTopOf="@+id/tvType"
+            app:srcCompat="@drawable/baseline_visibility_24" />
 
         <View
             android:id="@+id/vwLevel"
@@ -57,21 +57,10 @@
             android:contentDescription="@string/title_legend_expander"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            app:srcCompat="@drawable/expander"
             app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
             app:layout_constraintStart_toEndOf="@+id/vwLevel"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/ivType"
-            android:layout_width="30dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/title_legend_folder_type"
-            android:paddingEnd="6dp"
-            app:srcCompat="@drawable/baseline_inbox_24"
-            app:layout_constraintBottom_toBottomOf="@+id/tvType"
-            app:layout_constraintStart_toEndOf="@id/ivExpander"
-            app:layout_constraintTop_toTopOf="@+id/tvType" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/expander" />
 
         <ImageView
             android:id="@+id/ivUnified"
@@ -79,10 +68,10 @@
             android:layout_height="24dp"
             android:contentDescription="@string/title_unified_folder"
             android:paddingEnd="6dp"
-            app:srcCompat="@drawable/baseline_folder_special_24"
-            app:layout_constraintBottom_toBottomOf="@+id/tvType"
-            app:layout_constraintStart_toEndOf="@id/ivType"
-            app:layout_constraintTop_toTopOf="@+id/tvType" />
+            app:layout_constraintBottom_toBottomOf="@+id/tvName"
+            app:layout_constraintStart_toEndOf="@id/ivExpander"
+            app:layout_constraintTop_toTopOf="@+id/tvName"
+            app:srcCompat="@drawable/baseline_folder_special_24" />
 
         <ImageView
             android:id="@+id/ivNotify"
@@ -90,10 +79,10 @@
             android:layout_height="24dp"
             android:contentDescription="@string/title_legend_notify"
             android:paddingEnd="6dp"
-            app:srcCompat="@drawable/baseline_notifications_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvName"
-            app:layout_constraintStart_toEndOf="@id/ivExpander"
-            app:layout_constraintTop_toTopOf="@+id/tvName" />
+            app:layout_constraintStart_toEndOf="@id/ivUnified"
+            app:layout_constraintTop_toTopOf="@+id/tvName"
+            app:srcCompat="@drawable/baseline_notifications_24" />
 
         <ImageView
             android:id="@+id/ivSubscribed"
@@ -101,10 +90,10 @@
             android:layout_height="24dp"
             android:contentDescription="@string/title_legend_notify"
             android:paddingEnd="6dp"
-            app:srcCompat="@drawable/baseline_bookmark_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvName"
             app:layout_constraintStart_toEndOf="@id/ivNotify"
-            app:layout_constraintTop_toTopOf="@+id/tvName" />
+            app:layout_constraintTop_toTopOf="@+id/tvName"
+            app:srcCompat="@drawable/baseline_bookmark_24" />
 
         <TextView
             android:id="@+id/tvName"
@@ -140,10 +129,21 @@
             android:layout_height="24dp"
             android:layout_marginEnd="12dp"
             android:contentDescription="@string/title_legend_count"
-            app:srcCompat="@drawable/baseline_mail_outline_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvName" />
+            app:layout_constraintTop_toTopOf="@+id/tvName"
+            app:srcCompat="@drawable/baseline_mail_outline_24" />
+
+        <ImageView
+            android:id="@+id/ivType"
+            android:layout_width="30dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/title_legend_folder_type"
+            android:paddingEnd="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvType"
+            app:layout_constraintStart_toEndOf="@id/ivExpander"
+            app:layout_constraintTop_toTopOf="@+id/tvType"
+            app:srcCompat="@drawable/baseline_inbox_24" />
 
         <TextView
             android:id="@+id/tvType"
@@ -156,7 +156,7 @@
             android:text="type"
             android:textAppearance="@android:style/TextAppearance.Small"
             android:textStyle="italic"
-            app:layout_constraintStart_toEndOf="@id/ivUnified"
+            app:layout_constraintStart_toEndOf="@id/ivType"
             app:layout_constraintTop_toBottomOf="@id/tvName" />
 
         <TextView
@@ -194,10 +194,10 @@
             android:layout_height="24dp"
             android:layout_marginEnd="12dp"
             android:contentDescription="@string/title_legend_sync_state"
-            app:srcCompat="@drawable/baseline_sync_24"
             app:layout_constraintBottom_toBottomOf="@id/tvType"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvType" />
+            app:layout_constraintTop_toTopOf="@+id/tvType"
+            app:srcCompat="@drawable/baseline_sync_24" />
 
         <TextView
             android:id="@+id/tvKeywords"

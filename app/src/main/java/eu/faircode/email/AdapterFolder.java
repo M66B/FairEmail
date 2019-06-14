@@ -88,19 +88,23 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private View vwColor;
         private ImageView ivState;
         private ImageView ivReadOnly;
+
         private View vwLevel;
         private ImageView ivExpander;
+
+        private ImageView ivUnified;
         private ImageView ivNotify;
         private ImageView ivSubscribed;
         private TextView tvName;
         private TextView tvMessages;
         private ImageView ivMessages;
+
         private ImageView ivType;
-        private ImageView ivUnified;
         private TextView tvType;
         private TextView tvTotal;
         private TextView tvAfter;
         private ImageView ivSync;
+
         private TextView tvKeywords;
         private TextView tvError;
 
@@ -113,19 +117,23 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             vwColor = itemView.findViewById(R.id.vwColor);
             ivState = itemView.findViewById(R.id.ivState);
             ivReadOnly = itemView.findViewById(R.id.ivReadOnly);
+
             vwLevel = itemView.findViewById(R.id.vwLevel);
             ivExpander = itemView.findViewById(R.id.ivExpander);
+
+            ivUnified = itemView.findViewById(R.id.ivUnified);
             ivNotify = itemView.findViewById(R.id.ivNotify);
             ivSubscribed = itemView.findViewById(R.id.ivSubscribed);
             tvName = itemView.findViewById(R.id.tvName);
             tvMessages = itemView.findViewById(R.id.tvMessages);
             ivMessages = itemView.findViewById(R.id.ivMessages);
+
             ivType = itemView.findViewById(R.id.ivType);
-            ivUnified = itemView.findViewById(R.id.ivUnified);
             tvType = itemView.findViewById(R.id.tvType);
             tvTotal = itemView.findViewById(R.id.tvTotal);
             tvAfter = itemView.findViewById(R.id.tvAfter);
             ivSync = itemView.findViewById(R.id.ivSync);
+
             tvKeywords = itemView.findViewById(R.id.tvKeywords);
             tvError = itemView.findViewById(R.id.tvError);
         }
@@ -194,6 +202,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     ? View.VISIBLE : View.INVISIBLE);
 
             if (listener == null) {
+                ivUnified.setVisibility(account > 0 && folder.unified ? View.VISIBLE : View.GONE);
                 ivNotify.setVisibility(folder.notify ? View.VISIBLE : View.GONE);
                 ivSubscribed.setVisibility(subscriptions && folder.subscribed != null && folder.subscribed ? View.VISIBLE : View.GONE);
             }
@@ -226,8 +235,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ivType.setImageResource(EntityFolder.getIcon(folder.type));
 
             if (listener == null) {
-                ivUnified.setVisibility(account > 0 && folder.unified ? View.VISIBLE : View.GONE);
-
                 if (account < 0)
                     tvType.setText(folder.accountName);
                 else {
