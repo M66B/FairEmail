@@ -143,6 +143,7 @@
     <string name="title_advanced_kept_removed">Controleer of oude berichten van de server werden verwijderd</string>
     <string name="title_advanced_sync_folders">Lijst met mappen synchroniseren</string>
     <string name="title_advanced_prefix_once">Prefix onderwerp slechts één keer bij beantwoorden of doorsturen</string>
+    <string name="title_advanced_plain_only">Verstuur standaard alleen tekst</string>
     <string name="title_advanced_autoresize">Automatisch bijgevoegde en ingesloten afbeeldingen verkleinen</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_autosend">Bevestig het verzenden van berichten</string>
@@ -238,6 +239,7 @@
     <string name="title_account_name">Accountnaam</string>
     <string name="title_account_name_hint">Wordt gebruikt voor het onderscheiden van mappen</string>
     <string name="title_account_interval_hint">Frequentie van het verversen van de verbinding voor push berichten of frequentie van het controleren op nieuwe berichten</string>
+    <string name="title_account_partial_fetch_hint">Schakel dit alleen uit in het geval van lege berichten of corrupte bijlagen</string>
     <string name="title_account_signature">Tekst handtekening</string>
     <string name="title_account_color">Kleur</string>
     <string name="title_account_notify">Afzonderlijke meldingen</string>

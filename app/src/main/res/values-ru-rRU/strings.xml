@@ -159,6 +159,7 @@
     <string name="title_advanced_kept_removed">Проверить, были ли удалены старые сообщения с сервера</string>
     <string name="title_advanced_sync_folders">Синхронизировать список папок</string>
     <string name="title_advanced_prefix_once">Добавлять только один префикс темы при ответе или пересылке</string>
+    <string name="title_advanced_plain_only">По умолчанию отправлять простым текстом</string>
     <string name="title_advanced_autoresize">Автоматически изменять размер прикрепленных и встроенных изображений</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d пикселей</string>
     <string name="title_advanced_autosend">Подтверждать отправку сообщений</string>
@@ -254,6 +255,7 @@
     <string name="title_account_name">Название учётной записи</string>
     <string name="title_account_name_hint">Используется для разграничения папок</string>
     <string name="title_account_interval_hint">Частота обновления соединения для push-сообщений или частота проверки новых сообщений</string>
+    <string name="title_account_partial_fetch_hint">Отключайте это только в случае пустых сообщений или поврежденных вложений</string>
     <string name="title_account_signature">Текст подписи</string>
     <string name="title_account_color">Цвет</string>
     <string name="title_account_notify">Раздельные уведомления</string>

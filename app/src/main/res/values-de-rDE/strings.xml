@@ -143,6 +143,7 @@
     <string name="title_advanced_kept_removed">Überprüfen, ob alte Nachrichten vom Server entfernt wurden</string>
     <string name="title_advanced_sync_folders">Ordnerliste synchronisieren</string>
     <string name="title_advanced_prefix_once">Betreff nur einmal beim Antworten oder Weiterleiten voranstellen</string>
+    <string name="title_advanced_plain_only">Immer als Reintext senden</string>
     <string name="title_advanced_autoresize">Angehängte und eingebettete Bilder automatisch anpassen</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d Pixel</string>
     <string name="title_advanced_autosend">Senden von E-Mails bestätigen</string>
@@ -238,6 +239,7 @@
     <string name="title_account_name">Kontobezeichnung</string>
     <string name="title_account_name_hint">Wird verwendet, um Ordner zu unterscheiden</string>
     <string name="title_account_interval_hint">Häufigkeit der Aktualisierung der Verbindung für Push-Meldungen oder Häufigkeit der Überprüfung auf neue Nachrichten</string>
+    <string name="title_account_partial_fetch_hint">Deaktivieren Sie dies nur bei Nachrichten ohne Inhalt oder beschädigten Anhängen</string>
     <string name="title_account_signature">Signaturtext</string>
     <string name="title_account_color">Farbe</string>
     <string name="title_account_notify">Separate Benachrichtigungen</string>

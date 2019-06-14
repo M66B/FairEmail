@@ -143,6 +143,7 @@
     <string name="title_advanced_kept_removed">Controlla se i vecchi messaggi sono stati rimossi dal server</string>
     <string name="title_advanced_sync_folders">Sincronizza elenco cartelle</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta per rispondere o inoltrare</string>
+    <string name="title_advanced_plain_only">Invia testo semplice solo per impostazione predefinita</string>
     <string name="title_advanced_autoresize">Ridimensiona automaticamente le immagini allegate e incorporate</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixel</string>
     <string name="title_advanced_autosend">Confermare l\'invio dei messaggi</string>
@@ -238,6 +239,7 @@
     <string name="title_account_name">Nome account</string>
     <string name="title_account_name_hint">Usato per differenziare le cartelle</string>
     <string name="title_account_interval_hint">Frequenza di aggiornamento della connessione per i messaggi push o frequenza di controllo per i nuovi messaggi</string>
+    <string name="title_account_partial_fetch_hint">Disabilita questo solo in caso di messaggi vuoti o allegati corrotti</string>
     <string name="title_account_signature">Testo della firma</string>
     <string name="title_account_color">Colore</string>
     <string name="title_account_notify">Notifiche separate</string>
