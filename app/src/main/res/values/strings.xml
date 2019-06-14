@@ -281,6 +281,7 @@
     <string name="title_account_name">Account name</string>
     <string name="title_account_name_hint">Used to differentiate folders</string>
     <string name="title_account_interval_hint">Frequency of refreshing the connection for push messages or frequency of checking for new messages</string>
+    <string name="title_account_partial_fetch_hint">Disable this only in case of empty messages or corrupt attachments</string>
     <string name="title_account_signature">Signature text</string>
     <string name="title_account_color">Color</string>
     <string name="title_account_notify">Separate notifications</string>
@@ -309,6 +310,7 @@
     <string name="title_primary_account">Primary (default account)</string>
     <string name="title_primary_identity">Primary (default identity)</string>
     <string name="title_keep_alive_interval">Keep-alive/poll interval (minutes)</string>
+    <string name="title_partial_fetch" translatable="false">Partial fetch</string>
     <string name="title_check">Check</string>
     <string name="title_no_name">Name missing</string>
     <string name="title_no_email">Email address missing</string>

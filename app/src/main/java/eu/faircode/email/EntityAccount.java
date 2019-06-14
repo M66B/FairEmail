@@ -89,6 +89,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public Long swipe_right;
     @NonNull
     public Integer poll_interval; // keep-alive interval
+    @NonNull
+    public Boolean partial_fetch = true;
     public String prefix; // namespace, obsolete
 
     public Long created;
@@ -164,6 +166,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         json.put("swipe_right", swipe_right);
 
         json.put("poll_interval", poll_interval);
+        json.put("partial_fetch", partial_fetch);
         // not created
         // not state
         // not error
@@ -209,6 +212,11 @@ public class EntityAccount extends EntityOrder implements Serializable {
 
         account.poll_interval = json.getInt("poll_interval");
 
+        if (json.has("partial_fetch"))
+            account.partial_fetch = json.getBoolean("partial_fetch");
+        else
+            account.partial_fetch = true;
+
         return account;
     }
 
@@ -234,6 +242,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
                     Objects.equals(this.swipe_left, other.swipe_left) &&
                     Objects.equals(this.swipe_right, other.swipe_right) &&
                     this.poll_interval.equals(other.poll_interval) &&
+                    this.partial_fetch == other.partial_fetch &&
                     Objects.equals(this.created, other.created) &&
                     Objects.equals(this.tbd, other.tbd) &&
                     Objects.equals(this.state, other.state) &&

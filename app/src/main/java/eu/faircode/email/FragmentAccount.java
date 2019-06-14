@@ -118,6 +118,7 @@ public class FragmentAccount extends FragmentBase {
     private CheckBox cbNotify;
     private CheckBox cbBrowse;
     private EditText etInterval;
+    private CheckBox cbPartialFetch;
 
     private Button btnCheck;
     private ContentLoadingProgressBar pbCheck;
@@ -194,6 +195,7 @@ public class FragmentAccount extends FragmentBase {
         cbNotify = view.findViewById(R.id.cbNotify);
         cbBrowse = view.findViewById(R.id.cbBrowse);
         etInterval = view.findViewById(R.id.etInterval);
+        cbPartialFetch = view.findViewById(R.id.cbPartialFetch);
 
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
@@ -756,6 +758,7 @@ public class FragmentAccount extends FragmentBase {
         args.putBoolean("notify", cbNotify.isChecked());
         args.putBoolean("browse", cbBrowse.isChecked());
         args.putString("interval", etInterval.getText().toString());
+        args.putBoolean("partial_fetch", cbPartialFetch.isChecked());
 
         args.putSerializable("drafts", drafts);
         args.putSerializable("sent", sent);
@@ -804,6 +807,7 @@ public class FragmentAccount extends FragmentBase {
                 boolean notify = args.getBoolean("notify");
                 boolean browse = args.getBoolean("browse");
                 String interval = args.getString("interval");
+                boolean partial_fetch = args.getBoolean("partial_fetch");
 
                 EntityFolder drafts = (EntityFolder) args.getSerializable("drafts");
                 EntityFolder sent = (EntityFolder) args.getSerializable("sent");
@@ -846,7 +850,8 @@ public class FragmentAccount extends FragmentBase {
                 boolean reload = (check || account == null ||
                         account.synchronize != synchronize ||
                         account.notify != notify ||
-                        !account.poll_interval.equals(Integer.parseInt(interval)));
+                        !account.poll_interval.equals(Integer.parseInt(interval)) ||
+                        account.partial_fetch != partial_fetch);
 
                 Long last_connected = null;
                 if (account != null && synchronize == account.synchronize)
@@ -920,6 +925,7 @@ public class FragmentAccount extends FragmentBase {
                     account.notify = notify;
                     account.browse = browse;
                     account.poll_interval = Integer.parseInt(interval);
+                    account.partial_fetch = partial_fetch;
 
                     if (!update)
                         account.created = now;
@@ -1136,6 +1142,7 @@ public class FragmentAccount extends FragmentBase {
                     cbPrimary.setChecked(account == null ? false : account.primary);
                     cbBrowse.setChecked(account == null ? true : account.browse);
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
+                    cbPartialFetch.setChecked(account == null ? true : account.partial_fetch);
 
                     color = (account == null || account.color == null ? Color.TRANSPARENT : account.color);
 

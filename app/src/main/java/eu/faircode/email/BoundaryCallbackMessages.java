@@ -256,6 +256,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                 // Get properties
                 Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
+                if (!account.partial_fetch) {
+                    props.put("mail.imap.partialfetch", "false");
+                    props.put("mail.imaps.partialfetch", "false");
+                }
                 props.put("mail." + protocol + ".separatestoreconnection", "true");
 
                 // Create session

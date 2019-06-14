@@ -570,6 +570,10 @@ public class ServiceSynchronize extends LifecycleService {
 
                 // Get properties
                 Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
+                if (!account.partial_fetch) {
+                    props.put("mail.imap.partialfetch", "false");
+                    props.put("mail.imaps.partialfetch", "false");
+                }
 
                 // Create session
                 final Session isession = Session.getInstance(props, null);

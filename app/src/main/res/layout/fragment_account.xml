@@ -457,6 +457,25 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/etInterval" />
 
+            <CheckBox
+                android:id="@+id/cbPartialFetch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/title_partial_fetch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvIntervalRemark" />
+
+            <TextView
+                android:id="@+id/tvPartialFetchRemark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_account_partial_fetch_hint"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cbPartialFetch" />
+
             <!-- check -->
 
             <Button
@@ -467,7 +486,7 @@
                 android:tag="disable"
                 android:text="@string/title_check"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvIntervalRemark" />
+                app:layout_constraintTop_toBottomOf="@id/tvPartialFetchRemark" />
 
             <eu.faircode.email.ContentLoadingProgressBar
                 android:id="@+id/pbCheck"
@@ -740,7 +759,8 @@
             cbNotify,tvNotifyPro,
             cbSynchronize,cbPrimary,
             cbBrowse,tvBrowseHint,
-            tvInterval,etInterval,tvIntervalRemark" />
+            tvInterval,etInterval,tvIntervalRemark,
+            cbPartialFetch,tvPartialFetchRemark" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpFolders"
