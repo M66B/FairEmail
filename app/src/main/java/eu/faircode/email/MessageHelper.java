@@ -95,6 +95,7 @@ public class MessageHelper {
         System.setProperty("mail.mime.decodefilename", "true");
         System.setProperty("mail.mime.encodefilename", "true");
         System.setProperty("mail.mime.allowutf8", "false"); // InternetAddress, MimeBodyPart, MimeUtility
+        System.setProperty("mail.mime.cachemultipart", "false");
 
         // https://docs.oracle.com/javaee/6/api/javax/mail/internet/MimeMultipart.html
         System.setProperty("mail.mime.multipart.ignoremissingboundaryparameter", "true"); // javax.mail.internet.ParseException: In parameter list
