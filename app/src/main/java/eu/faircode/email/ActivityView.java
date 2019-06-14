@@ -699,7 +699,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private class UpdateInfo {
         String tag_name; // version
-        boolean prerelease;
         String html_url;
     }
 
@@ -752,27 +751,26 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                     JSONObject jroot = new JSONObject(response.toString());
 
-                    if (!jroot.has("tag_name"))
+                    if (!jroot.has("tag_name") || jroot.isNull("tag_name"))
                         throw new IOException("tag_name field missing");
-                    if (!jroot.has("html_url"))
+                    if (!jroot.has("html_url") || jroot.isNull("html_url"))
                         throw new IOException("html_url field missing");
-                    if (!jroot.has("assets"))
+                    if (!jroot.has("assets") || jroot.isNull("assets"))
                         throw new IOException("assets section missing");
 
                     // Get update info
                     UpdateInfo info = new UpdateInfo();
                     info.tag_name = jroot.getString("tag_name");
-                    info.prerelease = jroot.getBoolean("prerelease");
                     info.html_url = jroot.getString("html_url");
 
                     // Check if new release
                     JSONArray jassets = jroot.getJSONArray("assets");
                     for (int i = 0; i < jassets.length(); i++) {
                         JSONObject jasset = jassets.getJSONObject(i);
-                        if (jasset.has("name")) {
+                        if (jasset.has("name") && !jasset.isNull("name")) {
                             String name = jasset.getString("name");
-                            if (name != null && name.endsWith(".apk")) {
-                                Log.i("Latest version=" + info.tag_name + " prerelease=" + info.prerelease);
+                            if (name.endsWith(".apk")) {
+                                Log.i("Latest version=" + info.tag_name);
                                 if (BuildConfig.VERSION_NAME.equals(info.tag_name))
                                     return null;
                                 else
@@ -799,9 +797,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     }
                     return;
                 }
-
-                if (!always && info.prerelease)
-                    return;
 
                 final Intent update = new Intent(Intent.ACTION_VIEW, Uri.parse(info.html_url));
                 if (update.resolveActivity(getPackageManager()) != null)
