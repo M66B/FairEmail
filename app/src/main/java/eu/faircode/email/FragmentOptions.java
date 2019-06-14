@@ -67,6 +67,7 @@ public class FragmentOptions extends FragmentBase {
             pager.setCurrentItem(3);
         else if ("display".equals(tab))
             pager.setCurrentItem(4);
+        getActivity().getIntent().removeExtra("tab");
     }
 
     private class PagerAdapter extends FragmentStatePagerAdapter {
