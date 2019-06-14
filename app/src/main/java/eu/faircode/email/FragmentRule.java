@@ -39,6 +39,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.ScrollView;
@@ -99,7 +100,7 @@ public class FragmentRule extends FragmentBase {
 
     private Button btnColor;
     private View vwColor;
-    private ImageView ibColorDefault;
+    private ImageButton ibColorDefault;
 
     private Spinner spTarget;
     private CheckBox cbMoveSeen;

@@ -42,7 +42,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -83,7 +83,7 @@ public class FragmentIdentity extends FragmentBase {
     private EditText etDisplay;
     private Button btnColor;
     private View vwColor;
-    private ImageView ibColorDefault;
+    private ImageButton ibColorDefault;
     private EditText etSignature;
     private Button btnHtml;
 

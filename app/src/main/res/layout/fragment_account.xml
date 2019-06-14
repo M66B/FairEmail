@@ -336,11 +336,12 @@
                 app:layout_constraintStart_toEndOf="@id/btnColor"
                 app:layout_constraintTop_toTopOf="@id/btnColor" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/ibColorDefault"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
+                android:background="@null"
                 android:contentDescription="@string/title_legend_default_color"
                 android:src="@drawable/baseline_delete_24"
                 app:layout_constraintBottom_toBottomOf="@id/btnColor"
