@@ -40,7 +40,6 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -186,15 +185,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 onMenuImport();
             }
         }).setSeparated());
-
-        if (getIntentNotifications(this).resolveActivity(pm) != null)
-            menus.add(new NavMenuItem(R.drawable.baseline_notifications_24, R.string.title_setup_notifications, new Runnable() {
-                @Override
-                public void run() {
-                    drawerLayout.closeDrawer(drawerContainer);
-                    onManageNotifications();
-                }
-            }));
 
         menus.add(new NavMenuItem(R.drawable.baseline_reorder_24, R.string.title_setup_reorder_accounts, new Runnable() {
             @Override
@@ -441,10 +431,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 .show();
     }
 
-    private void onManageNotifications() {
-        startActivity(getIntentNotifications(this));
-    }
-
     private void onMenuOrder(int title, Class clazz) {
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
             getSupportFragmentManager().popBackStack("order", FragmentManager.POP_BACK_STACK_INCLUSIVE);
@@ -555,13 +541,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentAbout()).addToBackStack("about");
         fragmentTransaction.commit();
-    }
-
-    private static Intent getIntentNotifications(Context context) {
-        return new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
-                .putExtra("app_package", context.getPackageName())
-                .putExtra("app_uid", context.getApplicationInfo().uid)
-                .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName());
     }
 
     private static Intent getIntentExport() {

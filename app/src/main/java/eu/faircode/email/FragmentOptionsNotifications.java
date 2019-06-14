@@ -19,12 +19,15 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -52,6 +55,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private CheckBox cbNotifyActionReply;
     private CheckBox cbNotifyActionFlag;
     private CheckBox cbNotifyActionSeen;
+    private Button btnManage;
     private SwitchCompat swLight;
     private Button btnSound;
 
@@ -78,6 +82,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         cbNotifyActionReply = view.findViewById(R.id.cbNotifyActionReply);
         cbNotifyActionFlag = view.findViewById(R.id.cbNotifyActionFlag);
         cbNotifyActionSeen = view.findViewById(R.id.cbNotifyActionSeen);
+        btnManage = view.findViewById(R.id.btnManage);
         swLight = view.findViewById(R.id.swLight);
         btnSound = view.findViewById(R.id.btnSound);
 
@@ -135,6 +140,16 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
                 setAction(buttonView, "notify_seen", checked);
+            }
+        });
+
+        final Intent manage = getIntentNotifications(getContext());
+        PackageManager pm = getContext().getPackageManager();
+        btnManage.setVisibility(manage.resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
+        btnManage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(manage);
             }
         });
 
@@ -249,4 +264,12 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
                     prefs.edit().putString("sound", uri.toString()).apply();
             }
     }
+
+    private static Intent getIntentNotifications(Context context) {
+        return new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                .putExtra("app_package", context.getPackageName())
+                .putExtra("app_uid", context.getApplicationInfo().uid)
+                .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName());
+    }
+
 }
