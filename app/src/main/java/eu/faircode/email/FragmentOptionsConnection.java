@@ -26,7 +26,9 @@ import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -121,8 +123,11 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             }
         });
 
-        final Intent manage = ConnectionHelper.getSettingsIntent(getContext());
-        btnManage.setVisibility(manage == null ? View.GONE : View.VISIBLE);
+        final Intent manage = getIntentConnectivity();
+        btnManage.setVisibility(
+                manage.resolveActivity(getContext().getPackageManager()) == null
+                        ? View.GONE : View.VISIBLE);
+
         btnManage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -213,6 +218,13 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
         swRoaming.setChecked(prefs.getBoolean("roaming", true));
         swRlah.setChecked(prefs.getBoolean("rlah", true));
+    }
+
+    private static Intent getIntentConnectivity() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
+            return new Intent(Settings.ACTION_WIRELESS_SETTINGS);
+        else
+            return new Intent(Settings.Panel.ACTION_INTERNET_CONNECTIVITY);
     }
 
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {

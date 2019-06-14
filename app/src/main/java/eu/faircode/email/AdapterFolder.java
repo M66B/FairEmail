@@ -482,14 +482,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         protected void onException(Bundle args, Throwable ex) {
                             if (ex instanceof IllegalStateException) {
                                 Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
-                                final Intent intent = ConnectionHelper.getSettingsIntent(context);
-                                if (intent != null)
-                                    snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View view) {
-                                            context.startActivity(intent);
-                                        }
-                                    });
+                                snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        context.startActivity(
+                                                new Intent(context, ActivitySetup.class)
+                                                        .putExtra("tab", "connection"));
+                                    }
+                                });
                                 snackbar.show();
                             } else if (ex instanceof IllegalArgumentException)
                                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();

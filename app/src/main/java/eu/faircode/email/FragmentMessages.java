@@ -896,14 +896,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 if (ex instanceof IllegalStateException) {
                     Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
-                    final Intent intent = ConnectionHelper.getSettingsIntent(getContext());
-                    if (intent != null)
-                        snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                getContext().startActivity(intent);
-                            }
-                        });
+                    snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            getContext().startActivity(
+                                    new Intent(getContext(), ActivitySetup.class)
+                                            .putExtra("tab", "connection"));
+                        }
+                    });
                     snackbar.show();
                 } else if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
@@ -2730,14 +2730,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                 if (ex instanceof IllegalStateException) {
                     Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
-                    final Intent intent = ConnectionHelper.getSettingsIntent(getContext());
-                    if (intent != null)
-                        snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                getContext().startActivity(intent);
-                            }
-                        });
+                    snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            getContext().startActivity(
+                                    new Intent(getContext(), ActivitySetup.class)
+                                            .putExtra("tab", "connection"));
+                        }
+                    });
                     snackbar.show();
                 } else if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();

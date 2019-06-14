@@ -63,7 +63,9 @@ public class FragmentOptions extends FragmentBase {
         tabLayout.setupWithViewPager(pager);
 
         String tab = getActivity().getIntent().getStringExtra("tab");
-        if ("display".equals(tab))
+        if ("connection".equals(tab))
+            pager.setCurrentItem(3);
+        else if ("display".equals(tab))
             pager.setCurrentItem(4);
     }
 
