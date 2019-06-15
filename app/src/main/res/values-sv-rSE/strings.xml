@@ -143,8 +143,8 @@
     <string name="title_advanced_send_delayed">Fördröj sändning av meddelanden</string>
     <string name="title_advanced_metered">Använda uppmätta anslutningar</string>
     <string name="title_advanced_download">Hämta automatiskt meddelanden och bilagor på en uppmätt anslutning upp till</string>
-    <string name="title_advanced_rlah">Roaming som hemma</string>
     <string name="title_advanced_roaming">Hämta meddelanden och bilagor vid roaming</string>
+    <string name="title_advanced_rlah">Roaming som hemma</string>
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
     <string name="title_advanced_startup">Visa på startskärmen</string>
     <string name="title_advanced_date_header">Gruppera efter datum</string>

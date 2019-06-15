@@ -165,8 +165,9 @@
     <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
     <string name="title_advanced_metered">Používat účtovaná připojení</string>
     <string name="title_advanced_download">Automaticky stahovat zprávy a přílohy na účtovaném připojení až do velikosti</string>
-    <string name="title_advanced_rlah">Roaming jako doma (RLAH)</string>
     <string name="title_advanced_roaming">Stahovat zprávy a přílohy během roamingu</string>
+    <string name="title_advanced_rlah">Roaming jako doma (RLAH)</string>
+    <string name="title_advanced_manage_connectivity">Spravovat připojení</string>
     <string name="title_advanced_browse">Procházet zprávy na serveru</string>
     <string name="title_advanced_startup">Zobrazit na úvodní obrazovce</string>
     <string name="title_advanced_date_header">Seskupit podle data</string>
@@ -254,6 +255,7 @@
     <string name="title_account_name">Název účtu</string>
     <string name="title_account_name_hint">Použito k odlišení složek</string>
     <string name="title_account_interval_hint">Četnost obnovy spojení pro okamžitá oznámení zpráv nebo četnost kontroly nových zpráv</string>
+    <string name="title_account_partial_fetch_hint">Zakažte pouze v případě prázdných zpráv nebo poškozených příloh</string>
     <string name="title_account_signature">Text podpisu</string>
     <string name="title_account_color">Barva</string>
     <string name="title_account_notify">Samostatná oznámení</string>

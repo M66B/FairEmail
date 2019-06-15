@@ -157,8 +157,8 @@
     <string name="title_advanced_send_delayed">Amână trimiterea mesajelor</string>
     <string name="title_advanced_metered">Folosește conexiuni contorizate</string>
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
-    <string name="title_advanced_rlah">Consideră roamingul ca național</string>
     <string name="title_advanced_roaming">Descărcarea mesajelor și a atașamentelor prin conexiuni roaming</string>
+    <string name="title_advanced_rlah">Consideră roamingul ca național</string>
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
     <string name="title_advanced_startup">Arată pe ecranul de start</string>
     <string name="title_advanced_date_header">Grupare după dată</string>

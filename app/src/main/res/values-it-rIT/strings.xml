@@ -142,6 +142,7 @@
     <string name="title_advanced_flagged">Tutti i messaggi preferiti</string>
     <string name="title_advanced_kept_removed">Controlla se i vecchi messaggi sono stati rimossi dal server</string>
     <string name="title_advanced_sync_folders">Sincronizza elenco cartelle</string>
+    <string name="title_advanced_keyboard">Mostra tastiera di default</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta per rispondere o inoltrare</string>
     <string name="title_advanced_plain_only">Invia testo semplice solo per impostazione predefinita</string>
     <string name="title_advanced_autoresize">Ridimensiona automaticamente le immagini allegate e incorporate</string>
@@ -150,8 +151,9 @@
     <string name="title_advanced_send_delayed">Ritardo invio messaggi</string>
     <string name="title_advanced_metered">Usa connessioni a consumo</string>
     <string name="title_advanced_download">Scarica automaticamente i messaggi e gli allegati con una connessione a consumo fino a</string>
-    <string name="title_advanced_rlah">Roaming come a casa</string>
     <string name="title_advanced_roaming">Scarica messaggi e allegati durante il roaming</string>
+    <string name="title_advanced_rlah">Roaming come a casa</string>
+    <string name="title_advanced_manage_connectivity">Gestisci connettività</string>
     <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
     <string name="title_advanced_startup">Mostra nella schermata iniziale</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>

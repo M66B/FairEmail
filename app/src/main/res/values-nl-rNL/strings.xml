@@ -142,6 +142,7 @@
     <string name="title_advanced_flagged">Alle berichten met een ster</string>
     <string name="title_advanced_kept_removed">Controleer of oude berichten van de server werden verwijderd</string>
     <string name="title_advanced_sync_folders">Lijst met mappen synchroniseren</string>
+    <string name="title_advanced_keyboard">Toon standaard het toetsenbord</string>
     <string name="title_advanced_prefix_once">Prefix onderwerp slechts één keer bij beantwoorden of doorsturen</string>
     <string name="title_advanced_plain_only">Verstuur standaard alleen tekst</string>
     <string name="title_advanced_autoresize">Automatisch bijgevoegde en ingesloten afbeeldingen verkleinen</string>
@@ -150,8 +151,9 @@
     <string name="title_advanced_send_delayed">Verzenden van berichten uitstellen</string>
     <string name="title_advanced_metered">Gemeten verbindingen gebruiken</string>
     <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
-    <string name="title_advanced_rlah">Roam zoals thuis</string>
     <string name="title_advanced_roaming">Download berichten en bijlagen tijdens roaming</string>
+    <string name="title_advanced_rlah">Roam zoals thuis</string>
+    <string name="title_advanced_manage_connectivity">Beheer connectiviteit</string>
     <string name="title_advanced_browse">Blader door berichten op de server</string>
     <string name="title_advanced_startup">Toon op het startscherm</string>
     <string name="title_advanced_date_header">Op datum groeperen</string>

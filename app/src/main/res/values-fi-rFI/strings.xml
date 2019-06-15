@@ -149,8 +149,8 @@
     <string name="title_advanced_send_delayed">Viivästä viestien lähetystä</string>
     <string name="title_advanced_metered">Käytä käytön mukaan laskutettavia yhteyksiä</string>
     <string name="title_advanced_download">Ladattavien viestien ja liitteiden maksimikoko käytön mukaan laskutettavaa yhteyttä käytettäessä</string>
-    <string name="title_advanced_rlah">Kotimaanhintaiset verkkovierailut</string>
     <string name="title_advanced_roaming">Lataa viestit ja liitteet verkkovierailun aikana</string>
+    <string name="title_advanced_rlah">Kotimaanhintaiset verkkovierailut</string>
     <string name="title_advanced_browse">Selaa palvelimella olevia viestejä</string>
     <string name="title_advanced_startup">Näytä aloitusnäytössä</string>
     <string name="title_advanced_date_header">Ryhmittely päivämäärän mukaan</string>

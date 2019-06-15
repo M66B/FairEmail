@@ -144,8 +144,8 @@
     <string name="title_advanced_send_delayed">Atraso ao enviar mensagens</string>
     <string name="title_advanced_metered">Usar conexões limitadas</string>
     <string name="title_advanced_download">Fazer download automático de mensagens e anexos em uma conexão limitada até</string>
-    <string name="title_advanced_rlah">Roam like at home</string>
     <string name="title_advanced_roaming">Fazer o download de mensagens e anexos de roaming</string>
+    <string name="title_advanced_rlah">Roam like at home</string>
     <string name="title_advanced_browse">Procurar mensagens no servidor</string>
     <string name="title_advanced_startup">Mostrar na Tela de bloqueio</string>
     <string name="title_advanced_date_header">Agrupar por data</string>

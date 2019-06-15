@@ -127,8 +127,8 @@
     <string name="title_advanced_send_delayed">Odgoda slanja poruka</string>
     <string name="title_advanced_metered">Koristiti mjerne veze</string>
     <string name="title_advanced_download">Automatski preuzimati poruke i privitke na izmjerenu vezu do</string>
-    <string name="title_advanced_rlah">Roaming kao kod kuće</string>
     <string name="title_advanced_roaming">Download messages and attachments while roaming</string>
+    <string name="title_advanced_rlah">Roaming kao kod kuće</string>
     <string name="title_advanced_browse">Browse messages on the server</string>
     <string name="title_advanced_startup">Prikaži na početnom zaslonu</string>
     <string name="title_advanced_date_header">Grupiraj po datumu</string>

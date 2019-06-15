@@ -143,14 +143,16 @@
     <string name="title_advanced_kept_removed">Vérifier si les anciens messages ont été supprimés du serveur</string>
     <string name="title_advanced_sync_folders">Synchroniser la liste des dossiers</string>
     <string name="title_advanced_prefix_once">Ne préfixer le sujet qu\'une seule fois lors de la réponse ou du transfert</string>
+    <string name="title_advanced_plain_only">Envoyer le texte brut uniquement par défaut</string>
     <string name="title_advanced_autoresize">Redimensionner automatiquement les images jointes et incluses</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_autosend">Confirmer l\'envoi des messages</string>
     <string name="title_advanced_send_delayed">Retarder l\'envoi des messages</string>
     <string name="title_advanced_metered">Utiliser des connexions limitées</string>
     <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes avec une connexion limitée jusqu\'à</string>
-    <string name="title_advanced_rlah">Ignorer l\'itinérance en Europe</string>
     <string name="title_advanced_roaming">Télécharger les messages et les pièces jointes en itinérance</string>
+    <string name="title_advanced_rlah">Ignorer l\'itinérance en Europe</string>
+    <string name="title_advanced_manage_connectivity">Gérer la connectivité</string>
     <string name="title_advanced_browse">Parcourir les messages sur le serveur</string>
     <string name="title_advanced_startup">Afficher sur l\'écran de démarrage</string>
     <string name="title_advanced_date_header">Grouper par date</string>
@@ -238,6 +240,7 @@
     <string name="title_account_name">Nom du compte</string>
     <string name="title_account_name_hint">Utilisé pour différencier les dossiers</string>
     <string name="title_account_interval_hint">Fréquence de rafraîchissement de la connexion pour les messages push ou la fréquence de vérification des nouveaux messages</string>
+    <string name="title_account_partial_fetch_hint">Désactiver ceci seulement dans le cas de messages vides ou de pièces jointes corrompues</string>
     <string name="title_account_signature">Texte de la signature</string>
     <string name="title_account_color">Couleur</string>
     <string name="title_account_notify">Notifications séparées</string>

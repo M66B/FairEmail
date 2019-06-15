@@ -142,6 +142,7 @@
     <string name="title_advanced_flagged">Alle gekennzeichneten Nachrichten</string>
     <string name="title_advanced_kept_removed">Überprüfen, ob alte Nachrichten vom Server entfernt wurden</string>
     <string name="title_advanced_sync_folders">Ordnerliste synchronisieren</string>
+    <string name="title_advanced_keyboard">Tastatur immer anzeigen</string>
     <string name="title_advanced_prefix_once">Betreff nur einmal beim Antworten oder Weiterleiten voranstellen</string>
     <string name="title_advanced_plain_only">Immer als Reintext senden</string>
     <string name="title_advanced_autoresize">Angehängte und eingebettete Bilder automatisch anpassen</string>
@@ -150,8 +151,9 @@
     <string name="title_advanced_send_delayed">Senden von Nachrichten verzögern</string>
     <string name="title_advanced_metered">Getaktete Verbindungen verwenden</string>
     <string name="title_advanced_download">Automatisches Herunterladen von E-Mails und Anhängen auf getakteten Verbindungen bis zu einer Größe von</string>
-    <string name="title_advanced_rlah">Roaming wie zu Hause</string>
     <string name="title_advanced_roaming">Nachrichten und Anhänge bei Roaming herunterladen</string>
+    <string name="title_advanced_rlah">Roaming wie zu Hause</string>
+    <string name="title_advanced_manage_connectivity">Verbindungsfähigkeiten verwalten</string>
     <string name="title_advanced_browse">E-Mails auf dem Server durchsuchen</string>
     <string name="title_advanced_startup">Zum Start anzeigen</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>

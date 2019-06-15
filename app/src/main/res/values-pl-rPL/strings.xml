@@ -160,8 +160,8 @@
     <string name="title_advanced_send_delayed">Opóźnij wysyłanie wiadomości</string>
     <string name="title_advanced_metered">Użyj połączeń taryfowych</string>
     <string name="title_advanced_download">Automatycznie pobieraj wiadomości i załączniki przy połączeniach taryfowych do</string>
-    <string name="title_advanced_rlah">Roaming jak w domu</string>
     <string name="title_advanced_roaming">Pobieraj wiadomości i załączniki podczas roamingu</string>
+    <string name="title_advanced_rlah">Roaming jak w domu</string>
     <string name="title_advanced_browse">Przeglądaj wiadomości na serwerze</string>
     <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>
     <string name="title_advanced_date_header">Grupuj według dat</string>

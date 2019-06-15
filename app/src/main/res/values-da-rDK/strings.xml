@@ -143,8 +143,8 @@
     <string name="title_advanced_send_delayed">Forsinket afsendelse af meddelelser</string>
     <string name="title_advanced_metered">Brug forbrugsbaserede forbindelser</string>
     <string name="title_advanced_download">Hent automatisk meddelelser og vedhæftninger på forbrugsbaserede forbindelser</string>
-    <string name="title_advanced_rlah">Roam, som var du hjemme</string>
     <string name="title_advanced_roaming">Download meddelelser og vedhæftninger under roaming</string>
+    <string name="title_advanced_rlah">Roam, som var du hjemme</string>
     <string name="title_advanced_browse">Gennemse meddelelser på serveren</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
     <string name="title_advanced_date_header">Gruppér efter dato</string>
