@@ -15,32 +15,36 @@
 
         <RadioButton
             android:id="@+id/rbThemeLight"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="6dp"
             android:text="@string/title_setup_light_theme"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <RadioButton
             android:id="@+id/rbThemeDark"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:padding="6dp"
             android:text="@string/title_setup_dark_theme"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <RadioButton
             android:id="@+id/rbThemeBlack"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:padding="6dp"
             android:text="@string/title_setup_black_theme"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <RadioButton
             android:id="@+id/rbThemeSystem"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:padding="6dp"
             android:text="@string/title_setup_system_theme"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
     </RadioGroup>
