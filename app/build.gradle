@@ -8,6 +8,7 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     compileSdkVersion 29
+
     defaultConfig {
         applicationId "eu.faircode.email"
         minSdkVersion 21
@@ -24,7 +25,13 @@ android {
 
         // https://developer.android.com/guide/topics/graphics/vector-drawable-resources
         vectorDrawables.useSupportLibrary = true
+
+        ndk {
+            // Bugsnag
+            abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
+        }
     }
+
     signingConfigs {
         release {
             storeFile file(keystoreProperties['storeFile'])
