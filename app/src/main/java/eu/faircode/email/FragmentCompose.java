@@ -76,6 +76,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -2944,12 +2945,23 @@ public class FragmentCompose extends FragmentBase {
                 new Handler().post(new Runnable() {
                     @Override
                     public void run() {
+                        View target;
                         if (TextUtils.isEmpty(etTo.getText().toString().trim()))
-                            etTo.requestFocus();
+                            target = etTo;
                         else if (TextUtils.isEmpty(etSubject.getText().toString()))
-                            etSubject.requestFocus();
+                            target = etSubject;
                         else
-                            etBody.requestFocus();
+                            target = etBody;
+
+                        target.requestFocus();
+
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                        boolean keyboard = prefs.getBoolean("keyboard", true);
+                        if (keyboard) {
+                            InputMethodManager imm =
+                                    (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.showSoftInput(target, InputMethodManager.SHOW_IMPLICIT);
+                        }
                     }
                 });
             }

@@ -38,6 +38,7 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsSend extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private SwitchCompat swKeyboard;
     private SwitchCompat swPrefixOnce;
     private SwitchCompat swPlainOnly;
     private SwitchCompat swAutoResize;
@@ -47,7 +48,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private Spinner spSendDelayed;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "prefix_once", "plain_only", "autoresize", "resize", "autosend", "send_delayed"
+            "keyboard", "prefix_once", "plain_only", "autoresize", "resize", "autosend", "send_delayed"
     };
 
     @Override
@@ -60,6 +61,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
         // Get controls
 
+        swKeyboard = view.findViewById(R.id.swKeyboard);
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
         swPlainOnly = view.findViewById(R.id.swPlainOnly);
         swAutoResize = view.findViewById(R.id.swAutoResize);
@@ -73,6 +75,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        swKeyboard.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("keyboard", checked).apply();
+            }
+        });
 
         swPrefixOnce.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -174,6 +183,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private void setOptions() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
+        swKeyboard.setChecked(prefs.getBoolean("keyboard", true));
         swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", false));
         swPlainOnly.setChecked(prefs.getBoolean("plain_only", false));
 
