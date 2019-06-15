@@ -165,8 +165,7 @@ class Core {
                                 throw new MessageRemovedException();
                         } else {
                             db.message().setMessageError(message.id, null);
-                            if (!EntityOperation.ADD.equals(op.name))
-                                ensureUid(context, folder, message, (IMAPFolder) ifolder);
+                            ensureUid(context, folder, message, op, (IMAPFolder) ifolder);
                         }
 
                         // Operations should use database transaction when needed
@@ -310,32 +309,34 @@ class Core {
         }
     }
 
-    private static void ensureUid(Context context, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException {
-        DB db = DB.getInstance(context);
+    private static void ensureUid(Context context, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws MessagingException {
+        if (message.uid != null)
+            return;
+        if (EntityOperation.ADD.equals(op.name))
+            return;
 
-        // Get uid when needed
-        if (message.uid == null) {
-            Log.i(folder.name + " ensure uid msgid=" + message.msgid);
+        Log.i(folder.name + " ensure uid op=" + op.name + " msgid=" + message.msgid);
 
-            if (TextUtils.isEmpty(message.msgid))
-                throw new IllegalArgumentException("Message without ID");
+        if (TextUtils.isEmpty(message.msgid))
+            throw new IllegalArgumentException("Message without ID for " + op.name);
 
-            Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
-            if (imessages == null || imessages.length == 0)
-                throw new IllegalArgumentException("Message not found");
+        Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
+        if (imessages == null || imessages.length == 0)
+            throw new IllegalArgumentException("Message not found for " + op.name);
 
-            long uid = -1;
-            for (Message iexisting : imessages) {
-                long muid = ifolder.getUID(iexisting);
-                Log.i(folder.name + " found uid=" + muid);
-                // RFC3501: Unique identifiers are assigned in a strictly ascending fashion
-                if (muid > uid)
-                    uid = muid;
-            }
-
-            message.uid = uid;
-            db.message().setMessageUid(message.id, uid);
+        long uid = -1;
+        for (Message iexisting : imessages) {
+            long muid = ifolder.getUID(iexisting);
+            Log.i(folder.name + " found uid=" + muid);
+            // RFC3501: Unique identifiers are assigned in a strictly ascending fashion
+            if (muid > uid)
+                uid = muid;
         }
+
+        message.uid = uid;
+
+        DB db = DB.getInstance(context);
+        db.message().setMessageUid(message.id, uid);
     }
 
     private static void onSeen(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException {
