@@ -243,6 +243,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
     }
 
     static String getType(String[] attrs, String fullName) {
+        // https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml
         for (String attr : attrs) {
             if ("\\Noselect".equals(attr) || "\\NonExistent".equals(attr))
                 return null;
