@@ -188,6 +188,7 @@
     <string name="title_advanced_notify_action_flag">Stella</string>
     <string name="title_advanced_notify_action_seen">Letto</string>
     <string name="title_advanced_notify_action_hint">Verranno mostrate al massimo tre azioni</string>
+    <string name="title_advanced_notify_manage_hint">Tocca il nome del canale \'Notifiche\' per impostare il suono di notifica predefinito, ecc</string>
     <string name="title_advanced_light">Usa il led di notifica</string>
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
     <string name="title_advanced_badge">Mostra icona launcher con numero di nuovi messaggi</string>
@@ -304,6 +305,8 @@
     <string name="title_no_operations">Nessuna operazione in sospeso</string>
     <string name="title_folder_name">Nome cartella</string>
     <string name="title_display_name">Nome visualizzato</string>
+    <string name="title_show_folders">Mostra cartelle nascoste</string>
+    <string name="title_hide_folder">Nascondi cartella</string>
     <string name="title_unified_folder">Mostra in posta in arrivo unificata</string>
     <string name="title_navigation_folder">Mostra nel menu di navigazione</string>
     <string name="title_synchronize_folder">Sincronizza (ricevi messaggi)</string>

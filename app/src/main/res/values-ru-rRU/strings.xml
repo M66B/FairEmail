@@ -6,7 +6,7 @@
     <string name="app_welcome">FairEmail - это почтовое приложение с открытым исходным кодом, ориентированное на конфиденциальность и безопасность. По этой причине некоторые функции могут работать не так, как вы привыкли.</string>
     <string name="app_limitations">Например, сообщения всегда будут переформатированы, чтобы удалить небезопасные элементы и улучшить читабельность, а также открытие ссылок требует подтверждения в целях безопасности.</string>
     <string name="app_crash">FairEmail не поддерживается на этом устройстве, так как ошибки в Android вызывают сбои</string>
-    <string name="app_exit">Нажмите \"назад\" снова для выхода</string>
+    <string name="app_exit">Для выхода снова нажмите \'назад\'</string>
     <string name="channel_service">Сервис</string>
     <string name="channel_send">Отправка</string>
     <string name="channel_notification">Уведомления</string>
@@ -158,6 +158,7 @@
     <string name="title_advanced_flagged">Все избранные сообщения</string>
     <string name="title_advanced_kept_removed">Проверить, были ли удалены старые сообщения с сервера</string>
     <string name="title_advanced_sync_folders">Синхронизировать список папок</string>
+    <string name="title_advanced_keyboard">Показывать клавиатуру по умолчанию</string>
     <string name="title_advanced_prefix_once">Добавлять только один префикс темы при ответе или пересылке</string>
     <string name="title_advanced_plain_only">По умолчанию отправлять простым текстом</string>
     <string name="title_advanced_autoresize">Автоматически изменять размер прикрепленных и встроенных изображений</string>
@@ -203,6 +204,7 @@
     <string name="title_advanced_notify_action_flag">Избранное</string>
     <string name="title_advanced_notify_action_seen">Прочитанное</string>
     <string name="title_advanced_notify_action_hint">Будут показаны максимум три действия</string>
+    <string name="title_advanced_notify_manage_hint">Нажмите на имя канала \'Уведомления\' для установки звука уведомлений по умолчанию и т. д.</string>
     <string name="title_advanced_light">Использовать индикатор уведомлений</string>
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
     <string name="title_advanced_badge">Показать значок запуска с числом новых сообщений</string>
@@ -319,6 +321,8 @@
     <string name="title_no_operations">Нет операций в очереди</string>
     <string name="title_folder_name">Название папки</string>
     <string name="title_display_name">Отображаемое имя</string>
+    <string name="title_show_folders">Показать скрытые папки</string>
+    <string name="title_hide_folder">Скрыть папку</string>
     <string name="title_unified_folder">Показать в единой папке Входящие</string>
     <string name="title_navigation_folder">Показать в меню навигации</string>
     <string name="title_synchronize_folder">Синхронизировать (получать сообщения)</string>

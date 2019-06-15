@@ -142,6 +142,7 @@
     <string name="title_advanced_flagged">Tous les messages suivis</string>
     <string name="title_advanced_kept_removed">Vérifier si les anciens messages ont été supprimés du serveur</string>
     <string name="title_advanced_sync_folders">Synchroniser la liste des dossiers</string>
+    <string name="title_advanced_keyboard">Afficher le clavier par défaut</string>
     <string name="title_advanced_prefix_once">Ne préfixer le sujet qu\'une seule fois lors de la réponse ou du transfert</string>
     <string name="title_advanced_plain_only">Envoyer le texte brut uniquement par défaut</string>
     <string name="title_advanced_autoresize">Redimensionner automatiquement les images jointes et incluses</string>
@@ -187,6 +188,7 @@
     <string name="title_advanced_notify_action_flag">Suivre</string>
     <string name="title_advanced_notify_action_seen">Marquer lu</string>
     <string name="title_advanced_notify_action_hint">Trois actions au plus seront affichées</string>
+    <string name="title_advanced_notify_manage_hint">Appuyez sur le nom du canal \'Notifications\' pour définir le son de notification par défaut, etc</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
     <string name="title_advanced_badge">Afficher l\'icône de lancement avec le nombre de nouveaux messages</string>
@@ -303,6 +305,8 @@
     <string name="title_no_operations">Aucune opération en attente</string>
     <string name="title_folder_name">Nom du dossier</string>
     <string name="title_display_name">Nom</string>
+    <string name="title_show_folders">Afficher les dossiers cachés</string>
+    <string name="title_hide_folder">Masquer le dossier</string>
     <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
     <string name="title_navigation_folder">Afficher dans le menu de navigation</string>
     <string name="title_synchronize_folder">Synchroniser (recevoir des messages)</string>
