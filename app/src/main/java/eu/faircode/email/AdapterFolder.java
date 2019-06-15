@@ -66,6 +66,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private Context context;
     private LayoutInflater inflater;
     private LifecycleOwner owner;
+    private boolean show_hidden;
 
     private long account;
     private IFolderSelectedListener listener;
@@ -152,7 +153,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         private void bindTo(final TupleFolderEx folder) {
             view.setActivated(folder.tbc != null || folder.tbd != null);
-            view.setAlpha(disabledIds.contains(folder.id) ? Helper.LOW_LIGHT : 1.0f);
+            view.setAlpha(folder.hide || disabledIds.contains(folder.id) ? Helper.LOW_LIGHT : 1.0f);
 
             if (textSize != 0)
                 tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
@@ -675,10 +676,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
     }
 
-    AdapterFolder(Context context, LifecycleOwner owner, long account, IFolderSelectedListener listener) {
+    AdapterFolder(Context context, LifecycleOwner owner, long account, boolean show_hidden, IFolderSelectedListener listener) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.owner = owner;
+        this.show_hidden = show_hidden;
         this.account = account;
         this.listener = listener;
 
@@ -697,6 +699,13 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
 
         setHasStableIds(true);
+    }
+
+    void setShowHidden(boolean show_hidden) {
+        if (this.show_hidden != show_hidden) {
+            this.show_hidden = show_hidden;
+            set(all);
+        }
     }
 
     void setDisabled(List<Long> ids) {
@@ -790,12 +799,13 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     List<TupleFolderEx> getHierarchical(List<TupleFolderEx> parents, int indentation) {
         List<TupleFolderEx> result = new ArrayList<>();
 
-        for (TupleFolderEx parent : parents) {
-            parent.indentation = indentation;
-            result.add(parent);
-            if (!parent.collapsed && parent.child_refs != null)
-                result.addAll(getHierarchical(parent.child_refs, indentation + 1));
-        }
+        for (TupleFolderEx parent : parents)
+            if (!parent.hide || show_hidden) {
+                parent.indentation = indentation;
+                result.add(parent);
+                if (!parent.collapsed && parent.child_refs != null)
+                    result.addAll(getHierarchical(parent.child_refs, indentation + 1));
+            }
 
         return result;
     }
@@ -836,6 +846,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             TupleFolderEx p1 = f1.parent_ref;
             TupleFolderEx p2 = f2.parent_ref;
             while (p1 != null && p2 != null) {
+                if (p1.hide != p2.hide)
+                    return false;
+
                 if (p1.collapsed != p2.collapsed)
                     return false;
 

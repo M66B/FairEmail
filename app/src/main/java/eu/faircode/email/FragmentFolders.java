@@ -66,6 +66,7 @@ public class FragmentFolders extends FragmentBase {
     private FloatingActionButton fabError;
 
     private long account;
+    private boolean show_hidden = false;
     private String searching = null;
     private AdapterFolder adapter;
 
@@ -143,7 +144,7 @@ public class FragmentFolders extends FragmentBase {
         itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
         rvFolder.addItemDecoration(itemDecorator);
 
-        adapter = new AdapterFolder(getContext(), getViewLifecycleOwner(), account, null);
+        adapter = new AdapterFolder(getContext(), getViewLifecycleOwner(), account, show_hidden, null);
         rvFolder.setAdapter(adapter);
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -393,5 +394,28 @@ public class FragmentFolders extends FragmentBase {
         });
 
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.menu_show_hidden).setChecked(show_hidden);
+        super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_show_hidden:
+                onMenuShowHidden();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuShowHidden() {
+        show_hidden = !show_hidden;
+        getActivity().invalidateOptionsMenu();
+        adapter.setShowHidden(show_hidden);
     }
 }

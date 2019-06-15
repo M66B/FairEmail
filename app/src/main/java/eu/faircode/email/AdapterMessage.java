@@ -2961,7 +2961,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             LinearLayoutManager llm = new LinearLayoutManager(context);
             rvFolder.setLayoutManager(llm);
 
-            final AdapterFolder adapter = new AdapterFolder(context, owner, data.message.account,
+            final AdapterFolder adapter = new AdapterFolder(context, owner, data.message.account, false,
                     new AdapterFolder.IFolderSelectedListener() {
                         @Override
                         public void onFolderSelected(TupleFolderEx folder) {
