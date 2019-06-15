@@ -37,6 +37,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -56,6 +57,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private CheckBox cbNotifyActionFlag;
     private CheckBox cbNotifyActionSeen;
     private Button btnManage;
+    private ImageButton ibManage;
     private SwitchCompat swLight;
     private Button btnSound;
 
@@ -83,6 +85,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         cbNotifyActionFlag = view.findViewById(R.id.cbNotifyActionFlag);
         cbNotifyActionSeen = view.findViewById(R.id.cbNotifyActionSeen);
         btnManage = view.findViewById(R.id.btnManage);
+        ibManage = view.findViewById(R.id.ibManage);
         swLight = view.findViewById(R.id.swLight);
         btnSound = view.findViewById(R.id.btnSound);
 
@@ -92,6 +95,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
         // Wire controls
 
+        PackageManager pm = getContext().getPackageManager();
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swNotifyGroup.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -144,12 +148,22 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         });
 
         final Intent manage = getIntentNotifications(getContext());
-        PackageManager pm = getContext().getPackageManager();
         btnManage.setVisibility(manage.resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
         btnManage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(manage);
+            }
+        });
+
+        final Intent channel = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
+                .putExtra(Settings.EXTRA_APP_PACKAGE, getContext().getPackageName())
+                .putExtra(Settings.EXTRA_CHANNEL_ID, "notification");
+        ibManage.setVisibility(channel.resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
+        ibManage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(channel);
             }
         });
 
