@@ -295,6 +295,7 @@ public class ConnectionHelper {
     }
 
     static String getAuthTokenType(String type) {
+        // https://developers.google.com/gmail/imap/xoauth2-protocol
         if ("com.google".equals(type))
             return "oauth2:https://mail.google.com/";
         return null;
