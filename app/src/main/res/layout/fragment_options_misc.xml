@@ -190,17 +190,29 @@
                 app:layout_constraintTop_toBottomOf="@id/swDebug" />
 
             <TextView
-                android:id="@+id/tvMemoryClass"
+                android:id="@+id/tvProcessors"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
+                android:layout_marginEnd="48dp"
+                android:text="@string/title_advanced_processors"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDebugHint" />
+
+            <TextView
+                android:id="@+id/tvMemoryClass"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="48dp"
                 android:text="@string/title_advanced_memory_class"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDebugHint" />
+                app:layout_constraintTop_toBottomOf="@id/tvProcessors" />
 
             <TextView
                 android:id="@+id/tvLastCleanup"
@@ -232,7 +244,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="
-                tvMemoryClass,tvLastCleanup,tvUuid" />
+                tvProcessors,tvMemoryClass,tvLastCleanup,tvUuid" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

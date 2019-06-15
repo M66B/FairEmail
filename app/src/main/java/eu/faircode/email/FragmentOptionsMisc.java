@@ -57,6 +57,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swCrashReports;
     private SwitchCompat swDebug;
 
+    private TextView tvProcessors;
     private TextView tvMemoryClass;
     private TextView tvLastCleanup;
     private TextView tvUuid;
@@ -93,6 +94,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swCrashReports = view.findViewById(R.id.swCrashReports);
         swDebug = view.findViewById(R.id.swDebug);
 
+        tvProcessors = view.findViewById(R.id.tvProcessors);
         tvMemoryClass = view.findViewById(R.id.tvMemoryClass);
         tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
         tvUuid = view.findViewById(R.id.tvUuid);
@@ -260,6 +262,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swUpdates.setVisibility(Helper.isPlayStoreInstall(getContext()) ? View.GONE : View.VISIBLE);
         swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
         swDebug.setChecked(prefs.getBoolean("debug", false));
+
+        tvProcessors.setText(getString(R.string.title_advanced_processors, Runtime.getRuntime().availableProcessors()));
 
         ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
         int class_mb = am.getMemoryClass();
