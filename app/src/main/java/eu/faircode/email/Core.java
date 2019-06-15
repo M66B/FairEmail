@@ -951,7 +951,7 @@ class Core {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean sync_unseen = prefs.getBoolean("sync_unseen", false);
             boolean sync_flagged = prefs.getBoolean("sync_flagged", true);
-            boolean sync_kept = prefs.getBoolean("sync_kept", false);
+            boolean sync_kept = prefs.getBoolean("sync_kept", true);
 
             Log.i(folder.name + " start sync after=" + sync_days + "/" + keep_days +
                     " sync unseen=" + sync_unseen + " flagged=" + sync_flagged + " kept=" + sync_kept);

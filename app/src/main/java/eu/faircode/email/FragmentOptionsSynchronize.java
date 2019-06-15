@@ -255,7 +255,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
         swUnseen.setChecked(prefs.getBoolean("sync_unseen", false));
         swFlagged.setChecked(prefs.getBoolean("sync_flagged", true));
-        swSyncKept.setChecked(prefs.getBoolean("sync_kept", false));
+        swSyncKept.setChecked(prefs.getBoolean("sync_kept", true));
         swSyncFolders.setChecked(prefs.getBoolean("sync_folders", true));
     }
 
