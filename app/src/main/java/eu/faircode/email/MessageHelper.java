@@ -222,7 +222,6 @@ public class MessageHelper {
         if (message.inreplyto != null)
             imessage.addHeader("In-Reply-To", message.inreplyto);
 
-        imessage.addHeader("X-Mailer", context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME);
         imessage.addHeader("X-FairEmail-ID", message.msgid);
 
         imessage.setFlag(Flags.Flag.SEEN, message.seen);
