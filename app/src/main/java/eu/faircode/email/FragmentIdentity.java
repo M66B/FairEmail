@@ -71,6 +71,9 @@ import javax.mail.AuthenticationFailedException;
 import javax.mail.Session;
 import javax.mail.Transport;
 
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
+
 public class FragmentIdentity extends FragmentBase {
     private ViewGroup view;
     private ScrollView scroll;
@@ -202,7 +205,7 @@ public class FragmentIdentity extends FragmentBase {
                     tvError.setVisibility(View.GONE);
                     grpAdvanced.setVisibility(View.GONE);
                 }
-                tilPassword.setPasswordVisibilityToggleEnabled(position == 0);
+                tilPassword.setEndIconMode(position == 0 ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
 
                 Integer tag = (Integer) adapterView.getTag();
                 if (Objects.equals(tag, position))
@@ -438,7 +441,7 @@ public class FragmentIdentity extends FragmentBase {
         Helper.setViewsEnabled(view, false);
         btnAutoConfig.setEnabled(false);
         cbInsecure.setVisibility(View.GONE);
-        tilPassword.setPasswordVisibilityToggleEnabled(id < 0);
+        tilPassword.setEndIconMode(id < 0 ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
 
         btnAdvanced.setVisibility(View.GONE);
 

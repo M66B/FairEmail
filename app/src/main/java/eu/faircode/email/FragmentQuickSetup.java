@@ -73,6 +73,8 @@ import javax.mail.Transport;
 
 import static android.accounts.AccountManager.newChooseAccountIntent;
 import static android.app.Activity.RESULT_OK;
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
 
 public class FragmentQuickSetup extends FragmentBase {
     private ViewGroup view;
@@ -142,7 +144,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
                     tilPassword.getEditText().setText(null);
                     tilPassword.setEnabled(true);
-                    tilPassword.setPasswordVisibilityToggleEnabled(true);
+                    tilPassword.setEndIconMode(END_ICON_PASSWORD_TOGGLE);
                 }
             }
 
@@ -523,7 +525,8 @@ public class FragmentQuickSetup extends FragmentBase {
                                 } finally {
                                     etEmail.setEnabled(true);
                                     tilPassword.setEnabled(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD);
-                                    tilPassword.setPasswordVisibilityToggleEnabled(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD);
+                                    tilPassword.setEndIconMode(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD
+                                            ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
                                     btnAuthorize.setEnabled(true);
                                     btnCheck.setEnabled(true);
                                     new Handler().postDelayed(new Runnable() {

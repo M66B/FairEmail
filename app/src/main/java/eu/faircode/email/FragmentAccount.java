@@ -87,6 +87,8 @@ import javax.mail.Session;
 import javax.mail.Store;
 
 import static android.accounts.AccountManager.newChooseAccountIntent;
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
 
 public class FragmentAccount extends FragmentBase {
     private ViewGroup view;
@@ -312,7 +314,7 @@ public class FragmentAccount extends FragmentBase {
                     auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
                     tilPassword.getEditText().setText(null);
                     tilPassword.setEnabled(true);
-                    tilPassword.setPasswordVisibilityToggleEnabled(true);
+                    tilPassword.setEndIconMode(END_ICON_PASSWORD_TOGGLE);
                     etRealm.setEnabled(true);
                 }
             }
@@ -443,7 +445,7 @@ public class FragmentAccount extends FragmentBase {
         tvAuthorizeOptional.setVisibility(View.GONE);
         rgEncryption.setVisibility(View.GONE);
         cbInsecure.setVisibility(View.GONE);
-        tilPassword.setPasswordVisibilityToggleEnabled(id < 0);
+        tilPassword.setEndIconMode(id < 0 ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
 
         btnAdvanced.setVisibility(View.GONE);
 
@@ -1349,7 +1351,8 @@ public class FragmentAccount extends FragmentBase {
                                             btnAuthorize.setEnabled(true);
                                             etUser.setEnabled(true);
                                             tilPassword.setEnabled(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD);
-                                            tilPassword.setPasswordVisibilityToggleEnabled(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD);
+                                            tilPassword.setEndIconMode(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD
+                                                    ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
                                             etRealm.setEnabled(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD);
                                             btnCheck.setEnabled(true);
                                             btnSave.setEnabled(true);
