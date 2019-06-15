@@ -86,6 +86,8 @@ public class MessageHelper {
     private final static int FETCH_SIZE = 256 * 1024; // bytes, default 16K
     private final static int POOL_TIMEOUT = 45 * 1000; // milliseconds, default 45 sec
 
+    private static final int APPEND_BUFFER_SIZE = 4 * 1024 * 1024; // bytes
+
     static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
     static final int DEFAULT_ATTACHMENT_DOWNLOAD_SIZE = 65536; // bytes
 
@@ -139,6 +141,7 @@ public class MessageHelper {
         props.put("mail.imaps.throwsearchexception", "true");
         props.put("mail.imaps.fetchsize", Integer.toString(FETCH_SIZE));
         props.put("mail.imaps.peek", "true");
+        props.put("mail.imaps.appendbuffersize", Integer.toString(APPEND_BUFFER_SIZE));
 
         props.put("mail.imap.ssl.checkserveridentity", checkserveridentity);
         props.put("mail.imap.ssl.trust", "*");
@@ -163,6 +166,7 @@ public class MessageHelper {
         props.put("mail.imap.throwsearchexception", "true");
         props.put("mail.imap.fetchsize", Integer.toString(FETCH_SIZE));
         props.put("mail.imap.peek", "true");
+        props.put("mail.imap.appendbuffersize", Integer.toString(APPEND_BUFFER_SIZE));
 
         // https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html#properties
         props.put("mail.smtps.ssl.checkserveridentity", checkserveridentity);
