@@ -42,6 +42,8 @@ import androidx.preference.PreferenceManager;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.Objects;
+
 public class FragmentFolder extends FragmentBase {
     private ViewGroup view;
     private EditText etName;
@@ -133,7 +135,15 @@ public class FragmentFolder extends FragmentBase {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onSave();
+                onSave(false);
+            }
+        });
+
+        addBackPressedListener(new ActivityBase.IBackPressedListener() {
+            @Override
+            public boolean onBackPressed() {
+                onSave(true);
+                return true;
             }
         });
 
@@ -147,7 +157,7 @@ public class FragmentFolder extends FragmentBase {
         return view;
     }
 
-    private void onSave() {
+    private void onSave(boolean should) {
         Bundle args = new Bundle();
         args.putLong("id", id);
         args.putLong("account", account);
@@ -166,7 +176,9 @@ public class FragmentFolder extends FragmentBase {
                 : etKeepDays.getText().toString());
         args.putBoolean("auto_delete", cbAutoDelete.isChecked());
 
-        new SimpleTask<Void>() {
+        args.putBoolean("should", should);
+
+        new SimpleTask<Boolean>() {
             @Override
             protected void onPreExecute(Bundle args) {
                 saving = true;
@@ -184,7 +196,7 @@ public class FragmentFolder extends FragmentBase {
             }
 
             @Override
-            protected Void onExecute(Context context, Bundle args) {
+            protected Boolean onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
                 long aid = args.getLong("account");
                 String name = args.getString("name");
@@ -200,6 +212,8 @@ public class FragmentFolder extends FragmentBase {
                 String keep = args.getString("keep");
                 boolean auto_delete = args.getBoolean("auto_delete");
 
+                boolean should = args.getBoolean("should");
+
                 if (TextUtils.isEmpty(display) || display.equals(name))
                     display = null;
                 int sync_days = (TextUtils.isEmpty(sync) ? EntityFolder.DEFAULT_SYNC : Integer.parseInt(sync));
@@ -213,6 +227,36 @@ public class FragmentFolder extends FragmentBase {
                     db.beginTransaction();
 
                     EntityFolder folder = db.folder().getFolder(id);
+
+                    if (should) {
+                        if (folder == null)
+                            return !TextUtils.isEmpty(name);
+
+                        if (!Objects.equals(folder.display, display))
+                            return true;
+                        if (!Objects.equals(folder.unified, unified))
+                            return true;
+                        if (!Objects.equals(folder.navigation, navigation))
+                            return true;
+                        if (!Objects.equals(folder.notify, notify))
+                            return true;
+                        if (!Objects.equals(folder.hide, hide))
+                            return true;
+                        if (!Objects.equals(folder.synchronize, synchronize))
+                            return true;
+                        if (!Objects.equals(folder.poll, poll))
+                            return true;
+                        if (!Objects.equals(folder.download, download))
+                            return true;
+                        if (!Objects.equals(folder.sync_days, sync_days))
+                            return true;
+                        if (!Objects.equals(folder.keep_days, keep_days))
+                            return true;
+                        if (!Objects.equals(folder.auto_delete, auto_delete))
+                            return true;
+
+                        return false;
+                    }
 
                     if (folder == null) {
                         reload = true;
@@ -228,10 +272,10 @@ public class FragmentFolder extends FragmentBase {
                         create.name = name;
                         create.display = display;
                         create.type = EntityFolder.USER;
-                        create.hide = hide;
                         create.unified = unified;
                         create.navigation = navigation;
                         create.notify = notify;
+                        create.hide = hide;
                         create.synchronize = synchronize;
                         create.poll = poll;
                         create.download = download;
@@ -262,12 +306,29 @@ public class FragmentFolder extends FragmentBase {
                 if (reload)
                     ServiceSynchronize.reload(context, "save folder");
 
-                return null;
+                return false;
             }
 
             @Override
-            protected void onExecuted(Bundle args, Void data) {
-                getFragmentManager().popBackStack();
+            protected void onExecuted(Bundle args, Boolean dirty) {
+                if (dirty)
+                    new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                            .setMessage(R.string.title_ask_save)
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    onSave(false);
+                                }
+                            })
+                            .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    getFragmentManager().popBackStack();
+                                }
+                            })
+                            .show();
+                else
+                    getFragmentManager().popBackStack();
             }
 
             @Override
