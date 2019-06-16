@@ -130,7 +130,7 @@ public class FragmentAccount extends FragmentBase {
     private ArrayAdapter<EntityFolder> adapter;
     private Spinner spDrafts;
     private Spinner spSent;
-    private Spinner spAll;
+    private Spinner spArchive;
     private Spinner spTrash;
     private Spinner spJunk;
     private Spinner spLeft;
@@ -207,7 +207,7 @@ public class FragmentAccount extends FragmentBase {
 
         spDrafts = view.findViewById(R.id.spDrafts);
         spSent = view.findViewById(R.id.spSent);
-        spAll = view.findViewById(R.id.spAll);
+        spArchive = view.findViewById(R.id.spArchive);
         spTrash = view.findViewById(R.id.spTrash);
         spJunk = view.findViewById(R.id.spJunk);
         spLeft = view.findViewById(R.id.spLeft);
@@ -421,7 +421,7 @@ public class FragmentAccount extends FragmentBase {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onSave();
+                onSave(false);
             }
         });
 
@@ -430,11 +430,19 @@ public class FragmentAccount extends FragmentBase {
 
         spDrafts.setAdapter(adapter);
         spSent.setAdapter(adapter);
-        spAll.setAdapter(adapter);
+        spArchive.setAdapter(adapter);
         spTrash.setAdapter(adapter);
         spJunk.setAdapter(adapter);
         spLeft.setAdapter(adapter);
         spRight.setAdapter(adapter);
+
+        addBackPressedListener(new ActivityBase.IBackPressedListener() {
+            @Override
+            public boolean onBackPressed() {
+                onSave(true);
+                return true;
+            }
+        });
 
         // Initialize
         Helper.setViewsEnabled(view, false);
@@ -716,10 +724,10 @@ public class FragmentAccount extends FragmentBase {
         }.execute(FragmentAccount.this, args, "account:check");
     }
 
-    private void onSave() {
+    private void onSave(boolean should) {
         EntityFolder drafts = (EntityFolder) spDrafts.getSelectedItem();
         EntityFolder sent = (EntityFolder) spSent.getSelectedItem();
-        EntityFolder all = (EntityFolder) spAll.getSelectedItem();
+        EntityFolder archive = (EntityFolder) spArchive.getSelectedItem();
         EntityFolder trash = (EntityFolder) spTrash.getSelectedItem();
         EntityFolder junk = (EntityFolder) spJunk.getSelectedItem();
         EntityFolder left = (EntityFolder) spLeft.getSelectedItem();
@@ -729,8 +737,8 @@ public class FragmentAccount extends FragmentBase {
             drafts = null;
         if (sent != null && sent.type == null)
             sent = null;
-        if (all != null && all.type == null)
-            all = null;
+        if (archive != null && archive.type == null)
+            archive = null;
         if (trash != null && trash.type == null)
             trash = null;
         if (junk != null && junk.type == null)
@@ -764,13 +772,15 @@ public class FragmentAccount extends FragmentBase {
 
         args.putSerializable("drafts", drafts);
         args.putSerializable("sent", sent);
-        args.putSerializable("all", all);
+        args.putSerializable("archive", archive);
         args.putSerializable("trash", trash);
         args.putSerializable("junk", junk);
         args.putSerializable("left", left);
         args.putSerializable("right", right);
 
-        new SimpleTask<Void>() {
+        args.putBoolean("should", should);
+
+        new SimpleTask<Boolean>() {
             @Override
             protected void onPreExecute(Bundle args) {
                 saving = true;
@@ -789,7 +799,7 @@ public class FragmentAccount extends FragmentBase {
             }
 
             @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
+            protected Boolean onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
 
                 int auth_type = args.getInt("auth_type");
@@ -813,26 +823,29 @@ public class FragmentAccount extends FragmentBase {
 
                 EntityFolder drafts = (EntityFolder) args.getSerializable("drafts");
                 EntityFolder sent = (EntityFolder) args.getSerializable("sent");
-                EntityFolder all = (EntityFolder) args.getSerializable("all");
+                EntityFolder archive = (EntityFolder) args.getSerializable("archive");
                 EntityFolder trash = (EntityFolder) args.getSerializable("trash");
                 EntityFolder junk = (EntityFolder) args.getSerializable("junk");
                 EntityFolder left = (EntityFolder) args.getSerializable("left");
                 EntityFolder right = (EntityFolder) args.getSerializable("right");
 
-                if (TextUtils.isEmpty(host))
+                boolean should = args.getBoolean("should");
+
+                if (!should && TextUtils.isEmpty(host))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                 if (TextUtils.isEmpty(port))
                     port = (starttls ? "143" : "993");
-                if (TextUtils.isEmpty(user))
+                if (!should && TextUtils.isEmpty(user))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_user));
-                if (synchronize && TextUtils.isEmpty(password) && !insecure)
+                if (!should && synchronize && TextUtils.isEmpty(password) && !insecure)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
                 if (TextUtils.isEmpty(interval))
                     interval = Integer.toString(EntityAccount.DEFAULT_KEEP_ALIVE_INTERVAL);
 
                 if (TextUtils.isEmpty(realm))
                     realm = null;
-
+                if (TextUtils.isEmpty(name))
+                    name = user;
                 if (Color.TRANSPARENT == color)
                     color = null;
 
@@ -840,6 +853,71 @@ public class FragmentAccount extends FragmentBase {
 
                 DB db = DB.getInstance(context);
                 EntityAccount account = db.account().getAccount(id);
+
+                if (should) {
+                    if (account == null)
+                        return !TextUtils.isEmpty(host) && !TextUtils.isEmpty(user);
+
+                    if (!Objects.equals(account.auth_type, auth_type))
+                        return true;
+                    if (!Objects.equals(account.host, host))
+                        return true;
+                    if (!Objects.equals(account.starttls, starttls))
+                        return true;
+                    if (!Objects.equals(account.insecure, insecure))
+                        return true;
+                    if (!Objects.equals(account.port, Integer.parseInt(port)))
+                        return true;
+                    if (!Objects.equals(account.user, user))
+                        return true;
+                    if (!Objects.equals(account.password, password))
+                        return true;
+                    if (!Objects.equals(account.realm, realm))
+                        return true;
+                    if (!Objects.equals(account.name, name))
+                        return true;
+                    if (!Objects.equals(account.color, color))
+                        return true;
+                    if (!Objects.equals(account.synchronize, synchronize))
+                        return true;
+                    if (!Objects.equals(account.primary, account.synchronize && primary))
+                        return true;
+                    if (!Objects.equals(account.notify, notify))
+                        return true;
+                    if (!Objects.equals(account.browse, browse))
+                        return true;
+                    if (!Objects.equals(account.poll_interval, Integer.parseInt(interval)))
+                        return true;
+                    if (!Objects.equals(account.partial_fetch, partial_fetch))
+                        return true;
+
+                    EntityFolder edrafts = db.folder().getFolderByType(account.id, EntityFolder.DRAFTS);
+                    if (!Objects.equals(edrafts == null ? null : edrafts.id, drafts == null ? null : drafts.id))
+                        return true;
+
+                    EntityFolder esent = db.folder().getFolderByType(account.id, EntityFolder.SENT);
+                    if (!Objects.equals(esent == null ? null : esent.id, sent == null ? null : sent.id))
+                        return true;
+
+                    EntityFolder earchive = db.folder().getFolderByType(account.id, EntityFolder.ARCHIVE);
+                    if (!Objects.equals(earchive == null ? null : earchive.id, archive == null ? null : archive.id))
+                        return true;
+
+                    EntityFolder etrash = db.folder().getFolderByType(account.id, EntityFolder.TRASH);
+                    if (!Objects.equals(etrash == null ? null : etrash.id, trash == null ? null : trash.id))
+                        return true;
+
+                    EntityFolder ejunk = db.folder().getFolderByType(account.id, EntityFolder.JUNK);
+                    if (!Objects.equals(ejunk == null ? null : ejunk.id, junk == null ? null : junk.id))
+                        return true;
+
+                    if (!Objects.equals(account.swipe_left, left == null ? null : left.id == null ? -1L : left.id))
+                        return true;
+                    if (!Objects.equals(account.swipe_right, right == null ? null : right.id == null ? -1L : right.id))
+                        return true;
+
+                    return false;
+                }
 
                 String accountRealm = (account == null ? null : account.realm);
 
@@ -894,12 +972,8 @@ public class FragmentAccount extends FragmentBase {
                                 inbox.keep_days = EntityFolder.DEFAULT_KEEP;
                             }
                         }
-
                     }
                 }
-
-                if (TextUtils.isEmpty(name))
-                    name = user;
 
                 try {
                     db.beginTransaction();
@@ -972,9 +1046,9 @@ public class FragmentAccount extends FragmentBase {
                         sent.type = EntityFolder.SENT;
                         folders.add(sent);
                     }
-                    if (all != null) {
-                        all.type = EntityFolder.ARCHIVE;
-                        folders.add(all);
+                    if (archive != null) {
+                        archive.type = EntityFolder.ARCHIVE;
+                        folders.add(archive);
                     }
                     if (trash != null) {
                         trash.type = EntityFolder.TRASH;
@@ -1042,12 +1116,29 @@ public class FragmentAccount extends FragmentBase {
                     nm.cancel("receive", account.id.intValue());
                 }
 
-                return null;
+                return false;
             }
 
             @Override
-            protected void onExecuted(Bundle args, Void data) {
-                getFragmentManager().popBackStack();
+            protected void onExecuted(Bundle args, Boolean dirty) {
+                if (dirty)
+                    new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                            .setMessage(R.string.title_ask_save)
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    onSave(false);
+                                }
+                            })
+                            .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    getFragmentManager().popBackStack();
+                                }
+                            })
+                            .show();
+                else
+                    getFragmentManager().popBackStack();
             }
 
             @Override
@@ -1428,7 +1519,7 @@ public class FragmentAccount extends FragmentBase {
             else if (EntityFolder.SENT.equals(folder.type))
                 spSent.setSelection(pos);
             else if (EntityFolder.ARCHIVE.equals(folder.type))
-                spAll.setSelection(pos);
+                spArchive.setSelection(pos);
             else if (EntityFolder.TRASH.equals(folder.type))
                 spTrash.setSelection(pos);
             else if (EntityFolder.JUNK.equals(folder.type))

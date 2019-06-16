@@ -343,10 +343,10 @@
                 android:layout_marginStart="12dp"
                 android:background="@null"
                 android:contentDescription="@string/title_legend_default_color"
-                app:srcCompat="@drawable/baseline_delete_24"
                 app:layout_constraintBottom_toBottomOf="@id/btnColor"
                 app:layout_constraintStart_toEndOf="@id/vwColor"
-                app:layout_constraintTop_toTopOf="@id/btnColor" />
+                app:layout_constraintTop_toTopOf="@id/btnColor"
+                app:srcCompat="@drawable/baseline_delete_24" />
 
             <TextView
                 android:id="@+id/tvColorPro"
@@ -543,14 +543,14 @@
                 app:layout_constraintTop_toTopOf="@+id/spSent" />
 
             <TextView
-                android:id="@+id/tvAll"
+                android:id="@+id/tvArchive"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title_folder_all"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintBottom_toBottomOf="@+id/spAll"
+                app:layout_constraintBottom_toBottomOf="@+id/spArchive"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/spAll" />
+                app:layout_constraintTop_toTopOf="@+id/spArchive" />
 
             <TextView
                 android:id="@+id/tvTrash"
@@ -598,7 +598,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 app:barrierDirection="end"
-                app:constraint_referenced_ids="tvDrafts,tvSent,tvAll,tvTrash,tvJunk,tvLeft,tvRight" />
+                app:constraint_referenced_ids="
+                tvDrafts,tvSent,tvArchive,tvTrash,tvJunk,tvLeft,tvRight" />
 
             <Spinner
                 android:id="@+id/spDrafts"
@@ -631,7 +632,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tvDraftsRemark" />
 
             <Spinner
-                android:id="@+id/spAll"
+                android:id="@+id/spArchive"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
@@ -648,7 +649,7 @@
                 android:layout_marginTop="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/barrier_folders"
-                app:layout_constraintTop_toBottomOf="@id/spAll" />
+                app:layout_constraintTop_toBottomOf="@id/spArchive" />
 
             <Spinner
                 android:id="@+id/spJunk"
@@ -741,39 +742,39 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="
-            tvDomain,tvDomainHint,etDomain,btnAutoConfig,
-            tvImap,tvPopSupport,tvHost,etHost,rgEncryption,cbInsecure,tvPort,etPort" />
+                tvDomain,tvDomainHint,etDomain,btnAutoConfig,
+                tvImap,tvPopSupport,tvHost,etHost,rgEncryption,cbInsecure,tvPort,etPort" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpAuthorize"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="
-            tvUser,etUser,tvPassword,tilPassword,tvRealm,etRealm,
-            tvName,tvNameRemark,etName,btnColor,vwColor,ibColorDefault,tvColorPro" />
+                tvUser,etUser,tvPassword,tilPassword,tvRealm,etRealm,
+                tvName,tvNameRemark,etName,btnColor,vwColor,ibColorDefault,tvColorPro" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpAdvanced"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="
-            cbNotify,tvNotifyPro,
-            cbSynchronize,cbPrimary,
-            cbBrowse,tvBrowseHint,
-            tvInterval,etInterval,tvIntervalRemark,
-            cbPartialFetch,tvPartialFetchRemark" />
+                cbNotify,tvNotifyPro,
+                cbSynchronize,cbPrimary,
+                cbBrowse,tvBrowseHint,
+                tvInterval,etInterval,tvIntervalRemark,
+                cbPartialFetch,tvPartialFetchRemark" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpFolders"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="
-            tvDrafts,spDrafts,tvDraftsRemark,
-            tvSent,spSent,
-            tvAll,spAll,
-            tvTrash,spTrash,
-            tvJunk,spJunk,
-            vSeparatorSwipe,tvLeft,spLeft,tvRight,spRight" />
+                tvDrafts,spDrafts,tvDraftsRemark,
+                tvSent,spSent,
+                tvArchive,spArchive,
+                tvTrash,spTrash,
+                tvJunk,spJunk,
+                vSeparatorSwipe,tvLeft,spLeft,tvRight,spRight" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
