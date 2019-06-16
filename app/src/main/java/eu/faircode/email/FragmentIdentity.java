@@ -433,7 +433,15 @@ public class FragmentIdentity extends FragmentBase {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onSave();
+                onSave(false);
+            }
+        });
+
+        addBackPressedListener(new ActivityBase.IBackPressedListener() {
+            @Override
+            public boolean onBackPressed() {
+                onSave(true);
+                return true;
             }
         });
 
@@ -498,7 +506,7 @@ public class FragmentIdentity extends FragmentBase {
         }.execute(FragmentIdentity.this, args, "identity:config");
     }
 
-    private void onSave() {
+    private void onSave(boolean should) {
         EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
 
         String name = etName.getText().toString();
@@ -535,7 +543,9 @@ public class FragmentIdentity extends FragmentBase {
         args.putBoolean("synchronize", cbSynchronize.isChecked());
         args.putBoolean("primary", cbPrimary.isChecked());
 
-        new SimpleTask<Void>() {
+        args.putBoolean("should", should);
+
+        new SimpleTask<Boolean>() {
             @Override
             protected void onPreExecute(Bundle args) {
                 saving = true;
@@ -554,7 +564,7 @@ public class FragmentIdentity extends FragmentBase {
             }
 
             @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
+            protected Boolean onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
                 String name = args.getString("name");
                 String email = args.getString("email");
@@ -584,19 +594,21 @@ public class FragmentIdentity extends FragmentBase {
                 boolean read_receipt = args.getBoolean("read_receipt");
                 boolean store_sent = args.getBoolean("store_sent");
 
-                if (TextUtils.isEmpty(name))
+                boolean should = args.getBoolean("should");
+
+                if (!should && TextUtils.isEmpty(name))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_name));
-                if (TextUtils.isEmpty(email))
+                if (!should && TextUtils.isEmpty(email))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_email));
-                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+                if (!should && !Patterns.EMAIL_ADDRESS.matcher(email).matches())
                     throw new IllegalArgumentException(context.getString(R.string.title_email_invalid));
-                if (TextUtils.isEmpty(host))
+                if (!should && TextUtils.isEmpty(host))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                 if (TextUtils.isEmpty(port))
                     port = (starttls ? "587" : "465");
-                if (TextUtils.isEmpty(user))
+                if (!should && TextUtils.isEmpty(user))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_user));
-                if (synchronize && TextUtils.isEmpty(password) && !insecure)
+                if (!should && synchronize && TextUtils.isEmpty(password) && !insecure)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
 
                 if (TextUtils.isEmpty(display))
@@ -618,6 +630,62 @@ public class FragmentIdentity extends FragmentBase {
 
                 DB db = DB.getInstance(context);
                 EntityIdentity identity = db.identity().getIdentity(id);
+
+                if (should) {
+                    if (identity == null)
+                        return !TextUtils.isEmpty(host) && !TextUtils.isEmpty(user);
+
+                    if (!Objects.equals(identity.name, name))
+                        return true;
+                    if (!Objects.equals(identity.email, email))
+                        return true;
+                    if (!Objects.equals(identity.account, account))
+                        return true;
+                    if (!Objects.equals(identity.display, display))
+                        return true;
+                    if (!Objects.equals(identity.color, color))
+                        return true;
+                    if (!Objects.equals(identity.signature, signature))
+                        return true;
+                    if (!Objects.equals(identity.auth_type, auth_type))
+                        return true;
+                    if (!Objects.equals(identity.host, host))
+                        return true;
+                    if (!Objects.equals(identity.starttls, starttls))
+                        return true;
+                    if (!Objects.equals(identity.insecure, insecure))
+                        return true;
+                    if (!Objects.equals(identity.port, Integer.parseInt(port)))
+                        return true;
+                    if (!Objects.equals(identity.user, user))
+                        return true;
+                    if (!Objects.equals(identity.password, password))
+                        return true;
+                    if (!Objects.equals(identity.realm, realm))
+                        return true;
+                    if (!Objects.equals(identity.use_ip, use_ip))
+                        return true;
+                    if (!Objects.equals(identity.synchronize, synchronize))
+                        return true;
+                    if (!Objects.equals(identity.primary, (identity.synchronize && primary)))
+                        return true;
+                    if (!Objects.equals(identity.sender_extra, sender_extra))
+                        return true;
+                    if (!Objects.equals(identity.replyto, replyto))
+                        return true;
+                    if (!Objects.equals(identity.bcc, bcc))
+                        return true;
+                    if (!Objects.equals(identity.encrypt, encrypt))
+                        return true;
+                    if (!Objects.equals(identity.delivery_receipt, delivery_receipt))
+                        return true;
+                    if (!Objects.equals(identity.read_receipt, read_receipt))
+                        return true;
+                    if (!Objects.equals(identity.store_sent, store_sent))
+                        return true;
+
+                    return false;
+                }
 
                 String identityRealm = (identity == null ? null : identity.realm);
 
@@ -721,12 +789,29 @@ public class FragmentIdentity extends FragmentBase {
                     db.endTransaction();
                 }
 
-                return null;
+                return false;
             }
 
             @Override
-            protected void onExecuted(Bundle args, Void data) {
-                getFragmentManager().popBackStack();
+            protected void onExecuted(Bundle args, Boolean dirty) {
+                if (dirty)
+                    new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                            .setMessage(R.string.title_ask_save)
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    onSave(false);
+                                }
+                            })
+                            .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    getFragmentManager().popBackStack();
+                                }
+                            })
+                            .show();
+                else
+                    getFragmentManager().popBackStack();
             }
 
             @Override
