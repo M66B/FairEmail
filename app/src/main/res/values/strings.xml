@@ -236,7 +236,7 @@
     <string name="title_advanced_updates">Check for updates</string>
     <string name="title_advanced_crash_reports">Send error reports</string>
     <string name="title_advanced_debug">Debug mode</string>
-    <string name="title_advanced_processors" translatable="false">Processores: %1$d</string>
+    <string name="title_advanced_processors" translatable="false">Processors: %1$d</string>
     <string name="title_advanced_memory_class" translatable="false">Memory class: %1$s</string>
     <string name="title_advanced_last_cleanup" translatable="false">Last cleanup: %1$s</string>
 
