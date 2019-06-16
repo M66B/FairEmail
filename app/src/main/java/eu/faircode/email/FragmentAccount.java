@@ -836,7 +836,6 @@ public class FragmentAccount extends FragmentBase {
                 if (Color.TRANSPARENT == color)
                     color = null;
 
-                Character separator = null;
                 long now = new Date().getTime();
 
                 DB db = DB.getInstance(context);
@@ -876,7 +875,6 @@ public class FragmentAccount extends FragmentBase {
                             } else
                                 throw ex;
                         }
-                        separator = istore.getDefaultFolder().getSeparator();
 
                         for (Folder ifolder : istore.getDefaultFolder().list("*")) {
                             // Check folder attributes
