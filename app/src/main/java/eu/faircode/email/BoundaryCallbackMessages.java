@@ -382,10 +382,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 error = true;
                 if (ex instanceof FolderClosedException)
                     Log.w("Search", ex);
-                else {
+                else
                     Log.e("Search", ex);
-                    throw ex;
-                }
+                throw ex;
             }
 
         List<EntityRule> rules = db.rule().getEnabledRules(browsable.id);
