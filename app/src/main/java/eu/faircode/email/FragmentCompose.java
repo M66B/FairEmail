@@ -1754,7 +1754,7 @@ public class FragmentCompose extends FragmentBase {
         if ("file".equals(uri.getScheme()) &&
                 !Helper.hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)) {
             Log.w("Add attachment uri=" + uri);
-            throw new SecurityException();
+            throw new SecurityException("Add attachment with file scheme");
         }
 
         EntityAttachment attachment = new EntityAttachment();
