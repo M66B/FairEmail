@@ -181,7 +181,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(106) Which launchers can show the number of new messages?](#user-content-faq106)
 * [(107) How do I used colored stars?](#user-content-faq107)
 * [(108) Can you add permanently delete messages from any folder?](#user-content-faq108)
-* [(109) Why is 'select account' available in official releases only?](#user-content-faq109)
+* [(109) Why is 'select account' available in official versions only?](#user-content-faq109)
 
 [I have another question.](#support)
 
@@ -1794,7 +1794,7 @@ Permanently delete messages from other folders would defeat the purpose of the t
 <br />
 
 <a name="faq109"></a>
-**(109) Why is 'select account' available in official releases only?**
+**(109) Why is 'select account' available in official versions only?**
 
 Using *select account* to select and authorize Google accounts require special permission from Google for security and privacy reasons.
 This special permission can only be acquired for apps a developer manages and is responsible for.
@@ -1806,6 +1806,9 @@ You can solve this in two ways:
 
 * Switch to the official version of FairEmail, see [here](https://github.com/M66B/open-source-email/blob/master/README.md#downloads) for the options
 * Use app specific passwords, see [this FAQ](#user-content-faq6)
+
+Using *select account* in third party builds is not possible in recent versions anymore.
+In older versions this was possible, but it will now result in the error *UNREGISTERED_ON_API_CONSOLE*.
 
 <br />
 

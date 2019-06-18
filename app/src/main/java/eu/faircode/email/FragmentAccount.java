@@ -365,7 +365,7 @@ public class FragmentAccount extends FragmentBase {
                     if (!Helper.hasValidFingerprint(getContext())) {
                         Snackbar snackbar = Snackbar.make(view, R.string.title_no_xoauth2, Snackbar.LENGTH_LONG);
                         final Intent intent = new Intent(Intent.ACTION_VIEW);
-                        intent.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq19"));
+                        intent.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq109"));
                         if (intent.resolveActivity(getContext().getPackageManager()) != null)
                             snackbar.setAction(R.string.title_info, new View.OnClickListener() {
                                 @Override
