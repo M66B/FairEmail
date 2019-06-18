@@ -202,7 +202,12 @@ public class HtmlHelper {
             row.tagName("span");
 
         document.select("caption").tagName("p");
-        document.select("table").tagName("div");
+
+        for (Element table : document.select("table"))
+            if (table.parent() != null && "a".equals(table.parent().tagName()))
+                table.tagName("span"); // // Links cannot contain tables
+            else
+                table.tagName("div");
 
         // Lists
         for (Element li : document.select("li")) {
