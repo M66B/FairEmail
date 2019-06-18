@@ -325,7 +325,7 @@ public class FragmentFolders extends FragmentBase {
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         boolean enabled = prefs.getBoolean("enabled", true);
                         if (enabled)
-                            ServiceSynchronize.reload(getContext(), "refresh folders");
+                            ServiceSynchronize.reload(context, "refresh folders");
                         else
                             ServiceSynchronize.process(context);
                     }
