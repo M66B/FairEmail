@@ -1035,7 +1035,7 @@ public class MessageHelper {
                     disposition = part.getDisposition();
                     if (disposition != null)
                         disposition = disposition.toLowerCase();
-                } catch (ParseException ex) {
+                } catch (MessagingException ex) {
                     Log.w(ex);
                     parts.warnings.add(Helper.formatThrowable(ex));
                     disposition = null;
@@ -1045,13 +1045,9 @@ public class MessageHelper {
                 try {
                     filename = part.getFileName();
                 } catch (MessagingException ex) {
-                    if (ex instanceof ParseException ||
-                            ex.getCause() instanceof UnsupportedEncodingException) {
-                        Log.w(ex);
-                        parts.warnings.add(Helper.formatThrowable(ex));
-                        filename = null;
-                    } else
-                        throw ex;
+                    Log.w(ex);
+                    parts.warnings.add(Helper.formatThrowable(ex));
+                    filename = null;
                 }
 
                 //Log.i("Part" +
