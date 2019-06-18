@@ -429,7 +429,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void wire() {
-            final View touch = (viewType == ViewType.THREAD && threading ? ivExpander : vwColor);
+            final View touch = (viewType == ViewType.THREAD ? ivExpander : vwColor);
             touch.setOnClickListener(this);
             view.post(new Runnable() {
                 @Override
@@ -614,7 +614,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             // Expander
             boolean expanded = (viewType == ViewType.THREAD && properties.getValue("expanded", message.id));
             ivExpander.setImageLevel(expanded ? 0 /* less */ : 1 /* more */);
-            if (viewType == ViewType.THREAD && threading)
+            if (viewType == ViewType.THREAD)
                 ivExpander.setVisibility(EntityFolder.DRAFTS.equals(message.folderType) ? View.INVISIBLE : View.VISIBLE);
             else
                 ivExpander.setVisibility(View.GONE);
