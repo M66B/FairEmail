@@ -47,12 +47,18 @@ import java.util.List;
 import java.util.Map;
 
 abstract class ActivityBase extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private Context originalContext;
     private boolean contacts;
     private List<IBackPressedListener> backPressedListeners = new ArrayList<>();
 
     @Override
     protected void attachBaseContext(Context base) {
+        originalContext = base;
         super.attachBaseContext(ApplicationEx.getLocalizedContext(base));
+    }
+
+    Context getOriginalContext() {
+        return originalContext;
     }
 
     @Override

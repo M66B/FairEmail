@@ -1277,7 +1277,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     @Override
                     public void onPageFinished(WebView view, String url) {
                         try {
-                            PrintManager printManager = (PrintManager) getSystemService(Context.PRINT_SERVICE);
+                            PrintManager printManager = (PrintManager) getOriginalContext().getSystemService(Context.PRINT_SERVICE);
                             String jobName = getString(R.string.app_name);
                             if (!TextUtils.isEmpty(data[0]))
                                 jobName += " - " + data[0];
