@@ -279,6 +279,9 @@ public class ConnectionHelper {
 
     static String refreshToken(Context context, String type, String name, String current)
             throws AuthenticatorException, OperationCanceledException, IOException {
+        if (!Helper.hasValidFingerprint(context))
+            throw new IllegalArgumentException("Please see the FAQ question 109");
+
         AccountManager am = AccountManager.get(context);
         Account[] accounts = am.getAccountsByType(type);
         for (Account account : accounts)
