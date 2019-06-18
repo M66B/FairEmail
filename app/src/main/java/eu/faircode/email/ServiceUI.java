@@ -232,12 +232,12 @@ public class ServiceUI extends IntentService {
                 EntityFolder folder = db.folder().getFolder(message.folder);
                 if (EntityFolder.OUTBOX.equals(folder.type)) {
                     Log.i("Delayed send id=" + message.id);
-                    EntityOperation.queue(
-                            this, message, EntityOperation.SEND);
-                } else if (folder.notify) {
-                    EntityOperation.queue(
-                            this, message, EntityOperation.SEEN, false);
-                    db.message().setMessageUiIgnored(message.id, false);
+                    EntityOperation.queue(this, message, EntityOperation.SEND);
+                } else {
+                    if (folder.notify) {
+                        db.message().setMessageUiIgnored(message.id, false);
+                        EntityOperation.queue(this, message, EntityOperation.SEEN, false);
+                    }
                 }
             }
 
