@@ -6,7 +6,6 @@
     <string name="app_welcome">FairEmail gizlilik ve güvenlik odaklı açık kaynaklı bir e-posta uygulamasıdır. Bu nedenle, bazı özellikler alışkın olduğunuzdan farklı şekilde çalışabilir.</string>
     <string name="app_limitations">Örneğin, güvenli olmayan öğeleri çıkarmak ve okunabilirliği arttırmak için, iletiler daima tekrardan düzenlenecektir ve bağlantıları açmak güvenlik açısından doğrulama gerektirecektir.</string>
     <string name="app_crash">FairEmail bu aygıtı desteklemiyor. Çünkü Androiddeki hatalar çökmelere neden oluyor</string>
-    <string name="app_exit">Çıkmak için \'geri\' tuşuna tekrar basın</string>
     <string name="channel_service">Hizmet</string>
     <string name="channel_send">Gönder</string>
     <string name="channel_notification">Bildirimler</string>
@@ -287,6 +286,8 @@
     <string name="title_no_operations">Bekleyen işlem yok</string>
     <string name="title_folder_name">Klasör adı</string>
     <string name="title_display_name">Görünen ad</string>
+    <string name="title_show_folders">Gizli klasörleri göster</string>
+    <string name="title_hide_folder">Klasörü gizle</string>
     <string name="title_unified_folder">Birleşik gelen kutusunda göster</string>
     <string name="title_navigation_folder">Gezinme menüsünde göster</string>
     <string name="title_synchronize_folder">Eşzamanla (iletileri al)</string>
@@ -368,6 +369,7 @@
     <string name="title_attachment_saved">Ek kaydedildi</string>
     <string name="title_attachments_saved">Ekler kaydedildi</string>
     <string name="title_attachments_incomplete">Bazı ekler veya resimler indirilemedi ve eklenemedi</string>
+    <string name="title_ask_save">Değişiklikler kaydedilsin mi?</string>
     <string name="title_ask_delete">İleti kalıcı olarak silinsin mi?</string>
     <string name="title_ask_delete_answer">Yanıt kalıbı kalıcı olarak silinsin mi?</string>
     <string name="title_ask_delete_rule">Kural kalıcı olarak silinsin mi?</string>

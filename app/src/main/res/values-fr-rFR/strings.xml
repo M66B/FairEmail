@@ -6,7 +6,7 @@
     <string name="app_welcome">FairEmail est une application de messagerie open source axée sur la confidentialité et la sécurité. C\'est pourquoi certaines fonctionnalités peuvent fonctionner différemment de ce à quoi vous êtes habitué.</string>
     <string name="app_limitations">Par exemple, les messages seront toujours reformatés pour enlever les éléments non sûrs et pour améliorer la lisibilité et l\'ouverture des liens doit être confirmée par sécurité.</string>
     <string name="app_crash">FairEmail n\'est pas pris en charge sur cet appareil parce que des bogues dans Android provoquent des plantages</string>
-    <string name="app_exit">Appuyez de nouveau sur \"Retour\" pour quitter</string>
+    <string name="app_exit">Retourner \"en arrière\" de nouveau pour quitter</string>
     <string name="channel_service">Service</string>
     <string name="channel_send">Envoi</string>
     <string name="channel_notification">Notifications</string>
@@ -267,6 +267,7 @@
     <string name="title_primary_identity">Principal (identité par défaut)</string>
     <string name="title_keep_alive_interval">Intervalle de maintien de connexion (minutes)</string>
     <string name="title_check">Vérifier</string>
+    <string name="title_no_xoauth2">Cette fonctionnalité est disponible uniquement dans les versions originales</string>
     <string name="title_no_name">Nom manquant</string>
     <string name="title_no_email">Adresse e-mail manquante</string>
     <string name="title_email_invalid">Adresse e-mail invalide</string>
@@ -390,6 +391,7 @@
     <string name="title_attachment_saved">Pièce jointe enregistrée</string>
     <string name="title_attachments_saved">Pièces jointes enregistrées</string>
     <string name="title_attachments_incomplete">Certaines pièces jointes ou images n\'ont pas été téléchargées et n\'ont pas pu être ajoutées</string>
+    <string name="title_ask_save">Enregistrer les modifications ?</string>
     <string name="title_ask_delete">Supprimer ce message définitivement ?</string>
     <string name="title_ask_delete_answer">Supprimer définitivement le modèle de réponse ?</string>
     <string name="title_ask_delete_rule">Supprimer définitivement la règle ?</string>

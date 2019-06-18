@@ -7,6 +7,7 @@
     <string name="app_limitations">Por exemplo, as mensagens serão sempre reformatadas para remover elementos inseguros e para melhorar a legibilidade, e a abertura de links devem ser confirmadas por questão de segurança.</string>
     <string name="app_crash">O FairEmail não é suportado neste dispositivo porque bugs do Android causam tais falhas</string>
     <string name="channel_service">Serviço</string>
+    <string name="channel_send">Enviar</string>
     <string name="channel_notification">Notificações</string>
     <string name="channel_warning">Avisos</string>
     <string name="channel_error">Erros</string>
@@ -99,6 +100,7 @@
     <string name="title_setup_doze_remark">Para receber continuamente e-mail (opcional)</string>
     <string name="title_setup_doze_instructions">Na próxima caixa de diálogo, selecione \"Todos os apps\" no topo, selecione este app, selecione e confirme \"Não otimizar\"</string>
     <string name="title_setup_data">Desativar a economia de dados</string>
+    <string name="title_setup_inbox">Ir para mensagens</string>
     <string name="title_setup_to_do">Para fazer</string>
     <string name="title_setup_done">Feito</string>
     <string name="title_setup_export">Exportar configurações</string>
@@ -124,6 +126,7 @@
     <string name="title_setup_options">Opções</string>
     <string name="title_setup_defaults">Restaurar padrão</string>
     <string name="title_setup_reset_questions">Redefinir perguntas</string>
+    <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">﻿Receber</string>
     <string name="title_advanced_section_send">Enviar</string>
     <string name="title_advanced_section_connection">Conexão</string>
@@ -137,7 +140,10 @@
     <string name="title_advanced_unseen">Todas as mensagens não lidas</string>
     <string name="title_advanced_flagged">Todas as mensagens com estrela</string>
     <string name="title_advanced_kept_removed">Verificar se as mensagens antigas foram removidas do servidor</string>
+    <string name="title_advanced_sync_folders">Sincronizar lista de pastas</string>
+    <string name="title_advanced_keyboard">Mostrar teclado por padrão</string>
     <string name="title_advanced_prefix_once">Prefixo de assunto apenas uma vez na resposta ou encaminhamento</string>
+    <string name="title_advanced_plain_only">Enviar texto simples por padrão</string>
     <string name="title_advanced_autoresize">Redimensionar automaticamente as imagens anexadas e incorporadas</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_autosend">Confirmar o envio de mensagens</string>
@@ -146,6 +152,7 @@
     <string name="title_advanced_download">Fazer download automático de mensagens e anexos em uma conexão limitada até</string>
     <string name="title_advanced_roaming">Fazer o download de mensagens e anexos de roaming</string>
     <string name="title_advanced_rlah">Roam like at home</string>
+    <string name="title_advanced_manage_connectivity">Gerenciar conectividade</string>
     <string name="title_advanced_browse">Procurar mensagens no servidor</string>
     <string name="title_advanced_startup">Mostrar na Tela de bloqueio</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
@@ -180,6 +187,7 @@
     <string name="title_advanced_notify_action_flag">Estrela</string>
     <string name="title_advanced_notify_action_seen">Ler</string>
     <string name="title_advanced_notify_action_hint">No máximo três ações serão mostradas</string>
+    <string name="title_advanced_notify_manage_hint">Toque no nome do canal \'Notificações\' para definir o som de notificação padrão, etc</string>
     <string name="title_advanced_light">Usar luz de notificação</string>
     <string name="title_advanced_sound">Selecionar som de notificação</string>
     <string name="title_advanced_badge">Mostrar ícone no launcher com número de novas mensagens</string>
@@ -196,6 +204,8 @@
     <string name="title_advanced_manual_hint">Se a sincronização estiver desativada, ainda é possível sincronizar manualmente, puxando a lista de mensagens. Isso irá sincronizar mensagens e executar operações por um tempo limitado.</string>
     <string name="title_advanced_poll_hint">Sincronizar periodicamente irá comparar mensagens locais e remotas cada vez, o que é uma operação cara possivelmente resultando em uso extra de bateria, especialmente quando há muitas mensagens para sincronizar. Sincronizar sempre evitará isso escutando continuamente apenas as alterações.</string>
     <string name="title_advanced_schedule_hint">Toque uma vez para definir um tempo</string>
+    <string name="title_advanced_sync_kept_hint">Isto irá transferir dados extras e usar energia extra da bateria, especialmente se houver muitas mensagens mantidas no dispositivo</string>
+    <string name="title_advanced_sync_folders_hint">Desativar isto irá reduzir um pouco o uso de dados e bateria, mas irá também desativar a atualização da lista de pastas</string>
     <string name="title_advanced_metered_hint">Conexões limitadas são geralmente conexões móveis ou hotspots Wi-Fi pagos</string>
     <string name="title_advanced_metered_warning">Desabilitar esta opção desativará o recebimento e envio de mensagens em conexões de internet móvel</string>
     <string name="title_advanced_rlah_hint">Não assumindo roaming na UE</string>
@@ -231,6 +241,7 @@
     <string name="title_account_name">Nome da conta</string>
     <string name="title_account_name_hint">Usada para diferenciar pastas</string>
     <string name="title_account_interval_hint">Frequência de atualizar a conexão para mensagens push ou frequência de verificação de novas mensagens</string>
+    <string name="title_account_partial_fetch_hint">Desativar isto somente em caso de mensagens vazias ou anexos corrompidos</string>
     <string name="title_account_signature">Texto da assinatura</string>
     <string name="title_account_color">Cor</string>
     <string name="title_account_notify">Notificações separadas</string>
@@ -293,6 +304,8 @@
     <string name="title_no_operations">Nenhuma operação pendente</string>
     <string name="title_folder_name">Nome da pasta</string>
     <string name="title_display_name">Nome de exibição</string>
+    <string name="title_show_folders">Mostrar pastas ocultas</string>
+    <string name="title_hide_folder">Ocultar pasta</string>
     <string name="title_unified_folder">Mostrar na caixa de entrada unificada</string>
     <string name="title_navigation_folder">Mostrar no menu de navegação</string>
     <string name="title_synchronize_folder">Sincronizar (receber mensagens)</string>
@@ -376,6 +389,7 @@
     <string name="title_attachment_saved">Anexo salvo</string>
     <string name="title_attachments_saved">Anexos salvos</string>
     <string name="title_attachments_incomplete">Alguns anexos ou imagens não foram baixados e não puderam ser adicionados</string>
+    <string name="title_ask_save">Salvar alterações?</string>
     <string name="title_ask_delete">Deletar mensagem permanentemente?</string>
     <string name="title_ask_delete_answer">Excluir modelo de resposta permanentemente?</string>
     <string name="title_ask_delete_rule">Excluir regra permanentemente?</string>
@@ -490,12 +504,15 @@
     <string name="title_rule_action_remark">Esta ação será aplicada a novas mensagens que chegam no pasta %1$s</string>
     <string name="title_rule_hours">Horas</string>
     <string name="title_rule_folder">Pasta</string>
+    <string name="title_rule_thread">Todas as mensagens na mesma conversa e pasta</string>
     <string name="title_rule_identity">Identidade</string>
     <string name="title_rule_template">Modelo de resposta</string>
     <string name="title_rule_cc">Resposta para endereços CC</string>
     <string name="title_rule_name_missing">Nome da regra faltando</string>
     <string name="title_rule_condition_missing">Condição faltando</string>
     <string name="title_rule_automation_hint">Isto enviará a intenção \'%1$s\' com os extras \'%2$s\'</string>
+    <string name="title_rule_execute">Execute agora</string>
+    <string name="title_rule_applied">Mensagens afetadas: %1$d</string>
     <string name="title_rule_check">Verificar</string>
     <string name="title_rule_no_headers">As condições de cabeçalho não podem ser verificadas</string>
     <string name="title_rule_matched">Mensagens correspondentes</string>

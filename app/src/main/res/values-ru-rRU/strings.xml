@@ -6,7 +6,7 @@
     <string name="app_welcome">FairEmail - это почтовое приложение с открытым исходным кодом, ориентированное на конфиденциальность и безопасность. По этой причине некоторые функции могут работать не так, как вы привыкли.</string>
     <string name="app_limitations">Например, сообщения всегда будут переформатированы, чтобы удалить небезопасные элементы и улучшить читабельность, а также открытие ссылок требует подтверждения в целях безопасности.</string>
     <string name="app_crash">FairEmail не поддерживается на этом устройстве, так как ошибки в Android вызывают сбои</string>
-    <string name="app_exit">Для выхода снова нажмите \'назад\'</string>
+    <string name="app_exit">Для выхода снова перейдите \'назад\'</string>
     <string name="channel_service">Сервис</string>
     <string name="channel_send">Отправка</string>
     <string name="channel_notification">Уведомления</string>
@@ -283,6 +283,7 @@
     <string name="title_primary_identity">Основной (идентификатор по умолчанию)</string>
     <string name="title_keep_alive_interval">Интервал поддержания активности / опроса (минуты)</string>
     <string name="title_check">Проверить</string>
+    <string name="title_no_xoauth2">Эта функция доступна только в оригинальных версиях</string>
     <string name="title_no_name">Отсутствует имя</string>
     <string name="title_no_email">Адрес электронной почты отсутствует</string>
     <string name="title_email_invalid">Некорректный адрес электронной почты</string>
@@ -406,6 +407,7 @@
     <string name="title_attachment_saved">Файл сохранен</string>
     <string name="title_attachments_saved">Вложения сохранены</string>
     <string name="title_attachments_incomplete">Некоторые вложения или изображения не были загружены и не могут быть добавлены</string>
+    <string name="title_ask_save">Сохранить изменения?</string>
     <string name="title_ask_delete">Удалить сообщение навсегда?</string>
     <string name="title_ask_delete_answer">Удалить шаблон ответа навсегда?</string>
     <string name="title_ask_delete_rule">Удалить правило навсегда?</string>

@@ -6,7 +6,6 @@
     <string name="app_welcome">FairEmail je aplikacija otvorenog izvora (open source) usmjerena na privatnost i sigurnost. Zbog toga neke funkcije mogu raditi drugačije od onoga na što ste navikli.</string>
     <string name="app_limitations">Na primjer, poruke će uvijek biti preoblikovane kako bi se uklonili nesigurni elementi i poboljšana čitljivost, a otvaranje veza mora biti potvrđeno radi sigurnosti.</string>
     <string name="app_crash">FairEmail nije podržan na ovom uređaju jer greške u Androidu uzrokuju probleme i padove</string>
-    <string name="app_exit">Ponovo pritisnite \'natrag\' za izlazak</string>
     <string name="channel_service">Usluga</string>
     <string name="channel_send">Pošalji</string>
     <string name="channel_notification">Obavijesti</string>
@@ -120,7 +119,9 @@
     <string name="title_advanced_flagged">Sve poruke označene zvjezdicom</string>
     <string name="title_advanced_kept_removed">Provjerite jesu li stare poruke uklonjene sa servera</string>
     <string name="title_advanced_sync_folders">Sinkroniziraj popis mapa</string>
+    <string name="title_advanced_keyboard">Standardno pokaži tastaturu</string>
     <string name="title_advanced_prefix_once">Dodati predmet samo jednom prilikom odgovaranja ili prosljeđivanja</string>
+    <string name="title_advanced_plain_only">Standardno šaljite samo običan tekst</string>
     <string name="title_advanced_autoresize">Automatski promijeniti veličinu priloženih i ugrađenih slika</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixela</string>
     <string name="title_advanced_autosend">Potvrdite slanje poruka</string>
@@ -129,6 +130,7 @@
     <string name="title_advanced_download">Automatski preuzimati poruke i privitke na izmjerenu vezu do</string>
     <string name="title_advanced_roaming">Download messages and attachments while roaming</string>
     <string name="title_advanced_rlah">Roaming kao kod kuće</string>
+    <string name="title_advanced_manage_connectivity">Upravljanje povezivanjem</string>
     <string name="title_advanced_browse">Browse messages on the server</string>
     <string name="title_advanced_startup">Prikaži na početnom zaslonu</string>
     <string name="title_advanced_date_header">Grupiraj po datumu</string>
@@ -163,6 +165,7 @@
     <string name="title_advanced_notify_action_flag">Zvijezda</string>
     <string name="title_advanced_notify_action_seen">Pročitaj</string>
     <string name="title_advanced_notify_action_hint">Prikazat će se najviše tri akcije</string>
+    <string name="title_advanced_notify_manage_hint">Dodirnite kanal s nazivom \"Obavijesti\" da biste postavili zadani zvuk obavijesti, itd</string>
     <string name="title_advanced_light">Koristi LED za obavijesti</string>
     <string name="title_advanced_sound">Odaberite zvuk obavijesti</string>
     <string name="title_advanced_badge">Pokaži ikonu pokretača s brojem novih poruka</string>
@@ -216,6 +219,7 @@
     <string name="title_account_name">Naziv računa</string>
     <string name="title_account_name_hint">Koristi se za razlikovanje mapa</string>
     <string name="title_account_interval_hint">Učestalost osvježavanja veze za push poruke ili učestalost provjere novih poruka</string>
+    <string name="title_account_partial_fetch_hint">Onemogućite ovo samo u slučaju praznih poruka ili oštećenih privitaka</string>
     <string name="title_account_signature">Tekst potpisa</string>
     <string name="title_account_color">Boja</string>
     <string name="title_account_notify">Odvojene obavijesti</string>
@@ -278,6 +282,8 @@
     <string name="title_no_operations">Nema operacija na čekanju</string>
     <string name="title_folder_name">Naziv mape</string>
     <string name="title_display_name">Prikaži ime</string>
+    <string name="title_show_folders">Prikaži skrivene mape</string>
+    <string name="title_hide_folder">Sakrij mapu</string>
     <string name="title_unified_folder">Prikaži u objedinjenoj ulaznoj pošti</string>
     <string name="title_navigation_folder">Prikaži u navigacijskom izborniku</string>
     <string name="title_synchronize_folder">Sinkroniziranje (primanje poruka)</string>
@@ -361,6 +367,7 @@
     <string name="title_attachment_saved">Prilog spremljen</string>
     <string name="title_attachments_saved">Prilozi spremljeni</string>
     <string name="title_attachments_incomplete">Neki prilozi ili slike nisu preuzete i nisu mogle biti dodane</string>
+    <string name="title_ask_save">Spremi promjene?</string>
     <string name="title_ask_delete">Želite li trajno izbrisati poruku?</string>
     <string name="title_ask_delete_answer">Želite li trajno izbrisati predložak odgovora?</string>
     <string name="title_ask_delete_rule">Želite li trajno izbrisati pravilo?</string>

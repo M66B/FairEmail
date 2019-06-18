@@ -267,6 +267,7 @@
     <string name="title_primary_identity">Principale (identità predefinita)</string>
     <string name="title_keep_alive_interval">Intervallo resta-attivo/sondaggio (minuti)</string>
     <string name="title_check">Controlla</string>
+    <string name="title_no_xoauth2">Questa funzione è disponibile solo nelle versioni originali</string>
     <string name="title_no_name">Nome mancante</string>
     <string name="title_no_email">Indirizzo email mancante</string>
     <string name="title_email_invalid">Indirizzo email non valido</string>
@@ -390,6 +391,7 @@
     <string name="title_attachment_saved">Allegato salvato</string>
     <string name="title_attachments_saved">Allegati salvati</string>
     <string name="title_attachments_incomplete">Alcuni allegati o immagini non sono stati scaricati e non possono essere aggiunti</string>
+    <string name="title_ask_save">Salvare le modifiche?</string>
     <string name="title_ask_delete">Eliminare il messaggio permanentemente?</string>
     <string name="title_ask_delete_answer">Elimina definitivamente il modello di risposta?</string>
     <string name="title_ask_delete_rule">Eliminare la regola permanentemente?</string>

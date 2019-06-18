@@ -6,7 +6,7 @@
     <string name="app_welcome">FairEmail on avoimen lähdekoodin sähköpostiohjelma, joka on keskittynyt yksityisyyteen ja turvallisuuteen. Tästä syystä jotkin ominaisuudet saattavat toimivat eri tavalla kuin mitä olet tottunut.</string>
     <string name="app_limitations">Esimerkiksi viestit muotoillaan aina uudelleen vaarallisten elementtien poistamiseksi ja luettavuuden parantamiseksi, ja linkkien avaaminen pitää turvallisuuden takia erikseen vahvistaa.</string>
     <string name="app_crash">FairEmailia ei tueta tässä laitteessa, koska bugit Androidissa aiheuttavat kaatumisia</string>
-    <string name="app_exit">Paina \'takaisin\' uudelleen poistuaksesi</string>
+    <string name="app_exit">Mene \'takaisin\' uudelleen poistuaksesi</string>
     <string name="channel_service">Palvelu</string>
     <string name="channel_send">Lähettäminen</string>
     <string name="channel_notification">Ilmoitukset</string>
@@ -127,7 +127,7 @@
     <string name="title_setup_options">Asetukset</string>
     <string name="title_setup_defaults">Palauta oletukset</string>
     <string name="title_setup_reset_questions">Nollaa kysymykset</string>
-    <string name="title_advanced_section_main">Pääasiallinen</string>
+    <string name="title_advanced_section_main">Yleiset</string>
     <string name="title_advanced_section_synchronize">Vastaanottaminen</string>
     <string name="title_advanced_section_send">Lähettäminen</string>
     <string name="title_advanced_section_connection">Yhteys</string>
@@ -153,6 +153,7 @@
     <string name="title_advanced_download">Ladattavien viestien ja liitteiden maksimikoko käytön mukaan laskutettavaa yhteyttä käytettäessä</string>
     <string name="title_advanced_roaming">Lataa viestit ja liitteet verkkovierailun aikana</string>
     <string name="title_advanced_rlah">Kotimaanhintaiset verkkovierailut</string>
+    <string name="title_advanced_manage_connectivity">Hallitse verkkoyhteyksiä</string>
     <string name="title_advanced_browse">Selaa palvelimella olevia viestejä</string>
     <string name="title_advanced_startup">Näytä aloitusnäytössä</string>
     <string name="title_advanced_date_header">Ryhmittely päivämäärän mukaan</string>
@@ -389,6 +390,7 @@
     <string name="title_attachment_saved">Liite tallennettu</string>
     <string name="title_attachments_saved">Liitteet tallennettu</string>
     <string name="title_attachments_incomplete">Joitakin liitteitä tai kuvia ei ladattu eikä voitu lisätä</string>
+    <string name="title_ask_save">Tallenna muutokset?</string>
     <string name="title_ask_delete">Poistetaanko viesti pysyvästi?</string>
     <string name="title_ask_delete_answer">Poistetaanko vastausviestipohja pysyvästi?</string>
     <string name="title_ask_delete_rule">Poistetaanko sääntö pysyvästi?</string>
@@ -646,7 +648,7 @@
     <string name="title_crash_info_remark">Kuvaile mitä olit tekemässä, kun sovellus kaatui:</string>
     <string-array name="pollIntervalNames">
         <item>Koko ajan</item>
-        <item>Joka tunti</item>
+        <item>Tunnin välein</item>
         <item>2 tunnin välein</item>
         <item>4 tunnin välein</item>
     </string-array>

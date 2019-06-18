@@ -7,6 +7,7 @@
     <string name="app_limitations">Meddelanden kommer till exempel alltid att omformateras för att avlägsna osäkra element och för att förbättra läsbarheten och öppna länkar måste bekräftas för säkerheten.</string>
     <string name="app_crash">FairEmail stöds inte på den här enheten eftersom buggar i Android orsakar kraschar</string>
     <string name="channel_service">Tjänst</string>
+    <string name="channel_send">Skicka</string>
     <string name="channel_notification">Aviseringar</string>
     <string name="channel_warning">Varningar</string>
     <string name="channel_error">Fel</string>
@@ -99,6 +100,7 @@
     <string name="title_setup_doze_remark">Kontinuerligt ta emot e-post (valfritt)</string>
     <string name="title_setup_doze_instructions">I nästa dialogruta, välj ”Alla appar” högst upp, välj denna app och välj och bekräfta ”Optimera inte”</string>
     <string name="title_setup_data">Inaktivera datasparande</string>
+    <string name="title_setup_inbox">Gå till meddelanden</string>
     <string name="title_setup_to_do">Att göra</string>
     <string name="title_setup_done">Klar</string>
     <string name="title_setup_export">Exportera inställningar</string>
@@ -137,6 +139,9 @@
     <string name="title_advanced_unseen">Alla olästa meddelanden</string>
     <string name="title_advanced_flagged">Alla stjärnmärkta meddelanden</string>
     <string name="title_advanced_kept_removed">Kontrollera om gamla meddelanden har tagits bort från servern</string>
+    <string name="title_advanced_sync_folders">Synkronisera mapplista</string>
+    <string name="title_advanced_keyboard">Visa tangentbord som standard</string>
+    <string name="title_advanced_plain_only">Skicka bara vanlig text som standard</string>
     <string name="title_advanced_autoresize">Ändra storlek automatiskt på bifogade och inbäddade bilder</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixlar</string>
     <string name="title_advanced_autosend">Bekräfta sändning av meddelanden</string>
@@ -145,6 +150,7 @@
     <string name="title_advanced_download">Hämta automatiskt meddelanden och bilagor på en uppmätt anslutning upp till</string>
     <string name="title_advanced_roaming">Hämta meddelanden och bilagor vid roaming</string>
     <string name="title_advanced_rlah">Roaming som hemma</string>
+    <string name="title_advanced_manage_connectivity">Hantera anslutning</string>
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
     <string name="title_advanced_startup">Visa på startskärmen</string>
     <string name="title_advanced_date_header">Gruppera efter datum</string>
@@ -179,6 +185,7 @@
     <string name="title_advanced_notify_action_flag">Stjärna</string>
     <string name="title_advanced_notify_action_seen">Läst</string>
     <string name="title_advanced_notify_action_hint">Högst tre åtgärder kommer att visas</string>
+    <string name="title_advanced_notify_manage_hint">Tryck på kanalnamnet \"meddelanden\" för att ställa in standardmeddelande ljud, o.s.v.</string>
     <string name="title_advanced_light">Använda aviseringslampan</string>
     <string name="title_advanced_sound">Välj aviseringsljud</string>
     <string name="title_advanced_badge">Visa programstartarikon med antal nya meddelanden</string>
@@ -196,9 +203,11 @@
     <string name="title_advanced_poll_hint">Synkronisering med jämna mellanrum kommer att jämföra lokala- och fjärrmeddelanden varje gång, vilket är en dyr operation som eventuellt resulterar i extra batterianvändning, speciellt när det finns många meddelanden att synkronisera. Alltid synkronisering kommer att undvika detta genom kontinuerlig lyssning för ändringar endast.</string>
     <string name="title_advanced_schedule_hint">Tryck på en tid för att ställa in en tid</string>
     <string name="title_advanced_sync_kept_hint">Detta kommer att överföra extra data och använda extra batterikraft, speciellt om det finns många meddelanden som hålls på enheten</string>
+    <string name="title_advanced_sync_folders_hint">Inaktivering av detta kommer att minska data och batterianvändning något, men kommer att inaktivera uppdatering av listan över mappar också</string>
     <string name="title_advanced_metered_hint">Uppmätta anslutningar är generellt mobila anslutningar eller betalda Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Inaktivering av det här alternativet inaktiverar mottagning och sändning av meddelanden på mobila internetanslutningar</string>
     <string name="title_advanced_rlah_hint">Förutsatt ingen roaming inom EU</string>
+    <string name="title_advanced_roaming_hint">Meddelanderubriker kommer alltid att hämtas vid roaming. Du kan använda enhetens roaminginställning för att inaktivera internet vid roaming.</string>
     <string name="title_advanced_browse_hint">Hämta fler meddelanden när du rullar ner</string>
     <string name="title_advanced_threading_hint">Gruppera meddelanden relaterade till varandra</string>
     <string name="title_advanced_name_email_hint">När inaktiverad visas endast namn när det är tillgängligt</string>
@@ -230,6 +239,7 @@
     <string name="title_account_name">Kontonamn</string>
     <string name="title_account_name_hint">Används för att differentiera mappar</string>
     <string name="title_account_interval_hint">Frekvens för att uppdatera anslutningen för pushmeddelanden eller frekvens för att söka efter nya meddelanden</string>
+    <string name="title_account_partial_fetch_hint">Inaktivera detta endast vid tomma meddelanden eller korrupta bilagor</string>
     <string name="title_account_signature">Signaturtext</string>
     <string name="title_account_color">Färg</string>
     <string name="title_account_notify">Separera aviseringar</string>
@@ -290,6 +300,8 @@
     <string name="title_no_operations">Inga pågående operationer</string>
     <string name="title_folder_name">Mappnamn</string>
     <string name="title_display_name">Visningsnamn</string>
+    <string name="title_show_folders">Visa dolda mappar</string>
+    <string name="title_hide_folder">Dölj mapp</string>
     <string name="title_unified_folder">Visa i en samlad inkorg</string>
     <string name="title_navigation_folder">Visa i navigeringsmenyn</string>
     <string name="title_synchronize_folder">Synkronisera (hämta meddelanden)</string>
@@ -482,9 +494,14 @@
     <string name="title_rule_folder">Mapp</string>
     <string name="title_rule_identity">Identitet</string>
     <string name="title_rule_template">Svarsmall</string>
+    <string name="title_rule_cc">Svar till CC-adresser</string>
     <string name="title_rule_name_missing">Regelnamn saknas</string>
     <string name="title_rule_condition_missing">Tillstånd saknas</string>
+    <string name="title_rule_automation_hint">Detta kommer att skicka avsikten \'%1$s\' med extramaterial \'%2$s\'</string>
+    <string name="title_rule_execute">Verkställ nu</string>
+    <string name="title_rule_applied">Berörda meddelanden: %1$d</string>
     <string name="title_rule_check">Kontrollera</string>
+    <string name="title_rule_no_headers">Rubrikvillkor kan inte kontrolleras</string>
     <string name="title_rule_matched">Matchande meddelanden</string>
     <string name="title_rule_no_matches">Inga matchande meddelanden</string>
     <string name="title_legend_section_synchronize">Synkronisera</string>

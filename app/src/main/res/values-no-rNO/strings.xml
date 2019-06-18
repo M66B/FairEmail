@@ -6,7 +6,7 @@
     <string name="app_welcome">FairEmail er en åpen kildekode e-postprogram som er fokusert på personvern og sikkerhet. Av denne grunn kan noen funksjoner virke annerledes enn det du er vant til.</string>
     <string name="app_limitations">For eksempel vil meldinger alltid bli formatert for å fjerne usikre elementer, og for å forbedre lesbarheten og åpning av linker må bekreftes for sikkerhet.</string>
     <string name="app_crash">FairEmail støttes ikke på denne enheten fordi feil i Android forårsaker krasjer</string>
-    <string name="app_exit">Trykk på \'tilbake\' igjen for å avslutte</string>
+    <string name="app_exit">Gå \'tilbake\' igjen for å avslutte</string>
     <string name="channel_service">Service</string>
     <string name="channel_send">Send</string>
     <string name="channel_notification">Varsler</string>
@@ -267,6 +267,7 @@
     <string name="title_primary_identity">Primær (standardidentitet)</string>
     <string name="title_keep_alive_interval">Holde i live/avstemming intervall (minutter)</string>
     <string name="title_check">Sjekk</string>
+    <string name="title_no_xoauth2">Denne funksjonen er kun tilgjengelig i den originale versjonen</string>
     <string name="title_no_name">Navn mangler</string>
     <string name="title_no_email">E-post adressen mangler</string>
     <string name="title_email_invalid">E-post adressen er ugyldig</string>
@@ -390,6 +391,7 @@
     <string name="title_attachment_saved">Vedlegg lagret</string>
     <string name="title_attachments_saved">Vedlegg lagret</string>
     <string name="title_attachments_incomplete">Noen vedlegg eller bilder ble ikke lastet ned og kunne ikke legges til</string>
+    <string name="title_ask_save">Lagre endringer?</string>
     <string name="title_ask_delete">Slett melding permanent?</string>
     <string name="title_ask_delete_answer">Slett svarmal permanent?</string>
     <string name="title_ask_delete_rule">Slett regel permanent?</string>
