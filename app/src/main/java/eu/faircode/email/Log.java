@@ -230,6 +230,7 @@ public class Log {
         sb.append("\r\n");
 
         // Get device info
+        sb.append(String.format("uid: %s\r\n", android.os.Process.myUid()));
         sb.append(String.format("Brand: %s\r\n", Build.BRAND));
         sb.append(String.format("Manufacturer: %s\r\n", Build.MANUFACTURER));
         sb.append(String.format("Model: %s\r\n", Build.MODEL));
