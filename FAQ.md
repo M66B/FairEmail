@@ -181,6 +181,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(106) Which launchers can show the number of new messages?](#user-content-faq106)
 * [(107) How do I used colored stars?](#user-content-faq107)
 * [(108) Can you add permanently delete messages from any folder?](#user-content-faq108)
+* [(109) Why is 'select account' available in official releases only?](#user-content-faq109)
 
 [I have another question.](#support)
 
@@ -1789,6 +1790,22 @@ However, not all servers support IMAP keywords and besides that there are no sta
 When you delete messages from a folder the messages will be moved to the trash folder, so you have a chance to restore the messages.
 You can permanently delete messages from the trash folder.
 Permanently delete messages from other folders would defeat the purpose of the trash folder, so this will not be added.
+
+<br />
+
+<a name="faq109"></a>
+**(109) Why is 'select account' available in official releases only?**
+
+Using *select account* to select and authorize Google accounts require special permission from Google for security and privacy reasons.
+This special permission can only be acquired for apps a developer manages and is responsible for.
+Third party builds, like the F-Droid builds, are managed by third parties and are the responsibility of these third parties.
+So, only these third parties can acquire the required permission from Google.
+Since these third parties do not actually support FairEmail, they are most likely not going to request the required permission.
+
+You can solve this in two ways:
+
+* Switch to the official version of FairEmail, see [here](https://github.com/M66B/open-source-email/blob/master/README.md#downloads) for the options
+* Use app specific passwords, see [this FAQ](#user-content-faq6)
 
 <br />
 

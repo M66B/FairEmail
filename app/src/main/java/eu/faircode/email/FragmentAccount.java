@@ -34,6 +34,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -361,6 +362,21 @@ public class FragmentAccount extends FragmentBase {
                 Log.i("Authorize " + provider);
 
                 if ("com.google".equals(provider.type)) {
+                    if (!Helper.hasValidFingerprint(getContext())) {
+                        Snackbar snackbar = Snackbar.make(view, R.string.title_no_xoauth2, Snackbar.LENGTH_LONG);
+                        final Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq19"));
+                        if (intent.resolveActivity(getContext().getPackageManager()) != null)
+                            snackbar.setAction(R.string.title_info, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    startActivity(intent);
+                                }
+                            });
+                        snackbar.show();
+                        return;
+                    }
+
                     String permission = Manifest.permission.GET_ACCOUNTS;
                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O &&
                             !Helper.hasPermission(getContext(), permission)) {
