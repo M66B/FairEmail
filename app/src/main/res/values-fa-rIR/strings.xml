@@ -40,7 +40,6 @@
     <string name="title_setup_help">راهنما</string>
     <string name="title_setup_quick">راه اندازی سریع</string>
     <string name="title_setup_go">برو</string>
-    <string name="title_setup_setting_gmail">فعال کردن دسترسی به برنامه های \"کمتر امن\"</string>
     <string name="title_setup_quick_success">یک حساب و یک هویت با موفقیت اضافه شد</string>
     <string name="title_setup_quick_failed">می‌توانید برای پیکربندی حساب و هویت در زیر نیز اقدام کنید</string>
     <string name="title_setup_manage">مدیریت</string>
@@ -136,8 +135,6 @@
     <string name="title_user">نام کاربری</string>
     <string name="title_password">کلمه عبور</string>
     <string name="title_realm">حوزه</string>
-    <string name="title_authorize">انتخاب حساب</string>
-    <string name="title_authorizing">تایید مجوز حساب &#8230;</string>
     <string name="title_synchronize_account">همگام سازی (دریافت پیام‌ها)</string>
     <string name="title_synchronize_identity">همگام سازی (ارسال پیام‌ها)</string>
     <string name="title_primary_account">اصلی (حساب پیش فرض)</string>

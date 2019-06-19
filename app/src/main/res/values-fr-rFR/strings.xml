@@ -84,8 +84,7 @@
     <string name="title_setup_quick_imap">Serveur IMAP pour recevoir des messages</string>
     <string name="title_setup_quick_smtp">Serveur SMTP pour envoyer des messages</string>
     <string name="title_setup_go">Aller</string>
-    <string name="title_setup_setting_gmail">Activer l\'accès pour les applications « moins sûres »</string>
-    <string name="title_setup_setting_yahoo">Activer l\'accès pour les applications « moins sûres »</string>
+    <string name="title_setup_instructions">Instructions de configuration</string>
     <string name="title_setup_no_settings">Aucun paramètre trouvé pour le domaine \'%1$s\'</string>
     <string name="title_setup_quick_success">Un compte et une identité ont été ajoutés avec succès</string>
     <string name="title_setup_quick_failed">Vous pouvez essayer de configurer un compte et une identité ci-dessous</string>
@@ -259,15 +258,12 @@
     <string name="title_password">Mot de passe</string>
     <string name="title_realm">Domaine</string>
     <string name="title_use_ip">Utiliser l\'adresse IP locale au lieu du nom de domaine</string>
-    <string name="title_authorize">Sélectionner un compte</string>
-    <string name="title_authorizing">Autorisation du compte en cours &#8230;</string>
     <string name="title_synchronize_account">Synchroniser (recevoir des messages)</string>
     <string name="title_synchronize_identity">Synchroniser (envoyer des messages)</string>
     <string name="title_primary_account">Principal (compte par défaut)</string>
     <string name="title_primary_identity">Principal (identité par défaut)</string>
     <string name="title_keep_alive_interval">Intervalle de maintien de connexion (minutes)</string>
     <string name="title_check">Vérifier</string>
-    <string name="title_no_xoauth2">Cette fonctionnalité est disponible uniquement dans les versions originales</string>
     <string name="title_no_name">Nom manquant</string>
     <string name="title_no_email">Adresse e-mail manquante</string>
     <string name="title_email_invalid">Adresse e-mail invalide</string>
@@ -282,6 +278,7 @@
     <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Cela va retarder la réception de nouveaux messages et augmenter l\'utilisation de la batterie.</string>
     <string name="title_no_utf8">Ce fournisseur ne prend pas en charge l\'UTF-8</string>
     <string name="title_no_sync">Erreurs de synchronisation depuis %1$s</string>
+    <string name="title_authorization_required">Autorisation requise</string>
     <string name="title_identity_required">Une identité est nécessaire pour envoyer des messages</string>
     <string name="title_drafts_required">Un dossier brouillon est nécessaire pour envoyer des messages</string>
     <string name="title_account_delete">Supprimer définitivement ce compte ?</string>

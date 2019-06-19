@@ -83,8 +83,6 @@
     <string name="title_setup_quick_imap">Servidor IMAP para receber mensagens</string>
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensagens</string>
     <string name="title_setup_go">Iniciar</string>
-    <string name="title_setup_setting_gmail">Permitir o acesso para apps \"menos seguros\"</string>
-    <string name="title_setup_setting_yahoo">Habilitar acesso a apps \"menos seguros\"</string>
     <string name="title_setup_no_settings">Nenhuma configuração encontrada para o domínio \'%1$s\'</string>
     <string name="title_setup_quick_success">Uma conta e uma identidade foram adicionados com sucesso</string>
     <string name="title_setup_quick_failed">Você também pode tentar configurar uma conta e uma identidade abaixo</string>
@@ -258,8 +256,6 @@
     <string name="title_password">Senha</string>
     <string name="title_realm">Domínio</string>
     <string name="title_use_ip">Usar endereço IP local em vez do nome do host</string>
-    <string name="title_authorize">Selecionar conta</string>
-    <string name="title_authorizing">Autorizando a conta &#8230;</string>
     <string name="title_synchronize_account">Sincronizar (receber mensagens)</string>
     <string name="title_synchronize_identity">Sincronizar (enviar mensagens)</string>
     <string name="title_primary_account">Principal (identidade padrão)</string>

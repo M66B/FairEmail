@@ -91,8 +91,6 @@
     <string name="title_setup_quick_imap">Server IMAP pentru primire mesaje</string>
     <string name="title_setup_quick_smtp">Server SMTP pentru trimitere mesaje</string>
     <string name="title_setup_go">Start</string>
-    <string name="title_setup_setting_gmail">Permite accesul pentru applicații \"mai puţin sigure\"</string>
-    <string name="title_setup_setting_yahoo">Permite accesul pentru aplicații \"mai puțin sigure\"</string>
     <string name="title_setup_no_settings">Nu s-au găsit setări pentru domeniul \'%1$s\'</string>
     <string name="title_setup_quick_success">Un cont şi o identitate au fost adăugate cu succes</string>
     <string name="title_setup_quick_failed">Puteţi încerca de asemenea să configurați un cont şi o identitate mai jos</string>
@@ -261,8 +259,6 @@
     <string name="title_password">Parolă</string>
     <string name="title_realm">Domeniu</string>
     <string name="title_use_ip">Folosește adresa IP în loc de numele gazdei</string>
-    <string name="title_authorize">Selectare cont</string>
-    <string name="title_authorizing">Autorizare cont &#8230;</string>
     <string name="title_synchronize_account">Sincronizare (primire mesaje)</string>
     <string name="title_synchronize_identity">Sincronizare (trimitere mesaje)</string>
     <string name="title_primary_account">Primară (identitatea implicită)</string>

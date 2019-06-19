@@ -64,7 +64,6 @@
     <string name="title_setup_quick_imap">Mesaj almaq üçün IMAP serveri</string>
     <string name="title_setup_quick_smtp">Mesaj göndərmək üçün SMTP serveri</string>
     <string name="title_setup_go">Get</string>
-    <string name="title_setup_setting_gmail">\"Daha az təhlükəsiz\" tətbiqlərə müraciəti fəallaşdır</string>
     <string name="title_setup_quick_success">Bir hesab və bir kimlik uğurla əlavə edildi</string>
     <string name="title_setup_quick_failed">Həmçinin bir hesab və bir kimliyi də konfiqurasiya etməyə cəhd edə bilərsiniz</string>
     <string name="title_setup_manage">İdarə et</string>
@@ -160,8 +159,6 @@
     <string name="title_port">Bağlantı nöqtəsi nömrəsi</string>
     <string name="title_user">İstifadəçi adı</string>
     <string name="title_password">Şifrə</string>
-    <string name="title_authorize">Hesab seç</string>
-    <string name="title_authorizing">Hesaba səlahiyyət verilir &#8230;</string>
     <string name="title_synchronize_account">Eyniləşdir (mesajları al)</string>
     <string name="title_synchronize_identity">Eyniləşdir (mesajları göndər)</string>
     <string name="title_primary_account">Üstünlük verilən (ilkin hesab)</string>

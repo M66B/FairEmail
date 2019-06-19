@@ -71,8 +71,6 @@
     <string name="title_port">Número de port</string>
     <string name="title_user">Nom d\'usuari</string>
     <string name="title_password">Contrasenya</string>
-    <string name="title_authorize">Selecciona un compte</string>
-    <string name="title_authorizing">Autoritzant compte &#8230;</string>
     <string name="title_synchronize_account">Sincronitza (rebre missatges)</string>
     <string name="title_synchronize_identity">Sincronitza (envia missatges)</string>
     <string name="title_primary_account">Primària (compte per defecte)</string>

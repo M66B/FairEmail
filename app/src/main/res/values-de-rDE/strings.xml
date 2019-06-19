@@ -84,8 +84,7 @@
     <string name="title_setup_quick_imap">IMAP-Server für das Empfangen von Nachrichten</string>
     <string name="title_setup_quick_smtp">SMTP-Server zum Senden von Nachrichten</string>
     <string name="title_setup_go">Los</string>
-    <string name="title_setup_setting_gmail">Zugriff für \"unsichere\" Apps aktivieren</string>
-    <string name="title_setup_setting_yahoo">Zugriff für \"weniger sichere\" Apps aktivieren</string>
+    <string name="title_setup_instructions">Einrichtungsanleitung</string>
     <string name="title_setup_no_settings">Keine Einstellungen für Domain „%1$s” gefunden</string>
     <string name="title_setup_quick_success">Ein Konto und eine Identität wurden erfolgreich hinzugefügt</string>
     <string name="title_setup_quick_failed">Sie können unten versuchen, ein Konto und eine Identität zu konfigurieren</string>
@@ -259,15 +258,12 @@
     <string name="title_password">Passwort</string>
     <string name="title_realm">Bereich</string>
     <string name="title_use_ip">Lokale IP-Adresse anstelle des Domain-Namens verwenden</string>
-    <string name="title_authorize">Konto wählen</string>
-    <string name="title_authorizing">Konto autorisieren &#8230;</string>
     <string name="title_synchronize_account">Synchronisieren (E-Mails empfangen)</string>
     <string name="title_synchronize_identity">Synchronisieren (E-Mails versenden)</string>
     <string name="title_primary_account">Primäres Konto</string>
     <string name="title_primary_identity">Primäre Identität</string>
     <string name="title_keep_alive_interval">Verbindung halten/Pollintervall (Minuten)</string>
     <string name="title_check">Prüfen</string>
-    <string name="title_no_xoauth2">Diese Funktion ist nur in der Originalversion enthalten</string>
     <string name="title_no_name">Name fehlt</string>
     <string name="title_no_email">E-Mail-Adresse fehlt</string>
     <string name="title_email_invalid">E-Mail-Adresse ungültig</string>
@@ -282,7 +278,8 @@
     <string name="title_no_idle">Dieser Anbieter unterstützt keine Pushnachrichten. Dies verzögert den Empfang neuer E-Mails und erhöht den Akkuverbrauch.</string>
     <string name="title_no_utf8">Dieser Anbieter unterstützt UTF-8 nicht</string>
     <string name="title_no_sync">Synchronisationsfehler seit %1$s</string>
-    <string name="title_identity_required">Für das Senden von Nachrichten ist ein Name erforderlich</string>
+    <string name="title_authorization_required">Autorisierung erforderlich</string>
+    <string name="title_identity_required">Für das Senden von Nachrichten ist das Erstellen einer Identität erforderlich</string>
     <string name="title_drafts_required">Ein Entwürfe-Ordner ist erforderlich, um Nachrichten zu senden</string>
     <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
     <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>

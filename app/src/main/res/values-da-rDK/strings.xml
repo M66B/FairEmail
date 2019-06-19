@@ -82,8 +82,6 @@
     <string name="title_setup_quick_imap">IMAP-server til indgående meddelelser</string>
     <string name="title_setup_quick_smtp">SMTP-server til udgående meddelelser</string>
     <string name="title_setup_go">Kom i gang!</string>
-    <string name="title_setup_setting_gmail">Aktivér adgang for \"mindre sikre\" apps</string>
-    <string name="title_setup_setting_yahoo">Aktivér adgang for \"mindre sikre\" apps</string>
     <string name="title_setup_no_settings">Ingen indstillinger fundet for \'%1$s\'</string>
     <string name="title_setup_quick_success">Tilføjelse af konto og identitet er vellykket</string>
     <string name="title_setup_quick_failed">Du kan også prøve at konfigurere en konto og identitet nedenfor</string>
@@ -244,8 +242,6 @@
     <string name="title_password">Adgangskode</string>
     <string name="title_realm">Område</string>
     <string name="title_use_ip">Brug lokal IP-adresse i stedet for værtsnavn</string>
-    <string name="title_authorize">Vælg konto</string>
-    <string name="title_authorizing">Godkender konto &#8230;</string>
     <string name="title_synchronize_account">Synkronisér (modtag meddelelser)</string>
     <string name="title_synchronize_identity">Synkronisér (send meddelelser)</string>
     <string name="title_primary_account">Primær (standardkonto)</string>

@@ -84,8 +84,6 @@
     <string name="title_setup_quick_imap">IMAP-palvelin viestien vastaanottamiseen</string>
     <string name="title_setup_quick_smtp">SMTP-palvelin viestien lähettämiseen</string>
     <string name="title_setup_go">Aloita</string>
-    <string name="title_setup_setting_gmail">Salli käyttöoikeus \"vähemmän turvallisille\" sovelluksille</string>
-    <string name="title_setup_setting_yahoo">Salli käyttöoikeus \"vähemmän turvallisille\" sovelluksille</string>
     <string name="title_setup_no_settings">Asetuksia ei löytynyt verkkotunnukselle \'%1$s\'</string>
     <string name="title_setup_quick_success">Tili ja identiteetti on lisätty onnistuneesti</string>
     <string name="title_setup_quick_failed">Voit yrittää määrittää tilin ja identiteetin alla</string>
@@ -259,8 +257,6 @@
     <string name="title_password">Salasana</string>
     <string name="title_realm">Toimialue</string>
     <string name="title_use_ip">Käytä paikallista IP-osoitetta verkkotunnuksen sijaan</string>
-    <string name="title_authorize">Valitse tili</string>
-    <string name="title_authorizing">Valtuutetaan tili &#8230;</string>
     <string name="title_synchronize_account">Synkronoi (vastaanota viestejä)</string>
     <string name="title_synchronize_identity">Synkronoi (lähetä viestejä)</string>
     <string name="title_primary_account">Ensisijainen (oletustili)</string>

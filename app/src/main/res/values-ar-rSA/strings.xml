@@ -53,7 +53,6 @@
     <string name="title_setup_quick_imap">خادم IMAP لتلقي الرسائل</string>
     <string name="title_setup_quick_smtp">خادم SMTP لإرسال الرسائل</string>
     <string name="title_setup_go">إبدأ</string>
-    <string name="title_setup_setting_gmail">تمكين الوصول للتطبيقات \"الأقل أمانا\"</string>
     <string name="title_setup_quick_success">تمت إضافة هوية وحساب بنجاح</string>
     <string name="title_setup_manage">إدارة</string>
     <string name="title_setup_grant">السماح</string>
@@ -141,7 +140,6 @@
     <string name="title_port">رقم المَنفَذ</string>
     <string name="title_user">اسم المستخدم</string>
     <string name="title_password">الكلمة السرية</string>
-    <string name="title_authorize">اختيار الحساب</string>
     <string name="title_primary_account">الرئيسي (الحساب الافتراضي)</string>
     <string name="title_primary_identity">الرئيسية (الهوية الافتراضية)</string>
     <string name="title_keep_alive_interval">تبقى على قيد الحياة/استطلاع الفاصل الزمني (بالدقائق)</string>

@@ -84,8 +84,7 @@
     <string name="title_setup_quick_imap">Server IMAP per ricevere messaggi</string>
     <string name="title_setup_quick_smtp">Server SMTP per inviare messaggi</string>
     <string name="title_setup_go">Vai</string>
-    <string name="title_setup_setting_gmail">Abilitare l\'accesso per le applicazioni \"meno sicure\"</string>
-    <string name="title_setup_setting_yahoo">Abilita l\'accesso per le app \"meno sicure\"</string>
+    <string name="title_setup_instructions">Istruzioni di configurazione</string>
     <string name="title_setup_no_settings">Nessuna impostazione trovata per il dominio \'%1$s\'</string>
     <string name="title_setup_quick_success">Un account e un\'identità sono stati aggiunti con successo</string>
     <string name="title_setup_quick_failed">Puoi provare a configurare un account e un\'identità qui sotto</string>
@@ -259,15 +258,12 @@
     <string name="title_password">Password</string>
     <string name="title_realm">Dominio</string>
     <string name="title_use_ip">Usa l\'indirizzo IP locale invece del nome dell\'host</string>
-    <string name="title_authorize">Seleziona account</string>
-    <string name="title_authorizing">Autorizzazione account &#8230;</string>
     <string name="title_synchronize_account">Sincronizza (ricevi messaggi)</string>
     <string name="title_synchronize_identity">Sincronizza (invia messaggi)</string>
     <string name="title_primary_account">Principale (account predefinito)</string>
     <string name="title_primary_identity">Principale (identità predefinita)</string>
     <string name="title_keep_alive_interval">Intervallo resta-attivo/sondaggio (minuti)</string>
     <string name="title_check">Controlla</string>
-    <string name="title_no_xoauth2">Questa funzione è disponibile solo nelle versioni originali</string>
     <string name="title_no_name">Nome mancante</string>
     <string name="title_no_email">Indirizzo email mancante</string>
     <string name="title_email_invalid">Indirizzo email non valido</string>
@@ -282,6 +278,7 @@
     <string name="title_no_idle">Questo fornitore non supporta i messaggi push. Ciò ritarderà la ricezione di nuovi messaggi e aumenterà l\'utilizzo della batteria.</string>
     <string name="title_no_utf8">Questo provider non supporta UTF-8</string>
     <string name="title_no_sync">Errori di sincronizzazione da %1$s</string>
+    <string name="title_authorization_required">Autorizzazione richiesta</string>
     <string name="title_identity_required">È necessaria un\'identità per inviare messaggi</string>
     <string name="title_drafts_required">Per inviare messaggi è necessaria una cartella bozze</string>
     <string name="title_account_delete">Eliminare questo account permanentemente?</string>

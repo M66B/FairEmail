@@ -100,8 +100,6 @@
     <string name="title_setup_quick_imap">IMAP server pro příjem zpráv</string>
     <string name="title_setup_quick_smtp">SMTP server pro odesílání zpráv</string>
     <string name="title_setup_go">Přejít</string>
-    <string name="title_setup_setting_gmail">Povolte přístup k účtu \"méně zabezpečeným aplikacím\"</string>
-    <string name="title_setup_setting_yahoo">Povolte přístup k účtu \"méně zabezpečeným aplikacím\"</string>
     <string name="title_setup_no_settings">Pro doménu \'%1$s\' nebylo nalezeno žádné nastavení</string>
     <string name="title_setup_quick_success">Účet a identita byly úspěšně přidány</string>
     <string name="title_setup_quick_failed">Účet a identitu můžete také zkusit nastavit níže</string>
@@ -275,15 +273,12 @@
     <string name="title_password">Heslo</string>
     <string name="title_realm">Sféra</string>
     <string name="title_use_ip">Použít lokální IP adresu namísto názvu hostitele</string>
-    <string name="title_authorize">Vybrat účet</string>
-    <string name="title_authorizing">Probíhá autorizace účtu &#8230;</string>
     <string name="title_synchronize_account">Synchronizovat (přijímat zprávy)</string>
     <string name="title_synchronize_identity">Synchronizovat (odesílat zprávy)</string>
     <string name="title_primary_account">Hlavní (výchozí účet)</string>
     <string name="title_primary_identity">Hlavní (výchozí identita)</string>
     <string name="title_keep_alive_interval">Interval udržování spojení/dotazování (minuty)</string>
     <string name="title_check">Ověřit</string>
-    <string name="title_no_xoauth2">Tato funkce je dostupná pouze v originálních verzích</string>
     <string name="title_no_name">Chybí jméno</string>
     <string name="title_no_email">Chybí e-mailová adresa</string>
     <string name="title_email_invalid">E-mailová adresa je neplatná</string>
