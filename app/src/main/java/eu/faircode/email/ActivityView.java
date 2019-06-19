@@ -69,7 +69,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.colorpicker.ColorPickerDialog;
 import com.android.colorpicker.ColorPickerSwatch;
-import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -689,10 +688,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(getVisibleView(), ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                else
-                    Toast.makeText(ActivityView.this, ex.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(ActivityView.this, Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
             }
         }.execute(this, new Bundle(), "crash:log");
     }
@@ -815,7 +811,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             protected void onException(Bundle args, Throwable ex) {
                 if (args.getBoolean("always"))
                     if (ex instanceof IllegalArgumentException || ex instanceof IOException)
-                        Snackbar.make(getVisibleView(), ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                        Toast.makeText(ActivityView.this, ex.getMessage(), Toast.LENGTH_LONG).show();
                     else
                         Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
             }
@@ -996,7 +992,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(getVisibleView(), ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                    Toast.makeText(ActivityView.this, ex.getMessage(), Toast.LENGTH_LONG).show();
                 else
                     Toast.makeText(ActivityView.this, ex.toString(), Toast.LENGTH_LONG).show();
             }
@@ -1120,7 +1116,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         create.setType("*/*");
         create.putExtra(Intent.EXTRA_TITLE, "email.eml");
         if (create.resolveActivity(getPackageManager()) == null)
-            Snackbar.make(getVisibleView(), R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
+            Toast.makeText(ActivityView.this, R.string.title_no_saf, Toast.LENGTH_LONG).show();
         else
             startActivityForResult(Helper.getChooser(this, create), REQUEST_RAW);
     }
@@ -1170,7 +1166,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         create.setType(intent.getStringExtra("type"));
         create.putExtra(Intent.EXTRA_TITLE, intent.getStringExtra("name"));
         if (create.resolveActivity(getPackageManager()) == null)
-            Snackbar.make(getVisibleView(), R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
+            Toast.makeText(ActivityView.this, R.string.title_no_saf, Toast.LENGTH_LONG).show();
         else
             startActivityForResult(Helper.getChooser(this, create), REQUEST_ATTACHMENT);
     }
@@ -1180,7 +1176,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         Intent tree = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
         //tree.putExtra("android.content.extra.SHOW_ADVANCED", true);
         if (tree.resolveActivity(getPackageManager()) == null)
-            Snackbar.make(getVisibleView(), R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
+            Toast.makeText(ActivityView.this, R.string.title_no_saf, Toast.LENGTH_LONG).show();
         else
             startActivityForResult(Helper.getChooser(this, tree), REQUEST_ATTACHMENTS);
     }
@@ -1312,17 +1308,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
 
             decrypt(data, intent.getLongExtra("id", -1));
-        } else {
-            Snackbar snackbar = Snackbar.make(getVisibleView(), R.string.title_no_openpgp, Snackbar.LENGTH_LONG);
-            if (Helper.getIntentOpenKeychain().resolveActivity(getPackageManager()) != null)
-                snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(Helper.getIntentOpenKeychain());
-                    }
-                });
-            snackbar.show();
-        }
+        } else
+            Toast.makeText(ActivityView.this, R.string.title_no_openpgp, Toast.LENGTH_LONG).show();
     }
 
     private void onShowPro(Intent intent) {
@@ -1471,7 +1458,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             resid = R.string.title_signature_valid;
                         else
                             resid = R.string.title_signature_invalid;
-                        Snackbar.make(getVisibleView(), resid, Snackbar.LENGTH_LONG).show();
+                        Toast.makeText(ActivityView.this, resid, Toast.LENGTH_LONG).show();
 
                         break;
 
@@ -1505,7 +1492,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(getVisibleView(), ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                    Toast.makeText(ActivityView.this, ex.getMessage(), Toast.LENGTH_LONG).show();
                 else
                     Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
             }
@@ -1600,7 +1587,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(getVisibleView(), ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                    Toast.makeText(ActivityView.this, ex.getMessage(), Toast.LENGTH_LONG).show();
                 else
                     Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
             }
@@ -1673,7 +1660,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(getVisibleView(), ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                    Toast.makeText(ActivityView.this, ex.getMessage(), Toast.LENGTH_LONG).show();
                 else
                     Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
             }

@@ -25,12 +25,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ScrollView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -156,19 +153,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
     public boolean hasPermission(String name) {
         return Helper.hasPermission(this, name);
-    }
-
-    protected View getVisibleView() {
-        for (Fragment fragment : getSupportFragmentManager().getFragments())
-            if (fragment.getUserVisibleHint()) {
-                View view = fragment.getView();
-                Log.i("Visible fragment=" + fragment.getClass().getName() + " view=" + view);
-                if (view != null && !(view instanceof ScrollView)) // Snackbar cannot be attached to ScrollView
-                    return view;
-            }
-
-        Log.i("Visible activity=" + this.getClass().getName());
-        return findViewById(android.R.id.content);
     }
 
     void addBackPressedListener(final IBackPressedListener listener, LifecycleOwner owner) {
