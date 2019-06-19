@@ -182,6 +182,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(107) How do I used colored stars?](#user-content-faq107)
 * [(108) Can you add permanently delete messages from any folder?](#user-content-faq108)
 * [(109) Why is 'select account' available in official versions only?](#user-content-faq109)
+* [(110) Why are (some) messages empty and/or attachments corrupted?](#user-content-faq110)
 
 [I have another question.](#support)
 
@@ -1812,6 +1813,19 @@ Using *select account* in third party builds is not possible in recent versions 
 In older versions this was possible, but it will now result in the error *UNREGISTERED_ON_API_CONSOLE*.
 
 <br />
+
+<a name="faq110"></a>
+**(110) Why are (some) messages empty and/or attachments corrupt?**
+
+Empty messages and/or corrupt attachments are probably being caused by a bug in the server software.
+Older Microsoft Exchange software is known to cause this problem.
+Mostly you can workaround this by disabling *Partial fetch* in the advanced account settings.
+
+After disabling this setting, you can use the message 'more' (three dots) menu to 'resync' empty messages.
+Alternatively, you can *Delete local messages* by long pressing the folder(s) in the folder list and synchronize all messages again.
+
+<br />
+
 
 ## Support
 
