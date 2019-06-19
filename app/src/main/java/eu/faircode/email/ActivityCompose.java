@@ -245,8 +245,10 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
     private BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (ACTION_SHOW_PRO.equals(intent.getAction()))
-                onShowPro(intent);
+            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
+                if (ACTION_SHOW_PRO.equals(intent.getAction()))
+                    onShowPro(intent);
+            }
         }
     };
 

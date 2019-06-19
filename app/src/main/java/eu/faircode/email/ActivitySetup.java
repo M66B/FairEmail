@@ -1044,19 +1044,21 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
     private BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            if (ACTION_QUICK_SETUP.equals(action))
-                onViewQuickSetup(intent);
-            else if (ACTION_VIEW_ACCOUNTS.equals(action))
-                onViewAccounts(intent);
-            else if (ACTION_VIEW_IDENTITIES.equals(action))
-                onViewIdentities(intent);
-            else if (ACTION_EDIT_ACCOUNT.equals(action))
-                onEditAccount(intent);
-            else if (ACTION_EDIT_IDENTITY.equals(action))
-                onEditIdentity(intent);
-            else if (ACTION_SHOW_PRO.equals(action))
-                onShowPro(intent);
+            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
+                String action = intent.getAction();
+                if (ACTION_QUICK_SETUP.equals(action))
+                    onViewQuickSetup(intent);
+                else if (ACTION_VIEW_ACCOUNTS.equals(action))
+                    onViewAccounts(intent);
+                else if (ACTION_VIEW_IDENTITIES.equals(action))
+                    onViewIdentities(intent);
+                else if (ACTION_EDIT_ACCOUNT.equals(action))
+                    onEditAccount(intent);
+                else if (ACTION_EDIT_IDENTITY.equals(action))
+                    onEditIdentity(intent);
+                else if (ACTION_SHOW_PRO.equals(action))
+                    onShowPro(intent);
+            }
         }
     };
 }

@@ -19,14 +19,11 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.app.Activity;
-import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -35,7 +32,6 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.ParcelFileDescriptor;
 import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
 import android.print.PrintManager;
@@ -53,7 +49,6 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.constraintlayout.widget.Group;
-import androidx.documentfile.provider.DocumentFile;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -71,36 +66,19 @@ import com.android.colorpicker.ColorPickerSwatch;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.openintents.openpgp.OpenPgpError;
-import org.openintents.openpgp.OpenPgpSignatureResult;
-import org.openintents.openpgp.util.OpenPgpApi;
-import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Properties;
 
-import javax.mail.Session;
-import javax.mail.internet.MimeMessage;
 import javax.net.ssl.HttpsURLConnection;
-
-import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_NO_SIGNATURE;
-import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_VALID_KEY_CONFIRMED;
 
 public class ActivityView extends ActivityBilling implements FragmentManager.OnBackStackChangedListener {
     private String startup;
@@ -118,11 +96,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private boolean exit = false;
 
-    private long message = -1;
-    private long attachment = -1;
-
     private WebView printWebView = null;
-    private OpenPgpServiceConnection pgpService;
 
     static final int REQUEST_UNIFIED = 1;
     static final int REQUEST_WHY = 2;
@@ -130,34 +104,23 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final int REQUEST_OUTBOX = 4;
     static final int REQUEST_ERROR = 5;
 
-    static final int REQUEST_RAW = 1;
-    static final int REQUEST_ATTACHMENT = 2;
-    static final int REQUEST_ATTACHMENTS = 3;
-    static final int REQUEST_DECRYPT = 4;
-    static final int REQUEST_SENDER = 5;
-    static final int REQUEST_RECIPIENT = 6;
+    static final int REQUEST_SENDER = 1;
+    static final int REQUEST_RECIPIENT = 2;
 
     static final String ACTION_VIEW_FOLDERS = BuildConfig.APPLICATION_ID + ".VIEW_FOLDERS";
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
     static final String ACTION_SEARCH = BuildConfig.APPLICATION_ID + ".SEARCH";
     static final String ACTION_VIEW_THREAD = BuildConfig.APPLICATION_ID + ".VIEW_THREAD";
-    static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_EDIT_FOLDER = BuildConfig.APPLICATION_ID + ".EDIT_FOLDER";
     static final String ACTION_EDIT_ANSWERS = BuildConfig.APPLICATION_ID + ".EDIT_ANSWERS";
     static final String ACTION_EDIT_ANSWER = BuildConfig.APPLICATION_ID + ".EDIT_ANSWER";
     static final String ACTION_EDIT_RULES = BuildConfig.APPLICATION_ID + ".EDIT_RULES";
     static final String ACTION_EDIT_RULE = BuildConfig.APPLICATION_ID + ".EDIT_RULE";
-    static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
-    static final String ACTION_STORE_ATTACHMENTS = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENTS";
     static final String ACTION_COLOR = BuildConfig.APPLICATION_ID + ".COLOR";
     static final String ACTION_PRINT = BuildConfig.APPLICATION_ID + ".PRINT";
-    static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
     static final String ACTION_SHOW_PRO = BuildConfig.APPLICATION_ID + ".SHOW_PRO";
 
     static final long UPDATE_INTERVAL = (BuildConfig.BETA_RELEASE ? 4 : 12) * 3600 * 1000L; // milliseconds
-
-    private static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
-    private static final String PGP_END_MESSAGE = "-----END PGP MESSAGE-----";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -422,9 +385,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         checkFirst();
         checkCrash();
 
-        pgpService = new OpenPgpServiceConnection(this, "org.sufficientlysecure.keychain");
-        pgpService.bindToService();
-
         Shortcuts.update(this, this);
     }
 
@@ -544,22 +504,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_VIEW_MESSAGES);
         iff.addAction(ACTION_SEARCH);
         iff.addAction(ACTION_VIEW_THREAD);
-        iff.addAction(ACTION_STORE_RAW);
         iff.addAction(ACTION_EDIT_FOLDER);
         iff.addAction(ACTION_EDIT_ANSWERS);
         iff.addAction(ACTION_EDIT_ANSWER);
         iff.addAction(ACTION_EDIT_RULES);
         iff.addAction(ACTION_EDIT_RULE);
-        iff.addAction(ACTION_STORE_ATTACHMENT);
-        iff.addAction(ACTION_STORE_ATTACHMENTS);
         iff.addAction(ACTION_COLOR);
         iff.addAction(ACTION_PRINT);
-        iff.addAction(ACTION_DECRYPT);
         iff.addAction(ACTION_SHOW_PRO);
         lbm.registerReceiver(receiver, iff);
-
-        if (!pgpService.isBound())
-            pgpService.bindToService();
 
         checkUpdate(false);
     }
@@ -569,14 +522,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         super.onPause();
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         lbm.unregisterReceiver(receiver);
-    }
-
-    @Override
-    protected void onDestroy() {
-        if (pgpService != null)
-            pgpService.unbindFromService();
-
-        super.onDestroy();
     }
 
     @Override
@@ -1019,8 +964,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     onSearchMessages(intent);
                 else if (ACTION_VIEW_THREAD.equals(action))
                     onViewThread(intent);
-                else if (ACTION_STORE_RAW.equals(action))
-                    onStoreRaw(intent);
                 else if (ACTION_EDIT_FOLDER.equals(action))
                     onEditFolder(intent);
                 else if (ACTION_EDIT_ANSWERS.equals(action))
@@ -1031,16 +974,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     onEditRules(intent);
                 else if (ACTION_EDIT_RULE.equals(action))
                     onEditRule(intent);
-                else if (ACTION_STORE_ATTACHMENT.equals(action))
-                    onStoreAttachment(intent);
-                else if (ACTION_STORE_ATTACHMENTS.equals(action))
-                    onStoreAttachments(intent);
                 else if (ACTION_COLOR.equals(action))
                     onColor(intent);
                 else if (ACTION_PRINT.equals(action))
                     onPrint(intent);
-                else if (ACTION_DECRYPT.equals(action))
-                    onDecrypt(intent);
                 else if (ACTION_SHOW_PRO.equals(action))
                     onShowPro(intent);
             }
@@ -1105,18 +1042,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragmentTransaction.commit();
     }
 
-    private void onStoreRaw(Intent intent) {
-        message = intent.getLongExtra("id", -1);
-        Intent create = new Intent(Intent.ACTION_CREATE_DOCUMENT);
-        create.addCategory(Intent.CATEGORY_OPENABLE);
-        create.setType("*/*");
-        create.putExtra(Intent.EXTRA_TITLE, "email.eml");
-        if (create.resolveActivity(getPackageManager()) == null)
-            Toast.makeText(ActivityView.this, R.string.title_no_saf, Toast.LENGTH_LONG).show();
-        else
-            startActivityForResult(Helper.getChooser(this, create), REQUEST_RAW);
-    }
-
     private void onEditFolder(Intent intent) {
         FragmentFolder fragment = new FragmentFolder();
         fragment.setArguments(intent.getExtras());
@@ -1153,28 +1078,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("rule");
         fragmentTransaction.commit();
-    }
-
-    private void onStoreAttachment(Intent intent) {
-        attachment = intent.getLongExtra("id", -1);
-        Intent create = new Intent(Intent.ACTION_CREATE_DOCUMENT);
-        create.addCategory(Intent.CATEGORY_OPENABLE);
-        create.setType(intent.getStringExtra("type"));
-        create.putExtra(Intent.EXTRA_TITLE, intent.getStringExtra("name"));
-        if (create.resolveActivity(getPackageManager()) == null)
-            Toast.makeText(ActivityView.this, R.string.title_no_saf, Toast.LENGTH_LONG).show();
-        else
-            startActivityForResult(Helper.getChooser(this, create), REQUEST_ATTACHMENT);
-    }
-
-    private void onStoreAttachments(Intent intent) {
-        message = intent.getLongExtra("id", -1);
-        Intent tree = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
-        //tree.putExtra("android.content.extra.SHOW_ADVANCED", true);
-        if (tree.resolveActivity(getPackageManager()) == null)
-            Toast.makeText(ActivityView.this, R.string.title_no_saf, Toast.LENGTH_LONG).show();
-        else
-            startActivityForResult(Helper.getChooser(this, tree), REQUEST_ATTACHMENTS);
     }
 
     private void onColor(final Intent intent) {
@@ -1293,21 +1196,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }.execute(ActivityView.this, args, "message:print");
     }
 
-    private void onDecrypt(Intent intent) {
-        if (!Helper.isPro(this)) {
-            onShowPro(intent);
-            return;
-        }
-
-        if (pgpService.isBound()) {
-            Intent data = new Intent();
-            data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
-
-            decrypt(data, intent.getLongExtra("id", -1));
-        } else
-            Toast.makeText(ActivityView.this, R.string.title_no_openpgp, Toast.LENGTH_LONG).show();
-    }
-
     private void onShowPro(Intent intent) {
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
             getSupportFragmentManager().popBackStack("pro", FragmentManager.POP_BACK_STACK_INCLUSIVE);
@@ -1315,424 +1203,5 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
         fragmentTransaction.commit();
-    }
-
-    private void decrypt(Intent data, long id) {
-        Bundle args = new Bundle();
-        args.putLong("id", id);
-        args.putParcelable("data", data);
-
-        new SimpleTask<PendingIntent>() {
-            @Override
-            protected PendingIntent onExecute(Context context, Bundle args) throws Throwable {
-                // Get arguments
-                long id = args.getLong("id");
-                Intent data = args.getParcelable("data");
-
-                DB db = DB.getInstance(context);
-
-                boolean inline = false;
-                InputStream encrypted = null;
-
-                // Find encrypted data
-                List<EntityAttachment> attachments = db.attachment().getAttachments(id);
-                for (EntityAttachment attachment : attachments)
-                    if (EntityAttachment.PGP_MESSAGE.equals(attachment.encryption)) {
-                        if (!attachment.available)
-                            throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
-
-                        File file = attachment.getFile(context);
-                        encrypted = new BufferedInputStream(new FileInputStream(file));
-                        break;
-                    }
-
-                if (encrypted == null) {
-                    EntityMessage message = db.message().getMessage(id);
-                    if (message != null && message.content) {
-                        File file = message.getFile(context);
-                        if (file.exists()) {
-                            // https://tools.ietf.org/html/rfc4880#section-6.2
-                            String body = Helper.readText(file);
-                            int begin = body.indexOf(PGP_BEGIN_MESSAGE);
-                            int end = body.indexOf(PGP_END_MESSAGE);
-                            if (begin >= 0 && begin < end) {
-                                String section = body.substring(begin, end + PGP_END_MESSAGE.length());
-                                String[] lines = section.split("<br />");
-                                List<String> disarmored = new ArrayList<>();
-                                for (String line : lines)
-                                    if (!TextUtils.isEmpty(line) && !line.contains(": "))
-                                        disarmored.add(line);
-                                section = TextUtils.join("\n\r", disarmored);
-
-                                inline = true;
-                                encrypted = new ByteArrayInputStream(section.getBytes());
-                            }
-                        }
-                    }
-                }
-
-                if (encrypted == null)
-                    throw new IllegalArgumentException(context.getString(R.string.title_not_encrypted));
-
-                ByteArrayOutputStream decrypted = new ByteArrayOutputStream();
-
-                // Decrypt message
-                OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
-                Intent result = api.executeApi(data, encrypted, decrypted);
-
-                Log.i("PGP result=" + result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR));
-                switch (result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR)) {
-                    case OpenPgpApi.RESULT_CODE_SUCCESS:
-                        if (inline) {
-                            try {
-                                db.beginTransaction();
-
-                                // Write decrypted body
-                                EntityMessage m = db.message().getMessage(id);
-                                Helper.writeText(m.getFile(context), decrypted.toString());
-
-                                db.message().setMessageStored(id, new Date().getTime());
-
-                                db.setTransactionSuccessful();
-                            } finally {
-                                db.endTransaction();
-                            }
-
-                        } else {
-                            // Decode message
-                            Properties props = MessageHelper.getSessionProperties(
-                                    ConnectionHelper.AUTH_TYPE_PASSWORD, null, false);
-                            Session isession = Session.getInstance(props, null);
-                            ByteArrayInputStream is = new ByteArrayInputStream(decrypted.toByteArray());
-                            MimeMessage imessage = new MimeMessage(isession, is);
-                            MessageHelper helper = new MessageHelper(imessage);
-                            MessageHelper.MessageParts parts = helper.getMessageParts();
-
-                            try {
-                                db.beginTransaction();
-
-                                // Write decrypted body
-                                EntityMessage m = db.message().getMessage(id);
-                                Helper.writeText(m.getFile(context), parts.getHtml(context));
-
-                                // Remove previously decrypted attachments
-                                for (EntityAttachment local : attachments)
-                                    if (local.encryption == null)
-                                        db.attachment().deleteAttachment(local.id);
-
-                                int sequence = db.attachment().getAttachmentSequence(id);
-
-                                // Add decrypted attachments
-                                List<EntityAttachment> remotes = parts.getAttachments();
-                                for (int index = 0; index < remotes.size(); index++) {
-                                    EntityAttachment remote = remotes.get(index);
-                                    remote.message = id;
-                                    remote.sequence = ++sequence;
-                                    remote.id = db.attachment().insertAttachment(remote);
-                                    try {
-                                        parts.downloadAttachment(context, index, remote.id, remote.name);
-                                    } catch (Throwable ex) {
-                                        Log.e(ex);
-                                    }
-                                }
-
-                                db.message().setMessageStored(id, new Date().getTime());
-
-                                db.setTransactionSuccessful();
-                            } finally {
-                                db.endTransaction();
-                            }
-                        }
-
-                        // Check signature status
-                        OpenPgpSignatureResult sigResult = result.getParcelableExtra(OpenPgpApi.RESULT_SIGNATURE);
-                        int sresult = (sigResult == null ? RESULT_NO_SIGNATURE : sigResult.getResult());
-                        int resid;
-                        if (sresult == RESULT_NO_SIGNATURE)
-                            resid = R.string.title_signature_none;
-                        else if (sresult == RESULT_VALID_KEY_CONFIRMED)
-                            resid = R.string.title_signature_valid;
-                        else
-                            resid = R.string.title_signature_invalid;
-                        Toast.makeText(ActivityView.this, resid, Toast.LENGTH_LONG).show();
-
-                        break;
-
-                    case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED:
-                        message = id;
-                        return result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
-
-                    case OpenPgpApi.RESULT_CODE_ERROR:
-                        OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
-                        throw new IllegalArgumentException(error.getMessage());
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, PendingIntent pi) {
-                if (pi != null)
-                    try {
-                        Log.i("PGP executing pi=" + pi);
-                        startIntentSenderForResult(
-                                pi.getIntentSender(),
-                                ActivityView.REQUEST_DECRYPT,
-                                null, 0, 0, 0, null);
-                    } catch (IntentSender.SendIntentException ex) {
-                        Log.e(ex);
-                        Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
-                    }
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException)
-                    Toast.makeText(ActivityView.this, ex.getMessage(), Toast.LENGTH_LONG).show();
-                else
-                    Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
-            }
-        }.execute(ActivityView.this, args, "decrypt");
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == Activity.RESULT_OK)
-            if (requestCode == REQUEST_RAW) {
-                if (data != null)
-                    saveRaw(data);
-            } else if (requestCode == REQUEST_ATTACHMENT) {
-                if (data != null)
-                    saveAttachment(data);
-            } else if (requestCode == REQUEST_ATTACHMENTS) {
-                if (data != null)
-                    saveAttachments(data);
-
-            } else if (requestCode == REQUEST_DECRYPT) {
-                if (data != null)
-                    decrypt(data, message);
-            }
-
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    private void saveRaw(Intent data) {
-        Bundle args = new Bundle();
-        args.putLong("id", message);
-        args.putParcelable("uri", data.getData());
-
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
-                long id = args.getLong("id");
-                Uri uri = args.getParcelable("uri");
-
-                if ("file".equals(uri.getScheme())) {
-                    Log.w("Save raw uri=" + uri);
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
-                }
-
-                DB db = DB.getInstance(context);
-                EntityMessage message = db.message().getMessage(id);
-                if (message == null)
-                    throw new FileNotFoundException();
-                File file = message.getRawFile(context);
-                Log.i("Raw file=" + file);
-
-                ParcelFileDescriptor pfd = null;
-                OutputStream os = null;
-                InputStream is = null;
-                try {
-                    pfd = context.getContentResolver().openFileDescriptor(uri, "w");
-                    os = new FileOutputStream(pfd.getFileDescriptor());
-                    is = new BufferedInputStream(new FileInputStream(file));
-
-                    byte[] buffer = new byte[MessageHelper.ATTACHMENT_BUFFER_SIZE];
-                    int read;
-                    while ((read = is.read(buffer)) != -1)
-                        os.write(buffer, 0, read);
-                } finally {
-                    try {
-                        if (pfd != null)
-                            pfd.close();
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
-                    try {
-                        if (os != null)
-                            os.close();
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
-                    try {
-                        if (is != null)
-                            is.close();
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Void data) {
-                Toast.makeText(ActivityView.this, R.string.title_raw_saved, Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException)
-                    Toast.makeText(ActivityView.this, ex.getMessage(), Toast.LENGTH_LONG).show();
-                else
-                    Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
-            }
-        }.execute(this, args, "raw:save");
-    }
-
-    private void saveAttachment(Intent data) {
-        Bundle args = new Bundle();
-        args.putLong("id", attachment);
-        args.putParcelable("uri", data.getData());
-
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
-                long id = args.getLong("id");
-                Uri uri = args.getParcelable("uri");
-
-                if ("file".equals(uri.getScheme())) {
-                    Log.w("Save attachment uri=" + uri);
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
-                }
-
-                DB db = DB.getInstance(context);
-                EntityAttachment attachment = db.attachment().getAttachment(id);
-                if (attachment == null)
-                    return null;
-                File file = attachment.getFile(context);
-
-                ParcelFileDescriptor pfd = null;
-                OutputStream os = null;
-                InputStream is = null;
-                try {
-                    pfd = context.getContentResolver().openFileDescriptor(uri, "w");
-                    os = new FileOutputStream(pfd.getFileDescriptor());
-                    is = new BufferedInputStream(new FileInputStream(file));
-
-                    byte[] buffer = new byte[MessageHelper.ATTACHMENT_BUFFER_SIZE];
-                    int read;
-                    while ((read = is.read(buffer)) != -1)
-                        os.write(buffer, 0, read);
-                } finally {
-                    try {
-                        if (pfd != null)
-                            pfd.close();
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
-                    try {
-                        if (os != null)
-                            os.close();
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
-                    try {
-                        if (is != null)
-                            is.close();
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Void data) {
-                Toast.makeText(ActivityView.this, R.string.title_attachment_saved, Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException)
-                    Toast.makeText(ActivityView.this, ex.getMessage(), Toast.LENGTH_LONG).show();
-                else
-                    Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
-            }
-        }.execute(this, args, "attachment:save");
-    }
-
-    private void saveAttachments(Intent data) {
-        Bundle args = new Bundle();
-        args.putLong("id", message);
-        args.putParcelable("uri", data.getData());
-
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
-                long id = args.getLong("id");
-                Uri uri = args.getParcelable("uri");
-
-                DB db = DB.getInstance(context);
-                DocumentFile tree = DocumentFile.fromTreeUri(context, uri);
-                List<EntityAttachment> attachments = db.attachment().getAttachments(id);
-                for (EntityAttachment attachment : attachments) {
-                    File file = attachment.getFile(context);
-
-                    String name = Helper.sanitizeFilename(attachment.name);
-                    if (TextUtils.isEmpty(name))
-                        name = Long.toString(attachment.id);
-                    DocumentFile document = tree.createFile(attachment.type, name);
-                    if (document == null)
-                        throw new FileNotFoundException(uri + ":" + name);
-
-                    ParcelFileDescriptor pfd = null;
-                    OutputStream os = null;
-                    InputStream is = null;
-                    try {
-                        pfd = context.getContentResolver().openFileDescriptor(document.getUri(), "w");
-                        os = new FileOutputStream(pfd.getFileDescriptor());
-                        is = new BufferedInputStream(new FileInputStream(file));
-
-                        byte[] buffer = new byte[MessageHelper.ATTACHMENT_BUFFER_SIZE];
-                        int read;
-                        while ((read = is.read(buffer)) != -1)
-                            os.write(buffer, 0, read);
-                    } finally {
-                        try {
-                            if (pfd != null)
-                                pfd.close();
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                        }
-                        try {
-                            if (os != null)
-                                os.close();
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                        }
-                        try {
-                            if (is != null)
-                                is.close();
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                        }
-                    }
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Void data) {
-                Toast.makeText(ActivityView.this, R.string.title_attachments_saved, Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
-            }
-        }.execute(this, args, "attachments:save");
     }
 }

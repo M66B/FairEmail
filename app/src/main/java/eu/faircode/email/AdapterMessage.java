@@ -1693,7 +1693,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onSaveAttachments(TupleMessageEx message) {
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
-                    new Intent(ActivityView.ACTION_STORE_ATTACHMENTS)
+                    new Intent(FragmentMessages.ACTION_STORE_ATTACHMENTS)
                             .putExtra("id", message.id));
         }
 
@@ -2430,7 +2430,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onMenuDecrypt(ActionData data) {
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
-                    new Intent(ActivityView.ACTION_DECRYPT)
+                    new Intent(FragmentMessages.ACTION_DECRYPT)
                             .putExtra("id", data.message.id));
         }
 
@@ -2788,7 +2788,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             } else {
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                 lbm.sendBroadcast(
-                        new Intent(ActivityView.ACTION_STORE_RAW)
+                        new Intent(FragmentMessages.ACTION_STORE_RAW)
                                 .putExtra("id", data.message.id));
             }
         }
