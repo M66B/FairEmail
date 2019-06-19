@@ -191,8 +191,9 @@ class Core {
                                 boolean squash = false;
                                 for (int j = i + 1; j < ops.size(); j++) {
                                     EntityOperation next = ops.get(j);
-                                    if (next.message != null && next.message.equals(op.message) &&
-                                            (EntityOperation.ADD.equals(next.name) || EntityOperation.DELETE.equals(next.name))) {
+                                    if (next.message != null &&
+                                            next.message.equals(op.message) &&
+                                            EntityOperation.ADD.equals(next.name)) {
                                         squash = true;
                                         break;
                                     }
