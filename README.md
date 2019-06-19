@@ -1,3 +1,4 @@
+<img align="right" src="https://raw.githubusercontent.com/M66B/open-source-email/master/app/src/main/res/mipmap-hdpi/ic_launcher.png">
 
 # FairEmail
 
