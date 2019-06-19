@@ -410,12 +410,12 @@ public class EmailProvider {
     private static EmailProvider addSpecials(Context context, EmailProvider provider) {
         if ("imap.gmail.com".equals(provider.imap_host))
             addDocumentation(provider,
-                    "https://www.google.com/settings/security/lesssecureapps",
+                    "https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq6",
                     context.getString(R.string.title_setup_setting_gmail));
 
         if (provider.imap_host.endsWith("yahoo.com"))
             addDocumentation(provider,
-                    "https://login.yahoo.com/account/security#less-secure-apps",
+                    "https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq88",
                     context.getString(R.string.title_setup_setting_yahoo));
 
         return provider;

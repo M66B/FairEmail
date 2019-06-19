@@ -1563,6 +1563,7 @@ For the correct settings, see [here](https://help.yahoo.com/kb/SLN4075.html).
 
 You might need to enable "*less secure sign in*" for "*outdated*" apps,
 see [here](https://help.yahoo.com/kb/grant-temporary-access-outdated-apps-account-settings-sln27791.html).
+You can directly access this setting [here](https://login.yahoo.com/account/security#less-secure-apps).
 
 Note that FairEmail is using the standard [IMAP protocol](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol), which is really not outdated.
 
