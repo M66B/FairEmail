@@ -12,7 +12,7 @@
     <color name="colorActionForegroundDisabled">#ccc</color>
 
     <color name="colorWidgetForeground">#fff</color>
-    <color name="colorWidgetBackground">#3f000000</color>
+    <color name="colorWidgetBackground">#7f000000</color>
 
     <color name="lightColorUnread">#000</color>
     <color name="lightColorItemSelected">#ccc</color>
