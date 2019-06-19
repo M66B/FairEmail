@@ -184,31 +184,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvPort" />
 
-            <Button
-                android:id="@+id/btnAuthorize"
-                style="@style/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:tag="disable"
-                android:text="@string/title_authorize"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/etPort" />
-
-            <TextView
-                android:id="@+id/tvAuthorizeOptional"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:text="@string/title_recommended"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textStyle="italic"
-                app:layout_constraintBottom_toBottomOf="@id/btnAuthorize"
-                app:layout_constraintStart_toEndOf="@id/btnAuthorize"
-                app:layout_constraintTop_toTopOf="@id/btnAuthorize" />
-
             <!-- user -->
 
             <TextView
@@ -220,7 +195,7 @@
                 android:text="@string/title_user"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnAuthorize" />
+                app:layout_constraintTop_toBottomOf="@id/etPort" />
 
             <EditText
                 android:id="@+id/etUser"
@@ -725,6 +700,16 @@
                 android:textIsSelectable="true"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btnSave" />
+
+            <TextView
+                android:id="@+id/tvInstructions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="provider instructions"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvError" />
 
             <eu.faircode.email.ContentLoadingProgressBar
                 android:id="@+id/pbWait"

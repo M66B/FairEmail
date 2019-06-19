@@ -19,8 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.accounts.AuthenticatorException;
-import android.accounts.OperationCanceledException;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Handler;
@@ -232,7 +230,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         return found;
     }
 
-    private int load_server() throws MessagingException, IOException, AuthenticatorException, OperationCanceledException {
+    private int load_server() throws MessagingException, IOException {
         DB db = DB.getInstance(context);
 
         final EntityFolder browsable = db.folder().getBrowsableFolder(folder, query != null);
@@ -255,7 +253,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 String protocol = account.getProtocol();
 
                 // Get properties
-                Properties props = MessageHelper.getSessionProperties(account.auth_type, account.realm, account.insecure);
+                Properties props = MessageHelper.getSessionProperties(account.realm, account.insecure);
                 if (!account.partial_fetch) {
                     props.put("mail.imap.partialfetch", "false");
                     props.put("mail.imaps.partialfetch", "false");

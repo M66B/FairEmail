@@ -1,9 +1,5 @@
 package eu.faircode.email;
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
-import android.accounts.AuthenticatorException;
-import android.accounts.OperationCanceledException;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
@@ -20,7 +16,6 @@ import com.bugsnag.android.BreadcrumbType;
 import com.bugsnag.android.Bugsnag;
 import com.sun.mail.imap.IMAPStore;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -28,7 +23,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.mail.AuthenticationFailedException;
 import javax.mail.MessagingException;
 
 public class ConnectionHelper {
@@ -244,18 +238,8 @@ public class ConnectionHelper {
         return true;
     }
 
-    static void connect(Context context, IMAPStore istore, EntityAccount account)
-            throws MessagingException, AuthenticatorException, OperationCanceledException, IOException {
-        try {
-            istore.connect(account.host, account.port, account.user, account.password);
-        } catch (AuthenticationFailedException ex) {
-            if (account.auth_type == AUTH_TYPE_GMAIL) {
-                account.password = refreshToken(context, "com.google", account.user, account.password);
-                DB.getInstance(context).account().setAccountPassword(account.id, account.password);
-                istore.connect(account.host, account.port, account.user, account.password);
-            } else
-                throw ex;
-        }
+    static void connect(Context context, IMAPStore istore, EntityAccount account) throws MessagingException {
+        istore.connect(account.host, account.port, account.user, account.password);
 
         // https://www.ietf.org/rfc/rfc2971.txt
         if (istore.hasCapability("ID"))
@@ -275,33 +259,6 @@ public class ConnectionHelper {
             } catch (MessagingException ex) {
                 Log.w(ex);
             }
-    }
-
-    static String refreshToken(Context context, String type, String name, String current)
-            throws AuthenticatorException, OperationCanceledException, IOException {
-        if (!Helper.hasValidFingerprint(context))
-            throw new IllegalArgumentException("Please see the FAQ question 109");
-
-        AccountManager am = AccountManager.get(context);
-        Account[] accounts = am.getAccountsByType(type);
-        for (Account account : accounts)
-            if (name.equals(account.name)) {
-                Log.i("Refreshing token");
-                am.invalidateAuthToken(type, current);
-                String refreshed = am.blockingGetAuthToken(account, getAuthTokenType(type), true);
-                if (refreshed == null)
-                    throw new OperationCanceledException("no token");
-                Log.i("Refreshed token");
-                return refreshed;
-            }
-        return current;
-    }
-
-    static String getAuthTokenType(String type) {
-        // https://developers.google.com/gmail/imap/xoauth2-protocol
-        if ("com.google".equals(type))
-            return "oauth2:https://mail.google.com/";
-        return null;
     }
 
     static boolean airplaneMode(Context context) {

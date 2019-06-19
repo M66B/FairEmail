@@ -67,7 +67,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Properties;
 
-import javax.mail.AuthenticationFailedException;
 import javax.mail.Session;
 import javax.mail.Transport;
 
@@ -126,7 +125,6 @@ public class FragmentIdentity extends FragmentBase {
 
     private long id = -1;
     private boolean saving = false;
-    private int auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
     private int color = Color.TRANSPARENT;
     private String signature = null;
 
@@ -213,7 +211,6 @@ public class FragmentIdentity extends FragmentBase {
                 adapterView.setTag(position);
 
                 EntityAccount account = (EntityAccount) adapterView.getAdapter().getItem(position);
-                auth_type = account.auth_type;
 
                 // Select associated provider
                 if (position == 0)
@@ -242,37 +239,13 @@ public class FragmentIdentity extends FragmentBase {
 
                 // Copy account credentials
                 etEmail.setText(account.user);
-                etUser.setTag(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD ? null : account.user);
                 etUser.setText(account.user);
                 tilPassword.getEditText().setText(account.password);
                 etRealm.setText(account.realm);
-                tilPassword.setEnabled(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD);
-                etRealm.setEnabled(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-            }
-        });
-
-        etUser.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String user = etUser.getText().toString();
-                if (auth_type != ConnectionHelper.AUTH_TYPE_PASSWORD && !user.equals(etUser.getTag())) {
-                    auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
-                    tilPassword.getEditText().setText(null);
-                    tilPassword.setEnabled(true);
-                    etRealm.setEnabled(true);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
             }
         });
 
@@ -529,7 +502,6 @@ public class FragmentIdentity extends FragmentBase {
         args.putBoolean("read_receipt", cbReadReceipt.isChecked());
         args.putBoolean("store_sent", cbStoreSent.isChecked());
         args.putLong("account", account == null ? -1 : account.id);
-        args.putInt("auth_type", auth_type);
         args.putString("host", etHost.getText().toString());
         args.putBoolean("starttls", rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls);
         args.putBoolean("insecure", cbInsecure.isChecked());
@@ -574,7 +546,6 @@ public class FragmentIdentity extends FragmentBase {
                 Integer color = args.getInt("color");
                 String signature = args.getString("signature");
 
-                int auth_type = args.getInt("auth_type");
                 String host = args.getString("host");
                 boolean starttls = args.getBoolean("starttls");
                 boolean insecure = args.getBoolean("insecure");
@@ -647,8 +618,6 @@ public class FragmentIdentity extends FragmentBase {
                         return true;
                     if (!Objects.equals(identity.signature, signature))
                         return true;
-                    if (!Objects.equals(identity.auth_type, auth_type))
-                        return true;
                     if (!Objects.equals(identity.host, host))
                         return true;
                     if (!Objects.equals(identity.starttls, starttls))
@@ -690,7 +659,6 @@ public class FragmentIdentity extends FragmentBase {
                 String identityRealm = (identity == null ? null : identity.realm);
 
                 boolean check = (synchronize && (identity == null ||
-                        auth_type != identity.auth_type ||
                         !host.equals(identity.host) || Integer.parseInt(port) != identity.port ||
                         !user.equals(identity.user) || !password.equals(identity.password) ||
                         !Objects.equals(realm, identityRealm) ||
@@ -705,7 +673,7 @@ public class FragmentIdentity extends FragmentBase {
                     String protocol = (starttls ? "smtp" : "smtps");
 
                     // Get properties
-                    Properties props = MessageHelper.getSessionProperties(auth_type, realm, insecure);
+                    Properties props = MessageHelper.getSessionProperties(realm, insecure);
 
                     String haddr;
                     if (use_ip) {
@@ -726,15 +694,7 @@ public class FragmentIdentity extends FragmentBase {
 
                     // Create transport
                     try (Transport itransport = isession.getTransport(protocol)) {
-                        try {
-                            itransport.connect(host, Integer.parseInt(port), user, password);
-                        } catch (AuthenticationFailedException ex) {
-                            if (auth_type == ConnectionHelper.AUTH_TYPE_GMAIL) {
-                                password = ConnectionHelper.refreshToken(context, "com.google", user, password);
-                                itransport.connect(host, Integer.parseInt(port), user, password);
-                            } else
-                                throw ex;
-                        }
+                        itransport.connect(host, Integer.parseInt(port), user, password);
                     }
                 }
 
@@ -751,7 +711,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.color = color;
                     identity.signature = signature;
 
-                    identity.auth_type = auth_type;
+                    identity.auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
                     identity.host = host;
                     identity.starttls = starttls;
                     identity.insecure = insecure;
@@ -836,7 +796,6 @@ public class FragmentIdentity extends FragmentBase {
     public void onSaveInstanceState(Bundle outState) {
         outState.putInt("fair:account", spAccount.getSelectedItemPosition());
         outState.putInt("fair:provider", spProvider.getSelectedItemPosition());
-        outState.putInt("fair:auth_type", auth_type);
         outState.putString("fair:password", tilPassword.getEditText().getText().toString());
         outState.putInt("fair:advanced", grpAdvanced.getVisibility());
         outState.putInt("fair:color", color);
@@ -860,8 +819,6 @@ public class FragmentIdentity extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, final EntityIdentity identity) {
                 if (savedInstanceState == null) {
-                    auth_type = (identity == null ? ConnectionHelper.AUTH_TYPE_PASSWORD : identity.auth_type);
-
                     etName.setText(identity == null ? null : identity.name);
                     etEmail.setText(identity == null ? null : identity.email);
 
@@ -875,7 +832,6 @@ public class FragmentIdentity extends FragmentBase {
                     rgEncryption.check(identity != null && identity.starttls ? R.id.radio_starttls : R.id.radio_ssl);
                     cbInsecure.setChecked(identity == null ? false : identity.insecure);
                     etPort.setText(identity == null ? null : Long.toString(identity.port));
-                    etUser.setTag(identity == null || auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD ? null : identity.user);
                     etUser.setText(identity == null ? null : identity.user);
                     tilPassword.getEditText().setText(identity == null ? null : identity.password);
                     etRealm.setText(identity == null ? null : identity.realm);
@@ -913,16 +869,12 @@ public class FragmentIdentity extends FragmentBase {
                             }
                         }.execute(FragmentIdentity.this, new Bundle(), "identity:count");
                 } else {
-                    auth_type = savedInstanceState.getInt("fair:auth_type");
                     tilPassword.getEditText().setText(savedInstanceState.getString("fair:password"));
                     grpAdvanced.setVisibility(savedInstanceState.getInt("fair:advanced"));
                     color = savedInstanceState.getInt("fair:color");
                 }
 
                 Helper.setViewsEnabled(view, true);
-
-                tilPassword.setEnabled(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD);
-                etRealm.setEnabled(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD);
 
                 setColor(color);
 
@@ -980,9 +932,6 @@ public class FragmentIdentity extends FragmentBase {
                                 if (account.id.equals((identity == null ? -1 : identity.account))) {
                                     spAccount.setTag(pos);
                                     spAccount.setSelection(pos);
-                                    // OAuth token could be updated
-                                    if (pos > 0 && accounts.get(pos).auth_type != ConnectionHelper.AUTH_TYPE_PASSWORD)
-                                        tilPassword.getEditText().setText(accounts.get(pos).password);
                                     break;
                                 }
                             }

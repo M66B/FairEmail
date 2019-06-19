@@ -1384,8 +1384,7 @@ public class FragmentCompose extends FragmentBase {
                         (message.identity == null ? null : db.identity().getIdentity(message.identity));
 
                 // Build message
-                Properties props = MessageHelper.getSessionProperties(
-                        ConnectionHelper.AUTH_TYPE_PASSWORD, null, false);
+                Properties props = MessageHelper.getSessionProperties(null, false);
                 Session isession = Session.getInstance(props, null);
                 MimeMessage imessage = new MimeMessage(isession);
                 MessageHelper.build(context, message, attachments, identity, imessage);

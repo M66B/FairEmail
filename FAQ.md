@@ -198,9 +198,7 @@ The following Android permissions are needed:
 * *foreground service* (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
 * *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while synchronizing messages
 * Optional: *read your contacts* (READ_CONTACTS): to autocomplete addresses and to show photos
-* Optional: *find accounts on the device* (GET_ACCOUNTS): to use [OAuth](https://en.wikipedia.org/wiki/OAuth) instead of passwords
 * Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
-* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): needed to select accounts (not used/needed on later Android versions)
 
 The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
 

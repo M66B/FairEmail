@@ -3513,8 +3513,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                         } else {
                             // Decode message
-                            Properties props = MessageHelper.getSessionProperties(
-                                    ConnectionHelper.AUTH_TYPE_PASSWORD, null, false);
+                            Properties props = MessageHelper.getSessionProperties(null, false);
                             Session isession = Session.getInstance(props, null);
                             ByteArrayInputStream is = new ByteArrayInputStream(decrypted.toByteArray());
                             MimeMessage imessage = new MimeMessage(isession, is);

@@ -19,28 +19,19 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.Manifest;
-import android.accounts.Account;
-import android.accounts.AccountManager;
-import android.accounts.AccountManagerCallback;
-import android.accounts.AccountManagerFuture;
-import android.accounts.AuthenticatorException;
-import android.accounts.OperationCanceledException;
-import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -62,7 +53,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
-import androidx.lifecycle.Lifecycle;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.android.colorpicker.ColorPickerDialog;
@@ -73,7 +63,6 @@ import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.IMAPProtocol;
 
-import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -82,12 +71,10 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Properties;
 
-import javax.mail.AuthenticationFailedException;
 import javax.mail.Folder;
 import javax.mail.Session;
 import javax.mail.Store;
 
-import static android.accounts.AccountManager.newChooseAccountIntent;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
 
@@ -100,8 +87,6 @@ public class FragmentAccount extends FragmentBase {
     private EditText etDomain;
     private Button btnAutoConfig;
 
-    private Button btnAuthorize;
-    private TextView tvAuthorizeOptional;
     private EditText etHost;
     private RadioGroup rgEncryption;
     private CheckBox cbInsecure;
@@ -140,6 +125,7 @@ public class FragmentAccount extends FragmentBase {
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
     private TextView tvError;
+    private TextView tvInstructions;
 
     private ContentLoadingProgressBar pbWait;
 
@@ -150,7 +136,6 @@ public class FragmentAccount extends FragmentBase {
 
     private long id = -1;
     private boolean saving = false;
-    private int auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
     private int color = Color.TRANSPARENT;
 
     @Override
@@ -177,8 +162,6 @@ public class FragmentAccount extends FragmentBase {
         etDomain = view.findViewById(R.id.etDomain);
         btnAutoConfig = view.findViewById(R.id.btnAutoConfig);
 
-        btnAuthorize = view.findViewById(R.id.btnAuthorize);
-        tvAuthorizeOptional = view.findViewById(R.id.tvAuthorizeOptional);
         etHost = view.findViewById(R.id.etHost);
         etPort = view.findViewById(R.id.etPort);
         rgEncryption = view.findViewById(R.id.rgEncryption);
@@ -217,6 +200,7 @@ public class FragmentAccount extends FragmentBase {
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
         tvError = view.findViewById(R.id.tvError);
+        tvInstructions = view.findViewById(R.id.tvInstructions);
 
         pbWait = view.findViewById(R.id.pbWait);
 
@@ -234,9 +218,6 @@ public class FragmentAccount extends FragmentBase {
                 grpServer.setVisibility(position == 1 ? View.VISIBLE : View.GONE);
                 grpAuthorize.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
 
-                btnAuthorize.setVisibility(provider.type == null ? View.GONE : View.VISIBLE);
-                tvAuthorizeOptional.setVisibility(provider.type == null ? View.GONE : View.VISIBLE);
-
                 btnAdvanced.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 if (position == 0)
                     grpAdvanced.setVisibility(View.GONE);
@@ -250,8 +231,6 @@ public class FragmentAccount extends FragmentBase {
                     return;
                 adapterView.setTag(position);
 
-                auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
-
                 etHost.setText(provider.imap_host);
                 etPort.setText(provider.imap_host == null ? null : Integer.toString(provider.imap_port));
                 rgEncryption.check(provider.imap_starttls ? R.id.radio_starttls : R.id.radio_ssl);
@@ -260,8 +239,6 @@ public class FragmentAccount extends FragmentBase {
                 etUser.setText(null);
                 tilPassword.getEditText().setText(null);
                 etRealm.setText(null);
-                tilPassword.setEnabled(true);
-                etRealm.setEnabled(true);
 
                 etName.setText(position > 1 ? provider.name : null);
 
@@ -303,28 +280,6 @@ public class FragmentAccount extends FragmentBase {
             }
         });
 
-        etUser.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String user = etUser.getText().toString();
-                if (auth_type != ConnectionHelper.AUTH_TYPE_PASSWORD && !user.equals(etUser.getTag())) {
-                    auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
-                    tilPassword.getEditText().setText(null);
-                    tilPassword.setEnabled(true);
-                    tilPassword.setEndIconMode(END_ICON_PASSWORD_TOGGLE);
-                    etRealm.setEnabled(true);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
-
         setColor(color);
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -352,39 +307,6 @@ public class FragmentAccount extends FragmentBase {
             @Override
             public void onClick(View v) {
                 setColor(Color.TRANSPARENT);
-            }
-        });
-
-        btnAuthorize.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
-                Log.i("Authorize " + provider);
-
-                if ("com.google".equals(provider.type)) {
-                    if (!Helper.hasValidFingerprint(getContext())) {
-                        Snackbar snackbar = Snackbar.make(view, R.string.title_no_xoauth2, Snackbar.LENGTH_LONG);
-                        final Intent intent = new Intent(Intent.ACTION_VIEW);
-                        intent.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq109"));
-                        if (intent.resolveActivity(getContext().getPackageManager()) != null)
-                            snackbar.setAction(R.string.title_info, new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    startActivity(intent);
-                                }
-                            });
-                        snackbar.show();
-                        return;
-                    }
-
-                    String permission = Manifest.permission.GET_ACCOUNTS;
-                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O &&
-                            !Helper.hasPermission(getContext(), permission)) {
-                        Log.i("Requesting " + permission);
-                        requestPermissions(new String[]{permission}, ActivitySetup.REQUEST_PERMISSION);
-                    } else
-                        selectAccount();
-                }
             }
         });
 
@@ -465,8 +387,6 @@ public class FragmentAccount extends FragmentBase {
 
         btnAutoConfig.setEnabled(false);
 
-        btnAuthorize.setVisibility(View.GONE);
-        tvAuthorizeOptional.setVisibility(View.GONE);
         rgEncryption.setVisibility(View.GONE);
         cbInsecure.setVisibility(View.GONE);
         tilPassword.setEndIconMode(id < 0 ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
@@ -482,6 +402,8 @@ public class FragmentAccount extends FragmentBase {
         btnSave.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
         tvError.setVisibility(View.GONE);
+        tvInstructions.setVisibility(View.GONE);
+        tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
 
         grpServer.setVisibility(View.GONE);
         grpAuthorize.setVisibility(View.GONE);
@@ -534,7 +456,6 @@ public class FragmentAccount extends FragmentBase {
     private void onCheck() {
         Bundle args = new Bundle();
         args.putLong("id", id);
-        args.putInt("auth_type", auth_type);
         args.putString("host", etHost.getText().toString());
         args.putBoolean("starttls", rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls);
         args.putBoolean("insecure", cbInsecure.isChecked());
@@ -554,6 +475,7 @@ public class FragmentAccount extends FragmentBase {
                 tvUtf8.setVisibility(View.GONE);
                 grpFolders.setVisibility(View.GONE);
                 tvError.setVisibility(View.GONE);
+                tvInstructions.setVisibility(View.GONE);
             }
 
             @Override
@@ -567,7 +489,6 @@ public class FragmentAccount extends FragmentBase {
             @Override
             protected CheckResult onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
-                int auth_type = args.getInt("auth_type");
                 String host = args.getString("host");
                 boolean starttls = args.getBoolean("starttls");
                 boolean insecure = args.getBoolean("insecure");
@@ -595,19 +516,11 @@ public class FragmentAccount extends FragmentBase {
                 result.folders = new ArrayList<>();
 
                 // Check IMAP server / get folders
-                Properties props = MessageHelper.getSessionProperties(auth_type, realm, insecure);
+                Properties props = MessageHelper.getSessionProperties(realm, insecure);
                 Session isession = Session.getInstance(props, null);
                 isession.setDebug(true);
                 try (Store istore = isession.getStore("imap" + (starttls ? "" : "s"))) {
-                    try {
-                        istore.connect(host, Integer.parseInt(port), user, password);
-                    } catch (AuthenticationFailedException ex) {
-                        if (auth_type == ConnectionHelper.AUTH_TYPE_GMAIL) {
-                            password = ConnectionHelper.refreshToken(context, "com.google", user, password);
-                            istore.connect(host, Integer.parseInt(port), user, password);
-                        } else
-                            throw ex;
-                    }
+                    istore.connect(host, Integer.parseInt(port), user, password);
 
                     result.idle = ((IMAPStore) istore).hasCapability("IDLE");
 
@@ -729,10 +642,21 @@ public class FragmentAccount extends FragmentBase {
                 else {
                     tvError.setText(Helper.formatThrowable(ex));
                     tvError.setVisibility(View.VISIBLE);
+
+                    final View target;
+
+                    EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
+                    if (provider != null && provider.documentation != null) {
+                        tvInstructions.setText(HtmlHelper.fromHtml(provider.documentation.toString()));
+                        tvInstructions.setVisibility(View.VISIBLE);
+                        target = tvInstructions;
+                    } else
+                        target = tvError;
+
                     new Handler().post(new Runnable() {
                         @Override
                         public void run() {
-                            scroll.smoothScrollTo(0, tvError.getBottom());
+                            scroll.smoothScrollTo(0, target.getBottom());
                         }
                     });
                 }
@@ -767,7 +691,6 @@ public class FragmentAccount extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("id", id);
 
-        args.putInt("auth_type", auth_type);
         args.putString("host", etHost.getText().toString());
         args.putBoolean("starttls", rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls);
         args.putBoolean("insecure", cbInsecure.isChecked());
@@ -818,7 +741,6 @@ public class FragmentAccount extends FragmentBase {
             protected Boolean onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
 
-                int auth_type = args.getInt("auth_type");
                 String host = args.getString("host");
                 boolean starttls = args.getBoolean("starttls");
                 boolean insecure = args.getBoolean("insecure");
@@ -874,8 +796,6 @@ public class FragmentAccount extends FragmentBase {
                     if (account == null)
                         return !TextUtils.isEmpty(host) && !TextUtils.isEmpty(user);
 
-                    if (!Objects.equals(account.auth_type, auth_type))
-                        return true;
                     if (!Objects.equals(account.host, host))
                         return true;
                     if (!Objects.equals(account.starttls, starttls))
@@ -938,7 +858,6 @@ public class FragmentAccount extends FragmentBase {
                 String accountRealm = (account == null ? null : account.realm);
 
                 boolean check = (synchronize && (account == null ||
-                        auth_type != account.auth_type ||
                         !host.equals(account.host) || Integer.parseInt(port) != account.port ||
                         !user.equals(account.user) || !password.equals(account.password) ||
                         !Objects.equals(realm, accountRealm)));
@@ -955,20 +874,12 @@ public class FragmentAccount extends FragmentBase {
                 // Check IMAP server
                 EntityFolder inbox = null;
                 if (check) {
-                    Properties props = MessageHelper.getSessionProperties(auth_type, realm, insecure);
+                    Properties props = MessageHelper.getSessionProperties(realm, insecure);
                     Session isession = Session.getInstance(props, null);
                     isession.setDebug(true);
 
                     try (Store istore = isession.getStore("imap" + (starttls ? "" : "s"))) {
-                        try {
-                            istore.connect(host, Integer.parseInt(port), user, password);
-                        } catch (AuthenticationFailedException ex) {
-                            if (auth_type == ConnectionHelper.AUTH_TYPE_GMAIL) {
-                                password = ConnectionHelper.refreshToken(context, "com.google", user, password);
-                                istore.connect(host, Integer.parseInt(port), user, password);
-                            } else
-                                throw ex;
-                        }
+                        istore.connect(host, Integer.parseInt(port), user, password);
 
                         for (Folder ifolder : istore.getDefaultFolder().list("*")) {
                             // Check folder attributes
@@ -998,7 +909,7 @@ public class FragmentAccount extends FragmentBase {
                     if (account == null)
                         account = new EntityAccount();
 
-                    account.auth_type = auth_type;
+                    account.auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
                     account.host = host;
                     account.starttls = starttls;
                     account.insecure = insecure;
@@ -1178,7 +1089,6 @@ public class FragmentAccount extends FragmentBase {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putInt("fair:provider", spProvider.getSelectedItemPosition());
-        outState.putInt("fair:auth_type", auth_type);
         outState.putString("fair:password", tilPassword.getEditText().getText().toString());
         outState.putInt("fair:advanced", grpAdvanced.getVisibility());
         outState.putInt("fair:color", color);
@@ -1212,8 +1122,6 @@ public class FragmentAccount extends FragmentBase {
                 spProvider.setAdapter(aaProvider);
 
                 if (savedInstanceState == null) {
-                    auth_type = (account == null ? ConnectionHelper.AUTH_TYPE_PASSWORD : account.auth_type);
-
                     if (account != null) {
                         boolean found = false;
                         for (int pos = 2; pos < providers.size(); pos++) {
@@ -1237,7 +1145,6 @@ public class FragmentAccount extends FragmentBase {
                     rgEncryption.check(account != null && account.starttls ? R.id.radio_starttls : R.id.radio_ssl);
                     cbInsecure.setChecked(account == null ? false : account.insecure);
 
-                    etUser.setTag(account == null || auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD ? null : account.user);
                     etUser.setText(account == null ? null : account.user);
                     tilPassword.getEditText().setText(account == null ? null : account.password);
                     etRealm.setText(account == null ? null : account.realm);
@@ -1275,16 +1182,12 @@ public class FragmentAccount extends FragmentBase {
                     spProvider.setTag(provider);
                     spProvider.setSelection(provider);
 
-                    auth_type = savedInstanceState.getInt("fair:auth_type");
                     tilPassword.getEditText().setText(savedInstanceState.getString("fair:password"));
                     grpAdvanced.setVisibility(savedInstanceState.getInt("fair:advanced"));
                     color = savedInstanceState.getInt("fair:color");
                 }
 
                 Helper.setViewsEnabled(view, true);
-
-                tilPassword.setEnabled(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD);
-                etRealm.setEnabled(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD);
 
                 setColor(color);
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
@@ -1394,103 +1297,6 @@ public class FragmentAccount extends FragmentBase {
                 })
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        if (requestCode == ActivitySetup.REQUEST_PERMISSION)
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                selectAccount();
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == Activity.RESULT_OK)
-            if (requestCode == ActivitySetup.REQUEST_CHOOSE_ACCOUNT) {
-                String name = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
-                String type = data.getStringExtra(AccountManager.KEY_ACCOUNT_TYPE);
-
-                AccountManager am = AccountManager.get(getContext());
-                Account[] accounts = am.getAccountsByType(type);
-                Log.i("Accounts=" + accounts.length);
-                for (final Account account : accounts)
-                    if (name.equals(account.name)) {
-                        btnAuthorize.setEnabled(false);
-                        etUser.setEnabled(false);
-                        tilPassword.setEnabled(false);
-                        etRealm.setEnabled(false);
-                        btnCheck.setEnabled(false);
-                        btnSave.setEnabled(false);
-                        final Snackbar snackbar = Snackbar.make(view, R.string.title_authorizing, Snackbar.LENGTH_SHORT);
-                        snackbar.show();
-
-                        am.getAuthToken(
-                                account,
-                                ConnectionHelper.getAuthTokenType(type),
-                                new Bundle(),
-                                getActivity(),
-                                new AccountManagerCallback<Bundle>() {
-                                    @Override
-                                    public void run(AccountManagerFuture<Bundle> future) {
-                                        try {
-                                            Bundle bundle = future.getResult();
-                                            String token = bundle.getString(AccountManager.KEY_AUTHTOKEN);
-                                            Log.i("Got token");
-
-                                            auth_type = ConnectionHelper.AUTH_TYPE_GMAIL;
-                                            etUser.setTag(account.name);
-                                            etUser.setText(account.name);
-                                            etUser.setTag(account.name);
-                                            tilPassword.getEditText().setText(token);
-                                            etRealm.setText(null);
-                                        } catch (Throwable ex) {
-                                            Log.e(ex);
-                                            if (ex instanceof OperationCanceledException ||
-                                                    ex instanceof AuthenticatorException ||
-                                                    ex instanceof IOException) {
-                                                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                                                    Snackbar.make(view, Helper.formatThrowable(ex), Snackbar.LENGTH_LONG).show();
-                                            } else
-                                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                                        } finally {
-                                            btnAuthorize.setEnabled(true);
-                                            etUser.setEnabled(true);
-                                            tilPassword.setEnabled(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD);
-                                            tilPassword.setEndIconMode(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD
-                                                    ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
-                                            etRealm.setEnabled(auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD);
-                                            btnCheck.setEnabled(true);
-                                            btnSave.setEnabled(true);
-                                            new Handler().postDelayed(new Runnable() {
-                                                @Override
-                                                public void run() {
-                                                    snackbar.dismiss();
-                                                }
-                                            }, 1000);
-                                        }
-                                    }
-                                },
-                                null);
-                        break;
-                    }
-            }
-    }
-
-    private void selectAccount() {
-        Log.i("Select account");
-        EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
-        if (provider.type != null)
-            startActivityForResult(
-                    Helper.getChooser(getContext(), newChooseAccountIntent(
-                            null,
-                            null,
-                            new String[]{provider.type},
-                            false,
-                            null,
-                            null,
-                            null,
-                            null)),
-                    ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
     }
 
     private void setColor(int color) {

@@ -19,8 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.accounts.AuthenticatorException;
-import android.accounts.OperationCanceledException;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -51,7 +49,6 @@ import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Address;
-import javax.mail.AuthenticationFailedException;
 import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
@@ -253,7 +250,7 @@ public class ServiceSend extends LifecycleService {
         }
     };
 
-    private void send(EntityMessage message) throws MessagingException, IOException, AuthenticatorException, OperationCanceledException {
+    private void send(EntityMessage message) throws MessagingException, IOException {
         DB db = DB.getInstance(this);
 
         // Mark attempt
@@ -269,7 +266,7 @@ public class ServiceSend extends LifecycleService {
         String protocol = ident.getProtocol();
 
         // Get properties
-        Properties props = MessageHelper.getSessionProperties(ident.auth_type, ident.realm, ident.insecure);
+        Properties props = MessageHelper.getSessionProperties(ident.realm, ident.insecure);
 
         String haddr;
         if (ident.use_ip) {
@@ -323,18 +320,7 @@ public class ServiceSend extends LifecycleService {
         try (Transport itransport = isession.getTransport(protocol)) {
             // Connect transport
             db.identity().setIdentityState(ident.id, "connecting");
-            try {
-                itransport.connect(ident.host, ident.port, ident.user, ident.password);
-            } catch (AuthenticationFailedException ex) {
-                if (ident.auth_type == ConnectionHelper.AUTH_TYPE_GMAIL) {
-                    EntityAccount account = db.account().getAccount(ident.account);
-                    ident.password = ConnectionHelper.refreshToken(this, "com.google", ident.user, account.password);
-                    DB.getInstance(this).identity().setIdentityPassword(ident.id, ident.password);
-                    itransport.connect(ident.host, ident.port, ident.user, ident.password);
-                } else
-                    throw ex;
-            }
-
+            itransport.connect(ident.host, ident.port, ident.user, ident.password);
             db.identity().setIdentityState(ident.id, "connected");
 
             // Send message

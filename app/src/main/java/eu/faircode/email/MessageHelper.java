@@ -106,7 +106,7 @@ public class MessageHelper {
         System.setProperty("mail.mime.multipart.ignoreexistingboundaryparameter", "true");
     }
 
-    static Properties getSessionProperties(int auth_type, String realm, boolean insecure) {
+    static Properties getSessionProperties(String realm, boolean insecure) {
         Properties props = new Properties();
 
         props.put("mail.event.scope", "folder");
@@ -202,15 +202,6 @@ public class MessageHelper {
         if (false) {
             Log.i("Prefering IPv4");
             System.setProperty("java.net.preferIPv4Stack", "true");
-        }
-
-        // https://javaee.github.io/javamail/OAuth2
-        Log.i("Auth type=" + auth_type);
-        if (auth_type == ConnectionHelper.AUTH_TYPE_GMAIL) {
-            props.put("mail.imaps.auth.mechanisms", "XOAUTH2");
-            props.put("mail.imap.auth.mechanisms", "XOAUTH2");
-            props.put("mail.smtps.auth.mechanisms", "XOAUTH2");
-            props.put("mail.smtp.auth.mechanisms", "XOAUTH2");
         }
 
         return props;

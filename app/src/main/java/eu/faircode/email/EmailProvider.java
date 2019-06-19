@@ -119,6 +119,7 @@ public class EmailProvider {
                         throw new IllegalAccessException(name);
                 } else if (eventType == XmlPullParser.END_TAG) {
                     if ("provider".equals(xml.getName())) {
+                        addSpecials(context, provider);
                         result.add(provider);
                         provider = null;
                     }
@@ -411,12 +412,12 @@ public class EmailProvider {
         if ("imap.gmail.com".equals(provider.imap_host))
             addDocumentation(provider,
                     "https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq6",
-                    context.getString(R.string.title_setup_setting_gmail));
+                    context.getString(R.string.title_setup_instructions));
 
         if (provider.imap_host.endsWith("yahoo.com"))
             addDocumentation(provider,
                     "https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq88",
-                    context.getString(R.string.title_setup_setting_yahoo));
+                    context.getString(R.string.title_setup_instructions));
 
         return provider;
     }
@@ -438,12 +439,6 @@ public class EmailProvider {
 
         Log.i("Found dns=" + (records == null ? -1 : records.length));
         return (records == null || records.length == 0 ? null : (SRVRecord) records[0]);
-    }
-
-    int getAuthType() {
-        if ("com.google".equals(type))
-            return ConnectionHelper.AUTH_TYPE_GMAIL;
-        return ConnectionHelper.AUTH_TYPE_PASSWORD;
     }
 
     @Override
