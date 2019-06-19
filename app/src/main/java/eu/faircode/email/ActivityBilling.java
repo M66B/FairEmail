@@ -168,7 +168,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             String text = getBillingResponseText(result);
             Log.i("IAB launch billing flow response=" + text);
             if (result.getResponseCode() != BillingClient.BillingResponseCode.OK)
-                Toast.makeText(ActivityBilling.this, text, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, text, Toast.LENGTH_LONG).show();
         } else
             Helper.view(this, this, getIntentPro());
     }
@@ -188,10 +188,10 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                         .putBoolean("play_store", false)
                         .apply();
                 Log.i("Response valid");
-                Toast.makeText(ActivityBilling.this, R.string.title_pro_valid, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.title_pro_valid, Toast.LENGTH_LONG).show();
             } else {
                 Log.i("Response invalid");
-                Toast.makeText(ActivityBilling.this, R.string.title_pro_invalid, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.title_pro_invalid, Toast.LENGTH_LONG).show();
             }
         } catch (NoSuchAlgorithmException ex) {
             Log.e(ex);
@@ -242,7 +242,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         if (result.getResponseCode() == BillingClient.BillingResponseCode.OK)
             checkPurchases(purchases);
         else
-            Toast.makeText(ActivityBilling.this, text, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, text, Toast.LENGTH_LONG).show();
     }
 
     private void queryPurchases() {
@@ -253,7 +253,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         if (result.getResponseCode() == BillingClient.BillingResponseCode.OK)
             checkPurchases(result.getPurchasesList());
         else
-            Toast.makeText(ActivityBilling.this, text, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, text, Toast.LENGTH_LONG).show();
     }
 
     interface IBillingListener {
@@ -328,11 +328,11 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
 
                     } else {
                         Log.w("Invalid signature");
-                        Toast.makeText(ActivityBilling.this, R.string.title_pro_invalid, Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, R.string.title_pro_invalid, Toast.LENGTH_LONG).show();
                     }
                 } catch (Throwable ex) {
                     Log.e(ex);
-                    Toast.makeText(ActivityBilling.this, Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
                 }
 
             editor.apply();
