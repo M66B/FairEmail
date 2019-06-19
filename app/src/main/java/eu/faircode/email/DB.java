@@ -54,7 +54,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 89,
+        version = 88,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -874,14 +874,6 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `account` ADD COLUMN `partial_fetch` INTEGER NOT NULL DEFAULT 1");
-                    }
-                })
-                .addMigrations(new Migration(88, 89) {
-                    @Override
-                    public void migrate(SupportSQLiteDatabase db) {
-                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
-                        db.execSQL("UPDATE account SET synchronize = 0 WHERE auth_type = " + ConnectionHelper.AUTH_TYPE_GMAIL);
-                        db.execSQL("UPDATE identity SET synchronize = 0 WHERE auth_type = " + ConnectionHelper.AUTH_TYPE_GMAIL);
                     }
                 })
                 .build();
