@@ -1054,6 +1054,12 @@ public class FragmentAccount extends FragmentBase {
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
+                                    new Handler().post(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            scroll.smoothScrollTo(0, btnSave.getBottom());
+                                        }
+                                    });
                                     onSave(false);
                                 }
                             })

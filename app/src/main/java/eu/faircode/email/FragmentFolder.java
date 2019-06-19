@@ -24,6 +24,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -35,6 +36,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -46,6 +48,8 @@ import java.util.Objects;
 
 public class FragmentFolder extends FragmentBase {
     private ViewGroup view;
+    private ScrollView scroll;
+
     private EditText etName;
     private EditText etDisplay;
     private CheckBox cbHide;
@@ -86,6 +90,7 @@ public class FragmentFolder extends FragmentBase {
         setHasOptionsMenu(true);
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_folder, container, false);
+        scroll = view.findViewById(R.id.scroll);
 
         // Get controls
         etName = view.findViewById(R.id.etName);
@@ -317,6 +322,12 @@ public class FragmentFolder extends FragmentBase {
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
+                                    new Handler().post(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            scroll.smoothScrollTo(0, btnSave.getBottom());
+                                        }
+                                    });
                                     onSave(false);
                                 }
                             })
