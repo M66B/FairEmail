@@ -14,8 +14,6 @@ An internet connection is required to setup accounts and identities.
 
 Just enter your name, email address and password and tap *Go*.
 
-If you have a Google account, preferably use *Select account* instead of entering an email address and a password.
-
 This will work for most major email providers.
 
 If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
@@ -25,7 +23,6 @@ If the quick setup doesn't work, you'll need to setup an account and an identity
 
 To add an account, tap on *Manage accounts* and tap on the orange *add* button at the bottom.
 Select a provider from the list, enter the username, which is mostly your email address and enter your password.
-If you use Gmail, tap *Select account* to fill in the username and password.
 Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders.
 After reviewing the system folder selection you can add the account by tapping *Save*.
 
