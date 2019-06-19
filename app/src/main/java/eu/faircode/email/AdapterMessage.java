@@ -75,7 +75,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -1413,9 +1412,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (message.ui_snoozed != null) {
                 DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
                 DateFormat day = new SimpleDateFormat("E");
-                Toast.makeText(context,
+                Snackbar.make(view,
                         day.format(message.ui_snoozed) + " " + df.format(message.ui_snoozed),
-                        Toast.LENGTH_LONG).show();
+                        Snackbar.LENGTH_LONG).show();
             }
         }
 
@@ -1623,7 +1622,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 PackageManager pm = context.getPackageManager();
                 if (edit.resolveActivity(pm) == null)
-                    Toast.makeText(context, R.string.title_no_contacts, Toast.LENGTH_LONG).show();
+                    Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
                 else
                     context.startActivity(edit);
             }
@@ -2663,7 +2662,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     PackageManager pm = context.getPackageManager();
                     if (share.resolveActivity(pm) == null)
-                        Toast.makeText(context, R.string.title_no_viewer, Toast.LENGTH_LONG).show();
+                        Snackbar.make(view, R.string.title_no_viewer, Snackbar.LENGTH_LONG).show();
                     else
                         context.startActivity(share);
                 }

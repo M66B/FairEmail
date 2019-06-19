@@ -40,7 +40,6 @@ import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
 import android.print.PrintManager;
 import android.text.TextUtils;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -786,11 +785,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             protected void onExecuted(Bundle args, UpdateInfo info) {
                 boolean always = args.getBoolean("always");
                 if (info == null) {
-                    if (always) {
-                        Toast toast = Toast.makeText(ActivityView.this, BuildConfig.VERSION_NAME, Toast.LENGTH_LONG);
-                        toast.setGravity(Gravity.CENTER, 0, 0);
-                        toast.show();
-                    }
+                    if (always)
+                        Toast.makeText(ActivityView.this, BuildConfig.VERSION_NAME, Toast.LENGTH_LONG).show();
                     return;
                 }
 
