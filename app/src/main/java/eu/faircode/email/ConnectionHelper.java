@@ -97,8 +97,8 @@ public class ConnectionHelper {
     static NetworkState getNetworkState(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean metered = prefs.getBoolean("metered", true);
-        boolean rlah = prefs.getBoolean("rlah", true);
         boolean roaming = prefs.getBoolean("roaming", true);
+        boolean rlah = prefs.getBoolean("rlah", true);
 
         NetworkState state = new NetworkState();
         Boolean isMetered = isMetered(context);
