@@ -60,6 +60,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
@@ -1050,7 +1051,7 @@ public class ServiceSynchronize extends LifecycleService {
                         }
                     };
 
-                    String id = BuildConfig.APPLICATION_ID + ".POLL." + account.id;
+                    String id = BuildConfig.APPLICATION_ID + ".POLL." + account.id + "." + new Random().nextInt();
                     PendingIntent pi = PendingIntent.getBroadcast(this, 0, new Intent(id), 0);
                     registerReceiver(alarm, new IntentFilter(id));
 
@@ -1175,7 +1176,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 }
                             };
 
-                            String id = BuildConfig.APPLICATION_ID + ".BACKOFF." + account.id;
+                            String id = BuildConfig.APPLICATION_ID + ".BACKOFF." + account.id + "." + new Random().nextInt();
                             PendingIntent pi = PendingIntent.getBroadcast(this, 0, new Intent(id), 0);
                             registerReceiver(alarm, new IntentFilter(id));
 
