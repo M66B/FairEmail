@@ -59,7 +59,7 @@ Fonts, sizes, colors, etc should be material design wherever possible.
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
 * Open links without confirmation
-* Show original messages without confirmation, see also [this FAQ](#user-content-faq35)
+* Show images and original messages without confirmation, see also [this FAQ](#user-content-faq35)
 * Direct file/folder access: for security/privacy reasons (other) apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider), see also [this FAQ](#user-content-faq49)
 
 Confirmation is just one tap, which is just a small price for better privacy.
