@@ -659,6 +659,8 @@ public class FragmentIdentity extends FragmentBase {
                         return true;
                     if (!Objects.equals(identity.store_sent, store_sent))
                         return true;
+                    if (identity.error != null)
+                        return true;
 
                     return false;
                 }
@@ -666,7 +668,7 @@ public class FragmentIdentity extends FragmentBase {
                 String identityRealm = (identity == null ? null : identity.realm);
 
                 boolean check = (synchronize && (identity == null ||
-                        !identity.synchronize ||
+                        !identity.synchronize || identity.error != null ||
                         !host.equals(identity.host) || Integer.parseInt(port) != identity.port ||
                         !user.equals(identity.user) || !password.equals(identity.password) ||
                         !Objects.equals(realm, identityRealm) ||

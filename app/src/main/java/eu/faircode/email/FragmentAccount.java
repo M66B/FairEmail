@@ -833,13 +833,16 @@ public class FragmentAccount extends FragmentBase {
                     if (!Objects.equals(account.swipe_right, right == null ? null : right.id == null ? -1L : right.id))
                         return true;
 
+                    if (account.error != null)
+                        return true;
+
                     return false;
                 }
 
                 String accountRealm = (account == null ? null : account.realm);
 
                 boolean check = (synchronize && (account == null ||
-                        !account.synchronize ||
+                        !account.synchronize || account.error != null ||
                         !host.equals(account.host) || Integer.parseInt(port) != account.port ||
                         !user.equals(account.user) || !password.equals(account.password) ||
                         !Objects.equals(realm, accountRealm) ||
