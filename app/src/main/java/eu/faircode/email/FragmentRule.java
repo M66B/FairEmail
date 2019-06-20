@@ -201,6 +201,10 @@ public class FragmentRule extends FragmentBase {
         tvAutomation = view.findViewById(R.id.tvAutomation);
 
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
+
+        for (int i = 0; i < bottom_navigation.getMenu().size(); i++)
+            bottom_navigation.getMenu().getItem(i).getIcon().mutate();
+
         pbWait = view.findViewById(R.id.pbWait);
 
         grpReady = view.findViewById(R.id.grpReady);

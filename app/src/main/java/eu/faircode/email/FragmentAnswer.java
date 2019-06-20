@@ -71,7 +71,12 @@ public class FragmentAnswer extends FragmentBase {
         cbHide = view.findViewById(R.id.cbHide);
         etText = view.findViewById(R.id.etText);
         ibInfo = view.findViewById(R.id.ibInfo);
+
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
+
+        for (int i = 0; i < bottom_navigation.getMenu().size(); i++)
+            bottom_navigation.getMenu().getItem(i).getIcon().mutate();
+
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
 

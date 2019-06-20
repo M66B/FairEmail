@@ -244,7 +244,12 @@ public class FragmentCompose extends FragmentBase {
         ibReferenceEdit = view.findViewById(R.id.ibReferenceEdit);
         ibReferenceImages = view.findViewById(R.id.ibReferenceImages);
         edit_bar = view.findViewById(R.id.edit_bar);
+
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
+
+        for (int i = 0; i < bottom_navigation.getMenu().size(); i++)
+            bottom_navigation.getMenu().getItem(i).getIcon().mutate();
+
         pbWait = view.findViewById(R.id.pbWait);
         grpHeader = view.findViewById(R.id.grpHeader);
         grpExtra = view.findViewById(R.id.grpExtra);
@@ -342,7 +347,6 @@ public class FragmentCompose extends FragmentBase {
         Intent record_audio = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
         edit_bar.getMenu().findItem(R.id.menu_take_photo).setVisible(take_photo.resolveActivity(pm) != null);
         edit_bar.getMenu().findItem(R.id.menu_record_audio).setVisible(record_audio.resolveActivity(pm) != null);
-
 
         edit_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

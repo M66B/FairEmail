@@ -314,7 +314,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         seekBar = view.findViewById(R.id.seekBar);
         ibDown = view.findViewById(R.id.ibDown);
         ibUp = view.findViewById(R.id.ibUp);
+
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
+
+        for (int i = 0; i < bottom_navigation.getMenu().size(); i++)
+            bottom_navigation.getMenu().getItem(i).getIcon().mutate();
+
         pbWait = view.findViewById(R.id.pbWait);
         grpSupport = view.findViewById(R.id.grpSupport);
         grpHintSupport = view.findViewById(R.id.grpHintSupport);
