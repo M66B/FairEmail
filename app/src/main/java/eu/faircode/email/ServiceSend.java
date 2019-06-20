@@ -333,6 +333,8 @@ public class ServiceSend extends LifecycleService {
             // Append replied/forwarded text
             StringBuilder sb = new StringBuilder();
             sb.append(Helper.readText(message.getFile(this)));
+            if (!TextUtils.isEmpty(ident.signature))
+                sb.append(ident.signature);
             File refFile = message.getRefFile(this);
             if (refFile.exists())
                 sb.append(Helper.readText(refFile));
