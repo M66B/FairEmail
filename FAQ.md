@@ -48,8 +48,8 @@ Anything on this list is in random order and *might* be added in the near future
 
 ## Frequently requested features
 
-* *Widget to read messages*: widgets can have limited user interaction only, so a widget to read conversations would not be very convenient. Moreover, it would be not very useful to duplicate functions which are already available in the app.
 * *Design*: the design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. See below for the design goals.
+* *Widget to read messages*: widgets can have limited user interaction only, so a widget to read conversations would not be very convenient. Moreover, it would be not very useful to duplicate functions which are already available in the app.
 * *ActiveSync*: using the Exchange ActiveSync protocol requires [a license](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing), so this cannot be added.
 
 The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc).
@@ -59,7 +59,7 @@ Fonts, sizes, colors, etc should be material design wherever possible.
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
 * Open links without confirmation
-* Show original messages from unknown senders without confirmation, see also [this FAQ](#user-content-faq35)
+* Show original messages without confirmation, see also [this FAQ](#user-content-faq35)
 * Direct file/folder access: for security/privacy reasons (other) apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider), see also [this FAQ](#user-content-faq49)
 
 Confirmation is just one tap, which is just a small price for better privacy.
