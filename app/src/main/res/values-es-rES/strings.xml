@@ -84,6 +84,7 @@
     <string name="title_setup_quick_imap">Servidor IMAP para recibir mensajes</string>
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensajes</string>
     <string name="title_setup_go">Comenzar</string>
+    <string name="title_setup_instructions">Instrucciones de configuración</string>
     <string name="title_setup_no_settings">No se encontraron ajustes para el dominio \'%1$s\'</string>
     <string name="title_setup_quick_success">Una cuenta y una identidad han sido añadidas con éxito</string>
     <string name="title_setup_quick_failed">Puede intentar configurar una cuenta y una identidad a continuación también</string>
@@ -277,6 +278,7 @@
     <string name="title_no_idle">Este proveedor no es compatible con mensajes push. Esto retrasará la recepción de nuevos mensajes y aumentará el uso de batería.</string>
     <string name="title_no_utf8">Este proveedor no es compatible con UTF-8</string>
     <string name="title_no_sync">Errores de sincronización desde %1$s</string>
+    <string name="title_authorization_required">Autorización requerida</string>
     <string name="title_identity_required">Se requiere una identidad para enviar mensajes</string>
     <string name="title_drafts_required">Una carpeta de borradores es necesaria para enviar mensajes</string>
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>

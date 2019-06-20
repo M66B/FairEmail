@@ -100,6 +100,7 @@
     <string name="title_setup_quick_imap">IMAP server pro příjem zpráv</string>
     <string name="title_setup_quick_smtp">SMTP server pro odesílání zpráv</string>
     <string name="title_setup_go">Přejít</string>
+    <string name="title_setup_instructions">Pokyny pro nastavení</string>
     <string name="title_setup_no_settings">Pro doménu \'%1$s\' nebylo nalezeno žádné nastavení</string>
     <string name="title_setup_quick_success">Účet a identita byly úspěšně přidány</string>
     <string name="title_setup_quick_failed">Účet a identitu můžete také zkusit nastavit níže</string>
@@ -293,6 +294,7 @@
     <string name="title_no_idle">Tento poskytovatel nepodporuje okamžitá oznámení zpráv. Následkem bude opožděný příjem nových zpráv a zvýšená spotřeba baterie.</string>
     <string name="title_no_utf8">Tento poskytovatel nepodporuje UTF-8</string>
     <string name="title_no_sync">Chyby synchronizace od %1$s</string>
+    <string name="title_authorization_required">Vyžadována autorizace</string>
     <string name="title_identity_required">Identita je vyžadována pro odesílání zpráv</string>
     <string name="title_drafts_required">Složka konceptů je vyžadována pro odesílání zpráv</string>
     <string name="title_account_delete">Trvale smazat tento účet?</string>
