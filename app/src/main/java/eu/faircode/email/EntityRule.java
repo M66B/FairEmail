@@ -250,12 +250,8 @@ public class EntityRule {
 
         List<EntityMessage> messages = db.message().getMessageByThread(
                 message.account, message.thread, thread ? null : message.id, message.folder);
-        for (EntityMessage threaded : messages) {
-            if (seen)
-                EntityOperation.queue(context, threaded, EntityOperation.SEEN, seen);
-
-            EntityOperation.queue(context, threaded, EntityOperation.MOVE, target, false);
-        }
+        for (EntityMessage threaded : messages)
+            EntityOperation.queue(context, threaded, EntityOperation.MOVE, target, seen);
 
         if (seen)
             message.seen = true;
