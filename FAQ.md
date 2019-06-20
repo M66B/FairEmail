@@ -183,6 +183,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(108) Can you add permanently delete messages from any folder?](#user-content-faq108)
 * [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
 * [(110) Why are (some) messages empty and/or attachments corrupted?](#user-content-faq110)
+* [(111) Can you add OAuth authentication?](#user-content-faq111)
 
 [I have another question.](#support)
 
@@ -479,11 +480,6 @@ Searching messages is a pro feature.
 
 To use Outlook or Hotmail with two factor authentication enabled, you need to create an app password.
 See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
-
-Unfortunately, Outlook and Hotmail do not properly support OAuth for IMAP/SMTP connections, so there is no other way.
-
-Technical background: [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-android) is supported for business accounts only
-and OAuth requires embedding a client secret in the app.
 
 <br />
 
@@ -1189,7 +1185,6 @@ The following authentication methods are supported and used in this order:
 * LOGIN
 * PLAIN
 * NTLM (untested)
-* XOAUTH2 (used when a Google account is selected)
 
 SASL authentication methods, like CRAM-MD5, are not supported
 because [JavaMail for Android](https://javaee.github.io/javamail/Android) does not support SASL authentication.
@@ -1829,6 +1824,20 @@ Alternatively, you can *Delete local messages* by long pressing the folder(s) in
 
 <br />
 
+<a name="faq111"></a>
+**(111) Can you add OAuth authentication?**
+
+OAuth authentication requires creating an online (Google, Microsoft, etc) app,
+which would make authentication for many people dependent on one account, which is a bad idea.
+
+Google requires requesting special permission for the online app every year and has appeared to be unreliable in granting this permission.
+When requested permission for FairEmail, the request was denied with the remark that send permission would be enough, right ...
+
+Outlook and Hotmail do not properly support OAuth for IMAP/SMTP connections.
+[MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-android) is supported for business accounts only
+and OAuth requires embedding a client secret in the app.
+
+<br />
 
 ## Support
 
