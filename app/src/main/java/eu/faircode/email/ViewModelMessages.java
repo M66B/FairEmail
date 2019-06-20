@@ -67,8 +67,10 @@ public class ViewModelMessages extends ViewModel {
         if (model == null || !model.args.equals(args)) {
             Log.i("Creating model=" + viewType + " replace=" + (model != null));
 
-            if (model != null)
+            if (model != null) {
+                model.list.removeObservers(owner);
                 model.clear();
+            }
 
             DB db = DB.getInstance(context);
 
@@ -198,8 +200,10 @@ public class ViewModelMessages extends ViewModel {
 
     private void remove(AdapterMessage.ViewType viewType) {
         Model model = models.get(viewType);
-        if (model != null)
+        if (model != null) {
+            model.clear();
             models.remove(viewType);
+        }
     }
 
     void observePrevNext(LifecycleOwner owner, final long id, final IPrevNext intf) {
