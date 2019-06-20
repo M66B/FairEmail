@@ -3069,6 +3069,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         message.id = null;
                         message.folder = drafts.id;
                         message.ui_snoozed = null;
+                        message.error = null;
                         message.id = db.message().insertMessage(message);
 
                         File target = message.getFile(context);

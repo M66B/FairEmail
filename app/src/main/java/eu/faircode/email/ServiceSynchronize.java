@@ -711,7 +711,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                         .format(account.last_connected)), ex);
                                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                 nm.notify("receive", account.id.intValue(),
-                                        Core.getNotificationError(this, "warning", account.name, warning, false)
+                                        Core.getNotificationError(this, "warning", account.name, warning)
                                                 .build());
                             }
                         }

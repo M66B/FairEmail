@@ -448,15 +448,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 } else if ("outbox".equals(action))
                     onMenuOutbox();
-
-                else if ("error".equals(action)) {
-                    Intent ifaq = new Intent(Intent.ACTION_VIEW);
-                    ifaq.setData(Uri.parse(Helper.FAQ_URI + "#frequently-asked-questions"));
-                    ifaq.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    if (ifaq.resolveActivity(getPackageManager()) != null)
-                        startActivity(ifaq);
-
-                } else if (action.startsWith("thread")) {
+                else if (action.startsWith("thread")) {
                     intent.putExtra("thread", action.split(":", 2)[1]);
                     onViewThread(intent);
                 }

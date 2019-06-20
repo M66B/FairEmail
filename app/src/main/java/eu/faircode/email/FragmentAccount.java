@@ -639,27 +639,8 @@ public class FragmentAccount extends FragmentBase {
 
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                else {
-                    tvError.setText(Helper.formatThrowable(ex));
-                    tvError.setVisibility(View.VISIBLE);
-
-                    final View target;
-
-                    EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
-                    if (provider != null && provider.documentation != null) {
-                        tvInstructions.setText(HtmlHelper.fromHtml(provider.documentation.toString()));
-                        tvInstructions.setVisibility(View.VISIBLE);
-                        target = tvInstructions;
-                    } else
-                        target = tvError;
-
-                    new Handler().post(new Runnable() {
-                        @Override
-                        public void run() {
-                            scroll.smoothScrollTo(0, target.getBottom());
-                        }
-                    });
-                }
+                else
+                    showError(ex);
             }
         }.execute(FragmentAccount.this, args, "account:check");
     }
@@ -858,9 +839,11 @@ public class FragmentAccount extends FragmentBase {
                 String accountRealm = (account == null ? null : account.realm);
 
                 boolean check = (synchronize && (account == null ||
+                        !account.synchronize ||
                         !host.equals(account.host) || Integer.parseInt(port) != account.port ||
                         !user.equals(account.user) || !password.equals(account.password) ||
-                        !Objects.equals(realm, accountRealm)));
+                        !Objects.equals(realm, accountRealm) ||
+                        !TextUtils.isEmpty(account.error)));
                 boolean reload = (check || account == null ||
                         account.synchronize != synchronize ||
                         account.notify != notify ||
@@ -1078,18 +1061,32 @@ public class FragmentAccount extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                else {
-                    tvError.setText(Helper.formatThrowable(ex));
-                    tvError.setVisibility(View.VISIBLE);
-                    new Handler().post(new Runnable() {
-                        @Override
-                        public void run() {
-                            scroll.smoothScrollTo(0, tvError.getBottom());
-                        }
-                    });
-                }
+                else
+                    showError(ex);
             }
         }.execute(FragmentAccount.this, args, "account:save");
+    }
+
+    private void showError(Throwable ex) {
+        tvError.setText(Helper.formatThrowable(ex));
+        tvError.setVisibility(View.VISIBLE);
+
+        final View target;
+
+        EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
+        if (provider != null && provider.documentation != null) {
+            tvInstructions.setText(HtmlHelper.fromHtml(provider.documentation.toString()));
+            tvInstructions.setVisibility(View.VISIBLE);
+            target = tvInstructions;
+        } else
+            target = tvError;
+
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                scroll.smoothScrollTo(0, target.getBottom());
+            }
+        });
     }
 
     @Override

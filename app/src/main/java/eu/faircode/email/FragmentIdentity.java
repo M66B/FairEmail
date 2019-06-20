@@ -29,6 +29,7 @@ import android.os.Handler;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.method.LinkMovementMethod;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -117,6 +118,7 @@ public class FragmentIdentity extends FragmentBase {
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
     private TextView tvError;
+    private TextView tvInstructions;
 
     private ContentLoadingProgressBar pbWait;
 
@@ -187,6 +189,8 @@ public class FragmentIdentity extends FragmentBase {
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
         tvError = view.findViewById(R.id.tvError);
+        tvInstructions = view.findViewById(R.id.tvInstructions);
+        tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
 
         pbWait = view.findViewById(R.id.pbWait);
 
@@ -201,6 +205,7 @@ public class FragmentIdentity extends FragmentBase {
                 grpAuthorize.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 if (position == 0) {
                     tvError.setVisibility(View.GONE);
+                    tvInstructions.setVisibility(View.GONE);
                     grpAdvanced.setVisibility(View.GONE);
                 }
                 tilPassword.setEndIconMode(position == 0 ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
@@ -429,6 +434,7 @@ public class FragmentIdentity extends FragmentBase {
         btnSave.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
         tvError.setVisibility(View.GONE);
+        tvInstructions.setVisibility(View.GONE);
 
         grpAuthorize.setVisibility(View.GONE);
         grpAdvanced.setVisibility(View.GONE);
@@ -525,6 +531,7 @@ public class FragmentIdentity extends FragmentBase {
                 Helper.setViewsEnabled(view, false);
                 pbSave.setVisibility(View.VISIBLE);
                 tvError.setVisibility(View.GONE);
+                tvInstructions.setVisibility(View.GONE);
             }
 
             @Override
@@ -659,10 +666,12 @@ public class FragmentIdentity extends FragmentBase {
                 String identityRealm = (identity == null ? null : identity.realm);
 
                 boolean check = (synchronize && (identity == null ||
+                        !identity.synchronize ||
                         !host.equals(identity.host) || Integer.parseInt(port) != identity.port ||
                         !user.equals(identity.user) || !password.equals(identity.password) ||
                         !Objects.equals(realm, identityRealm) ||
-                        use_ip != identity.use_ip));
+                        use_ip != identity.use_ip) ||
+                        !TextUtils.isEmpty(identity.error));
 
                 Long last_connected = null;
                 if (identity != null && synchronize == identity.synchronize)
@@ -784,18 +793,32 @@ public class FragmentIdentity extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                else {
-                    tvError.setText(Helper.formatThrowable(ex));
-                    tvError.setVisibility(View.VISIBLE);
-                    new Handler().post(new Runnable() {
-                        @Override
-                        public void run() {
-                            scroll.smoothScrollTo(0, tvError.getBottom());
-                        }
-                    });
-                }
+                else
+                    showError(ex);
             }
         }.execute(FragmentIdentity.this, args, "identity:save");
+    }
+
+    private void showError(Throwable ex) {
+        tvError.setText(Helper.formatThrowable(ex));
+        tvError.setVisibility(View.VISIBLE);
+
+        final View target;
+
+        EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
+        if (provider != null && provider.documentation != null) {
+            tvInstructions.setText(HtmlHelper.fromHtml(provider.documentation.toString()));
+            tvInstructions.setVisibility(View.VISIBLE);
+            target = tvInstructions;
+        } else
+            target = tvError;
+
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                scroll.smoothScrollTo(0, target.getBottom());
+            }
+        });
     }
 
     @Override

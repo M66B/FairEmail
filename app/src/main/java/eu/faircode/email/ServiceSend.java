@@ -416,7 +416,7 @@ public class ServiceSend extends LifecycleService {
                 Log.i("Reporting send error after=" + delayed);
                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                 nm.notify("send", message.identity.intValue(),
-                        Core.getNotificationError(this, ident.name, ex).build());
+                        Core.getNotificationError(this, "error", ident.name, ex).build());
             }
 
             throw ex;

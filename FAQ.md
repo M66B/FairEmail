@@ -334,7 +334,11 @@ Unfortunately, it is impossible to make everybody happy and adding lots of setti
 To use a Gmail/G suite account, you'll need to enable access for "less secure" apps,
 see [here](https://support.google.com/accounts/answer/6010255) for Google's instructions
 or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
-You can solve the error *535-5.7.8 Username and Password not accepted* by enabling "less secure" apps.
+When "less secure" apps is not enabled,
+you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP)
+and *Username and Password not accepted* for identities (SMTP).
+
+If you use multiple Gmail accounts, make sure you change the "less secure" setting of the right account.
 
 You might get the alert "*Please log in via your web browser*".
 This security measure can for example be triggered when too many IP addresses were used in a too short time or when you are using a VPN.
