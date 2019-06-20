@@ -193,7 +193,8 @@ class Core {
                                     EntityOperation next = ops.get(j);
                                     if (next.message != null &&
                                             next.message.equals(op.message) &&
-                                            EntityOperation.ADD.equals(next.name)) {
+                                            (EntityOperation.ADD.equals(next.name) ||
+                                                    EntityOperation.DELETE.equals(next.name))) {
                                         squash = true;
                                         break;
                                     }
@@ -314,6 +315,8 @@ class Core {
         if (message.uid != null)
             return;
         if (EntityOperation.ADD.equals(op.name))
+            return;
+        if (EntityOperation.DELETE.equals(op.name) && !TextUtils.isEmpty(message.msgid))
             return;
 
         Log.i(folder.name + " ensure uid op=" + op.name + " msgid=" + message.msgid);
