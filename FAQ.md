@@ -338,7 +338,9 @@ When "less secure" apps is not enabled,
 you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP)
 and *Username and Password not accepted* for identities (SMTP).
 
-If you use multiple Gmail accounts, make sure you change the "less secure" setting of the right account.
+If you use multiple Gmail accounts, make sure you change the "less secure" setting of the right account(s).
+
+Be aware that you need to leave the "less secure" settings screen by using the back arrow to apply the setting.
 
 You might get the alert "*Please log in via your web browser*".
 This security measure can for example be triggered when too many IP addresses were used in a too short time or when you are using a VPN.
