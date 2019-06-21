@@ -186,7 +186,7 @@ public class FragmentQuickSetup extends FragmentBase {
             @Override
             protected EmailProvider onExecute(Context context, Bundle args) throws Throwable {
                 String name = args.getString("name");
-                String email = args.getString("email");
+                String email = args.getString("email").trim();
                 String password = args.getString("password");
                 boolean check = args.getBoolean("check");
 

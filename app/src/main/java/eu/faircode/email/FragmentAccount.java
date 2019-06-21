@@ -726,7 +726,7 @@ public class FragmentAccount extends FragmentBase {
                 boolean starttls = args.getBoolean("starttls");
                 boolean insecure = args.getBoolean("insecure");
                 String port = args.getString("port");
-                String user = args.getString("user");
+                String user = args.getString("user").trim();
                 String password = args.getString("password");
                 String realm = args.getString("realm");
 
