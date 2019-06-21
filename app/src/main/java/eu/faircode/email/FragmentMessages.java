@@ -3507,7 +3507,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                 // Write decrypted body
                                 EntityMessage m = db.message().getMessage(id);
-                                Helper.writeText(m.getFile(context), decrypted.toString());
+                                Helper.writeText(m.getFile(context), decrypted.toString().replace("\0", ""));
 
                                 db.message().setMessageStored(id, new Date().getTime());
 
