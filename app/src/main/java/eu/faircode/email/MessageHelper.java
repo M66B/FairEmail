@@ -609,9 +609,11 @@ public class MessageHelper {
             // https://www.ietf.org/rfc/rfc2368.txt
             for (String _to : list.split(",")) {
                 String to = _to.trim();
-                if (to.startsWith("<") && to.endsWith(">"))
+                int lt = to.indexOf("<");
+                int gt = to.lastIndexOf(">");
+                if (lt >= 0 && gt > lt)
                     try {
-                        MailTo mailto = MailTo.parse(to.substring(1, to.length() - 1));
+                        MailTo mailto = MailTo.parse(to.substring(lt + 1, gt));
                         if (mailto.getTo() != null)
                             return new Address[]{new InternetAddress(mailto.getTo().split(",")[0])};
                     } catch (android.net.ParseException ex) {
