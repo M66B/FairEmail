@@ -297,7 +297,7 @@ In the three dot overflow menu you can enable or disable or select:
 * *text size*: for three different font sizes
 * *compact view*: for more condensed message items and a smaller message text font
 
-In the display section of the advanced options you can enable or disable:
+In the display section of the settings you can enable or disable:
 
 * *Unified inbox*: to disable the unified inbox and to list the folders selected for the unified inbox instead
 * *Group by date*: show date header above messages with the same date
@@ -316,7 +316,7 @@ In the display section of the advanced options you can enable or disable:
 
 Note that messages can be previewed only when the message text was downloaded.
 Larger message texts are not downloaded by default on metered (generally mobile) networks.
-You can change this in the advanced options.
+You can change this in the settings.
 
 If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
 
@@ -697,7 +697,7 @@ FairEmail has the following notification channels:
 See [here](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for details on notification channels.
 In short: tap on the notification channel name to access the channel settings.
 
-On Android before Android 8 Oreo you can set the notification sound in the advanced options.
+On Android before Android 8 Oreo you can set the notification sound in the settings.
 
 See [this FAQ](#user-content-faq21) if your device has a notification light.
 
@@ -875,7 +875,7 @@ will result in less network traffic and thus less battery usage.
 You could disable this option for example for the sent folder and the archive.
 
 Synchronizing messages at night is mostly not useful, so you can save on battery usage by not synchronizing at night.
-In the advanced options you can set a schedule for message synchronization (this is a pro feature). See also [this FAQ](#user-content-faq78).
+In the settings you can select a schedule for message synchronization (this is a pro feature). See also [this FAQ](#user-content-faq78).
 
 If you got the message *This provider does not support push messages* while configuring an account,
 consider switching to a modern provider which supports push messages (IMAP IDLE) to reduce battery usage.
@@ -890,9 +890,8 @@ you can save battery usage while viewing messages by switching to the black them
 
 You can reduce the network usage basically in the same way as reducing battery usage, see the previous question for suggestions.
 
-Additionally, you can set FairEmail to download small messages and attachments on a metered (mobile, paid) connection only
-or let FairEmail connect via unmetered connections only.
-These advanced settings are accessible via *Setup* > *Advanced options*.
+Additionally, you can let FairEmail download small messages and attachments on a metered (mobile, paid) connection only
+or let FairEmail connect via unmetered connections only in the settings.
 
 <br />
 
@@ -1279,7 +1278,7 @@ By selecting a zero snooze duration you can cancel snoozing.
 
 The message list is automatically scrolled up when navigating from a new message notification or after a manual refresh.
 Always automatically scrolling up on arrival of new messages would interfere with your own scrolling,
-but if you like you can enable this in the advanced options.
+but if you like you can enable this in the settings.
 
 <br />
 
@@ -1412,10 +1411,10 @@ so there is little room for performance improvements.
 <a name="faq78"></a>
 **(78) How do I use schedules?**
 
-In the advanced options you can enable scheduling and set the time to turn synchronizing automatically on and off.
+In the settingss you can enable scheduling and set the time to turn synchronizing automatically on and off.
 
 An end time equal to or earlier than the start time is considered to be 24 hours later.
-​
+
 Turning FairEmail on or off, for example by using [a quick settings tile](#user-content-faq30), will not turn scheduling off.
 This means that the next schedule event will still turn FairEmail on or off.
 
@@ -1605,7 +1604,7 @@ and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization i
 
 However, FairEmail can show a small vertical warning stripe at the end of the message header
 if DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server.
-You can enable this in the advanced options.
+You can enable this in the settings.
 
 <br />
 
@@ -1654,8 +1653,6 @@ About each four hours FairEmail runs a cleanup job that:
 * Removes old image files
 * Removes old local contacts
 * Removes old log entries
-
-You can see when the last cleanup was performed at the bottom of the advanced options.
 
 Note that the cleanup job will only run when the synchronize service is active.
 
@@ -1716,7 +1713,7 @@ The dot is meant as an aid when swiping left/right to go to the previous/next co
 <a name="faq102"></a>
 **(102) How can I enable auto rotation of images?**
 
-Images will automatically be rotated when automatic resizing of images is enabled in the advanced options (enabled by default).
+Images will automatically be rotated when automatic resizing of images is enabled in the settings (enabled by default).
 However, automatic rotating depends on the [Exif](https://en.wikipedia.org/wiki/Exif) information to be present and to be correct,
 which is not always the case. Particularly not when taking a photo with a camara app from FairEmail.
 
@@ -1740,7 +1737,7 @@ Unfortunately and surprisingly, most recording apps do not seem to support this 
 
 * Error reports will help improve FairEmail
 * Error reporting is optional and opt-in
-* Error reporting can be enabled/disabled in the advanced options, section miscellaneous
+* Error reporting can be enabled/disabled in the settings, section miscellaneous
 * Error reports will automatically be sent anonymously to [Bugsnag](https://www.bugsnag.com/)
 * Bugsnag for Android is [open source](https://github.com/bugsnag/bugsnag-android)
 * See [here](https://docs.bugsnag.com/platforms/android/automatically-captured-data/) about what data will be sent in case of errors
