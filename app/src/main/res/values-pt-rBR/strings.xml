@@ -6,6 +6,7 @@
     <string name="app_welcome">FairEmail é um aplicativo de e-mail de código aberto focado em privacidade e segurança. Por esse motivo, alguns recursos podem funcionar de maneira diferente do que você está acostumado.</string>
     <string name="app_limitations">Por exemplo, as mensagens serão sempre reformatadas para remover elementos inseguros e para melhorar a legibilidade, e a abertura de links devem ser confirmadas por questão de segurança.</string>
     <string name="app_crash">O FairEmail não é suportado neste dispositivo porque bugs do Android causam tais falhas</string>
+    <string name="app_exit">Pressione \'voltar\' novamente para sair</string>
     <string name="channel_service">Serviço</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">Notificações</string>
@@ -83,6 +84,7 @@
     <string name="title_setup_quick_imap">Servidor IMAP para receber mensagens</string>
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensagens</string>
     <string name="title_setup_go">Iniciar</string>
+    <string name="title_setup_instructions">Instruções de configuração</string>
     <string name="title_setup_no_settings">Nenhuma configuração encontrada para o domínio \'%1$s\'</string>
     <string name="title_setup_quick_success">Uma conta e uma identidade foram adicionados com sucesso</string>
     <string name="title_setup_quick_failed">Você também pode tentar configurar uma conta e uma identidade abaixo</string>
@@ -276,6 +278,7 @@
     <string name="title_no_idle">Este provedor não suporta mensagens push. Isso irá atrasar o recebimento de novas mensagens e aumentar o uso da bateria.</string>
     <string name="title_no_utf8">Este provedor de e-mail não suporta UTF-8</string>
     <string name="title_no_sync">Erros de sincronização desde %1$s</string>
+    <string name="title_authorization_required">Autorização necessária</string>
     <string name="title_identity_required">Uma identidade é necessária para enviar mensagens</string>
     <string name="title_drafts_required">Uma pasta de rascunhos é necessário para enviar mensagens</string>
     <string name="title_account_delete">Excluir esta conta permanentemente?</string>
@@ -539,8 +542,8 @@
     <string name="title_legend_trash">Lixeira</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary">Principal</string>
-    <string name="title_legend_notify">Notificar novas mensagens</string>
     <string name="title_legend_subscribed">Inscrito em</string>
+    <string name="title_legend_notify">Notificar novas mensagens</string>
     <string name="title_legend_sync_keep">Número de dias para sincronizar / manter mensagens</string>
     <string name="title_legend_download_fetch">Número de mensagens baixadas / cabeçalhos buscados</string>
     <string name="title_legend_stop">Parar o processamento de regras</string>

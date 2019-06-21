@@ -495,8 +495,8 @@
     <string name="title_legend_trash">Papirkurv</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary">Primær</string>
-    <string name="title_legend_notify">Underretning ved nye meddelelser</string>
     <string name="title_legend_subscribed">Abonnerer på</string>
+    <string name="title_legend_notify">Underretning ved nye meddelelser</string>
     <string name="title_legend_sync_keep">Antal dage, der skal synkroniseres/der skal beholdes meddelelser</string>
     <string name="title_legend_stop">Stop afvikling af regler</string>
     <string name="title_legend_thread">Samtale</string>

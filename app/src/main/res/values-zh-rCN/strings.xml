@@ -534,8 +534,8 @@
     <string name="title_legend_trash">垃圾箱</string>
     <string name="title_legend_junk">垃圾邮件</string>
     <string name="title_legend_primary">首选</string>
-    <string name="title_legend_notify">通知新邮件</string>
     <string name="title_legend_subscribed">订阅</string>
+    <string name="title_legend_notify">通知新邮件</string>
     <string name="title_legend_sync_keep">同步/保留邮件的天数</string>
     <string name="title_legend_download_fetch">下载的邮件正文数/获取的标头数</string>
     <string name="title_legend_stop">停止处理规则</string>

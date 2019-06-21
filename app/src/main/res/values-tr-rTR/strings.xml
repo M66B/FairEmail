@@ -513,8 +513,8 @@
     <string name="title_legend_trash">Çöp Kutusu</string>
     <string name="title_legend_junk">İstenmeyen posta</string>
     <string name="title_legend_primary">Birincil</string>
-    <string name="title_legend_notify">Yeni iletileri bildir</string>
     <string name="title_legend_subscribed">Abone olundu</string>
+    <string name="title_legend_notify">Yeni iletileri bildir</string>
     <string name="title_legend_sync_keep">İletilerin eşzamanlanacağı / saklanacağı gün sayısı</string>
     <string name="title_legend_stop">İşlem kurallarının durdur</string>
     <string name="title_legend_thread">Söyleşi</string>

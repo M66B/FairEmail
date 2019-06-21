@@ -526,8 +526,8 @@
     <string name="title_legend_trash">Papperskorg</string>
     <string name="title_legend_junk">Skräppost</string>
     <string name="title_legend_primary">Primär</string>
-    <string name="title_legend_notify">Notifiera för nya meddelanden</string>
     <string name="title_legend_subscribed">Prenumererar på</string>
+    <string name="title_legend_notify">Notifiera för nya meddelanden</string>
     <string name="title_legend_sync_keep">Antal dagar att synkronisera / för att behålla meddelanden</string>
     <string name="title_legend_download_fetch">Antal hämtade meddelanden / hämtade rubriker</string>
     <string name="title_legend_stop">Sluta bearbeta regler</string>

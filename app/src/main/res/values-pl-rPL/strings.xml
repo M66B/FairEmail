@@ -7,6 +7,7 @@
     <string name="app_limitations">Przykładowo, wiadomości będą zawsze przeformatowane, aby usunąć niebezpieczne elementy i zwiększyć czytelność, a otwieranie linków musi być potwierdzane dla zachowania bezpieczeństwa.</string>
     <string name="app_crash">FairEmail nie jest obsługiwany na tym urządzeniu, ponieważ błędy w Androidzie powodują awarie</string>
     <string name="channel_service">Usługa</string>
+    <string name="channel_send">Wyślij</string>
     <string name="channel_notification">Powiadomienia</string>
     <string name="channel_warning">Ostrzeżenia</string>
     <string name="channel_error">Błędy</string>
@@ -98,6 +99,7 @@
     <string name="title_setup_quick_imap">Serwer IMAP do odbierania wiadomości</string>
     <string name="title_setup_quick_smtp">Serwer SMTP do wysyłania wiadomości</string>
     <string name="title_setup_go">Idż</string>
+    <string name="title_setup_instructions">Instrukcja konfiguracji</string>
     <string name="title_setup_no_settings">Nie ma ustawień dla domeny \'%1$s\'</string>
     <string name="title_setup_quick_success">Pomyślnie dodano konto i tożsamość</string>
     <string name="title_setup_quick_failed">Możesz ustawić konto i tożsamość w krokach poniżej</string>
@@ -113,6 +115,7 @@
     <string name="title_setup_doze_remark">Do ciągłego sprawdzania e-mail (opcjonalnie)</string>
     <string name="title_setup_doze_instructions">W następnym oknie dialogowym, na górze wybierz \"Wszystkie aplikacje\", odszukaj i dotknij FairEmail, wybierz \"Nie optymalizuj\"</string>
     <string name="title_setup_data">Wyłącz oszczędzanie danych</string>
+    <string name="title_setup_inbox">Idź do wiadomości</string>
     <string name="title_setup_to_do">Do zrobienia</string>
     <string name="title_setup_done">Gotowe</string>
     <string name="title_setup_export">Eksport ustawień</string>
@@ -151,7 +154,10 @@
     <string name="title_advanced_unseen">Wszystkie nieprzeczytane wiadomości</string>
     <string name="title_advanced_flagged">Wszystkie oznaczone wiadomości</string>
     <string name="title_advanced_kept_removed">Sprawdź, czy stare wiadomości zostały usunięte z serwera</string>
+    <string name="title_advanced_sync_folders">Synchronizuj listę folderów</string>
+    <string name="title_advanced_keyboard">Domyślnie pokaż klawiaturę</string>
     <string name="title_advanced_prefix_once">Prefiksuj tylko raz przy odpowiedzi lub przesyłaniu dalej</string>
+    <string name="title_advanced_plain_only">Domyślnie wysyłaj czystym tekstem</string>
     <string name="title_advanced_autoresize">Automatycznie zmieniaj rozmiar załączonych i osadzonych obrazów</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
     <string name="title_advanced_autosend">Potwierdź wysłanie wiadomości</string>
@@ -160,6 +166,7 @@
     <string name="title_advanced_download">Automatycznie pobieraj wiadomości i załączniki przy połączeniach taryfowych do</string>
     <string name="title_advanced_roaming">Pobieraj wiadomości i załączniki podczas roamingu</string>
     <string name="title_advanced_rlah">Roaming jak w domu</string>
+    <string name="title_advanced_manage_connectivity">Zarządzaj połączeniami</string>
     <string name="title_advanced_browse">Przeglądaj wiadomości na serwerze</string>
     <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>
     <string name="title_advanced_date_header">Grupuj według dat</string>
@@ -209,6 +216,7 @@
     <string name="title_advanced_poll_hint">Synchronizacja okresowa porównuje wiadomości lokalne i zdalne za każdym razem, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest dużo wiadomości do synchronizacji. Synchronizacja stała pozwoli uniknąć ciągłego sprawdzania zmian.</string>
     <string name="title_advanced_schedule_hint">Dotknij zegara, aby ustawić czas</string>
     <string name="title_advanced_sync_kept_hint">Spowoduje to użycie dodatkowych danych i wykorzystanie dodatkowej energii z baterii, zwłaszcza jeśli w urządzeniu przechowywanych jest wiele wiadomości</string>
+    <string name="title_advanced_sync_folders_hint">Wyłączenie tej opcji nieco zmniejszy zużycie danych i baterii, ale wyłączy także aktualizację listy folderów</string>
     <string name="title_advanced_metered_hint">Połączeniu taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>
     <string name="title_advanced_metered_warning">Wyłączenie tej opcji uniemożliwi odbieranie i wysyłanie wiadomości przy użyciu komórkowego połączenia internetowego</string>
     <string name="title_advanced_rlah_hint">Zakładając brak roamingu w UE</string>
@@ -243,6 +251,7 @@
     <string name="title_account_name">Nazwa konta</string>
     <string name="title_account_name_hint">Używany do odróżnienia folderów</string>
     <string name="title_account_interval_hint">Częstotliwość odświeżania połączenia dla wiadomości Push lub częstotliwość sprawdzania nowych wiadomości</string>
+    <string name="title_account_partial_fetch_hint">Wyłącz to tylko w przypadku pustych wiadomości lub uszkodzonych załączników</string>
     <string name="title_account_signature">Tekst podpisu</string>
     <string name="title_account_color">Kolor</string>
     <string name="title_account_notify">Oddzielne powiadomienia</string>
@@ -279,6 +288,7 @@
     <string name="title_no_idle">Ten dostawca nie obsługuje wiadomości push. To opóźni otrzymywanie nowych wiadomości i zwiększy zużycie baterii.</string>
     <string name="title_no_utf8">Ten dostawca nie wspiera UTF-8</string>
     <string name="title_no_sync">Błędy synchornizacji od %1$s</string>
+    <string name="title_authorization_required">Wymagana autoryzacja</string>
     <string name="title_identity_required">Do wysyłania wiadomości wymagana jest tożsamość</string>
     <string name="title_drafts_required">Folder szkiców jest wymagany do wysyłania wiadomości</string>
     <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
@@ -303,6 +313,8 @@
     <string name="title_no_operations">Nie ma oczekujących operacji</string>
     <string name="title_folder_name">Nazwa folderu</string>
     <string name="title_display_name">Nazwa wyświetlana</string>
+    <string name="title_show_folders">Pokaż ukryte foldery</string>
+    <string name="title_hide_folder">Ukryj folder</string>
     <string name="title_unified_folder">Pokaż we wspólnej skrzynce odbiorczej</string>
     <string name="title_navigation_folder">Pokaż w menu nawigacji</string>
     <string name="title_synchronize_folder">Synchronizuj (odbierz wiadomości)</string>
@@ -380,6 +392,7 @@
     <string name="title_attachment_saved">Załącznik zapisany</string>
     <string name="title_attachments_saved">Załączniki zapisane</string>
     <string name="title_attachments_incomplete">Niektóre załączniki lub obrazy nie zostały pobrane i nie można ich dodać</string>
+    <string name="title_ask_save">Zapisać zmiany?</string>
     <string name="title_ask_delete">Usunąć wiadomość bezpowrotnie?</string>
     <string name="title_ask_delete_answer">Trwale usunąć szablon odpowiedzi?</string>
     <string name="title_ask_delete_rule">Usunąć regułę bezpowrotnie?</string>
@@ -490,11 +503,14 @@
     <string name="title_rule_action_remark">Ta akcja zostanie zastosowana do nowych wiadomości przychodzących do folderu %1$s</string>
     <string name="title_rule_hours">Godzin</string>
     <string name="title_rule_folder">Folder</string>
+    <string name="title_rule_thread">Wszystkie wiadomości w tej samej rozmowie i folderze</string>
     <string name="title_rule_identity">Tożsamość</string>
     <string name="title_rule_template">Szablon odpowiedzi</string>
     <string name="title_rule_cc">Odpowiedz na adresy CC</string>
     <string name="title_rule_name_missing">Brak nazwy reguły</string>
     <string name="title_rule_condition_missing">Brak warunku</string>
+    <string name="title_rule_execute">Wykonaj teraz</string>
+    <string name="title_rule_applied">Problematycznych wiadomości: %1$d</string>
     <string name="title_rule_check">Sprawdź</string>
     <string name="title_rule_matched">Pasujące wiadomości</string>
     <string name="title_rule_no_matches">Brak pasujących wiadomości</string>
@@ -524,8 +540,8 @@
     <string name="title_legend_trash">Kosz</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary">Podstawowe</string>
-    <string name="title_legend_notify">Powiadom o nowych wiadomościach</string>
     <string name="title_legend_subscribed">Zasubskrybowano</string>
+    <string name="title_legend_notify">Powiadom o nowych wiadomościach</string>
     <string name="title_legend_sync_keep">Liczba dni do synchronizacji / zachowania wiadomości</string>
     <string name="title_legend_download_fetch">Liczba pobranych wiadomości / pobranych nagłówków</string>
     <string name="title_legend_stop">Zatrzymaj przetwarzanie reguł</string>

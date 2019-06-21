@@ -558,8 +558,8 @@
     <string name="title_legend_trash">Koš</string>
     <string name="title_legend_junk">Nevyžádaná</string>
     <string name="title_legend_primary">Hlavní</string>
-    <string name="title_legend_notify">Oznamovat nové zprávy</string>
     <string name="title_legend_subscribed">Přihlášen k odběru</string>
+    <string name="title_legend_notify">Oznamovat nové zprávy</string>
     <string name="title_legend_sync_keep">Počet dní k synchronizaci / ponechání zpráv</string>
     <string name="title_legend_download_fetch">Počet stažených zpráv / načtených hlaviček</string>
     <string name="title_legend_stop">Zastavit zpracování pravidel</string>
