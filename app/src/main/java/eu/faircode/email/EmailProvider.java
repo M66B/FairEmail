@@ -151,7 +151,7 @@ public class EmailProvider {
         try {
             Log.i("Provider from DNS domain=" + domain);
             return addSpecials(context, fromDNS(domain));
-        } catch (UnknownHostException ex) {
+        } catch (Throwable ex) {
             Log.w(ex);
             try {
                 Log.i("Provider from ISPDB domain=" + domain);
@@ -161,7 +161,7 @@ public class EmailProvider {
                 try {
                     Log.i("Provider from template domain=" + domain);
                     return addSpecials(context, fromTemplate(domain));
-                } catch (UnknownHostException ex2) {
+                } catch (Throwable ex2) {
                     Log.w(ex2);
                     throw new UnknownHostException(context.getString(R.string.title_setup_no_settings, domain));
                 }
