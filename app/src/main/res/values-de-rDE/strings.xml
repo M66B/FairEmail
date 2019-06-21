@@ -543,6 +543,7 @@
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary">Hauptkonto</string>
     <string name="title_legend_subscribed">Abonniert zu</string>
+    <string name="title_legend_rule">Enthält Regeln</string>
     <string name="title_legend_notify">Eingangsbenachrichtigung</string>
     <string name="title_legend_sync_keep">Anzahl der zu synchronisierenden Tage / aufzubewahrenden E-Mails</string>
     <string name="title_legend_download_fetch">Anzahl der heruntergeladenen Nachrichten / abgerufene Kopfzeilen</string>

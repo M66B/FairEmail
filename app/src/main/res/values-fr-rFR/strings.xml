@@ -543,6 +543,7 @@
     <string name="title_legend_junk">Courrier indésirable</string>
     <string name="title_legend_primary">Principal</string>
     <string name="title_legend_subscribed">Abonné à</string>
+    <string name="title_legend_rule">A des règles</string>
     <string name="title_legend_notify">Notification pour les nouveaux messages</string>
     <string name="title_legend_sync_keep">Nombre de jours à synchroniser / pour conserver les messages</string>
     <string name="title_legend_download_fetch">Nombre de messages téléchargés / en-têtes récupérés</string>
