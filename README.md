@@ -43,6 +43,8 @@ This app starts a foreground service with a low priority status bar notification
 
 ## Pro features
 
+All pro features are convenience or advanced features.
+
 * Account/identity colors
 * Colored stars ([instructions](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq107))
 * Notification settings (sounds) per account/folder/sender (requires Android 8 Oreo)
