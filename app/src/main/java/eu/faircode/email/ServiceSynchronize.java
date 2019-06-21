@@ -1109,7 +1109,12 @@ public class ServiceSynchronize extends LifecycleService {
                     } finally {
                         // Cleanup
                         am.cancel(pi);
-                        unregisterReceiver(alarm);
+                        try {
+                            unregisterReceiver(alarm);
+                        } catch (IllegalArgumentException ex) {
+                            Log.w(new IllegalStateException("Killed", ex));
+                            reload(ServiceSynchronize.this, "killed");
+                        }
                     }
 
                     Log.i(account.name + " done state=" + state);
@@ -1202,7 +1207,12 @@ public class ServiceSynchronize extends LifecycleService {
                             } finally {
                                 // Cleanup
                                 am.cancel(pi);
-                                unregisterReceiver(alarm);
+                                try {
+                                    unregisterReceiver(alarm);
+                                } catch (IllegalArgumentException ex) {
+                                    Log.w(new IllegalStateException("Killed", ex));
+                                    reload(ServiceSynchronize.this, "killed");
+                                }
                             }
                         }
 
