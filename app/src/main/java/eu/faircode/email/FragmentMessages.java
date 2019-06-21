@@ -3507,7 +3507,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                 // Write decrypted body
                                 EntityMessage m = db.message().getMessage(id);
-                                Helper.writeText(m.getFile(context), decrypted.toString().replace("\0", ""));
+                                Helper.writeText(m.getFile(context),
+                                        decrypted.toString().replace("\0", ""));
 
                                 db.message().setMessageStored(id, new Date().getTime());
 
@@ -3530,7 +3531,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                 // Write decrypted body
                                 EntityMessage m = db.message().getMessage(id);
-                                Helper.writeText(m.getFile(context), parts.getHtml(context));
+                                String html = parts.getHtml(context);
+                                if (html != null)
+                                    html = html.replace("\0", "");
+                                Helper.writeText(m.getFile(context), html);
 
                                 // Remove previously decrypted attachments
                                 for (EntityAttachment local : attachments)
