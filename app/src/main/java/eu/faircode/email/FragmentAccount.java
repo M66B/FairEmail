@@ -842,11 +842,12 @@ public class FragmentAccount extends FragmentBase {
                 String accountRealm = (account == null ? null : account.realm);
 
                 boolean check = (synchronize && (account == null ||
-                        !account.synchronize || account.error != null ||
+                        !account.synchronize ||
+                        account.insecure != insecure ||
                         !host.equals(account.host) || Integer.parseInt(port) != account.port ||
                         !user.equals(account.user) || !password.equals(account.password) ||
                         !Objects.equals(realm, accountRealm) ||
-                        !TextUtils.isEmpty(account.error)));
+                        account.error != null));
                 boolean reload = (check || account == null ||
                         account.synchronize != synchronize ||
                         account.notify != notify ||

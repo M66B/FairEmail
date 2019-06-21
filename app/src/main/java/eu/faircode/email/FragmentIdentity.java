@@ -668,12 +668,13 @@ public class FragmentIdentity extends FragmentBase {
                 String identityRealm = (identity == null ? null : identity.realm);
 
                 boolean check = (synchronize && (identity == null ||
-                        !identity.synchronize || identity.error != null ||
+                        !identity.synchronize ||
+                        identity.insecure != insecure ||
                         !host.equals(identity.host) || Integer.parseInt(port) != identity.port ||
                         !user.equals(identity.user) || !password.equals(identity.password) ||
                         !Objects.equals(realm, identityRealm) ||
                         use_ip != identity.use_ip) ||
-                        !TextUtils.isEmpty(identity.error));
+                        identity.error != null);
 
                 Long last_connected = null;
                 if (identity != null && synchronize == identity.synchronize)
