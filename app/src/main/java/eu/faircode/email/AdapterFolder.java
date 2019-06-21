@@ -94,8 +94,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private ImageView ivExpander;
 
         private ImageView ivUnified;
-        private ImageView ivNotify;
         private ImageView ivSubscribed;
+        private ImageView ivRule;
+        private ImageView ivNotify;
         private TextView tvName;
         private TextView tvMessages;
         private ImageView ivMessages;
@@ -123,8 +124,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ivExpander = itemView.findViewById(R.id.ivExpander);
 
             ivUnified = itemView.findViewById(R.id.ivUnified);
-            ivNotify = itemView.findViewById(R.id.ivNotify);
             ivSubscribed = itemView.findViewById(R.id.ivSubscribed);
+            ivRule = itemView.findViewById(R.id.ivRule);
+            ivNotify = itemView.findViewById(R.id.ivNotify);
             tvName = itemView.findViewById(R.id.tvName);
             tvMessages = itemView.findViewById(R.id.tvMessages);
             ivMessages = itemView.findViewById(R.id.ivMessages);
@@ -204,8 +206,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             if (listener == null) {
                 ivUnified.setVisibility(account > 0 && folder.unified ? View.VISIBLE : View.GONE);
-                ivNotify.setVisibility(folder.notify ? View.VISIBLE : View.GONE);
                 ivSubscribed.setVisibility(subscriptions && folder.subscribed != null && folder.subscribed ? View.VISIBLE : View.GONE);
+                ivRule.setVisibility(folder.rules > 0 ? View.VISIBLE : View.GONE);
+                ivNotify.setVisibility(folder.notify ? View.VISIBLE : View.GONE);
             }
 
             if (folder.unseen > 0)

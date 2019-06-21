@@ -74,7 +74,7 @@
             app:srcCompat="@drawable/baseline_folder_special_24" />
 
         <ImageView
-            android:id="@+id/ivNotify"
+            android:id="@+id/ivSubscribed"
             android:layout_width="30dp"
             android:layout_height="24dp"
             android:contentDescription="@string/title_legend_notify"
@@ -82,18 +82,29 @@
             app:layout_constraintBottom_toBottomOf="@+id/tvName"
             app:layout_constraintStart_toEndOf="@id/ivUnified"
             app:layout_constraintTop_toTopOf="@+id/tvName"
-            app:srcCompat="@drawable/baseline_notifications_24" />
+            app:srcCompat="@drawable/baseline_bookmark_24" />
 
         <ImageView
-            android:id="@+id/ivSubscribed"
+            android:id="@+id/ivRule"
+            android:layout_width="30dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/title_edit_rules"
+            android:paddingEnd="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvName"
+            app:layout_constraintStart_toEndOf="@id/ivSubscribed"
+            app:layout_constraintTop_toTopOf="@+id/tvName"
+            app:srcCompat="@drawable/baseline_filter_list_24" />
+
+        <ImageView
+            android:id="@+id/ivNotify"
             android:layout_width="30dp"
             android:layout_height="24dp"
             android:contentDescription="@string/title_legend_notify"
             android:paddingEnd="6dp"
             app:layout_constraintBottom_toBottomOf="@+id/tvName"
-            app:layout_constraintStart_toEndOf="@id/ivNotify"
+            app:layout_constraintStart_toEndOf="@id/ivRule"
             app:layout_constraintTop_toTopOf="@+id/tvName"
-            app:srcCompat="@drawable/baseline_bookmark_24" />
+            app:srcCompat="@drawable/baseline_notifications_24" />
 
         <TextView
             android:id="@+id/tvName"
@@ -108,7 +119,7 @@
             android:text="Name"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toStartOf="@+id/tvMessages"
-            app:layout_constraintStart_toEndOf="@id/ivSubscribed"
+            app:layout_constraintStart_toEndOf="@id/ivNotify"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
