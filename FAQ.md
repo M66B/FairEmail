@@ -42,7 +42,7 @@ For authorizing:
 * ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
 * ~~Show messages matched by a rule~~
 * [ManageSieve](https://tools.ietf.org/html/rfc5804)
-* Search for messages with/without attachments
+* ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
 
 Anything on this list is in random order and *might* be added in the near future.
 
