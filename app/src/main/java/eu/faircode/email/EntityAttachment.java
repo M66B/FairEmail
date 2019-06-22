@@ -91,7 +91,7 @@ public class EntityAttachment {
     public String error;
 
     boolean isInline() {
-        return (disposition != null && disposition.equalsIgnoreCase(Part.INLINE));
+        return (disposition != null && disposition.equalsIgnoreCase(Part.INLINE) && cid != null);
     }
 
     boolean isImage() {

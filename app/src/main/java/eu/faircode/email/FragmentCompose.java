@@ -2620,7 +2620,7 @@ public class FragmentCompose extends FragmentBase {
                 }
 
                 for (EntityAttachment attachment : new ArrayList<>(attachments))
-                    if (attachment.isInline() && attachment.cid != null && !cids.contains(attachment.cid)) {
+                    if (attachment.isInline() && !cids.contains(attachment.cid)) {
                         Log.i("Removing unused inline attachment cid=" + attachment.cid);
                         db.attachment().deleteAttachment(attachment.id);
                     }
