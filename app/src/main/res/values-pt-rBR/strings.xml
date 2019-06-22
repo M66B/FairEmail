@@ -543,6 +543,7 @@
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary">Principal</string>
     <string name="title_legend_subscribed">Inscrito em</string>
+    <string name="title_legend_rule">Possui regras</string>
     <string name="title_legend_notify">Notificar novas mensagens</string>
     <string name="title_legend_sync_keep">Número de dias para sincronizar / manter mensagens</string>
     <string name="title_legend_download_fetch">Número de mensagens baixadas / cabeçalhos buscados</string>

@@ -559,6 +559,7 @@
     <string name="title_legend_junk">Спам</string>
     <string name="title_legend_primary">Основной</string>
     <string name="title_legend_subscribed">Подписан на</string>
+    <string name="title_legend_rule">Имеет правила</string>
     <string name="title_legend_notify">Уведомлять о новых сообщениях</string>
     <string name="title_legend_sync_keep">Количество дней для синхронизации / хранения сообщений</string>
     <string name="title_legend_download_fetch">Количество загруженных сообщений / полученных заголовков</string>

@@ -559,6 +559,7 @@
     <string name="title_legend_junk">Nevyžádaná</string>
     <string name="title_legend_primary">Hlavní</string>
     <string name="title_legend_subscribed">Přihlášen k odběru</string>
+    <string name="title_legend_rule">Má pravidla</string>
     <string name="title_legend_notify">Oznamovat nové zprávy</string>
     <string name="title_legend_sync_keep">Počet dní k synchronizaci / ponechání zpráv</string>
     <string name="title_legend_download_fetch">Počet stažených zpráv / načtených hlaviček</string>

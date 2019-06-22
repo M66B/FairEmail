@@ -551,6 +551,7 @@
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary">Primar</string>
     <string name="title_legend_subscribed">Abonat la</string>
+    <string name="title_legend_rule">Există reguli</string>
     <string name="title_legend_notify">Notificare la mesaje noi</string>
     <string name="title_legend_sync_keep">Numărul de zile de sincronizat / păstrat mesaje</string>
     <string name="title_legend_download_fetch">Numărul de mesaje / antete de descărcat</string>

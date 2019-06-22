@@ -521,6 +521,7 @@
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary">Primarno</string>
     <string name="title_legend_subscribed">Pretplaćeno na</string>
+    <string name="title_legend_rule">Ima pravila</string>
     <string name="title_legend_notify">Obavijest za nove poruke</string>
     <string name="title_legend_sync_keep">Broj dana za sinkronizaciju / za čuvanje poruka</string>
     <string name="title_legend_download_fetch">Broj preuzetih poruka / preuzetih zaglavlja</string>
