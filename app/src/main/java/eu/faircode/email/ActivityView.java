@@ -66,6 +66,9 @@ import com.android.colorpicker.ColorPickerSwatch;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -74,6 +77,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -1142,7 +1147,48 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 String html = Helper.readText(file);
                 html = HtmlHelper.getHtmlEmbedded(context, id, html);
 
-                return new String[]{message.subject, html};
+                Document document = Jsoup.parse(html);
+                Element body = document.body();
+                if (body != null) {
+                    Element p = document.createElement("p");
+
+                    if (message.from != null && message.from.length > 0) {
+                        Element span = document.createElement("span");
+                        span.text(getString(R.string.title_from) + " " + MessageHelper.formatAddresses(message.from));
+                        p.append(span.html() + "<br>");
+                    }
+
+                    if (message.to != null && message.to.length > 0) {
+                        Element span = document.createElement("span");
+                        span.text(getString(R.string.title_to) + " " + MessageHelper.formatAddresses(message.to));
+                        p.append(span.html() + "<br>");
+                    }
+
+                    if (message.cc != null && message.cc.length > 0) {
+                        Element span = document.createElement("span");
+                        span.text(getString(R.string.title_cc) + " " + MessageHelper.formatAddresses(message.cc));
+                        p.append(span.html() + "<br>");
+                    }
+
+                    {
+                        Element span = document.createElement("span");
+                        DateFormat DTF = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
+                        span.text(getString(R.string.title_received) + " " + DTF.format(message.received));
+                        p.append(span.html() + "<br>");
+                    }
+
+                    if (!TextUtils.isEmpty(message.subject)) {
+                        Element span = document.createElement("span");
+                        span.text(message.subject);
+                        p.append(span.html() + "<br>");
+                    }
+
+                    p.append("<hr><br>");
+
+                    body.prepend(p.html());
+                }
+
+                return new String[]{message.subject, document.html()};
             }
 
             @Override
