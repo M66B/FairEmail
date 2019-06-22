@@ -33,16 +33,14 @@ public interface DaoFolder {
 
     @Query("SELECT folder.*" +
             ", account.id AS accountId, account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
-            ", COUNT(rule.id) AS rules" +
+            ", (SELECT COUNT(rule.id) FROM rule WHERE rule.folder = folder.id AND rule.enabled) AS rules" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
-            ", COUNT(operation.id) AS executing" +
+            ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id AND operation.state = 'executing') AS executing" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
-            " LEFT JOIN rule ON rule.folder = folder.id AND rule.enabled" +
             " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
-            " LEFT JOIN operation ON operation.folder = folder.id AND operation.state = 'executing'" +
             " WHERE folder.account = :account AND account.synchronize" +
             " GROUP BY folder.id")
     List<TupleFolderEx> getFoldersEx(long account);
@@ -68,16 +66,14 @@ public interface DaoFolder {
 
     @Query("SELECT folder.*" +
             ", account.id AS accountId, account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
-            ", COUNT(rule.id) AS rules" +
+            ", (SELECT COUNT(rule.id) FROM rule WHERE rule.folder = folder.id AND rule.enabled) AS rules" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
-            ", COUNT(operation.id) AS executing" +
+            ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id AND operation.state = 'executing') AS executing" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
-            " LEFT JOIN rule ON rule.folder = folder.id AND rule.enabled" +
             " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
-            " LEFT JOIN operation ON operation.folder = folder.id AND operation.state = 'executing'" +
             " WHERE CASE WHEN :account IS NULL" +
             "  THEN folder.unified AND account.synchronize" +
             "  ELSE folder.account = :account AND account.synchronize" +
@@ -87,16 +83,14 @@ public interface DaoFolder {
 
     @Query("SELECT folder.*" +
             ", account.id AS accountId, account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
-            ", COUNT(rule.id) AS rules" +
+            ", (SELECT COUNT(rule.id) FROM rule WHERE rule.folder = folder.id AND rule.enabled) AS rules" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
-            ", COUNT(operation.id) AS executing" +
+            ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id AND operation.state = 'executing') AS executing" +
             " FROM folder" +
             " JOIN account ON account.id = folder.account" +
-            " LEFT JOIN rule ON rule.folder = folder.id AND rule.enabled" +
             " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
-            " LEFT JOIN operation ON operation.folder = folder.id AND operation.state = 'executing'" +
             " WHERE account.`synchronize`" +
             " AND folder.unified" +
             " GROUP BY folder.id")
@@ -129,16 +123,14 @@ public interface DaoFolder {
 
     @Query("SELECT folder.*" +
             ", account.id AS accountId, account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
-            ", COUNT(rule.id) AS rules" +
+            ", (SELECT COUNT(rule.id) FROM rule WHERE rule.folder = folder.id AND rule.enabled) AS rules" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
-            ", COUNT(operation.id) AS executing" +
+            ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id AND operation.state = 'executing') AS executing" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
-            " LEFT JOIN rule ON rule.folder = folder.id AND rule.enabled" +
             " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
-            " LEFT JOIN operation ON operation.folder = folder.id AND operation.state = 'executing'" +
             " WHERE folder.id = :id" +
             " GROUP BY folder.id")
     LiveData<TupleFolderEx> liveFolderEx(long id);
