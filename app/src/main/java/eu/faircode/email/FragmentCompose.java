@@ -98,7 +98,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
-import androidx.exifinterface.media.ExifInterface;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -1868,8 +1867,8 @@ public class FragmentCompose extends FragmentBase {
                         options.outHeight / factor > resize)
                     factor *= 2;
 
-                Log.i("Image type=" + attachment.type + " rotation=" + getImageRotation(file));
-                Matrix rotation = ("image/jpeg".equals(attachment.type) ? getImageRotation(file) : null);
+                Matrix rotation = ("image/jpeg".equals(attachment.type) ? Helper.getImageRotation(file) : null);
+                Log.i("Image type=" + attachment.type + " rotation=" + rotation);
 
                 if (factor > 1 || rotation != null) {
                     options.inJustDecodeBounds = false;
@@ -1908,43 +1907,6 @@ public class FragmentCompose extends FragmentBase {
         }
 
         return attachment;
-    }
-
-    private static Matrix getImageRotation(File file) throws IOException {
-        ExifInterface exif = new ExifInterface(file.getAbsolutePath());
-        int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
-
-        Matrix matrix = new Matrix();
-        switch (orientation) {
-            case ExifInterface.ORIENTATION_NORMAL:
-                return null;
-            case ExifInterface.ORIENTATION_FLIP_HORIZONTAL:
-                matrix.setScale(-1, 1);
-                return matrix;
-            case ExifInterface.ORIENTATION_FLIP_VERTICAL:
-                matrix.setRotate(180);
-                matrix.postScale(-1, 1);
-                return matrix;
-            case ExifInterface.ORIENTATION_TRANSPOSE:
-                matrix.setRotate(90);
-                matrix.postScale(-1, 1);
-                return matrix;
-            case ExifInterface.ORIENTATION_TRANSVERSE:
-                matrix.setRotate(-90);
-                matrix.postScale(-1, 1);
-                return matrix;
-            case ExifInterface.ORIENTATION_ROTATE_90:
-                matrix.setRotate(90);
-                return matrix;
-            case ExifInterface.ORIENTATION_ROTATE_180:
-                matrix.setRotate(180);
-                return matrix;
-            case ExifInterface.ORIENTATION_ROTATE_270:
-                matrix.setRotate(-90);
-                return matrix;
-            default:
-                return null;
-        }
     }
 
     private SimpleTask<EntityMessage> draftLoader = new SimpleTask<EntityMessage>() {
