@@ -515,11 +515,26 @@ public class Helper {
         while (options.outWidth / factor > scaleToPixels)
             factor *= 2;
 
-        if (factor > 1) {
+        Matrix rotation = null;
+        try {
+            rotation = Helper.getImageRotation(file);
+        } catch (IOException ex) {
+            Log.w(ex);
+        }
+
+        if (factor > 1 || rotation != null) {
             Log.i("Decode image factor=" + factor);
             options.inJustDecodeBounds = false;
             options.inSampleSize = factor;
-            return BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+            Bitmap scaled = BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+
+            if (rotation != null) {
+                Bitmap rotated = Bitmap.createBitmap(scaled, 0, 0, scaled.getWidth(), scaled.getHeight(), rotation, true);
+                scaled.recycle();
+                scaled = rotated;
+            }
+
+            return scaled;
         }
 
         return BitmapFactory.decodeFile(file.getAbsolutePath());
