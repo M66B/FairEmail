@@ -277,6 +277,9 @@ Invalid security certificate (*Can't verify identity of server*): you should try
 because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack).
 If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
 
+Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure,
+see also [here](https://developer.android.com/training/articles/security-ssl).
+
 IMAP STARTTLS: the EFF [writes](https://www.eff.org/nl/deeplinks/2018/06/announcing-starttls-everywhere-securing-hop-hop-email-delivery):
 "*Additionally, even if you configure STARTTLS perfectly and use a valid certificate, there’s still no guarantee your communication will be encrypted.*"
 
