@@ -37,11 +37,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.nio.ByteBuffer;
-import java.nio.CharBuffer;
-import java.nio.charset.CharacterCodingException;
 import java.nio.charset.Charset;
-import java.nio.charset.CharsetDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Date;
@@ -672,7 +668,7 @@ public class MessageHelper {
                 Log.w(ex);
             }
         } else
-            subject = fixUTF8(subject);
+            subject = new String(subject.getBytes(StandardCharsets.ISO_8859_1));
 
         return decodeMime(subject);
     }
@@ -792,24 +788,6 @@ public class MessageHelper {
         return text;
     }
 
-    static String fixUTF8(String text) {
-        try {
-            char[] kars = text.toCharArray();
-            byte[] bytes = new byte[kars.length];
-            for (int i = 0; i < kars.length; i++)
-                bytes[i] = (byte) kars[i];
-
-            CharsetDecoder cs = StandardCharsets.UTF_8.newDecoder();
-            CharBuffer out = cs.decode(ByteBuffer.wrap(bytes));
-            if (out.length() > 0)
-                return new String(bytes, StandardCharsets.UTF_8);
-        } catch (CharacterCodingException ex) {
-            Log.w(ex);
-        }
-
-        return text;
-    }
-
     static String getSortKey(Address[] addresses) {
         if (addresses == null || addresses.length == 0)
             return null;
@@ -866,16 +844,12 @@ public class MessageHelper {
                 if (TextUtils.isEmpty(charset)) {
                     if (BuildConfig.DEBUG)
                         warnings.add(context.getString(R.string.title_no_charset, ct.toString()));
-                    if (part.isMimeType("text/plain")) {
-                        // The first 127 characters are the same as in US-ASCII
-                        result = new String(result.getBytes(StandardCharsets.ISO_8859_1));
-                    }
+                    // The first 127 characters are the same as in US-ASCII
+                    result = new String(result.getBytes(StandardCharsets.ISO_8859_1));
                 } else {
                     if ("US-ASCII".equals(Charset.forName(charset).name()) &&
                             !"US-ASCII".equals(charset.toUpperCase()))
                         warnings.add(context.getString(R.string.title_no_charset, charset));
-                    if (part.isMimeType("text/plain") && "US-ASCII".equals(charset.toUpperCase()))
-                        result = fixUTF8(result);
                 }
             } catch (ParseException ex) {
                 Log.w(ex);
