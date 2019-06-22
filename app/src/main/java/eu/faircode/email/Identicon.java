@@ -76,7 +76,7 @@ class Identicon {
         byte[] hash = getHash(email);
 
         int color = Color.argb(255, hash[0], hash[1], hash[2]);
-        color = ColorUtils.blendARGB(color, dark ? Color.WHITE : Color.BLACK, 0.2f);
+        color = ColorUtils.blendARGB(color, dark ? Color.WHITE : Color.BLACK, 0.3f);
 
         Bitmap bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
