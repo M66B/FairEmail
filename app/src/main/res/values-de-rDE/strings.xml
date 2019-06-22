@@ -49,7 +49,7 @@
         <item quantity="one">%1$d Nachricht als Spam behandeln?</item>
         <item quantity="other">%1$d Nachrichten als Spam behandeln?</item>
     </plurals>
-    <string name="title_ask_spam_who">Nachricht von %1$s als Spam markieren?</string>
+    <string name="title_ask_spam_who">Nachricht von %1$s als Spam kennzeichnen?</string>
     <string name="title_notification_sending">Nachrichten werden gesendet</string>
     <string name="title_notification_failed">„%1$s” fehlgeschlagen</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -176,7 +176,7 @@
     <string name="title_advanced_collapse">\'Zurück\' klappt die Konversationsansicht zusammen</string>
     <string name="title_advanced_autoclose">Konversationen automatisch schließen</string>
     <string name="title_advanced_autonext">Automatisch beim Schließen einer Konversation zur nächsten Konversation wechseln</string>
-    <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen markieren</string>
+    <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen kennzeichnen</string>
     <string name="title_advanced_automove">Verschieben von Nachrichten bestätigen</string>
     <string name="title_advanced_notify_group">Neue Nachrichten-Benachrichtigungen gruppieren</string>
     <string name="title_advanced_notify_preview">Zeige die Nachrichten-Vorschau in den Benachrichtigungen</string>
@@ -220,7 +220,7 @@
     <string name="title_advanced_sender_hint">Die meisten Anbieter erlauben keine veränderten Absenderadressen</string>
     <string name="title_advanced_badge_hint">Nur verfügbar auf unterstützten Launchern</string>
     <string name="title_advanced_subscribed_only_hint">Wenn aktiviert, werden alle lokalen Ordner ohne Abonnement gelöscht</string>
-    <string name="title_advanced_english_hint">Dies wird die App neu starten</string>
+    <string name="title_advanced_english_hint">Dadurch wird die App neu gestartet</string>
     <string name="title_advanced_paranoid_hint">Details finden Sie in der FAQ</string>
     <string name="title_advanced_debug_hint">Aktiviert zusätzliche Protokollierung und zeigt Fehlerbehebungsinformationen an verschiedenen Stellen an</string>
     <string name="title_select">Wählen Sie &#8230;</string>
@@ -335,11 +335,11 @@
     <string name="title_no_messages">Keine E-Mails</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
-    <string name="title_seen">Als gelesen markieren</string>
-    <string name="title_unseen">Als ungelesen markieren</string>
-    <string name="title_flag">Als Favorit markieren</string>
+    <string name="title_seen">Als gelesen kennzeichnen</string>
+    <string name="title_unseen">Als ungelesen kennzeichnen</string>
+    <string name="title_flag">Kennzeichnen</string>
     <string name="title_flag_color">Farbige Kennzeichnung &#8230;</string>
-    <string name="title_unflag">Von Favoriten entfernen</string>
+    <string name="title_unflag">Kennzeichnung entfernen</string>
     <string name="title_forward">Weiterleiten</string>
     <string name="title_create_rule">Regel &#8230; erstellen</string>
     <string name="title_share">Teilen</string>
@@ -454,7 +454,7 @@
     <string name="title_sort_on">Sortieren nach</string>
     <string name="title_sort_on_time">Uhrzeit</string>
     <string name="title_sort_on_unread">Ungelesen</string>
-    <string name="title_sort_on_starred">Favoriten</string>
+    <string name="title_sort_on_starred">Gekennzeichnet</string>
     <string name="title_sort_on_sender">Absender</string>
     <string name="title_sort_on_subject">Betreff</string>
     <string name="title_sort_on_size">Größe</string>
