@@ -507,30 +507,7 @@ public class MessageHelper {
     }
 
     Address[] getReceiptTo() throws MessagingException {
-        try {
-            String to = imessage.getHeader("Disposition-Notification-To", null);
-            if (to == null)
-                return null;
-
-            to = MimeUtility.unfold(to);
-
-            InternetAddress[] address = null;
-            try {
-                address = InternetAddress.parse(to);
-            } catch (AddressException ex) {
-                Log.w(ex);
-            }
-
-            if (address == null || address.length == 0)
-                return null;
-
-            fix(address[0]);
-
-            return new Address[]{address[0]};
-        } catch (AddressException ex) {
-            Log.w(ex);
-            return null;
-        }
+        return getAddressHeader("Disposition-Notification-To");
     }
 
     String getAuthentication() throws MessagingException {
@@ -563,33 +540,43 @@ public class MessageHelper {
         return result;
     }
 
+    private Address[] getAddressHeader(String name) throws MessagingException {
+        String header = imessage.getHeader(name, ",");
+        if (header == null)
+            return null;
+
+        header = MimeUtility.unfold(header);
+        header = new String(header.getBytes(StandardCharsets.ISO_8859_1));
+        header = decodeMime(header);
+
+        return InternetAddress.parseHeader(header, false);
+    }
+
     Address[] getFrom() throws MessagingException {
-        return fix(imessage.getFrom());
+        Address[] address = getAddressHeader("From");
+        if (address == null)
+            address = getAddressHeader("Sender");
+        return address;
     }
 
     Address[] getTo() throws MessagingException {
-        return fix(imessage.getRecipients(Message.RecipientType.TO));
+        return getAddressHeader("To");
     }
 
     Address[] getCc() throws MessagingException {
-        return fix(imessage.getRecipients(Message.RecipientType.CC));
+        return getAddressHeader("Cc");
     }
 
     Address[] getBcc() throws MessagingException {
-        return fix(imessage.getRecipients(Message.RecipientType.BCC));
+        return getAddressHeader("Bcc");
     }
 
     Address[] getReply() throws MessagingException {
-        // Prevent getting To header
-        String[] headers = imessage.getHeader("Reply-To");
-        if (headers != null && headers.length > 0)
-            return fix(imessage.getReplyTo());
-        else
-            return null;
+        return getAddressHeader("Reply-To");
     }
 
     Address[] getListPost() throws MessagingException {
-        String list = null;
+        String list;
         try {
             // https://www.ietf.org/rfc/rfc2369.txt
             list = imessage.getHeader("List-Post", null);
@@ -625,52 +612,24 @@ public class MessageHelper {
         }
     }
 
-    private static Address[] fix(Address[] addresses) {
-        if (addresses != null)
-            for (int i = 0; i < addresses.length; i++)
-                fix((InternetAddress) addresses[i]);
-        return addresses;
-    }
-
-    private static void fix(InternetAddress address) {
-        try {
-            String email = decodeMime(address.getAddress());
-            String personal = decodeMime(address.getPersonal());
-            try {
-                InternetAddress[] a = InternetAddress.parse(email);
-                if (a.length < 1)
-                    throw new AddressException("empty");
-                String p = a[0].getPersonal();
-                address.setAddress(a[0].getAddress());
-                address.setPersonal(TextUtils.isEmpty(personal) ? p : personal + (p == null ? "" : " " + p));
-            } catch (AddressException ex) {
-                Log.w(ex);
-                address.setAddress(email);
-                address.setPersonal(personal);
-            }
-        } catch (UnsupportedEncodingException ex) {
-            Log.w(ex);
-        }
-    }
-
     String getSubject() throws MessagingException {
         String subject = imessage.getHeader("Subject", null);
         if (subject == null)
             return null;
 
         subject = MimeUtility.unfold(subject);
+        subject = new String(subject.getBytes(StandardCharsets.ISO_8859_1));
 
-        if (subject.contains("=?")) {
-            // Decode header
+        if (subject.startsWith("=?"))
             try {
                 subject = MimeUtility.decodeText(subject);
             } catch (UnsupportedEncodingException ex) {
                 Log.w(ex);
             }
-        } else
-            subject = new String(subject.getBytes(StandardCharsets.ISO_8859_1));
 
-        return decodeMime(subject);
+        subject = decodeMime(subject);
+
+        return subject;
     }
 
     Long getSize() throws MessagingException {
