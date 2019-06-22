@@ -776,12 +776,17 @@ public class MessageHelper {
             }
 
             String result;
-            boolean text = false;
             Part part = (html == null ? plain : html);
 
             try {
                 Object content = part.getContent();
                 Log.i("Content class=" + (content == null ? null : content.getClass().getName()));
+
+                if (content == null) {
+                    warnings.add(context.getString(R.string.title_no_body));
+                    return null;
+                }
+
                 if (content instanceof String)
                     result = (String) content;
                 else if (content instanceof InputStream)
@@ -818,7 +823,9 @@ public class MessageHelper {
                 warnings.add(Helper.formatThrowable(ex));
             }
 
-            if (part.isMimeType("text/plain") || text) {
+            result = result.replace("\0", "");
+
+            if (part.isMimeType("text/plain")) {
                 result = TextUtils.htmlEncode(result);
                 result = result.replaceAll("\\r?\\n", "<br />");
                 result = "<span>" + result + "</span>";
