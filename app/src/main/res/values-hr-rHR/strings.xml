@@ -17,6 +17,16 @@
     <string name="tile_unseen">Nove poruke</string>
     <string name="shortcut_compose">Sastavi</string>
     <string name="shortcut_setup">Postavke</string>
+    <plurals name="title_notification_synchronizing">
+        <item quantity="one">Sinkronizira račun %1$d</item>
+        <item quantity="few">Sinkronizira račune %1$d</item>
+        <item quantity="other">Sinkronizira račune %1$d</item>
+    </plurals>
+    <plurals name="title_notification_operations">
+        <item quantity="one">%1$d operacija na čekanju</item>
+        <item quantity="few">%1$d operacija na čekanju</item>
+        <item quantity="other">%1$d operacija na čekanju</item>
+    </plurals>
     <plurals name="title_notification_unseen">
         <item quantity="one">%1$d novih poruka</item>
         <item quantity="few">%1$d novih poruka</item>
@@ -26,6 +36,26 @@
         <item quantity="one">%1$d poruka za slanje</item>
         <item quantity="few">%1$d poruka za slanje</item>
         <item quantity="other">%1$d poruka za slanje</item>
+    </plurals>
+    <plurals name="title_tile_unseen">
+        <item quantity="one">%1$d nova</item>
+        <item quantity="few">%1$d nove</item>
+        <item quantity="other">%1$d novih</item>
+    </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Premjesti %1$d poruku u %2$s?</item>
+        <item quantity="few">Premjesti %1$d poruke u %2$s?</item>
+        <item quantity="other">Premjesti %1$d poruka u %2$s?</item>
+    </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="one">Želite li trajno izbrisati %1$d poruku?</item>
+        <item quantity="few">Želite li trajno izbrisati %1$d poruke?</item>
+        <item quantity="other">Želite li trajno izbrisati %1$d poruka?</item>
+    </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="one">Želite %1$d poruku tretirati kao neželjenu poštu?</item>
+        <item quantity="few">Želite %1$d poruke tretirati kao neželjenu poštu?</item>
+        <item quantity="other">Želite %1$d poruka tretirati kao neželjenu poštu?</item>
     </plurals>
     <string name="title_ask_spam_who">Prijaviti poruku od korisnika %1$s kao neželjenu poštu?</string>
     <string name="title_notification_sending">Poruka se šalje</string>
