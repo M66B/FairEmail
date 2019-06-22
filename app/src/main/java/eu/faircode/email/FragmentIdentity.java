@@ -27,6 +27,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
@@ -128,7 +129,6 @@ public class FragmentIdentity extends FragmentBase {
     private long id = -1;
     private boolean saving = false;
     private int color = Color.TRANSPARENT;
-    private String signature = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -295,15 +295,9 @@ public class FragmentIdentity extends FragmentBase {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (etSignature.getTag() == null) {
-                    if (TextUtils.isEmpty(s))
-                        signature = null;
-                    else {
-                        Helper.clearComposingText(s);
-                        signature = HtmlHelper.toHtml(s);
-                    }
-                } else
-                    etSignature.setTag(null);
+                SpannableStringBuilder ssb = new SpannableStringBuilder(s);
+                Helper.clearComposingText(ssb);
+                etSignature.setTag(HtmlHelper.toHtml(ssb));
             }
         });
 
@@ -312,7 +306,7 @@ public class FragmentIdentity extends FragmentBase {
             public void onClick(View v) {
                 View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_signature, null);
                 final EditText etHtml = dview.findViewById(R.id.etHtml);
-                etHtml.setText(signature);
+                etHtml.setText((String) etSignature.getTag());
 
                 new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                         .setTitle(R.string.title_edit_html)
@@ -320,9 +314,9 @@ public class FragmentIdentity extends FragmentBase {
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                signature = etHtml.getText().toString();
-                                etSignature.setTag(true);
-                                etSignature.setText(HtmlHelper.fromHtml(signature));
+                                String html = etHtml.getText().toString();
+                                etSignature.setText(HtmlHelper.fromHtml(html));
+                                etSignature.setTag(html);
                             }
                         })
                         .show();
@@ -517,7 +511,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("realm", etRealm.getText().toString());
         args.putBoolean("use_ip", cbUseIp.isChecked());
         args.putInt("color", color);
-        args.putString("signature", signature);
+        args.putString("signature", (String) etSignature.getTag());
         args.putBoolean("synchronize", cbSynchronize.isChecked());
         args.putBoolean("primary", cbPrimary.isChecked());
 
@@ -856,9 +850,9 @@ public class FragmentIdentity extends FragmentBase {
 
                     etDisplay.setText(identity == null ? null : identity.display);
 
-                    signature = (identity == null ? null : identity.signature);
-                    etSignature.setTag(true);
+                    String signature = (identity == null ? null : identity.signature);
                     etSignature.setText(TextUtils.isEmpty(signature) ? null : HtmlHelper.fromHtml(signature));
+                    etSignature.setTag(signature);
 
                     etHost.setText(identity == null ? null : identity.host);
                     rgEncryption.check(identity != null && identity.starttls ? R.id.radio_starttls : R.id.radio_ssl);
