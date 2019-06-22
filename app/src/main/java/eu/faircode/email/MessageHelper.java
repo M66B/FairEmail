@@ -847,9 +847,12 @@ public class MessageHelper {
                     // The first 127 characters are the same as in US-ASCII
                     result = new String(result.getBytes(StandardCharsets.ISO_8859_1));
                 } else {
-                    if ("US-ASCII".equals(Charset.forName(charset).name()) &&
-                            !"US-ASCII".equals(charset.toUpperCase()))
-                        warnings.add(context.getString(R.string.title_no_charset, charset));
+                    if ("US-ASCII".equals(charset.toUpperCase()))
+                        result = new String(result.getBytes(StandardCharsets.ISO_8859_1));
+                    else {
+                        if ("US-ASCII".equals(Charset.forName(charset).name()))
+                            warnings.add(context.getString(R.string.title_no_charset, charset));
+                    }
                 }
             } catch (ParseException ex) {
                 Log.w(ex);
