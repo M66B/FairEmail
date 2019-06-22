@@ -13,8 +13,8 @@ android {
         applicationId "eu.faircode.email"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 550
-        versionName "1.550"
+        versionCode 551
+        versionName "1.551"
         archivesBaseName = "FairEmail-v$versionName"
 
         javaCompileOptions {
@@ -73,7 +73,7 @@ android {
             dimension "all"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
-            buildConfigField "String", "INVITE_URI", "\"https://play.google.com/apps/testing/eu.faircode.email\""
+            buildConfigField "String", "INVITE_URI", "\"https://play.google.com/store/apps/details?id=eu.faircode.email\""
             buildConfigField "String", "PRO_FEATURES_URI", "\"https://email.faircode.eu/#pro\""
             buildConfigField "String", "CHANGELOG", "\"\""
             buildConfigField "String", "GITHUB_LATEST_API", "\"\""
