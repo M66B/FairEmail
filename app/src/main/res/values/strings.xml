@@ -299,7 +299,7 @@
     <string name="title_provider">Provider</string>
     <string name="title_custom">Custom</string>
     <string name="title_host">Host name</string>
-    <string name="title_ssl" translatable="false">SSL</string>
+    <string name="title_ssl" translatable="false">SSL/TLS</string>
     <string name="title_starttls" translatable="false">STARTTLS</string>
     <string name="title_allow_insecure">Allow insecure connections</string>
     <string name="title_port">Port number</string>
