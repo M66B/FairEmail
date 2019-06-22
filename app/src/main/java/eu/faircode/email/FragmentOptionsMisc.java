@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.app.ActivityManager;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -177,6 +178,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("updates", checked).apply();
+                if (!checked) {
+                    NotificationManager nm = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+                    nm.cancel(Helper.NOTIFICATION_UPDATE);
+                }
             }
         });
 

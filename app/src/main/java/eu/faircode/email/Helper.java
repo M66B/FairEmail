@@ -95,6 +95,7 @@ public class Helper {
     static final int NOTIFICATION_SYNCHRONIZE = 1;
     static final int NOTIFICATION_SEND = 2;
     static final int NOTIFICATION_EXTERNAL = 3;
+    static final int NOTIFICATION_UPDATE = 4;
 
     static final float LOW_LIGHT = 0.6f;
 

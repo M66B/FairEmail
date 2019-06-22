@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -49,6 +51,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.app.NotificationCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -108,6 +111,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final int REQUEST_THREAD = 3;
     static final int REQUEST_OUTBOX = 4;
     static final int REQUEST_ERROR = 5;
+    static final int REQUEST_UPDATE = 6;
 
     static final int REQUEST_SENDER = 1;
     static final int REQUEST_RECIPIENT = 2;
@@ -732,17 +736,25 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     return;
                 }
 
-                final Intent update = new Intent(Intent.ACTION_VIEW, Uri.parse(info.html_url));
-                if (update.resolveActivity(getPackageManager()) != null)
-                    new DialogBuilderLifecycle(ActivityView.this, ActivityView.this)
-                            .setMessage(getString(R.string.title_updated, info.tag_name))
-                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    Helper.view(ActivityView.this, ActivityView.this, update);
-                                }
-                            })
-                            .show();
+                NotificationCompat.Builder builder =
+                        new NotificationCompat.Builder(ActivityView.this, "notification")
+                                .setSmallIcon(R.drawable.baseline_system_update_24)
+                                .setContentTitle(getString(R.string.title_updated, info.tag_name))
+                                .setAutoCancel(true)
+                                .setShowWhen(false)
+                                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                .setCategory(NotificationCompat.CATEGORY_REMINDER)
+                                .setVisibility(NotificationCompat.VISIBILITY_SECRET);
+
+                Intent update = new Intent(Intent.ACTION_VIEW, Uri.parse(info.html_url));
+                if (update.resolveActivity(getPackageManager()) != null) {
+                    PendingIntent piUpdate = PendingIntent.getActivity(
+                            ActivityView.this, REQUEST_UPDATE, update, PendingIntent.FLAG_UPDATE_CURRENT);
+                    builder.setContentIntent(piUpdate);
+                }
+
+                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                nm.notify(Helper.NOTIFICATION_UPDATE, builder.build());
             }
 
             @Override
