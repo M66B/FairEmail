@@ -332,7 +332,7 @@ public class EntityRule {
 
     private void onActionSnooze(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
         int duration = jargs.getInt("duration");
-        long wakeup = new Date().getTime() + duration * 3600 * 1000L;
+        long wakeup = message.received + duration * 3600 * 1000L;
 
         DB db = DB.getInstance(context);
         db.message().setMessageSnoozed(message.id, wakeup);
