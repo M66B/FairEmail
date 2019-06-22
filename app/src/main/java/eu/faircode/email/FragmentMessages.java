@@ -314,11 +314,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         seekBar = view.findViewById(R.id.seekBar);
         ibDown = view.findViewById(R.id.ibDown);
         ibUp = view.findViewById(R.id.ibUp);
-
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
-
-        for (int i = 0; i < bottom_navigation.getMenu().size(); i++)
-            bottom_navigation.getMenu().getItem(i).getIcon().mutate();
 
         pbWait = view.findViewById(R.id.pbWait);
         grpSupport = view.findViewById(R.id.grpSupport);
@@ -1162,7 +1158,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             if (dX > 0) {
                 // Right swipe
-                Drawable d = getResources().getDrawable(EntityFolder.getIcon(swipes.right_type), getContext().getTheme());
+                Drawable d = getResources().getDrawable(
+                        EntityFolder.getIcon(swipes.right_type), getContext().getTheme()).mutate();
                 d.setAlpha(Math.round(255 * Math.min(dX / (2 * margin + size), 1.0f)));
                 int padding = (rect.height() - size);
                 d.setBounds(
@@ -1173,7 +1170,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 d.draw(canvas);
             } else if (dX < 0) {
                 // Left swipe
-                Drawable d = getResources().getDrawable(EntityFolder.getIcon(swipes.left_type), getContext().getTheme());
+                Drawable d = getResources().getDrawable(
+                        EntityFolder.getIcon(swipes.left_type), getContext().getTheme()).mutate();
                 d.setAlpha(Math.round(255 * Math.min(-dX / (2 * margin + size), 1.0f)));
                 int padding = (rect.height() - size);
                 d.setBounds(

@@ -387,10 +387,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvNoInternetAttachments = attachments.findViewById(R.id.tvNoInternetAttachments);
 
             bnvActions = vsBody.findViewById(R.id.bnvActions);
-
-            for (int i = 0; i < bnvActions.getMenu().size(); i++)
-                bnvActions.getMenu().getItem(i).getIcon().mutate();
-
             if (compact) {
                 bnvActions.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
                 ViewGroup.LayoutParams lparam = bnvActions.getLayoutParams();

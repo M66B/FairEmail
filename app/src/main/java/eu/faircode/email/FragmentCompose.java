@@ -243,11 +243,7 @@ public class FragmentCompose extends FragmentBase {
         ibReferenceEdit = view.findViewById(R.id.ibReferenceEdit);
         ibReferenceImages = view.findViewById(R.id.ibReferenceImages);
         edit_bar = view.findViewById(R.id.edit_bar);
-
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
-
-        for (int i = 0; i < bottom_navigation.getMenu().size(); i++)
-            bottom_navigation.getMenu().getItem(i).getIcon().mutate();
 
         pbWait = view.findViewById(R.id.pbWait);
         grpHeader = view.findViewById(R.id.grpHeader);
