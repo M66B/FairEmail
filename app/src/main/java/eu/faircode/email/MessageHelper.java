@@ -545,10 +545,7 @@ public class MessageHelper {
         if (header == null)
             return null;
 
-        header = MimeUtility.unfold(header);
         header = new String(header.getBytes(StandardCharsets.ISO_8859_1));
-        header = decodeMime(header);
-
         return InternetAddress.parseHeader(header, false);
     }
 
