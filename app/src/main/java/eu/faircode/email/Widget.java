@@ -27,6 +27,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
 
+import java.text.NumberFormat;
+
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class Widget extends AppWidgetProvider {
@@ -45,7 +47,7 @@ public class Widget extends AppWidgetProvider {
 
     static void update(Context context, int count) {
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-        int appWidgetIds[] = AppWidgetManager.getInstance(context).getAppWidgetIds(new ComponentName(context, Widget.class));
+        int[] appWidgetIds = AppWidgetManager.getInstance(context).getAppWidgetIds(new ComponentName(context, Widget.class));
         update(appWidgetIds, appWidgetManager, context, count);
     }
 
@@ -54,10 +56,21 @@ public class Widget extends AppWidgetProvider {
         view.setAction("unified");
         view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pi = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NumberFormat nf = NumberFormat.getIntegerInstance();
+
         for (int id : appWidgetIds) {
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget);
+
             views.setOnClickPendingIntent(R.id.widget, pi);
-            views.setTextViewText(R.id.tvCount, count < 0 ? "?" : (count > 99 ? "99+" : Integer.toString(count)));
+
+            if (count < 0)
+                views.setTextViewText(R.id.tvCount, "?");
+            else if (count > 999)
+                views.setTextViewText(R.id.tvCount, "∞");
+            else
+                views.setTextViewText(R.id.tvCount, nf.format(count));
+
             appWidgetManager.updateAppWidget(id, views);
         }
     }
