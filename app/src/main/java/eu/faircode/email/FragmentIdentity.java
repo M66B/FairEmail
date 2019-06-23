@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -753,6 +754,11 @@ public class FragmentIdentity extends FragmentBase {
                     db.setTransactionSuccessful();
                 } finally {
                     db.endTransaction();
+                }
+
+                if (!synchronize) {
+                    NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                    nm.cancel("send:" + identity.id, 1);
                 }
 
                 return false;

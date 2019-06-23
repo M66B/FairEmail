@@ -2917,10 +2917,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                                 db.message().deleteMessage(id);
 
                                                 db.folder().setFolderError(message.folder, null);
-                                                db.identity().setIdentityError(message.identity, null);
+                                                if (message.identity != null) {
+                                                    db.identity().setIdentityError(message.identity, null);
 
-                                                NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                                                nm.cancel("send", message.identity.intValue());
+                                                    NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                                                    nm.cancel("send:" + message.identity, 1);
+                                                }
                                             } else
                                                 EntityOperation.queue(context, message, EntityOperation.DELETE);
 
@@ -3091,7 +3093,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (message.identity != null) {
                         // Identity can be deleted
                         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                        nm.cancel("send", message.identity.intValue());
+                        nm.cancel("send:" + message.identity, 1);
                     }
 
                     return null;

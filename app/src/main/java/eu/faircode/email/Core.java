@@ -49,7 +49,6 @@ import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.FetchResponse;
 import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.imap.protocol.UID;
-import com.sun.mail.util.MailConnectException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -64,8 +63,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.SocketException;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -82,7 +79,6 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 import javax.mail.Address;
-import javax.mail.AuthenticationFailedException;
 import javax.mail.FetchProfile;
 import javax.mail.Flags;
 import javax.mail.Folder;
@@ -91,10 +87,8 @@ import javax.mail.FolderNotFoundException;
 import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
-import javax.mail.SendFailedException;
 import javax.mail.Session;
 import javax.mail.Store;
-import javax.mail.StoreClosedException;
 import javax.mail.UIDFolder;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -104,7 +98,6 @@ import javax.mail.search.MessageIDTerm;
 import javax.mail.search.OrTerm;
 import javax.mail.search.ReceivedDateTerm;
 import javax.mail.search.SearchTerm;
-import javax.net.ssl.SSLException;
 
 import me.leolin.shortcutbadger.ShortcutBadger;
 
@@ -253,11 +246,10 @@ class Core {
                         db.operation().deleteOperation(op.id);
                     } catch (Throwable ex) {
                         Log.e(folder.name, ex);
-                        reportError(context, account, folder, ex);
 
                         db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
                         if (message != null && !(ex instanceof IllegalArgumentException))
-                            db.message().setMessageError(message.id, Helper.formatThrowable(ex, true));
+                            db.message().setMessageError(message.id, Helper.formatThrowable(ex));
 
                         if (ex instanceof OutOfMemoryError ||
                                 ex instanceof MessageRemovedException ||
@@ -1053,8 +1045,7 @@ class Core {
                     Log.w(folder.name, ex);
                 } catch (Throwable ex) {
                     Log.e(folder.name, ex);
-                    reportError(context, account, folder, ex);
-                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
+                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                 }
 
             if (uids.size() > 0) {
@@ -1159,12 +1150,12 @@ class Core {
                     } catch (IOException ex) {
                         if (ex.getCause() instanceof MessagingException) {
                             Log.w(folder.name, ex);
-                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
+                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                         } else
                             throw ex;
                     } catch (Throwable ex) {
                         Log.e(folder.name, ex);
-                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
+                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                     } finally {
                         // Free memory
                         ((IMAPMessage) isub[j]).invalidateHeaders();
@@ -2117,58 +2108,17 @@ class Core {
         builder.setSound(uri);
     }
 
-    static void reportError(Context context, EntityAccount account, EntityFolder folder, Throwable ex) {
-        // FolderClosedException: can happen when no connectivity
+    // FolderClosedException: can happen when no connectivity
 
-        // IllegalStateException:
-        // - "This operation is not allowed on a closed folder"
-        // - can happen when syncing message
+    // IllegalStateException:
+    // - "This operation is not allowed on a closed folder"
+    // - can happen when syncing message
 
-        // ConnectionException
-        // - failed to create new store connection (connectivity)
+    // ConnectionException
+    // - failed to create new store connection (connectivity)
 
-        // MailConnectException
-        // - on connectivity problems when connecting to store
-
-        String title;
-        if (account == null)
-            title = Helper.localizeFolderName(context, folder.name);
-        else if (folder == null)
-            title = account.name;
-        else
-            title = account.name + "/" + Helper.localizeFolderName(context, folder.name);
-
-        String tag = "error:" + (account == null ? 0 : account.id) + ":" + (folder == null ? 0 : folder.id);
-
-        EntityLog.log(context, title + " " + Helper.formatThrowable(ex));
-
-        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        if (nm == null)
-            return;
-
-        if (ex instanceof AuthenticationFailedException || // Also: Too many simultaneous connections
-                ex instanceof AlertException ||
-                ex instanceof SendFailedException)
-            nm.notify(tag, 1, getNotificationError(context, "error", title, ex).build());
-
-        // connection failure: Too many simultaneous connections
-
-        if (BuildConfig.DEBUG &&
-                !(ex instanceof SendFailedException) &&
-                !(ex instanceof MailConnectException) &&
-                !(ex instanceof FolderClosedException) &&
-                !(ex instanceof IllegalStateException) &&
-                !(ex instanceof StoreClosedException) &&
-                !(ex instanceof UnknownHostException) &&
-                !(ex instanceof MessageRemovedException) &&
-                !(ex instanceof MessagingException && ex.getCause() instanceof UnknownHostException) &&
-                !(ex instanceof MessagingException && ex.getCause() instanceof ConnectionException) &&
-                !(ex instanceof MessagingException && ex.getCause() instanceof SocketException) &&
-                !(ex instanceof MessagingException && ex.getCause() instanceof SocketTimeoutException) &&
-                !(ex instanceof MessagingException && ex.getCause() instanceof SSLException) &&
-                !(ex instanceof MessagingException && "connection failure".equals(ex.getMessage())))
-            nm.notify(tag, 1, getNotificationError(context, "error", title, ex).build());
-    }
+    // MailConnectException
+    // - on connectivity problems when connecting to store
 
     static NotificationCompat.Builder getNotificationError(Context context, String channel, String title, Throwable ex) {
         // Build pending intent
@@ -2192,7 +2142,7 @@ class Core {
                         .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
         builder.setStyle(new NotificationCompat.BigTextStyle()
-                .bigText(Helper.formatThrowable(ex, false, "\n")));
+                .bigText(Helper.formatThrowable(ex, "\n")));
 
         return builder;
     }

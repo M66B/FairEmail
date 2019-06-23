@@ -539,10 +539,6 @@
     <string name="title_zoom">Text size</string>
     <string name="title_select_all">Select all</string>
 
-    <string name="title_address_sent">Sent:</string>
-    <string name="title_address_unsent">Unsent:</string>
-    <string name="title_address_invalid">Invalid:</string>
-
     <string name="title_previous">Previous</string>
     <string name="title_next">Next</string>
 

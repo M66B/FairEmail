@@ -51,6 +51,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import javax.mail.Address;
+import javax.mail.AuthenticationFailedException;
 import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
@@ -150,7 +151,6 @@ public class ServiceSend extends LifecycleService {
                                             db.operation().deleteOperation(op.id);
                                         } catch (Throwable ex) {
                                             Log.e(outbox.name, ex);
-                                            Core.reportError(ServiceSend.this, null, outbox, ex);
 
                                             db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
                                             if (message != null)
@@ -174,7 +174,7 @@ public class ServiceSend extends LifecycleService {
                                     }
                                 } catch (Throwable ex) {
                                     Log.e(outbox.name, ex);
-                                    db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex, true));
+                                    db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex));
                                 } finally {
                                     db.folder().setFolderState(outbox.id, null);
                                     db.folder().setFolderSyncState(outbox.id, null);
@@ -294,6 +294,9 @@ public class ServiceSend extends LifecycleService {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean debug = prefs.getBoolean("debug", false);
 
+        if (message.identity == null)
+            throw new IllegalArgumentException("Identity removed");
+
         EntityIdentity ident = db.identity().getIdentity(message.identity);
         String protocol = ident.getProtocol();
 
@@ -410,45 +413,28 @@ public class ServiceSend extends LifecycleService {
             db.identity().setIdentityError(ident.id, null);
 
             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            nm.cancel("send", message.identity.intValue());
+            nm.cancel("send:" + message.identity, 1);
         } catch (MessagingException ex) {
-            // Caused by: com.sun.mail.smtp.SMTPAddressFailedException: 554 Refused. Sending to remote addresses (relaying) is not allowed.
-/*
-            if (ex instanceof SendFailedException) {
-                SendFailedException sfe = (SendFailedException) ex;
+            Log.e(ex);
 
-                StringBuilder sb = new StringBuilder();
-
-                sb.append(sfe.getMessage());
-
-                sb.append(' ').append(getString(R.string.title_address_sent));
-                sb.append(' ').append(MessageHelper.formatAddresses(sfe.getValidSentAddresses()));
-
-                sb.append(' ').append(getString(R.string.title_address_unsent));
-                sb.append(' ').append(MessageHelper.formatAddresses(sfe.getValidUnsentAddresses()));
-
-                sb.append(' ').append(getString(R.string.title_address_invalid));
-                sb.append(' ').append(MessageHelper.formatAddresses(sfe.getInvalidAddresses()));
-
-                ex = new SendFailedException(
-                        sb.toString(),
-                        sfe.getNextException(),
-                        sfe.getValidSentAddresses(),
-                        sfe.getValidUnsentAddresses(),
-                        sfe.getInvalidAddresses());
-            }
-*/
             db.identity().setIdentityError(ident.id, Helper.formatThrowable(ex));
 
-            EntityLog.log(this, ident.name + " last attempt: " + new Date(message.last_attempt));
+            if (ex instanceof AuthenticationFailedException ||
+                    ex instanceof SendFailedException) {
+                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                nm.notify("send:" + message.identity, 1,
+                        Core.getNotificationError(this, "error", ident.name, ex)
+                                .build());
+                throw ex;
+            }
 
             long now = new Date().getTime();
             long delayed = now - message.last_attempt;
             if (delayed > IDENTITY_ERROR_AFTER * 60 * 1000L || ex instanceof SendFailedException) {
                 Log.i("Reporting send error after=" + delayed);
                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                nm.notify("send", message.identity.intValue(),
-                        Core.getNotificationError(this, "error", ident.name, ex).build());
+                nm.notify("send:" + message.identity, 1,
+                        Core.getNotificationError(this, "warning", ident.name, ex).build());
             }
 
             throw ex;

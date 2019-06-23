@@ -65,6 +65,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
 
+import javax.mail.AuthenticationFailedException;
 import javax.mail.FetchProfile;
 import javax.mail.Folder;
 import javax.mail.FolderClosedException;
@@ -597,10 +598,16 @@ public class ServiceSynchronize extends LifecycleService {
                                     String message = e.getMessage();
                                     Log.w(account.name + " alert: " + message);
                                     db.account().setAccountError(account.id, message);
-                                    if (BuildConfig.DEBUG ||
-                                            (message != null && !message.startsWith("Too many simultaneous connections")))
-                                        Core.reportError(ServiceSynchronize.this, account, null,
-                                                new Core.AlertException(message));
+
+                                    if (message != null && !message.startsWith("Too many simultaneous connections")) {
+                                        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                                        nm.notify("receive:" + account.id, 1,
+                                                Core.getNotificationError(
+                                                        ServiceSynchronize.this, "warning", account.name,
+                                                        new Core.AlertException(message))
+                                                        .build());
+                                    }
+
                                     state.error(null);
                                 } finally {
                                     wlFolder.release();
@@ -698,6 +705,14 @@ public class ServiceSynchronize extends LifecycleService {
                     try {
                         ConnectionHelper.connect(this, istore, account);
                     } catch (Throwable ex) {
+                        if (ex instanceof AuthenticationFailedException) {
+                            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                            nm.notify("receive:" + account.id, 1,
+                                    Core.getNotificationError(this, "error", account.name, ex)
+                                            .build());
+                            throw ex;
+                        }
+
                         // Report account connection error
                         if (account.last_connected != null && !ConnectionHelper.airplaneMode(this)) {
                             EntityLog.log(this, account.name + " last connected: " + new Date(account.last_connected));
@@ -710,7 +725,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                 SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT)
                                                         .format(account.last_connected)), ex);
                                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                nm.notify("receive", account.id.intValue(),
+                                nm.notify("receive:" + account.id, 1,
                                         Core.getNotificationError(this, "warning", account.name, warning)
                                                 .build());
                             }
@@ -746,14 +761,14 @@ public class ServiceSynchronize extends LifecycleService {
                                 db.folder().setFolderReadOnly(folder.id, false);
                             } catch (ReadOnlyFolderException ex) {
                                 Log.w(folder.name + " read only");
-                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
+                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                 try {
                                     ifolder.open(Folder.READ_ONLY);
                                     db.folder().setFolderReadOnly(folder.id, true);
                                 } catch (MessagingException ex1) {
                                     Log.w(ex1);
                                     db.folder().setFolderState(folder.id, null);
-                                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex1, true));
+                                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex1));
                                     continue;
                                 }
                             } catch (FolderNotFoundException ex) {
@@ -763,10 +778,10 @@ public class ServiceSynchronize extends LifecycleService {
                             } catch (MessagingException ex) {
                                 Log.w(ex);
                                 db.folder().setFolderState(folder.id, null);
-                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
+                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                 continue;
                             } catch (Throwable ex) {
-                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
+                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                 throw ex;
                             }
                             mapFolders.put(folder, ifolder);
@@ -818,19 +833,18 @@ public class ServiceSynchronize extends LifecycleService {
                                             } catch (IOException ex) {
                                                 if (ex.getCause() instanceof MessagingException) {
                                                     Log.w(folder.name, ex);
-                                                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
+                                                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                                 } else
                                                     throw ex;
                                             } catch (Throwable ex) {
                                                 Log.e(folder.name, ex);
-                                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
+                                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                             }
 
                                         int count = ifolder.getMessageCount();
                                         db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
-                                        Core.reportError(ServiceSynchronize.this, account, folder, ex);
                                         state.error(ex);
                                     } finally {
                                         wlMessage.release();
@@ -859,8 +873,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
-                                        Core.reportError(ServiceSynchronize.this, account, folder, ex);
-                                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
+                                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                         state.error(ex);
                                     } finally {
                                         wlMessage.release();
@@ -902,16 +915,15 @@ public class ServiceSynchronize extends LifecycleService {
                                         } catch (IOException ex) {
                                             if (ex.getCause() instanceof MessagingException) {
                                                 Log.w(folder.name, ex);
-                                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
+                                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                             } else
                                                 throw ex;
                                         } catch (Throwable ex) {
                                             Log.e(folder.name, ex);
-                                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
+                                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                         }
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
-                                        Core.reportError(ServiceSynchronize.this, account, folder, ex);
                                         state.error(ex);
                                     } finally {
                                         wlMessage.release();
@@ -1008,8 +1020,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                                                         } catch (Throwable ex) {
                                                             Log.e(folder.name, ex);
-                                                            Core.reportError(ServiceSynchronize.this, account, folder, ex);
-                                                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex, true));
+                                                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                                             state.error(ex);
                                                         } finally {
                                                             if (shouldClose) {
@@ -1081,7 +1092,7 @@ public class ServiceSynchronize extends LifecycleService {
                             db.account().setAccountWarning(account.id, capIdle ? null : getString(R.string.title_no_idle));
 
                             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                            nm.cancel("receive", account.id.intValue());
+                            nm.cancel("receive:" + account.id, 1);
 
                             // Schedule keep alive alarm
                             EntityLog.log(this, account.name + " wait=" + account.poll_interval);
@@ -1121,7 +1132,6 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.w(ex);
                 } catch (Throwable ex) {
                     Log.e(account.name, ex);
-                    Core.reportError(this, account, null, ex);
                     db.account().setAccountError(account.id, Helper.formatThrowable(ex));
                 } finally {
                     // Stop watching for operations
