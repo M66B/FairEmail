@@ -3088,8 +3088,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         db.endTransaction();
                     }
 
-                    NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                    nm.cancel("send", message.identity.intValue());
+                    if (message.identity != null) {
+                        // Identity can be deleted
+                        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                        nm.cancel("send", message.identity.intValue());
+                    }
 
                     return null;
                 }
