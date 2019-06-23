@@ -123,8 +123,7 @@ public class EntityOperation {
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean autoread = prefs.getBoolean("autoread", false);
-                if (jargs.length() > 1)
-                    autoread = (autoread && jargs.getBoolean(1));
+                autoread = (autoread && jargs.optBoolean(1, true));
                 jargs.put(1, autoread);
 
                 EntityFolder source = db.folder().getFolder(message.folder);

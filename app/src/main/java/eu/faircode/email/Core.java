@@ -460,8 +460,8 @@ class Core {
         DB db = DB.getInstance(context);
 
         // Get arguments
-        long target = (jargs.length() > 0 ? jargs.getLong(0) : folder.id);
-        boolean autoread = (jargs.length() > 1 && jargs.getBoolean(1));
+        long target = jargs.optLong(0, folder.id);
+        boolean autoread = jargs.optBoolean(1, false);
 
         if (target != folder.id)
             throw new IllegalArgumentException("Invalid folder");
@@ -582,7 +582,7 @@ class Core {
 
         // Get arguments
         long id = jargs.getLong(0);
-        boolean autoread = (jargs.length() > 1 && jargs.getBoolean(1));
+        boolean autoread = jargs.optBoolean(1, false);
 
         // Get source message
         Message imessage = ifolder.getMessageByUID(message.uid);
@@ -947,8 +947,8 @@ class Core {
 
             int sync_days = jargs.getInt(0);
             int keep_days = jargs.getInt(1);
-            boolean download = (jargs.length() > 2 && jargs.getBoolean(2));
-            boolean auto_delete = (jargs.length() > 3 && jargs.getBoolean(3));
+            boolean download = jargs.optBoolean(2, false);
+            boolean auto_delete = jargs.optBoolean(3, false);
 
             if (keep_days == sync_days)
                 keep_days++;
