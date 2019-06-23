@@ -80,16 +80,15 @@ public class ServiceExternal extends Service {
     }
 
     private NotificationCompat.Builder getNotification() {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "service");
-
-        builder
-                .setSmallIcon(R.drawable.baseline_compare_arrows_white_24)
-                .setContentTitle(getString(R.string.tile_synchronize))
-                .setAutoCancel(false)
-                .setShowWhen(false)
-                .setPriority(NotificationCompat.PRIORITY_MIN)
-                .setCategory(NotificationCompat.CATEGORY_STATUS)
-                .setVisibility(NotificationCompat.VISIBILITY_SECRET);
+        NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(this, "service")
+                        .setSmallIcon(R.drawable.baseline_compare_arrows_white_24)
+                        .setContentTitle(getString(R.string.tile_synchronize))
+                        .setAutoCancel(false)
+                        .setShowWhen(false)
+                        .setPriority(NotificationCompat.PRIORITY_MIN)
+                        .setCategory(NotificationCompat.CATEGORY_STATUS)
+                        .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
         return builder;
     }

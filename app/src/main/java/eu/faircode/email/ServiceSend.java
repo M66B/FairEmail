@@ -123,17 +123,16 @@ public class ServiceSend extends LifecycleService {
         PendingIntent pi = PendingIntent.getActivity(
                 this, ActivityView.REQUEST_OUTBOX, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "send");
-
-        builder
-                .setSmallIcon(R.drawable.baseline_send_24)
-                .setContentTitle(getString(R.string.title_notification_sending))
-                .setContentIntent(pi)
-                .setAutoCancel(false)
-                .setShowWhen(true)
-                .setPriority(NotificationCompat.PRIORITY_MIN)
-                .setCategory(NotificationCompat.CATEGORY_STATUS)
-                .setVisibility(NotificationCompat.VISIBILITY_SECRET);
+        NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(this, "send")
+                        .setSmallIcon(R.drawable.baseline_send_24)
+                        .setContentTitle(getString(R.string.title_notification_sending))
+                        .setContentIntent(pi)
+                        .setAutoCancel(false)
+                        .setShowWhen(true)
+                        .setPriority(NotificationCompat.PRIORITY_MIN)
+                        .setCategory(NotificationCompat.CATEGORY_STATUS)
+                        .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
         if (lastUnsent > 0)
             builder.setContentText(getResources().getQuantityString(

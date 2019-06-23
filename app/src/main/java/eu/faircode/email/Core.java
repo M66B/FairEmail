@@ -1885,19 +1885,19 @@ class Core {
                     R.plurals.title_notification_unseen, messages.size(), messages.size());
 
             // Build notification
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "notification");
-            builder
-                    .setSmallIcon(R.drawable.baseline_email_white_24)
-                    .setContentTitle(title)
-                    .setContentIntent(piSummary)
-                    .setNumber(messages.size())
-                    .setShowWhen(false)
-                    .setDeleteIntent(piClear)
-                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                    .setCategory(NotificationCompat.CATEGORY_STATUS)
-                    .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-                    .setGroup(group)
-                    .setGroupSummary(true);
+            NotificationCompat.Builder builder =
+                    new NotificationCompat.Builder(context, "notification")
+                            .setSmallIcon(R.drawable.baseline_email_white_24)
+                            .setContentTitle(title)
+                            .setContentIntent(piSummary)
+                            .setNumber(messages.size())
+                            .setShowWhen(false)
+                            .setDeleteIntent(piClear)
+                            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                            .setCategory(NotificationCompat.CATEGORY_STATUS)
+                            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                            .setGroup(group)
+                            .setGroupSummary(true);
 
             Notification pub = builder.build();
             builder
@@ -1972,21 +1972,19 @@ class Core {
                     ? Helper.localizeFolderName(context, message.folderName)
                     : message.folderDisplay;
 
-            NotificationCompat.Builder mbuilder;
-            mbuilder = new NotificationCompat.Builder(context, channelName);
-
-            mbuilder
-                    .addExtras(args)
-                    .setSmallIcon(R.drawable.baseline_email_white_24)
-                    .setContentTitle(info.getDisplayName(true))
-                    .setSubText(message.accountName + " · " + folderName)
-                    .setContentIntent(piContent)
-                    .setWhen(message.received)
-                    .setDeleteIntent(piIgnore)
-                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
-                    .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
-                    .setOnlyAlertOnce(true);
+            NotificationCompat.Builder mbuilder =
+                    new NotificationCompat.Builder(context, channelName)
+                            .addExtras(args)
+                            .setSmallIcon(R.drawable.baseline_email_white_24)
+                            .setContentTitle(info.getDisplayName(true))
+                            .setSubText(message.accountName + " · " + folderName)
+                            .setContentIntent(piContent)
+                            .setWhen(message.received)
+                            .setDeleteIntent(piIgnore)
+                            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                            .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                            .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
+                            .setOnlyAlertOnce(true);
 
             if (notify_group)
                 mbuilder.setGroup(group).setGroupSummary(false);
@@ -2179,19 +2177,18 @@ class Core {
                 context, ActivityView.REQUEST_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Build notification
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channel);
-
-        builder
-                .setSmallIcon(R.drawable.baseline_warning_white_24)
-                .setContentTitle(context.getString(R.string.title_notification_failed, title))
-                .setContentText(Helper.formatThrowable(ex))
-                .setContentIntent(pi)
-                .setAutoCancel(false)
-                .setShowWhen(true)
-                .setPriority(NotificationCompat.PRIORITY_MAX)
-                .setOnlyAlertOnce(true)
-                .setCategory(NotificationCompat.CATEGORY_ERROR)
-                .setVisibility(NotificationCompat.VISIBILITY_SECRET);
+        NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(context, channel)
+                        .setSmallIcon(R.drawable.baseline_warning_white_24)
+                        .setContentTitle(context.getString(R.string.title_notification_failed, title))
+                        .setContentText(Helper.formatThrowable(ex))
+                        .setContentIntent(pi)
+                        .setAutoCancel(false)
+                        .setShowWhen(true)
+                        .setPriority(NotificationCompat.PRIORITY_MAX)
+                        .setOnlyAlertOnce(true)
+                        .setCategory(NotificationCompat.CATEGORY_ERROR)
+                        .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
         builder.setStyle(new NotificationCompat.BigTextStyle()
                 .bigText(Helper.formatThrowable(ex, false, "\n")));
