@@ -49,7 +49,7 @@ public interface DaoOperation {
             " LEFT JOIN message ON message.id = operation.message" +
             " LEFT JOIN account ON account.id = operation.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
-            " WHERE operation.folder = :folder" +
+            " WHERE CASE WHEN :folder IS NULL THEN folder.account IS NULL ELSE operation.folder = :folder END" +
             " AND (account.synchronize IS NULL OR account.synchronize)" +
             " AND (NOT folder.account IS NULL OR identity.synchronize IS NULL OR identity.synchronize)" +
             " ORDER BY" +
@@ -60,10 +60,10 @@ public interface DaoOperation {
             ", id";
 
     @Query(GET_OPS_FOLDER)
-    List<EntityOperation> getOperations(long folder);
+    List<EntityOperation> getOperations(Long folder);
 
     @Query(GET_OPS_FOLDER)
-    LiveData<List<EntityOperation>> liveOperations(long folder);
+    LiveData<List<EntityOperation>> liveOperations(Long folder);
 
     @Query("SELECT COUNT(operation.id) AS pending" +
             ", SUM(CASE WHEN operation.error IS NULL THEN 0 ELSE 1 END) AS errors" +
