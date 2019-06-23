@@ -92,6 +92,9 @@ Please see [here](https://email.faircode.eu/#screenshots) for screenshots.
 * [GitHub](https://github.com/M66B/open-source-email/releases)
 * [Play store](https://play.google.com/apps/testing/eu.faircode.email)
 
+The GitHub version is being updated more often than the Play store version.
+The GitHub version will automatically notify you of any updates.
+
 Certificate fingerprints:
 
 ```
