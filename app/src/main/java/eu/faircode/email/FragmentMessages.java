@@ -1196,12 +1196,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @Override
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
             TupleMessageEx message = getMessage(viewHolder);
-            if (message == null)
+            if (message == null) {
+                super.clearView(rvMessage, viewHolder);
                 return;
+            }
 
             TupleAccountSwipes swipes = accountSwipes.get(message.account);
-            if (swipes == null)
+            if (swipes == null) {
+                super.clearView(rvMessage, viewHolder);
                 return;
+            }
 
             Log.i("Swiped dir=" + direction + " message=" + message.id);
 
