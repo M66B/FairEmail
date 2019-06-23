@@ -1075,7 +1075,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 @Override
                 protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
-                    moveAsk(result);
+                    if (args.getBoolean("type"))
+                        moveAsk(result);
+                    else
+                        moveAskConfirmed(result);
                 }
 
                 @Override
