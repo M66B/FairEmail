@@ -254,6 +254,7 @@
         android:layout_marginBottom="90dp"
         android:src="@drawable/baseline_more_vert_24"
         android:tint="@color/colorActionForeground"
+        android:tooltipText="@string/title_more"
         app:backgroundTint="?attr/colorAccent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
