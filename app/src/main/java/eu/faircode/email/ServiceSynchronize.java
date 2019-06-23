@@ -354,8 +354,8 @@ public class ServiceSynchronize extends LifecycleService {
         try {
             queued++;
             queue.submit(new Runnable() {
-                PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-                PowerManager.WakeLock wl = pm.newWakeLock(
+                private PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+                private PowerManager.WakeLock wl = pm.newWakeLock(
                         PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":manage");
 
                 @Override
@@ -440,8 +440,8 @@ public class ServiceSynchronize extends LifecycleService {
 
         state = new Core.State(networkState);
         state.runnable(new Runnable() {
-            PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-            PowerManager.WakeLock wl = pm.newWakeLock(
+            private PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+            private PowerManager.WakeLock wl = pm.newWakeLock(
                     PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":main");
             private List<Core.State> threadState = new ArrayList<>();
 
