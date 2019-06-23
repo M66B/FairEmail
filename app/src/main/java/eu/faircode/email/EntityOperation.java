@@ -132,7 +132,7 @@ public class EntityOperation {
                     return;
 
                 if (!EntityFolder.ARCHIVE.equals(source.type) || EntityFolder.TRASH.equals(target.type))
-                    db.message().setMessageUiHide(message.id, true);
+                    db.message().setMessageUiHide(message.id, new Date().getTime());
 
                 Calendar cal_keep = Calendar.getInstance();
                 cal_keep.add(Calendar.DAY_OF_MONTH, -target.keep_days);
@@ -204,7 +204,7 @@ public class EntityOperation {
                         name = RAW;
 
             } else if (DELETE.equals(name))
-                db.message().setMessageUiHide(message.id, true);
+                db.message().setMessageUiHide(message.id, new Date().getTime());
 
         } catch (JSONException ex) {
             Log.e(ex);

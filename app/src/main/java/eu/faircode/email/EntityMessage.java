@@ -135,7 +135,7 @@ public class EntityMessage implements Serializable {
     @NonNull
     public Boolean ui_flagged = false;
     @NonNull
-    public Boolean ui_hide = false;
+    public Long ui_hide = 0L;
     @NonNull
     public Boolean ui_found = false;
     @NonNull

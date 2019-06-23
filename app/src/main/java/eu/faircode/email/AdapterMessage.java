@@ -683,7 +683,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (debug) {
                 String text = "error=" + error +
                         "\nuid=" + message.uid + " id=" + message.id + " " + DTF.format(new Date(message.received)) +
-                        "\n" + (message.ui_hide ? "HIDDEN " : "") +
+                        "\n" + (message.ui_hide == 0 ? "" : "HIDDEN ") +
                         "seen=" + message.seen + "/" + message.ui_seen +
                         " unseen=" + message.unseen +
                         " ignored=" + message.ui_ignored +

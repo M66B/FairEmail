@@ -40,7 +40,7 @@ public interface DaoFolder {
             ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id AND operation.state = 'executing') AS executing" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
-            " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
+            " LEFT JOIN message ON message.folder = folder.id AND message.ui_hide = 0" +
             " WHERE folder.account = :account AND account.synchronize" +
             " GROUP BY folder.id")
     List<TupleFolderEx> getFoldersEx(long account);
@@ -73,7 +73,7 @@ public interface DaoFolder {
             ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id AND operation.state = 'executing') AS executing" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
-            " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
+            " LEFT JOIN message ON message.folder = folder.id AND message.ui_hide = 0" +
             " WHERE CASE WHEN :account IS NULL" +
             "  THEN folder.unified AND account.synchronize" +
             "  ELSE folder.account = :account AND account.synchronize" +
@@ -90,7 +90,7 @@ public interface DaoFolder {
             ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id AND operation.state = 'executing') AS executing" +
             " FROM folder" +
             " JOIN account ON account.id = folder.account" +
-            " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
+            " LEFT JOIN message ON message.folder = folder.id AND message.ui_hide = 0" +
             " WHERE account.`synchronize`" +
             " AND folder.unified" +
             " GROUP BY folder.id")
@@ -103,7 +103,7 @@ public interface DaoFolder {
             ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id AND operation.state = 'executing') AS executing" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
-            " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
+            " LEFT JOIN message ON message.folder = folder.id AND message.ui_hide = 0" +
             " WHERE account.id IS NULL" +
             " OR (account.`synchronize` AND folder.navigation)" +
             " GROUP BY folder.id")
@@ -130,7 +130,7 @@ public interface DaoFolder {
             ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id AND operation.state = 'executing') AS executing" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
-            " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
+            " LEFT JOIN message ON message.folder = folder.id AND message.ui_hide = 0" +
             " WHERE folder.id = :id" +
             " GROUP BY folder.id")
     LiveData<TupleFolderEx> liveFolderEx(long id);

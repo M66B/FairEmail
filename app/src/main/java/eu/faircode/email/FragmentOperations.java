@@ -41,6 +41,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class FragmentOperations extends FragmentBase {
@@ -149,7 +150,7 @@ public class FragmentOperations extends FragmentBase {
                                 for (EntityOperation op : ops) {
                                     Log.w("Deleting operation=" + op.id + " error=" + op.error);
                                     if (op.message != null)
-                                        db.message().setMessageUiHide(op.message, false);
+                                        db.message().setMessageUiHide(op.message, 0L);
                                     db.operation().deleteOperation(op.id);
                                 }
                                 return null;

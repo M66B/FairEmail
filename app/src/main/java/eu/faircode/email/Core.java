@@ -118,6 +118,7 @@ class Core {
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long YIELD_DURATION = 200L; // milliseconds
+    private static final long MIN_HIDE = 60 * 1000L; // milliseconds
 
     static void processOperations(
             Context context,
@@ -291,7 +292,7 @@ class Core {
                                 // Delete temporary copy in target folder
                                 if (newid != null) {
                                     db.message().deleteMessage(newid);
-                                    db.message().setMessageUiHide(message.id, false);
+                                    db.message().setMessageUiHide(message.id, 0L);
                                 }
                             }
 
@@ -1349,7 +1350,7 @@ class Core {
             message.ui_seen = seen;
             message.ui_answered = answered;
             message.ui_flagged = flagged;
-            message.ui_hide = false;
+            message.ui_hide = 0L;
             message.ui_found = false;
             message.ui_ignored = seen;
             message.ui_browsed = browsed;
@@ -1455,10 +1456,10 @@ class Core {
                         " keywords=" + TextUtils.join(" ", keywords));
             }
 
-            if (message.ui_hide && !browsed &&
+            if (message.ui_hide != 0 && message.ui_hide + MIN_HIDE < new Date().getTime() &&
                     db.operation().getOperationCount(folder.id, message.id) == 0) {
                 update = true;
-                message.ui_hide = false;
+                message.ui_hide = 0L;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " unhide");
             }
 

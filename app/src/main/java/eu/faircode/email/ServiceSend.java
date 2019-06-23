@@ -356,7 +356,7 @@ public class ServiceSend extends LifecycleService {
                     EntityOperation.queue(this, message, EntityOperation.ADD);
                 } else {
                     if (!BuildConfig.DEBUG && !debug)
-                        db.message().setMessageUiHide(message.id, true);
+                        db.message().setMessageUiHide(message.id, new Date().getTime());
                 }
 
                 if (message.inreplyto != null) {

@@ -1235,7 +1235,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     message.account, message.thread, threading && thread ? null : id, message.folder);
                             for (EntityMessage threaded : messages) {
                                 result.add(new MessageTarget(threaded, account, target));
-                                db.message().setMessageUiHide(threaded.id, true);
+                                db.message().setMessageUiHide(threaded.id, new Date().getTime());
                                 // Prevent new message notification on undo
                                 db.message().setMessageUiIgnored(threaded.id, true);
                             }
@@ -3254,7 +3254,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
                         for (MessageTarget target : result) {
                             Log.i("Move undo id=" + target.id);
-                            db.message().setMessageUiHide(target.id, false);
+                            db.message().setMessageUiHide(target.id, 0L);
                         }
                         return null;
                     }
@@ -3292,7 +3292,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                             for (MessageTarget target : result) {
                                 EntityMessage message = db.message().getMessage(target.id);
-                                if (message != null && message.ui_hide) {
+                                if (message != null && message.ui_hide != 0) {
                                     Log.i("Move id=" + id + " target=" + target.folder.name);
                                     EntityOperation.queue(context, message, EntityOperation.MOVE, target.folder.id);
                                 }
