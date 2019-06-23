@@ -733,10 +733,10 @@ public class MessageHelper {
                 text = text.substring(0, s) + decoded + text.substring(e + 2);
                 i += decoded.length();
             } catch (ParseException ex) {
-                Log.w(ex);
+                Log.w(new IllegalArgumentException(text, ex));
                 i += decode.length();
             } catch (UnsupportedEncodingException ex) {
-                Log.w(ex);
+                Log.w(new IllegalArgumentException(text, ex));
                 i += decode.length();
             }
         }
