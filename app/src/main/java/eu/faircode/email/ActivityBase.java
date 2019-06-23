@@ -170,10 +170,16 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
     @Override
     public void onBackPressed() {
+        if (backHandled())
+            return;
+        super.onBackPressed();
+    }
+
+    protected boolean backHandled() {
         for (IBackPressedListener listener : backPressedListeners)
             if (listener.onBackPressed())
-                return;
-        super.onBackPressed();
+                return true;
+        return false;
     }
 
     public interface IBackPressedListener {
