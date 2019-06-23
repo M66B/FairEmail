@@ -222,10 +222,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int UNDO_TIMEOUT = 5000; // milliseconds
     private static final int SWIPE_DISABLE_SELECT_DURATION = 1500; // milliseconds
 
-    static final int REQUEST_RAW = 1;
-    static final int REQUEST_ATTACHMENT = 2;
-    static final int REQUEST_ATTACHMENTS = 3;
-    static final int REQUEST_DECRYPT = 4;
+    private static final int REQUEST_RAW = 1;
+    private static final int REQUEST_ATTACHMENT = 2;
+    private static final int REQUEST_ATTACHMENTS = 3;
+    private static final int REQUEST_DECRYPT = 4;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
