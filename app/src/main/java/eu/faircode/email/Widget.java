@@ -66,7 +66,7 @@ public class Widget extends AppWidgetProvider {
 
             if (count < 0)
                 views.setTextViewText(R.id.tvCount, "?");
-            else if (count > 999)
+            else if (count > 99)
                 views.setTextViewText(R.id.tvCount, "∞");
             else
                 views.setTextViewText(R.id.tvCount, nf.format(count));
