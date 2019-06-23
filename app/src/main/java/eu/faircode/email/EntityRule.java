@@ -334,6 +334,9 @@ public class EntityRule {
         int duration = jargs.getInt("duration");
         long wakeup = message.received + duration * 3600 * 1000L;
 
+        if (wakeup < new Date().getTime())
+            return;
+
         DB db = DB.getInstance(context);
         db.message().setMessageSnoozed(message.id, wakeup);
         EntityMessage.snooze(context, message.id, wakeup);
