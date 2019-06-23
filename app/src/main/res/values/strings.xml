@@ -12,6 +12,7 @@
     <string name="channel_service">Service</string>
     <string name="channel_send">Send</string>
     <string name="channel_notification">Notifications</string>
+    <string name="channel_update">Updates</string>
     <string name="channel_warning">Warnings</string>
     <string name="channel_error">Errors</string>
     <string name="channel_group_contacts">Contacts</string>

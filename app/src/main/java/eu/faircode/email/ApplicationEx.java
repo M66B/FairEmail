@@ -310,6 +310,14 @@ public class ApplicationEx extends Application {
             notification.enableLights(true);
             nm.createNotificationChannel(notification);
 
+            if (!Helper.isPlayStoreInstall(this)) {
+                NotificationChannel update = new NotificationChannel(
+                        "update", getString(R.string.channel_update),
+                        NotificationManager.IMPORTANCE_HIGH);
+                update.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+                nm.createNotificationChannel(update);
+            }
+
             NotificationChannel warning = new NotificationChannel(
                     "warning", getString(R.string.channel_warning),
                     NotificationManager.IMPORTANCE_HIGH);
