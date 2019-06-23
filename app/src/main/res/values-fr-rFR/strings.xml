@@ -10,6 +10,7 @@
     <string name="channel_service">Service</string>
     <string name="channel_send">Envoi</string>
     <string name="channel_notification">Notifications</string>
+    <string name="channel_update">Mises à jour</string>
     <string name="channel_warning">Avertissements</string>
     <string name="channel_error">Erreurs</string>
     <string name="channel_group_contacts">Contacts</string>

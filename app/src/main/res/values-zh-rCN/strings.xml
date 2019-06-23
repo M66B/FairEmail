@@ -10,6 +10,7 @@
     <string name="channel_service">服务</string>
     <string name="channel_send">发送</string>
     <string name="channel_notification">通知</string>
+    <string name="channel_update">更新</string>
     <string name="channel_warning">警告</string>
     <string name="channel_error">错误</string>
     <string name="channel_group_contacts">联系人</string>
