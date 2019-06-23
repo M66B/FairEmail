@@ -222,6 +222,13 @@ public class HtmlHelper {
                 PatternsCompat.AUTOLINK_EMAIL_ADDRESS.pattern() + "|" +
                         PatternsCompat.AUTOLINK_WEB_URL.pattern());
 
+        // Subscript/Superscript
+        for (Element subp : document.select("sub,sup")) {
+            Element small = document.createElement("small");
+            small.html(subp.html());
+            subp.html(small.outerHtml());
+        }
+
         // Autolink
         NodeTraversor.traverse(new NodeVisitor() {
             @Override
