@@ -1455,7 +1455,8 @@ class Core {
                         " keywords=" + TextUtils.join(" ", keywords));
             }
 
-            if (message.ui_hide && db.operation().getOperationCount(folder.id, message.id) == 0) {
+            if (message.ui_hide && !browsed &&
+                    db.operation().getOperationCount(folder.id, message.id) == 0) {
                 update = true;
                 message.ui_hide = false;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " unhide");
