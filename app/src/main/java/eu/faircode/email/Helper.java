@@ -469,7 +469,11 @@ public class Helper {
     // Files
 
     static String sanitizeFilename(String name) {
-        return (name == null ? null : name.replaceAll("[^a-zA-Z0-9\\.\\-]", "_"));
+        if (name == null)
+            return null;
+        return name
+                .replace("\0", "_")
+                .replace("/", "_");
     }
 
     static String getExtension(String filename) {
