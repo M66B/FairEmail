@@ -3238,6 +3238,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void onClick(View v) {
                 snackbar.dismiss();
+                snackbar.getView().setTag(true);
 
                 Bundle args = new Bundle();
                 args.putParcelableArrayList("result", result);
@@ -3271,6 +3272,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void run() {
                 Log.i("Move timeout");
+
+                if (snackbar.getView().getTag() != null)
+                    return;
 
                 // Remove snackbar
                 if (snackbar.isShown())
