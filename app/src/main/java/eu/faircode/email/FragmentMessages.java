@@ -3299,6 +3299,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             }
 
                             db.setTransactionSuccessful();
+                        } catch (Throwable ex) {
+                            Log.e(ex);
                         } finally {
                             db.endTransaction();
                         }
