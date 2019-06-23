@@ -2286,7 +2286,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     return true;
                 case R.id.action_move:
                     if (EntityFolder.OUTBOX.equals(data.message.folderType))
-                        onnActionMoveOutbox(data);
+                        onActionMoveOutbox(data);
                     else
                         onActionMove(data, false);
                     return true;
@@ -3040,7 +3040,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "message:move:list");
         }
 
-        private void onnActionMoveOutbox(ActionData data) {
+        private void onActionMoveOutbox(ActionData data) {
             Bundle args = new Bundle();
             args.putLong("id", data.message.id);
 
