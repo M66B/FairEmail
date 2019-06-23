@@ -1462,10 +1462,10 @@ class Core {
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " unhide");
             }
 
-            if (message.ui_browsed) {
+            if (message.ui_browsed != browsed) {
                 update = true;
-                message.ui_browsed = false;
-                Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " unbrowse");
+                message.ui_browsed = browsed;
+                Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " browsed=" + browsed);
             }
 
             Uri uri = ContactInfo.getLookupUri(context, message.from);
