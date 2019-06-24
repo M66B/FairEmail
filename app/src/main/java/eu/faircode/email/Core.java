@@ -591,7 +591,25 @@ class Core {
             throw new FolderNotFoundException();
         IMAPFolder itarget = (IMAPFolder) istore.getFolder(target.name);
 
-        ifolder.copyMessages(new Message[]{imessage}, itarget);
+        if (EntityFolder.DRAFTS.equals(folder.type) || EntityFolder.DRAFTS.equals(target.type)) {
+            Log.i(folder.name + " move from " + folder.type + " to " + target.type);
+
+            File file = message.getRawFile(context);
+            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                imessage.writeTo(os);
+            }
+
+            Message icopy;
+            try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
+                icopy = new MimeMessage(isession, is);
+            }
+
+            file.delete();
+
+            icopy.setFlag(Flags.Flag.DRAFT, EntityFolder.DRAFTS.equals(target.type));
+            itarget.appendMessages(new Message[]{icopy});
+        } else
+            ifolder.copyMessages(new Message[]{imessage}, itarget);
 
         // Delete source
         if (!copy) {
