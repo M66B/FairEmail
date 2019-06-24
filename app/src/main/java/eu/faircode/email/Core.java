@@ -581,10 +581,6 @@ class Core {
         if (imessage == null)
             throw new MessageRemovedException();
 
-        // Auto read
-        if (autoread && ifolder.getPermanentFlags().contains(Flags.Flag.SEEN))
-            imessage.setFlag(Flags.Flag.SEEN, true);
-
         // Get target folder
         EntityFolder target = db.folder().getFolder(id);
         if (target == null)
@@ -606,10 +602,21 @@ class Core {
 
             file.delete();
 
+            // Auto read
+            if (autoread)
+                icopy.setFlag(Flags.Flag.SEEN, true);
+
+            // Set drafts flag
             icopy.setFlag(Flags.Flag.DRAFT, EntityFolder.DRAFTS.equals(target.type));
+
             itarget.appendMessages(new Message[]{icopy});
-        } else
+        } else {
+            // Auto read
+            if (autoread && ifolder.getPermanentFlags().contains(Flags.Flag.SEEN))
+                imessage.setFlag(Flags.Flag.SEEN, true);
+
             ifolder.copyMessages(new Message[]{imessage}, itarget);
+        }
 
         // Delete source
         if (!copy) {
