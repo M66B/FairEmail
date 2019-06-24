@@ -717,13 +717,24 @@ public class MessageHelper {
         if (text == null)
             return null;
 
+        // https://tools.ietf.org/html/rfc2047
+        // encoded-word = "=?" charset "?" encoding "?" encoded-text "?="
+
         int i = 0;
         while (i < text.length()) {
             int s = text.indexOf("=?", i);
             if (s < 0)
                 break;
 
-            int e = text.indexOf("?=", s + 2);
+            int q1 = text.indexOf("?", s + 2);
+            if (q1 < 0)
+                break;
+
+            int q2 = text.indexOf("?", q1 + 1);
+            if (q2 < 0)
+                break;
+
+            int e = text.indexOf("?=", q2 + 1);
             if (e < 0)
                 break;
 
