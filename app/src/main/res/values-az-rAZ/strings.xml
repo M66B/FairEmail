@@ -286,9 +286,6 @@
     <string name="title_sort_on_subject">Mövzu</string>
     <string name="title_compact">Yığcam baxış</string>
     <string name="title_zoom">Mətn həcmi</string>
-    <string name="title_address_sent">Göndərildi:</string>
-    <string name="title_address_unsent">Göndərilmədi:</string>
-    <string name="title_address_invalid">Etibarsız:</string>
     <string name="title_previous">Əvvəlki</string>
     <string name="title_next">Növbəti</string>
     <string name="title_answer_reply">Cavab şablonu</string>

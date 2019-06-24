@@ -10,6 +10,7 @@
     <string name="channel_service">Servicio</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">Notificaciones</string>
+    <string name="channel_update">Actualizaciones</string>
     <string name="channel_warning">Alertas</string>
     <string name="channel_error">Errores</string>
     <string name="channel_group_contacts">Contactos</string>
@@ -50,6 +51,7 @@
         <item quantity="other">¿Tratar %1$d mensajes como spam?</item>
     </plurals>
     <string name="title_ask_spam_who">¿Reportar mensaje de %1$s como spam?</string>
+    <string name="title_notification_waiting">Esperando conexión</string>
     <string name="title_notification_sending">Enviando mensajes</string>
     <string name="title_notification_failed">\'%1$s\' falló</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -396,7 +398,7 @@
     <string name="title_ask_show_html">Mostrar el mensaje original puede filtrar información privada sensible</string>
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
     <string name="title_ask_edit_ref">¿Editar texto reformateado de mensaje respondido/reenviado?</string>
-    <string name="title_ask_delete_local">¿Eliminar mensajes locales que también están almacenados en el servidor remoto?</string>
+    <string name="title_ask_delete_local">¿Eliminar sólo aquellos mensajes locales que también están almacenados en el servidor remoto?</string>
     <string name="title_ask_help">Ayude a mejorar FairEmail</string>
     <string name="title_ask_reporting">¿Enviar informes de error?</string>
     <string name="title_reporting_why">Informar de errores ayudará a mejorar FairEmail</string>
@@ -467,9 +469,6 @@
     <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Tamaño del texto</string>
     <string name="title_select_all">Seleccionar todo</string>
-    <string name="title_address_sent">Enviado/s:</string>
-    <string name="title_address_unsent">No enviado/s:</string>
-    <string name="title_address_invalid">Inválido/s:</string>
     <string name="title_previous">Anterior</string>
     <string name="title_next">Siguiente</string>
     <string name="title_answer_caption">Editar plantilla</string>

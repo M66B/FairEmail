@@ -371,7 +371,6 @@
     <string name="title_ask_show_html">Visning af meddelelsesindhold kan lække personfølsomt indhold</string>
     <string name="title_ask_show_image">Visning af billeder kan lække personfølsomt indhold</string>
     <string name="title_ask_edit_ref">Redigér omformateret besvaret/videresendt meddelelsestekst?</string>
-    <string name="title_ask_delete_local">Slet lokale meddelelser, som også er gemt på fjernserveren?</string>
     <string name="title_ask_help">Hjælp med at forbedre FairEmail</string>
     <string name="title_ask_reporting">Send fejlrapporter?</string>
     <string name="title_reporting_why">Rapportering af fejl vil hjælpe med at forbedre FairEmail</string>
@@ -437,9 +436,6 @@
     <string name="title_compact">Kompakt visning</string>
     <string name="title_zoom">Tekststørrelse</string>
     <string name="title_select_all">Markér alle</string>
-    <string name="title_address_sent">Sendt:</string>
-    <string name="title_address_unsent">Ikke sendt:</string>
-    <string name="title_address_invalid">Ugyldig:</string>
     <string name="title_previous">Forrige</string>
     <string name="title_next">Næste</string>
     <string name="title_answer_caption">Redigér skabelon</string>

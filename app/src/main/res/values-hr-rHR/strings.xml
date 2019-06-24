@@ -405,7 +405,6 @@
     <string name="title_ask_show_html">Prikazivanje izvorne poruke može propuštati povjerljive informacije</string>
     <string name="title_ask_show_image">Prikazivanje slika može propuštati povjerljive informacije</string>
     <string name="title_ask_edit_ref">Uredi preoblikovani odgovor / proslijeđeni tekst poruke?</string>
-    <string name="title_ask_delete_local">Izbrisati lokalne poruke koje su spremljene na udaljenom serveru?</string>
     <string name="title_ask_help">Pomozite poboljšati FairEmail</string>
     <string name="title_ask_reporting">Pošalji izvješća o pogreškama?</string>
     <string name="title_reporting_why">Izvješćivanje o pogreškama pomoći će u poboljšanju FairEmail aplikacije</string>
@@ -476,9 +475,6 @@
     <string name="title_compact">Kompaktni pregled</string>
     <string name="title_zoom">Veličina teksta</string>
     <string name="title_select_all">Odaberi sve</string>
-    <string name="title_address_sent">Poslano:</string>
-    <string name="title_address_unsent">Neposlano:</string>
-    <string name="title_address_invalid">Nevažeće:</string>
     <string name="title_previous">Prethodno</string>
     <string name="title_next">Sljedeće</string>
     <string name="title_answer_caption">Uredi predložak</string>

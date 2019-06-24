@@ -404,7 +404,6 @@
     <string name="title_ask_show_html">Vizualizarea mesajului original poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_edit_ref">Se editează textul mesajului rescris ca răspuns/redirecționat?</string>
-    <string name="title_ask_delete_local">Șterge mesajele locale care sunt stocate și pe serverul furnizorului?</string>
     <string name="title_ask_help">Ajută la îmbunătățirea FairEmail</string>
     <string name="title_ask_reporting">Trimite rapoarte de eroare?</string>
     <string name="title_reporting_why">Raportarea erorilor va ajuta la îmbunătățirea FairEmail</string>
@@ -475,9 +474,6 @@
     <string name="title_compact">Vizualizare compactă</string>
     <string name="title_zoom">Mărime text</string>
     <string name="title_select_all">Selectează tot</string>
-    <string name="title_address_sent">Trimis:</string>
-    <string name="title_address_unsent">Netrimis:</string>
-    <string name="title_address_invalid">Invalid:</string>
     <string name="title_previous">Precedent</string>
     <string name="title_next">Următor</string>
     <string name="title_answer_caption">Editare șablon</string>

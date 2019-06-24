@@ -278,9 +278,6 @@
     <string name="title_sort_on_sender">فرستنده</string>
     <string name="title_compact">نمایش فشرده</string>
     <string name="title_zoom">اندازه متن</string>
-    <string name="title_address_sent">ارسال شده:</string>
-    <string name="title_address_unsent">فرستاده نشده:</string>
-    <string name="title_address_invalid">نامعتبر:</string>
     <string name="title_previous">پیشین</string>
     <string name="title_next">بعدی</string>
     <string name="title_answer_reply">الگوی پاسخ</string>

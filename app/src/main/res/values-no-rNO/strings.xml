@@ -10,6 +10,7 @@
     <string name="channel_service">Service</string>
     <string name="channel_send">Send</string>
     <string name="channel_notification">Varsler</string>
+    <string name="channel_update">Oppdateringer</string>
     <string name="channel_warning">Advarsler</string>
     <string name="channel_error">Feil</string>
     <string name="channel_group_contacts">Kontakter</string>
@@ -50,6 +51,7 @@
         <item quantity="other">Behandle %1$d meldingene som spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Rapportere meldingen fra %1$s som spam?</string>
+    <string name="title_notification_waiting">Venter på passende tilkobling</string>
     <string name="title_notification_sending">Sender melding</string>
     <string name="title_notification_failed">\'%1$s\' mislyktes</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -396,7 +398,7 @@
     <string name="title_ask_show_html">Visning av den opprinnelige meldingen kan lekke sensitiv informasjon</string>
     <string name="title_ask_show_image">Å vise bilder kan lekke sensitiv informasjon</string>
     <string name="title_ask_edit_ref">Redigere omformatert svar/videresendt meldingstekst?</string>
-    <string name="title_ask_delete_local">Slett lokale meldinger som også er lagret på den eksterne serveren?</string>
+    <string name="title_ask_delete_local">Slett bare lokale meldinger som er lagret på den eksterne serveren også?</string>
     <string name="title_ask_help">Hjelp til å forbedre FairEmail</string>
     <string name="title_ask_reporting">Send feilrapporter?</string>
     <string name="title_reporting_why">Feilrapportering vil bidra til å forbedre FairEmail</string>
@@ -467,9 +469,6 @@
     <string name="title_compact">Kompakt visning</string>
     <string name="title_zoom">Tekststørrelse</string>
     <string name="title_select_all">Velg alle</string>
-    <string name="title_address_sent">Sendt:</string>
-    <string name="title_address_unsent">Ikke sendt:</string>
-    <string name="title_address_invalid">Ugyldig:</string>
     <string name="title_previous">Forrige</string>
     <string name="title_next">Neste</string>
     <string name="title_answer_caption">Rediger mal</string>

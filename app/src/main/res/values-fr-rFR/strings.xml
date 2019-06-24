@@ -51,6 +51,7 @@
         <item quantity="other">Traiter %1$d messages comme spam ?</item>
     </plurals>
     <string name="title_ask_spam_who">Signaler le message de %1$s comme indésirable ?</string>
+    <string name="title_notification_waiting">En attente d\'une connexion appropriée</string>
     <string name="title_notification_sending">Envoi des messages en cours</string>
     <string name="title_notification_failed">\'%1$s\' a échoué</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -397,7 +398,7 @@
     <string name="title_ask_show_html">Afficher le message original peut divulguer des informations sensibles privées</string>
     <string name="title_ask_show_image">Afficher les images peut divulguer des informations sensibles privées</string>
     <string name="title_ask_edit_ref">Modifier le texte du message reformaté et répondu/transféré ?</string>
-    <string name="title_ask_delete_local">Supprimer les messages locaux qui sont également stockés sur le serveur distant ?</string>
+    <string name="title_ask_delete_local">Supprimer uniquement les messages locaux qui sont stockés sur le serveur distant ?</string>
     <string name="title_ask_help">Aider à améliorer FairEmail</string>
     <string name="title_ask_reporting">Envoyer des rapports d\'erreur ?</string>
     <string name="title_reporting_why">Un rapport d\'erreur aidera à améliorer FairEmail</string>
@@ -468,9 +469,6 @@
     <string name="title_compact">Vue compacte</string>
     <string name="title_zoom">Taille du texte</string>
     <string name="title_select_all">Tout sélectionner</string>
-    <string name="title_address_sent">Envoyé :</string>
-    <string name="title_address_unsent">Non envoyé :</string>
-    <string name="title_address_invalid">Invalide :</string>
     <string name="title_previous">Précédent</string>
     <string name="title_next">Suivant</string>
     <string name="title_answer_caption">Modifier le modèle</string>

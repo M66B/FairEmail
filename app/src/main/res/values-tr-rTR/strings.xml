@@ -10,6 +10,7 @@
     <string name="channel_service">Hizmet</string>
     <string name="channel_send">Gönder</string>
     <string name="channel_notification">Bildirimler</string>
+    <string name="channel_update">Güncellemeler</string>
     <string name="channel_warning">Uyarılar</string>
     <string name="channel_error">Hatalar</string>
     <string name="channel_group_contacts">Rehber</string>
@@ -380,7 +381,6 @@
     <string name="title_ask_show_html">Özgün iletiyi göstermek gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_show_image">Resimlerin gösterilmesi gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_edit_ref">Yeniden biçimlendirilmiş yanıtlanmış/iletilmiş ileti metni düzenlensin mi?</string>
-    <string name="title_ask_delete_local">Uzak sunucuda depolanmış yerel iletiler de silinsin mi?</string>
     <string name="title_ask_help">FairEmail\'in geliştirilmesine yardımcı olun</string>
     <string name="title_ask_reporting">Hata raporları gönderilsin mi?</string>
     <string name="title_reporting_why">Hata raporlama FairEmail\'in geliştirilmesine yardımcı olacaktır</string>
@@ -450,9 +450,6 @@
     <string name="title_compact">Derlitoplu görünüm</string>
     <string name="title_zoom">Metin boyutu</string>
     <string name="title_select_all">Hepsini seç</string>
-    <string name="title_address_sent">Gönderilen:</string>
-    <string name="title_address_unsent">Gönderilmemiş:</string>
-    <string name="title_address_invalid">Geçersiz:</string>
     <string name="title_previous">Önceki</string>
     <string name="title_next">Sonraki</string>
     <string name="title_answer_caption">Kalıbı Düzenle</string>

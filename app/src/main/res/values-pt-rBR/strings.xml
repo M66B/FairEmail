@@ -396,7 +396,6 @@
     <string name="title_ask_show_html">Mostrar a mensagem original pode vazar informações confidenciais de privacidade</string>
     <string name="title_ask_show_image">Mostrar imagens pode vazar informações sensíveis à privacidade</string>
     <string name="title_ask_edit_ref">Editar texto reformatado de mensagem respondida/encaminhada?</string>
-    <string name="title_ask_delete_local">Excluir mensagens locais que são armazenadas também no servidor remoto?</string>
     <string name="title_ask_help">Ajude a melhorar o FairEmail</string>
     <string name="title_ask_reporting">Enviar relatórios de erro?</string>
     <string name="title_reporting_why">Relatório de erro ajudará a melhorar o FairEmail</string>
@@ -467,9 +466,6 @@
     <string name="title_compact">Visualização compacta</string>
     <string name="title_zoom">Tamanho do texto</string>
     <string name="title_select_all">Selecionar todos</string>
-    <string name="title_address_sent">Enviado:</string>
-    <string name="title_address_unsent">Não enviado:</string>
-    <string name="title_address_invalid">Inválido:</string>
     <string name="title_previous">Voltar</string>
     <string name="title_next">Avançar</string>
     <string name="title_answer_caption">Editar template</string>

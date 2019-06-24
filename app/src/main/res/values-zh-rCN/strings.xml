@@ -43,6 +43,7 @@
         <item quantity="other">把 %1$d 作为垃圾邮件处理？</item>
     </plurals>
     <string name="title_ask_spam_who">将来自%1$s的消息举报为垃圾邮件?</string>
+    <string name="title_notification_waiting">等待合适连接</string>
     <string name="title_notification_sending">正发送消息</string>
     <string name="title_notification_failed">“%1$s”失败</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -389,7 +390,7 @@
     <string name="title_ask_show_html">显示原件可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
     <string name="title_ask_edit_ref">编辑格式已更改的回复/转发消息文本？</string>
-    <string name="title_ask_delete_local">删除同样存储在远程服务器上的本地消息？</string>
+    <string name="title_ask_delete_local">只删除同样存储在远程服务器上的本地消息？</string>
     <string name="title_ask_help">帮助改进FairEmail</string>
     <string name="title_ask_reporting">发送错误报告?</string>
     <string name="title_reporting_why">错误报告将有助于改进FairEmail</string>
@@ -460,9 +461,6 @@
     <string name="title_compact">紧凑视图</string>
     <string name="title_zoom">文本大小</string>
     <string name="title_select_all">选择所有</string>
-    <string name="title_address_sent">发送：</string>
-    <string name="title_address_unsent">未发送:</string>
-    <string name="title_address_invalid">无效：</string>
     <string name="title_previous">上一则</string>
     <string name="title_next">下一则</string>
     <string name="title_answer_caption">编辑模板</string>

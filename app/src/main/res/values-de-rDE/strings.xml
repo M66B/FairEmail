@@ -51,6 +51,7 @@
         <item quantity="other">%1$d Nachrichten als Spam behandeln?</item>
     </plurals>
     <string name="title_ask_spam_who">Nachricht von %1$s als Spam kennzeichnen?</string>
+    <string name="title_notification_waiting">Auf eine geeignete Verbindung wird gewartet</string>
     <string name="title_notification_sending">Nachrichten werden gesendet</string>
     <string name="title_notification_failed">„%1$s” fehlgeschlagen</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -397,7 +398,7 @@
     <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_edit_ref">Nachrichtentext der zu beantwortenden/weitergeleitenden Nachricht bearbeiten?</string>
-    <string name="title_ask_delete_local">Lokal gespeicherte Meldungen, welche auch auf dem Server gespeichert sind, löschen?</string>
+    <string name="title_ask_delete_local">Nur lokale Nachrichten löschen, die auch auf dem entfernten Server gespeichert sind?</string>
     <string name="title_ask_help">Helfen Sie mit, FairEmail zu verbessern</string>
     <string name="title_ask_reporting">Fehlerberichte senden?</string>
     <string name="title_reporting_why">Fehlerberichte helfen uns, FairEmail zu verbessern</string>
@@ -468,9 +469,6 @@
     <string name="title_compact">Kompaktansicht</string>
     <string name="title_zoom">Schriftgröße</string>
     <string name="title_select_all">Alle auswählen</string>
-    <string name="title_address_sent">Gesendet:</string>
-    <string name="title_address_unsent">Nicht gesendet:</string>
-    <string name="title_address_invalid">Ungültig:</string>
     <string name="title_previous">Vorherige</string>
     <string name="title_next">Nächste</string>
     <string name="title_answer_caption">Vorlage bearbeiten</string>

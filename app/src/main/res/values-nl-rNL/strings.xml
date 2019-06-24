@@ -51,6 +51,7 @@
         <item quantity="other">Behandel %1$d berichten als spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Rapport bericht van %1$s als spam?</string>
+    <string name="title_notification_waiting">Wachten op een geschikte verbinding</string>
     <string name="title_notification_sending">Berichten verzenden</string>
     <string name="title_notification_failed">\'%1$s\' is mislukt</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -397,7 +398,7 @@
     <string name="title_ask_show_html">Het originele bericht tonen kan privacy gevoelige informatie lekken</string>
     <string name="title_ask_show_image">Afbeeldingen tonen kan privacy gevoelige informatie lekken</string>
     <string name="title_ask_edit_ref">Bewerk opnieuw geformatteerde beantwoorde/doorgestuurde berichttekst?</string>
-    <string name="title_ask_delete_local">Verwijder lokale berichten die ook op de externe server zijn opgeslagen?</string>
+    <string name="title_ask_delete_local">Verwijder alleen lokale berichten die ook op de externe server zijn opgeslagen?</string>
     <string name="title_ask_help">Help FairEmail te verbeteren</string>
     <string name="title_ask_reporting">Foutrapporten verzenden?</string>
     <string name="title_reporting_why">Foutrapportage helpt om FairEmail te verbeteren</string>
@@ -468,9 +469,6 @@
     <string name="title_compact">Compacte weergave</string>
     <string name="title_zoom">Tekstgrootte</string>
     <string name="title_select_all">Selecteer alles</string>
-    <string name="title_address_sent">Verzonden:</string>
-    <string name="title_address_unsent">Niet verzonden:</string>
-    <string name="title_address_invalid">Ongeldig:</string>
     <string name="title_previous">Vorige</string>
     <string name="title_next">Volgende</string>
     <string name="title_answer_caption">Bewerk sjabloon</string>
