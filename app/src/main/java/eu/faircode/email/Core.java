@@ -2203,7 +2203,8 @@ class Core {
                             ex.getCause() instanceof ConnectionException))
                 recoverable = false;
 
-            if (ex instanceof FolderClosedException)
+            if (ex instanceof FolderClosedException ||
+                    ex instanceof FolderNotFoundException)
                 recoverable = false;
 
             if (ex instanceof IllegalStateException && (
