@@ -503,9 +503,8 @@ class Core {
         }
 
         // Handle draft
-        if (EntityFolder.DRAFTS.equals(folder.type))
-            if (ifolder.getPermanentFlags().contains(Flags.Flag.DRAFT))
-                imessage.setFlag(Flags.Flag.DRAFT, true);
+        if (ifolder.getPermanentFlags().contains(Flags.Flag.DRAFT))
+            imessage.setFlag(Flags.Flag.DRAFT, EntityFolder.DRAFTS.equals(folder.type));
 
         // Add message
         ifolder.appendMessages(new Message[]{imessage});
