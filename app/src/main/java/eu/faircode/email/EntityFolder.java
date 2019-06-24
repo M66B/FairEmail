@@ -99,7 +99,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public String[] keywords;
 
     @NonNull
-    public Boolean initialize = true;
+    public Integer initialize = DEFAULT_KEEP;
     public Boolean tbc; // to be created
     public Boolean tbd; // to be deleted
     public String state;
@@ -189,7 +189,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         }
 
         JSONArray jargs = new JSONArray();
-        jargs.put(initialize ? keep_days : days);
+        jargs.put(initialize == 0 ? days : Math.max(keep_days, initialize));
         jargs.put(keep_days);
         jargs.put(download);
         jargs.put(auto_delete);

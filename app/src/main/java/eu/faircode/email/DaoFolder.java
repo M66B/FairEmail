@@ -249,8 +249,11 @@ public interface DaoFolder {
     @Query("UPDATE folder SET name = :name WHERE account = :account AND name = :old")
     int renameFolder(long account, String old, String name);
 
-    @Query("UPDATE folder SET initialize = 0 WHERE id = :id")
-    int setFolderInitialized(long id);
+    @Query("UPDATE folder SET initialize = :days WHERE id = :id")
+    int setFolderInitialize(long id, int days);
+
+    @Query("UPDATE folder SET keep_days = :days WHERE id = :id")
+    int setFolderKeep(long id, int days);
 
     @Query("UPDATE folder SET last_sync = :last_sync WHERE id = :id")
     int setFolderSync(long id, long last_sync);

@@ -808,7 +808,7 @@ class Core {
                 sync_folders = true;
             } else {
                 names.add(folder.name);
-                if (folder.initialize)
+                if (folder.initialize != 0)
                     sync_folders = true;
             }
         Log.i("Local folder count=" + names.size());
@@ -960,7 +960,7 @@ class Core {
             boolean download = jargs.optBoolean(2, false);
             boolean auto_delete = jargs.optBoolean(3, false);
 
-            if (keep_days == sync_days)
+            if (keep_days == sync_days && keep_days != Integer.MAX_VALUE)
                 keep_days++;
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -1235,8 +1235,8 @@ class Core {
             }
 
             if (state.running) {
-                folder.initialize = false;
-                db.folder().setFolderInitialized(folder.id);
+                folder.initialize = 0;
+                db.folder().setFolderInitialize(folder.id, 0);
             }
 
             db.folder().setFolderSync(folder.id, new Date().getTime());

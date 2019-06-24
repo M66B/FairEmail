@@ -341,6 +341,7 @@
     <string name="title_pop3_support">POP3 is not supported, see also the FAQ</string>
 
     <string name="title_synchronize_now">Synchronize now</string>
+    <string name="title_synchronize_all">Synchronize all</string>
     <string name="title_synchronize_enabled">Synchronize</string>
     <string name="title_delete_local">Delete local messages</string>
     <string name="title_delete_browsed">Delete browsed/searched messages</string>
@@ -457,6 +458,7 @@
     <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
     <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
     <string name="title_ask_edit_ref">Edit reformatted replied/forwarded message text?</string>
+    <string name="title_ask_sync_all">Synchronize all messages in %1$s?</string>
     <string name="title_ask_delete_local">Delete only local messages which are stored on the remote server too?</string>
     <string name="title_ask_help">Help improve FairEmail</string>
     <string name="title_ask_reporting">Send error reports?</string>

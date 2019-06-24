@@ -266,7 +266,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     ivSync.setImageResource(folder.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
                 }
                 ivSync.setImageTintList(ColorStateList.valueOf(
-                        folder.synchronize && folder.initialize && !EntityFolder.OUTBOX.equals(folder.type)
+                        folder.synchronize && folder.initialize != 0 && !EntityFolder.OUTBOX.equals(folder.type)
                                 ? colorUnread : textColorSecondary));
 
                 tvKeywords.setText(TextUtils.join(" ", folder.keywords));
@@ -347,40 +347,41 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
             popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_now, 1, R.string.title_synchronize_now);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_all, 2, R.string.title_synchronize_all);
 
             if (folder.account != null) {
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_unified_folder, 2, R.string.title_unified_folder)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_unified_folder, 3, R.string.title_unified_folder)
                         .setCheckable(true).setChecked(folder.unified);
 
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_navigation_folder, 3, R.string.title_navigation_folder)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_navigation_folder, 4, R.string.title_navigation_folder)
                         .setCheckable(true).setChecked(folder.navigation);
 
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_notify_folder, 4, R.string.title_notify_folder)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_notify_folder, 5, R.string.title_notify_folder)
                         .setCheckable(true).setChecked(folder.notify);
 
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, 5, R.string.title_synchronize_enabled)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, 6, R.string.title_synchronize_enabled)
                         .setCheckable(true).setChecked(folder.synchronize);
 
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_local, 6, R.string.title_delete_local);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_browsed, 7, R.string.title_delete_browsed);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_local, 7, R.string.title_delete_local);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_browsed, 8, R.string.title_delete_browsed);
             }
 
             if (EntityFolder.TRASH.equals(folder.type))
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_trash, 8, R.string.title_empty_trash);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_trash, 9, R.string.title_empty_trash);
 
             if (folder.account != null) {
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, 9, R.string.title_edit_rules);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, 10, R.string.title_edit_properties);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, 10, R.string.title_edit_rules);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, 11, R.string.title_edit_properties);
 
                 if (folder.notify && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     String channelId = EntityFolder.getNotificationChannelId(folder.id);
                     NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                     NotificationChannel channel = nm.getNotificationChannel(channelId);
                     if (channel == null)
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_create_channel, 11, R.string.title_create_channel);
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_create_channel, 12, R.string.title_create_channel);
                     else {
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 12, R.string.title_edit_channel);
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_channel, 13, R.string.title_delete_channel);
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 13, R.string.title_edit_channel);
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_channel, 14, R.string.title_delete_channel);
                     }
                 }
             }
@@ -390,7 +391,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 public boolean onMenuItemClick(MenuItem item) {
                     switch (item.getItemId()) {
                         case R.string.title_synchronize_now:
-                            onActionSynchronizeNow();
+                            onActionSynchronizeNow(false);
+                            return true;
+
+                        case R.string.title_synchronize_all:
+                            onActionSynchronizeAll();
                             return true;
 
                         case R.string.title_unified_folder:
@@ -440,13 +445,15 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     }
                 }
 
-                private void onActionSynchronizeNow() {
+                private void onActionSynchronizeNow(boolean all) {
                     Bundle args = new Bundle();
+                    args.putBoolean("all", all);
                     args.putLong("folder", folder.id);
 
                     new SimpleTask<Void>() {
                         @Override
                         protected Void onExecute(Context context, Bundle args) {
+                            boolean all = args.getBoolean("all");
                             long fid = args.getLong("folder");
 
                             if (!ConnectionHelper.getNetworkState(context).isSuitable())
@@ -461,6 +468,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                 EntityFolder folder = db.folder().getFolder(fid);
                                 if (folder == null)
                                     return null;
+
+                                if (all) {
+                                    db.folder().setFolderInitialize(folder.id, Integer.MAX_VALUE);
+                                    db.folder().setFolderKeep(folder.id, Integer.MAX_VALUE);
+                                }
 
                                 EntityOperation.sync(context, folder.id, true);
 
@@ -507,6 +519,24 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                 Helper.unexpectedError(context, owner, ex);
                         }
                     }.execute(context, owner, args, "folder:sync");
+                }
+
+                private void onActionSynchronizeAll() {
+                    View dview = LayoutInflater.from(context).inflate(R.layout.dialog_message, null);
+                    TextView tvMessage = dview.findViewById(R.id.tvMessage);
+
+                    tvMessage.setText(context.getString(R.string.title_ask_sync_all, folder.getDisplayName(context)));
+
+                    new DialogBuilderLifecycle(context, owner)
+                            .setView(dview)
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    onActionSynchronizeNow(true);
+                                }
+                            })
+                            .setNegativeButton(android.R.string.cancel, null)
+                            .show();
                 }
 
                 private void onActionProperty(int property, boolean enabled) {
