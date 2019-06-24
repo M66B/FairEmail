@@ -3057,7 +3057,7 @@ public class FragmentCompose extends FragmentBase {
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             EntityIdentity identity = (EntityIdentity) parent.getAdapter().getItem(position);
 
-            encrypt = (identity != null && identity.encrypt);
+            encrypt = (identity != null && identity.encrypt && Helper.isPro(getContext()));
             getActivity().invalidateOptionsMenu();
 
             int at = (identity == null ? -1 : identity.email.indexOf('@'));
