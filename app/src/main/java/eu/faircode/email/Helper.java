@@ -401,6 +401,9 @@ public class Helper {
                         "This operation is not allowed on a closed folder".equals(ex.getMessage())))
             return null;
 
+        if (ex instanceof Core.AlertException)
+            return ex.getMessage();
+
         StringBuilder sb = new StringBuilder();
         if (BuildConfig.DEBUG)
             sb.append(ex.toString());

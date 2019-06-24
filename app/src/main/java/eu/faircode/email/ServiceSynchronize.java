@@ -601,7 +601,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                                     if (message != null && !message.startsWith("Too many simultaneous connections")) {
                                         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                        nm.notify("receive:" + account.id, 1,
+                                        nm.notify("alert:" + account.id, 1,
                                                 Core.getNotificationError(
                                                         ServiceSynchronize.this, "warning", account.name,
                                                         new Core.AlertException(message))
