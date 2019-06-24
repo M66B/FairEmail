@@ -52,6 +52,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
     private Context context;
     private LayoutInflater inflater;
     private LifecycleOwner owner;
+    private View parentView;
 
     private List<EntityAttachment> items = new ArrayList<>();
 
@@ -131,7 +132,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                 // Check if viewer available
                 if (ris.size() == 0) {
                     Snackbar.make(
-                            (View) itemView.getParent(),
+                            parentView,
                             context.getString(R.string.title_no_viewer, attachment.type),
                             Snackbar.LENGTH_LONG).show();
                     return;
@@ -177,10 +178,11 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
         }
     }
 
-    AdapterImage(Context context, LifecycleOwner owner) {
+    AdapterImage(Context context, LifecycleOwner owner, View parentView) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.owner = owner;
+        this.parentView = parentView;
         setHasStableIds(true);
     }
 

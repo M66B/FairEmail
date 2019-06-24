@@ -138,6 +138,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private Context context;
     private LayoutInflater inflater;
     private LifecycleOwner owner;
+    private View parentView;
     private ViewType viewType;
     private boolean compact;
     private int zoom;
@@ -405,7 +406,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             StaggeredGridLayoutManager sglm =
                     new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
             rvImage.setLayoutManager(sglm);
-            adapterImage = new AdapterImage(context, owner);
+            adapterImage = new AdapterImage(context, owner, parentView);
             rvImage.setAdapter(adapterImage);
 
             grpAddresses = vsBody.findViewById(R.id.grpAddresses);
@@ -1411,7 +1412,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
                 DateFormat day = new SimpleDateFormat("E");
                 Snackbar.make(
-                        (View) itemView.getParent(),
+                        parentView,
                         day.format(message.ui_snoozed) + " " + df.format(message.ui_snoozed),
                         Snackbar.LENGTH_LONG).show();
             }
@@ -1621,10 +1622,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 PackageManager pm = context.getPackageManager();
                 if (edit.resolveActivity(pm) == null)
-                    Snackbar.make(
-                            (View) itemView.getParent(),
-                            R.string.title_no_contacts,
-                            Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(parentView, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
                 else
                     context.startActivity(edit);
             }
@@ -2664,10 +2662,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     PackageManager pm = context.getPackageManager();
                     if (share.resolveActivity(pm) == null)
-                        Snackbar.make(
-                                (View) itemView.getParent(),
-                                R.string.title_no_viewer,
-                                Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(parentView, R.string.title_no_viewer, Snackbar.LENGTH_LONG).show();
                     else
                         context.startActivity(share);
                 }
@@ -2967,7 +2962,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             LinearLayoutManager llm = new LinearLayoutManager(context);
             rvFolder.setLayoutManager(llm);
 
-            final AdapterFolder adapter = new AdapterFolder(context, owner, data.message.account, false,
+            final AdapterFolder adapter = new AdapterFolder(context, owner, parentView, data.message.account, false,
                     new AdapterFolder.IFolderSelectedListener() {
                         @Override
                         public void onFolderSelected(TupleFolderEx folder) {
@@ -3214,7 +3209,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected void onExecuted(Bundle args, List<EntityAnswer> answers) {
                     if (answers == null || answers.size() == 0) {
                         Snackbar snackbar = Snackbar.make(
-                                (View) itemView.getParent(),
+                                parentView,
                                 context.getString(R.string.title_no_answers),
                                 Snackbar.LENGTH_LONG);
                         snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
@@ -3276,7 +3271,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
     }
 
-    AdapterMessage(Context context, LifecycleOwner owner,
+    AdapterMessage(Context context, LifecycleOwner owner, View parentView,
                    ViewType viewType, boolean compact, int zoom, String sort, boolean filter_duplicates, final IProperties properties) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
@@ -3285,6 +3280,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.context = context;
         this.owner = owner;
         this.inflater = LayoutInflater.from(context);
+        this.parentView = parentView;
         this.viewType = viewType;
         this.compact = compact;
         this.zoom = zoom;

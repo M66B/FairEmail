@@ -501,7 +501,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", false);
 
         adapter = new AdapterMessage(
-                getContext(), getViewLifecycleOwner(),
+                getContext(), getViewLifecycleOwner(), view,
                 viewType, compact, zoom, sort, filter_duplicates, iProperties);
         rvMessage.setAdapter(adapter);
 
@@ -1926,7 +1926,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvFolder.setLayoutManager(llm);
 
-        final AdapterFolder adapter = new AdapterFolder(getContext(), getViewLifecycleOwner(), account, false,
+        final AdapterFolder adapter = new AdapterFolder(getContext(), getViewLifecycleOwner(), view, account, false,
                 new AdapterFolder.IFolderSelectedListener() {
                     @Override
                     public void onFolderSelected(TupleFolderEx folder) {

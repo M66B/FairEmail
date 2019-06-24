@@ -66,6 +66,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private Context context;
     private LayoutInflater inflater;
     private LifecycleOwner owner;
+    private View parentView;
     private boolean show_hidden;
 
     private long account;
@@ -497,10 +498,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
                             if (ex instanceof IllegalStateException) {
-                                Snackbar snackbar = Snackbar.make(
-                                        (View) itemView.getParent(),
-                                        ex.getMessage(),
-                                        Snackbar.LENGTH_LONG);
+                                Snackbar snackbar = Snackbar.make(parentView, ex.getMessage(), Snackbar.LENGTH_LONG);
                                 snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
@@ -511,10 +509,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                 });
                                 snackbar.show();
                             } else if (ex instanceof IllegalArgumentException)
-                                Snackbar.make(
-                                        (View) itemView.getParent(),
-                                        ex.getMessage(),
-                                        Snackbar.LENGTH_LONG).show();
+                                Snackbar.make(parentView, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                             else
                                 Helper.unexpectedError(context, owner, ex);
                         }
@@ -715,10 +710,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
     }
 
-    AdapterFolder(Context context, LifecycleOwner owner, long account, boolean show_hidden, IFolderSelectedListener listener) {
+    AdapterFolder(Context context, LifecycleOwner owner, View parentView,
+                  long account, boolean show_hidden, IFolderSelectedListener listener) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.owner = owner;
+        this.parentView = parentView;
         this.show_hidden = show_hidden;
         this.account = account;
         this.listener = listener;
