@@ -351,8 +351,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_all, 2, R.string.title_synchronize_all);
 
             if (folder.account != null) {
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_unified_folder, 3, R.string.title_unified_folder)
-                        .setCheckable(true).setChecked(folder.unified);
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                String startup = prefs.getString("startup", "unified");
+                if (!"accounts".equals(startup))
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unified_folder, 3, R.string.title_unified_folder)
+                            .setCheckable(true).setChecked(folder.unified);
 
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_navigation_folder, 4, R.string.title_navigation_folder)
                         .setCheckable(true).setChecked(folder.navigation);
