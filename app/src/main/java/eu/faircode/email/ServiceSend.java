@@ -172,6 +172,10 @@ public class ServiceSend extends LifecycleService {
                                         if (!ConnectionHelper.getNetworkState(ServiceSend.this).isSuitable())
                                             break;
                                     }
+
+                                    if (db.operation().getOperations(outbox.id).size() == 0)
+                                        stopSelf();
+
                                 } catch (Throwable ex) {
                                     Log.e(outbox.name, ex);
                                     db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex));
@@ -186,9 +190,6 @@ public class ServiceSend extends LifecycleService {
                         }
                     });
                 }
-
-                if (operations.size() == 0)
-                    stopSelf();
             }
         });
 
