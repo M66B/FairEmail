@@ -2024,7 +2024,7 @@ class Core {
 
             if (notify_reply && message.content) {
                 Intent reply = new Intent(context, ActivityCompose.class)
-                        .putExtra("action", args.getString("action"))
+                        .putExtra("action", "reply")
                         .putExtra("reference", message.id);
                 reply.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 PendingIntent piReply = PendingIntent.getActivity(context, ActivityCompose.PI_REPLY, reply, PendingIntent.FLAG_UPDATE_CURRENT);
