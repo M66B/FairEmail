@@ -130,7 +130,10 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
 
                 // Check if viewer available
                 if (ris.size() == 0) {
-                    Snackbar.make(view, context.getString(R.string.title_no_viewer, attachment.type), Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(
+                            (View) itemView.getParent(),
+                            context.getString(R.string.title_no_viewer, attachment.type),
+                            Snackbar.LENGTH_LONG).show();
                     return;
                 }
 

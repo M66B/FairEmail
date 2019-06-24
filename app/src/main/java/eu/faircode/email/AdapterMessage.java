@@ -1411,7 +1411,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (message.ui_snoozed != null) {
                 DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
                 DateFormat day = new SimpleDateFormat("E");
-                Snackbar.make(view,
+                Snackbar.make(
+                        (View) itemView.getParent(),
                         day.format(message.ui_snoozed) + " " + df.format(message.ui_snoozed),
                         Snackbar.LENGTH_LONG).show();
             }
@@ -1621,7 +1622,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 PackageManager pm = context.getPackageManager();
                 if (edit.resolveActivity(pm) == null)
-                    Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(
+                            (View) itemView.getParent(),
+                            R.string.title_no_contacts,
+                            Snackbar.LENGTH_LONG).show();
                 else
                     context.startActivity(edit);
             }
@@ -2661,7 +2665,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     PackageManager pm = context.getPackageManager();
                     if (share.resolveActivity(pm) == null)
-                        Snackbar.make(view, R.string.title_no_viewer, Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(
+                                (View) itemView.getParent(),
+                                R.string.title_no_viewer,
+                                Snackbar.LENGTH_LONG).show();
                     else
                         context.startActivity(share);
                 }
@@ -3208,7 +3215,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected void onExecuted(Bundle args, List<EntityAnswer> answers) {
                     if (answers == null || answers.size() == 0) {
                         Snackbar snackbar = Snackbar.make(
-                                view,
+                                (View) itemView.getParent(),
                                 context.getString(R.string.title_no_answers),
                                 Snackbar.LENGTH_LONG);
                         snackbar.setAction(R.string.title_fix, new View.OnClickListener() {

@@ -258,7 +258,10 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
                         @Override
                         protected void onExecuted(Bundle args, Integer applied) {
-                            Snackbar.make(view, context.getString(R.string.title_rule_applied, applied), Snackbar.LENGTH_LONG).show();
+                            Snackbar.make(
+                                    (View) itemView.getParent(),
+                                    context.getString(R.string.title_rule_applied, applied),
+                                    Snackbar.LENGTH_LONG).show();
                         }
 
                         @Override
