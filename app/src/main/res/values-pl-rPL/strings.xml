@@ -6,9 +6,11 @@
     <string name="app_welcome">FairEmail to aplikacja e-mail o otwartym kodzie źródłowym, koncentrująca się na prywatności i bezpieczeństwie. Z tego powodu niektóre funkcje mogą działać inaczej niż to, do czego jesteś przyzwyczajony.</string>
     <string name="app_limitations">Przykładowo, wiadomości będą zawsze przeformatowane, aby usunąć niebezpieczne elementy i zwiększyć czytelność, a otwieranie linków musi być potwierdzane dla zachowania bezpieczeństwa.</string>
     <string name="app_crash">FairEmail nie jest obsługiwany na tym urządzeniu, ponieważ błędy w Androidzie powodują awarie</string>
+    <string name="app_exit">Ponownie \'wstecz\', aby wyjść</string>
     <string name="channel_service">Usługa</string>
     <string name="channel_send">Wyślij</string>
     <string name="channel_notification">Powiadomienia</string>
+    <string name="channel_update">Aktualizacje</string>
     <string name="channel_warning">Ostrzeżenia</string>
     <string name="channel_error">Błędy</string>
     <string name="channel_group_contacts">Kontakty</string>
@@ -65,6 +67,7 @@
         <item quantity="other">Traktować wiadomości %1$d jako spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Zgłosić wiadomość od %1$s jako spam?</string>
+    <string name="title_notification_waiting">Oczekiwanie na odpowiednie połączenie</string>
     <string name="title_notification_sending">Wysyłanie wiadomości</string>
     <string name="title_notification_failed">%1$s nie powiodło się</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -298,6 +301,7 @@
     <string name="title_pop3_hint">POP3 ma znaczne ograniczenia, więc używaj IMAP, gdy tylko jest to możliwe</string>
     <string name="title_pop3_support">POP3 nie jest wspierane, zobacz również FAQ</string>
     <string name="title_synchronize_now">Synchronizuj teraz</string>
+    <string name="title_synchronize_all">Zsynchronizuj wszystko</string>
     <string name="title_synchronize_enabled">Synchronizuj</string>
     <string name="title_delete_local">Usuń wiadomości lokalne</string>
     <string name="title_delete_browsed">Usuń przejrzane/przeszukane wiadomości</string>
@@ -537,6 +541,7 @@
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary">Podstawowe</string>
     <string name="title_legend_subscribed">Zasubskrybowano</string>
+    <string name="title_legend_rule">Ma reguły</string>
     <string name="title_legend_notify">Powiadom o nowych wiadomościach</string>
     <string name="title_legend_sync_keep">Liczba dni do synchronizacji / zachowania wiadomości</string>
     <string name="title_legend_download_fetch">Liczba pobranych wiadomości / pobranych nagłówków</string>

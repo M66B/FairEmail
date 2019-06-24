@@ -10,6 +10,7 @@
     <string name="channel_service">Serviciu</string>
     <string name="channel_send">Trimite</string>
     <string name="channel_notification">Notificări</string>
+    <string name="channel_update">Actualizări</string>
     <string name="channel_warning">Atenționări</string>
     <string name="channel_error">Erori</string>
     <string name="channel_group_contacts">Contacte</string>
@@ -58,6 +59,7 @@
         <item quantity="other">Tratează %1$d mesaje ca spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Raportează mesajul de la %1$s ca spam?</string>
+    <string name="title_notification_waiting">Se așteaptă o conexiune adecvată</string>
     <string name="title_notification_sending">Se trimit mesaje</string>
     <string name="title_notification_failed">\'%1$s\' a eșuat</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -296,6 +298,7 @@
     <string name="title_pop3_hint">POP3 are limitări semnificative, așa ca folosiți IMAP dacă se poate</string>
     <string name="title_pop3_support">POP3 nu este suportat activ, vedeți de asemenea secțiunea de întrebări și răspunsuri</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
+    <string name="title_synchronize_all">Sincronizează toate</string>
     <string name="title_synchronize_enabled">Sincronizare</string>
     <string name="title_delete_local">Șterge mesajul local</string>
     <string name="title_delete_browsed">Șterge mesajele răsfoite/căutate</string>
@@ -404,6 +407,8 @@
     <string name="title_ask_show_html">Vizualizarea mesajului original poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_edit_ref">Se editează textul mesajului rescris ca răspuns/redirecționat?</string>
+    <string name="title_ask_sync_all">Se sincronizează toate mesajele din %1$s?</string>
+    <string name="title_ask_delete_local">Șterge doar mesajele locale care sunt stocate și pe serverul furnizorului?</string>
     <string name="title_ask_help">Ajută la îmbunătățirea FairEmail</string>
     <string name="title_ask_reporting">Trimite rapoarte de eroare?</string>
     <string name="title_reporting_why">Raportarea erorilor va ajuta la îmbunătățirea FairEmail</string>

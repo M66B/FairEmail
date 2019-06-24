@@ -290,6 +290,7 @@
     <string name="title_pop3_hint">POP3 a des limitations significatives, donc utilisez IMAP si possible</string>
     <string name="title_pop3_support">POP3 n\'est pas pris en charge, voir aussi la FAQ</string>
     <string name="title_synchronize_now">Synchroniser maintenant</string>
+    <string name="title_synchronize_all">Synchroniser tout</string>
     <string name="title_synchronize_enabled">Synchroniser</string>
     <string name="title_delete_local">Supprimer les messages locaux</string>
     <string name="title_delete_browsed">Supprimer les messages consultés/recherchés</string>
@@ -398,6 +399,7 @@
     <string name="title_ask_show_html">Afficher le message original peut divulguer des informations sensibles privées</string>
     <string name="title_ask_show_image">Afficher les images peut divulguer des informations sensibles privées</string>
     <string name="title_ask_edit_ref">Modifier le texte du message reformaté et répondu/transféré ?</string>
+    <string name="title_ask_sync_all">Synchroniser tous les messages dans %1$s ?</string>
     <string name="title_ask_delete_local">Supprimer uniquement les messages locaux qui sont stockés sur le serveur distant ?</string>
     <string name="title_ask_help">Aider à améliorer FairEmail</string>
     <string name="title_ask_reporting">Envoyer des rapports d\'erreur ?</string>

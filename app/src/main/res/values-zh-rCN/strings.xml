@@ -282,6 +282,7 @@
     <string name="title_pop3_hint">POP3协议有很大局限性，因此尽可能使用 IMAP</string>
     <string name="title_pop3_support">不支持POP3协议，另见FAQ</string>
     <string name="title_synchronize_now">现在同步</string>
+    <string name="title_synchronize_all">同步全部</string>
     <string name="title_synchronize_enabled">同步</string>
     <string name="title_delete_local">删除本地消息</string>
     <string name="title_delete_browsed">删除浏览过/搜索过的消息</string>
@@ -390,6 +391,7 @@
     <string name="title_ask_show_html">显示原件可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
     <string name="title_ask_edit_ref">编辑格式已更改的回复/转发消息文本？</string>
+    <string name="title_ask_sync_all">同步所有在%1$s里的消息 ？</string>
     <string name="title_ask_delete_local">只删除同样存储在远程服务器上的本地消息？</string>
     <string name="title_ask_help">帮助改进FairEmail</string>
     <string name="title_ask_reporting">发送错误报告?</string>
