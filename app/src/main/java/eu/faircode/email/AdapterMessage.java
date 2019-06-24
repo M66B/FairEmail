@@ -746,8 +746,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             if (viewType == ViewType.THREAD) {
-                boolean show_expanded = properties.getValue("expanded", message.id);
-                if (show_expanded)
+                if (expanded)
                     bindExpanded(message);
                 else {
                     clearExpanded(message);
