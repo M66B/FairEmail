@@ -1271,11 +1271,11 @@ class Core {
 
         if (imessage.isExpunged()) {
             Log.i(folder.name + " expunged uid=" + uid);
-            throw new MessageRemovedException();
+            throw new MessageRemovedException("Expunged");
         }
         if (imessage.isSet(Flags.Flag.DELETED)) {
             Log.i(folder.name + " deleted uid=" + uid);
-            throw new MessageRemovedException();
+            throw new MessageRemovedException("Flagged deleted");
         }
 
         MessageHelper helper = new MessageHelper(imessage);
