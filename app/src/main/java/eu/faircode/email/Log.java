@@ -270,9 +270,11 @@ public class Log {
         }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String uuid = prefs.getString("uuid", null);
-
-        sb.append(String.format("UUID: %s\r\n", uuid == null ? "-" : uuid));
+        boolean reporting = prefs.getBoolean("crash_reports", false);
+        if (reporting) {
+            String uuid = prefs.getString("uuid", null);
+            sb.append(String.format("UUID: %s\r\n", uuid == null ? "-" : uuid));
+        }
 
         sb.append("\r\n");
 
