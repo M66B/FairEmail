@@ -341,7 +341,7 @@
     <string name="title_pop3_support">POP3 is not supported, see also the FAQ</string>
 
     <string name="title_synchronize_now">Synchronize now</string>
-    <string name="title_synchronize_all">Synchronize all</string>
+    <string name="title_synchronize_all">Synchronize all messages</string>
     <string name="title_synchronize_enabled">Synchronize</string>
     <string name="title_delete_local">Delete local messages</string>
     <string name="title_delete_browsed">Delete browsed/searched messages</string>

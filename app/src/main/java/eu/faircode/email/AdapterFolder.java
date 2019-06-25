@@ -347,6 +347,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
+            popupMenu.getMenu().add(Menu.NONE, 0, 0, folder.getDisplayName(context)).setEnabled(false);
+
             popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_now, 1, R.string.title_synchronize_now);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_all, 2, R.string.title_synchronize_all);
 
