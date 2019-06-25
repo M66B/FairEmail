@@ -3518,7 +3518,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         same = false;
                         Log.i("preview changed id=" + next.id);
                     }
-                    if (!prev.sent.equals(next.sent)) {
+                    if (!Objects.equals(prev.sent, next.sent)) {
                         same = false;
                         Log.i("sent changed id=" + next.id);
                     }
