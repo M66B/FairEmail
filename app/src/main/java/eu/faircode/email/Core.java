@@ -797,7 +797,7 @@ class Core {
         boolean sync_folders = prefs.getBoolean("sync_folders", true);
 
         // Get folder names
-        List<String> names = new ArrayList<>();
+        Map<String, EntityFolder> local = new HashMap<>();
         for (EntityFolder folder : db.folder().getFolders(account.id))
             if (folder.tbc != null) {
                 Log.i(folder.name + " creating");
@@ -805,7 +805,7 @@ class Core {
                 if (!ifolder.exists())
                     ifolder.create(Folder.HOLDS_MESSAGES);
                 db.folder().resetFolderTbc(folder.id);
-                names.add(folder.name);
+                local.put(folder.name, folder);
                 sync_folders = true;
             } else if (folder.tbd != null && folder.tbd) {
                 Log.i(folder.name + " deleting");
@@ -815,11 +815,11 @@ class Core {
                 db.folder().deleteFolder(folder.id);
                 sync_folders = true;
             } else {
-                names.add(folder.name);
+                local.put(folder.name, folder);
                 if (folder.initialize != 0)
                     sync_folders = true;
             }
-        Log.i("Local folder count=" + names.size());
+        Log.i("Local folder count=" + local.size());
 
         if (!sync_folders)
             return;
@@ -875,7 +875,7 @@ class Core {
                     " type=" + type + " attrs=" + TextUtils.join(" ", attr));
 
             if (type != null) {
-                names.remove(fullName);
+                local.remove(fullName);
 
                 EntityFolder folder;
                 try {
@@ -935,10 +935,14 @@ class Core {
                 db.folder().setFolderParent(child.id, parent == null ? null : parent.id);
         }
 
-        Log.i("Delete local count=" + names.size());
-        for (String name : names) {
-            Log.i(name + " delete");
-            db.folder().deleteFolder(account.id, name);
+        Log.i("Delete local count=" + local.size());
+        for (String name : local.keySet()) {
+            EntityFolder folder = local.get(name);
+            if (EntityFolder.USER.equals(folder.type)) {
+                Log.i(name + " delete");
+                db.folder().deleteFolder(account.id, name);
+            } else
+                Log.i(name + " keep type=" + folder.type);
         }
     }
 
