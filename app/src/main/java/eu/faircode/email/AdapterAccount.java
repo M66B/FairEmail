@@ -195,6 +195,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
+            popupMenu.getMenu().add(Menu.NONE, 0, 0, account.name).setEnabled(false);
+
             popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, 1, R.string.title_synchronize_enabled)
                     .setCheckable(true).setChecked(account.synchronize);
 

@@ -631,7 +631,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         protected void onExecuted(Bundle args, Map<EntityAccount, List<EntityFolder>> result) {
                             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fabSearch);
 
-                            popupMenu.getMenu().add(R.string.title_search_in).setEnabled(false);
+                            popupMenu.getMenu().add(Menu.NONE, 0, 0, R.string.title_search_in).setEnabled(false);
 
                             int order = 1;
                             for (EntityAccount account : result.keySet()) {

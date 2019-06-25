@@ -101,6 +101,8 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
+            popupMenu.getMenu().add(Menu.NONE, 0, 0, answer.name).setEnabled(false);
+
             if (composable)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_compose, 1, R.string.title_compose);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_answer_hide, 2, R.string.title_answer_hide)
