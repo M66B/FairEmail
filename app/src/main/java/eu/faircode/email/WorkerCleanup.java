@@ -135,6 +135,30 @@ public class WorkerCleanup extends Worker {
                                 Log.w("Error deleting " + file);
                         }
 
+            // Check message files
+            Log.i("Checking message files");
+            List<Long> mids = db.message().getMessageWithContent();
+            for (Long mid : mids) {
+                EntityMessage message = db.message().getMessage(mid);
+                File file = message.getFile(context);
+                if (!file.exists()) {
+                    Log.w("Message file missing id=" + mid);
+                    db.message().setMessageContent(mid, false);
+                }
+            }
+
+            // Check attachments files
+            Log.i("Checking attachments files");
+            List<Long> aids = db.attachment().getAttachmentAvailable();
+            for (Long aid : aids) {
+                EntityAttachment attachment = db.attachment().getAttachment(aid);
+                File file = attachment.getFile(context);
+                if (!file.exists()) {
+                    Log.w("Attachment file missing id=" + aid);
+                    db.attachment().setUnavailable(aid);
+                }
+            }
+
             Log.i("Cleanup contacts");
             int contacts = db.contact().deleteContacts(now - KEEP_CONTACTS_DURATION);
             Log.i("Deleted contacts=" + contacts);

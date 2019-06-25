@@ -216,6 +216,12 @@ public interface DaoMessage {
             " ORDER BY message.received DESC")
     List<Long> getMessageAll(Long folder, boolean snoozed);
 
+    @Query("SELECT id" +
+            " FROM message" +
+            " WHERE content" +
+            " ORDER BY message.received DESC")
+    List<Long> getMessageWithContent();
+
     @Query("SELECT *" +
             " FROM message" +
             " WHERE account = :account" +
@@ -379,6 +385,9 @@ public interface DaoMessage {
 
     @Query("UPDATE message SET revisions = :revisions WHERE id = :id")
     int setMessageRevisions(long id, Integer revisions);
+
+    @Query("UPDATE message SET content = :content WHERE id = :id")
+    int setMessageContent(long id, boolean content);
 
     @Query("UPDATE message SET content = :content, plain_only = :plain_only, preview = :preview, warning = :warning WHERE id = :id")
     int setMessageContent(long id, boolean content, Boolean plain_only, String preview, String warning);

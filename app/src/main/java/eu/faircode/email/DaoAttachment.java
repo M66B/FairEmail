@@ -63,6 +63,10 @@ public interface DaoAttachment {
             " LIMIT 1")
     EntityAttachment getAttachment(long message, String cid);
 
+    @Query("SELECT id FROM attachment" +
+            " WHERE available")
+    List<Long> getAttachmentAvailable();
+
     @Query("UPDATE attachment" +
             " SET message = :message" +
             " WHERE id = :id")
@@ -77,6 +81,11 @@ public interface DaoAttachment {
             " SET size = :size, error = NULL, progress = NULL, available = 1" +
             " WHERE id = :id")
     void setDownloaded(long id, Long size);
+
+    @Query("UPDATE attachment" +
+            " SET size = NULL, progress = NULL, available = 0" +
+            " WHERE id = :id")
+    void setUnavailable(long id);
 
     @Query("UPDATE attachment" +
             " SET error = :error, progress = NULL, available = 0" +
