@@ -59,6 +59,7 @@
         <item quantity="other">Želite %1$d poruka tretirati kao neželjenu poštu?</item>
     </plurals>
     <string name="title_ask_spam_who">Prijaviti poruku od korisnika %1$s kao neželjenu poštu?</string>
+    <string name="title_notification_waiting">Čeka se prikladna veza</string>
     <string name="title_notification_sending">Poruka se šalje</string>
     <string name="title_notification_failed">\'%1$s\' nije uspjelo</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -297,6 +298,7 @@
     <string name="title_pop3_hint">POP3 ima značajna ograničenja, zbog toga koristite IMAP kad god je to moguće</string>
     <string name="title_pop3_support">POP3 nije podržan, pogledajte i FAQ</string>
     <string name="title_synchronize_now">Sinkroniziraj sada</string>
+    <string name="title_synchronize_all">Sinkroniziraj sve poruke</string>
     <string name="title_synchronize_enabled">Sinkroniziraj</string>
     <string name="title_delete_local">Izbrišite lokalne poruke</string>
     <string name="title_delete_browsed">Brisanje pregledanih / pretraženih poruka</string>
@@ -405,6 +407,8 @@
     <string name="title_ask_show_html">Prikazivanje izvorne poruke može propuštati povjerljive informacije</string>
     <string name="title_ask_show_image">Prikazivanje slika može propuštati povjerljive informacije</string>
     <string name="title_ask_edit_ref">Uredi preoblikovani odgovor / proslijeđeni tekst poruke?</string>
+    <string name="title_ask_sync_all">Sinkroniziranje svih poruka u%1$s?</string>
+    <string name="title_ask_delete_local">Izbrisati samo lokalne poruke koje su također spremljene na udaljenom serveru?</string>
     <string name="title_ask_help">Pomozite poboljšati FairEmail</string>
     <string name="title_ask_reporting">Pošalji izvješća o pogreškama?</string>
     <string name="title_reporting_why">Izvješćivanje o pogreškama pomoći će u poboljšanju FairEmail aplikacije</string>
