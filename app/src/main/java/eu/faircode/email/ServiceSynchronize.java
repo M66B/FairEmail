@@ -845,6 +845,8 @@ public class ServiceSynchronize extends LifecycleService {
                                             } catch (Throwable ex) {
                                                 Log.e(folder.name, ex);
                                                 db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                            } finally {
+                                                ((IMAPMessage) imessage).invalidateHeaders();
                                             }
 
                                         int count = ifolder.getMessageCount();
@@ -876,6 +878,8 @@ public class ServiceSynchronize extends LifecycleService {
                                                 Log.i(folder.name + " deleted uid=" + uid + " count=" + count);
                                             } catch (MessageRemovedException ex) {
                                                 Log.w(folder.name, ex);
+                                            } finally {
+                                                ((IMAPMessage) imessage).invalidateHeaders();
                                             }
 
                                         int count = ifolder.getMessageCount();
@@ -933,6 +937,8 @@ public class ServiceSynchronize extends LifecycleService {
                                         } catch (Throwable ex) {
                                             Log.e(folder.name, ex);
                                             db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                        } finally {
+                                            ((IMAPMessage) e.getMessage()).invalidateHeaders();
                                         }
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
