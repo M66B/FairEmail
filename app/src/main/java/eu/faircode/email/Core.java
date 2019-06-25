@@ -246,6 +246,7 @@ class Core {
                         db.operation().deleteOperation(op.id);
                     } catch (Throwable ex) {
                         Log.e(folder.name, ex);
+                        EntityLog.log(context, folder.name + " " + Helper.formatThrowable(ex));
 
                         db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
                         if (message != null && !(ex instanceof IllegalArgumentException))
@@ -1069,6 +1070,7 @@ class Core {
                     Log.w(folder.name, ex);
                 } catch (Throwable ex) {
                     Log.e(folder.name, ex);
+                    EntityLog.log(context, folder.name + " " + Helper.formatThrowable(ex));
                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                 }
 
