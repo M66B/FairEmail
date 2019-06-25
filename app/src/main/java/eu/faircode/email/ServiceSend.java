@@ -299,9 +299,12 @@ public class ServiceSend extends LifecycleService {
         boolean debug = prefs.getBoolean("debug", false);
 
         if (message.identity == null)
-            throw new IllegalArgumentException("Identity removed");
+            throw new IllegalArgumentException("Send without identity");
 
         EntityIdentity ident = db.identity().getIdentity(message.identity);
+        if (ident == null)
+            throw new IllegalArgumentException("Identity not found");
+
         String protocol = ident.getProtocol();
 
         // Get properties
