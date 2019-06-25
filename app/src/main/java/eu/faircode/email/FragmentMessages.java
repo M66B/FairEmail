@@ -2932,7 +2932,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (expand != null &&
                         (expand.content || unmetered || (expand.size != null && expand.size < download))) {
                     iProperties.setValue("expanded", expand.id, true);
-                    return true;
+                    if (!expand.ui_seen)
+                        return true;
                 }
             }
         } else {
