@@ -290,7 +290,7 @@
     <string name="title_pop3_hint">POP3 heeft aanzienlijke beperkingen, dus gebruik IMAP indien mogelijk</string>
     <string name="title_pop3_support">POP3 wordt niet ondersteund, zie ook de FAQ</string>
     <string name="title_synchronize_now">Nu synchroniseren</string>
-    <string name="title_synchronize_all">Alles synchroniseren</string>
+    <string name="title_synchronize_all">Alle berichten synchroniseren</string>
     <string name="title_synchronize_enabled">Synchroniseren</string>
     <string name="title_delete_local">Verwijder lokale berichten</string>
     <string name="title_delete_browsed">Verwijder gebladerde/gezochte berichten</string>

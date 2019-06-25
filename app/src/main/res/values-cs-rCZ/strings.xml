@@ -306,7 +306,6 @@
     <string name="title_pop3_hint">POP3 má významná omezení, proto používejte IMAP kdekoliv je to možné</string>
     <string name="title_pop3_support">POP3 není podporován, viz. časté dotazy</string>
     <string name="title_synchronize_now">Synchronizovat nyní</string>
-    <string name="title_synchronize_all">Synchronizovat vše</string>
     <string name="title_synchronize_enabled">Synchronizovat</string>
     <string name="title_delete_local">Smazat místní zprávy</string>
     <string name="title_delete_browsed">Smazat prohlédnuté/vyhledané zprávy</string>

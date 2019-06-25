@@ -398,6 +398,7 @@
     <string name="title_ask_show_html">Visning av den opprinnelige meldingen kan lekke sensitiv informasjon</string>
     <string name="title_ask_show_image">Å vise bilder kan lekke sensitiv informasjon</string>
     <string name="title_ask_edit_ref">Redigere omformatert svar/videresendt meldingstekst?</string>
+    <string name="title_ask_sync_all">Synkroniser alle meldinger i %1$s?</string>
     <string name="title_ask_delete_local">Slett bare lokale meldinger som er lagret på den eksterne serveren også?</string>
     <string name="title_ask_help">Hjelp til å forbedre FairEmail</string>
     <string name="title_ask_reporting">Send feilrapporter?</string>

@@ -290,7 +290,6 @@
     <string name="title_pop3_hint">POP3-protokollalla on merkittäviä rajoituksia, joten käytä IMAP:ia mahdollisuuksien mukaan</string>
     <string name="title_pop3_support">POP3 ei ole tuettu, katso myös usein kysytyt kysymykset</string>
     <string name="title_synchronize_now">Synkronoi nyt</string>
-    <string name="title_synchronize_all">Synkronoi kaikki</string>
     <string name="title_synchronize_enabled">Synkronoi</string>
     <string name="title_delete_local">Poista paikalliset viestit</string>
     <string name="title_delete_browsed">Poista selatut/haetut viestit</string>

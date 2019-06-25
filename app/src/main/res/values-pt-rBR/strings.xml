@@ -396,6 +396,7 @@
     <string name="title_ask_show_html">Mostrar a mensagem original pode vazar informações confidenciais de privacidade</string>
     <string name="title_ask_show_image">Mostrar imagens pode vazar informações sensíveis à privacidade</string>
     <string name="title_ask_edit_ref">Editar texto reformatado de mensagem respondida/encaminhada?</string>
+    <string name="title_ask_sync_all">Sincronizar todas as mensagens em %1$s?</string>
     <string name="title_ask_help">Ajude a melhorar o FairEmail</string>
     <string name="title_ask_reporting">Enviar relatórios de erro?</string>
     <string name="title_reporting_why">Relatório de erro ajudará a melhorar o FairEmail</string>
