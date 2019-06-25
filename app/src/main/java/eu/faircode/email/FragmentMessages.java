@@ -862,7 +862,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         do {
             Long key = adapter.getKeyAtPosition(pos);
-            if (key != null && isExpanded(key)) {
+            if (key != null && iProperties.getValue("expanded", key)) {
                 int first = llm.findFirstVisibleItemPosition();
                 View child = rvMessage.getChildAt(pos - (first < 0 ? 0 : first));
 
@@ -1281,7 +1281,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (message == null || message.uid == null)
                 return null;
 
-            if (isExpanded(message.id))
+            if (iProperties.getValue("expanded", message.id))
                 return null;
 
             if (EntityFolder.OUTBOX.equals(message.folderType))
@@ -1290,10 +1290,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return message;
         }
     };
-
-    private boolean isExpanded(long id) {
-        return (values.containsKey("expanded") && values.get("expanded").contains(id));
-    }
 
     private void onActionMove(String folderType) {
         Bundle args = new Bundle();
