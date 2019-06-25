@@ -120,6 +120,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -170,7 +171,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean monospaced;
     private boolean autoimages;
     private boolean authentication;
-    private boolean debug;
+    private static boolean debug;
 
     private boolean gotoTop = false;
     private AsyncPagedListDiffer<TupleMessageEx> differ;
@@ -3415,7 +3416,244 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public boolean areContentsTheSame(
                         @NonNull TupleMessageEx prev, @NonNull TupleMessageEx next) {
-                    return prev.uiEquals(next);
+                    boolean same = true;
+
+                    // id
+                    // account
+                    // folder
+                    if (!Objects.equals(prev.identity, next.identity)) {
+                        // via
+                        same = false;
+                        Log.i("Entity changed id=" + next.id);
+                    }
+                    // extra
+                    if (!Objects.equals(prev.uid, next.uid)) {
+                        same = false;
+                        Log.i("uid changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.msgid, next.msgid)) {
+                        // debug info
+                        same = false;
+                        Log.i("msgid changed id=" + next.id);
+                    }
+                    // references
+                    // deliveredto
+                    // inreplyto
+                    if (!Objects.equals(prev.thread, next.thread)) {
+                        same = false;
+                        Log.i("thread changed id=" + next.id);
+                    }
+                    // receipt_request
+                    if (!MessageHelper.equal(prev.receipt_to, next.receipt_to)) {
+                        same = false;
+                        Log.i("receipt_to changed id=" + next.id);
+                    }
+
+                    if (!Objects.equals(prev.dkim, next.dkim)) {
+                        same = false;
+                        Log.i("dkim changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.spf, next.spf)) {
+                        same = false;
+                        Log.i("spf changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.dmarc, next.dmarc)) {
+                        same = false;
+                        Log.i("dmarc changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.avatar, next.avatar)) {
+                        same = false;
+                        Log.i("avatar changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.sender, next.sender)) {
+                        same = false;
+                        Log.i("sender changed id=" + next.id);
+                    }
+                    if (!MessageHelper.equal(prev.from, next.from)) {
+                        same = false;
+                        Log.i("from changed id=" + next.id);
+                    }
+                    if (!MessageHelper.equal(prev.to, next.to)) {
+                        same = false;
+                        Log.i("to changed id=" + next.id);
+                    }
+                    if (!MessageHelper.equal(prev.cc, next.cc)) {
+                        same = false;
+                        Log.i("cc changed id=" + next.id);
+                    }
+                    if (!MessageHelper.equal(prev.bcc, next.bcc)) {
+                        same = false;
+                        Log.i("bcc changed id=" + next.id);
+                    }
+                    if (!MessageHelper.equal(prev.reply, next.reply)) {
+                        same = false;
+                        Log.i("reply changed id=" + next.id);
+                    }
+                    if (!MessageHelper.equal(prev.list_post, next.list_post)) {
+                        same = false;
+                        Log.i("list_post changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.headers, next.headers)) {
+                        same = false;
+                        Log.i("headers changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.raw, next.raw)) {
+                        same = false;
+                        Log.i("raw changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.subject, next.subject)) {
+                        same = false;
+                        Log.i("subject changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.size, next.size)) {
+                        same = false;
+                        Log.i("size changed id=" + next.id);
+                    }
+                    if (!prev.content.equals(next.content)) {
+                        same = false;
+                        Log.i("content changed id=" + next.id);
+                    }
+                    // plain_only
+                    if (!Objects.equals(prev.preview, next.preview)) {
+                        same = false;
+                        Log.i("preview changed id=" + next.id);
+                    }
+                    if (!prev.sent.equals(next.sent)) {
+                        same = false;
+                        Log.i("sent changed id=" + next.id);
+                    }
+                    if (!prev.received.equals(next.received)) {
+                        same = false;
+                        Log.i("received changed id=" + next.id);
+                    }
+                    if (!prev.stored.equals(next.stored)) {
+                        // updated after decryption
+                        same = false;
+                        Log.i("stored changed id=" + next.id);
+                    }
+                    // seen
+                    // answered
+                    // flagged
+                    if (debug && !Objects.equals(prev.flags, next.flags)) {
+                        same = false;
+                        Log.i("flags changed id=" + next.id);
+                    }
+                    if (!Helper.equal(prev.keywords, next.keywords)) {
+                        same = false;
+                        Log.i("keywords changed id=" + next.id);
+                    }
+                    if (!prev.ui_seen.equals(next.ui_seen)) {
+                        same = false;
+                        Log.i("ui_seen changed id=" + next.id);
+                    }
+                    if (!prev.ui_answered.equals(next.ui_answered)) {
+                        same = false;
+                        Log.i("ui_answer changed id=" + next.id);
+                    }
+                    if (!prev.ui_flagged.equals(next.ui_flagged)) {
+                        same = false;
+                        Log.i("ui_flagged changed id=" + next.id);
+                    }
+                    if (!prev.ui_hide.equals(next.ui_hide)) {
+                        same = false;
+                        Log.i("ui_hide changed id=" + next.id);
+                    }
+                    if (!prev.ui_found.equals(next.ui_found)) {
+                        same = false;
+                        Log.i("ui_found changed id=" + next.id);
+                    }
+                    // ui_ignored
+                    if (!prev.ui_browsed.equals(next.ui_browsed)) {
+                        same = false;
+                        Log.i("ui_browsed changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.ui_snoozed, next.ui_snoozed)) {
+                        same = false;
+                        Log.i("ui_snoozed changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.color, next.color)) {
+                        same = false;
+                        Log.i("color changed id=" + next.id);
+                    }
+                    // revision
+                    // revisions
+                    if (!Objects.equals(prev.warning, next.warning)) {
+                        same = false;
+                        Log.i("warning changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.error, next.error)) {
+                        same = false;
+                        Log.i("error changed id=" + next.id);
+                    }
+                    // last_attempt
+
+                    if (!Objects.equals(prev.accountName, next.accountName)) {
+                        same = false;
+                        Log.i("accountName changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.accountColor, next.accountColor)) {
+                        same = false;
+                        Log.i("accountColor changed id=" + next.id);
+                    }
+                    // accountNotify
+                    if (!prev.folderName.equals(next.folderName)) {
+                        same = false;
+                        Log.i("folderName changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.folderDisplay, next.folderDisplay)) {
+                        same = false;
+                        Log.i("folderDisplay changed id=" + next.id);
+                    }
+                    if (!prev.folderType.equals(next.folderType)) {
+                        same = false;
+                        Log.i("folderType changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.identityName, next.identityName)) {
+                        same = false;
+                        Log.i("identityName changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.identityEmail, next.identityEmail)) {
+                        same = false;
+                        Log.i("identityEmail changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.identitySynchronize, next.identitySynchronize)) {
+                        same = false;
+                        Log.i("identitySynchronize changed id=" + next.id);
+                    }
+                    if (prev.count != next.count) {
+                        same = false;
+                        Log.i("count changed id=" + next.id);
+                    }
+                    if (prev.unseen != next.unseen) {
+                        same = false;
+                        Log.i("unseen changed id=" + next.id);
+                    }
+                    if (prev.unflagged != next.unflagged) {
+                        same = false;
+                        Log.i("unflagged changed id=" + next.id);
+                    }
+                    if (prev.attachments != next.attachments) {
+                        same = false;
+                        Log.i("attachments changed id=" + next.id);
+                    }
+                    if (prev.drafts != next.drafts) {
+                        same = false;
+                        Log.i("drafts changed id=" + next.id);
+                    }
+                    if (prev.visible != next.visible) {
+                        same = false;
+                        Log.i("visible changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.totalSize, next.totalSize)) {
+                        same = false;
+                        Log.i("totalSize changed id=" + next.id);
+                    }
+                    if (prev.duplicate != next.duplicate) {
+                        same = false;
+                        Log.i("duplicate changed id=" + next.id);
+                    }
+
+                    return same;
                 }
             };
 

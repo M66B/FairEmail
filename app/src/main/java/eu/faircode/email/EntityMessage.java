@@ -231,58 +231,6 @@ public class EntityMessage implements Serializable {
         }
     }
 
-    public boolean uiEquals(Object obj) {
-        if (obj instanceof EntityMessage) {
-            EntityMessage other = (EntityMessage) obj;
-            return (true &&
-                    // account
-                    // folder
-                    Objects.equals(this.identity, other.identity) && // via
-                    Objects.equals(this.uid, other.uid) &&
-                    Objects.equals(this.msgid, other.msgid) && // debug info
-                    // references
-                    // deliveredto
-                    // inreplyto
-                    Objects.equals(this.thread, other.thread) &&
-                    Objects.equals(this.avatar, other.avatar) &&
-                    // sender
-                    MessageHelper.equal(this.from, other.from) &&
-                    MessageHelper.equal(this.to, other.to) &&
-                    MessageHelper.equal(this.cc, other.cc) &&
-                    MessageHelper.equal(this.bcc, other.bcc) &&
-                    MessageHelper.equal(this.reply, other.reply) &&
-                    Objects.equals(this.headers, other.headers) &&
-                    Objects.equals(this.raw, other.raw) &&
-                    Objects.equals(this.subject, other.subject) &&
-                    Objects.equals(this.size, other.size) &&
-                    this.content == other.content &&
-                    Objects.equals(this.plain_only, other.plain_only) &&
-                    Objects.equals(this.preview, other.preview) &&
-                    // sent
-                    this.received.equals(other.received) &&
-                    this.stored.equals(other.stored) && // updated after decryption
-                    // seen
-                    // answered
-                    // flagged
-                    (!BuildConfig.DEBUG || Objects.equals(this.flags, other.flags)) &&
-                    Helper.equal(this.keywords, other.keywords) &&
-                    this.ui_seen.equals(other.ui_seen) &&
-                    this.ui_answered.equals(other.ui_answered) &&
-                    this.ui_flagged.equals(other.ui_flagged) &&
-                    this.ui_hide.equals(other.ui_hide) &&
-                    this.ui_found.equals(other.ui_found) &&
-                    this.ui_ignored.equals(other.ui_ignored) &&
-                    this.ui_browsed.equals(other.ui_browsed) &&
-                    Objects.equals(this.ui_snoozed, other.ui_snoozed) &&
-                    Objects.equals(this.color, other.color) &&
-                    Objects.equals(this.warning, other.warning) &&
-                    Objects.equals(this.error, other.error)
-                    // last_attempt
-            );
-        }
-        return false;
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof EntityMessage) {
@@ -301,6 +249,8 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.dkim, other.dkim) &&
                     Objects.equals(this.spf, other.spf) &&
                     Objects.equals(this.dmarc, other.dmarc) &&
+                    Objects.equals(this.avatar, other.avatar) &&
+                    Objects.equals(this.sender, other.sender) &&
                     MessageHelper.equal(this.from, other.from) &&
                     MessageHelper.equal(this.to, other.to) &&
                     MessageHelper.equal(this.cc, other.cc) &&
@@ -334,7 +284,8 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.revision, other.revision) &&
                     Objects.equals(this.revisions, other.revisions) &&
                     Objects.equals(this.warning, other.warning) &&
-                    Objects.equals(this.error, other.error));
+                    Objects.equals(this.error, other.error) &&
+                    Objects.equals(this.last_attempt, other.last_attempt));
         }
         return false;
     }

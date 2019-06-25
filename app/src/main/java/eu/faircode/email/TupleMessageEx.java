@@ -44,32 +44,6 @@ public class TupleMessageEx extends EntityMessage {
     public boolean duplicate;
 
     @Override
-    public boolean uiEquals(Object obj) {
-        if (obj instanceof TupleMessageEx) {
-            TupleMessageEx other = (TupleMessageEx) obj;
-            return (super.uiEquals(obj) &&
-                    Objects.equals(this.accountName, other.accountName) &&
-                    Objects.equals(this.accountColor, other.accountColor) &&
-                    //this.accountNotify == other.accountNotify &&
-                    this.folderName.equals(other.folderName) &&
-                    Objects.equals(this.folderDisplay, other.folderDisplay) &&
-                    this.folderType.equals(other.folderType) &&
-                    Objects.equals(this.identityName, other.identityName) &&
-                    Objects.equals(this.identityEmail, other.identityEmail) &&
-                    Objects.equals(this.identitySynchronize, other.identitySynchronize) &&
-                    this.count == other.count &&
-                    this.unseen == other.unseen &&
-                    this.unflagged == other.unflagged &&
-                    this.attachments == other.attachments &&
-                    this.drafts == other.drafts &&
-                    this.visible == other.visible &&
-                    Objects.equals(this.totalSize, other.totalSize) &&
-                    this.duplicate == other.duplicate);
-        }
-        return false;
-    }
-
-    @Override
     public boolean equals(Object obj) {
         if (obj instanceof TupleMessageEx) {
             TupleMessageEx other = (TupleMessageEx) obj;
@@ -80,6 +54,9 @@ public class TupleMessageEx extends EntityMessage {
                     this.folderName.equals(other.folderName) &&
                     Objects.equals(this.folderDisplay, other.folderDisplay) &&
                     this.folderType.equals(other.folderType) &&
+                    Objects.equals(this.identityName, other.identityName) &&
+                    Objects.equals(this.identityEmail, other.identityEmail) &&
+                    Objects.equals(this.identitySynchronize, other.identitySynchronize) &&
                     this.count == other.count &&
                     this.unseen == other.unseen &&
                     this.unflagged == other.unflagged &&
