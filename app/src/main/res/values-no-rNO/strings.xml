@@ -290,6 +290,7 @@
     <string name="title_pop3_hint">POP3 har betydelige begrensninger, så bruk IMAP når det er mulig</string>
     <string name="title_pop3_support">POP3 støttes ikke, se også vanlige spørsmål</string>
     <string name="title_synchronize_now">Synkroniser nå</string>
+    <string name="title_synchronize_all">Synkroniser alle meldinger</string>
     <string name="title_synchronize_enabled">Synkroniser</string>
     <string name="title_delete_local">Slett lokale meldinger</string>
     <string name="title_delete_browsed">Slett bladde/søkte meldinger</string>
@@ -299,6 +300,7 @@
     <string name="title_create_channel">Opprett varselkanal</string>
     <string name="title_edit_channel">Rediger varselkanal</string>
     <string name="title_delete_channel">Slett varselkanal</string>
+    <string name="title_create_sub_folder">Lag undermappe</string>
     <string name="title_empty_trash_ask">Slett alle slettede meldinger permanent?</string>
     <string name="title_delete_operation">Slett operasjoner med en feilmelding?</string>
     <string name="title_delete_contacts">Slette alle lokale kontakter?</string>

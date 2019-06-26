@@ -290,6 +290,7 @@
     <string name="title_pop3_hint">POP3-protokollalla on merkittäviä rajoituksia, joten käytä IMAP:ia mahdollisuuksien mukaan</string>
     <string name="title_pop3_support">POP3 ei ole tuettu, katso myös usein kysytyt kysymykset</string>
     <string name="title_synchronize_now">Synkronoi nyt</string>
+    <string name="title_synchronize_all">Synkronoi kaikki viestit</string>
     <string name="title_synchronize_enabled">Synkronoi</string>
     <string name="title_delete_local">Poista paikalliset viestit</string>
     <string name="title_delete_browsed">Poista selatut/haetut viestit</string>
@@ -299,6 +300,7 @@
     <string name="title_create_channel">Luo ilmoituskanava</string>
     <string name="title_edit_channel">Muokkaa ilmoituskanavaa</string>
     <string name="title_delete_channel">Poista ilmoituskanava</string>
+    <string name="title_create_sub_folder">Luo alikansio</string>
     <string name="title_empty_trash_ask">Tyhjennetäänkö roskakori pysyvästi?</string>
     <string name="title_delete_operation">Poistetaanko toimenpiteet, joille on virheilmoitus?</string>
     <string name="title_delete_contacts">Poistetaanko kaikki paikalliset yhteystiedot?</string>
@@ -398,6 +400,7 @@
     <string name="title_ask_show_html">Alkuperäisen viestin näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
     <string name="title_ask_show_image">Kuvien näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
     <string name="title_ask_edit_ref">Muokkaa uudelleenmuotoiltua vastatun/edelleenlähetetyn viestin tekstiä?</string>
+    <string name="title_ask_sync_all">Synkronoi kaikki viestit kansiossa %1$s?</string>
     <string name="title_ask_delete_local">Poistetaanko vain paikalliset viestit, jotka ovat myös palvelimella?</string>
     <string name="title_ask_help">Auta parantamaan FairEmailia</string>
     <string name="title_ask_reporting">Lähetetäänkö virheraportteja?</string>

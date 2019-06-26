@@ -10,6 +10,7 @@
     <string name="channel_service">Serviço</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">Notificações</string>
+    <string name="channel_update">Atualizações</string>
     <string name="channel_warning">Avisos</string>
     <string name="channel_error">Erros</string>
     <string name="channel_group_contacts">Contatos</string>
@@ -50,6 +51,7 @@
         <item quantity="other">Tratar %1$d mensagens como spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Denunciar mensagem de %1$s como spam?</string>
+    <string name="title_notification_waiting">Aguardando conexão adequada</string>
     <string name="title_notification_sending">Enviando mensagens</string>
     <string name="title_notification_failed">\'%1$s\' falhou</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -288,6 +290,7 @@
     <string name="title_pop3_hint">POP3 tem limitações significativas, então use IMAP sempre que possível</string>
     <string name="title_pop3_support">POP3 não é suportado, veja também o FAQ</string>
     <string name="title_synchronize_now">Sincronizar agora</string>
+    <string name="title_synchronize_all">Sincronizar todas as mensagens</string>
     <string name="title_synchronize_enabled">Sincronizar</string>
     <string name="title_delete_local">Excluir mensagens locais</string>
     <string name="title_delete_browsed">Excluir mensagens navegadas/pesquisadas</string>
@@ -397,6 +400,7 @@
     <string name="title_ask_show_image">Mostrar imagens pode vazar informações sensíveis à privacidade</string>
     <string name="title_ask_edit_ref">Editar texto reformatado de mensagem respondida/encaminhada?</string>
     <string name="title_ask_sync_all">Sincronizar todas as mensagens em %1$s?</string>
+    <string name="title_ask_delete_local">Excluir apenas mensagens locais que são armazenadas também no servidor remoto?</string>
     <string name="title_ask_help">Ajude a melhorar o FairEmail</string>
     <string name="title_ask_reporting">Enviar relatórios de erro?</string>
     <string name="title_reporting_why">Relatório de erro ajudará a melhorar o FairEmail</string>

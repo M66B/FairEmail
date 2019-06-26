@@ -300,6 +300,7 @@
     <string name="title_create_channel">Crea un canale di notifica</string>
     <string name="title_edit_channel">Modifica canale di notifica</string>
     <string name="title_delete_channel">Elimina canale di notifica</string>
+    <string name="title_create_sub_folder">Crea sottocartella</string>
     <string name="title_empty_trash_ask">Eliminare definitivamente tutti i messaggi cestinati?</string>
     <string name="title_delete_operation">Eliminare le operazioni con un messaggio di errore?</string>
     <string name="title_delete_contacts">Eliminare tutti i contatti locali?</string>

@@ -51,6 +51,7 @@
         <item quantity="other">%1$d iletileri gereksiz posta sayılsın mı?</item>
     </plurals>
     <string name="title_ask_spam_who">%1$s\' iletisi gereksiz posta olarak bildirilsin mi?</string>
+    <string name="title_notification_waiting">Uygun bağlantı bekleniyor</string>
     <string name="title_notification_sending">İletileri gönderiliyor</string>
     <string name="title_notification_failed">\'%1$s\' başarısız oldu</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -149,6 +150,8 @@
     <string name="title_advanced_metered">Ölçülü bağlantıları kullan</string>
     <string name="title_advanced_download">Mesajları ve ekleri ölçülü bir bağlantıya kadar otomatik olarak indir</string>
     <string name="title_advanced_roaming">Gezeleme yaparken iletileri ve ekleri indir</string>
+    <string name="title_advanced_rlah">Evde gibi dolaşmak</string>
+    <string name="title_advanced_manage_connectivity">Bağlanabilirliği yönet</string>
     <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
     <string name="title_advanced_startup">Başlangıç ekranında göster</string>
     <string name="title_advanced_date_header">Tarihe göre grup</string>
@@ -199,8 +202,11 @@
     <string name="title_advanced_manual_hint">Eşitleme kapalıysa, mesaj listesini aşağı çekerek elle eşitleme hala yapılabilir. Bu eylem iletileri eşitleyecek ve işlemleri kısıtlı bir süre için uygulayacaktır.</string>
     <string name="title_advanced_poll_hint">Belli aralıklarala eşitleme yerel ve uzak sunucudaki iletileri her defasında karşılaştıracak, bu da özellikle eşitlenecek ileti sayısı fazla olduğunda, fazladan pil kullanımına neden olan maliyetli bir işlem olacaktır. Sürekli eşitleme sadece değişiklikleri izleyerek bu durumdan kaçınacaktır.</string>
     <string name="title_advanced_schedule_hint">Bir zaman ayarlamak için bir saate dokunun</string>
+    <string name="title_advanced_sync_kept_hint">Bu, özellikle aygıtda tutulan çok sayıda ileti olması durumunda, fazladan veri aktarır ve fazla pil kullanır</string>
+    <string name="title_advanced_sync_folders_hint">Bunu devre dışı bırakmak veri ve pil kullanımını bir miktar azaltır, ancak klasör listesinin güncellenmesini de devre dışı bırakır</string>
     <string name="title_advanced_metered_hint">Ölçülü bağlantılar genellikle mobil bağlantılar veya ücretli Wi-Fi noktalarıdır</string>
     <string name="title_advanced_metered_warning">Bu seçeneğin devre dışı bırakılması mobil internet bağlantısında ileti almayı ve göndermeyi devre dışı bırakacaktır</string>
+    <string name="title_advanced_rlah_hint">AB içinde dolaşımda olmadığını varsayma</string>
     <string name="title_advanced_browse_hint">Aşağı doğru kaydırdığında daha çok ileti getirir</string>
     <string name="title_advanced_threading_hint">Birbirlerine bağlı grup iletileri</string>
     <string name="title_advanced_name_email_hint">Devre dışı bırakıldığında, yalnızca adlar mevcut olduğunda gösterilecektir</string>
@@ -229,6 +235,7 @@
     <string name="title_account_linked">Bağlı hesap</string>
     <string name="title_account_name">Hesap adı</string>
     <string name="title_account_name_hint">Klasörleri ayırt etmek için kullanılır</string>
+    <string name="title_account_partial_fetch_hint">Bunu yalnızca boş iletiler veya bozuk ekler olması durumunda devre dışı bırakın</string>
     <string name="title_account_signature">İmza Metni</string>
     <string name="title_account_color">Renk</string>
     <string name="title_account_notify">Ayrı bildirimler</string>
@@ -275,6 +282,7 @@
     <string name="title_pop3_hint">POP3\'ün önemli sınırlamaları var, mümkünse IMAP kullanın</string>
     <string name="title_pop3_support">POP3 desteklenmiyor, ayrıca SSS bölümüne bakınız</string>
     <string name="title_synchronize_now">Şimdi eşzamanla</string>
+    <string name="title_synchronize_all">Tüm iletileri eşzamanla</string>
     <string name="title_synchronize_enabled">Eşzamanlama</string>
     <string name="title_delete_local">Yerel iletileri sil</string>
     <string name="title_delete_browsed">Gözatılmış/aranmış iletileri sil</string>
@@ -325,6 +333,7 @@
     <string name="title_seen">Okundu olarak işaretle</string>
     <string name="title_unseen">Okunmadı olarak işaretle</string>
     <string name="title_flag">Yıldız Ekle</string>
+    <string name="title_flag_color">Renkli yıldız&#8230;</string>
     <string name="title_unflag">Yıldızı Kaldır</string>
     <string name="title_forward">İlet</string>
     <string name="title_create_rule">Kural oluştur &#8230;</string>
@@ -347,6 +356,7 @@
     <string name="title_spam">İstenmeyen posta</string>
     <string name="title_move">Taşı</string>
     <string name="title_move_to_folder">&#8230;\'a taşı</string>
+    <string name="title_move_to_account">%1$s&#8230; taşı</string>
     <string name="title_snooze">Ertele &#8230;</string>
     <string name="title_archive">Arşivle</string>
     <string name="title_reply">Yanıtla</string>
@@ -381,6 +391,8 @@
     <string name="title_ask_show_html">Özgün iletiyi göstermek gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_show_image">Resimlerin gösterilmesi gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_edit_ref">Yeniden biçimlendirilmiş yanıtlanmış/iletilmiş ileti metni düzenlensin mi?</string>
+    <string name="title_ask_sync_all">%1$s\'deki tüm iletiler eşzamanlandı mı?</string>
+    <string name="title_ask_delete_local">Yalnızca uzak sunucuda depolanmış yerel iletiler de silinsin mi?</string>
     <string name="title_ask_help">FairEmail\'in geliştirilmesine yardımcı olun</string>
     <string name="title_ask_reporting">Hata raporları gönderilsin mi?</string>
     <string name="title_reporting_why">Hata raporlama FairEmail\'in geliştirilmesine yardımcı olacaktır</string>
@@ -492,6 +504,7 @@
     <string name="title_rule_execute">Şimdi çalıştır</string>
     <string name="title_rule_applied">Etkilenen iletiler: %1$d</string>
     <string name="title_rule_check">Denetle</string>
+    <string name="title_rule_no_headers">Başlık koşulları denetlenemedi</string>
     <string name="title_rule_matched">İletiler eşleştiriliyor</string>
     <string name="title_rule_no_matches">Eşleşen ileti yok</string>
     <string name="title_legend_section_synchronize">Eşzamanlama</string>
@@ -524,6 +537,7 @@
     <string name="title_legend_rule">Kuralları var</string>
     <string name="title_legend_notify">Yeni iletileri bildir</string>
     <string name="title_legend_sync_keep">İletilerin eşzamanlanacağı / saklanacağı gün sayısı</string>
+    <string name="title_legend_download_fetch">İndirilen iletilerin / alınan başlıkların sayısı</string>
     <string name="title_legend_stop">İşlem kurallarının durdur</string>
     <string name="title_legend_thread">Söyleşi</string>
     <string name="title_legend_zoom">Metin boyutunu değiştir</string>

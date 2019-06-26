@@ -300,6 +300,7 @@
     <string name="title_create_channel">Meldingskanaal maken</string>
     <string name="title_edit_channel">Meldingskanaal wijzigen</string>
     <string name="title_delete_channel">Meldingskanaal verwijderen</string>
+    <string name="title_create_sub_folder">Maak submap</string>
     <string name="title_empty_trash_ask">Alle weggegooide berichten permanent verwijderen?</string>
     <string name="title_delete_operation">Bewerkingen met een foutmelding verwijderen?</string>
     <string name="title_delete_contacts">Verwijder alle lokale contacten?</string>
