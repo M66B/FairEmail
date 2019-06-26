@@ -1293,8 +1293,9 @@ When navigation to a conversation one message will be expanded if:
 * There is just one message in the conversation
 * There is exactly one unread message in the conversation
 
-There is one exception: the message body text was not downloaded yet
-and the message body text is too large to download automatically on a metered connection.
+There is one exception: the message was not downloaded yet
+and the message is too large to download automatically on a metered (mobile) connection.
+You can set or disable the maximum message size on the 'connection' settings tab.
 
 Duplicate (archived) messages, trashed messages and draft messages are not counted.
 
