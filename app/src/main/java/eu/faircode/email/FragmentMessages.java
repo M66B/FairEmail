@@ -2887,7 +2887,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
                     new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                            .setMessage(Helper.formatThrowable(ex))
+                            .setMessage(Helper.formatThrowable(ex, false))
                             .setPositiveButton(android.R.string.cancel, null)
                             .create()
                             .show();

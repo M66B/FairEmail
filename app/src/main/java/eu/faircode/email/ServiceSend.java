@@ -153,7 +153,7 @@ public class ServiceSend extends LifecycleService {
                                             Log.e(outbox.name, ex);
                                             EntityLog.log(
                                                     ServiceSend.this,
-                                                    outbox.name + " " + Helper.formatThrowable(ex));
+                                                    outbox.name + " " + Helper.formatThrowable(ex, false));
 
                                             db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
                                             if (message != null)

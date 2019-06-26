@@ -806,7 +806,7 @@ public class MessageHelper {
                 throw ex;
             } catch (Throwable ex) {
                 Log.w(ex);
-                warnings.add(Helper.formatThrowable(ex));
+                warnings.add(Helper.formatThrowable(ex, false));
                 return null;
             }
 
@@ -828,7 +828,7 @@ public class MessageHelper {
                 }
             } catch (ParseException ex) {
                 Log.w(ex);
-                warnings.add(Helper.formatThrowable(ex));
+                warnings.add(Helper.formatThrowable(ex, false));
             }
 
             result = result.replace("\0", "");
@@ -932,7 +932,7 @@ public class MessageHelper {
             // https://javaee.github.io/javamail/FAQ#imapserverbug
             if ("Unable to load BODYSTRUCTURE".equals(ex.getMessage())) {
                 Log.w(ex);
-                parts.warnings.add(Helper.formatThrowable(ex));
+                parts.warnings.add(Helper.formatThrowable(ex, false));
                 try {
                     cmessage = new MimeMessage(imessage);
                 } catch (MessagingException ignored) {
@@ -970,7 +970,7 @@ public class MessageHelper {
                         // Nested body: try to continue
                         // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
                         Log.w(ex);
-                        parts.warnings.add(Helper.formatThrowable(ex));
+                        parts.warnings.add(Helper.formatThrowable(ex, false));
                     }
             } else {
                 // https://www.iana.org/assignments/cont-disp/cont-disp.xhtml
@@ -981,7 +981,7 @@ public class MessageHelper {
                         disposition = disposition.toLowerCase();
                 } catch (MessagingException ex) {
                     Log.w(ex);
-                    parts.warnings.add(Helper.formatThrowable(ex));
+                    parts.warnings.add(Helper.formatThrowable(ex, false));
                     disposition = null;
                 }
 
@@ -990,7 +990,7 @@ public class MessageHelper {
                     filename = part.getFileName();
                 } catch (MessagingException ex) {
                     Log.w(ex);
-                    parts.warnings.add(Helper.formatThrowable(ex));
+                    parts.warnings.add(Helper.formatThrowable(ex, false));
                     filename = null;
                 }
 
@@ -1018,7 +1018,7 @@ public class MessageHelper {
                         ct = new ContentType(apart.part.getContentType());
                     } catch (ParseException ex) {
                         Log.w(ex);
-                        parts.warnings.add(Helper.formatThrowable(ex));
+                        parts.warnings.add(Helper.formatThrowable(ex, false));
                         ct = new ContentType("application/octet-stream");
                     }
 
@@ -1027,7 +1027,7 @@ public class MessageHelper {
                         cid = apart.part.getHeader("Content-ID");
                     } catch (MessagingException ex) {
                         Log.w(ex);
-                        parts.warnings.add(Helper.formatThrowable(ex));
+                        parts.warnings.add(Helper.formatThrowable(ex, false));
                     }
 
                     apart.attachment = new EntityAttachment();
@@ -1072,7 +1072,7 @@ public class MessageHelper {
             throw ex;
         } catch (MessagingException ex) {
             Log.w(ex);
-            parts.warnings.add(Helper.formatThrowable(ex));
+            parts.warnings.add(Helper.formatThrowable(ex, false));
         }
     }
 

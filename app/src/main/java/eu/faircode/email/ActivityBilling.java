@@ -332,7 +332,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                     }
                 } catch (Throwable ex) {
                     Log.e(ex);
-                    Toast.makeText(this, Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, Helper.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
                 }
 
             editor.apply();

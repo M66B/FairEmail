@@ -600,7 +600,7 @@ public class ServiceSynchronize extends LifecycleService {
                                     Log.w(account.name + " alert: " + message);
                                     EntityLog.log(
                                             ServiceSynchronize.this, account.name + " " +
-                                                    Helper.formatThrowable(new Core.AlertException(message)));
+                                                    Helper.formatThrowable(new Core.AlertException(message), false));
                                     db.account().setAccountError(account.id, message);
 
                                     if (message != null && !message.startsWith("Too many simultaneous connections")) {
@@ -855,7 +855,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         Log.e(folder.name, ex);
                                         EntityLog.log(
                                                 ServiceSynchronize.this,
-                                                folder.name + " " + Helper.formatThrowable(ex));
+                                                folder.name + " " + Helper.formatThrowable(ex, false));
                                         state.error(ex);
                                     } finally {
                                         wlMessage.release();
@@ -888,7 +888,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         Log.e(folder.name, ex);
                                         EntityLog.log(
                                                 ServiceSynchronize.this,
-                                                folder.name + " " + Helper.formatThrowable(ex));
+                                                folder.name + " " + Helper.formatThrowable(ex, false));
                                         db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                         state.error(ex);
                                     } finally {
@@ -944,7 +944,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         Log.e(folder.name, ex);
                                         EntityLog.log(
                                                 ServiceSynchronize.this,
-                                                folder.name + " " + Helper.formatThrowable(ex));
+                                                folder.name + " " + Helper.formatThrowable(ex, false));
                                         state.error(ex);
                                     } finally {
                                         wlMessage.release();
@@ -966,7 +966,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         Log.e(folder.name, ex);
                                         EntityLog.log(
                                                 ServiceSynchronize.this,
-                                                folder.name + " " + Helper.formatThrowable(ex));
+                                                folder.name + " " + Helper.formatThrowable(ex, false));
                                         state.error(new FolderClosedException(ifolder, "IDLE"));
                                     } finally {
                                         Log.i(folder.name + " end idle");
@@ -1047,7 +1047,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                             Log.e(folder.name, ex);
                                                             EntityLog.log(
                                                                     ServiceSynchronize.this,
-                                                                    folder.name + " " + Helper.formatThrowable(ex));
+                                                                    folder.name + " " + Helper.formatThrowable(ex, false));
                                                             db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                                             state.error(ex);
                                                         } finally {
@@ -1162,7 +1162,7 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.e(account.name, ex);
                     EntityLog.log(
                             ServiceSynchronize.this,
-                            account.name + " " + Helper.formatThrowable(ex));
+                            account.name + " " + Helper.formatThrowable(ex, false));
                     db.account().setAccountError(account.id, Helper.formatThrowable(ex));
                 } finally {
                     // Stop watching for operations

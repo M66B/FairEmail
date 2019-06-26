@@ -1073,7 +1073,7 @@ public class FragmentAccount extends FragmentBase {
     }
 
     private void showError(Throwable ex) {
-        tvError.setText(Helper.formatThrowable(ex));
+        tvError.setText(Helper.formatThrowable(ex, false));
         tvError.setVisibility(View.VISIBLE);
 
         final View target;

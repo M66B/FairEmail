@@ -246,7 +246,7 @@ class Core {
                         db.operation().deleteOperation(op.id);
                     } catch (Throwable ex) {
                         Log.e(folder.name, ex);
-                        EntityLog.log(context, folder.name + " " + Helper.formatThrowable(ex));
+                        EntityLog.log(context, folder.name + " " + Helper.formatThrowable(ex, false));
 
                         db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
                         if (message != null && !(ex instanceof IllegalArgumentException))
@@ -1075,7 +1075,7 @@ class Core {
                     Log.w(folder.name, ex);
                 } catch (Throwable ex) {
                     Log.e(folder.name, ex);
-                    EntityLog.log(context, folder.name + " " + Helper.formatThrowable(ex));
+                    EntityLog.log(context, folder.name + " " + Helper.formatThrowable(ex, false));
                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                 }
 
@@ -2163,7 +2163,7 @@ class Core {
                 new NotificationCompat.Builder(context, channel)
                         .setSmallIcon(R.drawable.baseline_warning_white_24)
                         .setContentTitle(context.getString(R.string.title_notification_failed, title))
-                        .setContentText(Helper.formatThrowable(ex))
+                        .setContentText(Helper.formatThrowable(ex, false))
                         .setContentIntent(pi)
                         .setAutoCancel(false)
                         .setShowWhen(true)
@@ -2173,7 +2173,7 @@ class Core {
                         .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
         builder.setStyle(new NotificationCompat.BigTextStyle()
-                .bigText(Helper.formatThrowable(ex, "\n")));
+                .bigText(Helper.formatThrowable(ex, "\n", false)));
 
         return builder;
     }

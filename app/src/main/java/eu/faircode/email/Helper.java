@@ -382,27 +382,33 @@ public class Helper {
     }
 
     static String formatThrowable(Throwable ex) {
-        return formatThrowable(ex, " ");
+        return formatThrowable(ex, true);
     }
 
-    static String formatThrowable(Throwable ex, String separator) {
-        if (ex instanceof MessageRemovedException)
-            return null;
+    static String formatThrowable(Throwable ex, boolean santize) {
+        return formatThrowable(ex, " ", santize);
+    }
 
-        if (ex instanceof IOException &&
-                ex.getCause() instanceof MessageRemovedException)
-            return null;
+    static String formatThrowable(Throwable ex, String separator, boolean sanitize) {
+        if (sanitize) {
+            if (ex instanceof MessageRemovedException)
+                return null;
 
-        if (ex instanceof FolderClosedException)
-            return null;
+            if (ex instanceof IOException &&
+                    ex.getCause() instanceof MessageRemovedException)
+                return null;
 
-        if (ex instanceof IllegalStateException &&
-                ("Not connected".equals(ex.getMessage()) ||
-                        "This operation is not allowed on a closed folder".equals(ex.getMessage())))
-            return null;
+            if (ex instanceof FolderClosedException)
+                return null;
 
-        if (ex instanceof Core.AlertException)
-            return ex.getMessage();
+            if (ex instanceof IllegalStateException &&
+                    ("Not connected".equals(ex.getMessage()) ||
+                            "This operation is not allowed on a closed folder".equals(ex.getMessage())))
+                return null;
+
+            if (ex instanceof Core.AlertException)
+                return ex.getMessage();
+        }
 
         StringBuilder sb = new StringBuilder();
         if (BuildConfig.DEBUG)

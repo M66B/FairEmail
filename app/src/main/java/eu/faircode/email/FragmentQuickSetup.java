@@ -386,7 +386,7 @@ public class FragmentQuickSetup extends FragmentBase {
                 if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else {
-                    tvError.setText(Helper.formatThrowable(ex));
+                    tvError.setText(Helper.formatThrowable(ex, false));
                     tvError.setVisibility(View.VISIBLE);
                 }
             }
