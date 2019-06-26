@@ -3638,7 +3638,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     remote.sequence = ++sequence;
                                     remote.id = db.attachment().insertAttachment(remote);
                                     try {
-                                        parts.downloadAttachment(context, index, remote.id, remote.name);
+                                        parts.downloadAttachment(context, index, remote);
                                     } catch (Throwable ex) {
                                         Log.e(ex);
                                     }

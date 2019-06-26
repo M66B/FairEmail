@@ -744,12 +744,12 @@ class Core {
         long id = jargs.getLong(0);
 
         // Get attachment
-        EntityAttachment local = db.attachment().getAttachment(id);
-        if (local == null)
-            local = db.attachment().getAttachment(message.id, (int) id); // legacy
-        if (local == null)
+        EntityAttachment attachment = db.attachment().getAttachment(id);
+        if (attachment == null)
+            attachment = db.attachment().getAttachment(message.id, (int) id); // legacy
+        if (attachment == null)
             throw new IllegalArgumentException("Local attachment not found");
-        if (local.available)
+        if (attachment.available)
             return;
 
         // Get message
@@ -761,32 +761,8 @@ class Core {
         MessageHelper helper = new MessageHelper((MimeMessage) imessage);
         MessageHelper.MessageParts parts = helper.getMessageParts();
 
-        // Match attachment by attributes
-        // Some servers order attachments randomly
-        boolean found = false;
-        List<EntityAttachment> remotes = parts.getAttachments();
-        for (int i = 0; i < remotes.size(); i++) {
-            EntityAttachment remote = remotes.get(i);
-            if (Objects.equals(remote.name, local.name) &&
-                    Objects.equals(remote.type, local.type) &&
-                    Objects.equals(remote.disposition, local.disposition) &&
-                    Objects.equals(remote.cid, local.cid) &&
-                    Objects.equals(remote.encryption, local.encryption) &&
-                    Objects.equals(remote.size, local.size)) {
-                found = true;
-                parts.downloadAttachment(context, i, local.id, local.name);
-            }
-        }
-
-        if (!found) {
-            db.attachment().setError(local.id, "Attachment not found");
-            if (!EntityFolder.DRAFTS.equals(folder.type)) {
-                Log.w("Attachment not found local=" + local);
-                for (EntityAttachment remote : remotes)
-                    Log.w("Attachment remote=" + remote);
-                throw new IllegalArgumentException("Attachment not found");
-            }
-        }
+        // Download attachment
+        parts.downloadAttachment(context, attachment);
     }
 
     static void onSynchronizeFolders(Context context, EntityAccount account, Store istore, State state) throws MessagingException {
@@ -1725,31 +1701,11 @@ class Core {
                 }
             }
 
-            List<EntityAttachment> remotes = parts.getAttachments();
-
-            for (EntityAttachment local : attachments)
-                if (!local.available)
-                    if (state.getNetworkState().isUnmetered() || (local.size != null && local.size < maxSize))
+            for (EntityAttachment attachment : attachments)
+                if (!attachment.available)
+                    if (state.getNetworkState().isUnmetered() || (attachment.size != null && attachment.size < maxSize))
                         try {
-                            boolean found = false;
-                            for (int i = 0; i < remotes.size(); i++) {
-                                EntityAttachment remote = remotes.get(i);
-                                if (Objects.equals(remote.name, local.name) &&
-                                        Objects.equals(remote.type, local.type) &&
-                                        Objects.equals(remote.disposition, local.disposition) &&
-                                        Objects.equals(remote.cid, local.cid) &&
-                                        Objects.equals(remote.encryption, local.encryption) &&
-                                        Objects.equals(remote.size, local.size)) {
-                                    found = true;
-                                    parts.downloadAttachment(context, i, local.id, local.name);
-                                }
-                            }
-
-                            if (!found) {
-                                Log.w("Attachment not found local=" + local);
-                                for (EntityAttachment remote : remotes)
-                                    Log.w("Attachment remote=" + remote);
-                            }
+                            parts.downloadAttachment(context, attachment);
                         } catch (Throwable ex) {
                             Log.e(ex);
                         }

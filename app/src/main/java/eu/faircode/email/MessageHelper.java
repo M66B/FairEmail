@@ -43,6 +43,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Objects;
 import java.util.Properties;
 import java.util.TimeZone;
 
@@ -854,8 +855,32 @@ public class MessageHelper {
             return result;
         }
 
-        void downloadAttachment(Context context, int index, long id, String name) throws MessagingException, IOException {
-            Log.i("downloading attachment id=" + id);
+        void downloadAttachment(Context context, EntityAttachment local) throws IOException, MessagingException {
+            List<EntityAttachment> remotes = getAttachments();
+
+            // Match attachment by attributes
+            // Some servers order attachments randomly
+            boolean found = false;
+            for (int i = 0; i < remotes.size(); i++) {
+                EntityAttachment remote = remotes.get(i);
+                if (Objects.equals(remote.name, local.name) &&
+                        Objects.equals(remote.disposition, local.disposition) &&
+                        Objects.equals(remote.cid, local.cid)) {
+                    found = true;
+                    downloadAttachment(context, i, local);
+                }
+            }
+
+            if (!found) {
+                Log.w("Attachment not found local=" + local);
+                for (EntityAttachment remote : remotes)
+                    Log.w("Attachment remote=" + remote);
+                throw new IllegalArgumentException("Attachment not found");
+            }
+        }
+
+        void downloadAttachment(Context context, int index, EntityAttachment local) throws MessagingException, IOException {
+            Log.i("downloading attachment id=" + local.id);
 
             DB db = DB.getInstance(context);
 
@@ -863,8 +888,8 @@ public class MessageHelper {
             AttachmentPart apart = attachments.get(index);
 
             // Download attachment
-            File file = EntityAttachment.getFile(context, id, name);
-            db.attachment().setProgress(id, null);
+            File file = EntityAttachment.getFile(context, local.id, local.name);
+            db.attachment().setProgress(local.id, null);
             try (InputStream is = apart.part.getInputStream()) {
                 long size = 0;
                 long total = apart.part.getSize();
@@ -881,25 +906,25 @@ public class MessageHelper {
                             int progress = (int) (size * 100 / total / 20 * 20);
                             if (progress != lastprogress) {
                                 lastprogress = progress;
-                                db.attachment().setProgress(id, progress);
+                                db.attachment().setProgress(local.id, progress);
                             }
                         }
                     }
                 }
 
                 // Store attachment data
-                db.attachment().setDownloaded(id, size);
+                db.attachment().setDownloaded(local.id, size);
 
                 Log.i("Downloaded attachment size=" + size);
             } catch (FolderClosedIOException ex) {
-                db.attachment().setError(id, Helper.formatThrowable(ex));
+                db.attachment().setError(local.id, Helper.formatThrowable(ex));
                 throw new FolderClosedException(ex.getFolder(), "downloadAttachment", ex);
             } catch (MessageRemovedIOException ex) {
-                db.attachment().setError(id, Helper.formatThrowable(ex));
+                db.attachment().setError(local.id, Helper.formatThrowable(ex));
                 throw new MessagingException("downloadAttachment", ex);
             } catch (Throwable ex) {
                 // Reset progress on failure
-                db.attachment().setError(id, Helper.formatThrowable(ex));
+                db.attachment().setError(local.id, Helper.formatThrowable(ex));
                 throw ex;
             }
         }
