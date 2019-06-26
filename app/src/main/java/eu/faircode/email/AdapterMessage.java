@@ -1411,7 +1411,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean doubletap = prefs.getBoolean("doubletap", false);
 
-                    if (!doubletap) {
+                    if (!doubletap || EntityFolder.OUTBOX.equals(message.folderType)) {
                         lbm.sendBroadcast(viewThread);
                         return;
                     }
