@@ -28,7 +28,6 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.DeadSystemException;
 import android.os.Handler;
@@ -309,7 +308,6 @@ public class ApplicationEx extends Application {
                     NotificationManager.IMPORTANCE_HIGH);
             notification.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
             notification.enableLights(true);
-            notification.setLightColor(Color.BLUE);
             nm.createNotificationChannel(notification);
 
             if (!Helper.isPlayStoreInstall(this)) {

@@ -33,7 +33,6 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.media.Ringtone;
@@ -990,11 +989,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 channel.setSound(uri, Notification.AUDIO_ATTRIBUTES_DEFAULT);
         }
 
-        boolean light = jchannel.getBoolean("light");
-        channel.enableLights(light);
-        if (light)
-            channel.setLightColor(Color.BLUE);
-
+        channel.enableLights(jchannel.getBoolean("light"));
         channel.enableVibration(jchannel.getBoolean("vibrate"));
 
         return channel;
