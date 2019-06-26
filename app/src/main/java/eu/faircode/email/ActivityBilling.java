@@ -207,9 +207,6 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             String text = getBillingResponseText(result);
             Log.i("IAB connected response=" + text);
 
-            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                return;
-
             if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                 backoff = 4;
                 queryPurchases();
@@ -235,9 +232,6 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
     public void onPurchasesUpdated(BillingResult result, @Nullable List<Purchase> purchases) {
         String text = getBillingResponseText(result);
         Log.i("IAB purchases updated response=" + text);
-
-        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-            return;
 
         if (result.getResponseCode() == BillingClient.BillingResponseCode.OK)
             checkPurchases(purchases);
