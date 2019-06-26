@@ -38,6 +38,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swPull;
     private SwitchCompat swAutoScroll;
     private SwitchCompat swSwipeNav;
+    private SwitchCompat swDoubleTap;
     private SwitchCompat swAutoExpand;
     private SwitchCompat swAutoClose;
     private SwitchCompat swAutoNext;
@@ -46,7 +47,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swAutoMove;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "pull", "autoscroll", "swipenav", "autoexpand", "autoclose", "autonext",
+            "pull", "autoscroll", "swipenav", "doubletap", "autoexpand", "autoclose", "autonext",
             "collapse", "autoread", "automove"
     };
 
@@ -63,6 +64,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swPull = view.findViewById(R.id.swPull);
         swAutoScroll = view.findViewById(R.id.swAutoScroll);
         swSwipeNav = view.findViewById(R.id.swSwipeNav);
+        swDoubleTap = view.findViewById(R.id.swDoubleTap);
         swAutoExpand = view.findViewById(R.id.swAutoExpand);
         swAutoClose = view.findViewById(R.id.swAutoClose);
         swAutoNext = view.findViewById(R.id.swAutoNext);
@@ -94,6 +96,13 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("swipenav", checked).apply();
+            }
+        });
+
+        swDoubleTap.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("doubletap", checked).apply();
             }
         });
 
@@ -187,6 +196,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swPull.setChecked(prefs.getBoolean("pull", true));
         swAutoScroll.setChecked(prefs.getBoolean("autoscroll", false));
         swSwipeNav.setChecked(prefs.getBoolean("swipenav", true));
+        swDoubleTap.setChecked(prefs.getBoolean("doubletap", false));
         swAutoExpand.setChecked(prefs.getBoolean("autoexpand", true));
         swAutoClose.setChecked(prefs.getBoolean("autoclose", true));
         swAutoNext.setChecked(prefs.getBoolean("autonext", false));

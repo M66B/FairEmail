@@ -1401,6 +1401,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     .putExtra("action", "edit")
                                     .putExtra("id", message.id));
                 else {
+                    final LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                    final Intent viewThread = new Intent(ActivityView.ACTION_VIEW_THREAD)
+                            .putExtra("account", message.account)
+                            .putExtra("thread", message.thread)
+                            .putExtra("id", message.id)
+                            .putExtra("found", viewType == ViewType.SEARCH);
+
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean doubletap = prefs.getBoolean("doubletap", false);
+
+                    if (!doubletap) {
+                        lbm.sendBroadcast(viewThread);
+                        return;
+                    }
+
                     firstClick = !firstClick;
                     if (firstClick) {
                         new Handler().postDelayed(new Runnable() {
@@ -1408,14 +1423,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             public void run() {
                                 if (firstClick) {
                                     firstClick = false;
-
-                                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                                    lbm.sendBroadcast(
-                                            new Intent(ActivityView.ACTION_VIEW_THREAD)
-                                                    .putExtra("account", message.account)
-                                                    .putExtra("thread", message.thread)
-                                                    .putExtra("id", message.id)
-                                                    .putExtra("found", viewType == ViewType.SEARCH));
+                                    lbm.sendBroadcast(viewThread);
                                 }
                             }
                         }, ViewConfiguration.getDoubleTapTimeout());

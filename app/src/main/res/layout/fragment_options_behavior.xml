@@ -22,6 +22,7 @@
                 android:id="@+id/swPull"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:checked="true"
                 android:text="@string/title_advanced_pull_refresh"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -42,9 +43,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
+                android:checked="true"
                 android:text="@string/title_advanced_swipenav"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/swAutoScroll"
+                app:switchPadding="12dp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swDoubleTap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/title_advanced_double_tap"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/swSwipeNav"
                 app:switchPadding="12dp" />
 
             <androidx.appcompat.widget.SwitchCompat
@@ -52,9 +64,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
+                android:checked="true"
                 android:text="@string/title_advanced_autoexpand"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swSwipeNav"
+                app:layout_constraintTop_toBottomOf="@id/swDoubleTap"
                 app:switchPadding="12dp" />
 
             <TextView
@@ -96,6 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="22dp"
                 android:layout_marginTop="12dp"
+                android:checked="true"
                 android:text="@string/title_advanced_autoclose"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvAutoCollapseHint"
