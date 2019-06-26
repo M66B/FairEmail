@@ -41,6 +41,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.text.Html;
@@ -62,6 +63,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.TouchDelegate;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.webkit.DownloadListener;
@@ -1346,9 +1348,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             return differ.getItem(pos);
         }
 
+        private boolean firstClick = false;
+
         @Override
         public void onClick(View view) {
-            TupleMessageEx message = getMessage();
+            final TupleMessageEx message = getMessage();
             if (message == null)
                 return;
 
@@ -1397,13 +1401,60 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     .putExtra("action", "edit")
                                     .putExtra("id", message.id));
                 else {
-                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                    lbm.sendBroadcast(
-                            new Intent(ActivityView.ACTION_VIEW_THREAD)
-                                    .putExtra("account", message.account)
-                                    .putExtra("thread", message.thread)
-                                    .putExtra("id", message.id)
-                                    .putExtra("found", viewType == ViewType.SEARCH));
+                    firstClick = !firstClick;
+                    Log.i("First click=" + firstClick + " timeout=" + ViewConfiguration.getDoubleTapTimeout());
+
+                    if (firstClick) {
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (firstClick) {
+                                    Log.i("After timeout");
+                                    firstClick = false;
+
+                                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                                    lbm.sendBroadcast(
+                                            new Intent(ActivityView.ACTION_VIEW_THREAD)
+                                                    .putExtra("account", message.account)
+                                                    .putExtra("thread", message.thread)
+                                                    .putExtra("id", message.id)
+                                                    .putExtra("found", viewType == ViewType.SEARCH));
+                                }
+                            }
+                        }, ViewConfiguration.getDoubleTapTimeout());
+                    } else {
+                        Bundle args = new Bundle();
+                        args.putLong("id", message.id);
+
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onExecute(Context context, Bundle args) {
+                                long id = args.getLong("id");
+
+                                DB db = DB.getInstance(context);
+                                try {
+                                    db.beginTransaction();
+
+                                    EntityMessage message = db.message().getMessage(id);
+                                    if (message == null)
+                                        return null;
+
+                                    EntityOperation.queue(context, message, EntityOperation.SEEN, !message.ui_seen);
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
+                                }
+
+                                return null;
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(context, owner, ex);
+                            }
+                        }.execute(context, owner, args, "message:seen");
+                    }
                 }
             }
         }
