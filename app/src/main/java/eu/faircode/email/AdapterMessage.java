@@ -1621,6 +1621,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     channel.setDescription(from.getPersonal());
                     channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
                     channel.enableLights(true);
+                    channel.setLightColor(Color.BLUE);
                     nm.createNotificationChannel(channel);
                     onActionEditChannel();
                 }

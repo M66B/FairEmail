@@ -24,6 +24,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationChannelGroup;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Build;
 
 import androidx.annotation.NonNull;
@@ -122,6 +123,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         channel.setGroup(group.getId());
         channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
         channel.enableLights(true);
+        channel.setLightColor(Color.BLUE);
         nm.createNotificationChannel(channel);
     }
 
