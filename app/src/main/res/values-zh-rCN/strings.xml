@@ -166,6 +166,7 @@
     <string name="title_advanced_pull_refresh">下拉刷新</string>
     <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>
     <string name="title_advanced_swipenav">向左/右滑动来前往下一个/上一个邮件会话</string>
+    <string name="title_advanced_double_tap">双击标记消息已读/未读</string>
     <string name="title_advanced_autoexpand">自动伸展消息</string>
     <string name="title_advanced_collapse">按返回键折叠对话中的邮件</string>
     <string name="title_advanced_autoclose">自动关闭对话</string>
@@ -292,6 +293,7 @@
     <string name="title_create_channel">创建通知通道</string>
     <string name="title_edit_channel">编辑通知通道</string>
     <string name="title_delete_channel">删除通知通道</string>
+    <string name="title_create_sub_folder">创建子文件夹</string>
     <string name="title_empty_trash_ask">是否永久删除所有垃圾邮件？</string>
     <string name="title_delete_operation">是否删除带有错误消息的操作？</string>
     <string name="title_delete_contacts">删除所有本地联系人？</string>

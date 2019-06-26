@@ -316,6 +316,7 @@
     <string name="title_create_channel">Vytvořit kanál oznámení</string>
     <string name="title_edit_channel">Upravit kanál oznámení</string>
     <string name="title_delete_channel">Smazat kanál oznámení</string>
+    <string name="title_create_sub_folder">Vytvořit podsložku</string>
     <string name="title_empty_trash_ask">Trvale odstranit všechny zprávy v koši?</string>
     <string name="title_delete_operation">Smazat operace s chybovou hláškou?</string>
     <string name="title_delete_contacts">Smazat všechny místní kontakty?</string>

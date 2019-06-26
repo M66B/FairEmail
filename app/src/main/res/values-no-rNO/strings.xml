@@ -174,6 +174,7 @@
     <string name="title_advanced_pull_refresh">Dra ned for å oppdatere</string>
     <string name="title_advanced_autoscroll">Rull til toppen når du mottar nye meldinger</string>
     <string name="title_advanced_swipenav">Sveip til venstre/høyre for å gå til neste/forrige samtale</string>
+    <string name="title_advanced_double_tap">Dobbeltklikk for å markere meldingen lest/ulest</string>
     <string name="title_advanced_autoexpand">Utvid automatisk meldinger</string>
     <string name="title_advanced_collapse">Skjul meldinger i samtaler på \'tilbake\'</string>
     <string name="title_advanced_autoclose">Lukk samtaler automatisk</string>
