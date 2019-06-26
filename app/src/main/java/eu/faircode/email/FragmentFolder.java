@@ -37,9 +37,11 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -50,6 +52,7 @@ public class FragmentFolder extends FragmentBase {
     private ViewGroup view;
     private ScrollView scroll;
 
+    private TextView tvParent;
     private EditText etName;
     private EditText etDisplay;
     private CheckBox cbHide;
@@ -66,9 +69,11 @@ public class FragmentFolder extends FragmentBase {
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
     private ContentLoadingProgressBar pbWait;
+    private Group grpParent;
 
     private long id = -1;
     private long account = -1;
+    private String parent = null;
     private Boolean subscribed = null;
     private boolean saving = false;
     private boolean deletable = false;
@@ -81,6 +86,7 @@ public class FragmentFolder extends FragmentBase {
         Bundle args = getArguments();
         id = args.getLong("id", -1);
         account = args.getLong("account", -1);
+        parent = args.getString("parent");
     }
 
     @Override
@@ -94,6 +100,7 @@ public class FragmentFolder extends FragmentBase {
 
         // Get controls
         etName = view.findViewById(R.id.etName);
+        tvParent = view.findViewById(R.id.tvParent);
         etDisplay = view.findViewById(R.id.etDisplay);
         cbHide = view.findViewById(R.id.cbHide);
         cbUnified = view.findViewById(R.id.cbUnified);
@@ -109,6 +116,7 @@ public class FragmentFolder extends FragmentBase {
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
         pbWait = view.findViewById(R.id.pbWait);
+        grpParent = view.findViewById(R.id.grpParent);
 
         cbUnified.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -153,6 +161,8 @@ public class FragmentFolder extends FragmentBase {
         });
 
         // Initialize
+        tvParent.setText(parent);
+        grpParent.setVisibility(parent == null ? View.GONE : View.VISIBLE);
         Helper.setViewsEnabled(view, false);
         cbAutoDelete.setVisibility(View.GONE);
         btnSave.setEnabled(false);
@@ -166,6 +176,7 @@ public class FragmentFolder extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("id", id);
         args.putLong("account", account);
+        args.putString("parent", parent);
         args.putString("name", etName.getText().toString());
         args.putString("display", etDisplay.getText().toString());
         args.putBoolean("hide", cbHide.isChecked());
@@ -204,6 +215,7 @@ public class FragmentFolder extends FragmentBase {
             protected Boolean onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
                 long aid = args.getLong("account");
+                String parent = args.getString("parent");
                 String name = args.getString("name");
                 String display = args.getString("display");
                 boolean hide = args.getBoolean("hide");
@@ -265,7 +277,15 @@ public class FragmentFolder extends FragmentBase {
 
                     if (folder == null) {
                         reload = true;
-                        Log.i("Creating folder=" + name);
+                        Log.i("Creating folder=" + name + " parent=" + parent);
+
+                        if (parent != null) {
+                            EntityAccount account = db.account().getAccount(aid);
+                            if (account == null)
+                                return false;
+
+                            name = parent + account.separator + name;
+                        }
 
                         if (TextUtils.isEmpty(name))
                             throw new IllegalArgumentException(context.getString(R.string.title_folder_name_missing));
