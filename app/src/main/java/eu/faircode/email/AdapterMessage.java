@@ -1065,6 +1065,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             message.uid != null && (inJunk || (!inArchive && hasArchive)));
                     bnvActions.getMenu().findItem(R.id.action_archive).setTitle(
                             inJunk ? R.string.title_folder_inbox : R.string.title_archive);
+                    bnvActions.getMenu().findItem(R.id.action_archive).setIcon(
+                            inJunk ? R.drawable.baseline_inbox_24 : R.drawable.baseline_archive_24);
 
                     bnvActions.getMenu().findItem(R.id.action_reply).setEnabled(message.content);
                     bnvActions.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
