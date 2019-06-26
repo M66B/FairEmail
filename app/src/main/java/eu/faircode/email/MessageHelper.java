@@ -637,7 +637,8 @@ public class MessageHelper {
     }
 
     long getReceived() throws MessagingException {
-        return imessage.getReceivedDate().getTime();
+        Date received = imessage.getReceivedDate();
+        return (received == null ? new Date() : received).getTime();
     }
 
     Long getSent() throws MessagingException {
