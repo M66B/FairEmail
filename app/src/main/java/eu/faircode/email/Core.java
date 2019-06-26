@@ -830,6 +830,7 @@ class Core {
         Folder defaultFolder = istore.getDefaultFolder();
         char separator = defaultFolder.getSeparator();
         EntityLog.log(context, account.name + " folder separator=" + separator);
+        db.account().setFolderSeparator(account.id, separator);
 
         // Get remote folders
         long start = new Date().getTime();

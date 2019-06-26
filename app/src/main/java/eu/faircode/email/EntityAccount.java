@@ -85,6 +85,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public Boolean notify;
     @NonNull
     public Boolean browse = true;
+    public Character separator;
     public Long swipe_left;
     public Long swipe_right;
     @NonNull

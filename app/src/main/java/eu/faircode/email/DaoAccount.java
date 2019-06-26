@@ -102,6 +102,9 @@ public interface DaoAccount {
     @Update
     void updateAccount(EntityAccount account);
 
+    @Query("UPDATE account SET separator = :separator WHERE id = :id")
+    int setFolderSeparator(long id, Character separator);
+
     @Query("UPDATE account SET synchronize = :synchronize WHERE id = :id")
     int setAccountSynchronize(long id, boolean synchronize);
 
