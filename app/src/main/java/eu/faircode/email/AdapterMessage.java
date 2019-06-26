@@ -1402,14 +1402,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     .putExtra("id", message.id));
                 else {
                     firstClick = !firstClick;
-                    Log.i("First click=" + firstClick + " timeout=" + ViewConfiguration.getDoubleTapTimeout());
-
                     if (firstClick) {
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 if (firstClick) {
-                                    Log.i("After timeout");
                                     firstClick = false;
 
                                     LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
