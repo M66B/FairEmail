@@ -60,8 +60,9 @@ public interface DaoAccount {
             "    AND identity.synchronize) AS identities" +
             ", CASE WHEN drafts.id IS NULL THEN 0 ELSE 1 END AS drafts" +
             " FROM account" +
-            " LEFT JOIN folder AS drafts ON drafts.account = account.id AND drafts.type = '" + EntityFolder.DRAFTS + "'" +
+            " LEFT JOIN folder AS drafts ON drafts.account = account.id" +
             " WHERE :all OR account.synchronize" +
+            " AND drafts.type = '" + EntityFolder.DRAFTS + "'" +
             " GROUP BY account.id" +
             " ORDER BY CASE WHEN :all THEN 0 ELSE account.`order` END" +
             ", CASE WHEN :all THEN 0 ELSE account.`primary` END DESC" +
