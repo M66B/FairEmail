@@ -2182,6 +2182,11 @@ class Core {
                             ex.getCause() instanceof ConnectionException))
                 recoverable = false;
 
+            if (ex instanceof ConnectionException)
+                // failed to create new store connection
+                // BYE, Socket is closed
+                recoverable = false;
+
             if (ex instanceof FolderClosedException ||
                     ex instanceof FolderNotFoundException)
                 recoverable = false;

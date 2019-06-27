@@ -59,6 +59,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.sun.mail.iap.ConnectionException;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -396,6 +397,9 @@ public class Helper {
 
             if (ex instanceof IOException &&
                     ex.getCause() instanceof MessageRemovedException)
+                return null;
+
+            if (ex instanceof ConnectionException)
                 return null;
 
             if (ex instanceof FolderClosedException)
