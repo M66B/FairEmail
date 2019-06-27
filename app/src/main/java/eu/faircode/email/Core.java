@@ -1838,7 +1838,6 @@ class Core {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean flags = prefs.getBoolean("flags", true);
-        boolean notify_group = (prefs.getBoolean("notify_group", true) && canGroup);
         boolean notify_preview = prefs.getBoolean("notify_preview", true);
         boolean notify_trash = prefs.getBoolean("notify_trash", true);
         boolean notify_archive = prefs.getBoolean("notify_archive", true);
@@ -1851,60 +1850,58 @@ class Core {
         for (TupleMessageEx message : messages)
             messageContact.put(message, ContactInfo.get(context, message.from, false));
 
-        if (notify_group) {
-            // Build pending intents
-            Intent summary = new Intent(context, ActivityView.class).setAction("unified");
-            PendingIntent piSummary = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, summary, PendingIntent.FLAG_UPDATE_CURRENT);
+        // Build pending intents
+        Intent summary = new Intent(context, ActivityView.class).setAction("unified");
+        PendingIntent piSummary = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, summary, PendingIntent.FLAG_UPDATE_CURRENT);
 
-            Intent clear = new Intent(context, ServiceUI.class).setAction("clear");
-            PendingIntent piClear = PendingIntent.getService(context, ServiceUI.PI_CLEAR, clear, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent clear = new Intent(context, ServiceUI.class).setAction("clear");
+        PendingIntent piClear = PendingIntent.getService(context, ServiceUI.PI_CLEAR, clear, PendingIntent.FLAG_UPDATE_CURRENT);
 
-            // Build title
-            String title = context.getResources().getQuantityString(
-                    R.plurals.title_notification_unseen, messages.size(), messages.size());
+        // Build title
+        String title = context.getResources().getQuantityString(
+                R.plurals.title_notification_unseen, messages.size(), messages.size());
 
-            // Build notification
-            NotificationCompat.Builder builder =
-                    new NotificationCompat.Builder(context, "notification")
-                            .setSmallIcon(R.drawable.baseline_email_white_24)
-                            .setContentTitle(title)
-                            .setContentIntent(piSummary)
-                            .setNumber(messages.size())
-                            .setShowWhen(false)
-                            .setDeleteIntent(piClear)
-                            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                            .setCategory(NotificationCompat.CATEGORY_STATUS)
-                            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-                            .setGroup(group)
-                            .setGroupSummary(true);
+        // Build notification
+        NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(context, "notification")
+                        .setSmallIcon(R.drawable.baseline_email_white_24)
+                        .setContentTitle(title)
+                        .setContentIntent(piSummary)
+                        .setNumber(messages.size())
+                        .setShowWhen(false)
+                        .setDeleteIntent(piClear)
+                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                        .setCategory(NotificationCompat.CATEGORY_STATUS)
+                        .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                        .setGroup(group)
+                        .setGroupSummary(true);
 
-            Notification pub = builder.build();
-            builder
-                    .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
-                    .setPublicVersion(pub);
+        Notification pub = builder.build();
+        builder
+                .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
+                .setPublicVersion(pub);
 
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-                setNotificationSoundAndLight(context, builder);
-                builder.setOnlyAlertOnce(true);
-            } else
-                builder.setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            setNotificationSoundAndLight(context, builder);
+            builder.setOnlyAlertOnce(true);
+        } else
+            builder.setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
 
-            DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
-            StringBuilder sb = new StringBuilder();
-            for (EntityMessage message : messages) {
-                sb.append("<strong>").append(messageContact.get(message).getDisplayName(true)).append("</strong>");
-                if (!TextUtils.isEmpty(message.subject))
-                    sb.append(": ").append(message.subject);
-                sb.append(" ").append(df.format(message.received));
-                sb.append("<br>");
-            }
-
-            builder.setStyle(new NotificationCompat.BigTextStyle()
-                    .bigText(HtmlHelper.fromHtml(sb.toString()))
-                    .setSummaryText(title));
-
-            notifications.add(builder.build());
+        DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
+        StringBuilder sb = new StringBuilder();
+        for (EntityMessage message : messages) {
+            sb.append("<strong>").append(messageContact.get(message).getDisplayName(true)).append("</strong>");
+            if (!TextUtils.isEmpty(message.subject))
+                sb.append(": ").append(message.subject);
+            sb.append(" ").append(df.format(message.received));
+            sb.append("<br>");
         }
+
+        builder.setStyle(new NotificationCompat.BigTextStyle()
+                .bigText(HtmlHelper.fromHtml(sb.toString()))
+                .setSummaryText(title));
+
+        notifications.add(builder.build());
 
         // Message notifications
         for (TupleMessageEx message : messages) {
@@ -1965,8 +1962,7 @@ class Core {
                             .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
                             .setOnlyAlertOnce(true);
 
-            if (notify_group)
-                mbuilder.setGroup(group).setGroupSummary(false);
+            mbuilder.setGroup(group).setGroupSummary(false);
 
             if (notify_trash) {
                 Intent trash = new Intent(context, ServiceUI.class)
@@ -2065,15 +2061,10 @@ class Core {
                 mbuilder.setColorized(true);
             }
 
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-                if (notify_group)
-                    mbuilder.setSound(null);
-                else
-                    setNotificationSoundAndLight(context, mbuilder);
-            } else {
-                if (notify_group)
-                    mbuilder.setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
-            }
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+                mbuilder.setSound(null);
+            else
+                mbuilder.setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
 
             notifications.add(mbuilder.build());
         }
