@@ -182,6 +182,7 @@
     <string name="title_advanced_pull_refresh">Trageți în jos pentru a actualiza</string>
     <string name="title_advanced_autoscroll">Derulează sus când se primește un mesaj nou</string>
     <string name="title_advanced_swipenav">Glisați stânga/dreapta pentru a merge la conversația următoare/anterioară</string>
+    <string name="title_advanced_double_tap">Atingeți de două ori pentru a marca mesajul ca ne/citit</string>
     <string name="title_advanced_autoexpand">Extinde mesajele automat</string>
     <string name="title_advanced_collapse">Pliază mesajele din discuție când se apasă \'înapoi\'</string>
     <string name="title_advanced_autoclose">Închide automat conversațiile</string>
@@ -308,6 +309,7 @@
     <string name="title_create_channel">Creare canal de notificare</string>
     <string name="title_edit_channel">Editare canal de notificare</string>
     <string name="title_delete_channel">Șterge canal de notificare</string>
+    <string name="title_create_sub_folder">Creează sub-dosar</string>
     <string name="title_empty_trash_ask">Şterge permanent toate mesajele din coșul de gunoi?</string>
     <string name="title_delete_operation">Se șterg operațiunile cu mesaj de eroare?</string>
     <string name="title_delete_contacts">Ștergeți toate contactele locale?</string>

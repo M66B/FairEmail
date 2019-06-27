@@ -190,6 +190,7 @@
     <string name="title_advanced_pull_refresh">Aktualizovat tažením dolů</string>
     <string name="title_advanced_autoscroll">Posun na začátek při příjmu nových zpráv</string>
     <string name="title_advanced_swipenav">Tažením doleva/doprava přejít na předešlou/následující konverzaci</string>
+    <string name="title_advanced_double_tap">Dvojstisk pro označení zprávy jako přečtené/nepřečtené</string>
     <string name="title_advanced_autoexpand">Automaticky rozbalovat zprávy</string>
     <string name="title_advanced_collapse">Sbalit zprávy v konverzacích při pohybu zpět</string>
     <string name="title_advanced_autoclose">Automaticky zavírat konverzace</string>

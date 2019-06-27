@@ -6,9 +6,11 @@
     <string name="app_welcome">FairEmail är en e-postapp med öppen källkod som är fokuserad på integritet och säkerhet. Av denna anledning kan vissa funktioner fungera annorlunda än vad du är van vid.</string>
     <string name="app_limitations">Meddelanden kommer till exempel alltid att omformateras för att avlägsna osäkra element och för att förbättra läsbarheten och öppna länkar måste bekräftas för säkerheten.</string>
     <string name="app_crash">FairEmail stöds inte på den här enheten eftersom buggar i Android orsakar kraschar</string>
+    <string name="app_exit">Gå \"tillbaka\" igen för att avsluta</string>
     <string name="channel_service">Tjänst</string>
     <string name="channel_send">Skicka</string>
     <string name="channel_notification">Aviseringar</string>
+    <string name="channel_update">Uppdateringar</string>
     <string name="channel_warning">Varningar</string>
     <string name="channel_error">Fel</string>
     <string name="channel_group_contacts">Kontakter</string>
@@ -49,6 +51,7 @@
         <item quantity="other">Behandla %1$d meddelanden som skräppost?</item>
     </plurals>
     <string name="title_ask_spam_who">Rapportera meddelande från %1$s som skräppost?</string>
+    <string name="title_notification_waiting">Väntar på lämplig anslutning</string>
     <string name="title_notification_sending">Skickar meddelanden</string>
     <string name="title_notification_failed">\'%1$s\' misslyckades</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -83,6 +86,7 @@
     <string name="title_setup_quick_imap">IMAP-server för att ta emot meddelanden</string>
     <string name="title_setup_quick_smtp">SMTP-server för att skicka meddelanden</string>
     <string name="title_setup_go">Kör</string>
+    <string name="title_setup_instructions">Inställningsinstruktioner</string>
     <string name="title_setup_no_settings">Inga inställningar hittades för domänen \"%1$s\"</string>
     <string name="title_setup_quick_success">Ett konto och en identitet har lagts till</string>
     <string name="title_setup_quick_failed">Du kan prova att konfigurera ett konto och en identitet nedan också</string>
@@ -124,6 +128,7 @@
     <string name="title_setup_options">Alternativ</string>
     <string name="title_setup_defaults">Återställ standardvärden</string>
     <string name="title_setup_reset_questions">Återställ frågor</string>
+    <string name="title_advanced_section_main">Huvudsaklig</string>
     <string name="title_advanced_section_synchronize">Ta emot</string>
     <string name="title_advanced_section_send">Skicka</string>
     <string name="title_advanced_section_connection">Anslutning</string>
@@ -168,6 +173,7 @@
     <string name="title_advanced_pull_refresh">Dra ner för att uppdatera</string>
     <string name="title_advanced_autoscroll">Bläddra till toppen vid mottagning av nya meddelanden</string>
     <string name="title_advanced_swipenav">Svep vänster/höger för att gå till nästa/föregående konversation</string>
+    <string name="title_advanced_double_tap">Dubbeltryck för att markera meddelande läst/oläst</string>
     <string name="title_advanced_autoexpand">Utöka meddelanden automatiskt</string>
     <string name="title_advanced_collapse">Kollapsa meddelanden i konversationer på \"tillbaka\"</string>
     <string name="title_advanced_autoclose">Stäng konversationer automatiskt</string>
@@ -272,6 +278,7 @@
     <string name="title_no_idle">Leverantören stöder inte push-meddelanden. Detta kommer att fördröja mottagning av nya meddelanden och öka batterianvändningen.</string>
     <string name="title_no_utf8">Denna leverantör stöder inte UTF-8</string>
     <string name="title_no_sync">Synkroniseringsfel sedan %1$s</string>
+    <string name="title_authorization_required">Tillstånd krävs</string>
     <string name="title_identity_required">En identitet krävs för att skicka meddelanden</string>
     <string name="title_drafts_required">En mapp för utkast krävs för att skicka meddelanden</string>
     <string name="title_account_delete">Ta bort detta konto permanent?</string>
@@ -281,6 +288,7 @@
     <string name="title_pop3_hint">POP3 har betydande begränsningar, så använd IMAP när det är möjligt</string>
     <string name="title_pop3_support">POP3 stöds inte, se även Vanliga frågor</string>
     <string name="title_synchronize_now">Synkronisera nu</string>
+    <string name="title_synchronize_all">Synkronisera alla meddelanden</string>
     <string name="title_synchronize_enabled">Synkronisera</string>
     <string name="title_delete_local">Ta bort lokala meddelanden</string>
     <string name="title_delete_browsed">Ta bort bläddrade/sökta meddelanden</string>
@@ -290,6 +298,7 @@
     <string name="title_create_channel">Skapa aviseringskanal</string>
     <string name="title_edit_channel">Redigera aviseringskanal</string>
     <string name="title_delete_channel">Ta bort aviseringskanal</string>
+    <string name="title_create_sub_folder">Skapa undermapp</string>
     <string name="title_empty_trash_ask">Ta bort alla meddelanden i papperskorgen permanent?</string>
     <string name="title_delete_operation">Ta bort åtgärder med ett felmeddelande?</string>
     <string name="title_delete_contacts">Ta bort alla lokala kontakter?</string>
@@ -377,6 +386,7 @@
     <string name="title_attachment_saved">Bilaga sparad</string>
     <string name="title_attachments_saved">Bilagor sparade</string>
     <string name="title_attachments_incomplete">Vissa bilagor eller bilder hämtades inte och kunde inte läggas till</string>
+    <string name="title_ask_save">Spara ändringar?</string>
     <string name="title_ask_delete">Ta bort meddelandet permanent?</string>
     <string name="title_ask_delete_answer">Ta bort svarsmall permanent?</string>
     <string name="title_ask_delete_rule">Ta bort regel permanent?</string>
@@ -384,6 +394,8 @@
     <string name="title_ask_show_html">Att visa det ursprungliga meddelandet kan läcka sekretesskänslig information</string>
     <string name="title_ask_show_image">Att visa bilder kan läcka sekretesskänslig information</string>
     <string name="title_ask_edit_ref">Redigera omformaterad svarad/vidarebefordrad meddelandetext?</string>
+    <string name="title_ask_sync_all">Synkronisera alla meddelanden i %1$s?</string>
+    <string name="title_ask_delete_local">Ta bort endast lokala meddelanden som lagras på fjärrservern också?</string>
     <string name="title_ask_help">Hjälp till att förbättra FairEmail</string>
     <string name="title_ask_reporting">Skicka felrapporter?</string>
     <string name="title_reporting_why">Felrapportering kommer att bidra till att förbättra FairEmail</string>
@@ -449,6 +461,7 @@
     <string name="title_filter">Filtrera bort</string>
     <string name="title_filter_seen">Läst</string>
     <string name="title_filter_unflagged">Utan stjärnmärkning</string>
+    <string name="title_filter_snoozed">Slumrade</string>
     <string name="title_filter_duplicates">Dubbletter</string>
     <string name="title_compact">Kompakt vy</string>
     <string name="title_zoom">Textstorlek</string>
@@ -464,6 +477,7 @@
     <string name="title_answer_template_email">$email$ kommer att ersättas av avsändarens e-postadress</string>
     <string name="title_rule_seen">Markera som läst</string>
     <string name="title_rule_unseen">Markera som oläst</string>
+    <string name="title_rule_snooze">Slumra</string>
     <string name="title_rule_flag">Lägg till stjärna</string>
     <string name="title_rule_move">Flytta</string>
     <string name="title_rule_copy">Kopiera (etikett)</string>
@@ -480,10 +494,12 @@
     <string name="title_rule_subject">Ämnet innehåller</string>
     <string name="title_rule_header">Rubriken innhåller</string>
     <string name="title_rule_regex">Regex</string>
+    <string name="title_rule_and">OCH</string>
     <string name="title_rule_action">Åtgärd</string>
     <string name="title_rule_action_remark">Denna åtgärd kommer att tillämpas på nya meddelanden som kommer i mappen %1$s</string>
     <string name="title_rule_hours">Timmar</string>
     <string name="title_rule_folder">Mapp</string>
+    <string name="title_rule_thread">Alla meddelanden i samma konversation och mapp</string>
     <string name="title_rule_identity">Identitet</string>
     <string name="title_rule_template">Svarsmall</string>
     <string name="title_rule_cc">Svar till CC-adresser</string>
@@ -523,6 +539,7 @@
     <string name="title_legend_junk">Skräppost</string>
     <string name="title_legend_primary">Primär</string>
     <string name="title_legend_subscribed">Prenumererar på</string>
+    <string name="title_legend_rule">Har regler</string>
     <string name="title_legend_notify">Notifiera för nya meddelanden</string>
     <string name="title_legend_sync_keep">Antal dagar att synkronisera / för att behålla meddelanden</string>
     <string name="title_legend_download_fetch">Antal hämtade meddelanden / hämtade rubriker</string>
@@ -530,6 +547,7 @@
     <string name="title_legend_thread">Konversation</string>
     <string name="title_legend_zoom">Ändra textstorlek</string>
     <string name="title_legend_draft">Har utkast</string>
+    <string name="title_legend_snoozed">Slumrar</string>
     <string name="title_legend_browsed">Bläddrat eller sökt</string>
     <string name="title_legend_answered">Har besvarats</string>
     <string name="title_legend_plain_only">Är endast oformaterad text</string>
@@ -559,6 +577,7 @@
     <string name="title_legend_metered">Uppmätt anslutning</string>
     <string name="title_legend_unmetered">Icke-uppmätt anslutning</string>
     <string name="title_legend_roaming">Roaming</string>
+    <string name="title_legend_expander">Utvidgare</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Visa citat</string>
     <string name="title_legend_show_images">Visa bilder</string>
