@@ -44,9 +44,9 @@ public interface DaoFolder {
             " LEFT JOIN rule ON rule.folder = folder.id" +
             " LEFT JOIN operation ON operation.folder = folder.id" +
             " WHERE folder.account = :account AND account.synchronize" +
-            " AND message.ui_hide = 0" +
-            " AND rule.enabled" +
-            " AND operation.state = 'executing'" +
+            " AND (message.ui_hide = 0 OR message.ui_hide IS NULL)" +
+            " AND (rule.enabled OR rule.enabled IS NULL)" +
+            " AND (operation.state = 'executing' OR operation.state IS NULL)" +
             " GROUP BY folder.id")
     List<TupleFolderEx> getFoldersEx(long account);
 
@@ -85,9 +85,9 @@ public interface DaoFolder {
             "  THEN folder.unified AND account.synchronize" +
             "  ELSE folder.account = :account AND account.synchronize" +
             " END" +
-            " AND message.ui_hide = 0" +
-            " AND rule.enabled" +
-            " AND operation.state = 'executing'" +
+            " AND (message.ui_hide = 0 OR message.ui_hide IS NULL)" +
+            " AND (rule.enabled OR rule.enabled IS NULL)" +
+            " AND (operation.state = 'executing' OR operation.state IS NULL)" +
             " GROUP BY folder.id")
     LiveData<List<TupleFolderEx>> liveFolders(Long account);
 
@@ -105,9 +105,9 @@ public interface DaoFolder {
             " LEFT JOIN operation ON operation.folder = folder.id" +
             " WHERE account.`synchronize`" +
             " AND folder.unified" +
-            " AND message.ui_hide = 0" +
-            " AND rule.enabled" +
-            " AND operation.state = 'executing'" +
+            " AND (message.ui_hide = 0 OR message.ui_hide IS NULL)" +
+            " AND (rule.enabled OR rule.enabled IS NULL)" +
+            " AND (operation.state = 'executing' OR operation.state IS NULL)" +
             " GROUP BY folder.id")
     LiveData<List<TupleFolderEx>> liveUnified();
 
@@ -120,7 +120,7 @@ public interface DaoFolder {
             " LEFT JOIN account ON account.id = folder.account" +
             " LEFT JOIN message ON message.folder = folder.id" +
             " WHERE (account.id IS NULL OR (account.`synchronize` AND folder.navigation))" +
-            " AND message.ui_hide = 0" +
+            " AND (message.ui_hide = 0 OR message.ui_hide IS NULL)" +
             " GROUP BY folder.id")
     LiveData<List<TupleFolderNav>> liveNavigation();
 
@@ -149,9 +149,9 @@ public interface DaoFolder {
             " LEFT JOIN rule ON rule.folder = folder.id" +
             " LEFT JOIN operation ON operation.folder = folder.id" +
             " WHERE folder.id = :id" +
-            " AND message.ui_hide = 0" +
-            " AND rule.enabled" +
-            " AND operation.state = 'executing'" +
+            " AND (message.ui_hide = 0 OR message.ui_hide IS NULL)" +
+            " AND (rule.enabled OR rule.enabled IS NULL)" +
+            " AND (operation.state = 'executing' OR operation.state IS NULL)" +
             " GROUP BY folder.id")
     LiveData<TupleFolderEx> liveFolderEx(long id);
 
