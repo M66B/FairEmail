@@ -114,7 +114,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                 return;
 
             TupleOperationEx operation = items.get(pos);
-            if (operation == null)
+            if (operation == null || !operation.synchronize)
                 return;
 
             if (operation.message == null) {
