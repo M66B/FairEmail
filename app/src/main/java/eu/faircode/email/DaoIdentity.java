@@ -54,7 +54,9 @@ public interface DaoIdentity {
             " AND account.synchronize")
     LiveData<List<TupleIdentityEx>> liveComposableIdentities(Long account);
 
-    @Query("SELECT * FROM identity WHERE account = :account")
+    @Query("SELECT * FROM identity" +
+            " WHERE account = :account" +
+            " ORDER BY name COLLATE NOCASE")
     List<EntityIdentity> getIdentities(long account);
 
     @Query("SELECT * FROM identity WHERE id = :id")
