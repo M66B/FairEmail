@@ -348,6 +348,8 @@ If you use multiple Gmail accounts, make sure you change the "less secure" setti
 
 Be aware that you need to leave the "less secure" settings screen by using the back arrow to apply the setting.
 
+See [this FAQ](#user-content-faq111) for more information.
+
 You might get the alert "*Please log in via your web browser*".
 This security measure can for example be triggered when too many IP addresses were used in a too short time or when you are using a VPN.
 You can prevent this by using an app specific password.
@@ -1842,6 +1844,8 @@ This is how you exclude independent developers ...
 Outlook and Hotmail do not properly support OAuth for IMAP/SMTP connections.
 [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-android) is supported for business accounts only
 and requires embedding a client secret in the app, which is not a good idea for an open source app.
+
+See also [this FAQ](#user-content-faq6).
 
 <br />
 
