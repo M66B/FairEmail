@@ -109,9 +109,9 @@ public interface DaoFolder {
             ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id AND operation.state = 'executing') AS executing" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
-            " LEFT JOIN message ON message.folder = folder.id" +
-            " WHERE (account.id IS NULL OR (account.`synchronize` AND folder.navigation))" +
-            " AND (message.ui_hide = 0 OR message.ui_hide IS NULL)" +
+            " LEFT JOIN message ON message.folder = folder.id AND message.ui_hide = 0" +
+            " WHERE account.id IS NULL" +
+            " OR (account.`synchronize` AND folder.navigation)" +
             " GROUP BY folder.id")
     LiveData<List<TupleFolderNav>> liveNavigation();
 
