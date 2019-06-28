@@ -617,7 +617,7 @@ public class FragmentAccount extends FragmentBase {
                         altJunk.type = EntityFolder.JUNK;
 
                     if (result.folders.size() > 0)
-                        Collections.sort(result.folders, result.folders.get(0).getComparator(context));
+                        Collections.sort(result.folders, result.folders.get(0).getComparator(null));
                 }
 
                 return result;
@@ -1221,7 +1221,7 @@ public class FragmentAccount extends FragmentBase {
                         List<EntityFolder> folders = db.folder().getFolders(account);
 
                         if (folders != null && folders.size() > 0)
-                            Collections.sort(folders, folders.get(0).getComparator(context));
+                            Collections.sort(folders, folders.get(0).getComparator(null));
 
                         return folders;
                     }

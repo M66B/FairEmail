@@ -413,6 +413,9 @@ public class EntityFolder extends EntityOrder implements Serializable {
                 if (c != 0)
                     return c;
 
+                if (context == null)
+                    return collator.compare(f1.name, f2.name);
+
                 String name1 = f1.getDisplayName(context);
                 String name2 = f2.getDisplayName(context);
                 return collator.compare(name1, name2);

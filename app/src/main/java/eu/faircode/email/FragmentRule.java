@@ -380,7 +380,7 @@ public class FragmentRule extends FragmentBase {
                     data.folders = new ArrayList<>();
 
                 if (data.folders.size() > 0)
-                    Collections.sort(data.folders, data.folders.get(0).getComparator(context));
+                    Collections.sort(data.folders, data.folders.get(0).getComparator(null));
 
                 data.identities = db.identity().getIdentities(aid);
                 data.answers = db.answer().getAnswers(false);

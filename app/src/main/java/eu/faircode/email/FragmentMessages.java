@@ -621,7 +621,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             for (EntityAccount account : accounts) {
                                 List<EntityFolder> folders = db.folder().getFolders(account.id);
                                 if (folders.size() > 0)
-                                    Collections.sort(folders, folders.get(0).getComparator(context));
+                                    Collections.sort(folders, folders.get(0).getComparator(null));
                                 result.put(account, folders);
                             }
 
@@ -640,7 +640,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         .addSubMenu(Menu.NONE, 0, order++, account.name);
                                 int sorder = 1;
                                 for (EntityFolder folder : result.get(account)) {
-                                    MenuItem item = smenu.add(Menu.NONE, 1, sorder++, folder.getDisplayName(getContext()));
+                                    MenuItem item = smenu.add(Menu.NONE, 1, sorder++,
+                                            Helper.localizeFolderName(getContext(), folder.name));
                                     item.setIntent(new Intent().putExtra("target", folder.id));
                                 }
                             }
