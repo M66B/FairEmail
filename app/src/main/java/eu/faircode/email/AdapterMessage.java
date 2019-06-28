@@ -2417,7 +2417,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (EntityFolder.OUTBOX.equals(data.message.folderType))
                         onActionMoveOutbox(data);
                     else
-                        onActionMove(data, false);
+                        onActionMove(data.message, false);
                     return true;
                 case R.id.action_archive:
                     if (EntityFolder.JUNK.equals(data.message.folderType))
@@ -2433,16 +2433,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private void onMenuForward(final ActionData data) {
+        private void onMenuForward(final TupleMessageEx message) {
             Intent forward = new Intent(context, ActivityCompose.class)
                     .putExtra("action", "forward")
-                    .putExtra("reference", data.message.id);
+                    .putExtra("reference", message.id);
             context.startActivity(forward);
         }
 
-        private void onMenuUnseen(final ActionData data) {
+        private void onMenuUnseen(final TupleMessageEx message) {
             Bundle args = new Bundle();
-            args.putLong("id", data.message.id);
+            args.putLong("id", message.id);
 
             new SimpleTask<Void>() {
                 @Override
@@ -2469,7 +2469,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onExecuted(Bundle args, Void ignored) {
-                    properties.setValue("expanded", data.message.id, false);
+                    properties.setValue("expanded", message.id, false);
                     notifyDataSetChanged();
                 }
 
@@ -2489,9 +2489,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             lbm.sendBroadcast(color);
         }
 
-        private void onMenuDelete(final ActionData data) {
+        private void onMenuDelete(final TupleMessageEx message) {
             Bundle args = new Bundle();
-            args.putLong("id", data.message.id);
+            args.putLong("id", message.id);
 
             new SimpleTask<Void>() {
                 @Override
@@ -2510,15 +2510,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "message:delete");
         }
 
-        private void onMenuJunk(final ActionData data) {
-            String who = MessageHelper.formatAddresses(data.message.from);
+        private void onMenuJunk(final TupleMessageEx message) {
+            String who = MessageHelper.formatAddresses(message.from);
             new DialogBuilderLifecycle(context, owner)
                     .setMessage(context.getString(R.string.title_ask_spam_who, who))
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Bundle args = new Bundle();
-                            args.putLong("id", data.message.id);
+                            args.putLong("id", message.id);
 
                             new SimpleTask<Void>() {
                                 @Override
@@ -2555,16 +2555,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .show();
         }
 
-        private void onMenuDecrypt(ActionData data) {
+        private void onMenuDecrypt(TupleMessageEx message) {
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
                     new Intent(FragmentMessages.ACTION_DECRYPT)
-                            .putExtra("id", data.message.id));
+                            .putExtra("id", message.id));
         }
 
-        private void onMenuResync(ActionData data) {
+        private void onMenuResync(TupleMessageEx message) {
             Bundle args = new Bundle();
-            args.putLong("id", data.message.id);
+            args.putLong("id", message.id);
 
             new SimpleTask<Void>() {
                 @Override
@@ -2597,24 +2597,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "message:share");
         }
 
-        private void onMenuCreateRule(ActionData data) {
+        private void onMenuCreateRule(TupleMessageEx message) {
             Intent rule = new Intent(ActivityView.ACTION_EDIT_RULE);
-            rule.putExtra("account", data.message.account);
-            rule.putExtra("folder", data.message.folder);
-            if (data.message.from != null && data.message.from.length > 0)
-                rule.putExtra("sender", ((InternetAddress) data.message.from[0]).getAddress());
-            if (data.message.to != null && data.message.to.length > 0)
-                rule.putExtra("recipient", ((InternetAddress) data.message.to[0]).getAddress());
-            if (!TextUtils.isEmpty(data.message.subject))
-                rule.putExtra("subject", data.message.subject);
+            rule.putExtra("account", message.account);
+            rule.putExtra("folder", message.folder);
+            if (message.from != null && message.from.length > 0)
+                rule.putExtra("sender", ((InternetAddress) message.from[0]).getAddress());
+            if (message.to != null && message.to.length > 0)
+                rule.putExtra("recipient", ((InternetAddress) message.to[0]).getAddress());
+            if (!TextUtils.isEmpty(message.subject))
+                rule.putExtra("subject", message.subject);
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(rule);
         }
 
-        private void onMenuManageKeywords(ActionData data) {
+        private void onMenuManageKeywords(TupleMessageEx message) {
             Bundle args = new Bundle();
-            args.putSerializable("message", data.message);
+            args.putSerializable("message", message);
 
             new SimpleTask<EntityFolder>() {
                 @Override
@@ -2746,9 +2746,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "message:keywords");
         }
 
-        private void onMenuShare(ActionData data) {
+        private void onMenuShare(TupleMessageEx message) {
             Bundle args = new Bundle();
-            args.putLong("id", data.message.id);
+            args.putLong("id", message.id);
 
             new SimpleTask<String[]>() {
                 @Override
@@ -2802,13 +2802,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "message:share");
         }
 
-        private void onMenuPrint(final ActionData data) {
+        private void onMenuPrint(final TupleMessageEx message) {
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             if (prefs.getBoolean("print_html_confirmed", false)) {
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                 lbm.sendBroadcast(
                         new Intent(ActivityView.ACTION_PRINT)
-                                .putExtra("id", data.message.id));
+                                .putExtra("id", message.id));
                 return;
             }
 
@@ -2828,17 +2828,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                             lbm.sendBroadcast(
                                     new Intent(ActivityView.ACTION_PRINT)
-                                            .putExtra("id", data.message.id));
+                                            .putExtra("id", message.id));
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
                     .show();
         }
 
-        private void onMenuShowHeaders(ActionData data) {
-            boolean show_headers = !properties.getValue("headers", data.message.id);
-            properties.setValue("headers", data.message.id, show_headers);
-            if (show_headers && data.message.headers == null) {
+        private void onMenuShowHeaders(TupleMessageEx message) {
+            boolean show_headers = !properties.getValue("headers", message.id);
+            properties.setValue("headers", message.id, show_headers);
+            if (show_headers && message.headers == null) {
                 grpHeaders.setVisibility(View.VISIBLE);
                 if (suitable)
                     pbHeaders.setVisibility(View.VISIBLE);
@@ -2846,7 +2846,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     tvNoInternetHeaders.setVisibility(View.VISIBLE);
 
                 Bundle args = new Bundle();
-                args.putLong("id", data.message.id);
+                args.putLong("id", message.id);
 
                 new SimpleTask<Void>() {
                     @Override
@@ -2879,10 +2879,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 notifyDataSetChanged();
         }
 
-        private void onMenuRaw(ActionData data) {
-            if (data.message.raw == null) {
+        private void onMenuRaw(TupleMessageEx message) {
+            if (message.raw == null) {
                 Bundle args = new Bundle();
-                args.putLong("id", data.message.id);
+                args.putLong("id", message.id);
 
                 new SimpleTask<Void>() {
                     @Override
@@ -2917,7 +2917,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                 lbm.sendBroadcast(
                         new Intent(FragmentMessages.ACTION_STORE_RAW)
-                                .putExtra("id", data.message.id));
+                                .putExtra("id", message.id));
             }
         }
 
@@ -2964,47 +2964,47 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 public boolean onMenuItemClick(MenuItem target) {
                     switch (target.getItemId()) {
                         case R.id.menu_forward:
-                            onMenuForward(data);
+                            onMenuForward(data.message);
                             return true;
                         case R.id.menu_unseen:
-                            onMenuUnseen(data);
+                            onMenuUnseen(data.message);
                             return true;
                         case R.id.menu_flag_color:
                             onMenuColoredStar(data.message);
                             return true;
                         case R.id.menu_copy:
-                            onActionMove(data, true);
+                            onActionMove(data.message, true);
                             return true;
                         case R.id.menu_delete:
                             // For emergencies
-                            onMenuDelete(data);
+                            onMenuDelete(data.message);
                             return true;
                         case R.id.menu_junk:
-                            onMenuJunk(data);
+                            onMenuJunk(data.message);
                             return true;
                         case R.id.menu_decrypt:
-                            onMenuDecrypt(data);
+                            onMenuDecrypt(data.message);
                             return true;
                         case R.id.menu_resync:
-                            onMenuResync(data);
+                            onMenuResync(data.message);
                             return true;
                         case R.id.menu_create_rule:
-                            onMenuCreateRule(data);
+                            onMenuCreateRule(data.message);
                             return true;
                         case R.id.menu_manage_keywords:
-                            onMenuManageKeywords(data);
+                            onMenuManageKeywords(data.message);
                             return true;
                         case R.id.menu_share:
-                            onMenuShare(data);
+                            onMenuShare(data.message);
                             return true;
                         case R.id.menu_print:
-                            onMenuPrint(data);
+                            onMenuPrint(data.message);
                             return true;
                         case R.id.menu_show_headers:
-                            onMenuShowHeaders(data);
+                            onMenuShowHeaders(data.message);
                             return true;
                         case R.id.menu_raw:
-                            onMenuRaw(data);
+                            onMenuRaw(data.message);
                             return true;
                         default:
                             return false;
@@ -3076,17 +3076,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 properties.move(data.message.id, EntityFolder.TRASH, true);
         }
 
-        private void onActionMove(final ActionData data, final boolean copy) {
+        private void onActionMove(final TupleMessageEx message, final boolean copy) {
             DialogFolder.show(
                     context, owner, parentView,
                     copy ? R.string.title_copy_to : R.string.title_move_to_folder,
-                    data.message.account, Arrays.asList(data.message.folder),
+                    message.account, Arrays.asList(message.folder),
                     new DialogFolder.IDialogFolder() {
                         @Override
                         public void onFolderSelected(TupleFolderEx folder) {
                             if (copy) {
                                 Bundle args = new Bundle();
-                                args.putLong("id", data.message.id);
+                                args.putLong("id", message.id);
                                 args.putLong("target", folder.id);
 
                                 new SimpleTask<Void>() {
@@ -3119,7 +3119,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     }
                                 }.execute(context, owner, args, "message:copy");
                             } else
-                                properties.move(data.message.id, folder.name, false);
+                                properties.move(message.id, folder.name, false);
                         }
                     });
         }
