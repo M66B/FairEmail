@@ -1418,7 +1418,7 @@ public class ServiceSynchronize extends LifecycleService {
         am.cancel(piAlarm);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        if (!prefs.getBoolean("schedule", false))
+        if (!prefs.getBoolean("schedule", false) || !Helper.isPro(context))
             return;
 
         int minuteStart = prefs.getInt("schedule_start", 0);

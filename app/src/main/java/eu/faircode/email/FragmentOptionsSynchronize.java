@@ -22,7 +22,6 @@ package eu.faircode.email;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.format.DateFormat;
@@ -42,7 +41,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.DialogFragment;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
 import java.text.SimpleDateFormat;
@@ -124,19 +122,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swSchedule.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                if (checked) {
-                    if (Helper.isPro(getContext())) {
-                        prefs.edit().putBoolean("schedule", true).apply();
-                        ServiceSynchronize.reschedule(getContext());
-                    } else {
-                        swSchedule.setChecked(false);
-                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                        lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SHOW_PRO));
-                    }
-                } else {
-                    prefs.edit().putBoolean("schedule", false).apply();
-                    ServiceSynchronize.reload(getContext(), "schedule=" + checked);
-                }
+                prefs.edit().putBoolean("schedule", checked).apply();
             }
         });
 
@@ -249,7 +235,9 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 break;
             }
 
-        swSchedule.setChecked(prefs.getBoolean("schedule", false));
+        boolean pro = Helper.isPro(getContext());
+        swSchedule.setChecked(prefs.getBoolean("schedule", false) && pro);
+        swSchedule.setEnabled(pro);
         tvScheduleStart.setText(formatHour(getContext(), prefs.getInt("schedule_start", 0)));
         tvScheduleEnd.setText(formatHour(getContext(), prefs.getInt("schedule_end", 0)));
 

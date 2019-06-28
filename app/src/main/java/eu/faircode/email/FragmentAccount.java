@@ -334,18 +334,6 @@ public class FragmentAccount extends FragmentBase {
             }
         });
 
-        cbNotify.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked && !Helper.isPro(getContext())) {
-                    cbNotify.setChecked(false);
-
-                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                    lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SHOW_PRO));
-                }
-            }
-        });
-
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
             Helper.hide(cbNotify);
             Helper.hide(view.findViewById(R.id.tvNotifyPro));
@@ -755,6 +743,7 @@ public class FragmentAccount extends FragmentBase {
                 EntityFolder left = (EntityFolder) args.getSerializable("left");
                 EntityFolder right = (EntityFolder) args.getSerializable("right");
 
+                boolean pro = Helper.isPro(context);
                 boolean should = args.getBoolean("should");
 
                 if (!should && TextUtils.isEmpty(host))
@@ -772,8 +761,10 @@ public class FragmentAccount extends FragmentBase {
                     realm = null;
                 if (TextUtils.isEmpty(name))
                     name = user;
-                if (Color.TRANSPARENT == color)
+                if (color == Color.TRANSPARENT || !pro)
                     color = null;
+                if (!pro)
+                    notify = false;
 
                 long now = new Date().getTime();
 
@@ -931,11 +922,6 @@ public class FragmentAccount extends FragmentBase {
 
                     if (account.primary)
                         db.account().resetPrimary();
-
-                    if (!Helper.isPro(context)) {
-                        account.color = null;
-                        account.notify = false;
-                    }
 
                     if (update)
                         db.account().updateAccount(account);
@@ -1165,7 +1151,10 @@ public class FragmentAccount extends FragmentBase {
                     etRealm.setText(account == null ? null : account.realm);
 
                     etName.setText(account == null ? null : account.name);
-                    cbNotify.setChecked(account != null && account.notify && Helper.isPro(getContext()));
+
+                    boolean pro = Helper.isPro(getContext());
+                    cbNotify.setChecked(account != null && account.notify && pro);
+                    cbNotify.setEnabled(pro);
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? false : account.primary);

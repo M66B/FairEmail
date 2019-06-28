@@ -103,6 +103,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         private void bindTo(TupleIdentityEx identity) {
             view.setActivated(identity.tbd != null);
             vwColor.setBackgroundColor(identity.color == null ? Color.TRANSPARENT : identity.color);
+            vwColor.setVisibility(Helper.isPro(context) ? View.VISIBLE : View.INVISIBLE);
 
             ivSync.setImageResource(identity.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
 

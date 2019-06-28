@@ -833,8 +833,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             int flagged = (message.count - message.unflagged);
             ivFlagged.setImageResource(flagged > 0 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
             ivFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0
-                    ? message.color == null ? colorAccent : message.color
-                    : textColorSecondary));
+                    ? message.color == null || !Helper.isPro(context)
+                    ? colorAccent : message.color : textColorSecondary));
             ivFlagged.setVisibility(flags ? (message.uid == null ? View.INVISIBLE : View.VISIBLE) : View.GONE);
         }
 

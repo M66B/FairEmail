@@ -1838,11 +1838,11 @@ class Core {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean flags = prefs.getBoolean("flags", true);
         boolean notify_preview = prefs.getBoolean("notify_preview", true);
-        boolean notify_trash = prefs.getBoolean("notify_trash", true);
-        boolean notify_archive = prefs.getBoolean("notify_archive", true);
-        boolean notify_reply = prefs.getBoolean("notify_reply", false) && pro;
-        boolean notify_flag = prefs.getBoolean("notify_flag", false) && pro;
-        boolean notify_seen = prefs.getBoolean("notify_seen", true);
+        boolean notify_trash = (prefs.getBoolean("notify_trash", true) || !pro);
+        boolean notify_archive = (prefs.getBoolean("notify_archive", true) || !pro);
+        boolean notify_reply = (prefs.getBoolean("notify_reply", false) && pro);
+        boolean notify_flag = (prefs.getBoolean("notify_flag", false) && pro);
+        boolean notify_seen = (prefs.getBoolean("notify_seen", true) || !pro);
 
         // Get contact info
         Map<TupleMessageEx, ContactInfo> messageContact = new HashMap<>();

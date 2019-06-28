@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -55,7 +54,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
-import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
