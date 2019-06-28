@@ -610,41 +610,25 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (folder < 0) {
                     Bundle args = new Bundle();
 
-                    new SimpleTask<Map<EntityAccount, List<EntityFolder>>>() {
+                    new SimpleTask<List<EntityAccount>>() {
                         @Override
-                        protected Map<EntityAccount, List<EntityFolder>> onExecute(Context context, Bundle args) {
+                        protected List<EntityAccount> onExecute(Context context, Bundle args) {
                             Map<EntityAccount, List<EntityFolder>> result = new LinkedHashMap<>();
 
                             DB db = DB.getInstance(context);
-                            List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
-
-                            for (EntityAccount account : accounts) {
-                                List<EntityFolder> folders = db.folder().getFolders(account.id);
-                                if (folders.size() > 0)
-                                    Collections.sort(folders, folders.get(0).getComparator(null));
-                                result.put(account, folders);
-                            }
-
-                            return result;
+                            return db.account().getSynchronizingAccounts();
                         }
 
                         @Override
-                        protected void onExecuted(Bundle args, Map<EntityAccount, List<EntityFolder>> result) {
+                        protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
                             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fabSearch);
 
                             popupMenu.getMenu().add(Menu.NONE, 0, 0, R.string.title_search_in).setEnabled(false);
 
                             int order = 1;
-                            for (EntityAccount account : result.keySet()) {
-                                SubMenu smenu = popupMenu.getMenu()
-                                        .addSubMenu(Menu.NONE, 0, order++, account.name);
-                                int sorder = 1;
-                                for (EntityFolder folder : result.get(account)) {
-                                    MenuItem item = smenu.add(Menu.NONE, 1, sorder++,
-                                            Helper.localizeFolderName(getContext(), folder.name));
-                                    item.setIntent(new Intent().putExtra("target", folder.id));
-                                }
-                            }
+                            for (EntityAccount account : accounts)
+                                popupMenu.getMenu().add(Menu.NONE, 0, order++, account.name)
+                                        .setIntent(new Intent().putExtra("account", account.id));
 
                             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                                 @Override
@@ -653,8 +637,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     if (intent == null)
                                         return false;
 
-                                    long folder = intent.getLongExtra("target", -1);
-                                    search(getContext(), getViewLifecycleOwner(), getFragmentManager(), folder, true, query);
+                                    long account = intent.getLongExtra("account", -1);
+                                    DialogFolder.show(
+                                            getContext(), getViewLifecycleOwner(), view,
+                                            R.string.title_search_in,
+                                            account,
+                                            new ArrayList<Long>(),
+                                            new DialogFolder.IDialogFolder() {
+                                                @Override
+                                                public void onFolderSelected(TupleFolderEx folder) {
+                                                    search(
+                                                            getContext(), getViewLifecycleOwner(), getFragmentManager(),
+                                                            folder.id, true, query);
+                                                }
+                                            }
+                                    );
 
                                     return true;
                                 }
