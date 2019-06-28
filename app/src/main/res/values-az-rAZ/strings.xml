@@ -174,7 +174,6 @@
     <string name="title_advanced_autonext">Danışıq bağlanılanda avtomatik olaraq növbəti danışığa get</string>
     <string name="title_advanced_autoread">Hərəkətli mesajlarda oxunan mesajları avtomatik işarələ</string>
     <string name="title_advanced_automove">Hərəkətli mesajları təsdiqlə</string>
-    <string name="title_advanced_notify_group">Yeni mesaj bildirişlərini qruplandır</string>
     <string name="title_advanced_notify_preview">Bildirişlərdə mesaja ön baxışı göstər</string>
     <string name="title_advanced_light">Bildiriş işığından istifadə et</string>
     <string name="title_advanced_sound">Bildiriş səsi seç</string>

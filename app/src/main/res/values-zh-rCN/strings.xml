@@ -173,7 +173,6 @@
     <string name="title_advanced_autonext">关闭对话时自动转到下一个对话</string>
     <string name="title_advanced_autoread">将移动的邮件自动标记为已读</string>
     <string name="title_advanced_automove">确认移动邮件</string>
-    <string name="title_advanced_notify_group">对新消息通知分组</string>
     <string name="title_advanced_notify_preview">通知中显示消息预览</string>
     <string name="title_advanced_notify_actions">通知操作</string>
     <string name="title_advanced_notify_action_trash">垃圾箱</string>
@@ -601,8 +600,11 @@
     <string name="title_hint_tracking_image">跟踪图像%1$sx%2$s</string>
     <string name="title_hint_ignore_contact">长按以忽略联系人</string>
     <string name="title_open_link">打开链接</string>
-    <string name="title_ip_owner">所有者 IP 地址</string>
+    <string name="title_secure_link">确保链接安全</string>
+    <string name="title_link_secured">链接安全</string>
+    <string name="title_sanitize_link">删除跟踪参数</string>
     <string name="title_insecure_link">此链接不安全</string>
+    <string name="title_ip_owner">所有者 IP 地址</string>
     <string name="title_select_app">选择应用</string>
     <string name="title_updated">有新的版本%1$s可用</string>
     <string name="title_issue">您要提问或有问题吗？</string>
@@ -616,6 +618,7 @@
     <string name="title_report">报告</string>
     <string name="title_fix">修复</string>
     <string name="title_enable">启用</string>
+    <string name="title_ask_what">询问做什么</string>
     <string name="title_no_ask_again">别再询问</string>
     <string name="title_no_body">没有找到消息文本</string>
     <string name="title_no_charset">不支持的编码: %1$s</string>

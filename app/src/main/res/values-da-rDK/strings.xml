@@ -168,7 +168,6 @@
     <string name="title_advanced_autonext">Gå automatisk til næste samtale ved lukning af aktuel samtale</string>
     <string name="title_advanced_autoread">Markér automatisk meddelelser som læst ved flytning af meddelelser</string>
     <string name="title_advanced_automove">Bekræft flytning af meddelelser</string>
-    <string name="title_advanced_notify_group">Gruppér underretninger om ny meddelelse</string>
     <string name="title_advanced_notify_preview">Forhåndsvisning af meddelelse i underretning</string>
     <string name="title_advanced_notify_actions">Handling ved underretninger</string>
     <string name="title_advanced_notify_action_trash">Papirkurv</string>
@@ -551,8 +550,8 @@
     <string name="title_hint_tracking_image">Sporer billede %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Tryk og hold nede på en kontakt for aldrig at anse den som favorit</string>
     <string name="title_open_link">Åbn link</string>
-    <string name="title_ip_owner">Ejers IP-adresse</string>
     <string name="title_insecure_link">Dette link er usikkert</string>
+    <string name="title_ip_owner">Ejers IP-adresse</string>
     <string name="title_select_app">Vælg app</string>
     <string name="title_updated">Der er en opdatering %1$s tilgængelig</string>
     <string name="title_issue">Har du et spørgsmål eller problem?</string>

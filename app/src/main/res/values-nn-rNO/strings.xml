@@ -181,7 +181,6 @@
     <string name="title_advanced_autonext">Gå automatisk til neste samtale ved lukking av samtale</string>
     <string name="title_advanced_autoread">Merk automatisk meldinger som leste ved flytting</string>
     <string name="title_advanced_automove">Bekreft flytting av meldinger</string>
-    <string name="title_advanced_notify_group">Grupper nye meldingsvarsler</string>
     <string name="title_advanced_notify_preview">Vis forhåndsvisning av melding i varsler</string>
     <string name="title_advanced_notify_actions">Varselshandlinger</string>
     <string name="title_advanced_notify_action_trash">Søppel</string>
@@ -609,8 +608,8 @@
     <string name="title_hint_tracking_image">Sporer bilde %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Langt trykk på en kontakt for å aldri betrakte den som favoritt</string>
     <string name="title_open_link">Åpne link</string>
-    <string name="title_ip_owner">Eierens IP-adresse</string>
     <string name="title_insecure_link">Denne linken er usikker</string>
+    <string name="title_ip_owner">Eierens IP-adresse</string>
     <string name="title_select_app">Velg app</string>
     <string name="title_updated">Det er en oppdatering til versjon %1$s tilgjengelig</string>
     <string name="title_issue">Har du et spørsmål eller et problem?</string>

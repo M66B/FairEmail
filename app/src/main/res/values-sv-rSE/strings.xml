@@ -180,7 +180,6 @@
     <string name="title_advanced_autonext">Gå automatiskt till nästa konversation vid stängning av konversation</string>
     <string name="title_advanced_autoread">Märk automatiskt meddelanden som lästa vid flyttning av meddelanden</string>
     <string name="title_advanced_automove">Bekräfta flyttning av meddelanden</string>
-    <string name="title_advanced_notify_group">Gruppera nya meddelandeaviseringar</string>
     <string name="title_advanced_notify_preview">Visa meddelandeförhandsvisning i aviseringar</string>
     <string name="title_advanced_notify_actions">Aviseringsåtgärd</string>
     <string name="title_advanced_notify_action_trash">Papperskorg</string>
@@ -602,8 +601,8 @@
     <string name="title_hint_tracking_image">Spårar bild %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Långt tryck på en kontakt för att aldrig betrakta den som en favorit</string>
     <string name="title_open_link">Öppna länken</string>
-    <string name="title_ip_owner">Ägarens IP-adress</string>
     <string name="title_insecure_link">Denna länk är osäker</string>
+    <string name="title_ip_owner">Ägarens IP-adress</string>
     <string name="title_select_app">Välj app</string>
     <string name="title_updated">Det finns en uppdatering till version %1$s tillgänglig</string>
     <string name="title_issue">Har du en fråga eller problem?</string>

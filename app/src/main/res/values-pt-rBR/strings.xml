@@ -174,13 +174,13 @@
     <string name="title_advanced_pull_refresh">Puxe para baixo para atualizar</string>
     <string name="title_advanced_autoscroll">Role para cima ao receber novas mensagens</string>
     <string name="title_advanced_swipenav">Deslize para a esquerda/direita para ir para próxima/anterior conversa</string>
+    <string name="title_advanced_double_tap">Toque duplo para marcar mensagem lida/não lida</string>
     <string name="title_advanced_autoexpand">Expandir mensagens automaticamente</string>
     <string name="title_advanced_collapse">Recolher mensagens em conversas ao \'voltar\'</string>
     <string name="title_advanced_autoclose">Fechar conversas automaticamente</string>
     <string name="title_advanced_autonext">Ir para a próxima conversa automaticamente ao fechar a conversa</string>
     <string name="title_advanced_autoread">Marcar mensagens como lidas automaticamente ao movê-las</string>
     <string name="title_advanced_automove">Confirmar ao mover mensagens</string>
-    <string name="title_advanced_notify_group">Agrupar novas notificações de mensagem</string>
     <string name="title_advanced_notify_preview">Mostrar pré-visualização de mensagem nas notificações</string>
     <string name="title_advanced_notify_actions">Ações de notificação</string>
     <string name="title_advanced_notify_action_trash">Lixeira</string>
@@ -300,6 +300,7 @@
     <string name="title_create_channel">Criar canal de notificação</string>
     <string name="title_edit_channel">Editar canal de notificação</string>
     <string name="title_delete_channel">Excluir canal de notificação</string>
+    <string name="title_create_sub_folder">Criar subpasta</string>
     <string name="title_empty_trash_ask">Excluir todas as mensagens na lixeira permanentemente?</string>
     <string name="title_delete_operation">Excluir operações com uma mensagem de erro?</string>
     <string name="title_delete_contacts">Excluir todos os contatos locais?</string>
@@ -607,8 +608,8 @@
     <string name="title_hint_tracking_image">Imagem de rastreamento %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Pressione e segure um contato para nunca considerá-lo como favorito</string>
     <string name="title_open_link">Abrir link</string>
-    <string name="title_ip_owner">Endereço IP do proprietário</string>
     <string name="title_insecure_link">Este link é inseguro</string>
+    <string name="title_ip_owner">Endereço IP do proprietário</string>
     <string name="title_select_app">Selecionar app</string>
     <string name="title_updated">Há uma atualização para a versão %1$s disponível</string>
     <string name="title_issue">Você está com alguma dúvida ou algum problema?</string>

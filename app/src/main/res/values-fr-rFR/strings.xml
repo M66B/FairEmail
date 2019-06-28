@@ -181,7 +181,6 @@
     <string name="title_advanced_autonext">Lors de la fermeture d\'une conversation, aller automatiquement sur la suivante</string>
     <string name="title_advanced_autoread">Marquer automatiquement le message comme lu lors de son déplacement</string>
     <string name="title_advanced_automove">Confirmer le déplacement des messages</string>
-    <string name="title_advanced_notify_group">Grouper les notifications de nouveau message</string>
     <string name="title_advanced_notify_preview">Afficher l\'aperçu du message dans les notifications</string>
     <string name="title_advanced_notify_actions">Actions de notification</string>
     <string name="title_advanced_notify_action_trash">Supprimer</string>
@@ -609,8 +608,11 @@
     <string name="title_hint_tracking_image">Image de suivi %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Appuyer longuement sur un contact pour ne jamais le considérer comme un favori</string>
     <string name="title_open_link">Ouvrir le lien</string>
-    <string name="title_ip_owner">Adresse IP du propriétaire</string>
+    <string name="title_secure_link">Sécuriser le lien</string>
+    <string name="title_link_secured">Le lien est sécurisé</string>
+    <string name="title_sanitize_link">Supprimer les paramètres de suivi</string>
     <string name="title_insecure_link">Ce lien n’est pas sécurisé</string>
+    <string name="title_ip_owner">Adresse IP du propriétaire</string>
     <string name="title_select_app">Sélectionner une application</string>
     <string name="title_updated">Une mise à jour vers la version %1$s est disponible</string>
     <string name="title_issue">Avez-vous une question ou un problème ?</string>
@@ -624,6 +626,7 @@
     <string name="title_report">Rapport</string>
     <string name="title_fix">Corriger</string>
     <string name="title_enable">Activer</string>
+    <string name="title_ask_what">Demander ce qu\'il faut faire</string>
     <string name="title_no_ask_again">Ne plus me le demander</string>
     <string name="title_no_body">Aucun texte de message trouvé</string>
     <string name="title_no_charset">Format d\'encodage non pris en charge : %1$s</string>

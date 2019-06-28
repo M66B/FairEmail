@@ -177,7 +177,6 @@
     <string name="title_advanced_autonext">Sohbet kapatıldığında otomatik olarak sonraki sohbete git</string>
     <string name="title_advanced_autoread">İleti taşındığında otomatik olarak okundu diye işaretle</string>
     <string name="title_advanced_automove">İletileri taşımayı onaylayın</string>
-    <string name="title_advanced_notify_group">Yeni ileti bildirimlerini gruplandır</string>
     <string name="title_advanced_notify_preview">Bildirimlerde ileti önizlemesini göster</string>
     <string name="title_advanced_notify_actions">Bildirim eylemleri</string>
     <string name="title_advanced_notify_action_trash">Çöp kutusu</string>

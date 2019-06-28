@@ -194,7 +194,6 @@
     <string name="title_advanced_autonext">При закрытии диалога, автоматически открыть следующий</string>
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
     <string name="title_advanced_automove">Подтверждать перемещение сообщений</string>
-    <string name="title_advanced_notify_group">Группировать новые уведомления</string>
     <string name="title_advanced_notify_preview">Предпросмотр сообщений в уведомлениях</string>
     <string name="title_advanced_notify_actions">Действия с уведомлениями</string>
     <string name="title_advanced_notify_action_trash">Корзина</string>
@@ -618,8 +617,8 @@
     <string name="title_hint_tracking_image">Отслеживающее изображение %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Удерживайте контакт, чтобы никогда не считать его избранным</string>
     <string name="title_open_link">Открыть ссылку</string>
-    <string name="title_ip_owner">IP адрес владельца</string>
     <string name="title_insecure_link">Эта ссылка небезопасна</string>
+    <string name="title_ip_owner">IP адрес владельца</string>
     <string name="title_select_app">Выберите приложение</string>
     <string name="title_updated">Доступно обновление до версии %1$s</string>
     <string name="title_issue">У вас есть вопрос или проблема?</string>

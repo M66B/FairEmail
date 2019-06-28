@@ -189,7 +189,6 @@
     <string name="title_advanced_autonext">Automatski prelazak na sljedeći kad zatrvorite razgovor</string>
     <string name="title_advanced_autoread">Automatski označiti poruke kao pročitane u pokretu poruka</string>
     <string name="title_advanced_automove">Potvrditi pokret poruke</string>
-    <string name="title_advanced_notify_group">Grupirajte obavijesti o novim porukama</string>
     <string name="title_advanced_notify_preview">Prikaži pregled poruke u obavijestima</string>
     <string name="title_advanced_notify_actions">Akcije za Obavijesti</string>
     <string name="title_advanced_notify_action_trash">Otpad</string>
@@ -617,8 +616,8 @@
     <string name="title_hint_tracking_image">Slika za praćenje %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Dugo pritisnite kontakt da ga nikada ne biste smatrali favoritom</string>
     <string name="title_open_link">Otvori link</string>
-    <string name="title_ip_owner">IP adresa vlasnika</string>
     <string name="title_insecure_link">Ova veza je nesigurna</string>
+    <string name="title_ip_owner">IP adresa vlasnika</string>
     <string name="title_select_app">Odaberi Aplikaciju</string>
     <string name="title_updated">Dostupno je ažuriranje na verziju %1$s</string>
     <string name="title_issue">Imate li pitanje ili problem?</string>
@@ -632,6 +631,7 @@
     <string name="title_report">Izvješće</string>
     <string name="title_fix">Popravi</string>
     <string name="title_enable">Omogući</string>
+    <string name="title_ask_what">Pitati što učiniti</string>
     <string name="title_no_ask_again">Ne pitaj ponovno</string>
     <string name="title_no_body">Nije pronađen tekst poruke</string>
     <string name="title_no_charset">Nepodržano kodiranje: %1$s</string>

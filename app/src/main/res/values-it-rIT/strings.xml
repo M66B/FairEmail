@@ -181,7 +181,6 @@
     <string name="title_advanced_autonext">Passa automaticamente alla conversazione successiva nella conversazione stretta</string>
     <string name="title_advanced_autoread">Contrassegna automaticamente il messaggio come letto sul messaggio in movimento</string>
     <string name="title_advanced_automove">Conferma i messaggi in movimento</string>
-    <string name="title_advanced_notify_group">Raggruppa le nuove notifiche messaggi</string>
     <string name="title_advanced_notify_preview">Mostra anteprima messaggio nelle notifiche</string>
     <string name="title_advanced_notify_actions">Azioni di notifica</string>
     <string name="title_advanced_notify_action_trash">Cestino</string>
@@ -609,8 +608,11 @@
     <string name="title_hint_tracking_image">Immagine di tracciamento %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Tieni premuto un contatto per non considerarlo un preferito</string>
     <string name="title_open_link">Apri collegamento</string>
-    <string name="title_ip_owner">Indirizzo IP proprietario</string>
+    <string name="title_secure_link">Rendi il link sicuro</string>
+    <string name="title_link_secured">Il link è sicuro</string>
+    <string name="title_sanitize_link">Rimuovi i parametri di tracciamento</string>
     <string name="title_insecure_link">Questo link non è sicuro</string>
+    <string name="title_ip_owner">Indirizzo IP proprietario</string>
     <string name="title_select_app">Seleziona app</string>
     <string name="title_updated">È disponibile un aggiornamento alla versione %1$s</string>
     <string name="title_issue">Hai una domanda o un problema?</string>
@@ -624,6 +626,7 @@
     <string name="title_report">Report</string>
     <string name="title_fix">Correggi</string>
     <string name="title_enable">Attiva</string>
+    <string name="title_ask_what">Chiedi cosa fare</string>
     <string name="title_no_ask_again">Non chiedere di nuovo</string>
     <string name="title_no_body">Nessun messaggio di testo trovato</string>
     <string name="title_no_charset">Codifica non supportata: %1$s</string>

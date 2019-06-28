@@ -181,7 +181,6 @@
     <string name="title_advanced_autonext">Automatisch beim Schließen einer Konversation zur nächsten Konversation wechseln</string>
     <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen kennzeichnen</string>
     <string name="title_advanced_automove">Verschieben von Nachrichten bestätigen</string>
-    <string name="title_advanced_notify_group">Neue Nachrichten-Benachrichtigungen gruppieren</string>
     <string name="title_advanced_notify_preview">Zeige die Nachrichten-Vorschau in den Benachrichtigungen</string>
     <string name="title_advanced_notify_actions">Benachrichtigungsaktionen</string>
     <string name="title_advanced_notify_action_trash">Löschen</string>
@@ -609,8 +608,11 @@
     <string name="title_hint_tracking_image">Tracking-Bild %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Lange drücken einen Kontakt, um ihn nie als Favorit einzustufen</string>
     <string name="title_open_link">Link öffnen</string>
-    <string name="title_ip_owner">IP-Adresse des Eigentümers</string>
+    <string name="title_secure_link">Link sicher machen</string>
+    <string name="title_link_secured">Dieser Link ist sicher</string>
+    <string name="title_sanitize_link">Tracking-Parameter entfernen</string>
     <string name="title_insecure_link">Dieser Link ist unsicher</string>
+    <string name="title_ip_owner">IP-Adresse des Eigentümers</string>
     <string name="title_select_app">App auswählen</string>
     <string name="title_updated">Es ist ein Update auf Version %1$s verfügbar</string>
     <string name="title_issue">Haben Sie eine Frage oder ein Problem?</string>
@@ -624,6 +626,7 @@
     <string name="title_report">Bericht</string>
     <string name="title_fix">Problem beheben</string>
     <string name="title_enable">Aktivieren</string>
+    <string name="title_ask_what">Zu Aufgabe auffordern</string>
     <string name="title_no_ask_again">Dies nicht mehr anzeigen</string>
     <string name="title_no_body">Kein Nachrichtentext gefunden</string>
     <string name="title_no_charset">Nicht unterstützte Codierung: %1$s</string>

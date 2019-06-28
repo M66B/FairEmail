@@ -197,7 +197,6 @@
     <string name="title_advanced_autonext">Automaticky přejít na další konverzaci při zavření konverzace</string>
     <string name="title_advanced_autoread">Automaticky označit zprávy jako přečtené při přesunu</string>
     <string name="title_advanced_automove">Potvrzovat přesun zpráv</string>
-    <string name="title_advanced_notify_group">Seskupovat oznámení nových zpráv</string>
     <string name="title_advanced_notify_preview">Zobrazit náhled zprávy v oznámení</string>
     <string name="title_advanced_notify_actions">Akce oznámení</string>
     <string name="title_advanced_notify_action_trash">Koš</string>
@@ -625,8 +624,8 @@
     <string name="title_hint_tracking_image">Sledovací obrázek %1$sx%2$s px</string>
     <string name="title_hint_ignore_contact">Dlouhé podržení kontaktu = nikdy jej nepovažovat za oblíbený</string>
     <string name="title_open_link">Otevřít odkaz</string>
-    <string name="title_ip_owner">IP adresa vlastníka</string>
     <string name="title_insecure_link">Tento odkaz není bezpečný</string>
+    <string name="title_ip_owner">IP adresa vlastníka</string>
     <string name="title_select_app">Vyberte aplikaci</string>
     <string name="title_updated">Je k dispozici aktualizace na verzi %1$s</string>
     <string name="title_issue">Máte dotaz nebo problém?</string>

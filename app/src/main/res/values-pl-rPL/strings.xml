@@ -193,7 +193,6 @@
     <string name="title_advanced_autonext">Automatycznie przejdź do następnej rozmowy przy zamykaniu rozmowy</string>
     <string name="title_advanced_autoread">Automatycznie oznacz wiadomość jako przeczytaną przy przenoszeniu</string>
     <string name="title_advanced_automove">Potwierdź przenoszenie wiadomości</string>
-    <string name="title_advanced_notify_group">Grupuj powiadomienia o nowych wiadomościach</string>
     <string name="title_advanced_notify_preview">Pokaż podgląd wiadomości w powiadomieniach</string>
     <string name="title_advanced_notify_actions">Akcje powiadomień</string>
     <string name="title_advanced_notify_action_trash">Kosz</string>
@@ -603,8 +602,8 @@
     <string name="title_hint_tracking_image">Web beacon %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Długo naciśnij kontakt, aby nigdy nie uznać go za ulubiony</string>
     <string name="title_open_link">Otwórz link</string>
-    <string name="title_ip_owner">Adres IP właściciela</string>
     <string name="title_insecure_link">Ten link nie jest bezpieczny</string>
+    <string name="title_ip_owner">Adres IP właściciela</string>
     <string name="title_select_app">Wybierz aplikację</string>
     <string name="title_updated">Jest dostępna aktualizacja do wersji %1$s</string>
     <string name="title_issue">Masz pytanie lub problem?</string>
