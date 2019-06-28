@@ -132,7 +132,7 @@ dependencies {
     def room_version = "2.1.0"
     def paging_version = "2.1.0"
     def preference_version = "1.1.0-beta01"
-    def work_version = "2.1.0-beta02"
+    def work_version = "2.1.0-rc01"
     def exif_version = "1.1.0-alpha01"
     def billingclient_version = "2.0.1"
     def javamail_version = "1.6.3"
