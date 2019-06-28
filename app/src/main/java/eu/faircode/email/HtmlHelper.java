@@ -187,7 +187,7 @@ public class HtmlHelper {
         for (Element col : document.select("th,td")) {
             // separate columns by a space
             if (col.nextElementSibling() == null) {
-                if (col.selectFirst("div") == null)
+                if (col.selectFirst("div,table,p") == null)
                     col.appendElement("br");
             } else
                 col.append("&nbsp;");
