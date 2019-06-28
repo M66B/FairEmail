@@ -100,18 +100,10 @@ public class DialogDuration {
                         intf.onDurationSelected(duration, cal.getTimeInMillis());
                     }
                 })
-                .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialog) {
-                        intf.onDismiss();
-                    }
-                })
                 .show();
     }
 
     interface IDialogDuration {
         void onDurationSelected(long duration, long time);
-
-        void onDismiss();
     }
 }

@@ -1488,10 +1488,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             }
                         }.execute(getContext(), getViewLifecycleOwner(), args, "message:snooze");
                     }
-
-                    @Override
-                    public void onDismiss() {
-                    }
                 });
     }
 
@@ -1764,10 +1760,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
                         }.execute(FragmentMessages.this, args, "messages:snooze");
-                    }
-
-                    @Override
-                    public void onDismiss() {
                     }
                 });
     }

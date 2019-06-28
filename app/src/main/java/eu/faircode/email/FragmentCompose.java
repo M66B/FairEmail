@@ -1108,11 +1108,6 @@ public class FragmentCompose extends FragmentBase {
                             }
                         }.execute(FragmentCompose.this, args, "compose:send:after");
                     }
-
-                    @Override
-                    public void onDismiss() {
-
-                    }
                 });
     }
 
