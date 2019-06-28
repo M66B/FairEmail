@@ -586,13 +586,12 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 // Settings
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 JSONArray jsettings = new JSONArray();
-                for (String key : prefs.getAll().keySet())
-                    if (!"pro".equals(key)) {
-                        JSONObject jsetting = new JSONObject();
-                        jsetting.put("key", key);
-                        jsetting.put("value", prefs.getAll().get(key));
-                        jsettings.put(jsetting);
-                    }
+                for (String key : prefs.getAll().keySet()) {
+                    JSONObject jsetting = new JSONObject();
+                    jsetting.put("key", key);
+                    jsetting.put("value", prefs.getAll().get(key));
+                    jsettings.put(jsetting);
+                }
 
                 JSONObject jexport = new JSONObject();
                 jexport.put("accounts", jaccounts);
@@ -882,7 +881,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     for (int s = 0; s < jsettings.length(); s++) {
                         JSONObject jsetting = (JSONObject) jsettings.get(s);
                         String key = jsetting.getString("key");
-                        if (!"pro".equals(key)) {
+                        if (!"pro".equals(key) || BuildConfig.DEBUG) {
                             Object value = jsetting.get("value");
                             if (value instanceof Boolean)
                                 editor.putBoolean(key, (Boolean) value);
