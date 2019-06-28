@@ -39,17 +39,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
-    <TextView
-        android:id="@+id/tvInsecure"
+    <CheckBox
+        android:id="@+id/cbSecure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="@string/title_insecure_link"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:text="@string/title_secure_link"
         android:textColor="?attr/colorWarning"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etLink" />
+
+    <CheckBox
+        android:id="@+id/cbSanitize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/title_sanitize_link"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cbSecure" />
 
     <TextView
         android:id="@+id/tvOwnerTitle"
@@ -60,7 +68,7 @@
         android:text="@string/title_ip_owner"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvInsecure" />
+        app:layout_constraintTop_toBottomOf="@id/cbSanitize" />
 
     <TextView
         android:id="@+id/tvOwner"

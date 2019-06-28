@@ -44,12 +44,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.ContactsContract;
 import android.provider.Settings;
+import android.text.Editable;
 import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.text.method.ArrowKeyMovementMethod;
 import android.text.style.DynamicDrawableSpan;
 import android.text.style.ImageSpan;
@@ -2211,56 +2213,105 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean paranoid = prefs.getBoolean("paranoid", true);
 
-                final Uri _uri;
-                if (paranoid && !uri.isOpaque()) {
+                final Uri sanitized;
+                if (uri.isOpaque())
+                    sanitized = uri;
+                else {
                     // https://en.wikipedia.org/wiki/UTM_parameters
-                    Uri.Builder builder = new Uri.Builder();
+                    Uri.Builder builder = uri.buildUpon();
 
-                    String scheme = uri.getScheme();
-                    if (!TextUtils.isEmpty(scheme))
-                        builder.scheme(scheme);
-
-                    String authority = uri.getEncodedAuthority();
-                    if (!TextUtils.isEmpty(authority))
-                        builder.encodedAuthority(authority);
-
-                    String path = uri.getEncodedPath();
-                    if (!TextUtils.isEmpty(path))
-                        builder.encodedPath(path);
-
+                    builder.clearQuery();
                     for (String key : uri.getQueryParameterNames())
                         if (!PARANOID_QUERY.contains(key.toLowerCase()))
                             for (String value : uri.getQueryParameters(key))
-                                builder.appendQueryParameter(key, value);
+                                if (!TextUtils.isEmpty(key)) {
+                                    Log.i("Query " + key + "=" + value);
+                                    builder.appendQueryParameter(key, value);
+                                }
 
-                    String fragment = uri.getEncodedFragment();
-                    if (!TextUtils.isEmpty(fragment))
-                        builder.encodedFragment(fragment);
-
-                    _uri = builder.build();
-
-                    Log.i("Source uri=" + uri);
-                    Log.i("Target uri=" + _uri);
-                } else
-                    _uri = uri;
+                    sanitized = builder.build();
+                }
 
                 View view = LayoutInflater.from(context).inflate(R.layout.dialog_open_link, null);
                 TextView tvTitle = view.findViewById(R.id.tvTitle);
                 final EditText etLink = view.findViewById(R.id.etLink);
-                TextView tvInsecure = view.findViewById(R.id.tvInsecure);
+                final CheckBox cbSecure = view.findViewById(R.id.cbSecure);
+                CheckBox cbSanitize = view.findViewById(R.id.cbSanitize);
                 final TextView tvOwner = view.findViewById(R.id.tvOwner);
                 final Group grpOwner = view.findViewById(R.id.grpOwner);
 
                 tvTitle.setText(title);
                 tvTitle.setVisibility(TextUtils.isEmpty(title) ? View.GONE : View.VISIBLE);
 
-                etLink.setText(_uri.toString());
-                tvInsecure.setVisibility("http".equals(_uri.getScheme()) ? View.VISIBLE : View.GONE);
+                cbSecure.setVisibility(View.GONE);
+                etLink.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence text, int i, int i1, int i2) {
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable text) {
+                        Uri uri = Uri.parse(text.toString());
+                        cbSecure.setVisibility(!uri.isOpaque() &&
+                                ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme()))
+                                ? View.VISIBLE : View.GONE);
+                    }
+                });
+                etLink.setText(uri.toString());
+
+                boolean secure = "https".equals(uri.getScheme());
+                cbSecure.setChecked(secure);
+                cbSecure.setText(
+                        secure ? R.string.title_link_secured : R.string.title_secure_link);
+                cbSecure.setTextColor(Helper.resolveColor(context,
+                        secure ? android.R.attr.textColorSecondary : R.attr.colorWarning));
+                cbSecure.setTypeface(
+                        secure ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
+                cbSecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                        Uri uri = Uri.parse(etLink.getText().toString());
+                        Uri.Builder builder = uri.buildUpon();
+
+                        builder.scheme(checked ? "https" : "http");
+
+                        String authority = uri.getEncodedAuthority();
+                        if (authority != null) {
+                            authority = authority.replace(checked ? ":80" : ":443", checked ? ":443" : ":80");
+                            builder.encodedAuthority(authority);
+                        }
+
+                        etLink.setText(builder.build().toString());
+
+                        cbSecure.setText(
+                                checked ? R.string.title_link_secured : R.string.title_secure_link);
+                        cbSecure.setTextColor(Helper.resolveColor(context,
+                                checked ? android.R.attr.textColorSecondary : R.attr.colorWarning));
+                        cbSecure.setTypeface(
+                                checked ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
+                    }
+                });
+
+                cbSanitize.setVisibility(uri.equals(sanitized) ? View.GONE : View.VISIBLE);
+                cbSanitize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                        if (checked)
+                            etLink.setText(sanitized.toString());
+                        else
+                            etLink.setText(uri.toString());
+                    }
+                });
+
                 grpOwner.setVisibility(View.GONE);
 
                 if (paranoid) {
                     Bundle args = new Bundle();
-                    args.putParcelable("uri", _uri);
+                    args.putParcelable("uri", uri);
 
                     new SimpleTask<String>() {
                         @Override

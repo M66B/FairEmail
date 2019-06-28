@@ -1543,7 +1543,6 @@ The advanced option *extra privacy features* enables:
 
 * Looking up the owner of the IP address of a link
 * Detection and removal of [tracking images](#user-content-faq82)
-* Removal of [Urchin Tracking Module (UTM) parameters](https://en.wikipedia.org/wiki/UTM_parameters) from links
 
 <br />
 

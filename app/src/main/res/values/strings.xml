@@ -692,8 +692,11 @@
     <string name="title_hint_ignore_contact">Long press a contact to never consider it as a favorite</string>
 
     <string name="title_open_link">Open link</string>
-    <string name="title_ip_owner">Owner IP address</string>
+    <string name="title_secure_link">Make link secure</string>
+    <string name="title_link_secured">Link is secure</string>
+    <string name="title_sanitize_link">Remove tracking parameters</string>
     <string name="title_insecure_link">This link is insecure</string>
+    <string name="title_ip_owner">Owner IP address</string>
     <string name="title_select_app">Select app</string>
     <string name="title_updated">There is an update to version %1$s available</string>
     <string name="title_issue">Do you have a question or problem?</string>
