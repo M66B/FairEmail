@@ -534,6 +534,12 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void stopService() {
         EntityLog.log(this, "Service stop");
+
+        DB db = DB.getInstance(this);
+        List<EntityOperation> ops = db.operation().getOperations(EntityOperation.SYNC);
+        for (EntityOperation op : ops)
+            db.folder().setFolderSyncState(op.folder, null);
+
         stopSelf();
     }
 
@@ -1384,8 +1390,10 @@ public class ServiceSynchronize extends LifecycleService {
                             for (EntityAccount account : db.account().getAccounts())
                                 db.account().setAccountState(account.id, null);
 
-                            for (EntityFolder folder : db.folder().getFolders())
+                            for (EntityFolder folder : db.folder().getFolders()) {
                                 db.folder().setFolderState(folder.id, null);
+                                db.folder().setFolderSyncState(folder.id, null);
+                            }
                         }
                     } catch (Throwable ex) {
                         Log.e(ex);
