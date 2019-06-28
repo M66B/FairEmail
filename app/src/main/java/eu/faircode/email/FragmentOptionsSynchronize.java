@@ -131,7 +131,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                     } else {
                         swSchedule.setChecked(false);
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                        lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                        lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SHOW_PRO));
                     }
                 } else {
                     prefs.edit().putBoolean("schedule", false).apply();

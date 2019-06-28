@@ -244,7 +244,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         else {
             cb.setChecked(!checked);
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+            lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SHOW_PRO));
         }
     }
 
