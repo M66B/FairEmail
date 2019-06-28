@@ -1981,36 +1981,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onActionMoveSelectionAccount(long account, List<TupleFolderEx> folders, List<Long> disabled, final Long id) {
-        final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_folder_select, null);
-        final RecyclerView rvFolder = dview.findViewById(R.id.rvFolder);
-        final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
-
-        final Dialog dialog = new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setTitle(R.string.title_move_to_folder)
-                .setView(dview)
-                .create();
-
-        rvFolder.setHasFixedSize(false);
-        LinearLayoutManager llm = new LinearLayoutManager(getContext());
-        rvFolder.setLayoutManager(llm);
-
-        final AdapterFolder adapter = new AdapterFolder(getContext(), getViewLifecycleOwner(), view, account, false,
-                new AdapterFolder.IFolderSelectedListener() {
+        DialogFolder.show(
+                getContext(), getViewLifecycleOwner(), view,
+                R.string.title_move_to_folder,
+                account, disabled,
+                new DialogFolder.IDialogFolder() {
                     @Override
                     public void onFolderSelected(TupleFolderEx folder) {
-                        dialog.dismiss();
                         onActionMoveSelection(folder.id, id);
                     }
                 });
-
-        adapter.setDisabled(disabled);
-        adapter.set(folders);
-
-        rvFolder.setAdapter(adapter);
-
-        rvFolder.setVisibility(View.VISIBLE);
-        pbWait.setVisibility(View.GONE);
-        dialog.show();
     }
 
     private void onActionMoveSelection(long target, Long id) {

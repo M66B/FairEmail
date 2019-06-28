@@ -3008,25 +3008,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionMove(final ActionData data, final boolean copy) {
-            final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_folder_select, null);
-            final RecyclerView rvFolder = dview.findViewById(R.id.rvFolder);
-            final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
-
-            final Dialog dialog = new DialogBuilderLifecycle(context, owner)
-                    .setTitle(copy ? R.string.title_copy_to : R.string.title_move_to_folder)
-                    .setView(dview)
-                    .create();
-
-            rvFolder.setHasFixedSize(false);
-            LinearLayoutManager llm = new LinearLayoutManager(context);
-            rvFolder.setLayoutManager(llm);
-
-            final AdapterFolder adapter = new AdapterFolder(context, owner, parentView, data.message.account, false,
-                    new AdapterFolder.IFolderSelectedListener() {
+            DialogFolder.show(
+                    context, owner, parentView,
+                    copy ? R.string.title_copy_to : R.string.title_move_to_folder,
+                    data.message.account, Arrays.asList(data.message.folder),
+                    new DialogFolder.IDialogFolder() {
                         @Override
                         public void onFolderSelected(TupleFolderEx folder) {
-                            dialog.dismiss();
-
                             if (copy) {
                                 Bundle args = new Bundle();
                                 args.putLong("id", data.message.id);
@@ -3065,41 +3053,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 properties.move(data.message.id, folder.name, false);
                         }
                     });
-
-            rvFolder.setAdapter(adapter);
-
-            rvFolder.setVisibility(View.GONE);
-            pbWait.setVisibility(View.VISIBLE);
-            dialog.show();
-
-            Bundle args = new Bundle();
-            args.putLong("account", data.message.account);
-
-            new SimpleTask<List<TupleFolderEx>>() {
-                @Override
-                protected List<TupleFolderEx> onExecute(Context context, Bundle args) {
-                    long account = args.getLong("account");
-
-                    DB db = DB.getInstance(context);
-                    return db.folder().getFoldersEx(account);
-                }
-
-                @Override
-                protected void onExecuted(final Bundle args, List<TupleFolderEx> folders) {
-                    if (folders == null)
-                        folders = new ArrayList<>();
-
-                    adapter.setDisabled(Arrays.asList(data.message.folder));
-                    adapter.set(folders);
-                    pbWait.setVisibility(View.GONE);
-                    rvFolder.setVisibility(View.VISIBLE);
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
-                }
-            }.execute(context, owner, args, "message:move:list");
         }
 
         private void onActionMoveOutbox(ActionData data) {
