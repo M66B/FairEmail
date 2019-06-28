@@ -197,7 +197,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
             View.OnClickListener,
-            BottomNavigationView.OnNavigationItemSelectedListener {
+            BottomNavigationView.OnNavigationItemSelectedListener, View.OnLongClickListener {
         private View view;
         private View vwColor;
         private View vwStatus;
@@ -450,6 +450,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ivSnoozed.setOnClickListener(this);
             ivFlagged.setOnClickListener(this);
+            if (viewType == ViewType.THREAD)
+                ivFlagged.setOnLongClickListener(this);
 
             if (vsBody != null) {
                 ivExpanderAddress.setOnClickListener(this);
@@ -480,6 +482,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ivSnoozed.setOnClickListener(null);
             ivFlagged.setOnClickListener(null);
+            if (viewType == ViewType.THREAD)
+                ivFlagged.setOnLongClickListener(null);
 
             if (vsBody != null) {
                 ivExpanderAddress.setOnClickListener(null);
@@ -1466,6 +1470,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 }
             }
+        }
+
+        @Override
+        public boolean onLongClick(View view) {
+            final TupleMessageEx message = getMessage();
+            if (message == null)
+                return false;
+
+            if (view.getId() == R.id.ivFlagged) {
+                onMenuColoredStar(message);
+                return true;
+            }
+
+            return false;
         }
 
         private void onShowSnoozed(TupleMessageEx message) {
@@ -2462,10 +2480,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "message:unseen");
         }
 
-        private void onMenuColoredStar(final ActionData data) {
+        private void onMenuColoredStar(final TupleMessageEx message) {
             Intent color = new Intent(ActivityView.ACTION_COLOR);
-            color.putExtra("id", data.message.id);
-            color.putExtra("color", data.message.color == null ? Color.TRANSPARENT : data.message.color);
+            color.putExtra("id", message.id);
+            color.putExtra("color", message.color == null ? Color.TRANSPARENT : message.color);
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(color);
@@ -2952,7 +2970,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             onMenuUnseen(data);
                             return true;
                         case R.id.menu_flag_color:
-                            onMenuColoredStar(data);
+                            onMenuColoredStar(data.message);
                             return true;
                         case R.id.menu_copy:
                             onActionMove(data, true);
