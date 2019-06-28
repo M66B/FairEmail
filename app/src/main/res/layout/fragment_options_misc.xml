@@ -132,7 +132,7 @@
                 android:layout_marginEnd="48dp"
                 android:text="@string/title_advanced_paranoid_hint"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textStyle="italic"
+                android:textColor="@color/colorAccent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/swParanoid" />
