@@ -1834,7 +1834,6 @@ class Core {
             return notifications;
 
         boolean pro = Helper.isPro(context);
-        boolean canGroup = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean flags = prefs.getBoolean("flags", true);
