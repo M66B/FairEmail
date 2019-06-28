@@ -743,8 +743,10 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                         // Forward referenced
                         Long swipe_left = account.swipe_left;
                         Long swipe_right = account.swipe_right;
-                        account.swipe_left = null;
-                        account.swipe_right = null;
+                        if (account.swipe_left != null && account.swipe_left > 0)
+                            account.swipe_left = null;
+                        if (account.swipe_right != null && account.swipe_right > 0)
+                            account.swipe_right = null;
 
                         account.created = new Date().getTime();
                         account.id = db.account().insertAccount(account);

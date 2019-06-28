@@ -707,6 +707,7 @@
     <string name="title_report">Report</string>
     <string name="title_fix">Fix</string>
     <string name="title_enable">Enable</string>
+    <string name="title_ask_what">Ask what to do</string>
     <string name="title_no_ask_again">Do not ask this again</string>
     <string name="title_no_body">No message text found</string>
     <string name="title_no_charset">Unsupported encoding: %1$s</string>

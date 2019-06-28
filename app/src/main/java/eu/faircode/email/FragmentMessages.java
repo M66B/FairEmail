@@ -1120,9 +1120,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return 0;
 
             int flags = 0;
-            if (swipes.swipe_left == null || !swipes.swipe_left.equals(message.folder))
+            if (swipes.swipe_left != null &&
+                    (swipes.swipe_left < 0 || !swipes.swipe_left.equals(message.folder)))
                 flags |= ItemTouchHelper.LEFT;
-            if (swipes.swipe_right == null || !swipes.swipe_right.equals(message.folder))
+            if (swipes.swipe_right != null &&
+                    (swipes.swipe_right < 0 || !swipes.swipe_right.equals(message.folder)))
                 flags |= ItemTouchHelper.RIGHT;
 
             return makeMovementFlags(0, flags);
@@ -1213,7 +1215,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             Log.i("Swiped dir=" + direction + " message=" + message.id);
 
-            if (direction == ItemTouchHelper.LEFT ? swipes.swipe_left == null : swipes.swipe_right == null) {
+            if (direction == ItemTouchHelper.LEFT ? swipes.swipe_left < 0 : swipes.swipe_right < 0) {
                 adapter.notifyItemChanged(viewHolder.getAdapterPosition());
 
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), viewHolder.itemView);

@@ -91,7 +91,7 @@ public interface DaoAccount {
             "    WHERE account.synchronize) AS operations")
     LiveData<TupleAccountStats> liveStats();
 
-    @Query("SELECT account.id, l.id AS swipe_left, l.type AS left_type, r.id AS swipe_right, r.type AS right_type" +
+    @Query("SELECT account.id, account.swipe_left, l.type AS left_type, account.swipe_right, r.type AS right_type" +
             " FROM account" +
             " LEFT JOIN folder l ON l.id = account.swipe_left" +
             " LEFT JOIN folder r ON r.id = account.swipe_right")
