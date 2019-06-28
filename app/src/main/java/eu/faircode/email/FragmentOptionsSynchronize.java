@@ -52,6 +52,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swSchedule;
     private TextView tvScheduleStart;
     private TextView tvScheduleEnd;
+    private TextView tvSchedulePro;
     private SwitchCompat swUnseen;
     private SwitchCompat swFlagged;
     private SwitchCompat swSyncKept;
@@ -76,6 +77,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swSchedule = view.findViewById(R.id.swSchedule);
         tvScheduleStart = view.findViewById(R.id.tvScheduleStart);
         tvScheduleEnd = view.findViewById(R.id.tvScheduleEnd);
+        tvSchedulePro = view.findViewById(R.id.tvSchedulePro);
         swUnseen = view.findViewById(R.id.swUnseen);
         swFlagged = view.findViewById(R.id.swFlagged);
         swSyncKept = view.findViewById(R.id.swSyncKept);
@@ -147,6 +149,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 timePicker.show(getFragmentManager(), "timePicker");
             }
         });
+
+        Helper.linkPro(tvSchedulePro);
 
         swUnseen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

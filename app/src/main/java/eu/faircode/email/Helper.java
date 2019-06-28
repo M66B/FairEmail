@@ -47,6 +47,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -56,6 +57,7 @@ import androidx.core.content.ContextCompat;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -659,6 +661,17 @@ public class Helper {
         if (false && BuildConfig.DEBUG)
             return true;
         return PreferenceManager.getDefaultSharedPreferences(context).getBoolean("pro", false);
+    }
+
+    static void linkPro(TextView tv) {
+        tv.getPaint().setUnderlineText(true);
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(view.getContext());
+                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SHOW_PRO));
+            }
+        });
     }
 
     public static <T> List<List<T>> chunkList(List<T> list, int size) {

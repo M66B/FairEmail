@@ -99,11 +99,13 @@ public class FragmentAccount extends FragmentBase {
     private Button btnColor;
     private View vwColor;
     private ImageButton ibColorDefault;
+    private TextView tvColorPro;
 
     private Button btnAdvanced;
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
     private CheckBox cbNotify;
+    private TextView tvNotifyPro;
     private CheckBox cbBrowse;
     private EditText etInterval;
     private CheckBox cbPartialFetch;
@@ -176,11 +178,13 @@ public class FragmentAccount extends FragmentBase {
         btnColor = view.findViewById(R.id.btnColor);
         vwColor = view.findViewById(R.id.vwColor);
         ibColorDefault = view.findViewById(R.id.ibColorDefault);
+        tvColorPro = view.findViewById(R.id.tvColorPro);
 
         btnAdvanced = view.findViewById(R.id.btnAdvanced);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
         cbNotify = view.findViewById(R.id.cbNotify);
+        tvNotifyPro = view.findViewById(R.id.tvNotifyPro);
         cbBrowse = view.findViewById(R.id.cbBrowse);
         etInterval = view.findViewById(R.id.etInterval);
         cbPartialFetch = view.findViewById(R.id.cbPartialFetch);
@@ -312,6 +316,8 @@ public class FragmentAccount extends FragmentBase {
             }
         });
 
+        Helper.linkPro(tvColorPro);
+
         btnAdvanced.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -338,6 +344,8 @@ public class FragmentAccount extends FragmentBase {
             Helper.hide(cbNotify);
             Helper.hide(view.findViewById(R.id.tvNotifyPro));
         }
+
+        Helper.linkPro(tvNotifyPro);
 
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override

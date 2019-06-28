@@ -48,6 +48,7 @@ import java.text.SimpleDateFormat;
 public class FragmentOptionsMisc extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swBadge;
     private SwitchCompat swSubscriptions;
+    private TextView tvSubscriptionPro;
     private SwitchCompat swSubscribedOnly;
     private SwitchCompat swEnglish;
     private SwitchCompat swAuthentication;
@@ -85,6 +86,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swBadge = view.findViewById(R.id.swBadge);
         swSubscriptions = view.findViewById(R.id.swSubscriptions);
+        tvSubscriptionPro = view.findViewById(R.id.tvSubscriptionPro);
         swSubscribedOnly = view.findViewById(R.id.swSubscribedOnly);
         swEnglish = view.findViewById(R.id.swEnglish);
         swAuthentication = view.findViewById(R.id.swAuthentication);
@@ -122,6 +124,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 prefs.edit().putBoolean("subscriptions", checked).apply();
             }
         });
+
+        Helper.linkPro(tvSubscriptionPro);
 
         swSubscribedOnly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

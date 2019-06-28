@@ -89,6 +89,7 @@ public class FragmentIdentity extends FragmentBase {
     private Button btnColor;
     private View vwColor;
     private ImageButton ibColorDefault;
+    private TextView tvColorPro;
     private EditText etSignature;
     private Button btnHtml;
 
@@ -157,6 +158,7 @@ public class FragmentIdentity extends FragmentBase {
         btnColor = view.findViewById(R.id.btnColor);
         vwColor = view.findViewById(R.id.vwColor);
         ibColorDefault = view.findViewById(R.id.ibColorDefault);
+        tvColorPro = view.findViewById(R.id.tvColorPro);
         etSignature = view.findViewById(R.id.etSignature);
         btnHtml = view.findViewById(R.id.btnHtml);
 
@@ -284,6 +286,8 @@ public class FragmentIdentity extends FragmentBase {
                 setColor(Color.TRANSPARENT);
             }
         });
+
+        Helper.linkPro(tvColorPro);
 
         etSignature.addTextChangedListener(new TextWatcher() {
             @Override

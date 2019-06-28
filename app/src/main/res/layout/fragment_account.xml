@@ -327,9 +327,10 @@
                 android:id="@+id/tvColorPro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
                 android:text="@string/title_pro_feature"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textStyle="italic"
+                android:textColor="@color/colorAccent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btnColor" />
 
@@ -376,9 +377,10 @@
                 android:id="@+id/tvNotifyPro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
                 android:text="@string/title_pro_feature"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textStyle="italic"
+                android:textColor="@color/colorAccent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cbNotify" />
 

@@ -38,6 +38,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -54,6 +55,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private CheckBox cbNotifyActionReply;
     private CheckBox cbNotifyActionFlag;
     private CheckBox cbNotifyActionSeen;
+    private TextView tvNotifyActionsPro;
     private Button btnManage;
     private ImageButton ibManage;
     private SwitchCompat swLight;
@@ -81,6 +83,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         cbNotifyActionReply = view.findViewById(R.id.cbNotifyActionReply);
         cbNotifyActionFlag = view.findViewById(R.id.cbNotifyActionFlag);
         cbNotifyActionSeen = view.findViewById(R.id.cbNotifyActionSeen);
+        tvNotifyActionsPro = view.findViewById(R.id.tvNotifyActionsPro);
         btnManage = view.findViewById(R.id.btnManage);
         ibManage = view.findViewById(R.id.ibManage);
         swLight = view.findViewById(R.id.swLight);
@@ -136,6 +139,8 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
                 prefs.edit().putBoolean("notify_seen", checked).apply();
             }
         });
+
+        Helper.linkPro(tvNotifyActionsPro);
 
         final Intent manage = getIntentNotifications(getContext());
         btnManage.setVisibility(manage.resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
