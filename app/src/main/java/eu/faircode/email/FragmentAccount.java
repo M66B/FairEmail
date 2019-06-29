@@ -656,20 +656,20 @@ public class FragmentAccount extends FragmentBase {
         EntityFolder left = (EntityFolder) spLeft.getSelectedItem();
         EntityFolder right = (EntityFolder) spRight.getSelectedItem();
 
-        if (drafts != null && drafts.id == 0L)
+        if (drafts != null && drafts.id != null && drafts.id == 0L)
             drafts = null;
-        if (sent != null && sent.id == 0L)
+        if (sent != null && sent.id != null && sent.id == 0L)
             sent = null;
-        if (archive != null && archive.id == 0L)
+        if (archive != null && archive.id != null && archive.id == 0L)
             archive = null;
-        if (trash != null && trash.id == 0L)
+        if (trash != null && trash.id != null && trash.id == 0L)
             trash = null;
-        if (junk != null && junk.id == 0L)
+        if (junk != null && junk.id != null && junk.id == 0L)
             junk = null;
 
-        if (left != null && left.id == 0L)
+        if (left != null && left.id != null && left.id == 0L)
             left = null;
-        if (right != null && right.id == 0L)
+        if (right != null && right.id != null && right.id == 0L)
             right = null;
 
         Bundle args = new Bundle();
@@ -974,7 +974,7 @@ public class FragmentAccount extends FragmentBase {
                         folders.add(junk);
                     }
 
-                    if (left != null && left.id > 0) {
+                    if (left != null && !(left.id != null && left.id < 0)) {
                         boolean found = false;
                         for (EntityFolder folder : folders)
                             if (left.name.equals(folder.name)) {
@@ -987,7 +987,7 @@ public class FragmentAccount extends FragmentBase {
                         }
                     }
 
-                    if (right != null && right.id > 0) {
+                    if (right != null && !(right.id != null && right.id < 0)) {
                         boolean found = false;
                         for (EntityFolder folder : folders)
                             if (right.name.equals(folder.name)) {
