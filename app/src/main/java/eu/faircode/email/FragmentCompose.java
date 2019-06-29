@@ -1419,6 +1419,7 @@ public class FragmentCompose extends FragmentBase {
                                 attachment.name = (OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction())
                                         ? "encrypted.asc" : "signature.asc");
                                 attachment.type = "application/octet-stream";
+                                attachment.disposition = Part.INLINE;
                                 attachment.encryption = (OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction())
                                         ? EntityAttachment.PGP_MESSAGE : EntityAttachment.PGP_SIGNATURE);
                                 attachment.id = db.attachment().insertAttachment(attachment);
@@ -1779,8 +1780,7 @@ public class FragmentCompose extends FragmentBase {
                 attachment.type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension.toLowerCase());
             if (attachment.type == null)
                 attachment.type = "application/octet-stream";
-            if (image)
-                attachment.disposition = Part.INLINE;
+            attachment.disposition = (image ? Part.INLINE : Part.ATTACHMENT);
 
             attachment.size = (s == null ? null : Long.parseLong(s));
             attachment.progress = 0;
@@ -2131,6 +2131,7 @@ public class FragmentCompose extends FragmentBase {
                         attachment.sequence = 1;
                         attachment.name = ics.getName();
                         attachment.type = "text/calendar";
+                        attachment.disposition = Part.ATTACHMENT;
                         attachment.size = ics.length();
                         attachment.progress = null;
                         attachment.available = true;

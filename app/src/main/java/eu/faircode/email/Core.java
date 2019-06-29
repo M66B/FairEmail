@@ -1702,12 +1702,14 @@ class Core {
             }
 
             for (EntityAttachment attachment : attachments)
-                if (!attachment.available)
-                    if (state.getNetworkState().isUnmetered() || (attachment.size != null && attachment.size < maxSize))
+                if (!attachment.available && TextUtils.isEmpty(attachment.error))
+                    if (state.getNetworkState().isUnmetered() ||
+                            (attachment.size != null && attachment.size < maxSize))
                         try {
                             parts.downloadAttachment(context, attachment);
                         } catch (Throwable ex) {
                             Log.e(ex);
+                            db.attachment().setError(attachment.id, Helper.formatThrowable(ex, false));
                         }
         }
     }

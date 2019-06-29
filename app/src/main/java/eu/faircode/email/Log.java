@@ -60,6 +60,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.mail.Address;
+import javax.mail.Part;
 import javax.mail.internet.InternetAddress;
 
 public class Log {
@@ -293,6 +294,7 @@ public class Log {
         attachment.sequence = sequence;
         attachment.name = "settings.txt";
         attachment.type = "text/plain";
+        attachment.disposition = Part.ATTACHMENT;
         attachment.size = null;
         attachment.progress = 0;
         attachment.id = db.attachment().insertAttachment(attachment);
@@ -319,6 +321,7 @@ public class Log {
         attachment.sequence = sequence;
         attachment.name = "accounts.txt";
         attachment.type = "text/plain";
+        attachment.disposition = Part.ATTACHMENT;
         attachment.size = null;
         attachment.progress = 0;
         attachment.id = db.attachment().insertAttachment(attachment);
@@ -364,6 +367,7 @@ public class Log {
         attachment.sequence = sequence;
         attachment.name = "network.txt";
         attachment.type = "text/plain";
+        attachment.disposition = Part.ATTACHMENT;
         attachment.size = null;
         attachment.progress = 0;
         attachment.id = db.attachment().insertAttachment(attachment);
@@ -395,6 +399,7 @@ public class Log {
         attachment.sequence = sequence;
         attachment.name = "log.txt";
         attachment.type = "text/plain";
+        attachment.disposition = Part.ATTACHMENT;
         attachment.size = null;
         attachment.progress = 0;
         attachment.id = db.attachment().insertAttachment(attachment);
@@ -421,6 +426,7 @@ public class Log {
         attachment.sequence = sequence;
         attachment.name = "operations.txt";
         attachment.type = "text/plain";
+        attachment.disposition = Part.ATTACHMENT;
         attachment.size = null;
         attachment.progress = 0;
         attachment.id = db.attachment().insertAttachment(attachment);
@@ -451,6 +457,7 @@ public class Log {
         attachment.sequence = sequence;
         attachment.name = "logcat.txt";
         attachment.type = "text/plain";
+        attachment.disposition = Part.ATTACHMENT;
         attachment.size = null;
         attachment.progress = 0;
         attachment.id = db.attachment().insertAttachment(attachment);

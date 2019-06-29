@@ -864,7 +864,6 @@ public class MessageHelper {
             for (int i = 0; i < remotes.size(); i++) {
                 EntityAttachment remote = remotes.get(i);
                 if (Objects.equals(remote.name, local.name) &&
-                        Objects.equals(remote.disposition, local.disposition) &&
                         Objects.equals(remote.cid, local.cid)) {
                     found = true;
                     downloadAttachment(context, i, local);
