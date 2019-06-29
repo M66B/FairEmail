@@ -119,6 +119,10 @@ repositories {
     maven { url "https://jitpack.io" }
 }
 
+configurations.all {
+    exclude group: "androidx.lifecycle", module: "lifecycle-livedata"
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -178,7 +182,6 @@ dependencies {
 
     // https://mvnrepository.com/artifact/androidx.paging/paging-runtime
     implementation "androidx.paging:paging-runtime:$paging_version"
-
     // https://mvnrepository.com/artifact/androidx.preference/preference
     implementation "androidx.preference:preference:$preference_version"
 
