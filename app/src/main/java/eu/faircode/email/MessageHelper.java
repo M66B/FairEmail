@@ -923,6 +923,7 @@ public class MessageHelper {
                 throw new MessagingException("downloadAttachment", ex);
             } catch (Throwable ex) {
                 // Reset progress on failure
+                Log.e(ex);
                 db.attachment().setError(local.id, Helper.formatThrowable(ex));
                 throw ex;
             }

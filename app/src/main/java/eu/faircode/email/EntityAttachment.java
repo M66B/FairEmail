@@ -133,7 +133,7 @@ public class EntityAttachment {
                     Helper.copy(source, target);
                 } catch (IOException ex) {
                     Log.e(ex);
-                    db.attachment().setProgress(attachment.id, null);
+                    db.attachment().setError(attachment.id, Helper.formatThrowable(ex, false));
                 }
             }
         }

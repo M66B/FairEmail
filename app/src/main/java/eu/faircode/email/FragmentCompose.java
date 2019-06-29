@@ -1893,7 +1893,8 @@ public class FragmentCompose extends FragmentBase {
 
         } catch (IOException ex) {
             // Reset progress on failure
-            db.attachment().setProgress(attachment.id, null);
+            Log.e(ex);
+            db.attachment().setError(attachment.id, Helper.formatThrowable(ex, false));
             throw ex;
         }
 
