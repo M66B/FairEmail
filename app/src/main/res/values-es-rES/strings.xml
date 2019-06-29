@@ -609,6 +609,7 @@
     <string name="title_hint_ignore_contact">Mantener pulsado un contacto para no considerarlo nunca como favorito</string>
     <string name="title_open_link">Abrir enlace</string>
     <string name="title_secure_link">Hacer enlace seguro</string>
+    <string name="title_link_secured">El enlace es seguro</string>
     <string name="title_sanitize_link">Eliminar parámetros de rastreo</string>
     <string name="title_insecure_link">Este enlace es inseguro</string>
     <string name="title_ip_owner">Dirección IP del propietario</string>

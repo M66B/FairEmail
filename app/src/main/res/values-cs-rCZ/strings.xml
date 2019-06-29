@@ -624,6 +624,9 @@
     <string name="title_hint_tracking_image">Sledovací obrázek %1$sx%2$s px</string>
     <string name="title_hint_ignore_contact">Dlouhé podržení kontaktu = nikdy jej nepovažovat za oblíbený</string>
     <string name="title_open_link">Otevřít odkaz</string>
+    <string name="title_secure_link">Učinit odkaz bezpečným</string>
+    <string name="title_link_secured">Odkaz je bezpečný</string>
+    <string name="title_sanitize_link">Odebrat sledovací parametry</string>
     <string name="title_insecure_link">Tento odkaz není bezpečný</string>
     <string name="title_ip_owner">IP adresa vlastníka</string>
     <string name="title_select_app">Vyberte aplikaci</string>
@@ -639,6 +642,7 @@
     <string name="title_report">Nahlásit</string>
     <string name="title_fix">Opravit</string>
     <string name="title_enable">Zapnout</string>
+    <string name="title_ask_what">Zeptat se na požadovanou akci</string>
     <string name="title_no_ask_again">Znovu se neptat</string>
     <string name="title_no_body">Text zprávy nenalezen</string>
     <string name="title_no_charset">Nepodporované kódování: %1$s</string>

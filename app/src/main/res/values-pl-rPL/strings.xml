@@ -300,6 +300,7 @@
     <string name="title_pop3_hint">POP3 ma znaczne ograniczenia, więc używaj IMAP, gdy tylko jest to możliwe</string>
     <string name="title_pop3_support">POP3 nie jest wspierane, zobacz również FAQ</string>
     <string name="title_synchronize_now">Synchronizuj teraz</string>
+    <string name="title_synchronize_all">Synchronizuj wszystkie wiadomości</string>
     <string name="title_synchronize_enabled">Synchronizuj</string>
     <string name="title_delete_local">Usuń wiadomości lokalne</string>
     <string name="title_delete_browsed">Usuń przejrzane/przeszukane wiadomości</string>
@@ -309,6 +310,7 @@
     <string name="title_create_channel">Utwórz kanał powiadomień</string>
     <string name="title_edit_channel">Edytuj kanał powiadomień</string>
     <string name="title_delete_channel">Usuń kanał powiadomień</string>
+    <string name="title_create_sub_folder">Utwórz podfolder</string>
     <string name="title_empty_trash_ask">Trwale usunąć wszystkie wiadomości z kosza?</string>
     <string name="title_delete_operation">Usunąć działania z informacją o błędzie?</string>
     <string name="title_delete_contacts">Usunąć wszystkie lokalne kontakty?</string>
@@ -401,6 +403,8 @@
     <string name="title_ask_discard">Odrzucić szkic?</string>
     <string name="title_ask_show_html">Pokazywanie oryginalnej wiadomości może spowodować wyciek wrażliwych informacji</string>
     <string name="title_ask_show_image">Pokazywanie obrazów może spowodować wyciek wrażliwych informacji</string>
+    <string name="title_ask_sync_all">Synchronizować wszystkie wiadomości w %1$s?</string>
+    <string name="title_ask_delete_local">Usunąć tylko lokalne wiadomości, które są także przechowywane na zdalnym serwerze?</string>
     <string name="title_ask_help">Pomóż udoskonalić FairEmail</string>
     <string name="title_ask_reporting">Wyślij raport o błędach?</string>
     <string name="title_reporting_why">Raportowanie błędów pomoże poprawić FairEmail</string>
@@ -602,6 +606,8 @@
     <string name="title_hint_tracking_image">Web beacon %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Długo naciśnij kontakt, aby nigdy nie uznać go za ulubiony</string>
     <string name="title_open_link">Otwórz link</string>
+    <string name="title_secure_link">Utwórz bezpieczny link</string>
+    <string name="title_link_secured">Link jest bezpieczny</string>
     <string name="title_insecure_link">Ten link nie jest bezpieczny</string>
     <string name="title_ip_owner">Adres IP właściciela</string>
     <string name="title_select_app">Wybierz aplikację</string>
@@ -617,6 +623,7 @@
     <string name="title_report">Raport</string>
     <string name="title_fix">Popraw</string>
     <string name="title_enable">Włącz</string>
+    <string name="title_ask_what">Zapytaj co zrobić</string>
     <string name="title_no_ask_again">Nie pytaj ponownie</string>
     <string name="title_no_body">Nie znaleziono tekstu wiadomości</string>
     <string name="title_no_charset">Nieobsługiwane kodowanie: %1$s</string>
