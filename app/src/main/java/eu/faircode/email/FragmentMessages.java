@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -227,17 +228,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int REQUEST_ATTACHMENT = 2;
     private static final int REQUEST_ATTACHMENTS = 3;
     private static final int REQUEST_DECRYPT = 4;
-    private static final int REQUEST_DELETE = 5;
-    private static final int REQUEST_JUNK = 6;
-    private static final int REQUEST_ASKED_MOVE = 7;
-    private static final int REQUEST_ASKED_MOVE_ACROSS = 8;
-    static final int REQUEST_MESSAGE_COLOR = 9;
-    private static final int REQUEST_MESSAGES_COLOR = 10;
-    private static final int REQUEST_MESSAGE_SNOOZE = 11;
-    private static final int REQUEST_MESSAGES_SNOOZE = 12;
-    static final int REQUEST_MESSAGE_MOVE = 13;
-    private static final int REQUEST_MESSAGES_MOVE = 14;
-    private static final int REQUEST_SEARCH = 15;
+    static final int REQUEST_MESSAGE_DELETE = 5;
+    private static final int REQUEST_MESSAGES_DELETE = 6;
+    static final int REQUEST_MESSAGE_JUNK = 7;
+    private static final int REQUEST_MESSAGES_JUNK = 8;
+    private static final int REQUEST_ASKED_MOVE = 9;
+    private static final int REQUEST_ASKED_MOVE_ACROSS = 10;
+    static final int REQUEST_MESSAGE_COLOR = 11;
+    private static final int REQUEST_MESSAGES_COLOR = 12;
+    private static final int REQUEST_MESSAGE_SNOOZE = 13;
+    private static final int REQUEST_MESSAGES_SNOOZE = 14;
+    static final int REQUEST_MESSAGE_MOVE = 15;
+    private static final int REQUEST_MESSAGES_MOVE = 16;
+    private static final int REQUEST_SEARCH = 17;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
@@ -1764,7 +1767,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 FragmentDialogAsk ask = new FragmentDialogAsk();
                 ask.setArguments(aargs);
-                ask.setTargetFragment(FragmentMessages.this, REQUEST_DELETE);
+                ask.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGES_DELETE);
                 ask.show(getFragmentManager(), "messages:delete");
             }
 
@@ -1784,7 +1787,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         FragmentDialogAsk ask = new FragmentDialogAsk();
         ask.setArguments(aargs);
-        ask.setTargetFragment(FragmentMessages.this, REQUEST_JUNK);
+        ask.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGES_JUNK);
         ask.show(getFragmentManager(), "messages:junk");
     }
 
@@ -3299,11 +3302,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (resultCode == RESULT_OK && data != null)
                     onDecrypt(data, message);
                 break;
-            case REQUEST_DELETE:
+            case REQUEST_MESSAGE_DELETE:
+                if (resultCode == RESULT_OK && data != null)
+                    onDelete(data.getBundleExtra("args").getLong("id"));
+                break;
+            case REQUEST_MESSAGES_DELETE:
                 if (resultCode == RESULT_OK && data != null)
                     onDelete(data.getBundleExtra("args").getLongArray("ids"));
                 break;
-            case REQUEST_JUNK:
+            case REQUEST_MESSAGE_JUNK:
+                if (resultCode == RESULT_OK && data != null)
+                    onJunk(data.getBundleExtra("args").getLong("id"));
+                break;
+            case REQUEST_MESSAGES_JUNK:
                 if (resultCode == RESULT_OK)
                     onActionMoveSelection(EntityFolder.JUNK);
                 break;
@@ -3763,6 +3774,55 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(FragmentMessages.this, args, "decrypt");
     }
 
+    private void onDelete(long id) {
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null)
+                        return null;
+
+                    EntityFolder folder = db.folder().getFolder(message.folder);
+                    if (folder == null)
+                        return null;
+
+                    if (EntityFolder.OUTBOX.equals(folder.type)) {
+                        db.message().deleteMessage(id);
+
+                        db.folder().setFolderError(message.folder, null);
+                        if (message.identity != null) {
+                            db.identity().setIdentityError(message.identity, null);
+
+                            NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                            nm.cancel("send:" + message.identity, 1);
+                        }
+                    } else
+                        EntityOperation.queue(context, message, EntityOperation.DELETE);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(FragmentMessages.this, args, "message:delete");
+    }
+
     private void onDelete(long[] ids) {
         Bundle args = new Bundle();
         args.putLongArray("ids", ids);
@@ -3797,6 +3857,41 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.execute(FragmentMessages.this, args, "messages:delete:execute");
+    }
+
+    private void onJunk(long id) {
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null)
+                        return null;
+
+                    EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
+                    EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(getContext(), getViewLifecycleOwner(), args, "message:junk");
     }
 
     private void onMoveAskAcross(final ArrayList<MessageTarget> result) {

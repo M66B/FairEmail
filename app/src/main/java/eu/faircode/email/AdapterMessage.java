@@ -2377,47 +2377,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onMenuJunk(final TupleMessageEx message) {
             String who = MessageHelper.formatAddresses(message.from);
-            new DialogBuilderLifecycle(context, owner)
-                    .setMessage(context.getString(R.string.title_ask_spam_who, who))
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Bundle args = new Bundle();
-                            args.putLong("id", message.id);
 
-                            new SimpleTask<Void>() {
-                                @Override
-                                protected Void onExecute(Context context, Bundle args) {
-                                    long id = args.getLong("id");
+            Bundle aargs = new Bundle();
+            aargs.putString("question", context.getString(R.string.title_ask_spam_who, who));
+            aargs.putLong("id", message.id);
 
-                                    DB db = DB.getInstance(context);
-                                    try {
-                                        db.beginTransaction();
-
-                                        EntityMessage message = db.message().getMessage(id);
-                                        if (message == null)
-                                            return null;
-
-                                        EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
-                                        EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id);
-
-                                        db.setTransactionSuccessful();
-                                    } finally {
-                                        db.endTransaction();
-                                    }
-
-                                    return null;
-                                }
-
-                                @Override
-                                protected void onException(Bundle args, Throwable ex) {
-                                    Helper.unexpectedError(context, owner, ex);
-                                }
-                            }.execute(context, owner, args, "message:spam");
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show();
+            FragmentDialogAsk ask = new FragmentDialogAsk();
+            ask.setArguments(aargs);
+            ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_JUNK);
+            ask.show(parentFragment.getFragmentManager(), "message:junk");
         }
 
         private void onMenuDecrypt(TupleMessageEx message) {
@@ -2882,62 +2850,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onActionDelete(final ActionData data) {
             if (data.delete) {
-                // No trash or is trash
-                new DialogBuilderLifecycle(context, owner)
-                        .setMessage(R.string.title_ask_delete)
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Bundle args = new Bundle();
-                                args.putLong("id", data.message.id);
+                Bundle aargs = new Bundle();
+                aargs.putString("question", context.getString(R.string.title_ask_delete));
+                aargs.putLong("id", data.message.id);
 
-                                new SimpleTask<Void>() {
-                                    @Override
-                                    protected Void onExecute(Context context, Bundle args) {
-                                        long id = args.getLong("id");
-
-                                        DB db = DB.getInstance(context);
-                                        try {
-                                            db.beginTransaction();
-
-                                            EntityMessage message = db.message().getMessage(id);
-                                            if (message == null)
-                                                return null;
-
-                                            EntityFolder folder = db.folder().getFolder(message.folder);
-                                            if (folder == null)
-                                                return null;
-
-                                            if (EntityFolder.OUTBOX.equals(folder.type)) {
-                                                db.message().deleteMessage(id);
-
-                                                db.folder().setFolderError(message.folder, null);
-                                                if (message.identity != null) {
-                                                    db.identity().setIdentityError(message.identity, null);
-
-                                                    NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                                                    nm.cancel("send:" + message.identity, 1);
-                                                }
-                                            } else
-                                                EntityOperation.queue(context, message, EntityOperation.DELETE);
-
-                                            db.setTransactionSuccessful();
-                                        } finally {
-                                            db.endTransaction();
-                                        }
-
-                                        return null;
-                                    }
-
-                                    @Override
-                                    protected void onException(Bundle args, Throwable ex) {
-                                        Helper.unexpectedError(context, owner, ex);
-                                    }
-                                }.execute(context, owner, args, "message:delete");
-                            }
-                        })
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show();
+                FragmentDialogAsk ask = new FragmentDialogAsk();
+                ask.setArguments(aargs);
+                ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_DELETE);
+                ask.show(parentFragment.getFragmentManager(), "message:delete");
             } else
                 properties.move(data.message.id, EntityFolder.TRASH);
         }
