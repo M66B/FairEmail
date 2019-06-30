@@ -54,8 +54,6 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.colorpicker.ColorPickerDialog;
-import com.android.colorpicker.ColorPickerSwatch;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -135,6 +133,10 @@ public class FragmentRule extends FragmentBase {
     private int color = Color.TRANSPARENT;
 
     private final static int MAX_CHECK = 10;
+
+    private static final int REQUEST_SENDER = 1;
+    private static final int REQUEST_RECIPIENT = 2;
+    private static final int REQUEST_COLOR = 3;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -219,7 +221,7 @@ public class FragmentRule extends FragmentBase {
                 if (pick.resolveActivity(getContext().getPackageManager()) == null)
                     Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
                 else
-                    startActivityForResult(Helper.getChooser(getContext(), pick), ActivityView.REQUEST_SENDER);
+                    startActivityForResult(Helper.getChooser(getContext(), pick), REQUEST_SENDER);
             }
         });
 
@@ -230,7 +232,7 @@ public class FragmentRule extends FragmentBase {
                 if (pick.resolveActivity(getContext().getPackageManager()) == null)
                     Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
                 else
-                    startActivityForResult(Helper.getChooser(getContext(), pick), ActivityView.REQUEST_RECIPIENT);
+                    startActivityForResult(Helper.getChooser(getContext(), pick), REQUEST_RECIPIENT);
             }
         });
 
@@ -295,16 +297,10 @@ public class FragmentRule extends FragmentBase {
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int[] colors = getContext().getResources().getIntArray(R.array.colorPicker);
-                ColorPickerDialog colorPickerDialog = new ColorPickerDialogEx(getViewLifecycleOwner());
-                colorPickerDialog.initialize(R.string.title_flag_color, colors, color, 4, colors.length);
-                colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
-                    @Override
-                    public void onColorSelected(int color) {
-                        setColor(color);
-                    }
-                });
-                colorPickerDialog.show(getFragmentManager(), "colorpicker");
+                FragmentColor fragment = new FragmentColor();
+                fragment.initialize(R.string.title_flag_color, color, new Bundle(), getContext());
+                fragment.setTargetFragment(FragmentRule.this, REQUEST_COLOR);
+                fragment.show(getFragmentManager(), "rule:color");
             }
         });
 
@@ -417,12 +413,29 @@ public class FragmentRule extends FragmentBase {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.i("Request=" + requestCode + " result=" + resultCode + " data=" + data);
-        if (resultCode == RESULT_OK) {
-            if (data != null && requestCode == ActivityView.REQUEST_SENDER)
-                handlePickContact(data, true);
-            if (data != null && requestCode == ActivityView.REQUEST_RECIPIENT)
-                handlePickContact(data, false);
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+            case REQUEST_SENDER:
+                if (resultCode == RESULT_OK && data != null)
+                    handlePickContact(data, true);
+                break;
+            case REQUEST_RECIPIENT:
+                if (resultCode == RESULT_OK && data != null)
+                    handlePickContact(data, true);
+                break;
+            case REQUEST_COLOR:
+                if (resultCode == RESULT_OK && data != null) {
+                    if (!Helper.isPro(getContext())) {
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                        lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SHOW_PRO));
+                        return;
+                    }
+
+                    Bundle args = data.getBundleExtra("args");
+                    setColor(args.getInt("color"));
+                }
+                break;
         }
     }
 

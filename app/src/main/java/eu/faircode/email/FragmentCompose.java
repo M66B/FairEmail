@@ -105,8 +105,6 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.colorpicker.ColorPickerDialog;
-import com.android.colorpicker.ColorPickerSwatch;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
@@ -207,6 +205,16 @@ public class FragmentCompose extends FragmentBase {
 
     private static final int ADDRESS_ELLIPSIZE = 50;
 
+    private static final int REQUEST_CONTACT_TO = 1;
+    private static final int REQUEST_CONTACT_CC = 2;
+    private static final int REQUEST_CONTACT_BCC = 3;
+    private static final int REQUEST_IMAGE = 4;
+    private static final int REQUEST_ATTACHMENT = 5;
+    private static final int REQUEST_TAKE_PHOTO = 6;
+    private static final int REQUEST_RECORD_AUDIO = 7;
+    private static final int REQUEST_ENCRYPT = 8;
+    private static final int REQUEST_COLOR = 9;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -284,13 +292,13 @@ public class FragmentCompose extends FragmentBase {
                 int request;
                 switch (view.getId()) {
                     case R.id.ivToAdd:
-                        request = ActivityCompose.REQUEST_CONTACT_TO;
+                        request = REQUEST_CONTACT_TO;
                         break;
                     case R.id.ivCcAdd:
-                        request = ActivityCompose.REQUEST_CONTACT_CC;
+                        request = REQUEST_CONTACT_CC;
                         break;
                     case R.id.ivBccAdd:
-                        request = ActivityCompose.REQUEST_CONTACT_BCC;
+                        request = REQUEST_CONTACT_BCC;
                         break;
                     default:
                         return;
@@ -1113,7 +1121,7 @@ public class FragmentCompose extends FragmentBase {
 
     private void onActionRecordAudio() {
         Intent intent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
-        startActivityForResult(intent, ActivityCompose.REQUEST_RECORD_AUDIO);
+        startActivityForResult(intent, REQUEST_RECORD_AUDIO);
     }
 
     private void onActionTakePhoto() {
@@ -1125,7 +1133,7 @@ public class FragmentCompose extends FragmentBase {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         photoURI = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID, file);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-        startActivityForResult(intent, ActivityCompose.REQUEST_TAKE_PHOTO);
+        startActivityForResult(intent, REQUEST_TAKE_PHOTO);
     }
 
     private void onActionImage() {
@@ -1136,7 +1144,7 @@ public class FragmentCompose extends FragmentBase {
         if (intent.resolveActivity(pm) == null)
             Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
         else
-            startActivityForResult(Helper.getChooser(getContext(), intent), ActivityCompose.REQUEST_IMAGE);
+            startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_IMAGE);
     }
 
     private void onActionAttachment() {
@@ -1148,7 +1156,7 @@ public class FragmentCompose extends FragmentBase {
         if (intent.resolveActivity(pm) == null)
             Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
         else
-            startActivityForResult(Helper.getChooser(getContext(), intent), ActivityCompose.REQUEST_ATTACHMENT);
+            startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_ATTACHMENT);
     }
 
     private void onActionLink() {
@@ -1518,7 +1526,7 @@ public class FragmentCompose extends FragmentBase {
                         PendingIntent pi = (PendingIntent) result;
                         startIntentSenderForResult(
                                 pi.getIntentSender(),
-                                ActivityCompose.REQUEST_ENCRYPT,
+                                REQUEST_ENCRYPT,
                                 null, 0, 0, 0, null);
                     } catch (IntentSender.SendIntentException ex) {
                         Log.e(ex);
@@ -1538,45 +1546,65 @@ public class FragmentCompose extends FragmentBase {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            if (requestCode == ActivityCompose.REQUEST_IMAGE) {
-                if (data != null) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+            case REQUEST_IMAGE:
+                if (resultCode == RESULT_OK && data != null) {
                     Uri uri = data.getData();
                     if (uri != null)
                         handleAddAttachment(uri, true);
                 }
-            } else if (requestCode == ActivityCompose.REQUEST_ATTACHMENT ||
-                    requestCode == ActivityCompose.REQUEST_RECORD_AUDIO ||
-                    requestCode == ActivityCompose.REQUEST_TAKE_PHOTO) {
+                break;
+            case REQUEST_ATTACHMENT:
+            case REQUEST_RECORD_AUDIO:
+            case REQUEST_TAKE_PHOTO:
+                if (resultCode == RESULT_OK) {
+                    if (requestCode == REQUEST_TAKE_PHOTO)
+                        data = new Intent().setData(photoURI);
 
-                if (requestCode == ActivityCompose.REQUEST_TAKE_PHOTO)
-                    data = new Intent().setData(photoURI);
-
-                if (data != null) {
-                    ClipData clipData = data.getClipData();
-                    if (clipData == null) {
-                        Uri uri = data.getData();
-                        if (uri != null)
-                            handleAddAttachment(uri, false);
-                    } else {
-                        for (int i = 0; i < clipData.getItemCount(); i++) {
-                            ClipData.Item item = clipData.getItemAt(i);
-                            Uri uri = item.getUri();
+                    if (data != null) {
+                        ClipData clipData = data.getClipData();
+                        if (clipData == null) {
+                            Uri uri = data.getData();
                             if (uri != null)
                                 handleAddAttachment(uri, false);
+                        } else {
+                            for (int i = 0; i < clipData.getItemCount(); i++) {
+                                ClipData.Item item = clipData.getItemAt(i);
+                                Uri uri = item.getUri();
+                                if (uri != null)
+                                    handleAddAttachment(uri, false);
+                            }
                         }
                     }
                 }
-            } else if (requestCode == ActivityCompose.REQUEST_ENCRYPT) {
-                if (data != null) {
+                break;
+            case REQUEST_ENCRYPT:
+                if (resultCode == RESULT_OK && data != null) {
                     if (BuildConfig.DEBUG || BuildConfig.BETA_RELEASE)
                         Log.logExtras(data);
                     doPgp(data);
                 }
-            } else {
-                if (data != null)
+                break;
+            case REQUEST_COLOR:
+                if (resultCode == RESULT_OK && data != null) {
+                    Bundle args = data.getBundleExtra("args");
+                    int color = args.getInt("color");
+                    int start = args.getInt("start");
+                    int end = args.getInt("end");
+
+                    SpannableString ss = new SpannableString(etBody.getText());
+                    for (ForegroundColorSpan span : ss.getSpans(start, end, ForegroundColorSpan.class))
+                        ss.removeSpan(span);
+                    ss.setSpan(new ForegroundColorSpan(color), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    etBody.setText(ss);
+                    etBody.setSelection(end);
+                }
+                break;
+            default:
+                if (resultCode == RESULT_OK && data != null)
                     handlePickContact(requestCode, data);
-            }
         }
     }
 
@@ -1621,11 +1649,11 @@ public class FragmentCompose extends FragmentBase {
                                 return null;
 
                             Address[] address = null;
-                            if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
+                            if (requestCode == REQUEST_CONTACT_TO)
                                 address = draft.to;
-                            else if (requestCode == ActivityCompose.REQUEST_CONTACT_CC)
+                            else if (requestCode == REQUEST_CONTACT_CC)
                                 address = draft.cc;
-                            else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
+                            else if (requestCode == REQUEST_CONTACT_BCC)
                                 address = draft.bcc;
 
                             List<Address> list = new ArrayList<>();
@@ -1634,11 +1662,11 @@ public class FragmentCompose extends FragmentBase {
 
                             list.add(new InternetAddress(email, name));
 
-                            if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
+                            if (requestCode == REQUEST_CONTACT_TO)
                                 draft.to = list.toArray(new Address[0]);
-                            else if (requestCode == ActivityCompose.REQUEST_CONTACT_CC)
+                            else if (requestCode == REQUEST_CONTACT_CC)
                                 draft.cc = list.toArray(new Address[0]);
-                            else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
+                            else if (requestCode == REQUEST_CONTACT_BCC)
                                 draft.bcc = list.toArray(new Address[0]);
 
                             db.message().updateMessage(draft);
@@ -3153,7 +3181,7 @@ public class FragmentCompose extends FragmentBase {
                 end = tmp;
             }
 
-            final SpannableString ss = new SpannableString(etBody.getText());
+            SpannableString ss = new SpannableString(etBody.getText());
 
             switch (item.getItemId()) {
                 case R.string.title_style_bold:
@@ -3213,26 +3241,17 @@ public class FragmentCompose extends FragmentBase {
                 }
 
                 case R.string.title_style_color: {
-                    final int s = start;
-                    final int e = end;
+                    Bundle args = new Bundle();
+                    args.putInt("start", start);
+                    args.putInt("end", end);
 
                     ForegroundColorSpan[] spans = ss.getSpans(start, end, ForegroundColorSpan.class);
                     int color = (spans.length > 0 ? spans[0].getForegroundColor() : Color.TRANSPARENT);
 
-                    int[] colors = getContext().getResources().getIntArray(R.array.colorPicker);
-                    ColorPickerDialog colorPickerDialog = new ColorPickerDialogEx(getViewLifecycleOwner());
-                    colorPickerDialog.initialize(R.string.title_style_color, colors, color, 4, colors.length);
-                    colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
-                        @Override
-                        public void onColorSelected(int color) {
-                            for (ForegroundColorSpan span : ss.getSpans(s, e, ForegroundColorSpan.class))
-                                ss.removeSpan(span);
-                            ss.setSpan(new ForegroundColorSpan(color), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            etBody.setText(ss);
-                            etBody.setSelection(e);
-                        }
-                    });
-                    colorPickerDialog.show(getFragmentManager(), "colorpicker");
+                    FragmentColor fragment = new FragmentColor();
+                    fragment.initialize(R.string.title_style_color, color, args, getContext());
+                    fragment.setTargetFragment(FragmentCompose.this, REQUEST_COLOR);
+                    fragment.show(getFragmentManager(), "account:color");
 
                     return true;
                 }

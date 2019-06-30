@@ -45,15 +45,6 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
 public class ActivityCompose extends ActivityBilling implements FragmentManager.OnBackStackChangedListener {
-    static final int REQUEST_CONTACT_TO = 1;
-    static final int REQUEST_CONTACT_CC = 2;
-    static final int REQUEST_CONTACT_BCC = 3;
-    static final int REQUEST_IMAGE = 4;
-    static final int REQUEST_ATTACHMENT = 5;
-    static final int REQUEST_TAKE_PHOTO = 6;
-    static final int REQUEST_RECORD_AUDIO = 7;
-    static final int REQUEST_ENCRYPT = 8;
-
     static final int PI_REPLY = 1;
 
     static final String ACTION_SHOW_PRO = BuildConfig.APPLICATION_ID + ".SHOW_PRO";

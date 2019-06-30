@@ -85,6 +85,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -143,7 +144,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private Context context;
     private LayoutInflater inflater;
     private LifecycleOwner owner;
-    private View parentView;
+    private Fragment parentFragment;
     private ViewType viewType;
     private boolean compact;
     private int zoom;
@@ -411,7 +412,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             StaggeredGridLayoutManager sglm =
                     new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
             rvImage.setLayoutManager(sglm);
-            adapterImage = new AdapterImage(context, owner, parentView);
+            adapterImage = new AdapterImage(context, owner, parentFragment.getView());
             rvImage.setAdapter(adapterImage);
 
             grpAddresses = vsBody.findViewById(R.id.grpAddresses);
@@ -1491,7 +1492,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
                 DateFormat day = new SimpleDateFormat("E");
                 Snackbar.make(
-                        parentView,
+                        parentFragment.getView(),
                         day.format(message.ui_snoozed) + " " + df.format(message.ui_snoozed),
                         Snackbar.LENGTH_LONG).show();
             }
@@ -1701,7 +1702,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 PackageManager pm = context.getPackageManager();
                 if (edit.resolveActivity(pm) == null)
-                    Snackbar.make(parentView, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(parentFragment.getView(),
+                            R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
                 else
                     context.startActivity(edit);
             }
@@ -2481,12 +2483,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onMenuColoredStar(final TupleMessageEx message) {
-            Intent color = new Intent(ActivityView.ACTION_COLOR);
-            color.putExtra("id", message.id);
-            color.putExtra("color", message.color == null ? Color.TRANSPARENT : message.color);
+            int color = (message.color == null ? Color.TRANSPARENT : message.color);
 
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(color);
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            FragmentColor fragment = new FragmentColor();
+            fragment.initialize(R.string.title_flag_color, color, args, context);
+            fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_COLOR);
+            fragment.show(parentFragment.getFragmentManager(), "message:color");
         }
 
         private void onMenuDelete(final TupleMessageEx message) {
@@ -2790,7 +2795,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     PackageManager pm = context.getPackageManager();
                     if (share.resolveActivity(pm) == null)
-                        Snackbar.make(parentView, R.string.title_no_viewer, Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(parentFragment.getView(),
+                                R.string.title_no_viewer, Snackbar.LENGTH_LONG).show();
                     else
                         context.startActivity(share);
                 }
@@ -3078,7 +3084,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onActionMove(final TupleMessageEx message, final boolean copy) {
             DialogFolder.show(
-                    context, owner, parentView,
+                    context, owner, parentFragment.getView(),
                     copy ? R.string.title_copy_to : R.string.title_move_to_folder,
                     message.account, Arrays.asList(message.folder),
                     new DialogFolder.IDialogFolder() {
@@ -3290,7 +3296,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected void onExecuted(Bundle args, List<EntityAnswer> answers) {
                     if (answers == null || answers.size() == 0) {
                         Snackbar snackbar = Snackbar.make(
-                                parentView,
+                                parentFragment.getView(),
                                 context.getString(R.string.title_no_answers),
                                 Snackbar.LENGTH_LONG);
                         snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
@@ -3352,7 +3358,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
     }
 
-    AdapterMessage(Context context, LifecycleOwner owner, View parentView,
+    AdapterMessage(Context context, LifecycleOwner owner, Fragment parentFragment,
                    ViewType viewType, boolean compact, int zoom, String sort, boolean filter_duplicates, final IProperties properties) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
@@ -3361,7 +3367,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.context = context;
         this.owner = owner;
         this.inflater = LayoutInflater.from(context);
-        this.parentView = parentView;
+        this.parentFragment = parentFragment;
         this.viewType = viewType;
         this.compact = compact;
         this.zoom = zoom;

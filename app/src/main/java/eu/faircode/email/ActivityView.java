@@ -68,9 +68,6 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.colorpicker.ColorPickerDialog;
-import com.android.colorpicker.ColorPickerSwatch;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
@@ -117,9 +114,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final int REQUEST_ERROR = 5;
     static final int REQUEST_UPDATE = 6;
 
-    static final int REQUEST_SENDER = 1;
-    static final int REQUEST_RECIPIENT = 2;
-
     static final String ACTION_VIEW_FOLDERS = BuildConfig.APPLICATION_ID + ".VIEW_FOLDERS";
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
     static final String ACTION_SEARCH = BuildConfig.APPLICATION_ID + ".SEARCH";
@@ -129,7 +123,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_EDIT_ANSWER = BuildConfig.APPLICATION_ID + ".EDIT_ANSWER";
     static final String ACTION_EDIT_RULES = BuildConfig.APPLICATION_ID + ".EDIT_RULES";
     static final String ACTION_EDIT_RULE = BuildConfig.APPLICATION_ID + ".EDIT_RULE";
-    static final String ACTION_COLOR = BuildConfig.APPLICATION_ID + ".COLOR";
     static final String ACTION_PRINT = BuildConfig.APPLICATION_ID + ".PRINT";
     static final String ACTION_SHOW_PRO = BuildConfig.APPLICATION_ID + ".SHOW_PRO";
 
@@ -514,7 +507,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_EDIT_ANSWER);
         iff.addAction(ACTION_EDIT_RULES);
         iff.addAction(ACTION_EDIT_RULE);
-        iff.addAction(ACTION_COLOR);
         iff.addAction(ACTION_PRINT);
         iff.addAction(ACTION_SHOW_PRO);
         lbm.registerReceiver(receiver, iff);
@@ -939,8 +931,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     onEditRules(intent);
                 else if (ACTION_EDIT_RULE.equals(action))
                     onEditRule(intent);
-                else if (ACTION_COLOR.equals(action))
-                    onColor(intent);
                 else if (ACTION_PRINT.equals(action))
                     onPrint(intent);
                 else if (ACTION_SHOW_PRO.equals(action))
@@ -1043,53 +1033,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("rule");
         fragmentTransaction.commit();
-    }
-
-    private void onColor(final Intent intent) {
-        int color = intent.getIntExtra("color", -1);
-        int[] colors = getResources().getIntArray(R.array.colorPicker);
-        ColorPickerDialog colorPickerDialog = new ColorPickerDialogEx(this);
-        colorPickerDialog.initialize(R.string.title_flag_color, colors, color, 4, colors.length);
-        colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
-            @Override
-            public void onColorSelected(int color) {
-                if (!Helper.isPro(ActivityView.this)) {
-                    onShowPro(null);
-                    return;
-                }
-
-                Bundle args = new Bundle();
-                args.putLong("id", intent.getLongExtra("id", -1));
-                args.putInt("color", color);
-
-                new SimpleTask<Void>() {
-                    @Override
-                    protected Void onExecute(final Context context, Bundle args) {
-                        final long id = args.getLong("id");
-                        final int color = args.getInt("color");
-
-                        final DB db = DB.getInstance(context);
-                        db.runInTransaction(new Runnable() {
-                            @Override
-                            public void run() {
-                                EntityMessage message = db.message().getMessage(id);
-                                if (message == null)
-                                    return;
-
-                                EntityOperation.queue(context, message, EntityOperation.FLAG, true, color);
-                            }
-                        });
-                        return null;
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
-                    }
-                }.execute(ActivityView.this, ActivityView.this, args, "message:color");
-            }
-        });
-        colorPickerDialog.show(getSupportFragmentManager(), "colorpicker");
     }
 
     private void onPrint(Intent intent) {

@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -48,6 +47,8 @@ import androidx.preference.PreferenceManager;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Objects;
+
+import static android.app.Activity.RESULT_OK;
 
 public class FragmentFolder extends FragmentBase {
     private ViewGroup view;
@@ -242,7 +243,7 @@ public class FragmentFolder extends FragmentBase {
 
         switch (requestCode) {
             case REQUEST_SAVE_CHANGES:
-                if (resultCode == Activity.RESULT_OK) {
+                if (resultCode == RESULT_OK) {
                     new Handler().post(new Runnable() {
                         @Override
                         public void run() {
@@ -255,7 +256,7 @@ public class FragmentFolder extends FragmentBase {
                 break;
 
             case REQUEST_DELETE_FOLDER:
-                if (resultCode == Activity.RESULT_OK)
+                if (resultCode == RESULT_OK)
                     onDelete();
                 break;
         }

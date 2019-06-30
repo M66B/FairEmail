@@ -249,8 +249,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.i("Result class=" + this.getClass().getSimpleName() +
-                " request=" + requestCode + " result=" + resultCode + " data=" + data);
+        super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == ActivitySetup.REQUEST_SOUND)
             if (resultCode == RESULT_OK) {

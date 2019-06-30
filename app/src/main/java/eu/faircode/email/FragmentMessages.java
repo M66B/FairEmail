@@ -91,8 +91,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.android.colorpicker.ColorPickerDialog;
-import com.android.colorpicker.ColorPickerSwatch;
 import com.bugsnag.android.Bugsnag;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -130,6 +128,7 @@ import java.util.Properties;
 import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
 
+import static android.app.Activity.RESULT_OK;
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static android.text.format.DateUtils.DAY_IN_MILLIS;
 import static android.text.format.DateUtils.FORMAT_SHOW_DATE;
@@ -229,6 +228,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int REQUEST_JUNK = 6;
     private static final int REQUEST_MOVE = 7;
     private static final int REQUEST_MOVE_ACROSS = 8;
+    static final int REQUEST_MESSAGE_COLOR = 9;
+    private static final int REQUEST_MESSAGES_COLOR = 10;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
@@ -505,7 +506,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", false);
 
         adapter = new AdapterMessage(
-                getContext(), getViewLifecycleOwner(), view,
+                getContext(), getViewLifecycleOwner(), this,
                 viewType, compact, zoom, sort, filter_duplicates, iProperties);
         rvMessage.setAdapter(adapter);
 
@@ -1245,7 +1246,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 onActionSnoozeSelection(message.id);
                                 return true;
                             case R.string.title_flag_color:
-                                onActionFlagColorSelection(message.color == null ? Color.TRANSPARENT : message.color, message.id);
+                                onMenuColor();
                                 return true;
                             case R.string.title_move:
                                 onMenuMove();
@@ -1253,6 +1254,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             default:
                                 return false;
                         }
+                    }
+
+                    private void onMenuColor() {
+                        int color = (message.color == null ? Color.TRANSPARENT : message.color);
+
+                        Bundle args = new Bundle();
+                        args.putLong("id", message.id);
+
+                        FragmentColor fragment = new FragmentColor();
+                        fragment.initialize(R.string.title_flag_color, color, args, getContext());
+                        fragment.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_MESSAGE_COLOR);
+                        fragment.show(getFragmentManager(), "message:color");
                     }
 
                     private void onMenuMove() {
@@ -1612,13 +1625,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 onActionSnoozeSelection(null);
                                 return true;
                             case R.string.title_flag:
-                                onActionFlagSelection(true, null, null);
+                                onActionFlagSelection(true, null);
                                 return true;
                             case R.string.title_unflag:
-                                onActionFlagSelection(false, null, null);
+                                onActionFlagSelection(false, null);
                                 return true;
                             case R.string.title_flag_color:
-                                onActionFlagColorSelection(Color.TRANSPARENT, null);
+                                onActionFlagColorSelection();
                                 return true;
                             case R.string.title_archive:
                                 onActionMoveSelection(EntityFolder.ARCHIVE);
@@ -1764,9 +1777,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 });
     }
 
-    private void onActionFlagSelection(boolean flagged, Integer color, Long id) {
+    private void onActionFlagSelection(boolean flagged, Integer color) {
         Bundle args = new Bundle();
-        args.putLongArray("ids", id == null ? getSelection() : new long[]{id});
+        args.putLongArray("ids", getSelection());
         args.putBoolean("flagged", flagged);
         if (color != null)
             args.putInt("color", color);
@@ -1809,23 +1822,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(FragmentMessages.this, args, "messages:flag");
     }
 
-    private void onActionFlagColorSelection(int color, final Long id) {
-        int[] colors = getResources().getIntArray(R.array.colorPicker);
-        ColorPickerDialog colorPickerDialog = new ColorPickerDialogEx(getViewLifecycleOwner());
-        colorPickerDialog.initialize(R.string.title_flag_color, colors, color, 4, colors.length);
-        colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
-            @Override
-            public void onColorSelected(int color) {
-                if (!Helper.isPro(getContext())) {
-                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                    lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
-                    return;
-                }
-
-                onActionFlagSelection(true, color, id);
-            }
-        });
-        colorPickerDialog.show(getFragmentManager(), "colorpicker");
+    private void onActionFlagColorSelection() {
+        FragmentColor fragment = new FragmentColor();
+        fragment.initialize(R.string.title_flag_color, Color.TRANSPARENT, new Bundle(), getContext());
+        fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGES_COLOR);
+        fragment.show(getFragmentManager(), "messages:color");
     }
 
     private void onActionDeleteSelection() {
@@ -3634,36 +3635,58 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         switch (requestCode) {
             case REQUEST_RAW:
-                if (resultCode == Activity.RESULT_OK && data != null)
+                if (resultCode == RESULT_OK && data != null)
                     saveRaw(data);
                 break;
             case REQUEST_ATTACHMENT:
-                if (resultCode == Activity.RESULT_OK && data != null)
+                if (resultCode == RESULT_OK && data != null)
                     saveAttachment(data);
                 break;
             case REQUEST_ATTACHMENTS:
-                if (resultCode == Activity.RESULT_OK && data != null)
+                if (resultCode == RESULT_OK && data != null)
                     saveAttachments(data);
                 break;
             case REQUEST_DECRYPT:
-                if (resultCode == Activity.RESULT_OK && data != null)
+                if (resultCode == RESULT_OK && data != null)
                     decrypt(data, message);
                 break;
             case REQUEST_DELETE:
-                if (resultCode == Activity.RESULT_OK && data != null)
+                if (resultCode == RESULT_OK && data != null)
                     onDelete(data.getBundleExtra("args").getLongArray("ids"));
                 break;
             case REQUEST_JUNK:
-                if (resultCode == Activity.RESULT_OK)
+                if (resultCode == RESULT_OK)
                     onActionMoveSelection(EntityFolder.JUNK);
                 break;
             case REQUEST_MOVE:
-                if (resultCode == Activity.RESULT_OK && data != null)
+                if (resultCode == RESULT_OK && data != null)
                     moveAskAcross(data.getBundleExtra("args").<MessageTarget>getParcelableArrayList("result"));
                 break;
             case REQUEST_MOVE_ACROSS:
-                if (resultCode == Activity.RESULT_OK && data != null)
+                if (resultCode == RESULT_OK && data != null)
                     moveAskConfirmed(data.getBundleExtra("args").<MessageTarget>getParcelableArrayList("result"));
+                break;
+            case REQUEST_MESSAGE_COLOR:
+                if (resultCode == RESULT_OK && data != null) {
+                    Bundle args = data.getBundleExtra("args");
+                    long id = args.getLong("id");
+                    int color = args.getInt("color");
+                    onColorSelected(id, color);
+                }
+                break;
+            case REQUEST_MESSAGES_COLOR:
+                if (resultCode == RESULT_OK && data != null) {
+                    if (!Helper.isPro(getContext())) {
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                        lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                        return;
+                    }
+
+                    Bundle args = data.getBundleExtra("args");
+                    int color = args.getInt("color");
+
+                    onActionFlagSelection(true, color);
+                }
                 break;
         }
     }
@@ -3922,6 +3945,44 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.execute(this, args, "attachments:save");
+    }
+
+    public void onColorSelected(long id, int color) {
+        if (!Helper.isPro(getContext())) {
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+            return;
+        }
+
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+        args.putInt("color", color);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(final Context context, Bundle args) {
+                final long id = args.getLong("id");
+                final int color = args.getInt("color");
+
+                final DB db = DB.getInstance(context);
+                db.runInTransaction(new Runnable() {
+                    @Override
+                    public void run() {
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null)
+                            return;
+
+                        EntityOperation.queue(context, message, EntityOperation.FLAG, true, color);
+                    }
+                });
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(getContext(), getViewLifecycleOwner(), args, "message:color");
     }
 
     static void search(

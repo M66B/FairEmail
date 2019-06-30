@@ -55,8 +55,6 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-import com.android.colorpicker.ColorPickerDialog;
-import com.android.colorpicker.ColorPickerSwatch;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.sun.mail.imap.IMAPFolder;
@@ -75,6 +73,7 @@ import javax.mail.Folder;
 import javax.mail.Session;
 import javax.mail.Store;
 
+import static android.app.Activity.RESULT_OK;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
 
@@ -141,6 +140,8 @@ public class FragmentAccount extends FragmentBase {
     private long id = -1;
     private boolean saving = false;
     private int color = Color.TRANSPARENT;
+
+    private static final int REQUEST_COLOR = 1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -290,22 +291,10 @@ public class FragmentAccount extends FragmentBase {
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int[] colors = getContext().getResources().getIntArray(R.array.colorPicker);
-                ColorPickerDialog colorPickerDialog = new ColorPickerDialogEx(getViewLifecycleOwner());
-                colorPickerDialog.initialize(R.string.title_account_color, colors, color, 4, colors.length);
-                colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
-                    @Override
-                    public void onColorSelected(int color) {
-                        if (!Helper.isPro(getContext())) {
-                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                            lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SHOW_PRO));
-                            return;
-                        }
-
-                        setColor(color);
-                    }
-                });
-                colorPickerDialog.show(getFragmentManager(), "colorpicker");
+                FragmentColor fragment = new FragmentColor();
+                fragment.initialize(R.string.title_account_color, color, new Bundle(), getContext());
+                fragment.setTargetFragment(FragmentAccount.this, REQUEST_COLOR);
+                fragment.show(getFragmentManager(), "account:color");
             }
         });
 
@@ -1309,6 +1298,26 @@ public class FragmentAccount extends FragmentBase {
                 })
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+            case REQUEST_COLOR:
+                if (resultCode == RESULT_OK && data != null) {
+                    if (!Helper.isPro(getContext())) {
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                        lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SHOW_PRO));
+                        return;
+                    }
+
+                    Bundle args = data.getBundleExtra("args");
+                    setColor(args.getInt("color"));
+                }
+                break;
+        }
     }
 
     private void setColor(int color) {
