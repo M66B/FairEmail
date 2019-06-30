@@ -171,17 +171,21 @@ public class HtmlHelper {
         // Abbreviations
         document.select("abbr").tagName("u");
 
-        // Remove link tracking pixels
-        if (paranoid)
-            for (Element img : document.select("img"))
-                if (isTrackingPixel(img)) {
-                    String src = img.attr("src");
-                    img.removeAttr("src");
-                    img.tagName("a");
-                    img.attr("href", src);
-                    img.appendText(context.getString(R.string.title_hint_tracking_image,
-                            img.attr("width"), img.attr("height")));
-                }
+        // Subscript/Superscript
+        for (Element subp : document.select("sub,sup")) {
+            Element small = document.createElement("small");
+            small.html(subp.html());
+            subp.html(small.outerHtml());
+        }
+
+        // Lists
+        for (Element li : document.select("li")) {
+            li.tagName("span");
+            li.prependText("* ");
+            li.appendElement("br"); // line break after list item
+        }
+        document.select("ol").tagName("div");
+        document.select("ul").tagName("div");
 
         // Tables
         for (Element col : document.select("th,td")) {
@@ -209,27 +213,23 @@ public class HtmlHelper {
             else
                 table.tagName("div");
 
-        // Lists
-        for (Element li : document.select("li")) {
-            li.tagName("span");
-            li.prependText("* ");
-            li.appendElement("br"); // line break after list item
-        }
-        document.select("ol").tagName("div");
-        document.select("ul").tagName("div");
+        // Remove link tracking pixels
+        if (paranoid)
+            for (Element img : document.select("img"))
+                if (isTrackingPixel(img)) {
+                    String src = img.attr("src");
+                    img.removeAttr("src");
+                    img.tagName("a");
+                    img.attr("href", src);
+                    img.appendText(context.getString(R.string.title_hint_tracking_image,
+                            img.attr("width"), img.attr("height")));
+                }
 
+        // Autolink
         final Pattern pattern = Pattern.compile(
                 PatternsCompat.AUTOLINK_EMAIL_ADDRESS.pattern() + "|" +
                         PatternsCompat.AUTOLINK_WEB_URL.pattern());
 
-        // Subscript/Superscript
-        for (Element subp : document.select("sub,sup")) {
-            Element small = document.createElement("small");
-            small.html(subp.html());
-            subp.html(small.outerHtml());
-        }
-
-        // Autolink
         NodeTraversor.traverse(new NodeVisitor() {
             @Override
             public void head(Node node, int depth) {
