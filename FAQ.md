@@ -1835,11 +1835,7 @@ Alternatively, you can *Delete local messages* by long pressing the folder(s) in
 (X)OAuth authentication, formerly available as *Select account* for Google accounts, requires creating an online (Google, Microsoft, etc) app,
 which would make authentication for many people dependent on one (developer) account, which is a bad idea.
 
-Google requires requesting special permission for the online app and has appeared to be unreliable in granting this permission.
-When requested permission for FairEmail, the request was denied with the remark that send permission would be enough, ... right.
-An appeal was completely ignored, which is unfortunately typical for Google.
-Also, Google requires a yearly security assessment which will cost between $15,000 and $75,000.
-This is how you exclude independent developers ...
+See also [this related article](https://arstechnica.com/gadgets/2019/06/gmails-api-lockdown-will-kill-some-third-party-app-access-starting-july-15/).
 
 Outlook and Hotmail do not properly support OAuth for IMAP/SMTP connections.
 [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-android) is supported for business accounts only
