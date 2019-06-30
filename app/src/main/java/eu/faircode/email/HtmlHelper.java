@@ -84,7 +84,7 @@ public class HtmlHelper {
 
     private static final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
-    static String sanitize(Context context, String html) {
+    static String sanitize(Context context, String html, boolean show_images) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean paranoid = prefs.getBoolean("paranoid", true);
 
@@ -224,17 +224,25 @@ public class HtmlHelper {
             else
                 table.tagName("div");
 
-        // Remove link tracking pixels
-        if (paranoid)
-            for (Element img : document.select("img"))
-                if (isTrackingPixel(img)) {
-                    String src = img.attr("src");
-                    img.removeAttr("src");
-                    img.tagName("a");
-                    img.attr("href", src);
-                    img.appendText(context.getString(R.string.title_hint_tracking_image,
-                            img.attr("width"), img.attr("height")));
+        // Images
+        for (Element img : document.select("img")) {
+            // Remove link tracking pixels
+            if (paranoid && isTrackingPixel(img)) {
+                String src = img.attr("src");
+                img.removeAttr("src");
+                img.tagName("a");
+                img.attr("href", src);
+                img.appendText(context.getString(R.string.title_hint_tracking_image,
+                        img.attr("width"), img.attr("height")));
+            }
+
+            if (!show_images) {
+                String alt = img.attr("alt");
+                if (!TextUtils.isEmpty(alt)) {
+                    img.appendText(alt);
                 }
+            }
+        }
 
         // Autolink
         final Pattern pattern = Pattern.compile(

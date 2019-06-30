@@ -127,7 +127,7 @@ public class ActivityEml extends ActivityBase {
 
                     result.html = parts.getHtml(context);
                     if (result.html != null)
-                        result.body = HtmlHelper.fromHtml(HtmlHelper.sanitize(context, result.html));
+                        result.body = HtmlHelper.fromHtml(HtmlHelper.sanitize(context, result.html, false));
 
                     ByteArrayOutputStream bos = new ByteArrayOutputStream();
                     mmessage.writeTo(bos);

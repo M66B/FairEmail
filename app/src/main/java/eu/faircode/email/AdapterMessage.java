@@ -2054,7 +2054,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     body = document.html();
                 }
 
-                String html = HtmlHelper.sanitize(context, body);
+                String html = HtmlHelper.sanitize(context, body, show_images);
                 if (debug)
                     html += "<pre>" + Html.escapeHtml(html) + "</pre>";
 
