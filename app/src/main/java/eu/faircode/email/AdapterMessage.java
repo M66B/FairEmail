@@ -3483,8 +3483,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     public static class FragmentDialogLink extends DialogFragment {
-        private TwoStateOwner owner = new TwoStateOwner("link:open");
-
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -3619,7 +3617,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         else
                             tvOwner.setText(ex.getMessage());
                     }
-                }.execute(getContext(), owner, args, "link:domain");
+                }.execute(getContext(), getActivity(), args, "link:domain");
             }
 
             return new AlertDialog.Builder(getContext())
@@ -3628,36 +3626,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Uri uri = Uri.parse(etLink.getText().toString());
-                            Helper.view(getContext(), owner, uri, false);
+                            Helper.view(getContext(), getActivity(), uri, false);
                         }
                     })
                     .setNeutralButton(R.string.title_browse, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Uri uri = Uri.parse(etLink.getText().toString());
-                            Helper.view(getContext(), owner, uri, true);
+                            Helper.view(getContext(), getActivity(), uri, true);
                         }
                     })
                     .setNegativeButton(R.string.title_no, null)
                     .show();
         }
-
-        @Override
-        public void onStart() {
-            super.onStart();
-            owner.resume();
-        }
-
-        @Override
-        public void onDestroyView() {
-            owner.destroy();
-            super.onDestroyView();
-        }
     }
 
     public static class FragmentKeywordManage extends DialogFragment {
-        private TwoStateOwner owner = new TwoStateOwner("keyword:manage");
-
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -3732,9 +3716,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                 @Override
                                 protected void onException(Bundle args, Throwable ex) {
-                                    Helper.unexpectedError(getContext(), owner, ex);
+                                    Helper.unexpectedError(getContext(), getActivity(), ex);
                                 }
-                            }.execute(getContext(), owner, args, "message:keywords:managa");
+                            }.execute(getContext(), getActivity(), args, "message:keywords:manage");
                         }
                     })
                     .setNeutralButton(R.string.title_add, new DialogInterface.OnClickListener() {
@@ -3750,23 +3734,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     })
                     .create();
         }
-
-        @Override
-        public void onStart() {
-            super.onStart();
-            owner.resume();
-        }
-
-        @Override
-        public void onDestroyView() {
-            owner.destroy();
-            super.onDestroyView();
-        }
     }
 
     public static class FragmentKeywordAdd extends DialogFragment {
-        private TwoStateOwner owner = new TwoStateOwner("keyword:add");
-
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -3810,24 +3780,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                     @Override
                                     protected void onException(Bundle args, Throwable ex) {
-                                        Helper.unexpectedError(getContext(), owner, ex);
+                                        Helper.unexpectedError(getContext(), getActivity(), ex);
                                     }
-                                }.execute(getContext(), owner, args, "message:keyword:add");
+                                }.execute(getContext(), getActivity(), args, "message:keyword:add");
                             }
                         }
                     }).create();
-        }
-
-        @Override
-        public void onStart() {
-            super.onStart();
-            owner.resume();
-        }
-
-        @Override
-        public void onDestroyView() {
-            owner.destroy();
-            super.onDestroyView();
         }
     }
 }

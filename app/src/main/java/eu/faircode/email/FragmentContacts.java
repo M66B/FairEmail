@@ -181,8 +181,6 @@ public class FragmentContacts extends FragmentBase {
     }
 
     public static class FragmentDelete extends DialogFragment {
-        private TwoStateOwner owner = new TwoStateOwner("contacts:delete");
-
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -207,25 +205,13 @@ public class FragmentContacts extends FragmentBase {
 
                                 @Override
                                 protected void onException(Bundle args, Throwable ex) {
-                                    Helper.unexpectedError(getContext(), owner, ex);
+                                    Helper.unexpectedError(getContext(), getActivity(), ex);
                                 }
-                            }.execute(getContext(), owner, new Bundle(), "contacts:delete");
+                            }.execute(getContext(), getActivity(), new Bundle(), "contacts:delete");
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
                     .create();
-        }
-
-        @Override
-        public void onStart() {
-            super.onStart();
-            owner.resume();
-        }
-
-        @Override
-        public void onDestroyView() {
-            owner.destroy();
-            super.onDestroyView();
         }
     }
 }

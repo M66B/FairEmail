@@ -42,8 +42,6 @@ import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentDialogFolder extends DialogFragment {
-    private TwoStateOwner owner = new TwoStateOwner("folder:select");
-
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -79,7 +77,7 @@ public class FragmentDialogFolder extends DialogFragment {
 
                 long account = args.getLong("account");
                 AdapterFolder adapter = new AdapterFolder(
-                        getContext(), owner, FragmentDialogFolder.this,
+                        getContext(), getActivity(), FragmentDialogFolder.this,
                         account, false, new AdapterFolder.IFolderSelectedListener() {
                     @Override
                     public void onFolderSelected(TupleFolderEx folder) {
@@ -99,9 +97,9 @@ public class FragmentDialogFolder extends DialogFragment {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), owner, ex);
+                Helper.unexpectedError(getContext(), getActivity(), ex);
             }
-        }.execute(getContext(), owner, args, "folder:select");
+        }.execute(getContext(), getActivity(), args, "folder:select");
 
         return new AlertDialog.Builder(getContext())
                 .setTitle(title)
@@ -113,18 +111,6 @@ public class FragmentDialogFolder extends DialogFragment {
                     }
                 })
                 .create();
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        owner.resume();
-    }
-
-    @Override
-    public void onDestroyView() {
-        owner.destroy();
-        super.onDestroyView();
     }
 
     private void sendResult(int result, long folder) {
