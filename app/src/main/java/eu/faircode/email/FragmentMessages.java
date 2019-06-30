@@ -20,6 +20,8 @@ package eu.faircode.email;
 */
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -72,6 +74,7 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
 import androidx.documentfile.provider.DocumentFile;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -2208,53 +2211,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void onClick(View v) {
                 snackbar.dismiss();
-                askReporting();
+                new FragmentDialogReporting().show(getFragmentManager(), "first");
             }
         });
 
         snackbar.show();
-    }
-
-    private void askReporting() {
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_error_reporting, null);
-        final Button btnInfo = dview.findViewById(R.id.btnInfo);
-        final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
-
-        final Intent info = new Intent(Intent.ACTION_VIEW);
-        info.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq104"));
-        info.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-        btnInfo.setVisibility(
-                info.resolveActivity(getContext().getPackageManager()) == null ? View.GONE : View.VISIBLE);
-
-        btnInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(info);
-            }
-        });
-
-        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setView(dview)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        prefs.edit().putBoolean("crash_reports", true).apply();
-                        if (cbNotAgain.isChecked())
-                            prefs.edit().putBoolean("crash_reports_asked", true).apply();
-                        Bugsnag.startSession();
-                    }
-                })
-                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        if (cbNotAgain.isChecked())
-                            prefs.edit().putBoolean("crash_reports_asked", true).apply();
-                    }
-                })
-                .show();
     }
 
     @Override
@@ -4126,5 +4087,51 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return new MessageTarget[size];
             }
         };
+    }
+
+    public static class FragmentDialogReporting extends DialogFragment {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_error_reporting, null);
+            final Button btnInfo = dview.findViewById(R.id.btnInfo);
+            final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+
+            final Intent info = new Intent(Intent.ACTION_VIEW);
+            info.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq104"));
+            info.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+            btnInfo.setVisibility(
+                    info.resolveActivity(getContext().getPackageManager()) == null ? View.GONE : View.VISIBLE);
+
+            btnInfo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(info);
+                }
+            });
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(dview)
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            prefs.edit().putBoolean("crash_reports", true).apply();
+                            if (cbNotAgain.isChecked())
+                                prefs.edit().putBoolean("crash_reports_asked", true).apply();
+                            Bugsnag.startSession();
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if (cbNotAgain.isChecked())
+                                prefs.edit().putBoolean("crash_reports_asked", true).apply();
+                        }
+                    })
+                    .create();
+        }
     }
 }
