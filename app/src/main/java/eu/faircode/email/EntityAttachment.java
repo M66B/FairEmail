@@ -56,6 +56,7 @@ public class EntityAttachment {
 
     static final Integer PGP_MESSAGE = 1;
     static final Integer PGP_SIGNATURE = 2;
+    static final Integer PGP_KEY = 3;
 
     // https://developer.android.com/guide/topics/media/media-formats#image-formats
     private static final List<String> IMAGE_TYPES = Collections.unmodifiableList(Arrays.asList(

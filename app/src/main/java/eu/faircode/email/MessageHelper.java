@@ -252,7 +252,7 @@ public class MessageHelper {
 
         if (message.from != null && message.from.length > 0)
             for (EntityAttachment attachment : attachments)
-                if (attachment.available && EntityAttachment.PGP_SIGNATURE.equals(attachment.encryption)) {
+                if (attachment.available && EntityAttachment.PGP_KEY.equals(attachment.encryption)) {
                     InternetAddress from = (InternetAddress) message.from[0];
                     File file = attachment.getFile(context);
                     StringBuilder sb = new StringBuilder();
