@@ -19,8 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -77,6 +78,9 @@ public class FragmentFolder extends FragmentBase {
     private Boolean subscribed = null;
     private boolean saving = false;
     private boolean deletable = false;
+
+    private static final int REQUEST_SAVE_CHANGES = 101;
+    private static final int REQUEST_DELETE_FOLDER = 102;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -170,6 +174,157 @@ public class FragmentFolder extends FragmentBase {
         pbWait.setVisibility(View.VISIBLE);
 
         return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleTask<EntityFolder>() {
+            @Override
+            protected EntityFolder onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+                return DB.getInstance(context).folder().getFolder(id);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, EntityFolder folder) {
+                if (savedInstanceState == null) {
+                    etName.setText(folder == null ? null : folder.name);
+                    etDisplay.setText(folder == null ? null : folder.display);
+                    etDisplay.setHint(folder == null ? null : Helper.localizeFolderName(getContext(), folder.name));
+                    cbHide.setChecked(folder == null ? false : folder.hide);
+                    cbUnified.setChecked(folder == null ? false : folder.unified);
+                    cbNavigation.setChecked(folder == null ? false : folder.navigation);
+                    cbNotify.setChecked(folder == null ? false : folder.notify);
+                    cbSynchronize.setChecked(folder == null || folder.synchronize);
+                    cbPoll.setChecked(folder == null ? false : folder.poll);
+                    cbDownload.setChecked(folder == null ? true : folder.download);
+                    etSyncDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_SYNC : folder.sync_days));
+                    if (folder != null && folder.keep_days == Integer.MAX_VALUE)
+                        cbKeepAll.setChecked(true);
+                    else
+                        etKeepDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_KEEP : folder.keep_days));
+                    cbAutoDelete.setChecked(folder == null ? false : folder.auto_delete);
+                    cbAutoDelete.setVisibility(folder != null && EntityFolder.TRASH.equals(folder.type) ? View.VISIBLE : View.GONE);
+                }
+
+                // Consider previous save as cancelled
+                pbWait.setVisibility(View.GONE);
+
+                Helper.setViewsEnabled(view, true);
+
+                etName.setEnabled(folder == null);
+                cbPoll.setEnabled(cbSynchronize.isChecked());
+                cbDownload.setEnabled(cbSynchronize.isChecked());
+                etKeepDays.setEnabled(!cbKeepAll.isChecked());
+                cbAutoDelete.setEnabled(!cbKeepAll.isChecked());
+                btnSave.setEnabled(true);
+
+                subscribed = (folder == null ? null : folder.subscribed != null && folder.subscribed);
+                deletable = (folder != null && EntityFolder.USER.equals(folder.type));
+                getActivity().invalidateOptionsMenu();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(this, args, "folder:get");
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+            case REQUEST_SAVE_CHANGES:
+                if (resultCode == Activity.RESULT_OK) {
+                    new Handler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            scroll.smoothScrollTo(0, btnSave.getBottom());
+                        }
+                    });
+                    onSave(false);
+                } else
+                    getFragmentManager().popBackStack();
+                break;
+
+            case REQUEST_DELETE_FOLDER:
+                if (resultCode == Activity.RESULT_OK)
+                    onDelete();
+                break;
+        }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_folder, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean subscriptions = prefs.getBoolean("subscriptions", false);
+
+        menu.findItem(R.id.menu_subscribe).setChecked(subscribed != null && subscribed);
+        menu.findItem(R.id.menu_subscribe).setVisible(subscriptions && id > 0 && subscribed != null);
+        menu.findItem(R.id.menu_delete).setVisible(id > 0 && !saving && deletable);
+        super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_subscribe:
+                subscribed = !item.isChecked();
+                item.setChecked(subscribed);
+                onMenuSubscribe();
+                return true;
+            case R.id.menu_delete:
+                onMenuDelete();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuSubscribe() {
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+        args.putBoolean("subscribed", subscribed);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+                boolean subscribed = args.getBoolean("subscribed");
+
+                EntityOperation.subscribe(context, id, subscribed);
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(this, args, "folder:subscribe");
+    }
+
+    private void onMenuDelete() {
+        Bundle aargs = new Bundle();
+        aargs.putString("question", getString(R.string.title_folder_delete));
+
+        FragmentAsk ask = new FragmentAsk();
+        ask.setArguments(aargs);
+        ask.setTargetFragment(FragmentFolder.this, REQUEST_DELETE_FOLDER);
+        ask.show(getFragmentManager(), "folder:delete");
     }
 
     private void onSave(boolean should) {
@@ -337,29 +492,15 @@ public class FragmentFolder extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, Boolean dirty) {
-                if (dirty)
-                    new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                            .setMessage(R.string.title_ask_save)
-                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    new Handler().post(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            scroll.smoothScrollTo(0, btnSave.getBottom());
-                                        }
-                                    });
-                                    onSave(false);
-                                }
-                            })
-                            .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    getFragmentManager().popBackStack();
-                                }
-                            })
-                            .show();
-                else
+                if (dirty) {
+                    Bundle aargs = new Bundle();
+                    aargs.putString("question", getString(R.string.title_ask_save));
+
+                    FragmentAsk ask = new FragmentAsk();
+                    ask.setArguments(aargs);
+                    ask.setTargetFragment(FragmentFolder.this, REQUEST_SAVE_CHANGES);
+                    ask.show(getFragmentManager(), "folder:save");
+                } else
                     getFragmentManager().popBackStack();
             }
 
@@ -373,171 +514,46 @@ public class FragmentFolder extends FragmentBase {
         }.execute(FragmentFolder.this, args, "folder:save");
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_folder, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
+    private void onDelete() {
+        Helper.setViewsEnabled(view, false);
+        pbSave.setVisibility(View.VISIBLE);
 
-    @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean subscriptions = prefs.getBoolean("subscriptions", false);
-
-        menu.findItem(R.id.menu_subscribe).setChecked(subscribed != null && subscribed);
-        menu.findItem(R.id.menu_subscribe).setVisible(subscriptions && id > 0 && subscribed != null);
-        menu.findItem(R.id.menu_delete).setVisible(id > 0 && !saving && deletable);
-        super.onPrepareOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_subscribe:
-                subscribed = !item.isChecked();
-                item.setChecked(subscribed);
-                onMenuSubscribe();
-                return true;
-            case R.id.menu_delete:
-                onMenuDelete();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    private void onMenuSubscribe() {
         Bundle args = new Bundle();
         args.putLong("id", id);
-        args.putBoolean("subscribed", subscribed);
 
         new SimpleTask<Void>() {
             @Override
             protected Void onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
-                boolean subscribed = args.getBoolean("subscribed");
 
-                EntityOperation.subscribe(context, id, subscribed);
+                DB db = DB.getInstance(context);
+                int count = db.operation().getOperationCount(id, null);
+                if (count > 0)
+                    throw new IllegalArgumentException(
+                            context.getResources().getQuantityString(
+                                    R.plurals.title_notification_operations, count, count));
+                db.folder().setFolderTbd(id);
+
+                ServiceSynchronize.reload(context, "delete folder");
 
                 return null;
             }
 
             @Override
+            protected void onExecuted(Bundle args, Void data) {
+                getFragmentManager().popBackStack();
+            }
+
+            @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-            }
-        }.execute(this, args, "folder:subscribe");
-    }
-
-    private void onMenuDelete() {
-        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setMessage(R.string.title_folder_delete)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Helper.setViewsEnabled(view, false);
-                        pbSave.setVisibility(View.VISIBLE);
-
-                        Bundle args = new Bundle();
-                        args.putLong("id", id);
-
-                        new SimpleTask<Void>() {
-                            @Override
-                            protected Void onExecute(Context context, Bundle args) {
-                                long id = args.getLong("id");
-
-                                DB db = DB.getInstance(context);
-                                int count = db.operation().getOperationCount(id, null);
-                                if (count > 0)
-                                    throw new IllegalArgumentException(
-                                            context.getResources().getQuantityString(
-                                                    R.plurals.title_notification_operations, count, count));
-                                db.folder().setFolderTbd(id);
-
-                                ServiceSynchronize.reload(context, "delete folder");
-
-                                return null;
-                            }
-
-                            @Override
-                            protected void onExecuted(Bundle args, Void data) {
-                                getFragmentManager().popBackStack();
-                            }
-
-                            @Override
-                            protected void onException(Bundle args, Throwable ex) {
-                                Helper.setViewsEnabled(view, true);
-                                pbSave.setVisibility(View.GONE);
-
-                                if (ex instanceof IllegalArgumentException)
-                                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                                else
-                                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                            }
-                        }.execute(FragmentFolder.this, args, "folder:delete");
-                    }
-                })
-                .setNegativeButton(android.R.string.cancel, null)
-                .show();
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        Bundle args = new Bundle();
-        args.putLong("id", id);
-
-        new SimpleTask<EntityFolder>() {
-            @Override
-            protected EntityFolder onExecute(Context context, Bundle args) {
-                long id = args.getLong("id");
-                return DB.getInstance(context).folder().getFolder(id);
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, EntityFolder folder) {
-                if (savedInstanceState == null) {
-                    etName.setText(folder == null ? null : folder.name);
-                    etDisplay.setText(folder == null ? null : folder.display);
-                    etDisplay.setHint(folder == null ? null : Helper.localizeFolderName(getContext(), folder.name));
-                    cbHide.setChecked(folder == null ? false : folder.hide);
-                    cbUnified.setChecked(folder == null ? false : folder.unified);
-                    cbNavigation.setChecked(folder == null ? false : folder.navigation);
-                    cbNotify.setChecked(folder == null ? false : folder.notify);
-                    cbSynchronize.setChecked(folder == null || folder.synchronize);
-                    cbPoll.setChecked(folder == null ? false : folder.poll);
-                    cbDownload.setChecked(folder == null ? true : folder.download);
-                    etSyncDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_SYNC : folder.sync_days));
-                    if (folder != null && folder.keep_days == Integer.MAX_VALUE)
-                        cbKeepAll.setChecked(true);
-                    else
-                        etKeepDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_KEEP : folder.keep_days));
-                    cbAutoDelete.setChecked(folder == null ? false : folder.auto_delete);
-                    cbAutoDelete.setVisibility(folder != null && EntityFolder.TRASH.equals(folder.type) ? View.VISIBLE : View.GONE);
-                }
-
-                // Consider previous save as cancelled
-                pbWait.setVisibility(View.GONE);
-
                 Helper.setViewsEnabled(view, true);
+                pbSave.setVisibility(View.GONE);
 
-                etName.setEnabled(folder == null);
-                cbPoll.setEnabled(cbSynchronize.isChecked());
-                cbDownload.setEnabled(cbSynchronize.isChecked());
-                etKeepDays.setEnabled(!cbKeepAll.isChecked());
-                cbAutoDelete.setEnabled(!cbKeepAll.isChecked());
-                btnSave.setEnabled(true);
-
-                subscribed = (folder == null ? null : folder.subscribed != null && folder.subscribed);
-                deletable = (folder != null && EntityFolder.USER.equals(folder.type));
-                getActivity().invalidateOptionsMenu();
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-            }
-        }.execute(this, args, "folder:get");
+        }.execute(FragmentFolder.this, args, "folder:delete");
     }
 }
