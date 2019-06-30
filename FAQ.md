@@ -138,7 +138,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(61) Why are some messages shown dimmed?](#user-content-faq61)
 * [(62) Which authentication methods are supported?](#user-content-faq62)
 * [(63) How are images resized for displaying on screens?](#user-content-faq63)
-* [(64) Can you add custom actions for swipe left/right?](#user-content-faq64)
+* [~~(64) Can you add custom actions for swipe left/right?~~](#user-content-faq64)
 * [(65) Why are some attachments shown dimmed?](#user-content-faq65)
 * [(66) Is FairEmail available in the Google Play Family Library?](#user-content-faq66)
 * [(67) How can I snooze conversations?](#user-content-faq67)
@@ -1165,6 +1165,7 @@ but even Google's Chrome cannot handle this.
 * Did you know that you can swipe a conversation left or right to go to the next or previous conversation?
 * Did you know that you can tap on an image to see where it will be downloaded from?
 * Did you know that you can long press the folder icon in the action bar to select an account?
+* Did you know that you can long press the star icon in a conversation thread to set a colored star?
 
 <br />
 
@@ -1213,21 +1214,21 @@ There is an advanced option to disable automatically resizing and to set the tar
 <br />
 
 <a name="faq64"></a>
-**(64) Can you add custom actions for swipe left/right?**
+**~~(64) Can you add custom actions for swipe left/right?~~**
 
-The most natural thing to do when swiping a list entry left or right is to remove the entry from the list.
-The most natural action in the context of an email app is moving the message out of the folder to another folder.
-You can select the folder to move to in the account settings.
+~~The most natural thing to do when swiping a list entry left or right is to remove the entry from the list.~~
+~~The most natural action in the context of an email app is moving the message out of the folder to another folder.~~
+~~You can select the folder to move to in the account settings.~~
 
-Other actions, like marking messages read and snoozing messages are available via multiple selection.
-You can long press a message to start multiple selection. See also [this question](#user-content-faq55).
+~~Other actions, like marking messages read and snoozing messages are available via multiple selection.~~
+~~You can long press a message to start multiple selection. See also [this question](#user-content-faq55).~~
 
-Swiping left or right to mark a message read or unread is unnatural because the message first goes away and later comes back in a different shape.
-Note that there is an advanced option to mark messages automatically read on moving,
-which is in most cases a perfect replacement for the sequence mark read and move to some folder.
-You can also mark messages read from new message notifications.
+~~Swiping left or right to mark a message read or unread is unnatural because the message first goes away and later comes back in a different shape.~~
+~~Note that there is an advanced option to mark messages automatically read on moving,~~
+~~which is in most cases a perfect replacement for the sequence mark read and move to some folder.~~
+~~You can also mark messages read from new message notifications.~~
 
-If you want to read a message later, you can hide it until a specific time by using the *snooze* menu.
+~~If you want to read a message later, you can hide it until a specific time by using the *snooze* menu.~~
 
 <br />
 
