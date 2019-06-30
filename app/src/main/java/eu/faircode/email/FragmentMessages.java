@@ -1806,7 +1806,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private void onActionFlagColorSelection(int color, final Long id) {
         int[] colors = getResources().getIntArray(R.array.colorPicker);
-        ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
+        ColorPickerDialog colorPickerDialog = new ColorPickerDialogEx(getViewLifecycleOwner());
         colorPickerDialog.initialize(R.string.title_flag_color, colors, color, 4, colors.length);
         colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
             @Override

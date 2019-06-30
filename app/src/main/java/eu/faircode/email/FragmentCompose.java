@@ -3220,7 +3220,7 @@ public class FragmentCompose extends FragmentBase {
                     int color = (spans.length > 0 ? spans[0].getForegroundColor() : Color.TRANSPARENT);
 
                     int[] colors = getContext().getResources().getIntArray(R.array.colorPicker);
-                    ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
+                    ColorPickerDialog colorPickerDialog = new ColorPickerDialogEx(getViewLifecycleOwner());
                     colorPickerDialog.initialize(R.string.title_style_color, colors, color, 4, colors.length);
                     colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
                         @Override

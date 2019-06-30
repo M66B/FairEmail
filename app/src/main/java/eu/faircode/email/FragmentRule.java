@@ -296,7 +296,7 @@ public class FragmentRule extends FragmentBase {
             @Override
             public void onClick(View v) {
                 int[] colors = getContext().getResources().getIntArray(R.array.colorPicker);
-                ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
+                ColorPickerDialog colorPickerDialog = new ColorPickerDialogEx(getViewLifecycleOwner());
                 colorPickerDialog.initialize(R.string.title_flag_color, colors, color, 4, colors.length);
                 colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
                     @Override
