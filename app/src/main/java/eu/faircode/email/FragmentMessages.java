@@ -2694,12 +2694,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     snackbar.show();
                 } else if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                else
-                    new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                            .setMessage(Helper.formatThrowable(ex, false))
-                            .setPositiveButton(android.R.string.cancel, null)
-                            .create()
-                            .show();
+                else {
+                    Bundle args = new Bundle();
+                    args.putString("error", Helper.formatThrowable(ex, false));
+
+                    FragmentDialogError fragment = new FragmentDialogError();
+                    fragment.setArguments(args);
+                    fragment.show(getFragmentManager(), "boundary:error");
+                }
         }
     };
 
@@ -4356,6 +4358,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 prefs.edit().putBoolean("crash_reports_asked", true).apply();
                         }
                     })
+                    .create();
+        }
+    }
+
+    public static class FragmentDialogError extends DialogFragment {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            String error = getArguments().getString("error");
+
+            return new AlertDialog.Builder(getContext())
+                    .setMessage(error)
+                    .setPositiveButton(android.R.string.cancel, null)
                     .create();
         }
     }

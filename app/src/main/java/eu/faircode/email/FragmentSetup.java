@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -42,7 +43,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
@@ -161,20 +164,7 @@ public class FragmentSetup extends FragmentBase {
         btnDoze.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                        .setMessage(R.string.title_setup_doze_instructions)
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                try {
-                                    startActivity(new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS));
-                                } catch (Throwable ex) {
-                                    Log.e(ex);
-                                }
-                            }
-                        })
-                        .create()
-                        .show();
+                new FragmentDialogDoze().show(getFragmentManager(), "setup:doze");
             }
         });
 
@@ -356,5 +346,25 @@ public class FragmentSetup extends FragmentBase {
         tvPermissionsDone.setTextColor(has ? textColorPrimary : colorWarning);
         tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds(has ? check : null, null, null, null);
         btnPermissions.setEnabled(!has);
+    }
+
+    public static class FragmentDialogDoze extends DialogFragment {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            return new AlertDialog.Builder(getContext())
+                    .setMessage(R.string.title_setup_doze_instructions)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            try {
+                                startActivity(new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS));
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
+                        }
+                    })
+                    .create();
+        }
     }
 }

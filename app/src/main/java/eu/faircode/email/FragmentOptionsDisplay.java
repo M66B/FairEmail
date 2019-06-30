@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -35,7 +36,9 @@ import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.fragment.app.DialogFragment;
 import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsDisplay extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -97,7 +100,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         btnTheme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onSelectTheme();
+                new FragmentDialogTheme().show(getFragmentManager(), "setup:theme");
             }
         });
 
@@ -256,54 +259,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         editor.apply();
     }
 
-    private void onSelectTheme() {
-        View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_theme, null);
-        final RadioGroup rgTheme = dview.findViewById(R.id.rgTheme);
-
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String theme = prefs.getString("theme", "light");
-
-        switch (theme) {
-            case "dark":
-                rgTheme.check(R.id.rbThemeDark);
-                break;
-            case "black":
-                rgTheme.check(R.id.rbThemeBlack);
-                break;
-            case "system":
-                rgTheme.check(R.id.rbThemeSystem);
-                break;
-            default:
-                rgTheme.check(R.id.rbThemeLight);
-        }
-
-        rgTheme.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                getActivity().getIntent().putExtra("tab", "display");
-
-                switch (checkedId) {
-                    case R.id.rbThemeLight:
-                        prefs.edit().putString("theme", "light").apply();
-                        break;
-                    case R.id.rbThemeDark:
-                        prefs.edit().putString("theme", "dark").apply();
-                        break;
-                    case R.id.rbThemeBlack:
-                        prefs.edit().putString("theme", "black").apply();
-                        break;
-                    case R.id.rbThemeSystem:
-                        prefs.edit().putString("theme", "system").apply();
-                        break;
-                }
-            }
-        });
-
-        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setView(dview)
-                .show();
-    }
-
     private void setOptions() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
@@ -331,5 +286,57 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swMonospaced.setChecked(prefs.getBoolean("monospaced", false));
         swImages.setChecked(prefs.getBoolean("autoimages", false));
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
+    }
+
+    public static class FragmentDialogTheme extends DialogFragment {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_theme, null);
+            final RadioGroup rgTheme = dview.findViewById(R.id.rgTheme);
+
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            String theme = prefs.getString("theme", "light");
+
+            switch (theme) {
+                case "dark":
+                    rgTheme.check(R.id.rbThemeDark);
+                    break;
+                case "black":
+                    rgTheme.check(R.id.rbThemeBlack);
+                    break;
+                case "system":
+                    rgTheme.check(R.id.rbThemeSystem);
+                    break;
+                default:
+                    rgTheme.check(R.id.rbThemeLight);
+            }
+
+            rgTheme.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                    getActivity().getIntent().putExtra("tab", "display");
+
+                    switch (checkedId) {
+                        case R.id.rbThemeLight:
+                            prefs.edit().putString("theme", "light").apply();
+                            break;
+                        case R.id.rbThemeDark:
+                            prefs.edit().putString("theme", "dark").apply();
+                            break;
+                        case R.id.rbThemeBlack:
+                            prefs.edit().putString("theme", "black").apply();
+                            break;
+                        case R.id.rbThemeSystem:
+                            prefs.edit().putString("theme", "system").apply();
+                            break;
+                    }
+                }
+            });
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(dview)
+                    .create();
+        }
     }
 }
