@@ -225,6 +225,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int REQUEST_ATTACHMENT = 2;
     private static final int REQUEST_ATTACHMENTS = 3;
     private static final int REQUEST_DECRYPT = 4;
+    private static final int REQUEST_DELETE = 5;
+    private static final int REQUEST_JUNK = 6;
+    private static final int REQUEST_MOVE = 7;
+    private static final int REQUEST_MOVE_ACROSS = 8;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
@@ -233,6 +237,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
     private static final String PGP_END_MESSAGE = "-----END PGP MESSAGE-----";
+
 
     private static final List<String> DUPLICATE_ORDER = Collections.unmodifiableList(Arrays.asList(
             EntityFolder.INBOX,
@@ -1857,48 +1862,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onExecuted(Bundle args, final List<Long> ids) {
-                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                        .setMessage(getResources().getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()))
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Bundle args = new Bundle();
-                                args.putLongArray("ids", Helper.toLongArray(ids));
+                Bundle aargs = new Bundle();
+                aargs.putString("question", getResources()
+                        .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
+                aargs.putLongArray("ids", Helper.toLongArray(ids));
 
-                                selectionTracker.clearSelection();
-
-                                new SimpleTask<Void>() {
-                                    @Override
-                                    protected Void onExecute(Context context, Bundle args) {
-                                        long[] ids = args.getLongArray("ids");
-
-                                        DB db = DB.getInstance(context);
-                                        try {
-                                            db.beginTransaction();
-
-                                            for (long id : ids) {
-                                                EntityMessage message = db.message().getMessage(id);
-                                                if (message != null)
-                                                    EntityOperation.queue(context, message, EntityOperation.DELETE);
-                                            }
-
-                                            db.setTransactionSuccessful();
-                                        } finally {
-                                            db.endTransaction();
-                                        }
-
-                                        return null;
-                                    }
-
-                                    @Override
-                                    protected void onException(Bundle args, Throwable ex) {
-                                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                                    }
-                                }.execute(FragmentMessages.this, args, "messages:delete:execute");
-                            }
-                        })
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show();
+                FragmentAsk ask = new FragmentAsk();
+                ask.setArguments(aargs);
+                ask.setTargetFragment(FragmentMessages.this, REQUEST_DELETE);
+                ask.show(getFragmentManager(), "messages:delete");
             }
 
             @Override
@@ -1910,16 +1882,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private void onActionJunkSelection() {
         int count = selectionTracker.getSelection().size();
-        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setMessage(getResources().getQuantityString(R.plurals.title_ask_spam, count, count))
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        onActionMoveSelection(EntityFolder.JUNK);
-                    }
-                })
-                .setNegativeButton(android.R.string.cancel, null)
-                .show();
+
+        Bundle aargs = new Bundle();
+        aargs.putString("question", getResources()
+                .getQuantityString(R.plurals.title_ask_spam, count, count));
+
+        FragmentAsk ask = new FragmentAsk();
+        ask.setArguments(aargs);
+        ask.setTargetFragment(FragmentMessages.this, REQUEST_JUNK);
+        ask.show(getFragmentManager(), "messages:junk");
     }
 
     private void onActionMoveSelection(final String type) {
@@ -3189,31 +3160,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (result.size() == 0)
             return;
 
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        if (prefs.getBoolean("automove", false)) {
-            moveAskAcross(result);
-            return;
-        }
+        Bundle aargs = new Bundle();
+        aargs.putString("question", getResources()
+                .getQuantityString(R.plurals.title_moving_messages,
+                        result.size(), result.size(), getDisplay(result)));
+        aargs.putString("notagain", "automove");
+        aargs.putParcelableArrayList("result", result);
 
-        final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
-        final TextView tvMessage = dview.findViewById(R.id.tvMessage);
-        final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
-
-        tvMessage.setText(getResources().getQuantityString(R.plurals.title_moving_messages,
-                result.size(), result.size(), getDisplay(result)));
-
-        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setView(dview)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        if (cbNotAgain.isChecked())
-                            prefs.edit().putBoolean("automove", true).apply();
-                        moveAskAcross(result);
-                    }
-                })
-                .setNegativeButton(android.R.string.cancel, null)
-                .show();
+        FragmentAsk ask = new FragmentAsk();
+        ask.setArguments(aargs);
+        ask.setTargetFragment(FragmentMessages.this, REQUEST_MOVE);
+        ask.show(getFragmentManager(), "messages:move");
     }
 
     private void moveAskAcross(final ArrayList<MessageTarget> result) {
@@ -3224,18 +3181,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 break;
             }
 
-        if (across)
-            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                    .setMessage(R.string.title_accross_remark)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            moveAskConfirmed(result);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show();
-        else
+        if (across) {
+            Bundle aargs = new Bundle();
+            aargs.putString("question", getString(R.string.title_accross_remark));
+            aargs.putParcelableArrayList("result", result);
+
+            FragmentAsk ask = new FragmentAsk();
+            ask.setArguments(aargs);
+            ask.setTargetFragment(FragmentMessages.this, REQUEST_MOVE_ACROSS);
+            ask.show(getFragmentManager(), "messages:move:across");
+        } else
             moveAskConfirmed(result);
     }
 
@@ -3675,23 +3630,78 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == Activity.RESULT_OK)
-            if (requestCode == REQUEST_RAW) {
-                if (data != null)
-                    saveRaw(data);
-            } else if (requestCode == REQUEST_ATTACHMENT) {
-                if (data != null)
-                    saveAttachment(data);
-            } else if (requestCode == REQUEST_ATTACHMENTS) {
-                if (data != null)
-                    saveAttachments(data);
+        super.onActivityResult(requestCode, resultCode, data);
 
-            } else if (requestCode == REQUEST_DECRYPT) {
-                if (data != null)
+        switch (requestCode) {
+            case REQUEST_RAW:
+                if (resultCode == Activity.RESULT_OK && data != null)
+                    saveRaw(data);
+                break;
+            case REQUEST_ATTACHMENT:
+                if (resultCode == Activity.RESULT_OK && data != null)
+                    saveAttachment(data);
+                break;
+            case REQUEST_ATTACHMENTS:
+                if (resultCode == Activity.RESULT_OK && data != null)
+                    saveAttachments(data);
+                break;
+            case REQUEST_DECRYPT:
+                if (resultCode == Activity.RESULT_OK && data != null)
                     decrypt(data, message);
+                break;
+            case REQUEST_DELETE:
+                if (resultCode == Activity.RESULT_OK && data != null)
+                    onDelete(data.getBundleExtra("args").getLongArray("ids"));
+                break;
+            case REQUEST_JUNK:
+                if (resultCode == Activity.RESULT_OK)
+                    onActionMoveSelection(EntityFolder.JUNK);
+                break;
+            case REQUEST_MOVE:
+                if (resultCode == Activity.RESULT_OK && data != null)
+                    moveAskAcross(data.getBundleExtra("args").<MessageTarget>getParcelableArrayList("result"));
+                break;
+            case REQUEST_MOVE_ACROSS:
+                if (resultCode == Activity.RESULT_OK && data != null)
+                    moveAskConfirmed(data.getBundleExtra("args").<MessageTarget>getParcelableArrayList("result"));
+                break;
+        }
+    }
+
+    private void onDelete(long[] ids) {
+        Bundle args = new Bundle();
+        args.putLongArray("ids", ids);
+
+        selectionTracker.clearSelection();
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long[] ids = args.getLongArray("ids");
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    for (long id : ids) {
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message != null)
+                            EntityOperation.queue(context, message, EntityOperation.DELETE);
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return null;
             }
 
-        super.onActivityResult(requestCode, resultCode, data);
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(FragmentMessages.this, args, "messages:delete:execute");
     }
 
     private void saveRaw(Intent data) {
