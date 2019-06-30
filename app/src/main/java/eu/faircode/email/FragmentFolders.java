@@ -367,7 +367,7 @@ public class FragmentFolders extends FragmentBase {
                 else
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(FragmentFolders.this, args, "folders:refresh");
+        }.execute(this, args, "folders:refresh");
     }
 
     @Override
@@ -520,7 +520,7 @@ public class FragmentFolders extends FragmentBase {
                 else
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(getContext(), getViewLifecycleOwner(), args, "folder:sync");
+        }.execute(this, args, "folder:sync");
     }
 
     private void onDeleteLocal(long folder, boolean browsed) {
@@ -545,7 +545,7 @@ public class FragmentFolders extends FragmentBase {
             public void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(getContext(), getViewLifecycleOwner(), args, "folder:delete:local");
+        }.execute(this, args, "folder:delete:local");
     }
 
     private void onEmptyTrash(long folder) {
@@ -580,6 +580,6 @@ public class FragmentFolders extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(getContext(), getViewLifecycleOwner(), args, "folder:delete");
+        }.execute(this, args, "folder:delete");
     }
 }

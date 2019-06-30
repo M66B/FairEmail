@@ -35,16 +35,9 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.print.PrintAttributes;
-import android.print.PrintDocumentAdapter;
-import android.print.PrintManager;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.Toast;
@@ -70,9 +63,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -81,8 +71,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -105,8 +93,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private boolean exit = false;
 
-    private WebView printWebView = null;
-
     static final int REQUEST_UNIFIED = 1;
     static final int REQUEST_WHY = 2;
     static final int REQUEST_THREAD = 3;
@@ -123,7 +109,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_EDIT_ANSWER = BuildConfig.APPLICATION_ID + ".EDIT_ANSWER";
     static final String ACTION_EDIT_RULES = BuildConfig.APPLICATION_ID + ".EDIT_RULES";
     static final String ACTION_EDIT_RULE = BuildConfig.APPLICATION_ID + ".EDIT_RULE";
-    static final String ACTION_PRINT = BuildConfig.APPLICATION_ID + ".PRINT";
     static final String ACTION_SHOW_PRO = BuildConfig.APPLICATION_ID + ".SHOW_PRO";
 
     static final long UPDATE_INTERVAL = (BuildConfig.BETA_RELEASE ? 4 : 12) * 3600 * 1000L; // milliseconds
@@ -507,7 +492,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_EDIT_ANSWER);
         iff.addAction(ACTION_EDIT_RULES);
         iff.addAction(ACTION_EDIT_RULE);
-        iff.addAction(ACTION_PRINT);
         iff.addAction(ACTION_SHOW_PRO);
         lbm.registerReceiver(receiver, iff);
 
@@ -931,8 +915,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     onEditRules(intent);
                 else if (ACTION_EDIT_RULE.equals(action))
                     onEditRule(intent);
-                else if (ACTION_PRINT.equals(action))
-                    onPrint(intent);
                 else if (ACTION_SHOW_PRO.equals(action))
                     onShowPro(intent);
             }
@@ -1033,116 +1015,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("rule");
         fragmentTransaction.commit();
-    }
-
-    private void onPrint(Intent intent) {
-        long id = intent.getLongExtra("id", -1);
-
-        Bundle args = new Bundle();
-        args.putLong("id", id);
-
-        new SimpleTask<String[]>() {
-            @Override
-            protected String[] onExecute(Context context, Bundle args) throws IOException {
-                long id = args.getLong("id");
-
-                DB db = DB.getInstance(context);
-                EntityMessage message = db.message().getMessage(id);
-                if (message == null || !message.content)
-                    return null;
-
-                File file = message.getFile(context);
-                if (!file.exists())
-                    return null;
-
-                String html = Helper.readText(file);
-                html = HtmlHelper.getHtmlEmbedded(context, id, html);
-
-                Document document = Jsoup.parse(html);
-                Element body = document.body();
-                if (body != null) {
-                    Element p = document.createElement("p");
-
-                    if (message.from != null && message.from.length > 0) {
-                        Element span = document.createElement("span");
-                        span.text(getString(R.string.title_from) + " " + MessageHelper.formatAddresses(message.from));
-                        p.append(span.html() + "<br>");
-                    }
-
-                    if (message.to != null && message.to.length > 0) {
-                        Element span = document.createElement("span");
-                        span.text(getString(R.string.title_to) + " " + MessageHelper.formatAddresses(message.to));
-                        p.append(span.html() + "<br>");
-                    }
-
-                    if (message.cc != null && message.cc.length > 0) {
-                        Element span = document.createElement("span");
-                        span.text(getString(R.string.title_cc) + " " + MessageHelper.formatAddresses(message.cc));
-                        p.append(span.html() + "<br>");
-                    }
-
-                    {
-                        Element span = document.createElement("span");
-                        DateFormat DTF = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
-                        span.text(getString(R.string.title_received) + " " + DTF.format(message.received));
-                        p.append(span.html() + "<br>");
-                    }
-
-                    if (!TextUtils.isEmpty(message.subject)) {
-                        Element span = document.createElement("span");
-                        span.text(message.subject);
-                        p.append(span.html() + "<br>");
-                    }
-
-                    p.append("<hr><br>");
-
-                    body.prepend(p.html());
-                }
-
-                return new String[]{message.subject, document.html()};
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, final String[] data) {
-                if (data == null)
-                    return;
-
-                // https://developer.android.com/training/printing/html-docs.html
-                printWebView = new WebView(ActivityView.this);
-                WebSettings settings = printWebView.getSettings();
-                settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-                settings.setAllowFileAccess(false);
-
-                printWebView.setWebViewClient(new WebViewClient() {
-                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                        return false;
-                    }
-
-                    @Override
-                    public void onPageFinished(WebView view, String url) {
-                        try {
-                            PrintManager printManager = (PrintManager) getOriginalContext().getSystemService(Context.PRINT_SERVICE);
-                            String jobName = getString(R.string.app_name);
-                            if (!TextUtils.isEmpty(data[0]))
-                                jobName += " - " + data[0];
-                            PrintDocumentAdapter adapter = printWebView.createPrintDocumentAdapter(jobName);
-                            printManager.print(jobName, adapter, new PrintAttributes.Builder().build());
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                        } finally {
-                            printWebView = null;
-                        }
-                    }
-                });
-
-                printWebView.loadDataWithBaseURL("about:blank", data[1], "text/html", "UTF-8", null);
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
-            }
-        }.execute(ActivityView.this, args, "message:print");
     }
 
     private void onShowPro(Intent intent) {

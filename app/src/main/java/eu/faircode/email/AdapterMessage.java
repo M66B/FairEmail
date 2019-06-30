@@ -142,6 +142,8 @@ import biweekly.property.Organizer;
 import biweekly.property.Summary;
 import biweekly.util.ICalDate;
 
+import static android.app.Activity.RESULT_OK;
+
 public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHolder> {
     private Context context;
     private LayoutInflater inflater;
@@ -2636,37 +2638,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "message:share");
         }
 
-        private void onMenuPrint(final TupleMessageEx message) {
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        private void onMenuPrint(TupleMessageEx message) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             if (prefs.getBoolean("print_html_confirmed", false)) {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                lbm.sendBroadcast(
-                        new Intent(ActivityView.ACTION_PRINT)
-                                .putExtra("id", message.id));
+                Bundle args = new Bundle();
+                args.putLong("id", message.id);
+                Intent data = new Intent();
+                data.putExtra("args", args);
+                parentFragment.onActivityResult(FragmentMessages.REQUEST_PRINT, RESULT_OK, data);
                 return;
             }
 
-            final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_ask_again, null);
-            final TextView tvMessage = dview.findViewById(R.id.tvMessage);
-            final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+            Bundle aargs = new Bundle();
+            aargs.putString("question", context.getString(R.string.title_ask_show_html));
+            aargs.putString("notagain", "print_html_confirmed");
+            aargs.putLong("id", message.id);
 
-            tvMessage.setText(context.getText(R.string.title_ask_show_html));
-
-            new DialogBuilderLifecycle(context, owner)
-                    .setView(dview)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            if (cbNotAgain.isChecked())
-                                prefs.edit().putBoolean("print_html_confirmed", true).apply();
-                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                            lbm.sendBroadcast(
-                                    new Intent(ActivityView.ACTION_PRINT)
-                                            .putExtra("id", message.id));
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show();
+            FragmentDialogAsk ask = new FragmentDialogAsk();
+            ask.setArguments(aargs);
+            ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_PRINT);
+            ask.show(parentFragment.getFragmentManager(), "message:print");
         }
 
         private void onMenuShowHeaders(TupleMessageEx message) {

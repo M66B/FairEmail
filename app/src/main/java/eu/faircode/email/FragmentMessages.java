@@ -46,6 +46,9 @@ import android.os.Handler;
 import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
 import android.os.Parcelable;
+import android.print.PrintAttributes;
+import android.print.PrintDocumentAdapter;
+import android.print.PrintManager;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
@@ -62,6 +65,9 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -100,6 +106,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.OpenPgpSignatureResult;
 import org.openintents.openpgp.util.OpenPgpApi;
@@ -112,10 +121,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.Collator;
+import java.text.DateFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -240,7 +252,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int REQUEST_MESSAGES_SNOOZE = 14;
     static final int REQUEST_MESSAGE_MOVE = 15;
     private static final int REQUEST_MESSAGES_MOVE = 16;
-    private static final int REQUEST_SEARCH = 17;
+    static final int REQUEST_PRINT = 17;
+    private static final int REQUEST_SEARCH = 18;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
@@ -1039,7 +1052,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 else
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(FragmentMessages.this, args, "messages:refresh");
+        }.execute(this, args, "messages:refresh");
     }
 
     private AdapterMessage.IProperties iProperties = new AdapterMessage.IProperties() {
@@ -1608,7 +1621,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(FragmentMessages.this, args, "messages:more");
+        }.execute(this, args, "messages:more");
     }
 
     private long[] getSelection() {
@@ -1661,7 +1674,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(FragmentMessages.this, args, "messages:seen");
+        }.execute(this, args, "messages:seen");
     }
 
     private void onActionSnoozeSelection() {
@@ -1716,7 +1729,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(FragmentMessages.this, args, "messages:flag");
+        }.execute(this, args, "messages:flag");
     }
 
     private void onActionFlagColorSelection() {
@@ -1775,7 +1788,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(FragmentMessages.this, args, "messages:delete:ask");
+        }.execute(this, args, "messages:delete:ask");
     }
 
     private void onActionJunkSelection() {
@@ -1841,7 +1854,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(FragmentMessages.this, args, "messages:move");
+        }.execute(this, args, "messages:move");
     }
 
     private void onActionMoveSelectionAccount(long account, List<Long> disabled) {
@@ -1904,7 +1917,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(FragmentMessages.this, args, "messages:move");
+        }.execute(this, args, "messages:move");
     }
 
     @Override
@@ -2293,7 +2306,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.execute(getContext(), getViewLifecycleOwner(), args, "messages:accounts");
+                }.execute(FragmentMessages.this, args, "messages:accounts");
                 return true;
             }
         });
@@ -2628,7 +2641,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 protected void onException(Bundle args, Throwable ex) {
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                 }
-            }.execute(getContext(), getViewLifecycleOwner(), new Bundle(), "search:reset");
+            }.execute(this, new Bundle(), "search:reset");
         } else
             loadMessagesNext(top);
     }
@@ -2896,7 +2909,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 protected void onException(Bundle args, Throwable ex) {
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                 }
-            }.execute(FragmentMessages.this, args, "messages:navigation");
+            }.execute(this, args, "messages:navigation");
         }
         return false;
     }
@@ -3067,7 +3080,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 else
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(FragmentMessages.this, args, "messages:move");
+        }.execute(this, args, "messages:move");
     }
 
     private void moveUndo(final ArrayList<MessageTarget> result) {
@@ -3360,6 +3373,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (resultCode == RESULT_OK && data != null) {
                     Bundle args = data.getBundleExtra("args");
                     onActionMoveSelection(args.getLong("folder"));
+                }
+                break;
+            case REQUEST_PRINT:
+                if (resultCode == RESULT_OK && data != null) {
+                    Bundle args = data.getBundleExtra("args");
+                    onPrint(args.getLong("id"));
                 }
                 break;
             case REQUEST_SEARCH:
@@ -3771,7 +3790,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 else
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(FragmentMessages.this, args, "decrypt");
+        }.execute(this, args, "decrypt");
     }
 
     private void onDelete(long id) {
@@ -3820,7 +3839,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(FragmentMessages.this, args, "message:delete");
+        }.execute(this, args, "message:delete");
     }
 
     private void onDelete(long[] ids) {
@@ -3856,7 +3875,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(FragmentMessages.this, args, "messages:delete:execute");
+        }.execute(this, args, "messages:delete:execute");
     }
 
     private void onJunk(long id) {
@@ -3891,7 +3910,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(getContext(), getViewLifecycleOwner(), args, "message:junk");
+        }.execute(this, args, "message:junk");
     }
 
     private void onMoveAskAcross(final ArrayList<MessageTarget> result) {
@@ -3950,7 +3969,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(getContext(), getViewLifecycleOwner(), args, "message:color");
+        }.execute(this, args, "message:color");
     }
 
     private void onSnooze(Bundle args) {
@@ -4004,7 +4023,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(getContext(), getViewLifecycleOwner(), args, "message:snooze");
+        }.execute(this, args, "message:snooze");
     }
 
     private void onSnoozeSelection(Bundle args) {
@@ -4058,7 +4077,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(FragmentMessages.this, args, "messages:snooze");
+        }.execute(this, args, "messages:snooze");
     }
 
     private void onMove(Bundle args) {
@@ -4094,7 +4113,118 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(getContext(), getViewLifecycleOwner(), args, "message:copy");
+        }.execute(this, args, "message:copy");
+    }
+
+    private WebView printWebView = null;
+
+    private void onPrint(long id) {
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleTask<String[]>() {
+            @Override
+            protected String[] onExecute(Context context, Bundle args) throws IOException {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+                EntityMessage message = db.message().getMessage(id);
+                if (message == null || !message.content)
+                    return null;
+
+                File file = message.getFile(context);
+                if (!file.exists())
+                    return null;
+
+                String html = Helper.readText(file);
+                html = HtmlHelper.getHtmlEmbedded(context, id, html);
+
+                Document document = Jsoup.parse(html);
+                Element body = document.body();
+                if (body != null) {
+                    Element p = document.createElement("p");
+
+                    if (message.from != null && message.from.length > 0) {
+                        Element span = document.createElement("span");
+                        span.text(getString(R.string.title_from) + " " + MessageHelper.formatAddresses(message.from));
+                        p.append(span.html() + "<br>");
+                    }
+
+                    if (message.to != null && message.to.length > 0) {
+                        Element span = document.createElement("span");
+                        span.text(getString(R.string.title_to) + " " + MessageHelper.formatAddresses(message.to));
+                        p.append(span.html() + "<br>");
+                    }
+
+                    if (message.cc != null && message.cc.length > 0) {
+                        Element span = document.createElement("span");
+                        span.text(getString(R.string.title_cc) + " " + MessageHelper.formatAddresses(message.cc));
+                        p.append(span.html() + "<br>");
+                    }
+
+                    {
+                        Element span = document.createElement("span");
+                        DateFormat DTF = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
+                        span.text(getString(R.string.title_received) + " " + DTF.format(message.received));
+                        p.append(span.html() + "<br>");
+                    }
+
+                    if (!TextUtils.isEmpty(message.subject)) {
+                        Element span = document.createElement("span");
+                        span.text(message.subject);
+                        p.append(span.html() + "<br>");
+                    }
+
+                    p.append("<hr><br>");
+
+                    body.prepend(p.html());
+                }
+
+                return new String[]{message.subject, document.html()};
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, final String[] data) {
+                if (data == null)
+                    return;
+
+                // https://developer.android.com/training/printing/html-docs.html
+                printWebView = new WebView(getContext());
+                WebSettings settings = printWebView.getSettings();
+                settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+                settings.setAllowFileAccess(false);
+
+                printWebView.setWebViewClient(new WebViewClient() {
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                        return false;
+                    }
+
+                    @Override
+                    public void onPageFinished(WebView view, String url) {
+                        try {
+                            ActivityBase activity = (ActivityBase) getActivity();
+                            PrintManager printManager = (PrintManager) activity.getOriginalContext().getSystemService(Context.PRINT_SERVICE);
+                            String jobName = getString(R.string.app_name);
+                            if (!TextUtils.isEmpty(data[0]))
+                                jobName += " - " + data[0];
+                            PrintDocumentAdapter adapter = printWebView.createPrintDocumentAdapter(jobName);
+                            printManager.print(jobName, adapter, new PrintAttributes.Builder().build());
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        } finally {
+                            printWebView = null;
+                        }
+                    }
+                });
+
+                printWebView.loadDataWithBaseURL("about:blank", data[1], "text/html", "UTF-8", null);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(this, args, "message:print");
     }
 
     static void search(

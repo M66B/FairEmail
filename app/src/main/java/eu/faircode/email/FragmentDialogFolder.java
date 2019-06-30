@@ -118,13 +118,11 @@ public class FragmentDialogFolder extends DialogFragment {
     @Override
     public void onStart() {
         super.onStart();
-        Log.i("Folder select resume");
         owner.resume();
     }
 
     @Override
     public void onDestroyView() {
-        Log.i("Folder select destroy");
         owner.destroy();
         super.onDestroyView();
     }
